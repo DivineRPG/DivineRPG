@@ -211,4 +211,8 @@ public class Sounds {
     public static String getSoundName(Sound sound){
     	return sound.getPrefixedName();
     }
+    
+    public static void init(){
+    	SoundGenerator.registerSounds();
+    }
 }

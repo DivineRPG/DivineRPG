@@ -21,15 +21,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
 
-    public static final int HEAD        = 0, BODY = 1, LEGS = 2, BOOTS = 3;
+    public static final int HEAD = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-    protected double        damageReduction;
-    protected boolean       unbreakable;
-    protected String        textureName = Reference.PREFIX + "textures/armor/";
-    protected int           fullReduction;
-    protected EnumArmor     armorMaterial;
-    protected Object[]      armorInfo;
-    protected String        name;
+    protected double damageReduction;
+    protected boolean unbreakable;
+    protected String textureName = Reference.PREFIX + "textures/armor/";
+    protected int fullReduction;
+    protected EnumArmor armorMaterial;
+    protected Object[] armorInfo;
+    protected String name;
     protected StringBuilder infoBuilder;
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type) {
@@ -66,17 +66,17 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         this.fullReduction = dR;
         this.armorInfo = info;
 
-        if (armorType == 0) damageReduction = (((fullReduction) / 24) * 5) / 100;
-        else if (armorType == 1) damageReduction = (((fullReduction) / 24) * 8) / 100;
-        else if (armorType == 2) damageReduction = (((fullReduction) / 24) * 7) / 100;
-        else if (armorType == 3) damageReduction = (((fullReduction) / 24) * 4) / 100;
+        if (armorType == 0) damageReduction = ((((double) fullReduction) / 24) * 5) / 100;
+        else if (armorType == 1) damageReduction = ((((double) fullReduction) / 24) * 8) / 100;
+        else if (armorType == 2) damageReduction = ((((double) fullReduction) / 24) * 7) / 100;
+        else if (armorType == 3) damageReduction = ((((double) fullReduction) / 24) * 4) / 100;
         infoBuilder = new StringBuilder();
         for (int i = 1; i < armorInfo.length; i++) {
             String strInfo = armorInfo[i].toString();
             if (strInfo.contains("#")) {
                 try {
                     int value = Integer.parseInt(armorInfo[i - 1].toString());
-                    strInfo = TokenHelper.replaceToken(strInfo, '#', armorInfo[i - 1].toString());
+                    strInfo = TokenHelper.replaceToken(strInfo, '#', value);
                 } catch (NumberFormatException e) {
                     LogHelper.error("Attempted to replace a token with an integer, but the integer was invalid! "
                             + "Make sure the value in the index before the String containing the token is an integer!!!");
@@ -87,10 +87,10 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
                     e2.printStackTrace();
                 }
             }
+            if(i % 3 == 0) infoBuilder.append('\n');
             if (i == armorInfo.length - 1) infoBuilder.append(strInfo);
-            else if(armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ',');
+            else if (armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ',');
         }
-        
 
         this.unbreakable = armorMaterial.isUndamageable();
         setCreativeTab(DivineRPGTabs.armor);
@@ -117,11 +117,14 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         double roundedDamage = roundPH / 10;
         list.add(damageReduction == 0.0 ? ("No Protection") : "Damage Reduction: " + roundedDamage + "% (" + fullReduction + "% full)");
         list.add(!unbreakable ? (item.getMaxDamage() - item.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
-        String perks = ChatFormats.AQUA + "Fullset Perks: " + ChatFormats.RESET;
+        String perks = "";
         for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++)
             if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) perks += "In " + armorInfo[0].toString() + ": ";
         perks += infoBuilder.toString();
-        if (armorInfo[0] != "null") list.add(perks);
+        if (armorInfo[0] != "null"){
+            list.add(ChatFormats.AQUA + "Fullset Perks: " + ChatFormats.RESET);
+            list.add(perks);
+        }
         list.add(ChatFormats.DIVINERPG);
     }
 
