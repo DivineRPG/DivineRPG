@@ -8,18 +8,10 @@ import net.divinerpg.helper.utils.RegistryFile;
 public class SoundGenerator extends RegistryFile {
 
     private static ArrayList<Sound>   sounds    = new ArrayList<Sound>();
-    private final static String       FILE_NAME = "/sounds.json";
-    private final static String[]     PATHS     = new String[]
-                                                {
-                                                "./DivineRPG/resources/assets/divinerpg",
-                                                "./resources/assets/divinerpg",
-                                                "./main/resources/assets/divinerpg",
-                                                "./src/main/resources/assets/divinerpg"
-                                                };
     private static final RegistryFile instance  = new SoundGenerator();
 
     public SoundGenerator() {
-        super(FILE_NAME, PATHS);
+        super("./src/main/resources/assets/divinerpg/sounds.json");
     }
 
     public static void addSound(Sound sound) {

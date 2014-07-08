@@ -16,20 +16,11 @@ public class LangRegistry extends RegistryFile {
     private static ArrayList<DivineRPGTabs> tabs      = new ArrayList<DivineRPGTabs>();
     private static ArrayList<String>        mobs      = new ArrayList<String>();
 
-    private final static String             FILE_NAME = "/en_US.lang";
-    private final static String[]           PATHS     = new String[]
-                                                      {
-                                                      "./DivineRPG/resources/assets/divinerpg/lang",
-                                                      "./resources/assets/divinerpg/lang",
-                                                      "./main/resources/assets/divinerpg/lang",
-                                                      "./src/main/resources/assets/divinerpg/lang"
-                                                      };
-
     private static final RegistryFile instance = new LangRegistry();
     
     
     public LangRegistry() {
-        super(FILE_NAME, PATHS);
+        super("./src/main/resources/assets/divinerpg/lang/en_US.lang");
     }
 
     public static void registerNames(){

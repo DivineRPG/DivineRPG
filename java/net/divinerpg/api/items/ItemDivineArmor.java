@@ -88,8 +88,9 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
                 }
             }
             if (i == armorInfo.length - 1) infoBuilder.append(strInfo);
-            else infoBuilder.append(strInfo + ',');
+            else if(armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ',');
         }
+        
 
         this.unbreakable = armorMaterial.isUndamageable();
         setCreativeTab(DivineRPGTabs.armor);

@@ -9,29 +9,12 @@ import java.io.IOException;
 
 public abstract class RegistryFile {
 
-    protected String         fileName;
-    protected String[]       paths;
+    protected String         filePath;
     protected BufferedWriter writer;
 
-    public RegistryFile(String fileName, String... paths) {
-        this.fileName = fileName;
-        this.paths = paths;
-        File file = null;
-        boolean exists = false;
-        for (int i = 0; i < paths.length; i++) {
-            file = new File(paths[i]);
-            exists = file.exists();
-            if (exists) {
-                LogHelper.debug("Registry directory found at index " + i + ": " + paths[i]);
-                file = new File(paths[i] + fileName);
-                break;
-            }
-            LogHelper.debug("Registry directory expected but not found at index " + i + ": " + paths[i] + " ...Moving on to next potential directory");
-        }
-        if (!exists) {
-            LogHelper.debug("No provided registry directory in the array was found, creating default file at base project directory");
-            file = new File("." + fileName);
-        }
+    public RegistryFile(String filePath) {
+        this.filePath = filePath;
+        File file = new File(filePath);
 
         try {
             if (file.exists()) {
@@ -114,10 +97,10 @@ public abstract class RegistryFile {
     public void closeFile() {
         try {
             writer.close();
-            LogHelper.debug("Registry file: " + fileName + " closed");
+            LogHelper.debug("Registry file: " + filePath + " closed");
         } catch (IOException e) {
             e.printStackTrace();
-            LogHelper.debug("Unable to close registry file: " + fileName);
+            LogHelper.debug("Unable to close registry file: " + filePath);
         }
     }
 }
