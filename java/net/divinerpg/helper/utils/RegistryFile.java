@@ -22,6 +22,7 @@ public abstract class RegistryFile {
                 file.delete();
             }
             file.createNewFile();
+            LogHelper.dev("Creating new registry file: " + file.getAbsoluteFile());
             writer = new BufferedWriter(new FileWriter(file));
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,7 +34,7 @@ public abstract class RegistryFile {
     public void localizeName(String prefixOfLine, String unlocalizedName) {
         String name = unlocalizedName.substring(5);
         char firstLetter = name.charAt(0);
-        int numChars = 0;
+//        int numChars = 0;
         if (Character.isLowerCase(firstLetter))
             firstLetter = Character.toUpperCase(firstLetter);
 

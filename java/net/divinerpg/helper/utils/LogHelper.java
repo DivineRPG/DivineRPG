@@ -30,6 +30,7 @@ public class LogHelper {
         FMLLog.log(Reference.MOD_NAME, level, msg.toString());
         System.err.println(msg);
         writeFile(msg);
+        flush();
     }
 
     public static void debug(Object msg) {
@@ -55,6 +56,14 @@ public class LogHelper {
     public static void writeFile(Object msg){
         try {
             writer.write(msg + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void flush(){
+        try {
+            writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
