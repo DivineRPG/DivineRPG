@@ -8,29 +8,31 @@ This mod is owned by XolovA, but he is no longer part of the team
 ***
 #####Main Team
 1. BossLetsPlays - Lead Developer (code, etc)
-2. RadioactiveStud (aka SoccerStud) - Development Leader (content director, etc)
+2. RadioactiveStud (aka SoccerStud) - Development Leader (content director, etc) / Wiki admin
 
 #####Special Thanks to
 1. THEVOLCO - German Translations
 2. Sheenrox82 - Our Personal Jester / Former Developer
 3. BlueEyes9 - Models/Textures
 4. Declan (UKDeccy) - Models/Textures
+5. Insanity414all - Wiki admin
 
 #####Other Credits
 1. The_SlayerMC - Former Developer
 2. Mazetar - Former Developer
 3. TLHPoE - Former Developer
 4. Danny - Former Developer
-5. Aginsun - Ex Developer 
-6. Hologuardian - Ex Developer
-7. Vazkii - Ex Developer
-8. Majorsir - for the name of the mod. 
-9. Terraria - for some resources.
-10. Vattic - for some block textures, featured in a version of the faithful32 pack
-11. Vanilla MC - for some textures.
-12. Reika - for ore textures.
-13. XL biomes - for tree style.
-14. Blued00r - Ex Developer
+5. Sactage - Server Owner and maintainer
+6. Aginsun - Ex Developer 
+7. Hologuardian - Ex Developer
+8. Vazkii - Ex Developer
+9. Majorsir - for the name of the mod. 
+10. Terraria - for some resources.
+11. Vattic - for some block textures, featured in a version of the faithful32 pack
+12. Vanilla MC - for some textures.
+13. Reika - for ore textures.
+14. XL biomes - for tree style.
+15. Blued00r - Ex Developer
 
 ***
 ###Contributing
