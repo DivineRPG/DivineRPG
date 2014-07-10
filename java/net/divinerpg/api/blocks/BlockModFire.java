@@ -1,17 +1,19 @@
 package net.divinerpg.api.blocks;
 
+import static net.minecraftforge.common.util.ForgeDirection.*;
+
 import java.util.ArrayList;
 
 import net.divinerpg.Reference;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.helper.tabs.DivineRPGTabs;
 import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.helper.utils.LogHelper;
 import net.minecraft.block.BlockFire;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import static net.minecraftforge.common.util.ForgeDirection.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,8 +21,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockModFire extends BlockFire {
 
     protected ArrayList<BlockModPortal> portals = new ArrayList<BlockModPortal>();
-    protected String                    name;
-    protected IIcon[]                   icons;
+    protected String name;
+    protected IIcon[] icons;
 
     public BlockModFire(String name) { //TODO
         super();
@@ -37,15 +39,13 @@ public class BlockModFire extends BlockFire {
         portals.add(portal);
     }
 
+    protected void lightPortal(World world, int x, int y, int z){
+        
+    }
+
     @Override
     public void onBlockAdded(World world, int x, int y, int z) {
-        for (int i = 0; i < portals.size(); i++) {
-            BlockModPortal portal = portals.get(i);
-            if (world.provider.dimensionId > 0 || !portal.isPortalCorrectSize(world, x, y, z)) {
-                if (!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !this.canNeighborBurn(world, x, y, z)) world.setBlockToAir(x, y, z);
-                else world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + world.rand.nextInt(10));
-            }
-        }
+        lightPortal(world, x, y, z);
     }
 
     protected boolean canNeighborBurn(World world, int x, int y, int z) {

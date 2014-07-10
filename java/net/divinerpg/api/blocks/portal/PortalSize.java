@@ -1,34 +1,34 @@
 package net.divinerpg.api.blocks.portal;
 
+import net.divinerpg.helper.utils.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 
-
 public class PortalSize {
 
-    public final World         world;
-    public final int           side1;
-    public final int           side1_1;
-    public final int           side1_0;
-    public int                 value = 0;
-    public ChunkCoordinates    chunkCoords;
-    public int                 directionOrSideMaybe;
-    public int                 rotationOrMaybeNumSides;
-    protected Block portal1;
-    protected Block fire;
-    protected Block blockField;
+    public final World world;
+    public final int side1;
+    public final int side1_1;
+    public final int side1_0;
+    public int value = 0;
+    public ChunkCoordinates chunkCoords;
+    public int directionOrSideMaybe;
+    public int rotationOrMaybeNumSides;
+    protected Block portalBlock;
+    protected Block fireBlock;
+    protected Block blockFrame;
 
-    public PortalSize(World world, int x, int y, int z, int side1, Block portal1, Block fire, Block block1) {
+    public PortalSize(World world, int x, int y, int z, int side1, Block portalBlock, Block fireBlock, Block blockFrame) {
         this.world = world;
         this.side1 = side1;
         this.side1_0 = BlockModPortal.sides[side1][0];
         this.side1_1 = BlockModPortal.sides[side1][1];
-        this.portal1 = portal1;
-        this.fire = fire;
-        this.blockField = block1;
+        this.portalBlock = portalBlock;
+        this.fireBlock = fireBlock;
+        this.blockFrame = blockFrame;
 
         int tempY = y;
         while (y > tempY - 21 && y > 0 && isOnBlock(world.getBlock(x, y, z)))
@@ -41,6 +41,7 @@ public class PortalSize {
             this.rotationOrMaybeNumSides = this.getValueBasedOnBlock(this.chunkCoords.posX, this.chunkCoords.posY, this.chunkCoords.posZ, this.side1_1);
 
             if (this.rotationOrMaybeNumSides < 2 || this.rotationOrMaybeNumSides > 21) {
+                LogHelper.debug("chunkcoords setting to NULL");
                 this.chunkCoords = null;
                 this.rotationOrMaybeNumSides = 0;
             }
@@ -63,7 +64,7 @@ public class PortalSize {
                 break;
             }
             Block block1 = this.world.getBlock(x + xx * yy, y - 1, z + zz * yy);
-            if (block1 != blockField) {
+            if (block1 != blockFrame) {
                 yy++;
                 break;
             }
@@ -71,7 +72,7 @@ public class PortalSize {
         }
 
         block = this.world.getBlock(x + xx * yy, y, z + zz * yy);
-        return block == blockField ? yy : 0;
+        return block == blockFrame ? yy : 0;
     }
 
     //direction?
@@ -93,20 +94,20 @@ public class PortalSize {
                 if (!this.isOnBlock(block))
                     break yUseLabelYo;
 
-                if (block == portal1)
+                if (block == portalBlock)
                     this.value++;
 
                 if (coord2 == 0) {
                     block = this.world.getBlock(coord3 + Direction.offsetX[BlockModPortal.sides[this.side1][0]], coord1, coord4
                             + Direction.offsetZ[BlockModPortal.sides[this.side1][0]]);
 
-                    if (block != blockField)
+                    if (block != blockFrame)
                         break yUseLabelYo;
                 } else if (coord2 == this.rotationOrMaybeNumSides - 1) {
                     block = this.world.getBlock(coord3 + Direction.offsetX[BlockModPortal.sides[this.side1][1]], coord1, coord4
                             + Direction.offsetZ[BlockModPortal.sides[this.side1][1]]);
 
-                    if (block != blockField)
+                    if (block != blockFrame)
                         break yUseLabelYo;
                 }
             }
@@ -117,7 +118,7 @@ public class PortalSize {
             coord3 = this.chunkCoords.posY + this.directionOrSideMaybe;
             coord4 = this.chunkCoords.posZ + coord1 * Direction.offsetZ[BlockModPortal.sides[this.side1][1]];
 
-            if (this.world.getBlock(coord2, coord3, coord4) != blockField) {
+            if (this.world.getBlock(coord2, coord3, coord4) != blockFrame) {
                 this.directionOrSideMaybe = 0;
                 break;
             }
@@ -132,7 +133,7 @@ public class PortalSize {
     }
 
     protected boolean isOnBlock(Block block) {
-        return block.getMaterial() == Material.air || block == fire || block == portal1;
+        return block.getMaterial() == Material.air || block == fireBlock || block == portalBlock;
     }
 
     public boolean isInChunk() {
@@ -146,7 +147,7 @@ public class PortalSize {
 
             for (int w = 0; w < this.directionOrSideMaybe; ++w) {
                 int yy = this.chunkCoords.posY + w;
-                this.world.setBlock(xx, yy, zz, portal1, this.side1, 2);
+                this.world.setBlock(xx, yy, zz, portalBlock, this.side1, 2);
             }
         }
     }
