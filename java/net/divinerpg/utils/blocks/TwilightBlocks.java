@@ -32,7 +32,7 @@ public class TwilightBlocks {
     public static final Block mortumOre         = new BlockMod("mortumOre", 9).setTwilightOre(true);
 
     public static final Block edenBlock         = new BlockMod("edenBlock", 9);
-    public static final Block wildWoodBlock     = new BlockMod("wildWoodBlock", 9);
+    public static final Block wildwoodBlock     = new BlockMod("wildwoodBlock", 9);
     public static final Block apalachiaBlock    = new BlockMod("apalachiaBlock", 9);
     public static final Block skythernBlock     = new BlockMod("skythernBlock", 9);
     public static final Block mortumBlock       = new BlockMod("mortumBlock", 9);
@@ -52,11 +52,11 @@ public class TwilightBlocks {
     public static final Block twilightStone     = new BlockMod("twilightStone", 6.0F);
     public static final Block wildWoodsVine     = new BlockModVine("wildWoodsVine");
     public static final Block blueFire          = new BlockBlueFire("blueFire");
-    public static final Block edenPortal        = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, edenBlock);
-    public static final Block wildWoodPortal    = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, wildWoodBlock);
-    public static final Block apalachiaPortal   = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, apalachiaBlock);
-    public static final Block skythernPortal    = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, skythernBlock);
-    public static final Block mortumPortal      = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, mortumBlock);
+    public static final Block edenPortal        = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, VanillaBlocks.divineRock);
+    public static final Block wildwoodPortal    = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, edenBlock);
+    public static final Block apalachiaPortal   = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, wildwoodBlock);
+    public static final Block skythernPortal    = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, apalachiaBlock);
+    public static final Block mortumPortal      = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, skythernBlock);
     public static final Block twilightFurnace   = new BlockTwilightFurnace("twilightFurnace", false);
     public static final Block twilightFurnaceOn = new BlockTwilightFurnace("twilightFurnaceOn", true);
 

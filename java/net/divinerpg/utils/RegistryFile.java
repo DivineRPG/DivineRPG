@@ -77,30 +77,30 @@ public abstract class RegistryFile {
     }
 
     public void addToFile(String inGame, String oldName) {
-        try {
+        /*try {
             String temp = inGame;
             LogHelper.dev("Registered new name, " + oldName + " became: " + temp.substring(temp.indexOf('=') + 1));
             writer.write(inGame + "\n");
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
     
     public void addToFile(String text){
-        try {
+        /*try {
             writer.write(text + "\n");
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void closeFile() {
-        try {
+        /*try {
             writer.close();
             LogHelper.debug("Registry file: " + filePath + " closed");
         } catch (IOException e) {
             e.printStackTrace();
             LogHelper.debug("Unable to close registry file: " + filePath);
-        }
+        }*/
     }
 }

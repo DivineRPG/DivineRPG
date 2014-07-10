@@ -26,7 +26,7 @@ public class ItemTwilightClock extends ItemMod {
 		else if (var2.canPlayerEdit(var4, var5, var6, var7, var1) && var2.canPlayerEdit(var4, var5 + 1, var6, var7, var1)) {
 			Block var11 = var3.getBlock(var4, var5, var6);
 
-			if(var11 == VanillaBlocks.divineRock || var11 == TwilightBlocks.edenBlock || var11 == TwilightBlocks.wildWoodBlock || var11 == TwilightBlocks.apalachiaBlock || var11 == TwilightBlocks.skythernBlock || var11 == TwilightBlocks.mortumBlock && var3.isAirBlock(var4, var5 + 1, var6)) {
+			if(var11 == VanillaBlocks.divineRock || var11 == TwilightBlocks.edenBlock || var11 == TwilightBlocks.wildwoodBlock || var11 == TwilightBlocks.apalachiaBlock || var11 == TwilightBlocks.skythernBlock || var11 == TwilightBlocks.mortumBlock && var3.isAirBlock(var4, var5 + 1, var6)) {
 				var3.setBlock(var4, var5 + 1, var6, TwilightBlocks.blueFire);
 				return true;
 			} else {

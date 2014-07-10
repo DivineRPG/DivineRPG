@@ -31,7 +31,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.friendOrFoe.desc=Kill a bunny");
         instance.addToFile("achievement.darkAnotherDay.desc=Enter the Mortum Dimension");
         instance.addToFile("achievement.whenPigsFly.desc=Wear a full Angelic armor set");
-        instance.addToFile("achievement.offKey.desc=Shoot a Sound Of Music");
+        instance.addToFile("achievement.offKey.desc=Shoot a Sound of Music");
         instance.addToFile("achievement.enrichment.desc=");
         instance.addToFile("achievement.littleCreature.desc=Spawn a Golem Of Rejuv'");
         instance.addToFile("achievement.halloweenSpirit.desc=Trade with a Jack-O-Man");
@@ -50,7 +50,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.tripleDanger.desc=Kill an Ender Triplet");
         instance.addToFile("achievement.hotterThanHell.desc=Step on a hot block in Arcana");
         instance.addToFile("achievement.mealToRemember.desc=Eat a chicken dinner");
-        instance.addToFile("achievement.yuk.desc=Use an arcana potion");
+        instance.addToFile("achievement.yuk.desc=Use an Arcana potion");
         instance.addToFile("achievement.spawnDAR.desc=Spawn Densos and Reyvor");
         instance.addToFile("achievement.dramcryxDeath.desc=Kill a Jungle Dramcryx");
 
@@ -81,7 +81,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.tripleDanger=Triplet danger");
         instance.addToFile("achievement.lilGift=Lil' Gift");
         instance.addToFile("achievement.spawnDAR=Ten heads are better than one!");
-        instance.addToFile("achievement.dramcryxDeath=Death to all Jungle Stegosaurous's!");
+        instance.addToFile("achievement.dramcryxDeath=Death to all Jungle Stegosaurous!");
 
     }
 

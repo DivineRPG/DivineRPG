@@ -71,7 +71,7 @@ public class DivineRPGCommands extends CommandBase {
 				if (playerMP.dimension != ConfigurationHelper.wildwood) {
 					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, ConfigurationHelper.wildwood,
 							new DivineTeleporter(playerMP.mcServer.worldServerForDimension(ConfigurationHelper.wildwood), ConfigurationHelper.wildwood,
-									TwilightBlocks.wildWoodPortal, TwilightBlocks.edenBlock));
+									TwilightBlocks.wildwoodPortal, TwilightBlocks.edenBlock));
 				}
 			}
 			
@@ -79,7 +79,7 @@ public class DivineRPGCommands extends CommandBase {
 				if (playerMP.dimension != ConfigurationHelper.apalachia) {
 					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, ConfigurationHelper.apalachia,
 							new DivineTeleporter(playerMP.mcServer.worldServerForDimension(ConfigurationHelper.apalachia), ConfigurationHelper.apalachia,
-									TwilightBlocks.apalachiaPortal, TwilightBlocks.wildWoodBlock));
+									TwilightBlocks.apalachiaPortal, TwilightBlocks.wildwoodBlock));
 				}
 			}
 			
