@@ -3,12 +3,12 @@ package net.divinerpg.blocks.vanilla;
 import java.util.Random;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.DivineRPGAchievements;
-import net.divinerpg.Reference;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.client.GuiHandler;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -3,13 +3,13 @@ package net.divinerpg.api.blocks;
 import java.util.Random;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.Reference;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.client.GuiHandler;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.blocks.IceikaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -24,6 +24,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

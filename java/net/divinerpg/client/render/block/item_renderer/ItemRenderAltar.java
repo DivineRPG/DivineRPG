@@ -1,10 +1,10 @@
 package net.divinerpg.client.render.block.item_renderer;
 
-import net.divinerpg.Reference;
 import net.divinerpg.client.render.block.model.ModelDramixAltar;
 import net.divinerpg.client.render.block.model.ModelExtractor;
 import net.divinerpg.client.render.block.model.ModelParasectaAltar;
-import net.divinerpg.helper.blocks.ArcanaBlocks;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.item.Item;

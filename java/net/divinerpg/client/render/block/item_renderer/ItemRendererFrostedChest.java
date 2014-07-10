@@ -2,7 +2,7 @@ package net.divinerpg.client.render.block.item_renderer;
 
 import org.lwjgl.opengl.GL11;
 
-import net.divinerpg.Reference;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.item.ItemStack;

@@ -2,15 +2,15 @@ package net.divinerpg.api.blocks.portal;
 
 import java.util.Random;
 
-import net.divinerpg.DivineRPGAchievements;
-import net.divinerpg.Reference;
 import net.divinerpg.api.blocks.BlockModFire;
 import net.divinerpg.api.worldgen.DivineTeleporter;
-import net.divinerpg.entity.twilight.effects.EntityGreenPortalFX;
-import net.divinerpg.helper.config.ConfigurationHelper;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
-import net.divinerpg.helper.utils.LogHelper;
+import net.divinerpg.entities.twilight.effects.EntityGreenPortalFX;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;

@@ -1,8 +1,8 @@
 package net.divinerpg.items.arcana;
 
-import net.divinerpg.DivineRPGAchievements;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.client.ArcanaHelper;
+import net.divinerpg.libs.DivineRPGAchievements;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

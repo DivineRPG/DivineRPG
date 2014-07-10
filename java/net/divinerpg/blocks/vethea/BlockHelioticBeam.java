@@ -3,7 +3,7 @@ package net.divinerpg.blocks.vethea;
 import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;

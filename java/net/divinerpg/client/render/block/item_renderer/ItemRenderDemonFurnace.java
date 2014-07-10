@@ -1,7 +1,7 @@
 package net.divinerpg.client.render.block.item_renderer;
 
-import net.divinerpg.Reference;
 import net.divinerpg.client.render.block.model.ModelDemonFurnace;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

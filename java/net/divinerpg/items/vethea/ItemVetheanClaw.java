@@ -1,6 +1,6 @@
 package net.divinerpg.items.vethea;
 
-import net.divinerpg.helper.Util;
+import net.divinerpg.utils.Util;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;

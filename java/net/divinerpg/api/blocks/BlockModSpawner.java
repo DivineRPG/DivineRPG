@@ -2,9 +2,9 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
-import net.divinerpg.Reference;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;

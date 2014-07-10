@@ -2,16 +2,16 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.DivineRPGAchievements;
-import net.divinerpg.Reference;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.arcana.EntityFyracryx;
-import net.divinerpg.entity.arcana.EntityGolemOfRejuv;
-import net.divinerpg.entity.arcana.EntityParatiku;
-import net.divinerpg.entity.arcana.EntitySeimer;
-import net.divinerpg.helper.items.ArcanaItems;
-import net.divinerpg.helper.libs.ChatFormats;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.arcana.EntityFyracryx;
+import net.divinerpg.entities.arcana.EntityGolemOfRejuv;
+import net.divinerpg.entities.arcana.EntityParatiku;
+import net.divinerpg.entities.arcana.EntitySeimer;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.items.ArcanaItems;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

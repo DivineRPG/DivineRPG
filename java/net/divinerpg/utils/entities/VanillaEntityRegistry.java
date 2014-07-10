@@ -1,0 +1,101 @@
+package net.divinerpg.utils.entities;
+
+import net.divinerpg.entities.vanilla.EntityAncientEntity;
+import net.divinerpg.entities.vanilla.EntityAridWarrior;
+import net.divinerpg.entities.vanilla.EntityAyeracoBlue;
+import net.divinerpg.entities.vanilla.EntityAyeracoGreen;
+import net.divinerpg.entities.vanilla.EntityAyeracoPurple;
+import net.divinerpg.entities.vanilla.EntityAyeracoRed;
+import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
+import net.divinerpg.entities.vanilla.EntityBabyCrab;
+import net.divinerpg.entities.vanilla.EntityCaveCrawler;
+import net.divinerpg.entities.vanilla.EntityCaveclops;
+import net.divinerpg.entities.vanilla.EntityCorruptedDramcryx;
+import net.divinerpg.entities.vanilla.EntityCrab;
+import net.divinerpg.entities.vanilla.EntityCyclops;
+import net.divinerpg.entities.vanilla.EntityDesertCrawler;
+import net.divinerpg.entities.vanilla.EntityEnderSpider;
+import net.divinerpg.entities.vanilla.EntityEnderTriplets;
+import net.divinerpg.entities.vanilla.EntityEnderWatcher;
+import net.divinerpg.entities.vanilla.EntityFrost;
+import net.divinerpg.entities.vanilla.EntityGlacon;
+import net.divinerpg.entities.vanilla.EntityHellPig;
+import net.divinerpg.entities.vanilla.EntityHellSpider;
+import net.divinerpg.entities.vanilla.EntityIceMan;
+import net.divinerpg.entities.vanilla.EntityJackOMan;
+import net.divinerpg.entities.vanilla.EntityJungleBat;
+import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
+import net.divinerpg.entities.vanilla.EntityKingCrab;
+import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
+import net.divinerpg.entities.vanilla.EntityMiner;
+import net.divinerpg.entities.vanilla.EntityNetherWatcher;
+import net.divinerpg.entities.vanilla.EntityRainbour;
+import net.divinerpg.entities.vanilla.EntityRotatick;
+import net.divinerpg.entities.vanilla.EntityScorcher;
+import net.divinerpg.entities.vanilla.EntityShark;
+import net.divinerpg.entities.vanilla.EntityTheEye;
+import net.divinerpg.entities.vanilla.EntityWhale;
+import net.divinerpg.entities.vanilla.EntityWildFire;
+import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
+import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
+import net.divinerpg.entities.vanilla.projectile.EntityDeath;
+import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
+import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
+import net.divinerpg.entities.vanilla.projectile.EntityScythe;
+import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
+import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
+import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
+import net.divinerpg.utils.Util;
+
+public class VanillaEntityRegistry {
+
+	public static void init(){
+		Util.registerProjectile(EntityScythe.class, "Scythe");
+		Util.registerProjectile(EntityShuriken.class, "Shuriken");
+		Util.registerProjectile(EntityVileStorm.class, "Vile Storm");
+		Util.registerProjectile(EntityModSnowball.class, "Snowball");
+		Util.registerProjectile(EntityDeath.class, "Death");
+		Util.registerProjectile(EntityCyclopsianStaff.class, "Cyclopsian Staff");
+		Util.registerProjectile(EntityKingOfScorchersShot.class, "KOS Shot");
+		Util.registerProjectile(EntityCaveRock.class, "Cave Rock");
+		Util.registerProjectile(EntityWatcherShot.class, "Watcher Shot");
+
+		Util.registerDivineRPGMob(EntityEnderWatcher.class, "Ender Watcher", Util.mobID++);		
+		Util.registerDivineRPGMob(EntityCrab.class, "Crab", Util.mobID++);
+		Util.registerDivineRPGMob(EntityBabyCrab.class, "Baby Crab", Util.mobID++);
+		Util.registerDivineRPGMob(EntityMiner.class, "Un Dead Miner", Util.mobID++);
+		Util.registerDivineRPGMob(EntityKingCrab.class, "King Crab", Util.mobID++);
+		Util.registerDivineRPGMob(EntityDesertCrawler.class, "Desert Crawler", Util.mobID++);
+		Util.registerDivineRPGMob(EntityCaveCrawler.class, "Cave Crawler", Util.mobID++);
+		Util.registerDivineRPGMob(EntityJungleDramcryx.class, "Jungle Dramcryx", Util.mobID++);
+		Util.registerDivineRPGMob(EntityCyclops.class, "Cyclops", Util.mobID++);
+		Util.registerDivineRPGMob(EntityCaveclops.class, "Caveclops", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAncientEntity.class, "Ancient Entity", Util.mobID++);
+		Util.registerDivineRPGMob(EntityWhale.class, "Whale", Util.mobID++);
+		Util.registerDivineRPGMob(EntityHellSpider.class, "Hell Spider", Util.mobID++);
+		Util.registerDivineRPGMob(EntityScorcher.class, "Scorhcer", Util.mobID++);
+		Util.registerDivineRPGMob(EntityEnderSpider.class, "Ender Spider", Util.mobID++);
+		Util.registerDivineRPGMob(EntityEnderTriplets.class, "Ender Triplets", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAridWarrior.class, "Arid Warrior", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAyeracoBlue.class, "Ayeraco Blue", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAyeracoGreen.class, "Ayeraco Green", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAyeracoPurple.class, "Ayeraco Purple", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAyeracoRed.class, "Ayeraco Red", Util.mobID++);
+		Util.registerDivineRPGMob(EntityAyeracoYellow.class, "Ayeraco Yellow", Util.mobID++);
+		Util.registerDivineRPGMob(EntityCorruptedDramcryx.class, "Corrupted Dramcryx", Util.mobID++);
+		Util.registerDivineRPGMob(EntityTheEye.class, "The Eye", Util.mobID++);
+		Util.registerDivineRPGMob(EntityFrost.class, "Frost", Util.mobID++);
+		Util.registerDivineRPGMob(EntityIceMan.class, "Ice Man", Util.mobID++);
+		Util.registerDivineRPGMob(EntityKingOfScorchers.class, "King Of Scorchers", Util.mobID++);
+		Util.registerDivineRPGMob(EntityRainbour.class, "Rainbour", Util.mobID++);
+		Util.registerDivineRPGMob(EntityRotatick.class, "Rotatick", Util.mobID++);
+		Util.registerDivineRPGMob(EntityShark.class, "Shark", Util.mobID++);
+		Util.registerDivineRPGMob(EntityNetherWatcher.class, "The Watcher", Util.mobID++);
+		Util.registerDivineRPGMob(EntityWildFire.class, "Wild Fire", Util.mobID++);
+		Util.registerDivineRPGMob(EntityGlacon.class, "Glacon", Util.mobID++);
+		Util.registerDivineRPGMob(EntityJackOMan.class, "Jack 'O' Man", Util.mobID++);
+		Util.registerDivineRPGMob(EntityJungleBat.class, "Jungle Bat", Util.mobID++);
+		Util.registerDivineRPGMob(EntityHellPig.class, "Hell Pig", Util.mobID++);
+
+	}
+}

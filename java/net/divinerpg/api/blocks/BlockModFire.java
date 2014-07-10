@@ -4,11 +4,11 @@ import static net.minecraftforge.common.util.ForgeDirection.*;
 
 import java.util.ArrayList;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
-import net.divinerpg.helper.utils.LogHelper;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockFire;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;

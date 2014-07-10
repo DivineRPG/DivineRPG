@@ -1,7 +1,7 @@
 package net.divinerpg.api.entity;
 
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.config.ConfigurationHelper;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIFollowOwner;

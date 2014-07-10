@@ -1,11 +1,12 @@
 package net.divinerpg.client.render.entity.vanilla;
 
 import net.divinerpg.client.render.EntityResourceLocation;
-import net.divinerpg.entity.vanilla.EntityHellPig;
+import net.divinerpg.entities.vanilla.EntityHellPig;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

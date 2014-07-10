@@ -2,7 +2,7 @@ package net.divinerpg.items.vethea;
 
 import java.util.List;
 
-import net.divinerpg.helper.Util;
+import net.divinerpg.utils.Util;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

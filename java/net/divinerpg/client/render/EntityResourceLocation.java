@@ -1,6 +1,6 @@
 package net.divinerpg.client.render;
 
-import net.divinerpg.Reference;
+import net.divinerpg.libs.Reference;
 import net.minecraft.util.ResourceLocation;
 
 

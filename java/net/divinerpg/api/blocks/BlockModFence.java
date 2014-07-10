@@ -1,7 +1,7 @@
 package net.divinerpg.api.blocks;
 
-import net.divinerpg.Reference;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;

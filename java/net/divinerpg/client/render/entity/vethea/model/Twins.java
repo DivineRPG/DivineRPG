@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.entity.vethea.model;
 
-import net.divinerpg.entity.vethea.EntityTwins;
+import net.divinerpg.entities.vethea.EntityTwins;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

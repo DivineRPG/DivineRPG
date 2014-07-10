@@ -2,8 +2,8 @@ package net.divinerpg.api.worldgen;
 
 import java.util.Random;
 
-import net.divinerpg.helper.blocks.IceikaBlocks;
-import net.divinerpg.helper.items.IceikaItems;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

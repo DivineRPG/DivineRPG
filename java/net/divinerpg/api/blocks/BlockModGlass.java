@@ -1,6 +1,6 @@
 package net.divinerpg.api.blocks;
 
-import net.divinerpg.helper.material.EnumBlockType;
+import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.world.IBlockAccess;
 

@@ -2,8 +2,8 @@ package net.divinerpg.client.render.block;
 
 import org.lwjgl.opengl.GL11;
 
-import net.divinerpg.Reference;
 import net.divinerpg.client.render.block.model.ModelExtractor;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

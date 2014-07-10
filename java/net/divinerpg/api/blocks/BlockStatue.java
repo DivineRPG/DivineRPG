@@ -1,9 +1,9 @@
 package net.divinerpg.api.blocks;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.model.DivineModel;
 import net.divinerpg.client.render.block.TileEntityStatue;
-import net.divinerpg.helper.material.EnumBlockType;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;

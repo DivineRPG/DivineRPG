@@ -1,13 +1,13 @@
 package net.divinerpg.items.vanilla;
 
-import net.divinerpg.DivineRPGAchievements;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.vanilla.EntityKingOfScorchers;
-import net.divinerpg.entity.vanilla.EntityNetherWatcher;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.items.VanillaItemsOther;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
+import net.divinerpg.entities.vanilla.EntityNetherWatcher;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.items.VanillaItemsOther;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

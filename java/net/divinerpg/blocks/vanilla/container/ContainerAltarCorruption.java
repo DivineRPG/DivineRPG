@@ -3,7 +3,7 @@ package net.divinerpg.blocks.vanilla.container;
 import java.util.List;
 import java.util.Random;
 
-import net.divinerpg.helper.blocks.VanillaBlocks;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +17,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

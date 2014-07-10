@@ -1,9 +1,9 @@
 package net.divinerpg.client.render.entity.twilight;
 
-import net.divinerpg.Reference;
 import net.divinerpg.client.render.EntityResourceLocation;
-import net.divinerpg.entity.twilight.EntityAngryBunny;
-import net.divinerpg.entity.twilight.EntityBunny;
+import net.divinerpg.entities.twilight.EntityAngryBunny;
+import net.divinerpg.entities.twilight.EntityBunny;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;

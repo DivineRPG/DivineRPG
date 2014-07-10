@@ -4,12 +4,12 @@ import java.util.Iterator;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.client.GuiHandler;
-import net.divinerpg.entity.vethea.EntityTwins;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.config.ConfigurationHelper;
-import net.divinerpg.helper.items.IceikaItems;
-import net.divinerpg.helper.items.VanillaItemsWeapons;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.entities.vethea.EntityTwins;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.items.IceikaItems;
+import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;

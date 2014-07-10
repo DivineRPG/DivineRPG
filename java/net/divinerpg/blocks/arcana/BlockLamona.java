@@ -1,7 +1,7 @@
 package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.api.blocks.BlockModCrop;
-import net.divinerpg.helper.items.ArcanaItems;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.item.Item;
 
 public class BlockLamona extends BlockModCrop{

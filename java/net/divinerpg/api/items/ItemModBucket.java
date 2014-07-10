@@ -2,14 +2,14 @@ package net.divinerpg.api.items;
 
 import java.util.Random;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.worldgen.WorldGenAPI;
-import net.divinerpg.dimension.gen.iceika.village.WorldGenHouse1;
-import net.divinerpg.entity.iceika.EntityWorkshopMerchant;
-import net.divinerpg.entity.iceika.EntityWorkshopTinkerer;
-import net.divinerpg.helper.blocks.IceikaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.dimensions.iceika.village.WorldGenHouse1;
+import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
+import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -17,6 +17,7 @@ import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemModBucket extends ItemBucket {

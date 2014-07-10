@@ -2,11 +2,11 @@ package net.divinerpg.blocks.vanilla;
 
 import java.util.Random;
 
-import net.divinerpg.Reference;
-import net.divinerpg.Sounds;
-import net.divinerpg.helper.blocks.VanillaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;

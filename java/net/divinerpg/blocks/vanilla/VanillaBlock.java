@@ -3,10 +3,10 @@ package net.divinerpg.blocks.vanilla;
 import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.helper.blocks.VanillaBlocks;
-import net.divinerpg.helper.items.VanillaItemsOther;
-import net.divinerpg.helper.material.EnumBlockType;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.items.VanillaItemsOther;
+import net.divinerpg.utils.material.EnumBlockType;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;

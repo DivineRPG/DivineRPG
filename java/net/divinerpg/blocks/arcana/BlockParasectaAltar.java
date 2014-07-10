@@ -1,10 +1,11 @@
 package net.divinerpg.blocks.arcana;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityParasectaAltar;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;

@@ -2,16 +2,17 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.Sounds;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.client.ArcanaHelper;
-import net.divinerpg.helper.libs.ChatFormats;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.Sounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

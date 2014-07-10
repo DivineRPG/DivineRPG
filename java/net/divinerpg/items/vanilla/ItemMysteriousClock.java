@@ -1,14 +1,15 @@
 package net.divinerpg.items.vanilla;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.vanilla.EntityAncientEntity;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.entities.vanilla.EntityAncientEntity;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

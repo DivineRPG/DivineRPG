@@ -5,7 +5,8 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.divinerpg.helper.material.EnumBlockType;
+
+import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;

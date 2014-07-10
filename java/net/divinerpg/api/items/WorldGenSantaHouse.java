@@ -3,9 +3,9 @@ package net.divinerpg.api.items;
 import java.util.Random;
 
 import net.divinerpg.api.worldgen.WorldGenAPI;
-import net.divinerpg.entity.iceika.EntityWorkshopMerchant;
-import net.divinerpg.entity.iceika.EntityWorkshopTinkerer;
-import net.divinerpg.helper.blocks.IceikaBlocks;
+import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
+import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
+import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.world.World;

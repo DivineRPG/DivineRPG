@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.entity.arcana.model;
 
-import net.divinerpg.entity.arcana.EntityParatiku;
+import net.divinerpg.entities.arcana.EntityParatiku;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

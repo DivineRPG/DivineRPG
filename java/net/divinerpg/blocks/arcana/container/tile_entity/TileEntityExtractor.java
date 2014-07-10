@@ -1,8 +1,9 @@
 package net.divinerpg.blocks.arcana.container.tile_entity;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
-import net.divinerpg.helper.recipes.ExtractorRecipes;
+import net.divinerpg.utils.recipes.ExtractorRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;

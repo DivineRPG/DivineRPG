@@ -1,13 +1,13 @@
 package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.DivineRPGAchievements;
 import net.divinerpg.api.blocks.BlockModFurnace;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityMoltenFurnace;
 import net.divinerpg.client.GuiHandler;
-import net.divinerpg.helper.blocks.ArcanaBlocks;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +16,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

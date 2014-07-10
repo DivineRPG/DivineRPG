@@ -1,8 +1,8 @@
 package net.divinerpg.api.blocks;
 
-import net.divinerpg.Reference;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockLadder;
 
 import cpw.mods.fml.common.registry.GameRegistry;

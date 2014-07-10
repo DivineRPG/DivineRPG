@@ -1,8 +1,8 @@
 package net.divinerpg.client.render;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.entity.DivineBossStatus;
 import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;

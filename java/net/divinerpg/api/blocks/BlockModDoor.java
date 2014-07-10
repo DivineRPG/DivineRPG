@@ -2,7 +2,7 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
-import net.divinerpg.helper.material.EnumBlockType;
+import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.IconFlipped;
 import net.minecraft.client.renderer.texture.IIconRegister;

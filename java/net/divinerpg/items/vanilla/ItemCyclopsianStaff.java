@@ -2,15 +2,16 @@ package net.divinerpg.items.vanilla;
 
 import java.util.List;
 
-import net.divinerpg.Sounds;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.vanilla.projectile.EntityCyclopsianStaff;
-import net.divinerpg.entity.vanilla.projectile.EntityScythe;
-import net.divinerpg.helper.items.VanillaItemsOther;
-import net.divinerpg.helper.libs.ChatFormats;
+import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
+import net.divinerpg.entities.vanilla.projectile.EntityScythe;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

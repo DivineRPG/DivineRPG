@@ -1,7 +1,7 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.Reference;
 import net.divinerpg.client.render.block.model.ModelParasectaAltar;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

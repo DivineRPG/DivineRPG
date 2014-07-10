@@ -1,15 +1,15 @@
 package net.divinerpg.items.vanilla;
 
-import net.divinerpg.Sounds;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.vanilla.EntityAyeracoBlue;
-import net.divinerpg.entity.vanilla.EntityAyeracoGreen;
-import net.divinerpg.entity.vanilla.EntityAyeracoPurple;
-import net.divinerpg.entity.vanilla.EntityAyeracoRed;
-import net.divinerpg.entity.vanilla.EntityAyeracoYellow;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.blocks.VanillaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.vanilla.EntityAyeracoBlue;
+import net.divinerpg.entities.vanilla.EntityAyeracoGreen;
+import net.divinerpg.entities.vanilla.EntityAyeracoPurple;
+import net.divinerpg.entities.vanilla.EntityAyeracoRed;
+import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
+import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;

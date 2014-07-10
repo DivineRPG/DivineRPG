@@ -2,8 +2,8 @@ package net.divinerpg.blocks.twilight;
 
 import net.divinerpg.api.blocks.BlockModFire;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
-import net.divinerpg.helper.blocks.TwilightBlocks;
-import net.divinerpg.helper.utils.LogHelper;
+import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.world.World;
 
 public class BlockBlueFire extends BlockModFire {

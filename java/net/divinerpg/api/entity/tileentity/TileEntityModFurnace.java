@@ -2,7 +2,7 @@ package net.divinerpg.api.entity.tileentity;
 
 import org.apache.logging.log4j.core.filter.BurstFilter;
 
-import net.divinerpg.helper.recipes.ExtractorRecipes;
+import net.divinerpg.utils.recipes.ExtractorRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
@@ -20,6 +20,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

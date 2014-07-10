@@ -2,7 +2,7 @@ package net.divinerpg.blocks.vethea;
 
 import java.util.Random;
 
-import net.divinerpg.Reference;
+import net.divinerpg.libs.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -14,6 +14,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IRegistry;
 import net.minecraft.util.RegistryDefaulted;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockKarosCannon extends BlockContainer {

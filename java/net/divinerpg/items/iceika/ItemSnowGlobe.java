@@ -1,11 +1,11 @@
 package net.divinerpg.items.iceika;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.helper.blocks.IceikaBlocks;
-import net.divinerpg.helper.blocks.TwilightBlocks;
-import net.divinerpg.helper.blocks.VanillaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
 import net.divinerpg.items.twilight.ItemTwilightClock;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.blocks.TwilightBlocks;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

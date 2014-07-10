@@ -1,11 +1,11 @@
 package net.divinerpg.items.arcana;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.arcana.EntityDramix;
-import net.divinerpg.entity.arcana.EntityParasecta;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.blocks.ArcanaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.arcana.EntityDramix;
+import net.divinerpg.entities.arcana.EntityParasecta;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

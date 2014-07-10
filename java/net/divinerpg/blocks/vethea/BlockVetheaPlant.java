@@ -1,10 +1,10 @@
 package net.divinerpg.blocks.vethea;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.helper.blocks.VetheaBlocks;
-import net.divinerpg.helper.material.EnumBlockType;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.blocks.VetheaBlocks;
+import net.divinerpg.utils.material.EnumBlockType;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockVetheaPlant extends BlockMod implements IPlantable{

@@ -1,8 +1,8 @@
 package net.divinerpg.items.vethea;
 
-import net.divinerpg.Sounds;
-import net.divinerpg.entity.vethea.projectile.EntityEversightProjectile;
-import net.divinerpg.helper.items.VetheanItems;
+import net.divinerpg.entities.vethea.projectile.EntityEversightProjectile;
+import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.VetheanItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

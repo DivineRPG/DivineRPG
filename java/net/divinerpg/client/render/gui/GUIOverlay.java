@@ -1,11 +1,11 @@
 package net.divinerpg.client.render.gui;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.entity.DivineBossStatus;
 import net.divinerpg.api.entity.EntityStats;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.config.ConfigurationHelper;
-import net.divinerpg.helper.event.EventArmorFullSet;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.events.EventArmorFullSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;

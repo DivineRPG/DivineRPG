@@ -5,7 +5,7 @@ import java.util.Random;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.client.ArcanaHelper;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,6 +14,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

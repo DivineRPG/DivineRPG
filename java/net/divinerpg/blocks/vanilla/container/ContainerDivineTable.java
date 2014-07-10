@@ -1,8 +1,8 @@
 package net.divinerpg.blocks.vanilla.container;
 
 
-import net.divinerpg.helper.blocks.VanillaBlocks;
-import net.divinerpg.helper.recipes.CraftingDivineTableManager;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.recipes.CraftingDivineTableManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

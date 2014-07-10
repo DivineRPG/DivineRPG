@@ -1,17 +1,18 @@
 package net.divinerpg.client.render.entity.vethea;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.entity.DivineBossStatus;
 import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.entity.vethea.model.WreckForm1;
 import net.divinerpg.client.render.entity.vethea.model.WreckForm2;
 import net.divinerpg.client.render.entity.vethea.model.WreckForm3;
-import net.divinerpg.entity.vethea.EntityWreck;
+import net.divinerpg.entities.vethea.EntityWreck;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

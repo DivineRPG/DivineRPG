@@ -1,9 +1,9 @@
 package net.divinerpg.items.arcana;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.arcana.EntityConstructor;
-import net.divinerpg.helper.blocks.ArcanaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.arcana.EntityConstructor;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

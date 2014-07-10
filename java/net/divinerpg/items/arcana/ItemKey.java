@@ -1,7 +1,7 @@
 package net.divinerpg.items.arcana;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 
 public class ItemKey extends ItemMod {
 

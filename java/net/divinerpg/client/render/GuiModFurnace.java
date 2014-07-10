@@ -1,8 +1,8 @@
 package net.divinerpg.client.render;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.iceika.container.ContainerCoalstoneFurnace;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

@@ -1,7 +1,7 @@
 package net.divinerpg.client.render.entity.vethea;
 
 import net.divinerpg.client.render.RenderDivineMob;
-import net.divinerpg.entity.vethea.EntityHoverStinger;
+import net.divinerpg.entities.vethea.EntityHoverStinger;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

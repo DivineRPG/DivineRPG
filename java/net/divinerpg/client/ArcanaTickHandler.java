@@ -1,12 +1,13 @@
 package net.divinerpg.client;
 
-import net.divinerpg.Reference;
-import net.divinerpg.helper.config.ConfigurationHelper;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;

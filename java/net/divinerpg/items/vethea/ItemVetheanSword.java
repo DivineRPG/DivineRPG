@@ -2,10 +2,10 @@ package net.divinerpg.items.vethea;
 
 import java.util.List;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 

@@ -5,11 +5,12 @@ import java.util.Random;
 import scala.xml.PrefixedAttribute;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.divinerpg.Reference;
+
 import net.divinerpg.api.blocks.BlockModFence;
-import net.divinerpg.helper.blocks.VanillaBlocks;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;

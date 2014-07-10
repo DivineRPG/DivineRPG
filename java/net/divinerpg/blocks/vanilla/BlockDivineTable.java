@@ -1,15 +1,16 @@
 package net.divinerpg.blocks.vanilla;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.Reference;
 import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.client.GuiHandler;
-import net.divinerpg.helper.material.EnumBlockType;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.material.EnumBlockType;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

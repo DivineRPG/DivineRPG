@@ -1,7 +1,7 @@
 package net.divinerpg.api;
 
-import net.divinerpg.Reference;
-import net.divinerpg.SoundGenerator;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.SoundGenerator;
 
 public class Sound {
     

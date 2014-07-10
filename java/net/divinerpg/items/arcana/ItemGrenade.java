@@ -2,11 +2,11 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.Sounds;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.arcana.projectile.EntityGrenade;
-import net.divinerpg.helper.libs.ChatFormats;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.arcana.projectile.EntityGrenade;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

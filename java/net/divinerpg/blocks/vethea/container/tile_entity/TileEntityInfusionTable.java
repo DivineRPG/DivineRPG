@@ -1,7 +1,7 @@
 package net.divinerpg.blocks.vethea.container.tile_entity;
 
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
-import net.divinerpg.helper.recipes.RecipesInfusionTable;
+import net.divinerpg.utils.recipes.RecipesInfusionTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;

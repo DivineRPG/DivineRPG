@@ -3,8 +3,8 @@ package net.divinerpg.blocks.arcana;
 import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.helper.blocks.ArcanaBlocks;
-import net.divinerpg.helper.material.EnumBlockType;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

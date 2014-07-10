@@ -2,10 +2,10 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.Sounds;
 import net.divinerpg.api.items.ItemModRanged;
 import net.divinerpg.client.ArcanaHelper;
-import net.divinerpg.entity.arcana.projectile.EntitySparkler;
+import net.divinerpg.entities.arcana.projectile.EntitySparkler;
+import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 

@@ -1,8 +1,10 @@
 package net.divinerpg;
 
 import net.divinerpg.api.ModFluid;
-import net.divinerpg.helper.config.ConfigurationHelper;
-import net.divinerpg.helper.utils.LogHelper;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.proxies.CommonProxy;
 import net.minecraftforge.fluids.Fluid;
 
 import cpw.mods.fml.common.Mod;

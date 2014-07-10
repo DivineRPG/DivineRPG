@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.entity.twilight.model;
 
-import net.divinerpg.entity.twilight.EntityMoonWolf;
+import net.divinerpg.entities.twilight.EntityMoonWolf;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

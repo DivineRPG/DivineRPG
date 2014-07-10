@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import net.divinerpg.helper.blocks.IceikaBlocks;
-import net.divinerpg.helper.material.EnumBlockType;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;

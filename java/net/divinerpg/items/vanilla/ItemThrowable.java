@@ -3,20 +3,21 @@ package net.divinerpg.items.vanilla;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entity.twilight.projectile.EntitySlicerApalachia;
-import net.divinerpg.entity.twilight.projectile.EntitySlicerEden;
-import net.divinerpg.entity.twilight.projectile.EntitySlicerHalite;
-import net.divinerpg.entity.twilight.projectile.EntitySlicerMortum;
-import net.divinerpg.entity.twilight.projectile.EntitySlicerSkythern;
-import net.divinerpg.entity.twilight.projectile.EntitySlicerWildWoods;
-import net.divinerpg.entity.vanilla.projectile.EntityShuriken;
-import net.divinerpg.entity.vanilla.projectile.EntityVileStorm;
-import net.divinerpg.helper.items.TwilightItemsWeapons;
-import net.divinerpg.helper.items.VanillaItemsWeapons;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
+import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
+import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
+import net.divinerpg.utils.items.TwilightItemsWeapons;
+import net.divinerpg.utils.items.VanillaItemsWeapons;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

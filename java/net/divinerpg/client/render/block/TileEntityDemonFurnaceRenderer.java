@@ -1,9 +1,9 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.arcana.BlockDemonFurnace;
 import net.divinerpg.client.render.block.model.ModelDemonFurnace;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

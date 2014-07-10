@@ -2,13 +2,13 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.Reference;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.client.ArcanaHelper;
-import net.divinerpg.entity.arcana.projectile.EntityMerikMissile;
-import net.divinerpg.helper.items.ArcanaItems;
-import net.divinerpg.helper.libs.ChatFormats;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.items.ArcanaItems;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -19,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

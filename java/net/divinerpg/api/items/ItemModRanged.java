@@ -2,11 +2,11 @@ package net.divinerpg.api.items;
 
 import java.util.List;
 
-import net.divinerpg.Reference;
-import net.divinerpg.Sounds;
 import net.divinerpg.api.Sound;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;

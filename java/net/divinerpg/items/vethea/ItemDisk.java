@@ -1,15 +1,15 @@
 package net.divinerpg.items.vethea;
 
-import net.divinerpg.entity.vethea.projectile.EntityAmthirmisDisk;
-import net.divinerpg.entity.vethea.projectile.EntityArksianeDisk;
-import net.divinerpg.entity.vethea.projectile.EntityCermileDisk;
-import net.divinerpg.entity.vethea.projectile.EntityDarvenDisk;
-import net.divinerpg.entity.vethea.projectile.EntityHeliosisDisk;
-import net.divinerpg.entity.vethea.projectile.EntityKarosDisk;
-import net.divinerpg.entity.vethea.projectile.EntityPardimalDisk;
-import net.divinerpg.entity.vethea.projectile.EntityQuadroticDisk;
-import net.divinerpg.entity.vethea.projectile.EntityTeakerDisk;
-import net.divinerpg.helper.items.VetheanItems;
+import net.divinerpg.entities.vethea.projectile.EntityAmthirmisDisk;
+import net.divinerpg.entities.vethea.projectile.EntityArksianeDisk;
+import net.divinerpg.entities.vethea.projectile.EntityCermileDisk;
+import net.divinerpg.entities.vethea.projectile.EntityDarvenDisk;
+import net.divinerpg.entities.vethea.projectile.EntityHeliosisDisk;
+import net.divinerpg.entities.vethea.projectile.EntityKarosDisk;
+import net.divinerpg.entities.vethea.projectile.EntityPardimalDisk;
+import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
+import net.divinerpg.entities.vethea.projectile.EntityTeakerDisk;
+import net.divinerpg.utils.items.VetheanItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

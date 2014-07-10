@@ -2,15 +2,16 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.DivineRPGAchievements;
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.helper.blocks.ArcanaBlocks;
-import net.divinerpg.helper.libs.ChatFormats;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

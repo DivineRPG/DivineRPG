@@ -2,15 +2,16 @@ package net.divinerpg.api.items;
 
 import java.util.List;
 
-import net.divinerpg.Reference;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.config.ConfigurationHelper;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemMod extends Item {

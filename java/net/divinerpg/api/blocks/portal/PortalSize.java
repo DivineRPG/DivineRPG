@@ -1,6 +1,6 @@
 package net.divinerpg.api.blocks.portal;
 
-import net.divinerpg.helper.utils.LogHelper;
+import net.divinerpg.utils.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ChunkCoordinates;

@@ -2,17 +2,18 @@ package net.divinerpg.api.items;
 
 import java.util.List;
 
-import net.divinerpg.DivineRPGAchievements;
-import net.divinerpg.Reference;
-import net.divinerpg.helper.Util;
-import net.divinerpg.helper.items.ItemsFood;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
+import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.items.ItemsFood;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemModFood extends ItemFood {

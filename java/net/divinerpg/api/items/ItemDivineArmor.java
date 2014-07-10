@@ -2,13 +2,13 @@ package net.divinerpg.api.items;
 
 import java.util.List;
 
-import net.divinerpg.Reference;
-import net.divinerpg.helper.libs.ChatFormats;
-import net.divinerpg.helper.material.EnumArmor;
-import net.divinerpg.helper.tabs.DivineRPGTabs;
-import net.divinerpg.helper.utils.LangRegistry;
-import net.divinerpg.helper.utils.LogHelper;
-import net.divinerpg.helper.utils.TokenHelper;
+import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.TokenHelper;
+import net.divinerpg.utils.material.EnumArmor;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
