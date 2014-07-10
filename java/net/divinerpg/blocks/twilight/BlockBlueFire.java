@@ -3,8 +3,10 @@ package net.divinerpg.blocks.twilight;
 import net.divinerpg.api.blocks.BlockModFire;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class BlockBlueFire extends BlockModFire {
@@ -15,7 +17,6 @@ public class BlockBlueFire extends BlockModFire {
 
     @Override
     protected void lightPortal(World world, int x, int y, int z) {
-        BlockModPortal portal = (BlockModPortal) TwilightBlocks.edenPortal;
 //        int id = world.provider.dimensionId;
 //        if(id > 0 || !portal.isPortalCorrectSize(world, x, y, z)){
 //            LogHelper.debug("Eden portal");
@@ -28,6 +29,7 @@ public class BlockBlueFire extends BlockModFire {
 //            if (!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !this.canNeighborBurn(world, x, y, z)) world.setBlockToAir(x, y, z);
 //            else world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + world.rand.nextInt(10));
 //        }
+        BlockModPortal portal = (BlockModPortal) TwilightBlocks.edenPortal;
         if (world.getBlock(x, y - 1, z).equals(VanillaBlocks.divineRock)) {
             LogHelper.debug("Divine Rock lit");
             if (!portal.tryCreatePortal(world, x, y, z))

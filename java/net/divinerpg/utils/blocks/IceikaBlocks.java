@@ -14,6 +14,7 @@ import net.divinerpg.api.blocks.BlockModStairs;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
+import net.divinerpg.blocks.iceika.BlockIceikaFire;
 import net.divinerpg.blocks.iceika.BlockIceikaLava;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;
@@ -49,6 +50,6 @@ public class IceikaBlocks {
     public static final Block coalstoneFurnace    = new BlockCoalstoneFurnace("coalstoneFurnace", false);
     public static final Block coalstoneFurnaceOn  = new BlockCoalstoneFurnace("coalstoneFurnaceActive", true);
 
-    public static final Block iceikaFire          = new BlockModFire("iceikaFire");
+    public static final Block iceikaFire          = new BlockIceikaFire("iceikaFire");
     public static final Block portal              = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
 }
