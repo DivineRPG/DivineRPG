@@ -26,18 +26,19 @@ public class GUIOverlay {
 		ResourceLocation r = null;
 		switch(EventArmorFullSet.size) {
 		case 1:
+			System.out.println("LOL");
 			r = set("half");
 			Minecraft mc = Minecraft.getMinecraft();
 			ScaledResolution sr = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
 			int x = sr.getScaledWidth() - 225;
 			int y = sr.getScaledHeight() - 50;
 			mc.getTextureManager().bindTexture(r);
-			Util.drawTexturedModalRect(x, y, 0, 0, 9, 9);
+			Util.drawTexturedModalRect(x, y, 5, 5, 9, 9);
 			break;
 		}
 	}
 
 	public ResourceLocation set(String size){
-		return new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar_half.png");
+		return new ResourceLocation(Reference.PREFIX + "textures/gui/arcanaBar.png");
 	}
 }

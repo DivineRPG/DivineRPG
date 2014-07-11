@@ -593,9 +593,9 @@ public class EventArmorFullSet {
         }
         
       //Halite
-        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet)
+        if ((size != 1) && (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet))
         	size = 1;
-        else
+        else if (size == 1)
         	size = 0;
     }
 

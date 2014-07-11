@@ -28,7 +28,7 @@ public class BlockModFire extends BlockFire {
         super();
         this.name = name;
         setLightLevel(1.0F);
-        setCreativeTab(DivineRPGTabs.blocks);//For bug testing
+        setCreativeTab(null);
         setBlockName(name);
         setBlockTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);

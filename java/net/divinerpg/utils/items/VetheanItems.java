@@ -4,6 +4,7 @@ import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModDoor;
 import net.divinerpg.items.vethea.ItemDisk;
+import net.divinerpg.items.vethea.ItemDreamPowder;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.items.vethea.ItemVetheanCannon;
 import net.divinerpg.items.vethea.ItemVetheanClaw;
@@ -132,6 +133,6 @@ public class VetheanItems {
 
     public static final Item dreamFlint         = new ItemMod("dreamFlint").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item moonClock          = new ItemMod("moonClock").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item dreamPowder        = new ItemMod("dreamPowder").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Item dreamPowder        = new ItemDreamPowder("dreamPowder").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item rockChunks         = new ItemMod("rockChunks").setCreativeTab(DivineRPGTabs.vethea);
 }
