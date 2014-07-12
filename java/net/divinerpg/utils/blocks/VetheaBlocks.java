@@ -9,21 +9,19 @@ import net.divinerpg.api.blocks.BlockModLog;
 import net.divinerpg.api.blocks.BlockModSpawner;
 import net.divinerpg.api.blocks.BlockModVine;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.blocks.vethea.BlockAcid;
 import net.divinerpg.blocks.vethea.BlockHelioticBeam;
 import net.divinerpg.blocks.vethea.BlockInfusionTable;
 import net.divinerpg.blocks.vethea.BlockKarosCannon;
 import net.divinerpg.blocks.vethea.BlockKarosHeatTile;
+import net.divinerpg.blocks.vethea.BlockTestTeleporter;
 import net.divinerpg.blocks.vethea.BlockVetheaFire;
 import net.divinerpg.blocks.vethea.BlockVetheaPlant;
 import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.items.VetheanItems;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 
 public class VetheaBlocks {
 
@@ -102,4 +100,5 @@ public class VetheaBlocks {
     public static final Block             infusionTable          = new BlockInfusionTable().setName("infusionTable").setBlockUnbreakable();
     public static final BlockHelioticBeam helioticBeam           = (BlockHelioticBeam) new BlockHelioticBeam("helioticBeam");
     public static final BlockKarosCannon  karosCannon            = (BlockKarosCannon) new BlockKarosCannon(Material.rock).setName("karosCannon");
+    public static final Block testTeleport = new BlockTestTeleporter("testTeleport");
 }

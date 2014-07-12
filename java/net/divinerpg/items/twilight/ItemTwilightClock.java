@@ -1,13 +1,11 @@
 package net.divinerpg.items.twilight;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
