@@ -49,7 +49,7 @@ public class BlockModPortal extends BlockBreakable {
 
     @Override
     public void onEntityCollidedWithBlock(World world, int xPos, int yPos, int zPos, Entity entity) {
-        if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP))) {
+        if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && (entity instanceof EntityPlayerMP)) {
             EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
             if (thePlayer.timeUntilPortal > 0) {
                 thePlayer.timeUntilPortal = 10;
