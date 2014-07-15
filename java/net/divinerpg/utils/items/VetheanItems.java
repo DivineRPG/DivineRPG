@@ -2,10 +2,8 @@ package net.divinerpg.utils.items;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
-import net.divinerpg.api.items.ItemModDoor;
 import net.divinerpg.items.vethea.ItemDisk;
 import net.divinerpg.items.vethea.ItemDreamPowder;
-import net.divinerpg.items.vethea.ItemNightmareBed;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.items.vethea.ItemVetheanCannon;
 import net.divinerpg.items.vethea.ItemVetheanClaw;
@@ -14,7 +12,6 @@ import net.divinerpg.items.vethea.ItemVetheanFood;
 import net.divinerpg.items.vethea.ItemVetheanHealingFood;
 import net.divinerpg.items.vethea.ItemVetheanSword;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
@@ -136,5 +133,5 @@ public class VetheanItems {
     public static final Item moonClock          = new ItemMod("moonClock").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item dreamPowder        = new ItemDreamPowder("dreamPowder").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item rockChunks         = new ItemMod("rockChunks").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item nightmareBed       = new ItemNightmareBed();
+//    public static final Item nightmareBed       = new ItemNightmareBed();
 }
