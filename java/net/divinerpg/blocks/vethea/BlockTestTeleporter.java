@@ -21,8 +21,8 @@ public class BlockTestTeleporter extends BlockMod {
         if (player.isSneaking()) return false;
         if (!world.isRemote) {
             EntityPlayerMP MPPlayer = (EntityPlayerMP) player;
-//            MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, 
-//                    new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
+            //MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, 
+             //       new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
             MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea);
         }
         return true;

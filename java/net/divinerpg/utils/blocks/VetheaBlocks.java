@@ -14,6 +14,7 @@ import net.divinerpg.blocks.vethea.BlockHelioticBeam;
 import net.divinerpg.blocks.vethea.BlockInfusionTable;
 import net.divinerpg.blocks.vethea.BlockKarosCannon;
 import net.divinerpg.blocks.vethea.BlockKarosHeatTile;
+import net.divinerpg.blocks.vethea.BlockNightmareBed;
 import net.divinerpg.blocks.vethea.BlockTestTeleporter;
 import net.divinerpg.blocks.vethea.BlockVetheaFire;
 import net.divinerpg.blocks.vethea.BlockVetheaPlant;
@@ -101,5 +102,5 @@ public class VetheaBlocks {
     public static final BlockHelioticBeam helioticBeam           = (BlockHelioticBeam) new BlockHelioticBeam("helioticBeam");
     public static final BlockKarosCannon  karosCannon            = (BlockKarosCannon) new BlockKarosCannon(Material.rock).setName("karosCannon");
     public static final Block 		      testTeleport           = new BlockTestTeleporter("testTeleport");
-//    public static final Block             nightmareBedBlock      = new BlockNightmareBed();
+    public static final Block             nightmareBedBlock      = new BlockNightmareBed();
 }
