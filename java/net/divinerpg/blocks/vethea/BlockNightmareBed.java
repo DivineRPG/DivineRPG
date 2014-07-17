@@ -1,35 +1,22 @@
 package net.divinerpg.blocks.vethea;
 
 import java.util.Iterator;
-import java.util.Random;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.api.worldgen.WorldGenAPI;
 import net.divinerpg.dimensions.vethea.TeleporterVethea;
-import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
-import net.minecraft.block.BlockDirectional;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.Direction;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockNightmareBed extends BlockBed {
 	
@@ -49,6 +36,7 @@ public class BlockNightmareBed extends BlockBed {
         if (world.isRemote)
             return true;
         else {
+        	EntityPlayerMP MPPlayer = (EntityPlayerMP) player;
             int i1 = world.getBlockMetadata(x, y, z);
 
             if (!isBlockHeadOfBed(i1)) {
@@ -63,22 +51,18 @@ public class BlockNightmareBed extends BlockBed {
             }
 
             if (world.provider.canRespawnHere() && world.getBiomeGenForCoords(x, z) != BiomeGenBase.hell) {
-                if (func_149976_c(i1))
-                {
+                if (func_149976_c(i1)) {
                     EntityPlayer entityplayer1 = null;
                     Iterator iterator = world.playerEntities.iterator();
 
-                    while (iterator.hasNext())
-                    {
+                    while (iterator.hasNext()) {
                         EntityPlayer entityplayer2 = (EntityPlayer)iterator.next();
 
                         if (entityplayer2.isPlayerSleeping()) {
                             ChunkCoordinates chunkcoordinates = entityplayer2.playerLocation;
 
                             if (chunkcoordinates.posX == x && chunkcoordinates.posY == y && chunkcoordinates.posZ == z)
-                            {
                                 entityplayer1 = entityplayer2;
-                            }
                         }
                     }
 
@@ -88,7 +72,6 @@ public class BlockNightmareBed extends BlockBed {
                     }
 
                     func_149979_a(world, x, y, z, false);
-                    EntityPlayerMP MPPlayer = (EntityPlayerMP) player;
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
                 }
 
@@ -109,6 +92,10 @@ public class BlockNightmareBed extends BlockBed {
                     return true;
                 }
             }
+            else if (player.worldObj.provider.dimensionId == ConfigurationHelper.vethea) {
+            	//Teleport back to bed in overworld
+            	return true;
+            }
             else {
                 double d2 = (double)x + 0.5D;
                 double d0 = (double)y + 0.5D;
@@ -125,7 +112,8 @@ public class BlockNightmareBed extends BlockBed {
                     d1 = (d1 + (double)z + 0.5D) / 2.0D;
                 }
 
-                world.newExplosion((Entity)null, (double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), 5.0F, true, true);
+                WorldGenAPI.addRectangle(2, 2, 1, world, x, y, z, TwilightBlocks.mortumBlock);
+                //world.newExplosion((Entity)null, (double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), 5.0F, true, true);
                 return true;
             }
         }
