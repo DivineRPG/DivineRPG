@@ -2,7 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.util.IChatComponent;
@@ -73,9 +73,9 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.honeychunk, 10);
+        this.dropItem(VetheaItems.honeychunk, 10);
         if (this.rand.nextInt(5) != 0) {
-            this.dropItem(VetheanItems.honeysuckle, 15);
+            this.dropItem(VetheaItems.honeysuckle, 15);
         }
     }
 

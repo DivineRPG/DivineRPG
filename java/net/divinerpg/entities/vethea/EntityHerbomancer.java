@@ -2,7 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 
@@ -64,7 +64,7 @@ public class EntityHerbomancer extends EntityDivineRPGMob {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.cleanPearls, 1);
+        this.dropItem(VetheaItems.cleanPearls, 1);
     }
 
 	@Override

@@ -4,7 +4,7 @@ import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VetheaBlocks;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -265,8 +265,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
 
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
-		this.dropItem(VetheanItems.rockChunks, par2);
-		this.dropItem(VetheanItems.karosLump, 20);
+		this.dropItem(VetheaItems.rockChunks, par2);
+		this.dropItem(VetheaItems.karosLump, 20);
 	}
 
 	@Override

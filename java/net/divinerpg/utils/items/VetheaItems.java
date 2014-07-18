@@ -17,7 +17,7 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 
-public class VetheanItems {
+public class VetheaItems {
 
     public static final Item dirtyPearls        = new ItemMod("dirtyPearls").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item cleanPearls        = new ItemMod("cleanPearls").setCreativeTab(DivineRPGTabs.vethea);

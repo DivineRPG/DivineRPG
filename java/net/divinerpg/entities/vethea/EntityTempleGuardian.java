@@ -2,14 +2,14 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityGive;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class EntityTempleGuardian extends EntityGive {
 
 	public EntityTempleGuardian(World par1)  {
-		super(par1, VetheanItems.cermileLump, 10);
+		super(par1, VetheaItems.cermileLump, 10);
 	}
 
 	@Override

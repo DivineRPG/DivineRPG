@@ -3,7 +3,7 @@ package net.divinerpg.entities.vethea;
 import net.divinerpg.api.entity.EntityDivineRPGFlying;
 import net.divinerpg.entities.vethea.projectile.EntityZoragonBomb;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
@@ -109,7 +109,7 @@ public class EntityZoragon extends EntityDivineRPGFlying {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.shinyPearls, 1);
+        this.dropItem(VetheaItems.shinyPearls, 1);
     }
 
 	@Override

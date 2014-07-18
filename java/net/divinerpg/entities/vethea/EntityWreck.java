@@ -9,7 +9,7 @@ import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonShot;
 import net.divinerpg.entities.vethea.projectile.EntityWreckExplosiveShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -375,7 +375,7 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
-		this.dropItem(VetheanItems.arksianeLump, 25);
+		this.dropItem(VetheaItems.arksianeLump, 25);
 	}
 
 	@Override

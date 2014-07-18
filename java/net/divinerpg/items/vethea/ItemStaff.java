@@ -8,7 +8,7 @@ import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,7 +35,7 @@ public class ItemStaff extends ItemMod {
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("Deals " + this.damage + " Arcana Damage");
 		par3List.add("Bouncing Projectile");
-		if(par1ItemStack.getItem() == VetheanItems.evernight){
+		if(par1ItemStack.getItem() == VetheaItems.evernight){
 			par3List.add("Consumes All Of Your Arcana");
 		} else {
 			par3List.add("Consumes " + this.cost + " Arcana");
@@ -46,7 +46,7 @@ public class ItemStaff extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1, World par2, EntityPlayer par3) {
 		if (!par2.isRemote && ArcanaHelper.useBar(this.cost)) {		
-			if(par1.getItem() == VetheanItems.evernight){
+			if(par1.getItem() == VetheaItems.evernight){
 				par3.attackEntityFrom(new EntityDamageSourceIndirect("arcana", par3, par3).setMagicDamage(), 16);
 				par2.spawnEntityInWorld(new EntityEvernightProjectile(par2, par3, this.damage));
 			} else {

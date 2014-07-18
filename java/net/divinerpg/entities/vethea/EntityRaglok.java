@@ -7,7 +7,7 @@ import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -242,7 +242,7 @@ public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMo
 
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
-		this.dropItem(VetheanItems.heliosisLump, 25);
+		this.dropItem(VetheaItems.heliosisLump, 25);
 	}
 
 	@Override

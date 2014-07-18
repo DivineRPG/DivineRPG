@@ -106,7 +106,7 @@ import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
 import net.divinerpg.entities.vethea.projectile.EntityTeakerDisk;
 import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonEversight;
 import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonShot;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.client.model.ModelBiped;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -117,15 +117,15 @@ public class VetheaEntityRenderer {
 	private static EntityStats s;
 
 	public static void init(){
-		RenderingRegistry.registerEntityRenderingHandler(EntityAmthirmisDisk.class, new RenderIconProjectile(VetheanItems.amthrimisDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityArksianeDisk.class, new RenderIconProjectile(VetheanItems.arksianeDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCermileDisk.class, new RenderIconProjectile(VetheanItems.cermileDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDarvenDisk.class, new RenderIconProjectile(VetheanItems.darvenDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHeliosisDisk.class, new RenderIconProjectile(VetheanItems.heliosisDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityKarosDisk.class, new RenderIconProjectile(VetheanItems.karosDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPardimalDisk.class, new RenderIconProjectile(VetheanItems.pardimalDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityQuadroticDisk.class, new RenderIconProjectile(VetheanItems.quadroticDisk));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisk.class, new RenderIconProjectile(VetheanItems.teakerDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAmthirmisDisk.class, new RenderIconProjectile(VetheaItems.amthrimisDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityArksianeDisk.class, new RenderIconProjectile(VetheaItems.arksianeDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityCermileDisk.class, new RenderIconProjectile(VetheaItems.cermileDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDarvenDisk.class, new RenderIconProjectile(VetheaItems.darvenDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityHeliosisDisk.class, new RenderIconProjectile(VetheaItems.heliosisDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityKarosDisk.class, new RenderIconProjectile(VetheaItems.karosDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityPardimalDisk.class, new RenderIconProjectile(VetheaItems.pardimalDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityQuadroticDisk.class, new RenderIconProjectile(VetheaItems.quadroticDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisk.class, new RenderIconProjectile(VetheaItems.teakerDisk));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderProjectile(EntityResourceLocation.staffProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderProjectile(EntityResourceLocation.evernight));

@@ -8,7 +8,7 @@ import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsTools;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -66,6 +66,6 @@ public class DivineRPGTabs extends CreativeTabs {
         spawner.setIcon(VanillaItemsOther.callWatcher);
         utility.setIcon(VanillaItemsOther.tarBucket);
         food.setIcon(ItemsFood.bacon);
-        vethea.setIcon(VetheanItems.karosStaff);
+        vethea.setIcon(VetheaItems.karosStaff);
     }
 }

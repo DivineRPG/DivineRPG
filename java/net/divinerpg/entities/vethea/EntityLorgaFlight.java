@@ -2,7 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGFlying;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -115,7 +115,7 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.polishedPearls, 1);
+        this.dropItem(VetheaItems.polishedPearls, 1);
     }
 
 	@Override

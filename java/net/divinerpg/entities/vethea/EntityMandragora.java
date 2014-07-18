@@ -3,7 +3,7 @@ package net.divinerpg.entities.vethea;
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.entities.vethea.projectile.EntityMandragoraProjectile;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -71,7 +71,7 @@ public class EntityMandragora extends EntityDivineRPGMob implements IRangedAttac
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.cleanPearls, 1);
+        this.dropItem(VetheaItems.cleanPearls, 1);
     }
 
 	@Override

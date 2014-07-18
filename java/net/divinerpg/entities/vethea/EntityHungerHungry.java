@@ -10,7 +10,7 @@ import net.divinerpg.api.entity.EntityDivineRPGVillager;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VetheaBlocks;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -86,36 +86,36 @@ public class EntityHungerHungry extends EntityDivineRPGVillager {
 
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 1, 0), new ItemStack(VetheanItems.dreamCarrot, 2, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.dreamMelon, 4, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 5, 0), new ItemStack(VetheanItems.dreamPie, 5, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 10, 0), new ItemStack(VetheanItems.dreamCake, 8, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.diskTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.cannonTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.backswordTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.hammerTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.bowTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.staffTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 3, 0), new ItemStack(VetheanItems.clawTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 5, 0), new ItemStack(VetheanItems.degradedTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.dreamBricks1, 16, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.dreamBricks2, 16, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.smoothGlass, 16, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 4, 0), new ItemStack(VetheaBlocks.firelight, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 4, 0), new ItemStack(Blocks.chest, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.dirtyPearls, 2, 0), new ItemStack(VetheanItems.vetheanArrow, 32, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.cleanPearls, 1, 0), new ItemStack(VetheanItems.dreamSweets, 4, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.cleanPearls, 5, 0), new ItemStack(VetheanItems.finishedTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.cleanPearls, 2, 0), new ItemStack(VetheanItems.vetheanArrow2, 32, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.cleanPearls, 4, 0), new ItemStack(VetheanItems.vetheanWarArrow, 32, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.cleanPearls, 6, 0), new ItemStack(VetheanItems.vetheanWrathArrow, 32, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.polishedPearls, 20, 0), new ItemStack(VetheanItems.dreamFlint, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.polishedPearls, 5, 0), new ItemStack(VetheanItems.glisteningTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.polishedPearls, 5, 0), new ItemStack(VetheanItems.demonizedTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.shinyPearls, 40, 0), new ItemStack(VetheanItems.moonClock, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.shinyPearls, 1, 0), new ItemStack(VetheanItems.dreamSours, 4, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.shinyPearls, 5, 0), new ItemStack(VetheanItems.tormentedTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheanItems.shinyPearls, 5, 0), new ItemStack(Items.bed, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaItems.dreamCarrot, 2, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.dreamMelon, 4, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.dreamPie, 5, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 10, 0), new ItemStack(VetheaItems.dreamCake, 8, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.diskTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.cannonTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.backswordTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.hammerTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.bowTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.staffTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.clawTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.degradedTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.dreamBricks1, 16, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.dreamBricks2, 16, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.smoothGlass, 16, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(VetheaBlocks.firelight, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(Blocks.chest, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 2, 0), new ItemStack(VetheaItems.vetheanArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 1, 0), new ItemStack(VetheaItems.dreamSweets, 4, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 5, 0), new ItemStack(VetheaItems.finishedTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 2, 0), new ItemStack(VetheaItems.vetheanArrow2, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 4, 0), new ItemStack(VetheaItems.vetheanWarArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 6, 0), new ItemStack(VetheaItems.vetheanWrathArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.polishedPearls, 20, 0), new ItemStack(VetheaItems.dreamFlint, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.polishedPearls, 5, 0), new ItemStack(VetheaItems.glisteningTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.polishedPearls, 5, 0), new ItemStack(VetheaItems.demonizedTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.shinyPearls, 40, 0), new ItemStack(VetheaItems.moonClock, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.shinyPearls, 1, 0), new ItemStack(VetheaItems.dreamSours, 4, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.shinyPearls, 5, 0), new ItemStack(VetheaItems.tormentedTemplate, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.shinyPearls, 5, 0), new ItemStack(Items.bed, 1, 0)));
 	}
 
 	@Override

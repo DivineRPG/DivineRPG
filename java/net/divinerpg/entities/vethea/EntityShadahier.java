@@ -2,7 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -63,7 +63,7 @@ public class EntityShadahier extends EntityDivineRPGMob {
     
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.dirtyPearls, 1);
+        this.dropItem(VetheaItems.dirtyPearls, 1);
     }
 
 	@Override

@@ -2,7 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -57,7 +57,7 @@ public class EntityLheiva extends EntityDivineRPGMob {
     public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
         Entity var1 = par1DamageSource.getEntity();
         if (var1 != null && var1 instanceof EntityPlayer) {
-            if (((EntityPlayer)var1).inventory.hasItem(VetheanItems.heviaBelt))
+            if (((EntityPlayer)var1).inventory.hasItem(VetheaItems.heviaBelt))
                 return super.attackEntityFrom(par1DamageSource, par2);
         }
         return false;
@@ -65,7 +65,7 @@ public class EntityLheiva extends EntityDivineRPGMob {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.polishedPearls, 1);
+        this.dropItem(VetheaItems.polishedPearls, 1);
     }
 
 	@Override

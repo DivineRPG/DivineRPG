@@ -2,7 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityGive;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class EntityCryptKeeper extends EntityGive {
 
 	public EntityCryptKeeper(World par1) {
-		super(par1, VetheanItems.amthrimisLump, 5);
+		super(par1, VetheaItems.amthrimisLump, 5);
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package net.divinerpg.entities.vethea;
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.api.entity.EntityDivineRPGTameable;
 import net.divinerpg.api.entity.EntityStats;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;

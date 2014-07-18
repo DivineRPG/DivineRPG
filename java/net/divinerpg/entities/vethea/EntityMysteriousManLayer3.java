@@ -2,14 +2,14 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityGive;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class EntityMysteriousManLayer3 extends EntityGive {
 
 	public EntityMysteriousManLayer3(World par1) {
-		super(par1, VetheanItems.pardimalLump, 10);
+		super(par1, VetheaItems.pardimalLump, 10);
 	}
 
 	public int spawnLayer = 3;

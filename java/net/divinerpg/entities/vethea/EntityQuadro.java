@@ -4,7 +4,7 @@ import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -149,7 +149,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
-		this.dropItem(VetheanItems.quadroticLump, 25);
+		this.dropItem(VetheaItems.quadroticLump, 25);
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package net.divinerpg.entities.vethea;
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.entities.vethea.projectile.EntityKazroticShot;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.items.VetheanItems;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -65,7 +65,7 @@ public class EntityKazrotic extends EntityDivineRPGMob implements IRangedAttackM
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheanItems.polishedPearls, 1);
+        this.dropItem(VetheaItems.polishedPearls, 1);
     }
 
 	@Override
