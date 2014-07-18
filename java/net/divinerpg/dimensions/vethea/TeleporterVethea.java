@@ -42,7 +42,6 @@ public class TeleporterVethea extends Teleporter {
 			if(worldServerInstance.provider.dimensionId == ConfigurationHelper.vethea) {
 				player.travelToDimension(0);
 				ChunkCoordinates bed = player.getBedLocation(0);
-				System.out.println(bed.posX + " " + bed.posZ);
 				if(bed == null) {
 					bed = worldServerInstance.getSpawnPoint();
 				}

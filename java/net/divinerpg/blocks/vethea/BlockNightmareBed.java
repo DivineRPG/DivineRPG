@@ -101,7 +101,7 @@ public class BlockNightmareBed extends BlockBed {
                 }
             }
             else if (player.worldObj.provider.dimensionId == ConfigurationHelper.vethea) {
-            	MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, 0, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(0)));
+            	MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(0)));
             	return true;
             }
             else {
