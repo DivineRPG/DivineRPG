@@ -57,6 +57,6 @@ public class WorldProviderSkythern extends WorldProvider {
 
     @Override
     public String getDimensionName() {
-        return "SKythern";
+        return "Skythern";
     }
 }
