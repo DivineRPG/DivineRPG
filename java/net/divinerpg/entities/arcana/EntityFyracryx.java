@@ -19,7 +19,7 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
     public EntityFyracryx(World par1World, EntityPlayer par2EntityPlayer) {
         this(par1World);
         this.setTamed(true);
-        this.setOwner(par2EntityPlayer.getDisplayName());
+        this.func_152115_b(par2EntityPlayer.getDisplayName()); //setOwner
     }
 
     public EntityFyracryx(World par1World) {
@@ -80,7 +80,7 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
             }
         } else {
             this.setTamed(true);
-            this.setOwner(par1EntityPlayer.getDisplayName());
+            this.func_152115_b(par1EntityPlayer.getDisplayName());
         }
         return super.interact(par1EntityPlayer);
     }

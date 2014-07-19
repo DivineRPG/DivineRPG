@@ -43,7 +43,7 @@ public class EntityVermenous extends EntityDivineRPGMob {
             return;
         else {
             Vec3 var3 = var1.getLook(1.0F).normalize();
-            Vec3 var4 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX - var1.posX, this.boundingBox.minY + this.height / 2.0F - (var1.posY + var1.getEyeHeight()), this.posZ - var1.posZ);
+            Vec3 var4 = Vec3.createVectorHelper(this.posX - var1.posX, this.boundingBox.minY + this.height / 2.0F - (var1.posY + var1.getEyeHeight()), this.posZ - var1.posZ);
             double var5 = var4.lengthVector();
             var4 = var4.normalize();
             double var7 = var3.dotProduct(var4);

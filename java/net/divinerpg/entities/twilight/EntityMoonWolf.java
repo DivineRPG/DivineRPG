@@ -269,7 +269,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                 }
             }
 
-            if(par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwnerName()) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
+            if(par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.setPathToEntity((PathEntity)null);
@@ -293,7 +293,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                     this.setAttackTarget((EntityLivingBase)null);
                     this.aiSit.setSitting(true);
                     this.setHealth(20.0F);
-                    this.setOwner(par1EntityPlayer.getCommandSenderName());
+                    this.func_152115_b(par1EntityPlayer.getCommandSenderName());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte)7);
                 } else {
@@ -343,10 +343,10 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     @Override
     public EntityMoonWolf createChild(EntityAgeable par1EntityAgeable) {
         EntityMoonWolf EntityMoonWolf = new EntityMoonWolf(this.worldObj);
-        String s = this.getOwnerName();
+        String s = this.func_152113_b();
 
         if(s != null && s.trim().length() > 0) {
-            EntityMoonWolf.setOwner(s);
+            EntityMoonWolf.func_152115_b(s);
             EntityMoonWolf.setTamed(true);
         }
 

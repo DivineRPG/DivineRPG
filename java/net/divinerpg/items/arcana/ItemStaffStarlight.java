@@ -28,7 +28,7 @@ public class ItemStaffStarlight extends ItemModRanged {
         double x = par3EntityPlayer.posX;
         double y = par3EntityPlayer.posY + 1.62D - (double) par3EntityPlayer.yOffset;
         double z = par3EntityPlayer.posZ;
-        Vec3 worldVector = par2World.getWorldVec3Pool().getVecFromPool(x, y, z);
+        Vec3 worldVector = Vec3.createVectorHelper(x, y, z);
         float yawAngleCos = MathHelper.cos(-rotationYaw * 0.01745329F - (float) Math.PI);
         float yawAngleSin = MathHelper.sin(-rotationYaw * 0.01745329F - (float) Math.PI);
         float pitchAngle = -MathHelper.cos(-rotationPitch * 0.01745329F);

@@ -27,7 +27,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	public EntityBunny(World w, boolean tamed, String owner) {
 		this(w);
 		this.setTamed(tamed);
-		this.setOwner(owner);
+		this.func_152115_b(owner);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 
 	private void transform(boolean tamed, Entity var3)  {
 		if(!this.worldObj.isRemote) {
-			EntityAngryBunny var2 = new EntityAngryBunny(this.worldObj, tamed, this.getOwnerName());
+			EntityAngryBunny var2 = new EntityAngryBunny(this.worldObj, tamed, this.func_152113_b());
 			var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
 			this.worldObj.spawnEntityInWorld(var2);
 			if(var3 instanceof EntityLiving) 
@@ -95,7 +95,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					return true;
 				}
 			}
-			if(var1.getDisplayName().equalsIgnoreCase(this.getOwnerName()) && !this.worldObj.isRemote) {
+			if(var1.getDisplayName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote) {
 				this.aiSit.setSitting(!this.isSitting());
 				this.isJumping = false;
 				this.setPathToEntity((PathEntity)null);
@@ -117,7 +117,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					this.setAttackTarget((EntityLiving)null);
 					this.aiSit.setSitting(true);
 					this.setHealth(20);
-					this.setOwner(var1.getDisplayName());
+					this.func_152115_b(var1.getDisplayName());
 					this.playTameEffect(true);
 					this.worldObj.setEntityState(this, (byte)7);
 				} else {

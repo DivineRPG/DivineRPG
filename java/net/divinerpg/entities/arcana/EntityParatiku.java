@@ -40,7 +40,7 @@ public class EntityParatiku extends EntityDivineRPGTameable {
 	public EntityParatiku(World w, EntityPlayer p) {
 		this(w);
 		setTamed(true);
-		setOwner(p.getDisplayName());
+		func_152115_b(p.getDisplayName());
 	}
 
 	@Override
@@ -93,10 +93,10 @@ public class EntityParatiku extends EntityDivineRPGTameable {
 	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
 		super.writeEntityToNBT(par1NBTTagCompound);
 
-		if (this.getOwnerName() == null) {
+		if (this.func_152113_b() == null) {
 			par1NBTTagCompound.setString("Owner", "");
 		} else {
-			par1NBTTagCompound.setString("Owner", this.getOwnerName());
+			par1NBTTagCompound.setString("Owner", this.func_152113_b());
 		}
 
 		par1NBTTagCompound.setBoolean("Sitting", this.isSitting());
@@ -109,7 +109,7 @@ public class EntityParatiku extends EntityDivineRPGTameable {
 		String var2 = par1NBTTagCompound.getString("Owner");
 
 		if (var2.length() > 0) {
-			this.setOwner(var2);
+			this.func_152115_b(var2);
 			this.setTamed(true);
 		}
 
@@ -145,7 +145,7 @@ public class EntityParatiku extends EntityDivineRPGTameable {
 	}
 
 	public EntityLivingBase getOwner() {
-		return this.worldObj.getPlayerEntityByName(this.getOwnerName());
+		return this.worldObj.getPlayerEntityByName(this.func_152113_b());
 	}
  
 	@Override
@@ -213,7 +213,7 @@ public class EntityParatiku extends EntityDivineRPGTameable {
 			this.currentFlightTarget = new ChunkCoordinates(var1, var2, var3);
 		}
 		else if (this.getOwner() != null) {
-			this.currentFlightTarget = this.worldObj.getPlayerEntityByName(this.getOwnerName()).getPlayerCoordinates();
+			this.currentFlightTarget = this.worldObj.getPlayerEntityByName(this.func_152113_b()).getPlayerCoordinates();
 		} else {
 			if (this.rand.nextInt(200) == 0) {
 				this.rotationYawHead = this.rand.nextInt(360);

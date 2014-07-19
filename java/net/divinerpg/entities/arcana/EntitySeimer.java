@@ -21,7 +21,7 @@ public class EntitySeimer extends EntityDivineRPGTameable {
     public EntitySeimer(World par1World, EntityPlayer p) {
         this(par1World);
         setTamed(true);
-        setOwner(p.getDisplayName());
+        func_152115_b(p.getDisplayName());
     }
     
     public EntitySeimer(World par1World) {
@@ -70,7 +70,7 @@ public class EntitySeimer extends EntityDivineRPGTameable {
             }
         } else {
             this.setTamed(true);
-            this.setOwner(par1EntityPlayer.getDisplayName());
+            this.func_152115_b(par1EntityPlayer.getDisplayName());
         }
 
         return super.interact(par1EntityPlayer);

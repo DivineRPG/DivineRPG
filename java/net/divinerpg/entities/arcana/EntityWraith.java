@@ -15,7 +15,7 @@ public class EntityWraith extends EntityParatiku {
         super(par1World);
         this.age = 120;
         this.setTamed(true);
-        this.setOwner(owner.getDisplayName());
+        this.func_152115_b(owner.getDisplayName());
     }
 
     public EntityWraith(World par1World) {
@@ -81,7 +81,7 @@ public class EntityWraith extends EntityParatiku {
             this.currentFlightTarget = new ChunkCoordinates(var1, var2, var3);
         }
         else if (this.getOwner() != null) {
-            this.currentFlightTarget = this.worldObj.getPlayerEntityByName(this.getOwnerName()).getPlayerCoordinates();
+            this.currentFlightTarget = this.worldObj.getPlayerEntityByName(this.func_152113_b()).getPlayerCoordinates();
         }
 
         if (this.getIsBatHanging()) {

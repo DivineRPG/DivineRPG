@@ -32,7 +32,7 @@ public class ItemEnderScepter extends ItemMod {
 		double var6 = par3.posX;
 		double var8 = par3.posY + 1.62D - (double)par3.yOffset;
 		double var10 = par3.posZ;
-		Vec3 var12 = par2.getWorldVec3Pool().getVecFromPool(var6, var8, var10);
+		Vec3 var12 = Vec3.createVectorHelper(var6, var8, var10);
 		float var13 = MathHelper.cos(-var5 * 0.01745329F - (float)Math.PI);
 		float var14 = MathHelper.sin(-var5 * 0.01745329F - (float)Math.PI);
 		float var15 = -MathHelper.cos(-var4 * 0.01745329F);

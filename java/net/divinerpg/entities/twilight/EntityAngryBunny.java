@@ -23,7 +23,7 @@ public class EntityAngryBunny extends EntityBunny {
 	public EntityAngryBunny(World var1, boolean tamed, String owner) {
 		this(var1);
 		this.setTamed(tamed);
-        this.setOwner(owner);
+        this.func_152115_b(owner);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class EntityAngryBunny extends EntityBunny {
 	public void onLivingUpdate() {
         super.onLivingUpdate();
         if(!this.worldObj.isRemote && this.isTamed() && (this.getAttackTarget() == null || this.getAttackTarget().isDead)) {
-            EntityBunny var2 = new EntityBunny(this.worldObj, true, this.getOwnerName());
+            EntityBunny var2 = new EntityBunny(this.worldObj, true, this.func_152113_b());
             var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
             this.worldObj.spawnEntityInWorld(var2);
             this.setDead();

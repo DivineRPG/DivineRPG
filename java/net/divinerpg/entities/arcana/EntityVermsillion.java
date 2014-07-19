@@ -263,7 +263,7 @@ public class EntityVermsillion extends EntityDivineRPGTameable {
                 }
             }
 
-            if (var1.getDisplayName().equalsIgnoreCase(this.getOwnerName()) && !this.worldObj.isRemote && !this.isWheat(var2)) {
+            if (var1.getDisplayName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote && !this.isWheat(var2)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.setPathToEntity((PathEntity)null);
@@ -351,7 +351,7 @@ public class EntityVermsillion extends EntityDivineRPGTameable {
     @Override
     public EntityAnimal createChild(EntityAgeable var1) {
         EntityVermsillion var2 = new EntityVermsillion(this.worldObj);
-        var2.setOwner(this.getOwnerName());
+        var2.func_152115_b(this.func_152113_b());
         var2.setTamed(true);
         return var2;
     }
