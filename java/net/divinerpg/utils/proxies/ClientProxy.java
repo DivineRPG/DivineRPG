@@ -15,8 +15,11 @@ import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.events.EventClientLogin;
 import net.divinerpg.utils.events.EventExtraArmor;
 import net.divinerpg.utils.events.EventOverlay;
+import net.divinerpg.utils.events.EventStaffLogin;
 
 import com.jadarstudios.developercapes.DevCapes;
 
@@ -27,14 +30,13 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInitClient(FMLPreInitializationEvent event) {
         LogHelper.info("Adding events");
-        //if(ConfigurationHelper.canShowWelcomeChat) Util.addEventBus(new EventClientLogin());
-        //if(!ConfigurationHelper.canShowWelcomeChat) Util.addEventBus(new EventStaffLogin());
+        if(ConfigurationHelper.canShowWelcomeChat) Util.addEventBus(new EventClientLogin());
+        else Util.addEventBus(new EventStaffLogin());
         Util.addSpecialEventBus(new ArcanaTickHandler());
         Util.addSpecialEventBus(new ClientTickHandler());
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
             Util.addEventBus(new EventOverlay());
-            Util.addEventBus(new EventExtraArmor());
             LangRegistry.registerNames();
             Sounds.init();
         }

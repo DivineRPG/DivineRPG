@@ -38,7 +38,7 @@ public class EventClientLogin {
 							}
 							else if(p.getDisplayName().equals("deathman12e3") || p.getDisplayName().equals("The_SlayerMC") || p.getDisplayName().equals("Mazetar")
 									|| p.getDisplayName().equals("itzakillshot") || p.getDisplayName().equals("geekclb")) {
-								Util.sendMessageToAll("A DivineRPG devolper has entered!");
+								p.addChatMessage(Util.addChatMessage("Welcome DivineRPG developer!"));
 								p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Your internet crashed from how awesome you are."));
 							} else {
 								p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
