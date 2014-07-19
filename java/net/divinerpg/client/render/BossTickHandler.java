@@ -132,7 +132,7 @@ public class BossTickHandler {
 			DivineBossStatus.statusBarTime--;
 			GuiIngame gig = mc.ingameGUI;
 			FontRenderer fontrenderer = this.mc.fontRenderer;
-			ScaledResolution scaledresolution = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
+			ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 			int i = scaledresolution.getScaledWidth();
 			int barLength = 182;
 			int finalBarLength = barLength + 1;

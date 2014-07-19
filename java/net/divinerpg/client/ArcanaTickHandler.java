@@ -36,7 +36,7 @@ public class ArcanaTickHandler {
 		ConfigurationHelper cfg = new ConfigurationHelper();
 		if(mc.currentScreen == null) {
 			GuiIngame gig = mc.ingameGUI;
-			ScaledResolution scaledresolution = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+			ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 			int i = scaledresolution.getScaledWidth();
 			int k = scaledresolution.getScaledHeight();
 			this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MOD_ID, "textures/gui/arcanaBar.png"));

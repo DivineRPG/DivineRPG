@@ -48,7 +48,8 @@ public class DefaultUser implements IUser
     {
         this.username = name;
         this.resource = new ResourceLocation("cloaks/" + name);
-        this.texture = new ThreadDownloadImageData(capeUrl, null, new HDImageBuffer());
+        //TODO: Fix this
+        //this.texture = new ThreadDownloadImageData(capeUrl, null, new HDImageBuffer());
     }
     
     @Override

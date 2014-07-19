@@ -30,14 +30,14 @@ public class BlockHeatTrap extends BlockMod {
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World var1, int var2, int var3, int var4)  {
         float var5 = 0.0625F;
-        return AxisAlignedBB.getAABBPool().getAABB(var2 + var5, var3, var4 + var5, var2 + 1 - var5, var3 + 1 - var5, var4 + 1 - var5);
+        return AxisAlignedBB.getBoundingBox(var2 + var5, var3, var4 + var5, var2 + 1 - var5, var3 + 1 - var5, var4 + 1 - var5);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World var1, int var2, int var3, int var4) {
         float var5 = 0.0625F;
-        return AxisAlignedBB.getAABBPool().getAABB(var2 + var5, var3, var4 + var5, var2 + 1 - var5, var3 + 1, var4 + 1 - var5);
+        return AxisAlignedBB.getBoundingBox(var2 + var5, var3, var4 + var5, var2 + 1 - var5, var3 + 1, var4 + 1 - var5);
     }
 
     @Override

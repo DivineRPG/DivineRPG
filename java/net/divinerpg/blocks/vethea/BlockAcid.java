@@ -28,7 +28,7 @@ public class BlockAcid extends BlockMod {
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
         int var5 = par1World.getBlockMetadata(par2, par3, par4) & 7;
-        return var5 >= 3 ? AxisAlignedBB.getAABBPool().getAABB(par2 + this.minX, par3 + this.minY, par4 + this.minZ, par2 + this.maxX, par3 + 0.5F, par4 + this.maxZ) : null;
+        return var5 >= 3 ? AxisAlignedBB.getBoundingBox(par2 + this.minX, par3 + this.minY, par4 + this.minZ, par2 + this.maxX, par3 + 0.5F, par4 + this.maxZ) : null;
     }
  
     @Override

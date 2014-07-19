@@ -93,7 +93,8 @@ public class DevCapes
      */
     public void addGroup(final String groupName, final String capeUrl)
     {
-        this.addGroup(groupName, new ThreadDownloadImageData(capeUrl, null, new HDImageBuffer()));
+    	//TODO: Fix this
+        //this.addGroup(groupName, new ThreadDownloadImageData(capeUrl, null, new HDImageBuffer()));
     }
     
     /**

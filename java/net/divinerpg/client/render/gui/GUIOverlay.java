@@ -29,7 +29,7 @@ public class GUIOverlay {
 			System.out.println("LOL");
 			r = set("half");
 			Minecraft mc = Minecraft.getMinecraft();
-			ScaledResolution sr = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+			ScaledResolution sr = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 			int x = sr.getScaledWidth() - 225;
 			int y = sr.getScaledHeight() - 50;
 			mc.getTextureManager().bindTexture(r);

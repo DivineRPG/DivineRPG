@@ -38,4 +38,9 @@ public class HDImageBuffer implements IImageBuffer
         
         return capeImage;
     }
+
+	@Override
+	public void func_152634_a() {
+		//TODO Find out what this does.
+	}
 }
