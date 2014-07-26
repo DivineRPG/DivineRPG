@@ -32,6 +32,12 @@ public class IS {
 		public static ItemStack shuriken = new ItemStack(VanillaItemsWeapons.shuriken, 20);
 		public static ItemStack vile = new ItemStack(VanillaItemsWeapons.vileStorm);
 		public static ItemStack longsword = new ItemStack(VanillaItemsWeapons.longsword);
+		public static ItemStack oceanKnife = new ItemStack(VanillaItemsWeapons.oceanKnife);
+		public static ItemStack aquaticMaul = new ItemStack(VanillaItemsWeapons.aquaticMaul);
+		public static ItemStack bedrockSword = new ItemStack(VanillaItemsWeapons.bedrockSword);
+		public static ItemStack divineSword = new ItemStack(VanillaItemsWeapons.divineSword);
+		public static ItemStack bedrockMaul = new ItemStack(VanillaItemsWeapons.bedrockMaul);
+		public static ItemStack aquaticTrident = new ItemStack(VanillaItemsWeapons.aquaticTrident);
 
 		//Tools
 		public static ItemStack arlemitePick = new ItemStack(VanillaItemsTools.arlemitePickaxe);

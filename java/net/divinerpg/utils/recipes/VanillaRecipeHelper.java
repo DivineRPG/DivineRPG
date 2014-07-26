@@ -6,6 +6,7 @@ import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 
 public class VanillaRecipeHelper {
@@ -20,8 +21,12 @@ public class VanillaRecipeHelper {
 		Util.addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
 		Util.addBigRecipe(IS.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		Util.addBigRecipe(IS.longsword, " I ", " I ", " I ", "III", " S ", 'I', Items.iron_ingot, 'S', Items.stick);
-		
-		Util.addRecipe(IS.arlemitePick, "III", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
+		Util.addRecipe(IS.oceanKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
+		Util.addRecipe(IS.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
+		Util.addRecipe(IS.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', Items.stick);
+		Util.addRecipe(IS.divineSword, " s ", "sss", " S ", 's', VanillaItemsOther.divineStone, 'S', Items.stick);
+		Util.addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'I', Blocks.bedrock);
+		Util.addRecipe(IS.aquaticTrident, " I ", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		
 		Util.addRecipe(IS.realHead, "III", "I I", "  ", 'I', VanillaItemsOther.realmiteIngot);
 		Util.addRecipe(IS.realBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
