@@ -75,9 +75,10 @@ public class BlockNightmareBed extends BlockBed {
                         player.addChatComponentMessage(new ChatComponentTranslation("tile.bed.occupied", new Object[0]));
                         return true;
                     }
-
-                    func_149979_a(world, x, y, z, false);
+                    
                     EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
+                    func_149979_a(world, x, y, z, false);
+                    MPPlayer.setSpawnChunk(new ChunkCoordinates(x, y + 1, z), true);
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
                 }
 

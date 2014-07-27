@@ -30,13 +30,7 @@ public class TeleporterVethea extends Teleporter {
 		if(dim != ConfigurationHelper.vethea) {
 			x = getRandomIntegerBetween((int) x - 16, (int) x + 16);
 			z = getRandomIntegerBetween((int) z - 16, (int) z + 16);
-			for(int i = 0; i < worldServerInstance.getHeight(); i++) {
-				if(worldServerInstance.canBlockSeeTheSky((int) x, i, (int) z)) {
-					y = i;
-					break;
-				}
-			}
-			player.setLocationAndAngles(x, y, z, player.rotationYaw, 0.0F);
+			player.setLocationAndAngles(x, 20, z, player.rotationYaw, 0.0F);
 			player.motionX = player.motionY = player.motionZ = 0.0D;
 		} else {
 			if(worldServerInstance.provider.dimensionId == ConfigurationHelper.vethea) {
