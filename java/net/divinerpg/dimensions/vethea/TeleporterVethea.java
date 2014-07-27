@@ -8,6 +8,7 @@ import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.LongHashMap;
 import net.minecraft.world.Teleporter;
@@ -30,6 +31,14 @@ public class TeleporterVethea extends Teleporter {
 		if(dim != ConfigurationHelper.vethea) {
 			x = getRandomIntegerBetween((int) x - 16, (int) x + 16);
 			z = getRandomIntegerBetween((int) z - 16, (int) z + 16);
+			int x1 = (int)x, z1 = (int)z;
+			if(player.worldObj.getBlock(x1, (int)y+2, z1) != Blocks.air) {
+				for(int i = 0; player.worldObj.getBlock(x1, (int)y+2, z1) != Blocks.air; x1++) {
+					z1++;
+				}
+				x = x1;
+				z = z1;
+			}
 			player.setLocationAndAngles(x, 20, z, player.rotationYaw, 0.0F);
 			player.motionX = player.motionY = player.motionZ = 0.0D;
 		} else {
