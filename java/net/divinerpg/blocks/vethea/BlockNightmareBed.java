@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.divinerpg.api.worldgen.WorldGenAPI;
 import net.divinerpg.dimensions.vethea.TeleporterVethea;
+import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
@@ -12,19 +13,32 @@ import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.Direction;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockNightmareBed extends BlockBed {
 	
+	@SideOnly(Side.CLIENT)
+    private IIcon[] top;
+	@SideOnly(Side.CLIENT)
+    private IIcon[] end;
+    @SideOnly(Side.CLIENT)
+    private IIcon[] side;
+    
 	public BlockNightmareBed() {
 		super();
         String name = "nightmareBedBlock";
@@ -132,4 +146,26 @@ public class BlockNightmareBed extends BlockBed {
 	public Item getItemDropped(int par1, Random rand, int par3) {
 		return VetheaItems.nightmareBed;
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public IIcon getIcon(int side, int meta) {
+        if (side == 0) {
+            return TwilightBlocks.mortumBlock.getBlockTextureFromSide(side);
+        }
+        else {
+            int k = getDirection(meta);
+            int l = Direction.bedDirection[k][side];
+            int i1 = isBlockHeadOfBed(meta) ? 1 : 0;
+            return (i1 != 1 || l != 2) && (i1 != 0 || l != 3) ? (l != 5 && l != 4 ? top[i1] : this.side[i1]) : end[i1];
+        }
+    }
+
+	@Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister register) {
+        top = new IIcon[] {register.registerIcon(Reference.PREFIX + "bedFeetTop"), register.registerIcon(Reference.PREFIX + "bedHeadTop")};
+        end = new IIcon[] {register.registerIcon(Reference.PREFIX + "bedFeetEnd"), register.registerIcon(Reference.PREFIX + "bedHeadEnd")};
+        side = new IIcon[] {register.registerIcon(Reference.PREFIX + "bedFeetSide"), register.registerIcon(Reference.PREFIX + "bedHeadSide")};
+    }
 }
