@@ -5,8 +5,9 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.proxies.CommonProxy;
+import net.divinerpg.utils.recipes.CraftingDivineTableManager;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -15,6 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class DivineRPG {
@@ -54,4 +56,24 @@ public class DivineRPG {
 	public void serverStarting(FMLServerStartingEvent event){
 		proxy.serverStarting(event);
 	}
+	
+	protected static void addRecipe(ItemStack i, Object... o) {
+        GameRegistry.addRecipe(i, o);
+    }
+
+	protected static void addBigRecipe(ItemStack i, Object... o) {
+        CraftingDivineTableManager.getInstance().addRecipe(i, o);
+    }
+    
+	protected static void addShapelessRecipe(ItemStack i, Object... o) {
+        GameRegistry.addShapelessRecipe(i, o);
+    }
+
+	protected static void addBigShapelessRecipe(ItemStack i, Object... o) {
+        CraftingDivineTableManager.getInstance().addShapelessRecipe(i, o);
+    }
+
+	protected static void addSmelting(ItemStack input, ItemStack output, float XP) {
+        GameRegistry.addSmelting(input, output, XP);
+    }
 }
