@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.IItemRenderer;
@@ -25,7 +26,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
 import net.minecraftforge.fluids.FluidRegistry;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -118,8 +118,12 @@ public class Util {
     }
 
     public static void sendMessageToAll(String message) {
-        FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
+    	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
     }
+    
+    /*public static void sendMessageToAll(String message) {
+        FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
+    }*/
     
     public static void sendMessageToAll(String message, boolean isContinued) {
         FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(new ChatComponentTranslation(GREEN + message));
@@ -182,7 +186,7 @@ public class Util {
             }
 
             if (ItemStack.areItemStacksEqual(new ItemStack(removed), recipeResult)) {
-                System.out.println("[DivineRPG] Removed Recipe: " + recipes.get(i) + " -> " + recipeResult);
+                System.out.println("[DivineRPG] Removed recipe: " + recipes.get(i) + " -> " + recipeResult);
                 recipes.remove(i);
             }
         }

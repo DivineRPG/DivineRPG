@@ -8,16 +8,13 @@ import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
 import net.divinerpg.api.blocks.BlockModSpawner;
 import net.divinerpg.api.blocks.BlockModVine;
-import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.vethea.BlockAcid;
 import net.divinerpg.blocks.vethea.BlockHelioticBeam;
 import net.divinerpg.blocks.vethea.BlockInfusionTable;
 import net.divinerpg.blocks.vethea.BlockKarosCannon;
 import net.divinerpg.blocks.vethea.BlockKarosHeatTile;
 import net.divinerpg.blocks.vethea.BlockNightmareBed;
-import net.divinerpg.blocks.vethea.BlockVetheaFire;
 import net.divinerpg.blocks.vethea.BlockVetheaPlant;
-import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -37,8 +34,6 @@ public class VetheaBlocks {
     public static final Block             raglokAltar            = new BlockMod("raglokAltar", 0.7F, DivineRPGTabs.spawner);
     public static final Block             lunicAltar             = new BlockMod("lunicAltar", 0.7F, DivineRPGTabs.spawner);
     
-    public static final Block 			  vetheaFire			 = new BlockVetheaFire("vetheaFire");
-    public static final BlockModPortal    vetheaPortal           = (BlockModPortal) new BlockModPortal("vetheaPortal", ConfigurationHelper.vethea, vetheaFire, TwilightBlocks.mortumBlock);
     public static final Block             dreamStone             = new BlockMod("dreamStone", 0.4F, DivineRPGTabs.vethea);
     public static final Block             dreamDirt              = new BlockMod(EnumBlockType.DIRT, "dreamDirt", 0.3F, DivineRPGTabs.vethea);
     public static final Block             dreamGrass             = new BlockModGrass((BlockMod) dreamDirt, "dreamGrass", 0.3F);

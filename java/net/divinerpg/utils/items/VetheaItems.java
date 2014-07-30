@@ -3,7 +3,6 @@ package net.divinerpg.utils.items;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.items.vethea.ItemDisk;
-import net.divinerpg.items.vethea.ItemDreamPowder;
 import net.divinerpg.items.vethea.ItemNightmareBed;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.items.vethea.ItemVetheanCannon;
@@ -132,7 +131,6 @@ public class VetheaItems {
 
     public static final Item dreamFlint         = new ItemMod("dreamFlint").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item moonClock          = new ItemMod("moonClock").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item dreamPowder        = new ItemDreamPowder("dreamPowder").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item rockChunks         = new ItemMod("rockChunks").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item nightmareBed       = new ItemNightmareBed();
 }
