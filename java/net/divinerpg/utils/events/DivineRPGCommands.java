@@ -4,11 +4,11 @@ import java.util.List;
 
 import net.divinerpg.api.worldgen.DivineTeleporter;
 import net.divinerpg.dimensions.arcana.TeleporterArcana;
+import net.divinerpg.dimensions.vethea.TeleporterVethea;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
-import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -35,19 +35,19 @@ public class DivineRPGCommands extends CommandBase {
 
 			if (args[0].equalsIgnoreCase("Overworld")) {
 				if (playerMP.dimension != 0) {
-					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, 0, new Teleporter(playerMP.mcServer.worldServerForDimension(0)));
+					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, 0, new Teleporter(playerMP.mcServer.worldServerForDimension(playerMP.dimension)));
 				}
 			}
 			
 			if (args[0].equalsIgnoreCase("Nether")) {
 				if (playerMP.dimension != -1) {
-					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, -1, new Teleporter(playerMP.mcServer.worldServerForDimension(-1)));
+					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, -1, new Teleporter(playerMP.mcServer.worldServerForDimension(playerMP.dimension)));
 				}
 			}
 
 			if (args[0].equalsIgnoreCase("End")) {
 				if (playerMP.dimension != 1) {
-					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, 1, new Teleporter(playerMP.mcServer.worldServerForDimension(1)));
+					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, 1, new Teleporter(playerMP.mcServer.worldServerForDimension(playerMP.dimension)));
 				}
 			}
 
@@ -108,9 +108,8 @@ public class DivineRPGCommands extends CommandBase {
 
 			if (args[0].equalsIgnoreCase("Vethea")) {
 				if (playerMP.dimension != ConfigurationHelper.vethea) {
-					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, ConfigurationHelper.vethea,
-							new DivineTeleporter(playerMP.mcServer.worldServerForDimension(ConfigurationHelper.vethea), ConfigurationHelper.vethea,
-									VetheaBlocks.vetheaPortal, TwilightBlocks.mortumBlock));
+					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, ConfigurationHelper.vethea, 
+							new TeleporterVethea(playerMP.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
 				}
 			}
 
