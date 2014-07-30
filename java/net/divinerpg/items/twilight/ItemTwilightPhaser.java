@@ -57,7 +57,7 @@ public class ItemTwilightPhaser extends ItemMod {
 					var1.damageItem(1, var3);
 				}
 
-				if(var1.getItem() == TwilightItemsWeapons.wildWoodPhaser) {
+				if(var1.getItem() == TwilightItemsWeapons.wildwoodPhaser) {
 					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
 					var2.spawnEntityInWorld(new EntityPhaserWildWood(var2, var3));
 					var1.damageItem(1, var3);
@@ -98,7 +98,7 @@ public class ItemTwilightPhaser extends ItemMod {
 					var1.damageItem(1, var3);
 				}
 
-				if(var1.getItem() == TwilightItemsWeapons.wildWoodPhaser) {
+				if(var1.getItem() == TwilightItemsWeapons.wildwoodPhaser) {
 					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
 					var2.spawnEntityInWorld(new EntityPhaserWildWood(var2, var3));
 					var1.damageItem(1, var3);
@@ -146,7 +146,7 @@ public class ItemTwilightPhaser extends ItemMod {
 			list.add(item.getMaxDamage() - item.getItemDamage() + " Uses");
 		}
 
-		if(item.getItem() == TwilightItemsWeapons.wildWoodPhaser) {
+		if(item.getItem() == TwilightItemsWeapons.wildwoodPhaser) {
 			list.add("30 Ranged Damage");
 			list.add(item.getMaxDamage() - item.getItemDamage() + " Uses");
 		}

@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityWildWoodArrow extends EntityModArrow{
 
-	private static Item arrow = TwilightItemsWeapons.wildWoodArrow;
+	private static Item arrow = TwilightItemsWeapons.wildwoodArrow;
 	private static double damage = 31.0D;
 	
 	public EntityWildWoodArrow(World par1World) {

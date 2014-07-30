@@ -96,7 +96,7 @@ public class TwilightEntityRenderer {
 	
 	public static void init(){
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerEden.class, new RenderIconProjectile(TwilightItemsWeapons.edenSlicer));
-        RenderingRegistry.registerEntityRenderingHandler(EntitySlicerWildWoods.class, new RenderIconProjectile(TwilightItemsWeapons.wildWoodSlicer));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySlicerWildWoods.class, new RenderIconProjectile(TwilightItemsWeapons.wildwoodSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerApalachia.class, new RenderIconProjectile(TwilightItemsWeapons.apalachiaSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerSkythern.class, new RenderIconProjectile(TwilightItemsWeapons.skythernSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerMortum.class, new RenderIconProjectile(TwilightItemsWeapons.mortumSlicer));

@@ -42,7 +42,7 @@ public class ItemTwilightBlitz extends ItemMod {
 		if (!var4 && !var3.inventory.hasItem(TwilightItemsOther.wildWoodDust)) {
 			return var1;
 		} else {
-			if(var1.getItem() == TwilightItemsWeapons.wildWoodBlitz) {
+			if(var1.getItem() == TwilightItemsWeapons.wildwoodBlitz) {
 				if(!var2.isRemote) {
 					var2.playSoundAtEntity(var3, sound, 1.0F, 1.0F);
 					var2.spawnEntityInWorld(new EntityBlitzWildWood(var2, var3));

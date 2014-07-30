@@ -51,7 +51,7 @@ public class ItemThrowable extends ItemMod {
 				var2.spawnEntityInWorld(new EntitySlicerEden(var2, var3));
 			}
 
-			if(var1.getItem() == TwilightItemsWeapons.wildWoodSlicer){
+			if(var1.getItem() == TwilightItemsWeapons.wildwoodSlicer){
 				var2.spawnEntityInWorld(new EntitySlicerWildWoods(var2, var3));
 			}
 
