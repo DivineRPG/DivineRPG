@@ -9,6 +9,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 #####Main Team
 * BossLetsPlays - Lead Developer (code, etc)
 * RadioactiveStud (aka SoccerStud) - Development Leader (content director, etc) / Wiki admin
+* Laorwick - Recipes
 * BlueEyes9 - Models/Textures
 
 #####Special Thanks to
