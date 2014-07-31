@@ -54,7 +54,7 @@ public class EntityVerek extends EntityDivineRPGMob {
 
     @Override
     protected Item getDropItem() {
-        return TwilightItemsOther.wildWoodSoul;
+        return TwilightItemsOther.wildwoodSoul;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class EntityVerek extends EntityDivineRPGMob {
         int var3 = this.rand.nextInt(2 + var2);
 
         for (int var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(TwilightItemsOther.wildWoodSoul, 2);
+            this.dropItem(TwilightItemsOther.wildwoodSoul, 2);
         }
     }
 

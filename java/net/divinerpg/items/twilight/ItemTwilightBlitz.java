@@ -39,7 +39,7 @@ public class ItemTwilightBlitz extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		boolean var4 = var3.capabilities.isCreativeMode;
 
-		if (!var4 && !var3.inventory.hasItem(TwilightItemsOther.wildWoodDust)) {
+		if (!var4 && !var3.inventory.hasItem(TwilightItemsOther.wildwoodDust)) {
 			return var1;
 		} else {
 			if(var1.getItem() == TwilightItemsWeapons.wildwoodBlitz) {
@@ -47,7 +47,7 @@ public class ItemTwilightBlitz extends ItemMod {
 					var2.playSoundAtEntity(var3, sound, 1.0F, 1.0F);
 					var2.spawnEntityInWorld(new EntityBlitzWildWood(var2, var3));
 				}
-				var3.inventory.consumeInventoryItem(TwilightItemsOther.wildWoodDust);
+				var3.inventory.consumeInventoryItem(TwilightItemsOther.wildwoodDust);
 			}
 		}
 

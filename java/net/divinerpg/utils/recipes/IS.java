@@ -49,16 +49,19 @@ public class IS {
 	public static ItemStack edenSlicer = new ItemStack(TwilightItemsWeapons.edenSlicer);
 	public static ItemStack wildwoodSlicer = new ItemStack(TwilightItemsWeapons.wildwoodSlicer);
 	public static ItemStack apalachiaSlicer = new ItemStack(TwilightItemsWeapons.apalachiaSlicer);
+	public static ItemStack skythernSlicer = new ItemStack(TwilightItemsWeapons.skythernSlicer);
 	public static ItemStack mortumSlicer = new ItemStack(TwilightItemsWeapons.mortumSlicer);
 
 	public static ItemStack edenBlitz = new ItemStack(TwilightItemsWeapons.edenBlitz);
 	public static ItemStack wildwoodBlitz = new ItemStack(TwilightItemsWeapons.wildwoodBlitz);
 	public static ItemStack apalachiaBlitz = new ItemStack(TwilightItemsWeapons.apalachiaBlitz);
+	public static ItemStack skythernBlitz = new ItemStack(TwilightItemsWeapons.skythernBlitz);
 	public static ItemStack mortumBlitz = new ItemStack(TwilightItemsWeapons.mortumBlitz);
 
 	public static ItemStack edenPhaser = new ItemStack(TwilightItemsWeapons.edenPhaser);
 	public static ItemStack wildwoodPhaser = new ItemStack(TwilightItemsWeapons.wildwoodPhaser);
 	public static ItemStack apalachiaPhaser = new ItemStack(TwilightItemsWeapons.apalachiaPhaser);
+	public static ItemStack skythernPhaser = new ItemStack(TwilightItemsWeapons.skythernPhaser);
 	public static ItemStack mortumPhaser = new ItemStack(TwilightItemsWeapons.mortumPhaser);
 
 	public static ItemStack edenArrow = new ItemStack(TwilightItemsWeapons.edenArrow);

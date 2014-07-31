@@ -56,7 +56,7 @@ public class EntityWildWoodGolem extends EntityDivineRPGMob {
  
     @Override
     protected Item getDropItem() {
-        return TwilightItemsOther.wildWoodSoul;
+        return TwilightItemsOther.wildwoodSoul;
     }
 
 	@Override
