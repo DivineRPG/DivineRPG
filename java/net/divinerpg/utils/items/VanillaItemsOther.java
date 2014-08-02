@@ -63,4 +63,7 @@ public class VanillaItemsOther {
     
     public static final Item mushroomSeeds 		= new ItemModSeeds("mushroomSeeds", VanillaBlocks.mushroom);
     public static final Item tomatoSeeds 		= new ItemModSeeds("tomatoSeeds", VanillaBlocks.tomato);
+    public static final Item krakenSkin 		= new ItemMod("krakenSkin");
+    public static final Item krakenScale 		= new ItemMod("krakenScale");
+    
 }

@@ -200,6 +200,8 @@ public class IS {
 	public static ItemStack skythernChunk = new ItemStack(TwilightItemsOther.skythernChunk);
 	public static ItemStack mortumChunk = new ItemStack(TwilightItemsOther.mortumChunk);
 	public static ItemStack legEnderEye = new ItemStack(VanillaItemsOther.legendaryEnderEye);
+	public static ItemStack krakenScale = new ItemStack(VanillaItemsOther.krakenScale);
+	public static ItemStack krakenSkin = new ItemStack(VanillaItemsOther.krakenSkin);
 
 	//Blocks
 	public static ItemStack arlemiteBlock = new ItemStack(VanillaBlocks.arlemiteBlock);

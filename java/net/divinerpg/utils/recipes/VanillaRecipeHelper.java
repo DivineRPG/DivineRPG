@@ -34,7 +34,7 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.aquaticDagger, "  ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		addRecipe(IS.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		addRecipe(IS.aquaticTrident, " I ", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
-		addRecipe(IS.aquaton, "III", "III", " S ", 'I', VanillaitemsOther.aquaticIngot, 'S', Items.stick);
+		addRecipe(IS.aquaton, "III", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		addRecipe(IS.sharkfinSword, " I ", " I ", " S ", 'I', VanillaItemsOther.sharkFin, 'S', VanillaItemsOther.aquaticIngot);
 		addRecipe(IS.crabclawMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.crabClaw, 'S', Items.stick);
 		addRecipe(IS.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', Items.stick);
@@ -138,6 +138,9 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.enderStone, "III", "III", "III", 'I', VanillaItemsOther.enderShard);
 
 		addRecipe(IS.legEnderEye, "III", "III", "III", 'I', VanillaItemsOther.enderStone);
+		
+		addRecipe(IS.krakenScale, "K K", "K K", "KKK", 'K', Items.dye, 0);
+		addShapelessRecipe(IS.krakenSkin, VanillaItemsOther.krakenScale, VanillaItemsOther.krakenScale);
 		
 		addShapelessRecipe(IS.bacon, Items.porkchop);
 		addRecipe(IS.cheese, "MMM", "MMM", "MMM", 'M', Items.milk_bucket);
