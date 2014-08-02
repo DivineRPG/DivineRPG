@@ -14,11 +14,11 @@ public class VanillaRecipeHelper extends DivineRPG {
 
 	public static void init(){
 		//weapons
-		addRecipe(IS.frostSword, " I ", " I ", " S ", 'I', VanillaItemsOther.iceStone, 'S', Items.stick);
+		addRecipe(IS.frostSword, " I ", " I ", " S ", 'I', IceikaItems.iceStone, 'S', Items.stick);
 		addRecipe(IS.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		addRecipe(IS.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
 		addRecipe(IS.arlemiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addRecipe(IS.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsWeapons.rupeeIngot, 'S', Items.stick);
+		addRecipe(IS.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', Items.stick);
 		addRecipe(IS.realmiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
@@ -28,7 +28,7 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		addRecipe(IS.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', Items.stick);
 		addRecipe(IS.divineSword, " s ", "sss", " S ", 's', VanillaItemsOther.divineStone, 'S', Items.stick);
-		addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'I', Blocks.bedrock, 'I', Items.Stick);
+		addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'I', Blocks.bedrock, 'I', Items.stick);
 		addRecipe(IS.aquaticTrident, " I ", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		
 		
@@ -63,10 +63,10 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.infernoLegs ,"III", "I I", "I I", 'I', VanillaItemsOther.moltenStone);
 		addRecipe(IS.infernoFeet, "  ", "I I", "I I", 'I', VanillaItemsOther.moltenStone);
 		
-		addRecipe(IS.netherniteHead, "III", "I I", "  ", 'I', VanillaItemsOther.netherIngot);
-		addRecipe(IS.netheriteBody, "I I", "III", "III", 'I', VanillaItemsOther.netherIngot);
-		addRecipe(IS.netheriteLegs, "III", "I I", "I I", 'I', VanillaItemsOther.netherIngot);
-		addRecipe(IS.netheriteFeet, "  ", "I I", "I I", 'I', VanillaItemsOther.netherIngot);
+		addRecipe(IS.netherHead, "III", "I I", "  ", 'I', VanillaItemsOther.netheriteIngot);
+		addRecipe(IS.netherBody, "I I", "III", "III", 'I', VanillaItemsOther.netheriteIngot);
+		addRecipe(IS.netherLegs, "III", "I I", "I I", 'I', VanillaItemsOther.netheriteIngot);
+		addRecipe(IS.netherFeet, "  ", "I I", "I I", 'I', VanillaItemsOther.netheriteIngot);
 		
 		addRecipe(IS.enderHead, "III", "I I", "  ", 'I', VanillaItemsOther.enderStone);
 		addRecipe(IS.enderBody, "I I", "III", "III", 'I', VanillaItemsOther.enderStone);
@@ -78,10 +78,10 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.divineLegs, "III", "I I", "I I", 'I', VanillaItemsOther.divineStone);
 		addRecipe(IS.divineFeet, "  ", "I I", "I I", 'I', VanillaItemsOther.divineStone);
 		
-		addRecipe(IS.angelicHead, "III", "X X", "   ", 'I', VanillaItemsOther.bluefireStone, 'X', VanillaItems.iceStone);
-		addRecipe(IS.angelicBody, "I I", "XIX", "XXX", 'I', VanillaItemsOther.bluefireStone, 'X', VanillaItems.iceStone);
-		addRecipe(IS.angelicLegs, "III", "X X", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', VanillaItems.iceStone);
-		addRecipe(IS.angelicFeet, "  ", "I I", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', VanillaItems.iceStone);
+		addRecipe(IS.angelicHead, "III", "X X", "   ", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
+		addRecipe(IS.angelicBody, "I I", "XIX", "XXX", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
+		addRecipe(IS.angelicLegs, "III", "X X", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
+		addRecipe(IS.angelicFeet, "  ", "I I", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
 		
 		addRecipe(IS.shadowHead, "III", "I I", "  ", 'I', VanillaItemsOther.shadowBar);
 		addRecipe(IS.shadowBody, "I I", "III", "III", 'I', VanillaItemsOther.shadowBar);

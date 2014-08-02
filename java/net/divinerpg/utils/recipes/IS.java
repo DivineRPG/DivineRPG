@@ -38,6 +38,7 @@ public class IS {
 	public static ItemStack divineSword = new ItemStack(VanillaItemsWeapons.divineSword);
 	public static ItemStack bedrockMaul = new ItemStack(VanillaItemsWeapons.bedrockMaul);
 	public static ItemStack aquaticTrident = new ItemStack(VanillaItemsWeapons.aquaticTrident);
+	public static ItemStack frostSword = new ItemStack(VanillaItemsWeapons.frostSword);
 
 	//Twilight Weapons
 	public static ItemStack edenBlade = new ItemStack(TwilightItemsWeapons.edenBlade);
@@ -87,10 +88,61 @@ public class IS {
 	public static ItemStack realBody = new ItemStack(VanillaItemsArmor.realmiteBody);
 	public static ItemStack realLegs = new ItemStack(VanillaItemsArmor.realmiteLegs);
 	public static ItemStack realFeet = new ItemStack(VanillaItemsArmor.realmiteBoots);
+	
 	public static ItemStack eliteHead = new ItemStack(VanillaItemsArmor.eliteRealmiteHelmet);
 	public static ItemStack eliteBody = new ItemStack(VanillaItemsArmor.eliteRealmiteBody);
 	public static ItemStack eliteLegs = new ItemStack(VanillaItemsArmor.eliteRealmiteLegs);
 	public static ItemStack eliteFeet = new ItemStack(VanillaItemsArmor.eliteRealmiteBoots);
+
+	public static ItemStack bedrockHead = new ItemStack(VanillaItemsArmor.bedrockHelmet);
+	public static ItemStack bedrockBody = new ItemStack(VanillaItemsArmor.bedrockBody);
+	public static ItemStack bedrockLegs = new ItemStack(VanillaItemsArmor.bedrockLegs);
+	public static ItemStack bedrockFeet = new ItemStack(VanillaItemsArmor.bedrockBoots);
+
+	public static ItemStack rupeeHead = new ItemStack(VanillaItemsArmor.rupeeHelmet);
+	public static ItemStack rupeeBody = new ItemStack(VanillaItemsArmor.rupeeBody);
+	public static ItemStack rupeeLegs = new ItemStack(VanillaItemsArmor.rupeeLegs);
+	public static ItemStack rupeeFeet = new ItemStack(VanillaItemsArmor.rupeeBoots);
+
+	public static ItemStack arlemiteHead = new ItemStack(VanillaItemsArmor.arlemiteHelmet);
+	public static ItemStack arlemiteBody = new ItemStack(VanillaItemsArmor.arlemiteBody);
+	public static ItemStack arlemiteLegs = new ItemStack(VanillaItemsArmor.arlemiteLegs);
+	public static ItemStack arlemiteFeet = new ItemStack(VanillaItemsArmor.arlemiteBoots);
+
+	public static ItemStack infernoHead = new ItemStack(VanillaItemsArmor.infernoHelmet);
+	public static ItemStack infernoBody = new ItemStack(VanillaItemsArmor.infernoBody);
+	public static ItemStack infernoLegs = new ItemStack(VanillaItemsArmor.infernoLegs);
+	public static ItemStack infernoFeet = new ItemStack(VanillaItemsArmor.infernoBoots);
+
+	public static ItemStack netherHead = new ItemStack(VanillaItemsArmor.eliteRealmiteHelmet);
+	public static ItemStack netherBody = new ItemStack(VanillaItemsArmor.eliteRealmiteBody);
+	public static ItemStack netherLegs = new ItemStack(VanillaItemsArmor.eliteRealmiteLegs);
+	public static ItemStack netherFeet = new ItemStack(VanillaItemsArmor.eliteRealmiteBoots);
+
+	public static ItemStack enderHead = new ItemStack(VanillaItemsArmor.enderHelmet);
+	public static ItemStack enderBody = new ItemStack(VanillaItemsArmor.enderBody);
+	public static ItemStack enderLegs = new ItemStack(VanillaItemsArmor.enderLegs);
+	public static ItemStack enderFeet = new ItemStack(VanillaItemsArmor.enderBoots);
+
+	public static ItemStack divineHead = new ItemStack(VanillaItemsArmor.divineHelmet);
+	public static ItemStack divineBody = new ItemStack(VanillaItemsArmor.divineBody);
+	public static ItemStack divineLegs = new ItemStack(VanillaItemsArmor.divineLegs);
+	public static ItemStack divineFeet = new ItemStack(VanillaItemsArmor.divineBoots);
+
+	public static ItemStack angelicHead = new ItemStack(VanillaItemsArmor.angelicHelmet);
+	public static ItemStack angelicBody = new ItemStack(VanillaItemsArmor.angelicBody);
+	public static ItemStack angelicLegs = new ItemStack(VanillaItemsArmor.angelicLegs);
+	public static ItemStack angelicFeet = new ItemStack(VanillaItemsArmor.angelicBoots);
+
+	public static ItemStack shadowHead = new ItemStack(VanillaItemsArmor.shadowHelmet);
+	public static ItemStack shadowBody = new ItemStack(VanillaItemsArmor.shadowBody);
+	public static ItemStack shadowLegs = new ItemStack(VanillaItemsArmor.shadowLegs);
+	public static ItemStack shadowFeet = new ItemStack(VanillaItemsArmor.shadowBoots);
+
+	public static ItemStack aquastriveHead = new ItemStack(VanillaItemsArmor.aquastriveHelmet);
+	public static ItemStack aquastriveBody = new ItemStack(VanillaItemsArmor.aquastriveBody);
+	public static ItemStack aquastriveLegs = new ItemStack(VanillaItemsArmor.aquastriveLegs);
+	public static ItemStack aquastriveFeet = new ItemStack(VanillaItemsArmor.aquastriveBoots);
 
 	//Twilight Armor
 	public static ItemStack edenHead = new ItemStack(TwilightItemsArmor.edenHelmet);

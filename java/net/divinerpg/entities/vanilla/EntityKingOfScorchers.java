@@ -89,7 +89,7 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
     public void dropFewItems(boolean par1, int par2) {
         int var1 = this.rand.nextInt(4);
         this.dropItem(getDropItem(), 1);
-        this.dropItem(VanillaItemsOther.blueFireStone, 7);
+        this.dropItem(VanillaItemsOther.bluefireStone, 7);
 		
 		if(this.rand.nextInt(1) == 0) {
 			this.dropItem(Item.getItemFromBlock(VanillaBlocks.KingStatue), 1);

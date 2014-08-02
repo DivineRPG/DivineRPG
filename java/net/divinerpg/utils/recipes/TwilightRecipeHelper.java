@@ -65,7 +65,7 @@ public class TwilightRecipeHelper extends DivineRPG {
 		addRecipe(IS.edenBow, " IX", "I X", " IX", 'I', TwilightItemsOther.edenChunk, 'X', Items.string);
 		addRecipe(IS.edenPhaser, " X ", "XXX", " X ", 'X', TwilightItemsOther.edenChunk);
 		addRecipe(IS.edenBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.edenChunk);
-		addShapelessRecipe(IS.edenSlicer, "  ", 'X', "", 'X', TwilightItemsOther.edenGem);
+		addShapelessRecipe(IS.edenSlicer, TwilightItemsOther.edenGem);
 		addRecipe(IS.edenArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.edenFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//wildwood

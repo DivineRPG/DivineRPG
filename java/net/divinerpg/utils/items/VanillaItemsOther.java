@@ -43,7 +43,7 @@ public class VanillaItemsOther {
     public static final Item sharkFin           = new ItemMod("sharkFin");
     public static final Item whaleFin           = new ItemMod("whaleFin");
     public static final Item netheriteChunk     = new ItemMod("netheriteChunk");
-    public static final Item blueFireStone      = new ItemMod("bluefireStone");
+    public static final Item bluefireStone      = new ItemMod("bluefireStone");
     public static final Item purpleBlaze        = new ItemMod("purpleBlaze");
     public static final Item furyFire           = new ItemMod("furyFire");
 
