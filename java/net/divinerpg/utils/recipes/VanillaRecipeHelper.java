@@ -13,10 +13,12 @@ import net.minecraft.init.Items;
 public class VanillaRecipeHelper extends DivineRPG {
 
 	public static void init(){
+		//weapons
+		addRecipe(IS.frostSword, " I ", " I ", " S ", 'I', VanillaItemsOther.iceStone, 'S', Items.stick);
 		addRecipe(IS.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		addRecipe(IS.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
 		addRecipe(IS.arlemiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addRecipe(IS.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsWeapons.rupeeSword, 'S', Items.stick);
+		addRecipe(IS.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsWeapons.rupeeIngot, 'S', Items.stick);
 		addRecipe(IS.realmiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
@@ -26,9 +28,11 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		addRecipe(IS.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', Items.stick);
 		addRecipe(IS.divineSword, " s ", "sss", " S ", 's', VanillaItemsOther.divineStone, 'S', Items.stick);
-		addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'I', Blocks.bedrock);
+		addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'I', Blocks.bedrock, 'I', Items.Stick);
 		addRecipe(IS.aquaticTrident, " I ", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
 		
+		
+		//armor
 		addRecipe(IS.realHead, "III", "I I", "  ", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.realBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.realLegs, "III", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
@@ -38,7 +42,23 @@ public class VanillaRecipeHelper extends DivineRPG {
 		addRecipe(IS.eliteBody, "I I", "III", "III", 'I', VanillaBlocks.realmiteBlock);
 		addRecipe(IS.eliteLegs, "III", "I I", "I I", 'I', VanillaBlocks.realmiteBlock);
 		addRecipe(IS.eliteFeet, "   ", "I I", "I I", 'I', VanillaBlocks.realmiteBlock);
-
+		
+		addRecipe(IS.bedrockHead, "III", "I I", "  ", 'I', Blocks.bedrock);
+		addRecipe(IS.bedrockBody, "I I", "III", "III", 'I', Blocks.bedrock);
+		addRecipe(IS.bedrockLegs, "III", "I I", "I I", 'I', Blocks.bedrock);
+		addRecipe(IS.bedrockFeet, "  ", "I I", "I I", 'I', Blocks.bedrock);
+		
+		addRecipe(IS.rupeeHead, "III", "I I", "  ", 'I', VanillaItemsOther.rupeeIngot);
+		addRecipe(IS.rupeeBody, "I I", "III", "  ", 'I', VanillaItemsOther.rupeeIngot);
+		addRecipe(IS.rupeeLegs, "III", "I I", "I I", 'I', VanillaItemsOther.rupeeIngot);
+		addRecipe(IS.rupeeFeet, "  ", "I I", "I I", 'I', VanillaItemsOther.rupeeIngot);
+		
+		addRecipe(IS.arlemiteHead, "III", "X X", "  ", 'I', VanillaItemsOther.arlemiteIngot ,'X', Items.iron_ingot);
+		addRecipe(IS.arlemiteBody, "X X", "XIX", "III", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
+		addRecipe(IS.arlemiteLegs, "XIX", "I I", "X X", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
+		addRecipe(IS.arlemiteFeet, "  ", "X X", "I I", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
+		
+		//misc
 		addRecipe(IS.netherChuck, " I ", "III", " I ", 'I', VanillaItemsOther.netheriteIngot);
 
 		addRecipe(IS.arlemiteBlock, "III", "III", "III", 'I', VanillaItemsOther.arlemiteIngot);
