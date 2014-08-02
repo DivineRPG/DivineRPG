@@ -14,7 +14,7 @@ public class VanillaRecipeHelper extends DivineRPG {
 
 	public static void init(){
 		//weapons
-		addRecipe(IS.frostSword, " I ", " I ", " S ", 'I', VanillaItemsOther.iceStone, 'S', Items.stick);
+		addRecipe(IS.frostSword, " I ", " I ", " S ", 'I', IceikaItems.iceStone, 'S', Items.stick);
 		addRecipe(IS.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		addRecipe(IS.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
 		addRecipe(IS.arlemiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
