@@ -106,7 +106,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, i * 4 - 2, j * 4 - 2, 10, 10);
 		this.generate(i * 4, 0, j * 4);
 
-		for(int k = 0; k < 4; ++k) {
+		for(int k = 0; k < 10; ++k) {
 			int l = k * 5;
 			int i1 = (k + 1) * 5;
 
