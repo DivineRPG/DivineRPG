@@ -1,9 +1,14 @@
 package net.divinerpg.utils.recipes;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeUtil {
@@ -62,5 +67,24 @@ public class RecipeUtil {
     }
 	protected static void addSmelting(Item input, Block output, float XP) {
         GameRegistry.addSmelting(new ItemStack(input, 1), new ItemStack(output, 1), XP);
+    }
+	
+	protected static void removeCraftingRecipe(Item removed) {
+        ItemStack recipeResult = null;
+        ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
+
+        for (int i = 0; i < recipes.size(); i++) {
+            IRecipe tmpRecipe = (IRecipe) recipes.get(i);
+
+            if (tmpRecipe instanceof ShapedRecipes) {
+                ShapedRecipes recipe = (ShapedRecipes) tmpRecipe;
+                recipeResult = recipe.getRecipeOutput();
+            }
+
+            if (ItemStack.areItemStacksEqual(new ItemStack(removed), recipeResult)) {
+                System.out.println("[DivineRPG] Removed recipe: " + recipes.get(i) + " -> " + recipeResult);
+                recipes.remove(i);
+            }
+        }
     }
 }

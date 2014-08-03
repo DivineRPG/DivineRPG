@@ -49,6 +49,43 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', Items.stick);
 		
 		//armor 
+		removeCraftingRecipe(Items.diamond_chestplate);
+		removeCraftingRecipe(Items.diamond_leggings);
+		removeCraftingRecipe(Items.diamond_boots);
+		removeCraftingRecipe(Items.diamond_helmet);
+		removeCraftingRecipe(Items.golden_chestplate);
+		removeCraftingRecipe(Items.golden_leggings);
+		removeCraftingRecipe(Items.golden_boots);
+		removeCraftingRecipe(Items.golden_helmet);
+		removeCraftingRecipe(Items.iron_chestplate);
+		removeCraftingRecipe(Items.iron_leggings);
+		removeCraftingRecipe(Items.iron_boots);
+		removeCraftingRecipe(Items.iron_helmet);
+		removeCraftingRecipe(Items.leather_chestplate);
+		removeCraftingRecipe(Items.leather_leggings);
+		removeCraftingRecipe(Items.leather_boots);
+		removeCraftingRecipe(Items.leather_helmet);
+		
+		addRecipe(VanillaItemsArmor.diamondHelmet, "III", "I I", "   ", 'I', Items.diamond);
+		addRecipe(VanillaItemsArmor.diamondBody, "I I", "III", "III", 'I', Items.diamond);
+		addRecipe(VanillaItemsArmor.diamondLegs, "III", "I I", "I I", 'I', Items.diamond);
+		addRecipe(VanillaItemsArmor.diamondBoots, "   ", "I I", "I I", 'I', Items.diamond);
+		
+		addRecipe(VanillaItemsArmor.ironHelmet, "III", "I I", "   ", 'I', Items.iron_ingot);
+		addRecipe(VanillaItemsArmor.ironBody, "I I", "III", "III", 'I', Items.iron_ingot);
+		addRecipe(VanillaItemsArmor.ironLegs, "III", "I I", "I I", 'I', Items.iron_ingot);
+		addRecipe(VanillaItemsArmor.ironBoots, "   ", "I I", "I I", 'I', Items.iron_ingot);
+		
+		addRecipe(VanillaItemsArmor.goldHelmet, "III", "I I", "   ", 'I', Items.gold_ingot);
+		addRecipe(VanillaItemsArmor.goldBody, "I I", "III", "III", 'I', Items.gold_ingot);
+		addRecipe(VanillaItemsArmor.goldLegs, "III", "I I", "I I", 'I', Items.gold_ingot);
+		addRecipe(VanillaItemsArmor.goldBoots, "   ", "I I", "I I", 'I', Items.gold_ingot);
+		
+		addRecipe(VanillaItemsArmor.leatherHelmet, "III", "I I", "   ", 'I', Items.leather);
+		addRecipe(VanillaItemsArmor.leatherBody, "I I", "III", "III", 'I', Items.leather);
+		addRecipe(VanillaItemsArmor.leatherLegs, "III", "I I", "I I", 'I', Items.leather);
+		addRecipe(VanillaItemsArmor.leatherBoots, "   ", "I I", "I I", 'I', Items.leather);
+		
 		addRecipe(IS.realHead, "III", "I I", "   ", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.realBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.realLegs, "III", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
@@ -147,25 +184,5 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addSmelting(IS.egg, IS.boiledEgg, 0.3F);
 		addShapelessRecipe(IS.advStew, ItemsFood.whiteMushroom, Items.mushroom_stew);
 		addShapelessRecipe(IS.chickDinner, ItemsFood.advMushroomStew, Items.cooked_chicken, Items.bread);
-		
-		Util.removeCraftingRecipe(Items.diamond_chestplate);
-		Util.removeCraftingRecipe(Items.diamond_leggings);
-		Util.removeCraftingRecipe(Items.diamond_boots);
-		Util.removeCraftingRecipe(Items.diamond_helmet);
-		
-		Util.removeCraftingRecipe(Items.golden_chestplate);
-		Util.removeCraftingRecipe(Items.golden_leggings);
-		Util.removeCraftingRecipe(Items.golden_boots);
-		Util.removeCraftingRecipe(Items.golden_helmet);
-		
-		Util.removeCraftingRecipe(Items.iron_chestplate);
-		Util.removeCraftingRecipe(Items.iron_leggings);
-		Util.removeCraftingRecipe(Items.iron_boots);
-		Util.removeCraftingRecipe(Items.iron_helmet);
-		
-		Util.removeCraftingRecipe(Items.leather_chestplate);
-		Util.removeCraftingRecipe(Items.leather_leggings);
-		Util.removeCraftingRecipe(Items.leather_boots);
-		Util.removeCraftingRecipe(Items.leather_helmet);
 	}
 }

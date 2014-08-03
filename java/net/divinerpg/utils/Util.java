@@ -172,25 +172,6 @@ public class Util {
     public static ToolMaterial addShickMaterial(int harvestLevel, float efficiency, float damage, int enchantability) {
         return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, -1, efficiency, damage - 1, enchantability);
     }
-
-    public static void removeCraftingRecipe(Item removed) {
-        ItemStack recipeResult = null;
-        ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
-
-        for (int i = 0; i < recipes.size(); i++) {
-            IRecipe tmpRecipe = (IRecipe) recipes.get(i);
-
-            if (tmpRecipe instanceof ShapedRecipes) {
-                ShapedRecipes recipe = (ShapedRecipes) tmpRecipe;
-                recipeResult = recipe.getRecipeOutput();
-            }
-
-            if (ItemStack.areItemStacksEqual(new ItemStack(removed), recipeResult)) {
-                System.out.println("[DivineRPG] Removed recipe: " + recipes.get(i) + " -> " + recipeResult);
-                recipes.remove(i);
-            }
-        }
-    }
     
     public static Item toItem(Block block){
         return Item.getItemFromBlock(block);
