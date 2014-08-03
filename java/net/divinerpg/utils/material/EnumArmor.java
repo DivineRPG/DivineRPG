@@ -26,7 +26,11 @@ public enum EnumArmor {
     MORTUM(Util.addArmorMaterial("Mortum", 0, new int[] { 3, 4, 3, 2 }, 10), "mortum", true, 80),
     HALITE(Util.addArmorMaterial("Halite", 0, new int[] { 4, 5, 4, 3 }, 12), "halite", true, 83),
     SANTA(Util.addArmorMaterial("Santa", 0, new int[] { 1, 1, 1, 1 }, 10), "santa", true, 0),
-    KORMA(Util.addArmorMaterial("Korma", 0, new int[] { 9, 9, 9, 9 }, 22), "korma", true, 45);
+    KORMA(Util.addArmorMaterial("Korma", 0, new int[] { 9, 9, 9, 9 }, 22), "korma", true, 45),
+    DIAMOND(Util.addArmorMaterial("Diamond", 3000, new int[] { 3, 4, 3, 2 }, 10), "diamond", true, 45),
+    IRON(Util.addArmorMaterial("Iron", 2000, new int[] { 4, 5, 4, 3 }, 12), "iron", true, 27),
+    GOLD(Util.addArmorMaterial("Gold", 1000, new int[] { 1, 1, 1, 1 }, 10), "gold", true, 18),
+    LEATHER(Util.addArmorMaterial("Leather", 500, new int[] { 9, 9, 9, 9 }, 22), "leather", true, 10);
 
     private ArmorMaterial armorMaterial;
     private String        type;

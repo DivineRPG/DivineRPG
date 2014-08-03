@@ -103,4 +103,24 @@ public class VanillaItemsArmor {
     public static final Item      enderBody           = new ItemDivineArmor(EnumArmor.ENDER, BODY, endInfo);
     public static final Item      enderLegs           = new ItemDivineArmor(EnumArmor.ENDER, LEGS, endInfo);
     public static final Item      enderBoots          = new ItemDivineArmor(EnumArmor.ENDER, BOOTS, endInfo);
+    
+    public static final Item      diamondHelmet       = new ItemDivineArmor(EnumArmor.DIAMOND, HEAD);
+    public static final Item      diamondBody         = new ItemDivineArmor(EnumArmor.DIAMOND, BODY);
+    public static final Item      diamondLegs         = new ItemDivineArmor(EnumArmor.DIAMOND, LEGS);
+    public static final Item      diamondBoots        = new ItemDivineArmor(EnumArmor.DIAMOND, BOOTS);
+    
+    public static final Item      ironHelmet          = new ItemDivineArmor(EnumArmor.IRON, HEAD);
+    public static final Item      ironBody            = new ItemDivineArmor(EnumArmor.IRON, BODY);
+    public static final Item      ironLegs            = new ItemDivineArmor(EnumArmor.IRON, LEGS);
+    public static final Item      ironBoots           = new ItemDivineArmor(EnumArmor.IRON, BOOTS);
+    
+    public static final Item      goldHelmet          = new ItemDivineArmor(EnumArmor.GOLD, HEAD);
+    public static final Item      goldBody            = new ItemDivineArmor(EnumArmor.GOLD, BODY);
+    public static final Item      goldLegs            = new ItemDivineArmor(EnumArmor.GOLD, LEGS);
+    public static final Item      goldBoots           = new ItemDivineArmor(EnumArmor.GOLD, BOOTS);
+    
+    public static final Item      leatherHelmet       = new ItemDivineArmor(EnumArmor.LEATHER, HEAD);
+    public static final Item      leatherBody         = new ItemDivineArmor(EnumArmor.LEATHER, BODY);
+    public static final Item      leatherLegs         = new ItemDivineArmor(EnumArmor.LEATHER, LEGS);
+    public static final Item      leatherBoots        = new ItemDivineArmor(EnumArmor.LEATHER, BOOTS);
 }

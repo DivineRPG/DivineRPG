@@ -48,8 +48,6 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'I', Blocks.bedrock, 'I', Items.stick);
 		addRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', Items.stick);
 		
-		
-		
 		//armor 
 		addRecipe(IS.realHead, "III", "I I", "   ", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.realBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
@@ -149,5 +147,25 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addSmelting(IS.egg, IS.boiledEgg, 0.3F);
 		addShapelessRecipe(IS.advStew, ItemsFood.whiteMushroom, Items.mushroom_stew);
 		addShapelessRecipe(IS.chickDinner, ItemsFood.advMushroomStew, Items.cooked_chicken, Items.bread);
+		
+		Util.removeCraftingRecipe(Items.diamond_chestplate);
+		Util.removeCraftingRecipe(Items.diamond_leggings);
+		Util.removeCraftingRecipe(Items.diamond_boots);
+		Util.removeCraftingRecipe(Items.diamond_helmet);
+		
+		Util.removeCraftingRecipe(Items.golden_chestplate);
+		Util.removeCraftingRecipe(Items.golden_leggings);
+		Util.removeCraftingRecipe(Items.golden_boots);
+		Util.removeCraftingRecipe(Items.golden_helmet);
+		
+		Util.removeCraftingRecipe(Items.iron_chestplate);
+		Util.removeCraftingRecipe(Items.iron_leggings);
+		Util.removeCraftingRecipe(Items.iron_boots);
+		Util.removeCraftingRecipe(Items.iron_helmet);
+		
+		Util.removeCraftingRecipe(Items.leather_chestplate);
+		Util.removeCraftingRecipe(Items.leather_leggings);
+		Util.removeCraftingRecipe(Items.leather_boots);
+		Util.removeCraftingRecipe(Items.leather_helmet);
 	}
 }
