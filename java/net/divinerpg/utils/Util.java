@@ -88,9 +88,9 @@ public class Util {
         EntityRegistry.registerModEntity(entityClass, entityName + " Projectile", ID, DivineRPG.instance, 250, 5, true);
     }
 
-    public static ArmorMaterial addArmorMaterial(String name, int durability, int[] oldArmor, int enchantability) {
+    public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability) {
         int duraNew = (int) Math.round(durability / 13.75);
-        return EnumHelper.addEnum(ArmorMaterial.class, name, duraNew, oldArmor, enchantability);
+        return EnumHelper.addEnum(ArmorMaterial.class, name, duraNew, new int[] {0, 0, 0, 0}, enchantability);
     }
 
     public static ChatComponentTranslation addChatMessage(EnumChatFormatting color, String str, Object... args) {
