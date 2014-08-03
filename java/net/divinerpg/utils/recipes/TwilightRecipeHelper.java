@@ -7,7 +7,7 @@ import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.init.Items;
 
-public class TwilightRecipeHelper extends DivineRPG {
+public class TwilightRecipeHelper extends RecipeUtil {
 	
 	public static void init() {
 		addShapelessRecipe(IS.edenFragments, TwilightItemsOther.edenSoul);

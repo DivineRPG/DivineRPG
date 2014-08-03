@@ -56,24 +56,4 @@ public class DivineRPG {
 	public void serverStarting(FMLServerStartingEvent event){
 		proxy.serverStarting(event);
 	}
-	
-	protected static void addRecipe(ItemStack i, Object... o) {
-        GameRegistry.addRecipe(i, o);
-    }
-
-	protected static void addBigRecipe(ItemStack i, Object... o) {
-        CraftingDivineTableManager.getInstance().addRecipe(i, o);
-    }
-    
-	protected static void addShapelessRecipe(ItemStack i, Object... o) {
-        GameRegistry.addShapelessRecipe(i, o);
-    }
-
-	protected static void addBigShapelessRecipe(ItemStack i, Object... o) {
-        CraftingDivineTableManager.getInstance().addShapelessRecipe(i, o);
-    }
-
-	protected static void addSmelting(ItemStack input, ItemStack output, float XP) {
-        GameRegistry.addSmelting(input, output, XP);
-    }
 }
