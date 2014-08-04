@@ -13,6 +13,7 @@ import net.divinerpg.items.vanilla.ItemSerenadeStriker;
 import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class VanillaItemsWeapons {
 
@@ -70,4 +71,5 @@ public class VanillaItemsWeapons {
     
     public static final Item palavence 		    = new ItemPalavence("palavence");
     public static final Item massivence 	    = new ItemMassivence("massivence");
+	public static final Item flamingFury		= new ItemModSword(ToolMaterialMod.FlamingFury, "flamingFury"); 
 }

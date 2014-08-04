@@ -25,7 +25,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.moltenSword, " I ", " I ", " S ", 'I', VanillaItemsOther.moltenStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.scorchingSword, " I ", " I ", " S ", 'I', VanillaItemsOther.purpleBlaze, 'S', VanillaItemsOther.netheriteIngot);
 		addRecipe(VanillaItemsWeapons.bluefireSword, " I ", " I ", " S ", 'I', VanillaItemsOther.bluefireStone, 'S', VanillaItemsOther.shadowBar);
-		//addRecipe(VanillaItemsWeapons.flamingFury, "XIX", "XIX", "XOX", 'I', VanillaItemsOther.furyFire, 'X', VanillaItemsWeapons.infernoSword, 'O', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsWeapons.flamingFury, "XIX", "XIX", "XOX", 'I', VanillaItemsOther.furyFire, 'X', VanillaItemsWeapons.infernoSword, 'O', VanillaItemsOther.shadowBar);
 		addRecipe(VanillaItemsWeapons.poisonSaber, " R ", "BRB", "BSB", 'R', VanillaItemsOther.jungleStone, 'B', VanillaItemsOther.shadowBar, 'S', Items.stick);
 		addRecipe(IS.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		addRecipe(IS.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
@@ -53,8 +53,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		//ranged weapons
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
-		/*addRecipe(VanillaItemsWeapons.soundofMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
-		addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
+		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
+		/*addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
 		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.sharkAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.sharkFin, 'X', VanillaItemsOther.aquaticIngot);
