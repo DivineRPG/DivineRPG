@@ -27,7 +27,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		float current = player.getHealth();
-        if ((current > 0.0F) && (current < 20.0F)) {
+        if ((current >= 0.0F) && (current < 20.0F)) {
             player.setHealth(20.0F);
             stack.damageItem(1, player);
             Sounds.getSoundName(Sounds.heal);

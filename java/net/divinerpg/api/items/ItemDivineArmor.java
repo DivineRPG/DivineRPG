@@ -63,6 +63,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
     public ItemDivineArmor(EnumArmor armorMaterial, int type, int dR, String name, Object[] info) {
         super(armorMaterial.getArmorMaterial(), type, type);
         this.armorMaterial = armorMaterial;
+        this.textureName += armorMaterial.getType();
         this.fullReduction = dR;
         this.armorInfo = info;
 

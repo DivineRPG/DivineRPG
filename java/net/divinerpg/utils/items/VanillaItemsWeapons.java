@@ -1,10 +1,11 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
 import net.divinerpg.items.vanilla.ItemFrostCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
+import net.divinerpg.items.vanilla.ItemMassivence;
+import net.divinerpg.items.vanilla.ItemPalavence;
 import net.divinerpg.items.vanilla.ItemScythe;
 import net.divinerpg.items.vanilla.ItemSerenadeOfDeath;
 import net.divinerpg.items.vanilla.ItemSerenadeOfHealth;
@@ -66,4 +67,7 @@ public class VanillaItemsWeapons {
     public static final Item serenadeOfHealth 	= new ItemSerenadeOfHealth("serenadeOfHealth");
     public static final Item serenadeStriker 	= new ItemSerenadeStriker("serenadeStriker");
     public static final Item serenadeOfDeath 	= new ItemSerenadeOfDeath("serenadeOfDeath");
+    
+    public static final Item palavence 		    = new ItemPalavence("palavence");
+    public static final Item massivence 	    = new ItemMassivence("massivence");
 }

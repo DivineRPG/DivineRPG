@@ -25,7 +25,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.moltenSword, " I ", " I ", " S ", 'I', VanillaItemsOther.moltenStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.scorchingSword, " I ", " I ", " S ", 'I', VanillaItemsOther.purpleBlaze, 'S', VanillaItemsOther.netheriteIngot);
 		addRecipe(VanillaItemsWeapons.bluefireSword, " I ", " I ", " S ", 'I', VanillaItemsOther.bluefireStone, 'S', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsWeapons.flamingFury, "XIX", "XIX", "XOX", 'I', VanillaItemsOther.furyFire, 'X', VanillaItemsWeapons.infernoSword, 'O', VanillaItemsOther.shadowBar);
+		//addRecipe(VanillaItemsWeapons.flamingFury, "XIX", "XIX", "XOX", 'I', VanillaItemsOther.furyFire, 'X', VanillaItemsWeapons.infernoSword, 'O', VanillaItemsOther.shadowBar);
 		addRecipe(VanillaItemsWeapons.poisonSaber, " R ", "BRB", "BSB", 'R', VanillaItemsOther.jungleStone, 'B', VanillaItemsOther.shadowBar, 'S', Items.stick);
 		addRecipe(IS.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		addRecipe(IS.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
@@ -53,7 +53,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		//ranged weapons
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
-		addRecipe(VanillaItemsWeapons.soundofMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
+		/*addRecipe(VanillaItemsWeapons.soundofMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
 		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
@@ -63,21 +63,20 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.hunterBow, " IX", "I X", " IX", 'I', VanillaItemsOther.jungleStone, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.shadowBow, " IX", "I X", " IX", 'I', VanillaItemsOther.shadowBar, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.enderBow, " IX", "I X", " IX", 'I', VanillaItemsOther.enderStone, 'X', Items.string);
-		addRecipe(VanillaItemsWeapons.bluefireBow, " IX", "I S", " IX", 'I', VanillaItemsOther.aquaticblazeRod, 'X', VanillaItemsOther.bluefireStone, 'S', Items.string);
+		addRecipe(VanillaItemsWeapons.bluefireBow, " IX", "I S", " IX", 'I', VanillaItemsOther.aquaticBlazeRod, 'X', VanillaItemsOther.bluefireStone, 'S', Items.string);
 		addRecipe(VanillaItemsWeapons.infernoBow, " IX", "I X", " IX", 'I', VanillaItemsOther.moltenStone, 'X', Items.blaze_powder);
 		
 		addRecipe(VanillaItemsWeapons.frostCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', IceikaItems.iceStone);
 		addRecipe(VanillaItemsWeapons.bowheadCannon, " I ", " I ", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.crabclawCannon, " I ", " I ", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
-		addRecipe(VanillaItemsWeapons.corruptedCannon, "III", "S S", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addRecipe(VanillaItemsWeapons.corruptedCannon, "III", "S S", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);*/
 		
 		//addRecipe(VanillaItemsWeapons.goldenFury, "III", "IXI", "III", 'I', Items.gold_ingot, 'X', TwilightItemsWeapons.mortumBlitz);
 		
 		//serenades
 		addRecipe(VanillaItemsWeapons.serenadeStriker, "I  ", "III", "  I", 'I', Items.diamond);
-		addRecipe(VanillaItemsWeapons.serenadeHealth, "I  ", "III", "  I", 'I', VanillaItemsOther.netherChunk);
-		addRecipe(VanillaItemsWeapons.serenadeDeath, "I  ", "III", "  I", 'I', VanillaItemsOther.shadowBar);
-		
+		addRecipe(VanillaItemsWeapons.serenadeOfHealth, "I  ", "III", "  I", 'I', VanillaItemsOther.netheriteChunk);
+		addRecipe(VanillaItemsWeapons.serenadeOfDeath, "I  ", "III", "  I", 'I', VanillaItemsOther.shadowBar);
 		
 		//armor 
 		removeCraftingRecipe(Items.diamond_chestplate);
