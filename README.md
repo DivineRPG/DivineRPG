@@ -14,6 +14,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 
 #####Special Thanks to
 * THEVOLCO - German Translations
+* ShadowOfStrelok - Russian Translations
 * Sheenrox82 - Our Personal Jester / Former Developer
 * Declan (UKDeccy) - Models/Textures
 * Insanity414all - Wiki admin
