@@ -40,16 +40,26 @@ public class ItemModBow extends ItemBow {
     protected boolean                      unbreakable;
     protected Item                         arrow;
     protected Class<? extends EntityArrow> arrowClazz;
+    protected boolean                      needArrow = true;
 
     public ItemModBow(String name, int uses, int damage, Item arrow, Class<? extends EntityArrow> arrowClazz) {
         this(name, uses, damage, DEFAULT_MAX_USE_DURACTION, arrow, arrowClazz);
+    }
+    
+    public ItemModBow(String name, int uses, int damage, Class<? extends EntityArrow> arrowClazz) {
+        this(name, uses, damage, DEFAULT_MAX_USE_DURACTION, null, arrowClazz);
+    }
+    
+    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Class<? extends EntityArrow> arrowClazz) {
+        this(name, uses, damage, maxUseDuraction, null, arrowClazz);
     }
 
     public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Item arrow, Class<? extends EntityArrow> arrowClazz) {
         setMaxDamage(uses);
         this.name = name;
         this.textureName = Reference.PREFIX + name;
-        this.arrow = arrow;
+        if (arrow == null) needArrow = false;
+        else this.arrow = arrow;
         this.damage = damage;
         this.maxUseDuraction = maxUseDuraction;
         unbreakable = true;
@@ -94,7 +104,7 @@ public class ItemModBow extends ItemBow {
         MinecraftForge.EVENT_BUS.post(event);
         if (event.isCanceled()) return;
         maxItemUse = event.charge;
-        boolean infiniteAmmo = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
+        boolean infiniteAmmo = !needArrow || player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
         if (infiniteAmmo || player.inventory.hasItem(arrow)) {
             float scaledItemUse = (float) maxItemUse / 20.0F;
             scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;

@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class EntityEdenArrow extends EntityModArrow{
 
 	private static Item arrow = TwilightItemsWeapons.edenArrow;
-	private static double damage = 31.0D;
+	private static double damage = 21.0D;
 	
 	public EntityEdenArrow(World par1World) {
 		super(par1World, damage, arrow);

@@ -38,7 +38,7 @@ public class EntitySkythernArrow extends EntityArrow {
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
-    private double damage = 41.0D;
+    private double damage = 46.0D;
     private int knockbackStrength;
 
     public EntitySkythernArrow(World par1World)
