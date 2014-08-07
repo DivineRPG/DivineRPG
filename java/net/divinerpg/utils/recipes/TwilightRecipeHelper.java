@@ -2,19 +2,22 @@ package net.divinerpg.utils.recipes;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.TwilightBlocks;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.VanillaItemsOther;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 
 public class TwilightRecipeHelper extends RecipeUtil {
 	
 	public static void init() {
-		addShapelessRecipe(IS.edenFragments, TwilightItemsOther.edenSoul);
-		addShapelessRecipe(IS.wildwoodFragments, TwilightItemsOther.wildwoodSoul);
-		addShapelessRecipe(IS.apalachiaFragments, TwilightItemsOther.apalachiaSoul);
-		addShapelessRecipe(IS.skythernFragments, TwilightItemsOther.skythernSoul);
-		addShapelessRecipe(IS.mortumFragments, TwilightItemsOther.mortumSoul);
+		addShapelessRecipe(TwilightItemsOther.edenFragments, TwilightItemsOther.edenSoul);
+		addShapelessRecipe(TwilightItemsOther.wildwoodFragments, TwilightItemsOther.wildwoodSoul);
+		addShapelessRecipe(TwilightItemsOther.apalachiaFragments, TwilightItemsOther.apalachiaSoul);
+		addShapelessRecipe(TwilightItemsOther.skythernFragments, TwilightItemsOther.skythernSoul);
+		addShapelessRecipe(TwilightItemsOther.mortumFragments, TwilightItemsOther.mortumSoul);
 		
 		addRecipe(IS.edenGem, "GGG", 'G', TwilightItemsOther.edenFragments);
 		addRecipe(IS.wildwoodGem, "GGG", 'G', TwilightItemsOther.wildwoodFragments);
@@ -27,6 +30,19 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(IS.apalachiaChunk, "GGG", "G G", "G G", 'G', TwilightItemsOther.apalachiaGem);
 		addRecipe(IS.skythernChunk, "GGG", "G G", "G G", 'G', TwilightItemsOther.skythernGem);
 		addRecipe(IS.mortumChunk, "GGG", "G G", "G G", 'G', TwilightItemsOther.mortumGem);
+		
+		addShapelessRecipe(VanillaBlocks.divineRock, VanillaItemsOther.divineShards, Blocks.stone);
+		addRecipe(TwilightBlocks.edenBlock, "III", "III", "III", 'I', TwilightItemsOther.edenFragments);
+		addRecipe(TwilightBlocks.wildwoodBlock, "III", "III", "III", 'I', TwilightItemsOther.wildwoodFragments);
+		addRecipe(TwilightBlocks.apalachiaBlock, "III", "III", "III", 'I', TwilightItemsOther.apalachiaFragments);
+		addRecipe(TwilightBlocks.skythernBlock, "III", "III", "III", 'I', TwilightItemsOther.skythernFragments);
+		addRecipe(TwilightBlocks.mortumBlock, "III", "III", "III", 'I', TwilightItemsOther.mortumFragments);
+		
+		addShapelessRecipe(IS.edenFragments, TwilightBlocks.edenBlock);
+		addShapelessRecipe(IS.wildwoodFragments, TwilightBlocks.wildwoodBlock);
+		addShapelessRecipe(IS.apalachiaFragments, TwilightBlocks.apalachiaBlock);
+		addShapelessRecipe(IS.skythernFragments, TwilightBlocks.skythernBlock);
+		addShapelessRecipe(IS.mortumFragments, TwilightBlocks.mortumBlock);
 
 		//Eden (Dravite)
 		addRecipe(IS.edenHead, "III", "I I", "  ", 'I', TwilightItemsOther.edenChunk);

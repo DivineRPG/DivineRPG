@@ -32,7 +32,6 @@ public class VanillaItemsOther {
     public static final Item moltenStone        = new ItemMod("moltenStone");
     public static final Item enderStone         = new ItemMod("enderStone");
     public static final Item healingStone       = new ItemMod("healingStone").setHealAmount(10);
-    public static final Item shadowStone        = new ItemMod("shadowStone");
 
     public static final Item aquaticIngot       = new ItemMod("aquaticIngot");
     public static final Item aquaticPellets     = new ItemMod("aquaticPellets");

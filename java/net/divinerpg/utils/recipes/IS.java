@@ -184,11 +184,11 @@ public class IS {
 	public static ItemStack moltenStone = new ItemStack(VanillaItemsOther.moltenStone);
 	public static ItemStack divineStone = new ItemStack(VanillaItemsOther.divineStone);
 	public static ItemStack enderStone = new ItemStack(VanillaItemsOther.enderStone);
-	public static ItemStack edenFragments = new ItemStack(TwilightItemsOther.edenFragments);
-	public static ItemStack wildwoodFragments = new ItemStack(TwilightItemsOther.wildwoodFragments);
-	public static ItemStack apalachiaFragments = new ItemStack(TwilightItemsOther.apalachiaFragments);
-	public static ItemStack skythernFragments = new ItemStack(TwilightItemsOther.skythernFragments);
-	public static ItemStack mortumFragments = new ItemStack(TwilightItemsOther.mortumFragments);
+	public static ItemStack edenFragments = new ItemStack(TwilightItemsOther.edenFragments, 9);
+	public static ItemStack wildwoodFragments = new ItemStack(TwilightItemsOther.wildwoodFragments, 9);
+	public static ItemStack apalachiaFragments = new ItemStack(TwilightItemsOther.apalachiaFragments, 9);
+	public static ItemStack skythernFragments = new ItemStack(TwilightItemsOther.skythernFragments, 9);
+	public static ItemStack mortumFragments = new ItemStack(TwilightItemsOther.mortumFragments, 9);
 	public static ItemStack edenGem = new ItemStack(TwilightItemsOther.edenGem);
 	public static ItemStack wildwoodGem = new ItemStack(TwilightItemsOther.wildwoodGem);
 	public static ItemStack apalachiaGem = new ItemStack(TwilightItemsOther.apalachiaGem);

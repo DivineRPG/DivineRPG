@@ -189,6 +189,14 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IS.realBlock, "III", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.netherBlock, "III", "III", "III", 'I', VanillaItemsOther.netheriteIngot);
 		addRecipe(IS.bloodBlock, "III", "III", "III", 'I', VanillaItemsOther.bloodgem);
+		
+		addSmelting(VanillaBlocks.realmiteOre, VanillaItemsOther.realmiteIngot, 0.7F);
+		addSmelting(VanillaBlocks.arlemiteOre, VanillaItemsOther.arlemiteIngot, 1.0F);
+		addSmelting(VanillaBlocks.rupeeOre, VanillaItemsOther.rupeeIngot, 1.0F);
+		addSmelting(VanillaBlocks.netheriteOre, VanillaItemsOther.netheriteIngot, 1.1F);
+		addSmelting(VanillaBlocks.bloodgemOre, VanillaItemsOther.bloodgem, 1.2F);
+		addSmelting(VanillaItemsOther.pureAquaticPellets, VanillaItemsOther.aquaticIngot, 0.6F);
+		addShapelessRecipe(VanillaItemsOther.hellstoneIngot, VanillaItemsOther.shadowBar, VanillaItemsOther.netheriteChunk);
 
 		addShapelessRecipe(IS.arlemiteIngot, VanillaBlocks.arlemiteBlock);
 		addShapelessRecipe(IS.rupeeIngot, VanillaBlocks.rupeeBlock);
@@ -196,6 +204,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(IS.netherIngot, VanillaBlocks.netheriteBlock);
 		addShapelessRecipe(IS.bloodgem, VanillaBlocks.bloodgemBlock);
 		addShapelessRecipe(IS.shadow, VanillaItemsOther.rupeeIngot, VanillaItemsOther.arlemiteIngot);
+		
+		addRecipe(VanillaItemsOther.pureAquaticPellets, "PPP", "PPP", "PPP", 'P', VanillaItemsOther.aquaticPellets);
 		
 		addRecipe(IS.corruptStone, "III", "III", "III", 'I', VanillaItemsOther.corruptedShards);
 		addRecipe(IS.jungleStone, "III", "III", "III", 'I', VanillaItemsOther.jungleShards);
