@@ -116,25 +116,30 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(IS.mortumArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);
 		
 		//Tools
-		addRecipe(TwilightTools.edenPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.edenShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.edenAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.edenPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.edenShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.edenAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addShapelessRecipe(TwilightItemsTools.edenShickaxe, TwilightItemsTools.edenPickaxe, TwilightItemsTools.edenShovel, TwilightItemsTools.edenAxe);
 		
-		addRecipe(TwilightTools.wildwoodPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.wildwoodShovel, " I ", " S " , " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.wildwoodAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.wildwoodPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.wildwoodShovel, " I ", " S " , " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.wildwoodAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addShapelessRecipe(TwilightItemsTools.wildwoodShickaxe, TwilightItemsTools.wildwoodPickaxe, TwilightItemsTools.wildwoodShovel, TwilightItemsTools.wildwoodAxe);
 		
-		addRecipe(TwilightTools.apalachiaPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.apalachiaShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.apalachiaAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.apalachiaPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.apalachiaShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.apalachiaAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addShapelessRecipe(TwilightItemsTools.apalachiaShickaxe, TwilightItemsTools.apalachiaPickaxe, TwilightItemsTools.apalachiaShovel, TwilightItemsTools.apalachiaAxe);
 		
-		addRecipe(TwilightTools.skythernPickaxe, "III", " S ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.skythernShovel, " I ", " S ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.skythernAxe, "II ", "IS ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.skythernPickaxe, "III", " S ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.skythernShovel, " I ", " S ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.skythernAxe, "II ", "IS ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.skythernShickaxe, TwilightItemsTools.skythernPickaxe, TwilightItemsTools.skythernShovel, TwilightItemsTools.skythernAxe);
 		
-		addRecipe(TwilightTools.mortumPickaxe, "III", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.mortumShove, " I ", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
-		addRecipe(TwilightTools.mortumAxe, "II ", "IS ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.mortumPickaxe, "III", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.mortumShove, " I ", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.mortumAxe, "II ", "IS ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addShapelessRecipe(TwilightItemsTools.mortumShickaxe, TwilightItemsTools.mortumPickaxe, TwilightItemsTools.mortumShovel, TwilightItemsTools.mortumAxe);
 
 	}
 }
