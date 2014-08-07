@@ -73,6 +73,21 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		//addRecipe(VanillaItemsWeapons.goldenFury, "III", "IXI", "III", 'I', Items.gold_ingot, 'X', TwilightItemsWeapons.mortumBlitz);
 		
+		//Tools (finally! You have waited a long time for this c:)
+		
+		addRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.realmiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.realmiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
+		
+		addRecipe(VanillaItemsTools.corruptPickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.corruptShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.corruptAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		
+		addRecipe(VanillaItemsTools.bedrockPickaxe, "III", " S ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.bedrockShovel, " I ", " S ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.bedrockAxe, "II ", "IS", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
+		
+		
 		//serenades
 		addRecipe(VanillaItemsWeapons.serenadeStriker, "I  ", "III", "  I", 'I', Items.diamond);
 		addRecipe(VanillaItemsWeapons.serenadeOfHealth, "I  ", "III", "  I", 'I', VanillaItemsOther.netheriteChunk);
