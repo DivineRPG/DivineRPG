@@ -114,7 +114,27 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(IS.mortumBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.mortumChunk);
 		addShapelessRecipe(IS.mortumSlicer, TwilightItemsOther.mortumGem);
 		addRecipe(IS.mortumArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);
-
+		
+		//Tools
+		addRecipe(TwilightTools.edenPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.edenShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.edenAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		
+		addRecipe(TwilightTools.wildwoodPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.wildwoodShovel, " I ", " S " , " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.wildwoodAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		
+		addRecipe(TwilightTools.apalachiaPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.apalachiaShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.apalachiaAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		
+		addRecipe(TwilightTools.skythernPickaxe, "III", " S ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.skythernShovel, " I ", " S ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.skythernAxe, "II ", "IS ", " S ", TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		
+		addRecipe(TwilightTools.mortumPickaxe, "III", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.mortumShove, " I ", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(TwilightTools.mortumAxe, "II ", "IS ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
 
 	}
 }
