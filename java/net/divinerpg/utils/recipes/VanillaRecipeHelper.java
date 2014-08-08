@@ -7,6 +7,7 @@ import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
+import net.divinerpg.utils.items.VanillaItemsTools;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -74,14 +75,13 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		//addRecipe(VanillaItemsWeapons.goldenFury, "III", "IXI", "III", 'I', Items.gold_ingot, 'X', TwilightItemsWeapons.mortumBlitz);
 		
 		//Tools (finally! You have waited a long time for this c:)
-		
 		addRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.realmiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.realmiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		
-		addRecipe(VanillaItemsTools.corruptPickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.corruptShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.corruptAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.corruptedPickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.corruptedShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.corruptedAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
 		
 		addRecipe(VanillaItemsTools.bedrockPickaxe, "III", " S ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.bedrockShovel, " I ", " S ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
