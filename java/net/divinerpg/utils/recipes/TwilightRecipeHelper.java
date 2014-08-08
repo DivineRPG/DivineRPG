@@ -6,6 +6,7 @@ import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.TwilightItemsOther;
+import net.divinerpg.utils.items.TwilightItemsTools;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -137,7 +138,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsTools.skythernShickaxe, TwilightItemsTools.skythernPickaxe, TwilightItemsTools.skythernShovel, TwilightItemsTools.skythernAxe);
 		
 		addRecipe(TwilightItemsTools.mortumPickaxe, "III", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
-		addRecipe(TwilightItemsTools.mortumShove, " I ", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(TwilightItemsTools.mortumShovel, " I ", " S ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addRecipe(TwilightItemsTools.mortumAxe, "II ", "IS ", " S ", TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addShapelessRecipe(TwilightItemsTools.mortumShickaxe, TwilightItemsTools.mortumPickaxe, TwilightItemsTools.mortumShovel, TwilightItemsTools.mortumAxe);
 
