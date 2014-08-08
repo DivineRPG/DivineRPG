@@ -26,11 +26,11 @@ public class ItemCyclopsianStaff extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		if(!var2.isRemote){ 
-			if(var3.inventory.hasItem(VanillaItemsOther.cyclopsEye) || var3.capabilities.isCreativeMode){
+			if(var3.inventory.hasItem(VanillaItemsOther.cyclopsEyeShards) || var3.capabilities.isCreativeMode){
 				Sounds.getSoundName(Sounds.staff);
 				var2.spawnEntityInWorld(new EntityCyclopsianStaff(var2, var3));
 				var1.damageItem(1, var3);
-				var3.inventory.consumeInventoryItem(VanillaItemsOther.cyclopsEye);
+				var3.inventory.consumeInventoryItem(VanillaItemsOther.cyclopsEyeShards);
 			}
 		}
 		return var1;
@@ -40,7 +40,7 @@ public class ItemCyclopsianStaff extends ItemMod {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add(EntityCyclopsianStaff.damage + " Ranged damage");
-		par3List.add("Ammo: Cyclops Eye");
+		par3List.add("Ammo: Cyclops Eye Shards");
 		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses");
 		par3List.add(ChatFormats.DIVINERPG);
 	}

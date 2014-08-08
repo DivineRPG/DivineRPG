@@ -10,6 +10,7 @@ import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsTools;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -202,6 +203,7 @@ public class IS {
 	public static ItemStack legEnderEye = new ItemStack(VanillaItemsOther.legendaryEnderEye);
 	public static ItemStack krakenScale = new ItemStack(VanillaItemsOther.krakenScale);
 	public static ItemStack krakenSkin = new ItemStack(VanillaItemsOther.krakenSkin);
+	public static ItemStack eyeShards = new ItemStack(VanillaItemsOther.cyclopsEyeShards, 9);
 
 	//Blocks
 	public static ItemStack arlemiteBlock = new ItemStack(VanillaBlocks.arlemiteBlock);
@@ -209,4 +211,6 @@ public class IS {
 	public static ItemStack realBlock = new ItemStack(VanillaBlocks.realmiteBlock);
 	public static ItemStack netherBlock = new ItemStack(VanillaBlocks.netheriteBlock);
 	public static ItemStack bloodBlock = new ItemStack(VanillaBlocks.bloodgemBlock);
+	public static ItemStack bedrock = new ItemStack(Blocks.bedrock, 3);
+	public static ItemStack divinePlanks = new ItemStack(VanillaBlocks.divinePlank, 4);
 }

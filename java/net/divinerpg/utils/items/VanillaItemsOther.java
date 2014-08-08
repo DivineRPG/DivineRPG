@@ -25,6 +25,7 @@ public class VanillaItemsOther {
     public static final Item corruptedShards    = new ItemMod("corruptedShards");
     public static final Item moltenShards       = new ItemMod("moltenShards");
     public static final Item enderShard         = new ItemMod("enderShards");
+    public static final Item cyclopsEyeShards   = new ItemMod("cyclopsEyeShards");
 
     public static final Item jungleStone        = new ItemMod("jungleStone");
     public static final Item divineStone        = new ItemMod("divineStone");
