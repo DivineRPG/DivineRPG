@@ -1,7 +1,9 @@
 package net.divinerpg.items.vanilla;
 
 import java.util.List;
+
 import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -24,7 +26,7 @@ public class ItemMaelstorm extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		if(!var2.isRemote){
 			var2.playSoundAtEntity(var3, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-			var2.spawnEntityInWorld(new EntityScythe(var2, var3));
+			var2.spawnEntityInWorld(new EntityMaelstorm(var2, var3));
 			var1.damageItem(1, var3);
 		}
 		return var1;

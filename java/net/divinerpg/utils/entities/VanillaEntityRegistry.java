@@ -40,6 +40,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
+import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
@@ -59,6 +60,7 @@ public class VanillaEntityRegistry {
 		Util.registerProjectile(EntityKingOfScorchersShot.class, "KOS Shot");
 		Util.registerProjectile(EntityCaveRock.class, "Cave Rock");
 		Util.registerProjectile(EntityWatcherShot.class, "Watcher Shot");
+		Util.registerProjectile(EntityMaelstorm.class, "Maelstorm");
 
 		Util.registerDivineRPGMob(EntityEnderWatcher.class, "Ender Watcher", Util.mobID++);		
 		Util.registerDivineRPGMob(EntityCrab.class, "Crab", Util.mobID++);
