@@ -85,6 +85,7 @@ public class EntityResourceLocation {
     public static ResourceLocation coriShot 	     = addProjectile("weakCoriShot");
     public static ResourceLocation watcherShot 	     = addProjectile("watcherShot");
     public static ResourceLocation cyclopsShot 	     = addProjectile("cyclopsShot");
+    public static ResourceLocation maelstorm 	     = addProjectile("maelstorm");
 
     public static ResourceLocation angryBunny		 = addMob("angryBunny");
     public static ResourceLocation angryBunnyTamed 	 = addMob("angryBunnyTamed");

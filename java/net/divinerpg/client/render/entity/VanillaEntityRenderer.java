@@ -75,6 +75,7 @@ import net.divinerpg.entities.vanilla.EntityWildFire;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
+import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
@@ -104,6 +105,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, new RenderProjectile(x.cave));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class, new RenderProjectile(x.watcherShot));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCyclopsianStaff.class, new RenderProjectile(x.cyclopsShot));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMaelstorm.class, new RenderProjectile(x.maelstorm));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));

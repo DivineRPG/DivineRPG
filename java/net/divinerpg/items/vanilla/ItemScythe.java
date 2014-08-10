@@ -36,7 +36,6 @@ public class ItemScythe extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		if(!var2.isRemote){
 			var2.playSoundAtEntity(var3, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-			Sounds.playSound(var3, var2, Sounds.deepLaugh);
 			var2.spawnEntityInWorld(new EntityScythe(var2, var3));
 		}
 		return var1;

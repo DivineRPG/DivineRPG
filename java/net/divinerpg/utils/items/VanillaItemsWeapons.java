@@ -2,6 +2,7 @@ package net.divinerpg.utils.items;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
+import net.divinerpg.api.items.ItemModRanged;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
 import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
@@ -13,6 +14,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityPoisonArrow;
 import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
 import net.divinerpg.items.vanilla.ItemFrostCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
+import net.divinerpg.items.vanilla.ItemMaelstorm;
 import net.divinerpg.items.vanilla.ItemMassivence;
 import net.divinerpg.items.vanilla.ItemPalavence;
 import net.divinerpg.items.vanilla.ItemScythe;
@@ -72,7 +74,7 @@ public class VanillaItemsWeapons {
     public static final Item cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 11, Items.arrow, EntityPoisonArrow.class);
-    public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, /*36000,*/ Items.arrow, EntityArrow.class);
+    public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, 36000, Items.arrow, EntityArrow.class);
     public static final Item enderBow           = new ItemModBow("enderBow", -1, 11, EntityArrow.class);
     //public static final Item bluefireBow        = new ItemModBow("bluefiewBow", -1, 0, EntityExplosionArrow.class);
     //public static final Item infernoBow         = new ItemModBow("infernoBow", 10000, 11, EntityFireArrow.class);
@@ -84,6 +86,7 @@ public class VanillaItemsWeapons {
     public static final Item scythe		       	= new ItemScythe("scythe");
     public static final Item frostCannon       	= new ItemFrostCannon("frostCannon");
     public static final Item cyclopsianStaff    = new ItemCyclopsianStaff("cyclopsianStaff");
+    public static final Item maelstorm          = new ItemMaelstorm("cyclopsianStaff");
 
     public static final Item serenadeOfHealth 	= new ItemSerenadeOfHealth("serenadeOfHealth");
     public static final Item serenadeStriker 	= new ItemSerenadeStriker("serenadeStriker");
