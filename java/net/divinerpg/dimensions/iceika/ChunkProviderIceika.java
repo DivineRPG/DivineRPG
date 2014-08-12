@@ -106,7 +106,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, i * 4 - 2, j * 4 - 2, 10, 10);
 		this.generate(i * 4, 0, j * 4);
 
-		for(int k = 0; k < 10; ++k) {
+		for(int k = 0; k < 4; ++k) {
 			int l = k * 5;
 			int i1 = (k + 1) * 5;
 
@@ -399,7 +399,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 			(dungeons.get(rand.nextInt(dungeons.size()))).generate(this.worldObj, this.rand, x, y, z);
 		}
 		
-		for(i = 0; i < 6; i++) {
+		for(i = 0; i < 2; i++) {
 			x = var4 + this.rand.nextInt(16);
 			z = var5 + this.rand.nextInt(16);
 			boolean foundGround = false;
@@ -410,10 +410,14 @@ public class ChunkProviderIceika implements IChunkProvider {
 					break;
 				}
 			}
-			if(foundGround) (lights.get(rand.nextInt(lights.size()))).generate(this.worldObj, this.rand, x, y, z);
+			if(foundGround) {
+				if (rand.nextInt(4) == 3) { 
+					(lights.get(rand.nextInt(lights.size()))).generate(this.worldObj, this.rand, x, y, z);
+				}
+			}
 		}
 		
-		for(i = 0; i < 4; i++) { 
+		for(i = 0; i < 2; i++) { 
 			x = var4 + this.rand.nextInt(16);
 			z = var5 + this.rand.nextInt(16);
 			boolean foundGround = false;
@@ -424,7 +428,11 @@ public class ChunkProviderIceika implements IChunkProvider {
 					break;
 				}
 			}
-			if(foundGround) (village.get(rand.nextInt(village.size()))).generate(this.worldObj, this.rand, x, y, z);
+			if(foundGround) {
+				if (rand.nextInt(4) == 3) { 
+					(village.get(rand.nextInt(village.size()))).generate(this.worldObj, this.rand, x, y, z);
+				}
+			}
 		}
 		
 		if(rand.nextInt(8) == 0) { 

@@ -86,7 +86,7 @@ public class VanillaItemsWeapons {
     public static final Item scythe		       	= new ItemScythe("scythe");
     public static final Item frostCannon       	= new ItemFrostCannon("frostCannon");
     public static final Item cyclopsianStaff    = new ItemCyclopsianStaff("cyclopsianStaff");
-    public static final Item maelstorm          = new ItemMaelstorm("cyclopsianStaff");
+    public static final Item maelstorm          = new ItemMaelstorm("maelstorm");
 
     public static final Item serenadeOfHealth 	= new ItemSerenadeOfHealth("serenadeOfHealth");
     public static final Item serenadeStriker 	= new ItemSerenadeStriker("serenadeStriker");
