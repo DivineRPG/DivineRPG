@@ -124,10 +124,10 @@ public class VetheaItems {
     public static final Item everfight		    = new ItemModBow("everfright", -1, 25, everArrow, EntityArrow.class);
     public static final Item evernight          = new ItemStaff(115, 200, "evernight");
 
-    public static final Item vetheanArrow       = new ItemMod("vetheanArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item vetheanWarArrow    = new ItemMod("vetheanWarArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item vetheanWrathArrow  = new ItemMod("vetheanWrathArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item vetheanArrow2      = new ItemMod("vetheanArrow2").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Item teakerArrow        = new ItemMod("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Item darvenArrow    	= new ItemMod("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Item pardimalArrow  	= new ItemMod("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Item karosArrow         = new ItemMod("karosArrow").setCreativeTab(DivineRPGTabs.vethea);
 
     public static final Item dreamFlint         = new ItemMod("dreamFlint").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item moonClock          = new ItemMod("moonClock").setCreativeTab(DivineRPGTabs.vethea);

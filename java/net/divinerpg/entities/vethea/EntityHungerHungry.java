@@ -103,12 +103,12 @@ public class EntityHungerHungry extends EntityDivineRPGVillager {
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.smoothGlass, 16, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(VetheaBlocks.firelight, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(Blocks.chest, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 2, 0), new ItemStack(VetheaItems.vetheanArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.dirtyPearls, 2, 0), new ItemStack(VetheaItems.teakerArrow, 32, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 1, 0), new ItemStack(VetheaItems.dreamSweets, 4, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 5, 0), new ItemStack(VetheaItems.finishedTemplate, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 2, 0), new ItemStack(VetheaItems.vetheanArrow2, 32, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 4, 0), new ItemStack(VetheaItems.vetheanWarArrow, 32, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 6, 0), new ItemStack(VetheaItems.vetheanWrathArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 2, 0), new ItemStack(VetheaItems.darvenArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 4, 0), new ItemStack(VetheaItems.pardimalArrow, 32, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.cleanPearls, 6, 0), new ItemStack(VetheaItems.karosArrow, 32, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.polishedPearls, 20, 0), new ItemStack(VetheaItems.dreamFlint, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.polishedPearls, 5, 0), new ItemStack(VetheaItems.glisteningTemplate, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(VetheaItems.polishedPearls, 5, 0), new ItemStack(VetheaItems.demonizedTemplate, 1, 0)));
