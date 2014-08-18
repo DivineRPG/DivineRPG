@@ -49,7 +49,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.deathBringer, " I ", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.corruptedMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
 		addRecipe(IS.divineSword, " s ", "sss", " S ", 's', VanillaItemsOther.divineStone, 'S', Items.stick);
-		addRecipe(IS.bedrockMaul, " B ", "BBB", " B ", 'B', Blocks.bedrock, 'I', Items.stick);
+		addRecipe(IS.bedrockMaul, " B ", "BBB", " I ", 'B', Blocks.bedrock, 'I', Items.stick);
 		addRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', Items.stick);
