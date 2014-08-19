@@ -85,7 +85,7 @@ public class ItemRenderAltar implements IItemRenderer {
 		}
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
-		if(item.getItem() == Item.getItemFromBlock(ArcanaBlocks.extractor)){
+		if(item.getItem() == Item.getItemFromBlock(ArcanaBlocks.arcanaExtractor)){
 			switch(type){
 			case EQUIPPED:
 				GL11.glTranslatef(0.5F, 0.0F, 0.5F);

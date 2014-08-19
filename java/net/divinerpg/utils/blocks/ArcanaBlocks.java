@@ -74,7 +74,7 @@ public class ArcanaBlocks {
     
     public static final Block dramixAltar           = new BlockDramixAltar("dramixAltar");
     public static final Block parasectaAltar        = new BlockParasectaAltar("parasectaAltar");
-    public static final Block extractor             = new BlockExtractor("extractor");
+    public static final Block arcanaExtractor       = new BlockExtractor("arcanaExtractor");
 
     public static final Block arcanaPortal          = new BlockArcanaPortal("arcanaPortal");
     public static final Block arcanaPortalFrame     = new BlockArcanaFrame("arcanaPortalFrame", arcanaPortal);

@@ -186,7 +186,7 @@ public class DungeonComponent16 extends DungeonComponentBase
         world.func_150807_a(i + 1, j + 1, k + 0, dungeonBricks, 0);
         world.func_150807_a(i + 1, j + 1, k + 6, dungeonBricks, 0);
         world.func_150807_a(i + 1, j + 1, k + 9, dungeonBricks, 0);
-        world.func_150807_a(i + 1, j + 1, k + 14, ArcanaBlocks.extractor, 0);
+        world.func_150807_a(i + 1, j + 1, k + 14, ArcanaBlocks.arcanaExtractor, 0);
         world.func_150807_a(i + 1, j + 1, k + 15, dungeonBricks, 0);
         world.func_150807_a(i + 1, j + 2, k + 0, dungeonBricks, 0);
         world.func_150807_a(i + 1, j + 2, k + 5, ArcanaBlocks.dungenLamp, 0);
@@ -1101,7 +1101,7 @@ public class DungeonComponent16 extends DungeonComponentBase
         world.func_150807_a(i + 14, j + 1, k + 0, dungeonBricks, 0);
         world.func_150807_a(i + 14, j + 1, k + 6, dungeonBricks, 0);
         world.func_150807_a(i + 14, j + 1, k + 9, dungeonBricks, 0);
-        world.func_150807_a(i + 14, j + 1, k + 14, ArcanaBlocks.extractor, 0);
+        world.func_150807_a(i + 14, j + 1, k + 14, ArcanaBlocks.arcanaExtractor, 0);
         world.func_150807_a(i + 14, j + 1, k + 15, dungeonBricks, 0);
         world.func_150807_a(i + 14, j + 2, k + 0, dungeonBricks, 0);
         world.func_150807_a(i + 14, j + 2, k + 5, ArcanaBlocks.dungenLamp, 0);

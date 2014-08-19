@@ -112,7 +112,7 @@ public class ArcanaEntityRenderer {
 	public static void addBlockRendering(){
 		Util.registerItemRenderer(ArcanaBlocks.dramixAltar, new ItemRenderAltar("dramixAltar"));
 		Util.registerItemRenderer(ArcanaBlocks.parasectaAltar, new ItemRenderAltar("parasectaAltar"));
-		Util.registerItemRenderer(ArcanaBlocks.extractor, new ItemRenderAltar("extractor"));
+		Util.registerItemRenderer(ArcanaBlocks.arcanaExtractor, new ItemRenderAltar("extractor"));
 		Util.registerItemRenderer(ArcanaBlocks.demonFurnace, new ItemRenderDemonFurnace());
 		Util.registerItemRenderer(ArcanaBlocks.demonFurnaceOn, new ItemRenderDemonFurnace());
 

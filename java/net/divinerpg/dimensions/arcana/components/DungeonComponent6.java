@@ -419,8 +419,8 @@ public class DungeonComponent6 extends DungeonComponentBase
         world.func_150807_a(i + 7, j + 1, k + 11, heatTraps, 0);
         world.func_150807_a(i + 7, j + 1, k + 12, heatTraps, 0);
         world.func_150807_a(i + 7, j + 1, k + 13, ancientbricks, 0);
-        world.func_150807_a(i + 7, j + 2, k + 7, ArcanaBlocks.extractor, 0);
-        world.func_150807_a(i + 7, j + 2, k + 8, ArcanaBlocks.extractor, 0);
+        world.func_150807_a(i + 7, j + 2, k + 7, ArcanaBlocks.arcanaExtractor, 0);
+        world.func_150807_a(i + 7, j + 2, k + 8, ArcanaBlocks.arcanaExtractor, 0);
         world.func_150807_a(i + 7, j + 3, k + 0, arcanaPower, 0);
         world.func_150807_a(i + 7, j + 3, k + 15, arcanaPower, 0);
         world.func_150807_a(i + 7, j + 4, k + 0, ancientbricks, 0);
@@ -459,8 +459,8 @@ public class DungeonComponent6 extends DungeonComponentBase
         world.func_150807_a(i + 8, j + 1, k + 11, heatTraps, 0);
         world.func_150807_a(i + 8, j + 1, k + 12, heatTraps, 0);
         world.func_150807_a(i + 8, j + 1, k + 13, ancientbricks, 0);
-        world.func_150807_a(i + 8, j + 2, k + 7, ArcanaBlocks.extractor, 0);
-        world.func_150807_a(i + 8, j + 2, k + 8, ArcanaBlocks.extractor, 0);
+        world.func_150807_a(i + 8, j + 2, k + 7, ArcanaBlocks.arcanaExtractor, 0);
+        world.func_150807_a(i + 8, j + 2, k + 8, ArcanaBlocks.arcanaExtractor, 0);
         world.func_150807_a(i + 8, j + 3, k + 0, arcanaPower, 0);
         world.func_150807_a(i + 8, j + 3, k + 15, arcanaPower, 0);
         world.func_150807_a(i + 8, j + 4, k + 0, ancientbricks, 0);
