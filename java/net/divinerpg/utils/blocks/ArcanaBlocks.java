@@ -63,7 +63,6 @@ public class ArcanaBlocks {
     public static final Block livingStatueSpawner   = new BlockModSpawner("livingStatueSpawner", "Living Statue", "arcanaSpawner");
     public static final Block roamerSpawner         = new BlockModSpawner("roamerSpawner", "Roamer", "arcanaSpawner");
     public static final Block ancientTile           = new BlockMod("ancientTile", false);
-    public static final Block blockOfLight          = new BlockMod("blockOfLight", 0.3F);
     public static final Block starBridge            = new BlockStarBridge("starBridge", false);
     public static final Block starBridgeOn          = new BlockStarBridge("starBridgeOn", true);
 

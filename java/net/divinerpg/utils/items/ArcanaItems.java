@@ -21,6 +21,7 @@ import net.divinerpg.items.arcana.ItemStaffStarlight;
 import net.divinerpg.items.arcana.ItemStormSword;
 import net.divinerpg.items.arcana.ItemWizardsBook;
 import net.divinerpg.items.arcana.ItemWraithbane;
+import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
@@ -72,7 +73,7 @@ public class ArcanaItems {
     public static final Item veiloSeeds 			 = new ItemModSeeds("veiloSeeds", ArcanaBlocks.veilo);
     public static final Item marsine		 		 = new ItemMod("marsine");
     public static final Item marsineSeeds 			 = new ItemModSeeds("marsineSeeds", ArcanaBlocks.marsine);
-    public static final Item lamona		 			 = new ItemMod("lamona");
+    public static final Item lamona		 			 = new ItemThrowable(0, "lamona");
     public static final Item lamonaSeeds 			 = new ItemModSeeds("lamonaSeeds", ArcanaBlocks.lamona);
     public static final Item firestock		 		 = new ItemMod("firestock");
     public static final Item firestockSeeds 		 = new ItemModSeeds("firestockSeeds", ArcanaBlocks.firestock);
