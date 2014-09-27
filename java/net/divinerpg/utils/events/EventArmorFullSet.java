@@ -468,6 +468,8 @@ public class EventArmorFullSet {
 
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;
+        
+        System.out.println(body);
 
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
             if (event.player.capabilities.isFlying) {
@@ -534,6 +536,7 @@ public class EventArmorFullSet {
             ObfuscationReflectionHelper.setPrivateValue(Entity.class, event.player, false, isImmuneToFire);
         }
 
+        //Aquastrive
         if (boots == VanillaItemsArmor.aquastriveBoots && body == VanillaItemsArmor.aquastriveBody && legs == VanillaItemsArmor.aquastriveLegs && helmet == VanillaItemsArmor.aquastriveHelmet) {
             float speed = 1.1F;
             boolean isJumping = false;

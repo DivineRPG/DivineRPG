@@ -110,7 +110,7 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 			var14 = var4 + this.rand.nextInt(16);
 			var15 = this.rand.nextInt(128);
 			var16 = var5 + this.rand.nextInt(16);
-			(new WorldGenMinable(TwilightBlocks.wildWoodOre, 9, TwilightBlocks.twilightStone)).generate(this.worldObj, this.rand, var14, var15, var16);
+			(new WorldGenMinable(TwilightBlocks.wildwoodOre, 9, TwilightBlocks.twilightStone)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
 		WorldGenWildWoodTree var17 = new WorldGenWildWoodTree(true);
@@ -345,7 +345,7 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 				int var12 = (int)(this.stoneNoise[var8 + var9 * 16] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
 				int var13 = -1;
 				Block var14 = var10.topBlock;
-				Block var15 = TwilightBlocks.wildWoodGrass;
+				Block var15 = TwilightBlocks.wildwoodGrass;
 
 				for (int var16 = 127; var16 >= 0; --var16) {
 					int var17 = (var9 * 16 + var8) * 128 + var16;
@@ -361,11 +361,11 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 						else if (var18 == Blocks.stone) {
 							if (var13 == -1) {
 								if (var12 <= 0) {
-									var14 = TwilightBlocks.wildWoodGrass;
-									var15 = TwilightBlocks.wildWoodGrass;
+									var14 = TwilightBlocks.wildwoodGrass;
+									var15 = TwilightBlocks.wildwoodGrass;
 								}
 								else if (var16 >= var5 - 4 && var16 <= var5 + 1) {
-									var14 = TwilightBlocks.wildWoodGrass;
+									var14 = TwilightBlocks.wildwoodGrass;
 									var15 = TwilightBlocks.twilightStone;
 								}
 
@@ -379,9 +379,9 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 								--var13;
 								var3[var17] = var15;
 
-								if (var13 == 0 && var15 == TwilightBlocks.wildWoodGrass) {
+								if (var13 == 0 && var15 == TwilightBlocks.wildwoodGrass) {
 									var13 = -1;
-									var15 = TwilightBlocks.wildWoodGrass;
+									var15 = TwilightBlocks.wildwoodGrass;
 								}
 							}
 						}

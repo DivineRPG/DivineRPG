@@ -7,6 +7,7 @@ import net.divinerpg.api.blocks.BlockModSpawner;
 import net.divinerpg.api.blocks.BlockStatue;
 import net.divinerpg.blocks.vanilla.*;
 import net.divinerpg.client.render.block.model.*;
+import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -19,8 +20,8 @@ public class VanillaBlocks {
 	public static final Block rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND);
 	public static final Block arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND);
 	public static final Block realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON);
-	public static final Block bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND);
-	public static final Block netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND);
+	public static final Block bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem);
+	public static final Block netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.netheriteIngot);
 
 	public static final Block rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 3.0F, DIAMOND);
 	public static final Block arlemiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "arlemiteBlock", 3.0F, DIAMOND);

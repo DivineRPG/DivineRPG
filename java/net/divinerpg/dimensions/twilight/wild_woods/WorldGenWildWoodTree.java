@@ -114,7 +114,7 @@ public class WorldGenWildWoodTree extends WorldGenAbstractTree
 
                                     if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2))
                                     {
-                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, TwilightBlocks.wildWoodLeaves, this.metaLeaves);
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, TwilightBlocks.wildwoodLeaves, this.metaLeaves);
                                     }
                                 }
                             }
@@ -127,28 +127,28 @@ public class WorldGenWildWoodTree extends WorldGenAbstractTree
 
                         if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5))
                         {
-                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, TwilightBlocks.wildWoodLogs, this.metaWood);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, TwilightBlocks.wildwoodLogs, this.metaWood);
 
                             if (this.vinesGrow && k1 > 0)
                             {
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 - 1, par4 + k1, par5))
                                 {
-                                    this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + k1, par5, TwilightBlocks.wildWoodsVine, 8);
+                                    this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + k1, par5, TwilightBlocks.wildwoodVine, 8);
                                 }
 
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 + 1, par4 + k1, par5))
                                 {
-                                    this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + k1, par5, TwilightBlocks.wildWoodsVine, 2);
+                                    this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + k1, par5, TwilightBlocks.wildwoodVine, 2);
                                 }
 
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + k1, par5 - 1))
                                 {
-                                    this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 - 1, TwilightBlocks.wildWoodsVine, 1);
+                                    this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 - 1, TwilightBlocks.wildwoodVine, 1);
                                 }
 
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + k1, par5 + 1))
                                 {
-                                    this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 + 1, TwilightBlocks.wildWoodsVine, 4);
+                                    this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 + 1, TwilightBlocks.wildwoodVine, 4);
                                 }
                             }
                         }
@@ -222,7 +222,7 @@ public class WorldGenWildWoodTree extends WorldGenAbstractTree
 
     private void growVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, TwilightBlocks.wildWoodsVine, par5);
+        this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, TwilightBlocks.wildwoodVine, par5);
         int i1 = 4;
 
         while (true)
@@ -234,7 +234,7 @@ public class WorldGenWildWoodTree extends WorldGenAbstractTree
                 return;
             }
 
-            this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, TwilightBlocks.wildWoodsVine, par5);
+            this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, TwilightBlocks.wildwoodVine, par5);
             --i1;
         }
     }
