@@ -1,5 +1,7 @@
 package net.divinerpg.utils.proxies;
 
+import net.divinerpg.utils.events.EventArmorFullSet2;
+
 import net.divinerpg.DivineRPG;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDramixAltar;
@@ -44,7 +46,6 @@ import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -62,6 +63,7 @@ public class CommonProxy{
 		Util.addEventBus(new EventBucketFill());
 		Util.addEventBus(new EventBonemeal());
 		Util.addEventBus(new EventArmorFullSet());
+		Util.addSpecialEventBus(new EventArmorFullSet2());
 		Util.addEventBus(new EventLightningStrike());
 		Util.addEventBus(new EventHarvest());
 		Util.addEventBus(new EventDeath());
