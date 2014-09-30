@@ -13,12 +13,12 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class ArcanaHelper implements IExtendedEntityProperties {
 
-	private static int arcana = 0;
+	private static double arcana = 0;
 	private static int regenDelay = 0;
 
 	@Override
 	public void saveNBTData(NBTTagCompound n) {
-		n.setInteger("Arcana", arcana);
+		n.setInteger("Arcana", (int)arcana);
 		n.setInteger("Regen", regenDelay);
 	}
 
@@ -57,15 +57,15 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		}
 	}
 
-	public static float getBarValue() {
+	public static double getBarValue() {
 		return arcana;
 	}
 
-	public static void setBarValue(int i) {
+	public static void setBarValue(double i) {
 		arcana += i;
 	}
 	
-	public static void removeBarValue(int i) {
+	public static void removeBarValue(double i) {
 		regenDelay = 50;
 		arcana -= i;
 	}

@@ -30,6 +30,7 @@ import net.divinerpg.utils.entities.VanillaEntityRegistry;
 import net.divinerpg.utils.entities.VetheaEntityRegistry;
 import net.divinerpg.utils.events.DivineRPGCommands;
 import net.divinerpg.utils.events.EventArmorFullSet;
+import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.EventBonemeal;
 import net.divinerpg.utils.events.EventBucketFill;
 import net.divinerpg.utils.events.EventDeath;
@@ -44,7 +45,6 @@ import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -62,6 +62,7 @@ public class CommonProxy{
 		Util.addEventBus(new EventBucketFill());
 		Util.addEventBus(new EventBonemeal());
 		Util.addEventBus(new EventArmorFullSet());
+		Util.addSpecialEventBus(new EventArmorTick());
 		Util.addEventBus(new EventLightningStrike());
 		Util.addEventBus(new EventHarvest());
 		Util.addEventBus(new EventDeath());
