@@ -72,7 +72,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         else if (armorType == 2) damageReduction = ((((double) fullReduction) / 24) * 7) / 100;
         else if (armorType == 3) damageReduction = ((((double) fullReduction) / 24) * 4) / 100;
         infoBuilder = new StringBuilder();
-        for (int i = 1; i < armorInfo.length; i++) {
+        for (int i = 0; i < armorInfo.length; i++) {
             String strInfo = armorInfo[i].toString();
             if (strInfo.contains("#")) {
                 try {
@@ -88,9 +88,9 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
                     e2.printStackTrace();
                 }
             }
-            if(i % 3 == 0) infoBuilder.append('\n');
+            if(i % 2 == 0) infoBuilder.append('\n'); //Doesn't work
             if (i == armorInfo.length - 1) infoBuilder.append(strInfo);
-            else if (armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ',');
+            else if (armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ", ");
         }
 
         this.unbreakable = armorMaterial.isUndamageable();

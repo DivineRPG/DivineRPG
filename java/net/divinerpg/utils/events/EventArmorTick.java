@@ -22,6 +22,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 public class EventArmorTick {
 	
 	private float                flyTemp;
+	private boolean 			 immune 		= false;
 
     private Item                 boots          = null;
     private Item                 body           = null;
@@ -64,6 +65,10 @@ public class EventArmorTick {
             }
             event.player.fallDistance = -0.5F;
             event.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
+        }
+        else if(event.player.capabilities.allowFlying){
+        	event.player.capabilities.isFlying = false;
+        	event.player.capabilities.allowFlying = false;
         }
 
         //Elite Realmite
@@ -113,9 +118,12 @@ public class EventArmorTick {
                 || (boots == VanillaItemsArmor.infernoBoots && legs == VanillaItemsArmor.infernoLegs && body == VanillaItemsArmor.infernoBody && helmet == VanillaItemsArmor.infernoHelmet)
                 || (boots == VanillaItemsArmor.bedrockBoots && legs == VanillaItemsArmor.bedrockLegs && body == VanillaItemsArmor.bedrockBody && helmet == VanillaItemsArmor.bedrockHelmet)) {
             ObfuscationReflectionHelper.setPrivateValue(Entity.class, event.player, true, isImmuneToFire);
+            if(!immune)
+            	immune = true;
         }
-        else {
+        else if(immune){
             ObfuscationReflectionHelper.setPrivateValue(Entity.class, event.player, false, isImmuneToFire);
+            immune = false;
         }
 
         //Aquastrive

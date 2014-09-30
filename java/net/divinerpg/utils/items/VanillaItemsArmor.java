@@ -9,7 +9,7 @@ public class VanillaItemsArmor {
 
     public static int             HEAD                = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-    private static final Object[] angInfo             = new Object[] { ArmorInfo.NO_FALL, ArmorInfo.FLY };
+    private static final Object[] angInfo             = new Object[] { ArmorInfo.NO_FALL, ArmorInfo.FLY,};
     public static final Item      angelicHelmet       = new ItemDivineArmor(EnumArmor.ANGELIC, HEAD, angInfo);
     public static final Item      angelicBody         = new ItemDivineArmor(EnumArmor.ANGELIC, BODY, angInfo);
     public static final Item      angelicLegs         = new ItemDivineArmor(EnumArmor.ANGELIC, LEGS, angInfo);
