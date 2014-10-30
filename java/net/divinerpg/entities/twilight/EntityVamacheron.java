@@ -26,6 +26,7 @@ public class EntityVamacheron extends EntityDivineRPGBoss {
 	public EntityVamacheron(World var1) {
 		super(var1);
 		addAttackingAI();
+		this.setSize(3F, 4F);
 	}
 
 	@Override
