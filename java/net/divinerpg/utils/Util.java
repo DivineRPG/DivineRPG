@@ -75,17 +75,15 @@ public class Util {
         GameRegistry.addSmelting(input, output, XP);
     }
 
-    public static void registerDivineRPGMob(Class entityClass, String entityName, int ID) {
+    public static void registerDivineRPGMob(Class entityClass, String entityName) {
     	LangRegistry.addMob(entityName);
-        int entityID = EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerGlobalEntityID(entityClass, entityName, entityID, 0x000000, 0xFFFFFF);
-        EntityRegistry.registerModEntity(entityClass, entityName, ID, DivineRPG.instance, 120, 5, true);
+        EntityRegistry.registerModEntity(entityClass, entityName, mobID, DivineRPG.instance, 120, 5, true);
+        mobID++;
     }
 
     public static void registerProjectile(Class entityClass, String entityName) {
-        int ID = EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerGlobalEntityID(entityClass, entityName + " Projectile", ID);
-        EntityRegistry.registerModEntity(entityClass, entityName + " Projectile", ID, DivineRPG.instance, 250, 5, true);
+        EntityRegistry.registerModEntity(entityClass, entityName + " Projectile", projectileID, DivineRPG.instance, 250, 5, true);
+        projectileID++;
     }
 
     public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability) {

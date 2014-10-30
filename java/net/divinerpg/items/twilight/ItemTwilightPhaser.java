@@ -26,16 +26,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemTwilightPhaser extends ItemMod {
 	private int damage;
-	private int firetick;
-	private int firemax;
 	private String firesound;
 	private String name;
 
 	public ItemTwilightPhaser(int dam, String name) {
 		super(name, DivineRPGTabs.ranged);
 		this.damage = dam;
-        this.firemax = 0;
-        this.firetick = this.firemax;
         this.firesound = Sounds.phaser.getPrefixedName();
         this.setMaxStackSize(1);
         this.setMaxDamage(3000);
@@ -44,48 +40,7 @@ public class ItemTwilightPhaser extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		if(!var2.isRemote) {
-			if (this.firetick == this.firemax && this.firemax != 0) {
-				if(var1.getItem() == TwilightItemsWeapons.skythernPhaser) {
-					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityPhaserSkythern(var2, var3));
-					var1.damageItem(1, var3);
-				}
-
-				if(var1.getItem() == TwilightItemsWeapons.halitePhaser) {
-					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityPhaserHalite(var2, var3));
-					var1.damageItem(1, var3);
-				}
-
-				if(var1.getItem() == TwilightItemsWeapons.wildwoodPhaser) {
-					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityPhaserWildWood(var2, var3));
-					var1.damageItem(1, var3);
-				}
-
-				if(var1.getItem() == TwilightItemsWeapons.edenPhaser) {
-					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityPhaserEden(var2, var3));
-					var1.damageItem(1, var3);
-				}
-
-				if(var1.getItem() == TwilightItemsWeapons.mortumPhaser) {
-					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityPhaserMortum(var2, var3));
-					var1.damageItem(1, var3);
-				}
-
-				if(var1.getItem() == TwilightItemsWeapons.apalachiaPhaser) {
-					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityPhaserApalachia(var2, var3));
-					var1.damageItem(1, var3);
-				}
-                this.firetick = 0;
-			} else {
-				++this.firetick;
-			}
-
-			if (this.firemax == 0) {
+			if (var2.getWorldTime() % 4 == 0) {
 				if(var1.getItem() == TwilightItemsWeapons.skythernPhaser) {
 					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
 					var2.spawnEntityInWorld(new EntityPhaserSkythern(var2, var3));
@@ -122,14 +77,8 @@ public class ItemTwilightPhaser extends ItemMod {
 					var1.damageItem(1, var3);
 				}
 			}
-
 		}
 		return var1;
-	}
-
-	@Override
-	public void onPlayerStoppedUsing(ItemStack var1, World var2, EntityPlayer var3, int var4) {
-		this.firetick = this.firemax;
 	}
 
 	@Override

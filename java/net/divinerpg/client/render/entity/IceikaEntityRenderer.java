@@ -3,6 +3,7 @@ package net.divinerpg.client.render.entity;
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineMob;
+import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.block.RenderTileEntityFrostedChest;
@@ -24,11 +25,12 @@ import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
 import net.divinerpg.entities.iceika.projectile.EntityFrostclaw;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
+import net.divinerpg.entities.iceika.projectile.EntitySnowflakeShuriken;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraftforge.client.MinecraftForgeClient;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -39,6 +41,7 @@ public class IceikaEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityCarol.class, new RenderProjectile(EntityResourceLocation.music));
         RenderingRegistry.registerEntityRenderingHandler(EntityMusic.class, new RenderProjectile(EntityResourceLocation.music));
         RenderingRegistry.registerEntityRenderingHandler(EntityFrostclaw.class, new RenderProjectile(EntityResourceLocation.frostclaw));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySnowflakeShuriken.class, new RenderIconProjectile(IceikaItems.snowflakeShuriken));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAlicanto.class, new RenderDivineMob(new ModelAlicanto(), 0.0F, EntityResourceLocation.ALICANTO));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractite.class, new RenderDivineMob(new ModelFractite(), 0.5F, EntityResourceLocation.FRACTITE));

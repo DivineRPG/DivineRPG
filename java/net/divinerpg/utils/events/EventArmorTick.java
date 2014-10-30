@@ -29,8 +29,8 @@ public class EventArmorTick {
     private Item                 legs           = null;
     private Item                 helmet         = null;
 
-    public static final String[] isImmuneToFire = new String[] { "ag", "field_70178_ae", "isImmuneToFire" };
-    public static final String[] isJumping      = new String[] { "bd", "field_70703_bu", "isJumping" };
+    public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
+    public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
 
     private World                world;
 	
@@ -55,18 +55,20 @@ public class EventArmorTick {
         else helmet = null;
 
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
-            if (event.player.capabilities.isFlying) {
+            if (event.player.capabilities.isFlying && !event.player.capabilities.isCreativeMode) {
                 ArcanaHelper.removeBarValue(0.2);
             }
-            if (ArcanaHelper.getBarValue() >= 0) {
-                event.player.capabilities.allowFlying = true;
-            } else {
-                event.player.capabilities.isFlying = false;
+            if(!event.player.capabilities.isCreativeMode){
+            	if (ArcanaHelper.getBarValue() >= 0) {
+            		event.player.capabilities.allowFlying = true;
+            	} else {
+            		event.player.capabilities.isFlying = false;
+            	}
             }
             event.player.fallDistance = -0.5F;
             event.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
         }
-        else if(event.player.capabilities.allowFlying){
+        else if(event.player.capabilities.allowFlying && !event.player.capabilities.isCreativeMode){
         	event.player.capabilities.isFlying = false;
         	event.player.capabilities.allowFlying = false;
         }

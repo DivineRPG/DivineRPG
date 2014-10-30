@@ -3,15 +3,14 @@ package net.divinerpg.utils.items;
 import net.divinerpg.api.items.ItemDivineArmor;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBucket;
-import net.divinerpg.api.items.ItemModDoor;
 import net.divinerpg.api.items.ItemModFood;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.items.iceika.ItemFrostclawCannon;
 import net.divinerpg.items.iceika.ItemMusicShooter;
 import net.divinerpg.items.iceika.ItemSnowGlobe;
+import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.utils.blocks.IceikaBlocks;
-import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.material.ToolMaterialMod;
@@ -37,7 +36,7 @@ public class IceikaItems {
     public static final Item      soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      frostclawCannon   = new ItemFrostclawCannon("frostclawCannon").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      fractiteCannon    = new ItemMod("fractiteCannon").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item      snowflakeShuriken = new ItemMod("snowflakeShuriken").setCreativeTab(DivineRPGTabs.ranged);
+    public static final Item      snowflakeShuriken = new ItemThrowable(7, "snowflakeShuriken");
     public static final Item      serenadeOfIce     = new ItemMod("serenadeofIce");
 
     public static final Item      eggNog            = new ItemMod("eggNog");

@@ -39,8 +39,8 @@ public class EventArmorFullSet {
     private Item                 legs           = null;
     private Item                 helmet         = null;
 
-    public static final String[] isImmuneToFire = new String[] { "ag", "field_70178_ae", "isImmuneToFire" };
-    public static final String[] isJumping      = new String[] { "bd", "field_70703_bu", "isJumping" };
+    public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
+    public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
 
     private World                world;
     

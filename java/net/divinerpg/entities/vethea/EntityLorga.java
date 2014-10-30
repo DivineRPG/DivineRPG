@@ -12,6 +12,10 @@ public class EntityLorga extends EntityDivineRPGMob {
     private int lifeTick;
     private int spawnTick;
     public boolean canSpawnMinions;
+    
+    public EntityLorga(World w) {
+    	this(w, true);
+    }
 
     public EntityLorga(World var1, boolean canSpawnMinions) {
         super(var1);
