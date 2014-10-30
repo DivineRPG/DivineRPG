@@ -3,6 +3,7 @@ package net.divinerpg.blocks.arcana;
 import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

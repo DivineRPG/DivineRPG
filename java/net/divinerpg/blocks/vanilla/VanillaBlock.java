@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
@@ -58,6 +59,13 @@ public class VanillaBlock extends BlockMod {
 			e.attackEntityFrom(DamageSource.cactus, 1.0F);
 		}
 	}
+	
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
+    {
+        float f = 0.0625F;
+        return this == VanillaBlocks.netheriteOre ? AxisAlignedBB.getBoundingBox((double)((float)x + f), (double)y, (double)((float)z + f), (double)((float)(x + 1) - f), (double)((float)(y + 1) - f), (double)((float)(z + 1) - f)) : super.getCollisionBoundingBoxFromPool(world, x, y, z);
+    }
 
 
 	@Override

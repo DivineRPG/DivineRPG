@@ -22,6 +22,7 @@ import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.entities.ArcanaEntityRegistry;
 import net.divinerpg.utils.entities.IceikaEntityRegistry;
 import net.divinerpg.utils.entities.MobSpawning;
@@ -67,6 +68,7 @@ public class CommonProxy{
 		Util.addEventBus(new EventHarvest());
 		Util.addEventBus(new EventDeath());
 		LogHelper.info("Registering tile entities");
+		ArcanaBlocks.init();
 		GameRegistry.registerTileEntity(TileEntityTwilightFurnace.class, "Twilight Furnace");
 		GameRegistry.registerTileEntity(TileEntityInfusionTable.class, "Infusion Table");
 		GameRegistry.registerTileEntity(TileEntityStatue.class, "Statue");

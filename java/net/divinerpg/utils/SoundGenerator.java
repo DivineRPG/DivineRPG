@@ -10,7 +10,7 @@ public class SoundGenerator extends RegistryFile {
     private static final RegistryFile instance  = new SoundGenerator();
 
     public SoundGenerator() {
-        super("./src/main/resources/assets/divinerpg/sounds.json");
+        super("sounds.json");
     }
 
     public static void addSound(Sound sound) {
@@ -19,7 +19,6 @@ public class SoundGenerator extends RegistryFile {
 
     public static void registerSounds() {
         instance.addNames();
-        instance.closeFile();
     }
 
     @Override
