@@ -23,6 +23,7 @@ import net.divinerpg.entities.iceika.EntityRollum;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
+import net.divinerpg.entities.iceika.projectile.EntityFractiteCannon;
 import net.divinerpg.entities.iceika.projectile.EntityFrostclaw;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
 import net.divinerpg.entities.iceika.projectile.EntitySnowflakeShuriken;
@@ -42,6 +43,7 @@ public class IceikaEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityMusic.class, new RenderProjectile(EntityResourceLocation.music));
         RenderingRegistry.registerEntityRenderingHandler(EntityFrostclaw.class, new RenderProjectile(EntityResourceLocation.frostclaw));
         RenderingRegistry.registerEntityRenderingHandler(EntitySnowflakeShuriken.class, new RenderIconProjectile(IceikaItems.snowflakeShuriken));
+        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteCannon.class, new RenderProjectile(EntityResourceLocation.fractiteCannon));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAlicanto.class, new RenderDivineMob(new ModelAlicanto(), 0.0F, EntityResourceLocation.ALICANTO));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractite.class, new RenderDivineMob(new ModelFractite(), 0.5F, EntityResourceLocation.FRACTITE));

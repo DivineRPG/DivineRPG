@@ -45,9 +45,11 @@ public class ItemSerenadeStriker extends ItemMod {
 			int y = rarTrace.blockY;
 			int z = rarTrace.blockZ;
 
-			world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
-			world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
-			world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+			if(Math.abs(Math.sqrt(player.posX*player.posX + player.posY*player.posY + player.posZ*player.posZ) - Math.sqrt(x*x+y*y+z*z)) < 100){
+				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+			}
 			
 			/*//idk how to make this take up less code ~ caleb
 			world.func_147480_a(x, y, z, true);

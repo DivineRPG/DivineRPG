@@ -33,71 +33,134 @@ public class ArcanaItems {
 
     public static final int       HEAD               = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-    public static final Item      dungeonTokens      = new ItemMod("dungeonTokens");
-    public static final Item      arcanium		     = new ItemMod("arcanium");
-    public static final Item      staffStarlight     = new ItemStaffStarlight("staffOfStarlight");
-    public static final Item      starlight          = new ItemStaffStarlight("starlight");
-    public static final Item      stormSword         = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
-    public static final Item      captainsSparkler   = new ItemCaptainsSparkler("captainsSparkler");
-    public static final Item      strongArcanaPotion = new ItemModPotion("strongArcanaPotion", 200);
-    public static final Item      weakArcanaPotion   = new ItemModPotion("weakArcanaPotion", 100);
-    public static final Item      collector          = new ItemMod("collector");
-    public static final Item      chargedCollector   = new ItemChargedCollector("chargedCollector");
-    public static final Item      wizardBook	     = new ItemWizardsBook("wizardsBook");
-    public static final Item      staffOfEnrichment	 = new ItemStaffEnrichment("staffOfEnrichment");
-    public static final Item      orbOfLight	 	 = new ItemMod("orbOfLight");
-	public static final Item 	  meriksMissile 	 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
-	public static final Item 	  grenade		 	 = new ItemGrenade("grenade");
-	public static final Item 	  firefly 	 		 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
-	public static final Item 	  grenadeLauncher 	 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
-	public static final Item 	  enderScepter  	 = new ItemEnderScepter("enderScepter");
-	public static final Item 	  arcaniumSaber  	 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
-	public static final Item 	  wraithbane  	 	 = new ItemWraithbane("wraithbane");
-	public static final Item 	  reflector  	 	 = new ItemReflector("reflector");
-	public static final Item 	  shadowSword  	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
-	public static final Item 	  liviciaSword  	 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
+    public static Item      dungeonTokens;
+    public static Item      arcanium;
+    public static Item      staffStarlight;
+    public static Item      starlight;
+    public static Item      stormSword;
+    public static Item      captainsSparkler;
+    public static Item      strongArcanaPotion;
+    public static Item      weakArcanaPotion;
+    public static Item      collector;
+    public static Item      chargedCollector;
+    public static Item      wizardBook;
+    public static Item      staffOfEnrichment;
+    public static Item      orbOfLight;
+	public static Item 	  meriksMissile;
+	public static Item 	  grenade;
+	public static Item 	  firefly;
+	public static Item 	  grenadeLauncher;
+	public static Item 	  enderScepter;
+	public static Item 	  arcaniumSaber;
+	public static Item 	  wraithbane;
+	public static Item 	  reflector;
+	public static Item 	  shadowSword;
+	public static Item 	  liviciaSword;
 
-    public static final Item key1 				 	 = new ItemKey("key1");
-    public static final Item key2 				 	 = new ItemKey("key2");
-    public static final Item key3 				 	 = new ItemKey("key3");
-    public static final Item key4 				 	 = new ItemKey("key4");
+    public static Item key1;
+    public static Item key2;
+    public static Item key3;
+    public static Item key4;
 
-	public static final Item 	  golemSpawner   	 = new ItemArcanaSpawnEgg("golemSpawner");
-	public static final Item 	  seimerSpawner   	 = new ItemArcanaSpawnEgg("seimerSpawner");
-	public static final Item 	  paratikuSpawner    = new ItemArcanaSpawnEgg("paratikuSpawner");
-	public static final Item 	  fyracryxSpawner    = new ItemArcanaSpawnEgg("fyracryxSpawner");
-
-    public static final Item hitchak		 		 = new ItemMod("hitchak");
-    public static final Item hitchakSeeds 			 = new ItemModSeeds("hitchakSeeds", ArcanaBlocks.hitchak);
-    public static final Item veilo		 		     = new ItemMod("veilo");
-    public static final Item veiloSeeds 			 = new ItemModSeeds("veiloSeeds", ArcanaBlocks.veilo);
-    public static final Item marsine		 		 = new ItemMod("marsine");
-    public static final Item marsineSeeds 			 = new ItemModSeeds("marsineSeeds", ArcanaBlocks.marsine);
-    public static final Item lamona		 			 = new ItemThrowable(0, "lamona");
-    public static final Item lamonaSeeds 			 = new ItemModSeeds("lamonaSeeds", ArcanaBlocks.lamona);
-    public static final Item firestock		 		 = new ItemMod("firestock");
-    public static final Item firestockSeeds 		 = new ItemModSeeds("firestockSeeds", ArcanaBlocks.firestock);
-    public static final Item pinfly		 		     = new ItemMod("pinfly");
-    public static final Item pinflySeeds 		     = new ItemModSeeds("pinflySeeds", ArcanaBlocks.pinfly);
-    public static final Item moonbulb		 		 = new ItemMod("moonbulb");
-    public static final Item moonbulbSeeds  		 = new ItemModSeeds("moonbulbSeeds", ArcanaBlocks.moonbulb);
-    public static final Item aquamarine		 		 = new ItemMod("aquamarine");
-    public static final Item aquamarineSeeds 		 = new ItemModSeeds("aquamarineSeeds", ArcanaBlocks.aquamarine);
-    public static final Item eucalyptusSeeds    	 = new ItemModSeeds("eucalyptusRootSeeds", ArcanaBlocks.eucalyptusRoot);
+	public static Item 	  golemSpawner;
+	public static Item 	  seimerSpawner;
+	public static Item 	  paratikuSpawner;
+	public static Item 	  fyracryxSpawner;
+	
+    public static Item hitchak;
+    public static Item hitchakSeeds;
+    public static Item veilo;
+    public static Item veiloSeeds;
+    public static Item marsine;
+    public static Item marsineSeeds;
+    public static Item lamona;
+    public static Item lamonaSeeds;
+    public static Item firestock;
+    public static Item firestockSeeds;
+    public static Item pinfly;
+    public static Item pinflySeeds;
+    public static Item moonbulb;
+    public static Item moonbulbSeeds;
+    public static Item aquamarine;
+    public static Item aquamarineSeeds;
+    public static Item eucalyptusSeeds;
 
     
     private static final Object[] kormInfo           = new Object[] { ArmorInfo.ARCANA_REGEN };
-    public static final Item      kormaHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, kormInfo);
-    public static final Item      kormaBody          = new ItemDivineArmor(EnumArmor.KORMA, BODY, kormInfo);
-    public static final Item      kormaLegs          = new ItemDivineArmor(EnumArmor.KORMA, LEGS, kormInfo);
-    public static final Item      kormaBoots         = new ItemDivineArmor(EnumArmor.KORMA, BOOTS, kormInfo);
+    public static Item      kormaHelmet;
+    public static Item      kormaBody;
+    public static Item      kormaLegs;
+    public static Item      kormaBoots;
 
     private static final Object[] vemInfo            = new Object[] { ArmorInfo.HEALTH_REGEN };
-    public static final Item      vemosHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, "vemos", vemInfo);
-    public static final Item      vemosBody          = new ItemDivineArmor(EnumArmor.KORMA, BODY, "vemos", vemInfo);
-    public static final Item      vemosLegs          = new ItemDivineArmor(EnumArmor.KORMA, LEGS, "vemos", vemInfo);
-    public static final Item      vemosBoots         = new ItemDivineArmor(EnumArmor.KORMA, BOOTS, "vemos", vemInfo);
-
+    public static Item      vemosHelmet;
+    public static Item      vemosBody;
+    public static Item      vemosLegs;
+    public static Item      vemosBoots;
     
+    public static void init() {
+    	dungeonTokens      = new ItemMod("dungeonTokens");
+        arcanium		     = new ItemMod("arcanium");
+        staffStarlight     = new ItemStaffStarlight("staffOfStarlight");
+        starlight          = new ItemStaffStarlight("starlight");
+        stormSword         = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
+        captainsSparkler   = new ItemCaptainsSparkler("captainsSparkler");
+        strongArcanaPotion = new ItemModPotion("strongArcanaPotion", 200);
+        weakArcanaPotion   = new ItemModPotion("weakArcanaPotion", 100);
+        collector          = new ItemMod("collector");
+        chargedCollector   = new ItemChargedCollector("chargedCollector");
+        wizardBook	     = new ItemWizardsBook("wizardsBook");
+        staffOfEnrichment	 = new ItemStaffEnrichment("staffOfEnrichment");
+        orbOfLight	 	 = new ItemMod("orbOfLight");
+    	meriksMissile 	 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
+    	grenade		 	 = new ItemGrenade("grenade");
+    	firefly 	 		 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
+    	grenadeLauncher 	 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
+    	enderScepter  	 = new ItemEnderScepter("enderScepter");
+    	arcaniumSaber  	 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
+    	wraithbane  	 	 = new ItemWraithbane("wraithbane");
+    	reflector  	 	 = new ItemReflector("reflector");
+    	shadowSword  	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
+    	liviciaSword  	 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
+
+        key1 				 	 = new ItemKey("key1");
+        key2 				 	 = new ItemKey("key2");
+        key3 				 	 = new ItemKey("key3");
+        key4 				 	 = new ItemKey("key4");
+
+    	golemSpawner   	 = new ItemArcanaSpawnEgg("golemSpawner");
+    	seimerSpawner   	 = new ItemArcanaSpawnEgg("seimerSpawner");
+    	paratikuSpawner    = new ItemArcanaSpawnEgg("paratikuSpawner");
+    	fyracryxSpawner    = new ItemArcanaSpawnEgg("fyracryxSpawner");
+
+        hitchak		 		 = new ItemMod("hitchak");
+        hitchakSeeds 			 = new ItemModSeeds("hitchakSeeds", ArcanaBlocks.hitchak);
+        veilo		 		     = new ItemMod("veilo");
+        veiloSeeds 			 = new ItemModSeeds("veiloSeeds", ArcanaBlocks.veilo);
+        marsine		 		 = new ItemMod("marsine");
+        marsineSeeds 			 = new ItemModSeeds("marsineSeeds", ArcanaBlocks.marsine);
+        lamona		 			 = new ItemThrowable(0, "lamona");
+        lamonaSeeds 			 = new ItemModSeeds("lamonaSeeds", ArcanaBlocks.lamona);
+        firestock		 		 = new ItemMod("firestock");
+        firestockSeeds 		 = new ItemModSeeds("firestockSeeds", ArcanaBlocks.firestock);
+        pinfly 	 		     = new ItemMod("pinfly");
+        pinflySeeds 		     = new ItemModSeeds("pinflySeeds", ArcanaBlocks.pinfly);
+        moonbulb		 		 = new ItemMod("moonbulb");
+        moonbulbSeeds  		 = new ItemModSeeds("moonbulbSeeds", ArcanaBlocks.moonbulb);
+        aquamarine		 		 = new ItemMod("aquamarine");
+        aquamarineSeeds 		 = new ItemModSeeds("aquamarineSeeds", ArcanaBlocks.aquamarine);
+        eucalyptusSeeds    	 = new ItemModSeeds("eucalyptusRootSeeds", ArcanaBlocks.eucalyptusRoot);
+
+        
+        kormaHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, kormInfo);
+        kormaBody          = new ItemDivineArmor(EnumArmor.KORMA, BODY, kormInfo);
+        kormaLegs          = new ItemDivineArmor(EnumArmor.KORMA, LEGS, kormInfo);
+        kormaBoots         = new ItemDivineArmor(EnumArmor.KORMA, BOOTS, kormInfo);
+
+        vemosHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, "vemos", vemInfo);
+        vemosBody          = new ItemDivineArmor(EnumArmor.KORMA, BODY, "vemos", vemInfo);
+        vemosLegs          = new ItemDivineArmor(EnumArmor.KORMA, LEGS, "vemos", vemInfo);
+        vemosBoots         = new ItemDivineArmor(EnumArmor.KORMA, BOOTS, "vemos", vemInfo);
+    }
     
 }

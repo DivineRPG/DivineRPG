@@ -37,6 +37,7 @@ import net.divinerpg.utils.events.EventBucketFill;
 import net.divinerpg.utils.events.EventDeath;
 import net.divinerpg.utils.events.EventHarvest;
 import net.divinerpg.utils.events.EventLightningStrike;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.recipes.TwilightRecipeHelper;
@@ -69,6 +70,7 @@ public class CommonProxy{
 		Util.addEventBus(new EventDeath());
 		LogHelper.info("Registering tile entities");
 		ArcanaBlocks.init();
+		ArcanaItems.init();
 		GameRegistry.registerTileEntity(TileEntityTwilightFurnace.class, "Twilight Furnace");
 		GameRegistry.registerTileEntity(TileEntityInfusionTable.class, "Infusion Table");
 		GameRegistry.registerTileEntity(TileEntityStatue.class, "Statue");
