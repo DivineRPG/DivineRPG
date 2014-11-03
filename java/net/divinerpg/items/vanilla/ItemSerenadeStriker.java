@@ -49,6 +49,7 @@ public class ItemSerenadeStriker extends ItemMod {
 				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
 				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
 				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+				if(!player.capabilities.isCreativeMode)stack.damageItem(1, player);
 			}
 			
 			/*//idk how to make this take up less code ~ caleb

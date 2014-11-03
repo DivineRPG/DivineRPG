@@ -5,10 +5,12 @@ import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBucket;
 import net.divinerpg.api.items.ItemModFood;
 import net.divinerpg.api.items.ItemModSword;
+import net.divinerpg.items.iceika.ItemEggNog;
 import net.divinerpg.items.iceika.ItemFractiteCannon;
 import net.divinerpg.items.iceika.ItemFrossivence;
 import net.divinerpg.items.iceika.ItemFrostclawCannon;
 import net.divinerpg.items.iceika.ItemMusicShooter;
+import net.divinerpg.items.iceika.ItemSerenadeOfIce;
 import net.divinerpg.items.iceika.ItemSnowGlobe;
 import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.libs.ChatFormats;
@@ -39,9 +41,9 @@ public class IceikaItems {
     public static final Item      frostclawCannon   = new ItemFrostclawCannon("frostclawCannon").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      fractiteCannon    = new ItemFractiteCannon("fractiteCannon").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      snowflakeShuriken = new ItemThrowable(7, "snowflakeShuriken");
-    public static final Item      serenadeOfIce     = new ItemMod("serenadeofIce");
+    public static final Item      serenadeOfIce     = new ItemSerenadeOfIce("serenadeofIce");
 
-    public static final Item      eggNog            = new ItemMod("eggNog");
+    public static final Item      eggNog            = new ItemEggNog("eggNog");
     public static final Item      peppermints       = new ItemModFood(1, 0.3F, false, "peppermints");
     public static final Item      chocolateLog      = new ItemModFood(4, 1.0F, false, "chocolateLog");
     public static final Item      snowCones         = new ItemModFood(2, 0.3F, false, "snowCones");
