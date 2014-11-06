@@ -3,7 +3,7 @@ package net.divinerpg.items.twilight;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzAlapachia;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
@@ -36,6 +36,7 @@ public class ItemTwilightBlitz extends ItemMod {
 		this.ammoType = ammoType;
 	}
 
+	@Override
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		boolean var4 = var3.capabilities.isCreativeMode;
 
@@ -77,7 +78,7 @@ public class ItemTwilightBlitz extends ItemMod {
 			if(var1.getItem() == TwilightItemsWeapons.apalachiaBlitz) {
 				if(!var2.isRemote) {
 					var2.playSoundAtEntity(var3, sound, 1.0F, 1.0F);
-					var2.spawnEntityInWorld(new EntityBlitzAlapachia(var2, var3));
+					var2.spawnEntityInWorld(new EntityBlitzApalachia(var2, var3));
 				}
 				var3.inventory.consumeInventoryItem(TwilightItemsOther.apalachiaDust);
 			}

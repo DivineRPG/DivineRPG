@@ -28,6 +28,8 @@ public class ItemTwilightPhaser extends ItemMod {
 	private int damage;
 	private String firesound;
 	private String name;
+	
+	private int counter = 0;
 
 	public ItemTwilightPhaser(int dam, String name) {
 		super(name, DivineRPGTabs.ranged);
@@ -40,7 +42,7 @@ public class ItemTwilightPhaser extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		if(!var2.isRemote) {
-			if (var2.getWorldTime() % 4 == 0) {
+			if (counter == 0) {
 				if(var1.getItem() == TwilightItemsWeapons.skythernPhaser) {
 					var2.playSoundAtEntity(var3, this.firesound, 1.0F, 1.0F);
 					var2.spawnEntityInWorld(new EntityPhaserSkythern(var2, var3));
@@ -76,6 +78,12 @@ public class ItemTwilightPhaser extends ItemMod {
 					var2.spawnEntityInWorld(new EntityPhaserApalachia(var2, var3));
 					var1.damageItem(1, var3);
 				}
+			}
+			
+			counter++;
+			
+			if(counter >= 5){
+				counter = 0;
 			}
 		}
 		return var1;

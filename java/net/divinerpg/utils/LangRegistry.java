@@ -120,7 +120,7 @@ public class LangRegistry extends RegistryFile {
     public static void addMobNames() {
         for (int i = 0; i < mobs.size(); i++) {
             String mob = mobs.get(i);
-            instance.addToFile("entity." + mob + ".name=" + mob);
+            instance.addToFile("entity.divinerpg." + mob + ".name=" + mob);
         }
     }
 

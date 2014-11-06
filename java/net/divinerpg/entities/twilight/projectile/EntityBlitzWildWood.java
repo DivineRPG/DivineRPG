@@ -42,20 +42,12 @@ public class EntityBlitzWildWood extends EntityThrowable
         }
     }
 
-    /**
-     * Called when this EntityThrowable hits a block or entity.
-     */
     @Override
     protected void onImpact(MovingObjectPosition var1)
     {
         if (var1.entityHit != null)
         {
             byte var2 = 22;
-
-            if (var1.entityHit instanceof EntityBlaze)
-            {
-                var2 = 22;
-            }
 
             var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
         }

@@ -32,6 +32,12 @@ import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildWoodGolem;
 import net.divinerpg.entities.twilight.EntityWildWoodTomo;
 import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzSkythern;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzWildWood;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
 import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
 import net.divinerpg.entities.twilight.projectile.EntityHaliteArrow;
@@ -67,6 +73,12 @@ public class TwilightEntityRegistry {
         Util.registerProjectile(EntityPhaserSkythern.class, "skythernPhaser");
         Util.registerProjectile(EntityPhaserMortum.class, "mortumPhaser");
         Util.registerProjectile(EntityPhaserHalite.class, "halitePhaser");
+        Util.registerProjectile(EntityBlitzEden.class, "edenBlitz");
+        Util.registerProjectile(EntityBlitzWildWood.class, "wildBlitz");
+        Util.registerProjectile(EntityBlitzApalachia.class, "apalachiaBlitz");
+        Util.registerProjectile(EntityBlitzSkythern.class, "skythernBlitz");
+        Util.registerProjectile(EntityBlitzMortum.class, "mortumBlitz");
+        Util.registerProjectile(EntityBlitzHalite.class, "haliteBlitz");
         Util.registerProjectile(EntityCoriShot.class, "weakCoriShot");
         
         Util.registerDivineRPGMob(EntityEdenCadillion.class, "EdenCadillion");

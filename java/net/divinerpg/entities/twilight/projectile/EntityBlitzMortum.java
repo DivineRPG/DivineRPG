@@ -28,6 +28,7 @@ public class EntityBlitzMortum extends EntityThrowable
     {
         super(var1, var2, var4, var6);
     }
+    
     @SideOnly(Side.CLIENT)
     @Override
     public void onUpdate()
@@ -41,20 +42,12 @@ public class EntityBlitzMortum extends EntityThrowable
         }
     }
 
-    /**
-     * Called when this EntityThrowable hits a block or entity.
-     */
     @Override
     protected void onImpact(MovingObjectPosition var1)
     {
         if (var1.entityHit != null)
         {
             byte var2 = 31;
-
-            if (var1.entityHit instanceof EntityBlaze)
-            {
-                var2 = 31;
-            }
 
             var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
         }
