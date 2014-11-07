@@ -39,6 +39,7 @@ import net.divinerpg.entities.vanilla.EntityWildFire;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
@@ -61,6 +62,7 @@ public class VanillaEntityRegistry {
 		Util.registerProjectile(EntityCaveRock.class, "CaveRock");
 		Util.registerProjectile(EntityWatcherShot.class, "WatcherShot");
 		Util.registerProjectile(EntityMaelstorm.class, "Maelstorm");
+		Util.registerProjectile(EntityFrostShot.class, "FrostShot");
 
 		Util.registerDivineRPGMob(EntityEnderWatcher.class, "EnderWatcher");		
 		Util.registerDivineRPGMob(EntityCrab.class, "Crab");

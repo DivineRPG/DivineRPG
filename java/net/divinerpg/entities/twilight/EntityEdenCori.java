@@ -44,8 +44,8 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
     }
     
     @Override
-    protected void updateEntityActionState() {
-    	
+    public void onUpdate() {
+    	super.onUpdate();
     	if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             this.setDead();
         }
