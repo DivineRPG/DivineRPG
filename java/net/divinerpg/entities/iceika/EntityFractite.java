@@ -47,7 +47,8 @@ public class EntityFractite extends EntityDivineRPGFlying {
 	}
 
 	@Override
-	protected void updateEntityActionState() {
+	public void onUpdate() {
+		super.onUpdate();
 		this.prevAttackCounter = this.attackCounter;
 		double var1 = this.waypointX - this.posX;
 		double var3 = this.waypointY - this.posY;

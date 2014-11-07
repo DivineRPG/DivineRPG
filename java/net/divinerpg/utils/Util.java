@@ -33,7 +33,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Util {
 
-    public static int      mobID                  = 400, projectileID = 230;
+    public static int      mobID                  = 400, projectileID = 150;
 
     private static Object  reflectionFactory      = null;
     private static Method  newConstructorAccessor = null;

@@ -13,6 +13,7 @@ public class BiomeGenIceika extends BiomeGenBase{
 		this.rainfall = 999;
 		this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
-        this.enableSnow = true;
+        this.setEnableSnow();
+        this.setTemperatureRainfall(0.0f, 0.5f);
 	}
 }

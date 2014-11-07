@@ -77,7 +77,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		//addRecipe(VanillaItemsWeapons.goldenFury, "III", "IXI", "III", 'I', Items.gold_ingot, 'X', TwilightItemsWeapons.mortumBlitz);
 		
-		//Tools (finally! You have waited a long time for this c:)
+		//Tools
 		addRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.realmiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.realmiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
