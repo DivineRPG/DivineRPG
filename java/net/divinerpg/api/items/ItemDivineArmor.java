@@ -88,7 +88,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
                     e2.printStackTrace();
                 }
             }
-            if(i % 2 == 0) infoBuilder.append('\n'); //Doesn't work
+            if(i % 2 == 0 && i != 0) infoBuilder.append('\n'); //Doesn't work
             if (i == armorInfo.length - 1) infoBuilder.append(strInfo);
             else if (armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ", ");
         }
@@ -122,9 +122,12 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++)
             if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) perks += "In " + armorInfo[0].toString() + ": ";
         perks += infoBuilder.toString();
+        String[] perksArray = perks.split("\n");
         if (armorInfo[0] != "null"){
             list.add(ChatFormats.AQUA + "Fullset Perks: " + ChatFormats.RESET);
-            list.add(perks);
+            for(int j = 0; j < perksArray.length; j++){
+            	list.add(perksArray[j]);
+            }
         }
         list.add(ChatFormats.DIVINERPG);
     }
