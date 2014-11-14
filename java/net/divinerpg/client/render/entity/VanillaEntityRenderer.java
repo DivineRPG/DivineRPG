@@ -26,6 +26,7 @@ import net.divinerpg.client.render.entity.vanilla.model.ModelEnderTriplets;
 import net.divinerpg.client.render.entity.vanilla.model.ModelEye;
 import net.divinerpg.client.render.entity.vanilla.model.ModelFrost;
 import net.divinerpg.client.render.entity.vanilla.model.ModelGlacon;
+import net.divinerpg.client.render.entity.vanilla.model.ModelJackOMan;
 import net.divinerpg.client.render.entity.vanilla.model.ModelJungleBat;
 import net.divinerpg.client.render.entity.vanilla.model.ModelKingCrab;
 import net.divinerpg.client.render.entity.vanilla.model.ModelKingScorcher;
@@ -133,7 +134,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWildFire.class, new RenderDivineMob(new ModelWildFire(), 0.0F, x.wildFire));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlacon.class, new RenderDivineMob(new ModelGlacon(), 0.0F, x.glacon));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMiner.class, new RenderModBiped(new ModelZombie(), x.miner));
-		RenderingRegistry.registerEntityRenderingHandler(EntityJackOMan.class, new RenderModBiped(new ModelBiped(), x.jackOMan)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityJackOMan.class, new RenderModBiped(new ModelJackOMan(), x.jackOMan)); 
 		RenderingRegistry.registerEntityRenderingHandler(EntityHellPig.class, new RenderHellPig(new ModelPig()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityJungleBat.class, new RenderSizeable(new ModelJungleBat(), 0.0F, 0.5F, x.jungleBat));
 
