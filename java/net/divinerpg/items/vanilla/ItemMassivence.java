@@ -18,7 +18,7 @@ public class ItemMassivence extends ItemModSword {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		float current = player.getHealth();
         if ((current >= 0.0F) && (current < 20.0F)) {
-            player.setHealth(current + 1.0F);
+            player.setHealth(current + 2.0F);
             stack.damageItem(1, player);
             Sounds.getSoundName(Sounds.heal);
         }

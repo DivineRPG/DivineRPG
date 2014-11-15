@@ -26,6 +26,7 @@ import net.divinerpg.client.render.entity.vanilla.model.ModelEnderTriplets;
 import net.divinerpg.client.render.entity.vanilla.model.ModelEye;
 import net.divinerpg.client.render.entity.vanilla.model.ModelFrost;
 import net.divinerpg.client.render.entity.vanilla.model.ModelGlacon;
+import net.divinerpg.client.render.entity.vanilla.model.ModelJackOMan;
 import net.divinerpg.client.render.entity.vanilla.model.ModelJungleBat;
 import net.divinerpg.client.render.entity.vanilla.model.ModelKingCrab;
 import net.divinerpg.client.render.entity.vanilla.model.ModelKingScorcher;
@@ -72,12 +73,16 @@ import net.divinerpg.entities.vanilla.EntityShark;
 import net.divinerpg.entities.vanilla.EntityTheEye;
 import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildFire;
+import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
+import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
+import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
@@ -106,7 +111,10 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class, new RenderProjectile(x.watcherShot));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCyclopsianStaff.class, new RenderProjectile(x.cyclopsShot));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMaelstorm.class, new RenderProjectile(x.maelstorm));
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityCrabAnchor.class, new RenderProjectile(x.crabAnchor));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySharkAnchor.class, new RenderProjectile(x.bowheadAnchor));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBowheadAnchor.class, new RenderProjectile(x.bowheadAnchor));
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBabyCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 0.5F, x.crab));
@@ -132,7 +140,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWildFire.class, new RenderDivineMob(new ModelWildFire(), 0.0F, x.wildFire));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlacon.class, new RenderDivineMob(new ModelGlacon(), 0.0F, x.glacon));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMiner.class, new RenderModBiped(new ModelZombie(), x.miner));
-		RenderingRegistry.registerEntityRenderingHandler(EntityJackOMan.class, new RenderModBiped(new ModelBiped(), x.jackOMan)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityJackOMan.class, new RenderModBiped(new ModelJackOMan(), x.jackOMan)); 
 		RenderingRegistry.registerEntityRenderingHandler(EntityHellPig.class, new RenderHellPig(new ModelPig()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityJungleBat.class, new RenderSizeable(new ModelJungleBat(), 0.0F, 0.5F, x.jungleBat));
 
@@ -144,6 +152,8 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoRed.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Red, s.ayeracoRedBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoYellow.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Yellow, s.ayeracoYellowBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAncientEntity.class, new RenderDivineBoss(new ModelAncientEntity(), 0.0F, 5.0F, x.ancient, s.ancientEntityBossID));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderProjectile(x.frostShot));
 		
 		Util.registerItemRenderer(VanillaBlocks.KingStatue, new RenderStatueItem(VanillaBlocks.KingStatue));
 		Util.registerItemRenderer(VanillaBlocks.AncientStatue, new RenderStatueItem(VanillaBlocks.AncientStatue));

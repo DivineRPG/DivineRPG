@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public class EntityCyclopsianStaff extends EntityThrowable {
 	
-	public static int damage = 17;
+	public static int damage = 7;
 	
     public EntityCyclopsianStaff(World var1) {
         super(var1);

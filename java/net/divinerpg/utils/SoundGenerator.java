@@ -10,7 +10,7 @@ public class SoundGenerator extends RegistryFile {
     private static final RegistryFile instance  = new SoundGenerator();
 
     public SoundGenerator() {
-        super("./src/main/resources/assets/divinerpg/sounds.json");
+        super("sounds.json");
     }
 
     public static void addSound(Sound sound) {
@@ -19,20 +19,22 @@ public class SoundGenerator extends RegistryFile {
 
     public static void registerSounds() {
         instance.addNames();
-        instance.closeFile();
+        instance.write();
     }
 
     @Override
     public void addNames() {
-        addToFile("{");
+    	addToFile("{");
         for (int i = 0; i < sounds.size(); i++) {
             String name = sounds.get(i).getName();
             boolean mob = sounds.get(i).isMob();
             boolean item = sounds.get(i).isItem();
             if (!item) {
                 if (mob) name = name + "Hurt";
-                addToFile(" \"" + name + "\": {\n  \"category\":\"master\",\"sounds\": [{\n    \"name\":\n      \"" + name + "\",\n      \"stream\": false\n    }]\n  },");
-            } else addToFile(" \"" + name + "\": {\n  \"category\":\"neutral\",\"sounds\": [\"" + name + "\"] },");
+                addToFile(" \"" + name + "\": {\n  \"category\":\"master\",\"sounds\": [{\n    \"name\":\n      \"" + name + "\",\n      \"stream\": false\n    }]\n  }");
+            } else addToFile(" \"" + name + "\": {\n  \"category\":\"neutral\",\"sounds\": [\"" + name + "\"] }");
+            if (i != sounds.size()-1) addToFile(",");
+            addToFile("\n");
         }
         addToFile("}");
     }

@@ -69,6 +69,7 @@ public class EntityResourceLocation {
     public static ResourceLocation snowball 	 	 = addProjectile("snowball");
     public static ResourceLocation music	 	 	 = addProjectile("music");
     public static ResourceLocation frostclaw 	 	 = addProjectile("frostclawCannon");
+    public static ResourceLocation fractiteCannon 	 = addProjectile("fractiteCannon");
 
     public static ResourceLocation edenArrow 	 	 = addProjectile("edenArrow");
     public static ResourceLocation wildArrow 	 	 = addProjectile("wildArrow");
@@ -85,7 +86,10 @@ public class EntityResourceLocation {
     public static ResourceLocation coriShot 	     = addProjectile("weakCoriShot");
     public static ResourceLocation watcherShot 	     = addProjectile("watcherShot");
     public static ResourceLocation cyclopsShot 	     = addProjectile("cyclopsShot");
+    public static ResourceLocation frostShot 	     = addProjectile("frostShot");
     public static ResourceLocation maelstorm 	     = addProjectile("maelstorm");
+    public static ResourceLocation crabAnchor 	     = addProjectile("crabAnchor");
+    public static ResourceLocation bowheadAnchor 	 = addProjectile("bowheadAnchor");
 
     public static ResourceLocation angryBunny		 = addMob("angryBunny");
     public static ResourceLocation angryBunnyTamed 	 = addMob("angryBunnyTamed");

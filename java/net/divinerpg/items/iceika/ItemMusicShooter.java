@@ -33,7 +33,6 @@ public class ItemMusicShooter extends ItemMod {
 			if (this == IceikaItems.soundOfCarols) {
 				var2.spawnEntityInWorld(new EntityCarol(var2, var3));
 				Sounds.getSoundName(Sounds.soundOfCarols);
-				var3.triggerAchievement(DivineRPGAchievements.divineInervention);
 			} else {
 				var2.spawnEntityInWorld(new EntityMusic(var2, var3));
 				Sounds.getSoundName(Sounds.soundOfMusic);

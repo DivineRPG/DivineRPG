@@ -1,46 +1,154 @@
 package net.divinerpg.entities.vanilla;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
+import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySmallFireball;
-import net.minecraft.util.DamageSource;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityFrost extends EntityDivineRPGMob {
+public class EntityFrost extends EntityDivineRPGFlying {
 	
-    private float heightOffset = 0.5F;
-    private int heightOffsetUpdateTime;
-    private int anger;
-
+    public int courseChangeCooldown = 0;
+    public double waypointX;
+    public double waypointY;
+    public double waypointZ;
+    private Entity targetedEntity = null;
+    private int aggroCooldown = 0;
+    public int prevAttackCounter = 0;
+    public int attackCounter = 0;
+    private ChunkCoordinates currentFlightTarget;
+    
     public EntityFrost(World var1) {
         super(var1);
-        this.experienceValue = 20;
     }
     
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.frostHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.frostDamage);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.frostSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.frostFollowRange);
     }
 
-	@Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, new Byte((byte)0));
+        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
+    }
+    
+    @Override
+	public void onUpdate() {
+    	super.onUpdate();
+    	if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+            this.setDead();
+        }
+
+        this.despawnEntity();
+        this.prevAttackCounter = this.attackCounter;
+        double d0 = this.waypointX - this.posX;
+        double d1 = this.waypointY - this.posY;
+        double d2 = this.waypointZ - this.posZ;
+        double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+
+        if(d3 < 1.0D || d3 > 3600.0D) {
+            this.waypointX = this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+        }
+
+        if(this.courseChangeCooldown-- <= 0) {
+            this.courseChangeCooldown += this.rand.nextInt(5) + 2;
+            d3 = (double)MathHelper.sqrt_double(d3);
+
+            if(this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
+                this.motionX += d0 / d3 * 0.1D;
+                this.motionY += d1 / d3 * 0.03D;
+                this.motionZ += d2 / d3 * 0.1D;
+            } else {
+                this.waypointX = this.posX;
+                this.waypointY = this.posY;
+                this.waypointZ = this.posZ;
+            }
+        }
+
+        if(this.targetedEntity != null && this.targetedEntity.isDead) {
+            this.targetedEntity = null;
+        }
+
+        if(this.targetedEntity == null || this.aggroCooldown-- <= 0) {
+            this.targetedEntity = this.worldObj.getClosestVulnerablePlayerToEntity(this, 100.0D);
+
+            if(this.targetedEntity != null) {
+                this.aggroCooldown = 20;
+            }
+        }
+
+        double d4 = 64.0D;
+        if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < 32*32) {
+            double d5 = this.targetedEntity.posX - this.posX;
+            double d6 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d7 = this.targetedEntity.posZ - this.posZ;
+            this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
+            
+                ++this.attackCounter;
+
+                if(this.attackCounter == 6 || this.attackCounter == 7 || this.attackCounter == 8) {
+            		this.worldObj.playSoundAtEntity(this.targetedEntity, Sounds.getSoundName(Sounds.frost), 1.0F, 1.0F);
+            		if(!this.worldObj.isRemote){
+            			EntityFrostShot shot = new EntityFrostShot(this.worldObj, this.targetedEntity.posX, this.targetedEntity.posY, this.targetedEntity.posZ);
+            			this.worldObj.spawnEntityInWorld(shot);
+            			shot.setLocationAndAngles(this.posX, this.posY, this.posZ, 0, 0);
+            			shot.setThrowableHeading(this.targetedEntity.posX, this.targetedEntity.posY, this.targetedEntity.posZ, 0, 0);
+            		}
+            		this.attackCounter = -5;
+                }
+            }
+            else if(this.attackCounter > 0) {
+                --this.attackCounter;
+            }
+
+        if(!this.worldObj.isRemote) {
+            byte b1 = this.dataWatcher.getWatchableObjectByte(16);
+            byte b0 = (byte)(this.attackCounter > 10 ? 1 : 0);
+
+            if(b1 != b0) {
+                this.dataWatcher.updateObject(16, Byte.valueOf(b0));
+            }
+        }
+    }
+
+    private boolean isCourseTraversable(double par1, double par3, double par5, double par7) {
+        double var9 = (this.waypointX - this.posX) / par7;
+        double var11 = (this.waypointY - this.posY) / par7;
+        double var13 = (this.waypointZ - this.posZ) / par7;
+        AxisAlignedBB var15 = this.boundingBox.copy();
+
+        for(int var16 = 1; (double)var16 < par7; ++var16) {
+            var15.offset(var9, var11, var13);
+
+            if(!this.worldObj.getCollidingBoundingBoxes(this, var15).isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    @Override
+    public int getMaxSpawnedInChunk() {
+    	return 2;
     }
 
     @Override
     protected String getLivingSound() {
-        return Sounds.getSoundName(Sounds.frost);
+        return "mod.blaze.breathe";
     }
 
     @Override
@@ -50,83 +158,7 @@ public class EntityFrost extends EntityDivineRPGMob {
 
     @Override
     protected String getDeathSound() {
-        return "mob.blaze.death";
-    }
-
-    @Override
-    public void onLivingUpdate() {
-        if(!this.worldObj.isRemote) {
-            if(this.isWet()) {
-                this.attackEntityFrom(DamageSource.drown, 1);
-            }
-
-            --this.heightOffsetUpdateTime;
-
-            if(this.heightOffsetUpdateTime <= 0) {
-                this.heightOffsetUpdateTime = 100;
-                this.heightOffset = 0.5F + (float)this.rand.nextGaussian() * 3.0F;
-            }
-
-            if(this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double)this.getEntityToAttack().getEyeHeight() > this.posY + (double)this.getEyeHeight() + (double)this.heightOffset) {
-                this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
-            }
-        }
-
-        if(!this.onGround && this.motionY < 0.0D) {
-            this.motionY *= 0.6D;
-        }
-        super.onLivingUpdate();
-    }
-
-    @Override
-    protected void attackEntity(Entity par1Entity, float par2) {
-        if(this.attackTime <= 0 && par2 < 2.0F && par1Entity.boundingBox.maxY > this.boundingBox.minY && par1Entity.boundingBox.minY < this.boundingBox.maxY) {
-            this.attackTime = 20;
-            this.attackEntityAsMob(par1Entity);
-        }
-        else if(par2 < 30.0F) {
-            double var3 = par1Entity.posX - this.posX;
-            double var5 = par1Entity.boundingBox.minY + (double)(par1Entity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
-            double var7 = par1Entity.posZ - this.posZ;
-
-            if(this.attackTime == 0) {
-                ++this.anger;
-
-                if(this.anger == 1) {
-                    this.attackTime = 60;
-                }
-                else if(this.anger <= 4) {
-                    this.attackTime = 6;
-                } else {
-                    this.attackTime = 100;
-                    this.anger = 0;
-                    this.idk(false);
-                }
-
-                if(this.anger > 1) {
-                    float var9 = MathHelper.sqrt_float(par2) * 0.5F;
-                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1009, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-
-                    for(int var10 = 0; var10 < 1; ++var10) {
-                        EntitySmallFireball var11 = new EntitySmallFireball(this.worldObj, this, var3 + this.rand.nextGaussian() * (double)var9, var5, var7 + this.rand.nextGaussian() * (double)var9);
-                        var11.posY = this.posY + (double)(this.height / 2.0F) + 1.5D;
-                        this.worldObj.spawnEntityInWorld(var11);
-                    }
-                }
-            }
-
-            this.rotationYaw = (float)(Math.atan2(var7, var3) * 180.0D / Math.PI) - 90.0F;
-            this.hasAttacked = true;
-        }
-    }
-
-    @Override
-    protected void fall(float par1) {}
-
-
-    @Override
-    public boolean isBurning()  {
-        return (dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+        return "mod.blaze.death";
     }
 
     @Override
@@ -145,17 +177,6 @@ public class EntityFrost extends EntityDivineRPGMob {
         for(var4 = 0; var4 < var3; ++var4) {
             this.dropItem(IceikaItems.iceStone, 1);
         }
-    }
-
-    public void idk(boolean par1) {
-        byte var2 = this.dataWatcher.getWatchableObjectByte(16);
-
-        if(par1) {
-            var2 = (byte)(var2 | 1);
-        } else {
-            var2 &= -2;
-        }
-        this.dataWatcher.updateObject(16, Byte.valueOf(var2));
     }
 
 	@Override

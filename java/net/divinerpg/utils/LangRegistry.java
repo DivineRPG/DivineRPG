@@ -17,12 +17,11 @@ public class LangRegistry extends RegistryFile {
     private static final RegistryFile instance = new LangRegistry();
 
     public LangRegistry() {
-        super("./src/main/resources/assets/divinerpg/lang/en_US.lang");
+        super("en_US.lang");
     }
 
     public static void registerNames() {
         instance.addNames();
-        instance.closeFile();
     }
 
     public static void addAchievements() {
@@ -82,7 +81,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.lilGift=Lil' Gift");
         instance.addToFile("achievement.spawnDAR=Ten heads are better than one!");
         instance.addToFile("achievement.dramcryxDeath=Death to all Jungle Stegosaurous!");
-
+        
     }
 
     public static void addMob(String name) {
@@ -115,12 +114,13 @@ public class LangRegistry extends RegistryFile {
         addKeyItemNames();
         addMobNames();
         addAchievements();
+        instance.write();
     }
 
     public static void addMobNames() {
         for (int i = 0; i < mobs.size(); i++) {
             String mob = mobs.get(i);
-            instance.addToFile("entity." + mob + ".name=" + mob);
+            instance.addToFile("entity.divinerpg." + mob + ".name=" + mob);
         }
     }
 

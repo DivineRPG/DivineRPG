@@ -42,6 +42,7 @@ public class WorldProviderVethea extends WorldProvider {
 		return "Vethea";
 	}
 
+	@Override
 	public double getMovementFactor() {
 		return 1.0D;
 	}

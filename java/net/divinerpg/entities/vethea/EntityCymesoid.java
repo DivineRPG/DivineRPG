@@ -79,6 +79,6 @@ public class EntityCymesoid extends EntityDivineRPGMob {
 
 	@Override
 	public String mobName() {
-		return "Crymesoid";
+		return "Cymesoid";
 	}
 }

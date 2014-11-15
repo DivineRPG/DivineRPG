@@ -13,6 +13,10 @@ import net.minecraft.world.World;
 public class EntityCoriShot extends EntityThrowable {
 	
 	private float damage;
+	
+	public EntityCoriShot(World w){
+		super(w);
+	}
 
     public EntityCoriShot(World var1, EntityLivingBase var2, float var3) {
         super(var1, var2);

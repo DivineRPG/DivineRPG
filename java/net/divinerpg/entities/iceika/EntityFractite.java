@@ -1,21 +1,16 @@
 package net.divinerpg.entities.iceika;
 
 import net.divinerpg.api.entity.EntityDivineRPGFlying;
-import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChunkCoordinates;
@@ -52,7 +47,8 @@ public class EntityFractite extends EntityDivineRPGFlying {
 	}
 
 	@Override
-	protected void updateEntityActionState() {
+	public void onUpdate() {
+		super.onUpdate();
 		this.prevAttackCounter = this.attackCounter;
 		double var1 = this.waypointX - this.posX;
 		double var3 = this.waypointY - this.posY;
@@ -109,13 +105,13 @@ public class EntityFractite extends EntityDivineRPGFlying {
 
 				if (this.attackCounter == 20) {
 					this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1008, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-					/*EntityFractiteProjectile var17 = new EntityFractiteProjectile(this.worldObj, this, var11, var13, var15);
+					EntityLargeFireball var17 = new EntityLargeFireball(this.worldObj, this, var11, var13, var15);
                     double var18 = 4.0D;
                     Vec3 var20 = this.getLook(1.0F);
                     var17.posX = this.posX + var20.xCoord * var18;
                     var17.posY = this.posY + this.height / 2.0F + 0.5D;
                     var17.posZ = this.posZ + var20.zCoord * var18;
-                    this.worldObj.spawnEntityInWorld(var17);*///TODO
+                    this.worldObj.spawnEntityInWorld(var17);
                     this.attackCounter = -40;
 				}
 			}

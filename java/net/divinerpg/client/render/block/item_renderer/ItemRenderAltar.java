@@ -92,7 +92,7 @@ public class ItemRenderAltar implements IItemRenderer {
 				GL11.glScalef(0.9F, 0.9F, 0.9F);
 				break;
 			case INVENTORY:
-				GL11.glTranslatef(0.0F, -0.7F, 0.0F);
+				GL11.glTranslatef(0.0F, -0.6F, 0.0F);
 				GL11.glScalef(0.9F, 0.9F, 0.9F);
 				break;
 			case EQUIPPED_FIRST_PERSON:

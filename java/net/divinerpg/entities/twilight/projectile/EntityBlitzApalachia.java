@@ -10,19 +10,19 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
-public class EntityBlitzAlapachia extends EntityThrowable
+public class EntityBlitzApalachia extends EntityThrowable
 {
-    public EntityBlitzAlapachia(World var1)
+    public EntityBlitzApalachia(World var1)
     {
         super(var1);
     }
 
-    public EntityBlitzAlapachia(World var1, EntityLivingBase var2)
+    public EntityBlitzApalachia(World var1, EntityLivingBase var2)
     {
         super(var1, var2);
     }
 
-    public EntityBlitzAlapachia(World var1, double var2, double var4, double var6)
+    public EntityBlitzApalachia(World var1, double var2, double var4, double var6)
     {
         super(var1, var2, var4, var6);
     }
@@ -40,20 +40,12 @@ public class EntityBlitzAlapachia extends EntityThrowable
         }
     }
 
-    /**
-     * Called when this EntityThrowable hits a block or entity.
-     */
     @Override
     protected void onImpact(MovingObjectPosition var1)
     {
         if (var1.entityHit != null)
         {
             byte var2 = 19;
-
-            if (var1.entityHit instanceof EntityBlaze)
-            {
-                var2 = 19;
-            }
 
             var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
         }

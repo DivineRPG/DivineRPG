@@ -2,15 +2,12 @@ package net.divinerpg.utils.items;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
-import net.divinerpg.api.items.ItemModRanged;
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
-import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
-import net.divinerpg.entities.twilight.projectile.EntityHaliteArrow;
-import net.divinerpg.entities.twilight.projectile.EntityMortumArrow;
-import net.divinerpg.entities.twilight.projectile.EntitySkythernArrow;
-import net.divinerpg.entities.twilight.projectile.EntityWildWoodArrow;
+import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
+import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityPoisonArrow;
+import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
+import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
 import net.divinerpg.items.vanilla.ItemFrostCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
@@ -23,11 +20,9 @@ import net.divinerpg.items.vanilla.ItemSerenadeOfHealth;
 import net.divinerpg.items.vanilla.ItemSerenadeStriker;
 import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.utils.material.ToolMaterialMod;
-import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public class VanillaItemsWeapons {
 
@@ -72,6 +67,10 @@ public class VanillaItemsWeapons {
     public static final Item enderSwordYellow   = new ItemModSword(ToolMaterialMod.Ender, "enderSwordYellow");
     public static final Item longsword   		= new ItemModSword(ToolMaterialMod.Longsword, "longsword").setFull3D();
     public static final Item cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
+    
+    public static final Item crabAnchor         = new ItemAnchor("crabAnchor", EntityCrabAnchor.class, 4);
+    public static final Item sharkAnchor        = new ItemAnchor("sharkAnchor", EntitySharkAnchor.class, 5);
+    public static final Item bowheadAnchor      = new ItemAnchor("bowheadAnchor", EntityBowheadAnchor.class, 6);
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 11, Items.arrow, EntityPoisonArrow.class);
     public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, 36000, Items.arrow, EntityArrow.class);

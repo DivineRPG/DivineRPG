@@ -61,7 +61,7 @@ import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildWoodGolem;
 import net.divinerpg.entities.twilight.EntityWildWoodTomo;
 import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzAlapachia;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
@@ -103,7 +103,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerHalite.class, new RenderIconProjectile(TwilightItemsWeapons.haliteSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntityBlitzEden.class, new RenderProjectile(x.blitzEden));
         RenderingRegistry.registerEntityRenderingHandler(EntityBlitzWildWood.class, new RenderProjectile(x.blitzWild));
-        RenderingRegistry.registerEntityRenderingHandler(EntityBlitzAlapachia.class, new RenderProjectile(x.blitzApalachia));
+        RenderingRegistry.registerEntityRenderingHandler(EntityBlitzApalachia.class, new RenderProjectile(x.blitzApalachia));
         RenderingRegistry.registerEntityRenderingHandler(EntityBlitzSkythern.class, new RenderProjectile(x.blitzSkythern));
         RenderingRegistry.registerEntityRenderingHandler(EntityBlitzMortum.class, new RenderProjectile(x.blitzMortum));
         RenderingRegistry.registerEntityRenderingHandler(EntityBlitzHalite.class, new RenderProjectile(x.blitzHalite));

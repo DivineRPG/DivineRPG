@@ -14,6 +14,7 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.SoundGenerator;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.events.EventClientLogin;

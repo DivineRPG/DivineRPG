@@ -11,22 +11,12 @@ public abstract class RegistryFile {
 
     protected String         filePath;
     protected BufferedWriter writer;
+    protected File file;
+    protected StringBuilder builder = new StringBuilder();
 
     public RegistryFile(String filePath) {
         this.filePath = filePath;
-        File file = new File(filePath);
-
-        try {
-            if (file.exists()) {
-                LogHelper.debug("Overriding registry file: " + file.getAbsolutePath());
-                file.delete();
-            }
-            file.createNewFile();
-            LogHelper.dev("Creating new registry file: " + file.getAbsoluteFile());
-            writer = new BufferedWriter(new FileWriter(file));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        file = new File(filePath);
     }
     
     public abstract void addNames();
@@ -52,6 +42,7 @@ public abstract class RegistryFile {
         }
         inGame = inGame.replaceAll(" Of ", " of ").replaceAll(" The ", " the ");
         String finalName = firstLetter + inGame;
+        System.out.println(finalName);
         addToFile(prefixOfLine + "." + name + ".name=" + finalName, name);
     }
     
@@ -77,30 +68,23 @@ public abstract class RegistryFile {
     }
 
     public void addToFile(String inGame, String oldName) {
-        /*try {
-            String temp = inGame;
-            LogHelper.dev("Registered new name, " + oldName + " became: " + temp.substring(temp.indexOf('=') + 1));
-            writer.write(inGame + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+    	String temp = inGame;
+        LogHelper.dev("Registered new name, " + oldName + " became: " + temp.substring(temp.indexOf('=') + 1));
+        builder.append(inGame + "\n");
     }
     
     public void addToFile(String text){
-        /*try {
-            writer.write(text + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+    	builder.append(text + "\n");
     }
-
-    public void closeFile() {
-        /*try {
+    
+    public void write() {
+        try {
+            if(!file.exists())file.createNewFile();
+            writer = new BufferedWriter(new FileWriter(file));
+            writer.write(builder.toString());
             writer.close();
-            LogHelper.debug("Registry file: " + filePath + " closed");
         } catch (IOException e) {
             e.printStackTrace();
-            LogHelper.debug("Unable to close registry file: " + filePath);
-        }*/
+        }
     }
 }

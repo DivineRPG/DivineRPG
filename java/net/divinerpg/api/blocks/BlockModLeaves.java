@@ -26,6 +26,7 @@ public class BlockModLeaves extends BlockMod implements IShearable
         this.setTickRandomly(true);
     }
 
+    @Override
     public void breakBlock(World world, int x, int y, int z, Block par5Block, int par6) {
         byte b0 = 1;
         int i1 = b0 + 1;
@@ -43,6 +44,7 @@ public class BlockModLeaves extends BlockMod implements IShearable
         }
     }
 
+    @Override
     public void updateTick(World world, int x, int y, int z, Random rand) {
         if (!world.isRemote) {
             int l = world.getBlockMetadata(x, y, z);

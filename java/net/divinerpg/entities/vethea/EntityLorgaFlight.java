@@ -20,6 +20,10 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     private int flyTimer, lifeTick, spawnTick;
     public boolean canSpawnMinions;
 
+    public EntityLorgaFlight(World w){
+    	this(w, true);
+    }
+    
     public EntityLorgaFlight(World var1, boolean canSpawnMinions) {
         super(var1);
         this.canSpawnMinions = canSpawnMinions;
@@ -63,7 +67,7 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
-        if (this.lifeTick == -1 && this.spawnTick == 0 && this.canSpawnMinions) {
+        if (this.lifeTick == -1 && this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
             this.spawnTick = 120;
             EntityLorgaFlight var2 = new EntityLorgaFlight(this.worldObj, 10, false);
             var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);

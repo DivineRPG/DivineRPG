@@ -12,6 +12,10 @@ public class EntityLorga extends EntityDivineRPGMob {
     private int lifeTick;
     private int spawnTick;
     public boolean canSpawnMinions;
+    
+    public EntityLorga(World w) {
+    	this(w, true);
+    }
 
     public EntityLorga(World var1, boolean canSpawnMinions) {
         super(var1);
@@ -42,7 +46,7 @@ public class EntityLorga extends EntityDivineRPGMob {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.lifeTick == -1 && this.spawnTick == 0 && this.canSpawnMinions) {
+        if (this.lifeTick == -1 && this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
             this.spawnTick = 120;
             EntityLorga var2 = new EntityLorga(this.worldObj, 10, false);
             var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
