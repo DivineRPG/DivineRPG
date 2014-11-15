@@ -73,13 +73,16 @@ import net.divinerpg.entities.vanilla.EntityShark;
 import net.divinerpg.entities.vanilla.EntityTheEye;
 import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildFire;
+import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
+import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
+import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
@@ -108,7 +111,10 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class, new RenderProjectile(x.watcherShot));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCyclopsianStaff.class, new RenderProjectile(x.cyclopsShot));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMaelstorm.class, new RenderProjectile(x.maelstorm));
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityCrabAnchor.class, new RenderProjectile(x.crabAnchor));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySharkAnchor.class, new RenderProjectile(x.bowheadAnchor));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBowheadAnchor.class, new RenderProjectile(x.bowheadAnchor));
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBabyCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 0.5F, x.crab));

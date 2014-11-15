@@ -58,11 +58,11 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
 		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
-		/*addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
-		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
+		addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
+		//addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.sharkAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.sharkFin, 'X', VanillaItemsOther.aquaticIngot);
-		addRecipe(VanillaItemsWeapons.crabAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);*/
+		addRecipe(VanillaItemsWeapons.crabAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
 		
 		addRecipe(VanillaItemsWeapons.hunterBow, " IX", "I X", " IX", 'I', VanillaItemsOther.jungleStone, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.shadowBow, " IX", "I X", " IX", 'I', VanillaItemsOther.shadowBar, 'X', Items.string);
