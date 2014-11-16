@@ -10,6 +10,7 @@ import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
 import net.divinerpg.items.vanilla.ItemFrostCannon;
+import net.divinerpg.items.vanilla.ItemGoldenFury;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
 import net.divinerpg.items.vanilla.ItemMaelstorm;
 import net.divinerpg.items.vanilla.ItemMassivence;
@@ -71,6 +72,7 @@ public class VanillaItemsWeapons {
     public static final Item crabAnchor         = new ItemAnchor("crabAnchor", EntityCrabAnchor.class, 4);
     public static final Item sharkAnchor        = new ItemAnchor("sharkAnchor", EntitySharkAnchor.class, 5);
     public static final Item bowheadAnchor      = new ItemAnchor("bowheadAnchor", EntityBowheadAnchor.class, 6);
+    public static final Item goldenFury         = new ItemGoldenFury("goldenFury");
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 11, Items.arrow, EntityPoisonArrow.class);
     public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, 36000, Items.arrow, EntityArrow.class);
