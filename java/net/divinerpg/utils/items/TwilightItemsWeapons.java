@@ -59,7 +59,5 @@ public class TwilightItemsWeapons {
     public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 46, skythernArrow, EntitySkythernArrow.class);
     public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 51, mortumArrow, EntityMortumArrow.class);
     public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 61, haliteArrow, EntityHaliteArrow.class);
-    
-    public static final Item corruptedBullet    = new ItemMod("corruptedBullet");
-    
+        
 }

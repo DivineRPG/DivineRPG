@@ -38,6 +38,7 @@ import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildFire;
 import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
+import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
@@ -71,6 +72,7 @@ public class VanillaEntityRegistry {
 		Util.registerProjectile(EntitySharkAnchor.class, "SharkAnchor");
 		Util.registerProjectile(EntityBowheadAnchor.class, "BowheadAnchor");
 		Util.registerProjectile(EntityGoldenFury.class, "GoldenFury");
+		Util.registerProjectile(EntityCorruptedBullet.class, "CorruptedBullet");
 
 		Util.registerDivineRPGMob(EntityEnderWatcher.class, "EnderWatcher");		
 		Util.registerDivineRPGMob(EntityCrab.class, "Crab");

@@ -8,6 +8,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityPoisonArrow;
 import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
 import net.divinerpg.items.vanilla.ItemAnchor;
+import net.divinerpg.items.vanilla.ItemCorruptedCannon;
 import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
 import net.divinerpg.items.vanilla.ItemFrostCannon;
 import net.divinerpg.items.vanilla.ItemGoldenFury;
@@ -73,6 +74,7 @@ public class VanillaItemsWeapons {
     public static final Item sharkAnchor        = new ItemAnchor("sharkAnchor", EntitySharkAnchor.class, 5);
     public static final Item bowheadAnchor      = new ItemAnchor("bowheadAnchor", EntityBowheadAnchor.class, 6);
     public static final Item goldenFury         = new ItemGoldenFury("goldenFury");
+    public static final Item corruptedCannon    = new ItemCorruptedCannon("corruptedCannon");
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 11, Items.arrow, EntityPoisonArrow.class);
     public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, 36000, Items.arrow, EntityArrow.class);

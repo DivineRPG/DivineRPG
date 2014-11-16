@@ -1789,6 +1789,16 @@
 ,
 
 
+ "fractiteCannon": {
+  "category":"neutral","sounds": ["fractiteCannon"] }
+,
+
+
+ "ghastCannon": {
+  "category":"neutral","sounds": ["ghastCannon"] }
+,
+
+
  "staff": {
   "category":"neutral","sounds": ["staff"] }
 ,

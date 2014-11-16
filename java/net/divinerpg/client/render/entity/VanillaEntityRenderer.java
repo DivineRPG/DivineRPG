@@ -75,6 +75,7 @@ import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildFire;
 import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
+import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
@@ -89,6 +90,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPig;
@@ -117,6 +119,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntitySharkAnchor.class, new RenderProjectile(x.bowheadAnchor));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBowheadAnchor.class, new RenderProjectile(x.bowheadAnchor));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGoldenFury.class, new RenderIconProjectile(Items.gold_nugget));
+		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedBullet.class, new RenderIconProjectile(VanillaItemsOther.corruptedBullet));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));

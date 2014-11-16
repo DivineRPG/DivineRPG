@@ -192,6 +192,8 @@ public class Sounds {
     public static Sound soundOfCarols     = new Sound(true, "soundOfCarols");
     public static Sound soundOfMusic      = new Sound(true, "soundOfMusic");
     public static Sound frostclawCannon   = new Sound(true, "frostclawCannon");
+    public static Sound fractiteCannon   = new Sound(true, "fractiteCannon");
+    public static Sound ghastCannon   = new Sound(true, "ghastCannon");
     public static Sound staff             = new Sound(true, "staff");
     public static Sound starlight         = new Sound(true, "starlight");
     public static Sound sparkler          = new Sound(true, "sparkler");
