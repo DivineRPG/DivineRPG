@@ -4,6 +4,12 @@ import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzSkythern;
+import net.divinerpg.entities.twilight.projectile.EntityBlitzWildWood;
 import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
 import net.divinerpg.entities.twilight.projectile.EntityHaliteArrow;
 import net.divinerpg.entities.twilight.projectile.EntityMortumArrow;
@@ -32,12 +38,12 @@ public class TwilightItemsWeapons {
     public static final Item mortumSlicer       = new ItemThrowable(36, "mortumSlicer");
     public static final Item haliteSlicer       = new ItemThrowable(42, "haliteSlicer");
 
-    public static final Item edenBlitz          = new ItemTwilightBlitz(14, "Eden Dust", "edenBlitz");
-    public static final Item wildwoodBlitz      = new ItemTwilightBlitz(19, "WildWood Dust", "wildWoodBlitz");
-    public static final Item apalachiaBlitz     = new ItemTwilightBlitz(22, "Apalachia Dust", "apalachiaBlitz");
-    public static final Item skythernBlitz      = new ItemTwilightBlitz(27, "Skythern Dust", "skythernBlitz");
-    public static final Item mortumBlitz        = new ItemTwilightBlitz(31, "Mortum Dust", "mortumBlitz");
-    public static final Item haliteBlitz        = new ItemTwilightBlitz(33, "Mortum Dust", "haliteBlitz");
+    public static final Item edenBlitz          = new ItemTwilightBlitz(14, TwilightItemsOther.edenDust, EntityBlitzEden.class, "edenBlitz");
+    public static final Item wildwoodBlitz      = new ItemTwilightBlitz(19, TwilightItemsOther.wildwoodDust, EntityBlitzWildWood.class,"wildWoodBlitz");
+    public static final Item apalachiaBlitz     = new ItemTwilightBlitz(22, TwilightItemsOther.apalachiaDust, EntityBlitzApalachia.class,"apalachiaBlitz");
+    public static final Item skythernBlitz      = new ItemTwilightBlitz(27, TwilightItemsOther.skythernDust, EntityBlitzSkythern.class, "skythernBlitz");
+    public static final Item mortumBlitz        = new ItemTwilightBlitz(31, TwilightItemsOther.mortumDust, EntityBlitzMortum.class, "mortumBlitz");
+    public static final Item haliteBlitz        = new ItemTwilightBlitz(33, TwilightItemsOther.mortumDust, EntityBlitzHalite.class, "haliteBlitz");
 
     public static final Item edenPhaser         = new ItemTwilightPhaser(24, "edenPhaser");
     public static final Item wildwoodPhaser     = new ItemTwilightPhaser(31, "wildWoodPhaser");
