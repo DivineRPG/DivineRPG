@@ -11,6 +11,7 @@ import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
 import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
 import net.divinerpg.items.vanilla.ItemFrostCannon;
+import net.divinerpg.items.vanilla.ItemGhastCannon;
 import net.divinerpg.items.vanilla.ItemGoldenFury;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
 import net.divinerpg.items.vanilla.ItemMaelstorm;
@@ -75,6 +76,8 @@ public class VanillaItemsWeapons {
     public static final Item bowheadAnchor      = new ItemAnchor("bowheadAnchor", EntityBowheadAnchor.class, 6);
     public static final Item goldenFury         = new ItemGoldenFury("goldenFury");
     public static final Item corruptedCannon    = new ItemCorruptedCannon("corruptedCannon");
+    public static final Item ghastCannon        = new ItemGhastCannon("ghastCannon");
+
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 11, Items.arrow, EntityPoisonArrow.class);
     public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, 36000, Items.arrow, EntityArrow.class);

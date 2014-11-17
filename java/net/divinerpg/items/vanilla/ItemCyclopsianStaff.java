@@ -41,7 +41,7 @@ public class ItemCyclopsianStaff extends ItemMod {
 	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add(EntityCyclopsianStaff.damage + " Ranged damage");
 		par3List.add("Ammo: Cyclops Eye Shards");
-		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses");
+		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses remaining");
 		par3List.add(ChatFormats.DIVINERPG);
 	}
 }

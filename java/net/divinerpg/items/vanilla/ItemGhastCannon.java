@@ -1,42 +1,36 @@
 package net.divinerpg.items.vanilla;
 
 import java.util.List;
+import java.util.Random;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
+import net.divinerpg.entities.vanilla.projectile.EntityGhastCannon;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
-import com.google.common.collect.Multimap;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemGoldenFury extends ItemMod {
+public class ItemGhastCannon extends ItemMod {
+	private Random rand = new Random();
 	
-	public ItemGoldenFury(String name) {
+	public ItemGhastCannon(String name) {
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
+		setMaxDamage(100);
 	}
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if(player.inventory.hasItem(Items.gold_nugget) || player.capabilities.isCreativeMode) {
-			if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(Items.gold_nugget);
-			if(!world.isRemote)world.playSoundAtEntity(player, Sounds.blitz.getPrefixedName(), 1.0F, 1.0F);
-			EntityThrowable entity = new EntityGoldenFury(world, player);
-			if(!world.isRemote)world.spawnEntityInWorld(entity);
-			}
+		world.playSoundAtEntity(player, Sounds.ghastCannon.getPrefixedName(), 1.0F, 1.0F);
+		if(!player.capabilities.isCreativeMode)stack.damageItem(1, player);
+		EntityThrowable entity = new EntityGhastCannon(world, player);
+		if(!world.isRemote)world.spawnEntityInWorld(entity);
 		return stack;
 	}
 	
@@ -48,8 +42,9 @@ public class ItemGoldenFury extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add(32 + " Ranged damage");
-		par3List.add("Ammo: " + StatCollector.translateToLocal(Items.gold_nugget.getUnlocalizedName()+".name"));
+		par3List.add("40 Ranged damage");
+		par3List.add("Infinite ammo");
+		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses remaining");
 		par3List.add(ChatFormats.DIVINERPG);
 	}
 }
