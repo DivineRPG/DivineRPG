@@ -2,6 +2,7 @@ package net.divinerpg.utils;
 
 import java.util.ArrayList;
 
+import net.divinerpg.blocks.vanilla.IDivineMetaBlock;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -14,7 +15,7 @@ public class LangRegistry extends RegistryFile {
     private static ArrayList<DivineRPGTabs> tabs = new ArrayList<DivineRPGTabs>();
     private static ArrayList<String> mobs = new ArrayList<String>();
 
-    private static final RegistryFile instance = new LangRegistry();
+    public static final RegistryFile instance = new LangRegistry();
 
     public LangRegistry() {
         super("en_US.lang");
@@ -108,7 +109,8 @@ public class LangRegistry extends RegistryFile {
     public void addNames() {
         addTabNames();
         for (Block block : blocks)
-            localizeName("tile", block.getUnlocalizedName());
+        	if(!(block instanceof IDivineMetaBlock))localizeName("tile", block.getUnlocalizedName());
+        	else ((IDivineMetaBlock)block).addNames();
         for (Item item : items)
             localizeName("item", item.getUnlocalizedName());
         addKeyItemNames();

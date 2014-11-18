@@ -2,6 +2,7 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
+import net.divinerpg.blocks.vanilla.IDivineMetaBlock;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
@@ -12,7 +13,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockMod extends Block{
@@ -66,7 +66,7 @@ public class BlockMod extends Block{
         setCreativeTab(tab);
         setBlockTextureName(textureName);
         setBlockName(name);
-        GameRegistry.registerBlock(this, name);
+        if(!(this instanceof IDivineMetaBlock))GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
     }
 
@@ -82,7 +82,7 @@ public class BlockMod extends Block{
         setBlockName(name);
         setHardness(hardness);
         if(hardness == -1F) setBlockUnbreakable();
-        GameRegistry.registerBlock(this, name);
+        if(!(this instanceof IDivineMetaBlock))GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
     }
 

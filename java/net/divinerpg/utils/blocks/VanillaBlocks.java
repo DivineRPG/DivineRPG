@@ -82,6 +82,8 @@ public class VanillaBlocks {
 	public static final Block soulSandBlock       = new VanillaBlock(EnumBlockType.DIRT, "soulSandBlock", 1.5F, WOOD_GOLD);
 	public static final Block sandBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "sandBlock", 1.5F, WOOD_GOLD);
 	
+	public static final Block steel       		  = new BlockSteel();
+	
 	public static final Block lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
     public static final Block lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);
     public static final Block lightFenceGreen 	  = new BlockLightFence(false, "greenFence", 0.5F);
