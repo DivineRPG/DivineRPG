@@ -2,6 +2,7 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
+import net.divinerpg.blocks.vanilla.DivineMetaItemBlock;
 import net.divinerpg.blocks.vanilla.IDivineMetaBlock;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
@@ -66,7 +67,11 @@ public class BlockMod extends Block{
         setCreativeTab(tab);
         setBlockTextureName(textureName);
         setBlockName(name);
-        if(!(this instanceof IDivineMetaBlock))GameRegistry.registerBlock(this, name);
+        if(!(this instanceof IDivineMetaBlock)){
+        	GameRegistry.registerBlock(this, name);
+        }else{
+        	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
+        }
         LangRegistry.addBlock(this);
     }
 
@@ -82,7 +87,11 @@ public class BlockMod extends Block{
         setBlockName(name);
         setHardness(hardness);
         if(hardness == -1F) setBlockUnbreakable();
-        if(!(this instanceof IDivineMetaBlock))GameRegistry.registerBlock(this, name);
+        if(!(this instanceof IDivineMetaBlock)){
+        	GameRegistry.registerBlock(this, name);
+        }else{
+        	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
+        }
         LangRegistry.addBlock(this);
     }
 
