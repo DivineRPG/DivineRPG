@@ -48,6 +48,7 @@ public class VanillaItemsOther {
     public static final Item bluefireStone      = new ItemMod("bluefireStone");
     public static final Item purpleBlaze        = new ItemMod("purpleBlaze");
     public static final Item furyFire           = new ItemMod("furyFire");
+    public static final Item aquaBall           = new ItemMod("aquaBall");
 
     public static final Item greenDiamondChunk  = new ItemMod("greenDiamondChunk");
     public static final Item grayDiamondChunk   = new ItemMod("grayDiamondChunk");
