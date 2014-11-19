@@ -1,5 +1,7 @@
 package net.divinerpg.client.render.entity.iceika.model;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -7,7 +9,6 @@ import net.minecraft.util.MathHelper;
 
 public class ModelFractite extends ModelBase
 {
-    //fields
     ModelRenderer frostBody;
     ModelRenderer shard1;
     ModelRenderer shard2;
@@ -84,6 +85,8 @@ public class ModelFractite extends ModelBase
     {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        GL11.glPushMatrix();
+        GL11.glScalef(2, 2, 2);
         frostBody.render(f5);
         shard1.render(f5);
         shard2.render(f5);
@@ -93,6 +96,7 @@ public class ModelFractite extends ModelBase
         shard3.render(f5);
         shard5.render(f5);
         shard6.render(f5);
+        GL11.glPopMatrix();
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)

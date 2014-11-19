@@ -36,6 +36,7 @@ public class EntityFractite extends EntityDivineRPGFlying {
         this.tasks.addTask(1, new EntityAISwimming(this));
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 32.0F));
 		this.tasks.addTask(9, new EntityAILookIdle(this));
+		this.setSize(1.7f, 1.3f);
 	}
 
 	@Override
@@ -92,7 +93,7 @@ public class EntityFractite extends EntityDivineRPGFlying {
 
 		if (this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < var9 * var9) {
 			double var11 = this.targetedEntity.posX - this.posX;
-			double var13 = this.targetedEntity.boundingBox.minY + this.targetedEntity.height / 2.0F - (this.posY + this.height / 2.0F);
+			double var13 = this.targetedEntity.boundingBox.minY-5 - this.posY;
 			double var15 = this.targetedEntity.posZ - this.posZ;
 			this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(var11, var15)) * 180.0F / (float)Math.PI;
 
@@ -111,7 +112,7 @@ public class EntityFractite extends EntityDivineRPGFlying {
                     var17.posX = this.posX + var20.xCoord * var18;
                     var17.posY = this.posY + this.height / 2.0F + 0.5D;
                     var17.posZ = this.posZ + var20.zCoord * var18;
-                    this.worldObj.spawnEntityInWorld(var17);
+                    if(!this.worldObj.isRemote)this.worldObj.spawnEntityInWorld(var17);
                     this.attackCounter = -40;
 				}
 			}

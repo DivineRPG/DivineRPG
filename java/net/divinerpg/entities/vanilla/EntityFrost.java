@@ -20,6 +20,7 @@ public class EntityFrost extends EntityDivineRPGMob {
     public EntityFrost(World var1) {
         super(var1);
         this.experienceValue = 20;
+        this.setSize(1, 1);
     }
     
     @Override
@@ -52,6 +53,10 @@ public class EntityFrost extends EntityDivineRPGMob {
             
             if(this.entityToAttack == null && this.worldObj.getClosestVulnerablePlayerToEntity(this, 22F) != null){
             	this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, 22F);
+            }
+            
+            if(this.getEntityToAttack() != null && this.getEntityToAttack() instanceof EntityPlayer && ((EntityPlayer)this.getEntityToAttack()).capabilities.isCreativeMode) {
+            	this.entityToAttack = null;
             }
 
             --this.heightOffsetUpdateTime;
