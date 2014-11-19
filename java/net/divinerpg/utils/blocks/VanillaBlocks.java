@@ -84,6 +84,9 @@ public class VanillaBlocks {
 	
 	public static final Block steel       		  = new BlockSteel();
 	public static final Block divineBricks        = new BlockDivineBricks();
+	public static final Block lamp1				  = new BlockLamp1();
+	public static final Block lamp2				  = new BlockLamp2();
+	public static final Block milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
 	
 	public static final Block lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
     public static final Block lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);

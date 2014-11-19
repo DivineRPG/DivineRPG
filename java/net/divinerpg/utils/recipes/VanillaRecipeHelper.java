@@ -5,6 +5,7 @@ import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
+import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.TwilightItemsTools;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -234,7 +235,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 8), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 14) });
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 9), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 13) });
 		
-		//addShapelessRecipe(new ItemStack(VanillaBlocks.milkstone, 4), new Object[] { Blocks.stone, Blocks.stone, Blocks.stone, Item.bucketMilk });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.milkStone, 4), new Object[] { Blocks.stone, Blocks.stone, Blocks.stone, Items.milk_bucket });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 10), new Object[] { Blocks.obsidian, Blocks.glowstone });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 13), new Object[] { Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.redstone });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 5), new Object[] { Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 2) });
@@ -246,9 +247,32 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 4), new Object[] { Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.gold_ingot });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 6), new Object[] { Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.iron_ingot });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 2), new Object[] { Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 0) });
-		//addShapelessRecipe(new ItemStack(VanillaBlocks.milkstonebricks, 4), new Object[] { VanillaBlocks.milkstone, VanillaBlocks.milkstone, VanillaBlocks.milkstone });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 14), new Object[] { VanillaBlocks.milkStone, VanillaBlocks.milkStone, VanillaBlocks.milkStone, VanillaBlocks.milkStone });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 0), new Object[] { VanillaItemsOther.aquaBall, Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick });
 		addRecipe(new ItemStack(VanillaBlocks.divineBricks, 10, 1), new Object[] { "xyx", "yxy", "xyx", 'x', VanillaItemsOther.arlemiteIngot, 'y', Blocks.stonebrick });
+		
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 10), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.rupeeIngot, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 0), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.water_bucket });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 2), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.blaze_rod });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 6), new Object[] { "xxx", "zyz", "xxx", 'x', Items.iron_ingot, 'y', Items.lava_bucket, 'z', Blocks.gold_block });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 1), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.arlemiteIngot, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 8), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.ender_eye });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 2), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.krakenSkin });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 4), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.lava_bucket });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 5), new Object[] { "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.milk_bucket });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 8), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.realmiteIngot, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 4), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', Items.diamond, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 10), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', Items.gold_ingot, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 9), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', Items.redstone, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 3), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 4), 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 7), new Object[] { "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.netheriteIngot, 'z', Blocks.glowstone });
+		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 7), new Object[] { "xxx", "xyx", "xxx", 'y', TwilightItemsOther.edenFragments, 'x', Items.iron_ingot });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 5), new Object[] { Blocks.glowstone, VanillaItemsOther.divineStone });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 1), new Object[] { Blocks.glowstone, VanillaItemsOther.jungleStone });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 0), new Object[] { Blocks.glowstone, IceikaItems.iceStone });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 9), new Object[] { Blocks.glowstone, VanillaItemsOther.enderStone });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 6), new Object[] { Blocks.glowstone, VanillaItemsOther.moltenStone });
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 3), new Object[] { Blocks.glowstone, VanillaItemsOther.bluefireStone });
 		
 		addRecipe(IS.bedrock, "OOO", "OBO", " OO", 'O', Blocks.obsidian, 'B', VanillaBlocks.rupeeBlock);
 		addSmelting(VanillaBlocks.realmiteOre, VanillaItemsOther.realmiteIngot, 0.7F);
