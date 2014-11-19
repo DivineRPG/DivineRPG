@@ -24,7 +24,8 @@ public class RenderProjectile extends Render {
         scale = scaleFactor;
     }
 
-    public void renderProjectile(EntityThrowable projectile, double x, double y, double z) {
+    @Override
+    public void doRender(Entity projectile, double x, double y, double z, float par8, float par9) {
         GL11.glPushMatrix();
         this.bindEntityTexture(projectile);
         GL11.glTranslatef((float)x, (float)y, (float)z);
@@ -49,11 +50,6 @@ public class RenderProjectile extends Render {
         tessellator.draw();
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
-    }
-
-    @Override
-    public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.renderProjectile((EntityThrowable)par1Entity, par2, par4, par6);
     }
 
 	@Override
