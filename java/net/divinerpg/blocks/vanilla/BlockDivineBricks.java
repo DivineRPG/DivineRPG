@@ -14,7 +14,6 @@ import net.minecraft.util.IIcon;
 
 public class BlockDivineBricks extends VanillaBlock implements IDivineMetaBlock{
 
-	@SideOnly(Side.CLIENT)
 	private static IIcon[] iconArray = new IIcon[15];
 
 	public String[] names = {"aquatonic", "arlemite", "darkstone", "diamond", "gold", "green", "iron", "lapisLazuli", "lava", "netherite", "pink", "purple", "realmite", "redstone", "milkStone"};

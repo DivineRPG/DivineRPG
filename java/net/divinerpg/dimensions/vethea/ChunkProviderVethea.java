@@ -220,11 +220,8 @@ public class ChunkProviderVethea implements IChunkProvider {
 	}
 
 	public void generateTerrain(int i, int j, Block[] b) {
-		for(int column = 0; column < 256; column++){
-			for(int vert = 0; vert < 256; vert++){
-				if((vert>0 && vert<16) || (vert>48 && vert < 64) || (vert>96 && vert<112) || (vert>144 && vert<160))b[vert+(column*256)] = VetheaBlocks.dreamStone;
-			}
-		}
+		VetheanChunkBuilder builder = new VetheanChunkBuilder();
+		VetheanChunkBuilder.toTerrainArray(builder.buildChunk(), b);
 	}
 
 	public void replaceBlocksForBiome(int i, int j, Block[] ba, byte[] by, BiomeGenBase[] b) {
@@ -239,7 +236,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		}
 	}
 
-	public final void genBiomeTerrain(World p_150560_1_, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_, BiomeGenBase b) {
+	public final void genBiomeTerrain(World p_150560_1_, Random p_150560_2_, Block[] terrain, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_, BiomeGenBase b) {
 		boolean flag = true;
 		Block block = b.topBlock;
 		byte b0 = (byte)(b.field_150604_aj & 255);
@@ -248,15 +245,15 @@ public class ChunkProviderVethea implements IChunkProvider {
 		int l = (int)(p_150560_7_ / 3.0D + 3.0D + p_150560_2_.nextDouble() * 0.25D);
 		int i1 = p_150560_5_ & 15;
 		int j1 = p_150560_6_ & 15;
-		int k1 = p_150560_3_.length / 256;
+		int k1 = terrain.length / 256;
 
 		for (int l1 = 255; l1 >= 0; --l1) {
 			int i2 = (j1 * 16 + i1) * k1 + l1;
 
 			if (l1 <= 0 + p_150560_2_.nextInt(5)) {
-				p_150560_3_[i2] = VetheaBlocks.dreamStone;
+				terrain[i2] = VetheaBlocks.dreamStone;
 			} else {
-				Block block2 = p_150560_3_[i2];
+				Block block2 = terrain[i2];
 
 				if (block2 != null && block2.getMaterial() != Material.air) {
 					if (block2 == VetheaBlocks.dreamStone) {
@@ -282,20 +279,20 @@ public class ChunkProviderVethea implements IChunkProvider {
 							k = l;
 
 							if (l1 >= 62) {
-								p_150560_3_[i2] = block;
+								if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = block;
 								p_150560_4_[i2] = b0;
 							}
 							else if (l1 < 56 - l) {
 								block = null;
 								block1 = b.topBlock;
-								p_150560_3_[i2] = b.topBlock;
+								if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = b.topBlock;
 							} else {
-								p_150560_3_[i2] = block1;
+								if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = block1;
 							}
 						}
 						else if (k > 0) {
 							--k;
-							p_150560_3_[i2] = block1;
+							if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = block1;
 
 							if (k == 0 && block1 == VetheaBlocks.dreamStone) {
 								k = p_150560_2_.nextInt(4) + Math.max(0, l1 - 63);
@@ -537,7 +534,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 				/*
 				  * layer 3
 				  */
-				for (int i = 0; i < 3; i++) {
+				/*for (int i = 0; i < 3; i++) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 192;
 					var14 = var5 + this.rand.nextInt(16) + 8;

@@ -15,7 +15,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockLamp2 extends VanillaBlock implements IDivineMetaBlock{
 
-	@SideOnly(Side.CLIENT)
 	private static IIcon[] iconArray = new IIcon[11];
 	public static String[] names = {"ice", "jungle", "kraken", "lapisLazuli", "lava", "milky", "molten", "netherite", "realmite", "redstoneOre", "rupee"};
 	

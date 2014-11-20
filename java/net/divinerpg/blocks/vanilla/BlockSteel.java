@@ -15,8 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockSteel extends VanillaBlock implements IDivineMetaBlock{
 
-	@SideOnly(Side.CLIENT)
-	private static IIcon[] iconArray = new IIcon[10];
+	private IIcon[] iconArray = new IIcon[10];
 	public static String[] names = {"teal", "red", "purple", "green", "yellow", "blue", "white", "black", "orange", "brightRed"};
 	
 	public BlockSteel() {
