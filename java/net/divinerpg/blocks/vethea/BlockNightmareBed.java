@@ -14,18 +14,18 @@ import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Direction;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -39,6 +39,8 @@ public class BlockNightmareBed extends BlockBed {
     @SideOnly(Side.CLIENT)
     private IIcon[] side;
     
+    private NBTTagCompound persistantData;
+        
 	public BlockNightmareBed() {
 		super();
         String name = "nightmareBedBlock";
@@ -68,8 +70,10 @@ public class BlockNightmareBed extends BlockBed {
 
                 i1 = world.getBlockMetadata(x, y, z);
             }
-
-            if (world.provider.canRespawnHere() && world.getBiomeGenForCoords(x, z) != BiomeGenBase.hell) {
+            
+            this.persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
+            
+            if (player.worldObj.provider.dimensionId != ConfigurationHelper.vethea) {
                 if (func_149976_c(i1)) {
                     EntityPlayer entityplayer1 = null;
                     Iterator iterator = world.playerEntities.iterator();
@@ -92,8 +96,14 @@ public class BlockNightmareBed extends BlockBed {
                     
                     EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
                     func_149979_a(world, x, y, z, false);
-                    MPPlayer.setSpawnChunk(new ChunkCoordinates(x, y + 1, z), true);
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
+                    this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
+                	player.getEntityData().setTag("PlayerPersisted", this.persistantData);
+                    player.inventory.clearInventory(null, -1);
+                    NBTTagList inv = this.persistantData.getTagList("VetheaInv", 10);
+                    player.inventory.readFromNBT(inv);
+                    player.inventoryContainer.detectAndSendChanges();
+                    return true;
                 }
 
                 EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
@@ -116,7 +126,13 @@ public class BlockNightmareBed extends BlockBed {
                 }
             }
             else if (player.worldObj.provider.dimensionId == ConfigurationHelper.vethea) {
-            	MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, 0, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
+            	MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, 0, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(0)));
+            	this.persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
+            	player.getEntityData().setTag("PlayerPersisted", this.persistantData);
+                player.inventory.clearInventory(null, -1);
+                NBTTagList inv = this.persistantData.getTagList("OverworldInv", 10);
+                player.inventory.readFromNBT(inv);
+                player.inventoryContainer.detectAndSendChanges();
             	return true;
             }
             else {
@@ -136,7 +152,6 @@ public class BlockNightmareBed extends BlockBed {
                 }
 
                 WorldGenAPI.addRectangle(2, 2, 1, world, x, y - 1, z, TwilightBlocks.mortumBlock);
-                //world.newExplosion((Entity)null, (double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), 5.0F, true, true);
                 return true;
             }
         }
