@@ -57,10 +57,10 @@ public class VanillaItemsArmor {
     public static final Item      krakenBoots         = new ItemDivineArmor(EnumArmor.KRAKEN, BOOTS, krInfo);
 
     private static final Object[] jackInfo            = new Object[] { 4, ArmorInfo.SCYTHE_DAMAGE };
-    public static final Item      jackOManHelmet      = new ItemDivineArmor(EnumArmor.COSTUMES, HEAD, "jackOMan", jackInfo);
-    public static final Item      jackOManBody        = new ItemDivineArmor(EnumArmor.COSTUMES, BODY, "jackOMan", jackInfo);
-    public static final Item      jackOManLegs        = new ItemDivineArmor(EnumArmor.COSTUMES, LEGS, "jackOMan", jackInfo);
-    public static final Item      jackOManBoots       = new ItemDivineArmor(EnumArmor.COSTUMES, BOOTS, "jackOMan", jackInfo);
+    public static final Item      jackOManHelmet      = new ItemDivineArmor(EnumArmor.JACKOMAN, HEAD, "jackOMan", jackInfo);
+    public static final Item      jackOManBody        = new ItemDivineArmor(EnumArmor.JACKOMAN, BODY, "jackOMan", jackInfo);
+    public static final Item      jackOManLegs        = new ItemDivineArmor(EnumArmor.JACKOMAN, LEGS, "jackOMan", jackInfo);
+    public static final Item      jackOManBoots       = new ItemDivineArmor(EnumArmor.JACKOMAN, BOOTS, "jackOMan", jackInfo);
 
     private static final Object[] infInfo             = new Object[] { ArmorInfo.FIRE_PROTECTION };
     public static final Item      infernoHelmet       = new ItemDivineArmor(EnumArmor.INFERNO, HEAD, infInfo);
@@ -87,16 +87,16 @@ public class VanillaItemsArmor {
     public static final Item      netheriteBoots      = new ItemDivineArmor(EnumArmor.NETHERITE, BOOTS, nethInfo);
 
     private static final Object[] skelInfo            = new Object[] { ArmorInfo.HUNGER };
-    public static final Item      skelemanHelmet      = new ItemDivineArmor(EnumArmor.COSTUMES, HEAD, "skeleman", skelInfo);
-    public static final Item      skelemanBody        = new ItemDivineArmor(EnumArmor.COSTUMES, BODY, "skeleman", skelInfo);
-    public static final Item      skelemanLegs        = new ItemDivineArmor(EnumArmor.COSTUMES, LEGS, "skeleman", skelInfo);
-    public static final Item      skelemanBoots       = new ItemDivineArmor(EnumArmor.COSTUMES, BOOTS, "skeleman", skelInfo);
+    public static final Item      skelemanHelmet      = new ItemDivineArmor(EnumArmor.SKELEMAN, HEAD, "skeleman", skelInfo);
+    public static final Item      skelemanBody        = new ItemDivineArmor(EnumArmor.SKELEMAN, BODY, "skeleman", skelInfo);
+    public static final Item      skelemanLegs        = new ItemDivineArmor(EnumArmor.SKELEMAN, LEGS, "skeleman", skelInfo);
+    public static final Item      skelemanBoots       = new ItemDivineArmor(EnumArmor.SKELEMAN, BOOTS, "skeleman", skelInfo);
 
     private static final Object[] withInfo            = new Object[] { ArmorInfo.WITHER_PROTECTION };
-    public static final Item      witherReaperHelmet  = new ItemDivineArmor(EnumArmor.COSTUMES, HEAD, "witherReaper", withInfo);
-    public static final Item      witherReaperBody    = new ItemDivineArmor(EnumArmor.COSTUMES, BODY, "witherReaper", withInfo);
-    public static final Item      witherReaperLegs    = new ItemDivineArmor(EnumArmor.COSTUMES, LEGS, "witherReaper", withInfo);
-    public static final Item      witherReaperBoots   = new ItemDivineArmor(EnumArmor.COSTUMES, BOOTS, "witherReaper", withInfo);
+    public static final Item      witherReaperHelmet  = new ItemDivineArmor(EnumArmor.WITHER_REAPER, HEAD, "witherReaper", withInfo);
+    public static final Item      witherReaperBody    = new ItemDivineArmor(EnumArmor.WITHER_REAPER, BODY, "witherReaper", withInfo);
+    public static final Item      witherReaperLegs    = new ItemDivineArmor(EnumArmor.WITHER_REAPER, LEGS, "witherReaper", withInfo);
+    public static final Item      witherReaperBoots   = new ItemDivineArmor(EnumArmor.WITHER_REAPER, BOOTS, "witherReaper", withInfo);
 
     private static final Object[] endInfo             = new Object[] { ArmorInfo.EXPLOSION_PROTECTION };
     public static final Item      enderHelmet         = new ItemDivineArmor(EnumArmor.ENDER, HEAD, endInfo);

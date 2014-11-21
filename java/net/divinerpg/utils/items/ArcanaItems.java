@@ -157,10 +157,10 @@ public class ArcanaItems {
         kormaLegs          = new ItemDivineArmor(EnumArmor.KORMA, LEGS, kormInfo);
         kormaBoots         = new ItemDivineArmor(EnumArmor.KORMA, BOOTS, kormInfo);
 
-        vemosHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, "vemos", vemInfo);
-        vemosBody          = new ItemDivineArmor(EnumArmor.KORMA, BODY, "vemos", vemInfo);
-        vemosLegs          = new ItemDivineArmor(EnumArmor.KORMA, LEGS, "vemos", vemInfo);
-        vemosBoots         = new ItemDivineArmor(EnumArmor.KORMA, BOOTS, "vemos", vemInfo);
+        vemosHelmet        = new ItemDivineArmor(EnumArmor.VEMOS, HEAD, "vemos", vemInfo);
+        vemosBody          = new ItemDivineArmor(EnumArmor.VEMOS, BODY, "vemos", vemInfo);
+        vemosLegs          = new ItemDivineArmor(EnumArmor.VEMOS, LEGS, "vemos", vemInfo);
+        vemosBoots         = new ItemDivineArmor(EnumArmor.VEMOS, BOOTS, "vemos", vemInfo);
     }
     
 }
