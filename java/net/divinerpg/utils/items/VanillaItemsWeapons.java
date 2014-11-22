@@ -79,9 +79,9 @@ public class VanillaItemsWeapons {
     public static final Item ghastCannon        = new ItemGhastCannon("ghastCannon");
 
     
-    public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 11, Items.arrow, EntityPoisonArrow.class);
-    public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 11, 36000, Items.arrow, EntityArrow.class);
-    public static final Item enderBow           = new ItemModBow("enderBow", -1, 11, EntityArrow.class);
+    public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 2, Items.arrow, "hunterArrow");
+    public static final Item shadowBow          = new ItemModBow("shadowBow", 10000, 2, 36000, Items.arrow, "shadowArrow");
+    public static final Item enderBow           = new ItemModBow("enderBow", -1, 11, "enderArrow");
     //public static final Item bluefireBow        = new ItemModBow("bluefiewBow", -1, 0, EntityExplosionArrow.class);
     //public static final Item infernoBow         = new ItemModBow("infernoBow", 10000, 11, EntityFireArrow.class);
     

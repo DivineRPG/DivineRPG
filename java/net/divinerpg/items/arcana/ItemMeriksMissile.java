@@ -2,6 +2,7 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
+import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
@@ -19,18 +20,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemMeriksMissile extends ItemModBow { 
+public class ItemMeriksMissile extends ItemMod { 
 
 	private int arcana;
 	private IIcon[] texture;
 	private String[] textures = {Reference.PREFIX + "meriksMissile_0", Reference.PREFIX + "meriksMissile_1", Reference.PREFIX + "meriksMissile_2", Reference.PREFIX + "meriksMissile_3"};
 	
 	public ItemMeriksMissile(String name, int uses, int damage, int arcana) {
-        super(name, uses, damage, DEFAULT_MAX_USE_DURACTION, null, null);
+        super(name);
+        setMaxDamage(damage);
         this.arcana = arcana;
     }
 	
@@ -41,27 +42,6 @@ public class ItemMeriksMissile extends ItemModBow {
 		for(int i = 0; i < textures.length; i++)
 			texture[i] = par1IconRegister.registerIcon(Reference.PREFIX + "meriksMissile_" + i); 
 	}
-	
-	@Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getItemIconForUseDuration(int icon) {
-        return texture[icon];
-    }
-	
-	@Override
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.none;
-	}
-
-    @Override
-    public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-        if (player.getItemInUse() == null) return itemIcon;
-        int pulling = stack.getMaxItemUseDuration() - useRemaining;
-        if (pulling >= 18) return texture[3];
-        if (pulling > 13) return texture[2];
-        if (pulling > 0) return texture[1];
-        return texture[0];
-    }
 
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
 		if(var1.getItem() == ArcanaItems.meriksMissile){

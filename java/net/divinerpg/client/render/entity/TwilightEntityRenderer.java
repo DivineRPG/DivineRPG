@@ -60,7 +60,6 @@ import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildWoodGolem;
 import net.divinerpg.entities.twilight.EntityWildWoodTomo;
-import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
@@ -68,25 +67,20 @@ import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzSkythern;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzWildWood;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
-import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
-import net.divinerpg.entities.twilight.projectile.EntityHaliteArrow;
-import net.divinerpg.entities.twilight.projectile.EntityMortumArrow;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserEden;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserHalite;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserMortum;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserSkythern;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserWildWood;
-import net.divinerpg.entities.twilight.projectile.EntitySkythernArrow;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
-import net.divinerpg.entities.twilight.projectile.EntityWildWoodArrow;
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
-
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class TwilightEntityRenderer {
@@ -147,12 +141,5 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntitySoulFiend.class, new RenderDivineBoss(new ModelSoulFiend(), 0.0F, 1.0F, x.soulFiend, s.soulFiendBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityVamacheron.class, new RenderDivineBoss(new ModelVamacheron(), 0.0F, 3.0F, x.vamacheron, s.vamacheronBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityKarot.class, new RenderDivineBoss(new ModelKarot(), 0.0F, 5.0F, x.karot, s.karotBossID));
-	
-        RenderingRegistry.registerEntityRenderingHandler(EntityEdenArrow.class, new RenderDivineArrow(x.edenArrow));
-        RenderingRegistry.registerEntityRenderingHandler(EntityWildWoodArrow.class, new RenderDivineArrow(x.wildArrow));
-        RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaArrow.class, new RenderDivineArrow(x.apalachiaArrow));
-        RenderingRegistry.registerEntityRenderingHandler(EntitySkythernArrow.class, new RenderDivineArrow(x.skythernArrow));
-        RenderingRegistry.registerEntityRenderingHandler(EntityMortumArrow.class, new RenderDivineArrow(x.mortumArrow));
-        RenderingRegistry.registerEntityRenderingHandler(EntityHaliteArrow.class, new RenderDivineArrow(x.haliteArrow));
 	}	
 }

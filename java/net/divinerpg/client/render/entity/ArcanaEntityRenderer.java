@@ -75,7 +75,6 @@ public class ArcanaEntityRenderer {
 	private static EntityResourceLocation x;
 	private static EntityStats s;
 
-	@SuppressWarnings("fix textures for projectiles")
 	public static void init(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityStar.class, new RenderStarlight(x.starlight));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderProjectile(x.sparkler));

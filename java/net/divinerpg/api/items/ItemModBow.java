@@ -2,6 +2,7 @@ package net.divinerpg.api.items;
 
 import java.util.List;
 
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
@@ -15,58 +16,66 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemModBow extends ItemBow {
 
-    public static final int                DEFAULT_MAX_USE_DURACTION = 72000;
+    public static final int                DEFAULT_MAX_USE_DURATION = 72000;
     @SideOnly(Side.CLIENT)
     protected IIcon[]                      IIconArray;
     protected String                       name;
     protected String                       textureName;
     protected final String[]               texture;
     protected int                          damage;
-    protected int                          maxUseDuraction;
+    protected int                          maxUseDuration;
     protected boolean                      unbreakable;
     protected Item                         arrow;
-    protected Class<? extends EntityArrow> arrowClazz;
     protected boolean                      needArrow = true;
+    protected String arrowTex;
 
-    public ItemModBow(String name, int uses, int damage, Item arrow, Class<? extends EntityArrow> arrowClazz) {
-        this(name, uses, damage, DEFAULT_MAX_USE_DURACTION, arrow, arrowClazz);
+    public ItemModBow(String name, int uses, int damage, Item arrow) {
+        this(name, uses, damage, DEFAULT_MAX_USE_DURATION, arrow);
     }
     
-    public ItemModBow(String name, int uses, int damage, Class<? extends EntityArrow> arrowClazz) {
-        this(name, uses, damage, DEFAULT_MAX_USE_DURACTION, null, arrowClazz);
+    public ItemModBow(String name, int uses, int damage, String arrowTex) {
+        this(name, uses, damage, DEFAULT_MAX_USE_DURATION, null);
+        this.arrowTex = arrowTex;
     }
     
-    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Class<? extends EntityArrow> arrowClazz) {
-        this(name, uses, damage, maxUseDuraction, null, arrowClazz);
+    public ItemModBow(String name, int uses, int damage, Item arrow, String arrowTex) {
+        this(name, uses, damage, DEFAULT_MAX_USE_DURATION, arrow);
+        this.arrowTex = arrowTex;
+    }
+    
+    public ItemModBow(String name, int uses, int damage, int maxUseDuraction) {
+        this(name, uses, damage, maxUseDuraction, null);
+    }
+    
+    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Item arrow, String arrowTex) {
+        this(name, uses, damage, maxUseDuraction, arrow);
+        this.arrowTex = arrowTex;
     }
 
-    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Item arrow, Class<? extends EntityArrow> arrowClazz) {
+    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Item arrow) {
         setMaxDamage(uses);
         this.name = name;
         this.textureName = Reference.PREFIX + name;
         if (arrow == null) needArrow = false;
         else this.arrow = arrow;
         this.damage = damage;
-        this.maxUseDuraction = maxUseDuraction;
+        this.maxUseDuration = maxUseDuraction;
         unbreakable = true;
         this.maxStackSize = 1;
         this.setCreativeTab(DivineRPGTabs.ranged);
         this.texture = new String[] { textureName + "_0", textureName + "_1", textureName + "_2", textureName + "_3" };
-        this.arrowClazz = arrowClazz;
         setUnlocalizedName(name);
         GameRegistry.registerItem(this, name);
         LangRegistry.addItem(this);
@@ -91,8 +100,8 @@ public class ItemModBow extends ItemBow {
     public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
         if (player.getItemInUse() == null) return itemIcon;
         int pulling = stack.getMaxItemUseDuration() - useRemaining;
-        if (pulling >= 18) return IIconArray[3];
-        if (pulling > 13) return IIconArray[2];
+        if (pulling >= 18/(DEFAULT_MAX_USE_DURATION/this.getMaxItemUseDuration(stack))) return IIconArray[3];
+        if (pulling > 13/(DEFAULT_MAX_USE_DURATION/this.getMaxItemUseDuration(stack))) return IIconArray[2];
         if (pulling > 0) return IIconArray[1];
         return IIconArray[0];
     }
@@ -110,12 +119,10 @@ public class ItemModBow extends ItemBow {
             scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;
             if ((double) scaledItemUse < 0.1) return;
             if (scaledItemUse > 1) scaledItemUse = 1;
-            EntityArrow entityarrow = null;
-            try {
-                entityarrow = arrowClazz.getConstructor(World.class, EntityLivingBase.class, float.class).newInstance(world, player, scaledItemUse * 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            EntityDivineArrow entityarrow;
+            if(this.arrow != null && this.arrowTex == null) entityarrow = new EntityDivineArrow(world, player, scaledItemUse*2, damage, arrow.getUnlocalizedName().replace("item.", ""));
+            else entityarrow = new EntityDivineArrow(world, player, scaledItemUse*2, damage, this.arrowTex);
+            entityarrow.setAmmoItem(arrow);
             if (scaledItemUse == 1) entityarrow.setIsCritical(true);
             int powerLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
             if (powerLevel > 0) entityarrow.setDamage(entityarrow.getDamage() + (double) powerLevel * 0.5 + 0.5);
@@ -132,13 +139,13 @@ public class ItemModBow extends ItemBow {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return maxUseDuraction;
+        return maxUseDuration;
     }
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add(damage + " Max Ranged Damage");
-        double speed = (double) DEFAULT_MAX_USE_DURACTION / (double) getMaxItemUseDuration(stack);
+        list.add(damage + " Minimum Ranged Damage");
+        double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1) list.add(Util.GOLD + speed + EnumChatFormatting.RESET + " Times Faster");
         if (speed < 1) list.add(Util.GOLD + (1 / speed) + EnumChatFormatting.RESET + " Times Slower");
         list.add(!unbreakable ? (stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
@@ -152,12 +159,13 @@ public class ItemModBow extends ItemBow {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack list, World world, EntityPlayer player) {
-        ArrowNockEvent nockEvent = new ArrowNockEvent(player, list);
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        ArrowNockEvent nockEvent = new ArrowNockEvent(player, stack);
         MinecraftForge.EVENT_BUS.post(nockEvent);
         if (nockEvent.isCanceled()) return nockEvent.result;
-        if (player.capabilities.isCreativeMode || player.inventory.hasItem(arrow))
-            player.setItemInUse(list, this.getMaxItemUseDuration(list));
-        return list;
+        boolean infiniteAmmo = !needArrow || player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
+        if (infiniteAmmo || player.inventory.hasItem(arrow) )
+            player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+        return stack;
     }
 }

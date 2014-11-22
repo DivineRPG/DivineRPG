@@ -1,8 +1,7 @@
-package net.divinerpg.entities.twilight.projectile;
+package net.divinerpg.entities.vanilla.projectile;
 
 import java.util.List;
 
-import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -12,25 +11,27 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class EntitySkythernArrow extends EntityArrow {
-	
-    private int field_145791_d = -1;
-    private int field_145792_e = -1;
-    private int field_145789_f = -1;
-    private Block field_145790_g;
+public class EntityDivineArrow extends EntityArrow
+{
+    private int xTile = -1;
+    private int yTile = -1;
+    private int zTile = -1;
+    private Block inTile;
     private int inData;
     private boolean inGround;
     public int canBePickedUp;
@@ -38,40 +39,41 @@ public class EntitySkythernArrow extends EntityArrow {
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
-    private double damage = 46.0D;
+    private double damage;
     private int knockbackStrength;
-
-    public EntitySkythernArrow(World par1World)
+    public Item ammoItem;
+    
+    public EntityDivineArrow(World p_i1753_1_)
     {
-        super(par1World);
+        super(p_i1753_1_);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
-    public EntitySkythernArrow(World par1World, double par2, double par4, double par6)
+    public EntityDivineArrow(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)
     {
-        super(par1World);
+        super(p_i1754_1_);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
-        this.setPosition(par2, par4, par6);
+        this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
         this.yOffset = 0.0F;
     }
 
-    public EntitySkythernArrow(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
+    public EntityDivineArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
     {
-        super(par1World);
+        super(p_i1755_1_);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLivingBase;
+        this.shootingEntity = p_i1755_2_;
 
-        if (par2EntityLivingBase instanceof EntityPlayer)
+        if (p_i1755_2_ instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
-        this.posY = par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight() - 0.10000000149011612D;
-        double d0 = par3EntityLivingBase.posX - par2EntityLivingBase.posX;
-        double d1 = par3EntityLivingBase.boundingBox.minY + (double)(par3EntityLivingBase.height / 3.0F) - this.posY;
-        double d2 = par3EntityLivingBase.posZ - par2EntityLivingBase.posZ;
+        this.posY = p_i1755_2_.posY + (double)p_i1755_2_.getEyeHeight() - 0.10000000149011612D;
+        double d0 = p_i1755_3_.posX - p_i1755_2_.posX;
+        double d1 = p_i1755_3_.boundingBox.minY + (double)(p_i1755_3_.height / 3.0F) - this.posY;
+        double d2 = p_i1755_3_.posZ - p_i1755_2_.posZ;
         double d3 = (double)MathHelper.sqrt_double(d0 * d0 + d2 * d2);
 
         if (d3 >= 1.0E-7D)
@@ -80,26 +82,28 @@ public class EntitySkythernArrow extends EntityArrow {
             float f3 = (float)(-(Math.atan2(d1, d3) * 180.0D / Math.PI));
             double d4 = d0 / d3;
             double d5 = d2 / d3;
-            this.setLocationAndAngles(par2EntityLivingBase.posX + d4, this.posY, par2EntityLivingBase.posZ + d5, f2, f3);
+            this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
             this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
-            this.setThrowableHeading(d0, d1 + (double)f4, d2, par4, par5);
+            this.setThrowableHeading(d0, d1 + (double)f4, d2, p_i1755_4_, p_i1755_5_);
         }
     }
 
-    public EntitySkythernArrow(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
+    public EntityDivineArrow(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, float damage, String texturename)
     {
-        super(par1World);
+        super(p_i1756_1_);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLivingBase;
+        this.shootingEntity = p_i1756_2_;
+        this.damage = damage;
+        this.dataWatcher.updateObject(17, texturename);
 
-        if (par2EntityLivingBase instanceof EntityPlayer)
+        if (p_i1756_2_ instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
         this.setSize(0.5F, 0.5F);
-        this.setLocationAndAngles(par2EntityLivingBase.posX, par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight(), par2EntityLivingBase.posZ, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
+        this.setLocationAndAngles(p_i1756_2_.posX, p_i1756_2_.posY + (double)p_i1756_2_.getEyeHeight(), p_i1756_2_.posZ, p_i1756_2_.rotationYaw, p_i1756_2_.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -108,54 +112,59 @@ public class EntitySkythernArrow extends EntityArrow {
         this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI));
         this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI));
         this.motionY = (double)(-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, par3 * 1.5F, 1.0F);
+        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
     }
 
+    @Override
     protected void entityInit()
     {
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(17, "");
     }
 
-    public void setThrowableHeading(double par1, double par3, double par5, float par7, float par8)
+    @Override
+    public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
     {
-        float f2 = MathHelper.sqrt_double(par1 * par1 + par3 * par3 + par5 * par5);
-        par1 /= (double)f2;
-        par3 /= (double)f2;
-        par5 /= (double)f2;
-        par1 += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)par8;
-        par3 += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)par8;
-        par5 += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)par8;
-        par1 *= (double)par7;
-        par3 *= (double)par7;
-        par5 *= (double)par7;
-        this.motionX = par1;
-        this.motionY = par3;
-        this.motionZ = par5;
-        float f3 = MathHelper.sqrt_double(par1 * par1 + par5 * par5);
-        this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(par1, par5) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(par3, (double)f3) * 180.0D / Math.PI);
+        float f2 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
+        p_70186_1_ /= (double)f2;
+        p_70186_3_ /= (double)f2;
+        p_70186_5_ /= (double)f2;
+        p_70186_1_ += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)p_70186_8_;
+        p_70186_3_ += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)p_70186_8_;
+        p_70186_5_ += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)p_70186_8_;
+        p_70186_1_ *= (double)p_70186_7_;
+        p_70186_3_ *= (double)p_70186_7_;
+        p_70186_5_ *= (double)p_70186_7_;
+        this.motionX = p_70186_1_;
+        this.motionY = p_70186_3_;
+        this.motionZ = p_70186_5_;
+        float f3 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_5_ * p_70186_5_);
+        this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70186_1_, p_70186_5_) * 180.0D / Math.PI);
+        this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70186_3_, (double)f3) * 180.0D / Math.PI);
         this.ticksInGround = 0;
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9)
+    public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_)
     {
-        this.setPosition(par1, par3, par5);
-        this.setRotation(par7, par8);
+        this.setPosition(p_70056_1_, p_70056_3_, p_70056_5_);
+        this.setRotation(p_70056_7_, p_70056_8_);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    public void setVelocity(double par1, double par3, double par5)
+    public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_)
     {
-        this.motionX = par1;
-        this.motionY = par3;
-        this.motionZ = par5;
+        this.motionX = p_70016_1_;
+        this.motionY = p_70016_3_;
+        this.motionZ = p_70016_5_;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
-            float f = MathHelper.sqrt_double(par1 * par1 + par5 * par5);
-            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(par1, par5) * 180.0D / Math.PI);
-            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(par3, (double)f) * 180.0D / Math.PI);
+            float f = MathHelper.sqrt_double(p_70016_1_ * p_70016_1_ + p_70016_5_ * p_70016_5_);
+            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70016_1_, p_70016_5_) * 180.0D / Math.PI);
+            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70016_3_, (double)f) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch;
             this.prevRotationYaw = this.rotationYaw;
             this.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
@@ -163,9 +172,10 @@ public class EntitySkythernArrow extends EntityArrow {
         }
     }
 
+    @Override
     public void onUpdate()
     {
-        super.onUpdate();
+    	super.onEntityUpdate();
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
@@ -174,12 +184,12 @@ public class EntitySkythernArrow extends EntityArrow {
             this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(this.motionY, (double)f) * 180.0D / Math.PI);
         }
 
-        Block block = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+        Block block = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
 
         if (block.getMaterial() != Material.air)
         {
-            block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
-            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            block.setBlockBoundsBasedOnState(this.worldObj, this.xTile, this.yTile, this.zTile);
+            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.xTile, this.yTile, this.zTile);
 
             if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ)))
             {
@@ -194,9 +204,9 @@ public class EntitySkythernArrow extends EntityArrow {
 
         if (this.inGround)
         {
-            int j = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            int j = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
 
-            if (block == this.field_145790_g && j == this.inData)
+            if (block == this.inTile && j == this.inData)
             {
                 ++this.ticksInGround;
 
@@ -220,13 +230,13 @@ public class EntitySkythernArrow extends EntityArrow {
             ++this.ticksInAir;
             Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
             Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-            MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
+            MovingObjectPosition position = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
             vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
             vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-            if (movingobjectposition != null)
+            if (position != null)
             {
-                vec3 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
+                vec3 = Vec3.createVectorHelper(position.hitVec.xCoord, position.hitVec.yCoord, position.hitVec.zCoord);
             }
 
             Entity entity = null;
@@ -260,28 +270,28 @@ public class EntitySkythernArrow extends EntityArrow {
 
             if (entity != null)
             {
-                movingobjectposition = new MovingObjectPosition(entity);
+                position = new MovingObjectPosition(entity);
             }
 
-            if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer)
+            if (position != null && position.entityHit != null && position.entityHit instanceof EntityPlayer)
             {
-                EntityPlayer entityplayer = (EntityPlayer)movingobjectposition.entityHit;
+                EntityPlayer entityplayer = (EntityPlayer)position.entityHit;
 
                 if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).canAttackPlayer(entityplayer))
                 {
-                    movingobjectposition = null;
+                    position = null;
                 }
             }
 
             float f2;
             float f4;
 
-            if (movingobjectposition != null)
+            if (position != null)
             {
-                if (movingobjectposition.entityHit != null)
+                if (position.entityHit != null)
                 {
                     f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-                    int k = MathHelper.ceiling_double_int((double)f2 * this.damage);
+                    int k = MathHelper.ceiling_double_int(f2 * this.damage);
 
                     if (this.getIsCritical())
                     {
@@ -298,17 +308,21 @@ public class EntitySkythernArrow extends EntityArrow {
                     {
                         damagesource = DamageSource.causeArrowDamage(this, this.shootingEntity);
                     }
-
-                    if (this.isBurning() && !(movingobjectposition.entityHit instanceof EntityEnderman))
-                    {
-                        movingobjectposition.entityHit.setFire(5);
+                    
+                    if(this.getTextureName() == "hunterArrow" && position.entityHit instanceof EntityLivingBase){
+                    	((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 40, 2));
                     }
 
-                    if (movingobjectposition.entityHit.attackEntityFrom(damagesource, (float)k))
+                    if (this.isBurning() && !(position.entityHit instanceof EntityEnderman))
                     {
-                        if (movingobjectposition.entityHit instanceof EntityLivingBase)
+                        position.entityHit.setFire(5);
+                    }
+
+                    if (position.entityHit.attackEntityFrom(damagesource, (float)k))
+                    {
+                        if (position.entityHit instanceof EntityLivingBase)
                         {
-                            EntityLivingBase entitylivingbase = (EntityLivingBase)movingobjectposition.entityHit;
+                            EntityLivingBase entitylivingbase = (EntityLivingBase)position.entityHit;
 
                             if (!this.worldObj.isRemote)
                             {
@@ -321,7 +335,7 @@ public class EntitySkythernArrow extends EntityArrow {
 
                                 if (f4 > 0.0F)
                                 {
-                                    movingobjectposition.entityHit.addVelocity(this.motionX * (double)this.knockbackStrength * 0.6000000238418579D / (double)f4, 0.1D, this.motionZ * (double)this.knockbackStrength * 0.6000000238418579D / (double)f4);
+                                    position.entityHit.addVelocity(this.motionX * (double)this.knockbackStrength * 0.6000000238418579D / (double)f4, 0.1D, this.motionZ * (double)this.knockbackStrength * 0.6000000238418579D / (double)f4);
                                 }
                             }
 
@@ -331,7 +345,7 @@ public class EntitySkythernArrow extends EntityArrow {
                                 EnchantmentHelper.func_151385_b((EntityLivingBase)this.shootingEntity, entitylivingbase);
                             }
 
-                            if (this.shootingEntity != null && movingobjectposition.entityHit != this.shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
+                            if (this.shootingEntity != null && position.entityHit != this.shootingEntity && position.entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
                             {
                                 ((EntityPlayerMP)this.shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
                             }
@@ -339,7 +353,7 @@ public class EntitySkythernArrow extends EntityArrow {
 
                         this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 
-                        if (!(movingobjectposition.entityHit instanceof EntityEnderman))
+                        if (!(position.entityHit instanceof EntityEnderman))
                         {
                             this.setDead();
                         }
@@ -356,14 +370,14 @@ public class EntitySkythernArrow extends EntityArrow {
                 }
                 else
                 {
-                    this.field_145791_d = movingobjectposition.blockX;
-                    this.field_145792_e = movingobjectposition.blockY;
-                    this.field_145789_f = movingobjectposition.blockZ;
-                    this.field_145790_g = block;
-                    this.inData = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
-                    this.motionX = (double)((float)(movingobjectposition.hitVec.xCoord - this.posX));
-                    this.motionY = (double)((float)(movingobjectposition.hitVec.yCoord - this.posY));
-                    this.motionZ = (double)((float)(movingobjectposition.hitVec.zCoord - this.posZ));
+                    this.xTile = position.blockX;
+                    this.yTile = position.blockY;
+                    this.zTile = position.blockZ;
+                    this.inTile = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
+                    this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
+                    this.motionX = (double)((float)(position.hitVec.xCoord - this.posX));
+                    this.motionY = (double)((float)(position.hitVec.yCoord - this.posY));
+                    this.motionZ = (double)((float)(position.hitVec.zCoord - this.posZ));
                     f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
                     this.posX -= this.motionX / (double)f2 * 0.05000000074505806D;
                     this.posY -= this.motionY / (double)f2 * 0.05000000074505806D;
@@ -373,9 +387,9 @@ public class EntitySkythernArrow extends EntityArrow {
                     this.arrowShake = 7;
                     this.setIsCritical(false);
 
-                    if (this.field_145790_g.getMaterial() != Material.air)
+                    if (this.inTile.getMaterial() != Material.air)
                     {
-                        this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f, this);
+                        this.inTile.onEntityCollidedWithBlock(this.worldObj, this.xTile, this.yTile, this.zTile, this);
                     }
                 }
             }
@@ -444,53 +458,58 @@ public class EntitySkythernArrow extends EntityArrow {
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
+    @Override
+    public void writeEntityToNBT(NBTTagCompound tag)
     {
-        par1NBTTagCompound.setShort("xTile", (short)this.field_145791_d);
-        par1NBTTagCompound.setShort("yTile", (short)this.field_145792_e);
-        par1NBTTagCompound.setShort("zTile", (short)this.field_145789_f);
-        par1NBTTagCompound.setShort("life", (short)this.ticksInGround);
-        par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
-        par1NBTTagCompound.setByte("inData", (byte)this.inData);
-        par1NBTTagCompound.setByte("shake", (byte)this.arrowShake);
-        par1NBTTagCompound.setByte("inGround", (byte)(this.inGround ? 1 : 0));
-        par1NBTTagCompound.setByte("pickup", (byte)this.canBePickedUp);
-        par1NBTTagCompound.setDouble("damage", this.damage);
+        tag.setShort("xTile", (short)this.xTile);
+        tag.setShort("yTile", (short)this.yTile);
+        tag.setShort("zTile", (short)this.zTile);
+        tag.setShort("life", (short)this.ticksInGround);
+        tag.setByte("inTile", (byte)Block.getIdFromBlock(this.inTile));
+        tag.setByte("inData", (byte)this.inData);
+        tag.setByte("shake", (byte)this.arrowShake);
+        tag.setByte("inGround", (byte)(this.inGround ? 1 : 0));
+        tag.setByte("pickup", (byte)this.canBePickedUp);
+        tag.setDouble("damage", this.damage);
+        tag.setString("texture", this.dataWatcher.getWatchableObjectString(17));
     }
 
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
+    @Override
+    public void readEntityFromNBT(NBTTagCompound tag)
     {
-        this.field_145791_d = par1NBTTagCompound.getShort("xTile");
-        this.field_145792_e = par1NBTTagCompound.getShort("yTile");
-        this.field_145789_f = par1NBTTagCompound.getShort("zTile");
-        this.ticksInGround = par1NBTTagCompound.getShort("life");
-        this.field_145790_g = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 255);
-        this.inData = par1NBTTagCompound.getByte("inData") & 255;
-        this.arrowShake = par1NBTTagCompound.getByte("shake") & 255;
-        this.inGround = par1NBTTagCompound.getByte("inGround") == 1;
+        this.xTile = tag.getShort("xTile");
+        this.yTile = tag.getShort("yTile");
+        this.zTile = tag.getShort("zTile");
+        this.ticksInGround = tag.getShort("life");
+        this.inTile = Block.getBlockById(tag.getByte("inTile") & 255);
+        this.inData = tag.getByte("inData") & 255;
+        this.arrowShake = tag.getByte("shake") & 255;
+        this.inGround = tag.getByte("inGround") == 1;
+        this.dataWatcher.updateObject(17, tag.getString("texture"));
 
-        if (par1NBTTagCompound.hasKey("damage", 99))
+        if (tag.hasKey("damage", 99))
         {
-            this.damage = par1NBTTagCompound.getDouble("damage");
+            this.damage = tag.getDouble("damage");
         }
 
-        if (par1NBTTagCompound.hasKey("pickup", 99))
+        if (tag.hasKey("pickup", 99))
         {
-            this.canBePickedUp = par1NBTTagCompound.getByte("pickup");
+            this.canBePickedUp = tag.getByte("pickup");
         }
-        else if (par1NBTTagCompound.hasKey("player", 99))
+        else if (tag.hasKey("player", 99))
         {
-            this.canBePickedUp = par1NBTTagCompound.getBoolean("player") ? 1 : 0;
+            this.canBePickedUp = tag.getBoolean("player") ? 1 : 0;
         }
     }
 
-    public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)
+    @Override
+    public void onCollideWithPlayer(EntityPlayer p_70100_1_)
     {
         if (!this.worldObj.isRemote && this.inGround && this.arrowShake <= 0)
         {
-            boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && par1EntityPlayer.capabilities.isCreativeMode;
+            boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && p_70100_1_.capabilities.isCreativeMode;
 
-            if (this.canBePickedUp == 1 && !par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(TwilightItemsWeapons.skythernArrow, 1)))
+            if (this.canBePickedUp == 1 && !p_70100_1_.inventory.addItemStackToInventory(new ItemStack(ammoItem, 1)))
             {
                 flag = false;
             }
@@ -498,48 +517,55 @@ public class EntitySkythernArrow extends EntityArrow {
             if (flag)
             {
                 this.playSound("random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
-                par1EntityPlayer.onItemPickup(this, 1);
+                p_70100_1_.onItemPickup(this, 1);
                 this.setDead();
             }
         }
     }
 
+    @Override
     protected boolean canTriggerWalking()
     {
         return false;
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public float getShadowSize()
     {
         return 0.0F;
     }
 
-    public void setDamage(double par1)
+    @Override
+    public void setDamage(double p_70239_1_)
     {
-        this.damage = par1;
+        this.damage = p_70239_1_;
     }
 
+    @Override
     public double getDamage()
     {
         return this.damage;
     }
 
-    public void setKnockbackStrength(int par1)
+    @Override
+    public void setKnockbackStrength(int p_70240_1_)
     {
-        this.knockbackStrength = par1;
+        this.knockbackStrength = p_70240_1_;
     }
 
+    @Override
     public boolean canAttackWithItem()
     {
         return false;
     }
 
-    public void setIsCritical(boolean par1)
+    @Override
+    public void setIsCritical(boolean p_70243_1_)
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
-        if (par1)
+        if (p_70243_1_)
         {
             this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));
         }
@@ -549,9 +575,19 @@ public class EntitySkythernArrow extends EntityArrow {
         }
     }
 
+    @Override
     public boolean getIsCritical()
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
         return (b0 & 1) != 0;
     }
+    
+    public void setAmmoItem(Item ammo){
+    	this.ammoItem = ammo;
+    }
+    
+    public String getTextureName(){
+    	return this.dataWatcher.getWatchableObjectString(17);
+    }
+    
 }

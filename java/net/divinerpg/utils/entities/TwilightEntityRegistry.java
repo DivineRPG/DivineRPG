@@ -31,7 +31,6 @@ import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildWoodGolem;
 import net.divinerpg.entities.twilight.EntityWildWoodTomo;
-import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
@@ -39,23 +38,18 @@ import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzSkythern;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzWildWood;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
-import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
-import net.divinerpg.entities.twilight.projectile.EntityHaliteArrow;
-import net.divinerpg.entities.twilight.projectile.EntityMortumArrow;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserEden;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserHalite;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserMortum;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserSkythern;
 import net.divinerpg.entities.twilight.projectile.EntityPhaserWildWood;
-import net.divinerpg.entities.twilight.projectile.EntitySkythernArrow;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
-import net.divinerpg.entities.twilight.projectile.EntityWildWoodArrow;
 import net.divinerpg.utils.Util;
 
 public class TwilightEntityRegistry {
@@ -112,12 +106,5 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntitySoulFiend.class, "SoulFiend");
         Util.registerDivineRPGMob(EntityVamacheron.class, "Vamacheron");
         Util.registerDivineRPGMob(EntityKarot.class, "Karot");
-        
-        Util.registerProjectile(EntityEdenArrow.class, "EdenArrow");
-        Util.registerProjectile(EntityWildWoodArrow.class, "WildArrow");
-        Util.registerProjectile(EntityApalachiaArrow.class, "ApalachiaArrow");
-        Util.registerProjectile(EntitySkythernArrow.class, "SkythernArrow");
-        Util.registerProjectile(EntityMortumArrow.class, "MortumArrow");
-        Util.registerProjectile(EntityHaliteArrow.class, "HaliteArrow");
 	}
 }

@@ -1,33 +1,38 @@
 package net.divinerpg.client.render;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.libs.Reference;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivineArrow extends Render {
+public class RenderDivineArrow extends RenderArrow{
 	
-    private static ResourceLocation arrowTextures;
-    
-    public RenderDivineArrow(ResourceLocation r) {
-		arrowTextures = r; 
-	}
-    
-    public void doRender(EntityArrow par1EntityArrow, double par2, double par4, double par6, float par8, float par9) {
-        this.bindEntityTexture(par1EntityArrow);
+	private String textureName;
+	
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity)
+    {
+        return new ResourceLocation(Reference.PREFIX + "textures/projectiles/" + ((EntityDivineArrow)entity).getTextureName() + ".png");
+    }
+	
+	@Override
+	public void doRender(Entity entity, double par2, double par3, double par4, float par5, float par6)
+    {
+        this.bindEntityTexture(entity);
         GL11.glPushMatrix();
-        GL11.glTranslatef((float)par2, (float)par4, (float)par6);
-        GL11.glRotatef(par1EntityArrow.prevRotationYaw + (par1EntityArrow.rotationYaw - par1EntityArrow.prevRotationYaw) * par9 - 90.0F, 0.0F, 1.0F, 0.0F);
-        GL11.glRotatef(par1EntityArrow.prevRotationPitch + (par1EntityArrow.rotationPitch - par1EntityArrow.prevRotationPitch) * par9, 0.0F, 0.0F, 1.0F);
+        GL11.glTranslatef((float)par2, (float)par3, (float)par4);
+        GL11.glRotatef(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * par6 - 90.0F, 0.0F, 1.0F, 0.0F);
+        GL11.glRotatef(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * par6, 0.0F, 0.0F, 1.0F);
         Tessellator tessellator = Tessellator.instance;
         byte b0 = 0;
         float f2 = 0.0F;
@@ -40,9 +45,10 @@ public class RenderDivineArrow extends Render {
         float f9 = (float)(10 + b0 * 10) / 32.0F;
         float f10 = 0.05625F;
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-        float f11 = (float)par1EntityArrow.arrowShake - par9;
+        float f11 = (float)((EntityDivineArrow)entity).arrowShake - par6;
 
-        if (f11 > 0.0F) {
+        if (f11 > 0.0F)
+        {
             float f12 = -MathHelper.sin(f11 * 3.0F) * f11;
             GL11.glRotatef(f12, 0.0F, 0.0F, 1.0F);
         }
@@ -65,7 +71,8 @@ public class RenderDivineArrow extends Render {
         tessellator.addVertexWithUV(-7.0D, -2.0D, -2.0D, (double)f6, (double)f9);
         tessellator.draw();
 
-        for (int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i)
+        {
             GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
             GL11.glNormal3f(0.0F, 0.0F, f10);
             tessellator.startDrawingQuads();
@@ -78,17 +85,5 @@ public class RenderDivineArrow extends Render {
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
-    }
-
-    protected ResourceLocation getEntityTexture(EntityArrow par1EntityArrow) {
-        return arrowTextures;
-    }
-
-    protected ResourceLocation getEntityTexture(Entity par1Entity) {
-        return this.getEntityTexture((EntityArrow)par1Entity);
-    }
-
-    public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRender((EntityArrow)par1Entity, par2, par4, par6, par8, par9);
     }
 }

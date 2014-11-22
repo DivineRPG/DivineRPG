@@ -3,18 +3,12 @@ package net.divinerpg.utils.items;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.entities.twilight.projectile.EntityApalachiaArrow;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzSkythern;
 import net.divinerpg.entities.twilight.projectile.EntityBlitzWildWood;
-import net.divinerpg.entities.twilight.projectile.EntityEdenArrow;
-import net.divinerpg.entities.twilight.projectile.EntityHaliteArrow;
-import net.divinerpg.entities.twilight.projectile.EntityMortumArrow;
-import net.divinerpg.entities.twilight.projectile.EntitySkythernArrow;
-import net.divinerpg.entities.twilight.projectile.EntityWildWoodArrow;
 import net.divinerpg.items.twilight.ItemTwilightBlitz;
 import net.divinerpg.items.twilight.ItemTwilightPhaser;
 import net.divinerpg.items.vanilla.ItemThrowable;
@@ -59,11 +53,11 @@ public class TwilightItemsWeapons {
     public static final Item mortumArrow        = new ItemMod("mortumArrow").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item haliteArrow        = new ItemMod("haliteArrow").setCreativeTab(DivineRPGTabs.ranged);
 
-    public static final Item edenBow            = new ItemModBow("edenBow", -1, 21, edenArrow, EntityEdenArrow.class);
-    public static final Item wildwoodBow        = new ItemModBow("wildWoodBow", -1, 31, wildwoodArrow, EntityWildWoodArrow.class);
-    public static final Item apalachiaBow       = new ItemModBow("apalachiaBow", -1, 41, apalachiaArrow, EntityApalachiaArrow.class);
-    public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 46, skythernArrow, EntitySkythernArrow.class);
-    public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 51, mortumArrow, EntityMortumArrow.class);
-    public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 61, haliteArrow, EntityHaliteArrow.class);
+    public static final Item edenBow            = new ItemModBow("edenBow", -1, 7, edenArrow);
+    public static final Item wildwoodBow        = new ItemModBow("wildWoodBow", -1, 7, 36000, wildwoodArrow);
+    public static final Item apalachiaBow       = new ItemModBow("apalachiaBow", -1, 12, apalachiaArrow);
+    public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 12, 36000, skythernArrow);
+    public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 17, mortumArrow);
+    public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 17, 36000, haliteArrow);
         
 }

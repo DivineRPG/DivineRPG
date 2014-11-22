@@ -103,11 +103,7 @@ public class EventArmorTick {
 
         //Mortum
         if (boots == TwilightItemsArmor.mortumBoots && body == TwilightItemsArmor.mortumBody && legs == TwilightItemsArmor.mortumLegs && helmet == TwilightItemsArmor.mortumHelmet) {
-            boolean light = world.getBlockLightValue((int) event.player.posX, (int) event.player.posY, (int) event.player.posZ) < 7;
-            if (light) {
-                event.player.addPotionEffect(new PotionEffect(16, 210, 10)); //The 210 is necessary
-                //TODO Render a duplicate of what the potion does, instead of adding the potion
-            }
+            event.player.addPotionEffect(new PotionEffect(16, 210, 10));
         }
 
         //Skythern

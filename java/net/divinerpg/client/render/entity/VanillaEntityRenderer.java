@@ -4,6 +4,7 @@ import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
 import net.divinerpg.client.render.EntityResourceLocation;
+import net.divinerpg.client.render.RenderDivineArrow;
 import net.divinerpg.client.render.RenderDivineBoss;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
@@ -79,6 +80,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityGhastCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
@@ -162,6 +164,8 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAncientEntity.class, new RenderDivineBoss(new ModelAncientEntity(), 0.0F, 5.0F, x.ancient, s.ancientEntityBossID));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderProjectile(x.frostShot));
+		
+        RenderingRegistry.registerEntityRenderingHandler(EntityDivineArrow.class, new RenderDivineArrow());
 		
 		Util.registerItemRenderer(VanillaBlocks.KingStatue, new RenderStatueItem(VanillaBlocks.KingStatue));
 		Util.registerItemRenderer(VanillaBlocks.AncientStatue, new RenderStatueItem(VanillaBlocks.AncientStatue));
