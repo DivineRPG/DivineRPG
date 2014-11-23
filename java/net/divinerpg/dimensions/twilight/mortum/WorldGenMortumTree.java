@@ -67,7 +67,7 @@ public class WorldGenMortumTree extends WorldGenAbstractTree {
             } else {
                 Block block2 = par1World.getBlock(par3, par4 - 1, par5);
 
-                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block2 == TwilightBlocks.mortumGrass;
                 if (isSoil && par4 < 256 - l - 1) {
                     block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
                     b0 = 3;

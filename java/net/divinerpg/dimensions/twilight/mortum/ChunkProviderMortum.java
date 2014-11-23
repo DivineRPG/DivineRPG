@@ -228,11 +228,13 @@ public class ChunkProviderMortum implements IChunkProvider {
 
     public Chunk provideChunk(int par1, int par2) {
         this.hellRNG.setSeed((long)par1 * 341873128712L + (long)par2 * 132897987541L);
-        Block[] abyte = new Block[32768];
-        this.generateNetherTerrain(par1, par2, abyte);
-        this.replaceBlocksForBiome(par1, par2, abyte);
-        this.netherCaveGenerator.func_151539_a(this, this.worldObj, par1, par2, abyte);
-        Chunk chunk = new Chunk(this.worldObj, abyte, par1, par2);
+        Block[] blocks = new Block[32768];
+        this.generateNetherTerrain(par1, par2, blocks);
+        this.replaceBlocksForBiome(par1, par2, blocks);
+        for(int i = 0; i<32767; i++) {
+        	if(blocks[i] == TwilightBlocks.mortumGrass && blocks[i+1] != null) blocks[i] = TwilightBlocks.mortumDirt;
+        }
+        Chunk chunk = new Chunk(this.worldObj, blocks, par1, par2);
         BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, par1 * 16, par2 * 16, 16, 16);
         byte[] abyte1 = chunk.getBiomeArray();
         for (int k = 0; k < abyte1.length; ++k) {

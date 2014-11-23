@@ -29,6 +29,7 @@ public class WorldGenSkythernTree extends WorldGenAbstractTree {
         this.vinesGrow = var5;
     }
 
+    @Override
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
         int l = par2Random.nextInt(3) + this.minTreeHeight;
         boolean flag = true;
@@ -68,7 +69,7 @@ public class WorldGenSkythernTree extends WorldGenAbstractTree {
             } else {
                 Block block2 = par1World.getBlock(par3, par4 - 1, par5);
 
-                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block2 == TwilightBlocks.skythernGrass;
                 if (isSoil && par4 < 256 - l - 1) {
                     block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
                     b0 = 3;
@@ -102,7 +103,7 @@ public class WorldGenSkythernTree extends WorldGenAbstractTree {
                         block = par1World.getBlock(par3, par4 + k1, par5);
 
                         if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5)) {
-                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, TwilightBlocks.edenLogs, this.metaWood);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, TwilightBlocks.skythernLogs, this.metaWood);
 
                         }
                     }

@@ -23,6 +23,8 @@ import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.blocks.TwilightBlocks;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.entities.ArcanaEntityRegistry;
 import net.divinerpg.utils.entities.IceikaEntityRegistry;
 import net.divinerpg.utils.entities.MobSpawning;
@@ -39,6 +41,7 @@ import net.divinerpg.utils.events.EventHarvest;
 import net.divinerpg.utils.events.EventLightningStrike;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
+import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.recipes.TwilightRecipeHelper;
 import net.divinerpg.utils.recipes.VanillaRecipeHelper;
@@ -69,6 +72,10 @@ public class CommonProxy{
 		Util.addEventBus(new EventHarvest());
 		Util.addEventBus(new EventDeath());
 		LogHelper.info("Registering tile entities");
+		VanillaBlocks.init();
+		TwilightBlocks.init();
+		TwilightItemsOther.init();
+		VanillaItemsOther.init();
 		ArcanaBlocks.init();
 		ArcanaItems.init();
 		GameRegistry.registerTileEntity(TileEntityTwilightFurnace.class, "Twilight Furnace");
@@ -101,9 +108,8 @@ public class CommonProxy{
 	}
 
 	public void init(FMLInitializationEvent event){
-		int wut = 10;
 		LogHelper.info("Adding world generators");
-		GameRegistry.registerWorldGenerator(new WorldGenOverworld(), wut);
+		GameRegistry.registerWorldGenerator(new WorldGenOverworld(), 0);
 		DivineRPGAchievements.init();
 	}
 

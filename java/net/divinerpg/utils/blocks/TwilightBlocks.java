@@ -15,50 +15,98 @@ import net.minecraft.block.Block;
 
 public class TwilightBlocks {
 
-    public static final Block edenDirt          = new BlockMod(EnumBlockType.DIRT, "edenDirt", 5.0F);
-    public static final Block wildwoodDirt      = new BlockMod(EnumBlockType.DIRT, "wildwoodDirt", 5.0F);
-    public static final Block apalachiaDirt     = new BlockMod(EnumBlockType.DIRT, "apalachiaDirt", 5.0F);
-    public static final Block skythernDirt      = new BlockMod(EnumBlockType.DIRT, "skythernDirt", 5.0F);
-    public static final Block mortumDirt        = new BlockMod(EnumBlockType.DIRT, "mortumDirt", 5.0F);
-    public static final Block edenGrass         = new BlockModGrass((BlockMod) edenDirt, "edenGrass", 5.0F);
-    public static final Block wildwoodGrass     = new BlockModGrass((BlockMod) wildwoodDirt, "wildwoodGrass", 5.0F);
-    public static final Block apalachiaGrass    = new BlockModGrass((BlockMod) apalachiaDirt, "apalachiaGrass", 5.0F);
-    public static final Block skythernGrass     = new BlockModGrass((BlockMod) skythernDirt, "skythernGrass", 5.0F);
-    public static final Block mortumGrass       = new BlockModGrass((BlockMod) mortumDirt, "mortumGrass", 5.0F);
+    public static Block edenDirt;
+    public static Block wildwoodDirt;
+    public static Block apalachiaDirt;
+    public static Block skythernDirt;
+    public static Block mortumDirt;
+    public static Block edenGrass;
+    public static Block wildwoodGrass;
+    public static Block apalachiaGrass;
+    public static Block skythernGrass;
+    public static Block mortumGrass;
 
-    public static final Block edenOre           = new BlockMod("edenOre", 9).toggleExp(true).setTwilightOre(true).setDropItem(TwilightItemsOther.edenFragments);
-    public static final Block wildwoodOre       = new BlockMod("wildwoodOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.wildwoodFragments);
-    public static final Block apalachiaOre      = new BlockMod("apalachiaOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.apalachiaFragments);
-    public static final Block skythernOre       = new BlockMod("skythernOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.skythernFragments);
-    public static final Block mortumOre         = new BlockMod("mortumOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.mortumFragments);
+    public static Block edenOre;
+    public static Block wildwoodOre;
+    public static Block apalachiaOre;
+    public static Block skythernOre;
+    public static Block mortumOre;
 
-    public static final Block edenBlock         = new BlockMod("edenBlock", 9);
-    public static final Block wildwoodBlock     = new BlockMod("wildwoodBlock", 9);
-    public static final Block apalachiaBlock    = new BlockMod("apalachiaBlock", 9);
-    public static final Block skythernBlock     = new BlockMod("skythernBlock", 9);
-    public static final Block mortumBlock       = new BlockMod("mortumBlock", 9);
+    public static Block edenBlock;
+    public static Block wildwoodBlock;
+    public static Block apalachiaBlock;
+    public static Block skythernBlock;
+    public static Block mortumBlock;
 
-    public static final Block edenLeaves        = new BlockModLeaves("edenLeaves", 0.5F);
-    public static final Block wildwoodLeaves    = new BlockModLeaves("wildwoodLeaves", 0.5F);
-    public static final Block apalachiaLeaves   = new BlockModLeaves("apalachiaLeaves", 0.5F).setLightLevel(0.5F);
-    public static final Block skythernLeaves    = new BlockModLeaves("skythernLeaves", 0.5F);
-    public static final Block mortumLeaves      = new BlockModLeaves("mortumLeaves", 0.5F);
+    public static Block edenLeaves;
+    public static Block wildwoodLeaves;
+    public static Block apalachiaLeaves;
+    public static Block skythernLeaves;
+    public static Block mortumLeaves;
 
-    public static final Block edenLogs          = new BlockModLog("edenLog");
-    public static final Block wildwoodLogs      = new BlockModLog("wildwoodLog");
-    public static final Block apalachiaLogs     = new BlockModLog("apalachiaLog");
-    public static final Block skythernLogs      = new BlockModLog("skythernLog");
-    public static final Block mortumLogs        = new BlockModLog("mortumLog");
+    public static Block edenLogs;
+    public static Block wildwoodLogs;
+    public static Block apalachiaLogs;
+    public static Block skythernLogs;
+    public static Block mortumLogs;
 
-    public static final Block twilightStone     = new BlockMod("twilightStone", 6.0F);
-    public static final Block wildwoodVine     = new BlockModVine("wildwoodVine");
-    public static final Block blueFire          = new BlockBlueFire("blueFire");
-    public static final Block edenPortal        = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, VanillaBlocks.divineRock);
-    public static final Block wildwoodPortal    = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, edenBlock);
-    public static final Block apalachiaPortal   = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, wildwoodBlock);
-    public static final Block skythernPortal    = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, apalachiaBlock);
-    public static final Block mortumPortal      = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, skythernBlock);
-    public static final Block twilightFurnace   = new BlockTwilightFurnace("twilightFurnace", false);
-    public static final Block twilightFurnaceOn = new BlockTwilightFurnace("twilightFurnaceOn", true);
+    public static Block twilightStone;
+    public static Block wildwoodVine;
+    public static Block blueFire;
+    public static Block edenPortal;
+    public static Block wildwoodPortal;
+    public static Block apalachiaPortal;
+    public static Block skythernPortal;
+    public static Block mortumPortal;
+    public static Block twilightFurnace;
+    public static Block twilightFurnaceOn;
+    
+    public static void init() {
+    	edenDirt          = new BlockMod(EnumBlockType.DIRT, "edenDirt", 5.0F);
+        wildwoodDirt      = new BlockMod(EnumBlockType.DIRT, "wildwoodDirt", 5.0F);
+        apalachiaDirt     = new BlockMod(EnumBlockType.DIRT, "apalachiaDirt", 5.0F);
+        skythernDirt      = new BlockMod(EnumBlockType.DIRT, "skythernDirt", 5.0F);
+        mortumDirt        = new BlockMod(EnumBlockType.DIRT, "mortumDirt", 5.0F);
+        edenGrass         = new BlockModGrass((BlockMod) edenDirt, "edenGrass", 5.0F);
+        wildwoodGrass     = new BlockModGrass((BlockMod) wildwoodDirt, "wildwoodGrass", 5.0F);
+        apalachiaGrass    = new BlockModGrass((BlockMod) apalachiaDirt, "apalachiaGrass", 5.0F);
+        skythernGrass     = new BlockModGrass((BlockMod) skythernDirt, "skythernGrass", 5.0F);
+        mortumGrass       = new BlockModGrass((BlockMod) mortumDirt, "mortumGrass", 5.0F);
+
+        edenOre           = new BlockMod("edenOre", 9).toggleExp(true).setTwilightOre(true).setDropItem(TwilightItemsOther.edenFragments);
+        wildwoodOre       = new BlockMod("wildwoodOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.wildwoodFragments);
+        apalachiaOre      = new BlockMod("apalachiaOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.apalachiaFragments);
+        skythernOre       = new BlockMod("skythernOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.skythernFragments);
+        mortumOre         = new BlockMod("mortumOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.mortumFragments);
+
+        edenBlock         = new BlockMod("edenBlock", 9);
+        wildwoodBlock     = new BlockMod("wildwoodBlock", 9);
+        apalachiaBlock    = new BlockMod("apalachiaBlock", 9);
+        skythernBlock     = new BlockMod("skythernBlock", 9);
+        mortumBlock       = new BlockMod("mortumBlock", 9);
+
+        edenLeaves        = new BlockModLeaves("edenLeaves", 0.5F);
+        wildwoodLeaves    = new BlockModLeaves("wildwoodLeaves", 0.5F);
+        apalachiaLeaves   = new BlockModLeaves("apalachiaLeaves", 0.5F).setLightLevel(0.5F);
+        skythernLeaves    = new BlockModLeaves("skythernLeaves", 0.5F);
+        mortumLeaves      = new BlockModLeaves("mortumLeaves", 0.5F);
+
+        edenLogs          = new BlockModLog("edenLog");
+        wildwoodLogs      = new BlockModLog("wildwoodLog");
+        apalachiaLogs     = new BlockModLog("apalachiaLog");
+        skythernLogs      = new BlockModLog("skythernLog");
+        mortumLogs        = new BlockModLog("mortumLog");
+
+        twilightStone     = new BlockMod("twilightStone", 6.0F);
+        wildwoodVine     = new BlockModVine("wildwoodVine");
+        blueFire          = new BlockBlueFire("blueFire");
+        edenPortal        = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, VanillaBlocks.divineRock);
+        wildwoodPortal    = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, edenBlock);
+        apalachiaPortal   = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, wildwoodBlock);
+        skythernPortal    = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, apalachiaBlock);
+        mortumPortal      = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, skythernBlock);
+        twilightFurnace   = new BlockTwilightFurnace("twilightFurnace", false);
+        twilightFurnaceOn = new BlockTwilightFurnace("twilightFurnaceOn", true);
+    }
 
 }

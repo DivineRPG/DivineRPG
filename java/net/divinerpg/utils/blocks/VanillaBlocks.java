@@ -17,112 +17,223 @@ public class VanillaBlocks {
 	//Harvest Levels
 	private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;  
 	
-	public static final Block rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND);
-	public static final Block arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND);
-	public static final Block realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON);
-	public static final Block bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem);
-	public static final Block netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.netheriteIngot);
+	public static Block rupeeOre;
+	public static Block arlemiteOre;
+	public static Block realmiteOre;
+	public static Block bloodgemOre;
+	public static Block netheriteOre;
 
-	public static final Block rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 3.0F, DIAMOND);
-	public static final Block arlemiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "arlemiteBlock", 3.0F, DIAMOND);
-	public static final Block realmiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "realmiteBlock", 3.0F, IRON);
-	public static final Block bloodgemBlock       = new VanillaBlock(EnumBlockType.ROCK, "bloodgemBlock", 3.0F, DIAMOND);
-	public static final Block netheriteBlock      = new VanillaBlock(EnumBlockType.ROCK, "netheriteBlock", 3.0F, DIAMOND);
+	public static Block rupeeBlock;
+	public static Block arlemiteBlock;
+	public static Block realmiteBlock;
+	public static Block bloodgemBlock;
+	public static Block netheriteBlock;
 
-	public static final Block spiderPumpkin       = new MobPumpkin().setName("spiderPumpkin");
-	public static final Block enderPumpkin        = new MobPumpkin().setName("enderPumpkin");
-	public static final Block creeperPumpkin      = new MobPumpkin().setName("creeperPumpkin");
-	public static final Block skeletonPumpkin     = new MobPumpkin().setName("skeletonPumpkin");
-	public static final Block blazePumpkin        = new MobPumpkin().setName("blazePumpkin");
-	public static final Block zombiePumpkin       = new MobPumpkin().setName("zombiePumpkin");
-	public static final Block frostPumpkin        = new MobPumpkin().setName("frostPumpkin");
-	public static final Block cyclopsPumpkin      = new MobPumpkin().setName("cyclopsPumpkin");
-	public static final Block ghastPumpkin        = new MobPumpkin().setName("ghastPumpkin");
-	public static final Block glaconPumpkin       = new MobPumpkin().setName("glaconPumpkin");
-	public static final Block enderWatcherPumpkin = new MobPumpkin().setName("enderWatcherPumpkin");
-	public static final Block jungleSpiderPumpkin = new MobPumpkin().setName("jungleSpiderPumpkin");
-	public static final Block hellSpiderPumpkin   = new MobPumpkin().setName("hellSpiderPumpkin");
+	public static Block spiderPumpkin;
+	public static Block enderPumpkin;
+	public static Block creeperPumpkin;
+	public static Block skeletonPumpkin;
+	public static Block blazePumpkin;
+	public static Block zombiePumpkin;
+	public static Block frostPumpkin;
+	public static Block cyclopsPumpkin;
+	public static Block ghastPumpkin;
+	public static Block glaconPumpkin;
+	public static Block enderWatcherPumpkin;
+	public static Block jungleSpiderPumpkin;
+	public static Block hellSpiderPumpkin;
 
-	public static final Block checker             = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.5F, WOOD_GOLD);
-	public static final Block rainbowWool         = new VanillaBlock(EnumBlockType.WOOL, "rainbowWool", 0.5F, WOOD_GOLD);
-	public static final Block crate               = new VanillaBlock(EnumBlockType.WOOD, "crate", 1.0F, WOOD_GOLD);
-	public static final Block blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.0F, WOOD_GOLD);
-	public static final Block purpleStone         = new VanillaBlock(EnumBlockType.ROCK, "purpleStone", 1.0F, WOOD_GOLD);
+	public static Block checker;
+	public static Block rainbowWool;
+	public static Block crate;
+	public static Block blueStone;
+	public static Block purpleStone;
 
-	public static final Block blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, STONE);
-	public static final Block cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, STONE);
-	public static final Block purpleVane          = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, STONE);
-	public static final Block redVane             = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, STONE);
-	public static final Block yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, STONE);
+	public static Block blueVane;
+	public static Block cyanVane;
+	public static Block purpleVane;
+	public static Block redVane;
+	public static Block yellowVane;
 
-	public static final Block divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE);
-	public static final Block divineCraftingTable = new BlockDivineTable();
-	public static final Block acceleron		  	  = new BlockAcceleron();
-	public static final Block tar 				  = new BlockTar();
+	public static Block divineRock;
+	public static Block divineCraftingTable;
+	public static Block acceleron;
+	public static Block tar;
 
-	public static final Block dyeBlockWhite 	  = new VanillaBlock(EnumBlockType.ROCK, "dyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockBlack 	  = new VanillaBlock(EnumBlockType.ROCK, "blackDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockBrown 	  = new VanillaBlock(EnumBlockType.ROCK, "brownDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockRed   	  = new VanillaBlock(EnumBlockType.ROCK, "redDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockGreen 	  = new VanillaBlock(EnumBlockType.ROCK, "greenDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockBlue  	  = new VanillaBlock(EnumBlockType.ROCK, "blueDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockYellow	  = new VanillaBlock(EnumBlockType.ROCK, "yellowDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockGray  	  = new VanillaBlock(EnumBlockType.ROCK, "grayDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockLightGray   = new VanillaBlock(EnumBlockType.ROCK, "lightGrayDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockOrange   	  = new VanillaBlock(EnumBlockType.ROCK, "orangeDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockLightGreen  = new VanillaBlock(EnumBlockType.ROCK, "lightGreenDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockLightBlue   = new VanillaBlock(EnumBlockType.ROCK, "lightBlueDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockCyan   	  = new VanillaBlock(EnumBlockType.ROCK, "cyanDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockPink        = new VanillaBlock(EnumBlockType.ROCK, "pinkDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockPurple   	  = new VanillaBlock(EnumBlockType.ROCK, "purpleDyeBlock", 1.5F, WOOD_GOLD);
-	public static final Block dyeBlockMagenta     = new VanillaBlock(EnumBlockType.ROCK, "magentaDyeBlock", 1.5F, WOOD_GOLD);
+	public static Block dyeBlockWhite;
+	public static Block dyeBlockBlack;
+	public static Block dyeBlockBrown;
+	public static Block dyeBlockRed;
+	public static Block dyeBlockGreen;
+	public static Block dyeBlockBlue;
+	public static Block dyeBlockYellow;
+	public static Block dyeBlockGray;
+	public static Block dyeBlockLightGray;
+	public static Block dyeBlockOrange;
+	public static Block dyeBlockLightGreen;
+	public static Block dyeBlockLightBlue;
+	public static Block dyeBlockCyan;
+	public static Block dyeBlockPink;
+	public static Block dyeBlockPurple;
+	public static Block dyeBlockMagenta;
 	
-	public static final Block fancyWool 		  = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.5F, WOOD_GOLD);
-	public static final Block dirtBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "dirtBlock", 1.5F, WOOD_GOLD);
-	public static final Block soulSandBlock       = new VanillaBlock(EnumBlockType.DIRT, "soulSandBlock", 1.5F, WOOD_GOLD);
-	public static final Block sandBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "sandBlock", 1.5F, WOOD_GOLD);
+	public static Block fancyWool;
+	public static Block dirtBlock;
+	public static Block soulSandBlock;
+	public static Block sandBlock;
 	
-	public static final Block steel       		  = new BlockSteel();
-	public static final Block divineBricks        = new BlockDivineBricks();
-	public static final Block lamp1				  = new BlockLamp1();
-	public static final Block lamp2				  = new BlockLamp2();
-	public static final Block milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
+	public static Block steel;
+	public static Block divineBricks;
+	public static Block lamp1;
+	public static Block lamp2;
+	public static Block milkStone;
 	
-	public static final Block lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
-    public static final Block lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);
-    public static final Block lightFenceGreen 	  = new BlockLightFence(false, "greenFence", 0.5F);
-    public static final Block lightFenceBlueOn 	  = new BlockLightFence(true, "blueFenceOn", 0.5F);
-    public static final Block lightFenceRedOn 	  = new BlockLightFence(true, "redFenceOn", 0.5F);
-    public static final Block lightFenceGreenOn   = new BlockLightFence(true, "greenFenceOn", 0.5F);
+	public static Block lightFenceBlue;
+    public static Block lightFenceRed;
+    public static Block lightFenceGreen;
+    public static Block lightFenceBlueOn;
+    public static Block lightFenceRedOn;
+    public static Block lightFenceGreenOn;
     
-    public static final Block ayeracoBeamBlue 	  = new BlockAyeracoBeam("ayeracoBeamBlue", "Blue");
-    public static final Block ayeracoBeamGreen 	  = new BlockAyeracoBeam("ayeracoBeamGreen", "Green"); 
-    public static final Block ayeracoBeamRed 	  = new BlockAyeracoBeam("ayeracoBeamRed", "Red");
-    public static final Block ayeracoBeamYellow   = new BlockAyeracoBeam("ayeracoBeamYellow", "Yellow"); 
-    public static final Block ayeracoBeamPurple   = new BlockAyeracoBeam("ayeracoBeamPurple", "Purple"); 
+    public static Block ayeracoBeamBlue;
+    public static Block ayeracoBeamGreen; 
+    public static Block ayeracoBeamRed;
+    public static Block ayeracoBeamYellow; 
+    public static Block ayeracoBeamPurple; 
 
-	public static final BlockStatue KingStatue 	  = new BlockStatue("kingOfScorchersStatue", new ModelKingStatue());
-	public static final BlockStatue AncientStatue = new BlockStatue("ancientEntityStatue", new ModelAncientStatue());
-	public static final BlockStatue AyeracoStatue = new BlockStatue("ayeracoStatue", new ModelAyeracoStatue());
-	public static final BlockStatue TDemonStatue  = new BlockStatue("twilightDemonStatue", new ModelTwilightStatue());
-	public static final BlockStatue VamacheronStatue= new BlockStatue("vamacheronStatue", new ModelVamacheronStatue());
-	public static final BlockStatue DensosStatue  = new BlockStatue("densosStatue", new ModelDensosStatue());
-	public static final BlockStatue DexStatue 	  = new BlockStatue("dexStatue", new ModelDexStatue());
-	public static final BlockStatue DramixStatue  = new BlockStatue("dramixStatue", new ModelDramixStatue());
-	//public static final BlockStatue ParasectaStatue = new BlockStatue("parasectaStatue", new ModelParasecta());
-	public static final BlockStatue SoulFiendStatue = new BlockStatue("soulFiendStatue", new ModelSoulStatue());
-	public static final BlockStatue WatcherStatue = new BlockStatue("theWatcherStatue", new ModelWatcherStatue());
+	public static BlockStatue KingStatue;
+	public static BlockStatue AncientStatue;
+	public static BlockStatue AyeracoStatue;
+	public static BlockStatue TDemonStatue;
+	public static BlockStatue VamacheronStatue;
+	public static BlockStatue DensosStatue;
+	public static BlockStatue DexStatue;
+	public static BlockStatue DramixStatue;
+	//public static BlockStatue ParasectaStatue;
+	public static BlockStatue SoulFiendStatue;
+	public static BlockStatue WatcherStatue;
 	
-	public static final Block tomato			  = new BlockTomato("tomatoPlant");
-	public static final Block mushroom			  = new BlockMushroom("mushroomPlant");
+	public static Block tomato;
+	public static Block mushroom;
 	
-	public static final Block eucalyptusWood	  = new BlockModLog("eucalyptusLog");
-	public static final Block eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", true, DivineRPGTabs.blocks);
-	public static final Block divineWood	  	  = new BlockModLog("divineLog");
-	public static final Block divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", true, DivineRPGTabs.blocks);
-	public static final Block divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
-	public static final Block divineMossystone	  = new BlockMod("divineMossystone", 0.5F);
-	public static final Block divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");
+	public static Block eucalyptusWood;
+	public static Block eucalyptusPlank;
+	public static Block divineWood;
+	public static Block divinePlank;
+	public static Block divineLeaves;
+	public static Block divineMossystone;
+	public static Block divineMobSpawner;
 	
-	public static final Block altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");
+	public static Block altarOfCorruption;
+	
+	public static void init() {
+		rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND);
+		arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND);
+		realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON);
+		bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem);
+		netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.netheriteIngot);
+
+		rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 3.0F, DIAMOND);
+		arlemiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "arlemiteBlock", 3.0F, DIAMOND);
+		realmiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "realmiteBlock", 3.0F, IRON);
+		bloodgemBlock       = new VanillaBlock(EnumBlockType.ROCK, "bloodgemBlock", 3.0F, DIAMOND);
+		netheriteBlock      = new VanillaBlock(EnumBlockType.ROCK, "netheriteBlock", 3.0F, DIAMOND);
+
+		spiderPumpkin       = new MobPumpkin().setName("spiderPumpkin");
+		enderPumpkin        = new MobPumpkin().setName("enderPumpkin");
+		creeperPumpkin      = new MobPumpkin().setName("creeperPumpkin");
+		skeletonPumpkin     = new MobPumpkin().setName("skeletonPumpkin");
+		blazePumpkin        = new MobPumpkin().setName("blazePumpkin");
+		zombiePumpkin       = new MobPumpkin().setName("zombiePumpkin");
+		frostPumpkin        = new MobPumpkin().setName("frostPumpkin");
+		cyclopsPumpkin      = new MobPumpkin().setName("cyclopsPumpkin");
+		ghastPumpkin        = new MobPumpkin().setName("ghastPumpkin");
+		glaconPumpkin       = new MobPumpkin().setName("glaconPumpkin");
+		enderWatcherPumpkin = new MobPumpkin().setName("enderWatcherPumpkin");
+		jungleSpiderPumpkin = new MobPumpkin().setName("jungleSpiderPumpkin");
+		hellSpiderPumpkin   = new MobPumpkin().setName("hellSpiderPumpkin");
+
+		checker             = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.5F, WOOD_GOLD);
+		rainbowWool         = new VanillaBlock(EnumBlockType.WOOL, "rainbowWool", 0.5F, WOOD_GOLD);
+		crate               = new VanillaBlock(EnumBlockType.WOOD, "crate", 1.0F, WOOD_GOLD);
+		blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.0F, WOOD_GOLD);
+		purpleStone         = new VanillaBlock(EnumBlockType.ROCK, "purpleStone", 1.0F, WOOD_GOLD);
+
+		blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, STONE);
+		cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, STONE);
+		purpleVane          = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, STONE);
+		redVane             = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, STONE);
+		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, STONE);
+
+		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE);
+		divineCraftingTable = new BlockDivineTable();
+		acceleron		  	  = new BlockAcceleron();
+		tar 				  = new BlockTar();
+
+		dyeBlockWhite 	  = new VanillaBlock(EnumBlockType.ROCK, "dyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockBlack 	  = new VanillaBlock(EnumBlockType.ROCK, "blackDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockBrown 	  = new VanillaBlock(EnumBlockType.ROCK, "brownDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockRed   	  = new VanillaBlock(EnumBlockType.ROCK, "redDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockGreen 	  = new VanillaBlock(EnumBlockType.ROCK, "greenDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockBlue  	  = new VanillaBlock(EnumBlockType.ROCK, "blueDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockYellow	  = new VanillaBlock(EnumBlockType.ROCK, "yellowDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockGray  	  = new VanillaBlock(EnumBlockType.ROCK, "grayDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockLightGray   = new VanillaBlock(EnumBlockType.ROCK, "lightGrayDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockOrange   	  = new VanillaBlock(EnumBlockType.ROCK, "orangeDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockLightGreen  = new VanillaBlock(EnumBlockType.ROCK, "lightGreenDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockLightBlue   = new VanillaBlock(EnumBlockType.ROCK, "lightBlueDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockCyan   	  = new VanillaBlock(EnumBlockType.ROCK, "cyanDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockPink        = new VanillaBlock(EnumBlockType.ROCK, "pinkDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockPurple   	  = new VanillaBlock(EnumBlockType.ROCK, "purpleDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockMagenta     = new VanillaBlock(EnumBlockType.ROCK, "magentaDyeBlock", 1.5F, WOOD_GOLD);
+		
+		fancyWool 		  = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.5F, WOOD_GOLD);
+		dirtBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "dirtBlock", 1.5F, WOOD_GOLD);
+		soulSandBlock       = new VanillaBlock(EnumBlockType.DIRT, "soulSandBlock", 1.5F, WOOD_GOLD);
+		sandBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "sandBlock", 1.5F, WOOD_GOLD);
+		
+		steel       		  = new BlockSteel();
+		divineBricks        = new BlockDivineBricks();
+		lamp1				  = new BlockLamp1();
+		lamp2				  = new BlockLamp2();
+		milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
+		
+		lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
+	    lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);
+	    lightFenceGreen 	  = new BlockLightFence(false, "greenFence", 0.5F);
+	    lightFenceBlueOn 	  = new BlockLightFence(true, "blueFenceOn", 0.5F);
+	    lightFenceRedOn 	  = new BlockLightFence(true, "redFenceOn", 0.5F);
+	    lightFenceGreenOn   = new BlockLightFence(true, "greenFenceOn", 0.5F);
+	    
+	    ayeracoBeamBlue 	  = new BlockAyeracoBeam("ayeracoBeamBlue", "Blue");
+	    ayeracoBeamGreen 	  = new BlockAyeracoBeam("ayeracoBeamGreen", "Green"); 
+	    ayeracoBeamRed 	  = new BlockAyeracoBeam("ayeracoBeamRed", "Red");
+	    ayeracoBeamYellow   = new BlockAyeracoBeam("ayeracoBeamYellow", "Yellow"); 
+	    ayeracoBeamPurple   = new BlockAyeracoBeam("ayeracoBeamPurple", "Purple"); 
+
+		KingStatue 	  = new BlockStatue("kingOfScorchersStatue", new ModelKingStatue());
+		AncientStatue = new BlockStatue("ancientEntityStatue", new ModelAncientStatue());
+		AyeracoStatue = new BlockStatue("ayeracoStatue", new ModelAyeracoStatue());
+		TDemonStatue  = new BlockStatue("twilightDemonStatue", new ModelTwilightStatue());
+		VamacheronStatue= new BlockStatue("vamacheronStatue", new ModelVamacheronStatue());
+		DensosStatue  = new BlockStatue("densosStatue", new ModelDensosStatue());
+		DexStatue 	  = new BlockStatue("dexStatue", new ModelDexStatue());
+		DramixStatue  = new BlockStatue("dramixStatue", new ModelDramixStatue());
+		//ParasectaStatue = new BlockStatue("parasectaStatue", new ModelParasecta());
+		SoulFiendStatue = new BlockStatue("soulFiendStatue", new ModelSoulStatue());
+		WatcherStatue = new BlockStatue("theWatcherStatue", new ModelWatcherStatue());
+		
+		tomato			  = new BlockTomato("tomatoPlant");
+		mushroom			  = new BlockMushroom("mushroomPlant");
+		
+		eucalyptusWood	  = new BlockModLog("eucalyptusLog");
+		eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", true, DivineRPGTabs.blocks);
+		divineWood	  	  = new BlockModLog("divineLog");
+		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", true, DivineRPGTabs.blocks);
+		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
+		divineMossystone	  = new BlockMod("divineMossystone", 0.5F);
+		divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");
+		
+		altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");
+	}
 }

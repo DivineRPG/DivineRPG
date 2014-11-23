@@ -11,62 +11,120 @@ import net.minecraft.item.Item;
 
 public class VanillaItemsOther {
 
+    public static Item rupeeIngot;
+    public static Item arlemiteIngot;
+    public static Item realmiteIngot;
+    public static Item shadowBar;
+    public static Item hellstoneIngot;
+    public static Item netheriteIngot;
+    public static Item bloodgem;
 
-    public static final Item rupeeIngot         = new ItemMod("rupeeIngot");
-    public static final Item arlemiteIngot      = new ItemMod("arlemiteIngot");
-    public static final Item realmiteIngot      = new ItemMod("realmiteIngot");
-    public static final Item shadowBar          = new ItemMod("shadowBar");
-    public static final Item hellstoneIngot     = new ItemMod("hellstoneIngot");
-    public static final Item netheriteIngot     = new ItemMod("netheriteIngot");
-    public static final Item bloodgem           = new ItemMod("bloodgem");
+    public static Item jungleShards;
+    public static Item divineShards;
+    public static Item corruptedShards;
+    public static Item moltenShards;
+    public static Item enderShard;
+    public static Item cyclopsEyeShards;
 
-    public static final Item jungleShards       = new ItemMod("jungleShards");
-    public static final Item divineShards       = new ItemMod("divineShards");
-    public static final Item corruptedShards    = new ItemMod("corruptedShards");
-    public static final Item moltenShards       = new ItemMod("moltenShards");
-    public static final Item enderShard         = new ItemMod("enderShards");
-    public static final Item cyclopsEyeShards   = new ItemMod("cyclopsEyeShards");
+    public static Item corruptedBullet;
 
-    public static final Item corruptedBullet    = new ItemMod("corruptedBullet");
+    public static Item jungleStone;
+    public static Item divineStone;
+    public static Item corruptedStone;
+    public static Item moltenStone;
+    public static Item enderStone;
+    public static Item healingStone;
 
-    public static final Item jungleStone        = new ItemMod("jungleStone");
-    public static final Item divineStone        = new ItemMod("divineStone");
-    public static final Item corruptedStone     = new ItemMod("corruptedStone");
-    public static final Item moltenStone        = new ItemMod("moltenStone");
-    public static final Item enderStone         = new ItemMod("enderStone");
-    public static final Item healingStone       = new ItemMod("healingStone").setHealAmount(10);
+    public static Item aquaticIngot;
+    public static Item aquaticPellets;
+    public static Item pureAquaticPellets;
+    public static Item cyclopsEye;
+    public static Item crabClaw;
+    public static Item legendaryEnderEye;
+    public static Item sharkFin;
+    public static Item whaleFin;
+    public static Item netheriteChunk;
+    public static Item bluefireStone;
+    public static Item purpleBlaze;
+    public static Item furyFire;
+    public static Item aquaBall;
 
-    public static final Item aquaticIngot       = new ItemMod("aquaticIngot");
-    public static final Item aquaticPellets     = new ItemMod("aquaticPellets");
-    public static final Item pureAquaticPellets = new ItemMod("pureAquaticPellets");
-    public static final Item cyclopsEye         = new ItemMod("cyclopsEye");
-    public static final Item crabClaw           = new ItemMod("crabClaw");
-    public static final Item legendaryEnderEye  = new ItemMod("legendaryEnderEye");
-    public static final Item sharkFin           = new ItemMod("sharkFin");
-    public static final Item whaleFin           = new ItemMod("whaleFin");
-    public static final Item netheriteChunk     = new ItemMod("netheriteChunk");
-    public static final Item bluefireStone      = new ItemMod("bluefireStone");
-    public static final Item purpleBlaze        = new ItemMod("purpleBlaze");
-    public static final Item furyFire           = new ItemMod("furyFire");
-    public static final Item aquaBall           = new ItemMod("aquaBall");
-
-    public static final Item greenDiamondChunk  = new ItemMod("greenDiamondChunk");
-    public static final Item grayDiamondChunk   = new ItemMod("grayDiamondChunk");
-    public static final Item blueDiamondChunk   = new ItemMod("blueDiamondChunk");
-    public static final Item redDiamondChunk  	= new ItemMod("redDiamondChunk");
-    public static final Item yellowDiamondChunk = new ItemMod("yellowDiamondChunk");
+    public static Item greenDiamondChunk;
+    public static Item grayDiamondChunk;
+    public static Item blueDiamondChunk;
+    public static Item redDiamondChunk;
+    public static Item yellowDiamondChunk;
     
-    public static final Item tarBucket 			= new ItemModBucket(VanillaBlocks.tar, "bucketOfTar");
+    public static Item tarBucket;
     
-    public static final Item myseriousClock     = new ItemMysteriousClock("mysteriousClock");
-    public static final Item watchingEye        = new ItemMod("watchingEye");
-    public static final Item callWatcher        = new ItemVanillaSpawner("callOfTheWatcher");
-    public static final Item infernalFlame      = new ItemVanillaSpawner("infernalFlame");
-    public static final Item hordeHorn      	= new ItemHordeHorn("hordeHorn");
+    public static Item myseriousClock;
+    public static Item watchingEye;
+    public static Item callWatcher;
+    public static Item infernalFlame;
+    public static Item hordeHorn;
     
-    public static final Item mushroomSeeds 		= new ItemModSeeds("mushroomSeeds", VanillaBlocks.mushroom);
-    public static final Item tomatoSeeds 		= new ItemModSeeds("tomatoSeeds", VanillaBlocks.tomato);
-    public static final Item krakenSkin 		= new ItemMod("krakenSkin");
-    public static final Item krakenScale 		= new ItemMod("krakenScale");
+    public static Item mushroomSeeds;
+    public static Item tomatoSeeds;
+    public static Item krakenSkin;
+    public static Item krakenScale;
+    
+    public static void init() {
+    	rupeeIngot         = new ItemMod("rupeeIngot");
+        arlemiteIngot      = new ItemMod("arlemiteIngot");
+        realmiteIngot      = new ItemMod("realmiteIngot");
+        shadowBar          = new ItemMod("shadowBar");
+        hellstoneIngot     = new ItemMod("hellstoneIngot");
+        netheriteIngot     = new ItemMod("netheriteIngot");
+        bloodgem           = new ItemMod("bloodgem");
+
+        jungleShards       = new ItemMod("jungleShards");
+        divineShards       = new ItemMod("divineShards");
+        corruptedShards    = new ItemMod("corruptedShards");
+        moltenShards       = new ItemMod("moltenShards");
+        enderShard         = new ItemMod("enderShards");
+        cyclopsEyeShards   = new ItemMod("cyclopsEyeShards");
+
+        corruptedBullet    = new ItemMod("corruptedBullet");
+
+        jungleStone        = new ItemMod("jungleStone");
+        divineStone        = new ItemMod("divineStone");
+        corruptedStone     = new ItemMod("corruptedStone");
+        moltenStone        = new ItemMod("moltenStone");
+        enderStone         = new ItemMod("enderStone");
+        healingStone       = new ItemMod("healingStone").setHealAmount(10);
+
+        aquaticIngot       = new ItemMod("aquaticIngot");
+        aquaticPellets     = new ItemMod("aquaticPellets");
+        pureAquaticPellets = new ItemMod("pureAquaticPellets");
+        cyclopsEye         = new ItemMod("cyclopsEye");
+        crabClaw           = new ItemMod("crabClaw");
+        legendaryEnderEye  = new ItemMod("legendaryEnderEye");
+        sharkFin           = new ItemMod("sharkFin");
+        whaleFin           = new ItemMod("whaleFin");
+        netheriteChunk     = new ItemMod("netheriteChunk");
+        bluefireStone      = new ItemMod("bluefireStone");
+        purpleBlaze        = new ItemMod("purpleBlaze");
+        furyFire           = new ItemMod("furyFire");
+        aquaBall           = new ItemMod("aquaBall");
+
+        greenDiamondChunk  = new ItemMod("greenDiamondChunk");
+        grayDiamondChunk   = new ItemMod("grayDiamondChunk");
+        blueDiamondChunk   = new ItemMod("blueDiamondChunk");
+        redDiamondChunk  	= new ItemMod("redDiamondChunk");
+        yellowDiamondChunk = new ItemMod("yellowDiamondChunk");
+        
+        tarBucket 			= new ItemModBucket(VanillaBlocks.tar, "bucketOfTar");
+        
+        myseriousClock     = new ItemMysteriousClock("mysteriousClock");
+        watchingEye        = new ItemMod("watchingEye");
+        callWatcher        = new ItemVanillaSpawner("callOfTheWatcher");
+        infernalFlame      = new ItemVanillaSpawner("infernalFlame");
+        hordeHorn      	= new ItemHordeHorn("hordeHorn");
+        
+        mushroomSeeds 		= new ItemModSeeds("mushroomSeeds", VanillaBlocks.mushroom);
+        tomatoSeeds 		= new ItemModSeeds("tomatoSeeds", VanillaBlocks.tomato);
+        krakenSkin 		= new ItemMod("krakenSkin");
+        krakenScale 		= new ItemMod("krakenScale");
+    }
     
 }

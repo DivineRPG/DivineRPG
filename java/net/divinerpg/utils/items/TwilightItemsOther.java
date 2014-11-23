@@ -7,47 +7,90 @@ import net.minecraft.item.Item;
 
 public class TwilightItemsOther {
 
-    public static final Item edenSoul           = new ItemMod("edenSoul");
-    public static final Item wildwoodSoul       = new ItemMod("wildWoodSoul");
-    public static final Item apalachiaSoul      = new ItemMod("apalachiaSoul");
-    public static final Item skythernSoul       = new ItemMod("skythernSoul");
-    public static final Item mortumSoul         = new ItemMod("mortumSoul");
+    public static Item edenSoul;
+    public static Item wildwoodSoul;
+    public static Item apalachiaSoul;
+    public static Item skythernSoul;
+    public static Item mortumSoul;
 
-    public static final Item edenFragments      = new ItemMod("edenFragments");
-    public static final Item wildwoodFragments  = new ItemMod("wildWoodFragments");
-    public static final Item apalachiaFragments = new ItemMod("apalachiaFragments");
-    public static final Item skythernFragments  = new ItemMod("skythernFragments");
-    public static final Item mortumFragments    = new ItemMod("mortumFragments");
+    public static Item edenFragments;
+    public static Item wildwoodFragments;
+    public static Item apalachiaFragments;
+    public static Item skythernFragments;
+    public static Item mortumFragments;
 
-    public static final Item edenGem            = new ItemMod("edenGem");
-    public static final Item wildwoodGem        = new ItemMod("wildWoodGem");
-    public static final Item apalachiaGem       = new ItemMod("apalachiaGem");
-    public static final Item skythernGem        = new ItemMod("skythernGem");
-    public static final Item mortumGem          = new ItemMod("mortumGem");
+    public static Item edenGem;
+    public static Item wildwoodGem;
+    public static Item apalachiaGem;
+    public static Item skythernGem;
+    public static Item mortumGem;
 
-    public static final Item edenChunk          = new ItemMod("edenChunk");
-    public static final Item wildwoodChunk      = new ItemMod("wildwoodChunk");
-    public static final Item apalachiaChunk     = new ItemMod("apalachiaChunk");
-    public static final Item skythernChunk      = new ItemMod("skythernChunk");
-    public static final Item mortumChunk        = new ItemMod("mortumChunk");
+    public static Item edenChunk;
+    public static Item wildwoodChunk;
+    public static Item apalachiaChunk;
+    public static Item skythernChunk;
+    public static Item mortumChunk;
 
-    public static final Item edenDust           = new ItemMod("edenDust");
-    public static final Item wildwoodDust       = new ItemMod("wildWoodDust");
-    public static final Item apalachiaDust      = new ItemMod("apalachiaDust");
-    public static final Item skythernDust       = new ItemMod("skythernDust");
-    public static final Item mortumDust         = new ItemMod("mortumDust");
+    public static Item edenDust;
+    public static Item wildwoodDust;
+    public static Item apalachiaDust;
+    public static Item skythernDust;
+    public static Item mortumDust;
 
-    public static final Item twilightClock 		= new ItemTwilightClock("twilightClock");
+    public static Item twilightClock;
 
-    public static final Item edenSparkles	    = new ItemMod("edenSparkles");
+    public static Item edenSparkles;
 
-    public static final Item spawnerBase 		= new ItemMod("spawnerBase");
-    public static final Item spawnDensos 		= new ItemTwilightSpawner("spawnDensos");
-    public static final Item spawnKarot 		= new ItemTwilightSpawner("spawnKarot");
-    public static final Item spawnReyvor 		= new ItemTwilightSpawner("spawnReyvor");
-    public static final Item spawnSoulFiend		= new ItemTwilightSpawner("spawnSoulFiend");
-    public static final Item spawnTwilight 		= new ItemTwilightSpawner("spawnTwilightDemon");
-    public static final Item spawnVamacheron	= new ItemTwilightSpawner("spawnVamacheron");
+    public static Item spawnerBase;
+    public static Item spawnDensos;
+    public static Item spawnKarot;
+    public static Item spawnReyvor;
+    public static Item spawnSoulFiend;
+    public static Item spawnTwilight;
+    public static Item spawnVamacheron;
     
+    public static void init() {
+    	edenSoul            = new ItemMod("edenSoul");
+        wildwoodSoul        = new ItemMod("wildWoodSoul");
+        apalachiaSoul       = new ItemMod("apalachiaSoul");
+        skythernSoul        = new ItemMod("skythernSoul");
+        mortumSoul          = new ItemMod("mortumSoul");
+
+        edenFragments       = new ItemMod("edenFragments");
+        wildwoodFragments   = new ItemMod("wildWoodFragments");
+        apalachiaFragments  = new ItemMod("apalachiaFragments");
+        skythernFragments   = new ItemMod("skythernFragments");
+        mortumFragments     = new ItemMod("mortumFragments");
+
+        edenGem             = new ItemMod("edenGem");
+        wildwoodGem         = new ItemMod("wildWoodGem");
+        apalachiaGem        = new ItemMod("apalachiaGem");
+        skythernGem         = new ItemMod("skythernGem");
+        mortumGem           = new ItemMod("mortumGem");
+
+        edenChunk           = new ItemMod("edenChunk");
+        wildwoodChunk       = new ItemMod("wildwoodChunk");
+        apalachiaChunk      = new ItemMod("apalachiaChunk");
+        skythernChunk       = new ItemMod("skythernChunk");
+        mortumChunk         = new ItemMod("mortumChunk");
+
+        edenDust            = new ItemMod("edenDust");
+        wildwoodDust        = new ItemMod("wildWoodDust");
+        apalachiaDust       = new ItemMod("apalachiaDust");
+        skythernDust        = new ItemMod("skythernDust");
+        mortumDust          = new ItemMod("mortumDust");
+
+        twilightClock 		= new ItemTwilightClock("twilightClock");
+
+        edenSparkles	    = new ItemMod("edenSparkles");
+
+        spawnerBase 		= new ItemMod("spawnerBase");
+        spawnDensos 		= new ItemTwilightSpawner("spawnDensos");
+        spawnKarot 			= new ItemTwilightSpawner("spawnKarot");
+        spawnReyvor 		= new ItemTwilightSpawner("spawnReyvor");
+        spawnSoulFiend		= new ItemTwilightSpawner("spawnSoulFiend");
+        spawnTwilight 		= new ItemTwilightSpawner("spawnTwilightDemon");
+        spawnVamacheron		= new ItemTwilightSpawner("spawnVamacheron");
+    }
     
 }

@@ -130,11 +130,14 @@ public class ChunkProviderEden implements IChunkProvider{
 
     public Chunk provideChunk(int par1, int par2) {
         this.rand.setSeed((long)par1 * 391279128714L + (long)par2 * 132894987741L);
-        Block[] ablock = new Block[32768];
+        Block[] blocks = new Block[32768];
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-        this.generateTerrain(par1, par2, ablock, this.biomesForGeneration);
-        this.replaceBlocksForBiome(par1, par2, ablock, this.biomesForGeneration);
-        Chunk chunk = new Chunk(this.worldObj, ablock, par1, par2);
+        this.generateTerrain(par1, par2, blocks, this.biomesForGeneration);
+        this.replaceBlocksForBiome(par1, par2, blocks, this.biomesForGeneration);
+        for(int i = 0; i<32767; i++) {
+        	if(blocks[i] == TwilightBlocks.edenGrass && blocks[i+1] != null) blocks[i] = TwilightBlocks.edenDirt;
+        }
+        Chunk chunk = new Chunk(this.worldObj, blocks, par1, par2);
         byte[] abyte = chunk.getBiomeArray();
 
         for (int k = 0; k < abyte.length; ++k) {

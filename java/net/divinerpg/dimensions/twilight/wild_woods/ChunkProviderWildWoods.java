@@ -69,11 +69,14 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 	@Override
 	public Chunk provideChunk(int i, int j) {
 		this.rand.setSeed(i * 341873128712L + j * 132897987541L);
-		Block[] var3 = new Block[32768];
+		Block[] blocks = new Block[32768];
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, i * 16, j * 16, 16, 16);
-		this.generateTerrain(i, j, var3, this.biomesForGeneration, this.generatedTemperatures);
-		this.replaceBlocksForBiome(i, j, var3, this.biomesForGeneration);
-		Chunk var4 = new Chunk(this.worldObj, var3, i, j);
+		this.generateTerrain(i, j, blocks, this.biomesForGeneration, this.generatedTemperatures);
+		this.replaceBlocksForBiome(i, j, blocks, this.biomesForGeneration);
+		for(int n = 0; n<32767; n++) {
+        	if(blocks[n] == TwilightBlocks.wildwoodGrass && blocks[n+1] != null) blocks[n] = TwilightBlocks.wildwoodDirt;
+        }
+		Chunk var4 = new Chunk(this.worldObj, blocks, i, j);
 		byte[] var5 = var4.getBiomeArray();
 
 		for (int var6 = 0; var6 < var5.length; ++var6) {
