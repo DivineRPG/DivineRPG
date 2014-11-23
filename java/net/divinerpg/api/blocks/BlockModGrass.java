@@ -2,20 +2,20 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
+import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
-import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockModGrass extends BlockMod implements IGrowable {
+public class BlockModGrass extends BlockMod {
 
     protected IIcon top;
     protected IIcon bottom;
@@ -64,17 +64,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
     @Override
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
-        return true;
+        if(this == ArcanaBlocks.arcanaGrass && plantable instanceof ItemArcanaSeeds) return true;
+        return false;
     }
-
-    public boolean func_149851_a(World world, int x, int y, int z, boolean flag) {
-        return true;
-    }
-
-    public boolean func_149852_a(World world, Random rand, int x, int y, int z) {
-        return true;
-    }
-
-    @Override
-    public void func_149853_b(World world, Random rand, int x, int y, int z) {}
 }

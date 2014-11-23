@@ -1,26 +1,31 @@
 package net.divinerpg.blocks.arcana;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockStackPlant extends BlockMod implements IPlantable {
 	
 	private Item dropped, seeds;
+	private String name;
+	
+	private IIcon[] iconArray = new IIcon[2];
 	
 	public BlockStackPlant(String name, Item drop, Item Seeds) {
 		super(EnumBlockType.PLANT, name, true);
@@ -30,29 +35,23 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 		setCreativeTab(null);
 		dropped = drop;
 		seeds = Seeds;
+		this.name = name;
 	}
 
  
 	public void onBlockAdded(World par1World, int par2, int par3, int par4) { }
 
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {
-		if(par1World.isAirBlock(par2, par3 + 1, par4)) {
-			if(this == ArcanaBlocks.firestock) {
-				par1World.setBlock(par2, par3 + 1, par4, ArcanaBlocks.firestock2);
-			}
-			if(this == ArcanaBlocks.pinfly) {
-				par1World.setBlock(par2, par3 + 1, par4, ArcanaBlocks.pinfly2);
-			}
-			if(this == ArcanaBlocks.moonbulb) {
-				par1World.setBlock(par2, par3 + 1, par4, ArcanaBlocks.moonbulb2);
-			}
+	public void updateTick(World world, int i, int j, int k, Random par5Random) {
+		if(world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0) {
+			world.setBlock(i, j + 1, k, this, 2, 2);
+			world.setBlock(i, j, k, this, 1, 2);
 		}
 	}
 	
 	@Override
 	public boolean canBlockStay(World w, int x, int y, int z) {
-		return w.getBlock(x, y - 1, z) != Blocks.air;
+		return w.getBlock(x, y - 1, z) == this || w.getBlock(x, y - 1, z) == ArcanaBlocks.arcanaGrass;
 	}
 	
 	@Override
@@ -60,10 +59,13 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 		this.checkBlockCoordValid(w, x, y, z);
 	}
 
-	protected void checkBlockCoordValid(World par1World, int par2, int par3, int par4) {
-		if(!this.canBlockStay(par1World, par2, par3, par4)) {
-			this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-			par1World.func_147480_a(par2, par3, par4, false);
+	protected void checkBlockCoordValid(World world, int i, int j, int k) {
+		if(!this.canBlockStay(world, i, j, k)) {
+			if(world.getBlockMetadata(i, j, k) == 2)this.dropBlockAsItemWithChance(world, i, j, k, world.getBlockMetadata(i, j, k), 1f, 0);
+			else if(world.getBlockMetadata(i, j, k) == 0)this.dropBlockAsItem(world, i, j, k, new ItemStack(seeds));
+			world.func_147480_a(i, j, k, false);
+		}else if(world.getBlockMetadata(i, j, k) != 0 && world.getBlock(i, j+1, k) != this){
+			world.setBlock(i, j, k, this, 0, 2);
 		}
 	}
 
@@ -71,11 +73,26 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World w, int x, int y, int z) {
 		return null;
 	}
+	
+	@Override
+	public Item getItemDropped(int meta, Random rand, int fortune){
+		return seeds;
+	}
+	
+	@Override
+	public int quantityDropped(Random rand) {
+		return 1+rand.nextInt(2);
+	}
 
 	@Override
-	public Item getItemDropped(int par1, Random par2Random, int par3) {
-		return dropped;
-	}
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
+    {
+		ArrayList<ItemStack> drops = super.getDrops(world, x, y, z, meta, fortune);
+		if(meta == 2){
+			drops.add(new ItemStack(dropped, 1));
+		}
+		return drops;
+    }
 
 	@Override
 	public boolean isOpaqueCube() {
@@ -87,10 +104,6 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 		return false;
 	}
 
-	@Override
-    public int quantityDropped(Random par1Random) {
-        return 1 + par1Random.nextInt(5);
-    } 
 
 	@Override
     public int getRenderType() {
@@ -117,4 +130,18 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
 		return world.getBlockMetadata(x, y, z);
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister i) {
+		this.iconArray[0] = i.registerIcon(Reference.PREFIX + name + "_top");
+		this.iconArray[1] = i.registerIcon(Reference.PREFIX + name + "_bottom");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public IIcon getIcon(int side, int meta)
+    {
+        return meta == 0 || meta == 2 ? this.iconArray[0] : this.iconArray[1];
+    }
 }

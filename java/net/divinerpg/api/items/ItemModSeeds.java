@@ -25,4 +25,14 @@ public class ItemModSeeds extends ItemSeeds {
 		LangRegistry.addItem(this);
 		if(ConfigurationHelper.showItemsBetter) setFull3D();
 	}
+	
+	public ItemModSeeds(String name, Block block, Block placeOn) {
+		super(block, placeOn);
+		setUnlocalizedName(name);
+		setTextureName(Reference.PREFIX + name);
+		setCreativeTab(DivineRPGTabs.utility);
+		GameRegistry.registerItem(this, name);
+		LangRegistry.addItem(this);
+		if(ConfigurationHelper.showItemsBetter) setFull3D();
+	}
 }

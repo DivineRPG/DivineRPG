@@ -120,12 +120,9 @@ public class ArcanaBlocks {
     public static final Block veilo		  			= new BlockVeilo("veiloPlant");
     public static final Block lamona		  		= new BlockLamona("lamonaPlant");
     public static final Block marsine		  		= new BlockMarsine("marsinePlant");
-    public static final Block firestock		  		= new BlockStackPlant("firestock_bottom", ArcanaItems.firestock, ArcanaItems.firestockSeeds);
-    public static final Block firestock2		  	= new BlockStackPlant("firestock_top", ArcanaItems.firestock, ArcanaItems.firestockSeeds);
-    public static final Block pinfly		  		= new BlockStackPlant("pinfly_bottom", ArcanaItems.pinfly, ArcanaItems.pinflySeeds);
-    public static final Block pinfly2		  	    = new BlockStackPlant("pinfly_top", ArcanaItems.pinfly, ArcanaItems.pinflySeeds);
-    public static final Block moonbulb		  		= new BlockStackPlant("moonbulb_bottom", ArcanaItems.moonbulb, ArcanaItems.moonbulbSeeds);
-    public static final Block moonbulb2		  		= new BlockStackPlant("moonbulb_top", ArcanaItems.moonbulb, ArcanaItems.moonbulbSeeds);
+    public static final Block firestock		  		= new BlockStackPlant("firestockPlant", ArcanaItems.firestock, ArcanaItems.firestockSeeds);
+    public static final Block pinfly		  		= new BlockStackPlant("pinflyPlant", ArcanaItems.pinfly, ArcanaItems.pinflySeeds);
+    public static final Block moonbulb		  		= new BlockStackPlant("moonbulbPlant", ArcanaItems.moonbulb, ArcanaItems.moonbulbSeeds);
 
     public static final Block greenlightFurnace 	= new BlockGreenlightFurnace("greenlightFurnace", false);
     public static final Block greenlightFurnaceOn 	= new BlockGreenlightFurnace("greenlightFurnaceOn", true);

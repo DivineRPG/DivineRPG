@@ -3,6 +3,7 @@ package net.divinerpg.entities.arcana;
 import net.divinerpg.api.entity.EntityDivineRPGVillager;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -57,6 +58,7 @@ public class EntityLeorna extends EntityDivineRPGVillager {
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 1), new ItemStack(ArcanaItems.hitchakSeeds, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7, 1), new ItemStack(ArcanaItems.veiloSeeds, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 9, 1), new ItemStack(ArcanaItems.lamonaSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 1), new ItemStack(ArcanaBlocks.arcanaDirt, 9, 0)));
 	}
 
 	@Override

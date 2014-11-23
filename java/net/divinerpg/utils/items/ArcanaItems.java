@@ -2,10 +2,12 @@ package net.divinerpg.utils.items;
 
 import net.divinerpg.api.items.ItemDivineArmor;
 import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.api.items.ItemModFood;
 import net.divinerpg.api.items.ItemModPotion;
-import net.divinerpg.api.items.ItemModSeeds;
 import net.divinerpg.api.items.ItemModSword;
+import net.divinerpg.items.arcana.ItemAquamarine;
 import net.divinerpg.items.arcana.ItemArcanaProjectile;
+import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
 import net.divinerpg.items.arcana.ItemArcaniumSaber;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
@@ -28,6 +30,7 @@ import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
 
 public class ArcanaItems {
 
@@ -99,57 +102,57 @@ public class ArcanaItems {
     public static Item      vemosBoots;
     
     public static void init() {
-    	dungeonTokens      = new ItemMod("dungeonTokens");
-        arcanium		     = new ItemMod("arcanium");
-        staffStarlight     = new ItemStaffStarlight("staffOfStarlight");
-        starlight          = new ItemStaffStarlight("starlight");
-        stormSword         = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
-        captainsSparkler   = new ItemCaptainsSparkler("captainsSparkler");
-        strongArcanaPotion = new ItemModPotion("strongArcanaPotion", 200);
-        weakArcanaPotion   = new ItemModPotion("weakArcanaPotion", 100);
-        collector          = new ItemMod("collector");
-        chargedCollector   = new ItemChargedCollector("chargedCollector");
-        wizardBook	     = new ItemWizardsBook("wizardsBook");
-        staffOfEnrichment	 = new ItemStaffEnrichment("staffOfEnrichment");
-        orbOfLight	 	 = new ItemMod("orbOfLight");
-    	meriksMissile 	 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
-    	grenade		 	 = new ItemGrenade("grenade");
-    	firefly 	 		 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
-    	grenadeLauncher 	 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
-    	enderScepter  	 = new ItemEnderScepter("enderScepter");
-    	arcaniumSaber  	 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
-    	wraithbane  	 	 = new ItemWraithbane("wraithbane");
-    	reflector  	 	 = new ItemReflector("reflector");
-    	shadowSword  	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
-    	liviciaSword  	 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
+    	dungeonTokens    	     = new ItemMod("dungeonTokens");
+        arcanium		   	     = new ItemMod("arcanium");
+        staffStarlight   	     = new ItemStaffStarlight("staffOfStarlight");
+        starlight        	     = new ItemStaffStarlight("starlight");
+        stormSword        		 = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
+        captainsSparkler	     = new ItemCaptainsSparkler("captainsSparkler");
+        strongArcanaPotion 		 = new ItemModPotion("strongArcanaPotion", 200);
+        weakArcanaPotion   		 = new ItemModPotion("weakArcanaPotion", 100);
+        collector         		 = new ItemMod("collector");
+        chargedCollector   		 = new ItemChargedCollector("chargedCollector");
+        wizardBook	     	  	 = new ItemWizardsBook("wizardsBook");
+        staffOfEnrichment		 = new ItemStaffEnrichment("staffOfEnrichment");
+        orbOfLight	 			 = new ItemMod("orbOfLight");
+    	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
+    	grenade		 			 = new ItemGrenade("grenade");
+    	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
+    	grenadeLauncher		 	 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
+    	enderScepter  			 = new ItemEnderScepter("enderScepter");
+    	arcaniumSaber  			 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
+    	wraithbane  	 		 = new ItemWraithbane("wraithbane");
+    	reflector  	 	 		 = new ItemReflector("reflector");
+    	shadowSword  	 	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
+    	liviciaSword  	 		 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
 
         key1 				 	 = new ItemKey("key1");
         key2 				 	 = new ItemKey("key2");
         key3 				 	 = new ItemKey("key3");
         key4 				 	 = new ItemKey("key4");
 
-    	golemSpawner   	 = new ItemArcanaSpawnEgg("golemSpawner");
-    	seimerSpawner   	 = new ItemArcanaSpawnEgg("seimerSpawner");
-    	paratikuSpawner    = new ItemArcanaSpawnEgg("paratikuSpawner");
-    	fyracryxSpawner    = new ItemArcanaSpawnEgg("fyracryxSpawner");
+    	golemSpawner   	 		 = new ItemArcanaSpawnEgg("golemSpawner");
+    	seimerSpawner   	 	 = new ItemArcanaSpawnEgg("seimerSpawner");
+    	paratikuSpawner   		 = new ItemArcanaSpawnEgg("paratikuSpawner");
+    	fyracryxSpawner    		 = new ItemArcanaSpawnEgg("fyracryxSpawner");
 
-        hitchak		 		 = new ItemMod("hitchak");
-        hitchakSeeds 			 = new ItemModSeeds("hitchakSeeds", ArcanaBlocks.hitchak);
+        hitchak		 		 	 = new ItemModFood(2, 3, false, "hitchak");
+        hitchakSeeds 			 = new ItemArcanaSeeds("hitchakSeeds", ArcanaBlocks.hitchak);
         veilo		 		     = new ItemMod("veilo");
-        veiloSeeds 			 = new ItemModSeeds("veiloSeeds", ArcanaBlocks.veilo);
-        marsine		 		 = new ItemMod("marsine");
-        marsineSeeds 			 = new ItemModSeeds("marsineSeeds", ArcanaBlocks.marsine);
+        veiloSeeds 			 	 = new ItemArcanaSeeds("veiloSeeds", ArcanaBlocks.veilo);
+        marsine		 		 	 = new ItemMod("marsine");
+        marsineSeeds 			 = new ItemArcanaSeeds("marsineSeeds", ArcanaBlocks.marsine);
         lamona		 			 = new ItemThrowable(0, "lamona");
-        lamonaSeeds 			 = new ItemModSeeds("lamonaSeeds", ArcanaBlocks.lamona);
+        lamonaSeeds 			 = new ItemArcanaSeeds("lamonaSeeds", ArcanaBlocks.lamona);
         firestock		 		 = new ItemMod("firestock");
-        firestockSeeds 		 = new ItemModSeeds("firestockSeeds", ArcanaBlocks.firestock);
-        pinfly 	 		     = new ItemMod("pinfly");
-        pinflySeeds 		     = new ItemModSeeds("pinflySeeds", ArcanaBlocks.pinfly);
+        firestockSeeds 		 	 = new ItemArcanaSeeds("firestockSeeds", ArcanaBlocks.firestock);
+        pinfly 	 		     	 = new ItemModFood(2, 0.3F, false, "pinfly").setPotionEffect(Potion.moveSpeed.id, 10, 2, 1.0F);
+        pinflySeeds 		     = new ItemArcanaSeeds("pinflySeeds", ArcanaBlocks.pinfly);
         moonbulb		 		 = new ItemMod("moonbulb");
-        moonbulbSeeds  		 = new ItemModSeeds("moonbulbSeeds", ArcanaBlocks.moonbulb);
-        aquamarine		 		 = new ItemMod("aquamarine");
-        aquamarineSeeds 		 = new ItemModSeeds("aquamarineSeeds", ArcanaBlocks.aquamarine);
-        eucalyptusSeeds    	 = new ItemModSeeds("eucalyptusRootSeeds", ArcanaBlocks.eucalyptusRoot);
+        moonbulbSeeds  		 	 = new ItemArcanaSeeds("moonbulbSeeds", ArcanaBlocks.moonbulb);
+        aquamarine		 		 = new ItemAquamarine("aquamarine");
+        aquamarineSeeds 		 = new ItemArcanaSeeds("aquamarineSeeds", ArcanaBlocks.aquamarine);
+        eucalyptusSeeds    	 	 = new ItemArcanaSeeds("eucalyptusRootSeeds", ArcanaBlocks.eucalyptusRoot);
 
         
         kormaHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, kormInfo);
