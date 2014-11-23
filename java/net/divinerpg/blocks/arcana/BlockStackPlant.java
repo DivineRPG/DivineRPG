@@ -6,6 +6,7 @@ import java.util.Random;
 import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,19 +23,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockStackPlant extends BlockMod implements IPlantable {
 	
-	private Item dropped, seeds;
 	private String name;
 	
 	private IIcon[] iconArray = new IIcon[2];
 	
-	public BlockStackPlant(String name, Item drop, Item Seeds) {
+	public BlockStackPlant(String name) {
 		super(EnumBlockType.PLANT, name, true);
 		float var3 = 0.375F;
 		this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
 		this.setTickRandomly(true);
 		setCreativeTab(null);
-		dropped = drop;
-		seeds = Seeds;
 		this.name = name;
 	}
 
@@ -62,7 +60,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	protected void checkBlockCoordValid(World world, int i, int j, int k) {
 		if(!this.canBlockStay(world, i, j, k)) {
 			if(world.getBlockMetadata(i, j, k) == 2)this.dropBlockAsItemWithChance(world, i, j, k, world.getBlockMetadata(i, j, k), 1f, 0);
-			else if(world.getBlockMetadata(i, j, k) == 0)this.dropBlockAsItem(world, i, j, k, new ItemStack(seeds));
+			else if(world.getBlockMetadata(i, j, k) == 0)this.dropBlockAsItem(world, i, j, k, new ItemStack(this == ArcanaBlocks.pinfly ? ArcanaItems.pinflySeeds : ArcanaItems.firestockSeeds));
 			world.func_147480_a(i, j, k, false);
 		}else if(world.getBlockMetadata(i, j, k) != 0 && world.getBlock(i, j+1, k) != this){
 			world.setBlock(i, j, k, this, 0, 2);
@@ -76,7 +74,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	
 	@Override
 	public Item getItemDropped(int meta, Random rand, int fortune){
-		return seeds;
+		return this == ArcanaBlocks.pinfly ? ArcanaItems.pinflySeeds : ArcanaItems.firestockSeeds;
 	}
 	
 	@Override
@@ -87,9 +85,13 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
     {
-		ArrayList<ItemStack> drops = super.getDrops(world, x, y, z, meta, fortune);
+		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
 		if(meta == 2){
-			drops.add(new ItemStack(dropped, 1));
+			drops.add(new ItemStack(this == ArcanaBlocks.pinfly ? ArcanaItems.pinfly : ArcanaItems.firestock, 1));
+			drops.add(new ItemStack(this.getItemDropped(0, this.rand, 0), this.quantityDropped(this.rand)));
+		}
+		if(meta == 0){
+			drops.add(new ItemStack(this.getItemDropped(0, this.rand, 0), 1));
 		}
 		return drops;
     }
@@ -113,7 +115,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getItem(World par1World, int par2, int par3, int par4) {
-		return seeds;
+		return this == ArcanaBlocks.pinfly ? ArcanaItems.pinflySeeds : ArcanaItems.firestockSeeds;
 	}
 
 	@Override

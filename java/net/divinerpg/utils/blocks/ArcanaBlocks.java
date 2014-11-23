@@ -32,6 +32,75 @@ import net.minecraft.block.Block;
 
 public class ArcanaBlocks {
 	
+	public static Block arcanaDirt;
+    public static Block arcanaGrass;
+    public static Block arcaniumOre;                                                                    //breakable
+    public static Block arcaniumMetal;
+    public static Block arcanitetubes;
+    public static Block arcaniumPower;                                                                  //breakable
+    public static Block dungenLamp;
+    public static Block heatTrap;
+    public static Block heatTrapOn;
+    public static Block soulStone;
+    public static Block soulSludge;
+    public static Block degradedBrick;
+    public static Block darkDegradedBrick;
+    public static Block ancientBrick;
+    public static Block ancientStone;
+    public static Block lightDegradedBrick;
+    public static Block stainedGlass;
+    public static Block stainedGlass2;
+    public static Block stainedGlass3;
+    public static Block stainedGlass4;
+    public static Block stainedGlass5;
+    public static Block stainedGlass6;
+    public static Block stainedGlass7;
+    public static Block stainedGlass8 ;
+    public static Block dungenSpawnerPrisoner;
+    public static Block razorbackSpawner;
+    public static Block deathHoundSpawner;
+    public static Block deathcryxSpawner;
+    public static Block livingStatueSpawner;
+    public static Block roamerSpawner;
+    public static Block ancientTile;
+    public static Block starBridge;
+    public static Block starBridgeOn;
+
+    public static Block oreDoor1;
+    public static Block oreDoor2;
+    public static Block oreDoor3;
+    public static Block oreDoor4;
+    
+    public static Block dramixAltar;
+    public static Block parasectaAltar;
+    public static Block arcanaExtractor;
+
+    public static Block arcanaPortal;
+    public static Block arcanaPortalFrame;
+    
+	public static Block aquamarine;
+	public static Block eucalyptusRoot;
+    public static Block hitchak;
+    public static Block veilo;
+    public static Block lamona;
+    public static Block marsine;
+    public static Block firestock;
+    public static Block pinfly;
+    public static Block moonbulb;
+
+    public static Block greenlightFurnace;
+    public static Block greenlightFurnaceOn;
+    public static Block oceanfireFurnace;
+    public static Block oceanfireFurnaceOn;
+    public static Block moltenFurnace;
+    public static Block moltenFurnaceOn;
+    public static Block whitefireFurnace;
+    public static Block whitefireFurnaceOn;
+    public static Block moonlightFurnace;
+    public static Block moonlightFurnaceOn;
+    public static Block demonFurnace;
+    public static Block demonFurnaceOn;
+	
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
 		arcanaGrass           = new BlockModGrass((BlockMod) arcanaDirt, "arcaniteGrass", 0.5F);
@@ -66,75 +135,40 @@ public class ArcanaBlocks {
 		ancientTile           = new BlockMod("ancientTile", false);
 		starBridge            = new BlockStarBridge("starBridge", false);
 		starBridgeOn          = new BlockStarBridge("starBridgeOn", true);
+		
+		oreDoor1              = new BlockModDoor(EnumBlockType.IRON, "oreDoor1", -1F, ArcanaItems.key1);
+	    oreDoor2              = new BlockModDoor(EnumBlockType.IRON, "oreDoor2", -1F, ArcanaItems.key2);
+	    oreDoor3              = new BlockModDoor(EnumBlockType.IRON, "oreDoor3", -1F, ArcanaItems.key3);
+	    oreDoor4              = new BlockModDoor(EnumBlockType.IRON, "oreDoor4", -1F, ArcanaItems.key4);
+	    
+	    dramixAltar           = new BlockDramixAltar("dramixAltar");
+	    parasectaAltar        = new BlockParasectaAltar("parasectaAltar");
+	    arcanaExtractor       = new BlockExtractor("arcanaExtractor");
+
+	    arcanaPortal          = new BlockArcanaPortal("arcanaPortal");
+	    arcanaPortalFrame     = new BlockArcanaFrame("arcanaPortalFrame", arcanaPortal);
+	    
+		aquamarine		  	= new BlockAquaMarine("aquamarinePlant");
+		eucalyptusRoot	  	= new BlockEucalyptusRoot("eucalyptusPlant");
+	    hitchak		  		= new BlockHitchak("hitchakPlant");
+	    veilo		  			= new BlockVeilo("veiloPlant");
+	    lamona		  		= new BlockLamona("lamonaPlant");
+	    marsine		  		= new BlockMarsine("marsinePlant");
+	    firestock		  		= new BlockStackPlant("firestockPlant");
+	    pinfly		  		= new BlockStackPlant("pinflyPlant");
+	    moonbulb		  		= new BlockStackPlant("moonbulbPlant");
+
+	    greenlightFurnace 	= new BlockGreenlightFurnace("greenlightFurnace", false);
+	    greenlightFurnaceOn 	= new BlockGreenlightFurnace("greenlightFurnaceOn", true);
+	    oceanfireFurnace 	    = new BlockOceanfireFurnace("oceanfireFurnace", false);
+	    oceanfireFurnaceOn 	= new BlockOceanfireFurnace("oceanfireFurnaceOn", true);
+	    moltenFurnace 	    = new BlockMoltenFurnace("moltenFurnace", false);
+	    moltenFurnaceOn 		= new BlockMoltenFurnace("moltenFurnaceOn", true);
+	    whitefireFurnace 	    = new BlockWhitefireFurnace("whitefireFurnace", false);
+	    whitefireFurnaceOn 	= new BlockWhitefireFurnace("whitefireFurnaceOn", true);
+	    moonlightFurnace 	    = new BlockMoonlightFurnace("moonlightFurnace", false);
+	    moonlightFurnaceOn 	= new BlockMoonlightFurnace("moonlightFurnaceOn", true);
+	    demonFurnace 	    	= new BlockDemonFurnace("demonFurnace", false);
+	    demonFurnaceOn 		= new BlockDemonFurnace("demonFurnaceOn", true);
 	}
-
-    public static Block arcanaDirt;
-    public static Block arcanaGrass;
-    public static Block arcaniumOre;                                                                    //breakable
-    public static Block arcaniumMetal;
-    public static Block arcanitetubes;
-    public static Block arcaniumPower;                                                                  //breakable
-    public static Block dungenLamp;
-    public static Block heatTrap;
-    public static Block heatTrapOn;
-    public static Block soulStone;
-    public static Block soulSludge;
-    public static Block degradedBrick;
-    public static Block darkDegradedBrick;
-    public static Block ancientBrick;
-    public static Block ancientStone;
-    public static Block lightDegradedBrick;
-    public static Block stainedGlass;
-    public static Block stainedGlass2;
-    public static Block stainedGlass3;
-    public static Block stainedGlass4;
-    public static Block stainedGlass5;
-    public static Block stainedGlass6;
-    public static Block stainedGlass7;
-    public static Block stainedGlass8 ;
-    public static Block dungenSpawnerPrisoner;
-    public static Block razorbackSpawner;
-    public static Block deathHoundSpawner;
-    public static Block deathcryxSpawner;
-    public static Block livingStatueSpawner;
-    public static Block roamerSpawner;
-    public static Block ancientTile;
-    public static Block starBridge;
-    public static Block starBridgeOn;
-
-    public static final Block oreDoor1              = new BlockModDoor(EnumBlockType.IRON, "oreDoor1", -1F, ArcanaItems.key1);
-    public static final Block oreDoor2              = new BlockModDoor(EnumBlockType.IRON, "oreDoor2", -1F, ArcanaItems.key2);
-    public static final Block oreDoor3              = new BlockModDoor(EnumBlockType.IRON, "oreDoor3", -1F, ArcanaItems.key3);
-    public static final Block oreDoor4              = new BlockModDoor(EnumBlockType.IRON, "oreDoor4", -1F, ArcanaItems.key4);
-    
-    public static final Block dramixAltar           = new BlockDramixAltar("dramixAltar");
-    public static final Block parasectaAltar        = new BlockParasectaAltar("parasectaAltar");
-    public static final Block arcanaExtractor       = new BlockExtractor("arcanaExtractor");
-
-    public static final Block arcanaPortal          = new BlockArcanaPortal("arcanaPortal");
-    public static final Block arcanaPortalFrame     = new BlockArcanaFrame("arcanaPortalFrame", arcanaPortal);
-    
-	public static final Block aquamarine		  	= new BlockAquaMarine("aquamarinePlant");
-	public static final Block eucalyptusRoot	  	= new BlockEucalyptusRoot("eucalyptusPlant");
-    public static final Block hitchak		  		= new BlockHitchak("hitchakPlant");
-    public static final Block veilo		  			= new BlockVeilo("veiloPlant");
-    public static final Block lamona		  		= new BlockLamona("lamonaPlant");
-    public static final Block marsine		  		= new BlockMarsine("marsinePlant");
-    public static final Block firestock		  		= new BlockStackPlant("firestockPlant", ArcanaItems.firestock, ArcanaItems.firestockSeeds);
-    public static final Block pinfly		  		= new BlockStackPlant("pinflyPlant", ArcanaItems.pinfly, ArcanaItems.pinflySeeds);
-    public static final Block moonbulb		  		= new BlockStackPlant("moonbulbPlant", ArcanaItems.moonbulb, ArcanaItems.moonbulbSeeds);
-
-    public static final Block greenlightFurnace 	= new BlockGreenlightFurnace("greenlightFurnace", false);
-    public static final Block greenlightFurnaceOn 	= new BlockGreenlightFurnace("greenlightFurnaceOn", true);
-    public static final Block oceanfireFurnace 	    = new BlockOceanfireFurnace("oceanfireFurnace", false);
-    public static final Block oceanfireFurnaceOn 	= new BlockOceanfireFurnace("oceanfireFurnaceOn", true);
-    public static final Block moltenFurnace 	    = new BlockMoltenFurnace("moltenFurnace", false);
-    public static final Block moltenFurnaceOn 		= new BlockMoltenFurnace("moltenFurnaceOn", true);
-    public static final Block whitefireFurnace 	    = new BlockWhitefireFurnace("whitefireFurnace", false);
-    public static final Block whitefireFurnaceOn 	= new BlockWhitefireFurnace("whitefireFurnaceOn", true);
-    public static final Block moonlightFurnace 	    = new BlockMoonlightFurnace("moonlightFurnace", false);
-    public static final Block moonlightFurnaceOn 	= new BlockMoonlightFurnace("moonlightFurnaceOn", true);
-    public static final Block demonFurnace 	    	= new BlockDemonFurnace("demonFurnace", false);
-    public static final Block demonFurnaceOn 		= new BlockDemonFurnace("demonFurnaceOn", true);
-    
 }
