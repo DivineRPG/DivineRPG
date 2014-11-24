@@ -20,6 +20,7 @@ public abstract class EntityPeacefullUntillAttacked extends EntityDivineRPGMob {
 
 	public EntityPeacefullUntillAttacked(World w) {
 		super(w);
+		addAttackingAI();
 	}
 
 	protected boolean isAIEnabled() {
@@ -45,8 +46,13 @@ public abstract class EntityPeacefullUntillAttacked extends EntityDivineRPGMob {
 	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
 		if(par1DamageSource.getEntity() instanceof EntityPlayer){
 			angerLevel = 400;
-			addAttackingAI();
 		}
 		return super.attackEntityFrom(par1DamageSource, par2);
+	}
+	
+	@Override
+	public boolean attackEntityAsMob(Entity entity) {
+		if(this.angerLevel > 0)return super.attackEntityAsMob(entity);
+		return false;
 	}
 }

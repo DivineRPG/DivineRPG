@@ -41,7 +41,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random par5Random) {
-		if(world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0) {
+		if(world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0 && world.getBlock(i, j-1, k) == ArcanaBlocks.arcanaGrass) {
 			world.setBlock(i, j + 1, k, this, 2, 2);
 			world.setBlock(i, j, k, this, 1, 2);
 		}

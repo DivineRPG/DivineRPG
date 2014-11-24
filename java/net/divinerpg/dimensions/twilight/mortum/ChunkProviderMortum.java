@@ -46,16 +46,11 @@ public class ChunkProviderMortum implements IChunkProvider {
     private double[] slowsandNoise = new double[256];
     private double[] gravelNoise = new double[256];
     private double[] netherrackExclusivityNoise = new double[256];
-    private MapGenBase netherCaveGenerator = new MapGenCavesHell();
     double[] noiseData1;
     double[] noiseData2;
     double[] noiseData3;
     double[] noiseData4;
     double[] noiseData5;
-
-    {
-        netherCaveGenerator = TerrainGen.getModdedMapGen(netherCaveGenerator, NETHER_CAVE);
-    }
 
     public ChunkProviderMortum(World par1World, long par2) {
         this.worldObj = par1World;

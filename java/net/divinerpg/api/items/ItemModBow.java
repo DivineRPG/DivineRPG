@@ -115,7 +115,8 @@ public class ItemModBow extends ItemBow {
         maxItemUse = event.charge;
         boolean infiniteAmmo = !needArrow || player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
         if (infiniteAmmo || player.inventory.hasItem(arrow)) {
-            float scaledItemUse = (float) maxItemUse / 20.0F;
+        	float timeRatio = DEFAULT_MAX_USE_DURATION/maxItemUse;
+            float scaledItemUse = ((float) maxItemUse / 20.0F)*timeRatio;
             scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;
             if ((double) scaledItemUse < 0.1) return;
             if (scaledItemUse > 1) scaledItemUse = 1;
