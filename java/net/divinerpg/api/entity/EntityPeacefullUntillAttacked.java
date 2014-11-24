@@ -23,10 +23,6 @@ public abstract class EntityPeacefullUntillAttacked extends EntityDivineRPGMob {
 		addAttackingAI();
 	}
 
-	protected boolean isAIEnabled() {
-		return false;
-	}
-
 	private int angerLevel = 0;
 	public void writeEntityToNBT(NBTTagCompound var1) {
 		super.writeEntityToNBT(var1);

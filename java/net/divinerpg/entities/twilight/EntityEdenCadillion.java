@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -50,7 +51,7 @@ public class EntityEdenCadillion extends EntityPeacefullUntillAttacked {
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {
 		int var3 = this.rand.nextInt(2 + var2);
-
+		this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
 		for(int var4 = 0; var4 < var3; ++var4) {
 			this.dropItem(TwilightItemsOther.edenSoul, 1);
 		}

@@ -39,7 +39,8 @@ public class EntityDivineArrow extends EntityArrow
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
-    private double damage;
+    private double damageMin;
+    private double damageMax;
     private int knockbackStrength;
     public Item ammoItem;
     
@@ -89,12 +90,13 @@ public class EntityDivineArrow extends EntityArrow
         }
     }
 
-    public EntityDivineArrow(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, float damage, String texturename)
+    public EntityDivineArrow(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, float damageMin, float damageMax, String texturename)
     {
         super(p_i1756_1_);
         this.renderDistanceWeight = 10.0D;
         this.shootingEntity = p_i1756_2_;
-        this.damage = damage;
+        this.damageMin = damageMin;
+        this.damageMax = damageMax;
         this.dataWatcher.updateObject(17, texturename);
 
         if (p_i1756_2_ instanceof EntityPlayer)
@@ -291,11 +293,12 @@ public class EntityDivineArrow extends EntityArrow
                 if (position.entityHit != null)
                 {
                     f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-                    int k = MathHelper.ceiling_double_int(f2 * this.damage);
+                    int k = MathHelper.ceiling_double_int(f2 * this.damageMin);
+                    if(k>this.damageMax) k = MathHelper.ceiling_double_int(this.damageMax);
 
                     if (this.getIsCritical())
                     {
-                        k += this.rand.nextInt(k / 2 + 2);
+                        k += this.rand.nextInt(k / 3 + 2);
                     }
 
                     DamageSource damagesource = null;
@@ -470,7 +473,7 @@ public class EntityDivineArrow extends EntityArrow
         tag.setByte("shake", (byte)this.arrowShake);
         tag.setByte("inGround", (byte)(this.inGround ? 1 : 0));
         tag.setByte("pickup", (byte)this.canBePickedUp);
-        tag.setDouble("damage", this.damage);
+        tag.setDouble("damage", this.damageMin);
         tag.setString("texture", this.dataWatcher.getWatchableObjectString(17));
     }
 
@@ -489,7 +492,7 @@ public class EntityDivineArrow extends EntityArrow
 
         if (tag.hasKey("damage", 99))
         {
-            this.damage = tag.getDouble("damage");
+            this.damageMin = tag.getDouble("damage");
         }
 
         if (tag.hasKey("pickup", 99))
@@ -539,13 +542,13 @@ public class EntityDivineArrow extends EntityArrow
     @Override
     public void setDamage(double p_70239_1_)
     {
-        this.damage = p_70239_1_;
+        this.damageMin = p_70239_1_;
     }
 
     @Override
     public double getDamage()
     {
-        return this.damage;
+        return this.damageMin;
     }
 
     @Override

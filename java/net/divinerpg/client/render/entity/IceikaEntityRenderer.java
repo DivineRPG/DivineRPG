@@ -24,6 +24,7 @@ import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
 import net.divinerpg.entities.iceika.projectile.EntityFractiteCannon;
+import net.divinerpg.entities.iceika.projectile.EntityFractiteShot;
 import net.divinerpg.entities.iceika.projectile.EntityFrostclaw;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
 import net.divinerpg.entities.iceika.projectile.EntitySnowflakeShuriken;
@@ -31,6 +32,7 @@ import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderFireball;
 import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -44,6 +46,7 @@ public class IceikaEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityFrostclaw.class, new RenderProjectile(EntityResourceLocation.frostclaw));
         RenderingRegistry.registerEntityRenderingHandler(EntitySnowflakeShuriken.class, new RenderIconProjectile(IceikaItems.snowflakeShuriken));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractiteCannon.class, new RenderProjectile(EntityResourceLocation.fractiteCannon));
+        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteShot.class, new RenderFireball(2.0F));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAlicanto.class, new RenderDivineMob(new ModelAlicanto(), 0.0F, EntityResourceLocation.ALICANTO));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractite.class, new RenderDivineMob(new ModelFractite(), 0.5F, EntityResourceLocation.FRACTITE));

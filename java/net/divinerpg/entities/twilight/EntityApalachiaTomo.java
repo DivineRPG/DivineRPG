@@ -12,7 +12,7 @@ public class EntityApalachiaTomo extends EntityPeacefullUntillAttacked {
 
     public EntityApalachiaTomo(World var1) {
         super(var1);
-        this.setSize(2.0F, 2.0F);
+        this.setSize(1.7F, 1.0F);
         this.experienceValue = 40;
     }
     
@@ -47,7 +47,7 @@ public class EntityApalachiaTomo extends EntityPeacefullUntillAttacked {
 
         for(var4 = 0; var4 < var3; ++var4) {
             this.dropItem(getDropItem(), 1);
-            this.dropItem(ItemsFood.rawEmpoweredMeat, 2);
+            this.dropItem(ItemsFood.enrichedMagicMeat, 2);
         }
         this.dropItem(getDropItem(), 1);
     }

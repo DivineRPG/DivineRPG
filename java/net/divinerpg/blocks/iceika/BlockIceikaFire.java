@@ -15,7 +15,7 @@ public class BlockIceikaFire extends BlockModFire {
 
 	@Override
     protected void lightPortal(World world, int x, int y, int z) {
-		BlockModPortal portal = (BlockModPortal) IceikaBlocks.portal;
+		BlockModPortal portal = (BlockModPortal) IceikaBlocks.iceikaPortal;
 		if (world.getBlock(x, y - 1, z).equals(Blocks.snow)) {
 			LogHelper.debug("Snow lit");
 			if (!portal.tryCreatePortal(world, x, y, z))

@@ -33,7 +33,7 @@ public class DivineRPGAchievements {
     public static final Achievement littleCreature 			= addAchievement("littleCreature"		, 3, 6, ArcanaItems.seimerSpawner, liesWithin, false);					//DONE
     public static final Achievement	halloweenSpirit 		= addAchievement("halloweenSpirit"		, 5, 0, VanillaItemsWeapons.scythe, null, false);						//DONE
     public static final Achievement feedingOnTheFish 		= addAchievement("feedingOnTheFish"		, 4, 0, VanillaItemsOther.sharkFin, null, false);						//DONE
-    public static final Achievement frozenLand				= addAchievement("frozenLand"			, 0, 1, IceikaBlocks.portal, null, false); 								//DONE
+    public static final Achievement frozenLand				= addAchievement("frozenLand"			, 0, 1, IceikaBlocks.iceikaPortal, null, false); 								//DONE
     public static final Achievement frozenGoods 			= addAchievement("frozenGoods"			, 8, 1, IceikaBlocks.frostedChest, frozenLand, false);					//DONE
     public static final Achievement lilTinkerin 			= addAchievement("lilTinkerin"			, 7, 2, IceikaItems.frozenMaul, frozenGoods, false);					//DONE
     public static final Achievement dramcryxDeath 			= addAchievement("dramcryxDeath"		, 0, 0, VanillaItemsOther.jungleShards, null, false);					//DONE

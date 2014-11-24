@@ -1,20 +1,38 @@
 package net.divinerpg.utils.items;
 
+import net.divinerpg.api.items.ItemFastFood;
 import net.divinerpg.api.items.ItemModFood;
 import net.minecraft.item.Item;
 
 public class ItemsFood {
 
-    public static final Item bacon              = new ItemModFood(1, 3.0F, true, "bacon");
-    public static final Item baconCooked        = new ItemModFood(10, 10.0F, true, "baconCooked");
-    public static final Item boiledEgg          = new ItemModFood(4, 0.5F, false, "boiledEgg");
-    public static final Item cheese             = new ItemModFood(2, 0.2F, false, "cheese");
-    public static final Item whiteMushroom      = new ItemModFood(1, 0.1F, false, "whiteMushroom");
-    public static final Item advMushroomStew    = new ItemModFood(10, 10.0F, false, "advancedMushroomStew");
-    public static final Item chickenDinner      = new ItemModFood(20, 20.0F, false, "chickenDinner");
-    public static final Item tomato             = new ItemModFood(4, 0.3F, false, "tomato");
-    public static final Item donut              = new ItemModFood(16, 0.3F, false, "donut");
-    public static final Item rawEmpoweredMeat   = new ItemModFood(5, 2.0F, true, "rawEmpoweredMeat");
-    public static final Item empoweredMeat      = new ItemModFood(10, 4.0F, true, "empoweredMeat");
+    public static Item bacon;
+    public static Item baconCooked;
+    public static Item boiledEgg;
+    public static Item cheese;
+    public static Item whiteMushroom;
+    public static Item advMushroomStew;
+    public static Item chickenDinner;
+    public static Item tomato;
+    public static Item donut;
+    public static Item rawEmpoweredMeat;
+    public static Item empoweredMeat;
+    public static Item magicMeat;
+    public static Item enrichedMagicMeat;
     
+    public static void init() {
+    	bacon              = new ItemModFood(4, 3.0F, true, "bacon");
+        baconCooked        = new ItemModFood(6, 10.0F, true, "baconCooked");
+        boiledEgg          = new ItemModFood(4, 0.5F, false, "boiledEgg");
+        cheese             = new ItemModFood(2, 0.2F, false, "cheese");
+        whiteMushroom      = new ItemModFood(1, 0.1F, false, "whiteMushroom");
+        advMushroomStew    = new ItemModFood(10, 10.0F, false, "advancedMushroomStew");
+        chickenDinner      = new ItemModFood(20, 20.0F, false, "chickenDinner");
+        tomato             = new ItemModFood(4, 0.3F, false, "tomato");
+        donut              = new ItemModFood(16, 0.3F, false, "donut");
+        rawEmpoweredMeat   = new ItemModFood(5, 2.0F, true, "rawEmpoweredMeat");
+        empoweredMeat      = new ItemModFood(10, 4.0F, true, "empoweredMeat");
+        magicMeat			= new ItemFastFood(5, 1.0F, true, "magicMeat");
+        enrichedMagicMeat	= new ItemFastFood(7, 2.5F, true, "enrichedMagicMeat");
+    }
 }

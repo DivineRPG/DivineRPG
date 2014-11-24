@@ -51,5 +51,5 @@ public class IceikaBlocks {
     public static final Block coalstoneFurnaceOn  = new BlockCoalstoneFurnace("coalstoneFurnaceActive", true);
 
     public static final Block iceikaFire          = new BlockIceikaFire("iceikaFire");
-    public static final Block portal              = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
+    public static final Block iceikaPortal              = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
 }

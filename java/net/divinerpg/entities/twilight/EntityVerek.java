@@ -2,6 +2,7 @@ package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -60,7 +61,7 @@ public class EntityVerek extends EntityDivineRPGMob {
     @Override
     protected void dropFewItems(boolean var1, int var2) {
         int var3 = this.rand.nextInt(2 + var2);
-
+        this.dropItem(ItemsFood.magicMeat, 1);
         for (int var4 = 0; var4 < var3; ++var4) {
             this.dropItem(TwilightItemsOther.wildwoodSoul, 2);
         }

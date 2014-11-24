@@ -1,6 +1,7 @@
 package net.divinerpg.entities.iceika;
 
 import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.entities.iceika.projectile.EntityFractiteShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.block.Block;
@@ -10,7 +11,6 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChunkCoordinates;
@@ -106,7 +106,7 @@ public class EntityFractite extends EntityDivineRPGFlying {
 
 				if (this.attackCounter == 20) {
 					this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1008, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-					EntityLargeFireball var17 = new EntityLargeFireball(this.worldObj, this, var11, var13, var15);
+					EntityFractiteShot var17 = new EntityFractiteShot(this.worldObj, this, var11, var13, var15);
                     double var18 = 4.0D;
                     Vec3 var20 = this.getLook(1.0F);
                     var17.posX = this.posX + var20.xCoord * var18;

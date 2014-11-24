@@ -22,6 +22,7 @@ public class EntityMortumCadillion extends EntityDivineRPGMob {
 	public EntityMortumCadillion(World var1) {
 		super(var1);
 		addAttackingAI();
+		this.setSize(1.0F, 1.3F);
 	}
 
 	@Override

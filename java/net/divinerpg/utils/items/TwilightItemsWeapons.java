@@ -53,11 +53,11 @@ public class TwilightItemsWeapons {
     public static final Item mortumArrow        = new ItemMod("mortumArrow").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item haliteArrow        = new ItemMod("haliteArrow").setCreativeTab(DivineRPGTabs.ranged);
 
-    public static final Item edenBow            = new ItemModBow("edenBow", -1, 7, edenArrow);
-    public static final Item wildwoodBow        = new ItemModBow("wildWoodBow", -1, 7, 36000, wildwoodArrow);
-    public static final Item apalachiaBow       = new ItemModBow("apalachiaBow", -1, 12, apalachiaArrow);
-    public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 12, 36000, skythernArrow);
-    public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 17, mortumArrow);
-    public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 17, 36000, haliteArrow);
+    public static final Item edenBow            = new ItemModBow("edenBow", -1, 10, 31, edenArrow);
+    public static final Item wildwoodBow        = new ItemModBow("wildWoodBow", -1, 10, 31, 36000, wildwoodArrow);
+    public static final Item apalachiaBow       = new ItemModBow("apalachiaBow", -1, 15, 46, apalachiaArrow);
+    public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 15, 46, 36000, skythernArrow);
+    public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 20, 61, mortumArrow);
+    public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 20, 61, 36000, haliteArrow);
         
 }

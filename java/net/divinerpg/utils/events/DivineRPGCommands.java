@@ -63,7 +63,7 @@ public class DivineRPGCommands extends CommandBase {
 				if (playerMP.dimension != ConfigurationHelper.iceika) {
 					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, ConfigurationHelper.iceika,
 							new DivineTeleporter(playerMP.mcServer.worldServerForDimension(ConfigurationHelper.iceika), ConfigurationHelper.iceika,
-									IceikaBlocks.portal, Blocks.snow));
+									IceikaBlocks.iceikaPortal, Blocks.snow));
 				}
 			}
 

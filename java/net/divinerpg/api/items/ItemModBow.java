@@ -34,43 +34,45 @@ public class ItemModBow extends ItemBow {
     protected String                       name;
     protected String                       textureName;
     protected final String[]               texture;
-    protected int                          damage;
+    protected int                          damageMin;
+    protected int						   damageMax;
     protected int                          maxUseDuration;
     protected boolean                      unbreakable;
     protected Item                         arrow;
     protected boolean                      needArrow = true;
     protected String arrowTex;
 
-    public ItemModBow(String name, int uses, int damage, Item arrow) {
-        this(name, uses, damage, DEFAULT_MAX_USE_DURATION, arrow);
+    public ItemModBow(String name, int uses, int damageMin, int damageMax, Item arrow) {
+        this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, arrow);
     }
     
-    public ItemModBow(String name, int uses, int damage, String arrowTex) {
-        this(name, uses, damage, DEFAULT_MAX_USE_DURATION, null);
+    public ItemModBow(String name, int uses, int damageMin, int damageMax, String arrowTex) {
+        this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, null);
         this.arrowTex = arrowTex;
     }
     
-    public ItemModBow(String name, int uses, int damage, Item arrow, String arrowTex) {
-        this(name, uses, damage, DEFAULT_MAX_USE_DURATION, arrow);
+    public ItemModBow(String name, int uses, int damageMin, int damageMax, Item arrow, String arrowTex) {
+        this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, arrow);
         this.arrowTex = arrowTex;
     }
     
-    public ItemModBow(String name, int uses, int damage, int maxUseDuraction) {
-        this(name, uses, damage, maxUseDuraction, null);
+    public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction) {
+        this(name, uses, damageMin, damageMax, maxUseDuraction, null);
     }
     
-    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Item arrow, String arrowTex) {
-        this(name, uses, damage, maxUseDuraction, arrow);
+    public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow, String arrowTex) {
+        this(name, uses, damageMin, damageMax, maxUseDuraction, arrow);
         this.arrowTex = arrowTex;
     }
 
-    public ItemModBow(String name, int uses, int damage, int maxUseDuraction, Item arrow) {
+    public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow) {
         setMaxDamage(uses);
         this.name = name;
         this.textureName = Reference.PREFIX + name;
         if (arrow == null) needArrow = false;
         else this.arrow = arrow;
-        this.damage = damage;
+        this.damageMin = damageMin;
+        this.damageMax = damageMax;
         this.maxUseDuration = maxUseDuraction;
         unbreakable = true;
         this.maxStackSize = 1;
@@ -121,8 +123,8 @@ public class ItemModBow extends ItemBow {
             if ((double) scaledItemUse < 0.1) return;
             if (scaledItemUse > 1) scaledItemUse = 1;
             EntityDivineArrow entityarrow;
-            if(this.arrow != null && this.arrowTex == null) entityarrow = new EntityDivineArrow(world, player, scaledItemUse*2, damage, arrow.getUnlocalizedName().replace("item.", ""));
-            else entityarrow = new EntityDivineArrow(world, player, scaledItemUse*2, damage, this.arrowTex);
+            if(this.arrow != null && this.arrowTex == null) entityarrow = new EntityDivineArrow(world, player, scaledItemUse*2, damageMin, damageMax, arrow.getUnlocalizedName().replace("item.", ""));
+            else entityarrow = new EntityDivineArrow(world, player, scaledItemUse*2, damageMin, damageMax, this.arrowTex);
             entityarrow.setAmmoItem(arrow);
             if (scaledItemUse == 1) entityarrow.setIsCritical(true);
             int powerLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
@@ -145,7 +147,7 @@ public class ItemModBow extends ItemBow {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add(damage + " Minimum Ranged Damage");
+        list.add(damageMin + "-" + damageMax + " Ranged Damage");
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1) list.add(Util.GOLD + speed + EnumChatFormatting.RESET + " Times Faster");
         if (speed < 1) list.add(Util.GOLD + (1 / speed) + EnumChatFormatting.RESET + " Times Slower");

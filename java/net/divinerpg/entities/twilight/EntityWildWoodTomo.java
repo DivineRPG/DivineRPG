@@ -21,7 +21,7 @@ public class EntityWildWoodTomo extends EntityPeacefullUntillAttacked {
 
 	public EntityWildWoodTomo(World var1) {
 		super(var1);
-		this.setSize(2.0F, 2.0F);
+		this.setSize(1.7F, 1.0F);
 		this.experienceValue = 40;
 	}
 
@@ -57,7 +57,7 @@ public class EntityWildWoodTomo extends EntityPeacefullUntillAttacked {
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {
 		super.dropFewItems(var1, var2);
-		this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
+		this.dropItem(ItemsFood.magicMeat, 1);
 	}
 
 	@Override

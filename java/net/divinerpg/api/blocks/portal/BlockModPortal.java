@@ -4,22 +4,28 @@ import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockModFire;
 import net.divinerpg.api.worldgen.DivineTeleporter;
-import net.divinerpg.entities.twilight.effects.EntityGreenPortalFX;
+import net.divinerpg.entities.twilight.effects.EntityEdenPortalFX;
+import net.divinerpg.entities.twilight.effects.EntityMortumPortalFX;
+import net.divinerpg.entities.twilight.effects.EntitySkythernPortalFX;
+import net.divinerpg.entities.twilight.effects.EntityWildWoodPortalFX;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -214,7 +220,7 @@ public class BlockModPortal extends BlockBreakable {
                 d2 = (double) zPos + 0.5D + 0.25D * (double) i1;
                 d5 = (double) (rand.nextFloat() * 2.0F * (float) i1);
             }
-            EntityGreenPortalFX var20 = new EntityGreenPortalFX(world, d0, d1, d2, d3, d4, d5);
+            EntityFX var20 = this == TwilightBlocks.edenPortal ? new EntityEdenPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.wildwoodPortal ? new EntityWildWoodPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.apalachiaPortal ? new EntityPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.skythernPortal ? new EntitySkythernPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.mortumPortal ? new EntityMortumPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == IceikaBlocks.iceikaPortal ? new EntitySkythernPortalFX(world, d0, d1, d2, d3, d4, d5) : null)))));
             FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
         }
     }
