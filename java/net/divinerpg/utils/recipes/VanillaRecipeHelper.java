@@ -46,10 +46,9 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.crabclawMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.crabClaw, 'S', Items.stick);
 		addRecipe(IS.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', Items.stick);
 		addRecipe(IS.divineSword, " I ", "III", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.furyMaul, "OBO", "BBB", "OBO", 'O', Blocks.bedrock, 'S', Blocks.diamond_ore);
+		addRecipe(VanillaItemsWeapons.furyMaul, "OBO", "BBB", "OBO", 'B', Blocks.bedrock, 'O', Blocks.diamond_ore);
 		addRecipe(VanillaItemsWeapons.deathBringer, " I ", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.corruptedMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(IS.divineSword, " s ", "sss", " S ", 's', VanillaItemsOther.divineStone, 'S', Items.stick);
 		addRecipe(IS.bedrockMaul, " B ", "BBB", " I ", 'B', Blocks.bedrock, 'I', Items.stick);
 		addRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', Items.stick);
@@ -60,7 +59,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(IS.vile, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
 		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
-		//addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
+		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.sharkAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.sharkFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.crabAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
@@ -68,8 +67,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.hunterBow, " IX", "I X", " IX", 'I', VanillaItemsOther.jungleStone, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.shadowBow, " IX", "I X", " IX", 'I', VanillaItemsOther.shadowBar, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.enderBow, " IX", "I X", " IX", 'I', VanillaItemsOther.enderStone, 'X', Items.string);
-		/*addRecipe(VanillaItemsWeapons.bluefireBow, " IX", "I S", " IX", 'I', VanillaItemsOther.aquaticBlazeRod, 'X', VanillaItemsOther.bluefireStone, 'S', Items.string);
-		addRecipe(VanillaItemsWeapons.infernoBow, " IX", "I X", " IX", 'I', VanillaItemsOther.moltenStone, 'X', Items.blaze_powder);*/
+		addRecipe(VanillaItemsWeapons.bluefireBow, " IX", "I X", " IX", 'I', VanillaItemsOther.aquaticBlazeRod, 'X', VanillaItemsOther.bluefireStone);
+		addRecipe(VanillaItemsWeapons.infernoBow, " IX", "I X", " IX", 'I', VanillaItemsOther.moltenStone, 'X', Items.blaze_powder);
 		
 		addRecipe(VanillaItemsWeapons.frostCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', IceikaItems.iceStone);
 		/*addRecipe(VanillaItemsWeapons.bowheadCannon, " I ", " I ", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);

@@ -117,8 +117,9 @@ public class ItemModBow extends ItemBow {
         maxItemUse = event.charge;
         boolean infiniteAmmo = !needArrow || player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
         if (infiniteAmmo || player.inventory.hasItem(arrow)) {
-        	float timeRatio = DEFAULT_MAX_USE_DURATION/maxItemUse;
+        	float timeRatio = DEFAULT_MAX_USE_DURATION/this.getMaxItemUseDuration(stack);
             float scaledItemUse = ((float) maxItemUse / 20.0F)*timeRatio;
+            System.out.println(timeRatio);
             scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;
             if ((double) scaledItemUse < 0.1) return;
             if (scaledItemUse > 1) scaledItemUse = 1;
@@ -149,9 +150,10 @@ public class ItemModBow extends ItemBow {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         list.add(damageMin + "-" + damageMax + " Ranged Damage");
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
-        if (speed > 1) list.add(Util.GOLD + speed + EnumChatFormatting.RESET + " Times Faster");
-        if (speed < 1) list.add(Util.GOLD + (1 / speed) + EnumChatFormatting.RESET + " Times Slower");
+        if (speed > 1) list.add(speed + " Times Faster");
+        if (speed < 1) list.add((1 / speed) + " Times Slower");
         list.add(!unbreakable ? (stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
+        if(this.arrowTex == "bluefireArrow") list.add(EnumChatFormatting.AQUA + "Exploding Arrows");
         list.add(Util.DARK_AQUA + Reference.MOD_NAME);
     }
     

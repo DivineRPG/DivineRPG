@@ -2,6 +2,7 @@ package net.divinerpg.utils.items;
 
 import net.divinerpg.api.items.ItemDivineArmor;
 import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModBucket;
 import net.divinerpg.api.items.ItemModFood;
 import net.divinerpg.api.items.ItemModSword;
@@ -19,6 +20,7 @@ import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class IceikaItems {
@@ -50,8 +52,8 @@ public class IceikaItems {
     public static final Item      fruitCake         = new ItemModFood(16, 2.0F, false, "fruitCake");
     public static final Item      winterberry       = new ItemModFood(4, 1.0F, false, "winterberry");
 
-    //public static final Item icicleBow = new ItemIceBow("icicleBow");
-    //public static final Item snowStormBow = new ItemSnowStormBow("snowStormBow");
+    public static final Item 	  icicleBow = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
+    public static final Item 	  snowstormBow = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
 
     private static final Object[] santaInfo         = new Object[] { ChatFormats.ICEIKA, "Massive Buff", ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
     public static final Item      santaHead         = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);

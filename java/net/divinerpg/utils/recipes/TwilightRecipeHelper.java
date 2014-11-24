@@ -38,80 +38,74 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightBlocks.apalachiaBlock, "III", "III", "III", 'I', TwilightItemsOther.apalachiaFragments);
 		addRecipe(TwilightBlocks.skythernBlock, "III", "III", "III", 'I', TwilightItemsOther.skythernFragments);
 		addRecipe(TwilightBlocks.mortumBlock, "III", "III", "III", 'I', TwilightItemsOther.mortumFragments);
-		
-		addShapelessRecipe(IS.edenFragments, TwilightBlocks.edenBlock);
-		addShapelessRecipe(IS.wildwoodFragments, TwilightBlocks.wildwoodBlock);
-		addShapelessRecipe(IS.apalachiaFragments, TwilightBlocks.apalachiaBlock);
-		addShapelessRecipe(IS.skythernFragments, TwilightBlocks.skythernBlock);
-		addShapelessRecipe(IS.mortumFragments, TwilightBlocks.mortumBlock);
 
 		//Eden (Dravite)
-		addRecipe(IS.edenHead, "III", "I I", "  ", 'I', TwilightItemsOther.edenChunk);
-		addRecipe(IS.edenBody, "I I", "III", "III", 'I', TwilightItemsOther.edenChunk);
+		addRecipe(IS.edenHead, "III", "III", "I I", 'I', TwilightItemsOther.edenChunk);
+		addRecipe(IS.edenBody, "III", "III", " I ", 'I', TwilightItemsOther.edenChunk);
 		addRecipe(IS.edenLegs, "III", "I I", "I I", 'I', TwilightItemsOther.edenChunk);
 		addRecipe(IS.edenFeet, "   ", "I I", "I I", 'I', TwilightItemsOther.edenChunk);
 
 		//wildwood (Azurite)
-		addRecipe(IS.wildwoodHead, "III", "I I", "   ", 'I', TwilightItemsOther.wildwoodChunk);
-		addRecipe(IS.wildwoodBody, "I I", "III", "III", 'I', TwilightItemsOther.wildwoodChunk);
+		addRecipe(IS.wildwoodHead, "III", "III", "I I", 'I', TwilightItemsOther.wildwoodChunk);
+		addRecipe(IS.wildwoodBody, "III", "III", " I ", 'I', TwilightItemsOther.wildwoodChunk);
 		addRecipe(IS.wildwoodLegs, "III", "I I", "I I", 'I', TwilightItemsOther.wildwoodChunk);
 		addRecipe(IS.wildwoodFeet, "   ", "I I", "I I", 'I', TwilightItemsOther.wildwoodChunk);
 
 		//Apalachia (Uvite)
-		addRecipe(IS.apalachiaHead, "III", "I I", "   ", 'I', TwilightItemsOther.apalachiaChunk);
-		addRecipe(IS.apalachiaBody, "I I", "III", "III", 'I', TwilightItemsOther.apalachiaChunk);
+		addRecipe(IS.apalachiaHead, "III", "III", "I I", 'I', TwilightItemsOther.apalachiaChunk);
+		addRecipe(IS.apalachiaBody, "III", "III", " I ", 'I', TwilightItemsOther.apalachiaChunk);
 		addRecipe(IS.apalachiaLegs, "III", "I I", "I I", 'I', TwilightItemsOther.apalachiaChunk);
 		addRecipe(IS.apalachiaFeet, "   ", "I I", "I I", 'I', TwilightItemsOther.apalachiaChunk);
 
 		//Skythern (Mythril)
-		addRecipe(IS.skythernHead, "III", "I I", "   ", 'I', TwilightItemsOther.skythernChunk);	
-		addRecipe(IS.skythernBody, "I I", "III", "III", 'I', TwilightItemsOther.skythernChunk);
+		addRecipe(IS.skythernHead, "III", "III", "I I", 'I', TwilightItemsOther.skythernChunk);	
+		addRecipe(IS.skythernBody, "III", "III", " I ", 'I', TwilightItemsOther.skythernChunk);
 		addRecipe(IS.skythernLegs, "III", "I I", "I I", 'I', TwilightItemsOther.skythernChunk);
 		addRecipe(IS.skythernFeet, "   ", "I I", "I I", 'I', TwilightItemsOther.skythernChunk);
 
 		//Mortum (Augite)
-		addRecipe(IS.mortumHead, "III", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
-		addRecipe(IS.mortumBody, "I I", "III", "III", 'I', TwilightItemsOther.mortumChunk);
+		addRecipe(IS.mortumHead, "III", "III", "I I", 'I', TwilightItemsOther.mortumChunk);
+		addRecipe(IS.mortumBody, "III", "III", " I ", 'I', TwilightItemsOther.mortumChunk);
 		addRecipe(IS.mortumLegs, "III", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
 		addRecipe(IS.mortumFeet, "   ", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
 
 		/* Weapons and other Stuff */
 
 		//Eden
-		addRecipe(IS.edenBlade, " I ", "III", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
+		addRecipe(IS.edenBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
 		addRecipe(IS.edenBow, " IX", "I X", " IX", 'I', TwilightItemsOther.edenChunk, 'X', Items.string);
-		addRecipe(IS.edenPhaser, " X ", "XXX", " X ", 'X', TwilightItemsOther.edenChunk);
+		addRecipe(IS.edenPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.edenChunk, 'S', Items.stick);
 		addRecipe(IS.edenBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.edenChunk);
 		addShapelessRecipe(IS.edenSlicer, TwilightItemsOther.edenGem);
 		addRecipe(IS.edenArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.edenFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//wildwood
-		addRecipe(IS.wildwoodBlade, " I ", "III", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
+		addRecipe(IS.wildwoodBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
 		addRecipe(IS.wildwoodBow, " IX", "I X", " IX", 'I', TwilightItemsOther.wildwoodChunk, 'X', Items.string);
-		addRecipe(IS.wildwoodPhaser, " X ", "XXX", " X ", 'X', TwilightItemsOther.wildwoodChunk);
+		addRecipe(IS.wildwoodPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
 		addRecipe(IS.wildwoodBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.wildwoodChunk);
 		addShapelessRecipe(IS.wildwoodSlicer, TwilightItemsOther.wildwoodGem);
 		addRecipe(IS.wildwoodArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.wildwoodFragments, 'S', Items.stick, 'Z', Items.feather);
 		//Apalachia
-		addRecipe(IS.apalachiaBlade, " I ", "III", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
+		addRecipe(IS.apalachiaBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
 		addRecipe(IS.apalachiaBow, " IX", "I X", " IX", 'I', TwilightItemsOther.apalachiaChunk, 'X', Items.string);
-		addRecipe(IS.apalachiaPhaser, " X ", "XXX", " X ", 'X', TwilightItemsOther.apalachiaChunk);
+		addRecipe(IS.apalachiaPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
 		addRecipe(IS.apalachiaBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.apalachiaChunk);
 		addShapelessRecipe(IS.apalachiaSlicer, TwilightItemsOther.apalachiaGem);
 		addRecipe(IS.apalachiaArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.wildwoodFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//Skythern
-		addRecipe(IS.skythernBlade, " I ", "III", " S ", 'I', TwilightItemsOther.skythernChunk, 'S', Items.stick);
+		addRecipe(IS.skythernBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.skythernChunk, 'S', Items.stick);
 		addRecipe(IS.skythernBow, " IX", "I X", " IX", 'I', TwilightItemsOther.skythernChunk, 'X', Items.string);
-		addRecipe(IS.skythernPhaser, " X ", "XXX", " X ", 'X', TwilightItemsOther.skythernChunk);
+		addRecipe(IS.skythernPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.skythernChunk, 'S', Items.stick);
 		addRecipe(IS.skythernBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.skythernChunk);
 		addShapelessRecipe(IS.skythernSlicer, TwilightItemsOther.skythernGem);
 		addRecipe(IS.skythernArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.skythernFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//Mortum
-		addRecipe(IS.mortumBlade, " I ", "III", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', Items.stick);
+		addRecipe(IS.mortumBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addRecipe(IS.mortumBow, " IX", "I X", " IX", 'I', TwilightItemsOther.mortumChunk, 'X', Items.string);
-		addRecipe(IS.mortumPhaser, " X ", "XXX", " X ", 'X', TwilightItemsOther.mortumChunk);
+		addRecipe(IS.mortumPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addRecipe(IS.mortumBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.mortumChunk);
 		addShapelessRecipe(IS.mortumSlicer, TwilightItemsOther.mortumGem);
 		addRecipe(IS.mortumArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);

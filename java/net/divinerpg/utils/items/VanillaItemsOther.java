@@ -48,6 +48,7 @@ public class VanillaItemsOther {
     public static Item purpleBlaze;
     public static Item furyFire;
     public static Item aquaBall;
+    public static Item aquaticBlazeRod;
 
     public static Item greenDiamondChunk;
     public static Item grayDiamondChunk;
@@ -106,6 +107,7 @@ public class VanillaItemsOther {
         purpleBlaze        = new ItemMod("purpleBlaze");
         furyFire           = new ItemMod("furyFire");
         aquaBall           = new ItemMod("aquaBall");
+        aquaticBlazeRod	   = new ItemMod("aquaticBlazeRod");
 
         greenDiamondChunk  = new ItemMod("greenDiamondChunk");
         grayDiamondChunk   = new ItemMod("grayDiamondChunk");

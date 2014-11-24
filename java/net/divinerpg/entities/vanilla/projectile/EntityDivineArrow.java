@@ -11,6 +11,7 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -235,7 +236,7 @@ public class EntityDivineArrow extends EntityArrow
             MovingObjectPosition position = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
             vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
             vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-
+            
             if (position != null)
             {
                 vec3 = Vec3.createVectorHelper(position.hitVec.xCoord, position.hitVec.yCoord, position.hitVec.zCoord);
@@ -270,10 +271,7 @@ public class EntityDivineArrow extends EntityArrow
                 }
             }
 
-            if (entity != null)
-            {
-                position = new MovingObjectPosition(entity);
-            }
+            if (entity != null) position = new MovingObjectPosition(entity);
 
             if (position != null && position.entityHit != null && position.entityHit instanceof EntityPlayer)
             {
@@ -316,21 +314,15 @@ public class EntityDivineArrow extends EntityArrow
                     	((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 40, 2));
                     }
 
-                    if (this.isBurning() && !(position.entityHit instanceof EntityEnderman))
-                    {
-                        position.entityHit.setFire(5);
-                    }
+                    if (this.isBurning() && !(position.entityHit instanceof EntityEnderman)) position.entityHit.setFire(5);
+                    if(this.getTextureName() == "infernoArrow") position.entityHit.setFire(12);
 
                     if (position.entityHit.attackEntityFrom(damagesource, (float)k))
                     {
+                    	if(this.getTextureName() == "bluefireArrow") this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
                         if (position.entityHit instanceof EntityLivingBase)
                         {
                             EntityLivingBase entitylivingbase = (EntityLivingBase)position.entityHit;
-
-                            if (!this.worldObj.isRemote)
-                            {
-                                entitylivingbase.setArrowCountInEntity(entitylivingbase.getArrowCountInEntity() + 1);
-                            }
 
                             if (this.knockbackStrength > 0)
                             {
@@ -458,6 +450,11 @@ public class EntityDivineArrow extends EntityArrow
             this.motionY -= (double)f1;
             this.setPosition(this.posX, this.posY, this.posZ);
             this.func_145775_I();
+            
+            if((this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY)-1, (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY), (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX)+1, (int)Math.floor(this.posY), (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX)-1, (int)Math.floor(this.posY), (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY), (int)Math.round(this.posZ)+1) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY), (int)Math.round(this.posZ)-1) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY)+1, (int)Math.round(this.posZ)) != Blocks.air) && this.getTextureName() == "snowstormArrow"){
+            	this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
+            	this.setDead();
+            }
         }
     }
 
