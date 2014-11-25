@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenGlacideDungeon extends WorldGenerator {
+public class WorldGenArcherDungeon extends WorldGenerator {
 
 	public boolean locationIsValidSpawn(World w, int x, int y, int z){
 		for(int i = 0; i < 10; i++) {
@@ -45,11 +45,11 @@ public class WorldGenGlacideDungeon extends WorldGenerator {
 		WorldGenAPI.addRectangle(6, 6, 1, w, x + 19, y, z - 4, IceikaBlocks.icyStone);
 		WorldGenAPI.addRectangle(2, 4, 3, w, x + 21, y + 1, z + 2, Blocks.air);
 		WorldGenAPI.addRectangle(2, 4, 1, w, x + 21, y, z + 2, IceikaBlocks.icyStone);
-		WorldGenAPI.addBlock(w, x + 20, y, z - 1, IceikaBlocks.glacideSpawner);
-		WorldGenAPI.addBlock(w, x + 23, y, z - 1, IceikaBlocks.glacideSpawner);
-		WorldGenAPI.addBlock(w, x + 8, y, z + 1, IceikaBlocks.glacideSpawner);
-		WorldGenAPI.placeIceikaChest(w, x + 24, y + 1, z - 4, 1);
-		WorldGenAPI.placeIceikaChest(w, x + 19, y + 1, z - 4, 1);
+		WorldGenAPI.addBlock(w, x + 20, y, z - 1, IceikaBlocks.frostArcherSpawner);
+		WorldGenAPI.addBlock(w, x + 23, y, z - 1, IceikaBlocks.frostArcherSpawner);
+		WorldGenAPI.addBlock(w, x + 8, y, z + 1, IceikaBlocks.frostArcherSpawner);
+		w.setBlock(x + 24, y + 1, z - 4, IceikaBlocks.frostedChest, 1, 2);
+		w.setBlock(x + 19, y + 1, z - 4, IceikaBlocks.frostedChest, 1, 2);
 		WorldGenAPI.addRectangle(10, 2, 3, w, x - 5, y + 1, z + 1, Blocks.air);
         return true;
     }

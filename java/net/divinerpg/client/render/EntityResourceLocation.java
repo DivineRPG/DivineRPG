@@ -91,6 +91,7 @@ public class EntityResourceLocation {
     public static ResourceLocation crabAnchor 	     = addProjectile("crabAnchor");
     public static ResourceLocation bowheadAnchor 	 = addProjectile("bowheadAnchor");
     public static ResourceLocation ghastCannon  	 = addProjectile("ghastCannon");
+    public static ResourceLocation fractiteShot  	 = addProjectile("fractiteShot");
     
     public static ResourceLocation angryBunny		 = addMob("angryBunny");
     public static ResourceLocation angryBunnyTamed 	 = addMob("angryBunnyTamed");

@@ -3,16 +3,15 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -25,17 +24,8 @@ public class ItemArcaniumSaber extends ItemModSword {
 	}
 
 	@Override
-	public boolean onBlockDestroyed(ItemStack var1, World var2, Block var3, int x, int y, int z, EntityLivingBase var6) {
-		if(ArcanaHelper.useBar(12)) {
-			Sounds.playSound(var6, var2, Sounds.arcaniumSaber);
-			return true;
-		}
-		return false;
-	}
-
-	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (ArcanaHelper.useBar(12)) {
+		if (ArcanaHelper.getProperties(player).useBar(12)) {
 			Sounds.playSound(player, player.worldObj, Sounds.arcaniumSaber);
 			return false;
 		}
@@ -44,7 +34,7 @@ public class ItemArcaniumSaber extends ItemModSword {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
-		if(ArcanaHelper.useBar(12)) {
+		if(ArcanaHelper.getProperties(var3).useBar(12)) {
 			Sounds.playSound(var3, var2, Sounds.arcaniumSaber);
 			var3.setItemInUse(var1, this.getMaxItemUseDuration(var1));
 		}

@@ -24,6 +24,7 @@ import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -96,6 +97,12 @@ public class BlockModPortal extends BlockBreakable {
                     entity.timeUntilPortal = entity.getPortalCooldown();
             }
         }
+    }
+    
+    @Override
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+    {
+    	return null;
     }
 
     @Override

@@ -1,15 +1,14 @@
 package net.divinerpg.entities.arcana;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.api.entity.EntityDivineRPGTameable;
-import net.divinerpg.client.ArcanaHelper;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -29,8 +28,8 @@ public class EntitySeimer extends EntityDivineRPGTameable {
         this.setSize(1.0F, 1.0F);
         this.getNavigator().setAvoidsWater(true);
         this.tasks.addTask(1, new EntityAISwimming(this));
-        //this.tasks.addTask(2, this.aiSit);
-        //this.tasks.addTask(4, new EntityAIFollowOwner(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 4.0F, 2.0F));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(4, new EntityAIFollowOwner(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 4.0F, 2.0F));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.regenTimer = 0;
@@ -80,9 +79,9 @@ public class EntitySeimer extends EntityDivineRPGTameable {
     public void onUpdate() {
         super.onUpdate();
 
-        if (this.getOwner() != null) {
+        if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
             if (this.regenTimer >= 2) {
-                ArcanaHelper.regen(1);
+            	ArcanaHelper.getProperties((EntityPlayer)this.getOwner()).regen(1);
                 this.regenTimer = 0;
             } else {
                 ++this.regenTimer;

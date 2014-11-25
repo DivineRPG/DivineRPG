@@ -29,7 +29,7 @@ public class EntityFractiteShot extends EntityFireball {
 	protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
 		if (!this.worldObj.isRemote) {
 			if (par1MovingObjectPosition.entityHit != null) {
-				par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.shootingEntity), 20);
+				par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 20);
 			}
 
 			this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 3.0F, false);
@@ -40,7 +40,9 @@ public class EntityFractiteShot extends EntityFireball {
 	@SideOnly(Side.CLIENT)
 	public void onUpdate() {
 		super.onUpdate();
-		EntityWildWoodPortalFX var20 = new EntityWildWoodPortalFX(this.worldObj, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
-		FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+		for(int i = 0; i<5; i++){
+			EntityWildWoodPortalFX var20 = new EntityWildWoodPortalFX(this.worldObj, this.posX+(this.rand.nextDouble()-this.rand.nextDouble())/3, this.posY + 0.5D+(this.rand.nextDouble()-this.rand.nextDouble())/3, this.posZ+(this.rand.nextDouble()-this.rand.nextDouble())/3, 0.0D, 0.0D, 0.0D);
+			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+		}
 	}
 }

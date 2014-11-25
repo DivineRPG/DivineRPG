@@ -74,7 +74,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 		
 		dungeons = new ArrayList(1);
 		dungeons.add(new WorldGenRollumDungeon());
-		dungeons.add(new WorldGenGlacideDungeon());
+		dungeons.add(new WorldGenArcherDungeon());
 		
 		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
 		this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);

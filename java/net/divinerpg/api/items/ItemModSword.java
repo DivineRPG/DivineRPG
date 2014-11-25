@@ -35,13 +35,13 @@ public class ItemModSword extends ItemSword {
     
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (canUseSpecialEffect()) this.useSpecialEffect(world, player);
+        if (canUseSpecialEffect(player)) this.useSpecialEffect(world, player);
         return super.onItemRightClick(stack, world, player);
     }
     
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        if (canUseSpecialEffect()) this.useSpecialEffect(player.worldObj, player);
+        if (canUseSpecialEffect(player)) this.useSpecialEffect(player.worldObj, player);
         return false;
     }
 
@@ -59,7 +59,7 @@ public class ItemModSword extends ItemSword {
         infoList.add(ChatFormats.DIVINERPG);
     }
     
-    protected boolean canUseSpecialEffect() { return false; }
+    protected boolean canUseSpecialEffect(EntityPlayer player) { return false; }
     protected void useSpecialEffect(World world, EntityPlayer player) {}
     protected void addAdditionalInformation(List list) {}
 

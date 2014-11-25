@@ -1,6 +1,5 @@
 package net.divinerpg.utils.events;
 
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.config.ConfigurationHelper;
@@ -56,10 +55,10 @@ public class EventArmorTick {
 
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
             if (event.player.capabilities.isFlying && !event.player.capabilities.isCreativeMode) {
-                ArcanaHelper.removeBarValue(0.2);
+                ArcanaHelper.getProperties(event.player).removeBarValue(0.2F);
             }
             if(!event.player.capabilities.isCreativeMode){
-            	if (ArcanaHelper.getBarValue() >= 0) {
+            	if (ArcanaHelper.getProperties(event.player).getBarValue() >= 0) {
             		event.player.capabilities.allowFlying = true;
             	} else {
             		event.player.capabilities.isFlying = false;
@@ -91,6 +90,11 @@ public class EventArmorTick {
                     event.player.setHealth(current + 0.1F);
                 }
             }
+        }
+        
+      //Korma
+        if (boots == ArcanaItems.kormaBoots && body == ArcanaItems.kormaBody && legs == ArcanaItems.kormaLegs && helmet == ArcanaItems.kormaHelmet) {
+        	ArcanaHelper.getProperties(event.player).regen(1);
         }
 
         //Vemos

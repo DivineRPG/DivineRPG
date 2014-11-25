@@ -3,9 +3,9 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemModRanged;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -22,12 +22,12 @@ public class ItemStaffStarlight extends ItemModRanged {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-        float rotationPitch = par3EntityPlayer.rotationPitch;
-        float rotationYaw = par3EntityPlayer.rotationYaw;
-        double x = par3EntityPlayer.posX;
-        double y = par3EntityPlayer.posY + 1.62D - (double) par3EntityPlayer.yOffset;
-        double z = par3EntityPlayer.posZ;
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        float rotationPitch = player.rotationPitch;
+        float rotationYaw = player.rotationYaw;
+        double x = player.posX;
+        double y = player.posY + 1.62D - (double) player.yOffset;
+        double z = player.posZ;
         Vec3 worldVector = Vec3.createVectorHelper(x, y, z);
         float yawAngleCos = MathHelper.cos(-rotationYaw * 0.01745329F - (float) Math.PI);
         float yawAngleSin = MathHelper.sin(-rotationYaw * 0.01745329F - (float) Math.PI);
@@ -37,9 +37,9 @@ public class ItemStaffStarlight extends ItemModRanged {
         float zVec = yawAngleCos * pitchAngle;
         double multiplyer = 30.0D;
         Vec3 worldVector2 = worldVector.addVector((double) xVec * multiplyer, (double) yVec * multiplyer, (double) zVec * multiplyer);
-        MovingObjectPosition objPos = par2World.rayTraceBlocks(worldVector, worldVector2);
+        MovingObjectPosition objPos = world.rayTraceBlocks(worldVector, worldVector2);
 
-        if (objPos == null) return par1ItemStack;
+        if (objPos == null) return stack;
         if (objPos.typeOfHit == MovingObjectType.BLOCK) {
             int blockX = objPos.blockX;
             int blockY = objPos.blockY;
@@ -53,21 +53,21 @@ public class ItemStaffStarlight extends ItemModRanged {
             if (side == 4) --blockX;
             if (side == 5) ++blockX;
 
-            if (par1ItemStack.getItem() == ArcanaItems.staffStarlight) {
-                if (!par2World.isRemote && ArcanaHelper.useBar(25)) {
+            if (stack.getItem() == ArcanaItems.staffStarlight) {
+                if (!world.isRemote && ArcanaHelper.getProperties(player).useBar(25)) {
                     for (int i = 0; i < 8; i++)
-                        par2World.spawnEntityInWorld(new EntityStar(par2World, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
-                    Sounds.playSound(Sounds.starlight, par2World, par3EntityPlayer, 1.0F, 0.5F);
+                        world.spawnEntityInWorld(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                    Sounds.playSound(Sounds.starlight, world, player, 1.0F, 0.5F);
                 }
             } else {
-                if (!par2World.isRemote && ArcanaHelper.useBar(5)) {
-                    par2World.spawnEntityInWorld(new EntityStar(par2World, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
-                    Sounds.playSound(par3EntityPlayer, par2World, Sounds.starlight);
+                if (!world.isRemote && ArcanaHelper.getProperties(player).useBar(5)) {
+                    world.spawnEntityInWorld(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                    Sounds.playSound(player, world, Sounds.starlight);
                 }
             }
-            par3EntityPlayer.getLook(1);
+            player.getLook(1);
         }
-        return par1ItemStack;
+        return stack;
     }
 
     @Override

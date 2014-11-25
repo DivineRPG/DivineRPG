@@ -1,7 +1,7 @@
 package net.divinerpg.utils.proxies;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.client.ArcanaTickHandler;
+import net.divinerpg.client.ArcanaRenderer;
 import net.divinerpg.client.ClientTickHandler;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.client.render.BossTickHandler;
@@ -14,11 +14,9 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
-import net.divinerpg.utils.SoundGenerator;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.events.EventClientLogin;
-import net.divinerpg.utils.events.EventExtraArmor;
 import net.divinerpg.utils.events.EventOverlay;
 import net.divinerpg.utils.events.EventStaffLogin;
 
@@ -33,8 +31,8 @@ public class ClientProxy extends CommonProxy {
         LogHelper.info("Adding events");
         if(ConfigurationHelper.canShowWelcomeChat) Util.addEventBus(new EventClientLogin());
         else Util.addEventBus(new EventStaffLogin());
-        Util.addSpecialEventBus(new ArcanaTickHandler());
         Util.addSpecialEventBus(new ClientTickHandler());
+        Util.addSpecialEventBus(new ArcanaRenderer());
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
             Util.addEventBus(new EventOverlay());

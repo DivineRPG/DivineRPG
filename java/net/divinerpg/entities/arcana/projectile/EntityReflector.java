@@ -1,6 +1,6 @@
 package net.divinerpg.entities.arcana.projectile;
 
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -11,7 +11,7 @@ public class EntityReflector extends EntityThrowable {
         super(var1);
     }
 
-    public EntityReflector(World var1, EntityLiving var2) {
+    public EntityReflector(World var1, EntityLivingBase var2) {
         super(var1, var2);
     }
 

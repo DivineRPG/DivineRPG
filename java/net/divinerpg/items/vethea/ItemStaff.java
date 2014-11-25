@@ -3,18 +3,17 @@ package net.divinerpg.items.vethea;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.VetheaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -45,7 +44,7 @@ public class ItemStaff extends ItemMod {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1, World par2, EntityPlayer par3) {
-		if (!par2.isRemote && ArcanaHelper.useBar(this.cost)) {		
+		if (!par2.isRemote && ArcanaHelper.getProperties(par3).useBar(this.cost)) {		
 			if(par1.getItem() == VetheaItems.evernight){
 				par3.attackEntityFrom(new EntityDamageSourceIndirect("arcana", par3, par3).setMagicDamage(), 16);
 				par2.spawnEntityInWorld(new EntityEvernightProjectile(par2, par3, this.damage));

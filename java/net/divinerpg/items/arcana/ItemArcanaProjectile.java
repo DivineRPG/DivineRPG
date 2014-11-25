@@ -3,18 +3,17 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
 import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -30,22 +29,22 @@ public class ItemArcanaProjectile extends ItemMod {
 		this.damage = damage;
 	}
 
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		Item item = par1ItemStack.getItem();
-		if(!par2World.isRemote){
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		Item item = stack.getItem();
+		if(!world.isRemote){
 			if(item == ArcanaItems.firefly){
-				if(ArcanaHelper.useBar(arcana)) {
-					Sounds.playSound(par3EntityPlayer, par2World, Sounds.firefly);
-					par2World.spawnEntityInWorld(new EntityFirefly(par2World, par3EntityPlayer, 0.6F, 50));
+				if(ArcanaHelper.getProperties(player).useBar(arcana)) {
+					Sounds.playSound(player, world, Sounds.firefly);
+					world.spawnEntityInWorld(new EntityFirefly(world, player, 0.6F, 50));
 				}
 			}
 			if(item == ArcanaItems.grenadeLauncher){
-				par3EntityPlayer.inventory.consumeInventoryItem(ArcanaItems.grenade);
-				Sounds.playSound(par3EntityPlayer, par2World, Sounds.laVekor);
-				par2World.spawnEntityInWorld(new EntityGrenade(par2World, par3EntityPlayer));
+				player.inventory.consumeInventoryItem(ArcanaItems.grenade);
+				Sounds.playSound(player, world, Sounds.laVekor);
+				world.spawnEntityInWorld(new EntityGrenade(world, player));
 			}
 		}
-		return par1ItemStack;
+		return stack;
 	}
 	
 	@Override

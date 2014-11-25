@@ -82,7 +82,7 @@ public class Util {
     }
 
     public static void registerProjectile(Class entityClass, String entityName) {
-        EntityRegistry.registerModEntity(entityClass, entityName + " Projectile", projectileID, DivineRPG.instance, 250, 5, true);
+        EntityRegistry.registerModEntity(entityClass, entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
         projectileID++;
     }
 

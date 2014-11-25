@@ -3,9 +3,9 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -28,19 +27,12 @@ public class ItemShadowSword extends ItemModSword {
     }
 
     @Override
-    public boolean hitEntity(ItemStack var1, EntityLivingBase var2, EntityLivingBase var3) {
-        if(ArcanaHelper.useBar(12)) {
-    		var3.worldObj.playSoundAtEntity(var3, Sounds.shadowSaber.getPrefixedName(), 1.0F, 1.0F);
-        	var3.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5 * 20, 1));
+    public boolean hitEntity(ItemStack stack, EntityLivingBase hitter, EntityLivingBase target) {
+        if(ArcanaHelper.getProperties((EntityPlayer)hitter).useBar(12)) {
+    		target.worldObj.playSoundAtEntity(target, Sounds.shadowSaber.getPrefixedName(), 1.0F, 1.0F);
+        	target.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5 * 20, 1));
         }
         return true;
-    }
-
-    @Override
-    public boolean onBlockDestroyed(ItemStack i, World w, Block b, int x, int y, int z, EntityLivingBase e) {
-        if(ArcanaHelper.useBar(12))
-        	return true;
-        return false;
     }
 
     @Override

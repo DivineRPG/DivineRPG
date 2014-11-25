@@ -3,7 +3,6 @@ package net.divinerpg.utils.events;
 import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.DivineRPGAchievements;
@@ -25,7 +24,6 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;

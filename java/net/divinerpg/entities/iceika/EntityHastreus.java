@@ -1,13 +1,12 @@
 package net.divinerpg.entities.iceika;
 
+import java.util.List;
+
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.IceikaItems;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -21,10 +20,10 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.MathHelper;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class EntityHastreus extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityHastreus extends EntityDivineRPGMob {
 	
     public EntityHastreus(World var1) {
         super(var1);
@@ -33,7 +32,6 @@ public class EntityHastreus extends EntityDivineRPGMob implements IRangedAttackM
         this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));
-        this.tasks.addTask(2, new EntityAIArrowAttack(this, moveSpeed, 60, 10.0F));
         this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, moveSpeed, false));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, moveSpeed));
         this.tasks.addTask(5, new EntityAIMoveThroughVillage(this, moveSpeed, false));
@@ -63,6 +61,13 @@ public class EntityHastreus extends EntityDivineRPGMob implements IRangedAttackM
         if(this.worldObj.isDaytime() && !this.worldObj.isRemote) {
             float var1 = this.getBrightness(1.0F);
         }
+        
+        List<Entity> e = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(5, 5, 5));
+        
+        for(Entity entity : e) {
+        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 12, 18, true));
+        }
+        
         super.onLivingUpdate();
     }
 
@@ -92,23 +97,6 @@ public class EntityHastreus extends EntityDivineRPGMob implements IRangedAttackM
         for (var4 = 0; var4 < var3; ++var4) {
             this.dropItem(IceikaItems.iceShards, 3);
         }
-    }
-
-    @Override
-    public void attackEntityWithRangedAttack(EntityLivingBase par1EntityLiving, float f) {
-        /*EntityIce var2 = new EntityIce(this.worldObj);
-        var2.rotationPitch -= -20.0F;
-        double var3 = par1EntityLiving.posX + par1EntityLiving.motionX - this.posX;
-        double var5 = par1EntityLiving.posY + par1EntityLiving.getEyeHeight() - 1.100000023841858D - this.posY;
-        double var7 = par1EntityLiving.posZ + par1EntityLiving.motionZ - this.posZ;
-        float var9 = MathHelper.sqrt_double(var3 * var3 + var7 * var7);
-
-        if (var9 >= 8.0F && !par1EntityLiving.isPotionActive(Potion.moveSlowdown)) {
-            //var2.set(32698);
-        }
-
-        var2.setThrowableHeading(var3, var5 + var9 * 0.2F, var7, 0.75F, 8.0F);
-        this.worldObj.spawnEntityInWorld(var2);*/
     }
 
 	@Override

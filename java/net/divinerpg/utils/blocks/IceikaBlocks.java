@@ -37,7 +37,7 @@ public class IceikaBlocks {
     public static final Block icyBricks           = new BlockMod("icyBricks", -1F);
     public static final Block frostedChest        = new BlockFrostedChest("frostedChest").setHardness(2.5F);
     public static final Block rollumSpawner       = new BlockModSpawner("rollumSpawner", "Rollum").setHardness(5.0F);
-    public static final Block glacideSpawner      = new BlockModSpawner("glacideSpawner", "Glacide").setHardness(5.0F);
+    public static final Block frostArcherSpawner  = new BlockModSpawner("frostArcherSpawner", "FrostArcher").setHardness(5.0F);
     public static final Block iceikaLava 		  = new BlockIceikaLava();
     public static final Block snowBricks          = new BlockMod("snowBricks", 6.0F);
     public static final Block coalstone           = new BlockMod("coalstone", 3.0F);
@@ -51,5 +51,5 @@ public class IceikaBlocks {
     public static final Block coalstoneFurnaceOn  = new BlockCoalstoneFurnace("coalstoneFurnaceActive", true);
 
     public static final Block iceikaFire          = new BlockIceikaFire("iceikaFire");
-    public static final Block iceikaPortal              = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
+    public static final Block iceikaPortal        = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
 }

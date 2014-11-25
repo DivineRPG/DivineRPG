@@ -48,8 +48,8 @@ public class WorldGenRollumDungeon extends WorldGenerator {
 		WorldGenAPI.addBlock(w, x + 20, y, z - 1, IceikaBlocks.rollumSpawner);
 		WorldGenAPI.addBlock(w, x + 23, y, z - 1, IceikaBlocks.rollumSpawner);
 		WorldGenAPI.addBlock(w, x + 8, y, z + 1, IceikaBlocks.rollumSpawner);
-		WorldGenAPI.placeIceikaChest(w, x + 24, y + 1, z - 4, 1);
-		WorldGenAPI.placeIceikaChest(w, x + 19, y + 1, z - 4, 1);
+		w.setBlock(x + 24, y + 1, z - 4, IceikaBlocks.frostedChest, 1, 2);
+		w.setBlock(x + 19, y + 1, z - 4, IceikaBlocks.frostedChest, 1, 2);
 		WorldGenAPI.addRectangle(10, 2, 3, w, x - 5, y + 1, z + 1, Blocks.air);
         return true;
     }

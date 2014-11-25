@@ -119,7 +119,6 @@ public class ItemModBow extends ItemBow {
         if (infiniteAmmo || player.inventory.hasItem(arrow)) {
         	float timeRatio = DEFAULT_MAX_USE_DURATION/this.getMaxItemUseDuration(stack);
             float scaledItemUse = ((float) maxItemUse / 20.0F)*timeRatio;
-            System.out.println(timeRatio);
             scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;
             if ((double) scaledItemUse < 0.1) return;
             if (scaledItemUse > 1) scaledItemUse = 1;

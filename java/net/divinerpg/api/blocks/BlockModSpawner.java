@@ -25,7 +25,7 @@ public class BlockModSpawner extends BlockContainer {
     public BlockModSpawner(String name, String mobName, String textureName) {
         super(Material.rock);
         this.name = name;
-        this.mobName = mobName;
+        this.mobName = "divinerpg." + mobName;
         setBlockName(name);
         setBlockTextureName(Reference.PREFIX + textureName);
         setCreativeTab(DivineRPGTabs.spawner);

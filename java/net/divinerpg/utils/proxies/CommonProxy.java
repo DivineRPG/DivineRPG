@@ -31,7 +31,9 @@ import net.divinerpg.utils.entities.MobSpawning;
 import net.divinerpg.utils.entities.TwilightEntityRegistry;
 import net.divinerpg.utils.entities.VanillaEntityRegistry;
 import net.divinerpg.utils.entities.VetheaEntityRegistry;
+import net.divinerpg.utils.events.ArcanaTickHandler;
 import net.divinerpg.utils.events.DivineRPGCommands;
+import net.divinerpg.utils.events.EntityConstructorEvent;
 import net.divinerpg.utils.events.EventArmorFullSet;
 import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.EventBonemeal;
@@ -71,6 +73,8 @@ public class CommonProxy{
 		Util.addEventBus(new EventLightningStrike());
 		Util.addEventBus(new EventHarvest());
 		Util.addEventBus(new EventDeath());
+        Util.addSpecialEventBus(new ArcanaTickHandler());
+        Util.addEventBus(new EntityConstructorEvent());
 		LogHelper.info("Registering tile entities");
 		ItemsFood.init();
 		VanillaBlocks.init();

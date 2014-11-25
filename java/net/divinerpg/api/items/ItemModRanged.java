@@ -30,7 +30,7 @@ public class ItemModRanged extends ItemMod {
     
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if(!world.isRemote && additionalRightClickChecks()){
+        if(!world.isRemote && additionalRightClickChecks(player)){
             if(sound != null)
                 Sounds.getSoundName(sound);
             try {
@@ -42,7 +42,7 @@ public class ItemModRanged extends ItemMod {
         return stack;
     }
     
-    protected boolean additionalRightClickChecks(){
+    protected boolean additionalRightClickChecks(EntityPlayer player){
         return true;
     }
     

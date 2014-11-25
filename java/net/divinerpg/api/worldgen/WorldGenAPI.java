@@ -94,7 +94,7 @@ public class WorldGenAPI {
 		TileEntityChest chest = (TileEntityChest)w.getTileEntity(x, y, z);
 		if(chest != null && !w.isRemote){
 			for(int i = 0; i < r.nextInt(4) + 1; i++){
-				chest.setInventorySlotContents(r.nextInt(26) + 1, new ItemStack(IceikaItems.snowflake));
+				chest.setInventorySlotContents(r.nextInt(26) + 1, new ItemStack(IceikaItems.peppermints));
 			}
 		}
 	}

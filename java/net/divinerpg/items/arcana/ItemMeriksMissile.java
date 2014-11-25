@@ -4,10 +4,10 @@ import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -53,20 +53,20 @@ public class ItemMeriksMissile extends ItemMod {
 	}
 
 	@Override
-	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4) {
-		if(par1ItemStack.getItem() == ArcanaItems.meriksMissile){
-			int var6 = this.getMaxItemUseDuration(par1ItemStack) - par4;
-			boolean var5 = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
-			if(ArcanaHelper.useBar(arcana)) {
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int par4) {
+		if(stack.getItem() == ArcanaItems.meriksMissile){
+			int var6 = this.getMaxItemUseDuration(stack) - par4;
+			boolean var5 = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
+			if(ArcanaHelper.getProperties(player).useBar(arcana)) {
 				float var7 = (float)var6 / 20.0F;
 				var7 = (var7 * var7 + var7 * 2.0F) / 3.0F;
 				if ((double)var7 < 0.1D) return;
 				if (var7 > 1.0F) var7 = 1.0F;
-				EntityMerikMissile var8 = new EntityMerikMissile(par2World, par3EntityPlayer, 0.6F, 300);
-				int var9 = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+				EntityMerikMissile var8 = new EntityMerikMissile(world, player, 0.6F, 300);
+				int var9 = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
 				if (var9 > 0) var8.setDamage((int) ((var7 * (double)var9 * 0.5D + 0.5D) * 2));
-				par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + var7 * 0.5F);
-				if (!par2World.isRemote)  par2World.spawnEntityInWorld(var8);
+				world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + var7 * 0.5F);
+				if (!world.isRemote)  world.spawnEntityInWorld(var8);
 			}
 		}
 	}

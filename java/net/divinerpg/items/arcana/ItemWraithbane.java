@@ -3,9 +3,9 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.client.ArcanaHelper;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -22,7 +22,7 @@ public class ItemWraithbane extends ItemMod {
 	public boolean onItemUse(ItemStack i, EntityPlayer p, World w, int x, int y, int z, int i1, float j, float k, float l) {
 		EntityWraith wraith = new EntityWraith(w, p);
 		if(!w.isRemote){
-			if(ArcanaHelper.useBar(200)) {
+			if(ArcanaHelper.getProperties(p).useBar(200)) {
 				wraith.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
 				w.spawnEntityInWorld(wraith);
 				return true;
