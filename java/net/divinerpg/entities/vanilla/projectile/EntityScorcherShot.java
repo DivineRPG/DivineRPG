@@ -73,6 +73,17 @@ public class EntityScorcherShot extends EntityFireball{
 	}
 	
 	@Override
+	public void onEntityUpdate() {
+		super.onEntityUpdate();
+		if(!this.worldObj.isRemote) {
+			this.posX += (this.rand.nextDouble()-this.rand.nextDouble())/3;
+			this.posY += (this.rand.nextDouble()-this.rand.nextDouble())/3;
+			this.posZ += (this.rand.nextDouble()-this.rand.nextDouble())/3;
+		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
 	public void onUpdate() {
 		super.onUpdate();
 		if(this.worldObj.isRemote) {
@@ -81,10 +92,6 @@ public class EntityScorcherShot extends EntityFireball{
 				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 			}
 		}
-		if(!this.worldObj.isRemote) {
-			this.posX += (this.rand.nextDouble()-this.rand.nextDouble())/3;
-			this.posY += (this.rand.nextDouble()-this.rand.nextDouble())/3;
-			this.posZ += (this.rand.nextDouble()-this.rand.nextDouble())/3;
-		}
+		
 	}
 }

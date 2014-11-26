@@ -9,6 +9,7 @@ import net.divinerpg.dimensions.vethea.all.FloatingTree4;
 import net.divinerpg.dimensions.vethea.all.FloatingTree5;
 import net.divinerpg.dimensions.vethea.all.FloatingTree6;
 import net.divinerpg.dimensions.vethea.all.FloatingTree7;
+import net.divinerpg.dimensions.vethea.all.InfusionOutpost;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
 
@@ -21,6 +22,8 @@ public class VetheanChunkBuilder {
 	private static IVetheanStructure floatingTree5 = new FloatingTree5();
 	private static IVetheanStructure floatingTree6 = new FloatingTree6();
 	private static IVetheanStructure floatingTree7 = new FloatingTree7();
+	
+	private static IVetheanStructure infusion = new InfusionOutpost();
 
 	private static Random rand = new Random();
 	private int tree1Countl1 = 0;
@@ -58,6 +61,10 @@ public class VetheanChunkBuilder {
 	private boolean shouldGenTree5 = rand.nextInt(2) == 0;
 	private boolean shouldGenTree6 = rand.nextInt(2) == 0;
 	private boolean shouldGenTree7 = rand.nextInt(2) == 0;
+	private boolean containsInfusionTableL1 = false;
+	private boolean containsInfusionTableL2 = false;
+	private boolean containsInfusionTableL3 = false;
+	private boolean containsInfusionTableL4 = false;
 
 
 	public Block[][][] buildChunk(){
@@ -207,6 +214,26 @@ public class VetheanChunkBuilder {
 					if(tree7Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
 						tree7Countl4++;
 						floatingTree7.generate(chunk, x, y, z);
+					}
+					
+					if(!containsInfusionTableL1 && y == 17 && rand.nextInt(1550) == 0 && x+9<16 && z+9<16){
+						containsInfusionTableL1 = true;
+						infusion.generate(chunk, x, y, z);
+					}
+					
+					if(!containsInfusionTableL2 && y == 65 && rand.nextInt(1550) == 0 && x+9<16 && z+9<16){
+						containsInfusionTableL2 = true;
+						infusion.generate(chunk, x, y, z);
+					}
+					
+					if(!containsInfusionTableL3 && y == 113 && rand.nextInt(1550) == 0 && x+9<16 && z+9<16){
+						containsInfusionTableL3 = true;
+						infusion.generate(chunk, x, y, z);
+					}
+					
+					if(!containsInfusionTableL4 && y == 161 && rand.nextInt(1550) == 0 && x+9<16 && z+9<16){
+						containsInfusionTableL4 = true;
+						infusion.generate(chunk, x, y, z);
 					}
 
 				}

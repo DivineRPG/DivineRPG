@@ -37,6 +37,7 @@ public class EntityFractiteShot extends EntityFireball {
 		}
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void onUpdate() {
 		super.onUpdate();

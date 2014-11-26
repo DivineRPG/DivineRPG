@@ -47,7 +47,9 @@ public class EntityDisk extends EntityThrowable
     public void onUpdate()
     {
         super.onUpdate();
-        this.setVelocity(this.motionX / 0.99D, this.motionY / 0.99D, this.motionZ / 0.99D);
+        this.motionX  = this.motionX / 0.99D;
+        this.motionY  = this.motionY / 0.99D;
+        this.motionZ  = this.motionZ / 0.99D;
         if (this.counter == 0 && !this.rebound && this.getThrower() != null && this.collideCounter == 0)
         {
             this.motionX *= -1;

@@ -98,7 +98,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 	//private final WorldGenerator purpleGemTops;
 	private final WorldGenerator yellowDulahs;
 	private final WorldGenerator greenDulahs;
-	private final WorldGenerator infusion;
 	private final WorldGenerator hungerVillages;
 	private final WorldGenerator grassClusters;
 
@@ -164,7 +163,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		
 		ceilingTexture = new WorldGenConeUp();
 		pillar = new WorldGenVetheanPillar();
-		infusion = new InfusionOutpost();
 		firecrystals = new WorldGenMinable(VetheaBlocks.fireCrystal, 90, VetheaBlocks.dreamGrass);
 		hungerVillages = new WorldGenVillageIsland();
 		grassClusters = new WorldGenMinable(VetheaBlocks.dreamGrass, 16, VetheaBlocks.dreamStone);
@@ -371,15 +369,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var13 = rand.nextInt(256);
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(firecrystals).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				if (this.rand.nextInt(32) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 17;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(this.worldObj.isAirBlock(var12, var13, var14))
-						var13--;
-					infusion.generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(32) == 0) {

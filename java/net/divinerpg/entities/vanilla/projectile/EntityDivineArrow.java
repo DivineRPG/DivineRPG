@@ -319,7 +319,7 @@ public class EntityDivineArrow extends EntityArrow
 
                     if (position.entityHit.attackEntityFrom(damagesource, (float)k))
                     {
-                    	if(this.getTextureName() == "bluefireArrow") this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
+                    	if(this.getTextureName() == "bluefireArrow" || this.getTextureName() == "snowstormArrow") this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
                         if (position.entityHit instanceof EntityLivingBase)
                         {
                             EntityLivingBase entitylivingbase = (EntityLivingBase)position.entityHit;
