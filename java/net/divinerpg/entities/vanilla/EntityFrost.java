@@ -65,13 +65,13 @@ public class EntityFrost extends EntityDivineRPGMob {
                 this.heightOffsetUpdateTime = 100;
                 this.heightOffset = 0.5F + (float)this.rand.nextGaussian() * 3.0F;
             }
+        }
 
             if(this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double)this.getEntityToAttack().getEyeHeight() + 5 > this.posY + (double)this.getEyeHeight() + (double)this.heightOffset) {
                 this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
             }else if(this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double)this.getEntityToAttack().getEyeHeight() <= this.posY + (double)this.getEyeHeight() + (double)this.heightOffset) {
                 this.attackEntity(this.getEntityToAttack(), this.getDistanceToEntity(this.getEntityToAttack()));
             }
-        }
 
         if(!this.onGround && this.motionY < 0.0D) {
             this.motionY *= 0.6D;

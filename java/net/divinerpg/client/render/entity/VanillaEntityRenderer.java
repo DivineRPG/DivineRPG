@@ -86,6 +86,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityGhastCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
+import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
@@ -163,8 +164,9 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoYellow.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Yellow, s.ayeracoYellowBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAncientEntity.class, new RenderDivineBoss(new ModelAncientEntity(), 0.0F, 5.0F, x.ancient, s.ancientEntityBossID));
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderProjectile(x.frostShot));
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderProjectile(x.frostShot, 0.75f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityScorcherShot.class, new RenderProjectile(x.scorcherShot, 0.5f));
+
         RenderingRegistry.registerEntityRenderingHandler(EntityDivineArrow.class, new RenderDivineArrow());
 		
 		Util.registerItemRenderer(VanillaBlocks.KingStatue, new RenderStatueItem(VanillaBlocks.KingStatue));

@@ -87,6 +87,7 @@ public class EntityResourceLocation {
     public static ResourceLocation watcherShot 	     = addProjectile("watcherShot");
     public static ResourceLocation cyclopsShot 	     = addProjectile("cyclopsShot");
     public static ResourceLocation frostShot 	     = addProjectile("frostShot");
+    public static ResourceLocation scorcherShot 	 = addProjectile("scorcherShot");
     public static ResourceLocation maelstorm 	     = addProjectile("maelstorm");
     public static ResourceLocation crabAnchor 	     = addProjectile("crabAnchor");
     public static ResourceLocation bowheadAnchor 	 = addProjectile("bowheadAnchor");

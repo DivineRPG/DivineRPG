@@ -1,6 +1,8 @@
 package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
+import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.Entity;
@@ -8,7 +10,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -72,17 +73,27 @@ public class EntityScorcher extends EntityDivineRPGMob {
 				this.attackEntityFrom(DamageSource.drown, 1);
 			}
 
+			if(this.entityToAttack == null && this.worldObj.getClosestVulnerablePlayerToEntity(this, 22F) != null){
+            	this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, 22F);
+            }
+            
+            if(this.getEntityToAttack() != null && this.getEntityToAttack() instanceof EntityPlayer && ((EntityPlayer)this.getEntityToAttack()).capabilities.isCreativeMode) {
+            	this.entityToAttack = null;
+            }
+            
 			--this.heightOffsetUpdateTime;
 
 			if (this.heightOffsetUpdateTime <= 0) {
 				this.heightOffsetUpdateTime = 100;
 				this.heightOffset = 0.5F + (float)this.rand.nextGaussian() * 3.0F;
 			}
+		}
 
 			if (this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double)this.getEntityToAttack().getEyeHeight() > this.posY + (double)this.getEyeHeight() + (double)this.heightOffset) {
 				this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
-			}
-		}
+			}else if(this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double)this.getEntityToAttack().getEyeHeight() <= this.posY + (double)this.getEyeHeight() + (double)this.heightOffset) {
+                this.attackEntity(this.getEntityToAttack(), this.getDistanceToEntity(this.getEntityToAttack()));
+            }
 
 		if (this.rand.nextInt(24) == 0) {
 			this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, "fire.fire", 1.0F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F);
@@ -95,6 +106,8 @@ public class EntityScorcher extends EntityDivineRPGMob {
 		for (int var1 = 0; var1 < 2; ++var1) {
 			this.worldObj.spawnParticle("largesmoke", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0.0D, 0.0D, 0.0D);
 		}
+		
+	    this.worldObj.spawnParticle("portal", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0.0D, 0.0D, 0.0D);
 
 		super.onLivingUpdate();
 	}
@@ -130,10 +143,9 @@ public class EntityScorcher extends EntityDivineRPGMob {
 					this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1009, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
 
 					for (int var10 = 0; var10 < 1; ++var10) {
-						//TODO EntityPurpleFireball var11 = new EntityPurpleFireball(this.worldObj, this, var3 + this.rand.nextGaussian() * (double)var9, var5, var7 + this.rand.nextGaussian() * (double)var9);
-						EntitySmallFireball var11 = new EntitySmallFireball(this.worldObj, this, var3 + this.rand.nextGaussian() * (double)var9, var5, var7 + this.rand.nextGaussian() * (double)var9);
-						var11.posY = this.posY + (double)(this.height / 2.0F) + 1.5D;
-						this.worldObj.spawnEntityInWorld(var11);
+						EntityScorcherShot entity = new EntityScorcherShot(this.worldObj, this, var3, var5, var7);
+                        entity.posY = this.posY + (double)(this.height / 2.0F) + 1.5D;
+                        this.worldObj.spawnEntityInWorld(entity);
 					}
 				}
 			}

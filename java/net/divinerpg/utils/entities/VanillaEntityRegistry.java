@@ -49,6 +49,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
+import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
@@ -70,6 +71,7 @@ public class VanillaEntityRegistry {
 		Util.registerProjectile(EntityWatcherShot.class, "WatcherShot");
 		Util.registerProjectile(EntityMaelstorm.class, "Maelstorm");
 		Util.registerProjectile(EntityFrostShot.class, "FrostShot");
+		Util.registerProjectile(EntityScorcherShot.class, "ScorcherShot");
 		Util.registerProjectile(EntityCrabAnchor.class, "CrabAnchor");
 		Util.registerProjectile(EntitySharkAnchor.class, "SharkAnchor");
 		Util.registerProjectile(EntityBowheadAnchor.class, "BowheadAnchor");
