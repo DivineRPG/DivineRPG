@@ -6,9 +6,6 @@ import java.util.Random;
 
 import net.divinerpg.dimensions.vethea.all.Bow;
 import net.divinerpg.dimensions.vethea.all.Hook;
-import net.divinerpg.dimensions.vethea.all.InfusionOutpost;
-import net.divinerpg.dimensions.vethea.all.Lamp1;
-import net.divinerpg.dimensions.vethea.all.Lamp2;
 import net.divinerpg.dimensions.vethea.all.Mushroom;
 import net.divinerpg.dimensions.vethea.all.Pickaxe;
 import net.divinerpg.dimensions.vethea.all.Pointedsquare;
@@ -22,7 +19,6 @@ import net.divinerpg.dimensions.vethea.layer1.Crypt2;
 import net.divinerpg.dimensions.vethea.layer1.Tree4;
 import net.divinerpg.dimensions.vethea.layer1.Tree5;
 import net.divinerpg.dimensions.vethea.layer1.Tree6;
-import net.divinerpg.dimensions.vethea.layer1.WorldGenLayer1Forest;
 import net.divinerpg.dimensions.vethea.layer2.HiveNest;
 import net.divinerpg.dimensions.vethea.layer2.Pyramid1;
 import net.divinerpg.dimensions.vethea.layer2.Pyramid2;
@@ -84,9 +80,8 @@ public class ChunkProviderVethea implements IChunkProvider {
 	private final ArrayList<WorldGenerator> l3Altars;
 	private final ArrayList<WorldGenerator> l4Altars;
 	//private final WorldGenerator layer3TreeBig;
-	private final WorldGenerator firecrystals;
+	private final MapGenFloorCrystals firecrystals = new MapGenFloorCrystals();
 	private final WorldGenConeUp ceilingTexture;
-	private final WorldGenerator pillar;
 	private final WorldGenerator cracklespikes;
 	private final WorldGenerator fernites;
 	private final WorldGenerator bulatobes;
@@ -157,8 +152,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		crypts.add(new Crypt2());     
 		
 		ceilingTexture = new WorldGenConeUp();
-		pillar = new WorldGenVetheanPillar();
-		firecrystals = new WorldGenMinable(VetheaBlocks.fireCrystal, 90, VetheaBlocks.dreamGrass);
 		hungerVillages = new WorldGenVillageIsland();
 		grassClusters = new WorldGenMinable(VetheaBlocks.dreamGrass, 16, VetheaBlocks.dreamStone);
 		
@@ -261,7 +254,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 							k = l;
 
 							if (l1 >= 62) {
-								if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = block;
+								if(i2%256 < 17 || (i2%256 < 65 && i2%256 > 48) || (i2%256 < 113 && i2%256 > 96) || (i2%256 < 161 && i2%256 > 144))terrain[i2] = block;
 								p_150560_4_[i2] = b0;
 							}
 							else if (l1 < 56 - l) {
@@ -302,6 +295,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		this.generateTerrain(par1, par2, block);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
 		this.replaceBlocksForBiome(par1, par2, block, by, this.biomesForGeneration);
+		this.firecrystals.func_151539_a(this, this.worldObj, par1, par2, block);
 		Chunk var4 = new Chunk(this.worldObj, block, by, par1, par2);
 		byte[] var5 = var4.getBiomeArray();
 		for (int var6 = 0; var6 < var5.length; ++var6) {
@@ -345,25 +339,11 @@ public class ChunkProviderVethea implements IChunkProvider {
 				//yellowDulahs.generate(worldObj, rand, var4, 0, var5);
 				//greenDulahs.generate(worldObj, rand, var4, 0, var5);
 
-				if (this.rand.nextInt(16) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 16 - this.rand.nextInt(2);
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					//(pillar).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
 				for(int i = 0; i < 2; i++) {
 					var12 = 16;
 					var13 = 16;
 					var14 = 16;
 					(grassClusters).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				for(int i = 0; i < 1; i++) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = rand.nextInt(256);
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					(firecrystals).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(32) == 0) {
@@ -389,7 +369,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		        
 		        if (this.rand.nextInt(250) == 0) {
 		            var12 = var4 + this.rand.nextInt(16) + 8;
-		            var13 = 17;
+		            var13 = 13;
 		            var14 = var5 + this.rand.nextInt(16) + 8;
 		            (crypts.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);//TODO add crypt keeper
 		        }
@@ -408,16 +388,9 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var13 = 96;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					 (ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14, this.rand.nextInt(3)+1);
-				}
-
-				if (this.rand.nextInt(16) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64 - this.rand.nextInt(2);
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					pillar.generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				if(this.rand.nextInt(32) == 0) {
+				}*/
+		        
+				/*if(this.rand.nextInt(32) == 0) {
 					var12 = var4 + rand.nextInt(16);
 					var13 = 64;
 					var14 = var5 + rand.nextInt(16);

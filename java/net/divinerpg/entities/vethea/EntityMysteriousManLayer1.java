@@ -21,18 +21,16 @@ public class EntityMysteriousManLayer1 extends EntityGive {
 
 	@Override
 	public void Interact(EntityPlayer var1) {
-		if (!this.worldObj.isRemote) {
-			switch (this.rand.nextInt(3)){
-			case 0:
-				Util.addChatMessage("Mysterious Man: You look new around here. Be careful.");
-				break;
-			case 1:
-				Util.addChatMessage("Mysterious Man: Take these, use them at an infusion table.");
-				break;
-			case 2:
-				Util.addChatMessage("Mysterious Man: Don't tell anybody you saw me.");
-				break;
-			}
+		switch (this.rand.nextInt(3)){
+		case 0:
+			var1.addChatMessage(Util.addChatMessage("Mysterious Man: You look new around here. Be careful."));
+			break;
+		case 1:
+			var1.addChatMessage(Util.addChatMessage("Mysterious Man: Take these, use them at an infusion table."));
+			break;
+		case 2:
+			var1.addChatMessage(Util.addChatMessage("Mysterious Man: Don't tell anybody you saw me."));
+			break;
 		}
 	}
 

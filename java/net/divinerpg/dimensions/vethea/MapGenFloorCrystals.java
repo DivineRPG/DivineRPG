@@ -255,16 +255,12 @@ public class MapGenFloorCrystals extends MapGenBase
         Block filler = (isExceptionBiome(biome) ? VetheaBlocks.dreamDirt  : biome.fillerBlock);
         Block block  = data[index];
 
-        if (block == VetheaBlocks.dreamGrass || block == filler || block == top) {
-            if (y < 10) {
-                data[index] = VetheaBlocks.fireCrystal;
-            } else {
-                data[index] = null;
+        if (block == VetheaBlocks.dreamGrass || block == filler || block == top || block == VetheaBlocks.dreamStone) {
+        data[index] = VetheaBlocks.fireCrystal;
 
                 if (foundTop && data[index - 1] == filler) {
                     data[index - 1] = top;
                 }
-            }
         }
     }
 }
