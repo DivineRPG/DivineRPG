@@ -74,7 +74,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 	private MapGenBase caveGenerator = new MapGenFloorCrystals();
 	private BiomeGenBase[] biomesForGeneration;
 	private final ArrayList<WorldGenerator> items;
-	private final ArrayList<WorldGenerator> lamps;
 	private final ArrayList<WorldGenerator> floatingTrees;
 	private final ArrayList<WorldGenerator> crypts;
 	private final ArrayList<WorldGenerator> l1Trees;
@@ -134,10 +133,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		items.add(new Ring());
 		items.add(new Sword());
 		items.add(new Trident());
-
-		this.lamps = new ArrayList(2);
-		lamps.add(new Lamp1());
-		lamps.add(new Lamp2());
 
 		this.floatingTrees = new ArrayList(7);
 		//floatingTrees.add(new TreeFloating1());
@@ -376,13 +371,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		            var13 = 17 - this.rand.nextInt(2);
 		            var14 = var5 + this.rand.nextInt(16);
 		            (this.items.get(this.rand.nextInt(7))).generate(this.worldObj, this.rand, var12, var13, var14);
-		        }
-
-		        if (this.rand.nextInt(2) == 0) {
-		            var12 = var4 + this.rand.nextInt(16) + 8;
-		            var13 = 17;
-		            var14 = var5 + this.rand.nextInt(16) + 8;
-		            //(this.lamps.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13 - 2, var14);
 		        }
 		        
 		        if (this.rand.nextInt(500) == 0) {

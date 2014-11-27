@@ -10,6 +10,8 @@ import net.divinerpg.dimensions.vethea.all.FloatingTree5;
 import net.divinerpg.dimensions.vethea.all.FloatingTree6;
 import net.divinerpg.dimensions.vethea.all.FloatingTree7;
 import net.divinerpg.dimensions.vethea.all.InfusionOutpost;
+import net.divinerpg.dimensions.vethea.all.Lamp1;
+import net.divinerpg.dimensions.vethea.all.Lamp2;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
 
@@ -24,6 +26,7 @@ public class VetheanChunkBuilder {
 	private static IVetheanStructure floatingTree7 = new FloatingTree7();
 	
 	private static IVetheanStructure infusion = new InfusionOutpost();
+	private static IVetheanStructure[] lamps = {new Lamp1(), new Lamp2()};
 
 	private static Random rand = new Random();
 	private int tree1Countl1 = 0;
@@ -65,6 +68,10 @@ public class VetheanChunkBuilder {
 	private boolean containsInfusionTableL2 = false;
 	private boolean containsInfusionTableL3 = false;
 	private boolean containsInfusionTableL4 = false;
+	private boolean containsLampL1 = false;
+	private boolean containsLampL2 = false;
+	private boolean containsLampL3 = false;
+	private boolean containsLampL4 = false;
 
 
 	public Block[][][] buildChunk(){
@@ -234,6 +241,26 @@ public class VetheanChunkBuilder {
 					if(!containsInfusionTableL4 && y == 161 && rand.nextInt(1550) == 0 && x+9<16 && z+9<16){
 						containsInfusionTableL4 = true;
 						infusion.generate(chunk, x, y, z);
+					}
+					
+					if(!containsLampL1 && !containsInfusionTableL1 && y == 17 && rand.nextInt(1550) == 0 && x+6<16 && z+5<16){
+						containsLampL1 = true;
+						lamps[this.rand.nextInt(2)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsLampL2 && !containsInfusionTableL2 && y == 65 && rand.nextInt(1550) == 0 && x+6<16 && z+5<16){
+						containsLampL2 = true;
+						lamps[this.rand.nextInt(2)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsLampL3 && !containsInfusionTableL3 && y == 113 && rand.nextInt(1550) == 0 && x+6<16 && z+5<16){
+						containsLampL3 = true;
+						lamps[this.rand.nextInt(2)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsLampL4 && !containsInfusionTableL4 && y == 161 && rand.nextInt(1550) == 0 && x+6<16 && z+5<16){
+						containsLampL4 = true;
+						lamps[this.rand.nextInt(2)].generate(chunk, x, y, z);
 					}
 
 				}
