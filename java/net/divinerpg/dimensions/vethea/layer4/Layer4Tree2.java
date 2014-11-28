@@ -9,14 +9,14 @@ import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class Tree2 extends WorldGenerator
+public class Layer4Tree2 extends WorldGenerator
 {
 	protected int[] GetValidSpawnBlocks() {
 		return new int[] {
 		};
 	}
 
-	public Tree2() { }
+	public Layer4Tree2() { }
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
 

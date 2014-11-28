@@ -45,11 +45,9 @@ public class EntityDreamwrecker extends EntityDivineRPGMob {
         super.onLivingUpdate();
         EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
 
-        if (var1 == null || var1.getDistanceToEntity(this) > 64)
-            return;
-        else {
-            var1.addVelocity(Math.signum(this.posX - var1.posX) * 0.029,0, Math.signum(this.posZ - var1.posZ) * 0.029);
-        }
+        if (var1 != null && var1.getDistanceToEntity(this) < 20) this.entityToAttack = var1;
+        if(this.getEntityToAttack() != null && this.getEntityToAttack() instanceof EntityPlayer && !this.getEntityToAttack().isDead && this.canEntityBeSeen(this.getEntityToAttack()))this.getEntityToAttack().addVelocity(Math.signum(this.posX - this.getEntityToAttack().posX) * 0.029, 0, Math.signum(this.posZ - this.getEntityToAttack().posZ) * 0.029);
+        if(this.getEntityToAttack() != null && (this.getEntityToAttack().getDistanceToEntity(this) >= 20 || this.getEntityToAttack().isDead || ((EntityPlayer)this.getEntityToAttack()).capabilities.isCreativeMode)) this.entityToAttack = null;
     }
  
     @Override

@@ -30,8 +30,8 @@ import net.divinerpg.dimensions.vethea.layer3.Tree8;
 import net.divinerpg.dimensions.vethea.layer3.WorldGenLayer3SmallTree;
 import net.divinerpg.dimensions.vethea.layer4.Evergarden;
 import net.divinerpg.dimensions.vethea.layer4.RaglokChamber;
-import net.divinerpg.dimensions.vethea.layer4.Tree1;
-import net.divinerpg.dimensions.vethea.layer4.Tree2;
+import net.divinerpg.dimensions.vethea.layer4.Layer4Tree1;
+import net.divinerpg.dimensions.vethea.layer4.Layer4Tree2;
 import net.divinerpg.dimensions.vethea.layer4.WreckHall;
 import net.divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
 import net.divinerpg.utils.blocks.VetheaBlocks;
@@ -175,8 +175,8 @@ public class ChunkProviderVethea implements IChunkProvider {
 		l4Altars.add(new WreckHall());
 		
 		this.l4Trees = new ArrayList(2);
-		l4Trees.add(new Tree1());
-		l4Trees.add(new Tree2());
+		l4Trees.add(new Layer4Tree1());
+		l4Trees.add(new Layer4Tree2());
 
 		
 		//layer3TreeBig = new WorldGenLayer3BigTree(false);
@@ -199,89 +199,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		VetheanChunkBuilder.toTerrainArray(builder.buildChunk(), b);
 	}
 
-	public void replaceBlocksForBiome(int i, int j, Block[] ba, byte[] by, BiomeGenBase[] b) {
-		double d0 = 0.03125D;
-		this.stoneNoise = this.noiseGen4.func_151599_a(this.stoneNoise, (double)(i * 16), (double)(j * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
-
-		for(int k = 0; k < 16; ++k) {
-			for(int l = 0; l < 16; ++l) {
-				BiomeGenBase biomegenbase = b[l + k * 16];
-				genBiomeTerrain(this.worldObj, this.rand, ba, by, i * 16 + k, j * 16 + l, this.stoneNoise[l + k * 16], biomegenbase);
-			}
-		}
-	}
-
-	public final void genBiomeTerrain(World p_150560_1_, Random p_150560_2_, Block[] terrain, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_, BiomeGenBase b) {
-		boolean flag = true;
-		Block block = b.topBlock;
-		byte b0 = (byte)(b.field_150604_aj & 255);
-		Block block1 = b.fillerBlock;
-		int k = -1;
-		int l = (int)(p_150560_7_ / 3.0D + 3.0D + p_150560_2_.nextDouble() * 0.25D);
-		int i1 = p_150560_5_ & 15;
-		int j1 = p_150560_6_ & 15;
-		int k1 = terrain.length / 256;
-
-		for (int l1 = 255; l1 >= 0; --l1) {
-			int i2 = (j1 * 16 + i1) * k1 + l1;
-
-			if (l1 <= 0 + p_150560_2_.nextInt(5)) {
-				terrain[i2] = VetheaBlocks.dreamStone;
-			} else {
-				Block block2 = terrain[i2];
-
-				if (block2 != null && block2.getMaterial() != Material.air) {
-					if (block2 == VetheaBlocks.dreamStone) {
-						if (k == -1) {
-							if (l <= 0) {
-								block = null;
-								b0 = 0;
-								block1 = VetheaBlocks.dreamStone;
-							}
-							else if (l1 >= 59 && l1 <= 64) {
-								block = b.topBlock;
-								b0 = (byte)(b.field_150604_aj & 255);
-								block1 = b.topBlock;
-							}
-
-							if (l1 < 63 && (block == null || block.getMaterial() == Material.air)) {
-								if (b.getFloatTemperature(p_150560_5_, l1, p_150560_6_) < 0.15F) {
-									block = b.topBlock;
-									b0 = 0;
-								}
-							}
-
-							k = l;
-
-							if (l1 >= 62) {
-								if(i2%256 < 17 || (i2%256 < 65 && i2%256 > 48) || (i2%256 < 113 && i2%256 > 96) || (i2%256 < 161 && i2%256 > 144))terrain[i2] = block;
-								p_150560_4_[i2] = b0;
-							}
-							else if (l1 < 56 - l) {
-								block = null;
-								block1 = b.topBlock;
-								if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = b.topBlock;
-							} else {
-								if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = block1;
-							}
-						}
-						else if (k > 0) {
-							--k;
-							if(i2%256 < 20 || (i2%256 < 68 && i2%256 > 48) || (i2%256 < 116 && i2%256 > 96) || (i2%256 < 164 && i2%256 > 144))terrain[i2] = block1;
-
-							if (k == 0 && block1 == VetheaBlocks.dreamStone) {
-								k = p_150560_2_.nextInt(4) + Math.max(0, l1 - 63);
-								block1 = VetheaBlocks.dreamStone;
-							}
-						}
-					}
-				} else {
-					k = -1;
-				}
-			}
-		}
-	}
-
 	@Override
 	public Chunk loadChunk(int par1, int par2) {
 		return this.provideChunk(par1, par2);
@@ -294,7 +211,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		byte[] by = new byte[65536];
 		this.generateTerrain(par1, par2, block);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		this.replaceBlocksForBiome(par1, par2, block, by, this.biomesForGeneration);
 		this.firecrystals.func_151539_a(this, this.worldObj, par1, par2, block);
 		Chunk var4 = new Chunk(this.worldObj, block, by, par1, par2);
 		byte[] var5 = var4.getBiomeArray();
@@ -334,17 +250,10 @@ public class ChunkProviderVethea implements IChunkProvider {
 			(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14, this.rand.nextInt(3)+1);
 		}*/
 		
-		//greenGemTops.generate(worldObj, rand, var4, 0, var5);
-				//purpleGemTops.generate(worldObj, rand, var4, 0, var5);
-				//yellowDulahs.generate(worldObj, rand, var4, 0, var5);
-				//greenDulahs.generate(worldObj, rand, var4, 0, var5);
-
-				for(int i = 0; i < 2; i++) {
-					var12 = 16;
-					var13 = 16;
-					var14 = 16;
-					(grassClusters).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
+				if(this.rand.nextInt(5)==0)greenGemTops.generate(worldObj, rand, var4, 17, var5);
+				//if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, var4, 0, var5);
+				if(this.rand.nextInt(5)==0)yellowDulahs.generate(worldObj, rand, var4, 17, var5);
+				if(this.rand.nextInt(5)==0)greenDulahs.generate(worldObj, rand, var4, 17, var5);
 
 				if (this.rand.nextInt(32) == 0) {
 		            var12 = var4 + this.rand.nextInt(16);

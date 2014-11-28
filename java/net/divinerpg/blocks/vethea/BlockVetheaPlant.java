@@ -27,11 +27,11 @@ public class BlockVetheaPlant extends BlockMod implements IPlantable{
 
 	@Override
 	public boolean canPlaceBlockAt(World w, int x, int y, int z) {
-		return w.getBlock(x, y, z).canSustainPlant(w, x, y, z, ForgeDirection.UNKNOWN, this);
+		return w.getBlock(x, y-1, z) == VetheaBlocks.dreamGrass;
 	}
 	
     public boolean canBlockStay(World w, int x, int y, int z) {
-        return w.getBlock(x, y - 1, z).canSustainPlant(w, x, y - 1, z, ForgeDirection.UP, this) && w.getBlock(x, y, z).getMaterial().isSolid();
+        return w.getBlock(x, y - 1, z) == VetheaBlocks.dreamGrass;
     }
 
 	@Override

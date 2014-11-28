@@ -9,15 +9,8 @@ import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class Tree1 extends WorldGenerator
+public class Layer4Tree1 extends WorldGenerator
 {
-	protected int[] GetValidSpawnBlocks() {
-		return new int[] {
-		};
-	}
-
-	public Tree1() { }
-
 	public boolean generate(World world, Random rand, int i, int j, int k) {
 
 		world.setBlock(i + 0, j + 3, k + 8, VetheaBlocks.firewoodLeaves);

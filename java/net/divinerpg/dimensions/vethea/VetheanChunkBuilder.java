@@ -89,6 +89,12 @@ public class VetheanChunkBuilder {
 				for(int z = 0; z < 16; z++){
 					if((y>0 && y<=16) || (y>48 && y <= 64) || (y>96 && y <= 112) || (y>144 && y <= 160)) chunk[x][y][z] = VetheaBlocks.dreamStone;
 					
+					if(y==16 || y == 64 || y == 112 || y == 160) {
+						chunk[x][y][z] = VetheaBlocks.dreamGrass;
+						chunk[x][y-1][z] = VetheaBlocks.dreamDirt;
+						if(this.rand.nextInt(2) == 0) chunk[x][y-2][z] = VetheaBlocks.dreamDirt;
+					}
+					
 					if(tree1Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
 						tree1Countl1++;
 						floatingTree1.generate(chunk, x, y, z);

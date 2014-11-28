@@ -5,12 +5,13 @@
 package net.divinerpg.dimensions.vethea.layer2;
 import java.util.Random;
 
+import net.divinerpg.entities.vethea.EntityHiveQueen;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.init.Blocks;
 
 public class HiveNest extends WorldGenerator
 {
@@ -22,10 +23,10 @@ public class HiveNest extends WorldGenerator
 	public HiveNest() { }
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-		/*EntityLiving entity = new EntityHiveQueen(world);
-		EntityList.createEntityByName("Hive Queen", world);
-		entity.setLocationAndAngles(i + 20.0F, j + 2.0F, k + 20.0F, Blocks.air.0F, Blocks.air.0F);
-		world.spawnEntityInWorld(entity);*/
+		EntityLiving entity = new EntityHiveQueen(world);
+		EntityList.createEntityByName("HiveQueen", world);
+		entity.setLocationAndAngles(i + 20.0F, j + 2.0F, k + 20.0F, 0F, 0F);
+		world.spawnEntityInWorld(entity);
 		world.setBlock(i + 0, j + 0, k + 0, Blocks.air);
 		world.setBlock(i + 0, j + 0, k + 1, Blocks.air);
 		world.setBlock(i + 0, j + 0, k + 2, Blocks.air);
