@@ -44,7 +44,7 @@ public class BlockTwilightFurnace extends BlockModFurnace {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IIconRegister) {
 		this.side = par1IIconRegister.registerIcon(Reference.PREFIX + "divineRock");
-		this.front = par1IIconRegister.registerIcon(active ? Reference.PREFIX + "divineFurnace_front_On" : Reference.PREFIX + "divineFurnace_front_Off");
+		this.front = par1IIconRegister.registerIcon(active ? Reference.PREFIX + "twilightFurnace_front_on" : Reference.PREFIX + "twilightFurnace_front_off");
 		this.top = par1IIconRegister.registerIcon(Reference.PREFIX + "divineRock");
 	}
 	

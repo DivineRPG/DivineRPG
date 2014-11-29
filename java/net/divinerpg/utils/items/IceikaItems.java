@@ -27,7 +27,7 @@ public class IceikaItems {
 
     public static int             HEAD              = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-    public static final Item      snowflake         = new ItemMod("snowFlake");
+    public static final Item      snowflake         = new ItemMod("snowflake");
 
     public static final Item      icicleBane        = new ItemModSword(ToolMaterialMod.IcicleBane, "icicleBane");
     public static final Item      icineSword        = new ItemModSword(ToolMaterialMod.Icine, "icineSword");

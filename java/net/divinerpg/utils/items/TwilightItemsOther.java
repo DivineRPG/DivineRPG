@@ -63,7 +63,7 @@ public class TwilightItemsOther {
         mortumFragments     = new ItemMod("mortumFragments");
 
         edenGem             = new ItemMod("edenGem");
-        wildwoodGem         = new ItemMod("wildWoodGem");
+        wildwoodGem         = new ItemMod("wildwoodGem");
         apalachiaGem        = new ItemMod("apalachiaGem");
         skythernGem         = new ItemMod("skythernGem");
         mortumGem           = new ItemMod("mortumGem");
