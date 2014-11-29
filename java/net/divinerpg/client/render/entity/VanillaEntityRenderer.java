@@ -81,6 +81,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityGhastCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
@@ -125,7 +126,8 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityGoldenFury.class, new RenderIconProjectile(Items.gold_nugget));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedBullet.class, new RenderIconProjectile(VanillaItemsOther.corruptedBullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGhastCannon.class, new RenderProjectile(x.ghastCannon));
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnderTripletFireball.class, new RenderProjectile(x.tripletFireball));
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBabyCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 0.5F, x.crab));

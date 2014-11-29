@@ -15,6 +15,7 @@ import net.divinerpg.dimensions.vethea.all.Lamp2;
 import net.divinerpg.dimensions.vethea.all.WorldGenVetheanPillar;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
 public class VetheanChunkBuilder {
 	
@@ -94,6 +95,7 @@ public class VetheanChunkBuilder {
 						chunk[x][y-1][z] = VetheaBlocks.dreamDirt;
 						if(this.rand.nextInt(2) == 0) chunk[x][y-2][z] = VetheaBlocks.dreamDirt;
 					}
+					
 					
 					if(tree1Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
 						tree1Countl1++;
@@ -293,7 +295,6 @@ public class VetheanChunkBuilder {
 				}
 			}
 		}
-		
 		
 		return chunk;
 		

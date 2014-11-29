@@ -1,14 +1,14 @@
 package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.api.entity.EntityDivineRPGFlying;
-import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.entities.vanilla.projectile.EntityTripletProjectile;
+import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -66,7 +66,8 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
     }
 
     @Override
-    protected void updateEntityActionState() {
+	public void onLivingUpdate() {
+    	super.onLivingUpdate();
         if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             this.setDead();
         }
@@ -83,6 +84,8 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
             this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
             this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
         }
+        
+        if(this.targetedEntity != null && this.targetedEntity.posY+13 > this.posY)this.waypointY += 4;
 
         if(this.courseChangeCooldown-- <= 0) {
             this.courseChangeCooldown += this.rand.nextInt(5) + 2;
@@ -115,7 +118,7 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
 
         if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < d4 * d4) {
             double d5 = this.targetedEntity.posX - this.posX;
-            double d6 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d6 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F))-5;
             double d7 = this.targetedEntity.posZ - this.posZ;
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
 
@@ -126,9 +129,9 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
 
                 ++this.attackCounter;
 
-                if(this.attackCounter == 20) {
+                if(this.attackCounter == 20 && !this.worldObj.isRemote) {
                     this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1008, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-                    EntityTripletProjectile entitylargefireball = new EntityTripletProjectile(this.worldObj, this, d5, d6, d7);
+                    EntityEnderTripletFireball entitylargefireball = new EntityEnderTripletFireball(this.worldObj, this, d5, d6, d7);
                     double d8 = 4.0D;
                     Vec3 vec3 = this.getLook(1.0F);
                     entitylargefireball.posX = this.posX + vec3.xCoord * d8;
@@ -193,12 +196,14 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
     @Override
     protected void dropFewItems(boolean par1, int par2) {
 
-    	int j, k;
+    	int j;
         j = this.rand.nextInt(3) + this.rand.nextInt(1 + par2);
 
-        for (k = 0; k < j; ++k) {
+        for (int k = 0; k < j; ++k) {
             this.dropItem(VanillaItemsOther.enderShard, 3);
         }
+        
+        if(this.rand.nextInt(20) == 0)this.dropItem(Util.toItem(Blocks.end_portal_frame), 1);
     }
 
     @Override
@@ -206,10 +211,10 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
         return 10.0F;
     }
 
-    @Override
+    /*@Override
     public int getMaxSpawnedInChunk() {
         return 1;
-    }
+    }*/
 
 	@Override
 	public String mobName() {

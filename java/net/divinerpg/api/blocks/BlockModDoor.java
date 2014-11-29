@@ -107,11 +107,13 @@ public class BlockModDoor extends BlockMod {
         return super.getSelectedBoundingBoxFromPool(world, x, y, z);
     }
 
+    @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         this.setBlockBoundsBasedOnState(world, x, y, z);
         return super.getCollisionBoundingBoxFromPool(world, x, y, z);
     }
 
+    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
         this.thisMustBeNamedBetter(this.getBlockMetadata(blockAccess, x, y, z));
     }
@@ -168,6 +170,7 @@ public class BlockModDoor extends BlockMod {
         world.playAuxSFXAtEntity(player, 1003, x, y, z, 0);
     }
 
+    @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         int i1 = this.getBlockMetadata(world, x, y, z);
         int j1 = (i1 & 7) ^ 4;

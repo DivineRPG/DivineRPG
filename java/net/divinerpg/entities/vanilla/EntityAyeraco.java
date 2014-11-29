@@ -1,7 +1,7 @@
 package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.entities.vanilla.projectile.EntityTripletProjectile;
+import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -155,7 +155,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
         if (this.isEntityInvulnerable())
             return false;
-        else if (par1DamageSource.getSourceOfDamage() instanceof EntityTripletProjectile)
+        else if (par1DamageSource.getSourceOfDamage() instanceof EntityEnderTripletFireball)
             return false;
         else if (par1DamageSource.isProjectile() && this.canBlockProjectiles())
             return false;
