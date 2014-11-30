@@ -39,11 +39,12 @@ public abstract class EntityPeacefullUntillAttacked extends EntityDivineRPGMob {
 	}
 	
 	@Override
-	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
-		if(par1DamageSource.getEntity() instanceof EntityPlayer){
+	public boolean attackEntityFrom(DamageSource source, float par2) {
+		if(source.getEntity() instanceof EntityPlayer){
 			angerLevel = 400;
+			if(!((EntityPlayer)source.getEntity()).capabilities.isCreativeMode) this.entityToAttack = source.getEntity();
 		}
-		return super.attackEntityFrom(par1DamageSource, par2);
+		return super.attackEntityFrom(source, par2);
 	}
 	
 	@Override

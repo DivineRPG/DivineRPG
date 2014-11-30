@@ -99,6 +99,10 @@ public class EntityRainbour extends EntityPeacefullUntillAttacked {
 	@Override
 	protected void updateAITasks() {
 		super.updateAITasks();
+		
+		if(this.getEntityToAttack() != null) {
+			this.spawnPosition = new ChunkCoordinates((int)Math.round(this.getEntityToAttack().posX), MathHelper.floor_double(this.getEntityToAttack().posY), (int)Math.round(this.getEntityToAttack().posZ));
+		}
 
 		if(this.getIsBatHanging()) {
 			if(!this.worldObj.getBlock(MathHelper.floor_double(this.posX), (int)this.posY + 1, MathHelper.floor_double(this.posZ)).isNormalCube()) {
@@ -187,9 +191,9 @@ public class EntityRainbour extends EntityPeacefullUntillAttacked {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		int var1 = MathHelper.floor_double(this.boundingBox.minY);
+		int var1 = MathHelper.floor_double(this.posY);
 
-		if(var1 >= 63) {
+		if(var1 >= 40) {
 			return false;
 		} else {
 			int var2 = MathHelper.floor_double(this.posX);
