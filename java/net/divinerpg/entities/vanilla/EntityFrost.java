@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityFrost extends EntityDivineRPGMob {
@@ -146,4 +147,9 @@ public class EntityFrost extends EntityDivineRPGMob {
 	public String mobName() {
 		return "Frost";
 	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox.addCoord(0, 0.5, 0)).isEmpty();
+    }
 }

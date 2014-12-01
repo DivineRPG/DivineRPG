@@ -110,12 +110,12 @@ public class CommonProxy{
 		VanillaRecipeHelper.init();
 		TwilightRecipeHelper.init();
 		DimensionHelper.init();
-		MobSpawning.addSpawns();
 	}
 
 	public void init(FMLInitializationEvent event){
 		LogHelper.info("Adding world generators");
 		GameRegistry.registerWorldGenerator(new WorldGenOverworld(), 0);
+		MobSpawning.addSpawns();
 		DivineRPGAchievements.init();
 	}
 

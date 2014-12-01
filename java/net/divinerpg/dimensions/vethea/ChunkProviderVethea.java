@@ -306,33 +306,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 					(this.items.get(this.rand.nextInt(6))).generate(this.worldObj, rand, var12, var13, var14);
 				}
 
-				if (this.rand.nextInt(32) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13--;
-					}
-					infusion.generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				for (int i = 0; i < 3; ++i) {
-					var12 = var4 + this.rand.nextInt(16);
-					var13 = 75;
-					var14 = var5 + this.rand.nextInt(16);
-					(this.floatingTrees.get(this.rand.nextInt(6))).generate(this.worldObj, rand, var12, var13, var14);
-				}
-
-				if (this.rand.nextInt(2) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13++;
-					}
-					 (this.lamps.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13 - 2, var14);
-				}
-
 				if (this.rand.nextInt(250) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 64;
@@ -349,27 +322,28 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(new WorldGenLayer2Forest(false)).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
+				*/
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
+					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(fernites).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
+					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					//(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
+					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					//(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
-				}*/
+				}
 				
 
 				/*
@@ -380,13 +354,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var13 = 192;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					//(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14, this.rand.nextInt(3)+1);
-				}
-
-				if (this.rand.nextInt(16) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 148;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					//pillar.generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				for (int i = 0; i < 3; i++) {
@@ -403,34 +370,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 					//(this.items.get(this.rand.nextInt(7))).generate(this.worldObj, rand, var12, var13, var14);
 				}
 
-
-				if (this.rand.nextInt(32) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 148;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13--;
-					}
-					infusion.generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				for (int i = 0; i < 3; ++i) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 158;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					//(this.floatingTrees.get(this.rand.nextInt(6))).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				if (this.rand.nextInt(2) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 19 + 128;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13++;
-					}
-					(this.lamps.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13 - 2, var14);
-				}
-
 				if (this.rand.nextInt(250) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 144 ;
@@ -439,56 +378,36 @@ public class ChunkProviderVethea implements IChunkProvider {
 						var13++;
 					}
 					//(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
+				}*/
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 20 + 128;
+					var13 = 113;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(shinegrass).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 20 + 128;
+					var13 = 113;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(cracklespikes).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 20 + 128;
+					var13 = 113;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(bulatobes).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				   //Layer 4
 				   
-				if (this.rand.nextInt(32) == 0) {
+				/*if (this.rand.nextInt(32) == 0) {
 					var12 = var4 + rand.nextInt(16);
 					var13 = 160;
 					var14 = var5 + rand.nextInt(16);
 					(this.items.get(this.rand.nextInt(7))).generate(this.worldObj, rand, var12, var13, var14);
-				}
-
-				if (this.rand.nextInt(32) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 160;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13--;
-					}
-					infusion.generate(this.worldObj, this.rand, var12, var13, var14);
-				}
-
-				if (this.rand.nextInt(2) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 160;
-					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13++;
-					}
-					(this.lamps.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13 - 2, var14);
 				}
 
 				for (int i = 0; i < 5; i++) {
@@ -503,7 +422,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var13 = 170 + this.rand.nextInt(23);
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(this.floatingTrees.get(this.rand.nextInt(6))).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
+				}*/
 
 				if (this.rand.nextInt(150) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;

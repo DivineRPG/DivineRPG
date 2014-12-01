@@ -129,4 +129,9 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 	public String mobName() {
 		return "Jack 'O' Man";
 	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return super.getCanSpawnHere() && this.rand.nextInt(10) == 0;
+	}
 }

@@ -272,7 +272,7 @@ public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMo
 
 			if (this.deathTicks == 1) {
 				this.worldObj.playBroadcastSound(1018, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-				this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D).attackEntityFrom(DamageSource.magic, 16);
+				if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D) != null)this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D).attackEntityFrom(DamageSource.magic, 16);
 			}
 		}
 
