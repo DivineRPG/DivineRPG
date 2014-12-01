@@ -6,9 +6,9 @@ import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 
-public class EntityCorruptedDramcryx extends EntityDivineRPGMob {
+public class EntityEnthralledDramcryx extends EntityDivineRPGMob {
 	
-    public EntityCorruptedDramcryx(World par1World) {
+    public EntityEnthralledDramcryx(World par1World) {
         super(par1World);
         addAttackingAI();
     }
@@ -52,14 +52,8 @@ public class EntityCorruptedDramcryx extends EntityDivineRPGMob {
         for (var4 = 0; var4 < var3; ++var4) {
             this.dropItem(VanillaItemsOther.corruptedShards, 2);
         }
-    }
-
-    protected void dropRareDrop(int par1) {
-        switch(this.rand.nextInt(1)) {
-            case 0:
-                this.dropItem(VanillaItemsOther.arlemiteIngot, 5);
-                break;
-        }
+        
+        if(this.rand.nextInt(40) == 0) this.dropItem(VanillaItemsOther.arlemiteIngot, 5);
     }
 
     @Override
@@ -69,6 +63,6 @@ public class EntityCorruptedDramcryx extends EntityDivineRPGMob {
 
 	@Override
 	public String mobName() {
-		return "Corrupted Dramcryx";
+		return "Enthralled Dramcryx";
 	}
 }

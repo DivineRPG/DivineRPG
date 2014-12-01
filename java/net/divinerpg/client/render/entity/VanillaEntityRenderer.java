@@ -48,7 +48,7 @@ import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
 import net.divinerpg.entities.vanilla.EntityBabyCrab;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
-import net.divinerpg.entities.vanilla.EntityCorruptedDramcryx;
+import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityCrab;
 import net.divinerpg.entities.vanilla.EntityCyclops;
 import net.divinerpg.entities.vanilla.EntityDesertCrawler;
@@ -143,7 +143,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderSpider.class, new RenderSizeable(new ModelSpider(), 0.0F, 0.5F, x.enderSpider));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderTriplets.class, new RenderDivineMob(new ModelEnderTriplets(), 0.0F, x.enderTriplets));	
 		RenderingRegistry.registerEntityRenderingHandler(EntityAridWarrior.class, new RenderDivineMob(new ModelAridWarrior(), 0.0F, x.aridWarrior));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedDramcryx.class, new RenderSizeable(new ModelDramcryx(), 0.0F, 1.5F, x.caveDramcryx));
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnthralledDramcryx.class, new RenderSizeable(new ModelDramcryx(), 0.0F, 1.5F, x.caveDramcryx));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTheEye.class, new RenderDivineMob(new ModelEye(), 0.0F, x.theEye));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrost.class, new RenderDivineMob(new ModelFrost(), 0.0F, x.frost));
 		RenderingRegistry.registerEntityRenderingHandler(EntityIceMan.class, new RenderDivineMob(new ModelBiped(), 0.0F, x.iceMan));

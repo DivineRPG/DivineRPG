@@ -10,7 +10,7 @@ import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
 import net.divinerpg.entities.vanilla.EntityBabyCrab;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
-import net.divinerpg.entities.vanilla.EntityCorruptedDramcryx;
+import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityCrab;
 import net.divinerpg.entities.vanilla.EntityCyclops;
 import net.divinerpg.entities.vanilla.EntityDesertCrawler;
@@ -104,7 +104,7 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityAyeracoPurple.class, "AyeracoPurple");
 		Util.registerDivineRPGMob(EntityAyeracoRed.class, "AyeracoRed");
 		Util.registerDivineRPGMob(EntityAyeracoYellow.class, "AyeracoYellow");
-		Util.registerDivineRPGMob(EntityCorruptedDramcryx.class, "CorruptedDramcryx");
+		Util.registerDivineRPGMob(EntityEnthralledDramcryx.class, "EnthralledDramcryx");
 		Util.registerDivineRPGMob(EntityTheEye.class, "TheEye");
 		Util.registerDivineRPGMob(EntityFrost.class, "Frost");
 		Util.registerDivineRPGMob(EntityIceMan.class, "IceMan");

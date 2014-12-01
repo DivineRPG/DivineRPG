@@ -46,6 +46,17 @@ public abstract class RegistryFile {
         addToFile(prefixOfLine + "." + name + ".name=" + finalName, name);
     }
     
+    public static String getLocalizedMobName(String str) {
+    	int k = str.length();
+    	if(str.length() > 1) {
+    		for(int i = 1; i < k; i++) {
+    			if(Character.isUpperCase(str.charAt(i)) && str.charAt(i-1) != ' ') str = new StringBuffer(str).insert(i, " ").toString();
+    		}
+    	}
+    	
+    	return str;
+    }
+    
     public void addName(String prefix, String keyName, String inGameName){
         addToFile(prefix + '.' + keyName + '=' + inGameName, keyName);
     }

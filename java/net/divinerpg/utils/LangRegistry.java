@@ -54,33 +54,33 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.spawnDAR.desc=Spawn Densos and Reyvor");
         instance.addToFile("achievement.dramcryxDeath.desc=Kill a Jungle Dramcryx");
 
-        instance.addToFile("achievement.divineIntervention=Divine intervention");
+        instance.addToFile("achievement.divineIntervention=Divine Intervention");
         instance.addToFile("achievement.possibilities=Possibilities");
-        instance.addToFile("achievement.friendOrFoe=Friend or foe?");
-        instance.addToFile("achievement.darkAnotherDay=Dark another day");
-        instance.addToFile("achievement.whenPigsFly=When pigs fly");
-        instance.addToFile("achievement.offKey=Off key");
+        instance.addToFile("achievement.friendOrFoe=Friend or Foe?");
+        instance.addToFile("achievement.darkAnotherDay=Dark Another Day");
+        instance.addToFile("achievement.whenPigsFly=When Pigs Fly");
+        instance.addToFile("achievement.offKey=Off Key");
         instance.addToFile("achievement.enrichment=Enrichment");
-        instance.addToFile("achievement.littleCreature=Little creature");
-        instance.addToFile("achievement.halloweenSpirit=Halloween spirit");
-        instance.addToFile("achievement.oneLamp=One lamp");
-        instance.addToFile("achievement.feedingOnTheFish=Feeding on the fish");
-        instance.addToFile("achievement.hotterThanHell=Hotter than hell");
-        instance.addToFile("achievement.mealToRemember=Meal to remember");
+        instance.addToFile("achievement.littleCreature=Little Creature");
+        instance.addToFile("achievement.halloweenSpirit=Halloween Spirit");
+        instance.addToFile("achievement.oneLamp=One Lamp");
+        instance.addToFile("achievement.feedingOnTheFish=Feeding on the Fish");
+        instance.addToFile("achievement.hotterThanHell=Hotter than Hell");
+        instance.addToFile("achievement.mealToRemember=Meal to Remember");
         instance.addToFile("achievement.yuk=Yuk!");
-        instance.addToFile("achievement.frozenLand=Frozen land");
-        instance.addToFile("achievement.frozenGoods=Frozen goods");
-        instance.addToFile("achievement.lilTinkerin=Lil' tinkerin");
-        instance.addToFile("achievement.divineDlan=Divine plan");
-        instance.addToFile("achievement.liesWithin=Lies within");
-        instance.addToFile("achievement.perfectlyCorrupted=Perfectly corrupted");
-        instance.addToFile("achievement.totalDemonization=Total demonization");
-        instance.addToFile("achievement.evilDisease=Evil disease");
-        instance.addToFile("achievement.dungeonMaster=Dungeon master");
-        instance.addToFile("achievement.eyeOfEvil=Eye of evil");
-        instance.addToFile("achievement.tripleDanger=Triplet danger");
+        instance.addToFile("achievement.frozenLand=Frozen Land");
+        instance.addToFile("achievement.frozenGoods=Frozen Goods");
+        instance.addToFile("achievement.lilTinkerin=Lil' Tinkerin");
+        instance.addToFile("achievement.divineDlan=Divine Plan");
+        instance.addToFile("achievement.liesWithin=Lies Within");
+        instance.addToFile("achievement.perfectlyCorrupted=Perfectly Corrupted");
+        instance.addToFile("achievement.totalDemonization=Total Demonization");
+        instance.addToFile("achievement.evilDisease=Evil Disease");
+        instance.addToFile("achievement.dungeonMaster=Dungeon Master");
+        instance.addToFile("achievement.eyeOfEvil=Eye of Evil");
+        instance.addToFile("achievement.tripleDanger=Triple Danger");
         instance.addToFile("achievement.lilGift=Lil' Gift");
-        instance.addToFile("achievement.spawnDAR=Ten heads are better than one!");
+        instance.addToFile("achievement.spawnDAR=Ten Heads are Better than One");
         instance.addToFile("achievement.dramcryxDeath=Death to all Jungle Stegosaurous!");
         
     }
@@ -122,7 +122,7 @@ public class LangRegistry extends RegistryFile {
     public static void addMobNames() {
         for (int i = 0; i < mobs.size(); i++) {
             String mob = mobs.get(i);
-            instance.addToFile("entity.divinerpg." + mob + ".name=" + mob);
+            instance.addToFile("entity.divinerpg." + mob + ".name=" + getLocalizedMobName(mob));
         }
     }
 
