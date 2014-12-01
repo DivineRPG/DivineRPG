@@ -16,12 +16,11 @@ import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.events.DevHatEvent;
 import net.divinerpg.utils.events.EventClientLogin;
 import net.divinerpg.utils.events.EventOverlay;
 import net.divinerpg.utils.events.EventStaffLogin;
-
-import com.jadarstudios.developercapes.DevCapes;
-
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
@@ -53,9 +52,6 @@ public class ClientProxy extends CommonProxy {
         Util.addSpecialEventBus(new BossTickHandler());
         LogHelper.info("Adding sounds");
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
-        if (Reference.registerCapes) {
-            LogHelper.info("Adding capes");
-            DevCapes.getInstance().registerConfig("https://dl-web.dropbox.com/get/Divine%20RPG/DivineRPGCapes.json", Reference.MOD_NAME);
-        }
+        MinecraftForge.EVENT_BUS.register(new DevHatEvent());
     }
 }
