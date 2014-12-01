@@ -1,5 +1,7 @@
 package net.divinerpg.utils.events;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import cpw.mods.fml.relauncher.Side;
@@ -21,7 +23,11 @@ public class ModelHat extends ModelBase
 
     public void renderAll()
     {
+    	GL11.glPushMatrix();
+    	GL11.glRotatef(180, 0, 0, 1);
+    	GL11.glTranslatef(-1f, -0.6f, 0f);
         this.top.render(0.0625F);
+    	GL11.glPopMatrix();
         this.bottom.render(0.0625F);
     }
 }

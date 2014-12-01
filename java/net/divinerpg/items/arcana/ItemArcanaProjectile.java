@@ -55,11 +55,12 @@ public class ItemArcanaProjectile extends ItemMod {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		if(par1ItemStack.getItem() == ArcanaItems.firefly) par3List.add("Homing Shots");
-		if(par1ItemStack.getItem() == ArcanaItems.grenadeLauncher){ par3List.add("Launches explosive projectiles"); par3List.add("Ammo: Grenade"); }
-		par3List.add(arcana == 0 ? "" : "Uses " + arcana + " arcana");
-		par3List.add(this.getMaxDamage() == -1 ? "Unlimited uses" : par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage() + " Uses");
-		par3List.add(ChatFormats.DIVINERPG);
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		if(stack.getItem() == ArcanaItems.firefly) list.add("Homing Shots");
+		if(stack.getItem() == ArcanaItems.grenadeLauncher){ list.add("Launches explosive projectiles"); list.add("Ammo: Grenade"); }
+		list.add(arcana == 0 ? "" : "Uses " + arcana + " arcana");
+		list.add(this.damage + " Ranged Damage");
+		list.add(this.getMaxDamage() == -1 ? "Unlimited uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses");
+		list.add(ChatFormats.DIVINERPG);
 	}
 }

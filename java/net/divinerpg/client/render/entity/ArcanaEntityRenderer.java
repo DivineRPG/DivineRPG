@@ -78,11 +78,11 @@ public class ArcanaEntityRenderer {
 	public static void init(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityStar.class, new RenderStarlight(x.starlight));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderProjectile(x.sparkler));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, new RenderProjectile(x.sparkler));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, new RenderProjectile(x.firefly));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderIconProjectile(ArcanaItems.grenade));
-		RenderingRegistry.registerEntityRenderingHandler(EntityLamona.class, new RenderProjectile(x.sparkler));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderProjectile(x.sparkler));
-		RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, new RenderProjectile(x.sparkler));
+		RenderingRegistry.registerEntityRenderingHandler(EntityLamona.class, new RenderIconProjectile(ArcanaItems.lamona));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderProjectile(x.meriksMissile));
+		RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, new RenderProjectile(x.sparkler));//TODO: change the reflector to not use an entity.
 
         RenderingRegistry.registerEntityRenderingHandler(EntityRoamer.class, new RenderDivineMob(new ModelRoamer(), x.roamer));
         RenderingRegistry.registerEntityRenderingHandler(EntityDeathcryx.class, new RenderDivineMob(new ModelDeathcryx(), x.deathcryx));

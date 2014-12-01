@@ -20,8 +20,10 @@ public class DevHatEvent {
 		if(isDeveloperName(evt.entityPlayer.getCommandSenderName())) {
 			GL11.glPushMatrix();
 			GL11.glRotatef(-evt.entityPlayer.rotationYaw, 0, 1, 0);
+			GL11.glTranslatef(0f, -0.1f, 0f);
 			GL11.glRotatef((evt.renderer.modelBipedMain.bipedHead.rotateAngleX)*57.2957795f*Math.signum((evt.entityPlayer.rotationYaw%360)), 1, 0, 0);
-			GL11.glTranslatef(-0.45f, 0.4f, -0.45f);
+			GL11.glTranslatef(0f, 0.3f, 0f);
+			GL11.glTranslatef(-0.5f, 0.1f, -0.5f);
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhat.png"));
 			new ModelHat().renderAll();
 			GL11.glPopMatrix();
@@ -29,6 +31,6 @@ public class DevHatEvent {
 	}
 
 	public static boolean isDeveloperName(String name) {
-		return name == "Doomturd" || name == "XolovA" || name == "geekclb" || name == "sheenrox82"; //TODO: add more people.
+		return name.equals("Doomturd") || name.equals("XolovA") || name.equals("geekclb") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all");
 	}
 }
