@@ -21,6 +21,9 @@ import net.divinerpg.dimensions.vethea.all.Ring;
 import net.divinerpg.dimensions.vethea.all.Sword;
 import net.divinerpg.dimensions.vethea.all.Trident;
 import net.divinerpg.dimensions.vethea.all.WorldGenVetheanPillar;
+import net.divinerpg.dimensions.vethea.layer1.Tree4;
+import net.divinerpg.dimensions.vethea.layer1.Tree5;
+import net.divinerpg.dimensions.vethea.layer1.Tree6;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
 
@@ -37,7 +40,8 @@ public class VetheanChunkBuilder {
 	private static IVetheanStructure infusion = new InfusionOutpost();
 	private static IVetheanStructure[] lamps = {new Lamp1(), new Lamp2()};
 	private static IVetheanStructure[] items = {new Bow(), new Hook(), new Mushroom(), new Pickaxe(), new Pointedsquare(), new Ring(), new Sword(), new Trident()};
-	
+	private static IVetheanStructure[] l1Trees = {new Tree4(), new Tree5(), new Tree6()};
+
 	private static IVetheanStructure pillar = new WorldGenVetheanPillar();
 
 	private static Random rand = new Random();
@@ -91,7 +95,8 @@ public class VetheanChunkBuilder {
 	private boolean containsItemL2 = false;
 	private boolean containsItemL3 = false;
 	private boolean containsItemL4 = false;
-
+	
+	private boolean containsl1Tree = false;
 
 	public Block[][][] buildChunk(){
 		
@@ -322,6 +327,11 @@ public class VetheanChunkBuilder {
 					if(!containsItemL4 && !containsInfusionTableL4 && !containsLampL4 && y == 161 && rand.nextInt(1536) == 0 && x+13<16){
 						containsItemL4 = true;
 						items[this.rand.nextInt(8)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsl1Tree && !containsInfusionTableL1 && !containsLampL1 && !containsItemL1 && !containsPillarL1 && y == 17 && rand.nextInt(7500) == 0 && x+6<16 && z+5<16){
+						containsl1Tree = true;
+						l1Trees[this.rand.nextInt(3)].generate(chunk, x, y, z);
 					}
 
 				}

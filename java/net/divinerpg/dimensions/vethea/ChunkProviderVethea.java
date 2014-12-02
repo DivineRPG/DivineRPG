@@ -61,7 +61,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 	private MapGenBase caveGenerator = new MapGenFloorCrystals();
 	private BiomeGenBase[] biomesForGeneration;
 	private final ArrayList<WorldGenerator> crypts;
-	private final ArrayList<WorldGenerator> l1Trees;
 	private final ArrayList<WorldGenerator> pyramids;
 	private final ArrayList<WorldGenerator> l2Trees;
 	private final ArrayList<WorldGenerator> l3Trees;
@@ -107,15 +106,10 @@ public class ChunkProviderVethea implements IChunkProvider {
 		NoiseGenerator[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5, noiseGen6, mobSpawnerNoise};
 		this.noiseGen4 = (NoiseGeneratorPerlin)noiseGens[3];
 		this.mobSpawnerNoise = (NoiseGeneratorOctaves)noiseGens[6];
-
-		this.l1Trees = new ArrayList(3);
-		l1Trees.add(new Tree4());
-		l1Trees.add(new Tree5());
-		l1Trees.add(new Tree6());
 		
 		this.l2Trees = new ArrayList(2);
-		l1Trees.add(new Tree3());
-		l1Trees.add(new Tree6());
+		l2Trees.add(new Tree3());
+		//l2Trees.add(new Tree6());
 		
 		this.crypts = new ArrayList(2);
 		crypts.add(new Crypt1());
@@ -244,13 +238,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		            var13 = 13;
 		            var14 = var5 + this.rand.nextInt(16) + 8;
 		            (crypts.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);//TODO add crypt keeper
-		        }
-		        
-		        if (this.rand.nextInt(250) == 0) {
-		            var12 = var4 + this.rand.nextInt(16) + 8;
-		            var13 = 17;
-		            var14 = var5 + this.rand.nextInt(16) + 8;
-		            (l1Trees.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
 		        }
 		        
 				 // Layer 2
