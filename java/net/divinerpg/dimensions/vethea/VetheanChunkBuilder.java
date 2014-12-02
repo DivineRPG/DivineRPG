@@ -1,5 +1,6 @@
 package net.divinerpg.dimensions.vethea;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.divinerpg.dimensions.vethea.all.Bow;
@@ -26,6 +27,7 @@ import net.divinerpg.dimensions.vethea.layer1.Tree5;
 import net.divinerpg.dimensions.vethea.layer1.Tree6;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
+import cpw.mods.fml.common.IWorldGenerator;
 
 public class VetheanChunkBuilder {
 	
@@ -98,7 +100,7 @@ public class VetheanChunkBuilder {
 	
 	private boolean containsl1Tree = false;
 
-	public Block[][][] buildChunk(){
+	public Block[][][] buildChunk(int chunkX, int chunkZ){
 		
 		Block[][][] chunk = new Block[16][256][16];
 		

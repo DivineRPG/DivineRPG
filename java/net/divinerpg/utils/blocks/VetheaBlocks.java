@@ -14,6 +14,7 @@ import net.divinerpg.blocks.vethea.BlockInfusionTable;
 import net.divinerpg.blocks.vethea.BlockKarosCannon;
 import net.divinerpg.blocks.vethea.BlockKarosHeatTile;
 import net.divinerpg.blocks.vethea.BlockNightmareBed;
+import net.divinerpg.blocks.vethea.BlockShimmer;
 import net.divinerpg.blocks.vethea.BlockVetheaPlant;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -69,6 +70,7 @@ public class VetheaBlocks {
     public static final Block             firewoodLeaves         = new BlockModLeaves("fireWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
     public static final Block             hyrewoodLeaves         = new BlockModLeaves("hyreWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
     public static final Block             gemtopGreen            = new BlockVetheaPlant("greenGemTop");
+    public static final Block             gemtopPurple            = new BlockVetheaPlant("purpleGemTop");
     public static final Block             purpleDulah            = new BlockVetheaPlant("purpleDulah");
     public static final Block             yellowDulah            = new BlockVetheaPlant("yellowDulah");
     public static final Block             greenDulah             = new BlockVetheaPlant("greenDulah");
@@ -77,9 +79,9 @@ public class VetheaBlocks {
     public static final Block             fernite                = new BlockVetheaPlant("fernite");
     public static final Block             bulatobe               = new BlockVetheaPlant("bulbatobe");
     public static final Block             shineGrass             = new BlockVetheaPlant("shineGrass").setLightLevel(0.4F);
-    //public static final Block             shimmer                = new BlockShimmer().setLightLevel(0.4F).setUnlocalizedName("shimmer").setStepSound(Block.soundGrassFootstep);
+    public static final Block             shimmer                = new BlockShimmer("shimmer").setLightLevel(0.4F);
     public static final Block             hiveWall               = new BlockMod(EnumBlockType.GLASS, "hiveWalls", 1.0F, DivineRPGTabs.vethea).setLightLevel(0.533F);
-    //public static final Block             dreamglow              = new BlockShimmer().setLightLevel(0.4F).setUnlocalizedName("dreamglow").setStepSound(Block.soundGrassFootstep);
+    public static final Block             dreamglow              = new BlockVetheaPlant("dreamglow").setLightLevel(0.4F);
     public static final Block             hyrewoodVine           = new BlockModVine("hyreWoodVine").setCreativeTab(DivineRPGTabs.vethea);
     public static final Block             chamberWall            = new BlockMod(EnumBlockType.ROCK, "chamberWall1", false, DivineRPGTabs.vethea);
     public static final Block             chamberWall1           = new BlockMod(EnumBlockType.ROCK, "chamberWall2", false, DivineRPGTabs.vethea);

@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenVillageIsland extends WorldGenerator
 {
-	public final WorldGenConeUp spike = new WorldGenConeUp();
+	public final WorldGenConeUp spike = new WorldGenConeUp(VetheaBlocks.dreamStone);
 	public final ArrayList<WorldGenerator> housesDown;
 	public final ArrayList<WorldGenerator> housesUp;
 	public final ArrayList<WorldGenerator> lampsDown;

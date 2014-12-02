@@ -12,8 +12,8 @@ public class WorldGenConeUp extends WorldGenerator
 	private final Block block;
 	private int height;
 
-	public WorldGenConeUp() {
-		block = VetheaBlocks.dreamStone;
+	public WorldGenConeUp(Block b) {
+		block = b;
 	}
 
 	@Override

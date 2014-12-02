@@ -7,10 +7,6 @@ import java.util.Random;
 import net.divinerpg.dimensions.vethea.all.WorldGenConeUp;
 import net.divinerpg.dimensions.vethea.layer1.Crypt1;
 import net.divinerpg.dimensions.vethea.layer1.Crypt2;
-import net.divinerpg.dimensions.vethea.layer1.Tree4;
-import net.divinerpg.dimensions.vethea.layer1.Tree5;
-import net.divinerpg.dimensions.vethea.layer1.Tree6;
-import net.divinerpg.dimensions.vethea.layer1.WorldGenLayer1Forest;
 import net.divinerpg.dimensions.vethea.layer2.HiveNest;
 import net.divinerpg.dimensions.vethea.layer2.Pyramid1;
 import net.divinerpg.dimensions.vethea.layer2.Pyramid2;
@@ -30,6 +26,7 @@ import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
@@ -74,10 +71,10 @@ public class ChunkProviderVethea implements IChunkProvider {
 	private final WorldGenerator fernites;
 	private final WorldGenerator bulatobes;
 	private final WorldGenerator shinegrass;
-	//private final WorldGenerator shimmers;
-	//private final WorldGenerator dreamglows;
+	private final WorldGenerator shimmers;
+	private final WorldGenerator dreamglows;
 	private final WorldGenerator greenGemTops;
-	//private final WorldGenerator purpleGemTops;
+	private final WorldGenerator purpleGemTops;
 	private final WorldGenerator yellowDulahs;
 	private final WorldGenerator greenDulahs;
 	private final WorldGenerator hungerVillages;
@@ -115,7 +112,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		crypts.add(new Crypt1());
 		crypts.add(new Crypt2());     
 		
-		ceilingTexture = new WorldGenConeUp();
+		ceilingTexture = new WorldGenConeUp(Blocks.air);
 		hungerVillages = new WorldGenVillageIsland();
 		grassClusters = new WorldGenMinable(VetheaBlocks.dreamGrass, 16, VetheaBlocks.dreamStone);
 		
@@ -149,10 +146,10 @@ public class ChunkProviderVethea implements IChunkProvider {
 		fernites = new WorldGenVetheanFlower(VetheaBlocks.fernite);
 		bulatobes = new WorldGenVetheanFlower(VetheaBlocks.bulatobe);
 		shinegrass = new WorldGenVetheanFlower(VetheaBlocks.shineGrass);
-		//shimmers = new WorldGenVetheanFlower(VetheaBlocks.shimmer);
-		//dreamglows = new WorldGenVetheanFlower(VetheaBlocks.dreamglow);
+		shimmers = new WorldGenVetheanFlower(VetheaBlocks.shimmer);
+		dreamglows = new WorldGenVetheanFlower(VetheaBlocks.dreamglow);
 		greenGemTops = new WorldGenVetheanFlower(VetheaBlocks.gemtopGreen);
-		//purpleGemTops = new WorldGenVetheanFlower(VetheaBlocks.gemtopPurple);
+		purpleGemTops = new WorldGenVetheanFlower(VetheaBlocks.gemtopPurple);
 		yellowDulahs = new WorldGenVetheanFlower(VetheaBlocks.yellowDulah);
 		greenDulahs = new WorldGenVetheanFlower(VetheaBlocks.greenDulah);
 		
@@ -160,7 +157,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 
 	public void generateTerrain(int i, int j, Block[] b) {
 		VetheanChunkBuilder builder = new VetheanChunkBuilder();
-		VetheanChunkBuilder.toTerrainArray(builder.buildChunk(), b);
+		VetheanChunkBuilder.toTerrainArray(builder.buildChunk(i, j), b);
 	}
 
 	@Override
@@ -206,16 +203,16 @@ public class ChunkProviderVethea implements IChunkProvider {
 		int var14;
 
 		
-		/*for (int i = 0; i < 3; i++) {
-			var12 = var4 + this.rand.nextInt(16) + 8;
-			var13 = 64;
+				for (int i = 0; i < 3; i++) {
+					var12 = var4 + this.rand.nextInt(16) + 8;
+					var13 = 48;
 
-			var14 = var5 + this.rand.nextInt(16) + 8;
-			(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14, this.rand.nextInt(3)+1);
-		}*/
-		
+					var14 = var5 + this.rand.nextInt(16) + 8;
+					//(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14, this.rand.nextInt(3)+1);
+				}
+				
 				if(this.rand.nextInt(5)==0)greenGemTops.generate(worldObj, rand, var4, 17, var5);
-				//if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, var4, 0, var5);
+				if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, var4, 17, var5);
 				if(this.rand.nextInt(5)==0)yellowDulahs.generate(worldObj, rand, var4, 17, var5);
 				if(this.rand.nextInt(5)==0)greenDulahs.generate(worldObj, rand, var4, 17, var5);
 		        
@@ -223,7 +220,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		            var12 = var4 + this.rand.nextInt(16) + 8;
 		            var13 = 30;
 		            var14 = var5 + this.rand.nextInt(16) + 8;
-		            (hungerVillages).generate(this.worldObj, this.rand, var12, var13, var14);
+		            //(hungerVillages).generate(this.worldObj, this.rand, var12, var13, var14);
 		        }
 				
 		        for (int i = 0; i < 1; i++) {
@@ -252,7 +249,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		        /*
 				if (this.rand.nextInt(250) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
+					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
 						var13++;
@@ -262,7 +259,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 				
 				for (int i = 0; i < 3; i++) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 64;
+					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(new WorldGenLayer2Forest(false)).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
@@ -279,14 +276,14 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					//(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
+					(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					//(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
+					(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 				
 
@@ -305,17 +302,17 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var13 = 148;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					//(new WorldGenLayer1Forest(false)).generate(this.worldObj, this.rand, var12, var13, var14);
-				}
+				}*/
 
 				if (this.rand.nextInt(250) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 144 ;
+					var13 = 113;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
 						var13++;
 					}
-					//(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
-				}*/
+					(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
+				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
@@ -374,26 +371,26 @@ public class ChunkProviderVethea implements IChunkProvider {
 					(new Layer4MassiveTree(false)).generate(this.worldObj, this.rand, var12, var13, var14);
 				}*/
 
-				/*if (this.rand.nextInt(10) == 0) {
+				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 212;
+					var13 = 161;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					//(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
+					(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 212;
+					var13 = 161;
 					var14 = var5 + this.rand.nextInt(16) + 8;
 					(shinegrass).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 212;
+					var13 = 161;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					//(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
-				}*/
+					(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
+				}
 
 				MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, rand, par2, par3, var11));
 				BlockSand.fallInstantly = false;
