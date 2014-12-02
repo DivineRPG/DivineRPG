@@ -2,6 +2,7 @@ package net.divinerpg.dimensions.vethea;
 
 import java.util.Random;
 
+import net.divinerpg.dimensions.vethea.all.Bow;
 import net.divinerpg.dimensions.vethea.all.FloatingTree1;
 import net.divinerpg.dimensions.vethea.all.FloatingTree2;
 import net.divinerpg.dimensions.vethea.all.FloatingTree3;
@@ -9,13 +10,19 @@ import net.divinerpg.dimensions.vethea.all.FloatingTree4;
 import net.divinerpg.dimensions.vethea.all.FloatingTree5;
 import net.divinerpg.dimensions.vethea.all.FloatingTree6;
 import net.divinerpg.dimensions.vethea.all.FloatingTree7;
+import net.divinerpg.dimensions.vethea.all.Hook;
 import net.divinerpg.dimensions.vethea.all.InfusionOutpost;
 import net.divinerpg.dimensions.vethea.all.Lamp1;
 import net.divinerpg.dimensions.vethea.all.Lamp2;
+import net.divinerpg.dimensions.vethea.all.Mushroom;
+import net.divinerpg.dimensions.vethea.all.Pickaxe;
+import net.divinerpg.dimensions.vethea.all.Pointedsquare;
+import net.divinerpg.dimensions.vethea.all.Ring;
+import net.divinerpg.dimensions.vethea.all.Sword;
+import net.divinerpg.dimensions.vethea.all.Trident;
 import net.divinerpg.dimensions.vethea.all.WorldGenVetheanPillar;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 
 public class VetheanChunkBuilder {
 	
@@ -29,6 +36,7 @@ public class VetheanChunkBuilder {
 	
 	private static IVetheanStructure infusion = new InfusionOutpost();
 	private static IVetheanStructure[] lamps = {new Lamp1(), new Lamp2()};
+	private static IVetheanStructure[] items = {new Bow(), new Hook(), new Mushroom(), new Pickaxe(), new Pointedsquare(), new Ring(), new Sword(), new Trident()};
 	
 	private static IVetheanStructure pillar = new WorldGenVetheanPillar();
 
@@ -79,6 +87,10 @@ public class VetheanChunkBuilder {
 	private boolean containsPillarL1 = false;
 	private boolean containsPillarL2 = false;
 	private boolean containsPillarL3 = false;
+	private boolean containsItemL1 = false;
+	private boolean containsItemL2 = false;
+	private boolean containsItemL3 = false;
+	private boolean containsItemL4 = false;
 
 
 	public Block[][][] buildChunk(){
@@ -290,6 +302,26 @@ public class VetheanChunkBuilder {
 					if(!containsPillarL3 && !containsInfusionTableL3 && !containsLampL3 && y == 113 && rand.nextInt(16) == 0 && x == 8 && z == 8){
 						containsPillarL3 = true;
 						pillar.generate(chunk, x, y, z);
+					}
+					
+					if(!containsItemL1 && !containsInfusionTableL1 && !containsLampL1 && y == 17 && rand.nextInt(1536) == 0 && x+13<16){
+						containsItemL1 = true;
+						items[this.rand.nextInt(8)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsItemL2 && !containsInfusionTableL2 && !containsLampL2 && y == 65 && rand.nextInt(1536) == 0 && x+13<16){
+						containsItemL2 = true;
+						items[this.rand.nextInt(8)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsItemL3 && !containsInfusionTableL3 && !containsLampL3 && y == 113 && rand.nextInt(1536) == 0 && x+13<16){
+						containsItemL3 = true;
+						items[this.rand.nextInt(8)].generate(chunk, x, y, z);
+					}
+					
+					if(!containsItemL4 && !containsInfusionTableL4 && !containsLampL4 && y == 161 && rand.nextInt(1536) == 0 && x+13<16){
+						containsItemL4 = true;
+						items[this.rand.nextInt(8)].generate(chunk, x, y, z);
 					}
 
 				}
