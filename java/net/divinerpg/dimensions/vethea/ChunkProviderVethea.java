@@ -59,7 +59,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 	private BiomeGenBase[] biomesForGeneration;
 	private final ArrayList<WorldGenerator> crypts;
 	private final ArrayList<WorldGenerator> pyramids;
-	private final ArrayList<WorldGenerator> l2Trees;
 	private final ArrayList<WorldGenerator> l3Trees;
 	private final ArrayList<WorldGenerator> l4Trees;
 	private final ArrayList<WorldGenerator> l3Altars;
@@ -103,10 +102,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		NoiseGenerator[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5, noiseGen6, mobSpawnerNoise};
 		this.noiseGen4 = (NoiseGeneratorPerlin)noiseGens[3];
 		this.mobSpawnerNoise = (NoiseGeneratorOctaves)noiseGens[6];
-		
-		this.l2Trees = new ArrayList(2);
-		l2Trees.add(new Tree3());
-		//l2Trees.add(new Tree6());
 		
 		this.crypts = new ArrayList(2);
 		crypts.add(new Crypt1());
