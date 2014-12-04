@@ -3,21 +3,23 @@ package net.divinerpg.api.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockModLeaves extends BlockMod implements IShearable
 {
     protected int[] adjacentTreeBlocks;
+    private IIcon[] textures = new IIcon[2];
 
     public BlockModLeaves(String name, float hardness) {
         super(EnumBlockType.LEAVES, name, hardness);
@@ -140,12 +142,17 @@ public class BlockModLeaves extends BlockMod implements IShearable
         return false;
     }
 
-    //This only checks graphic on start up
     @Override
-    public String getTextureName() {
-        if (Minecraft.getMinecraft().gameSettings.fancyGraphics)
-            return textureName;
-        return textureName + "_fast";
+    public IIcon getIcon(IBlockAccess world, int i, int j, int k, int par5) {
+        if (Minecraft.getMinecraft().gameSettings.fancyGraphics) return this.textures[0];
+        return this.textures[1];
+    }
+    
+    @Override
+    public void registerBlockIcons(IIconRegister i) {
+    	this.blockIcon = i.registerIcon(textureName);
+    	this.textures[0] = i.registerIcon(textureName);
+    	this.textures[1] = i.registerIcon(textureName + "_fast");
     }
     
     @SideOnly(Side.CLIENT)
