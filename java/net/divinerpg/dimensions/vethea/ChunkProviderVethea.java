@@ -45,17 +45,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 public class ChunkProviderVethea implements IChunkProvider {
 
 	private Random rand;
-	private NoiseGeneratorOctaves noiseGen1;
-	private NoiseGeneratorOctaves noiseGen2;
-	private NoiseGeneratorOctaves noiseGen3;
-	private NoiseGeneratorPerlin noiseGen4;
-	public NoiseGeneratorOctaves noiseGen5;
-	public NoiseGeneratorOctaves noiseGen6;
-	public NoiseGeneratorOctaves mobSpawnerNoise;
 	private World worldObj;
-	private double[] noiseArray;
-	private double[] stoneNoise = new double[256];
-	private MapGenBase caveGenerator = new MapGenFloorCrystals();
 	private BiomeGenBase[] biomesForGeneration;
 	private final ArrayList<WorldGenerator> crypts;
 	private final ArrayList<WorldGenerator> pyramids;
@@ -79,29 +69,9 @@ public class ChunkProviderVethea implements IChunkProvider {
 	private final WorldGenerator hungerVillages;
 	private final WorldGenerator grassClusters;
 
-	double[] noise3;
-	double[] noise1;
-	double[] noise2;
-	double[] noise5;
-	double[] noise6;
-
-	float[] parabolicField;
-	int[][] field_73219_j = new int[32][32];
-
 	public ChunkProviderVethea(World par1World, long par2) {
 		this.worldObj = par1World;
 		this.rand = new Random(par2);
-		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.noiseGen3 = new NoiseGeneratorOctaves(this.rand, 8);
-		this.noiseGen4 = new NoiseGeneratorPerlin(this.rand, 4);
-		this.noiseGen5 = new NoiseGeneratorOctaves(this.rand, 10);
-		this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
-
-		NoiseGenerator[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5, noiseGen6, mobSpawnerNoise};
-		this.noiseGen4 = (NoiseGeneratorPerlin)noiseGens[3];
-		this.mobSpawnerNoise = (NoiseGeneratorOctaves)noiseGens[6];
 		
 		this.crypts = new ArrayList(2);
 		crypts.add(new Crypt1());

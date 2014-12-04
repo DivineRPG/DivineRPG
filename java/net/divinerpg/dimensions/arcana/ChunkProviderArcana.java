@@ -179,7 +179,7 @@ public class ChunkProviderArcana implements IChunkProvider{
 			}
 		}
 		DungeonCeiling dungeonCeiling = Ceiling;
-		dungeonCeiling.generate(chunk, rand, x, 40, y);//80
+		dungeonCeiling.generate(chunk, rand, x, 40, y);
 	}
 
 	@Override

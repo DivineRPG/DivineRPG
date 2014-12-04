@@ -49,7 +49,7 @@ public class Sounds {
     public static Sound rainbourHurt      = new Sound("rainbourHurt");
     public static Sound rotatickHurt      = new Sound("rotatickHurt");
     public static Sound theEyeHurt        = new Sound("theEyeHurt");
-    public static Sound whaleHurt         = new Sound("whaleHurtHurt");
+    public static Sound whaleHurt         = new Sound("whaleHurt");
     public static Sound wildFireHurt      = new Sound("wildFireHurt");
     public static Sound whale             = new Sound("whale");
     public static Sound wildFire          = new Sound("wildFire");

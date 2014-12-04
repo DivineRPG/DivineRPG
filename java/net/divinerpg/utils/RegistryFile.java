@@ -42,7 +42,6 @@ public abstract class RegistryFile {
         }
         inGame = inGame.replaceAll(" Of ", " of ").replaceAll(" The ", " the ");
         String finalName = firstLetter + inGame;
-        System.out.println(finalName);
         addToFile(prefixOfLine + "." + name + ".name=" + finalName, name);
     }
     

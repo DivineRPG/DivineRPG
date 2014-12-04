@@ -337,7 +337,7 @@ public class VetheanChunkBuilder {
 						l1Trees[this.rand.nextInt(3)].generate(chunk, x, y, z);
 					}
 					
-					if(!containsl2Tree && !containsInfusionTableL2 && !containsLampL2 && !containsItemL2 && !containsPillarL2 && y == 65 && rand.nextInt(7500) == 0 && x == 0 && z == 0){
+					if(!containsl2Tree && !containsInfusionTableL2 && !containsLampL2 && !containsItemL2 && !containsPillarL2 && y == 65 && rand.nextInt(250) == 0 && x == 0 && z == 0){
 						containsl2Tree = true;
 						l2Trees[this.rand.nextInt(2)].generate(chunk, x, y, z);
 					}
@@ -354,7 +354,7 @@ public class VetheanChunkBuilder {
 		for(int x = 0; x<16; x++){
 			for(int y = 0; y<256; y++){
 				for(int z = 0; z<16; z++){
-					output[(x*256)+(z*4096)+y] = chunk[x][y][z];
+					output[z<<12|x<<8|y] = chunk[x][y][z];
 				}
 			}
 		}
