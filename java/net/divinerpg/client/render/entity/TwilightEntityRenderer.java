@@ -2,7 +2,6 @@ package net.divinerpg.client.render.entity;
 
 import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.client.render.EntityResourceLocation;
-import net.divinerpg.client.render.RenderDivineArrow;
 import net.divinerpg.client.render.RenderDivineBoss;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
@@ -29,6 +28,7 @@ import net.divinerpg.client.render.entity.twilight.model.ModelTomo;
 import net.divinerpg.client.render.entity.twilight.model.ModelTwilightDemon;
 import net.divinerpg.client.render.entity.twilight.model.ModelTwilightGolem;
 import net.divinerpg.client.render.entity.twilight.model.ModelVamacheron;
+import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
 import net.divinerpg.entities.twilight.EntityAngryBunny;
 import net.divinerpg.entities.twilight.EntityApalachiaArcher;
 import net.divinerpg.entities.twilight.EntityApalachiaCadillion;
@@ -79,7 +79,6 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -123,7 +122,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.cadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.apalachiaTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaGolem.class, new RenderDivineMob(new ModelTwilightGolem(), 0.0F, x.apalachiaGolem));
-        RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaWarrior.class, new RenderDivineMob(new ModelEnchantedWarrior(), 0.0F, x.apalachiaWarrior));
+        RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaWarrior.class, new RenderModBiped(new ModelEnchantedWarrior(), x.apalachiaWarrior));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaArcher.class, new RenderDivineMob(new ModelEnchantedArcher(), 0.0F, x.apalachiaArcher));
         RenderingRegistry.registerEntityRenderingHandler(EntitySkythernArcher.class, new RenderDivineMob(new ModelEnchantedArcher(), 0.0F, x.skythernArcher));
         RenderingRegistry.registerEntityRenderingHandler(EntitySamek.class, new RenderDivineMob(new ModelSamek(), 0.0F, x.samek));

@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 
 public class EntityFrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
 	
-    private static final ItemStack defaultHeldItem = new ItemStack(IceikaItems.chocolateLog, 1);//TODO change to the iceikle bow once its implimented...
+    private static final ItemStack defaultHeldItem = new ItemStack(IceikaItems.icicleBow, 1);
 
     public EntityFrostArcher(World var1) {
         super(var1);
