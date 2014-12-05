@@ -7,6 +7,7 @@ import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.recipes.CraftingDivineTableManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.entity.EntityList;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -33,7 +34,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Util {
 
-    public static int      mobID                  = 500, projectileID = 0;
+    public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
 
     private static Object  reflectionFactory      = null;
     private static Method  newConstructorAccessor = null;
@@ -77,8 +78,8 @@ public class Util {
 
     public static void registerDivineRPGMob(Class entityClass, String entityName) {
     	LangRegistry.addMob(entityName);
-        EntityRegistry.registerModEntity(entityClass, entityName, mobID, DivineRPG.instance, 120, 5, true);
-        mobID++;
+        EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 120, 5, true);
+        EntityList.addMapping(entityClass, entityName, entityListID++, 0x000000, 0xFFFFFF);
     }
 
     public static void registerProjectile(Class entityClass, String entityName) {

@@ -61,11 +61,13 @@ public class EntityDivineArrow extends EntityArrow
         this.yOffset = 0.0F;
     }
 
-    public EntityDivineArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
+    public EntityDivineArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_, float damage, String texture)
     {
         super(p_i1755_1_);
         this.renderDistanceWeight = 10.0D;
         this.shootingEntity = p_i1755_2_;
+        this.damageMax = this.damageMin = damage;
+        this.dataWatcher.updateObject(17, texture);
 
         if (p_i1755_2_ instanceof EntityPlayer)
         {
@@ -87,7 +89,7 @@ public class EntityDivineArrow extends EntityArrow
             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
             this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
-            this.setThrowableHeading(d0, d1 + (double)f4, d2, p_i1755_4_, p_i1755_5_);
+            this.setThrowableHeading(d0, d1 + (double)f4 -1, d2, p_i1755_4_, p_i1755_5_);
         }
     }
 

@@ -115,6 +115,7 @@ public class EntityResourceLocation {
     public static ResourceLocation apalachiaWarrior	 = addMob("apalachiaWarrior");
     public static ResourceLocation apalachiaArcher	 = addMob("apalachiaArcher");
     public static ResourceLocation skythernArcher	 = addMob("skythernArcher");
+    public static ResourceLocation twilightArcher	 = addMob("twilightArcher");
     public static ResourceLocation samek			 = addMob("samek");
     public static ResourceLocation skythernGolem	 = addMob("skythernGolem");
     public static ResourceLocation skythernCori		 = addMob("skythernCori");

@@ -1,60 +1,54 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityApalachiaArcher extends EntityDivineRPGMob implements IRangedAttackMob {
- 
-	private static final ItemStack defaultHeldItem = new ItemStack(TwilightItemsWeapons.apalachiaBow, 1);
+public class EntityTwilightArcher extends EntityApalachiaArcher {
+	
+	private static final ItemStack defaultHeldItem = new ItemStack(TwilightItemsWeapons.twilightBow, 1);
 
-    public EntityApalachiaArcher(World var1) {
+    public EntityTwilightArcher(World var1) {
         super(var1);
-        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 10.0F));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.setSize(2.0F, 5.0F);
-    }
-    
+        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 60, 10.0F));   
+	}
+
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.apalachiaArcherHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.apalachiaArcherDamage);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.apalachiaArcherSpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.apalachiaArcherFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.skythernArcherHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.skythernArcherDamage);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.skythernArcherSpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.skythernArcherFollowRange);
 	}
 
-    @Override
-    public boolean isAIEnabled() {
-        return true;
-    }
- 
-    @Override
-    public int getTotalArmorValue() {
-        return 10;
-    }
- 
     @Override
     protected String getLivingSound() {
         return Sounds.getSoundName(Sounds.archer);
     }
- 
+
     @Override
     public ItemStack getHeldItem() {
         return defaultHeldItem;
     }
-
+    
     @Override
     protected String getHurtSound() {
         return Sounds.getSoundName(Sounds.highHit);
@@ -67,19 +61,19 @@ public class EntityApalachiaArcher extends EntityDivineRPGMob implements IRanged
  
     @Override
     protected Item getDropItem() {
-        return TwilightItemsOther.apalachiaSoul;
+        return TwilightItemsOther.mortumSoul;
     }
-
+    
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase var1, float f) {
-        EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, var1, 1.6F, 12.0F, 15, "wildWoodArrow");
+        EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, var1, 1.6F, 12.0F, 15, "furyArrow");
         var2.setDamage(17D);
         this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         this.worldObj.spawnEntityInWorld(var2);
     }
 
-	@Override
-	public String mobName() {
-		return "Enchanted Archer";
-	}
+    @Override
+    public String mobName() {
+    	return "Twilight Archer";
+    }
 }

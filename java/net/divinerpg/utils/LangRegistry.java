@@ -123,6 +123,7 @@ public class LangRegistry extends RegistryFile {
         for (int i = 0; i < mobs.size(); i++) {
             String mob = mobs.get(i);
             instance.addToFile("entity.divinerpg." + mob + ".name=" + getLocalizedMobName(mob));
+            instance.addToFile("entity." + mob + ".name=" + getLocalizedMobName(mob));
         }
     }
 

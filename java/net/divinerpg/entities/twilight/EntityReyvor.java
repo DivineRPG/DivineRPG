@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 
 public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
 	
-	private static final ItemStack defaultHeldItem = new ItemStack(TwilightItemsWeapons.mortumBow, 1);
+	private static final ItemStack defaultHeldItem = new ItemStack(TwilightItemsWeapons.twilightBow, 1);
 
     public EntityReyvor(World var1) {
         super(var1);        

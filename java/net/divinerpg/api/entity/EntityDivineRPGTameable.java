@@ -26,6 +26,7 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	public EntityDivineRPGTameable(World w) {
 		super(w);
 		addBasicAI();
+		setTamed(false);
 	}
 	
 	public double getHP(){return getEntityAttribute(SharedMonsterAttributes.maxHealth).getAttributeValue();}
@@ -64,7 +65,6 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-        this.setTamed(false);
 	}
 	
 	protected void addAttackingAI(){

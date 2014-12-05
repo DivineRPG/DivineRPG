@@ -26,6 +26,7 @@ import net.divinerpg.entities.twilight.EntitySkythernFiend;
 import net.divinerpg.entities.twilight.EntitySkythernGolem;
 import net.divinerpg.entities.twilight.EntitySoulFiend;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
+import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
 import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
@@ -91,7 +92,8 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntityApalachiaGolem.class, "ApalachiaGolem");
         Util.registerDivineRPGMob(EntityApalachiaWarrior.class, "EnchantedWarrior");
         Util.registerDivineRPGMob(EntitySkythernArcher.class, "SkythernArcher");
-        Util.registerDivineRPGMob(EntityApalachiaArcher.class, "TwilightArcher");
+        Util.registerDivineRPGMob(EntityApalachiaArcher.class, "EnchantedArcher");
+        Util.registerDivineRPGMob(EntityTwilightArcher.class, "TwilightArcher");
         Util.registerDivineRPGMob(EntitySamek.class, "Samek");
         Util.registerDivineRPGMob(EntitySkythernGolem.class, "SkythernGolem");
         Util.registerDivineRPGMob(EntitySkythernCori.class, "SkythernCori");

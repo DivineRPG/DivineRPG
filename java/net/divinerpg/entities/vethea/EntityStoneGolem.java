@@ -38,10 +38,10 @@ public class EntityStoneGolem extends EntityDivineRPGTameable {
 
     public EntityStoneGolem(World var1) {
         super(var1);
+        setSize(0.8F, 2.0F);
     }
     
     @Override
-    @SuppressWarnings("make tameable")
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.stoneGolemHealth);

@@ -23,9 +23,9 @@ import net.minecraft.world.World;
 
 public class EntityHellPig extends EntityDivineRPGTameable {
 
-	@SuppressWarnings("For some reason, this is falling through the ground")
 	public EntityHellPig(World w) {
 		super(w);
+		this.setSize(0.7f, 0.5f);
 	}
 	
 	@Override

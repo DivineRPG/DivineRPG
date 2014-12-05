@@ -15,17 +15,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class DevHatEvent {
 	
+	private static ModelHat hat = new ModelHat();
+	
 	@SubscribeEvent
 	public void playerRender(RenderPlayerEvent.Pre evt) {
 		if(isDeveloperName(evt.entityPlayer.getCommandSenderName())) {
 			GL11.glPushMatrix();
-			GL11.glRotatef(-evt.entityPlayer.rotationYaw, 0, 1, 0);
+			GL11.glRotatef(-evt.entityPlayer.rotationYawHead, 0, 1, 0);
 			GL11.glTranslatef(0f, -0.1f, 0f);
-			GL11.glRotatef((evt.renderer.modelBipedMain.bipedHead.rotateAngleX)*57.2957795f*Math.signum((evt.entityPlayer.rotationYaw%360)), 1, 0, 0);
-			GL11.glTranslatef(0f, 0.3f, 0f);
+			GL11.glRotatef(evt.entityPlayer.rotationPitch, 1, 0, 0);
 			GL11.glTranslatef(-0.5f, 0.1f, -0.5f);
+			GL11.glTranslatef(0f, 0.2f, 0f);
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhat.png"));
-			new ModelHat().renderAll();
+			hat.renderAll();
 			GL11.glPopMatrix();
 		}
 	}
