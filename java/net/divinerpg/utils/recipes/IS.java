@@ -68,9 +68,7 @@ public class IS {
 
 	public static ItemStack edenArrow = new ItemStack(TwilightItemsWeapons.edenArrow);
 	public static ItemStack wildwoodArrow = new ItemStack(TwilightItemsWeapons.wildwoodArrow);
-	public static ItemStack apalachiaArrow = new ItemStack(TwilightItemsWeapons.apalachiaArrow);
-	public static ItemStack skythernArrow = new ItemStack(TwilightItemsWeapons.skythernArrow);
-	public static ItemStack mortumArrow = new ItemStack(TwilightItemsWeapons.mortumArrow);
+	public static ItemStack furyArrow = new ItemStack(TwilightItemsWeapons.furyArrow);
 
 	public static ItemStack edenBow = new ItemStack(TwilightItemsWeapons.edenBow);
 	public static ItemStack wildwoodBow = new ItemStack(TwilightItemsWeapons.wildwoodBow);

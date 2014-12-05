@@ -3,7 +3,7 @@ package net.divinerpg.items.vanilla;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
@@ -36,7 +36,7 @@ public class ItemFrostCannon extends ItemMod {
 				return var1;
 			} else {
 				var2.playSoundAtEntity(var3, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-				var2.spawnEntityInWorld(new EntityModSnowball(var2, var3));
+				var2.spawnEntityInWorld(new EntityFrostCannon(var2, var3));
 				var3.inventory.consumeInventoryItem(Items.snowball);
 				var1.damageItem(100, var3);
 			}
@@ -49,7 +49,7 @@ public class ItemFrostCannon extends ItemMod {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("8 Ranged damage");
-		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses");
+		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses Remaining");
 		par3List.add("Ammo: Snowballs");
 		par3List.add(ChatFormats.DIVINERPG);
 	}

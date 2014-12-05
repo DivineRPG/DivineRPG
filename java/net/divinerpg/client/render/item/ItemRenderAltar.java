@@ -1,4 +1,4 @@
-package net.divinerpg.client.render.block.item_renderer;
+package net.divinerpg.client.render.item;
 
 import net.divinerpg.client.render.block.model.ModelDramixAltar;
 import net.divinerpg.client.render.block.model.ModelExtractor;

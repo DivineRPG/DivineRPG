@@ -14,7 +14,6 @@ import net.divinerpg.client.render.block.RenderAltarOfCorruption;
 import net.divinerpg.client.render.block.RenderAyeracoBeam;
 import net.divinerpg.client.render.block.RenderStatue;
 import net.divinerpg.client.render.block.TileEntityStatue;
-import net.divinerpg.client.render.block.item_renderer.RenderStatueItem;
 import net.divinerpg.client.render.entity.vanilla.RenderHellPig;
 import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
 import net.divinerpg.client.render.entity.vanilla.model.ModelAncientEntity;
@@ -38,6 +37,7 @@ import net.divinerpg.client.render.entity.vanilla.model.ModelShark;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWatcher;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWhale;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWildFire;
+import net.divinerpg.client.render.item.RenderStatueItem;
 import net.divinerpg.entities.vanilla.EntityAncientEntity;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
 import net.divinerpg.entities.vanilla.EntityAyeracoBlue;
@@ -86,7 +86,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityGhastCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
-import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
@@ -112,7 +112,7 @@ public class VanillaEntityRenderer {
 
 	public static void init(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class, new RenderIconProjectile(VanillaItemsWeapons.shuriken));
-		RenderingRegistry.registerEntityRenderingHandler(EntityModSnowball.class, new RenderProjectile(x.snowball));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFrostCannon.class, new RenderProjectile(x.frostCannon));
 		RenderingRegistry.registerEntityRenderingHandler(EntityVileStorm.class, new RenderIconProjectile(VanillaItemsWeapons.vileStorm));
 		RenderingRegistry.registerEntityRenderingHandler(EntityScythe.class, new RenderProjectile(x.scytheProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDeath.class, new RenderProjectile(x.death));

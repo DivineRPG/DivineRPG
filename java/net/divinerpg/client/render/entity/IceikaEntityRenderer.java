@@ -7,7 +7,6 @@ import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.block.RenderTileEntityFrostedChest;
-import net.divinerpg.client.render.block.item_renderer.ItemRendererFrostedChest;
 import net.divinerpg.client.render.entity.iceika.model.ModelAlicanto;
 import net.divinerpg.client.render.entity.iceika.model.ModelFractite;
 import net.divinerpg.client.render.entity.iceika.model.ModelGlacide;
@@ -15,6 +14,7 @@ import net.divinerpg.client.render.entity.iceika.model.ModelHastreus;
 import net.divinerpg.client.render.entity.iceika.model.ModelRollum;
 import net.divinerpg.client.render.entity.iceika.model.ModelWorkshop;
 import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
+import net.divinerpg.client.render.item.ItemRendererFrostedChest;
 import net.divinerpg.entities.iceika.EntityAlicanto;
 import net.divinerpg.entities.iceika.EntityFractite;
 import net.divinerpg.entities.iceika.EntityFrostArcher;
@@ -43,7 +43,7 @@ public class IceikaEntityRenderer {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityCarol.class, new RenderProjectile(EntityResourceLocation.music));
         RenderingRegistry.registerEntityRenderingHandler(EntityMusic.class, new RenderProjectile(EntityResourceLocation.music));
-        RenderingRegistry.registerEntityRenderingHandler(EntityFrostclaw.class, new RenderProjectile(EntityResourceLocation.frostclaw));
+        RenderingRegistry.registerEntityRenderingHandler(EntityFrostclaw.class, new RenderProjectile(EntityResourceLocation.frostclawCannon));
         RenderingRegistry.registerEntityRenderingHandler(EntitySnowflakeShuriken.class, new RenderIconProjectile(IceikaItems.snowflakeShuriken));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractiteCannon.class, new RenderProjectile(EntityResourceLocation.fractiteCannon));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractiteShot.class, new RenderProjectile(EntityResourceLocation.fractiteShot, 2.0F));

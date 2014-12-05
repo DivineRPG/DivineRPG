@@ -1,5 +1,6 @@
 package net.divinerpg.api.items;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
@@ -10,9 +11,7 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -28,6 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemModBow extends ItemBow {
 
+	public static List<Item> bowList = new ArrayList<Item>();
     public static final int                DEFAULT_MAX_USE_DURATION = 72000;
     @SideOnly(Side.CLIENT)
     protected IIcon[]                      IIconArray;
@@ -81,6 +81,7 @@ public class ItemModBow extends ItemBow {
         setUnlocalizedName(name);
         GameRegistry.registerItem(this, name);
         LangRegistry.addItem(this);
+        bowList.add(this);
     }
 
     @Override
@@ -154,12 +155,6 @@ public class ItemModBow extends ItemBow {
         list.add(!unbreakable ? (stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
         if(this.arrowTex == "bluefireArrow") list.add(EnumChatFormatting.AQUA + "Exploding Arrows");
         list.add(Util.DARK_AQUA + Reference.MOD_NAME);
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean isFull3D() {
-        return true;
     }
 
     @Override

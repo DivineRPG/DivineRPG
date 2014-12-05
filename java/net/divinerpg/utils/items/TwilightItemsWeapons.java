@@ -48,16 +48,13 @@ public class TwilightItemsWeapons {
     
     public static final Item edenArrow          = new ItemMod("edenArrow").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item wildwoodArrow      = new ItemMod("wildWoodArrow").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item apalachiaArrow     = new ItemMod("apalachiaArrow").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item skythernArrow      = new ItemMod("skythernArrow").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item mortumArrow        = new ItemMod("mortumArrow").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item haliteArrow        = new ItemMod("haliteArrow").setCreativeTab(DivineRPGTabs.ranged);
+    public static final Item furyArrow          = new ItemMod("furyArrow").setCreativeTab(DivineRPGTabs.ranged);
 
     public static final Item edenBow            = new ItemModBow("edenBow", -1, 10, 31, edenArrow);
     public static final Item wildwoodBow        = new ItemModBow("wildWoodBow", -1, 10, 31, 36000, wildwoodArrow);
-    public static final Item apalachiaBow       = new ItemModBow("apalachiaBow", -1, 15, 46, apalachiaArrow);
-    public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 15, 46, 36000, skythernArrow);
-    public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 20, 61, mortumArrow);
-    public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 20, 61, 36000, haliteArrow);
+    public static final Item apalachiaBow       = new ItemModBow("apalachiaBow", -1, 15, 46, wildwoodArrow);
+    public static final Item skythernBow        = new ItemModBow("skythernBow", -1, 15, 46, 36000, wildwoodArrow);
+    public static final Item mortumBow          = new ItemModBow("mortumBow", -1, 20, 61, furyArrow);
+    public static final Item haliteBow          = new ItemModBow("haliteBow", -1, 20, 61, 36000, furyArrow);
         
 }

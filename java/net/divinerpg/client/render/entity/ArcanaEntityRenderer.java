@@ -15,8 +15,6 @@ import net.divinerpg.client.render.block.TileEntityDemonFurnaceRenderer;
 import net.divinerpg.client.render.block.TileEntityDramixAltarRenderer;
 import net.divinerpg.client.render.block.TileEntityExtractorRenderer;
 import net.divinerpg.client.render.block.TileEntityParasectaAltarRenderer;
-import net.divinerpg.client.render.block.item_renderer.ItemRenderAltar;
-import net.divinerpg.client.render.block.item_renderer.ItemRenderDemonFurnace;
 import net.divinerpg.client.render.entity.arcana.RenderStarlight;
 import net.divinerpg.client.render.entity.arcana.model.ModelDeathHound;
 import net.divinerpg.client.render.entity.arcana.model.ModelDeathcryx;
@@ -32,6 +30,8 @@ import net.divinerpg.client.render.entity.arcana.model.ModelSeimer;
 import net.divinerpg.client.render.entity.arcana.model.ModelWraith;
 import net.divinerpg.client.render.entity.twilight.model.ModelSamek;
 import net.divinerpg.client.render.entity.twilight.model.ModelTwilightGolem;
+import net.divinerpg.client.render.item.ItemRenderAltar;
+import net.divinerpg.client.render.item.ItemRenderDemonFurnace;
 import net.divinerpg.entities.arcana.EntityCaptianMerik;
 import net.divinerpg.entities.arcana.EntityConstructor;
 import net.divinerpg.entities.arcana.EntityDatticon;
@@ -66,7 +66,6 @@ import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

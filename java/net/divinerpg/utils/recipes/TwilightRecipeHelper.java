@@ -92,7 +92,6 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(IS.apalachiaPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
 		addRecipe(IS.apalachiaBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.apalachiaChunk);
 		addShapelessRecipe(IS.apalachiaSlicer, TwilightItemsOther.apalachiaGem);
-		addRecipe(IS.apalachiaArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.wildwoodFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//Skythern
 		addRecipe(IS.skythernBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.skythernChunk, 'S', Items.stick);
@@ -100,7 +99,6 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(IS.skythernPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.skythernChunk, 'S', Items.stick);
 		addRecipe(IS.skythernBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.skythernChunk);
 		addShapelessRecipe(IS.skythernSlicer, TwilightItemsOther.skythernGem);
-		addRecipe(IS.skythernArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.skythernFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//Mortum
 		addRecipe(IS.mortumBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', Items.stick);
@@ -108,7 +106,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(IS.mortumPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addRecipe(IS.mortumBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.mortumChunk);
 		addShapelessRecipe(IS.mortumSlicer, TwilightItemsOther.mortumGem);
-		addRecipe(IS.mortumArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);
+		addRecipe(IS.furyArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);
 		
 		//Tools
 		addRecipe(TwilightItemsTools.edenPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);

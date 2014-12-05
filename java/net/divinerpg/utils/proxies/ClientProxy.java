@@ -1,6 +1,7 @@
 package net.divinerpg.utils.proxies;
 
 import net.divinerpg.DivineRPG;
+import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.client.ArcanaRenderer;
 import net.divinerpg.client.ClientTickHandler;
 import net.divinerpg.client.GuiHandler;
@@ -10,6 +11,7 @@ import net.divinerpg.client.render.entity.IceikaEntityRenderer;
 import net.divinerpg.client.render.entity.TwilightEntityRenderer;
 import net.divinerpg.client.render.entity.VanillaEntityRenderer;
 import net.divinerpg.client.render.entity.VetheaEntityRenderer;
+import net.divinerpg.client.render.item.RenderBow;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
@@ -20,6 +22,8 @@ import net.divinerpg.utils.events.DevHatEvent;
 import net.divinerpg.utils.events.EventClientLogin;
 import net.divinerpg.utils.events.EventOverlay;
 import net.divinerpg.utils.events.EventStaffLogin;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -32,6 +36,11 @@ public class ClientProxy extends CommonProxy {
         else Util.addEventBus(new EventStaffLogin());
         Util.addSpecialEventBus(new ClientTickHandler());
         Util.addSpecialEventBus(new ArcanaRenderer());
+        
+        for(Item bow : ItemModBow.bowList) {
+        	MinecraftForgeClient.registerItemRenderer(bow, new RenderBow());
+        }
+        
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
             Util.addEventBus(new EventOverlay());

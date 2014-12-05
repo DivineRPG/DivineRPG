@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.iceika.projectile.EntityFrostclaw;
-import net.divinerpg.entities.vanilla.projectile.EntityModSnowball;
+import net.divinerpg.entities.vanilla.projectile.EntityFrostCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.TwilightItemsOther;

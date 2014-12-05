@@ -1,4 +1,4 @@
-package net.divinerpg.client.render.block.item_renderer;
+package net.divinerpg.client.render.item;
 
 import org.lwjgl.opengl.GL11;
 
