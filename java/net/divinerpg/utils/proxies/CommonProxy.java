@@ -53,6 +53,7 @@ import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -129,4 +130,6 @@ public class CommonProxy{
 		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager)
 			((CommandHandler)MinecraftServer.getServer().getCommandManager()).registerCommand(new DivineRPGCommands());
 	}
+	
+	public void spawnParticle(World w, double x, double y, double z, String particle) {}
 }

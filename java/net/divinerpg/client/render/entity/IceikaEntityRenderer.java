@@ -4,8 +4,8 @@ import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
-import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSizeable;
+import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.RenderTileEntityFrostedChest;
 import net.divinerpg.client.render.entity.iceika.model.ModelAlicanto;
 import net.divinerpg.client.render.entity.iceika.model.ModelFractite;
@@ -24,9 +24,7 @@ import net.divinerpg.entities.iceika.EntityRollum;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
-import net.divinerpg.entities.iceika.projectile.EntityFractiteCannon;
 import net.divinerpg.entities.iceika.projectile.EntityFractiteShot;
-import net.divinerpg.entities.iceika.projectile.EntityFrostclaw;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
 import net.divinerpg.entities.iceika.projectile.EntitySnowflakeShuriken;
 import net.divinerpg.utils.Util;
@@ -41,12 +39,10 @@ public class IceikaEntityRenderer {
 
     public static void init() {
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityCarol.class, new RenderProjectile(EntityResourceLocation.music));
-        RenderingRegistry.registerEntityRenderingHandler(EntityMusic.class, new RenderProjectile(EntityResourceLocation.music));
-        RenderingRegistry.registerEntityRenderingHandler(EntityFrostclaw.class, new RenderProjectile(EntityResourceLocation.frostclawCannon));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCarol.class, new RenderSpecialProjectile(EntityResourceLocation.music));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMusic.class, new RenderSpecialProjectile(EntityResourceLocation.music));
         RenderingRegistry.registerEntityRenderingHandler(EntitySnowflakeShuriken.class, new RenderIconProjectile(IceikaItems.snowflakeShuriken));
-        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteCannon.class, new RenderProjectile(EntityResourceLocation.fractiteCannon));
-        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteShot.class, new RenderProjectile(EntityResourceLocation.fractiteShot, 2.0F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteShot.class, new RenderSpecialProjectile(EntityResourceLocation.fractiteShot, 2.0F));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAlicanto.class, new RenderDivineMob(new ModelAlicanto(), 0.0F, EntityResourceLocation.ALICANTO));
         RenderingRegistry.registerEntityRenderingHandler(EntityFractite.class, new RenderDivineMob(new ModelFractite(), 0.5F, EntityResourceLocation.FRACTITE));

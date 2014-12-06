@@ -5,10 +5,9 @@ import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineBoss;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
-import net.divinerpg.client.render.RenderProjectile;
+import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.entity.vethea.RenderBiphron;
 import net.divinerpg.client.render.entity.vethea.RenderGalroid;
-import net.divinerpg.client.render.entity.vethea.RenderHiveQueen;
 import net.divinerpg.client.render.entity.vethea.RenderLadyLuna;
 import net.divinerpg.client.render.entity.vethea.RenderWreck;
 import net.divinerpg.client.render.entity.vethea.model.AcidHag;
@@ -98,17 +97,13 @@ import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityCermileDisk;
 import net.divinerpg.entities.vethea.projectile.EntityDarvenDisk;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
-import net.divinerpg.entities.vethea.projectile.EntityEversightProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityHeliosisDisk;
 import net.divinerpg.entities.vethea.projectile.EntityKarosDisk;
 import net.divinerpg.entities.vethea.projectile.EntityPardimalDisk;
 import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
 import net.divinerpg.entities.vethea.projectile.EntityTeakerDisk;
-import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonEversight;
-import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonShot;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.client.model.ModelBiped;
-
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class VetheaEntityRenderer {
@@ -127,11 +122,8 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityQuadroticDisk.class, new RenderIconProjectile(VetheaItems.quadroticDisk));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisk.class, new RenderIconProjectile(VetheaItems.teakerDisk));
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderProjectile(EntityResourceLocation.staffProjectile));
-		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderProjectile(EntityResourceLocation.evernight));
-		RenderingRegistry.registerEntityRenderingHandler(EntityVetheanCannonShot.class, new RenderProjectile(EntityResourceLocation.cannon));
-		RenderingRegistry.registerEntityRenderingHandler(EntityVetheanCannonEversight.class, new RenderProjectile(EntityResourceLocation.eversightCannon));
-		RenderingRegistry.registerEntityRenderingHandler(EntityEversightProjectile.class, new RenderProjectile(EntityResourceLocation.eversight));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.staffProjectile));
+		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.evernight));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityVermenous.class, new RenderDivineMob(new Vermenous(), 0.0F, x.VERMENOUS));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnt.class, new RenderDivineMob(new Ent(), 0.0F, x.ENT));

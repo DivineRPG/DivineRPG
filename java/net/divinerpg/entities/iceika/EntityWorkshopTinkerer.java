@@ -99,7 +99,7 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 12, 1), new ItemStack(VanillaItemsWeapons.shadowBow, 1, 0),new ItemStack(IceikaItems.icicleBow, 1, 0)));
 		//list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 12, 1), new ItemStack(VanillaItemsWeapons.crabClawCannon, 1, 0),new ItemStack(IceikaItems.frostClawCannon, 1, 0)));
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 12, 1), new ItemStack(VanillaItemsWeapons.frostCannon, 1, 0),new ItemStack(IceikaItems.fractiteCannon, 1, 0)));
-		//list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 15, 1),new ItemStack(VanillaItemsWeapons.frostSword, 1, 0), new ItemStack(IceikaItems.frostKingSword, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 15, 1), new ItemStack(VanillaItemsWeapons.frostSword, 1, 0), new ItemStack(IceikaItems.frostkingSword, 1, 0)));
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 18, 1), new ItemStack(IceikaItems.soundOfMusic, 1, 0), new ItemStack(IceikaItems.soundOfCarols, 1, 0)));
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 25, 1), new ItemStack(VanillaItemsWeapons.enderSword, 1, 0), new ItemStack(IceikaItems.enderice, 1, 0)));
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 30, 1), new ItemStack(VanillaItemsWeapons.bluefireBow, 1, 0), new ItemStack(IceikaItems.snowstormBow, 1, 0)));

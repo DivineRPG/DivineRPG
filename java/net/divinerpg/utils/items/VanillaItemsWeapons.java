@@ -1,33 +1,28 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
-import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
-import net.divinerpg.entities.vanilla.projectile.EntityPoisonArrow;
-import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
+import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
-import net.divinerpg.items.vanilla.ItemCyclopsianStaff;
-import net.divinerpg.items.vanilla.ItemFrostCannon;
-import net.divinerpg.items.vanilla.ItemGhastCannon;
-import net.divinerpg.items.vanilla.ItemGoldenFury;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
 import net.divinerpg.items.vanilla.ItemMaelstorm;
 import net.divinerpg.items.vanilla.ItemMassivence;
 import net.divinerpg.items.vanilla.ItemPalavence;
+import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.items.vanilla.ItemScythe;
 import net.divinerpg.items.vanilla.ItemSerenadeOfDeath;
 import net.divinerpg.items.vanilla.ItemSerenadeOfHealth;
 import net.divinerpg.items.vanilla.ItemSerenadeStriker;
 import net.divinerpg.items.vanilla.ItemThrowable;
+import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.material.ToolMaterialMod;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class VanillaItemsWeapons {
+	
+	private static EntityResourceLocation x;
 
 	public static final Item slimeSword         = new ItemModSword(ToolMaterialMod.Slime, "slimeSword");
     public static final Item oceanKnife         = new ItemModSword(ToolMaterialMod.OceanKnife, "oceanKnife");
@@ -71,12 +66,12 @@ public class VanillaItemsWeapons {
     public static final Item longsword   		= new ItemModSword(ToolMaterialMod.Longsword, "longsword").setFull3D();
     public static final Item cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
     
-    public static final Item crabAnchor         = new ItemAnchor("crabAnchor", EntityCrabAnchor.class, 4);
-    public static final Item sharkAnchor        = new ItemAnchor("sharkAnchor", EntitySharkAnchor.class, 5);
-    public static final Item bowheadAnchor      = new ItemAnchor("bowheadAnchor", EntityBowheadAnchor.class, 6);
-    public static final Item goldenFury         = new ItemGoldenFury("goldenFury");
+    public static final Item crabAnchor         = new ItemAnchor("crabAnchor", x.crabAnchor.toString(), 4);
+    public static final Item sharkAnchor        = new ItemAnchor("sharkAnchor", x.bowheadAnchor.toString(), 5);
+    public static final Item bowheadAnchor      = new ItemAnchor("bowheadAnchor", x.bowheadAnchor.toString(), 6);
+    public static final Item goldenFury         = new ItemProjectileShooter("goldenFury", 32F, Sounds.blitz.getPrefixedName(), Items.gold_nugget, -1, 0);
     public static final Item corruptedCannon    = new ItemCorruptedCannon("corruptedCannon");
-    public static final Item ghastCannon        = new ItemGhastCannon("ghastCannon");
+    public static final Item ghastCannon        = new ItemProjectileShooter("ghastCannon", 40F, Sounds.ghastCannon.getPrefixedName(), x.ghastCannon.toString(), 100, 5);
 
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 2, 11, Items.arrow, "hunterArrow");
@@ -85,13 +80,11 @@ public class VanillaItemsWeapons {
     public static final Item bluefireBow        = new ItemModBow("bluefireBow", -1, 2, 11, "bluefireArrow");
     public static final Item infernoBow         = new ItemModBow("infernoBow", 10000, 2, 11, "infernoArrow");
     
-    public static final Item poisonArrow        = new ItemMod("poisonArrow").setCreativeTab(null);
-
     public static final Item shuriken       	= new ItemThrowable(4, "shuriken");
     public static final Item vileStorm       	= new ItemThrowable(4, "vileStorm");
     public static final Item scythe		       	= new ItemScythe("scythe");
-    public static final Item frostCannon       	= new ItemFrostCannon("frostCannon");
-    public static final Item cyclopsianStaff    = new ItemCyclopsianStaff("cyclopsianStaff");
+    public static final Item frostCannon       	= new ItemProjectileShooter("frostCannon", 8F, Items.snowball, EntityResourceLocation.frostCannon.toString(), 15000, 0);
+    public static final Item cyclopsianStaff    = new ItemProjectileShooter("cyclopsianStaff", 7F, Sounds.staff.getPrefixedName(), VanillaItemsOther.cyclopsEyeShards, 3000, 0);
     public static final Item maelstorm          = new ItemMaelstorm("maelstorm");
 
     public static final Item serenadeOfHealth 	= new ItemSerenadeOfHealth("serenadeOfHealth");

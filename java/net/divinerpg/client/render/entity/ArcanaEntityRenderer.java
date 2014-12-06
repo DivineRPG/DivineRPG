@@ -11,6 +11,7 @@ import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSizeable;
+import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.TileEntityDemonFurnaceRenderer;
 import net.divinerpg.client.render.block.TileEntityDramixAltarRenderer;
 import net.divinerpg.client.render.block.TileEntityExtractorRenderer;
@@ -50,7 +51,6 @@ import net.divinerpg.entities.arcana.EntityRazorback;
 import net.divinerpg.entities.arcana.EntityRoamer;
 import net.divinerpg.entities.arcana.EntitySeimer;
 import net.divinerpg.entities.arcana.EntityVatticus;
-import net.divinerpg.entities.arcana.EntityVermsillion;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.entities.arcana.EntityZelus;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
@@ -64,8 +64,6 @@ import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -76,12 +74,12 @@ public class ArcanaEntityRenderer {
 
 	public static void init(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityStar.class, new RenderStarlight(x.starlight));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderProjectile(x.sparkler));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, new RenderProjectile(x.firefly));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(x.sparkler));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, new RenderSpecialProjectile(x.firefly));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderIconProjectile(ArcanaItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLamona.class, new RenderIconProjectile(ArcanaItems.lamona));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderProjectile(x.meriksMissile));
-		RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, new RenderProjectile(x.sparkler));//TODO: change the reflector to not use an entity.
+		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderSpecialProjectile(x.meriksMissile));
+		RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, new RenderSpecialProjectile(x.sparkler));//TODO: change the reflector to not use an entity.
 
         RenderingRegistry.registerEntityRenderingHandler(EntityRoamer.class, new RenderDivineMob(new ModelRoamer(), x.roamer));
         RenderingRegistry.registerEntityRenderingHandler(EntityDeathcryx.class, new RenderDivineMob(new ModelDeathcryx(), x.deathcryx));

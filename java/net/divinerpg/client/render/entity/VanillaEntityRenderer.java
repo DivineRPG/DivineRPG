@@ -10,6 +10,7 @@ import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSizeable;
+import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.RenderAltarOfCorruption;
 import net.divinerpg.client.render.block.RenderAyeracoBeam;
 import net.divinerpg.client.render.block.RenderStatue;
@@ -48,13 +49,13 @@ import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
 import net.divinerpg.entities.vanilla.EntityBabyCrab;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
-import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityCrab;
 import net.divinerpg.entities.vanilla.EntityCyclops;
 import net.divinerpg.entities.vanilla.EntityDesertCrawler;
 import net.divinerpg.entities.vanilla.EntityEnderSpider;
 import net.divinerpg.entities.vanilla.EntityEnderTriplets;
 import net.divinerpg.entities.vanilla.EntityEnderWatcher;
+import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityFrost;
 import net.divinerpg.entities.vanilla.EntityGlacon;
 import net.divinerpg.entities.vanilla.EntityHellPig;
@@ -74,22 +75,16 @@ import net.divinerpg.entities.vanilla.EntityShark;
 import net.divinerpg.entities.vanilla.EntityTheEye;
 import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildFire;
-import net.divinerpg.entities.vanilla.projectile.EntityBowheadAnchor;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
-import net.divinerpg.entities.vanilla.projectile.EntityCrabAnchor;
-import net.divinerpg.entities.vanilla.projectile.EntityCyclopsianStaff;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
-import net.divinerpg.entities.vanilla.projectile.EntityGhastCannon;
-import net.divinerpg.entities.vanilla.projectile.EntityGoldenFury;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
-import net.divinerpg.entities.vanilla.projectile.EntityFrostCannon;
 import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
-import net.divinerpg.entities.vanilla.projectile.EntitySharkAnchor;
+import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
@@ -101,7 +96,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPig;
 import net.minecraft.client.model.ModelSpider;
 import net.minecraft.client.model.ModelZombie;
-import net.minecraft.init.Items;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -112,22 +106,16 @@ public class VanillaEntityRenderer {
 
 	public static void init(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class, new RenderIconProjectile(VanillaItemsWeapons.shuriken));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFrostCannon.class, new RenderProjectile(x.frostCannon));
 		RenderingRegistry.registerEntityRenderingHandler(EntityVileStorm.class, new RenderIconProjectile(VanillaItemsWeapons.vileStorm));
-		RenderingRegistry.registerEntityRenderingHandler(EntityScythe.class, new RenderProjectile(x.scytheProjectile));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDeath.class, new RenderProjectile(x.death));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, new RenderProjectile(x.cave));
-		RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class, new RenderProjectile(x.watcherShot));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCyclopsianStaff.class, new RenderProjectile(x.cyclopsShot));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMaelstorm.class, new RenderProjectile(x.maelstorm));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCrabAnchor.class, new RenderProjectile(x.crabAnchor));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySharkAnchor.class, new RenderProjectile(x.bowheadAnchor));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBowheadAnchor.class, new RenderProjectile(x.bowheadAnchor));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGoldenFury.class, new RenderIconProjectile(Items.gold_nugget));
+		RenderingRegistry.registerEntityRenderingHandler(EntityScythe.class, new RenderSpecialProjectile(x.scytheProjectile));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDeath.class, new RenderSpecialProjectile(x.death));
+		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, new RenderSpecialProjectile(x.cave));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class, new RenderSpecialProjectile(x.watcherShot));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMaelstorm.class, new RenderSpecialProjectile(x.maelstorm));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedBullet.class, new RenderIconProjectile(VanillaItemsOther.corruptedBullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGhastCannon.class, new RenderProjectile(x.ghastCannon));
-		RenderingRegistry.registerEntityRenderingHandler(EntityEnderTripletFireball.class, new RenderProjectile(x.tripletFireball));
-
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnderTripletFireball.class, new RenderSpecialProjectile(x.tripletFireball));
+		RenderingRegistry.registerEntityRenderingHandler(EntityShooterBullet.class, new RenderProjectile());
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBabyCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 0.5F, x.crab));
@@ -166,8 +154,8 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoYellow.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Yellow, s.ayeracoYellowBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAncientEntity.class, new RenderDivineBoss(new ModelAncientEntity(), 0.0F, 5.0F, x.ancient, s.ancientEntityBossID));
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderProjectile(x.frostShot, 0.75f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityScorcherShot.class, new RenderProjectile(x.scorcherShot, 0.5f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderSpecialProjectile(x.frostShot, 0.75f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityScorcherShot.class, new RenderSpecialProjectile(x.scorcherShot, 0.5f));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDivineArrow.class, new RenderDivineArrow());
 		

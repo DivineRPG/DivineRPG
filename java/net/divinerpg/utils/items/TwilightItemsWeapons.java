@@ -3,20 +3,18 @@ package net.divinerpg.utils.items;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzApalachia;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzEden;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzHalite;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzMortum;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzSkythern;
-import net.divinerpg.entities.twilight.projectile.EntityBlitzWildWood;
+import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.items.twilight.ItemTwilightBlitz;
-import net.divinerpg.items.twilight.ItemTwilightPhaser;
+import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.items.vanilla.ItemThrowable;
+import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.item.Item;
 
 public class TwilightItemsWeapons {
+	
+	private static EntityResourceLocation x;
 	
 	public static final Item edenBlade          = new ItemModSword(ToolMaterialMod.Eden, "edenBlade");
     public static final Item wildwoodBlade      = new ItemModSword(ToolMaterialMod.Wildwood, "wildWoodBlade");
@@ -32,19 +30,19 @@ public class TwilightItemsWeapons {
     public static final Item mortumSlicer       = new ItemThrowable(36, "mortumSlicer");
     public static final Item haliteSlicer       = new ItemThrowable(42, "haliteSlicer");
 
-    public static final Item edenBlitz          = new ItemTwilightBlitz(14, TwilightItemsOther.edenDust, EntityBlitzEden.class, "edenBlitz");
-    public static final Item wildwoodBlitz      = new ItemTwilightBlitz(19, TwilightItemsOther.wildwoodDust, EntityBlitzWildWood.class,"wildWoodBlitz");
-    public static final Item apalachiaBlitz     = new ItemTwilightBlitz(22, TwilightItemsOther.apalachiaDust, EntityBlitzApalachia.class,"apalachiaBlitz");
-    public static final Item skythernBlitz      = new ItemTwilightBlitz(27, TwilightItemsOther.skythernDust, EntityBlitzSkythern.class, "skythernBlitz");
-    public static final Item mortumBlitz        = new ItemTwilightBlitz(31, TwilightItemsOther.mortumDust, EntityBlitzMortum.class, "mortumBlitz");
-    public static final Item haliteBlitz        = new ItemTwilightBlitz(33, TwilightItemsOther.mortumDust, EntityBlitzHalite.class, "haliteBlitz");
+    public static final Item edenBlitz          = new ItemTwilightBlitz("edenBlitz", x.blitzEden.toString(), TwilightItemsOther.edenDust, 14F).setHasParticle("eden");
+    public static final Item wildwoodBlitz      = new ItemTwilightBlitz("wildWoodBlitz", x.blitzWild.toString(), TwilightItemsOther.wildwoodDust, 19F).setHasParticle("wildwood");
+    public static final Item apalachiaBlitz     = new ItemTwilightBlitz("apalachiaBlitz", x.blitzApalachia.toString(), TwilightItemsOther.apalachiaDust, 22F).setHasParticle("apalachia");
+    public static final Item skythernBlitz      = new ItemTwilightBlitz("skythernBlitz", x.blitzSkythern.toString(), TwilightItemsOther.skythernDust, 27F).setHasParticle("skythern");
+    public static final Item mortumBlitz        = new ItemTwilightBlitz("mortumBlitz", x.blitzMortum.toString(), TwilightItemsOther.mortumDust, 31F).setHasParticle("mortum");
+    public static final Item haliteBlitz        = new ItemTwilightBlitz("haliteBlitz", x.blitzHalite.toString(), TwilightItemsOther.mortumDust, 33F).setHasParticle("halite");
 
-    public static final Item edenPhaser         = new ItemTwilightPhaser(24, "edenPhaser");
-    public static final Item wildwoodPhaser     = new ItemTwilightPhaser(31, "wildWoodPhaser");
-    public static final Item apalachiaPhaser    = new ItemTwilightPhaser(35, "apalachiaPhaser");
-    public static final Item skythernPhaser     = new ItemTwilightPhaser(41, "skythernPhaser");
-    public static final Item mortumPhaser       = new ItemTwilightPhaser(46, "mortumPhaser");
-    public static final Item halitePhaser       = new ItemTwilightPhaser(51, "halitePhaser");
+    public static final Item edenPhaser         = new ItemProjectileShooter("edenPhaser", 24F, Sounds.phaser.getPrefixedName(), x.phaserEden.toString(), 3000, 3).setHasParticle("eden");
+    public static final Item wildwoodPhaser     = new ItemProjectileShooter("wildWoodPhaser", 31F, Sounds.phaser.getPrefixedName(), x.phaserWild.toString(), 3000, 3).setHasParticle("wildwood");
+    public static final Item apalachiaPhaser    = new ItemProjectileShooter("apalachiaPhaser", 35F, Sounds.phaser.getPrefixedName(), x.phaserApalachia.toString(), 3000, 3).setHasParticle("apalachia");
+    public static final Item skythernPhaser     = new ItemProjectileShooter("skythernPhaser", 41F, Sounds.phaser.getPrefixedName(), x.phaserSkythern.toString(), 3000, 3).setHasParticle("skythern");
+    public static final Item mortumPhaser       = new ItemProjectileShooter("mortumPhaser", 46F, Sounds.phaser.getPrefixedName(), x.phaserMortum.toString(), 3000, 3).setHasParticle("mortum");
+    public static final Item halitePhaser       = new ItemProjectileShooter("halitePhaser", 51F, Sounds.phaser.getPrefixedName(), x.phaserHalite.toString(), 3000, 3).setHasParticle("halite");
     
     public static final Item edenArrow          = new ItemMod("edenArrow").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item wildwoodArrow      = new ItemMod("wildWoodArrow").setCreativeTab(DivineRPGTabs.ranged);
