@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GuiAltarCurruption extends GuiContainer {
+public class GuiAltarCorruption extends GuiContainer {
 	
     private static final ResourceLocation tex1 = new ResourceLocation("textures/gui/container/enchanting_table.png");
     private static final ResourceLocation tex2 = new ResourceLocation("textures/entity/enchanting_table_book.png");
@@ -41,14 +41,14 @@ public class GuiAltarCurruption extends GuiContainer {
     public float bookZ1;
     private ItemStack itemstack;
 
-    public GuiAltarCurruption(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5) {
+    public GuiAltarCorruption(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5) {
         super(new ContainerAltarCorruption(par1InventoryPlayer, par2World, par3, par4, par5));
         this.container = (ContainerAltarCorruption)this.inventorySlots;
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int i, int j) {
-        this.fontRendererObj.drawString("Altar of corruption", 12, 5, 4210752);
+        this.fontRendererObj.drawString("Altar of Corruption", 12, 5, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 

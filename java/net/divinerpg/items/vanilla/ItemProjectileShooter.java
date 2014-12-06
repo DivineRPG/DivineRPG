@@ -1,5 +1,6 @@
 package net.divinerpg.items.vanilla;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
@@ -27,6 +28,8 @@ public class ItemProjectileShooter extends ItemMod {
 	private int currentCounter = 0;
 	private boolean hasParticle;
 	private String fx;
+	public static List<Item> gunList = new ArrayList<Item>();
+	public static List<Item> phaserList = new ArrayList<Item>();
 	
 	public ItemProjectileShooter(String name, float damage, String projectileTex, int uses, int counter) {
 		super(name);
@@ -37,6 +40,8 @@ public class ItemProjectileShooter extends ItemMod {
 		this.uses = uses;
 		this.counter = counter;
 		setMaxDamage(uses);
+		if(!name.contains("Phaser") && !name.contains("frostclaw")) gunList.add(this);
+		else if(name.contains("Phaser") || name.contains("frostclaw")) phaserList.add(this);
 	}
 	
 	public ItemProjectileShooter(String name, float damage, String soundName, String projectileTex, int uses, int counter) {
@@ -53,6 +58,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.uses = uses;
 		this.counter = counter;
 		setMaxDamage(uses);
+		if(!name.contains("Phaser")) gunList.add(this);
 	}
 	
 	
@@ -72,6 +78,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.counter = counter;
 		this.projectileTex = projectileTex;
 		setMaxDamage(uses);
+		if(!name.contains("Phaser")) gunList.add(this);
 	}
 	
 	

@@ -419,10 +419,10 @@
 ,
 
 
- "whaleHurtHurt": {
+ "whaleHurt": {
   "category":"master","sounds": [{
     "name":
-      "whaleHurtHurt",
+      "whaleHurt",
       "stream": false
     }]
   }
@@ -1781,6 +1781,11 @@
 
  "soundOfMusic": {
   "category":"neutral","sounds": ["soundOfMusic"] }
+,
+
+
+ "frostCannon": {
+  "category":"neutral","sounds": ["frostCannon"] }
 ,
 
 

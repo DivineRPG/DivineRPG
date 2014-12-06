@@ -16,6 +16,7 @@ import net.divinerpg.blocks.twilight.TileEntityTwilightFurnace;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
+import net.divinerpg.client.GuiHandler;
 import net.divinerpg.client.render.block.TileEntityStatue;
 import net.divinerpg.dimensions.vanilla.WorldGenOverworld;
 import net.divinerpg.libs.DivineRPGAchievements;
@@ -58,6 +59,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy{
@@ -111,6 +113,7 @@ public class CommonProxy{
 		VanillaRecipeHelper.init();
 		TwilightRecipeHelper.init();
 		DimensionHelper.init();
+        NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
 	}
 
 	public void init(FMLInitializationEvent event){

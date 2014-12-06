@@ -12,7 +12,7 @@ import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
 import net.divinerpg.blocks.vanilla.container.ContainerDivineTable;
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
-import net.divinerpg.client.render.gui.GuiAltarCurruption;
+import net.divinerpg.client.render.gui.GuiAltarCorruption;
 import net.divinerpg.client.render.gui.GuiCoalstoneFurnace;
 import net.divinerpg.client.render.gui.GuiDatticon;
 import net.divinerpg.client.render.gui.GuiDemonFurnace;
@@ -112,7 +112,7 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == demon)
 			return new GuiDemonFurnace(player.inventory, (TileEntityModFurnace)entity);
 		if(ID == altar)
-			return new GuiAltarCurruption(player.inventory, world, x, y, z);
+			return new GuiAltarCorruption(player.inventory, world, x, y, z);
 		return null;
 	}
 

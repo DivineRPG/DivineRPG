@@ -44,7 +44,7 @@ public class IceikaItems {
     public static final Item      soundOfCarols     = new ItemMusicShooter("soundOfCarols").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      frostclawCannon   = new ItemProjectileShooter("frostclawCannon", 21F, Sounds.frostclawCannon.getPrefixedName(), EntityResourceLocation.frostclawCannon.toString(), 10000, 0);
-    public static final Item      fractiteCannon    = new ItemProjectileShooter("fractiteCannon", 15F, Sounds.frostclawCannon.getPrefixedName(), IceikaItems.iceShards, EntityResourceLocation.fractiteCannon.toString(), 1000, 0);
+    public static final Item      fractiteCannon    = new ItemProjectileShooter("fractiteCannon", 15F, Sounds.fractiteCannon.getPrefixedName(), IceikaItems.iceShards, EntityResourceLocation.fractiteCannon.toString(), 10000, 0);
     public static final Item      snowflakeShuriken = new ItemThrowable(7, "snowflakeShuriken");
     public static final Item      serenadeOfIce     = new ItemSerenadeOfIce("serenadeOfIce");
 

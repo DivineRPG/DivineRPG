@@ -14,11 +14,14 @@ import net.divinerpg.client.render.entity.TwilightEntityRenderer;
 import net.divinerpg.client.render.entity.VanillaEntityRenderer;
 import net.divinerpg.client.render.entity.VetheaEntityRenderer;
 import net.divinerpg.client.render.item.RenderBow;
+import net.divinerpg.client.render.item.RenderPhaser;
+import net.divinerpg.client.render.item.RenderProjectileShooter;
 import net.divinerpg.entities.twilight.effects.EntityEdenPortalFX;
 import net.divinerpg.entities.twilight.effects.EntityGreenPortalFX;
 import net.divinerpg.entities.twilight.effects.EntityMortumPortalFX;
 import net.divinerpg.entities.twilight.effects.EntitySkythernPortalFX;
 import net.divinerpg.entities.twilight.effects.EntityWildWoodPortalFX;
+import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
@@ -55,6 +58,14 @@ public class ClientProxy extends CommonProxy {
         	MinecraftForgeClient.registerItemRenderer(bow, new RenderBow());
         }
         
+        for(Item gun : ItemProjectileShooter.gunList) {
+        	MinecraftForgeClient.registerItemRenderer(gun, new RenderProjectileShooter());
+        }
+        
+        for(Item phaser : ItemProjectileShooter.phaserList) {
+        	MinecraftForgeClient.registerItemRenderer(phaser, new RenderPhaser());
+        }
+        
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
             Util.addEventBus(new EventOverlay());
@@ -74,7 +85,6 @@ public class ClientProxy extends CommonProxy {
         LogHelper.info("Adding gui renderers");
         Util.addSpecialEventBus(new BossTickHandler());
         LogHelper.info("Adding sounds");
-        NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
         MinecraftForge.EVENT_BUS.register(new DevHatEvent());
     }
     
