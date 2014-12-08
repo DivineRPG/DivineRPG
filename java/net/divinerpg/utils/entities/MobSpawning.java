@@ -12,7 +12,6 @@ import net.divinerpg.entities.iceika.EntityFrostArcher;
 import net.divinerpg.entities.iceika.EntityGlacide;
 import net.divinerpg.entities.iceika.EntityHastreus;
 import net.divinerpg.entities.iceika.EntityRollum;
-import net.divinerpg.entities.twilight.EntityAngryBunny;
 import net.divinerpg.entities.twilight.EntityApalachiaArcher;
 import net.divinerpg.entities.twilight.EntityApalachiaCadillion;
 import net.divinerpg.entities.twilight.EntityApalachiaGolem;
@@ -34,19 +33,20 @@ import net.divinerpg.entities.twilight.EntitySkythernCori;
 import net.divinerpg.entities.twilight.EntitySkythernFiend;
 import net.divinerpg.entities.twilight.EntitySkythernGolem;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
+import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildWoodGolem;
 import net.divinerpg.entities.twilight.EntityWildWoodTomo;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
-import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityCrab;
 import net.divinerpg.entities.vanilla.EntityCyclops;
 import net.divinerpg.entities.vanilla.EntityDesertCrawler;
 import net.divinerpg.entities.vanilla.EntityEnderSpider;
 import net.divinerpg.entities.vanilla.EntityEnderTriplets;
 import net.divinerpg.entities.vanilla.EntityEnderWatcher;
+import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityFrost;
 import net.divinerpg.entities.vanilla.EntityGlacon;
 import net.divinerpg.entities.vanilla.EntityHellPig;
@@ -98,7 +98,6 @@ import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
-
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class MobSpawning {
@@ -170,12 +169,11 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntitySamek.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Skythern});
 		EntityRegistry.addSpawn(EntitySkythernCori.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Skythern});
 
-		EntityRegistry.addSpawn(EntityAngryBunny.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
 		EntityRegistry.addSpawn(EntityMortumDemon.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
 		EntityRegistry.addSpawn(EntityBaslisk.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
 		EntityRegistry.addSpawn(EntitySoulStealer.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
 		EntityRegistry.addSpawn(EntityMortumCadillion.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
-		EntityRegistry.addSpawn(EntityApalachiaArcher.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
+		EntityRegistry.addSpawn(EntityTwilightArcher.class, 1, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Mortum});
 	}
 
 	public static void addOverworldSpawns() {

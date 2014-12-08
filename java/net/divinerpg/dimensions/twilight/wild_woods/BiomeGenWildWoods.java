@@ -18,7 +18,7 @@ public class BiomeGenWildWoods extends BiomeGenBase {
         this.spawnableCaveCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.theBiomeDecorator.treesPerChunk = 6;
-        this.waterColorMultiplier = 2368548;
+        this.waterColorMultiplier = 11519;
 	}
 	
 	@Override

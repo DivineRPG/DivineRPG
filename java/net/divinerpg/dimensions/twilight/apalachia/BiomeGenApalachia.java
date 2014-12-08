@@ -19,7 +19,7 @@ public class BiomeGenApalachia extends BiomeGenBase {
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.waterColorMultiplier = 2368548;
+        this.waterColorMultiplier = 12583104;
         this.theBiomeDecorator.treesPerChunk = 6;
 	}
 }

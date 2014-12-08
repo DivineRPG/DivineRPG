@@ -135,7 +135,6 @@ public class BlockModVine extends BlockMod implements IShearable {
         return block.renderAsNormalBlock() && block.getMaterial().blocksMovement();
     }
 
-    //TODO: Is this an appropriate name? Brock formally called it func_150094_e like an idiot
     protected boolean areVinesOnBlock(World world, int x, int y, int z) {
 
         int l = world.getBlockMetadata(x, y, z);
@@ -176,7 +175,7 @@ public class BlockModVine extends BlockMod implements IShearable {
             int i1 = 0;
             int j1 = 0;
             int k1 = 0;
-            lableA: //TODO formerly label134, why? Also, who the heck uses lables in Java? thats stupid
+            lableA:
 
             for (i1 = x - b0; i1 <= x + b0; ++i1) {
                 for (j1 = z - b0; j1 <= z + b0; ++j1) {

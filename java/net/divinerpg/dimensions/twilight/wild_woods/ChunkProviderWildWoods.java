@@ -140,6 +140,13 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 			var25 = var5 + this.rand.nextInt(16) + 8;
 			(new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, var23, var24, var25);
 		}
+		
+		for (int c = 0; c < 24; c++) {
+			int x = var4 + this.rand.nextInt(16) + 8;
+			int y = this.rand.nextInt(120) + 4;
+			int z = var5 + this.rand.nextInt(16) + 8;
+			new WorldGenWildwoodWater().generate(this.worldObj, this.rand, x, y, z);
+		}
 
 		BlockSand.fallInstantly = false;
 	}

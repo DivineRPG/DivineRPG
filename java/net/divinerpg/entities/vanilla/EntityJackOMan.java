@@ -114,6 +114,10 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 
 	@Override
 	public void addRecipies(MerchantRecipeList list) {
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 60), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanHelmet, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 60), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanBody, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 60), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanLegs, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 40), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanBoots, 1, 0)));
 		list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManHelmet)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManBody)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManLegs)));
