@@ -33,30 +33,4 @@ public class ItemModBucket extends ItemBucket {
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
 	}
-
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World w, int x, int y, int z, int i1, float f, float f1, float f2) {
-		//calebsWork(w, x, y, z);
-		return true;
-	}
-
-	public void calebsWork(World world, int x, int y, int z){
-		Random rand = new Random();
-		final int height = 20 + rand.nextInt(10);
-		final int leafStart = 1 + rand.nextInt(12);
-		final int leafHeight = height - leafStart;
-
-		int width = 6;
-		int xChange = 2;
-
-		/*for (int down = height; down >= leafStart; down-=4) {
-        	WorldGenAPI.addRectangle(width, width, 1, world, x-xChange, y + down, z-xChange, IceikaBlocks.brittleLeaves);
-        	width+=2;
-        	xChange++;
-        }*/
-		WorldGenAPI.addCornerlessRectangle(4, 4, leafHeight - 1, world, x-1, y + leafStart, z-1, IceikaBlocks.brittleLeaves);
-		WorldGenAPI.addCornerlessRectangle(4, 4, 1, world, x-1, y + height, z-1, IceikaBlocks.brittleLeaves);
-		WorldGenAPI.addRectangle(2, 2, 1, world, x, y + height + 1, z, IceikaBlocks.brittleLeaves);
-		WorldGenAPI.addRectangle(2, 2, height, world, x, y, z, IceikaBlocks.frozenWood);
-	}
 }

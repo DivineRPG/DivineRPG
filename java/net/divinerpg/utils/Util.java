@@ -53,7 +53,7 @@ public class Util {
     }
 
     public static void addBucket(Fluid fluid, ItemStack modBucket) {
-        FluidContainerRegistry.registerFluidContainer(new FluidContainerData(FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME), modBucket, new ItemStack(Items.bucket)));
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME), modBucket, new ItemStack(Items.bucket));
     }
 
     public static void addEventBus(Object o) {
