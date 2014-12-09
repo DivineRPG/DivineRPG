@@ -176,10 +176,10 @@ public class ChunkProviderVethea implements IChunkProvider {
 					//(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14, this.rand.nextInt(3)+1);
 				}
 				
-				if(this.rand.nextInt(5)==0)greenGemTops.generate(worldObj, rand, var4, 17, var5);
-				if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, var4, 17, var5);
-				if(this.rand.nextInt(5)==0)yellowDulahs.generate(worldObj, rand, var4, 17, var5);
-				if(this.rand.nextInt(5)==0)greenDulahs.generate(worldObj, rand, var4, 17, var5);
+				//if(this.rand.nextInt(5)==0)greenGemTops.generate(worldObj, rand, var4, 17, var5);
+				//if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, var4, 17, var5);
+				//if(this.rand.nextInt(5)==0)yellowDulahs.generate(worldObj, rand, var4, 17, var5);
+				//if(this.rand.nextInt(5)==0)greenDulahs.generate(worldObj, rand, var4, 17, var5);
 		        
 		        if (this.rand.nextInt(500) == 0) {
 		            var12 = var4 + this.rand.nextInt(16) + 8;
@@ -199,7 +199,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		            var12 = var4 + this.rand.nextInt(16) + 8;
 		            var13 = 13;
 		            var14 = var5 + this.rand.nextInt(16) + 8;
-		            (crypts.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);//TODO add crypt keeper
+		            //(crypts.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);//TODO add crypt keeper
 		        }
 		        
 				 // Layer 2
@@ -234,21 +234,21 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					(fernites).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(fernites).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 				
 
@@ -276,7 +276,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
 						var13++;
 					}
-					(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
@@ -323,7 +323,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
 						var13++;
 					}
-					(l4Altars.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(l4Altars.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				/*if (this.rand.nextInt(150) == 0) {
@@ -340,21 +340,21 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 161;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(shimmers).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 161;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					(shinegrass).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(shinegrass).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				if (this.rand.nextInt(10) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 161;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
+					//(dreamglows).generate(this.worldObj, this.rand, var12, var13, var14);
 				}
 
 				MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, rand, par2, par3, var11));

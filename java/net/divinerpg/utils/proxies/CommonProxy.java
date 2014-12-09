@@ -109,6 +109,7 @@ public class CommonProxy{
 		IceikaEntityRegistry.init();
 		VetheaEntityRegistry.init();
 		ArcanaEntityRegistry.init();
+		MobSpawning.addSpawns();
 		LogHelper.info("Adding crafting/smelting recipes");
 		VanillaRecipeHelper.init();
 		TwilightRecipeHelper.init();
@@ -119,7 +120,6 @@ public class CommonProxy{
 	public void init(FMLInitializationEvent event){
 		LogHelper.info("Adding world generators");
 		GameRegistry.registerWorldGenerator(new WorldGenOverworld(), 0);
-		MobSpawning.addSpawns();
 		DivineRPGAchievements.init();
 	}
 

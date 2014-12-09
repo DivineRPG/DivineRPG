@@ -114,6 +114,6 @@ public abstract class EntityDivineRPGFlying extends EntityFlying implements IMob
 	
 	@Override
 	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere() && this.rand.nextInt(6)==0;
+		return super.getCanSpawnHere();
 	}
 }

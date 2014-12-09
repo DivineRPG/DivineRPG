@@ -3,6 +3,7 @@ package net.divinerpg.dimensions.vethea;
 import java.util.Random;
 
 import net.divinerpg.dimensions.vethea.all.Bow;
+import net.divinerpg.dimensions.vethea.all.CeilingTexture;
 import net.divinerpg.dimensions.vethea.all.FloatingTree1;
 import net.divinerpg.dimensions.vethea.all.FloatingTree2;
 import net.divinerpg.dimensions.vethea.all.FloatingTree3;
@@ -37,6 +38,8 @@ public class VetheanChunkBuilder {
 	private static IVetheanStructure floatingTree5 = new FloatingTree5();
 	private static IVetheanStructure floatingTree6 = new FloatingTree6();
 	private static IVetheanStructure floatingTree7 = new FloatingTree7();
+	
+	private static IVetheanStructure ceilingTexture = new CeilingTexture();
 	
 	private static IVetheanStructure infusion = new InfusionOutpost();
 	private static IVetheanStructure[] lamps = {new Lamp1(), new Lamp2()};
@@ -340,6 +343,10 @@ public class VetheanChunkBuilder {
 					if(!containsl2Tree && !containsInfusionTableL2 && !containsLampL2 && !containsItemL2 && !containsPillarL2 && y == 65 && rand.nextInt(250) == 0 && x == 0 && z == 0){
 						containsl2Tree = true;
 						l2Trees[this.rand.nextInt(2)].generate(chunk, x, y, z);
+					}
+					
+					if(y == 48 && rand.nextInt(20) == 0 && x > 6 && x < 10 && z > 6 && z < 10){
+						//ceilingTexture.generate(chunk, x, y, z);
 					}
 
 				}

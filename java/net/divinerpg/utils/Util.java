@@ -78,7 +78,7 @@ public class Util {
 
     public static void registerDivineRPGMob(Class entityClass, String entityName) {
     	LangRegistry.addMob(entityName);
-        EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 120, 5, true);
+        EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 128, 5, true);
         EntityList.addMapping(entityClass, entityName, entityListID++, 0x000000, 0xFFFFFF);
     }
 
