@@ -45,7 +45,7 @@ public class EntityParticleBullet extends EntityShooterBullet {
         super.onUpdate();
 
         for (int var3 = 0; var3 < 8; ++var3) {
-            DivineRPG.proxy.spawnParticle(this.worldObj, this.posX, this.posY, this.posZ, this.particle);
+            DivineRPG.proxy.spawnParticle(this.worldObj, this.posX, this.posY, this.posZ, this.particle, true);
         }
     }
 

@@ -1,4 +1,4 @@
-package net.divinerpg.entities.twilight.effects;
+package net.divinerpg.entities.fx;
 
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
@@ -7,12 +7,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class EntityMortumPortalFX extends EntityFX {
+public class EntityEdenPortalFX extends EntityFX {
 	
     private float portalParticleScale;
     private double portalPosX, portalPosY, portalPosZ;
 
-    public EntityMortumPortalFX(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+    public EntityEdenPortalFX(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
         super(var1, var2, var4, var6, var8, var10, var12);
         this.motionX = var8;
         this.motionY = var10;
@@ -22,9 +22,7 @@ public class EntityMortumPortalFX extends EntityFX {
         this.portalPosZ = this.posZ = var6;
         float var14 = this.rand.nextFloat() * 0.6F + 0.4F;
         this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
-        this.particleBlue = 0.0F;
-        this.particleGreen = 0.0F;
-        this.particleRed = 0.0F;
+        this.particleBlue = 1.0F * var14;
         this.particleMaxAge = (int)(Math.random() * 10.0D) + 40;
         this.noClip = true;
         this.setParticleTextureIndex((int)(Math.random() * 8.0D));
@@ -74,7 +72,7 @@ public class EntityMortumPortalFX extends EntityFX {
         this.posX = this.portalPosX + this.motionX * var1;
         this.posY = this.portalPosY + this.motionY * var1 + (1.0F - var2);
         this.posZ = this.portalPosZ + this.motionZ * var1;
-        if(this.particleAge++ >= this.particleMaxAge) 
-            this.setDead();
+        if(this.particleAge++ >= this.particleMaxAge)
+        	this.setDead();
     }
 }

@@ -4,10 +4,10 @@ import java.util.Random;
 
 import net.divinerpg.api.blocks.BlockModFire;
 import net.divinerpg.api.worldgen.DivineTeleporter;
-import net.divinerpg.entities.twilight.effects.EntityEdenPortalFX;
-import net.divinerpg.entities.twilight.effects.EntityMortumPortalFX;
-import net.divinerpg.entities.twilight.effects.EntitySkythernPortalFX;
-import net.divinerpg.entities.twilight.effects.EntityWildWoodPortalFX;
+import net.divinerpg.entities.fx.EntityEdenPortalFX;
+import net.divinerpg.entities.fx.EntityMortumPortalFX;
+import net.divinerpg.entities.fx.EntitySkythernPortalFX;
+import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;

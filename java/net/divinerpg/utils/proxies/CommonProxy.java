@@ -134,5 +134,5 @@ public class CommonProxy{
 			((CommandHandler)MinecraftServer.getServer().getCommandManager()).registerCommand(new DivineRPGCommands());
 	}
 	
-	public void spawnParticle(World w, double x, double y, double z, String particle) {}
+	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
 }

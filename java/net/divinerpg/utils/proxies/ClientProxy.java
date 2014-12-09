@@ -14,11 +14,14 @@ import net.divinerpg.client.render.entity.VetheaEntityRenderer;
 import net.divinerpg.client.render.item.RenderBow;
 import net.divinerpg.client.render.item.RenderPhaser;
 import net.divinerpg.client.render.item.RenderProjectileShooter;
-import net.divinerpg.entities.twilight.effects.EntityEdenPortalFX;
-import net.divinerpg.entities.twilight.effects.EntityGreenPortalFX;
-import net.divinerpg.entities.twilight.effects.EntityMortumPortalFX;
-import net.divinerpg.entities.twilight.effects.EntitySkythernPortalFX;
-import net.divinerpg.entities.twilight.effects.EntityWildWoodPortalFX;
+import net.divinerpg.entities.fx.EntityBlackFlameFX;
+import net.divinerpg.entities.fx.EntityBlueFlameFX;
+import net.divinerpg.entities.fx.EntityEdenPortalFX;
+import net.divinerpg.entities.fx.EntityGreenFlameFX;
+import net.divinerpg.entities.fx.EntityGreenPortalFX;
+import net.divinerpg.entities.fx.EntityMortumPortalFX;
+import net.divinerpg.entities.fx.EntitySkythernPortalFX;
+import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
@@ -90,14 +93,22 @@ public class ClientProxy extends CommonProxy {
     }
     
     @Override
-    public void spawnParticle(World w, double x, double y, double z, String particle) {
+    public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {
+    	if(random) {
+    		x += (rand.nextDouble()-rand.nextDouble())/4;
+    		y += (rand.nextDouble()-rand.nextDouble())/4;
+    		z += (rand.nextDouble()-rand.nextDouble())/4;
+    	}
     	EntityFX fx = null;
-    	if(particle == "eden") fx = new EntityEdenPortalFX(w, x+rand.nextDouble()/4, y+rand.nextDouble()/4, z+rand.nextDouble()/4, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "wildwood") fx = new EntityWildWoodPortalFX(w, x+rand.nextDouble()/4, y+rand.nextDouble()/4, z+rand.nextDouble()/4, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "apalachia") fx = new EntityPortalFX(w, x+rand.nextDouble()/4, y+rand.nextDouble()/4, z+rand.nextDouble()/4, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "skythern") fx = new EntitySkythernPortalFX(w, x+rand.nextDouble()/4, y+rand.nextDouble()/4, z+rand.nextDouble()/4, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "mortum") fx = new EntityMortumPortalFX(w, x+rand.nextDouble()/4, y+rand.nextDouble()/4, z+rand.nextDouble()/4, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "halite") fx = new EntityGreenPortalFX(w, x+rand.nextDouble()/4, y+rand.nextDouble()/4, z+rand.nextDouble()/4, 0.0D, 0.0D, 0.0D);
+    	if(particle == "eden") fx = new EntityEdenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "wildwood") fx = new EntityWildWoodPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "apalachia") fx = new EntityPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "skythern") fx = new EntitySkythernPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "mortum") fx = new EntityMortumPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "halite") fx = new EntityGreenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "greenFlame") fx = new EntityGreenFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "blackFlame") fx = new EntityBlackFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "blueFlame") fx = new EntityBlueFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
     }
 }

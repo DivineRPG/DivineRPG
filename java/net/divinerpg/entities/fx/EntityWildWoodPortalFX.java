@@ -1,4 +1,4 @@
-package net.divinerpg.entities.twilight.effects;
+package net.divinerpg.entities.fx;
 
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;

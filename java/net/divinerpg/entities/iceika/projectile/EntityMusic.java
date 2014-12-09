@@ -5,8 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import net.divinerpg.entities.twilight.effects.EntitySkythernPortalFX;
+import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;

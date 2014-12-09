@@ -1,6 +1,6 @@
 package net.divinerpg.entities.iceika.projectile;
 
-import net.divinerpg.entities.twilight.effects.EntityWildWoodPortalFX;
+import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityFireball;

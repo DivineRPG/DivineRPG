@@ -4,9 +4,32 @@ import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
 import net.divinerpg.api.blocks.BlockModSpawner;
+import net.divinerpg.api.blocks.BlockModTorch;
 import net.divinerpg.api.blocks.BlockStatue;
-import net.divinerpg.blocks.vanilla.*;
-import net.divinerpg.client.render.block.model.*;
+import net.divinerpg.blocks.vanilla.BlockAcceleron;
+import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
+import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
+import net.divinerpg.blocks.vanilla.BlockDivineBricks;
+import net.divinerpg.blocks.vanilla.BlockDivineTable;
+import net.divinerpg.blocks.vanilla.BlockLamp1;
+import net.divinerpg.blocks.vanilla.BlockLamp2;
+import net.divinerpg.blocks.vanilla.BlockLightFence;
+import net.divinerpg.blocks.vanilla.BlockMushroom;
+import net.divinerpg.blocks.vanilla.BlockSteel;
+import net.divinerpg.blocks.vanilla.BlockTar;
+import net.divinerpg.blocks.vanilla.BlockTomato;
+import net.divinerpg.blocks.vanilla.MobPumpkin;
+import net.divinerpg.blocks.vanilla.VanillaBlock;
+import net.divinerpg.client.render.block.model.ModelAncientStatue;
+import net.divinerpg.client.render.block.model.ModelAyeracoStatue;
+import net.divinerpg.client.render.block.model.ModelDensosStatue;
+import net.divinerpg.client.render.block.model.ModelDexStatue;
+import net.divinerpg.client.render.block.model.ModelDramixStatue;
+import net.divinerpg.client.render.block.model.ModelKingStatue;
+import net.divinerpg.client.render.block.model.ModelSoulStatue;
+import net.divinerpg.client.render.block.model.ModelTwilightStatue;
+import net.divinerpg.client.render.block.model.ModelVamacheronStatue;
+import net.divinerpg.client.render.block.model.ModelWatcherStatue;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -42,6 +65,9 @@ public class VanillaBlocks {
 	public static Block enderWatcherPumpkin;
 	public static Block jungleSpiderPumpkin;
 	public static Block hellSpiderPumpkin;
+	
+	public static Block aquaTorch;
+	public static Block skeletonTorch;
 
 	public static Block checker;
 	public static Block rainbowWool;
@@ -152,6 +178,9 @@ public class VanillaBlocks {
 		enderWatcherPumpkin = new MobPumpkin().setName("enderWatcherPumpkin");
 		jungleSpiderPumpkin = new MobPumpkin().setName("jungleSpiderPumpkin");
 		hellSpiderPumpkin   = new MobPumpkin().setName("hellSpiderPumpkin");
+		
+		aquaTorch			= new BlockModTorch("aquaTorch", "blueFlame");
+		skeletonTorch		= new BlockModTorch("skeletonTorch", "blackFlame");
 
 		checker             = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.5F, WOOD_GOLD);
 		rainbowWool         = new VanillaBlock(EnumBlockType.WOOL, "rainbowWool", 0.5F, WOOD_GOLD);

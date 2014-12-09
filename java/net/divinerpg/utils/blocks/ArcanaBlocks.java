@@ -6,6 +6,7 @@ import net.divinerpg.api.blocks.BlockModGlass;
 import net.divinerpg.api.blocks.BlockModGrass;
 import net.divinerpg.api.blocks.BlockModLadder;
 import net.divinerpg.api.blocks.BlockModSpawner;
+import net.divinerpg.api.blocks.BlockModTorch;
 import net.divinerpg.blocks.arcana.BlockAquaMarine;
 import net.divinerpg.blocks.arcana.BlockArcanaFrame;
 import net.divinerpg.blocks.arcana.BlockArcanaPortal;
@@ -100,6 +101,8 @@ public class ArcanaBlocks {
     public static Block moonlightFurnaceOn;
     public static Block demonFurnace;
     public static Block demonFurnaceOn;
+    
+    public static Block arcaniumTorch;
 	
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
@@ -148,27 +151,29 @@ public class ArcanaBlocks {
 	    arcanaPortal          = new BlockArcanaPortal("arcanaPortal");
 	    arcanaPortalFrame     = new BlockArcanaFrame("arcanaPortalFrame", arcanaPortal);
 	    
-		aquamarine		  	= new BlockAquaMarine("aquamarinePlant");
-		eucalyptusRoot	  	= new BlockEucalyptusRoot("eucalyptusPlant");
-	    hitchak		  		= new BlockHitchak("hitchakPlant");
+		aquamarine		  		= new BlockAquaMarine("aquamarinePlant");
+		eucalyptusRoot	  		= new BlockEucalyptusRoot("eucalyptusPlant");
+	    hitchak		  			= new BlockHitchak("hitchakPlant");
 	    veilo		  			= new BlockVeilo("veiloPlant");
-	    lamona		  		= new BlockLamona("lamonaPlant");
-	    marsine		  		= new BlockMarsine("marsinePlant");
+	    lamona		  			= new BlockLamona("lamonaPlant");
+	    marsine		  			= new BlockMarsine("marsinePlant");
 	    firestock		  		= new BlockStackPlant("firestockPlant");
-	    pinfly		  		= new BlockStackPlant("pinflyPlant");
+	    pinfly		  			= new BlockStackPlant("pinflyPlant");
 	    moonbulb		  		= new BlockStackPlant("moonbulbPlant");
 
-	    greenlightFurnace 	= new BlockGreenlightFurnace("greenlightFurnace", false);
+	    greenlightFurnace 		= new BlockGreenlightFurnace("greenlightFurnace", false);
 	    greenlightFurnaceOn 	= new BlockGreenlightFurnace("greenlightFurnaceOn", true);
 	    oceanfireFurnace 	    = new BlockOceanfireFurnace("oceanfireFurnace", false);
-	    oceanfireFurnaceOn 	= new BlockOceanfireFurnace("oceanfireFurnaceOn", true);
-	    moltenFurnace 	    = new BlockMoltenFurnace("moltenFurnace", false);
+	    oceanfireFurnaceOn 		= new BlockOceanfireFurnace("oceanfireFurnaceOn", true);
+	    moltenFurnace 	    	= new BlockMoltenFurnace("moltenFurnace", false);
 	    moltenFurnaceOn 		= new BlockMoltenFurnace("moltenFurnaceOn", true);
 	    whitefireFurnace 	    = new BlockWhitefireFurnace("whitefireFurnace", false);
-	    whitefireFurnaceOn 	= new BlockWhitefireFurnace("whitefireFurnaceOn", true);
+	    whitefireFurnaceOn 		= new BlockWhitefireFurnace("whitefireFurnaceOn", true);
 	    moonlightFurnace 	    = new BlockMoonlightFurnace("moonlightFurnace", false);
-	    moonlightFurnaceOn 	= new BlockMoonlightFurnace("moonlightFurnaceOn", true);
+	    moonlightFurnaceOn 		= new BlockMoonlightFurnace("moonlightFurnaceOn", true);
 	    demonFurnace 	    	= new BlockDemonFurnace("demonFurnace", false);
-	    demonFurnaceOn 		= new BlockDemonFurnace("demonFurnaceOn", true);
+	    demonFurnaceOn 			= new BlockDemonFurnace("demonFurnaceOn", true);
+	    
+	    arcaniumTorch			= new BlockModTorch("arcaniumTorch", null);
 	}
 }
