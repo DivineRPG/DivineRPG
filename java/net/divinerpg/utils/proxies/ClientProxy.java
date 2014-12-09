@@ -31,6 +31,7 @@ import net.divinerpg.utils.events.EventClientLogin;
 import net.divinerpg.utils.events.EventFog;
 import net.divinerpg.utils.events.EventOverlay;
 import net.divinerpg.utils.events.EventStaffLogin;
+import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.item.Item;
@@ -62,6 +63,8 @@ public class ClientProxy extends CommonProxy {
         for(Item phaser : ItemProjectileShooter.phaserList) {
         	MinecraftForgeClient.registerItemRenderer(phaser, new RenderPhaser());
         }
+        
+        MinecraftForgeClient.registerItemRenderer(VanillaItemsWeapons.corruptedCannon, new RenderProjectileShooter());
         
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");

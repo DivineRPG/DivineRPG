@@ -460,7 +460,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 			x = var4 + this.rand.nextInt(16);
 			z = var5 + this.rand.nextInt(16);
 			y = this.worldObj.getHeightValue(x, z);
-			(new WorldGenGiantTree(true)).generate(this.worldObj, this.rand, x, y, z);
+			(new WorldGenGiantTree(false)).generate(this.worldObj, this.rand, x, y, z);
 		}
 	}
 

@@ -1,12 +1,10 @@
 package net.divinerpg.utils.events;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelChest;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;

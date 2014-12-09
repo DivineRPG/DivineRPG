@@ -5,6 +5,7 @@ import java.util.Random;
 import net.divinerpg.api.worldgen.WorldGenAPI;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -22,11 +23,11 @@ public class WorldGenGiantTree extends WorldGenerator {
     }
 
     @Override
-    public boolean generate(World world, Random rand, int x, int y, int z) {
-    	final int height = 20 + rand.nextInt(10);
-        final int leafStart = 1 + rand.nextInt(12);
-        final int leafHeight = height - leafStart;
-        final int l = 2 + rand.nextInt(9);
+    public boolean generate(World world, Random rand, int i, int j, int k) {
+    	int height = 20 + rand.nextInt(10);
+        int leafStart = 1 + rand.nextInt(12);
+        int leafHeight = height - leafStart;
+        int l = 2 + rand.nextInt(9);
         /*int width = 6;
         int xChange = 2;
         
@@ -39,57 +40,49 @@ public class WorldGenGiantTree extends WorldGenerator {
         WorldGenAPI.addRectangle(2, 2, height, world, x, y, z, IceikaBlocks.frozenWood);
         WorldGenAPI.addRectangle(2, 2, 1, world, x, y + height + 1, z, IceikaBlocks.brittleLeaves);*/
 
-        if (y < 1 || y + height + 1 > 256) return false;
+        if (j < 1 || j + height + 1 > 256 || world.getBlock(i, j - 1, k) != IceikaBlocks.frozenGrass || j >= 256 - height - 1) return false;
 
-        for (int y1 = y; y1 <= y + 1 + height; y1++) {
+        for (int y = j; y <= j + 1 + height; y++) {
 
-            if (y1 < 0 && y1 >= 256) return false;
+            if (y < 0 && y >= 256) return false;
 
             int k1 = 1;
 
-            if (y1 - y < leafStart) {
-                k1 = 0;
-            } else {
-                k1 = l;
-            }
+            if (y - j < leafStart) k1 = 0;
+            else k1 = l;
 
-            for (int x1 = x - k1; x1 <= x + k1; x1++) {
-                for (int z1 = z - k1; z1 <= z + k1; z1++) {
+            for (int x = i - k1; x <= i + k1; x++) {
+                for (int z = k - k1; z <= k + k1; z++) {
 
-                    if (!world.getChunkProvider().chunkExists(x1 >> 4, z1 >> 4)) return false;
+                    if (!world.getChunkProvider().chunkExists(x >> 4, z >> 4)) return false;
 
-                    final Block id = world.getBlock(x1, y1, z1);
+                    Block b = world.getBlock(x, y, z);
                     
-                    if (Block.getIdFromBlock(id) != 0 && !id.isLeaves(null, x1, y1, z1)) return false;
+                    if (world.getBlock(x, y, z) != Blocks.air && !world.getBlock(x, y, z).isLeaves(world, x, y, z)) return false;
                 }
             }
         }
 
-        if (world.getBlock(x, y - 1, z) != IceikaBlocks.frozenGrass || y >= 256 - height - 1)
-            return false;
-
-        world.setBlock(x, y - 1, z, IceikaBlocks.frozenGrass);
-        world.setBlock(x - 1, y - 1, z, IceikaBlocks.frozenGrass);
-        world.setBlock(x, y - 1, z - 1, IceikaBlocks.frozenGrass);
-        world.setBlock(x - 1, y - 1, z - 1, IceikaBlocks.frozenGrass);
+        world.setBlock(i, j - 1, k, IceikaBlocks.frozenGrass);
+        world.setBlock(i - 1, j - 1, k, IceikaBlocks.frozenGrass);
+        world.setBlock(i, j - 1, k - 1, IceikaBlocks.frozenGrass);
+        world.setBlock(i - 1, j - 1, k - 1, IceikaBlocks.frozenGrass);
         int l1 = rand.nextInt(2);
         int j2 = 1;
         boolean flag1 = false;
 
         for (int i3 = 0; i3 <= leafHeight; i3++) {
-            final int k3 = y + height - i3;
+            int k3 = j + height - i3;
 
-            for (int i4 = x - l1; i4 <= x + l1; i4++) {
-                final int k4 = i4 - x;
+            for (int i4 = i - l1; i4 <= i + l1; i4++) {
+                int k4 = i4 - i;
 
-                for (int l4 = z - l1; l4 <= z + l1; l4++) {
-                    final int i5 = l4 - z;
+                for (int l4 = k - l1; l4 <= k + l1; l4++) {
+                    int i5 = l4 - k;
 
-                    final int block = Block.getIdFromBlock(world.getBlock(i4, k3, l4));
-                    final Block b = Block.getBlockById(block);
                     
                     if ((Math.abs(k4) != l1 || Math.abs(i5) != l1 || l1 <= 0)
-                            && (b == null || b.canBeReplacedByLeaves(world, i4, k3, l4))) {
+                            && (world.getBlock(i4, k3, l4) == Blocks.air || world.getBlock(i4, k3, l4).canBeReplacedByLeaves(world, i4, k3, l4))) {
                     	world.setBlock(i4, k3, l4, IceikaBlocks.brittleLeaves);
                     	world.setBlock(i4 - 1, k3, l4, IceikaBlocks.brittleLeaves);
                     	world.setBlock(i4, k3, l4 - 1, IceikaBlocks.brittleLeaves);
@@ -102,25 +95,18 @@ public class WorldGenGiantTree extends WorldGenerator {
                 l1 = flag1 ? 1 : 0;
                 flag1 = true;
 
-                if (++j2 > l) {
-                    j2 = l;
-                }
-            } else {
-                l1++;
-            }
+                if (++j2 > l) j2 = l;
+            } else l1++;
         }
 
-        final int j3 = rand.nextInt(3);
+        int j3 = rand.nextInt(3);
 
-        for (int l3 = 0; l3 < height - j3; l3++) {
-            final Block id = world.getBlock(x, y + l3, z);
-            final int b = Block.getIdFromBlock(id);
-            
-            if (b == 0 || id.isLeaves(world, x, y + l3, z)) {
-            	world.setBlock(x, y + l3, z, IceikaBlocks.frozenWood);
-            	world.setBlock(x - 1, y + l3, z, IceikaBlocks.frozenWood);
-            	world.setBlock(x, y + l3, z - 1, IceikaBlocks.frozenWood);
-            	world.setBlock(x - 1, y + l3, z - 1, IceikaBlocks.frozenWood);
+        for (int l3 = 0; l3 < height - j3; l3++) {            
+            if (world.getBlock(i, j + l3, k) == Blocks.air || world.getBlock(i, j + l3, k).isLeaves(world, i, j + l3, k)) {
+            	world.setBlock(i, j + l3, k, IceikaBlocks.frozenWood);
+            	world.setBlock(i - 1, j + l3, k, IceikaBlocks.frozenWood);
+            	world.setBlock(i, j + l3, k - 1, IceikaBlocks.frozenWood);
+            	world.setBlock(i - 1, j + l3, k - 1, IceikaBlocks.frozenWood);
             }
         }
         return true;

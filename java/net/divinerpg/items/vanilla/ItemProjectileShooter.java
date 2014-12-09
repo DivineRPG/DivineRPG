@@ -90,7 +90,6 @@ public class ItemProjectileShooter extends ItemMod {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		System.out.println(projectileTex);
 		if(currentCounter == 0) {
 			if(player.capabilities.isCreativeMode || this.ammo == null || player.inventory.hasItem(ammo)) {
 				if(this.uses > -1 && !player.capabilities.isCreativeMode) stack.damageItem(1, player);
