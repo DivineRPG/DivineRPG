@@ -13,6 +13,7 @@ public class Sounds {
     public static Sound roar              = new Sound("roar");
     public static Sound iceman            = new Sound("iceman");
     public static Sound hellSpider        = new Sound("hellSpider");
+    public static Sound jungleSpider      = new Sound("jungleSpider");
     public static Sound ayeracoTeleport   = new Sound("ayeracoTeleport");
     public static Sound ayeracoHalfHealth = new Sound("ayeracoHalfHealth");
     public static Sound ayeracoPillar     = new Sound("ayeracoPillar");

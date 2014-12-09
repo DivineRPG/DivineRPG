@@ -25,6 +25,7 @@ import net.divinerpg.entities.vanilla.EntityIceMan;
 import net.divinerpg.entities.vanilla.EntityJackOMan;
 import net.divinerpg.entities.vanilla.EntityJungleBat;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
+import net.divinerpg.entities.vanilla.EntityJungleSpider;
 import net.divinerpg.entities.vanilla.EntityKingCrab;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.entities.vanilla.EntityMiner;
@@ -78,6 +79,7 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityDesertCrawler.class, "DesertCrawler");
 		Util.registerDivineRPGMob(EntityCaveCrawler.class, "CaveCrawler");
 		Util.registerDivineRPGMob(EntityJungleDramcryx.class, "JungleDramcryx");
+		Util.registerDivineRPGMob(EntityJungleSpider.class, "JungleSpider");
 		Util.registerDivineRPGMob(EntityCyclops.class, "Cyclops");
 		Util.registerDivineRPGMob(EntityCaveclops.class, "Caveclops");
 		Util.registerDivineRPGMob(EntityAncientEntity.class, "AncientEntity");

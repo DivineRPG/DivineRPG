@@ -16,6 +16,7 @@ public class EntityResourceLocation {
     public static ResourceLocation caveCrawler       = addMob("caveCrawler");
     public static ResourceLocation desertCrawler     = addMob("desertCrawler");
     public static ResourceLocation jungleDramcryx    = addMob("jungleDramcryx");
+    public static ResourceLocation jungleSpider      = addMob("jungleSpider");
     public static ResourceLocation cyclops           = addMob("cyclops");
     public static ResourceLocation caveclops         = addMob("caveclops");
     public static ResourceLocation ancient           = addMob("ancientEntity");

@@ -6,31 +6,30 @@ import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityHellSpider extends EntityDivineRPGMob {
+public class EntityJungleSpider extends EntityDivineRPGMob {
 	
-    public EntityHellSpider(World var1) {
+    public EntityJungleSpider(World var1) {
         super(var1);
         this.setSize(1.4F, 0.9F);
-        this.isImmuneToFire = true;
         addAttackingAI();
     }
     
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.hellSpiderHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.hellSpiderDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.hellSpiderSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.hellSpiderFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.jungleSpiderHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.jungleSpiderDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.jungleSpiderSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.jungleSpiderFollowRange);
     }
 
 	@Override
@@ -45,10 +44,6 @@ public class EntityHellSpider extends EntityDivineRPGMob {
 
         if(!this.worldObj.isRemote) {
         	this.setBesideClimbableBlock(this.isCollidedHorizontally);
-        }
-
-        if(this.isWet()) {
-            this.attackEntityFrom(DamageSource.drown, 1);
         }
     }
     
@@ -76,7 +71,7 @@ public class EntityHellSpider extends EntityDivineRPGMob {
 
 	@Override
     protected String getLivingSound() {
-        return Sounds.getSoundName(Sounds.hellSpider);
+        return Sounds.getSoundName(Sounds.jungleSpider);
     }
 
 	@Override
@@ -133,9 +128,10 @@ public class EntityHellSpider extends EntityDivineRPGMob {
                 this.motionZ *= 0.6D;
             }
             
-            entity.setFire(3);
-
+            
             int var5 = EnchantmentHelper.getFireAspectModifier(this);
+            
+            if(entity instanceof EntityLivingBase)((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, var2 * 20, 0));
 
             if(var5 > 0) {
                 entity.setFire(var5 * 4);
@@ -143,24 +139,21 @@ public class EntityHellSpider extends EntityDivineRPGMob {
         }
         return var4;
     }
-	
-	@Override
-    protected Item getDropItem() {
-        return Item.getItemFromBlock(Blocks.netherrack);
-    }
 
 	@Override
     protected void dropFewItems(boolean var1, int var2) {
-        int var3 = this.rand.nextInt(2 + var2);
-        int var4;
+		int var3 = this.rand.nextInt(2 + var2);
+		
+		for (int var4 = 0; var4 < var3; var4++) {
+			this.dropItem(VanillaItemsOther.jungleShards, 1);
+		}
+		
+		var3 = this.rand.nextInt(2 + var2);
+		
+		for (int var4 = 0; var4 < var3; var4++) {
+			this.dropItem(VanillaItemsOther.jungleShards, 2);
+		}
 
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(Item.getItemFromBlock(Blocks.netherrack), 10);
-        }
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(VanillaItemsOther.moltenShards, 1);
-        }
     }
 
 	@Override
@@ -193,6 +186,6 @@ public class EntityHellSpider extends EntityDivineRPGMob {
 
 	@Override
 	public String mobName() {
-		return "Hell Spider";
+		return "Jungle Spider";
 	}
 }

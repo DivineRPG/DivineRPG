@@ -12,9 +12,9 @@ public class RenderSizeable extends RenderLivingCreature {
 	
 	protected float scale;
 	
-	public RenderSizeable(ModelBase var1, float var2, float var3, ResourceLocation texture) {
-		super(var1, var2 * var3, texture);
-		this.scale = var3;
+	public RenderSizeable(ModelBase var1, float shadowsize, float scale, ResourceLocation texture) {
+		super(var1, shadowsize * scale, texture);
+		this.scale = scale;
 	}
 
 	public void preRenderScale(EntityMob var1, float var2) {

@@ -28,7 +28,7 @@ public class EntityGlacide extends EntityDivineRPGMob {
 		this.tasks.addTask(6, new EntityAIWander(this, getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue()));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-        this.setSize(0.6F, 1.9F);
+        this.setSize(0.8F, 1.8F);
     }
 
     @Override

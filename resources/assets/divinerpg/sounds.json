@@ -59,6 +59,16 @@
 ,
 
 
+ "jungleSpider": {
+  "category":"master","sounds": [{
+    "name":
+      "jungleSpider",
+      "stream": false
+    }]
+  }
+,
+
+
  "ayeracoTeleport": {
   "category":"master","sounds": [{
     "name":

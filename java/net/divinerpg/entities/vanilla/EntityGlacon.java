@@ -3,6 +3,7 @@ package net.divinerpg.entities.vanilla;
 import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.IceikaItems;
+import net.divinerpg.utils.items.ItemsFood;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
@@ -12,7 +13,7 @@ public class EntityGlacon extends EntityDivineRPGMob {
     public EntityGlacon(World var1) {
         super(var1);
         addAttackingAI();
-        this.setSize(0.6F, 1.9F);
+        this.setSize(0.8F, 1.4F);
     }
     
     @Override
@@ -46,12 +47,13 @@ public class EntityGlacon extends EntityDivineRPGMob {
 
     @Override
     protected void dropFewItems(boolean var1, int var2) {
-        int var3 = this.rand.nextInt(2 + var2);
-        int var4;
+    	int var3 = this.rand.nextInt(2 + var2);
+		int var4;
+		for(var4 = 0; var4 < var3; ++var4) 
+			this.dropItem(ItemsFood.whiteMushroom, 1);
 
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(IceikaItems.iceShards, 3);
-        }
+		for(var4 = 0; var4 < var3; ++var4) 
+			this.dropItem(IceikaItems.iceShards, 3);
     }
 
 	@Override
