@@ -29,10 +29,10 @@ public class VanillaItemsWeapons {
 	public static final Item slimeSword         = new ItemModSword(ToolMaterialMod.Slime, "slimeSword");
     public static final Item oceanKnife         = new ItemModSword(ToolMaterialMod.OceanKnife, "oceanKnife");
     public static final Item aquaticMaul        = new ItemModSword(ToolMaterialMod.AquaMaul, "aquaMaul");
-    public static final Item arlemiteSword      = new ItemModSword(ToolMaterialMod.Arlemite, "arlemiteSword");
+    public static final Item arlemiteSword      = new ItemModSword(ToolMaterialMod.Arlemite, "arlemiteStabber");
     public static final Item bedrockSword       = new ItemModSword(ToolMaterialMod.Bedrock, "bedrockSword");
     public static final Item realmiteSword      = new ItemModSword(ToolMaterialMod.Realmite, "realmiteSword");
-    public static final Item rupeeSword         = new ItemModSword(ToolMaterialMod.Rupee, "rupeeSword");
+    public static final Item rupeeSword         = new ItemModSword(ToolMaterialMod.Rupee, "rupeeRapier");
     public static final Item sandslash          = new ItemModSword(ToolMaterialMod.Sandslash, "sandslash");
     public static final Item divineSword        = new ItemModSword(ToolMaterialMod.Divine, "divineSword");
     public static final Item blueDivineSword    = new ItemModSword(ToolMaterialMod.Divine, "blueDivineSword");
@@ -42,7 +42,7 @@ public class VanillaItemsWeapons {
     public static final Item redDivineSword     = new ItemModSword(ToolMaterialMod.Divine, "redDivineSword");
     public static final Item greenDivineSword   = new ItemModSword(ToolMaterialMod.Divine, "greenDivineSword");
     public static final Item bedrockMaul        = new ItemModSword(ToolMaterialMod.Bedrock, "bedrockMaul");
-    public static final Item jungleKnife        = new ItemModSword(ToolMaterialMod.OceanKnife, "jungleKnife");
+    public static final Item jungleKnife        = new ItemModSword(ToolMaterialMod.JungleKnife, "jungleKnife");
     public static final Item donatorSword       = new ItemModSword(ToolMaterialMod.Donator, "donatorSword");
     public static final Item aquaticTrident     = new ItemModSword(ToolMaterialMod.AquaTrident, "aquaticTrident");
     public static final Item aquaticDagger      = new ItemModSword(ToolMaterialMod.AquaDagger, "aquaticDagger");

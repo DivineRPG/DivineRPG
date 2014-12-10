@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
@@ -54,16 +55,6 @@ public class EventArmorTick {
         else helmet = null;
 
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
-            if (event.player.capabilities.isFlying && !event.player.capabilities.isCreativeMode) {
-                ArcanaHelper.getProperties(event.player).removeBarValue(0.2F);
-            }
-            if(!event.player.capabilities.isCreativeMode){
-            	if (ArcanaHelper.getProperties(event.player).getBarValue() >= 0) {
-            		event.player.capabilities.allowFlying = true;
-            	} else {
-            		event.player.capabilities.isFlying = false;
-            	}
-            }
             event.player.fallDistance = -0.5F;
             event.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
         }
@@ -188,10 +179,9 @@ public class EventArmorTick {
         }
         
       //Halite
-        if ((EventArmorFullSet.size != 1) && (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet))
-        	EventArmorFullSet.size = 1;
-        else if (EventArmorFullSet.size == 1)
-        	EventArmorFullSet.size = 0;
+        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet) {
+        	event.player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 1, 16, true));
+        }
     }
 
 }

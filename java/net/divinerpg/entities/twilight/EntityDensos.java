@@ -51,15 +51,7 @@ public class EntityDensos extends EntityDivineRPGBoss {
 
     @Override
     public void dropFewItems(boolean var1, int var2) {
-        int var3 = this.rand.nextInt(2 + var2);
-        int var4;
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(TwilightItemsArmor.haliteHelmet, 1);
-            this.dropItem(TwilightItemsArmor.haliteBody, 1);
-            this.dropItem(TwilightItemsArmor.haliteLegs, 1);
-            this.dropItem(TwilightItemsArmor.haliteBoots, 1);
-        }
+    	this.dropItem(TwilightItemsArmor.haliteBody, 1);
     }
 
 	@Override

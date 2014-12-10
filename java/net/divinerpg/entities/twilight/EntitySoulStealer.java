@@ -46,6 +46,7 @@ public class EntitySoulStealer extends EntityDivineRPGMob {
 		if(super.attackEntityAsMob(var1)) {
 			if(var1 instanceof EntityLiving) {
 				((EntityLiving)var1).addPotionEffect(new PotionEffect(Potion.confusion.id, 12 * 20, 0));
+				((EntityLiving)var1).addPotionEffect(new PotionEffect(Potion.blindness.id, 12 * 20, 0));
 			}
 			return true;
 		} else {

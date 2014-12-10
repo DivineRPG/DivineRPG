@@ -13,8 +13,8 @@ public class CeilingTexture implements IVetheanStructure
 
 	@Override
 	public void generate(Block[][][] chunk, int par3, int par4, int par5) {
-		int var2 = rand.nextInt(4) + height;
-		height = rand.nextInt(3)+1;
+		int var2 = height;
+		height = rand.nextInt(7)+1;
 		while(chunk[par3][par4][par5] == null){
 			height--;
 			for (int i = 0; i < var2; i++) {

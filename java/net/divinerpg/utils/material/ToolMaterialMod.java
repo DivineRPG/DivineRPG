@@ -16,6 +16,7 @@ public class ToolMaterialMod {
     public static ToolMaterial FrozenMaul     = Util.addMeleeMaterial(30, 15);
     public static ToolMaterial Slime          = Util.addMeleeMaterial(1000, 11, 22);
     public static ToolMaterial OceanKnife     = Util.addMeleeMaterial(2000, 14, 10);
+    public static ToolMaterial JungleKnife     = Util.addMeleeMaterial(2000, 12, 10);
     public static ToolMaterial Bedrock        = Util.addMeleeMaterial(14000, 13, 22);
     public static ToolMaterial Ender          = Util.addMeleeMaterial(23, 16);
     public static ToolMaterial Divine         = Util.addMeleeMaterial(24, 22);

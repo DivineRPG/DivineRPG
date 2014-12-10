@@ -58,15 +58,15 @@ public class ItemShickaxe extends ItemTool {
                                         (block != Blocks.iron_block && block != Blocks.iron_ore ?
                                                 (block != Blocks.lapis_block && block != Blocks.lapis_ore ?
                                                         (block != Blocks.redstone_ore && block != Blocks.lit_redstone_ore ?
-                                                                (block.getMaterial() == Material.rock ? true :
-                                                                        (block.getMaterial() == Material.iron ? true :
+                                                                (block.getMaterial() == Material.rock ?  this.toolMaterial.getHarvestLevel() >= 3 :
+                                                                        (block.getMaterial() == Material.iron ?  this.toolMaterial.getHarvestLevel() >= 3 :
                                                                                 block.getMaterial() == Material.anvil)) :
-                                                                this.toolMaterial.getHarvestLevel() >= 2) :
-                                                        this.toolMaterial.getHarvestLevel() >= 1) :
-                                                this.toolMaterial.getHarvestLevel() >= 1) :
-                                        this.toolMaterial.getHarvestLevel() >= 2) :
-                                this.toolMaterial.getHarvestLevel() >= 2) :
-                        this.toolMaterial.getHarvestLevel() >= 2);
+                                                                this.toolMaterial.getHarvestLevel() >= 3) :
+                                                        this.toolMaterial.getHarvestLevel() >= 3) :
+                                                this.toolMaterial.getHarvestLevel() >= 3) :
+                                        this.toolMaterial.getHarvestLevel() >= 3) :
+                                this.toolMaterial.getHarvestLevel() >= 3) :
+                        this.toolMaterial.getHarvestLevel() >= 3);
     }
 
     @Override
@@ -103,6 +103,5 @@ public class ItemShickaxe extends ItemTool {
         list.add(Util.BLUE + "Efficiency: " + toolMaterial.getEfficiencyOnProperMaterial());
         if (stack.getMaxDamage() != -1) list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses");
         else list.add(Util.GREEN + "Infinite Uses");
-        list.add(Util.DARK_AQUA + Reference.MOD_NAME);
     }
 }

@@ -153,63 +153,63 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IS.realLegs, "III", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(IS.realFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
 		
-		addRecipe(IS.eliteHead, "III", "I I", "   ", 'I', VanillaBlocks.realmiteBlock);
-		addRecipe(IS.eliteBody, "I I", "III", "III", 'I', VanillaBlocks.realmiteBlock);
+		addRecipe(IS.eliteHead, "III", "III", "I I", 'I', VanillaBlocks.realmiteBlock);
+		addRecipe(IS.eliteBody, "III", "III", " I ", 'I', VanillaBlocks.realmiteBlock);
 		addRecipe(IS.eliteLegs, "III", "I I", "I I", 'I', VanillaBlocks.realmiteBlock);
 		addRecipe(IS.eliteFeet, "   ", "I I", "I I", 'I', VanillaBlocks.realmiteBlock);
 		
-		addRecipe(IS.bedrockHead, "III", "I I", "   ", 'I', Blocks.bedrock);
-		addRecipe(IS.bedrockBody, "I I", "III", "III", 'I', Blocks.bedrock);
+		addRecipe(IS.bedrockHead, "III", "III", "I I", 'I', Blocks.bedrock);
+		addRecipe(IS.bedrockBody, "III", "III", " I ", 'I', Blocks.bedrock);
 		addRecipe(IS.bedrockLegs, "III", "I I", "I I", 'I', Blocks.bedrock);
 		addRecipe(IS.bedrockFeet, "   ", "I I", "I I", 'I', Blocks.bedrock);
 		
-		addRecipe(IS.rupeeHead, "III", "I I", "   ", 'I', VanillaItemsOther.rupeeIngot);
-		addRecipe(IS.rupeeBody, "I I", "III", "   ", 'I', VanillaItemsOther.rupeeIngot);
+		addRecipe(IS.rupeeHead, "III", "III", "I I", 'I', VanillaItemsOther.rupeeIngot);
+		addRecipe(IS.rupeeBody, "III", "III", " I ", 'I', VanillaItemsOther.rupeeIngot);
 		addRecipe(IS.rupeeLegs, "III", "I I", "I I", 'I', VanillaItemsOther.rupeeIngot);
 		addRecipe(IS.rupeeFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.rupeeIngot);
 		
-		addRecipe(IS.arlemiteHead, "III", "X X", "   ", 'I', VanillaItemsOther.arlemiteIngot ,'X', Items.iron_ingot);
-		addRecipe(IS.arlemiteBody, "X X", "XIX", "III", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
-		addRecipe(IS.arlemiteLegs, "XIX", "I I", "X X", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
+		addRecipe(IS.arlemiteHead, "III", "XXX", "X X", 'I', VanillaItemsOther.arlemiteIngot ,'X', Items.iron_ingot);
+		addRecipe(IS.arlemiteBody, "IXI", "XIX", " X ", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
+		addRecipe(IS.arlemiteLegs, "XXX", "I I", "S S", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot, 'S', VanillaItemsOther.shadowBar);
 		addRecipe(IS.arlemiteFeet, "   ", "X X", "I I", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
 		
-		addRecipe(IS.infernoHead, "III", "I I", "   ", 'I', VanillaItemsOther.moltenStone);
-		addRecipe(IS.infernoBody, "I I", "III", "III", 'I', VanillaItemsOther.moltenStone);
+		addRecipe(IS.infernoHead, "III", "III", "I I", 'I', VanillaItemsOther.moltenStone);
+		addRecipe(IS.infernoBody, "III", "III", " I ", 'I', VanillaItemsOther.moltenStone);
 		addRecipe(IS.infernoLegs ,"III", "I I", "I I", 'I', VanillaItemsOther.moltenStone);
 		addRecipe(IS.infernoFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.moltenStone);
 		
-		addRecipe(IS.netherHead, "III", "I I", "   ", 'I', VanillaItemsOther.netheriteIngot);
-		addRecipe(IS.netherBody, "I I", "III", "III", 'I', VanillaItemsOther.netheriteIngot);
-		addRecipe(IS.netherLegs, "III", "I I", "I I", 'I', VanillaItemsOther.netheriteIngot);
-		addRecipe(IS.netherFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.netheriteIngot);
+		addRecipe(IS.netherHead, "III", "SIS", "I I", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(IS.netherBody, "ISI", "ISI", " I ", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(IS.netherLegs, "SSS", "I I", "S S", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(IS.netherFeet, "   ", "S S", "I I", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
 		
-		addRecipe(IS.enderHead, "III", "I I", "   ", 'I', VanillaItemsOther.enderStone);
-		addRecipe(IS.enderBody, "I I", "III", "III", 'I', VanillaItemsOther.enderStone);
+		addRecipe(IS.enderHead, "III", "III", "I I", 'I', VanillaItemsOther.enderStone);
+		addRecipe(IS.enderBody, "III", "III", " I ", 'I', VanillaItemsOther.enderStone);
 		addRecipe(IS.enderLegs, "III", "I I", "I I", 'I', VanillaItemsOther.enderStone);
 		addRecipe(IS.enderFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.enderStone);
 		
-		addRecipe(IS.divineHead, "III", "I I", "   ", 'I', VanillaItemsOther.divineStone);
-		addRecipe(IS.divineBody, "I I", "III", "III", 'I', VanillaItemsOther.divineStone);
+		addRecipe(IS.divineHead, "III", "III", "I I", 'I', VanillaItemsOther.divineStone);
+		addRecipe(IS.divineBody, "III", "III", " I ", 'I', VanillaItemsOther.divineStone);
 		addRecipe(IS.divineLegs, "III", "I I", "I I", 'I', VanillaItemsOther.divineStone);
 		addRecipe(IS.divineFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.divineStone);
 		
-		addRecipe(IS.angelicHead, "III", "X X", "   ", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
-		addRecipe(IS.angelicBody, "I I", "XIX", "XXX", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
+		addRecipe(IS.angelicHead, "XXX", "XXX", "I I", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
+		addRecipe(IS.angelicBody, "III", "XXX", " X ", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
 		addRecipe(IS.angelicLegs, "III", "X X", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
 		addRecipe(IS.angelicFeet, "   ", "I I", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
 		
-		addRecipe(IS.shadowHead, "III", "I I", "   ", 'I', VanillaItemsOther.shadowBar);
-		addRecipe(IS.shadowBody, "I I", "III", "III", 'I', VanillaItemsOther.shadowBar);
+		addRecipe(IS.shadowHead, "III", "III", "I I", 'I', VanillaItemsOther.shadowBar);//TODO: use shadow stones somehow.
+		addRecipe(IS.shadowBody, "III", "III", " I ", 'I', VanillaItemsOther.shadowBar);
 		addRecipe(IS.shadowLegs, "III", "I I", "I I", 'I', VanillaItemsOther.shadowBar);
 		addRecipe(IS.shadowFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.shadowBar);
 		
-		addRecipe(IS.aquastriveHead, "III", "I I", "   ", 'I', VanillaItemsOther.aquaticIngot);
-		addRecipe(IS.aquastriveBody, "I I", "III", "III", 'I', VanillaItemsOther.aquaticIngot);
+		addRecipe(IS.aquastriveHead, "III", "III", "I I", 'I', VanillaItemsOther.aquaticIngot);
+		addRecipe(IS.aquastriveBody, "III", "III", " I ", 'I', VanillaItemsOther.aquaticIngot);
 		addRecipe(IS.aquastriveLegs, "III", "I I", "I I", 'I', VanillaItemsOther.aquaticIngot);
 		addRecipe(IS.aquastriveFeet, "   ", "I I", "I I", 'I', VanillaItemsOther.aquaticIngot);
 		
-		addRecipe(VanillaItemsArmor.krakenHelmet, "III", "I I", "   ", 'I', VanillaItemsOther.krakenSkin);
-		addRecipe(VanillaItemsArmor.krakenBody, "I I", "III", "III", 'I', VanillaItemsOther.krakenSkin);
+		addRecipe(VanillaItemsArmor.krakenHelmet, "III", "III", "I I", 'I', VanillaItemsOther.krakenSkin);
+		addRecipe(VanillaItemsArmor.krakenBody, "III", "III", " I ", 'I', VanillaItemsOther.krakenSkin);
 		addRecipe(VanillaItemsArmor.krakenLegs, "III", "I I", "I I", 'I', VanillaItemsOther.krakenSkin);
 		addRecipe(VanillaItemsArmor.krakenBoots, "   ", "I I", "I I", 'I', VanillaItemsOther.krakenSkin);
 		

@@ -43,7 +43,7 @@ public class EventArmorFullSet {
     private World                world;
     
     public static int size = 0;
-
+    
     @SubscribeEvent
     public void onPlayerHurtEvent(LivingHurtEvent e) {
         if (e.entity instanceof EntityPlayer) {
@@ -587,13 +587,6 @@ public class EventArmorFullSet {
             if (boots == IceikaItems.santaBoots && body == IceikaItems.santaBody && legs == IceikaItems.santaLegs && helmet == IceikaItems.santaHead) {
                 if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile())) {
                     e.ammount += 6;
-                }
-            }
-
-            //Halite
-            if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet) {
-                if ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile()) {
-                    e.ammount += 24;
                 }
             }
         }

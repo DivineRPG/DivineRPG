@@ -68,12 +68,15 @@ public class EntityKarot extends EntityDivineRPGBoss {
     }
 
     @Override
-    public void onDeath(DamageSource par1DamageSource) {
-        for (int i = 0; i < 5; i++) {
-        	EntityAngryBunny var1 = new EntityAngryBunny(this.worldObj);
-            var1.setPosition(this.posX, this.posY, this.posZ);
-            this.worldObj.spawnEntityInWorld(var1);
-        }
+    public void onDeath(DamageSource source) {
+    	super.onDeath(source);
+    	if(!this.worldObj.isRemote) {
+    		for (int i = 0; i < 5; i++) {
+    			EntityAngryBunny var1 = new EntityAngryBunny(this.worldObj);
+    			var1.setPosition(this.posX, this.posY, this.posZ);
+    			this.worldObj.spawnEntityInWorld(var1);
+    		}
+    	}
         super.setDead();
     }
 

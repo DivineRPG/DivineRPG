@@ -345,8 +345,9 @@ public class VetheanChunkBuilder {
 						l2Trees[this.rand.nextInt(2)].generate(chunk, x, y, z);
 					}
 					
-					if(y == 48 && rand.nextInt(20) == 0 && x > 6 && x < 10 && z > 6 && z < 10){
-						//ceilingTexture.generate(chunk, x, y, z);
+					if(y == 48 && rand.nextInt(10) == 0 && x > 7 && x < 9 && z > 7 && z < 9){
+						ceilingTexture.generate(chunk, x, y, z);
+						System.out.println("HEYO");
 					}
 
 				}
