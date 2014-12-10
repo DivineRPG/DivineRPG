@@ -105,6 +105,7 @@ public class VetheanChunkBuilder {
 	private boolean containsl2Tree = false;
 
 	public Block[][][] buildChunk(int chunkX, int chunkZ){
+		System.out.println("HEYO");
 		
 		Block[][][] chunk = new Block[16][256][16];
 		
@@ -347,7 +348,6 @@ public class VetheanChunkBuilder {
 					
 					if(y == 48 && rand.nextInt(10) == 0 && x > 7 && x < 9 && z > 7 && z < 9){
 						ceilingTexture.generate(chunk, x, y, z);
-						System.out.println("HEYO");
 					}
 
 				}

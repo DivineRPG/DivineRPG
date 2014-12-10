@@ -22,11 +22,17 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -56,7 +62,8 @@ public class BlockModPortal extends BlockBreakable {
 
     @Override
     public void onEntityCollidedWithBlock(World world, int xPos, int yPos, int zPos, Entity entity) {
-        if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && (entity instanceof EntityPlayerMP)) {
+        if ((entity.ridingEntity == null) && (entity.riddenByEntity == null)){
+        	if(entity instanceof EntityPlayerMP) {
             EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
             if (thePlayer.timeUntilPortal > 0) {
                 thePlayer.timeUntilPortal = 10;
@@ -78,6 +85,16 @@ public class BlockModPortal extends BlockBreakable {
                 thePlayer.timeUntilPortal = 10;
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new DivineTeleporter(thePlayer.mcServer.worldServerForDimension(0), 0, this, blockFrame));
             }
+        } else {
+        	if(entity.dimension != this.dimensionID) {
+        		entity.timeUntilPortal = 1000;
+        		sendEntityToDimension(entity, this.dimensionID, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(this.dimensionID), this.dimensionID, this, this.blockFrame));
+        	}
+        	else {
+        		entity.timeUntilPortal = 1000;
+        		sendEntityToDimension(entity, 0, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(0), 0, this, this.blockFrame));
+        	}
+        }
         }
     }
 
@@ -287,6 +304,49 @@ public class BlockModPortal extends BlockBreakable {
 //        }
 //        LogHelper.debug("Portal failed to create");
 //        return false;
+    }
+    
+    public static void sendEntityToDimension(Entity entity, int dimId, Teleporter tp)
+    {
+        if (!entity.worldObj.isRemote && !entity.isDead) {
+            entity.worldObj.theProfiler.startSection("changeDimension");
+            MinecraftServer minecraftserver = MinecraftServer.getServer();
+            int j = entity.dimension;
+            WorldServer worldserver = minecraftserver.worldServerForDimension(j);
+            WorldServer worldserver1 = minecraftserver.worldServerForDimension(dimId);
+            entity.dimension = dimId;
+
+            if (j == 1 && dimId == 1) {
+                worldserver1 = minecraftserver.worldServerForDimension(0);
+                entity.dimension = 0;
+            }
+
+            entity.worldObj.removeEntity(entity);
+            entity.isDead = false;
+            entity.worldObj.theProfiler.startSection("reposition");
+            minecraftserver.getConfigurationManager().transferEntityToWorld(entity, j, worldserver, worldserver1, tp);
+            entity.worldObj.theProfiler.endStartSection("reloading");
+            Entity newEntity = EntityList.createEntityByName(EntityList.getEntityString(entity), worldserver1);
+
+            if (newEntity != null) {
+                newEntity.copyDataFrom(entity, true);
+
+                if (j == 1 && dimId == 1)
+                {
+                    ChunkCoordinates chunkcoordinates = worldserver1.getSpawnPoint();
+                    chunkcoordinates.posY = entity.worldObj.getTopSolidOrLiquidBlock(chunkcoordinates.posX, chunkcoordinates.posZ);
+                    newEntity.setLocationAndAngles((double)chunkcoordinates.posX, (double)chunkcoordinates.posY, (double)chunkcoordinates.posZ, newEntity.rotationYaw, newEntity.rotationPitch);
+                }
+
+                worldserver1.spawnEntityInWorld(newEntity);
+            }
+
+            entity.isDead = true;
+            entity.worldObj.theProfiler.endSection();
+            worldserver.resetUpdateEntityTick();
+            worldserver1.resetUpdateEntityTick();
+            entity.worldObj.theProfiler.endSection();
+        }
     }
 
 }

@@ -78,6 +78,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 
 	@Override
 	public boolean interact(EntityPlayer var1) {
+		if(!(this instanceof EntityAngryBunny)) {
 		ItemStack var2 = var1.inventory.getCurrentItem();
 
 		if(this.isTamed()) {
@@ -127,6 +128,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 			}
 			return true;
 		}
+		}
 		return super.interact(var1);
 	}
 
@@ -143,6 +145,11 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	protected String getDeathSound() {
 		return Sounds.getSoundName(Sounds.bunnyHurt);
+	}
+	
+	@Override
+	protected void dropFewItems(boolean beenHit, int lootingLevel) {
+		if(this.rand.nextInt(2) == 0) this.dropItem(TwilightItemsOther.edenSoul, 1+lootingLevel);
 	}
 
 	@Override
