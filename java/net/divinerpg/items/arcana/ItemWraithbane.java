@@ -38,6 +38,5 @@ public class ItemWraithbane extends ItemMod {
 		list.add("13 Damage");
 		list.add("20 Health");
 		list.add("Despawns after a short time");
-		list.add(ChatFormats.DIVINERPG);
 	}
 }

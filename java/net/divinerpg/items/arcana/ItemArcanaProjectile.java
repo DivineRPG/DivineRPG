@@ -61,6 +61,5 @@ public class ItemArcanaProjectile extends ItemMod {
 		list.add(arcana == 0 ? "" : "Uses " + arcana + " arcana");
 		list.add(this.damage + " Ranged Damage");
 		list.add(this.getMaxDamage() == -1 ? "Unlimited uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses");
-		list.add(ChatFormats.DIVINERPG);
 	}
 }

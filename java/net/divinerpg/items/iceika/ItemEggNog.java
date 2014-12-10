@@ -3,6 +3,7 @@ package net.divinerpg.items.iceika;
 import net.divinerpg.api.items.ItemModFood;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -17,6 +18,11 @@ public class ItemEggNog extends ItemModFood{
 	public ItemStack onEaten(ItemStack item, World world, EntityPlayer player){
 		super.onEaten(item, world, player);
 		return new ItemStack(Items.bucket);
+	}
+	
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.drink;
 	}
 
 }

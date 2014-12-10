@@ -56,7 +56,6 @@ public class ItemModSword extends ItemSword {
         addAdditionalInformation(infoList);
         if (item.getMaxDamage() != -1) infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
         else infoList.add(Util.GREEN + "Infinite Uses");
-        infoList.add(ChatFormats.DIVINERPG);
     }
     
     protected boolean canUseSpecialEffect(EntityPlayer player) { return false; }

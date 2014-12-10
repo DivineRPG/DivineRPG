@@ -43,6 +43,4 @@ public class ChatFormats {
     public static final String   VETHEA          = GREEN + "Vethea" + RESET;
 
     public static final String[] DIMENSIONS_LIST = new String[] { ARCANA, ICEIKA, TWILIGHT, EDEN, WILDWOODS, APALACHIA, SKYTHERN, MORTUM, VETHEA };
-
-    public static final String DIVINERPG = DARK_AQUA + Reference.MOD_NAME;
 }

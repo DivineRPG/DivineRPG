@@ -4,10 +4,8 @@ import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.arcana.projectile.EntityReflector;
-import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -48,6 +46,5 @@ public class ItemReflector extends ItemMod {
         par3List.add("20 Arcana");
         par3List.add("Knocks entities away");
         par3List.add("No damage");
-        par3List.add(ChatFormats.DIVINERPG);
     }
 }

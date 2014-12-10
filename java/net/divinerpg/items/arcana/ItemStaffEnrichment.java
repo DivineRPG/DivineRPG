@@ -3,7 +3,6 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -11,7 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -52,7 +50,6 @@ public class ItemStaffEnrichment extends ItemMod {
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("Use on arcana dirt to purify.");
 		par3List.add(par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage() + " Uses");
-		par3List.add(ChatFormats.DIVINERPG);
 	}
 
 	@Override

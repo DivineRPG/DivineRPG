@@ -57,6 +57,5 @@ public class ItemCorruptedCannon extends ItemMod {
 	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("4x14 Ranged damage");
 		par3List.add("Ammo: " + StatCollector.translateToLocal(VanillaItemsOther.corruptedBullet.getUnlocalizedName()+".name"));
-		par3List.add(ChatFormats.DIVINERPG);
 	}
 }

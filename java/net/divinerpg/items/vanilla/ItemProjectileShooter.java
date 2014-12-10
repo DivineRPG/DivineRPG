@@ -6,7 +6,6 @@ import java.util.List;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
-import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -117,7 +116,6 @@ public class ItemProjectileShooter extends ItemMod {
 		list.add(damage + " Ranged damage");
 		list.add(this.ammo == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
 		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
-		list.add(ChatFormats.DIVINERPG);
 	}
 	
 	public ItemProjectileShooter setHasParticle(String fx) {

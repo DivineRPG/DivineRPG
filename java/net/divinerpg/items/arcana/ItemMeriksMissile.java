@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
-import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
@@ -95,6 +94,5 @@ public class ItemMeriksMissile extends ItemModBow {
 		par3List.add("Explosive homing projectile");
 		par3List.add("Uses " + arcana + " arcana");
 		par3List.add("Unlimited uses");
-		par3List.add(ChatFormats.DIVINERPG);
 	}
 }

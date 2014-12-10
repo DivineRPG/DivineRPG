@@ -129,7 +129,6 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
             	list.add(perksArray[j]);
             }
         }
-        list.add(ChatFormats.DIVINERPG);
     }
 
     @Override

@@ -69,7 +69,5 @@ public class ItemArcanaSpawnEgg extends ItemMod {
 		
 		if(item == ArcanaItems.paratikuSpawner)
 			list.add("Spawns a pet Paratiku");
-		
-		list.add(ChatFormats.DIVINERPG);
 	}
 }
