@@ -589,6 +589,13 @@ public class EventArmorFullSet {
                     e.ammount += 6;
                 }
             }
+            
+          //Halite
+            if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteBody && legs == TwilightItemsArmor.haliteLegs && helmet == TwilightItemsArmor.haliteHelmet) {
+                if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile())) {
+                    e.ammount += 24;
+                }
+            }
         }
     }
 }

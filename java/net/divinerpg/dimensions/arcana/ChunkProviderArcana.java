@@ -1,7 +1,6 @@
 package net.divinerpg.dimensions.arcana;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -38,32 +37,27 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-import net.minecraft.world.gen.ChunkProviderFlat;
-import net.minecraft.world.gen.FlatGeneratorInfo;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.world.gen.structure.MapGenStructure;
 
 public class ChunkProviderArcana implements IChunkProvider{
 
 	private ArrayList<Object> Rooms;
+	private ArrayList<Object> BossRooms;
 	private DungeonCeiling Ceiling;
 	private World worldObj;
 	private Random random;
-	private final FlatGeneratorInfo flatGenerator;
 	private final Block[] cachedBlockIDs = new Block[256];
 	private final byte[] cachedBlockMetadata = new byte[256];
-	private final List structureGenerators = new ArrayList();
 
 
-	public ChunkProviderArcana(World world, long seed, String flatGeneratorString){
+	public ChunkProviderArcana(World world, long seed){
 
 		worldObj = world;
 		random = new Random(seed);
-		flatGenerator = FlatGeneratorInfo.createFlatGeneratorFromString(flatGeneratorString);
 
-		Rooms = new ArrayList<Object>(22);
-
+		Rooms = new ArrayList<Object>(21);
+		BossRooms = new ArrayList<Object>(2);
+		
 		Rooms.add(new DungeonComponent());
 		Rooms.add(new DungeonComponent1());
 		Rooms.add(new DungeonComponent2());
@@ -85,8 +79,8 @@ public class ChunkProviderArcana implements IChunkProvider{
 		Rooms.add(new DungeonComponenet18());
 		Rooms.add(new DungeonComponenet19());
 		Rooms.add(new DungeonComponent8());
-		Rooms.add(new DungeonComponentParasecta());
-		Rooms.add(new DungeonComponentDramix());
+		BossRooms.add(new DungeonComponentParasecta());
+		BossRooms.add(new DungeonComponentDramix());
 		Ceiling = new DungeonCeiling();
 
 	}
@@ -98,30 +92,23 @@ public class ChunkProviderArcana implements IChunkProvider{
 
 	@Override
 	public Chunk provideChunk(int par1, int par2) {
-		Chunk chunk = new Chunk(this.worldObj, par1, par2);
+		ArcanaChunk c = new ArcanaChunk();
         int l;
+        
+        int roomToGenerate;
+        
+        for (int i = 1; i < 5; i++) {
+			roomToGenerate = random.nextInt(21);
+			DungeonComponentBase room = (DungeonComponentBase)(Rooms.get(roomToGenerate));
+			
+			if(room instanceof DungeonComponent8 && i < 4) room = (DungeonComponentBase)(Rooms.get(this.random.nextInt(10)+10));
 
-        for(int k = 0; k < this.cachedBlockIDs.length; ++k) {
-            Block block = this.cachedBlockIDs[k];
-
-            if(block != null) {
-                l = k >> 4;
-                ExtendedBlockStorage extendedblockstorage = chunk.getBlockStorageArray()[l];
-
-                if(extendedblockstorage == null) {
-                    extendedblockstorage = new ExtendedBlockStorage(k, !this.worldObj.provider.hasNoSky);
-                    chunk.getBlockStorageArray()[l] = extendedblockstorage;
-                }
-
-                for(int i1 = 0; i1 < 16; ++i1) {
-                    for(int j1 = 0; j1 < 16; ++j1) {
-                        extendedblockstorage.func_150818_a(i1, k & 15, j1, block);
-                        extendedblockstorage.setExtBlockMetadata(i1, k & 15, j1, this.cachedBlockMetadata[k]);
-                    }
-                }
-            }
-        }
-
+			room.generate(c, random, 0, i * 8, 0);			
+		}
+        
+		Ceiling.generate(c, random, 0, 40, 0);
+        
+		Chunk chunk = new Chunk(this.worldObj, c.getChunkData(), par1, par2);
         chunk.generateSkylightMap();
         BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, par1 * 16, par2 * 16, 16, 16);
         byte[] abyte = chunk.getBiomeArray();
@@ -129,13 +116,6 @@ public class ChunkProviderArcana implements IChunkProvider{
         for (l = 0; l < abyte.length; ++l)
         {
             abyte[l] = (byte)abiomegenbase[l].biomeID;
-        }
-
-        Iterator iterator = this.structureGenerators.iterator();
-
-        while (iterator.hasNext()) {
-            MapGenStructure mapgenstructure = (MapGenStructure)iterator.next();
-            mapgenstructure.func_151539_a(this, this.worldObj, par1, par2, (Block[])null);
         }
 
         chunk.generateSkylightMap();
@@ -149,7 +129,7 @@ public class ChunkProviderArcana implements IChunkProvider{
 
 	@Override
 	public void populate(IChunkProvider chunkProvider, int chunkX, int chunkY) {
-		int x = chunkX * 16; // X the actual X position in world.
+		int x = chunkX * 16;
 		int y = chunkY * 16;
 		BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(x + 16, y + 16);
 		boolean flag = false;
@@ -162,24 +142,15 @@ public class ChunkProviderArcana implements IChunkProvider{
 
 		Random rand = random;
 		Chunk chunk = this.worldObj.getChunkFromChunkCoords(chunkX, chunkY);
-		ArrayList<Object> dungeonRooms = Rooms;
 
-		for (int i = 1; i < 5; i++) {
-			roomToGenerate = rand.nextInt(23); //# of different rooms to generate
-			boosRoomFlag = rand.nextInt(5); //Chance for boss rooms to generate 1/number specified
+			roomToGenerate = rand.nextInt(2);
+			boosRoomFlag = rand.nextInt(5);
 
-			if (roomToGenerate > 19 && boosRoomFlag != 0 || i > 3){ // boss chance
-				roomToGenerate = rand.nextInt(20);
+			if(this.random.nextInt(50) == 0){
+				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, 3 * 8, y);
+				this.random.setSeed(chunkX * var8 + chunkY * var10 ^ this.worldObj.getSeed());
 			}
 
-			if (roomToGenerate < 21){ //boss rooms have to use world gen while the rest use chunk gen
-				((DungeonComponentBase)(dungeonRooms.get(roomToGenerate))).generate(chunk, rand, x, i * 8, y);
-			} else {
-				((WorldGenerator)(dungeonRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, y);
-			}
-		}
-		DungeonCeiling dungeonCeiling = Ceiling;
-		dungeonCeiling.generate(chunk, rand, x, 40, y);
 	}
 
 	@Override
@@ -214,14 +185,7 @@ public class ChunkProviderArcana implements IChunkProvider{
 	}
 
 	@Override
-	public void recreateStructures(int i, int j) {
-		Iterator iterator = this.structureGenerators.iterator();
-
-		while (iterator.hasNext()) {
-			MapGenStructure mapgenstructure = (MapGenStructure)iterator.next();
-			mapgenstructure.func_151539_a(this, this.worldObj, i, j, (Block[])null);
-		}
-	}
+	public void recreateStructures(int i, int j) {}
 
 	@Override
 	public void saveExtraData() { }

@@ -12,30 +12,18 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class DungeonComponentDramix extends WorldGenerator
-{
-	protected Block[] GetValidSpawnBlocks() {
-        return new Block[] { Blocks.air };
-    }
-
-    public boolean LocationIsValidSpawn(World world, int i, int j, int k) {
-        Block block = world.getBlock(i, j, k);
-
-        for(Block x : GetValidSpawnBlocks()) {
-            if(block == x)
-                return true;
-        }
-        return false;
-    }
-
-    public DungeonComponentDramix() { }
+public class DungeonComponentDramix extends WorldGenerator {
 
     @Override
-    public boolean generate(World world, Random rand, int i, int j, int k)
-    {
-        //check that each corner is one of the valid spawn blocks
-        if (!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 16, j, k + 16) || !LocationIsValidSpawn(world, i, j + 8, k) || !LocationIsValidSpawn(world, i + 16, j + 8, k + 16) || !LocationIsValidSpawn(world, i, j + 8, k) || !LocationIsValidSpawn(world, i + 15, j + 8, k + 15) || !LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 15, j, k + 15))
-            return false;
+    public boolean generate(World world, Random rand, int i, int j, int k) {
+    	
+    	for(int n = 0; n < 31; n++) {
+    		for(int m = 0; m < 31; m++) {
+    			for(int o = 0; o < 15; o++) {
+    				world.setBlock(i+n, j+o, k+m, Blocks.air);
+    			}
+    		}
+    	}
 
         world.setBlock(i + 0, j + 0, k + 0, ArcanaBlocks.ancientBrick);
         world.setBlock(i + 0, j + 0, k + 1, ArcanaBlocks.ancientBrick);

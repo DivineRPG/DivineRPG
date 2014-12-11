@@ -41,7 +41,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.lilTinkerin.desc=Trade with a Tinkerer");
         instance.addToFile("achievement.lilGift.desc=Open a gift Box");
         instance.addToFile("achievement.divinePlan.desc=");
-        instance.addToFile("achievement.liesWithin.desc=Enter The Dungeon Of Arcana");
+        instance.addToFile("achievement.whatLiesWithin.desc=Enter The Dungeon Of Arcana");
         instance.addToFile("achievement.perfectlyCorrupted.desc=Use the Altar Of Corruption");
         instance.addToFile("achievement.totalDemonization.desc=Use the Demon Furnace");
         instance.addToFile("achievement.evilDisease.desc=Kill the Parasecta");
@@ -72,7 +72,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.frozenGoods=Frozen Goods");
         instance.addToFile("achievement.lilTinkerin=Lil' Tinkerin");
         instance.addToFile("achievement.divineDlan=Divine Plan");
-        instance.addToFile("achievement.liesWithin=Lies Within");
+        instance.addToFile("achievement.whatLiesWithin=What Lies Within");
         instance.addToFile("achievement.perfectlyCorrupted=Perfectly Corrupted");
         instance.addToFile("achievement.totalDemonization=Total Demonization");
         instance.addToFile("achievement.evilDisease=Evil Disease");

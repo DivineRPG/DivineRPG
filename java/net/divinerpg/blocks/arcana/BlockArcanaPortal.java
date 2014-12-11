@@ -47,7 +47,7 @@ public class BlockArcanaPortal extends BlockMod {
             else if (thePlayer.dimension != ConfigurationHelper.arcana) {
                 thePlayer.timeUntilPortal = 10;
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, ConfigurationHelper.arcana, new TeleporterArcana(thePlayer.mcServer.worldServerForDimension(ConfigurationHelper.arcana)));
-                thePlayer.triggerAchievement(DivineRPGAchievements.liesWithin);
+                thePlayer.triggerAchievement(DivineRPGAchievements.whatLiesWithin);
             } else {
                 thePlayer.timeUntilPortal = 10;
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterArcana(thePlayer.mcServer.worldServerForDimension(0)));

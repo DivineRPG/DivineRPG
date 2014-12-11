@@ -48,7 +48,7 @@ public class WorldProviderArcana extends WorldProvider
      */
     public IChunkProvider createChunkGenerator()
     {
-        return new ChunkProviderArcana(this.worldObj, this.worldObj.getSeed(), "Arcana_Dungeon");
+        return new ChunkProviderArcana(this.worldObj, this.worldObj.getSeed());
     }
 
     /**

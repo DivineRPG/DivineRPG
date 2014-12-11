@@ -177,11 +177,6 @@ public class EventArmorTick {
         else if (!(EntityScythe.damage == 4.0F)) {
             EntityScythe.damage = 4.0F;
         }
-        
-      //Halite
-        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet) {
-        	event.player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 1, 16, true));
-        }
     }
 
 }
