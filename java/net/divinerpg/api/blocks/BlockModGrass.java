@@ -21,11 +21,13 @@ public class BlockModGrass extends BlockMod {
     protected IIcon bottom;
     protected IIcon side;
     protected BlockMod dirt;
+    protected String dirtName;
 
-    public BlockModGrass(BlockMod dirt, String name, float hardness) {
-        super(EnumBlockType.GRASS, name + "Grass", hardness);
+    public BlockModGrass(BlockMod dirt, String name, String dirtName, float hardness) {
+        super(EnumBlockType.GRASS, name, hardness);
         this.dirt = dirt;
         this.textureName = Reference.PREFIX + name;
+        this.dirtName = Reference.PREFIX + dirtName;
         setBlockTextureName(textureName);
         setTickRandomly(true);
     }
@@ -39,7 +41,7 @@ public class BlockModGrass extends BlockMod {
     public void registerBlockIcons(IIconRegister icon) {
         side = icon.registerIcon(textureName + "_side");
         top = icon.registerIcon(textureName + "_top");
-        bottom = icon.registerIcon(dirt.textureName);
+        bottom = icon.registerIcon(dirtName);
     }
 
     @Override
@@ -51,10 +53,7 @@ public class BlockModGrass extends BlockMod {
                     int i1 = x + random.nextInt(3) - 1;
                     int j1 = y + random.nextInt(5) - 3;
                     int k1 = z + random.nextInt(3) - 1;
-
-                    //TODO This was originally commented out, didnt see the point in that
-                    if (world.getBlock(i1, j1, k1) == dirt && world.getBlockLightValue(i1, j1 + 1, k1) >= 4 
-                            && world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2)
+                    if(world.getBlock(i1, j1, k1) == dirt && world.getBlockLightValue(i1, j1 + 1, k1) >= 4 && world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2)
                         world.setBlock(i1, j1, k1, this);
                 }
             }

@@ -70,11 +70,11 @@ public class TwilightBlocks {
         apalachiaDirt     = new BlockMod(EnumBlockType.DIRT, "apalachiaDirt", 5.0F);
         skythernDirt      = new BlockMod(EnumBlockType.DIRT, "skythernDirt", 5.0F);
         mortumDirt        = new BlockMod(EnumBlockType.DIRT, "mortumDirt", 5.0F);
-        edenGrass         = new BlockModGrass((BlockMod) edenDirt, "edenGrass", 5.0F);
-        wildwoodGrass     = new BlockModGrass((BlockMod) wildwoodDirt, "wildwoodGrass", 5.0F);
-        apalachiaGrass    = new BlockModGrass((BlockMod) apalachiaDirt, "apalachiaGrass", 5.0F);
-        skythernGrass     = new BlockModGrass((BlockMod) skythernDirt, "skythernGrass", 5.0F);
-        mortumGrass       = new BlockModGrass((BlockMod) mortumDirt, "mortumGrass", 5.0F);
+        edenGrass         = new BlockModGrass((BlockMod) edenDirt, "edenGrass", "edenDirt", 5.0F);
+        wildwoodGrass     = new BlockModGrass((BlockMod) wildwoodDirt, "wildwoodGrass", "wildwoodDirt", 5.0F);
+        apalachiaGrass    = new BlockModGrass((BlockMod) apalachiaDirt, "apalachiaGrass", "apalachiaDirt", 5.0F);
+        skythernGrass     = new BlockModGrass((BlockMod) skythernDirt, "skythernGrass", "skythernDirt", 5.0F);
+        mortumGrass       = new BlockModGrass((BlockMod) mortumDirt, "mortumGrass", "mortumDirt",5.0F);
 
         edenOre           = new BlockMod("edenOre", 9).toggleExp(true).setTwilightOre(true).setDropItem(TwilightItemsOther.edenFragments);
         wildwoodOre       = new BlockMod("wildwoodOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.wildwoodFragments);

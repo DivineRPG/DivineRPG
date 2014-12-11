@@ -37,7 +37,7 @@ public class VetheaBlocks {
     
     public static final Block             dreamStone             = new BlockMod("dreamStone", 0.4F, DivineRPGTabs.vethea);
     public static final Block             dreamDirt              = new BlockMod(EnumBlockType.DIRT, "dreamDirt", 0.3F, DivineRPGTabs.vethea);
-    public static final Block             dreamGrass             = new BlockModGrass((BlockMod) dreamDirt, "dreamGrass", 0.3F);
+    public static final Block             dreamGrass             = new BlockModGrass((BlockMod)dreamDirt, "dreamGrass", "dreamDirt", 0.3F);
     public static final Block             fireCrystal            = new BlockMod(EnumBlockType.GLASS, "fireCrystal", 1.0F, DivineRPGTabs.vethea).setLightLevel(0.7F);
 
     public static final Block             dreamWoodLog           = new BlockModLog("dreamWoodLog").setCreativeTab(DivineRPGTabs.vethea);

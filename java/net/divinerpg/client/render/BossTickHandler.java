@@ -54,7 +54,6 @@ public class BossTickHandler {
 	@SideOnly(Side.CLIENT)
 	private void renderBossHealth() {
 		ResourceLocation r = null;
-
 		switch(DivineBossStatus.bossNumber){
 		//Vanilla
 		case EntityStats.ancientEntityBossID:
@@ -128,7 +127,7 @@ public class BossTickHandler {
 			break;
 		}
 
-		if(DivineBossStatus.statusBarTime > 0) {
+		if(DivineBossStatus.statusBarTime > 0 && mc.currentScreen == null) {
 			DivineBossStatus.statusBarTime--;
 			GuiIngame gig = mc.ingameGUI;
 			FontRenderer fontrenderer = this.mc.fontRenderer;

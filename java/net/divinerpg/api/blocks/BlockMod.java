@@ -21,7 +21,6 @@ public class BlockMod extends Block{
     public static int       edenArmor   = 1;
 
     protected String        name;
-    protected String        textureName;
     protected EnumBlockType blockType;
     protected Item          drop;
     protected Random        rand;
