@@ -53,6 +53,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.yuk.desc=Use an Arcana potion");
         instance.addToFile("achievement.spawnDAR.desc=Spawn Densos and Reyvor");
         instance.addToFile("achievement.dramcryxDeath.desc=Kill a Jungle Dramcryx");
+        instance.addToFile("achievement.allHellLoose.desc=Use a Storm Sword");
 
         instance.addToFile("achievement.divineIntervention=Divine Intervention");
         instance.addToFile("achievement.possibilities=Possibilities");
@@ -82,7 +83,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.lilGift=Lil' Gift");
         instance.addToFile("achievement.spawnDAR=Ten Heads are Better than One");
         instance.addToFile("achievement.dramcryxDeath=Death to all Jungle Stegosaurous!");
-        
+        instance.addToFile("achievement.allHellLoose=All Hell Loose");
     }
 
     public static void addMob(String name) {

@@ -25,7 +25,7 @@ public class ItemStormSword extends ItemModSword {
             while (angle < 2 * Math.PI) {
                 int xOffset = (int) Math.round(Math.sin(angle) * i);
                 int zOffset = (int) Math.round(Math.cos(angle) * i);
-                world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX + xOffset, player.posY, player.posZ + zOffset));
+                if(Math.sqrt(xOffset*xOffset + zOffset*zOffset) > 3) world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX + xOffset, player.posY, player.posZ + zOffset));
                 angle += Math.PI / 8.0D;
             }
         }

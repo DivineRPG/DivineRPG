@@ -35,7 +35,7 @@ public class BlockArcanaFrame extends BlockMod {
 
     @Override
     public void onBlockAdded(World world, int x, int y, int z) {
-        if (world.getBlock(x, y, z) == this && world.getBlock(x, y, z + 1) == this
+        if (world.getBlock(x, y, z + 1) == this
                 && world.getBlock(x, y, z + 2) == this && world.getBlock(x + 1, y, z + 3) == this
                 && world.getBlock(x + 2, y, z + 3) == this && world.getBlock(x + 3, y, z + 3) == this
                 && world.getBlock(x + 4, y, z) == this && world.getBlock(x + 4, y, z + 1) == this

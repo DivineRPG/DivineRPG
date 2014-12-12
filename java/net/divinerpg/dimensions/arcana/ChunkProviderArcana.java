@@ -138,19 +138,18 @@ public class ChunkProviderArcana implements IChunkProvider{
 		long var10 = this.random.nextLong() / 2L * 2L + 1L;
 		this.random.setSeed(chunkX * var8 + chunkY * var10 ^ this.worldObj.getSeed());
 		int roomToGenerate;
-		int boosRoomFlag;
 
 		Random rand = random;
 		Chunk chunk = this.worldObj.getChunkFromChunkCoords(chunkX, chunkY);
 
+		for(int i = 1; i < 4; i++) {
 			roomToGenerate = rand.nextInt(2);
-			boosRoomFlag = rand.nextInt(5);
 
 			if(this.random.nextInt(50) == 0){
-				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, 3 * 8, y);
-				this.random.setSeed(chunkX * var8 + chunkY * var10 ^ this.worldObj.getSeed());
+				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, y);
+				this.random.setSeed(chunkX * var8 + chunkY * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
 			}
-
+		}
 	}
 
 	@Override

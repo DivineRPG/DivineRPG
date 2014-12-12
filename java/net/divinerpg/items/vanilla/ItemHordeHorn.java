@@ -34,7 +34,7 @@ public class ItemHordeHorn extends ItemMod {
 			var5 += Facing.offsetsYForSide[var7];
 			var6 += Facing.offsetsZForSide[var7];
 
-			//if (var3.provider.dimensionId == 1) {
+			if (var3.provider.dimensionId == 1) {
 					//if (this.spawnTick == 600) {
 						var3.playSoundAtEntity(var2, Sounds.ayeracoSpawn.getPrefixedName(), 20.0F, 1.0F);
 						var2.addChatMessage(Util.addChatMessage(EnumChatFormatting.GREEN, "The Green Ayeraco Has Been Called Upon"));
@@ -59,8 +59,8 @@ public class ItemHordeHorn extends ItemMod {
 						}
 					//}
 				//this.spawnTick -= 5;
-			/*} else 
-				var2.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "The Ayeraco Horde Can Only Be Spawned In The End"));*/
+			} else 
+				var2.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "The Ayeraco Horde Can Only Be Spawned In The End"));
 			return false;
 		}
 	}

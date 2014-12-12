@@ -26,13 +26,14 @@ public class ItemModRanged extends ItemMod {
         this.clazz = clazz;
         setMaxStackSize(1);
         setMaxDamage(maxDamage);
+        this.sound = sound;
     }
     
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if(!world.isRemote && additionalRightClickChecks(player)){
             if(sound != null)
-                Sounds.getSoundName(sound);
+                world.playSoundAtEntity(player, sound.getPrefixedName(), 1, 1);
             try {
                 world.spawnEntityInWorld(clazz.getConstructor(World.class, EntityPlayer.class).newInstance(world, player));
             } catch (Exception e) {
