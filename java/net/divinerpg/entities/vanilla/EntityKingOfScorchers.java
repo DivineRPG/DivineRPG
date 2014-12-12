@@ -10,6 +10,8 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.util.IChatComponent;
@@ -23,6 +25,7 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
         super(var1);
         this.setSize(2.0F, 3.9F);
         this.tasks.addTask(4, new EntityAIArrowAttack(this, 0.56D, 3, 10));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.special = 0;
     }
     
@@ -87,9 +90,8 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
 
 	@Override
     public void dropFewItems(boolean par1, int par2) {
-        int var1 = this.rand.nextInt(4);
         this.dropItem(getDropItem(), 1);
-        this.dropItem(VanillaItemsOther.bluefireStone, 7);
+        this.dropItem(VanillaItemsOther.bluefireStone, 6);
 		
 		if(this.rand.nextInt(1) == 0) {
 			this.dropItem(Item.getItemFromBlock(VanillaBlocks.KingStatue), 1);

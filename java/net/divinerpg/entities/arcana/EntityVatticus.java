@@ -47,6 +47,11 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 	public int guiID() {
 		return GuiHandler.vatticus;
 	}
+	
+	@Override
+	protected boolean canDespawn() {
+		return true;
+	}
 
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {

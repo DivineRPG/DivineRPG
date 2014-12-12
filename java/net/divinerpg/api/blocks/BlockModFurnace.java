@@ -70,9 +70,10 @@ public abstract class BlockModFurnace extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World w, int x, int y, int z, EntityPlayer p, int i, float j, float k, float f) {
 		TileEntityModFurnace furnace  = (TileEntityModFurnace)w.getTileEntity(x, y, z);
-		if(!w.isRemote && furnace != null){
+		if(furnace != null){
 			if(!p.isSneaking()){
-				p.openGui(DivineRPG.instance, guiID, w, x, y, z);
+				if(!w.isRemote) p.openGui(DivineRPG.instance, guiID, w, x, y, z);
+				return true;
 			}
 		}
 		return false;

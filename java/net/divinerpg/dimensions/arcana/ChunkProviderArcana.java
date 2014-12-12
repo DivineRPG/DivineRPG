@@ -97,11 +97,11 @@ public class ChunkProviderArcana implements IChunkProvider{
         
         int roomToGenerate;
         
-        for (int i = 1; i < 5; i++) {
+        for (int i = 4; i > 0; i--) {
 			roomToGenerate = random.nextInt(21);
 			DungeonComponentBase room = (DungeonComponentBase)(Rooms.get(roomToGenerate));
 			
-			if(room instanceof DungeonComponent8 && i < 4) room = (DungeonComponentBase)(Rooms.get(this.random.nextInt(10)+10));
+			if(room instanceof DungeonComponent8 && i >= 3) room = (DungeonComponentBase)(Rooms.get(this.random.nextInt(10)+10));
 
 			room.generate(c, random, 0, i * 8, 0);			
 		}

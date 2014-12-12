@@ -8,6 +8,7 @@ import java.util.Random;
 import net.divinerpg.dimensions.arcana.ArcanaChunk;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
 public class DungeonComponent8 extends DungeonComponentBase {
 
@@ -21,6 +22,14 @@ public class DungeonComponent8 extends DungeonComponentBase {
         Block arcaniumSoulSludge = ArcanaBlocks.soulSludge;
         Block arcaniteMetal = ArcanaBlocks.arcaniumMetal;
         Block arcanaPower = ArcanaBlocks.arcaniumPower;
+        
+        for(int n = 0; n < 16; n++) {
+    		for(int m = 0; m < 16; m++) {
+    			for(int o = 0; o < 16; o++) {
+    				world.setBlock(i+n, j+o, k+m, Blocks.air);
+    			}
+    		}
+    	}
 
         world.setBlock(i + 0, j + 0, k + 0, ancientbricks);
         world.setBlock(i + 0, j + 0, k + 1, ancientbricks);

@@ -22,35 +22,11 @@ public class BlockArcanaFrame extends BlockMod {
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
     }
 
-    /**
-     * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-     * or not to render the shared face of two adjacent blocks and also whether
-     * the player can attach torches, redstone wire, etc to this block.
-     */
+    @Override
     public boolean isOpaqueCube() {
         return false;
     }
 
-    /**
-     * if the specified block is in the given AABB, add its collision bounding
-     * box to the given list
-     */
-    public void addCollidingBlockToList(World par1World, int par2, int par3, int par4, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity) {
-        super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
-        this.setBlockBoundsForItemRender();
-    }
-
-    /**
-     * checks if an ender eye has been inserted into the frame block.
-     * parameters: metadata
-     */
-    public static boolean isEnderEyeInserted(int par0) {
-        return (par0 & 4) != 0;
-    }
-
-    /**
-     * Called when the block is placed in the world.
-     */
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLiving, ItemStack stack) {
         int var6 = ((MathHelper.floor_double(entityLiving.rotationYaw * 4.0F / 360.0F + 0.5D) & 3) + 2) % 4;

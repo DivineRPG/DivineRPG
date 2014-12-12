@@ -25,7 +25,9 @@ public class EntityKingOfScorchersShot extends EntityModArrow{
 
 	@Override
 	public void onCollideWithPlayer(EntityPlayer par1EntityPlayer) {
-		if(!worldObj.isRemote)
-			this.worldObj.createExplosion(par1EntityPlayer, posX, posY, posZ, 3.0F, false); 
+		if(!worldObj.isRemote) {
+			this.worldObj.createExplosion(par1EntityPlayer, posX, posY, posZ, 3.0F, false);
+			this.setDead();
+		}
 	}
 }

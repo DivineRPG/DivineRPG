@@ -49,6 +49,11 @@ public class EntityCaptianMerik extends EntityDivineRPGVillager {
 	public int guiID() {
 		return GuiHandler.captainMerik;
 	}
+	
+	@Override
+	protected boolean canDespawn() {
+		return true;
+	}
 
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {

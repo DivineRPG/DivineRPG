@@ -47,6 +47,11 @@ public class EntityDatticon extends EntityDivineRPGVillager {
 	public int guiID() {
 		return GuiHandler.datticon;
 	}
+	
+	@Override
+	protected boolean canDespawn() {
+		return true;
+	}
 
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {

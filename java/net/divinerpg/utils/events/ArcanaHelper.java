@@ -9,7 +9,6 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class ArcanaHelper implements IExtendedEntityProperties {
 
-
 	private final EntityPlayer player;
 	private static final String NAME = "ArcanaBar";
 	

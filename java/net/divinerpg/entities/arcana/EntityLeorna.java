@@ -47,6 +47,11 @@ public class EntityLeorna extends EntityDivineRPGVillager {
 	public int guiID() {
 		return GuiHandler.leorna;
 	}
+	
+	@Override
+	protected boolean canDespawn() {
+		return true;
+	}
 
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {

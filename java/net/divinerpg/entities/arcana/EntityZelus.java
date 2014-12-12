@@ -39,6 +39,11 @@ public class EntityZelus extends EntityDivineRPGVillager {
 	public String mobName() {
 		return "Zelus";
 	}
+	
+	@Override
+	protected boolean canDespawn() {
+		return true;
+	}
 
 	@Override
 	public void interact(Util api, EntityPlayer var1) {

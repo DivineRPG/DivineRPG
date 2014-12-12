@@ -16,9 +16,9 @@ public class DungeonComponentParasecta extends WorldGenerator {
 
     @Override
     public boolean generate(World world, Random rand, int i, int j, int k) {
-    	for(int n = 0; n < 31; n++) {
-    		for(int m = 0; m < 31; m++) {
-    			for(int o = 0; o < 15; o++) {
+    	for(int n = 0; n < 32; n++) {
+    		for(int m = 0; m < 32; m++) {
+    			for(int o = 0; o < 16; o++) {
     				world.setBlock(i+n, j+o, k+m, Blocks.air);
     			}
     		}
