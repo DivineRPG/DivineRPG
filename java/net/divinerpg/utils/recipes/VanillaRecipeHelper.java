@@ -93,12 +93,12 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsTools.arlemitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.arlemiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.arlemiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addShapelessRecipe(VanillaItemsTools.arlemiteShickaxe, VanillaItemsTools.arlemitePickaxe, VanillaItemsTools.arlemiteShovel, VanillaItemsTools.arlemiteAxe);
+		addShapelessRecipe(VanillaItemsTools.arlemiteShickaxe, VanillaItemsTools.arlemitePickaxe, VanillaItemsTools.arlemiteShovel, VanillaItemsTools.arlemiteAxe, VanillaItemsTools.arlemiteHoe);
 		
 		addRecipe(VanillaItemsTools.arlemitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.arlemiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.arlemiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addShapelessRecipe(VanillaItemsTools.rupeeShickaxe, VanillaItemsTools.rupeePickaxe, VanillaItemsTools.rupeeShovel, VanillaItemsTools.rupeeAxe);
+		addShapelessRecipe(VanillaItemsTools.rupeeShickaxe, VanillaItemsTools.rupeePickaxe, VanillaItemsTools.rupeeShovel, VanillaItemsTools.rupeeAxe, VanillaItemsTools.rupeeHoe);
 		
 		addRecipe(VanillaItemsTools.divinePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.divineShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);

@@ -59,7 +59,7 @@ public class ToolMaterialMod {
     //Shickaxes
     public static ToolMaterial RupeeShick     = Util.addShickMaterial(4, 15.0F, 8, 15);
     public static ToolMaterial ArlemiteShick  = Util.addShickMaterial(4, 15.0F, 8, 15);
-    public static ToolMaterial DivineShick    = Util.addShickMaterial(8, 35000, 20.0F, 27, 10);
+    public static ToolMaterial DivineShick    = Util.addShickMaterial(8, -1, 20.0F, 27, 10);
     public static ToolMaterial SkythernShick  = Util.addShickMaterial(100, 6000, 48.0F, 59, 22);
     public static ToolMaterial EdenShick      = Util.addShickMaterial(100, 6000, 20.0F, 27, 22);
     public static ToolMaterial WildwoodShick  = Util.addShickMaterial(100, 6000, 28.0F, 40, 22);
