@@ -18,7 +18,7 @@ public class EntityAyeracoRed extends EntityAyeraco {
     private int beamZ;
 
     public EntityAyeracoRed (World par1World) {
-        super (par1World, "Red");
+        super(par1World, "Red");
         this.healTick = 0;
     }
 

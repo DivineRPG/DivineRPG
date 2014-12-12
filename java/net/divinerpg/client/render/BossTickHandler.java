@@ -63,7 +63,7 @@ public class BossTickHandler {
 			r = set("greenAyeraco");
 			break;
 		case EntityStats.ayeracoPurpleBossID:
-			r = set("prupleAyeraco");
+			r = set("purpleAyeraco");
 			break;
 		case EntityStats.ayeracoYellowBossID:
 			r = set("yellowAyeraco");

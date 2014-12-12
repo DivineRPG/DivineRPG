@@ -17,7 +17,6 @@ public class GUIOverlay {
 	public void drawOverlay() {
 		String text = Reference.MOD_NAME + ": " + Reference.MOD_VERSION;
 		if(ConfigurationHelper.canShowIngameVersion){
-			//BROCK NO
 			Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.AQUA + text, 2, 2, 4210752);
 		}
 	}

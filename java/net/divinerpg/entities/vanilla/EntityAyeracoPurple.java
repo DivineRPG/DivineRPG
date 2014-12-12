@@ -17,7 +17,7 @@ public class EntityAyeracoPurple extends EntityAyeraco {
     private int beamZ;
 
     public EntityAyeracoPurple (World par1World) {
-        super (par1World, "Purple");
+        super(par1World, "Purple");
     }
 
     public void initOthers (EntityAyeraco par2, EntityAyeraco par3, EntityAyeraco par4, EntityAyeraco par5) {

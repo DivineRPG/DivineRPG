@@ -34,6 +34,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
         this.attacks = false;
         this.moveX = this.rand.nextGaussian() * 0.25  - 0.125;
         this.moveZ = this.rand.nextGaussian() * 0.25 - 0.125;
+        addAttackingAI();
     }
 
     @Override
@@ -97,6 +98,8 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
             }
         }
 
+        if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 64) != null) this.setAttackTarget(this.worldObj.getClosestVulnerablePlayerToEntity(this, 64));
+        
         if(this.waitTick == 0) {
             if (this.getAttackTarget() != null) {
                 int var1 = (int) this.getAttackTarget().posX;

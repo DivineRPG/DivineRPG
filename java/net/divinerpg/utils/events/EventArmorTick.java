@@ -57,6 +57,7 @@ public class EventArmorTick {
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
             event.player.fallDistance = -0.5F;
             event.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
+            event.player.capabilities.allowFlying = true;
         }
         else if(event.player.capabilities.allowFlying && !event.player.capabilities.isCreativeMode){
         	event.player.capabilities.isFlying = false;
