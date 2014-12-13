@@ -1,12 +1,20 @@
 package net.divinerpg.items.twilight;
 
+import java.util.List;
+
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 
 import com.google.common.collect.Multimap;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemTwilightBlitz extends ItemProjectileShooter {
 	
@@ -21,4 +29,12 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
         multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", this.damage, 0));
         return multimap;
     }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add(damage + " Ranged and Melee Damage");
+		list.add("Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
+		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+	}
 }

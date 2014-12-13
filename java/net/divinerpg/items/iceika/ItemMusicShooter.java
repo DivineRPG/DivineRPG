@@ -28,18 +28,18 @@ public class ItemMusicShooter extends ItemMod {
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
-		if(!var2.isRemote) {
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		if(!world.isRemote) {
 			if (this == IceikaItems.soundOfCarols) {
-				var2.spawnEntityInWorld(new EntityCarol(var2, var3));
-				Sounds.getSoundName(Sounds.soundOfCarols);
+				world.spawnEntityInWorld(new EntityCarol(world, player));
+				world.playSoundAtEntity(player, Sounds.soundOfCarols.getPrefixedName(), 1, 1);
 			} else {
-				var2.spawnEntityInWorld(new EntityMusic(var2, var3));
-				Sounds.getSoundName(Sounds.soundOfMusic);
+				world.spawnEntityInWorld(new EntityMusic(world, player));
+				world.playSoundAtEntity(player, Sounds.soundOfMusic.getPrefixedName(), 1, 1);
 			}
-			var1.damageItem(1, var3);	
+			stack.damageItem(1, player);	
 		}
-		return var1;
+		return stack;
 	}
 	
 	@Override
@@ -50,7 +50,6 @@ public class ItemMusicShooter extends ItemMod {
 		} else {
 			par3List.add("10 Ranged damage");
 		}
-		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses");
-		par3List.add(Util.DARK_AQUA + Reference.MOD_NAME);
+		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses remaining");
 	}
 }

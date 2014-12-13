@@ -31,7 +31,6 @@ public class ItemCorruptedCannon extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(counter == 0){
 			if(player.inventory.hasItem(VanillaItemsOther.corruptedBullet) || player.capabilities.isCreativeMode) {
-				if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(VanillaItemsOther.corruptedBullet);
 				if(!world.isRemote)world.playSoundAtEntity(player, Sounds.ghastCannon.getPrefixedName(), 1.0F, 1.0F);
 				for(int i = 0; i < 4; i++){
 					EntityThrowable entity = new EntityCorruptedBullet(world, player);
@@ -40,6 +39,7 @@ public class ItemCorruptedCannon extends ItemMod {
 					entity.posZ += (this.rand.nextDouble()-this.rand.nextDouble())/2;
 					if(!world.isRemote)world.spawnEntityInWorld(entity);
 				}
+				if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(VanillaItemsOther.corruptedBullet);
 			}
 		}
 		counter++;
@@ -54,8 +54,9 @@ public class ItemCorruptedCannon extends ItemMod {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("4x14 Ranged damage");
-		par3List.add("Ammo: " + StatCollector.translateToLocal(VanillaItemsOther.corruptedBullet.getUnlocalizedName()+".name"));
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("4x14 Ranged damage");
+		list.add("Ammo: " + StatCollector.translateToLocal(VanillaItemsOther.corruptedBullet.getUnlocalizedName()+".name"));
+		list.add("Infinite Uses");
 	}
 }

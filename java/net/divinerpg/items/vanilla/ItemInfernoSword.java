@@ -23,6 +23,6 @@ public class ItemInfernoSword extends ItemModSword {
 
 	@Override
 	protected void addAdditionalInformation(List list) {
-	    list.add(Util.BLUE + "On hit: " + EnumChatFormatting.RESET + "Burns victim for 12 seconds");
+	    list.add("On hit: Burns victim for 12 seconds");
 	}
 }

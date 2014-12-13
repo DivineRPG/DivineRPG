@@ -52,7 +52,7 @@ public class ArcanaItems {
 	public static Item 	  meriksMissile;
 	public static Item 	  grenade;
 	public static Item 	  firefly;
-	public static Item 	  grenadeLauncher;
+	public static Item 	  laVekor;
 	public static Item 	  enderScepter;
 	public static Item 	  arcaniumSaber;
 	public static Item 	  wraithbane;
@@ -118,7 +118,7 @@ public class ArcanaItems {
     	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     	grenade		 			 = new ItemGrenade("grenade");
     	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
-    	grenadeLauncher		 	 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
+    	laVekor		 			 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
     	enderScepter  			 = new ItemEnderScepter("enderScepter");
     	arcaniumSaber  			 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
     	wraithbane  	 		 = new ItemWraithbane("wraithbane");

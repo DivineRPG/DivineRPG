@@ -33,7 +33,7 @@ public class RenderPhaser implements IItemRenderer
 
         GL11.glPopMatrix();
         
-        GL11.glRotatef(-45, 1, 0, 1);
+        GL11.glRotatef(-45, 1, -0.1f, 1);
 
 		this.renderItem(e, item, 0);
         GL11.glPushMatrix();

@@ -21,6 +21,7 @@ public class ItemModSword extends ItemSword {
 
     protected String name;
     protected String textureName;
+    protected ToolMaterial mat;
 
     public ItemModSword(ToolMaterial toolMaterial, String name) {
         super(toolMaterial);
@@ -31,6 +32,7 @@ public class ItemModSword extends ItemSword {
         setCreativeTab(DivineRPGTabs.swords);
         GameRegistry.registerItem(this, name);
         LangRegistry.addItem(this);
+        this.mat = toolMaterial;
     }
     
     @Override
@@ -53,6 +55,8 @@ public class ItemModSword extends ItemSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
+    	if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+4 + " Melee Damage");
+    	else infoList.add(this.mat.getDamageVsEntity()+4 + " Melee Damage");
         addAdditionalInformation(infoList);
         if (item.getMaxDamage() != -1) infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
         else infoList.add(Util.GREEN + "Infinite Uses");

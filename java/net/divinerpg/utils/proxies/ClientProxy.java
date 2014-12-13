@@ -50,10 +50,10 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInitClient(FMLPreInitializationEvent event) {
         LogHelper.info("Adding events");
-        if(ConfigurationHelper.canShowWelcomeChat) Util.addEventBus(new EventClientLogin());
-        else Util.addEventBus(new EventStaffLogin());
-        Util.addSpecialEventBus(new ClientTickHandler());
-        Util.addSpecialEventBus(new ArcanaRenderer());
+        if(ConfigurationHelper.canShowWelcomeChat) Util.postForgeEvent(new EventClientLogin());
+        else Util.postForgeEvent(new EventStaffLogin());
+        Util.postFMLEvent(new ClientTickHandler());
+        Util.postFMLEvent(new ArcanaRenderer());
         
         for(Item bow : ItemModBow.bowList) {
         	MinecraftForgeClient.registerItemRenderer(bow, new RenderBow());
@@ -71,7 +71,7 @@ public class ClientProxy extends CommonProxy {
         
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
-            Util.addEventBus(new EventOverlay());
+            Util.postForgeEvent(new EventOverlay());
             LangRegistry.registerNames();
             Sounds.init();
         }
@@ -86,10 +86,10 @@ public class ClientProxy extends CommonProxy {
         VetheaEntityRenderer.init();
         ArcanaEntityRenderer.init();
         LogHelper.info("Adding gui renderers");
-        Util.addSpecialEventBus(new BossTickHandler());
+        Util.postFMLEvent(new BossTickHandler());
         LogHelper.info("Adding sounds");
-        Util.addEventBus(new DevHatEvent());
-        Util.addEventBus(new EventFog());
+        Util.postForgeEvent(new DevHatEvent());
+        Util.postForgeEvent(new EventFog());
     }
     
     @Override

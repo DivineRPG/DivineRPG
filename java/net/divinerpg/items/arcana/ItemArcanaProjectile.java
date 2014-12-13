@@ -13,6 +13,7 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -29,19 +30,20 @@ public class ItemArcanaProjectile extends ItemMod {
 		this.damage = damage;
 	}
 
+	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		Item item = stack.getItem();
-		if(!world.isRemote){
-			if(item == ArcanaItems.firefly){
-				if(ArcanaHelper.getProperties(player).useBar(arcana)) {
-					Sounds.playSound(player, world, Sounds.firefly);
-					world.spawnEntityInWorld(new EntityFirefly(world, player, 0.6F, 50));
-				}
+		if(ArcanaHelper.getProperties(player).useBar(arcana)) {
+			if(item == ArcanaItems.firefly && !world.isRemote){
+				Sounds.playSound(player, world, Sounds.firefly);
+				world.spawnEntityInWorld(new EntityFirefly(world, player, 0.6F, 50));
 			}
-			if(item == ArcanaItems.grenadeLauncher){
-				player.inventory.consumeInventoryItem(ArcanaItems.grenade);
-				Sounds.playSound(player, world, Sounds.laVekor);
-				world.spawnEntityInWorld(new EntityGrenade(world, player));
+			if(item == ArcanaItems.laVekor) {
+				if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(ArcanaItems.grenade);
+				if(!world.isRemote){
+					Sounds.playSound(player, world, Sounds.laVekor);
+					world.spawnEntityInWorld(new EntityGrenade(world, player));
+				}
 			}
 		}
 		return stack;
@@ -57,9 +59,10 @@ public class ItemArcanaProjectile extends ItemMod {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		if(stack.getItem() == ArcanaItems.firefly) list.add("Homing Shots");
-		if(stack.getItem() == ArcanaItems.grenadeLauncher){ list.add("Launches explosive projectiles"); list.add("Ammo: Grenade"); }
-		list.add(arcana == 0 ? "" : "Uses " + arcana + " arcana");
+		if(stack.getItem() == ArcanaItems.laVekor) list.add("Launches Explosive Projectiles");
+		list.add(this == ArcanaItems.laVekor ? "Ammo: " + StatCollector.translateToLocal(ArcanaItems.grenade.getUnlocalizedName() + ".name") : "Infinite Ammo");
+		list.add(arcana == 0 ? "" : "Uses " + arcana + " Arcana");
 		list.add(this.damage + " Ranged Damage");
-		list.add(this.getMaxDamage() == -1 ? "Unlimited uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses");
+		list.add(this.getMaxDamage() == -1 ? "Unlimited Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
 	}
 }

@@ -11,6 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemGrenade extends ItemMod {
+	
+	private int counter = 0;
 
 	public ItemGrenade(String name) {
 		super(name, DivineRPGTabs.ranged);
@@ -18,14 +20,19 @@ public class ItemGrenade extends ItemMod {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par3World, EntityPlayer par2EntityPlayer) {
-		if(!par3World.isRemote){
-			par3World.spawnEntityInWorld(new EntityGrenade(par3World, par2EntityPlayer));
-			Sounds.playSound(par2EntityPlayer, par3World, Sounds.laVekor);
-			if(!par2EntityPlayer.capabilities.isCreativeMode)
-				par1ItemStack.stackSize--;
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		if(counter == 0) {
+			if(!world.isRemote) {
+				if(!world.isRemote) {
+					world.spawnEntityInWorld(new EntityGrenade(world, player));
+					world.playSoundAtEntity(player, "random.bow", 1, 1);
+				}
+				if(!player.capabilities.isCreativeMode) stack.stackSize--;
+			}
 		}
-		return par1ItemStack;
+		if(counter < 3) counter++;
+		if(counter == 3) counter = 0;
+		return stack;
 	}
 
 	@Override

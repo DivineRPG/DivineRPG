@@ -561,7 +561,7 @@ public class EventArmorFullSet {
     public void onLivingHurtEvent(LivingHurtEvent e) {
         if (e.entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) e.entity;
-
+            
             ItemStack stackBoots = player.inventory.armorItemInSlot(0);
             ItemStack stackLegs = player.inventory.armorItemInSlot(1);
             ItemStack stackBody = player.inventory.armorItemInSlot(2);

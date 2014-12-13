@@ -41,7 +41,9 @@ import net.divinerpg.utils.events.EventBonemeal;
 import net.divinerpg.utils.events.EventBucketFill;
 import net.divinerpg.utils.events.EventDeath;
 import net.divinerpg.utils.events.EventHarvest;
+import net.divinerpg.utils.events.EventLightning;
 import net.divinerpg.utils.events.EventLightningStrike;
+import net.divinerpg.utils.events.EventTooltip;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
@@ -69,15 +71,17 @@ public class CommonProxy{
 	
 	public void preInitServer(FMLPreInitializationEvent event){
 		LogHelper.info("Adding events");
-		Util.addEventBus(new EventBucketFill());
-		Util.addEventBus(new EventBonemeal());
-		Util.addEventBus(new EventArmorFullSet());
-		Util.addSpecialEventBus(new EventArmorTick());
-		Util.addEventBus(new EventLightningStrike());
-		Util.addEventBus(new EventHarvest());
-		Util.addEventBus(new EventDeath());
-        Util.addSpecialEventBus(new ArcanaTickHandler());
-        Util.addEventBus(new EntityConstructorEvent());
+		Util.postForgeEvent(new EventBucketFill());
+		Util.postForgeEvent(new EventBonemeal());
+		Util.postForgeEvent(new EventArmorFullSet());
+		Util.postFMLEvent(new EventArmorTick());
+		Util.postForgeEvent(new EventLightningStrike());
+		Util.postForgeEvent(new EventHarvest());
+		Util.postForgeEvent(new EventDeath());
+        Util.postFMLEvent(new ArcanaTickHandler());
+        Util.postForgeEvent(new EntityConstructorEvent());
+        Util.postForgeEvent(new EventTooltip());
+        Util.postForgeEvent(new EventLightning());
 		LogHelper.info("Registering tile entities");
 		ItemsFood.init();
 		VanillaBlocks.init();

@@ -56,11 +56,11 @@ public class Util {
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME), modBucket, new ItemStack(Items.bucket));
     }
 
-    public static void addEventBus(Object o) {
+    public static void postForgeEvent(Object o) {
         MinecraftForge.EVENT_BUS.register(o);
     }
 
-    public static void addSpecialEventBus(Object o) {
+    public static void postFMLEvent(Object o) {
         FMLCommonHandler.instance().bus().register(o);
     }
 

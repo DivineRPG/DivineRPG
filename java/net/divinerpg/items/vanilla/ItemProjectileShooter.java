@@ -20,9 +20,9 @@ public class ItemProjectileShooter extends ItemMod {
 	
 	private String soundName;
 	protected float damage;
-	private Item ammo;
+	protected Item ammo;
 	private String projectileTex;
-	private int uses;
+	protected int uses;
 	private int counter;
 	private int currentCounter = 0;
 	private boolean hasParticle;
@@ -39,8 +39,8 @@ public class ItemProjectileShooter extends ItemMod {
 		this.uses = uses;
 		this.counter = counter;
 		setMaxDamage(uses);
-		if(!name.contains("Phaser") && !name.contains("frostclaw")) gunList.add(this);
-		else if(name.contains("Phaser") || name.contains("frostclaw")) phaserList.add(this);
+		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon") && !name.contains("Anchor")) gunList.add(this);
+		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon") || name.contains("Anchor")) phaserList.add(this);
 	}
 	
 	public ItemProjectileShooter(String name, float damage, String soundName, String projectileTex, int uses, int counter) {
@@ -57,7 +57,8 @@ public class ItemProjectileShooter extends ItemMod {
 		this.uses = uses;
 		this.counter = counter;
 		setMaxDamage(uses);
-		if(!name.contains("Phaser")) gunList.add(this);
+		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon")) gunList.add(this);
+		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon")) phaserList.add(this);
 	}
 	
 	
@@ -77,7 +78,8 @@ public class ItemProjectileShooter extends ItemMod {
 		this.counter = counter;
 		this.projectileTex = projectileTex;
 		setMaxDamage(uses);
-		if(!name.contains("Phaser")) gunList.add(this);
+		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon")) gunList.add(this);
+		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon")) phaserList.add(this);
 	}
 	
 	
@@ -113,7 +115,8 @@ public class ItemProjectileShooter extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add(damage + " Ranged damage");
+		if((int)this.damage == this.damage) list.add((int)damage + " Ranged Damage");
+		else list.add(damage + " Ranged Damage");
 		list.add(this.ammo == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
 		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
 	}
