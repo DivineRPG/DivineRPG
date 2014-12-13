@@ -44,11 +44,6 @@ public class ItemMod extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add(Util.DARK_AQUA + Reference.MOD_NAME);
-	}
-
-	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(healAmount != 0){
 			if(player.getHealth() < player.getMaxHealth()){

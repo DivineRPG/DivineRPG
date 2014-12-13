@@ -46,7 +46,7 @@ public class IceikaBlocks {
     public static final Block frostedGlass        = new BlockModGlass("frostedGlass", 1.0F);
     public static final Block workshopBookcase    = new BlockModBook("workshopBookcase").setHardness(1.5F);
     public static final Block workshopLamp        = new BlockMod(EnumBlockType.GLASS, "workshopLamp", 0.3F).setLightLevel(1);
-    public static final Block steelDoorBlock      = new BlockModDoor(EnumBlockType.IRON, "steelDoorBlock", 7.0F, null);
+    public static final Block steelDoorBlock      = new BlockModDoor(EnumBlockType.IRON, "steelDoorBlock", 7.0F, true);
     public static final Block coalstoneFurnace    = new BlockCoalstoneFurnace("coalstoneFurnace", false);
     public static final Block coalstoneFurnaceOn  = new BlockCoalstoneFurnace("coalstoneFurnaceActive", true);
 

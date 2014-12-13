@@ -114,7 +114,7 @@ public class ArcanaItems {
         chargedCollector   		 = new ItemChargedCollector("chargedCollector");
         wizardBook	     	  	 = new ItemWizardsBook("wizardsBook");
         staffOfEnrichment		 = new ItemStaffEnrichment("staffOfEnrichment");
-        orbOfLight	 			 = new ItemMod("orbOfLight");
+        orbOfLight	 			 = new ItemMod("orbOfLight");//TODO: make this work.
     	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     	grenade		 			 = new ItemGrenade("grenade");
     	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);

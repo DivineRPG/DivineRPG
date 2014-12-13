@@ -139,10 +139,10 @@ public class ArcanaBlocks {
 		starBridge            = new BlockStarBridge("starBridge", false);
 		starBridgeOn          = new BlockStarBridge("starBridgeOn", true);
 		
-		oreDoor1              = new BlockModDoor(EnumBlockType.IRON, "oreDoor1", -1F, ArcanaItems.key1);
-	    oreDoor2              = new BlockModDoor(EnumBlockType.IRON, "oreDoor2", -1F, ArcanaItems.key2);
-	    oreDoor3              = new BlockModDoor(EnumBlockType.IRON, "oreDoor3", -1F, ArcanaItems.key3);
-	    oreDoor4              = new BlockModDoor(EnumBlockType.IRON, "oreDoor4", -1F, ArcanaItems.key4);
+		oreDoor1              = new BlockModDoor(EnumBlockType.IRON, "oreDoor1", -1F, false);
+	    oreDoor2              = new BlockModDoor(EnumBlockType.IRON, "oreDoor2", -1F, false);
+	    oreDoor3              = new BlockModDoor(EnumBlockType.IRON, "oreDoor3", -1F, false);
+	    oreDoor4              = new BlockModDoor(EnumBlockType.IRON, "oreDoor4", -1F, false);
 	    
 	    dramixAltar           = new BlockDramixAltar("dramixAltar");
 	    parasectaAltar        = new BlockParasectaAltar("parasectaAltar");

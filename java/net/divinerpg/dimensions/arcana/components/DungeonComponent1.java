@@ -1,7 +1,3 @@
-/*
- *** MADE BY MITHION'S .SCHEMATIC TO JAVA CONVERTING TOOL v1.6 ***
- */
-
 package net.divinerpg.dimensions.arcana.components;
 import java.util.Random;
 
@@ -853,11 +849,11 @@ public class DungeonComponent1 extends DungeonComponentBase {
         world.setBlock(i + 15, j + 7, k + 13, dungeonBricks);
         world.setBlock(i + 15, j + 7, k + 14, dungeonBricks);
         world.setBlock(i + 15, j + 7, k + 15, dungeonBricks);
-        world.setBlock(i + 13, j + 2, k + 5, arcaniteTubes);
-        world.setBlock(i + 9, j + 2, k + 5, arcaniteTubes);
-        world.setBlock(i + 6, j + 2, k + 5, arcaniteTubes);
-        world.setBlock(i + 4, j + 2, k + 5, arcaniteTubes);
-        world.setBlock(i + 2, j + 2, k + 5, arcaniteTubes);
+        world.setBlock(i + 13, j + 2, k + 5, arcaniteTubes, 3);
+        world.setBlock(i + 9, j + 2, k + 5, arcaniteTubes, 3);
+        world.setBlock(i + 6, j + 2, k + 5, arcaniteTubes, 3);
+        world.setBlock(i + 4, j + 2, k + 5, arcaniteTubes, 3);
+        world.setBlock(i + 2, j + 2, k + 5, arcaniteTubes, 3);
         return true;
     }
 }

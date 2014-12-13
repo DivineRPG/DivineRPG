@@ -108,7 +108,7 @@ public class ChunkProviderArcana implements IChunkProvider{
         
 		Ceiling.generate(c, random, 0, 40, 0);
         
-		Chunk chunk = new Chunk(this.worldObj, c.getChunkData(), par1, par2);
+		Chunk chunk = new Chunk(this.worldObj, c.getChunkData(), c.getChunkMetadata(), par1, par2);
         chunk.generateSkylightMap();
         BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, par1 * 16, par2 * 16, 16, 16);
         byte[] abyte = chunk.getBiomeArray();

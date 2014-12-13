@@ -2,6 +2,8 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
+import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.IconFlipped;
@@ -14,7 +16,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -24,14 +25,13 @@ public class BlockModDoor extends BlockMod {
     protected IIcon[] topIcon;
     @SideOnly(Side.CLIENT)
     protected IIcon[] bottomIcon;
-    protected Item    key;
     protected boolean canOpenByHand;
 
-    public BlockModDoor(EnumBlockType blockType, String name, float hardness, Item key) {
+    public BlockModDoor(EnumBlockType blockType, String name, float hardness, boolean canOpenByHand) {
         super(blockType, name, hardness);
         if(hardness == -1F) setBlockUnbreakable();
         setCreativeTab(null);
-        canOpenByHand = key == null;
+        this.canOpenByHand = canOpenByHand;
         setTickRandomly(true);
         float f = 0.5f;
         float f1 = 1.0f;
@@ -175,9 +175,10 @@ public class BlockModDoor extends BlockMod {
         int i1 = this.getBlockMetadata(world, x, y, z);
         int j1 = (i1 & 7) ^ 4;
         boolean flag = (i1 & 8) == 0;
+        Item key = this == ArcanaBlocks.oreDoor1 ? ArcanaItems.key1 : (this == ArcanaBlocks.oreDoor2 ? ArcanaItems.key2 : (this == ArcanaBlocks.oreDoor3 ? ArcanaItems.key3 : (this == ArcanaBlocks.oreDoor4 ? ArcanaItems.key4 : null)));
         if (!canOpenByHand) {
             if (player.getHeldItem() != null && player.getHeldItem().getItem() == key) {
-                player.getHeldItem().stackSize--;
+                //player.getHeldItem().stackSize--;
                 notifyAndUpdateBlock(world, x, y, z, j1, flag, player);
                 return true;
             }
