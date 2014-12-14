@@ -79,7 +79,7 @@ public class EventArmorTick {
             if (event.player.isInsideOfMaterial(Material.water)) {
                 float current = event.player.getHealth();
                 if ((current > 0.0F) && (current < 20.0F)) {
-                    event.player.setHealth(current + 0.1F);
+                    event.player.heal(1);
                 }
             }
         }

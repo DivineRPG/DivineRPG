@@ -103,7 +103,7 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityRotatick.class, "Rotatick");
 		Util.registerDivineRPGMob(EntityShark.class, "Shark");
 		Util.registerDivineRPGMob(EntityNetherWatcher.class, "TheWatcher");
-		Util.registerDivineRPGMob(EntityWildFire.class, "WildFire");
+		Util.registerDivineRPGMob(EntityWildFire.class, "Wildfire");
 		Util.registerDivineRPGMob(EntityGlacon.class, "Glacon");
 		Util.registerDivineRPGMob(EntityJackOMan.class, "JackOMan");
 		Util.registerDivineRPGMob(EntityJungleBat.class, "JungleBat");

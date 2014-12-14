@@ -64,8 +64,8 @@ public class EntityNetherWatcher extends EntityDivineRPGBoss {
     protected void updateFallState(double par1, boolean par3) {}
 	
 	@Override
-	protected void updateEntityActionState() {
-		this.despawnEntity();
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
 		this.prevAttackCounter = this.attackCounter;
 		double var1 = this.waypointX - this.posX;
 		double var3 = this.waypointY - this.posY;
@@ -103,6 +103,8 @@ public class EntityNetherWatcher extends EntityDivineRPGBoss {
 				this.aggroCooldown = 20;
 			}
 		}
+		
+		System.out.println(this.targetedEntity == null);
 
 		double var9 = 100.0D;
 
