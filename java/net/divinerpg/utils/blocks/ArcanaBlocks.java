@@ -12,6 +12,7 @@ import net.divinerpg.blocks.arcana.BlockArcanaFrame;
 import net.divinerpg.blocks.arcana.BlockArcanaPortal;
 import net.divinerpg.blocks.arcana.BlockDemonFurnace;
 import net.divinerpg.blocks.arcana.BlockDramixAltar;
+import net.divinerpg.blocks.arcana.BlockElevantium;
 import net.divinerpg.blocks.arcana.BlockEucalyptusRoot;
 import net.divinerpg.blocks.arcana.BlockExtractor;
 import net.divinerpg.blocks.arcana.BlockGreenlightFurnace;
@@ -27,7 +28,6 @@ import net.divinerpg.blocks.arcana.BlockStackPlant;
 import net.divinerpg.blocks.arcana.BlockStarBridge;
 import net.divinerpg.blocks.arcana.BlockVeilo;
 import net.divinerpg.blocks.arcana.BlockWhitefireFurnace;
-import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 
@@ -103,6 +103,7 @@ public class ArcanaBlocks {
     public static Block demonFurnaceOn;
     
     public static Block arcaniumTorch;
+    public static Block elevantium;
 	
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
@@ -175,5 +176,6 @@ public class ArcanaBlocks {
 	    demonFurnaceOn 			= new BlockDemonFurnace("demonFurnaceOn", true);
 	    
 	    arcaniumTorch			= new BlockModTorch("arcaniumTorch", null);
+	    elevantium				= new BlockElevantium("elevantium");
 	}
 }

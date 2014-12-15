@@ -65,6 +65,7 @@ public class EntityDatticon extends EntityDivineRPGVillager {
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 0), new ItemStack(ArcanaBlocks.moonlightFurnace, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7, 0), new ItemStack(ArcanaBlocks.whitefireFurnace, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 9, 0), new ItemStack(ArcanaBlocks.demonFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 0), new ItemStack(ArcanaBlocks.elevantium, 9, 0)));
 	}
 
 	@Override

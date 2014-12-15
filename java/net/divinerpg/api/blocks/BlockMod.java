@@ -12,6 +12,7 @@ import net.divinerpg.utils.material.EnumToolType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -91,6 +92,22 @@ public class BlockMod extends Block{
         }else{
         	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
         }
+        LangRegistry.addBlock(this);
+    }
+    
+    public BlockMod(EnumBlockType blockType, String name, float hardness, DivineRPGTabs tab, Class<? extends ItemBlock> item) {
+        super(blockType.getMaterial());
+        this.blockType = blockType;
+        this.name = name;
+        rand = new Random();
+        setTextureName(Reference.PREFIX + name);
+        setStepSound(blockType.getSound());
+        setCreativeTab(tab);
+        setBlockTextureName(textureName);
+        setBlockName(name);
+        setHardness(hardness);
+        if(hardness == -1F) setBlockUnbreakable();
+        GameRegistry.registerBlock(this, item, name);
         LangRegistry.addBlock(this);
     }
 

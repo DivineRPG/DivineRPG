@@ -30,6 +30,7 @@ public class BlockVetheaPlant extends BlockMod implements IPlantable{
 		return w.getBlock(x, y-1, z) == VetheaBlocks.dreamGrass;
 	}
 	
+	@Override
     public boolean canBlockStay(World w, int x, int y, int z) {
         return w.getBlock(x, y - 1, z) == VetheaBlocks.dreamGrass;
     }

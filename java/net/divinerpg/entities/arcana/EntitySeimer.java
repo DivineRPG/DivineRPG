@@ -15,12 +15,11 @@ import net.minecraft.world.World;
 
 public class EntitySeimer extends EntityDivineRPGTameable {
 	
-    private int regenTimer;
 
     public EntitySeimer(World par1World, EntityPlayer p) {
         this(par1World);
         setTamed(true);
-        func_152115_b(p.getDisplayName());
+        func_152115_b(p.getUniqueID().toString());
     }
     
     public EntitySeimer(World par1World) {
@@ -32,7 +31,6 @@ public class EntitySeimer extends EntityDivineRPGTameable {
         this.tasks.addTask(4, new EntityAIFollowOwner(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 4.0F, 2.0F));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
-        this.regenTimer = 0;
     }
 
     @Override
@@ -69,7 +67,7 @@ public class EntitySeimer extends EntityDivineRPGTameable {
             }
         } else {
             this.setTamed(true);
-            this.func_152115_b(par1EntityPlayer.getDisplayName());
+            this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
         }
 
         return super.interact(par1EntityPlayer);
@@ -78,14 +76,8 @@ public class EntitySeimer extends EntityDivineRPGTameable {
     @Override
     public void onUpdate() {
         super.onUpdate();
-
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
-            if (this.regenTimer >= 2) {
-            	ArcanaHelper.getProperties((EntityPlayer)this.getOwner()).regen(1);
-                this.regenTimer = 0;
-            } else {
-                ++this.regenTimer;
-            }
+            ArcanaHelper.getProperties((EntityPlayer)this.getOwner()).regen(1);
         }
     }
 

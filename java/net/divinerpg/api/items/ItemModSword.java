@@ -3,16 +3,19 @@ package net.divinerpg.api.items;
 import java.util.List;
 
 import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -51,6 +54,11 @@ public class ItemModSword extends ItemSword {
     public boolean isItemTool(ItemStack par1ItemStack) {
         return true;
     }
+    
+    @Override
+	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+		if(stack.getItem() == VanillaItemsWeapons.divineSword) player.triggerAchievement(DivineRPGAchievements.divinePlan);
+	}
 
     @Override
     @SideOnly(Side.CLIENT)

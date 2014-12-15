@@ -40,12 +40,12 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.frozenGoods.desc=Open a frozen chest");
         instance.addToFile("achievement.lilTinkerin.desc=Trade with a Tinkerer");
         instance.addToFile("achievement.lilGift.desc=Open a gift Box");
-        instance.addToFile("achievement.divinePlan.desc=");
+        instance.addToFile("achievement.divinePlan.desc=Craft a Divine Sword");
         instance.addToFile("achievement.whatLiesWithin.desc=Enter The Dungeon Of Arcana");
         instance.addToFile("achievement.perfectlyCorrupted.desc=Use the Altar Of Corruption");
         instance.addToFile("achievement.totalDemonization.desc=Use the Demon Furnace");
-        instance.addToFile("achievement.evilDisease.desc=Kill the Parasecta");
-        instance.addToFile("achievement.dungeonMaster.desc=Kill the Dramix");
+        instance.addToFile("achievement.evilDisease.desc=Kill Parasecta");
+        instance.addToFile("achievement.dungeonMaster.desc=Kill Dramix");
         instance.addToFile("achievement.eyeOfEvil.desc=Look into the eye of The Eye");
         instance.addToFile("achievement.tripleDanger.desc=Kill an Ender Triplet");
         instance.addToFile("achievement.hotterThanHell.desc=Step on a hot block in Arcana");
@@ -54,7 +54,9 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.spawnDAR.desc=Spawn Densos and Reyvor");
         instance.addToFile("achievement.dramcryxDeath.desc=Kill a Jungle Dramcryx");
         instance.addToFile("achievement.allHellLoose.desc=Use a Storm Sword");
-
+        instance.addToFile("achievement.skyHigh.desc=Jump on an Elevantium Block");
+        instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp.desc=Craft an Eden Lamp");
+        
         instance.addToFile("achievement.divineIntervention=Divine Intervention");
         instance.addToFile("achievement.possibilities=Possibilities");
         instance.addToFile("achievement.friendOrFoe=Friend or Foe?");
@@ -72,7 +74,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.frozenLand=Frozen Land");
         instance.addToFile("achievement.frozenGoods=Frozen Goods");
         instance.addToFile("achievement.lilTinkerin=Lil' Tinkerin");
-        instance.addToFile("achievement.divineDlan=Divine Plan");
+        instance.addToFile("achievement.divinePlan=Divine Plan");
         instance.addToFile("achievement.whatLiesWithin=What Lies Within");
         instance.addToFile("achievement.perfectlyCorrupted=Perfectly Corrupted");
         instance.addToFile("achievement.totalDemonization=Total Demonization");
@@ -84,6 +86,8 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.spawnDAR=Ten Heads are Better than One");
         instance.addToFile("achievement.dramcryxDeath=Death to all Jungle Stegosaurous!");
         instance.addToFile("achievement.allHellLoose=All Hell Loose");
+        instance.addToFile("achievement.skyHigh=Sky High");
+        instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp=One Lamp Two Lamp Red Lamp Blue Lamp");
     }
 
     public static void addMob(String name) {

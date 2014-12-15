@@ -40,11 +40,11 @@ public class ItemArcanaSpawnEgg extends ItemMod {
 			if(item == ArcanaItems.seimerSpawner){
 				seimer.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
 				w.spawnEntityInWorld(seimer);
-				p.triggerAchievement(DivineRPGAchievements.littleCreature);
 			}
 			if(item == ArcanaItems.golemSpawner){
 				golem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
 				w.spawnEntityInWorld(golem);
+				p.triggerAchievement(DivineRPGAchievements.littleCreature);
 			}
 			if(item == ArcanaItems.paratikuSpawner){
 				paratiku.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);

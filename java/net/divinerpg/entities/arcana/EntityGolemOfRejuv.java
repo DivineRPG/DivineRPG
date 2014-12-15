@@ -21,7 +21,7 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 	
 	public EntityGolemOfRejuv(World par1World, EntityPlayer p) {
 		this(par1World);
-		this.func_152115_b(p.getDisplayName());
+		this.func_152115_b(p.getUniqueID().toString());
 		setTamed(true);
 	}
 
@@ -64,7 +64,7 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 			}
 		} else {
 			this.setTamed(true);
-			this.func_152115_b(par1EntityPlayer.getDisplayName());
+			this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
 		}
 
 		return super.interact(par1EntityPlayer);
@@ -74,9 +74,8 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 	public void onUpdate() {
 		super.onUpdate();
 		if (this.getOwner() != null) {
-			if (this.healTimer == 4) {
-				this.getOwner();
-				this.heal(1);
+			if (this.healTimer == 8) {
+				this.getOwner().heal(1);
 				this.healTimer = 0;
 			} else {
 				this.healTimer++;
