@@ -6,7 +6,7 @@ import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.RenderSpecialProjectile;
-import net.divinerpg.client.render.block.RenderTileEntityFrostedChest;
+import net.divinerpg.client.render.block.RenderFrostedChest;
 import net.divinerpg.client.render.entity.iceika.model.ModelAlicanto;
 import net.divinerpg.client.render.entity.iceika.model.ModelFractite;
 import net.divinerpg.client.render.entity.iceika.model.ModelGlacide;
@@ -53,8 +53,8 @@ public class IceikaEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityWorkshopTinkerer.class, new RenderDivineMob(new ModelWorkshop(), 0.0F, EntityResourceLocation.WORKSHOP_TINKER));
         RenderingRegistry.registerEntityRenderingHandler(EntityWorkshopMerchant.class, new RenderDivineMob(new ModelWorkshop(), 0.0F, EntityResourceLocation.WORKSHOP_MERCHANT));
 
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderTileEntityFrostedChest());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
         MinecraftForgeClient.registerItemRenderer(Util.toItem(IceikaBlocks.frostedChest), new ItemRendererFrostedChest());
-
+        MinecraftForgeClient.registerItemRenderer(Util.toItem(IceikaBlocks.decorativeFrostedChest), new ItemRendererFrostedChest());
     }
 }

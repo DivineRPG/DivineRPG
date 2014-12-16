@@ -3,6 +3,7 @@ package net.divinerpg.client.render.entity;
 import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
+import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineArrow;
 import net.divinerpg.client.render.RenderDivineBoss;
@@ -13,6 +14,7 @@ import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.RenderAltarOfCorruption;
 import net.divinerpg.client.render.block.RenderAyeracoBeam;
+import net.divinerpg.client.render.block.RenderBoneChest;
 import net.divinerpg.client.render.block.RenderStatue;
 import net.divinerpg.client.render.block.TileEntityStatue;
 import net.divinerpg.client.render.entity.vanilla.RenderHellPig;
@@ -40,6 +42,7 @@ import net.divinerpg.client.render.entity.vanilla.model.ModelShark;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWatcher;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWhale;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWildFire;
+import net.divinerpg.client.render.item.ItemRendererBoneChest;
 import net.divinerpg.client.render.item.RenderStatueItem;
 import net.divinerpg.entities.vanilla.EntityAncientEntity;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
@@ -99,6 +102,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPig;
 import net.minecraft.client.model.ModelSpider;
 import net.minecraft.client.model.ModelZombie;
+import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -177,6 +181,8 @@ public class VanillaEntityRenderer {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
-
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
+        MinecraftForgeClient.registerItemRenderer(Util.toItem(VanillaBlocks.boneChest), new ItemRendererBoneChest());
 	}
 }

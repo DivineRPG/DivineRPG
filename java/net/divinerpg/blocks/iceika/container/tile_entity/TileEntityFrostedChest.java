@@ -5,6 +5,10 @@ import net.minecraft.tileentity.TileEntityChest;
 
 public class TileEntityFrostedChest extends TileEntityChest {
 	
+	public TileEntityFrostedChest() {
+		this.func_145976_a("Frosted Chest");
+	}
+	
 	@Override
 	public void closeInventory()
     {

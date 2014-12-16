@@ -80,7 +80,7 @@ public class WorldGenAPI {
 		Random r = new Random();
 		w.setBlock(x, y, z, c, meta, 2);
 		TileEntityChest chest = (TileEntityChest)w.getTileEntity(x, y, z);
-		if(chest != null && !w.isRemote){// DOESNT WORK IF GENERATING 1 ITEM
+		if(chest != null && !w.isRemote){
 			for(int i = 0; i < chest.getSizeInventory(); i++){
 				ItemStack it = is[r.nextInt(is.length) + 1];
 				chest.setInventorySlotContents(chest.getSizeInventory(), it);
@@ -90,7 +90,7 @@ public class WorldGenAPI {
 	
 	public static void placeIceikaChest(World w, int x, int y, int z, int meta){
 		Random r = new Random();
-		w.setBlock(x, y, z, IceikaBlocks.frostedChest, meta, 2);
+		w.setBlock(x, y, z, IceikaBlocks.decorativeFrostedChest, meta, 2);
 		TileEntityChest chest = (TileEntityChest)w.getTileEntity(x, y, z);
 		if(chest != null && !w.isRemote){
 			for(int i = 0; i < r.nextInt(4) + 1; i++){

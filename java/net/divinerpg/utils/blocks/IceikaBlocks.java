@@ -35,7 +35,8 @@ public class IceikaBlocks {
 
     public static final Block icyStone            = new BlockMod("icyStone", -1F);
     public static final Block icyBricks           = new BlockMod("icyBricks", -1F);
-    public static final Block frostedChest        = new BlockFrostedChest("frostedChest").setHardness(2.5F);
+    public static final Block frostedChest        = new BlockFrostedChest("frostedChest", true).setHardness(2.5F);
+    public static final Block decorativeFrostedChest= new BlockFrostedChest("decorativeFrostedChest", false).setHardness(2.5F);
     public static final Block rollumSpawner       = new BlockModSpawner("rollumSpawner", "Rollum").setHardness(5.0F);
     public static final Block frostArcherSpawner  = new BlockModSpawner("frostArcherSpawner", "FrostArcher").setHardness(5.0F);
     public static final Block iceikaLava 		  = new BlockIceikaLava();

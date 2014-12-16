@@ -14,12 +14,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderTileEntityFrostedChest extends TileEntitySpecialRenderer {
+public class RenderFrostedChest extends TileEntitySpecialRenderer {
 
 	private static final ResourceLocation texture = new ResourceLocation(Reference.PREFIX + "textures/model/iceikaChest.png");
 	private ModelChest model;
 
-	public RenderTileEntityFrostedChest() {
+	public RenderFrostedChest() {
 		model = new ModelChest();
 	}
 

@@ -12,9 +12,11 @@ import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityParasectaAlta
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityWhitefireFurnace;
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
+import net.divinerpg.blocks.twilight.TileEntityEdenChest;
 import net.divinerpg.blocks.twilight.TileEntityTwilightFurnace;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
+import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.client.render.block.TileEntityStatue;
@@ -94,9 +96,11 @@ public class CommonProxy{
 		GameRegistry.registerTileEntity(TileEntityTwilightFurnace.class, "Twilight Furnace");
 		GameRegistry.registerTileEntity(TileEntityInfusionTable.class, "Infusion Table");
 		GameRegistry.registerTileEntity(TileEntityStatue.class, "Statue");
-		GameRegistry.registerTileEntity(TileEntityFrostedChest.class, "Iceika Chest");
+		GameRegistry.registerTileEntity(TileEntityFrostedChest.class, "Frosted Chest");
+		GameRegistry.registerTileEntity(TileEntityEdenChest.class, "Eden Chest");
+		GameRegistry.registerTileEntity(TileEntityBoneChest.class, "Bone Chest");
 		GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, "Ayeraco Beam");
-		GameRegistry.registerTileEntity(TileEntityExtractor.class, "Extractor");
+		GameRegistry.registerTileEntity(TileEntityExtractor.class, "Arcanium Extractor");
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, "Dramix Altar");
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, "Parasecta Altar");
 		GameRegistry.registerTileEntity(TileEntityCoalstoneFurnace.class, "Coalstone Furnace");

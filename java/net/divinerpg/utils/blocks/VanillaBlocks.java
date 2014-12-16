@@ -9,6 +9,7 @@ import net.divinerpg.api.blocks.BlockStatue;
 import net.divinerpg.blocks.vanilla.BlockAcceleron;
 import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
+import net.divinerpg.blocks.vanilla.BlockBoneChest;
 import net.divinerpg.blocks.vanilla.BlockDivineBricks;
 import net.divinerpg.blocks.vanilla.BlockDivineTable;
 import net.divinerpg.blocks.vanilla.BlockLamp1;
@@ -151,6 +152,7 @@ public class VanillaBlocks {
 	public static Block divineMobSpawner;
 	
 	public static Block altarOfCorruption;
+	public static Block boneChest;
 	
 	public static void init() {
 		rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND);
@@ -264,5 +266,6 @@ public class VanillaBlocks {
 		divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");
 		
 		altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");
+		boneChest			  = new BlockBoneChest("boneChest");
 	}
 }

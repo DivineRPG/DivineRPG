@@ -1,12 +1,14 @@
 package net.divinerpg.client.render.entity;
 
 import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.blocks.twilight.TileEntityEdenChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineBoss;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSpecialProjectile;
+import net.divinerpg.client.render.block.RenderEdenChest;
 import net.divinerpg.client.render.entity.twilight.RenderBunny;
 import net.divinerpg.client.render.entity.twilight.RenderEnchantedArcher;
 import net.divinerpg.client.render.entity.twilight.RenderTwilightArcher;
@@ -33,6 +35,7 @@ import net.divinerpg.client.render.entity.twilight.model.ModelTwilightDemon;
 import net.divinerpg.client.render.entity.twilight.model.ModelTwilightGolem;
 import net.divinerpg.client.render.entity.twilight.model.ModelVamacheron;
 import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
+import net.divinerpg.client.render.item.ItemRendererEdenChest;
 import net.divinerpg.entities.twilight.EntityAngryBunny;
 import net.divinerpg.entities.twilight.EntityApalachiaArcher;
 import net.divinerpg.entities.twilight.EntityApalachiaCadillion;
@@ -73,7 +76,11 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
+import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
+import net.minecraftforge.client.MinecraftForgeClient;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class TwilightEntityRenderer {
@@ -124,5 +131,8 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntitySoulFiend.class, new RenderDivineBoss(new ModelSoulFiend(), 0.0F, 1.0F, x.soulFiend, s.soulFiendBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityVamacheron.class, new RenderDivineBoss(new ModelVamacheron(), 0.0F, 3.0F, x.vamacheron, s.vamacheronBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityKarot.class, new RenderDivineBoss(new ModelKarot(), 0.0F, 5.0F, x.karot, s.karotBossID));
+        
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEdenChest.class, new RenderEdenChest());
+        MinecraftForgeClient.registerItemRenderer(Util.toItem(TwilightBlocks.edenChest), new ItemRendererEdenChest());
 	}	
 }
