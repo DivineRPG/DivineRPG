@@ -24,8 +24,7 @@ public class UpdateChecker {
 
 		versionFile.close();
 
-		if (!curVersion.contains(Reference.MOD_VERSION))
-			return true;
+		if (!curVersion.contains(Reference.MOD_VERSION)) return true;
 
 		return false;
 	}

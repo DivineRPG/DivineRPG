@@ -80,8 +80,8 @@ public class ItemTwilightSpawner extends ItemMod{
 					}
 				}
 			} else {
-				par2EntityPlayer.addChatMessage(Util.addChatMessage(Util.AQUA + "[" + Util.BLUE + "DivineRPG" + Util.AQUA + "] " + Util.GREEN + "This item can only be used in one of the"));
-				par2EntityPlayer.addChatMessage(Util.addChatMessage(Util.GREEN + "twilight dimensions!"));
+				par2EntityPlayer.addChatMessage(Util.getChatComponent(Util.AQUA + "[" + Util.BLUE + "DivineRPG" + Util.AQUA + "] " + Util.GREEN + "This item can only be used in one of the"));
+				par2EntityPlayer.addChatMessage(Util.getChatComponent(Util.GREEN + "twilight dimensions!"));
 			}
 		}
 		return false;

@@ -65,16 +65,16 @@ public class EntityHungerHungry extends EntityDivineRPGVillager {
 	public void interact(Util api, EntityPlayer var2) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
-			var2.addChatMessage(api.addChatMessage("The Hunger: Mmm. I'm hungry."));
+			var2.addChatMessage(api.getChatComponent("The Hunger: Mmm. I'm hungry."));
 			break;
 		case 1:
-			var2.addChatMessage(api.addChatMessage("The Hunger: Can you come a little closer?"));
+			var2.addChatMessage(api.getChatComponent("The Hunger: Can you come a little closer?"));
 			break;
 		case 2:
-			var2.addChatMessage(api.addChatMessage("The Hunger: You need to fatten yourself up."));
+			var2.addChatMessage(api.getChatComponent("The Hunger: You need to fatten yourself up."));
 			break;
 		case 3:
-			var2.addChatMessage(api.addChatMessage("The Hunger: Let's go out to dinner. You'll be cooking."));
+			var2.addChatMessage(api.getChatComponent("The Hunger: Let's go out to dinner. You'll be cooking."));
 			break;
 		}
 	}

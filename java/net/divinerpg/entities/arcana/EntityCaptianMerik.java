@@ -25,22 +25,22 @@ public class EntityCaptianMerik extends EntityDivineRPGVillager {
 	public void interact(Util var1, EntityPlayer var2) {
 		switch (this.rand.nextInt(6)) {
 		case 0:
-			var2.addChatMessage(var1.addChatMessage("Captian Merik: Like my sword? You should."));
+			var2.addChatMessage(var1.getChatComponent("Captian Merik: Like my sword? You should."));
 			break;
 		case 1:
-			var2.addChatMessage(var1.addChatMessage("Captian Merik: Datticon thinks I'm stealing his technology for my weapons, my technology is beyond his."));
+			var2.addChatMessage(var1.getChatComponent("Captian Merik: Datticon thinks I'm stealing his technology for my weapons, my technology is beyond his."));
 			break;
 		case 2:
-			var2.addChatMessage(var1.addChatMessage("Captian Merik: Hurry up, I've got work to do."));
+			var2.addChatMessage(var1.getChatComponent("Captian Merik: Hurry up, I've got work to do."));
 			break;
 		case 3:
-			var2.addChatMessage(var1.addChatMessage("Captian Merik: Want real protection? My armor does it all."));
+			var2.addChatMessage(var1.getChatComponent("Captian Merik: Want real protection? My armor does it all."));
 			break;
 		case 4:
-			var2.addChatMessage(var1.addChatMessage("Captian Merik: I've been in more battles than this dungeon has creatures."));
+			var2.addChatMessage(var1.getChatComponent("Captian Merik: I've been in more battles than this dungeon has creatures."));
 			break;
 		case 5:
-			var2.addChatMessage(var1.addChatMessage("Captian Merik: If you see the phoenix, let me know, it's just another day for me."));
+			var2.addChatMessage(var1.getChatComponent("Captian Merik: If you see the phoenix, let me know, it's just another day for me."));
 			break;
 		}
 	}

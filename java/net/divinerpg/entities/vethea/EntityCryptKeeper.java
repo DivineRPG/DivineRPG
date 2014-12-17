@@ -26,19 +26,19 @@ public class EntityCryptKeeper extends EntityGive {
 		if(!this.worldObj.isRemote) {
 			switch (this.rand.nextInt(5)) {
 			case 0:
-				var1.addChatMessage(Util.addChatMessage("Crypt Keeper: You're safer down here."));
+				var1.addChatMessage(Util.getChatComponent("Crypt Keeper: You're safer down here."));
 				break;
 			case 1:
-				var1.addChatMessage(Util.addChatMessage("Crypt Keeper: Beware of the higher layers."));
+				var1.addChatMessage(Util.getChatComponent("Crypt Keeper: Beware of the higher layers."));
 				break;
 			case 2:
-				var1.addChatMessage(Util.addChatMessage("Crypt Keeper: Take this reward, use it wisely."));
+				var1.addChatMessage(Util.getChatComponent("Crypt Keeper: Take this reward, use it wisely."));
 				break;
 			case 3:
-				var1.addChatMessage(Util.addChatMessage("Crypt Keeper: What the future holds is dark."));
+				var1.addChatMessage(Util.getChatComponent("Crypt Keeper: What the future holds is dark."));
 				break;
 			case 4:
-				var1.addChatMessage(Util.addChatMessage("Crypt Keeper: This isn't a nice world."));
+				var1.addChatMessage(Util.getChatComponent("Crypt Keeper: This isn't a nice world."));
 				break;
 			}
 		}

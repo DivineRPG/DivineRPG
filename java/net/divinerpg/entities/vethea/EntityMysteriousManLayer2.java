@@ -23,16 +23,16 @@ public class EntityMysteriousManLayer2 extends EntityGive {
 	public void Interact(EntityPlayer var1) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
-			var1.addChatMessage(Util.addChatMessage("Mysterious Man: You're progressing, good good."));
+			var1.addChatMessage(Util.getChatComponent("Mysterious Man: You're progressing, good good."));
 			break;
 		case 1:
-			var1.addChatMessage(Util.addChatMessage("Mysterious Man: Can you hear the screams and roars from above?"));
+			var1.addChatMessage(Util.getChatComponent("Mysterious Man: Can you hear the screams and roars from above?"));
 			break;
 		case 2:
-			var1.addChatMessage(Util.addChatMessage("Mysterious Man: Everytime you infuse something, the gods become stronger."));
+			var1.addChatMessage(Util.getChatComponent("Mysterious Man: Everytime you infuse something, the gods become stronger."));
 			break;
 		case 3:
-			var1.addChatMessage(Util.addChatMessage("Mysterious Man: The gods are using your dreams as a battlefield."));
+			var1.addChatMessage(Util.getChatComponent("Mysterious Man: The gods are using your dreams as a battlefield."));
 		}
 	}
 

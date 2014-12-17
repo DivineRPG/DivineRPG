@@ -20,7 +20,7 @@ public class ConfigurationHelper {
     }
 
     public static boolean keepLoadingEden, keepLoadingWildwood, keepLoadingApalachia, keepLoadingSkythern, keepLoadingMortum, keepLoadingVethea, keepLoadingArcana, keepLoadingIceika;
-    public static boolean canShowDeathChat, canShowVanillaDeathChat, canShowIngameVersion, showItemsBetter, canShowWelcomeChat;
+    public static boolean canShowDeathChat, canShowVanillaDeathChat, canShowIngameVersion, showItemsBetter;
 
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
@@ -60,7 +60,6 @@ public class ConfigurationHelper {
         canShowVanillaDeathChat = cfg.get("GUI", "Can show death chat for vanilla mobs", false).getBoolean(true);
         canShowIngameVersion = cfg.get("GUI", "Can show in-game version text in top left corner", true).getBoolean(true);
         showItemsBetter = cfg.get("Items", "Can show held items to look better in full 3D when held", false).getBoolean(false);
-        canShowWelcomeChat = cfg.get("GUI", "Can show welcome chat upon login", true).getBoolean(true);
         arcanaX = 111;
         arcanaY = 18;
     }

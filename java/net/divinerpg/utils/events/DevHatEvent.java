@@ -1,5 +1,6 @@
 package net.divinerpg.utils.events;
 
+import net.divinerpg.utils.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -17,7 +18,7 @@ public class DevHatEvent {
 	
 	@SubscribeEvent
 	public void playerRender(RenderPlayerEvent.Pre evt) {
-		if(isDeveloperName(evt.entityPlayer.getCommandSenderName())) {
+		if(Util.isDeveloperName(evt.entityPlayer.getCommandSenderName())) {
 			GL11.glPushMatrix();
 			GL11.glRotatef(-evt.entityPlayer.rotationYawHead, 0, 1, 0);
 			GL11.glTranslatef(0f, -0.1f, 0f);
@@ -28,9 +29,5 @@ public class DevHatEvent {
 			hat.renderAll();
 			GL11.glPopMatrix();
 		}
-	}
-
-	public static boolean isDeveloperName(String name) {
-		return name.equals("Doomturd") || name.equals("XolovA") || name.equals("geekclb") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all") || name.equals("deathman12e3") || name.equals("Fire_Sight") || name.equals("iTzaKiLLsHoT");
 	}
 }

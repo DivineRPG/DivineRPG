@@ -1,7 +1,6 @@
 package net.divinerpg.utils;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.recipes.CraftingDivineTableManager;
@@ -13,21 +12,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
 import net.minecraftforge.fluids.FluidRegistry;
-import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -98,8 +94,8 @@ public class Util {
         return ret;
     }
 
-    public static ChatComponentTranslation addChatMessage(String str) {
-        ChatComponentTranslation ret = new ChatComponentTranslation(str);
+    public static IChatComponent getChatComponent(String str) {
+        ChatComponentText ret = new ChatComponentText(str);
         return ret;
     }
 
@@ -167,6 +163,10 @@ public class Util {
     public static Item toItem(Block block){
         return Item.getItemFromBlock(block);
     }
+    
+    public static boolean isDeveloperName(String name) {
+		return name.equals("Doomturd") || name.equals("XolovA") || name.equals("geekclb") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all") || name.equals("deathman12e3") || name.equals("Fire_Sight") || name.equals("iTzaKiLLsHoT");
+	}
     
     public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {
         float f = 0.00390625F;

@@ -28,12 +28,9 @@ import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.events.DevHatEvent;
-import net.divinerpg.utils.events.EventClientLogin;
 import net.divinerpg.utils.events.EventFog;
 import net.divinerpg.utils.events.EventOverlay;
-import net.divinerpg.utils.events.EventStaffLogin;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityPortalFX;
@@ -50,8 +47,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInitClient(FMLPreInitializationEvent event) {
         LogHelper.info("Adding events");
-        if(ConfigurationHelper.canShowWelcomeChat) Util.postForgeEvent(new EventClientLogin());
-        else Util.postForgeEvent(new EventStaffLogin());
         Util.postFMLEvent(new ClientTickHandler());
         Util.postFMLEvent(new ArcanaRenderer());
         

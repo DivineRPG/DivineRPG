@@ -80,16 +80,16 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 		if(!this.worldObj.isRemote) {
             switch(this.rand.nextInt(4)) {
         	case 0:
-        		p.addChatMessage(Util.addChatMessage("Jack'O Man: BOO!"));
+        		p.addChatMessage(Util.getChatComponent("Jack'O Man: BOO!"));
         		break;
         	case 1:
-        		p.addChatMessage(Util.addChatMessage("Jack'O Man: I seem to have lost my head."));
+        		p.addChatMessage(Util.getChatComponent("Jack'O Man: I seem to have lost my head."));
         		break;
         	case 2:
-        		p.addChatMessage(Util.addChatMessage("Jack'O Man: HURAH!"));
+        		p.addChatMessage(Util.getChatComponent("Jack'O Man: HURAH!"));
         		break;
         	case 3:
-        		p.addChatMessage(Util.addChatMessage("Jack'O Man: Have you seen my head?"));
+        		p.addChatMessage(Util.getChatComponent("Jack'O Man: Have you seen my head?"));
         		break;
         	}            
 		}

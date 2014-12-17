@@ -49,16 +49,16 @@ public class EntityZelus extends EntityDivineRPGVillager {
 	public void interact(Util api, EntityPlayer var1) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
-			var1.addChatMessage(Util.addChatMessage("Zelus: Have you seen Leorna lately? She's looking mighty fine as far as I can tell."));
+			var1.addChatMessage(Util.getChatComponent("Zelus: Have you seen Leorna lately? She's looking mighty fine as far as I can tell."));
 			break;
 		case 1:
-			var1.addChatMessage(Util.addChatMessage("Zelus: My minions will overun any world."));
+			var1.addChatMessage(Util.getChatComponent("Zelus: My minions will overun any world."));
 			break;
 		case 2:
-			var1.addChatMessage(Util.addChatMessage("Zelus: I'm thinking of giving Leorna a flower, she won't find it too fancy though."));
+			var1.addChatMessage(Util.getChatComponent("Zelus: I'm thinking of giving Leorna a flower, she won't find it too fancy though."));
 			break;
 		case 3:
-			var1.addChatMessage(Util.addChatMessage("Zelus: I've always wondered, does Leorna like plants because she almost is one?"));
+			var1.addChatMessage(Util.getChatComponent("Zelus: I've always wondered, does Leorna like plants because she almost is one?"));
 			break;
 		}
 	}

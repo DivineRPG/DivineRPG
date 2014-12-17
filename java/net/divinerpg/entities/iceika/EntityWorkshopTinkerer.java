@@ -60,16 +60,16 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 	public void interact(Util api, EntityPlayer p) {
 		switch(this.rand.nextInt(4)) {
 		case 0:
-			p.addChatMessage(api.addChatMessage("Tinkerer: Hohoho."));
+			p.addChatMessage(api.getChatComponent("Tinkerer: Hohoho."));
 			break;
 		case 1:
-			p.addChatMessage(api.addChatMessage("Tinkerer: It's cold outside."));
+			p.addChatMessage(api.getChatComponent("Tinkerer: It's cold outside."));
 			break;
 		case 2:
-			p.addChatMessage(api.addChatMessage("Tinkerer: It's cold inside."));
+			p.addChatMessage(api.getChatComponent("Tinkerer: It's cold inside."));
 			break;
 		case 3:
-			p.addChatMessage(api.addChatMessage("Tinkerer: Burr!"));
+			p.addChatMessage(api.getChatComponent("Tinkerer: Burr!"));
 			break;
 		}
 	}

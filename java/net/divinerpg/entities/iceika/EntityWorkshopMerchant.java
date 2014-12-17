@@ -23,16 +23,16 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 	public void interact(Util api, EntityPlayer p) {
 		switch(this.rand.nextInt(4)) {
 		case 0:
-			p.addChatMessage(Util.addChatMessage("Merchant: Hohoho."));
+			p.addChatMessage(Util.getChatComponent("Merchant: Hohoho."));
 			break;
 		case 1:
-			p.addChatMessage(Util.addChatMessage("Merchant: It's cold outside."));
+			p.addChatMessage(Util.getChatComponent("Merchant: It's cold outside."));
 			break;
 		case 2:
-			p.addChatMessage(Util.addChatMessage("Merchant: It's cold inside."));
+			p.addChatMessage(Util.getChatComponent("Merchant: It's cold inside."));
 			break;
 		case 3:
-			p.addChatMessage(Util.addChatMessage("Merchant: Burr!"));
+			p.addChatMessage(Util.getChatComponent("Merchant: Burr!"));
 			break;
 		}
 	}

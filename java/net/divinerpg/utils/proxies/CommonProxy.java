@@ -41,6 +41,7 @@ import net.divinerpg.utils.events.EventArmorFullSet;
 import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.EventBonemeal;
 import net.divinerpg.utils.events.EventBucketFill;
+import net.divinerpg.utils.events.EventClientLogin;
 import net.divinerpg.utils.events.EventDeath;
 import net.divinerpg.utils.events.EventHarvest;
 import net.divinerpg.utils.events.EventLightning;
@@ -84,6 +85,7 @@ public class CommonProxy{
         Util.postForgeEvent(new EntityConstructorEvent());
         Util.postForgeEvent(new EventTooltip());
         Util.postForgeEvent(new EventLightning());
+        Util.postForgeEvent(new EventClientLogin());
 		LogHelper.info("Registering tile entities");
 		ItemsFood.init();
 		VanillaBlocks.init();

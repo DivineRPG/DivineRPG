@@ -26,19 +26,19 @@ public class EntityDatticon extends EntityDivineRPGVillager {
 	public void interact(Util var1, EntityPlayer var2) {
 		switch (this.rand.nextInt(5)) {
 		case 0:
-			var2.addChatMessage(var1.addChatMessage("Datticon: Keep an eye on Merik, he's stealing my technology."));
+			var2.addChatMessage(var1.getChatComponent("Datticon: Keep an eye on Merik, he's stealing my technology."));
 			break;
 		case 1:
-			var2.addChatMessage(var1.addChatMessage("Datticon: Do you need something hotter than hell? I've come up with this new furnace."));
+			var2.addChatMessage(var1.getChatComponent("Datticon: Do you need something hotter than hell? I've come up with this new furnace."));
 			break;
 		case 2:
-			var2.addChatMessage(var1.addChatMessage("Datticon: Those other fools think it's all magic, I use science!"));
+			var2.addChatMessage(var1.getChatComponent("Datticon: Those other fools think it's all magic, I use science!"));
 			break;
 		case 3:
-			var2.addChatMessage(var1.addChatMessage("Datticon: That doesn't need to be plugged in."));
+			var2.addChatMessage(var1.getChatComponent("Datticon: That doesn't need to be plugged in."));
 			break;
 		case 4:
-			var2.addChatMessage(var1.addChatMessage("Datticon: I tried using redstone, but it's primitive."));
+			var2.addChatMessage(var1.getChatComponent("Datticon: I tried using redstone, but it's primitive."));
 			break;
 		}
 	}

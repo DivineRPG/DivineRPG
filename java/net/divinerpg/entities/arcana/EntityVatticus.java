@@ -26,19 +26,19 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 	public void interact(Util var1, EntityPlayer p) {
 		switch (this.rand.nextInt(5)) {
 		case 0:
-			p.addChatMessage(var1.addChatMessage("Lord Vatticus: Can you feel the empowerment of the arcanium around you?"));
+			p.addChatMessage(var1.getChatComponent("Lord Vatticus: Can you feel the empowerment of the arcanium around you?"));
 			break;
 		case 1:
-			p.addChatMessage(var1.addChatMessage("Lord Vatticus: I hear there's no end to this place, there's no end to me either."));
+			p.addChatMessage(var1.getChatComponent("Lord Vatticus: I hear there's no end to this place, there's no end to me either."));
 			break;
 		case 2:
-			p.addChatMessage(var1.addChatMessage("Lord Vatticus: Arcana come upon me, give me the ultimate strength!"));
+			p.addChatMessage(var1.getChatComponent("Lord Vatticus: Arcana come upon me, give me the ultimate strength!"));
 			break;
 		case 3:
-			p.addChatMessage(var1.addChatMessage("Lord Vatticus: I've discovered how to awake the ancient leader of the dungeon."));
+			p.addChatMessage(var1.getChatComponent("Lord Vatticus: I've discovered how to awake the ancient leader of the dungeon."));
 			break;
 		case 4:
-			p.addChatMessage(var1.addChatMessage("Lord Vatticus: Hurr drah drah, magic."));
+			p.addChatMessage(var1.getChatComponent("Lord Vatticus: Hurr drah drah, magic."));
 			break;
 		}
 	}

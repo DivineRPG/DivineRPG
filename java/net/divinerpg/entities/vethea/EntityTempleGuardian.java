@@ -17,19 +17,19 @@ public class EntityTempleGuardian extends EntityGive {
 		if(!this.worldObj.isRemote) {
 			switch (this.rand.nextInt(5)) {
 			case 0:
-				Util.addChatMessage("Temple Guardian: You are moving upwards, beware of the imminent danger.");
+				Util.getChatComponent("Temple Guardian: You are moving upwards, beware of the imminent danger.");
 				break;
 			case 1:
-				Util.addChatMessage("Temple Guardian: These places aren't for you.");
+				Util.getChatComponent("Temple Guardian: These places aren't for you.");
 				break;
 			case 2:
-				Util.addChatMessage("Temple Guardian: This is dangerous, what are you doing here?");
+				Util.getChatComponent("Temple Guardian: This is dangerous, what are you doing here?");
 				break;
 			case 3:
-				Util.addChatMessage("Temple Guardian: Temples are suited for humans.");
+				Util.getChatComponent("Temple Guardian: Temples are suited for humans.");
 				break;
 			case 4:
-				Util.addChatMessage("Temple Guardian: They are getting closer to killing you.");
+				Util.getChatComponent("Temple Guardian: They are getting closer to killing you.");
 				break;
 			}
 		}
