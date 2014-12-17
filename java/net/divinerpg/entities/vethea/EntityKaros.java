@@ -246,8 +246,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 			return Sounds.tryYourBest.getPrefixedName();
 		default:
 			if(!this.worldObj.isRemote){
-			Util.sendMessageToAll("Dr. Karos: You can't kill me! You weak excuse for a");
-			Util.sendMessageToAll("human.", true);
+			Util.sendMessageToAll("Dr. Karos: You can't kill me! You weak excuse for a human");
 			}
 			return Sounds.youCantKillMe.getPrefixedName();
 		}

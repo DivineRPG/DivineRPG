@@ -56,9 +56,8 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 		addAttackingAI();
 		ability = DEFAULT;
 		if(!this.worldObj.isRemote){
-			Util.sendMessageToAll("Wreck: You best to have power");
-			Util.sendMessageToAll("while you still have the chance to live.", true);
-			Util.sendMessageToAll("I do love the smell of death!", true);
+			Util.sendMessageToAll("Wreck: You should run while you still have the chance to live.");
+			Util.sendMessageToAll("I do love the smell of death!");
 		}
 		this.playSound(Sounds.wreckIntro.getPrefixedName(), 1.0F, 1.0F);
 		stage = MELEE;
@@ -229,8 +228,7 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 				case FREEZE:
 					this.playSound(Sounds.stopAtOnce.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll("Wreck: Stop at once in the name");
-						Util.sendMessageToAll("of the great Arksiane!", true);
+						Util.sendMessageToAll("Wreck: Stop at once in the name of the great Arksiane!");
 					}
 					break;
 				case SPEED:

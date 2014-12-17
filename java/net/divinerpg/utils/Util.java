@@ -120,14 +120,6 @@ public class Util {
     	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
     }
     
-    /*public static void sendMessageToAll(String message) {
-        FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
-    }*/
-    
-    public static void sendMessageToAll(String message, boolean isContinued) {
-        FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(new ChatComponentTranslation(GREEN + message));
-    }
-
     public static ToolMaterial addMeleeMaterial(int maxUses, float damage, int enchantability) {
         return EnumHelper.addEnum(ToolMaterial.class, "", 0, maxUses, 0, damage - 5, enchantability);
     }
