@@ -273,6 +273,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 6), new Object[] { Blocks.glowstone, VanillaItemsOther.moltenStone });
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 3), new Object[] { Blocks.glowstone, VanillaItemsOther.bluefireStone });
 		
+		addRecipe(new ItemStack(VanillaBlocks.boneChest, 1), new Object[]{"bbb", "b b", "bbb", 'b', Items.bone});
+		
 		addRecipe(IS.bedrock, "OOO", "OBO", " OO", 'O', Blocks.obsidian, 'B', VanillaBlocks.rupeeBlock);
 		addSmelting(VanillaBlocks.realmiteOre, VanillaItemsOther.realmiteIngot, 0.7F);
 		addSmelting(VanillaBlocks.arlemiteOre, VanillaItemsOther.arlemiteIngot, 1.0F);

@@ -10,6 +10,7 @@ import net.divinerpg.utils.items.TwilightItemsTools;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class TwilightRecipeHelper extends RecipeUtil {
 	
@@ -38,6 +39,8 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightBlocks.apalachiaBlock, "III", "III", "III", 'I', TwilightItemsOther.apalachiaFragments);
 		addRecipe(TwilightBlocks.skythernBlock, "III", "III", "III", 'I', TwilightItemsOther.skythernFragments);
 		addRecipe(TwilightBlocks.mortumBlock, "III", "III", "III", 'I', TwilightItemsOther.mortumFragments);
+		
+		addRecipe(new ItemStack(TwilightBlocks.edenChest, 1), new Object[]{"bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments});
 
 		//Eden (Dravite)
 		addRecipe(IS.edenHead, "III", "III", "I I", 'I', TwilightItemsOther.edenChunk);
