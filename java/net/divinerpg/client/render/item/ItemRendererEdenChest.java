@@ -33,11 +33,18 @@ public class ItemRendererEdenChest implements IItemRenderer {
 		GL11.glPushMatrix();
 		switch(type) {
 		case INVENTORY:
-			GL11.glRotatef(0F, 0.0F, 0.0F, 1.0F);
-			GL11.glTranslatef(0.0F, -0.1F, 0.0F);
+			GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
+			GL11.glRotatef(180F, 1.0F, 0.0F, 0.0F);
+			GL11.glTranslatef(0.0F, -0.1F, 0F);
+			break;
 		case EQUIPPED:
 			GL11.glRotatef(180F, 0.0F, 0.0F, 0.1F);
-			GL11.glTranslatef(-1.0F, -1.0F, -0.0F);
+			GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
+			GL11.glTranslatef(-1.0F, -1.0F, -1.0F);
+			break;
+		case ENTITY:
+			GL11.glRotatef(180F, 1.0F, 0.0F, 0F);
+			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 		default:
 		}
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
