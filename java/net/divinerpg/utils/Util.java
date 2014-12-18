@@ -116,6 +116,10 @@ public class Util {
     	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
     }
     
+    public static void sendMessageToAll(String message, String color) {
+    	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + color + message));
+    }
+    
     public static ToolMaterial addMeleeMaterial(int maxUses, float damage, int enchantability) {
         return EnumHelper.addEnum(ToolMaterial.class, "", 0, maxUses, 0, damage - 5, enchantability);
     }

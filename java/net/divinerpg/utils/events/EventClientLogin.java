@@ -23,7 +23,7 @@ public class EventClientLogin {
 	@SubscribeEvent
 	public void onPlayerLogin(EntityJoinWorldEvent e) {
 		if (e.entity instanceof EntityPlayer) {
-			EntityPlayer p = (EntityPlayer) e.entity;
+			EntityPlayer p = (EntityPlayer)e.entity;
 			if (!p.worldObj.isRemote) {
 				if(!hasSeen) {
 					try {
@@ -33,7 +33,6 @@ public class EventClientLogin {
 							} else {
 								p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 							}
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "[Version: " + Reference.MOD_VERSION + "]"));
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Unable to check for latest version, you may want to check your internet connection!"));
 						}
 						if(UpdateChecker.isUpdateAvailable() && UpdateChecker.isOnline()) {
@@ -43,17 +42,14 @@ public class EventClientLogin {
 							BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
 							String curVersion = versionFile.readLine();
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[Version: " + Reference.MOD_VERSION + "]"));
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.YELLOW, "A DivineRPG update is avaliable."));
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.YELLOW, "[New Version: " + curVersion + "]")); 
+							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "A DivineRPG update is avaliable."));
+							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[New Version: " + curVersion + "]")); 
 						}
 						if((!UpdateChecker.isUpdateAvailable()) && UpdateChecker.isOnline()) {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you "  + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "[Version: " + Reference.MOD_VERSION + "]"));
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.GREEN, "DivineRPG is up to date."));
 						}
 					} catch (MalformedURLException e1) {
 						e1.printStackTrace();
