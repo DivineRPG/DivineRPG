@@ -8,13 +8,13 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockVetheaPlant extends BlockMod implements IPlantable{
@@ -34,6 +34,14 @@ public class BlockVetheaPlant extends BlockMod implements IPlantable{
     public boolean canBlockStay(World w, int x, int y, int z) {
         return w.getBlock(x, y - 1, z) == VetheaBlocks.dreamGrass;
     }
+	
+	@Override
+	public void onNeighborBlockChange(World w, int x, int y, int z, Block b) {
+		if(!this.canBlockStay(w, x, y, z)){
+			w.setBlockToAir(x, y, z);
+			this.dropBlockAsItem(w, x, y, z, new ItemStack(this));
+		}
+	}
 
 	@Override
 	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {

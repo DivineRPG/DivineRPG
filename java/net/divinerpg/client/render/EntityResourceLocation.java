@@ -175,6 +175,7 @@ public class EntityResourceLocation {
     public static ResourceLocation TWINS 			 = addMob("twins");
     public static ResourceLocation QUADRO 			 = addMob("quadro");
     public static ResourceLocation GALROID 			 = addMob("galroid");
+    public static ResourceLocation GALROID_INVULNERABLE= addMob("galroidInvulnerable");
     public static ResourceLocation HERBOMANCER 		 = addMob("herbomancer");
     public static ResourceLocation KAROS 		     = addMob("karos");
     public static ResourceLocation LHEIVA 		     = addMob("lheiva");

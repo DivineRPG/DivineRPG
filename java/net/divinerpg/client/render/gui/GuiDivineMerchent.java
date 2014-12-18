@@ -34,7 +34,8 @@ public class GuiDivineMerchent extends GuiContainer {
 	private GuiDivineMerchent.ModMerchantButton nextRecipeButtonIndex;
 	private GuiDivineMerchent.ModMerchantButton previousRecipeButtonIndex;
 	private int currentRecipeIndex = 0;
-    private String name, texture;
+    protected String name;
+	private String texture;
 
 	public GuiDivineMerchent(ContainerDivineMerchant container, IMerchant mer, String name, String tex) {
 		super(container);

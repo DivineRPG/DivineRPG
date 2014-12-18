@@ -7,7 +7,7 @@ public class BiomeGenVethea extends BiomeGenBase {
 	
     public BiomeGenVethea(int var1) {
         super(var1);
-        this.setBiomeName("Vethea");
+        this.setBiomeName("Arksiane");
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.topBlock = VetheaBlocks.dreamGrass;

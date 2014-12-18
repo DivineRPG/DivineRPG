@@ -38,9 +38,7 @@ public class VetheanChunkBuilder {
 	private static IVetheanStructure floatingTree5 = new FloatingTree5();
 	private static IVetheanStructure floatingTree6 = new FloatingTree6();
 	private static IVetheanStructure floatingTree7 = new FloatingTree7();
-	
-	private static IVetheanStructure ceilingTexture = new CeilingTexture();
-	
+		
 	private static IVetheanStructure infusion = new InfusionOutpost();
 	private static IVetheanStructure[] lamps = {new Lamp1(), new Lamp2()};
 	private static IVetheanStructure[] items = {new Bow(), new Hook(), new Mushroom(), new Pickaxe(), new Pointedsquare(), new Ring(), new Sword(), new Trident()};
@@ -105,7 +103,6 @@ public class VetheanChunkBuilder {
 	private boolean containsl2Tree = false;
 
 	public Block[][][] buildChunk(int chunkX, int chunkZ){
-		System.out.println("HEYO");
 		
 		Block[][][] chunk = new Block[16][256][16];
 		
@@ -344,10 +341,6 @@ public class VetheanChunkBuilder {
 					if(!containsl2Tree && !containsInfusionTableL2 && !containsLampL2 && !containsItemL2 && !containsPillarL2 && y == 65 && rand.nextInt(250) == 0 && x == 0 && z == 0){
 						containsl2Tree = true;
 						l2Trees[this.rand.nextInt(2)].generate(chunk, x, y, z);
-					}
-					
-					if(y == 48 && rand.nextInt(10) == 0 && x > 7 && x < 9 && z > 7 && z < 9){
-						ceilingTexture.generate(chunk, x, y, z);
 					}
 
 				}

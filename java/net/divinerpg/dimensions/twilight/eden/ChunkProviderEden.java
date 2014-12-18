@@ -346,7 +346,6 @@ public class ChunkProviderEden implements IChunkProvider{
 				}
 			}
 			if(stone){
-				System.out.println(var13 + ", " + var15);
 				new WorldGenConeUp(VanillaBlocks.divineMossystone).generate(this.worldObj, this.rand, var13+7, var14-5, var15+7, this.rand.nextInt(5)+5);
 			}
 		}

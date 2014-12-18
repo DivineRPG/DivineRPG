@@ -2,31 +2,38 @@ package net.divinerpg.dimensions.vethea.all;
 
 import java.util.Random;
 
-import net.divinerpg.dimensions.vethea.IVetheanStructure;
+import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class CeilingTexture implements IVetheanStructure
+public class CeilingTexture extends WorldGenerator
 {
+	private final Block block;
 	private int height;
-	private static Random rand = new Random();
 
-	@Override
-	public void generate(Block[][][] chunk, int par3, int par4, int par5) {
-		int var2 = height;
-		height = rand.nextInt(7)+1;
-		while(chunk[par3][par4][par5] == null){
-			height--;
-			for (int i = 0; i < var2; i++) {
-				this.placeBlockCircle(chunk, par3, par4 + i, par5, var2 - i);
-			}
-		}
+	public CeilingTexture(Block b) {
+		block = b;
 	}
 
-	void placeBlockCircle (Block[][][] chunk, int x, int y, int z, int radius) {
-		for (float i = 0; i < radius; i += 0.5) {
+	@Override
+	public boolean generate(World world, Random rand, int x, int y, int z) {
+		int var2 = rand.nextInt(4) + height;
+		for (int i = 0; i < var2; i++) {
+			this.placeBlockCircle(world, rand, x, y+i, z, var2-i);
+		}
+		return true;
+	}
+
+	public boolean generate(World world, Random rand, int x, int y, int z, int h) {
+		height = h;
+		return generate(world, rand, x, y, z);
+	}
+
+	void placeBlockCircle (World world, Random rand, int x, int y, int z, int radius) {
+		for (float i = 0; i < radius*4; i += 0.5) {
 			for (float j = 0; j < 2 * Math.PI * i; j += 0.5) {
-				chunk[(int)Math.floor(x + Math.sin(j) * i)][y][(int)Math.floor(z + Math.cos(j) * i)] = Blocks.air;
+				world.setBlock((int)Math.floor(x + Math.sin(j) * i), y, (int)Math.floor(z + Math.cos(j) * i), block);
 			}
 		}
 	}

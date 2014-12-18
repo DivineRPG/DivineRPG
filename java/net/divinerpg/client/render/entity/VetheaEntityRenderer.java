@@ -140,7 +140,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityZoragon.class, new RenderDivineMob(new Zoragon(), 0.0F, x.ZORAGON));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDissiment.class, new RenderDivineMob(new Dissiment(), 0.0F, x.DISSIMENT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityVhraak.class, new RenderDivineMob(new Vhraak(), 0.0F, x.VHRAAK));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGalroid.class, new RenderGalroid(new Galroid(), 0.0F, x.GALROID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGalroid.class, new RenderGalroid(new Galroid(), 0.0F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBohemite.class, new RenderDivineMob(new Boheimite(), 0.0F, x.BOHEMITE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBiphron.class, new RenderBiphron(new Biphron(), 0.0F, x.BIPHRON));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHiveSoldier.class, new RenderDivineMob(new HiveSoldier(), 0.0F, x.HIVE_SOLDIER));
@@ -156,7 +156,6 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityEhu.class, new RenderDivineMob(new Ehu(), 0.0F, x.EHU));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHusk.class, new RenderDivineMob(new Husk(), 0.0F, x.HUSK));
 		RenderingRegistry.registerEntityRenderingHandler(EntityStoneGolem.class, new RenderDivineMob(new StoneGolem(), 0.0F, x.STONE_GOLEM));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGalroid.class, new RenderDivineMob(new Galroid(), 0.0F, x.GALROID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHerbomancer.class, new RenderDivineMob(new Herbomancer(), 0.0F, x.HERBOMANCER));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLheiva.class, new RenderDivineMob(new Lheiva(), 0.0F, x.LHEIVA));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLorga.class, new RenderDivineMob(new Lorga(), 0.0F, x.LORGA));

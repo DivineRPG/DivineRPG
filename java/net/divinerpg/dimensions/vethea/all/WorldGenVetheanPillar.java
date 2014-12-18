@@ -12,7 +12,7 @@ public class WorldGenVetheanPillar implements IVetheanStructure {
 	
 	@Override
 	public void generate(Block[][][] par1, int par3, int par4, int par5) {
-		int var1 = 32;
+		int var1 = 34;
 		int var2 = rand.nextInt(4) + 3;
 		for (int i = 0; i < var1; i++) {
 			this.placeBlockCircle(par1, par3, i + par4, par5, Math.abs(((var1 / 2) - i)) / 5 + var2);

@@ -26,8 +26,9 @@ public class ItemVetheanSword extends ItemModSword {
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
         if (item.getMaxDamage() != -1) infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
         else infoList.add(Util.GREEN + "Infinite Uses");
+        if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+4 + " Melee Damage");
+    	else infoList.add(this.mat.getDamageVsEntity()+4 + " Melee Damage");
         if(this instanceof ItemVetheanClaw) infoList.add("Cannot block");
         infoList.add(Util.GREEN + "Vethean");
-        infoList.add(Util.RED + Reference.MOD_NAME);
     }
 }

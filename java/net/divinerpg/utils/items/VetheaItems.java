@@ -62,7 +62,7 @@ public class VetheaItems {
     public static final Item dreamSweets        = new ItemVetheanHealingFood(0, 0F, false, 2, "dreamSweets");
     public static final Item dreamSours         = new ItemVetheanHealingFood(0, 0F, false, 8, "dreamSours");
     public static final Item acid               = new ItemMod("acid").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item heviaBelt          = new ItemMod("heviaBelt").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Item heivaBelt          = new ItemMod("heivaBelt").setCreativeTab(DivineRPGTabs.vethea);
 
     public static final Item hammerTemplate     = new ItemMod("hammerTemplate").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item backswordTemplate  = new ItemMod("backswordTemplate").setCreativeTab(DivineRPGTabs.vethea);
