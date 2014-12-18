@@ -40,6 +40,10 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightBlocks.skythernBlock, "III", "III", "III", 'I', TwilightItemsOther.skythernFragments);
 		addRecipe(TwilightBlocks.mortumBlock, "III", "III", "III", 'I', TwilightItemsOther.mortumFragments);
 		
+		addShapelessRecipe(TwilightItemsOther.edenDust, TwilightBlocks.sunbloom);
+		addShapelessRecipe(TwilightItemsOther.edenDust, TwilightBlocks.edenBrush);
+		addShapelessRecipe(TwilightItemsOther.edenDust, TwilightBlocks.sunBlossom);
+		
 		addRecipe(new ItemStack(TwilightBlocks.edenChest, 1), new Object[]{"bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments});
 
 		//Eden (Dravite)

@@ -20,6 +20,7 @@ public class BiomeGenEden extends BiomeGenBase {
         this.spawnableCaveCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.theBiomeDecorator.treesPerChunk = 6;
+        this.waterColorMultiplier = 2368548;
 	}
 
     @Override

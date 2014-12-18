@@ -68,11 +68,6 @@ public class EntityWildWoodCadillion extends EntityPeacefullUntillAttacked {
 	}
 
 	@Override
-	protected boolean isValidLightLevel() {
-		return true;
-	}
-
-	@Override
 	public String mobName() {
 		return "Wild Wood Cadillion";
 	}

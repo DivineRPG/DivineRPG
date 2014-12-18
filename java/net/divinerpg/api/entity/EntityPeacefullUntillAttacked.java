@@ -48,6 +48,11 @@ public abstract class EntityPeacefullUntillAttacked extends EntityDivineRPGMob {
 	}
 	
 	@Override
+	public boolean isValidLightLevel() {
+		return true;
+	}
+	
+	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		if(this.angerLevel > 0)return super.attackEntityAsMob(entity);
 		return false;

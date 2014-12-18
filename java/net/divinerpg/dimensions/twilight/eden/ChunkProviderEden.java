@@ -21,6 +21,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
@@ -330,9 +331,11 @@ public class ChunkProviderEden implements IChunkProvider{
 		int var14;
 		int var15;
 		
+		if(this.rand.nextInt(5) == 0) {
 			var13 = var4 + this.rand.nextInt(16);
 			var15 = var5 + this.rand.nextInt(16);
 			var14 = this.worldObj.getHeightValue(var13, var15);
+			
 
 			
 			boolean stone = true;
@@ -342,8 +345,12 @@ public class ChunkProviderEden implements IChunkProvider{
 					if(!this.worldObj.getBlock(var13+n, var14-6, var15+m).isOpaqueCube()) stone = false;
 				}
 			}
-			if(stone) new WorldGenConeUp(VanillaBlocks.divineMossystone).generate(this.worldObj, this.rand, var13+7, var14-5, var15+7, this.rand.nextInt(5)+5);
-			
+			if(stone){
+				System.out.println(var13 + ", " + var15);
+				new WorldGenConeUp(VanillaBlocks.divineMossystone).generate(this.worldObj, this.rand, var13+7, var14-5, var15+7, this.rand.nextInt(5)+5);
+			}
+		}
+		
 		if (this.rand.nextInt(4) == 0) {
 			var13 = var4 + this.rand.nextInt(16) + 8;
 			var14 = this.rand.nextInt(128);
@@ -355,9 +362,30 @@ public class ChunkProviderEden implements IChunkProvider{
 
 		for (var13 = 0; var13 < 19; ++var13) {
 			var14 = var4 + this.rand.nextInt(16);
-			var15 = this.rand.nextInt(200);
+			var15 = this.rand.nextInt(128);
 			var16 = var5 + this.rand.nextInt(16);
 			(new WorldGenMinable(TwilightBlocks.edenOre, 11, TwilightBlocks.twilightStone)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (var13 = 0; var13 < 30; ++var13) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenFlowers(TwilightBlocks.sunbloom)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (var13 = 0; var13 < 30; ++var13) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenFlowers(TwilightBlocks.edenBrush)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (var13 = 0; var13 < 30; ++var13) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenFlowers(TwilightBlocks.sunBlossom)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
 		WorldGenEdenTree var17 = new WorldGenEdenTree(true);

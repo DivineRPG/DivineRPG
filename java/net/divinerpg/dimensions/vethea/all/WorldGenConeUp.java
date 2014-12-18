@@ -34,8 +34,8 @@ public class WorldGenConeUp extends WorldGenerator
 		for (float i = 0; i < radius; i += 0.5) {
 			for (float j = 0; j < 2 * Math.PI * i; j += 0.5) {
 				world.setBlock((int)Math.floor(x + Math.sin(j) * i), y, (int)Math.floor(z + Math.cos(j) * i), block);
-				if(rand.nextInt(4)==0)world.setBlock((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y+1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2), block);
-				if(rand.nextInt(4)==0)world.setBlock((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y-1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2), block);
+				if(rand.nextInt(6)==0)world.setBlock((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y+1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2), block);
+				if(rand.nextInt(6)==0)world.setBlock((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y-1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2), block);
 			}
 		}
 	}
