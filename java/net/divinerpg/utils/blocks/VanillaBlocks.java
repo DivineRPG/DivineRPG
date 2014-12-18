@@ -262,7 +262,7 @@ public class VanillaBlocks {
 		divineWood	  	  = new BlockModLog("divineLog");
 		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", true, DivineRPGTabs.blocks);
 		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
-		divineMossystone	  = new BlockMod("divineMossystone", 0.5F);
+		divineMossystone	  = new BlockMod("divineMossStone", 0.5F);
 		divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");
 		
 		altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");

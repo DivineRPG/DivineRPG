@@ -3,7 +3,9 @@ package net.divinerpg.dimensions.twilight.eden;
 import java.util.List;
 import java.util.Random;
 
+import net.divinerpg.dimensions.vethea.all.WorldGenConeUp;
 import net.divinerpg.utils.blocks.TwilightBlocks;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockSand;
@@ -23,7 +25,6 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderEden implements IChunkProvider{
@@ -328,12 +329,26 @@ public class ChunkProviderEden implements IChunkProvider{
 		int var13;
 		int var14;
 		int var15;
+		
+			var13 = var4 + this.rand.nextInt(16);
+			var15 = var5 + this.rand.nextInt(16);
+			var14 = this.worldObj.getHeightValue(var13, var15);
 
+			
+			boolean stone = true;
+			
+			for(int n = 0; n<14; n++) {
+				for(int m = 0; m<14; m++) {
+					if(!this.worldObj.getBlock(var13+n, var14-6, var15+m).isOpaqueCube()) stone = false;
+				}
+			}
+			if(stone) new WorldGenConeUp(VanillaBlocks.divineMossystone).generate(this.worldObj, this.rand, var13+7, var14-5, var15+7, this.rand.nextInt(5)+5);
+			
 		if (this.rand.nextInt(4) == 0) {
 			var13 = var4 + this.rand.nextInt(16) + 8;
 			var14 = this.rand.nextInt(128);
 			var15 = var5 + this.rand.nextInt(16) + 8;
-			(new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, var13, var14, var15);
+			(new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, var13, var14-3, var15);
 		}
 
 		int var16;

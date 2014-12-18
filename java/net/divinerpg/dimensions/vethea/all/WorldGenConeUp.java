@@ -17,26 +17,25 @@ public class WorldGenConeUp extends WorldGenerator
 	}
 
 	@Override
-	public boolean generate(World par1, Random par2, int par3, int par4, int par5) {
-		int var2 = par2.nextInt(4) + height;
-		while(par1.isAirBlock(par3, par4, par5)){
-			height--;
-			for (int i = 0; i < var2; i++) {
-				this.placeBlockCircle(par1, par3, par4 + i, par5, var2 - i);
-			}
+	public boolean generate(World world, Random rand, int x, int y, int z) {
+		int var2 = rand.nextInt(4) + height;
+		for (int i = 0; i < var2; i++) {
+			this.placeBlockCircle(world, rand, x, y+i, z, var2-i);
 		}
 		return true;
 	}
 
-	public boolean generate(World par1, Random par2, int par3, int par4, int par5, int h) {
+	public boolean generate(World world, Random rand, int x, int y, int z, int h) {
 		height = h;
-		return generate(par1, par2, par3, par4, par5);
+		return generate(world, rand, x, y, z);
 	}
 
-	void placeBlockCircle (World par1World, int x, int y, int z, int radius) {
+	void placeBlockCircle (World world, Random rand, int x, int y, int z, int radius) {
 		for (float i = 0; i < radius; i += 0.5) {
 			for (float j = 0; j < 2 * Math.PI * i; j += 0.5) {
-				par1World.setBlock((int)Math.floor(x + Math.sin(j) * i), y, (int)Math.floor(z + Math.cos(j) * i), block);
+				world.setBlock((int)Math.floor(x + Math.sin(j) * i), y, (int)Math.floor(z + Math.cos(j) * i), block);
+				if(rand.nextInt(4)==0)world.setBlock((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y+1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2), block);
+				if(rand.nextInt(4)==0)world.setBlock((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y-1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2), block);
 			}
 		}
 	}
