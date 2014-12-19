@@ -28,7 +28,7 @@ public class EventClientLogin {
 			if (!p.worldObj.isRemote) {
 				if(!hasSeen) {
 					try {
-						if(!UpdateChecker.isOnline() && !ConfigurationHelper.canShowIngameVersion){
+						if(!UpdateChecker.isOnline()){
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								p.addChatMessage(Util.getChatComponent(Util.AQUA + "Welcome DivineRPG developer!"));
 							} else {
@@ -36,7 +36,7 @@ public class EventClientLogin {
 							}
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Unable to check for latest version, you may want to check your internet connection!"));
 						}
-						else if(UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowIngameVersion) {
+						else if(UpdateChecker.isUpdateAvailable()) {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}
@@ -44,7 +44,7 @@ public class EventClientLogin {
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "A DivineRPG update is avaliable."));
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[New Version: " + UpdateChecker.getCurrentVersion() + "]")); 
 						}
-						else if(ConfigurationHelper.canShowIngameVersion) {
+						else {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}
