@@ -55,12 +55,12 @@ public class GUIOverlay {
 		ResourceLocation r = null;
 		switch(EventArmorFullSet.size) {
 		case 1:
-			System.out.println("LOL");
+			
 			r = set("half");
-			int x = res.getScaledWidth() - 225;
-			int y = res.getScaledHeight() - 50;
+			//int x = res.getScaledWidth() - 225;
+			//int y = res.getScaledHeight() - 50;
 			Minecraft.getMinecraft().getTextureManager().bindTexture(r);
-			Util.drawTexturedModalRect(x, y, 5, 5, 9, 9);
+			Util.drawTexturedModalRect(200, 200, 5, 5, 9, 9);
 			break;
 		}
 	}
