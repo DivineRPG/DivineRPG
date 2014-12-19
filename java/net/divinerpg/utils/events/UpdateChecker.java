@@ -19,13 +19,8 @@ import net.divinerpg.libs.Reference;
 public class UpdateChecker {
 
 	public static boolean isUpdateAvailable() throws IOException, MalformedURLException {
-		BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
-		String curVersion = versionFile.readLine();
-
-		versionFile.close();
-
-		if (!curVersion.contains(Reference.MOD_VERSION)) return true;
-
+		if (!getCurrentVersion().contains(Reference.MOD_VERSION)) 
+			return true;
 		return false;
 	}
 
@@ -43,5 +38,12 @@ public class UpdateChecker {
 			}
 		}
 		return false;
+	}
+	
+	public static String getCurrentVersion() throws MalformedURLException, IOException {
+		BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
+		String curVersion = versionFile.readLine();
+		versionFile.close();
+		return curVersion;
 	}
 }

@@ -28,7 +28,7 @@ public class GUIOverlay {
 				else if(UpdateChecker.isUpdateAvailable()) {
 					text = Reference.MOD_NAME + ": " + Util.DARK_RED + Reference.MOD_VERSION;
 					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_BLUE + text, 2, 2, 4210752);
-					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_RED + "Update Availble", 2, 12, 4210752);
+					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_RED + "Update Availble (" + UpdateChecker.getCurrentVersion() + ")", 2, 12, 4210752);
 				}
 				else {
 					text = Reference.MOD_NAME + ": " + Util.GREEN + Reference.MOD_VERSION;

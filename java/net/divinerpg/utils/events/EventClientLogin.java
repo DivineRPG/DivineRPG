@@ -40,11 +40,9 @@ public class EventClientLogin {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}
-							BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
-							String curVersion = versionFile.readLine();
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "A DivineRPG update is avaliable."));
-							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[New Version: " + curVersion + "]")); 
+							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[New Version: " + UpdateChecker.getCurrentVersion() + "]")); 
 						}
 						else if(ConfigurationHelper.canShowIngameVersion) {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
@@ -52,8 +50,6 @@ public class EventClientLogin {
 							}
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you "  + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 						}
-					} catch (MalformedURLException e1) {
-						e1.printStackTrace();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
