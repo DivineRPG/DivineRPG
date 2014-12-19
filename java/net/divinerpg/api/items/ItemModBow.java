@@ -17,6 +17,7 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
@@ -41,6 +42,8 @@ public class ItemModBow extends ItemBow {
     protected Item                         arrow;
     protected boolean                      needArrow = true;
     protected String arrowTex;
+    private String sound = "random.bow";
+    private boolean vethean = false;
 
     public ItemModBow(String name, int uses, int damageMin, int damageMax, Item arrow) {
         this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, arrow);
@@ -134,7 +137,7 @@ public class ItemModBow extends ItemBow {
             if (punchLevel > 0) entityarrow.setKnockbackStrength(punchLevel);
             if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0) entityarrow.setFire(100);
             if (!unbreakable) stack.damageItem(1, player);
-            world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + scaledItemUse * 0.5F);
+            world.playSoundAtEntity(player, this.sound, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + scaledItemUse * 0.5F);
             if (infiniteAmmo) entityarrow.canBePickedUp = 2;
             else player.inventory.consumeInventoryItem(arrow);
             if (!world.isRemote) world.spawnEntityInWorld(entityarrow);
@@ -153,8 +156,9 @@ public class ItemModBow extends ItemBow {
         if (speed > 1) list.add(speed + " Times Faster");
         if (speed < 1) list.add((1 / speed) + " Times Slower");
         list.add(!unbreakable ? (stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
-        if(this.arrowTex == "bluefireArrow") list.add(EnumChatFormatting.AQUA + "Exploding Arrows");
-        list.add(Util.DARK_AQUA + Reference.MOD_NAME);
+        if(this.arrowTex == "bluefireArrow" || this.arrowTex == "snowstormArrow") list.add(EnumChatFormatting.AQUA + "Exploding Arrows");
+        list.add(this.arrow == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.arrow.getUnlocalizedName() + ".name"));
+        if(this.vethean) list.add(Util.GREEN + "Vethean");
     }
 
     @Override
@@ -166,5 +170,15 @@ public class ItemModBow extends ItemBow {
         if (infiniteAmmo || player.inventory.hasItem(arrow) )
             player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         return stack;
+    }
+    
+    public ItemModBow setSound(String newSound) {
+    	this.sound = newSound;
+    	return this;
+    }
+    
+    public ItemModBow setVethean() {
+    	this.vethean = true;
+    	return this;
     }
 }

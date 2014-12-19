@@ -1851,6 +1851,11 @@
 
  "shadowSaber": {
   "category":"neutral","sounds": ["shadowSaber"] }
+,
+
+
+ "vetheaBow": {
+  "category":"neutral","sounds": ["vetheaBow"] }
 
 
 }

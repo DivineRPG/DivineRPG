@@ -24,6 +24,7 @@ public class EntityDreamwrecker extends EntityDivineRPGMob {
     public EntityDreamwrecker(World var1) {
         super(var1);
         addAttackingAI();
+        setSize(0.8f, 4);
     }
 
     @Override

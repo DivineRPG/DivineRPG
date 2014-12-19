@@ -11,9 +11,9 @@ import net.divinerpg.items.vethea.ItemVetheanEversight;
 import net.divinerpg.items.vethea.ItemVetheanFood;
 import net.divinerpg.items.vethea.ItemVetheanHealingFood;
 import net.divinerpg.items.vethea.ItemVetheanSword;
+import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 
 public class VetheaItems {
@@ -128,6 +128,16 @@ public class VetheaItems {
     public static final Item darvenArrow    	= new ItemMod("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item pardimalArrow  	= new ItemMod("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item karosArrow         = new ItemMod("karosArrow").setCreativeTab(DivineRPGTabs.vethea);
+    
+    public static final Item teakerBow        = new ItemModBow("teakerBow", -1, 2, 5, teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item amthrimisBow     = new ItemModBow("amthirmisBow", -1, 2, 7, teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item darvenBow        = new ItemModBow("darvenBow", -1, 3, 11, darvenArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item cermileBow       = new ItemModBow("cermileBow", -1, 4, 14, darvenArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item pardimalBow      = new ItemModBow("pardimalWarbow", -1, 5, 18, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item quadroticBow     = new ItemModBow("quadroticWarbow", -1, 6, 21, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item karosBow         = new ItemModBow("karosWarbow", -1, 7, 23, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item heliosisBow      = new ItemModBow("heliosisWrathbow", -1, 8, 28, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static final Item arksianeBow      = new ItemModBow("arksianeWrathbow", -1, 12, 36, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 
     public static final Item dreamFlint         = new ItemMod("dreamFlint").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item moonClock          = new ItemMod("moonClock").setCreativeTab(DivineRPGTabs.vethea);
