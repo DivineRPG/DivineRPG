@@ -19,7 +19,6 @@ public class RenderGalroid extends RenderLiving
     
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		System.out.println(entity.isEntityInvulnerable());
 		if(entity.isEntityInvulnerable()) return EntityResourceLocation.GALROID_INVULNERABLE;
 		return EntityResourceLocation.GALROID;
 	}
