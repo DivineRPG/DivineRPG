@@ -28,7 +28,7 @@ public class EventClientLogin {
 			if (!p.worldObj.isRemote) {
 				if(!hasSeen) {
 					try {
-						if(!UpdateChecker.isOnline()){
+						if(!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay){
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								p.addChatMessage(Util.getChatComponent(Util.AQUA + "Welcome DivineRPG developer!"));
 							} else {
@@ -36,7 +36,7 @@ public class EventClientLogin {
 							}
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Unable to check for latest version, you may want to check your internet connection!"));
 						}
-						else if(UpdateChecker.isUpdateAvailable()) {
+						else if(UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}

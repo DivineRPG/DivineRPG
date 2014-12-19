@@ -19,6 +19,7 @@ public class EventExtraArmor {
 	@SubscribeEvent
 	public void renderOverlay(RenderGameOverlayEvent.Post event){
 		if(event.isCancelable() || event.type != ElementType.EXPERIENCE) return;
-		gui.drawArmor();
+		if(EventArmorFullSet.size != 0)
+			gui.drawArmor();
 	}
 }

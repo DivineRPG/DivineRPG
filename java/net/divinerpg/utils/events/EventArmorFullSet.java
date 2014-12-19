@@ -42,7 +42,7 @@ public class EventArmorFullSet {
 
     private World                world;
     
-    public static int size = 0;
+    public static int size = 1;
     
     @SubscribeEvent
     public void onPlayerHurtEvent(LivingHurtEvent e) {

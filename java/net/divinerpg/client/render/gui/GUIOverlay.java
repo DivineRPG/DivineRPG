@@ -29,7 +29,7 @@ public class GUIOverlay {
 					text2 = Util.DARK_PURPLE + "Offline";
 				}
 				else if(UpdateChecker.isUpdateAvailable()) {
-					text2 = Util.BLUE + "DivineRPG: " + Util.DARK_RED + "Update Availble (" + UpdateChecker.getCurrentVersion() + ")";
+					text2 = Util.DARK_BLUE + "DivineRPG: " + Util.DARK_RED + "Update Availble (" + UpdateChecker.getCurrentVersion() + ")";
 				}
 				else {
 					text2 = "";
@@ -46,7 +46,7 @@ public class GUIOverlay {
 		GL11.glDisable(GL11.GL_BLEND);
 		
 		if(Minecraft.getMinecraft().gameSettings.showDebugInfo) {
-			Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(EnumChatFormatting.BLUE + text, 2, res.getScaledHeight()-117, 4210752);
+			Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(EnumChatFormatting.DARK_BLUE + text, 2, res.getScaledHeight()-117, 4210752);
 		} else if(!Minecraft.getMinecraft().gameSettings.showDebugInfo) {
 			Minecraft.getMinecraft().fontRenderer.drawString(text2, 2, 2, 4210752);
 		}
@@ -57,11 +57,9 @@ public class GUIOverlay {
 		case 1:
 			System.out.println("LOL");
 			r = set("half");
-			Minecraft mc = Minecraft.getMinecraft();
-			ScaledResolution sr = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
-			int x = sr.getScaledWidth() - 225;
-			int y = sr.getScaledHeight() - 50;
-			mc.getTextureManager().bindTexture(r);
+			int x = res.getScaledWidth() - 225;
+			int y = res.getScaledHeight() - 50;
+			Minecraft.getMinecraft().getTextureManager().bindTexture(r);
 			Util.drawTexturedModalRect(x, y, 5, 5, 9, 9);
 			break;
 		}
