@@ -22,11 +22,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityWildFire extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityWildfire extends EntityDivineRPGMob implements IRangedAttackMob {
 	
-    private static final ItemStack defaultHeldItem = new ItemStack(VanillaItemsWeapons.infernoSword, 1);
+    private static final ItemStack defaultHeldItem = new ItemStack(VanillaItemsWeapons.infernoBow, 1);
 
-    public EntityWildFire(World par1World) {
+    public EntityWildfire(World par1World) {
         super(par1World);
         float moveSpeed = 0.25F;
         this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 10.0F));        

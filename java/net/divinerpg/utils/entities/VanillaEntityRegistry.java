@@ -36,7 +36,7 @@ import net.divinerpg.entities.vanilla.EntityScorcher;
 import net.divinerpg.entities.vanilla.EntityShark;
 import net.divinerpg.entities.vanilla.EntityTheEye;
 import net.divinerpg.entities.vanilla.EntityWhale;
-import net.divinerpg.entities.vanilla.EntityWildFire;
+import net.divinerpg.entities.vanilla.EntityWildfire;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
@@ -103,7 +103,7 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityRotatick.class, "Rotatick");
 		Util.registerDivineRPGMob(EntityShark.class, "Shark");
 		Util.registerDivineRPGMob(EntityNetherWatcher.class, "TheWatcher");
-		Util.registerDivineRPGMob(EntityWildFire.class, "Wildfire");
+		Util.registerDivineRPGMob(EntityWildfire.class, "Wildfire");
 		Util.registerDivineRPGMob(EntityGlacon.class, "Glacon");
 		Util.registerDivineRPGMob(EntityJackOMan.class, "JackOMan");
 		Util.registerDivineRPGMob(EntityJungleBat.class, "JungleBat");

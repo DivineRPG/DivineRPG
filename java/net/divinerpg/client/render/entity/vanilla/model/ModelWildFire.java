@@ -6,32 +6,32 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 
-public class ModelWildFire extends ModelBase
+public class ModelWildfire extends ModelBase
 {
   //fields
-    ModelRenderer P1;
-    ModelRenderer P2;
-    ModelRenderer P3;
-    ModelRenderer leftarm;
-    ModelRenderer rightleg;
-    ModelRenderer leftleg;
-    ModelRenderer P4;
-    ModelRenderer P5;
-    ModelRenderer P6;
-    ModelRenderer P7;
-    ModelRenderer P8;
-    ModelRenderer rightarm;
-    ModelRenderer P9;
-    ModelRenderer P10;
-    ModelRenderer P11;
-    ModelRenderer P12;
-    ModelRenderer P13;
-    ModelRenderer P14;
-    ModelRenderer P15;
-    ModelRenderer P16;
-    ModelRenderer P17;
+    public ModelRenderer P1;
+    public ModelRenderer P2;
+    public ModelRenderer P3;
+    public ModelRenderer leftarm;
+    public ModelRenderer rightleg;
+    public ModelRenderer leftleg;
+    public ModelRenderer P4;
+    public ModelRenderer P5;
+    public ModelRenderer P6;
+    public ModelRenderer P7;
+    public ModelRenderer P8;
+    public ModelRenderer rightarm;
+    public ModelRenderer P9;
+    public ModelRenderer P10;
+    public ModelRenderer P11;
+    public ModelRenderer P12;
+    public ModelRenderer P13;
+    public ModelRenderer P14;
+    public ModelRenderer P15;
+    public ModelRenderer P16;
+    public ModelRenderer P17;
   
-  public ModelWildFire()
+  public ModelWildfire()
   {
     textureWidth = 64;
     textureHeight = 32;

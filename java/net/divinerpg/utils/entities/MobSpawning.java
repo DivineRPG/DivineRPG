@@ -64,7 +64,7 @@ import net.divinerpg.entities.vanilla.EntityScorcher;
 import net.divinerpg.entities.vanilla.EntityShark;
 import net.divinerpg.entities.vanilla.EntityTheEye;
 import net.divinerpg.entities.vanilla.EntityWhale;
-import net.divinerpg.entities.vanilla.EntityWildFire;
+import net.divinerpg.entities.vanilla.EntityWildfire;
 import net.divinerpg.entities.vethea.EntityAcidHag;
 import net.divinerpg.entities.vethea.EntityBiphron;
 import net.divinerpg.entities.vethea.EntityBohemite;
@@ -206,7 +206,7 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityCaveclops.class, 20, 1, 4, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityEnderSpider.class, 2, 1, 4, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityRainbour.class, 2, 1, 1, EnumCreatureType.ambient, allBiomes);
-		EntityRegistry.addSpawn(EntityWildFire.class, 50, 1, 1, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
+		EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
 	}
 
 	public static void addVetheaSpawns() {
