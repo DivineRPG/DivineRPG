@@ -38,19 +38,19 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (this.spawnTick % 40 == 0 && !this.worldObj.isRemote) {
-            EntityHoverStinger var2 = new EntityHoverStinger(this.worldObj);
-            var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-            this.worldObj.spawnEntityInWorld(var2);
-            this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-            spawnTick = 80;
-        }
+        	if(this.rand.nextBoolean()) {
+        		EntityHoverStinger var2 = new EntityHoverStinger(this.worldObj);
+        		var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+        		this.worldObj.spawnEntityInWorld(var2);
+        		this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+        	} else {
+        		EntityHiveSoldier var2 = new EntityHiveSoldier(this.worldObj);
+                var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                this.worldObj.spawnEntityInWorld(var2);
+                this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
 
-        if (this.spawnTick == 0 && !this.worldObj.isRemote) {
-            EntityHiveSoldier var2 = new EntityHiveSoldier(this.worldObj);
-            var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-            this.worldObj.spawnEntityInWorld(var2);
-            this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-            this.spawnTick = 160;
+        	}
+            spawnTick = 80;
         }
 
         this.spawnTick--;

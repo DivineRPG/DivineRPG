@@ -2,7 +2,6 @@ package net.divinerpg.dimensions.vethea.layer1;
 
 import java.util.Random;
 
-import net.divinerpg.dimensions.vethea.all.WorldAddition;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
@@ -174,7 +173,7 @@ public class WorldGenLayer1BigTree extends WorldGenerator
                     }
                     else
                     {
-                        WorldAddition.setBlockWithMetadata(var11[0], var11[1], var11[2], par6, 0);
+                        this.worldObj.setBlock(var11[0], var11[1], var11[2], par6);
                         ++var13;
                     }
                 }
@@ -295,7 +294,7 @@ public class WorldGenLayer1BigTree extends WorldGenerator
                     }
                 }
 
-                WorldAddition.setBlockWithMetadata(var14[0], var14[1], var14[2], par3, var17);
+                this.worldObj.setBlock(var14[0], var14[1], var14[2], par3);
             }
         }
     }

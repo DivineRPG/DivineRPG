@@ -118,142 +118,142 @@ public class VetheanChunkBuilder {
 					}
 					
 					
-					if(tree1Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
+					if(tree1Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
 						tree1Countl1++;
 						floatingTree1.generate(chunk, x, y, z);
 					}
 					
-					if(tree2Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
+					if(tree2Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
 						tree2Countl1++;
 						floatingTree2.generate(chunk, x, y, z);
 					}
 					
-					if(tree3Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
+					if(tree3Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
 						tree3Countl1++;
 						floatingTree3.generate(chunk, x, y, z);
 					}
 					
-					if(tree4Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
+					if(tree4Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
 						tree4Countl1++;
 						floatingTree4.generate(chunk, x, y, z);
 					}
 					
-					if(tree5Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
+					if(tree5Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
 						tree5Countl1++;
 						floatingTree5.generate(chunk, x, y, z);
 					}
 					
-					if(tree6Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
+					if(tree6Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
 						tree6Countl1++;
 						floatingTree6.generate(chunk, x, y, z);
 					}
 					
-					if(tree7Countl1 <= 1 && y == 30+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
+					if(tree7Countl1 <= 1 && y == 30+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
 						tree7Countl1++;
 						floatingTree7.generate(chunk, x, y, z);
 					}
 					
-					if(tree1Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
+					if(tree1Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
 						tree1Countl2++;
 						floatingTree1.generate(chunk, x, y, z);
 					}
 					
-					if(tree2Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
+					if(tree2Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
 						tree2Countl2++;
 						floatingTree2.generate(chunk, x, y, z);
 					}
 					
-					if(tree3Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
+					if(tree3Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
 						tree3Countl2++;
 						floatingTree3.generate(chunk, x, y, z);
 					}
 					
-					if(tree4Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
+					if(tree4Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
 						tree4Countl2++;
 						floatingTree4.generate(chunk, x, y, z);
 					}
 					
-					if(tree5Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
+					if(tree5Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
 						tree5Countl2++;
 						floatingTree5.generate(chunk, x, y, z);
 					}
 					
-					if(tree6Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
+					if(tree6Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
 						tree6Countl2++;
 						floatingTree6.generate(chunk, x, y, z);
 					}
 					
-					if(tree7Countl2 <= 1 && y == 80+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
+					if(tree7Countl2 <= 1 && y == 80+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
 						tree7Countl2++;
 						floatingTree7.generate(chunk, x, y, z);
 					}
 					
-					if(tree1Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
+					if(tree1Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
 						tree1Countl3++;
 						floatingTree1.generate(chunk, x, y, z);
 					}
 					
-					if(tree2Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
+					if(tree2Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
 						tree2Countl3++;
 						floatingTree2.generate(chunk, x, y, z);
 					}
 					
-					if(tree3Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
+					if(tree3Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
 						tree3Countl3++;
 						floatingTree3.generate(chunk, x, y, z);
 					}
 					
-					if(tree4Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
+					if(tree4Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
 						tree4Countl3++;
 						floatingTree4.generate(chunk, x, y, z);
 					}
 					
-					if(tree5Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
+					if(tree5Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
 						tree5Countl3++;
 						floatingTree5.generate(chunk, x, y, z);
 					}
 					
-					if(tree6Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
+					if(tree6Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
 						tree6Countl3++;
 						floatingTree6.generate(chunk, x, y, z);
 					}
 					
-					if(tree7Countl3 <= 1 && y == 128+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
+					if(tree7Countl3 <= 1 && y == 128+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
 						tree7Countl3++;
 						floatingTree7.generate(chunk, x, y, z);
 					}
 					
-					if(tree1Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
+					if(tree1Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+7<16 && shouldGenTree1){
 						tree1Countl4++;
 						floatingTree1.generate(chunk, x, y, z);
 					}
 					
-					if(tree2Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
+					if(tree2Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+8<16 && shouldGenTree2){
 						tree2Countl4++;
 						floatingTree2.generate(chunk, x, y, z);
 					}
 					
-					if(tree3Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
+					if(tree3Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+3<16 && z+3<16 && shouldGenTree3){
 						tree3Countl4++;
 						floatingTree3.generate(chunk, x, y, z);
 					}
 					
-					if(tree4Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
+					if(tree4Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree4){
 						tree4Countl4++;
 						floatingTree4.generate(chunk, x, y, z);
 					}
 					
-					if(tree5Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
+					if(tree5Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+4<16 && z+9<16 && shouldGenTree5){
 						tree5Countl4++;
 						floatingTree5.generate(chunk, x, y, z);
 					}
 					
-					if(tree6Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
+					if(tree6Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree6){
 						tree6Countl4++;
 						floatingTree6.generate(chunk, x, y, z);
 					}
 					
-					if(tree7Countl4 <= 1 && y == 176+rand.nextInt(5) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
+					if(tree7Countl4 <= 1 && y == 176+rand.nextInt(13)-rand.nextInt(13) && rand.nextInt(155) == 0 && x+5<16 && z+2<16 && shouldGenTree7){
 						tree7Countl4++;
 						floatingTree7.generate(chunk, x, y, z);
 					}
