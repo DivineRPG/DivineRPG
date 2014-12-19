@@ -116,17 +116,24 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 			(new WorldGenMinable(TwilightBlocks.wildwoodOre, 9, TwilightBlocks.twilightStone)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
-		WorldGenWildWoodTree var17 = new WorldGenWildWoodTree(true);
+		WorldGenWildwoodTree1 var17 = new WorldGenWildwoodTree1(true);
 		int var19;
 		int var18;
 		int var21;
 		int var20;
 
-		for (var18 = 0; var18 < 14; ++var18) {
+		for (var18 = 0; var18 < 6; ++var18) {
 			var19 = var4 + this.rand.nextInt(16);
 			var20 = var5 + this.rand.nextInt(16);
 			var21 = this.worldObj.getHeightValue(var19, var20);
 			var17.generate(this.worldObj, this.rand, var19, var21, var20);
+		}
+		
+		for (var18 = 0; var18 < 2; ++var18) {
+			var19 = var4 + this.rand.nextInt(16)+8;
+			var20 = var5 + this.rand.nextInt(16)+8;
+			var21 = this.worldObj.getHeightValue(var19, var20);
+			new WorldGenWildwoodTree2().generate(this.worldObj, this.rand, var19, var21, var20);
 		}
 
 		int var22;

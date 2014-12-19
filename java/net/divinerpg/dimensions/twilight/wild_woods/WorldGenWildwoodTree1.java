@@ -10,19 +10,19 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class WorldGenWildWoodTree extends WorldGenAbstractTree
+public class WorldGenWildwoodTree1 extends WorldGenAbstractTree
 {
     private final int minTreeHeight;
     private final boolean vinesGrow;
     private final int metaWood;
     private final int metaLeaves;
 
-    public WorldGenWildWoodTree(boolean var1)
+    public WorldGenWildwoodTree1(boolean var1)
     {
         this(var1, 5, 0, 0, true);
     }
 
-    public WorldGenWildWoodTree(boolean var1, int var2, int var3, int var4, boolean var5) {
+    public WorldGenWildwoodTree1(boolean var1, int var2, int var3, int var4, boolean var5) {
         super(var1);
         this.minTreeHeight = var2;
         this.metaWood = var3;
@@ -160,34 +160,6 @@ public class WorldGenWildWoodTree extends WorldGenAbstractTree
                             i3 = k1 - (par4 + l);
                             l1 = 2 - i3 / 2;
 
-                            for (i2 = par3 - l1; i2 <= par3 + l1; ++i2)
-                            {
-                                for (j2 = par5 - l1; j2 <= par5 + l1; ++j2)
-                                {
-                                    if (par1World.getBlock(i2, k1, j2).isLeaves(par1World, i2, k1, j2))
-                                    {
-                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2 - 1, k1, j2).isAir(par1World, i2 - 1, k1, j2))
-                                        {
-                                            this.growVines(par1World, i2 - 1, k1, j2, 8);
-                                        }
-
-                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2 + 1, k1, j2).isAir(par1World, i2 + 1, k1, j2))
-                                        {
-                                            this.growVines(par1World, i2 + 1, k1, j2, 2);
-                                        }
-
-                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2, k1, j2 - 1).isAir(par1World, i2, k1, j2 - 1))
-                                        {
-                                            this.growVines(par1World, i2, k1, j2 - 1, 1);
-                                        }
-
-                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2, k1, j2 + 1).isAir(par1World, i2, k1, j2 + 1))
-                                        {
-                                            this.growVines(par1World, i2, k1, j2 + 1, 4);
-                                        }
-                                    }
-                                }
-                            }
                         }
 
                         if (par2Random.nextInt(5) == 0 && l > 5)
@@ -216,25 +188,6 @@ public class WorldGenWildWoodTree extends WorldGenAbstractTree
         else
         {
             return false;
-        }
-    }
-
-    private void growVines(World par1World, int par2, int par3, int par4, int par5)
-    {
-        this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, TwilightBlocks.wildwoodVine, par5);
-        int i1 = 4;
-
-        while (true)
-        {
-            --par3;
-
-            if (par1World.getBlock(par2, par3, par4).isAir(par1World, par2, par3, par4) || i1 <= 0)
-            {
-                return;
-            }
-
-            this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, TwilightBlocks.wildwoodVine, par5);
-            --i1;
         }
     }
 }
