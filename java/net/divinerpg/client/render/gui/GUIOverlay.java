@@ -14,31 +14,37 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 public class GUIOverlay {
+	private String text = "";
+	private String text2 = "";
+	private boolean seen = false;
 
 	public void drawOverlay() {
-		String text;
-		
-		if(ConfigurationHelper.canShowIngameVersion){
+		if(!seen) {
 			try {
 				if(!UpdateChecker.isOnline()) {
 					text = Reference.MOD_NAME + ": " + Util.DARK_PURPLE + Reference.MOD_VERSION;
-					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_BLUE + text, 2, 2, 4210752);
-					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_PURPLE + "Offline", 2, 12, 4210752);
+					text2 = Util.DARK_PURPLE + "Offline";
 				}
 				else if(UpdateChecker.isUpdateAvailable()) {
 					text = Reference.MOD_NAME + ": " + Util.DARK_RED + Reference.MOD_VERSION;
-					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_BLUE + text, 2, 2, 4210752);
-					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_RED + "Update Availble (" + UpdateChecker.getCurrentVersion() + ")", 2, 12, 4210752);
+					text2 = Util.DARK_RED + "Update Availble (" + UpdateChecker.getCurrentVersion() + ")";
 				}
 				else {
 					text = Reference.MOD_NAME + ": " + Util.GREEN + Reference.MOD_VERSION;
-					Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_BLUE + text, 2, 2, 4210752);
+					text2 = "";
 				}
-			} catch (SocketException e) {
+			}
+			catch (SocketException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			seen = true;
+		}
+		
+		if(ConfigurationHelper.canShowIngameVersion && !Minecraft.getMinecraft().gameSettings.showDebugInfo){		
+			Minecraft.getMinecraft().fontRenderer.drawString(EnumChatFormatting.DARK_BLUE + text, 2, 2, 4210752);
+			Minecraft.getMinecraft().fontRenderer.drawString(text2, 2, 12, 4210752);
 		}
 	}
 	public void drawArmor() {
