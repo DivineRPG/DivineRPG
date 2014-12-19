@@ -8,6 +8,7 @@ import java.net.URL;
 
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -27,15 +28,15 @@ public class EventClientLogin {
 			if (!p.worldObj.isRemote) {
 				if(!hasSeen) {
 					try {
-						if(!UpdateChecker.isOnline()){
+						if(!UpdateChecker.isOnline() && !ConfigurationHelper.canShowIngameVersion){
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
-								p.addChatMessage(Util.getChatComponent("Welcome DivineRPG developer!"));
+								p.addChatMessage(Util.getChatComponent(Util.AQUA + "Welcome DivineRPG developer!"));
 							} else {
 								p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 							}
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Unable to check for latest version, you may want to check your internet connection!"));
 						}
-						if(UpdateChecker.isUpdateAvailable() && UpdateChecker.isOnline()) {
+						else if(UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowIngameVersion) {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}
@@ -45,7 +46,7 @@ public class EventClientLogin {
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "A DivineRPG update is avaliable."));
 							p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[New Version: " + curVersion + "]")); 
 						}
-						if((!UpdateChecker.isUpdateAvailable()) && UpdateChecker.isOnline()) {
+						else if(ConfigurationHelper.canShowIngameVersion) {
 							if(Util.isDeveloperName(p.getCommandSenderName())) {
 								Util.sendMessageToAll("A DivineRPG developer has entered!");
 							}
@@ -53,7 +54,6 @@ public class EventClientLogin {
 						}
 					} catch (MalformedURLException e1) {
 						e1.printStackTrace();
-
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}

@@ -18,7 +18,6 @@ public class EventOverlay {
 	@SubscribeEvent
 	public void renderOverlay(RenderGameOverlayEvent event){
 		if(event.isCancelable() || event.type != ElementType.EXPERIENCE) return;
-		if(ConfigurationHelper.canShowIngameVersion)
-			gui.drawOverlay();
+		gui.drawOverlay();
 	}
 }
