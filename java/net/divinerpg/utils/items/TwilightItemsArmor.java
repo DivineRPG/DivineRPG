@@ -10,7 +10,7 @@ public class TwilightItemsArmor {
 
     public static int             HEAD            = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-    private static final Object[] edenInfo        = new Object[] { ChatFormats.TWILIGHT, 3, ArmorInfo.ORE_DROPS };
+    private static final Object[] edenInfo        = new Object[] { 3, ArmorInfo.ORE_DROPS };
     public static final Item      edenHelmet      = new ItemDivineArmor(EnumArmor.EDEN, HEAD, edenInfo);
     public static final Item      edenBody        = new ItemDivineArmor(EnumArmor.EDEN, BODY, edenInfo);
     public static final Item      edenLegs        = new ItemDivineArmor(EnumArmor.EDEN, LEGS, edenInfo);

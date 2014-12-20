@@ -100,7 +100,7 @@ public class ItemShickaxe extends ItemTool {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add(Util.BLUE + "Efficiency: " + toolMaterial.getEfficiencyOnProperMaterial());
+        list.add("Efficiency: " + toolMaterial.getEfficiencyOnProperMaterial());
         if (stack.getMaxDamage() != -1) list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses");
         else list.add(Util.GREEN + "Infinite Uses");
     }

@@ -501,7 +501,7 @@ public class EventArmorFullSet {
         //Eden
         if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenBody && legs == TwilightItemsArmor.edenLegs && helmet == TwilightItemsArmor.edenHelmet) {
             Random rand = new Random();
-            BlockMod.edenArmor = rand.nextInt(3) + 3;
+            BlockMod.edenArmor = 4;
         } else {
             BlockMod.edenArmor = 1;
         }
