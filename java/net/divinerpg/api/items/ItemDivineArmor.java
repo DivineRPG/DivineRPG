@@ -88,7 +88,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
                     e2.printStackTrace();
                 }
             }
-            if(i % 2 == 0 && i != 0) infoBuilder.append('\n'); //Doesn't work
+            if(i % 2 == 0 && i != 0) infoBuilder.append('\n');
             if (i == armorInfo.length - 1) infoBuilder.append(strInfo);
             else if (armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ", ");
         }
