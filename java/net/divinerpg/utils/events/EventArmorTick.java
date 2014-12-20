@@ -33,6 +33,8 @@ public class EventArmorTick {
     public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
 
     private World                world;
+    
+    public static int size = 1;
 	
 	@SubscribeEvent
     public void onTickEvent(PlayerTickEvent event) {
@@ -178,6 +180,11 @@ public class EventArmorTick {
         else if (!(EntityScythe.damage == 4.0F)) {
             EntityScythe.damage = 4.0F;
         }
+        
+        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet)
+            size = 1;
+		else if(size != 0)
+			size = 0;
     }
 
 }

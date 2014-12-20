@@ -3,23 +3,22 @@ package net.divinerpg.client.render.gui;
 import java.io.IOException;
 import java.net.SocketException;
 
-import org.lwjgl.opengl.GL11;
-
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.Util;
-import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.events.EventArmorFullSet;
+import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.UpdateChecker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
+import org.lwjgl.opengl.GL11;
+
 public class GUIOverlay {
 	private String text = "";
 	private String text2 = "";
 	private boolean seen = false;
-	private ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+	private ScaledResolution res;
 
 	public void drawOverlay() {
 		if(!seen) {
@@ -52,20 +51,23 @@ public class GUIOverlay {
 		}
 	}
 	public void drawArmor() {
-		ResourceLocation r = null;
-		switch(EventArmorFullSet.size) {
+		ResourceLocation r = new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar.png");
+		res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+		int x = (res.getScaledWidth() / 2) - 11;
+		int y = res.getScaledHeight() - 49;
+		GL11.glPushMatrix();
+		GL11.glEnable(GL11.GL_BLEND);
+		switch(EventArmorTick.size) {
 		case 1:
-			
-			r = set("half");
-			//int x = res.getScaledWidth() - 225;
-			//int y = res.getScaledHeight() - 50;
 			Minecraft.getMinecraft().getTextureManager().bindTexture(r);
-			Util.drawTexturedModalRect(200, 200, 5, 5, 9, 9);
+			Util.drawTexturedModalRect(x, y, 0, 0, 9, 9);
+			break;
+		case 2: //Not used. Here if we need it.
+			Minecraft.getMinecraft().getTextureManager().bindTexture(r);
+			Util.drawTexturedModalRect(x, y, 9, 0, 18, 9);
 			break;
 		}
-	}
-
-	public ResourceLocation set(String size){
-		return new ResourceLocation(Reference.PREFIX + "textures/gui/arcanaBar.png");
+		GL11.glPopMatrix();
+		GL11.glDisable(GL11.GL_BLEND);
 	}
 }

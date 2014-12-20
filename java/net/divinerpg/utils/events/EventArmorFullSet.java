@@ -42,33 +42,6 @@ public class EventArmorFullSet {
 
     private World                world;
     
-    public static int size = 1;
-    
-    @SubscribeEvent
-    public void onPlayerTickEvent(PlayerTickEvent e) {
-            ItemStack stackBoots = e.player.inventory.armorItemInSlot(0);
-            ItemStack stackLegs = e.player.inventory.armorItemInSlot(1);
-            ItemStack stackBody = e.player.inventory.armorItemInSlot(2);
-            ItemStack stackHelmet = e.player.inventory.armorItemInSlot(3);
-
-            if (stackBoots != null) boots = stackBoots.getItem();
-            else boots = null;
-
-            if (stackBody != null) body = stackBody.getItem();
-            else body = null;
-
-            if (stackLegs != null) legs = stackLegs.getItem();
-            else legs = null;
-
-            if (stackHelmet != null) helmet = stackHelmet.getItem();
-            else helmet = null;
-
-            if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet)
-                size = 1;
-    		else if(size != 0)
-    			size = 0;
-    }
-    
     @SubscribeEvent
     public void onPlayerHurtEvent(LivingHurtEvent e) {
         if (e.entity instanceof EntityPlayer) {
