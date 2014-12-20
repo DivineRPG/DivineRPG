@@ -1,5 +1,6 @@
 package net.divinerpg.utils.items;
 
+import net.divinerpg.api.items.ItemHealingSword;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.client.render.EntityResourceLocation;
@@ -7,8 +8,6 @@ import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
 import net.divinerpg.items.vanilla.ItemMaelstorm;
-import net.divinerpg.items.vanilla.ItemMassivence;
-import net.divinerpg.items.vanilla.ItemPalavence;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.items.vanilla.ItemScythe;
 import net.divinerpg.items.vanilla.ItemSerenadeOfDeath;
@@ -93,7 +92,7 @@ public class VanillaItemsWeapons {
     public static final Item serenadeStriker 	= new ItemSerenadeStriker("serenadeStriker");
     public static final Item serenadeOfDeath 	= new ItemSerenadeOfDeath("serenadeOfDeath");
     
-    public static final Item palavence 		    = new ItemPalavence("palavence");
-    public static final Item massivence 	    = new ItemMassivence("massivence");
+    public static final Item palavence 		    = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 1);
+    public static final Item massivence 	    = new ItemHealingSword("massivence", ToolMaterialMod.Massivence, 2);
 	public static final Item flamingFury		= new ItemModSword(ToolMaterialMod.FlamingFury, "flamingFury"); 
 }

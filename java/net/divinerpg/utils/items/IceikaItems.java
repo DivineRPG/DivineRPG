@@ -1,6 +1,7 @@
 package net.divinerpg.utils.items;
 
 import net.divinerpg.api.items.ItemDivineArmor;
+import net.divinerpg.api.items.ItemHealingSword;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModBucket;
@@ -8,7 +9,6 @@ import net.divinerpg.api.items.ItemModFood;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.items.iceika.ItemEggNog;
-import net.divinerpg.items.iceika.ItemFrossivence;
 import net.divinerpg.items.iceika.ItemMusicShooter;
 import net.divinerpg.items.iceika.ItemSerenadeOfIce;
 import net.divinerpg.items.iceika.ItemSnowGlobe;
@@ -39,7 +39,7 @@ public class IceikaItems {
     public static final Item      glacierSword      = new ItemModSword(ToolMaterialMod.Glacier, "glacierSword");
     public static final Item      frostkingSword    = new ItemModSword(ToolMaterialMod.Frostking, "frostkingSword");
     public static final Item      frozenMaul        = new ItemModSword(ToolMaterialMod.FrozenMaul, "frozenMaul");
-    public static final Item      frossivence       = new ItemFrossivence("frossivence").setCreativeTab(DivineRPGTabs.swords);
+    public static final Item      frossivence       = new ItemHealingSword("frossivence", ToolMaterialMod.Massivence, 4);
 
     public static final Item      soundOfCarols     = new ItemMusicShooter("soundOfCarols").setCreativeTab(DivineRPGTabs.ranged);
     public static final Item      soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);

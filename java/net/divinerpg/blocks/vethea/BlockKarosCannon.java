@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityDispenser;
@@ -14,7 +15,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IRegistry;
 import net.minecraft.util.RegistryDefaulted;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockKarosCannon extends BlockContainer {
@@ -82,7 +82,7 @@ public class BlockKarosCannon extends BlockContainer {
 		double var5 = par3;
 		double var7 = par4;
 		double var9 = par5;
-		/*EntityKarosCannonShot var11 = new EntityKarosCannonShot(par0World, var5 + 0.5D + par3EnumFacing.getFrontOffsetX(), var7 + 0.5D, var9 + 0.5D + par3EnumFacing.getFrontOffsetZ());
+		EntityArrow var11 = new EntityArrow(par0World, var5 + 0.5D + par3EnumFacing.getFrontOffsetX(), var7 + 0.5D, var9 + 0.5D + par3EnumFacing.getFrontOffsetZ());
         double var12 = par0World.rand.nextDouble() * 0.1D + 0.9D;
         var11.motionX = (double)par3EnumFacing.getFrontOffsetX() * var12;
         var11.motionY = 0D;
@@ -90,7 +90,7 @@ public class BlockKarosCannon extends BlockContainer {
         var11.motionX += par0World.rand.nextGaussian() * 0.007499999832361937D * (double)par2;
         var11.motionY += 0;
         var11.motionZ += par0World.rand.nextGaussian() * 0.007499999832361937D * (double)par2;
-        par0World.spawnEntityInWorld(var11);*/
+        par0World.spawnEntityInWorld(var11);
 	}
 
 	public Block setTextureName(String name) {

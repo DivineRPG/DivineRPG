@@ -2,44 +2,31 @@ package net.divinerpg.items.vethea;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonShot;
+import net.divinerpg.client.render.EntityResourceLocation;
+import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
+import net.minecraft.util.StatCollector;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemVetheanCannon extends ItemMod {
-    protected int damage;
+public class ItemVetheanCannon extends ItemProjectileShooter {
 
-    public ItemVetheanCannon(int dam, String name) {
-    	super(name);
-        this.maxStackSize = 1;
-        this.setMaxDamage(-1);
-        this.damage = dam;
+    public ItemVetheanCannon(String name, int dam) {
+    	super(name, dam, Sounds.blitz.getPrefixedName(), VetheaItems.acid, EntityResourceLocation.cannon.toString(), -1, 0);
         this.setCreativeTab(DivineRPGTabs.vethea);
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack par1, World par2, EntityPlayer par3) {
-        if (!par2.isRemote && par3.capabilities.isCreativeMode || par3.inventory.hasItem(VetheaItems.acid)) {
-            par2.playSoundAtEntity(par3, Sounds.blitz.getPrefixedName(), 1.0F, 1.0F);
-            par2.spawnEntityInWorld(new EntityVetheanCannonShot(par2, par3, this.damage));
-        }
-        return par1;
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add(damage + " Ranged Damage");
-        par3List.add("Ammo: Acidfire");
-        par3List.add(Util.GREEN + "Vethean");
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        list.add(damage + " Ranged Damage");
+        list.add("Infinite Uses");
+        list.add("Ammo: " + StatCollector.translateToLocal(VetheaItems.acid.getUnlocalizedName() + ".name"));
+        list.add(Util.GREEN + "Vethean");
     }
 }

@@ -65,7 +65,6 @@ public class EntityResourceLocation {
     public static ResourceLocation staffProjectile 	 = addProjectile("bouncing");
     public static ResourceLocation evernight 	 	 = addProjectile("evernight");
     public static ResourceLocation cannon 			 = addProjectile("cannon");
-    public static ResourceLocation eversightCannon 	 = addProjectile("cannon");
     public static ResourceLocation eversight 	 	 = addProjectile("eversight");
     public static ResourceLocation frostCannon 	 	 = addProjectile("frostCannon");
     public static ResourceLocation music	 	 	 = addProjectile("music");
