@@ -76,10 +76,10 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
             String strInfo = armorInfo[i].toString();
             if (strInfo.contains("#")) {
                 try {
-                    int value = Integer.parseInt(armorInfo[i - 1].toString());
-                    strInfo = TokenHelper.replaceToken(strInfo, '#', value);
+                	float value = Float.parseFloat(armorInfo[i - 1].toString());
+                	strInfo = TokenHelper.replaceToken(strInfo, '#', value);
                 } catch (NumberFormatException e) {
-                    LogHelper.error("Attempted to replace a token with an integer, but the integer was invalid! "
+                    LogHelper.error("Attempted to replace a token with an float, but the float was invalid! "
                             + "Make sure the value in the index before the String containing the token is an integer!!!");
                     e.printStackTrace();
                 } catch (ArrayIndexOutOfBoundsException e2) {
@@ -122,9 +122,12 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++)
             if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) perks += "In " + armorInfo[0].toString() + ": ";
         perks += infoBuilder.toString();
+        for(int c = 0; c < ChatFormats.DIMENSIONS_LIST.length; c++) {
+        	perks = perks.replace(ChatFormats.DIMENSIONS_LIST[c]+", ", "");
+        }
         String[] perksArray = perks.split("\n");
         if (armorInfo[0] != "null"){
-            list.add(ChatFormats.AQUA + "Fullset Perks: " + ChatFormats.RESET);
+            list.add("Fullset Perks: ");
             for(int j = 0; j < perksArray.length; j++){
             	list.add(perksArray[j]);
             }

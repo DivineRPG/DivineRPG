@@ -58,7 +58,7 @@ public class IceikaItems {
     public static final Item 	  icicleBow = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
     public static final Item 	  snowstormBow = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
 
-    private static final Object[] santaInfo         = new Object[] { ChatFormats.ICEIKA, "Massive Buff", ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
+    private static final Object[] santaInfo         = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
     public static final Item      santaHead         = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);
     public static final Item      santaBody         = new ItemDivineArmor(EnumArmor.SANTA, BODY, santaInfo);
     public static final Item      santaLegs         = new ItemDivineArmor(EnumArmor.SANTA, LEGS, santaInfo);

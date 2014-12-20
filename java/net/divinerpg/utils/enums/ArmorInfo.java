@@ -5,12 +5,12 @@ public enum ArmorInfo {
     FIRE_PROTECTION("Fire Protection"),
     NO_FALL("No Fall Damage"),
     FLY("Flight"),
-    SPEED("Move Faster"),
+    SPEED("#x Movement Speed"),
     MELEE_DAMAGE("+# Melee Damage"),
     HUNGER("Refills Hunger"),
     DAMAGE_REDUCTION("#% Damage Reduction"),
     JUMP_HEIGHT("#x Jump Height"),
-    ORE_DROPS("#x Ore Drops"),
+    ORE_DROPS("#x Twilight Ore Drops"),
     HEALTH_REGEN("Health Regeneration"),
     UNDERWATER_HEALTH_REGEN("Health Regenerates Underwater"),
     BLOCK_PROTECTION("Block Damage Protection"),
@@ -18,12 +18,13 @@ public enum ArmorInfo {
     EXPLOSION_PROTECTION("Explosion Protection"),
     RANGED_PROTECTION("#% Ranged Damage Protection"),
     MELEE_PROTECTION("#% Melee Damage Protection"),
+    ARCANA_PROTECTION("#% Arcana Damage Protection"),
     UNDERWATER("Breathe Underwater"),
     SCYTHE_DAMAGE("#x Scythe Damage"),
     SWIM("Swim Faster"),
     WITHER_PROTECTION("Wither Protection"),
     ARCANA_REGEN("Arcana Regeneration");
-
+    
     private String info;
 
     private ArmorInfo(String info) {

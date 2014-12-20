@@ -31,16 +31,16 @@ public class ChatFormats {
 
     public static final String   RESET           = EnumChatFormatting.RESET.toString();
 
-    public static final String   ARCANA          = DARK_BLUE + "Arcana" + RESET;
-    public static final String   ICEIKA          = AQUA + "Iceika" + RESET;
-    public static final String   TWILIGHT        = MAGENTA + "Twilight" + RESET;
-    public static final String   EDEN            = PURPLE + "Eden" + RESET;
-    public static final String   WILDWOODS       = DARK_GREEN + "Wildwoods" + RESET;
-    public static final String   APALACHIA       = DARK_AQUA + "Apalachia" + RESET;
-    public static final String   SKYTHERN        = BLUE + "Skythern" + RESET;
-    public static final String   MORTUM          = RED + "Mortum" + RESET;
-    public static final String   HALITE          = DARK_RED + "Halite" + RESET;
-    public static final String   VETHEA          = GREEN + "Vethea" + RESET;
+    public static final String   ARCANA          = "Arcana";
+    public static final String   ICEIKA          = "Iceika";
+    public static final String   TWILIGHT        = "Twilight";
+    public static final String   EDEN            = "Eden";
+    public static final String   WILDWOODS       = "Wildwoods";
+    public static final String   APALACHIA       = "Apalachia";
+    public static final String   SKYTHERN        = "Skythern";
+    public static final String   MORTUM          = "Mortum";
+    public static final String   HALITE          = "Halite";
+    public static final String   VETHEA          = "Vethea";
 
     public static final String[] DIMENSIONS_LIST = new String[] { ARCANA, ICEIKA, TWILIGHT, EDEN, WILDWOODS, APALACHIA, SKYTHERN, MORTUM, VETHEA };
 }

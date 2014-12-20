@@ -8,6 +8,7 @@ import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -43,6 +44,8 @@ public class EventArmorTick {
         ItemStack stackLegs = event.player.inventory.armorItemInSlot(1);
         ItemStack stackBody = event.player.inventory.armorItemInSlot(2);
         ItemStack stackHelmet = event.player.inventory.armorItemInSlot(3);
+        
+        int speedMultiplier = 1;
 
         if (stackBoots != null) boots = stackBoots.getItem();
         else boots = null;
@@ -153,7 +156,7 @@ public class EventArmorTick {
 
         //Shadow
         if (boots == VanillaItemsArmor.shadowBoots && body == VanillaItemsArmor.shadowBody && legs == VanillaItemsArmor.shadowLegs && helmet == VanillaItemsArmor.shadowHelmet) {
-            event.player.addPotionEffect(new PotionEffect(1, -1, 1));
+            speedMultiplier = 3;
         }
 
         //Skeleman
@@ -169,7 +172,7 @@ public class EventArmorTick {
                 if (event.player.getFoodStats().needFood()) {
                     event.player.getFoodStats().addStats(1, 0);
                 }
-                event.player.addPotionEffect(new PotionEffect(1, -1, 1));
+                speedMultiplier = 2;
             }
         }
 
@@ -185,6 +188,8 @@ public class EventArmorTick {
             size = 1;
 		else if(size != 0)
 			size = 0;
+        
+        event.player.capabilities.setPlayerWalkSpeed(0.1f * speedMultiplier);
     }
 
 }

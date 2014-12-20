@@ -74,7 +74,7 @@ public class VanillaItemsArmor {
     public static final Item      aquastriveLegs      = new ItemDivineArmor(EnumArmor.AQUATIC, LEGS, aqInfo);
     public static final Item      aquastriveBoots     = new ItemDivineArmor(EnumArmor.AQUATIC, BOOTS, aqInfo);
 
-    private static final Object[] shInfo              = new Object[] { ArmorInfo.SPEED };
+    private static final Object[] shInfo              = new Object[] { 3, ArmorInfo.SPEED };
     public static final Item      shadowHelmet        = new ItemDivineArmor(EnumArmor.SHADOW, HEAD, shInfo);
     public static final Item      shadowBody          = new ItemDivineArmor(EnumArmor.SHADOW, BODY, shInfo);
     public static final Item      shadowLegs          = new ItemDivineArmor(EnumArmor.SHADOW, LEGS, shInfo);
