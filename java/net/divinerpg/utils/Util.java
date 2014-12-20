@@ -6,6 +6,7 @@ import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.recipes.CraftingDivineTableManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -15,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.client.IItemRenderer;
@@ -171,6 +174,10 @@ public class Util {
     public static boolean isDeveloperName(String name) {
 		return name.equals("Doomturd") || name.equals("XolovA") || name.equals("geekclb") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all") || name.equals("deathman12e3") || name.equals("Fire_Sight") || name.equals("iTzaKiLLsHoT");
 	}
+    
+    public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
+        return new EntityDamageSourceIndirect("arrow", projectile, shooter).setMagicDamage();
+    }
     
     public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {
         float f = 0.00390625F;

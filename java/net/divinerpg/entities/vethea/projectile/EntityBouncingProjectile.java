@@ -1,8 +1,8 @@
 package net.divinerpg.entities.vethea.projectile;
 
+import net.divinerpg.utils.Util;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
@@ -33,7 +33,7 @@ public class EntityBouncingProjectile extends EntityThrowable
     {
         if (par1.entityHit != null && par1.entityHit != this.thrower)
         {
-            par1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.thrower), this.damage);
+            par1.entityHit.attackEntityFrom(Util.causeArcanaDamage(this, this.thrower), this.damage);
 
             if (!this.worldObj.isRemote)
             {

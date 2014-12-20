@@ -583,14 +583,14 @@ public class EventArmorFullSet {
 
             //Santa
             if (boots == IceikaItems.santaBoots && body == IceikaItems.santaBody && legs == IceikaItems.santaLegs && helmet == IceikaItems.santaHead) {
-                if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile())) {
+                if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.ammount += 6;
                 }
             }
             
           //Halite
             if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteBody && legs == TwilightItemsArmor.haliteLegs && helmet == TwilightItemsArmor.haliteHelmet) {
-                if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile())) {
+                if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.ammount += 24;
                 }
             }

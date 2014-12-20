@@ -5,16 +5,8 @@ import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -48,17 +40,14 @@ public class EntityEndiku extends EntityDivineRPGMob {
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.endikuFollowRange);
     }
 
-    /*protected void updateAITasks() {
-    	System.out.println(this.health);
-    	if (this.health < this.getMaxHealth() * 0.2 && !this.isEaten) {
+    @Override
+    protected void updateAITasks() {
+    	if (this.getHealth() < this.getMaxHealth() * 0.2 && !this.isEaten) {
     		for (int i = (int)this.posX - 2; i < (int)this.posX + 16; i++) {
     			for (int j = (int)this.posZ - 2; j < (int)this.posZ + 16; j++) {
     				for(int n = (int)this.posY - 2; n < (int)this.posY + 2; n++) {
-        				boolean var1 = this.worldObj.getBlockMaterial(i,(int)this.posY, j) == Material.wood;
-        		    	System.out.println(i + " " + n + " " + j);
-        		    	System.out.println(var1);
+        				boolean var1 = this.worldObj.getBlock(i, (int)this.posY, j).getMaterial() == Material.wood;
         				if (var1) {
-        			    	System.out.println("Moving");
         					this.isEaten = true;
         					this.eatX = i;
         					this.eatY = (int)this.posY;
@@ -69,7 +58,7 @@ public class EntityEndiku extends EntityDivineRPGMob {
     		}
     	}
     	super.updateAITasks();
-    }*/
+    }
     //TODO: Look into this.
 
     @Override
@@ -79,7 +68,7 @@ public class EntityEndiku extends EntityDivineRPGMob {
         if(this.isEaten && this.ability == 0) {
             if (this.getDistance(eatX, eatY, eatZ) < 2) {
                 this.heal(70/8);
-                this.worldObj.setBlock(eatX, eatY, eatZ, null);
+                this.worldObj.setBlock(eatX, eatY, eatZ, Blocks.air);
                 this.isEaten = false;
                 this.ability = 5;
             } else {

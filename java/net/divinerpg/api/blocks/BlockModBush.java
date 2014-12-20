@@ -9,13 +9,13 @@ import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -24,10 +24,8 @@ public class BlockModBush extends BlockMod implements IShearable {
     protected static Map<String, Block> bushMap = new HashMap<String, Block>();
 
     protected IIcon                     grown, notGrown;
-    @SideOnly(Side.CLIENT)
-    protected IIcon                     opaqueIcon;
-    @SideOnly(Side.CLIENT)
-    protected IIcon                     blockIcon;
+    
+    private IIcon[] textures = new IIcon[2];
 
     protected String                    stateChangeName;
     public boolean               		isGrown;
@@ -74,15 +72,21 @@ public class BlockModBush extends BlockMod implements IShearable {
     public boolean renderAsNormalBlock() {
         return false;
     }
-
-    //This only checks graphic on start up
+    
     @Override
-    public String getTextureName() {
-        if (Minecraft.getMinecraft().gameSettings.fancyGraphics)
-            return textureName;
-        return textureName + "_fast";
+    public IIcon getIcon(IBlockAccess world, int i, int j, int k, int par5) {
+        if (Minecraft.getMinecraft().gameSettings.fancyGraphics) return this.textures[0];
+        return this.textures[1];
+    }
+    
+    @Override
+    public void registerBlockIcons(IIconRegister i) {
+    	this.blockIcon = i.registerIcon(textureName);
+    	this.textures[0] = i.registerIcon(textureName);
+    	this.textures[1] = i.registerIcon(textureName + "_fast");
     }
 
+    @Override
     public Item getItemDropped(int par1, Random par2Random, int par3) {
         if (drop != null) return drop;
         return null;
@@ -100,6 +104,7 @@ public class BlockModBush extends BlockMod implements IShearable {
         return ret;
     }
     
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockAccess w, int x, int y, int z, int meta) {
         Block block = w.getBlock(x, y, z);

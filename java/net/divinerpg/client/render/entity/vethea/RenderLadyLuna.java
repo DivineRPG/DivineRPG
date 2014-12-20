@@ -41,6 +41,9 @@ public class RenderLadyLuna extends RenderDivineMob {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
+		EntityLadyLuna boss = (EntityLadyLuna)entity;
+		if(boss.getProtectionType() == 1) return EntityResourceLocation.LADY_LUNA_ARCANIC;
+		else if(boss.getProtectionType() == 2) return EntityResourceLocation.LADY_LUNA_RANGE;
 		return EntityResourceLocation.LADY_LUNA_MELEE;
 	}
 }

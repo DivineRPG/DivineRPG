@@ -121,7 +121,7 @@ public class VetheaItems {
     public static final Item everlight          = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
     public static final Item everbright         = new ItemVetheanClaw(42, "everbright");
     public static final Item everArrow          = new ItemMod("everArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Item everfight		    = new ItemModBow("everfright", -1, 25, 46, everArrow);
+    public static final Item everfright		    = new ItemModBow("everfright", -1, 25, 46, everArrow);
     public static final Item evernight          = new ItemStaff(115, 200, "evernight");
 
     public static final Item teakerArrow        = new ItemMod("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);

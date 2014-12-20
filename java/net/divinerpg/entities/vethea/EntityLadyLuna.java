@@ -125,7 +125,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
     public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
         if (par1DamageSource.isMagicDamage() && this.getProtectionType() == 1)
             return false;
-        else if ((par1DamageSource.isProjectile() || par1DamageSource.damageType.equals("thrown")) && this.getProtectionType() ==2)
+        else if ((par1DamageSource.isProjectile() || par1DamageSource.damageType.equals("thrown")) && this.getProtectionType() == 2)
             return false;
         else if (!par1DamageSource.isProjectile() && !par1DamageSource.isMagicDamage() && this.getProtectionType() == 3)
             return false;
@@ -169,7 +169,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
                 this.dropItem(VetheaItems.everArrow, 128);
                 break;
             case 1:
-                this.dropItem(VetheaItems.everfight, 1);
+                this.dropItem(VetheaItems.everfright, 1);
                 break;
             case 2:
                 this.dropItem(VetheaItems.evernight, 1);

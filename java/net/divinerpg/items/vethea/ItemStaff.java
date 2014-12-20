@@ -31,15 +31,16 @@ public class ItemStaff extends ItemMod {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("Deals " + this.damage + " Arcana Damage");
-		par3List.add("Bouncing Projectile");
-		if(par1ItemStack.getItem() == VetheaItems.evernight){
-			par3List.add("Consumes All Of Your Arcana");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("Deals " + this.damage + " Arcana Damage");
+		list.add("Bouncing Projectile");
+		if(stack.getItem() == VetheaItems.evernight){
+			list.add("Consumes All Of Your Arcana");
+			list.add("Deals 16 Damage to Player");
 		} else {
-			par3List.add("Consumes " + this.cost + " Arcana");
+			list.add("Consumes " + this.cost + " Arcana");
 		}
-		par3List.add(Util.GREEN + "Vethean");
+		list.add(Util.GREEN + "Vethean");
 	}
 
 	@Override
