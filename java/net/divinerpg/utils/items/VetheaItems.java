@@ -77,15 +77,15 @@ public class VetheaItems {
     public static final Item demonizedTemplate  = new ItemMod("demonizedTemplate").setCreativeTab(DivineRPGTabs.vethea);
     public static final Item tormentedTemplate  = new ItemMod("tormentedTemplate").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static final Item teakerCannon       = new ItemVetheanCannon(3, "teakerCannon");
-    public static final Item amthrimisCannon    = new ItemVetheanCannon(5, "amthirmisCannon");
-    public static final Item darvenCannon       = new ItemVetheanCannon(8, "darvenCannon");
-    public static final Item cermileCannon      = new ItemVetheanCannon(12, "cermileCannon");
-    public static final Item pardimalCannon     = new ItemVetheanCannon(15, "pardimalCannon");
-    public static final Item quadroticCannon    = new ItemVetheanCannon(19, "quadroticCannon");
-    public static final Item karosCannonItem    = new ItemVetheanCannon(21, "karosCannonItem");
-    public static final Item heliosisCannon     = new ItemVetheanCannon(28, "heliosisCannon");
-    public static final Item arksianeCannon     = new ItemVetheanCannon(36, "arksianeCannon");
+    public static final Item teakerCannon       = new ItemVetheanCannon("teakerCannon", 3);
+    public static final Item amthrimisCannon    = new ItemVetheanCannon("amthirmisCannon", 5);
+    public static final Item darvenCannon       = new ItemVetheanCannon("darvenCannon", 8);
+    public static final Item cermileCannon      = new ItemVetheanCannon("cermileCannon", 12);
+    public static final Item pardimalCannon     = new ItemVetheanCannon("pardimalWarcannon", 15);
+    public static final Item quadroticCannon    = new ItemVetheanCannon("quadroticWarcannon", 19);
+    public static final Item karosCannon    	= new ItemVetheanCannon("karosWarcannon", 21);
+    public static final Item heliosisCannon     = new ItemVetheanCannon("heliosisWrathcannon", 28);
+    public static final Item arksianeCannon     = new ItemVetheanCannon("arksianeWrathcannon", 36);
 
     public static final Item teakerHammer       = new ItemVetheanSword("teakerHammer", Util.addHammerMaterial(6));
     public static final Item amthrimisHammer    = new ItemVetheanSword("amthirmisHammer", Util.addHammerMaterial(8));
@@ -117,7 +117,7 @@ public class VetheaItems {
     public static final Item heliosisClaw       = new ItemVetheanClaw(26, "heliosisClaw");
     public static final Item arksianeClaw       = new ItemVetheanClaw(35, "arksianeClaw");
 
-    public static final Item eversight          = new ItemVetheanEversight(42, "eversight");
+    public static final Item eversight          = new ItemVetheanEversight("eversight");
     public static final Item everlight          = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
     public static final Item everbright         = new ItemVetheanClaw(42, "everbright");
     public static final Item everArrow          = new ItemMod("everArrow").setCreativeTab(DivineRPGTabs.vethea);

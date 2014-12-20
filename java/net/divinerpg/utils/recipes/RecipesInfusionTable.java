@@ -18,15 +18,15 @@ public class RecipesInfusionTable {
 	}
 
 	public static void recipes() {
-		/*addRecipe(VetheanItems.teakerLump, VetheanItems.bowTemplate, 4, new ItemStack(VetheanItems.teakerBow));
-		addRecipe(VetheanItems.amthrimisLump, VetheanItems.bowTemplate, 5, new ItemStack(VetheanItems.amthrimisBow));
-		addRecipe(VetheanItems.darvenLump, VetheanItems.bowTemplate, 6, new ItemStack(VetheanItems.darvenBow));
-		addRecipe(VetheanItems.cermileLump, VetheanItems.bowTemplate, 8, new ItemStack(VetheanItems.cermileBow));
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.bowTemplate, 11, new ItemStack(VetheanItems.pardimalBow));
-		addRecipe(VetheanItems.quadroticLump, VetheanItems.bowTemplate, 13, new ItemStack(VetheanItems.quadroticBow));
-		addRecipe(VetheanItems.karosLump, VetheanItems.bowTemplate, 18, new ItemStack(VetheanItems.karosBow));
-		addRecipe(VetheanItems.heliosisLump, VetheanItems.bowTemplate, 20, new ItemStack(VetheanItems.heliosisBow));
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.bowTemplate, 24, new ItemStack(VetheanItems.arksianeBow));*/
+		addRecipe(VetheaItems.teakerLump, VetheaItems.bowTemplate, 4, new ItemStack(VetheaItems.teakerBow));
+		addRecipe(VetheaItems.amthrimisLump, VetheaItems.bowTemplate, 5, new ItemStack(VetheaItems.amthrimisBow));
+		addRecipe(VetheaItems.darvenLump, VetheaItems.bowTemplate, 6, new ItemStack(VetheaItems.darvenBow));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.bowTemplate, 8, new ItemStack(VetheaItems.cermileBow));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.bowTemplate, 11, new ItemStack(VetheaItems.pardimalBow));
+		addRecipe(VetheaItems.quadroticLump, VetheaItems.bowTemplate, 13, new ItemStack(VetheaItems.quadroticBow));
+		addRecipe(VetheaItems.karosLump, VetheaItems.bowTemplate, 18, new ItemStack(VetheaItems.karosBow));
+		addRecipe(VetheaItems.heliosisLump, VetheaItems.bowTemplate, 20, new ItemStack(VetheaItems.heliosisBow));
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.bowTemplate, 24, new ItemStack(VetheaItems.arksianeBow));
 
 		addRecipe(VetheaItems.teakerLump, VetheaItems.clawTemplate, 2, new ItemStack(VetheaItems.teakerClaw));
 		addRecipe(VetheaItems.amthrimisLump, VetheaItems.clawTemplate, 3, new ItemStack(VetheaItems.amthrimisClaw));
@@ -84,44 +84,44 @@ public class RecipesInfusionTable {
 		addRecipe(VetheaItems.cermileLump, VetheaItems.cannonTemplate, 14, new ItemStack(VetheaItems.cermileCannon));
 		addRecipe(VetheaItems.pardimalLump, VetheaItems.cannonTemplate, 17, new ItemStack(VetheaItems.pardimalCannon));
 		addRecipe(VetheaItems.quadroticLump, VetheaItems.cannonTemplate, 19, new ItemStack(VetheaItems.quadroticCannon));
-		addRecipe(VetheaItems.karosLump, VetheaItems.cannonTemplate, 22, new ItemStack(VetheaItems.karosCannonItem));
+		addRecipe(VetheaItems.karosLump, VetheaItems.cannonTemplate, 22, new ItemStack(VetheaItems.karosCannon));
 		addRecipe(VetheaItems.heliosisLump, VetheaItems.cannonTemplate, 27, new ItemStack(VetheaItems.heliosisCannon));
 		addRecipe(VetheaItems.arksianeLump, VetheaItems.cannonTemplate, 31, new ItemStack(VetheaItems.arksianeCannon));
 
-		/*addRecipe(VetheanItems.amthrimisLump, VetheanItems.DegradedTemplate, 8, new ItemStack(VetheanItems.degradedHelmetMelee));
-		addRecipe(VetheanItems.amthrimisLump, VetheanItems.DegradedTemplate, 6, new ItemStack(VetheanItems.degradedHelmetArcana));
-		addRecipe(VetheanItems.amthrimisLump, VetheanItems.DegradedTemplate, 9, new ItemStack(VetheanItems.degradedHelmetRanged));
-		addRecipe(VetheanItems.amthrimisLump, VetheanItems.DegradedTemplate, 5, new ItemStack(VetheanItems.degradedBoots));
-		addRecipe(VetheanItems.amthrimisLump, VetheanItems.DegradedTemplate, 8, new ItemStack(VetheanItems.degradedLegs));
-		addRecipe(VetheanItems.amthrimisLump, VetheanItems.DegradedTemplate, 10, new ItemStack(VetheanItems.degradedChest));
+		/*addRecipe(VetheaItems.amthrimisLump, VetheaItems.DegradedTemplate, 8, new ItemStack(VetheaItems.degradedHelmetMelee));
+		addRecipe(VetheaItems.amthrimisLump, VetheaItems.DegradedTemplate, 6, new ItemStack(VetheaItems.degradedHelmetArcana));
+		addRecipe(VetheaItems.amthrimisLump, VetheaItems.DegradedTemplate, 9, new ItemStack(VetheaItems.degradedHelmetRanged));
+		addRecipe(VetheaItems.amthrimisLump, VetheaItems.DegradedTemplate, 5, new ItemStack(VetheaItems.degradedBoots));
+		addRecipe(VetheaItems.amthrimisLump, VetheaItems.DegradedTemplate, 8, new ItemStack(VetheaItems.degradedLegs));
+		addRecipe(VetheaItems.amthrimisLump, VetheaItems.DegradedTemplate, 10, new ItemStack(VetheaItems.degradedChest));
 
-		addRecipe(VetheanItems.cermileLump, VetheanItems.FinishedTemplate, 12, new ItemStack(VetheanItems.finishedHelmetMelee));
-		addRecipe(VetheanItems.cermileLump, VetheanItems.FinishedTemplate, 9, new ItemStack(VetheanItems.finishedHelmetArcana));
-		addRecipe(VetheanItems.cermileLump, VetheanItems.FinishedTemplate, 13, new ItemStack(VetheanItems.finishedHelmetRanged));
-		addRecipe(VetheanItems.cermileLump, VetheanItems.FinishedTemplate, 8, new ItemStack(VetheanItems.finishedBoots));
-		addRecipe(VetheanItems.cermileLump, VetheanItems.FinishedTemplate, 12, new ItemStack(VetheanItems.finishedLegs));
-		addRecipe(VetheanItems.cermileLump, VetheanItems.FinishedTemplate, 14, new ItemStack(VetheanItems.finishedChest));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.FinishedTemplate, 12, new ItemStack(VetheaItems.finishedHelmetMelee));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.FinishedTemplate, 9, new ItemStack(VetheaItems.finishedHelmetArcana));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.FinishedTemplate, 13, new ItemStack(VetheaItems.finishedHelmetRanged));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.FinishedTemplate, 8, new ItemStack(VetheaItems.finishedBoots));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.FinishedTemplate, 12, new ItemStack(VetheaItems.finishedLegs));
+		addRecipe(VetheaItems.cermileLump, VetheaItems.FinishedTemplate, 14, new ItemStack(VetheaItems.finishedChest));
 
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.GlisteningTemplate, 16, new ItemStack(VetheanItems.glisteningHelmetMelee));
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.GlisteningTemplate, 14, new ItemStack(VetheanItems.glisteningHelmetArcana));
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.GlisteningTemplate, 18, new ItemStack(VetheanItems.glisteningHelmetRanged));
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.GlisteningTemplate, 12, new ItemStack(VetheanItems.glisteningBoots));
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.GlisteningTemplate, 16, new ItemStack(VetheanItems.glisteningLegs));
-		addRecipe(VetheanItems.pardimalLump, VetheanItems.GlisteningTemplate, 20, new ItemStack(VetheanItems.glisteningChest));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.GlisteningTemplate, 16, new ItemStack(VetheaItems.glisteningHelmetMelee));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.GlisteningTemplate, 14, new ItemStack(VetheaItems.glisteningHelmetArcana));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.GlisteningTemplate, 18, new ItemStack(VetheaItems.glisteningHelmetRanged));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.GlisteningTemplate, 12, new ItemStack(VetheaItems.glisteningBoots));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.GlisteningTemplate, 16, new ItemStack(VetheaItems.glisteningLegs));
+		addRecipe(VetheaItems.pardimalLump, VetheaItems.GlisteningTemplate, 20, new ItemStack(VetheaItems.glisteningChest));
 
-		addRecipe(VetheanItems.karosLump, VetheanItems.DemonizedTemplate, 20, new ItemStack(VetheanItems.demonizedHelmetMelee));
-		addRecipe(VetheanItems.karosLump, VetheanItems.DemonizedTemplate, 16, new ItemStack(VetheanItems.demonizedHelmetArcana));
-		addRecipe(VetheanItems.karosLump, VetheanItems.DemonizedTemplate, 22, new ItemStack(VetheanItems.demonizedHelmetRanged));
-		addRecipe(VetheanItems.karosLump, VetheanItems.DemonizedTemplate, 14, new ItemStack(VetheanItems.demonizedBoots));
-		addRecipe(VetheanItems.karosLump, VetheanItems.DemonizedTemplate, 20, new ItemStack(VetheanItems.demonizedLegs));
-		addRecipe(VetheanItems.karosLump, VetheanItems.DemonizedTemplate, 26, new ItemStack(VetheanItems.demonizedChest));
+		addRecipe(VetheaItems.karosLump, VetheaItems.DemonizedTemplate, 20, new ItemStack(VetheaItems.demonizedHelmetMelee));
+		addRecipe(VetheaItems.karosLump, VetheaItems.DemonizedTemplate, 16, new ItemStack(VetheaItems.demonizedHelmetArcana));
+		addRecipe(VetheaItems.karosLump, VetheaItems.DemonizedTemplate, 22, new ItemStack(VetheaItems.demonizedHelmetRanged));
+		addRecipe(VetheaItems.karosLump, VetheaItems.DemonizedTemplate, 14, new ItemStack(VetheaItems.demonizedBoots));
+		addRecipe(VetheaItems.karosLump, VetheaItems.DemonizedTemplate, 20, new ItemStack(VetheaItems.demonizedLegs));
+		addRecipe(VetheaItems.karosLump, VetheaItems.DemonizedTemplate, 26, new ItemStack(VetheaItems.demonizedChest));
 
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.TormentedTemplate, 24, new ItemStack(VetheanItems.tormentedHelmetMelee));
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.TormentedTemplate, 22, new ItemStack(VetheanItems.tormentedHelmetArcana));
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.TormentedTemplate, 26, new ItemStack(VetheanItems.tormentedHelmetRanged));
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.TormentedTemplate, 20, new ItemStack(VetheanItems.tormentedBoots));
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.TormentedTemplate, 24, new ItemStack(VetheanItems.tormentedLegs));
-		addRecipe(VetheanItems.arksianeLump, VetheanItems.TormentedTemplate, 35, new ItemStack(VetheanItems.tormentedChest));*/
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.TormentedTemplate, 24, new ItemStack(VetheaItems.tormentedHelmetMelee));
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.TormentedTemplate, 22, new ItemStack(VetheaItems.tormentedHelmetArcana));
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.TormentedTemplate, 26, new ItemStack(VetheaItems.tormentedHelmetRanged));
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.TormentedTemplate, 20, new ItemStack(VetheaItems.tormentedBoots));
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.TormentedTemplate, 24, new ItemStack(VetheaItems.tormentedLegs));
+		addRecipe(VetheaItems.arksianeLump, VetheaItems.TormentedTemplate, 35, new ItemStack(VetheaItems.tormentedChest));*/
 	}
 
 	public static void addRecipe(Item Item1, Item Item2, int i, ItemStack item) {

@@ -96,6 +96,6 @@ public class VetheaBlocks {
     public static final Block             karosBricks2           = new BlockMod(EnumBlockType.ROCK, "karosBrick2", false, DivineRPGTabs.vethea);
     public static final Block             infusionTable          = new BlockInfusionTable().setName("infusionTable").setBlockUnbreakable();
     public static final BlockHelioticBeam helioticBeam           = (BlockHelioticBeam) new BlockHelioticBeam("helioticBeam");
-    public static final BlockKarosCannon  karosCannon            = (BlockKarosCannon) new BlockKarosCannon(Material.rock).setName("karosCannon");
+    public static final BlockKarosCannon  karosCannon            = (BlockKarosCannon) new BlockKarosCannon(Material.rock).setName("karosCannonBlock");
     public static final Block             nightmareBedBlock      = new BlockNightmareBed();
 }
