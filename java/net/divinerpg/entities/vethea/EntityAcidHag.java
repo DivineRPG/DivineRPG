@@ -124,9 +124,9 @@ public class EntityAcidHag extends EntityDivineRPGMob {
     }
 
     @Override
-    protected void dropFewItems(boolean par1, int par2) {
+    protected void dropFewItems(boolean beenHit, int lootingLevel) {
         this.dropItem(VetheaItems.dirtyPearls, 1);
-        this.dropItem(VetheaItems.acid, par2 * 2);
+        this.dropItem(VetheaItems.acid, this.rand.nextInt(3)+1);
     }
 
 	@Override

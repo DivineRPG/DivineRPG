@@ -19,10 +19,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockAcid extends BlockMod {
 	
-    public BlockAcid(String name) {
+	private boolean decays;
+	
+    public BlockAcid(String name, boolean decays) {
         super(EnumBlockType.SNOW, name, 0.1F, DivineRPGTabs.vethea);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
         this.setTickRandomly(true);
+        this.decays = decays;
     }
  
     @Override
@@ -85,7 +88,7 @@ public class BlockAcid extends BlockMod {
  
     @Override
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {
-        par1World.setBlockToAir(par2, par3, par4);
+        if(this.decays)par1World.setBlockToAir(par2, par3, par4);
     }
  
     @Override

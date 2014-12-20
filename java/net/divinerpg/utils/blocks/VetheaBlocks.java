@@ -63,10 +63,10 @@ public class VetheaBlocks {
     public static final Block             karosHeatTileGreen     = new BlockKarosHeatTile(false, "karosHeatTileGreen");
     public static final Block             karosHeatTileRed       = new BlockKarosHeatTile(true, "karosHeatTileRed");
     public static final Block             firewood               = new BlockModLog("fireWoodLog").setCreativeTab(DivineRPGTabs.vethea);
-    public static final Block             bacterialAcid          = new BlockAcid("bacterialAcid");
-    public static final Block             blockAcid              = new BlockAcid("acidBlock");
+    public static final Block             bacterialAcid          = new BlockAcid("bacterialAcid", false);
+    public static final Block             blockAcid              = new BlockAcid("acidBlock", true);
     public static final Block             everstone              = new BlockMod("greenEverstone", 3.0F, DivineRPGTabs.vethea);
-    public static final Block             lunicAcid              = new BlockAcid("lunicAcid");
+    public static final Block             lunicAcid              = new BlockAcid("lunicAcid", false);
     public static final Block             firewoodLeaves         = new BlockModLeaves("fireWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
     public static final Block             hyrewoodLeaves         = new BlockModLeaves("hyreWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
     public static final Block             gemtopGreen            = new BlockVetheaPlant("greenGemTop");
