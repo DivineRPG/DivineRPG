@@ -52,26 +52,24 @@ public class GUIOverlay {
 		}
 	}
 	public void drawArmor() {
-		if(!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
-			GL11.glDisable(GL11.GL_BLEND);
-			GL11.glColor4f(1, 1, 1, 1);
-			ResourceLocation r = new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar.png");
-			res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
-			int x = (res.getScaledWidth() / 2) - 11;
-			int y = res.getScaledHeight() - 49;
-			GL11.glPushMatrix();
-			switch(EventArmorTick.size) {
-			case 1:
-				Minecraft.getMinecraft().getTextureManager().bindTexture(r);
-				Util.drawTexturedModalRect(x, y, 0, 0, 9, 9);
-				break;
-			case 2: //Not used. Here if we need it.
-				Minecraft.getMinecraft().getTextureManager().bindTexture(r);
-				Util.drawTexturedModalRect(x, y, 9, 0, 18, 9);
-				break;
-			}
-			GL11.glPopMatrix();
-			GL11.glDisable(GL11.GL_BLEND);
+		GL11.glDisable(GL11.GL_BLEND);
+		GL11.glColor4f(1, 1, 1, 1);
+		ResourceLocation r = new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar.png");
+		res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+		int x = (res.getScaledWidth() / 2) - 11;
+		int y = res.getScaledHeight() - 49;
+		GL11.glPushMatrix();
+		switch(EventArmorTick.size) {
+		case 1:
+			Minecraft.getMinecraft().getTextureManager().bindTexture(r);
+			Util.drawTexturedModalRect(x, y, 0, 0, 9, 9);
+			break;
+		case 2: //Not used. Here if we need it.
+			Minecraft.getMinecraft().getTextureManager().bindTexture(r);
+			Util.drawTexturedModalRect(x, y, 9, 0, 18, 9);
+			break;
 		}
+		GL11.glPopMatrix();
+		GL11.glDisable(GL11.GL_BLEND);
 	}
 }
