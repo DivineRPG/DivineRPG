@@ -35,7 +35,7 @@ public class WorldProviderVethea extends WorldProvider {
 	}
 
 	public boolean canRespawnHere() {
-		return false;
+		return true;
 	}
 
 	public String getSaveFolder() {

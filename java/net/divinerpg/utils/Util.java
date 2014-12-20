@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -16,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumChatFormatting;
@@ -28,6 +30,7 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -177,6 +180,12 @@ public class Util {
     
     public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
         return new EntityDamageSourceIndirect("arrow", projectile, shooter).setMagicDamage();
+    }
+    
+    public static ChunkCoordinates getPlayerSpawnChunk(EntityPlayer player) {
+    	String[] spawnChunkNames = new String[] { "c", "field_71077_c", "spawnChunk" };
+    	ChunkCoordinates coords = (ChunkCoordinates)ObfuscationReflectionHelper.getPrivateValue(EntityPlayer.class, player, spawnChunkNames);
+    	return coords;
     }
     
     public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {

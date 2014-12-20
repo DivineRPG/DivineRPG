@@ -103,6 +103,11 @@ public class BlockNightmareBed extends BlockBed {
                     NBTTagList inv = this.persistantData.getTagList("VetheaInv", 10);
                     player.inventory.readFromNBT(inv);
                     player.inventoryContainer.detectAndSendChanges();
+                    ChunkCoordinates c = new ChunkCoordinates();
+                    c.posX = (int)player.posX;
+                    c.posY = 18;
+                    c.posZ = (int)player.posZ;
+                    player.setSpawnChunk(c, true, ConfigurationHelper.vethea);
                     return true;
                 }
 
