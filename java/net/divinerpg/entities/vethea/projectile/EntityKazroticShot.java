@@ -22,7 +22,7 @@ public class EntityKazroticShot extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
         if(!this.worldObj.isRemote) {
-            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 9, false);
+            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 4, false);
             this.setDead();
         }
     }

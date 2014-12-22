@@ -10,10 +10,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityMandragora extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityMandragora extends VetheaMob implements IRangedAttackMob {
 	
-    private static final double spawnLayer = 2;
-
     public EntityMandragora(World var1) {
         super(var1);
         addAttackingAI();
@@ -29,8 +27,8 @@ public class EntityMandragora extends EntityDivineRPGMob implements IRangedAttac
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 2;
     }
 
     @Override

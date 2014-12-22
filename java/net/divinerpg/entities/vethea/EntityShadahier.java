@@ -9,10 +9,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class EntityShadahier extends EntityDivineRPGMob {
+public class EntityShadahier extends VetheaMob {
 	
-    private static final double spawnLayer = 1;
-
     public EntityShadahier(World var1) {
         super(var1);
         addAttackingAI();
@@ -28,8 +26,8 @@ public class EntityShadahier extends EntityDivineRPGMob {
     }
     
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 1;
     }
 
     @Override

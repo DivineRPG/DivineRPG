@@ -8,9 +8,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityGorgosion extends EntityDivineRPGMob {
+public class EntityGorgosion extends VetheaMob {
 	
-	private static final double spawnLayer = 2;
 
 	public EntityGorgosion(World var1) {
 		super(var1);
@@ -26,9 +25,9 @@ public class EntityGorgosion extends EntityDivineRPGMob {
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
-	}
+    public int getSpawnLayer() {
+    	return 2;
+    }
 
 	@Override
 	protected void fall(float par1) {

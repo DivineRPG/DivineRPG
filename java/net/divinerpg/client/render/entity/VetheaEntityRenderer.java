@@ -96,6 +96,7 @@ import net.divinerpg.entities.vethea.projectile.EntityArksianeDisk;
 import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityCermileDisk;
 import net.divinerpg.entities.vethea.projectile.EntityDarvenDisk;
+import net.divinerpg.entities.vethea.projectile.EntityDissimentShot;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityHeliosisDisk;
 import net.divinerpg.entities.vethea.projectile.EntityKarosDisk;
@@ -121,6 +122,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityPardimalDisk.class, new RenderIconProjectile(VetheaItems.pardimalDisk));
 		RenderingRegistry.registerEntityRenderingHandler(EntityQuadroticDisk.class, new RenderIconProjectile(VetheaItems.quadroticDisk));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisk.class, new RenderIconProjectile(VetheaItems.teakerDisk));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDissimentShot.class, new RenderSpecialProjectile(x.DISSIMENT_SHOT));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.staffProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.evernight));
@@ -138,7 +140,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityHoverStinger.class, new RenderDivineMob(new HoverStinger(), 0.0F, x.HOVER_STINGER));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZone.class, new RenderDivineMob(new Zone(), 0.0F, x.ZONE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZoragon.class, new RenderDivineMob(new Zoragon(), 0.0F, x.ZORAGON));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDissiment.class, new RenderDivineMob(new Dissiment(), 0.0F, x.DISSIMENT));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDissiment.class, new RenderDivineMob(new Dissiment(), 0.0F, 3, x.DISSIMENT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityVhraak.class, new RenderDivineMob(new Vhraak(), 0.0F, x.VHRAAK));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGalroid.class, new RenderGalroid(new Galroid(), 0.0F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBohemite.class, new RenderDivineMob(new Boheimite(), 0.0F, x.BOHEMITE));

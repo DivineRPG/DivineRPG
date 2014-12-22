@@ -15,9 +15,8 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityDuo extends EntityDivineRPGMob {
+public class EntityDuo extends VetheaMob {
 
-    private static final double spawnLayer = 1;
     public static int ability;
     private final int SLOW = 0, FAST = 1;
 
@@ -41,8 +40,8 @@ public class EntityDuo extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 1;
     }
 
     @Override

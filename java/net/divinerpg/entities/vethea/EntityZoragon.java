@@ -32,7 +32,7 @@ public class EntityZoragon extends EntityDivineRPGFlying {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+        return this.posY < 48.0D * spawnLayer  && this.posY > 48.0D * (spawnLayer - 1) && super.getCanSpawnHere();
     }
 
     @Override

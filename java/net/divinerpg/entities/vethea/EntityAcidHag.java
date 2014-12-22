@@ -28,10 +28,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityAcidHag extends EntityDivineRPGMob {
+public class EntityAcidHag extends VetheaMob {
 	
-    private static final double spawnLayer = 1;
-
     public EntityAcidHag(World var1) {
         super(var1);
         addAttackingAI();
@@ -119,8 +117,8 @@ public class EntityAcidHag extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 1;
     }
 
     @Override

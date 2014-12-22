@@ -27,12 +27,12 @@ public class EntityDissiment extends EntityDivineRPGFlying {
         super(par1World);
         this.isImmuneToFire = true;
         this.experienceValue = 5;
-        this.setSize(2.0F, 2.0F);
+        this.setSize(4.0F, 4.0F);
     }
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+        return this.posY < 48.0D * spawnLayer && this.posY > 48.0D * (spawnLayer - 1) && super.getCanSpawnHere();
     }
 
     @Override
@@ -48,12 +48,8 @@ public class EntityDissiment extends EntityDivineRPGFlying {
     }
     
     @Override
-    protected void updateEntityActionState() {
-
-        if(!this.worldObj.isRemote) {
-            this.setDead();
-        }
-
+    public void onLivingUpdate() {
+    	if(!this.worldObj.isRemote) {
         this.despawnEntity();
         this.prevAttackCounter = this.attackCounter;
         double var1 = this.waypointX - this.posX;
@@ -81,7 +77,7 @@ public class EntityDissiment extends EntityDivineRPGFlying {
                 this.waypointZ = this.posZ;
             }
         }
-
+                
         if (this.targetedEntity != null && this.targetedEntity.isDead) {
             this.targetedEntity = null;
         }
@@ -90,7 +86,7 @@ public class EntityDissiment extends EntityDivineRPGFlying {
             this.targetedEntity = this.worldObj.getClosestVulnerablePlayerToEntity(this, 100.0D);
 
             if (this.targetedEntity != null) {
-                this.aggroCooldown = 20;
+                this.aggroCooldown = 200;
             }
         }
 
@@ -103,10 +99,9 @@ public class EntityDissiment extends EntityDivineRPGFlying {
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(var11, var15)) * 180.0F / (float)Math.PI;
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
+            	System.out.println(this.attackCounter);
 
-                ++this.attackCounter;
-
-                if (this.attackCounter == 5) {
+                if (this.attackCounter == 0) {
                     EntityDissimentShot var17 = new EntityDissimentShot(this.worldObj, this);
                     double var18 = 4.0D;
                     Vec3 var20 = this.getLook(1.0F);
@@ -114,10 +109,10 @@ public class EntityDissiment extends EntityDivineRPGFlying {
                     var17.posY = this.posY + this.height / 2.0F + 0.5D;
                     var17.posZ = this.posZ + var20.zCoord * var18;
                     this.worldObj.spawnEntityInWorld(var17);
-                    this.attackCounter = 0;
+                    this.attackCounter = 5;
                 }
             }
-            else if (this.attackCounter > 0) {
+            if (this.attackCounter > 0) {
                 --this.attackCounter;
             }
         } else {
@@ -131,6 +126,8 @@ public class EntityDissiment extends EntityDivineRPGFlying {
         if (!this.worldObj.isRemote) {
             byte var12 = (byte)(this.attackCounter > 10 ? 1 : 0);
         }
+        super.onLivingUpdate();
+    	}
     }
 
     private boolean isCourseTraversable(double par1, double par3, double par5, double par7) {

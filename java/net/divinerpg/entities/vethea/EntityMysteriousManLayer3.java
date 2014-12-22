@@ -16,7 +16,7 @@ public class EntityMysteriousManLayer3 extends EntityGive {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.posY < 64.0D * this.spawnLayer  && this.posY > 64.0D * (this.spawnLayer - 1) && super.getCanSpawnHere();
+		return this.posY < 48.0D * this.spawnLayer  && this.posY > 48.0D * (this.spawnLayer - 1) && super.getCanSpawnHere();
 	}
 
 	@Override

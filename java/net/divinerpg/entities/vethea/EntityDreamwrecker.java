@@ -17,10 +17,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityDreamwrecker extends EntityDivineRPGMob {
+public class EntityDreamwrecker extends VetheaMob {
 	
-    private static final double spawnLayer = 2;
-
     public EntityDreamwrecker(World var1) {
         super(var1);
         addAttackingAI();
@@ -37,10 +35,9 @@ public class EntityDreamwrecker extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY < 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 2;
     }
-
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();

@@ -1,18 +1,15 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityHoverStinger extends EntityDivineRPGFlying {
+public class EntityHoverStinger extends EntityDivineRPGMob {
 	
     private ChunkCoordinates currentFlightTarget;
     private int flyTimer;
@@ -20,6 +17,7 @@ public class EntityHoverStinger extends EntityDivineRPGFlying {
     public EntityHoverStinger(World var1) {
         super(var1);
         this.flyTimer = 0;
+        this.addAttackingAI();
     }
 
     @Override
@@ -89,6 +87,9 @@ public class EntityHoverStinger extends EntityDivineRPGFlying {
         }
 
     }
+    
+    @Override
+    public void fall(float f){}
 
     @Override
     public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)  {

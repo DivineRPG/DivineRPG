@@ -6,9 +6,8 @@ import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 
-public class EntityLorga extends EntityDivineRPGMob {
+public class EntityLorga extends VetheaMob {
 	
-    private static final double spawnLayer = 1;
     private int lifeTick;
     private int spawnTick;
     public boolean canSpawnMinions;
@@ -34,8 +33,8 @@ public class EntityLorga extends EntityDivineRPGMob {
     }
  
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 1;
     }
 
     public EntityLorga(World var1, int life, boolean canSpawnMinions) {

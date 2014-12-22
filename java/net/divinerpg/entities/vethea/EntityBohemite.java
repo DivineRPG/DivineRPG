@@ -16,9 +16,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityBohemite extends EntityDivineRPGMob {
+public class EntityBohemite extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
     private int waitTick;
 
     public EntityBohemite(World var1) {
@@ -33,6 +32,11 @@ public class EntityBohemite extends EntityDivineRPGMob {
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.bohemiteDamage);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.bohemiteSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.bohemiteFollowRange);
+    }
+    
+    @Override
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override
@@ -53,11 +57,6 @@ public class EntityBohemite extends EntityDivineRPGMob {
     @Override
     protected void dropFewItems(boolean par1, int par2) {
         this.dropItem(VetheaItems.polishedPearls, 1);
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
     }
 
 	@Override

@@ -9,9 +9,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityVermenous extends EntityDivineRPGMob {
+public class EntityVermenous extends VetheaMob {
 	
-    private static final double spawnLayer = 2;
     public int ability;
     
     public EntityVermenous(World var1) {
@@ -30,8 +29,8 @@ public class EntityVermenous extends EntityDivineRPGMob {
     }
  
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 2;
     }
 
     @Override
@@ -47,7 +46,7 @@ public class EntityVermenous extends EntityDivineRPGMob {
             double var5 = var4.lengthVector();
             var4 = var4.normalize();
             double var7 = var3.dotProduct(var4);
-            if( var7 > 1.0D - 0.025D / var5 && var1.canEntityBeSeen(this)) {
+            if(var7 > 1.0D - 0.025D / var5 && var1.canEntityBeSeen(this)) {
                 var1.attackEntityFrom(DamageSource.causeMobDamage(this), 4);
             }
         }

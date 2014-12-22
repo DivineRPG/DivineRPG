@@ -160,6 +160,7 @@ public class EntityResourceLocation {
     public static ResourceLocation ZONE 			 = addMob("zone");
     public static ResourceLocation ZORAGON 			 = addMob("zoragon");
     public static ResourceLocation DISSIMENT 		 = addMob("dissiment");
+    public static ResourceLocation DISSIMENT_SHOT    = addProjectile("dissimentShot");
     public static ResourceLocation VHRAAK 			 = addMob("vhraak");
     public static ResourceLocation LADY_LUNA_RANGE 	 = addMob("ladyLunaRanged");
     public static ResourceLocation LADY_LUNA_ARCANIC = addMob("ladyLunaArcanic");

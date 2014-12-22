@@ -12,9 +12,8 @@ import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class EntityEndiku extends EntityDivineRPGMob {
+public class EntityEndiku extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
     public int eatX;
     public int eatY;
     public int eatZ;
@@ -30,8 +29,8 @@ public class EntityEndiku extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override
