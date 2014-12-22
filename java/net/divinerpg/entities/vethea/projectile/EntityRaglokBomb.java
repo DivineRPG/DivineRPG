@@ -31,7 +31,14 @@ public class EntityRaglokBomb extends EntityThrowable {
 	@Override
 	protected void onImpact(MovingObjectPosition var1) {
 		if(!this.worldObj.isRemote){
-			worldObj.createExplosion(this, this.posX, posY, posZ, 0.5F, false);
+			worldObj.createExplosion(this, this.posX, posY, posZ, 1F, false);
 		}
+		this.setDead();
 	}
+	
+	@Override
+	protected float getGravityVelocity()
+    {
+        return 0.01F;
+    }
 }

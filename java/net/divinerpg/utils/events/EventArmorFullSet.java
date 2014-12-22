@@ -151,6 +151,20 @@ public class EventArmorFullSet {
             if (boots == TwilightItemsArmor.skythernBoots && body == TwilightItemsArmor.skythernBody && legs == TwilightItemsArmor.skythernLegs && helmet == TwilightItemsArmor.skythernHelmet) {
                 player.addVelocity(0, 0.5D, 0);
             }
+            
+            //Vethean
+            
+            if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningHood) {
+            	player.addVelocity(0, 0.2D, 0);
+            }
+                
+            if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedHood) {
+            	player.addVelocity(0, 0.3D, 0);
+            }
+                
+            if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHood) {
+            	player.addVelocity(0, 0.4D, 0);
+            }
 
         }
     }
@@ -271,15 +285,21 @@ public class EventArmorFullSet {
         }
 
         if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningHelmet) {
-        	e.ammount += 3;
+        	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 3;
+            }
         }
             
         if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedHelmet) {
-        	e.ammount += 6;
+        	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 6;
+            }
         }
             
         if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHelmet) {
-           	e.ammount += 9;
+        	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 9;
+            }
         }
     }
 }

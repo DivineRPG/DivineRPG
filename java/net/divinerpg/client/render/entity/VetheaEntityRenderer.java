@@ -102,6 +102,7 @@ import net.divinerpg.entities.vethea.projectile.EntityHeliosisDisk;
 import net.divinerpg.entities.vethea.projectile.EntityKarosDisk;
 import net.divinerpg.entities.vethea.projectile.EntityPardimalDisk;
 import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
+import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
 import net.divinerpg.entities.vethea.projectile.EntityTeakerDisk;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.client.model.ModelBiped;
@@ -123,6 +124,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityQuadroticDisk.class, new RenderIconProjectile(VetheaItems.quadroticDisk));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisk.class, new RenderIconProjectile(VetheaItems.teakerDisk));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDissimentShot.class, new RenderSpecialProjectile(x.DISSIMENT_SHOT));
+		RenderingRegistry.registerEntityRenderingHandler(EntityRaglokBomb.class, new RenderSpecialProjectile(x.RAGLOK_BOMB));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.staffProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.evernight));

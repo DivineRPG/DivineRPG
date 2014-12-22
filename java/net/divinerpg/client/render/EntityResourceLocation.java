@@ -183,6 +183,7 @@ public class EntityResourceLocation {
     public static ResourceLocation LORGA_FLIGHT 	 = addMob("lorgaFlight");
     public static ResourceLocation MANDRAGORA 		 = addMob("mandragora");
     public static ResourceLocation RAGLOK 			 = addMob("raglokGogdure");
+    public static ResourceLocation RAGLOK_BOMB 	     = addProjectile("raglokBomb");
     public static ResourceLocation TOCAXIN 			 = addMob("tocaxin");
     public static ResourceLocation HUNGER_HUNGRY 	 = addMob("hungerHungry");
     public static ResourceLocation ENDIKU 		     = addMob("endiku");
