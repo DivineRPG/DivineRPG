@@ -184,8 +184,8 @@ public class BlockNightmareBed extends BlockBed {
 	@Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        top = new IIcon[] {register.registerIcon(Reference.PREFIX + "bedFeetTop"), register.registerIcon(Reference.PREFIX + "bedHeadTop")};
-        end = new IIcon[] {register.registerIcon(Reference.PREFIX + "bedFeetEnd"), register.registerIcon(Reference.PREFIX + "bedHeadEnd")};
-        side = new IIcon[] {register.registerIcon(Reference.PREFIX + "bedFeetSide"), register.registerIcon(Reference.PREFIX + "bedHeadSide")};
+        top = new IIcon[] {register.registerIcon(Reference.PREFIX + "nightmareBedFeetTop"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadTop")};
+        end = new IIcon[] {register.registerIcon(Reference.PREFIX + "nightmareBedFeetEnd"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadEnd")};
+        side = new IIcon[] {register.registerIcon(Reference.PREFIX + "nightmareBedFeetSide"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadSide")};
     }
 }
