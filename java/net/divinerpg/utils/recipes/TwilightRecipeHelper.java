@@ -1,13 +1,11 @@
 package net.divinerpg.utils.recipes;
 
-import net.divinerpg.DivineRPG;
-import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
-import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.TwilightItemsTools;
 import net.divinerpg.utils.items.VanillaItemsOther;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -141,7 +139,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsTools.mortumAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addShapelessRecipe(TwilightItemsTools.mortumShickaxe, TwilightItemsTools.mortumPickaxe, TwilightItemsTools.mortumShovel, TwilightItemsTools.mortumAxe);
 		
-		
+		addRecipe(VetheaItems.nightmareBed, "   ", "MMM", "WWW", 'M', TwilightBlocks.mortumBlock, 'W', TwilightBlocks.mortumLogs);
 
 	}
 }
