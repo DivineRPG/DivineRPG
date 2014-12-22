@@ -23,12 +23,10 @@ public class EntityDuo extends EntityDivineRPGMob {
 
     private int abilityCoolDown;
 
-    private EntityAIBase meleeAI;
     float moveSpeed = 0.25F;
 
     public EntityDuo(World par1) {
         super(par1);
-        meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, moveSpeed, false);
         addAttackingAI();
         ability = SLOW;
     }
@@ -54,14 +52,15 @@ public class EntityDuo extends EntityDivineRPGMob {
             this.abilityCoolDown = 350;
             this.setAIMoveSpeed(moveSpeed * 3);
         }
-        else if (ability == SLOW && this.abilityCoolDown > 0) {
-            this.abilityCoolDown--;
-        }
-        else if (ability != 0 && this.abilityCoolDown == 0) {
+    	
+        this.abilityCoolDown--;
+        
+        if (ability == FAST && this.abilityCoolDown == 0) {
+        	ability = SLOW;
             this.abilityCoolDown = 350;
-        } else {
-            ability = SLOW;
+            this.setAIMoveSpeed(moveSpeed);
         }
+        
         super.updateAITasks();
     }
     
