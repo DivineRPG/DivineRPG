@@ -15,9 +15,8 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityVhraak extends EntityDivineRPGMob {
+public class EntityVhraak extends VetheaMob {
 	
-    private static final double spawnLayer = 4;
     private int waitTick, lifeTick, spawnTick;
 
     public EntityVhraak(World var1) {
@@ -41,8 +40,8 @@ public class EntityVhraak extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 4;
     }
 
     @Override

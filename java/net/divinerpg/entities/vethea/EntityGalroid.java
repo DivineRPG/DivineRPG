@@ -12,9 +12,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityGalroid extends EntityDivineRPGMob {
+public class EntityGalroid extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
     private int invulnTicks;
 
     public EntityGalroid(World var1) {
@@ -23,8 +22,8 @@ public class EntityGalroid extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override

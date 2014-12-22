@@ -16,9 +16,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityZone extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityZone extends VetheaMob implements IRangedAttackMob {
 
-	private static final double spawnLayer = 4;
 	private int special;
 
 	public EntityZone(World par1World) {
@@ -37,9 +36,9 @@ public class EntityZone extends EntityDivineRPGMob implements IRangedAttackMob {
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
-	}
+    public int getSpawnLayer() {
+    	return 4;
+    }
 
 	@Override
 	protected void updateAITasks() {	

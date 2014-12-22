@@ -7,21 +7,23 @@ import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIArrowAttack;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityKazrotic extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
 	
-    private static final double spawnLayer = 3;
-
     public EntityKazrotic(World par1World) {
         super(par1World);
-        addAttackingAI();
+        this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 10.0F));
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override

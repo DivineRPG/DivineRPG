@@ -7,6 +7,7 @@ import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsArmor;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -45,7 +46,7 @@ public class EventArmorTick {
         ItemStack stackBody = event.player.inventory.armorItemInSlot(2);
         ItemStack stackHelmet = event.player.inventory.armorItemInSlot(3);
         
-        int speedMultiplier = 1;
+        float speedMultiplier = 1;
 
         if (stackBoots != null) boots = stackBoots.getItem();
         else boots = null;
@@ -188,6 +189,20 @@ public class EventArmorTick {
             size = 1;
 		else if(size != 0)
 			size = 0;
+        
+        //Vethean
+        
+        if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningMask) {
+        	speedMultiplier = 1.4f;
+        }
+        
+        if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedMask) {
+        	speedMultiplier = 1.8f;
+        }
+        
+        if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedMask) {
+        	speedMultiplier = 2.2f;
+        }
         
         event.player.capabilities.setPlayerWalkSpeed(0.1f * speedMultiplier);
     }

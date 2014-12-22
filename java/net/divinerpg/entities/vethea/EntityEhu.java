@@ -57,6 +57,7 @@ public class EntityEhu extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
+    	//TODO: ...really.
         int var1 = MathHelper.floor_double(this.posX);
         int var2 = MathHelper.floor_double(this.boundingBox.minY);
         int var3 = MathHelper.floor_double(this.posZ);

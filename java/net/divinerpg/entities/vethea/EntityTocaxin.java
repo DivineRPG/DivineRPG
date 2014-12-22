@@ -8,9 +8,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityTocaxin extends EntityDivineRPGMob {
+public class EntityTocaxin extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
     public int hurtTimer;
     
     public EntityTocaxin(World var1) {
@@ -29,8 +28,8 @@ public class EntityTocaxin extends EntityDivineRPGMob {
     }
     
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override

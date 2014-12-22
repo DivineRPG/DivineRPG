@@ -12,5 +12,6 @@ public class BiomeGenVethea extends BiomeGenBase {
         this.spawnableMonsterList.clear();
         this.topBlock = VetheaBlocks.dreamGrass;
         this.fillerBlock = VetheaBlocks.dreamDirt;
+        setDisableRain();
     }
 }

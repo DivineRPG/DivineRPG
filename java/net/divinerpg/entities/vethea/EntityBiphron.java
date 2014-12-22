@@ -8,9 +8,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityBiphron extends EntityDivineRPGMob {
+public class EntityBiphron extends VetheaMob {
 	
-    private static final int spawnLayer = 2;
     private boolean gravMove;
 
     public EntityBiphron(World var1) {
@@ -73,8 +72,8 @@ public class EntityBiphron extends EntityDivineRPGMob {
     }
  
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 2;
     }
 
 	@Override

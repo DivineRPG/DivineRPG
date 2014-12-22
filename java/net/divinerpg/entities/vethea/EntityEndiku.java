@@ -1,34 +1,36 @@
 package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
+import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class EntityEndiku extends EntityDivineRPGMob {
+public class EntityEndiku extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
     public int eatX;
     public int eatY;
     public int eatZ;
-    public Block[] edible = new Block[]{Blocks.log, VetheaBlocks.firewood, VetheaBlocks.mintwood, VetheaBlocks.hyrewood, VetheaBlocks.dreamWoodLog};
-    private boolean isEaten;
+    public Block[] edible = new Block[]{VetheaBlocks.firewood, VetheaBlocks.mintwood, VetheaBlocks.hyrewood, VetheaBlocks.dreamWoodLog};
+    private boolean shouldEat = false;
     private int ability;
-    float moveSpeed;
+    float moveSpeed = 1;
 
     public EntityEndiku(World var1) {
         super(var1);
         addAttackingAI();
+        this.setSize(2, 1);
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override
@@ -42,13 +44,13 @@ public class EntityEndiku extends EntityDivineRPGMob {
 
     @Override
     protected void updateAITasks() {
-    	if (this.getHealth() < this.getMaxHealth() * 0.2 && !this.isEaten) {
-    		for (int i = (int)this.posX - 2; i < (int)this.posX + 16; i++) {
-    			for (int j = (int)this.posZ - 2; j < (int)this.posZ + 16; j++) {
+    	if (this.getHealth() < this.getMaxHealth() * 0.5 && !this.shouldEat) {
+    		for (int i = (int)this.posX - 16; i < (int)this.posX + 16; i++) {
+    			for (int j = (int)this.posZ - 16; j < (int)this.posZ + 16; j++) {
     				for(int n = (int)this.posY - 2; n < (int)this.posY + 2; n++) {
         				boolean var1 = this.worldObj.getBlock(i, (int)this.posY, j).getMaterial() == Material.wood;
         				if (var1) {
-        					this.isEaten = true;
+        					this.shouldEat = true;
         					this.eatX = i;
         					this.eatY = (int)this.posY;
         					this.eatZ = j;
@@ -57,27 +59,29 @@ public class EntityEndiku extends EntityDivineRPGMob {
         		}
     		}
     	}
+    	if(this.shouldEat && this.getHealth() >= this.getMaxHealth() * 0.5) this.shouldEat = false;
     	super.updateAITasks();
     }
-    //TODO: Look into this.
-
+    
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
+        
+        if(this.shouldEat && this.worldObj.getBlock(this.eatX, this.eatY, this.eatZ).getMaterial() != Material.wood) this.shouldEat = false;
 
-        if(this.isEaten && this.ability == 0) {
+        if(this.shouldEat && this.ability == 0) {
             if (this.getDistance(eatX, eatY, eatZ) < 2) {
                 this.heal(70/8);
                 this.worldObj.setBlock(eatX, eatY, eatZ, Blocks.air);
-                this.isEaten = false;
+                this.shouldEat = false;
                 this.ability = 5;
             } else {
-                this.getMoveHelper().setMoveTo(eatX, eatY, eatZ, moveSpeed);
+                this.getNavigator().tryMoveToXYZ(eatX, eatY, eatZ, moveSpeed);
                 this.getLookHelper().setLookPosition(eatX, eatY, eatZ, 15F, 15F);
                 this.moveEntityWithHeading(0F, moveSpeed / 4);
             }
         }
-        else if (this.isEaten && this.ability > 0) {
+        else if (this.shouldEat && this.ability > 0) {
             this.ability--;
         }
     }

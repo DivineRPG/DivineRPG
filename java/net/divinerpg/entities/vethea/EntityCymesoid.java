@@ -10,10 +10,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityCymesoid extends EntityDivineRPGMob {
+public class EntityCymesoid extends VetheaMob {
 	
-    private static final double spawnLayer = 1;
-
     public EntityCymesoid(World var1) {
         super(var1);
         addAttackingAI();
@@ -73,8 +71,8 @@ public class EntityCymesoid extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 1;
     }
 
 	@Override

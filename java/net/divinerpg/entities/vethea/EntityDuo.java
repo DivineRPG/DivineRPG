@@ -15,20 +15,17 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityDuo extends EntityDivineRPGMob {
+public class EntityDuo extends VetheaMob {
 
-    private static final double spawnLayer = 1;
     public static int ability;
     private final int SLOW = 0, FAST = 1;
 
     private int abilityCoolDown;
 
-    private EntityAIBase meleeAI;
     float moveSpeed = 0.25F;
 
     public EntityDuo(World par1) {
         super(par1);
-        meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, moveSpeed, false);
         addAttackingAI();
         ability = SLOW;
     }
@@ -43,8 +40,8 @@ public class EntityDuo extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 1;
     }
 
     @Override
@@ -54,14 +51,15 @@ public class EntityDuo extends EntityDivineRPGMob {
             this.abilityCoolDown = 350;
             this.setAIMoveSpeed(moveSpeed * 3);
         }
-        else if (ability == SLOW && this.abilityCoolDown > 0) {
-            this.abilityCoolDown--;
-        }
-        else if (ability != 0 && this.abilityCoolDown == 0) {
+    	
+        this.abilityCoolDown--;
+        
+        if (ability == FAST && this.abilityCoolDown == 0) {
+        	ability = SLOW;
             this.abilityCoolDown = 350;
-        } else {
-            ability = SLOW;
+            this.setAIMoveSpeed(moveSpeed);
         }
+        
         super.updateAITasks();
     }
     

@@ -10,9 +10,8 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.world.World;
 
-public class EntityTwins extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityTwins extends VetheaMob implements IRangedAttackMob {
 
-    private static final double spawnLayer = 2;
     public static final int SLOW = 0, FAST = 1;
     public static int ability;
     private int abilityCoolDown;
@@ -37,8 +36,8 @@ public class EntityTwins extends EntityDivineRPGMob implements IRangedAttackMob 
     }
     
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 2;
     }
 
     @Override

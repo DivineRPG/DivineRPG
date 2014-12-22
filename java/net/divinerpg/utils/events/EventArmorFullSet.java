@@ -11,6 +11,7 @@ import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsArmor;
+import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -94,354 +95,29 @@ public class EventArmorFullSet {
                     e.ammount *= 0.2;
                 }
             }
-
-            //Divine
-
-            /*//Degraded Melee
-            else if (helmet == DivineRPG.degradedHelmetMelee)
-            {
-            	if (this.isMelee(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.degradedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.degradedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.degradedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
+            
+            //Vethean
+            
+            if(body == VetheaItems.degradedBody && legs == VetheaItems.degradedLegs && boots == VetheaItems.degradedBoots) {
+            	if((helmet == VetheaItems.degradedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.degradedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.degradedHood && s.isMagicDamage())) e.ammount *= 0.82;
+            }
+            
+            if(body == VetheaItems.finishedBody && legs == VetheaItems.finishedLegs && boots == VetheaItems.finishedBoots) {
+            	if((helmet == VetheaItems.finishedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.finishedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.finishedHood && s.isMagicDamage())) e.ammount *= 0.773;
+            }
+            
+            if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots) {
+            	if((helmet == VetheaItems.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.glisteningMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.glisteningHood && s.isMagicDamage())) e.ammount *= 0.7;
+            }
+            
+            if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots) {
+            	if((helmet == VetheaItems.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.demonizedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.demonizedHood && s.isMagicDamage())) e.ammount *= 0.625;
+            }
+            
+            if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots) {
+            	if((helmet == VetheaItems.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.tormentedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.tormentedHood && s.isMagicDamage())) e.ammount *= 0.348;
             }
 
-            //Degraded Ranged
-            else if (helmet == DivineRPG.degradedHelmetRanged)
-            {
-            	if (this.isRanged(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.degradedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.degradedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.degradedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //Degraded Arcana
-            else if (helmet == DivineRPG.degradedHelmetArcana)
-            {
-            	if (this.isArcana(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.degradedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.degradedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.degradedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //glistening Melee
-            else if (helmet == DivineRPG.glisteningHelmetMelee)
-            {
-            	if (this.isMelee(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.glisteningChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.glisteningLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.glisteningBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //glistening Ranged
-            else if (helmet == DivineRPG.glisteningHelmetRanged)
-            {
-            	if (this.isRanged(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.glisteningChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.glisteningLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.glisteningBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //glistening Arcana
-            else if (helmet == DivineRPG.glisteningHelmetArcana)
-            {
-            	if (this.isArcana(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.glisteningChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.glisteningLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.glisteningBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //finished Melee
-            else if (helmet == DivineRPG.finishedHelmetMelee)
-            {
-            	if (this.isMelee(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.finishedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.finishedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.finishedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //finished Ranged
-            else if (helmet == DivineRPG.finishedHelmetRanged)
-            {
-            	if (this.isRanged(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.finishedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.finishedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.finishedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //finished Arcana
-            else if (helmet == DivineRPG.finishedHelmetArcana)
-            {
-            	if (this.isArcana(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.finishedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.finishedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.finishedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //demonized Melee
-            else if (helmet == DivineRPG.demonizedHelmetMelee)
-            {
-            	if (this.isMelee(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.demonizedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.demonizedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.demonizedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //demonized Ranged
-            else if (helmet == DivineRPG.demonizedHelmetRanged)
-            {
-            	if (this.isRanged(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.demonizedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.demonizedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.demonizedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //demonized Arcana
-            else if (helmet == DivineRPG.demonizedHelmetArcana)
-            {
-            	if (this.isArcana(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.demonizedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.demonizedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.demonizedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //tormented Melee
-            else if (helmet == DivineRPG.tormentedHelmetMelee)
-            {
-            	if (this.isMelee(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.tormentedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.tormentedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.tormentedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //tormented Ranged
-            else if (helmet == DivineRPG.tormentedHelmetRanged)
-            {
-            	if (this.isRanged(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.tormentedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.tormentedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.tormentedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-
-            //tormented Arcana
-            else if (helmet == DivineRPG.tormentedHelmetArcana)
-            {
-            	if (this.isArcana(s))
-            	{
-            		double a = 0.15 * 0.2;
-            		if (body == DivineRPG.tormentedChest)
-            		{
-            			a += 0.15 * 0.4;
-            		}
-            		if (legs == DivineRPG.tormentedLegs)
-            		{
-            			a += 0.15 * 0.3;
-            		}
-            		if (boots == DivineRPG.tormentedBoots)
-            		{
-            			a += 0.15 * 0.1;
-            		}
-
-            		e.ammount *= 1 - a;
-            	}
-            }
-            }*/
         }
     }
 
@@ -475,6 +151,20 @@ public class EventArmorFullSet {
             if (boots == TwilightItemsArmor.skythernBoots && body == TwilightItemsArmor.skythernBody && legs == TwilightItemsArmor.skythernLegs && helmet == TwilightItemsArmor.skythernHelmet) {
                 player.addVelocity(0, 0.5D, 0);
             }
+            
+            //Vethean
+            
+            if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningHood) {
+            	player.addVelocity(0, 0.2D, 0);
+            }
+                
+            if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedHood) {
+            	player.addVelocity(0, 0.3D, 0);
+            }
+                
+            if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHood) {
+            	player.addVelocity(0, 0.4D, 0);
+            }
 
         }
     }
@@ -501,7 +191,7 @@ public class EventArmorFullSet {
         //Eden
         if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenBody && legs == TwilightItemsArmor.edenLegs && helmet == TwilightItemsArmor.edenHelmet) {
             Random rand = new Random();
-            BlockMod.edenArmor = rand.nextInt(3) + 3;
+            BlockMod.edenArmor = 4;
         } else {
             BlockMod.edenArmor = 1;
         }
@@ -557,8 +247,8 @@ public class EventArmorFullSet {
 
     @SubscribeEvent
     public void onLivingHurtEvent(LivingHurtEvent e) {
-        if (e.entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) e.entity;
+        if (e.source.getEntity() != null && e.source.getEntity() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) e.source.getEntity();
             
             ItemStack stackBoots = player.inventory.armorItemInSlot(0);
             ItemStack stackLegs = player.inventory.armorItemInSlot(1);
@@ -578,21 +268,37 @@ public class EventArmorFullSet {
             else helmet = null;
         }
 
-        if (!(e.entity instanceof EntityPlayer)) {
-            DamageSource s = e.source;
+        DamageSource s = e.source;
 
-            //Santa
-            if (boots == IceikaItems.santaBoots && body == IceikaItems.santaBody && legs == IceikaItems.santaLegs && helmet == IceikaItems.santaHead) {
-                if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.ammount += 6;
-                }
+        //Santa
+        if (boots == IceikaItems.santaBoots && body == IceikaItems.santaBody && legs == IceikaItems.santaLegs && helmet == IceikaItems.santaHead) {
+            if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 6;
             }
+        }
             
-          //Halite
-            if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteBody && legs == TwilightItemsArmor.haliteLegs && helmet == TwilightItemsArmor.haliteHelmet) {
-                if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.ammount += 24;
-                }
+      //Halite
+        if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteBody && legs == TwilightItemsArmor.haliteLegs && helmet == TwilightItemsArmor.haliteHelmet) {
+            if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 24;
+            }
+        }
+
+        if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningHelmet) {
+        	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 3;
+            }
+        }
+            
+        if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedHelmet) {
+        	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 6;
+            }
+        }
+            
+        if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHelmet) {
+        	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 9;
             }
         }
     }

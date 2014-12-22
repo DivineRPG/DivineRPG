@@ -41,7 +41,8 @@ public class RenderHiveQueen extends RenderDivineMob {
         GL11.glScalef(this.scale, this.scale, this.scale);
     }
 
-    protected void preRenderCallback(EntityLivingBase var1, float var2) {
+    @Override
+    public void preRenderCallback(EntityLivingBase var1, float var2) {
         this.preRenderScale((EntityHiveQueen)var1, var2);
     }
 }

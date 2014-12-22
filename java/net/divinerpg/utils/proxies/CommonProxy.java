@@ -89,8 +89,8 @@ public class CommonProxy{
 		LogHelper.info("Registering tile entities");
 		ItemsFood.init();
 		VanillaBlocks.init();
-		TwilightBlocks.init();
 		TwilightItemsOther.init();
+		TwilightBlocks.init();
 		VanillaItemsOther.init();
 		ArcanaBlocks.init();
 		ArcanaItems.init();

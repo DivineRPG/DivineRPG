@@ -6,9 +6,8 @@ import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 
-public class EntityHerbomancer extends EntityDivineRPGMob {
+public class EntityHerbomancer extends VetheaMob {
 	
-    private static final double spawnLayer = 2;
     private int spawnTick;
 
     public EntityHerbomancer(World var1) {
@@ -18,8 +17,8 @@ public class EntityHerbomancer extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY < 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 2;
     }
 
     @Override

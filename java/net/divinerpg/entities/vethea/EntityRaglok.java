@@ -27,31 +27,25 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntityRaglok extends EntityDivineRPGBoss {
 
-	private static int ability;
+	private int ability;
 	private final int DEFAULT = 0, LIGHTNING = 1, BLIND = 2, BOMBS = 3, SLOW = 4;
+	
+	private double prevPlayerX, prevPlayerY, prevPlayerZ;
 
-	private int abilityCoolDown;
+	private int abilityCooldown;
 
-	private EntityAIBase meleeAI;
-	private EntityAIBase rangedAI = new EntityAIArrowAttack(this, 0.25F, 20, 64.0F);
 	private int rangedAttackCounter;
 	private int deathTicks;
 
 	public EntityRaglok(World par1) {
 		super(par1);
-		meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), false);
-		meleeAI.setMutexBits(2);
-		rangedAI.setMutexBits(2);
-		this.tasks.addTask(2, meleeAI);
-		this.tasks.addTask(2, rangedAI);
 		addAttackingAI();
 		this.isImmuneToFire = true;
 		ability = DEFAULT;
 		this.setSize(1.5F, 4.0F);
-		if(!this.worldObj.isRemote)
-			Util.sendMessageToAll("Raglok: You dare wake me from my slumber?!");
+		if(!this.worldObj.isRemote) Util.sendMessageToAll("Raglok: You dare wake me from my slumber?!");
 		this.playSound(Sounds.raglokAwaken.getPrefixedName(), 1.0F, 1.0F);
 	}
 
@@ -71,60 +65,72 @@ public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMo
 	}
 
 	public void manageAbilities() {
-		EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
-		if (ability == DEFAULT && abilityCoolDown == 0) {
-			abilityCoolDown = 40;
+		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
+		if (abilityCooldown == 0 || ability == DEFAULT) {
+			abilityCooldown = 400;
 			switch(this.rand.nextInt(4)) {
 			case 0:
 				ability = LIGHTNING;
-				this.rangedAttackCounter = 100;
+				this.rangedAttackCounter = 0;
 				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
 				break;
 			case 1:
 				ability = BLIND;
-				this.rangedAttackCounter = -1;
+				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3);
 				break;
 			case 2:
 				ability = BOMBS;
-				this.rangedAttackCounter = 100;
+				this.rangedAttackCounter = 0;
+				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3);
 				break;
 			case 3:
 				ability = SLOW;
-				this.rangedAttackCounter = -1;
+				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3);
 				break;
 			default: break;
 			}
 			this.message();
 		}
-		else if (ability == DEFAULT && abilityCoolDown > 0) {
-			abilityCoolDown--;
-		}
-		else if (ability != 0 && abilityCoolDown == 0) {
-			abilityCoolDown = 40;
+		else if (abilityCooldown > 0) {
+			abilityCooldown--;
 		}
 
 		if(ability == BLIND) {
-			if (var1 != null) {
-				var1.addPotionEffect(new PotionEffect(Potion.blindness.id, 1, 0));
-				this.rangedAttackCounter--;
-			}
-
-			if (this.rangedAttackCounter == -200) {
-				ability = DEFAULT;
-				this.rangedAttackCounter = -1;
+			if (player != null) {
+				player.addPotionEffect(new PotionEffect(Potion.blindness.id, 25, 0, true));
 			}
 		}
 		if(ability == SLOW) {
-			if (var1 != null) {
-				var1.addPotionEffect(new PotionEffect(Potion.blindness.id, 1, 0));
-				this.rangedAttackCounter--;
-			}
-
-			if (this.rangedAttackCounter == -100) {
-				ability = DEFAULT;
-				this.rangedAttackCounter = -1;
+			if (player != null) {
+				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10, 1, true));
 			}
 		}
+		if(ability == LIGHTNING) {
+			if(abilityCooldown%40 == 0 && player != null) {
+				this.worldObj.spawnEntityInWorld(new EntityLightningBolt(this.worldObj, prevPlayerX, prevPlayerY, prevPlayerZ));
+				this.rangedAttackCounter++;
+			} else if(abilityCooldown%40 != 0 && abilityCooldown%20 == 0 && player != null) {
+				this.prevPlayerX = player.posX;
+				this.prevPlayerY = player.posY;
+				this.prevPlayerZ = player.posZ;
+			}
+			if (this.rangedAttackCounter == 10) {
+				ability = DEFAULT;
+			}
+		}
+		if(ability == BOMBS) {
+			if(abilityCooldown%40 == 0 && player != null) {
+				EntityRaglokBomb var2 = new EntityRaglokBomb(this.worldObj);
+                var2.setPosition(player.posX, player.posY + 10, player.posZ);
+                var2.setVelocity(0, -2, 0);
+                this.worldObj.spawnEntityInWorld(var2);
+                ++this.rangedAttackCounter;
+			}
+			if (this.rangedAttackCounter == 12) {
+				ability = DEFAULT;
+			}
+		}
+
 	}
 
 	private void message() {
@@ -177,8 +183,13 @@ public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMo
 
 	@Override
 	protected String getDeathSound() {
-		if(!this.worldObj.isRemote)
-			Util.sendMessageToAll("Raglok: Heliosis! Avenge me!");
+		if(!this.worldObj.isRemote) Util.sendMessageToAll("Raglok: Heliosis! Avenge me!");
+		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
+		if(player != null) {
+			for(int i = 0; i < 10; i++) {
+				this.worldObj.spawnEntityInWorld(new EntityLightningBolt(this.worldObj, player.posX, player.posY, player.posZ));
+			}
+		}
 		return Sounds.raglokAvenge.getPrefixedName();
 	}
 
@@ -186,24 +197,12 @@ public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMo
 	public boolean attackEntityAsMob(Entity par1Entity) {
 		int var2 = (int)EntityStats.raglokDamage;
 
-		if (this.isPotionActive(Potion.damageBoost)) 
-			var2 += 3 << this.getActivePotionEffect(Potion.damageBoost).getAmplifier();
-
-		if (this.isPotionActive(Potion.weakness)) 
-			var2 -= 2 << this.getActivePotionEffect(Potion.weakness).getAmplifier();      
-
 		int var3 = 0;
-
-		if (par1Entity instanceof EntityLiving) {
-			var2 += EnchantmentHelper.getEnchantmentModifierLiving(this, (EntityLiving)par1Entity);
-			var3 += EnchantmentHelper.getKnockbackModifier(this, (EntityLiving)par1Entity);
-			((EntityLiving) par1Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 16 * 5, 1));
-		}
 
 		boolean var4 = par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), var2);
 		if (var4) {
-			if (ability == SLOW)
-				var3 = 5;          
+			if (ability == SLOW) var3 = 5;          
+			
 			if (var3 > 0) {
 				par1Entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * var3 * 0.5F, 0.1D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * var3 * 0.5F);
 				this.motionX *= 0.6D;
@@ -214,30 +213,6 @@ public class EntityRaglok extends EntityDivineRPGBoss implements IRangedAttackMo
 				par1Entity.setFire(var5 * 4);            
 		}
 		return var4;
-	}
-
-	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase par1, float par2)  {
-		switch(ability) {
-		case LIGHTNING:
-			this.worldObj.spawnEntityInWorld(new EntityLightningBolt(this.worldObj, par1.lastTickPosX, par1.lastTickPosY, par1.lastTickPosZ));
-			this.rangedAttackCounter++;
-			if (this.rangedAttackCounter == 10) {
-				ability = DEFAULT;
-			}
-			break;
-		case BOMBS:
-			EntityRaglokBomb var2 = new EntityRaglokBomb(this.worldObj);
-                var2.setPosition(par1.posX, par1.posY + 5, par1.posZ);
-                var2.setVelocity(0, -2, 0);
-                this.worldObj.spawnEntityInWorld(var2);
-                ++this.rangedAttackCounter;
-			if (this.rangedAttackCounter == 5) {
-				ability = DEFAULT;
-			}
-			break;
-		default: break;
-		}
 	}
 
 	@Override

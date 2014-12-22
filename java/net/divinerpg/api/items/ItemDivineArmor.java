@@ -16,7 +16,6 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
@@ -31,36 +30,56 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
     protected Object[] armorInfo;
     protected String name;
     protected StringBuilder infoBuilder;
-
+    
     public ItemDivineArmor(EnumArmor armorMaterial, int type) {
         this(armorMaterial, type, armorMaterial.getType());
+    }
+    
+    public ItemDivineArmor(EnumArmor armorMaterial, int type, boolean vethean) {
+        this(armorMaterial, type, armorMaterial.getType(), vethean);
     }
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type, Object[] info) {
         this(armorMaterial, type, armorMaterial.getType(), info);
     }
+    
+    public ItemDivineArmor(EnumArmor armorMaterial, int type, Object[] info, boolean vethean, String helmType) {
+        this(armorMaterial, type, armorMaterial.getType(), info, vethean, helmType);
+    }
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type, int dR) {
-        this(armorMaterial, type, dR, armorMaterial.getType(), new Object[] { "null", "null" });
+        this(armorMaterial, type, dR, armorMaterial.getType(), new Object[] { "null", "null" }, false, null);
     }
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type, int dR, Object[] info) {
-        this(armorMaterial, type, dR, armorMaterial.getType(), info);
+        this(armorMaterial, type, dR, armorMaterial.getType(), info, false, null);
     }
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type, int dR, String name) {
-        this(armorMaterial, type, dR, name, new Object[] { "null", "null" });
+        this(armorMaterial, type, dR, name, new Object[] { "null", "null" }, false, null);
     }
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type, String name) {
-        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" });
+        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" }, false, null);
+    }
+    
+    public ItemDivineArmor(EnumArmor armorMaterial, int type, String name, boolean vethean) {
+        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" }, vethean, null);
     }
 
     public ItemDivineArmor(EnumArmor armorMaterial, int type, String name, Object[] info) {
-        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, info);
+        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, info, false, null);
+    }
+    
+    public ItemDivineArmor(EnumArmor armorMaterial, int type, String name, Object[] info, boolean vethean) {
+        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, info, vethean, null);
+    }
+    
+    public ItemDivineArmor(EnumArmor armorMaterial, int type, String name, Object[] info, boolean vethean, String helmType) {
+        this(armorMaterial, type, armorMaterial.getDamageReduction(), name, info, vethean, helmType);
     }
 
-    public ItemDivineArmor(EnumArmor armorMaterial, int type, int dR, String name, Object[] info) {
+    public ItemDivineArmor(EnumArmor armorMaterial, int type, int dR, String name, Object[] info, boolean vethean, String helmType) {
         super(armorMaterial.getArmorMaterial(), type, type);
         this.armorMaterial = armorMaterial;
         this.textureName += armorMaterial.getType();
@@ -90,21 +109,26 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
             }
             if(i % 2 == 0 && i != 0) infoBuilder.append('\n');
             if (i == armorInfo.length - 1) infoBuilder.append(strInfo);
-            else if (armorInfo[i].toString().length() > 2) infoBuilder.append(strInfo + ", ");
+            else if (armorInfo[i].toString().length() > 3) infoBuilder.append(strInfo + ", ");
         }
 
         this.unbreakable = armorMaterial.isUndamageable();
-        setCreativeTab(DivineRPGTabs.armor);
-        setArmorType(name, armorType);
+        if(vethean)setCreativeTab(DivineRPGTabs.vethea);
+        else setCreativeTab(DivineRPGTabs.armor);
+        setArmorType(name, armorType, vethean, helmType);
         setUnlocalizedName(this.name);
         setTextureName(Reference.PREFIX + this.name);
         GameRegistry.registerItem(this, this.name);
         LangRegistry.addItem(this);
     }
 
-    protected void setArmorType(String material, int armorType) {
-        this.name = armorType == HEAD ? material + "Helmet" : armorType == BODY ? material + "Body" : armorType == LEGS ? material + "Legs" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
-        this.textureName = (armorType == 0 || armorType == 1 || armorType == 3) ? textureName + "_1.png" : textureName + "_2.png";
+    protected void setArmorType(String material, int armorType, boolean vethean, String helmType) {
+    	if(!vethean) {
+    		this.name = armorType == HEAD ? material + "Helmet" : armorType == BODY ? material + "Body" : armorType == LEGS ? material + "Legs" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
+    	} else {
+    		this.name = armorType == HEAD ? material + helmType : armorType == BODY ? material + "Body" : armorType == LEGS ? material + "Legs" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
+    	}
+		this.textureName = (armorType == 0 || armorType == 1 || armorType == 3) ? textureName + "_1.png" : textureName + "_2.png";
     }
 
     @Override
@@ -117,7 +141,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         double roundPH = Math.round(damageReduction * 1000);
         double roundedDamage = roundPH / 10;
         list.add(damageReduction == 0.0 ? ("No Protection") : "Damage Reduction: " + roundedDamage + "% (" + fullReduction + "% full)");
-        list.add(!unbreakable ? (item.getMaxDamage() - item.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
+        list.add(!unbreakable ? (item.getMaxDamage() - item.getItemDamage() + " Uses Remaining") : "Infinite Uses");
         String perks = "";
         for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++)
             if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) perks += "In " + armorInfo[0].toString() + ": ";

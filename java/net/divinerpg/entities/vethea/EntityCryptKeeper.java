@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class EntityCryptKeeper extends EntityGive {
 
 	public EntityCryptKeeper(World par1) {
-		super(par1, VetheaItems.amthrimisLump, 5);
+		super(par1, VetheaItems.amthirmisLump, 5);
 	}
 
 	@Override

@@ -10,10 +10,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityLheiva extends EntityDivineRPGMob {
+public class EntityLheiva extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
-
     public EntityLheiva(World var1) {
         super(var1);
         addAttackingAI();
@@ -29,8 +27,8 @@ public class EntityLheiva extends EntityDivineRPGMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 64.0D * spawnLayer  && this.posY > 64.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override

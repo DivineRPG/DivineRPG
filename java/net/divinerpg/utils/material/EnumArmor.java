@@ -33,8 +33,14 @@ public enum EnumArmor {
     DIAMOND(Util.addArmorMaterial("Diamond", 3000, 10), "diamond", false, 45),
     IRON(Util.addArmorMaterial("Iron", 2000, 12), "iron", false, 27),
     GOLD(Util.addArmorMaterial("Gold", 1000, 10), "gold", false, 18),
-    LEATHER(Util.addArmorMaterial("Leather", 500, 22), "leather", false, 10);
-
+    LEATHER(Util.addArmorMaterial("Leather", 500, 22), "leather", false, 10),
+    
+    DEGRADED(Util.addArmorMaterial("Degraded", 0, 0), "degraded", true, 17),
+    FINISHED(Util.addArmorMaterial("Finished", 0, 0), "finished", true, 33),
+    GLISTENING(Util.addArmorMaterial("Glistening", 0, 0), "glistening", true, 50),
+    DEMONIZED(Util.addArmorMaterial("Demonized", 0, 0), "demonized", true, 60),
+    TORMENTED(Util.addArmorMaterial("Tormented", 0, 0), "tormented", true, 77);
+    
     private ArmorMaterial armorMaterial;
     private String        type;
     private boolean       undamageable;

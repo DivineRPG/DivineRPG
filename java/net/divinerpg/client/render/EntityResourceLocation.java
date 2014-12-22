@@ -160,6 +160,7 @@ public class EntityResourceLocation {
     public static ResourceLocation ZONE 			 = addMob("zone");
     public static ResourceLocation ZORAGON 			 = addMob("zoragon");
     public static ResourceLocation DISSIMENT 		 = addMob("dissiment");
+    public static ResourceLocation DISSIMENT_SHOT    = addProjectile("dissimentShot");
     public static ResourceLocation VHRAAK 			 = addMob("vhraak");
     public static ResourceLocation LADY_LUNA_RANGE 	 = addMob("ladyLunaRanged");
     public static ResourceLocation LADY_LUNA_ARCANIC = addMob("ladyLunaArcanic");
@@ -182,6 +183,7 @@ public class EntityResourceLocation {
     public static ResourceLocation LORGA_FLIGHT 	 = addMob("lorgaFlight");
     public static ResourceLocation MANDRAGORA 		 = addMob("mandragora");
     public static ResourceLocation RAGLOK 			 = addMob("raglokGogdure");
+    public static ResourceLocation RAGLOK_BOMB 	     = addProjectile("raglokBomb");
     public static ResourceLocation TOCAXIN 			 = addMob("tocaxin");
     public static ResourceLocation HUNGER_HUNGRY 	 = addMob("hungerHungry");
     public static ResourceLocation ENDIKU 		     = addMob("endiku");
