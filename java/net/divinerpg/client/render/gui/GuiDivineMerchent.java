@@ -95,6 +95,7 @@ public class GuiDivineMerchent extends GuiContainer {
 		}
 	}
 
+	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int x, int y) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.PREFIX + "textures/gui/" + texture + ".png"));
@@ -116,7 +117,8 @@ public class GuiDivineMerchent extends GuiContainer {
             }
         }
     }
- 
+
+	@Override
     public void drawScreen(int par1, int par2, float par3) {
         super.drawScreen(par1, par2, par3);
         MerchantRecipeList merchantrecipelist = this.theIMerchant.getRecipes(this.mc.thePlayer);
@@ -181,6 +183,7 @@ public class GuiDivineMerchent extends GuiContainer {
 			this.rev = par4;
 		}
 
+		@Override
 		public void drawButton(Minecraft mc, int x, int y) {
 			if(this.visible) {
 				mc.getTextureManager().bindTexture(new ResourceLocation(Reference.PREFIX + "textures/gui/" + texture + ".png"));

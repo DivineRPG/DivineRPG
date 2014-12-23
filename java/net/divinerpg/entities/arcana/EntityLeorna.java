@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 
 public class EntityLeorna extends EntityDivineRPGVillager {
 
-	public EntityLeorna(World var1) {
-		super(var1);
+	public EntityLeorna(World Util) {
+		super(Util);
 	}
 
 	@Override
@@ -23,22 +23,22 @@ public class EntityLeorna extends EntityDivineRPGVillager {
 	}
 
 	@Override
-	public void interact(Util var1, EntityPlayer var2) {
+	public void extraInteract(EntityPlayer var2) {
 		switch (this.rand.nextInt(5)) {
 		case 0:
-			var2.addChatMessage(var1.getChatComponent("Leorna: Could you imagine if the whole world was covered in plants?"));
+			var2.addChatMessage(Util.getChatComponent("Leorna: Could you imagine if the whole world was covered in plants?"));
 			break;
 		case 1:
-			var2.addChatMessage(var1.getChatComponent("Leorna: Embracing nature is part of the importance of life."));
+			var2.addChatMessage(Util.getChatComponent("Leorna: Embracing nature is part of the importance of life."));
 			break;
 		case 2:
-			var2.addChatMessage(var1.getChatComponent("Leorna: Have you tried throwing Lomonas? They are mighty handy for finding my way."));
+			var2.addChatMessage(Util.getChatComponent("Leorna: Have you tried throwing Lomonas? They are mighty handy for finding my way."));
 			break;
 		case 3:
-			var2.addChatMessage(var1.getChatComponent("Leorna: Hitchak sure is tasty."));
+			var2.addChatMessage(Util.getChatComponent("Leorna: Hitchak sure is tasty."));
 			break;
 		case 4:
-			var2.addChatMessage(var1.getChatComponent("Leorna: Zelus won't stop looking at me."));
+			var2.addChatMessage(Util.getChatComponent("Leorna: Zelus won't stop looking at me."));
 			break;
 		}
 	}

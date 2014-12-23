@@ -100,7 +100,7 @@ public class ArcanaEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntitySeimer.class, new RenderDivineMob(new ModelSeimer(), x.seimer));
         RenderingRegistry.registerEntityRenderingHandler(EntityWraith.class, new RenderDivineMob(new ModelWraith(), x.wraith));
         RenderingRegistry.registerEntityRenderingHandler(EntityDramix.class, new RenderDivineBoss(new ModelDramix(), 0.7F, 1.2F, x.dramix, s.dramixBossID));
-        RenderingRegistry.registerEntityRenderingHandler(EntityParasecta.class, new RenderDivineBoss(new ModelParasecta(), 0.7F, 1.0F, x.parasecta, s.parasectaBossID));
+        RenderingRegistry.registerEntityRenderingHandler(EntityParasecta.class, new RenderDivineBoss(new ModelParasecta(), 0.7F, 1.5F, x.parasecta, s.parasectaBossID));
 
 		addBlockRendering();
 	}

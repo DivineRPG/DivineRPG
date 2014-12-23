@@ -1,10 +1,5 @@
 package net.divinerpg.entities.iceika;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
-
 import net.divinerpg.DivineRPG;
 import net.divinerpg.api.entity.EntityDivineRPGVillager;
 import net.divinerpg.client.GuiHandler;
@@ -12,42 +7,11 @@ import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IMerchant;
-import net.minecraft.entity.INpc;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
-import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITradePlayer;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.Tuple;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
-import net.minecraft.village.Village;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 
@@ -57,19 +21,19 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 	}
 
 	@Override
-	public void interact(Util api, EntityPlayer p) {
+	public void extraInteract(EntityPlayer p) {
 		switch(this.rand.nextInt(4)) {
 		case 0:
-			p.addChatMessage(api.getChatComponent("Tinkerer: Hohoho."));
+			p.addChatMessage(Util.getChatComponent("Tinkerer: Hohoho."));
 			break;
 		case 1:
-			p.addChatMessage(api.getChatComponent("Tinkerer: It's cold outside."));
+			p.addChatMessage(Util.getChatComponent("Tinkerer: It's cold outside."));
 			break;
 		case 2:
-			p.addChatMessage(api.getChatComponent("Tinkerer: It's cold inside."));
+			p.addChatMessage(Util.getChatComponent("Tinkerer: It's cold inside."));
 			break;
 		case 3:
-			p.addChatMessage(api.getChatComponent("Tinkerer: Burr!"));
+			p.addChatMessage(Util.getChatComponent("Tinkerer: Burr!"));
 			break;
 		}
 	}
@@ -77,7 +41,7 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 	@Override
 	public boolean interact(EntityPlayer var1) {
 		if(!this.worldObj.isRemote) {
-			interact(new Util(), var1);
+			extraInteract(var1);
 			var1.openGui(DivineRPG.instance, guiID(), this.worldObj, getEntityId(), 0, 0);
 			var1.triggerAchievement(DivineRPGAchievements.lilTinkerin);
 			return true;

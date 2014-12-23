@@ -46,7 +46,7 @@ public class EntityZelus extends EntityDivineRPGVillager {
 	}
 
 	@Override
-	public void interact(Util api, EntityPlayer var1) {
+	public void extraInteract(EntityPlayer var1) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
 			var1.addChatMessage(Util.getChatComponent("Zelus: Have you seen Leorna lately? She's looking mighty fine as far as I can tell."));

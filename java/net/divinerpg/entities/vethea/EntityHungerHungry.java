@@ -1,54 +1,17 @@
 package net.divinerpg.entities.vethea;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
-
-import net.divinerpg.DivineRPG;
 import net.divinerpg.api.entity.EntityDivineRPGVillager;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IMerchant;
-import net.minecraft.entity.INpc;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
-import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITradePlayer;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.Tuple;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
-import net.minecraft.village.Village;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityHungerHungry extends EntityDivineRPGVillager {
 
@@ -62,19 +25,19 @@ public class EntityHungerHungry extends EntityDivineRPGVillager {
 	}
 
 	@Override
-	public void interact(Util api, EntityPlayer var2) {
+	public void extraInteract(EntityPlayer var2) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
-			var2.addChatMessage(api.getChatComponent("The Hunger: Mmm. I'm hungry."));
+			var2.addChatMessage(Util.getChatComponent("The Hunger: Mmm. I'm hungry."));
 			break;
 		case 1:
-			var2.addChatMessage(api.getChatComponent("The Hunger: Can you come a little closer?"));
+			var2.addChatMessage(Util.getChatComponent("The Hunger: Can you come a little closer?"));
 			break;
 		case 2:
-			var2.addChatMessage(api.getChatComponent("The Hunger: You need to fatten yourself up."));
+			var2.addChatMessage(Util.getChatComponent("The Hunger: You need to fatten yourself up."));
 			break;
 		case 3:
-			var2.addChatMessage(api.getChatComponent("The Hunger: Let's go out to dinner. You'll be cooking."));
+			var2.addChatMessage(Util.getChatComponent("The Hunger: Let's go out to dinner. You'll be cooking."));
 			break;
 		}
 	}

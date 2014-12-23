@@ -20,7 +20,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 	}
 
 	@Override
-	public void interact(Util api, EntityPlayer p) {
+	public void extraInteract(EntityPlayer p) {
 		switch(this.rand.nextInt(4)) {
 		case 0:
 			p.addChatMessage(Util.getChatComponent("Merchant: Hohoho."));
@@ -40,7 +40,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 	@Override
 	public boolean interact(EntityPlayer var1) {
 		if(!this.worldObj.isRemote) {
-			interact(new Util(), var1);
+			extraInteract(var1);
 			var1.openGui(DivineRPG.instance, guiID(), this.worldObj, getEntityId(), 0, 0);
 			var1.triggerAchievement(DivineRPGAchievements.lilTinkerin);
 			return true;

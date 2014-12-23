@@ -148,7 +148,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 	@Override
 	public boolean interact(EntityPlayer var1) {
 		if(!this.worldObj.isRemote) {
-			interact(new Util(), var1);
+			extraInteract(var1);
 			var1.openGui(DivineRPG.instance, guiID(), this.worldObj, getEntityId(), 0, 0);
 			return true;
 		} else {
@@ -156,7 +156,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 		}
 	}
 
-	public abstract void interact(Util api, EntityPlayer p);
+	public abstract void extraInteract(EntityPlayer p);
 
 	public abstract int guiID();
 
