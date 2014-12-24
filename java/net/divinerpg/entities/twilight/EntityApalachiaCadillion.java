@@ -1,7 +1,7 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
+import net.divinerpg.api.entity.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
@@ -15,7 +15,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.world.World;
 
-public class EntityApalachiaCadillion extends EntityPeacefullUntillAttacked {
+public class EntityApalachiaCadillion extends EntityPeacefulUntilAttacked {
 
 	public EntityApalachiaCadillion(World var1) {
 		super(var1);

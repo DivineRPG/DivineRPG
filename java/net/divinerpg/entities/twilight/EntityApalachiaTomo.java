@@ -1,6 +1,6 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
+import net.divinerpg.api.entity.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
@@ -8,7 +8,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityApalachiaTomo extends EntityPeacefullUntillAttacked {
+public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
 
     public EntityApalachiaTomo(World var1) {
         super(var1);

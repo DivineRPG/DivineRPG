@@ -16,14 +16,14 @@ import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public abstract class EntityPeacefullUntillAttacked extends EntityDivineRPGMob {
+public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 
-	public EntityPeacefullUntillAttacked(World w) {
+	public EntityPeacefulUntilAttacked(World w) {
 		super(w);
 		addAttackingAI();
 	}
 
-	private int angerLevel = 0;
+	public int angerLevel = 0;
 	public void writeEntityToNBT(NBTTagCompound var1) {
 		super.writeEntityToNBT(var1);
 		var1.setShort("Anger", (short)this.angerLevel);

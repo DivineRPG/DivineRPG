@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMob {
 
-	public static int ability;
+	public int ability;
 	private final int SLOW = 0;
 	private final int FAST = 1;
 	private final int MSLOW = 2;

@@ -3,7 +3,7 @@ package net.divinerpg.entities.twilight;
 import java.util.List;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
+import net.divinerpg.api.entity.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
@@ -16,7 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityWildWoodCadillion extends EntityPeacefullUntillAttacked {
+public class EntityWildWoodCadillion extends EntityPeacefulUntilAttacked {
 
 	public EntityWildWoodCadillion(World var1) {
 		super(var1);

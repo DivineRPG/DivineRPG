@@ -36,6 +36,7 @@ public class EntityStats {
 	public static double glacideHealth 			= 140.0D, glacideDamage = 25.0D, glacideSpeed = normalSpeed, glacideFollowRange = follow;
 	public static double hastreusHealth 		= 200.0D, hastreusDamage = 20.0D, hastreusSpeed = normalSpeed, hastreusFollowRange = follow;	
 	public static double rollumHealth 			= 200.0D, rollumDamage = 27.0D, rollumSpeed = normalSpeed, rollumFollowRange = follow;
+	public static double frostyHealth			= 300.0D, frostyDamage = 22.0D, frostySpeed = normalSpeed/1.6, frostyFollowRange = follow;
 	public static double modVillagerHealth 		= 1000.0D, modVillagerSpeed = normalSpeed, modVillagerFollowRange = follow;
 	
 	//Twilight

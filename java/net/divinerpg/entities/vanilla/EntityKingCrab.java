@@ -3,7 +3,7 @@ package net.divinerpg.entities.vanilla;
 import java.util.List;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
+import net.divinerpg.api.entity.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.Entity;
@@ -14,7 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityKingCrab extends EntityPeacefullUntillAttacked {
+public class EntityKingCrab extends EntityPeacefulUntilAttacked {
 
     public EntityKingCrab(World var1) {
         super(var1);

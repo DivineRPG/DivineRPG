@@ -639,6 +639,16 @@
 ,
 
 
+ "frosty": {
+  "category":"master","sounds": [{
+    "name":
+      "frosty",
+      "stream": false
+    }]
+  }
+,
+
+
  "hastreus": {
   "category":"master","sounds": [{
     "name":
@@ -683,6 +693,16 @@
   "category":"master","sounds": [{
     "name":
       "rollumHurt",
+      "stream": false
+    }]
+  }
+,
+
+
+ "frostyHurt": {
+  "category":"master","sounds": [{
+    "name":
+      "frostyHurt",
       "stream": false
     }]
   }

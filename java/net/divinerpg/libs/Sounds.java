@@ -71,11 +71,13 @@ public class Sounds {
     public static Sound verek             = new Sound("verek");
     public static Sound verekHurt         = new Sound("verekHurt");
     public static Sound rollum            = new Sound("rollum");
+    public static Sound frosty            = new Sound("frosty");
     public static Sound hastreus          = new Sound("hastreus");
     public static Sound fractite          = new Sound("fractite");
     public static Sound alicanto          = new Sound("alicanto");
     public static Sound glacide           = new Sound("glacide");
     public static Sound rollumHurt        = new Sound("rollumHurt");
+    public static Sound frostyHurt        = new Sound("frostyHurt");
     public static Sound hastreusHurt      = new Sound("hastreusHurt");
     public static Sound fractiteHurt      = new Sound("fractiteHurt");
     public static Sound alicantoHurt      = new Sound("alicantoHurt");

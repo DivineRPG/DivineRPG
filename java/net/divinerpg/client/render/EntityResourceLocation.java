@@ -216,6 +216,8 @@ public class EntityResourceLocation {
     public static ResourceLocation ALICANTO = addMob("alicanto");
     public static ResourceLocation FRACTITE = addMob("fractite");
     public static ResourceLocation HASTERUS = addMob("hastreus");
+    public static ResourceLocation FROSTY	= addMob("frosty");
+    public static ResourceLocation FROSTY_ANGRY	= addMob("frostyAngry");
     public static ResourceLocation WORKSHOP_TINKER = addMob("workshopTinkerer");
     public static ResourceLocation WORKSHOP_MERCHANT = addMob("workshopMerchant");
     

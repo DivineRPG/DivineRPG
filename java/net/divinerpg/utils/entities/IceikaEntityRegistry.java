@@ -3,6 +3,7 @@ package net.divinerpg.utils.entities;
 import net.divinerpg.entities.iceika.EntityAlicanto;
 import net.divinerpg.entities.iceika.EntityFractite;
 import net.divinerpg.entities.iceika.EntityFrostArcher;
+import net.divinerpg.entities.iceika.EntityFrosty;
 import net.divinerpg.entities.iceika.EntityGlacide;
 import net.divinerpg.entities.iceika.EntityHastreus;
 import net.divinerpg.entities.iceika.EntityRollum;
@@ -28,6 +29,7 @@ public class IceikaEntityRegistry {
 		Util.registerDivineRPGMob(EntityHastreus.class, "Hastreus");
 		Util.registerDivineRPGMob(EntityFrostArcher.class, "FrostArcher");
         Util.registerDivineRPGMob(EntityRollum.class, "Rollum");
+        Util.registerDivineRPGMob(EntityFrosty.class, "Frosty");
         Util.registerDivineRPGMob(EntityWorkshopTinkerer.class, "WorkshopTinkerer");
         Util.registerDivineRPGMob(EntityWorkshopMerchant.class, "WorkshopMerchant");
 	}

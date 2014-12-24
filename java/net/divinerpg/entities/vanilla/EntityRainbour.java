@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import net.divinerpg.api.entity.EntityDivineRPGFlying;
 import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
+import net.divinerpg.api.entity.EntityPeacefulUntilAttacked;
 import net.divinerpg.entities.vanilla.projectile.EntitySparklerFX;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -27,7 +27,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class EntityRainbour extends EntityPeacefullUntillAttacked {
+public class EntityRainbour extends EntityPeacefulUntilAttacked {
 
 	private ChunkCoordinates spawnPosition;
 

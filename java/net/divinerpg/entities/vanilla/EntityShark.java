@@ -3,7 +3,7 @@ package net.divinerpg.entities.vanilla;
 import java.util.List;
 
 import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.api.entity.EntityPeacefullUntillAttacked;
+import net.divinerpg.api.entity.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -17,7 +17,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityShark extends EntityPeacefullUntillAttacked {
+public class EntityShark extends EntityPeacefulUntilAttacked {
 	
     public EntityShark(World var1) {
         super(var1);

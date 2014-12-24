@@ -9,6 +9,7 @@ import net.divinerpg.entities.arcana.EntityZelus;
 import net.divinerpg.entities.iceika.EntityAlicanto;
 import net.divinerpg.entities.iceika.EntityFractite;
 import net.divinerpg.entities.iceika.EntityFrostArcher;
+import net.divinerpg.entities.iceika.EntityFrosty;
 import net.divinerpg.entities.iceika.EntityGlacide;
 import net.divinerpg.entities.iceika.EntityHastreus;
 import net.divinerpg.entities.iceika.EntityRollum;
@@ -133,6 +134,7 @@ public class MobSpawning {
         EntityRegistry.addSpawn(EntityGlacide.class, 2, 1, 10, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Iceika});
         EntityRegistry.addSpawn(EntityHastreus.class, 2, 1, 10, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Iceika});
         EntityRegistry.addSpawn(EntityFrostArcher.class, 2, 1, 10, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Iceika});
+        EntityRegistry.addSpawn(EntityFrosty.class, 2, 1, 10, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Iceika});
         EntityRegistry.addSpawn(EntityRollum.class, 2, 1, 10, EnumCreatureType.monster, new BiomeGenBase[] {DimensionHelper.Iceika});
 	}
 
