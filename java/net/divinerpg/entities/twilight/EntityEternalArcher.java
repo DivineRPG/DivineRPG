@@ -1,8 +1,11 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
@@ -27,25 +30,15 @@ public class EntityEternalArcher extends EntityDivineRPGBoss{
 			else if(this.armSelected == 5) this.armSelected = 0;
 			this.abilityTick = 400;
 		}
+		
+		if(this.armSelected == 0 && this.abilityTick%60 == 0 && this.entityToAttack != null) {
+			this.worldObj.spawnEntityInWorld(new EntityDivineArrow(this.worldObj, this, (EntityLivingBase)this.entityToAttack, 1.6f, 12, 30, "furyArrow"));
+		}
 	}
 	
-	public Item getHeldItem(int arm) {
-		switch(arm) {
-		case 0:
-			return TwilightItemsWeapons.haliteBow;
-		case 1:
-			return TwilightItemsWeapons.halitePhaser;
-		case 2:
-			return TwilightItemsWeapons.haliteBlitz;
-		case 3:
-			return TwilightItemsWeapons.haliteSlicer;
-		case 4:
-			return null;
-		case 5:
-			return TwilightItemsWeapons.haliteBlade;
-		default:
-			return null;
-		}
+	@Override
+	public ItemStack getHeldItem() {
+		return new ItemStack(TwilightItemsWeapons.haliteBow);
 	}
 
 	@Override
