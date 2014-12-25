@@ -99,6 +99,9 @@ public class BossTickHandler {
 		case EntityStats.karotBossID:
 			r = set("karot");
 			break;
+		case EntityStats.eternalArcherBossID:
+			r = set("eternalArcher");
+			break;
 		//Arcana
 		case EntityStats.dramixBossID:
 			r = set("dramix");

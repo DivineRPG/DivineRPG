@@ -12,6 +12,7 @@ import net.divinerpg.entities.twilight.EntityDensos;
 import net.divinerpg.entities.twilight.EntityEdenCadillion;
 import net.divinerpg.entities.twilight.EntityEdenCori;
 import net.divinerpg.entities.twilight.EntityEdenTomo;
+import net.divinerpg.entities.twilight.EntityEternalArcher;
 import net.divinerpg.entities.twilight.EntityKarot;
 import net.divinerpg.entities.twilight.EntityMadivel;
 import net.divinerpg.entities.twilight.EntityMoonWolf;
@@ -86,5 +87,6 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntitySoulFiend.class, "SoulFiend");
         Util.registerDivineRPGMob(EntityVamacheron.class, "Vamacheron");
         Util.registerDivineRPGMob(EntityKarot.class, "Karot");
+        Util.registerDivineRPGMob(EntityEternalArcher.class, "EternalArcher");
 	}
 }

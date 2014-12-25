@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 
-public class ModelMytrilFiend extends ModelBase
+public class ModelSkythernFiend extends ModelBase
 {
     ModelRenderer head;
     ModelRenderer body;
@@ -19,7 +19,7 @@ public class ModelMytrilFiend extends ModelBase
     ModelRenderer Spear2;
     ModelRenderer Shape1;
 
-    public ModelMytrilFiend()
+    public ModelSkythernFiend()
     {
         this.textureWidth = 64;
         this.textureHeight = 32;

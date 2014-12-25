@@ -95,6 +95,7 @@ public class EntityResourceLocation {
     public static ResourceLocation densos			 = addMob("densos");
     public static ResourceLocation karot			 = addMob("karot");
     public static ResourceLocation reyvor			 = addMob("reyvor");
+    public static ResourceLocation eternalArcher	 = addMob("eternalArcher");
     public static ResourceLocation bunny			 = addMob("bunny");
     public static ResourceLocation bunnyTamed		 = addMob("bunnyTamed");
     public static ResourceLocation soulFiend		 = addMob("soulFiend");

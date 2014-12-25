@@ -7,11 +7,11 @@ public class EntityStats {
 	//Vanilla boss's
 	public static final int ancientEntityBossID = 1, ayeracoGreenBossID = 2, ayeracoBlueBossID = 3, ayeracoPurpleBossID = 4, ayeracoRedBossID = 5, ayeracoYellowBossID = 6, scorcherKingBossID = 7, netherWatcherBossID = 8;
 	//Twilight boss's
-	public static final int densosBossID = 9, reyvorBossID = 10, twilightDemonBossID = 11, soulFiendBossID = 12, vamacheronBossID = 13, karotBossID = 14; 
+	public static final int densosBossID = 9, reyvorBossID = 10, twilightDemonBossID = 11, soulFiendBossID = 12, vamacheronBossID = 13, karotBossID = 14, eternalArcherBossID = 15; 
 	//Arcana boss's
-	public static final int dramixBossID = 15, parasectaBossID = 16;	
+	public static final int dramixBossID = 16, parasectaBossID = 17;	
 	//Vethea boss's
-	public static final int hiveQueenBossID = 17, raglokBossID = 18, quadroBossID = 19, ladylunaBossID = 20, wreckBossID = 21, karosBossID = 22;
+	public static final int hiveQueenBossID = 18, raglokBossID = 19, quadroBossID = 20, ladylunaBossID = 21, wreckBossID = 22, karosBossID = 23;
 	
 	//Arcana
 	public static double paratikuHealth 		= 100.0D, paratikuSpeed = normalSpeed, paratikuFollowRange = follow;
@@ -52,6 +52,7 @@ public class EntityStats {
 	public static double basliskHealth 			= 1600.0D, basliskDamage = 25.0D, basliskSpeed = normalSpeed, basliskFollowRange = follow;
 	public static double densosHealth 			= 5000.0D, densosDamage = 40.0D, densosSpeed = normalSpeed, densosFollowRange = follow;
 	public static double karotHealth 			= 4000.0D, karotDamage = 55.0D, karotSpeed = normalSpeed, karotFollowRange = follow;
+	public static double eternalArcherHealth 	= 5500.0D, eternalArcherSpeed = normalSpeed, eternalArcherFollowRange = follow;
 	public static double madivelHealth 			= 300.0D, madivelDamage = 40.0D, madivelSpeed = normalSpeed, madivelFollowRange = follow;
 	public static double moonWolfHealth 		= 200.0D, moonWolfDamage = 1.0D, moonWolfSpeed = normalSpeed, moonWolfFollowRange = follow;
 	public static double moonWolfTamedHealth 	= 250.0D, moonWolfTamedDamage = 20.0D, moonWolfTamedSpeed = normalSpeed, moonWolfTamedFollowRange = follow;
