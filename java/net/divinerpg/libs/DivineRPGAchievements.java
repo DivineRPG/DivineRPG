@@ -31,7 +31,7 @@ public class DivineRPGAchievements {
     public static final Achievement	possibilities 			= addAchievement("possibilities"		, 2, 3, VanillaBlocks.divineRock, divineInervention, true);			//DONE
     public static final Achievement friendOrFoe 			= addAchievement("friendOrFoe"			, 4, 3, TwilightItemsOther.edenSoul, possibilities, false);				//DONE
     public static final Achievement darkAnotherDay 			= addAchievement("darkAnotherDay"		, 6, 3, TwilightBlocks.mortumBlock, possibilities, true);				//DONE
-    public static final Achievement tenHeadsIsBetterThanOne = addAchievement("spawnDAR"				, 6, 2, TwilightItemsOther.spawnDensos, darkAnotherDay, true);			//DONE
+    public static final Achievement tenHeadsIsBetterThanOne = addAchievement("spawnDAR"				, 6, 2, TwilightItemsOther.densosCrystal, darkAnotherDay, true);			//DONE
     public static final Achievement whenPigsFly 			= addAchievement("whenPigsFly"			, 3, 2, VanillaItemsArmor.angelicHelmet, divineInervention, true);		//DONE
     public static final Achievement offKey 					= addAchievement("offKey"				, 7, 0, IceikaItems.soundOfMusic, null, false);							//DONE
     public static final Achievement skyHigh 				= addAchievement("skyHigh"				, 3, 5, ArcanaBlocks.elevantium, whatLiesWithin, false);

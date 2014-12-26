@@ -29,55 +29,52 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityDivineArrow extends EntityArrow
 {
-    private int xTile = -1;
-    private int yTile = -1;
-    private int zTile = -1;
-    private Block inTile;
-    private int inData;
-    private boolean inGround;
+    protected int xTile = -1;
+    protected int yTile = -1;
+    protected int zTile = -1;
+    protected Block inTile;
+    protected int inData;
+    protected boolean inGround;
     public int canBePickedUp;
     public int arrowShake;
     public Entity shootingEntity;
-    private int ticksInGround;
-    private int ticksInAir;
-    private double damageMin;
-    private double damageMax;
-    private int knockbackStrength;
+    protected int ticksInGround;
+    protected int ticksInAir;
+    protected double damageMin;
+    protected double damageMax;
+    protected int knockbackStrength;
     public Item ammoItem;
     
-    public EntityDivineArrow(World p_i1753_1_)
-    {
-        super(p_i1753_1_);
+    public EntityDivineArrow(World w) {
+        super(w);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
-    public EntityDivineArrow(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)
-    {
-        super(p_i1754_1_);
+    public EntityDivineArrow(World w, double x, double y, double z) {
+        super(w);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
-        this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
+        this.setPosition(x, y, z);
         this.yOffset = 0.0F;
     }
 
-    public EntityDivineArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_, float damage, String texture)
-    {
-        super(p_i1755_1_);
+    public EntityDivineArrow(World w, EntityLivingBase shooter, EntityLivingBase target, float p_i1755_4_, float p_i1755_5_, float damage, String texture) {
+        super(w);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = p_i1755_2_;
+        this.shootingEntity = shooter;
         this.damageMax = this.damageMin = damage;
         this.dataWatcher.updateObject(17, texture);
 
-        if (p_i1755_2_ instanceof EntityPlayer)
+        if (shooter instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
-        this.posY = p_i1755_2_.posY + (double)p_i1755_2_.getEyeHeight() - 0.10000000149011612D;
-        double d0 = p_i1755_3_.posX - p_i1755_2_.posX;
-        double d1 = p_i1755_3_.boundingBox.minY + (double)(p_i1755_3_.height / 3.0F) - this.posY;
-        double d2 = p_i1755_3_.posZ - p_i1755_2_.posZ;
+        this.posY = shooter.posY + (double)shooter.getEyeHeight() - 0.10000000149011612D;
+        double d0 = target.posX - shooter.posX;
+        double d1 = target.boundingBox.minY + (double)(target.height / 3.0F) - this.posY;
+        double d2 = target.posZ - shooter.posZ;
         double d3 = (double)MathHelper.sqrt_double(d0 * d0 + d2 * d2);
 
         if (d3 >= 1.0E-7D)
@@ -86,29 +83,28 @@ public class EntityDivineArrow extends EntityArrow
             float f3 = (float)(-(Math.atan2(d1, d3) * 180.0D / Math.PI));
             double d4 = d0 / d3;
             double d5 = d2 / d3;
-            this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
+            this.setLocationAndAngles(shooter.posX + d4, this.posY, shooter.posZ + d5, f2, f3);
             this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
             this.setThrowableHeading(d0, d1 + (double)f4 -1, d2, p_i1755_4_, p_i1755_5_);
         }
     }
 
-    public EntityDivineArrow(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, float damageMin, float damageMax, String texturename)
-    {
-        super(p_i1756_1_);
+    public EntityDivineArrow(World w, EntityLivingBase shooter, float p_i1756_3_, float damageMin, float damageMax, String texturename) {
+        super(w);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = p_i1756_2_;
+        this.shootingEntity = shooter;
         this.damageMin = damageMin;
         this.damageMax = damageMax;
         this.dataWatcher.updateObject(17, texturename);
 
-        if (p_i1756_2_ instanceof EntityPlayer)
+        if (shooter instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
         this.setSize(0.5F, 0.5F);
-        this.setLocationAndAngles(p_i1756_2_.posX, p_i1756_2_.posY + (double)p_i1756_2_.getEyeHeight(), p_i1756_2_.posZ, p_i1756_2_.rotationYaw, p_i1756_2_.rotationPitch);
+        this.setLocationAndAngles(shooter.posX, shooter.posY + (double)shooter.getEyeHeight(), shooter.posZ, shooter.rotationYaw, shooter.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);

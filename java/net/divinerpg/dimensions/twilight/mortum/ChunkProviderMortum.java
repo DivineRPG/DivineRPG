@@ -30,7 +30,6 @@ public class ChunkProviderMortum implements IChunkProvider {
     private NoiseGeneratorOctaves netherNoiseGen1;
     private NoiseGeneratorOctaves netherNoiseGen2;
     private NoiseGeneratorOctaves netherNoiseGen3;
-    private NoiseGeneratorOctaves slowsandGravelNoiseGen;
     private NoiseGeneratorOctaves netherrackExculsivityNoiseGen;
     public NoiseGeneratorOctaves netherNoiseGen6;
     public NoiseGeneratorOctaves netherNoiseGen7;
@@ -51,20 +50,18 @@ public class ChunkProviderMortum implements IChunkProvider {
         this.netherNoiseGen1 = new NoiseGeneratorOctaves(this.hellRNG, 16);
         this.netherNoiseGen2 = new NoiseGeneratorOctaves(this.hellRNG, 16);
         this.netherNoiseGen3 = new NoiseGeneratorOctaves(this.hellRNG, 8);
-        this.slowsandGravelNoiseGen = new NoiseGeneratorOctaves(this.hellRNG, 4);
         this.netherrackExculsivityNoiseGen = new NoiseGeneratorOctaves(this.hellRNG, 4);
         this.netherNoiseGen6 = new NoiseGeneratorOctaves(this.hellRNG, 10);
         this.netherNoiseGen7 = new NoiseGeneratorOctaves(this.hellRNG, 16);
 
-        NoiseGenerator[] noiseGens = {netherNoiseGen1, netherNoiseGen2, netherNoiseGen3, slowsandGravelNoiseGen, netherrackExculsivityNoiseGen, netherNoiseGen6, netherNoiseGen7};
+        NoiseGenerator[] noiseGens = {netherNoiseGen1, netherNoiseGen2, netherNoiseGen3, netherrackExculsivityNoiseGen, netherNoiseGen6, netherNoiseGen7};
         noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.hellRNG, noiseGens);
         this.netherNoiseGen1 = (NoiseGeneratorOctaves)noiseGens[0];
         this.netherNoiseGen2 = (NoiseGeneratorOctaves)noiseGens[1];
         this.netherNoiseGen3 = (NoiseGeneratorOctaves)noiseGens[2];
-        this.slowsandGravelNoiseGen = (NoiseGeneratorOctaves)noiseGens[3];
-        this.netherrackExculsivityNoiseGen = (NoiseGeneratorOctaves)noiseGens[4];
-        this.netherNoiseGen6 = (NoiseGeneratorOctaves)noiseGens[5];
-        this.netherNoiseGen7 = (NoiseGeneratorOctaves)noiseGens[6];
+        this.netherrackExculsivityNoiseGen = (NoiseGeneratorOctaves)noiseGens[3];
+        this.netherNoiseGen6 = (NoiseGeneratorOctaves)noiseGens[4];
+        this.netherNoiseGen7 = (NoiseGeneratorOctaves)noiseGens[5];
     }
  
     public void generateNetherTerrain(int par1, int par2, Block[] par3ArrayOfByte) {
@@ -135,8 +132,6 @@ public class ChunkProviderMortum implements IChunkProvider {
 
         byte b0 = 64;
         double d0 = 0.03125D;
-        this.slowsandNoise = this.slowsandGravelNoiseGen.generateNoiseOctaves(this.slowsandNoise, par1 * 16, par2 * 16, 0, 16, 16, 1, d0, d0, 1.0D);
-        this.gravelNoise = this.slowsandGravelNoiseGen.generateNoiseOctaves(this.gravelNoise, par1 * 16, 109, par2 * 16, 16, 1, 16, d0, 1.0D, d0);
         this.netherrackExclusivityNoise = this.netherrackExculsivityNoiseGen.generateNoiseOctaves(this.netherrackExclusivityNoise, par1 * 16, par2 * 16, 0, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
 
         for (int k = 0; k < 16; ++k) {

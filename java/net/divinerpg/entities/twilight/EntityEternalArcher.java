@@ -1,7 +1,8 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.entities.twilight.projectile.EntityEternalArcherArrow;
+import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,6 +21,7 @@ public class EntityEternalArcher extends EntityDivineRPGBoss{
 		super(world);
 		this.setSize(3, 5);
 		this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 80));
+		this.experienceValue = 250;
 	}
 	
 	@Override
@@ -34,6 +36,8 @@ public class EntityEternalArcher extends EntityDivineRPGBoss{
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		
+		if(this.entityToAttack != null) this.getLookHelper().setLookPosition(this.entityToAttack.posX, this.entityToAttack.posY + (double)this.entityToAttack.getEyeHeight(), this.entityToAttack.posZ, 10.0F, 5);
+		
 		if(this.entityToAttack == null || this.rand.nextInt(200) == 0) this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, 48);
 		if(this.entityToAttack != null && ((this.entityToAttack instanceof EntityPlayer && ((EntityPlayer)this.entityToAttack).capabilities.isCreativeMode) || this.entityToAttack.isDead)) this.entityToAttack = null;
 		if(this.abilityTick > 0) this.abilityTick--;
@@ -43,8 +47,19 @@ public class EntityEternalArcher extends EntityDivineRPGBoss{
 			this.abilityTick = 400;
 		}
 		
-		if(this.abilityTick%40 == 0 && this.entityToAttack != null && !this.worldObj.isRemote) {
-			this.worldObj.spawnEntityInWorld(new EntityDivineArrow(this.worldObj, this, (EntityLivingBase)this.entityToAttack, 1.6f, 12, 23, "furyArrow"));
+		if(this.abilityTick%30 == 0 && this.entityToAttack != null && !this.worldObj.isRemote) {
+			this.worldObj.spawnEntityInWorld(new EntityEternalArcherArrow(this.worldObj, this, (EntityLivingBase)this.entityToAttack, this.armSelected));
+		}
+	}
+	
+	@Override
+	public void dropFewItems(boolean beenHit, int lootingLevel) {
+		switch(this.rand.nextInt(2)) {
+		case 0:
+			this.dropItem(TwilightItemsArmor.haliteBoots, 1);
+			break;
+		case 1:
+			this.dropItem(TwilightItemsArmor.haliteHelmet, 1);
 		}
 	}
 	

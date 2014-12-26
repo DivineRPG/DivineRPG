@@ -17,7 +17,7 @@ public class EventExtraArmor {
 	public void renderOverlay(RenderGameOverlayEvent event){
 		if(event.isCancelable() || event.type != ElementType.ARMOR) return;
 		if((EventArmorTick.size != 0) && !Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
-			gui.drawArmor();
+			//gui.drawArmor();
 		}
 	}
 }

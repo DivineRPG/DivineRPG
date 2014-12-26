@@ -41,13 +41,14 @@ public class TwilightItemsOther {
 
     public static Item edenSparkles;
 
-    public static Item spawnerBase;
-    public static Item spawnDensos;
-    public static Item spawnKarot;
-    public static Item spawnReyvor;
-    public static Item spawnSoulFiend;
-    public static Item spawnTwilight;
-    public static Item spawnVamacheron;
+    public static Item baseSpawnCrystal;
+    public static Item densosCrystal;
+    public static Item karotCrystal;
+    public static Item reyvorCrystal;
+    public static Item soulFiendCrystal;
+    public static Item twilightDemonCrystal;
+    public static Item vamacheronCrystal;
+    public static Item eternalArcherCrystal;
     
     public static void init() {
     	edenSoul            = new ItemMod("edenSoul");
@@ -84,13 +85,14 @@ public class TwilightItemsOther {
 
         edenSparkles	    = new ItemMod("edenSparkles");
 
-        spawnerBase 		= new ItemMod("spawnerBase");
-        spawnDensos 		= new ItemTwilightSpawner("spawnDensos");
-        spawnKarot 			= new ItemTwilightSpawner("spawnKarot");
-        spawnReyvor 		= new ItemTwilightSpawner("spawnReyvor");
-        spawnSoulFiend		= new ItemTwilightSpawner("spawnSoulFiend");
-        spawnTwilight 		= new ItemTwilightSpawner("spawnTwilightDemon");
-        spawnVamacheron		= new ItemTwilightSpawner("spawnVamacheron");
+        baseSpawnCrystal 	= new ItemMod("baseSpawnCrystal");
+        densosCrystal 		= new ItemTwilightSpawner("densosCrystal");
+        karotCrystal 		= new ItemTwilightSpawner("karotCrystal");
+        reyvorCrystal 		= new ItemTwilightSpawner("reyvorCrystal");
+        soulFiendCrystal	= new ItemTwilightSpawner("soulFiendCrystal");
+        twilightDemonCrystal= new ItemTwilightSpawner("twilightDemonCrystal");
+        vamacheronCrystal	= new ItemTwilightSpawner("vamacheronCrystal");
+        eternalArcherCrystal= new ItemTwilightSpawner("eternalArcherCrystal");
     }
     
 }
