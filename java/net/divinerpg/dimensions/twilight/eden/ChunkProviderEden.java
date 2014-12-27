@@ -145,7 +145,6 @@ public class ChunkProviderEden implements IChunkProvider{
         for (int k = 0; k < abyte.length; ++k) {
             abyte[k] = (byte)this.biomesForGeneration[k].biomeID;
         }
-
         chunk.generateSkylightMap();
         return chunk;
     }

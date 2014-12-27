@@ -122,7 +122,7 @@ public class ArcanaItems {
     	enderScepter  			 = new ItemEnderScepter("enderScepter");
     	arcaniumSaber  			 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
     	wraithbane  	 		 = new ItemWraithbane("wraithbane");
-    	reflector  	 	 		 = new ItemReflector("reflector");
+    	reflector  	 	 		 = new ItemReflector("arcaniumReflector");
     	shadowSword  	 	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
     	liviciaSword  	 		 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
 

@@ -13,6 +13,7 @@ public class WorldProviderMortum extends WorldProvider {
     public void registerWorldChunkManager() {
         this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Mortum, 0.5F);
         this.dimensionId = ConfigurationHelper.mortum;
+        this.hasNoSky = true;
     }
  
     @Override
