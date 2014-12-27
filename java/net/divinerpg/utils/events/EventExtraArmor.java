@@ -15,7 +15,7 @@ public class EventExtraArmor {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void renderOverlay(RenderGameOverlayEvent event){
-		if(event.isCancelable() || event.type != ElementType.ARMOR) return;
+		if(event.isCancelable() || event.type != ElementType.) return;
 		if((EventArmorTick.size != 0) && !Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
 			//gui.drawArmor();
 		}
