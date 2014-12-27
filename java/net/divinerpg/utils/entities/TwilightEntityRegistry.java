@@ -78,7 +78,7 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntitySkythernCori.class, "SkythernCori");
         Util.registerDivineRPGMob(EntitySkythernFiend.class, "SkythernFiend");
         Util.registerDivineRPGMob(EntityMortumCadillion.class, "MortumCadillion");
-        Util.registerDivineRPGMob(EntityMortumDemon.class, "MortumDemon");
+        Util.registerDivineRPGMob(EntityMortumDemon.class, "DemonOfDarkness");
         Util.registerDivineRPGMob(EntityBaslisk.class, "Baslisk");
         Util.registerDivineRPGMob(EntitySoulStealer.class, "SoulStealer");
         Util.registerDivineRPGMob(EntityDensos.class, "Densos");

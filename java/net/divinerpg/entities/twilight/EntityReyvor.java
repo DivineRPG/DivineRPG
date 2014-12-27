@@ -30,8 +30,8 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
 
     public EntityReyvor(World var1) {
         super(var1);        
-        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 60, 64.0F));  
-        addAttackingAI();
+        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 40, 64.0F));  
+        this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
     }
     
 	@Override
@@ -76,7 +76,7 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase var1, float f) {
-        EntityArrow var2 = new EntityArrow(this.worldObj, this, var1, 1.6F, 12.0F);
+        EntityArrow var2 = new EntityArrow(this.worldObj, this, var1, 1.6F, 8.0F);
         var2.setDamage(24D);
         this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         this.worldObj.spawnEntityInWorld(var2);

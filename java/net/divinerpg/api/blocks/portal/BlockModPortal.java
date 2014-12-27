@@ -57,6 +57,7 @@ public class BlockModPortal extends BlockBreakable {
         setTickRandomly(true);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
+        setBlockUnbreakable();
         ((BlockModFire) fireBlock).addPortal(this);
     }
 

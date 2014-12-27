@@ -5,6 +5,7 @@ import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.ChunkProviderHell;
 
 public class WorldProviderMortum extends WorldProvider {
  

@@ -60,6 +60,6 @@ public class EntityMortumDemon extends EntityDivineRPGMob {
  
     @Override
 	public String mobName() {
-		return "Mortum Demon";
+		return "Demon of Darkness";
 	}
 }

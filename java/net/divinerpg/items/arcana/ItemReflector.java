@@ -3,13 +3,9 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.entities.arcana.projectile.EntityReflector;
-import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.events.ArcanaHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -19,15 +15,6 @@ public class ItemReflector extends ItemMod {
         super(name);
         this.maxStackSize = 1;
         this.setMaxDamage(-1);
-    }
- 
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-    	boolean var4 = player.capabilities.isCreativeMode;
-    	if (!world.isRemote && ArcanaHelper.getProperties(player).useBar(20)) {
-        	world.playSoundAtEntity(player, Sounds.reflector.getPrefixedName(), 1.0F, 1.0F);
-    		world.spawnEntityInWorld(new EntityReflector(world, player));
-    	}
-    	return stack;
     }
     
     @Override

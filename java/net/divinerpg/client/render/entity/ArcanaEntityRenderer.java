@@ -9,7 +9,6 @@ import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineBoss;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
-import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.TileEntityDemonFurnaceRenderer;
@@ -57,7 +56,6 @@ import net.divinerpg.entities.arcana.projectile.EntityFirefly;
 import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.entities.arcana.projectile.EntityLamona;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
-import net.divinerpg.entities.arcana.projectile.EntityReflector;
 import net.divinerpg.entities.arcana.projectile.EntitySparkler;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
 import net.divinerpg.utils.Util;
@@ -79,7 +77,6 @@ public class ArcanaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderIconProjectile(ArcanaItems.grenade));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLamona.class, new RenderIconProjectile(ArcanaItems.lamona));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderSpecialProjectile(x.meriksMissile));
-		RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, new RenderSpecialProjectile(x.sparkler));//TODO: change the reflector to not use an entity.
 
         RenderingRegistry.registerEntityRenderingHandler(EntityRoamer.class, new RenderDivineMob(new ModelRoamer(), x.roamer));
         RenderingRegistry.registerEntityRenderingHandler(EntityDeathcryx.class, new RenderDivineMob(new ModelDeathcryx(), x.deathcryx));

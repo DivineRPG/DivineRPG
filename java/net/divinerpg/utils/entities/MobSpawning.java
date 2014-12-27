@@ -187,7 +187,7 @@ public class MobSpawning {
 		//EntityRegistry.addSpawn(EntityHellBat.class, 50, 1, 1, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
 		EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
 		EntityRegistry.addSpawn(EntityJungleSpider.class, 10, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.jungle, BiomeGenBase.jungleHills});
-		EntityRegistry.addSpawn(EntityCyclops.class, 1, 1, 1, EnumCreatureType.monster, allBiomes);
+		EntityRegistry.addSpawn(EntityCyclops.class, 2, 2, 4, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityMiner.class, 1, 1, 1, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityJackOMan.class, 1, 1, 1, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityHellPig.class, 25, 5, 50, EnumCreatureType.creature, new BiomeGenBase[] {BiomeGenBase.hell});

@@ -209,6 +209,7 @@ public class ChunkProviderMortum implements IChunkProvider {
         return this.provideChunk(par1, par2);
     }
 
+    @Override
     public Chunk provideChunk(int par1, int par2) {
         this.hellRNG.setSeed((long)par1 * 341873128712L + (long)par2 * 132897987541L);
         Block[] blocks = new Block[32768];
@@ -352,13 +353,13 @@ public class ChunkProviderMortum implements IChunkProvider {
     }
  
     @Override
-    public void populate(IChunkProvider par1IChunkProvider, int par2, int par3) {
+    public void populate(IChunkProvider provider, int x, int y) {
         BlockSand.fallInstantly = true;
 
-        MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
+        MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(provider, worldObj, hellRNG, x, y, false));
 
-        int var4 = par2 * 16;
-        int var5 = par3 * 16;int var13;
+        int var4 = x * 16;
+        int var5 = y * 16;int var13;
         int var14;
         int var15;
         int var16;
@@ -385,7 +386,7 @@ public class ChunkProviderMortum implements IChunkProvider {
         }
 
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, var4, var5));
-        MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
+        MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(provider, worldObj, hellRNG, x, y, false));
 
         BlockSand.fallInstantly = false;
     }

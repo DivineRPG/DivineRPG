@@ -18,7 +18,6 @@ import net.divinerpg.entities.arcana.EntityRazorback;
 import net.divinerpg.entities.arcana.EntityRoamer;
 import net.divinerpg.entities.arcana.EntitySeimer;
 import net.divinerpg.entities.arcana.EntityVatticus;
-import net.divinerpg.entities.arcana.EntityVermsillion;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.entities.arcana.EntityZelus;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
@@ -27,7 +26,6 @@ import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.entities.arcana.projectile.EntityLamona;
 import net.divinerpg.entities.arcana.projectile.EntityLivingStatueArrow;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
-import net.divinerpg.entities.arcana.projectile.EntityReflector;
 import net.divinerpg.entities.arcana.projectile.EntitySparkler;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
 import net.divinerpg.utils.Util;
@@ -43,7 +41,6 @@ public class ArcanaEntityRegistry {
 		Util.registerProjectile(EntityLamona.class, "Lamona");
 		Util.registerProjectile(EntityLivingStatueArrow.class, "LivingStatueArrow");
 		Util.registerProjectile(EntityMerikMissile.class, "MeriksMissile");
-		Util.registerProjectile(EntityReflector.class, "Reflector");
 
 		Util.registerDivineRPGMob(EntityCaptianMerik.class, "CaptainMerik");
 		Util.registerDivineRPGMob(EntityConstructor.class, "DungeonConstructor");
