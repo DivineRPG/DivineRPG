@@ -121,12 +121,12 @@ public class CommonProxy{
 		IceikaEntityRegistry.init();
 		VetheaEntityRegistry.init();
 		ArcanaEntityRegistry.init();
-		MobSpawning.addSpawns();
 		LogHelper.info("Adding crafting/smelting recipes");
 		VanillaRecipeHelper.init();
 		TwilightRecipeHelper.init();
 		DimensionHelper.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
+		MobSpawning.addSpawns();
 	}
 
 	public void init(FMLInitializationEvent event){

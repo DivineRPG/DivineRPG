@@ -19,6 +19,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public abstract class EntityDivineRPGTameable extends EntityTameable {
@@ -76,6 +77,11 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	@Override
 	protected boolean isAIEnabled() {
 		return true;
+	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
 	}
 
 	public void onDeath(DamageSource d) {

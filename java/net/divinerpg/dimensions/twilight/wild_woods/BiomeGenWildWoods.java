@@ -10,7 +10,7 @@ public class BiomeGenWildWoods extends BiomeGenBase {
 
 	public BiomeGenWildWoods(int par1) {
 		super(par1);
-		this.setBiomeName("Wild Woods");
+		this.setBiomeName("Wildwood");
 		this.topBlock = TwilightBlocks.wildwoodGrass;
 		this.fillerBlock = TwilightBlocks.wildwoodDirt;
         this.spawnableCreatureList.clear();

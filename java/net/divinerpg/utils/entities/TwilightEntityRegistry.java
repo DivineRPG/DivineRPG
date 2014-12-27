@@ -59,7 +59,7 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntityEdenTomo.class, "EdenTomo");
         Util.registerDivineRPGMob(EntityBunny.class, "Bunny");
         Util.registerDivineRPGMob(EntityAngryBunny.class, "AngryBunny");
-        Util.registerDivineRPGMob(EntityEdenCori.class, "EdenCori");
+        Util.registerDivineRPGMob(EntityEdenCori.class, "WeakCori");
         Util.registerDivineRPGMob(EntityMadivel.class, "Madivel");
         Util.registerDivineRPGMob(EntityNesro.class, "Nesro");
         Util.registerDivineRPGMob(EntityWildWoodGolem.class, "WildWoodGolem");

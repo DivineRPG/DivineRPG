@@ -282,7 +282,7 @@ public class ChunkProviderApalachia implements IChunkProvider{
 						var26 = var26 * (1.0D - var37) + -30.0D * var37;
 					}
 
-					var1[var12] = var26;
+					var1[var12] += var26;
 					++var12;
 				}
 			}

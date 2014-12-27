@@ -177,6 +177,6 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
 
 	@Override
 	public String mobName() {
-		return "Eden Cori";
+		return "Weak Cori";
 	}
 }
