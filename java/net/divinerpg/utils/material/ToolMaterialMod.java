@@ -59,56 +59,56 @@ public class ToolMaterialMod {
     //Shickaxes
     public static ToolMaterial RupeeShick     = Util.addShickMaterial(4, 15.0F, 8, 15);
     public static ToolMaterial ArlemiteShick  = Util.addShickMaterial(4, 15.0F, 8, 15);
-    public static ToolMaterial DivineShick    = Util.addShickMaterial(8, -1, 20.0F, 27, 10);
-    public static ToolMaterial SkythernShick  = Util.addShickMaterial(100, 6000, 48.0F, 59, 22);
-    public static ToolMaterial EdenShick      = Util.addShickMaterial(100, 6000, 20.0F, 27, 22);
-    public static ToolMaterial WildwoodShick  = Util.addShickMaterial(100, 6000, 28.0F, 40, 22);
-    public static ToolMaterial ApalachiaShick = Util.addShickMaterial(100, 6000, 40.0F, 49, 22);
-    public static ToolMaterial MortumShick    = Util.addShickMaterial(100, 6000, 55.0F, 68, 22);
+    public static ToolMaterial DivineShick    = Util.addShickMaterial(8, -1, 20.0F, 9, 10);
+    public static ToolMaterial SkythernShick  = Util.addShickMaterial(100, 6000, 48.0F, 11, 22);
+    public static ToolMaterial EdenShick      = Util.addShickMaterial(100, 6000, 20.0F, 8, 22);
+    public static ToolMaterial WildwoodShick  = Util.addShickMaterial(100, 6000, 28.0F, 9, 22);
+    public static ToolMaterial ApalachiaShick = Util.addShickMaterial(100, 6000, 40.0F, 10, 22);
+    public static ToolMaterial MortumShick    = Util.addShickMaterial(100, 6000, 55.0F, 12, 22);
 
     //Axes
-    public static ToolMaterial RupeeAxe       = Util.addAxeMaterial(6, 2500, 15.0F, 8, 0);
-    public static ToolMaterial ArlemiteAxe    = Util.addAxeMaterial(3, 3000, 13.0F, 8, 10);
-    public static ToolMaterial RealmiteAxe    = Util.addAxeMaterial(3, 4000, 12.0F, 5, 10);
-    public static ToolMaterial BloodgemAxe    = Util.addAxeMaterial(0, 520, 2.0F, 8, 15);
-    public static ToolMaterial CyclopsAxe     = Util.addAxeMaterial(0, 1000, 8.0F, 7, 10);
-    public static ToolMaterial BedrockAxe     = Util.addAxeMaterial(3, -1, 9.0F, 11, 10);
-    public static ToolMaterial CorruptedAxe   = Util.addAxeMaterial(3, 6000, 16.0F, 15, 10);
-    public static ToolMaterial SkythernAxe    = Util.addAxeMaterial(100, 6000, 48.0F, 57, 22);
-    public static ToolMaterial EdenAxe        = Util.addAxeMaterial(100, 6000, 20.0F, 26, 22);
-    public static ToolMaterial WildwoodAxe    = Util.addAxeMaterial(100, 6000, 28.0F, 40, 22);
-    public static ToolMaterial ApalachiaAxe   = Util.addAxeMaterial(100, 6000, 40.0F, 48, 22);
-    public static ToolMaterial MortumAxe      = Util.addAxeMaterial(100, 6000, 55.0F, 66, 22);
-    public static ToolMaterial DivineAxe      = Util.addAxeMaterial(8, 35000, 20.0F, 26, 10);
+    public static ToolMaterial RupeeAxe       = Util.addAxeMaterial(6, 2500, 15.0F, 7, 0);
+    public static ToolMaterial ArlemiteAxe    = Util.addAxeMaterial(3, 3000, 13.0F, 7, 10);
+    public static ToolMaterial RealmiteAxe    = Util.addAxeMaterial(3, 4000, 12.0F, 6, 10);
+    public static ToolMaterial BloodgemAxe    = Util.addAxeMaterial(0, 520, 2.0F, 6, 15);
+    public static ToolMaterial CyclopsAxe     = Util.addAxeMaterial(0, 1000, 8.0F, 6, 10);
+    public static ToolMaterial BedrockAxe     = Util.addAxeMaterial(3, -1, 9.0F, 6, 10);
+    public static ToolMaterial CorruptedAxe   = Util.addAxeMaterial(3, 6000, 16.0F, 7, 10);
+    public static ToolMaterial SkythernAxe    = Util.addAxeMaterial(100, 6000, 48.0F, 10, 22);
+    public static ToolMaterial EdenAxe        = Util.addAxeMaterial(100, 6000, 20.0F, 7, 22);
+    public static ToolMaterial WildwoodAxe    = Util.addAxeMaterial(100, 6000, 28.0F, 8, 22);
+    public static ToolMaterial ApalachiaAxe   = Util.addAxeMaterial(100, 6000, 40.0F, 9, 22);
+    public static ToolMaterial MortumAxe      = Util.addAxeMaterial(100, 6000, 55.0F, 11, 22);
+    public static ToolMaterial DivineAxe      = Util.addAxeMaterial(8, 35000, 20.0F, 8, 10);
 
     //Picks
-    public static ToolMaterial RupeePick      = Util.addPickMaterial(6, 2500, 15.0F, 7, 0);
-    public static ToolMaterial ArlemitePick   = Util.addPickMaterial(3, 3000, 13.0F, 7, 10);
-    public static ToolMaterial RealmitePick   = Util.addPickMaterial(3, 4000, 12.0F, 6, 10);
-    public static ToolMaterial BloodgemPick   = Util.addPickMaterial(0, 520, 2.0F, 7, 15);
-    public static ToolMaterial CyclopsPick    = Util.addPickMaterial(0, 1000, 8.0F, 3, 10);
-    public static ToolMaterial BedrockPick    = Util.addPickMaterial(3, 9.0F, 10, 10);
-    public static ToolMaterial CorruptedPick  = Util.addPickMaterial(3, 6000, 16.0F, 14, 10);
-    public static ToolMaterial SkythernPick   = Util.addPickMaterial(100, 6000, 48.0F, 50, 22);
-    public static ToolMaterial EdenPick       = Util.addPickMaterial(100, 6000, 20.0F, 23, 22);
-    public static ToolMaterial WildwoodPick   = Util.addPickMaterial(100, 6000, 28.0F, 36, 22);
-    public static ToolMaterial ApalachiaPick  = Util.addPickMaterial(100, 6000, 40.0F, 42, 22);
-    public static ToolMaterial MortumPick     = Util.addPickMaterial(100, 6000, 55.0F, 56, 22);
-    public static ToolMaterial DivinePick     = Util.addPickMaterial(8, 35000, 20.0F, 23, 10);
+    public static ToolMaterial RupeePick      = Util.addPickMaterial(6, 2500, 15.0F, 5, 0);
+    public static ToolMaterial ArlemitePick   = Util.addPickMaterial(3, 3000, 13.0F, 5, 10);
+    public static ToolMaterial RealmitePick   = Util.addPickMaterial(3, 4000, 12.0F, 4, 10);
+    public static ToolMaterial BloodgemPick   = Util.addPickMaterial(0, 520, 2.0F, 4, 15);
+    public static ToolMaterial CyclopsPick    = Util.addPickMaterial(0, 1000, 8.0F, 4, 10);
+    public static ToolMaterial BedrockPick    = Util.addPickMaterial(3, 9.0F, 4, 10);
+    public static ToolMaterial CorruptedPick  = Util.addPickMaterial(3, 6000, 16.0F, 5, 10);
+    public static ToolMaterial SkythernPick   = Util.addPickMaterial(100, 6000, 48.0F, 8, 22);
+    public static ToolMaterial EdenPick       = Util.addPickMaterial(100, 6000, 20.0F, 5, 22);
+    public static ToolMaterial WildwoodPick   = Util.addPickMaterial(100, 6000, 28.0F, 6, 22);
+    public static ToolMaterial ApalachiaPick  = Util.addPickMaterial(100, 6000, 40.0F, 7, 22);
+    public static ToolMaterial MortumPick     = Util.addPickMaterial(100, 6000, 55.0F, 9, 22);
+    public static ToolMaterial DivinePick     = Util.addPickMaterial(8, 35000, 20.0F, 6, 10);
 
     //Shovels
-    public static ToolMaterial RupeeSpade     = Util.addSpadeMaterial(6, 2500, 15.0F, 6, 0);
-    public static ToolMaterial ArlemiteSpade  = Util.addSpadeMaterial(3, 3000, 13.0F, 6, 10);
-    public static ToolMaterial RealmiteSpade  = Util.addSpadeMaterial(3, 4000, 12.0F, 5, 10);
-    public static ToolMaterial BloodgemSpade  = Util.addSpadeMaterial(0, 520, 2.0F, 6, 15);
-    public static ToolMaterial CyclopsSpade   = Util.addSpadeMaterial(0, 1000, 8.0F, 3, 10);
-    public static ToolMaterial BedrockSpade   = Util.addSpadeMaterial(3, -1, 9.0F, 8, 10);
-    public static ToolMaterial CorruptedSpade = Util.addSpadeMaterial(3, 6000, 16.0F, 12, 10);
-    public static ToolMaterial SkythernSpade  = Util.addSpadeMaterial(100, 6000, 48.0F, 43, 22);
-    public static ToolMaterial EdenSpade      = Util.addSpadeMaterial(100, 6000, 20.0F, 20, 22);
-    public static ToolMaterial WildwoodSpade  = Util.addSpadeMaterial(100, 6000, 28.0F, 31, 22);
-    public static ToolMaterial ApalachiaSpade = Util.addSpadeMaterial(100, 6000, 40.0F, 36, 22);
-    public static ToolMaterial MortumSpade    = Util.addSpadeMaterial(100, 6000, 55.0F, 46, 22);
-    public static ToolMaterial DivineSpade    = Util.addSpadeMaterial(8, 35000, 20.0F, 20, 10);
+    public static ToolMaterial RupeeSpade     = Util.addSpadeMaterial(6, 2500, 15.0F, 5, 0);
+    public static ToolMaterial ArlemiteSpade  = Util.addSpadeMaterial(3, 3000, 13.0F, 5, 10);
+    public static ToolMaterial RealmiteSpade  = Util.addSpadeMaterial(3, 4000, 12.0F, 4, 10);
+    public static ToolMaterial BloodgemSpade  = Util.addSpadeMaterial(0, 520, 2.0F, 4, 15);
+    public static ToolMaterial CyclopsSpade   = Util.addSpadeMaterial(0, 1000, 8.0F, 4, 10);
+    public static ToolMaterial BedrockSpade   = Util.addSpadeMaterial(3, -1, 9.0F, 4, 10);
+    public static ToolMaterial CorruptedSpade = Util.addSpadeMaterial(3, 6000, 16.0F, 5, 10);
+    public static ToolMaterial SkythernSpade  = Util.addSpadeMaterial(100, 6000, 48.0F, 8, 22);
+    public static ToolMaterial EdenSpade      = Util.addSpadeMaterial(100, 6000, 20.0F, 5, 22);
+    public static ToolMaterial WildwoodSpade  = Util.addSpadeMaterial(100, 6000, 28.0F, 6, 22);
+    public static ToolMaterial ApalachiaSpade = Util.addSpadeMaterial(100, 6000, 40.0F, 7, 22);
+    public static ToolMaterial MortumSpade    = Util.addSpadeMaterial(100, 6000, 55.0F, 9, 22);
+    public static ToolMaterial DivineSpade    = Util.addSpadeMaterial(8, 35000, 20.0F, 6, 10);
 
 }
