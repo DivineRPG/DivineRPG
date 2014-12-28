@@ -21,7 +21,6 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderWildWoods implements IChunkProvider{
@@ -116,25 +115,47 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 			(new WorldGenMinable(TwilightBlocks.wildwoodOre, 9, TwilightBlocks.twilightStone)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
-		WorldGenWildwoodTree1 var17 = new WorldGenWildwoodTree1(true);
-		int var19;
-		int var18;
-		int var21;
-		int var20;
+		WorldGenWildwoodTree1 tree1 = new WorldGenWildwoodTree1(false);
+		WorldGenWildwoodTree2 tree2 = new WorldGenWildwoodTree2();
+		WorldGenWildwoodTree3 tree3 = new WorldGenWildwoodTree3();
+		WorldGenWildwoodTree4 tree4 = new WorldGenWildwoodTree4();
+		WorldGenWildwoodTree5 tree5 = new WorldGenWildwoodTree5();
+		int x;
+		int y;
+		int z;
 
-		for (var18 = 0; var18 < 6; ++var18) {
-			var19 = var4 + this.rand.nextInt(16);
-			var20 = var5 + this.rand.nextInt(16);
-			var21 = this.worldObj.getHeightValue(var19, var20);
-			var17.generate(this.worldObj, this.rand, var19, var21, var20);
+		for (int tries = 0; tries < 7; ++tries) {
+			x = var4 + this.rand.nextInt(16);
+			z = var5 + this.rand.nextInt(16);
+			y = this.worldObj.getHeightValue(x, z);
+			tree1.generate(this.worldObj, this.rand, x, y, z);
 		}
 		
-		for (var18 = 0; var18 < 2; ++var18) {
-			var19 = var4 + this.rand.nextInt(16)+8;
-			var20 = var5 + this.rand.nextInt(16)+8;
-			var21 = this.worldObj.getHeightValue(var19, var20);
-			new WorldGenWildwoodTree2().generate(this.worldObj, this.rand, var19, var21, var20);
+		for (int tries = 0; tries < 6; ++tries) {
+			x = var4 + this.rand.nextInt(16);
+			z = var5 + this.rand.nextInt(16);
+			y = this.worldObj.getHeightValue(x, z);
+			tree3.generate(this.worldObj, this.rand, x, y, z);
 		}
+		
+		for (int tries = 0; tries < 5; ++tries) {
+			x = var4 + this.rand.nextInt(16);
+			z = var5 + this.rand.nextInt(16);
+			y = this.worldObj.getHeightValue(x, z);
+			tree4.generate(this.worldObj, this.rand, x, y, z);
+		}
+		
+		for (int tries = 0; tries < 2; ++tries) {
+			x = var4 + this.rand.nextInt(16)+8;
+			z = var5 + this.rand.nextInt(16)+8;
+			y = this.worldObj.getHeightValue(x, z);
+			tree2.generate(this.worldObj, this.rand, x, y, z);
+		}
+		
+		x = var4 + this.rand.nextInt(16);
+		z = var5 + this.rand.nextInt(16);
+		y = this.worldObj.getHeightValue(x, z);
+		if(this.rand.nextInt(2) == 0)tree5.generate(this.worldObj, this.rand, x, y, z);
 
 		int var22;
 		int var23;
@@ -149,10 +170,10 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 		}
 		
 		for (int c = 0; c < 24; c++) {
-			int x = var4 + this.rand.nextInt(16) + 8;
-			int y = this.rand.nextInt(120) + 4;
-			int z = var5 + this.rand.nextInt(16) + 8;
-			new WorldGenWildwoodWater().generate(this.worldObj, this.rand, x, y, z);
+			var23 = var4 + this.rand.nextInt(16) + 8;
+			var24 = this.rand.nextInt(120) + 4;
+			var25 = var5 + this.rand.nextInt(16) + 8;
+			new WorldGenWildwoodWater().generate(this.worldObj, this.rand, var23, var24, var25);
 		}
 
 		BlockSand.fallInstantly = false;
