@@ -1,6 +1,7 @@
 package net.divinerpg.utils.blocks;
 
 import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.api.blocks.BlockModDoublePlant;
 import net.divinerpg.api.blocks.BlockModGrass;
 import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
@@ -70,6 +71,9 @@ public class TwilightBlocks {
     public static Block sunbloom;
     public static Block edenBrush;
     public static Block sunBlossom;
+    public static Block moonlightFern;
+    public static Block dawnBud;
+    public static Block wildwoodTallgrass;
     
     public static void init() {
     	edenDirt          = new BlockMod(EnumBlockType.DIRT, "edenDirt", 5.0F);
@@ -124,6 +128,9 @@ public class TwilightBlocks {
         sunbloom		  = new BlockTwilightFlower("sunbloom", edenGrass);
         edenBrush		  = new BlockTwilightFlower("edenBrush", edenGrass);
         sunBlossom		  = new BlockTwilightFlower("sunBlossom", edenGrass);
+        moonlightFern	  = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
+        dawnBud			  = new BlockTwilightFlower("dawnBud", wildwoodGrass);
+        wildwoodTallgrass = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
     }
 
 }

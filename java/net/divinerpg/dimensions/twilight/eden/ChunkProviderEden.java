@@ -329,13 +329,13 @@ public class ChunkProviderEden implements IChunkProvider{
 		int var13;
 		int var14;
 		int var15;
+		int var16;
+
 		
 		if(this.rand.nextInt(5) == 0) {
 			var13 = var4 + this.rand.nextInt(16);
 			var15 = var5 + this.rand.nextInt(16);
 			var14 = this.worldObj.getHeightValue(var13, var15);
-			
-
 			
 			boolean stone = true;
 			
@@ -356,23 +356,22 @@ public class ChunkProviderEden implements IChunkProvider{
 			(new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, var13, var14-3, var15);
 		}
 
-		int var16;
 
-		for (var13 = 0; var13 < 19; ++var13) {
+		for (int c = 0; c < 19; ++c) {
 			var14 = var4 + this.rand.nextInt(16);
 			var15 = this.rand.nextInt(128);
 			var16 = var5 + this.rand.nextInt(16);
 			(new WorldGenMinable(TwilightBlocks.edenOre, 11, TwilightBlocks.twilightStone)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 		
-		for (var13 = 0; var13 < 30; ++var13) {
+		for (int c = 0; c < 30; ++c) {
 			var14 = var4 + this.rand.nextInt(16)+8;
 			var16 = var5 + this.rand.nextInt(16)+8;
 			var15 = this.rand.nextInt(128)+1;
 			(new WorldGenFlowers(TwilightBlocks.sunbloom)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 		
-		for (var13 = 0; var13 < 30; ++var13) {
+		for (int c = 0; c < 60; ++c) {
 			var14 = var4 + this.rand.nextInt(16)+8;
 			var16 = var5 + this.rand.nextInt(16)+8;
 			var15 = this.rand.nextInt(128)+1;

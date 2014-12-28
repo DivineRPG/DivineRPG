@@ -3,6 +3,7 @@ package net.divinerpg.dimensions.twilight.wild_woods;
 import java.util.List;
 import java.util.Random;
 
+import net.divinerpg.api.worldgen.WorldGenModDoublePlant;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -17,6 +18,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
@@ -103,12 +105,11 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 		long var9 = this.rand.nextLong() / 2L * 2L + 1L;
 		this.rand.setSeed(i * var7 + j * var9 ^ this.worldObj.getSeed());
 		double var11 = 0.25D;
-		int var13;
 		int var14;
 		int var15;
 		int var16;
 
-		for (var13 = 0; var13 < 17; ++var13) {
+		for (int var13 = 0; var13 < 17; ++var13) {
 			var14 = var4 + this.rand.nextInt(16);
 			var15 = this.rand.nextInt(128);
 			var16 = var5 + this.rand.nextInt(16);
@@ -174,6 +175,27 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 			var24 = this.rand.nextInt(120) + 4;
 			var25 = var5 + this.rand.nextInt(16) + 8;
 			new WorldGenWildwoodWater().generate(this.worldObj, this.rand, var23, var24, var25);
+		}
+		
+		for (int var13 = 0; var13 < 30; ++var13) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenFlowers(TwilightBlocks.moonlightFern)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (int var13 = 0; var13 < 30; ++var13) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenFlowers(TwilightBlocks.dawnBud)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (int var13 = 0; var13 < 30; ++var13) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenModDoublePlant(TwilightBlocks.wildwoodTallgrass)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
 		BlockSand.fallInstantly = false;
