@@ -74,7 +74,7 @@ public class VetheaBlocks {
     public static final Block             purpleDulah            = new BlockVetheaPlant("purpleDulah");
     public static final Block             yellowDulah            = new BlockVetheaPlant("yellowDulah");
     public static final Block             greenDulah             = new BlockVetheaPlant("greenDulah");
-    public static final Block             mintwood               = new BlockModLog("mintWoodLog").setCreativeTab(DivineRPGTabs.vethea);
+    public static final Block             mintwood               = new BlockModLog("mintwoodLog").setCreativeTab(DivineRPGTabs.vethea);
     public static final Block             cracklespike           = new BlockVetheaPlant("crackleSpike");
     public static final Block             fernite                = new BlockVetheaPlant("fernite");
     public static final Block             bulatobe               = new BlockVetheaPlant("bulbatobe");
