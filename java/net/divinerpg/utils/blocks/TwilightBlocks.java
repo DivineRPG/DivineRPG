@@ -9,6 +9,7 @@ import net.divinerpg.api.blocks.BlockModTorch;
 import net.divinerpg.api.blocks.BlockModVine;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.twilight.BlockBlueFire;
+import net.divinerpg.blocks.twilight.BlockBrambles;
 import net.divinerpg.blocks.twilight.BlockEdenChest;
 import net.divinerpg.blocks.twilight.BlockTwilightFlower;
 import net.divinerpg.blocks.twilight.BlockTwilightFurnace;
@@ -74,6 +75,9 @@ public class TwilightBlocks {
     public static Block moonlightFern;
     public static Block dawnBud;
     public static Block wildwoodTallgrass;
+    public static Block skythernBrush;
+    public static Block dustBrambles;
+    public static Block demonBrambles;
     
     public static void init() {
     	edenDirt          = new BlockMod(EnumBlockType.DIRT, "edenDirt", 5.0F);
@@ -131,6 +135,9 @@ public class TwilightBlocks {
         moonlightFern	  = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
         dawnBud			  = new BlockTwilightFlower("dawnBud", wildwoodGrass);
         wildwoodTallgrass = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
+        skythernBrush 	  = new BlockTwilightFlower("skythernBrush", skythernGrass);
+        dustBrambles	  = new BlockBrambles("dustBrambles", skythernGrass);
+        demonBrambles	  = new BlockBrambles("demonBrambles", mortumGrass);
     }
 
 }

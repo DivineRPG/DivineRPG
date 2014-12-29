@@ -23,7 +23,6 @@ public class ItemModSeeds extends ItemSeeds {
 		setCreativeTab(DivineRPGTabs.utility);
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
-		if(ConfigurationHelper.showItemsBetter) setFull3D();
 	}
 	
 	public ItemModSeeds(String name, Block block, Block placeOn) {
@@ -33,6 +32,5 @@ public class ItemModSeeds extends ItemSeeds {
 		setCreativeTab(DivineRPGTabs.utility);
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
-		if(ConfigurationHelper.showItemsBetter) setFull3D();
 	}
 }

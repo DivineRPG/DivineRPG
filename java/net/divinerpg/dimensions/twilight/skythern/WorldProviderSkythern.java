@@ -13,6 +13,7 @@ public class WorldProviderSkythern extends WorldProvider {
         this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Skythern, 0.5F);
         this.dimensionId = ConfigurationHelper.skythern;
         isHellWorld = false;
+        this.hasNoSky = true;
     }
  
     @Override

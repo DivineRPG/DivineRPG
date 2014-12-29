@@ -34,8 +34,6 @@ public class ItemMod extends Item {
 		setCreativeTab(tab);
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
-		if(ConfigurationHelper.showItemsBetter)
-			setFull3D();
 	}
 
 	public ItemMod setHealAmount(int healAmount){

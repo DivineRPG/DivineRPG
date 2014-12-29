@@ -13,6 +13,7 @@ public class ItemCaptainsSparkler extends ItemModRanged {
 
     public ItemCaptainsSparkler(String name) {
         super(name, -1, Sounds.sparkler, EntitySparkler.class);
+        this.setFull3D();
     }
 
     @Override

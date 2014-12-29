@@ -2,6 +2,7 @@ package net.divinerpg.dimensions.twilight.wild_woods;
 
 import java.util.Random;
 
+import net.divinerpg.entities.twilight.EntityWildWoodTomo;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;

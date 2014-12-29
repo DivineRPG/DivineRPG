@@ -3,8 +3,7 @@ package net.divinerpg.dimensions.twilight.skythern;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.common.eventhandler.Event.Result;
-
+import net.divinerpg.api.worldgen.WorldGenModDoublePlant;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -19,9 +18,11 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderSkythern implements IChunkProvider{
 
@@ -358,6 +359,20 @@ public class ChunkProviderSkythern implements IChunkProvider{
 			var20 = var5 + this.rand.nextInt(16);
 			var21 = 128;
 			var17.generate(this.worldObj, this.rand, var19, var21, var20);
+		}
+		
+		for (int c = 0; c < 60; ++c) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(255)+1;
+			(new WorldGenFlowers(TwilightBlocks.skythernBrush)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (int c = 0; c < 30; ++c) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(255)+1;
+			(new WorldGenModDoublePlant(TwilightBlocks.dustBrambles)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
 		BlockSand.fallInstantly = false;

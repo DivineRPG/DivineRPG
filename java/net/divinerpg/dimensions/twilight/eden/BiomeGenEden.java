@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.world.biome.BiomeGenBase;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

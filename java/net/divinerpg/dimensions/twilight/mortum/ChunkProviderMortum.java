@@ -3,6 +3,7 @@ package net.divinerpg.dimensions.twilight.mortum;
 import java.util.List;
 import java.util.Random;
 
+import net.divinerpg.api.worldgen.WorldGenModDoublePlant;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -384,6 +385,13 @@ public class ChunkProviderMortum implements IChunkProvider {
             var21 = this.hellRNG.nextInt(128);
             var17.generate(this.worldObj, this.hellRNG, var19, var21, var20);
         }
+        
+        for (int c = 0; c < 30; ++c) {
+			var14 = var4 + this.hellRNG.nextInt(16)+8;
+			var16 = var5 + this.hellRNG.nextInt(16)+8;
+			var15 = this.hellRNG.nextInt(255)+1;
+			(new WorldGenModDoublePlant(TwilightBlocks.demonBrambles)).generate(this.worldObj, this.hellRNG, var14, var15, var16);
+		}
 
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, var4, var5));
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(provider, worldObj, hellRNG, x, y, false));

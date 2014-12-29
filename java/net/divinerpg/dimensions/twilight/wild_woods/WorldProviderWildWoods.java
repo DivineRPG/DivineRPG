@@ -17,7 +17,7 @@ public class WorldProviderWildWoods extends WorldProvider {
     
     @Override
     public String getSaveFolder() {
-    	return "Wild Woods";
+    	return "The Wildwood";
     }
 
     @Override
