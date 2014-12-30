@@ -24,12 +24,13 @@ The official repository for the DivineRPG Minecraft mod
 This mod is owned by XolovA, but he is no longer part of the team
 ***
 #####Main Team
+* RadioactiveStud (aka SoccerStud) - Lead Developer
 * Eternaldoom - Developer
-* RadioactiveStud (aka SoccerStud) - Development Leader (content director, etc) / Wiki admin
 * Laorwick - Recipes
 * BlueEyes9 - Models/Textures
 
 #####Special Thanks to
+* BossLetsPlays - Exclusive Preview Videos / Former Devloper
 * THEVOLCO - German Translations
 * ShadowOfStrelok - Russian Translations
 * Sheenrox82 - Our Personal Jester / Former Developer
@@ -38,7 +39,6 @@ This mod is owned by XolovA, but he is no longer part of the team
 
 #####Other Credits
 * The_SlayerMC - Former Developer
-* BossLetsPlays - Former Developer
 * Mazetar - Former Developer
 * TLHPoE - Former Developer
 * Sactage - Server Owner and maintainer
