@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.IChatComponent;
@@ -27,25 +28,23 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 
 	private int abilityCoolDown;
 
-	private EntityAIBase rangedAI;
-	private EntityAIBase meleeAI;
 	private int rangedAttackCounter;
 	public boolean dir;
 
 	public EntityQuadro(World par1World) {
 		super(par1World);
-		rangedAI = new EntityAIArrowAttack(this, 0.25F, 10, 64.0F);
-		meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), false);
-		rangedAI.setMutexBits(2);
-		meleeAI.setMutexBits(2);
-		this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		this.tasks.addTask(2, new EntityAIArrowAttack(this, 0.25F, 10, 64.0F));
+		this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1, true));
+		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 80));
+		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		ability = SLOW;
-		this.setSize(4.0F, 7.9F);
+		this.setSize(2F, 2F);
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(22);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.quadroHealth);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.quadroSpeedFast);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.quadroFollowRange);
@@ -108,11 +107,11 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 				break;
 			}
 		}
-		else if (this.abilityCoolDown == 480) {
+		if (this.abilityCoolDown == 480) {
 			this.abilityCoolDown--;
 			this.dir = false;
 		}
-		else if (this.abilityCoolDown > 0) {
+		if (this.abilityCoolDown > 0) {
 			this.abilityCoolDown--;
 		}
 
@@ -156,14 +155,14 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 	public void attackEntityWithRangedAttack(EntityLivingBase par1, float par2) {
 		switch(ability) {
             case FAST:
-            	EntityArrow var2 = new EntityArrow(this.worldObj, this, par1, 1.6F, 12.0F);
+            	EntityArrow var2 = new EntityArrow(this.worldObj, this, par1, 1.6F, 6.0F);
                 var2.setDamage(1);
                 this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
                 this.worldObj.spawnEntityInWorld(var2);
                 break;
             case SLOW:
-                if ((this.rangedAttackCounter & 8) == 0) {
-                    EntityArrow var4 = new EntityArrow(this.worldObj, this, par1, 1.6F, 12.0F);
+                if ((this.rangedAttackCounter % 4) == 0) {
+                    EntityArrow var4 = new EntityArrow(this.worldObj, this, par1, 1.6F, 6.0F);
                     this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
                     var4.setDamage(2);
                     this.worldObj.spawnEntityInWorld(var4);
