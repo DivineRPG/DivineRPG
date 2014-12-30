@@ -4,7 +4,7 @@ DivineRPG
 The official repository for the DivineRPG Minecraft mod
 
 ###What you can and cannot do with DivineRPG
-#You CAN:
+######You CAN:
 * Download DivineRPG and use it
 * Make a public Minecraft server with DivineRPG installed
 * Include DivineRPG in a modpack _if you have permission from the development team, if you link back to the mod's forum thread, if you credit the team, and if you agree to remove the mod from the pack at any time if you are told to by the DivineRPG team_
@@ -13,7 +13,7 @@ The official repository for the DivineRPG Minecraft mod
 * Modify and recompile DivineRPG for PERSONAL use
 * Fork DivineRPG on Github and write a pull request
 
-You CANNOT:
+######You CANNOT:
 * Redistribute DivineRPG without permission from the team
 * Claim that you made DivineRPG
 * Redistribute modified versions of DivineRPG
