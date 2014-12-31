@@ -65,8 +65,11 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaItems.peppermints, 15, 0)));
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaItems.fruitCake, 3, 0)));
 		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 15, 0), new ItemStack(IceikaItems.icicleBane, 1, 0)));
-		//Lights are not needed
-		//umm... yes they are.
+		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaBlocks.greenXmasLights, 16, 0)));
+		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaBlocks.redXmasLights, 16, 0)));
+		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaBlocks.blueXmasLights, 16, 0)));
+		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaBlocks.yellowXmasLights, 16, 0)));
+		list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowflake, 1, 0), new ItemStack(IceikaBlocks.purpleXmasLights, 16, 0)));
 		//list.add(new MerchantRecipe(new ItemStack(IceikaItems.snowFlake, 3, 0), new ItemStack(IceikaBlockHelper.giftBox, 1, 0)));
 	}
 

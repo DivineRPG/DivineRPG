@@ -10,6 +10,7 @@ import net.divinerpg.api.blocks.BlockModTorch;
 import net.divinerpg.blocks.arcana.BlockAquaMarine;
 import net.divinerpg.blocks.arcana.BlockArcanaFrame;
 import net.divinerpg.blocks.arcana.BlockArcanaPortal;
+import net.divinerpg.blocks.arcana.BlockArcaniteRails;
 import net.divinerpg.blocks.arcana.BlockDemonFurnace;
 import net.divinerpg.blocks.arcana.BlockDramixAltar;
 import net.divinerpg.blocks.arcana.BlockElevantium;
@@ -104,6 +105,7 @@ public class ArcanaBlocks {
     
     public static Block arcaniumTorch;
     public static Block elevantium;
+    public static BlockArcaniteRails arcaniteRails;
 	
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
@@ -177,5 +179,6 @@ public class ArcanaBlocks {
 	    
 	    arcaniumTorch			= new BlockModTorch("arcaniumTorch", null);
 	    elevantium				= new BlockElevantium("elevantium");
+	    arcaniteRails			= new BlockArcaniteRails();
 	}
 }
