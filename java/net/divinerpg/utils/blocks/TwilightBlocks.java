@@ -78,6 +78,8 @@ public class TwilightBlocks {
     public static Block skythernBrush;
     public static Block dustBrambles;
     public static Block demonBrambles;
+    public static Block eyePlant;
+    public static Block mortumBrush;
     
     public static void init() {
     	edenDirt          = new BlockMod(EnumBlockType.DIRT, "edenDirt", 5.0F);
@@ -138,6 +140,8 @@ public class TwilightBlocks {
         skythernBrush 	  = new BlockTwilightFlower("skythernBrush", skythernGrass);
         dustBrambles	  = new BlockBrambles("dustBrambles", skythernGrass);
         demonBrambles	  = new BlockBrambles("demonBrambles", mortumGrass);
+        eyePlant		  = new BlockTwilightFlower("eyePlant", mortumGrass);
+        mortumBrush		  = new BlockTwilightFlower("mortumBrush", mortumGrass);
     }
 
 }

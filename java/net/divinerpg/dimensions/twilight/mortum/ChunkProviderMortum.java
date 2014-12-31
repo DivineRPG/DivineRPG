@@ -17,6 +17,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.NoiseGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
@@ -391,6 +392,20 @@ public class ChunkProviderMortum implements IChunkProvider {
 			var16 = var5 + this.hellRNG.nextInt(16)+8;
 			var15 = this.hellRNG.nextInt(255)+1;
 			(new WorldGenModDoublePlant(TwilightBlocks.demonBrambles)).generate(this.worldObj, this.hellRNG, var14, var15, var16);
+		}
+        
+        for (int c = 0; c < 30; ++c) {
+			var14 = var4 + this.hellRNG.nextInt(16)+8;
+			var16 = var5 + this.hellRNG.nextInt(16)+8;
+			var15 = this.hellRNG.nextInt(255)+1;
+			(new WorldGenFlowers(TwilightBlocks.eyePlant)).generate(this.worldObj, this.hellRNG, var14, var15, var16);
+		}
+        
+        for (int c = 0; c < 30; ++c) {
+			var14 = var4 + this.hellRNG.nextInt(16)+8;
+			var16 = var5 + this.hellRNG.nextInt(16)+8;
+			var15 = this.hellRNG.nextInt(255)+1;
+			(new WorldGenFlowers(TwilightBlocks.mortumBrush)).generate(this.worldObj, this.hellRNG, var14, var15, var16);
 		}
 
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, var4, var5));
