@@ -102,7 +102,7 @@ public class EntityResourceLocation {
     public static ResourceLocation twilightDemon	 = addMob("twilightDemon");
     public static ResourceLocation vamacheron		 = addMob("vamacheron");
     public static ResourceLocation edenTomo			 = addMob("edenTomo");
-    public static ResourceLocation cadillion		 = addMob("cadillion");
+    public static ResourceLocation edenCadillion	 = addMob("edenCadillion");
     public static ResourceLocation edenCori			 = addMob("edenCori");
     public static ResourceLocation nesro			 = addMob("nesro");
     public static ResourceLocation madivel			 = addMob("madivel");
@@ -110,6 +110,7 @@ public class EntityResourceLocation {
     public static ResourceLocation wildWoodTomo		 = addMob("wildWoodTomo");
     public static ResourceLocation varek			 = addMob("varek");
     public static ResourceLocation wildWoodWolf		 = addMob("wildWoodWolf");
+    public static ResourceLocation wildwoodCadillion = addMob("wildwoodCadillion");
     public static ResourceLocation apalachiaCadillion= addMob("apalachiaCadillion");
     public static ResourceLocation apalachiaTomo	 = addMob("apalachiaTomo");
     public static ResourceLocation apalachiaGolem	 = addMob("apalachiaGolem");

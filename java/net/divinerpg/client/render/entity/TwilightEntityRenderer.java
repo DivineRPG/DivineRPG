@@ -72,6 +72,7 @@ import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildWoodGolem;
 import net.divinerpg.entities.twilight.EntityWildWoodTomo;
+import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
@@ -101,7 +102,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityCoriShot.class, new RenderSpecialProjectile(x.coriShot));
         RenderingRegistry.registerEntityRenderingHandler(EntityParticleBullet.class, new RenderProjectile());
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityEdenCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.cadillion));
+        RenderingRegistry.registerEntityRenderingHandler(EntityEdenCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.edenCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.edenTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityBunny.class, new RenderBunny(new ModelBunny(), 0.0F));
         RenderingRegistry.registerEntityRenderingHandler(EntityAngryBunny.class, new RenderBunny(new ModelAngryBunny(), 0.0F));
@@ -110,9 +111,10 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityNesro.class, new RenderDivineMob(new ModelNesro(), 0.0F, x.nesro));
         RenderingRegistry.registerEntityRenderingHandler(EntityWildWoodGolem.class, new RenderDivineMob(new ModelTwilightGolem(), 0.0F, x.wildWoodGolem));
         RenderingRegistry.registerEntityRenderingHandler(EntityWildWoodTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.wildWoodTomo));
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildwoodCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.wildwoodCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityVerek.class, new RenderDivineMob(new ModelSamek(), 0.0F, x.varek));
         RenderingRegistry.registerEntityRenderingHandler(EntityMoonWolf.class, new RenderDivineMob(new ModelMoonWolf(), 0.0F, x.wildWoodWolf));
-        RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.cadillion));
+        RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.apalachiaCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.apalachiaTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaGolem.class, new RenderDivineMob(new ModelTwilightGolem(), 0.0F, x.apalachiaGolem));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaWarrior.class, new RenderModBiped(new ModelEnchantedWarrior(), x.apalachiaWarrior));
