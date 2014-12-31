@@ -7,9 +7,9 @@ import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class BiomeGenWildWoods extends BiomeGenBase {
+public class BiomeGenWildwood extends BiomeGenBase {
 
-	public BiomeGenWildWoods(int par1) {
+	public BiomeGenWildwood(int par1) {
 		super(par1);
 		this.setBiomeName("Wildwood");
 		this.topBlock = TwilightBlocks.wildwoodGrass;

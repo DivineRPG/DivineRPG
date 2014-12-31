@@ -16,9 +16,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityWildWoodCadillion extends EntityPeacefulUntilAttacked {
+public class EntityWildwoodCadillion extends EntityPeacefulUntilAttacked {
 
-	public EntityWildWoodCadillion(World var1) {
+	public EntityWildwoodCadillion(World var1) {
 		super(var1);
 		this.setSize(1.0F, 1.3F);
 		this.experienceValue = 40;
@@ -69,6 +69,6 @@ public class EntityWildWoodCadillion extends EntityPeacefulUntilAttacked {
 
 	@Override
 	public String mobName() {
-		return "Wild Wood Cadillion";
+		return "Wildwood Cadillion";
 	}
 }

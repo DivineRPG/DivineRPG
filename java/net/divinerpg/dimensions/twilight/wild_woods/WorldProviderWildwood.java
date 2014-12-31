@@ -6,7 +6,7 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class WorldProviderWildWoods extends WorldProvider {
+public class WorldProviderWildwood extends WorldProvider {
 
     @Override
     public void registerWorldChunkManager() {
@@ -27,7 +27,7 @@ public class WorldProviderWildWoods extends WorldProvider {
 
     @Override
     public IChunkProvider createChunkGenerator() {
-        return new ChunkProviderWildWoods(this.worldObj, this.worldObj.getSeed());
+        return new ChunkProviderWildwood(this.worldObj, this.worldObj.getSeed());
     }
 
     @Override

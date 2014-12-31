@@ -11,6 +11,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.SpawnerAnimals;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -25,7 +26,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
-public class ChunkProviderWildWoods implements IChunkProvider{
+public class ChunkProviderWildwood implements IChunkProvider{
 
 	private Random rand;
 	private NoiseGeneratorOctaves noiseGen1;
@@ -49,7 +50,7 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 	int[][] field_914_i = new int[32][32];
 	private double[] generatedTemperatures;
 
-	public ChunkProviderWildWoods(World var1, long var2) {
+	public ChunkProviderWildwood(World var1, long var2) {
 		this.worldObj = var1;
 		this.rand = new Random(var2 + 1);
 		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
@@ -197,7 +198,9 @@ public class ChunkProviderWildWoods implements IChunkProvider{
 			var15 = this.rand.nextInt(128)+1;
 			(new WorldGenModDoublePlant(TwilightBlocks.wildwoodTallgrass)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
-
+		
+		SpawnerAnimals.performWorldGenSpawning(this.worldObj, var6, var4 + 8, var5 + 8, 16, 16, this.rand);
+		
 		BlockSand.fallInstantly = false;
 	}
 
