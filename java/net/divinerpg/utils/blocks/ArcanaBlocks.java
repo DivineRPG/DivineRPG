@@ -132,7 +132,7 @@ public class ArcanaBlocks {
 		stainedGlass6         = new BlockModGlass("stainedGlass6", 0.3F);
 		stainedGlass7         = new BlockModGlass("stainedGlass7", 0.3F);
 		stainedGlass8         = new BlockModGlass("stainedGlass8", 0.3F);
-		dungenSpawnerPrisoner = new BlockStupidModSpawner("dungeonSpawnerPrisoner", "Dungeon Prisoner", "arcanaSpawner");
+		dungenSpawnerPrisoner = new BlockStupidModSpawner("dungeonPrisonerSpawner", "DungeonPrisoner", "arcanaSpawner");
 		razorbackSpawner      = new BlockStupidModSpawner("razorbackSpawner", "Razorback", "arcanaSpawner");
 		deathHoundSpawner     = new BlockStupidModSpawner("deathHoundSpawner", "DeathHound", "arcanaSpawner");
 		deathcryxSpawner      = new BlockStupidModSpawner("deathcryxSpawner", "Deathcryx", "arcanaSpawner");

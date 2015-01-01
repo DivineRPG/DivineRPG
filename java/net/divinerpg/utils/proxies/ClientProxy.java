@@ -92,10 +92,15 @@ public class ClientProxy extends CommonProxy {
     
     @Override
     public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {
+    	this.spawnParticle(w, x, y, z, particle, random, 1);
+    }
+    
+    @Override
+    public void spawnParticle(World w, double x, double y, double z, String particle, boolean random, int randFactor) {
     	if(random) {
-    		x += (rand.nextDouble()-rand.nextDouble())/4;
-    		y += (rand.nextDouble()-rand.nextDouble())/4;
-    		z += (rand.nextDouble()-rand.nextDouble())/4;
+    		x += (rand.nextDouble()-rand.nextDouble())/(4/randFactor);
+    		y += (rand.nextDouble()-rand.nextDouble())/(4/randFactor);
+    		z += (rand.nextDouble()-rand.nextDouble())/(4/randFactor);
     	}
     	EntityFX fx = null;
     	if(particle == "eden") fx = new EntityEdenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);

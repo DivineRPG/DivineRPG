@@ -53,7 +53,7 @@ public class BlockHeatTrap extends BlockMod {
         }
 
         if(this == ArcanaBlocks.heatTrapOn && var5 instanceof EntityPlayerMP) {
-            var5.attackEntityFrom(DamageSource.cactus, 16);
+            var5.attackEntityFrom(DamageSource.onFire, 16);
             var5.setFire(15);
             ((EntityPlayerMP)var5).addStat(DivineRPGAchievements.hoterThanHell, 1);
         }

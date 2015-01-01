@@ -14,7 +14,7 @@ public class EntityAngryBunny extends EntityBunny {
 	
 	public EntityAngryBunny(World var1) {
 		super(var1);
-		this.setSize(1F, 1F);
+		this.setSize(1.5F, 2F);
 		this.experienceValue = 40;
 		addBasicAI();
 		addAttackingAI();

@@ -40,7 +40,7 @@ public class BlockStupidModSpawner extends BlockContainer {
     }
 
     protected void setEntityName(TileEntityStupidSpawner spawner) {
-        spawner.func_145881_a().setEntityName(mobName);
+        spawner.setEntityName(mobName);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class EntityLivingStatue extends EntityDivineRPGMob implements IRangedAtt
 	
     public EntityLivingStatue(World var1) {
         super(var1);
-        this.tasks.addTask(4, new EntityAIArrowAttack(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 1, 60));
+        this.tasks.addTask(4, new EntityAIArrowAttack(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 10, 60));
         addAttackingAI();
     }
 

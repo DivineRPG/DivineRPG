@@ -19,7 +19,7 @@ public class EntityKarot extends EntityDivineRPGBoss {
     public EntityKarot(World var1)  {
         super(var1);
         this.spawnTick = 240;
-        this.setSize(5.5F, 7.0F);
+        this.setSize(4.5F, 5.0F);
         addAttackingAI();
     }
 

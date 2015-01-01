@@ -36,19 +36,15 @@ public class ItemTwilightSpawner extends ItemMod{
 						--stack.stackSize;
 						return true;
 					}
-					if(stack.getItem() == TwilightItemsOther.densosCrystal){
+					if(stack.getItem() == TwilightItemsOther.densosCrystal || stack.getItem() == TwilightItemsOther.reyvorCrystal){
 						EntityDensos var5 = new EntityDensos(world);
 						var5.setPosition(x, y+1, z);
 						world.spawnEntityInWorld(var5);
+						EntityReyvor var6 = new EntityReyvor(world);
+						var6.setPosition(x, y+1, z);
+						world.spawnEntityInWorld(var6);
 						--stack.stackSize;
 						player.triggerAchievement(DivineRPGAchievements.tenHeadsIsBetterThanOne);
-						return true;
-					}
-					if(stack.getItem() == TwilightItemsOther.reyvorCrystal){
-						EntityReyvor var5 = new EntityReyvor(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						--stack.stackSize;
 						return true;
 					}
 					if(stack.getItem() == TwilightItemsOther.soulFiendCrystal){
@@ -79,10 +75,10 @@ public class ItemTwilightSpawner extends ItemMod{
 						--stack.stackSize;
 						return true;
 					}
-				}
 			} else {
 				player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in Mortum."));
 			}
+		}
 		return false;
 	}
 }

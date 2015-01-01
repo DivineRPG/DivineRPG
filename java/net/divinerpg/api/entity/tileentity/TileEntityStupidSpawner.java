@@ -1,83 +1,62 @@
 package net.divinerpg.api.entity.tileentity;
 
+import java.util.Random;
+
+import net.divinerpg.DivineRPG;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
+import net.minecraft.util.AxisAlignedBB;
 
-public class TileEntityStupidSpawner extends TileEntity
-{
-    private final StupidSpawnerLogic field_145882_a = new StupidSpawnerLogic()
-    {
-        public void func_98267_a(int p_98267_1_)
-        {
-            TileEntityStupidSpawner.this.worldObj.addBlockEvent(TileEntityStupidSpawner.this.xCoord, TileEntityStupidSpawner.this.yCoord, TileEntityStupidSpawner.this.zCoord, Blocks.mob_spawner, p_98267_1_, 0);
-        }
-        public World getSpawnerWorld()
-        {
-            return TileEntityStupidSpawner.this.worldObj;
-        }
-        public int getSpawnerX()
-        {
-            return TileEntityStupidSpawner.this.xCoord;
-        }
-        public int getSpawnerY()
-        {
-            return TileEntityStupidSpawner.this.yCoord;
-        }
-        public int getSpawnerZ()
-        {
-            return TileEntityStupidSpawner.this.zCoord;
-        }
-        public void setRandomEntity(StupidSpawnerLogic.WeightedRandomMinecart p_98277_1_)
-        {
-            super.setRandomEntity(p_98277_1_);
+public class TileEntityStupidSpawner extends TileEntity {
+	
+	private String entityName;
+	private int spawnTimer;
+	private Random rand = new Random();
 
-            if (this.getSpawnerWorld() != null)
-            {
-                this.getSpawnerWorld().markBlockForUpdate(TileEntityStupidSpawner.this.xCoord, TileEntityStupidSpawner.this.yCoord, TileEntityStupidSpawner.this.zCoord);
-            }
-        }
-    };
-    private static final String __OBFID = "CL_00000360";
-
-    public void readFromNBT(NBTTagCompound p_145839_1_)
-    {
-        super.readFromNBT(p_145839_1_);
-        this.field_145882_a.readFromNBT(p_145839_1_);
+	@Override
+    public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+        this.entityName = tag.getString("EntityName");
     }
 
-    public void writeToNBT(NBTTagCompound p_145841_1_)
-    {
-        super.writeToNBT(p_145841_1_);
-        this.field_145882_a.writeToNBT(p_145841_1_);
+	@Override
+    public void writeToNBT(NBTTagCompound tag) {
+        super.writeToNBT(tag);
+        tag.setString("EntityName", this.entityName);
     }
 
-    public void updateEntity()
-    {
-        this.field_145882_a.updateSpawner();
+	@Override
+    public void updateEntity() {
         super.updateEntity();
+        for(int n = 0; n < 3; n++) {
+        	DivineRPG.proxy.spawnParticle(this.worldObj, this.xCoord+0.5, this.yCoord+0.5, this.zCoord+0.5, "blackFlame", true, 3);
+        }
+        if(!this.worldObj.isRemote) {
+        	if(this.spawnTimer > 0) this.spawnTimer--;
+        	if(this.spawnTimer == 0) {
+        		int c = this.worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.xCoord, this.yCoord, this.zCoord, this.xCoord+1, this.yCoord+1, this.zCoord+1).expand(8, 6, 8)).size();
+        		for(int x = -4; x <= 4; x++) {
+        			for(int y = -2; y <= 4; y++) {
+        				for(int z = -4; z <= 4; z++) {
+        					if(this.yCoord+y > 0 && this.worldObj.getBlock(this.xCoord+x, this.yCoord+y, this.zCoord+z) == Blocks.air && this.worldObj.getBlock(this.xCoord+x, this.yCoord+y+1, this.zCoord+z) == Blocks.air && this.worldObj.getBlock(this.xCoord+x, this.yCoord+y-1, this.zCoord+z) != Blocks.air && this.rand.nextInt(20) == 0 && c < 8) {
+        						Entity e = EntityList.createEntityByName(this.entityName, this.worldObj);
+        						if(e != null) {
+        							e.setLocationAndAngles(this.xCoord+x, this.yCoord+y, this.zCoord+z, this.rand.nextInt(360), 0);
+        							this.worldObj.spawnEntityInWorld(e);
+        						}
+        					}
+        				}
+        			}
+        		}
+        		this.spawnTimer = 400;
+        	}
+        }
     }
-
-    @Override
-    public Packet getDescriptionPacket()
-    {
-        NBTTagCompound nbttagcompound = new NBTTagCompound();
-        this.writeToNBT(nbttagcompound);
-        nbttagcompound.removeTag("SpawnPotentials");
-        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbttagcompound);
-    }
-
-    @Override
-    public boolean receiveClientEvent(int p_145842_1_, int p_145842_2_)
-    {
-        return this.field_145882_a.setDelayToMin(p_145842_1_) ? true : super.receiveClientEvent(p_145842_1_, p_145842_2_);
-    }
-
-    public StupidSpawnerLogic func_145881_a()
-    {
-        return this.field_145882_a;
+    
+    public void setEntityName(String name) {
+    	this.entityName = name;
     }
 }
