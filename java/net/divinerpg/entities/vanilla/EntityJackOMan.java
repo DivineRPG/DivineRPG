@@ -135,7 +135,12 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 	}
 	
 	@Override
+	public boolean canDespawn() {
+		return true;
+	}
+	
+	@Override
 	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere() && this.rand.nextInt(10) == 0;
+		return super.getCanSpawnHere();
 	}
 }

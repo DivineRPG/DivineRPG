@@ -18,7 +18,7 @@ public class EntityStats {
 	public static double seimerHealth 			= 150.0D, seimerSpeed = normalSpeed, seimerFollowRange = follow;
 	public static double vermsillionHealth 		= 30.0D, vermsillionSpeed = normalSpeed, vermsillionFollowRange = follow;
 	public static double razorbackHealth 		= 200.0D, razorbackDamage = 28.0D, razorbackSpeed = normalSpeed, razorbackFollowRange = follow;
-	public static double livingStatueHealth 	= 18.0D, livingStatueSpeed = normalSpeed, livingStatueFollowRange = follow;
+	public static double livingStatueHealth 	= 180.0D, livingStatueSpeed = normalSpeed, livingStatueFollowRange = follow;
 	public static double golemRejuvHealth 		= 30.0D, golemRejuvSpeed = normalSpeed, golemRejuvFollowRange = follow;
 	public static double fyracryxHealth 		= 60.0D, fyracryxSpeed = normalSpeed, fyracryxFollowRange = follow;
 	public static double dungeonPrisonerHealth 	= 150.0D, dungeonPrisonerDamage = 33.0D, dungeonPrisonerSpeed = normalSpeed, dungeonPrisonerFollowRange = follow;

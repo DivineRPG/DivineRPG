@@ -2,26 +2,26 @@ package net.divinerpg.api.blocks;
 
 import java.util.Random;
 
+import net.divinerpg.api.entity.tileentity.TileEntityStupidSpawner;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlockModSpawner extends BlockContainer {
+public class BlockStupidModSpawner extends BlockContainer {
 
     protected String name;
     protected String mobName;
 
-    public BlockModSpawner(String name, String mobName) {
+    public BlockStupidModSpawner(String name, String mobName) {
         this(name, mobName, "frozenDungeonSpawner");
     }
 
-    public BlockModSpawner(String name, String mobName, String textureName) {
+    public BlockStupidModSpawner(String name, String mobName, String textureName) {
         super(Material.rock);
         this.name = name;
         this.mobName = "divinerpg." + mobName;
@@ -34,12 +34,12 @@ public class BlockModSpawner extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world, int par1) {
-        TileEntityMobSpawner spawner = new TileEntityMobSpawner();
+        TileEntityStupidSpawner spawner = new TileEntityStupidSpawner();
         setEntityName(spawner);
         return spawner;
     }
 
-    protected void setEntityName(TileEntityMobSpawner spawner) {
+    protected void setEntityName(TileEntityStupidSpawner spawner) {
         spawner.func_145881_a().setEntityName(mobName);
     }
 

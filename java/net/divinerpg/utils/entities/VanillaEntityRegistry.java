@@ -21,7 +21,6 @@ import net.divinerpg.entities.vanilla.EntityFrost;
 import net.divinerpg.entities.vanilla.EntityGlacon;
 import net.divinerpg.entities.vanilla.EntityHellPig;
 import net.divinerpg.entities.vanilla.EntityHellSpider;
-import net.divinerpg.entities.vanilla.EntityIceMan;
 import net.divinerpg.entities.vanilla.EntityJackOMan;
 import net.divinerpg.entities.vanilla.EntityJungleBat;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
@@ -97,7 +96,6 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityEnthralledDramcryx.class, "EnthralledDramcryx");
 		Util.registerDivineRPGMob(EntityTheEye.class, "TheEye");
 		Util.registerDivineRPGMob(EntityFrost.class, "Frost");
-		Util.registerDivineRPGMob(EntityIceMan.class, "IceMan");
 		Util.registerDivineRPGMob(EntityKingOfScorchers.class, "KingOfScorchers");
 		Util.registerDivineRPGMob(EntityRainbour.class, "Rainbour");
 		Util.registerDivineRPGMob(EntityRotatick.class, "Rotatick");

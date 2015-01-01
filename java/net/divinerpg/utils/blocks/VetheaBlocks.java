@@ -6,7 +6,7 @@ import net.divinerpg.api.blocks.BlockModGlass;
 import net.divinerpg.api.blocks.BlockModGrass;
 import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockModSpawner;
+import net.divinerpg.api.blocks.BlockStupidModSpawner;
 import net.divinerpg.api.blocks.BlockModVine;
 import net.divinerpg.blocks.vethea.BlockAcid;
 import net.divinerpg.blocks.vethea.BlockHelioticBeam;
@@ -23,11 +23,11 @@ import net.minecraft.block.material.Material;
 
 public class VetheaBlocks {
 
-    public static final Block             dreamwreckerSpawner    = new BlockModSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal");
-    public static final Block             vermenousSpawner       = new BlockModSpawner("vermenousSpawner", "Vermenous", "fireCrystal");
-    public static final Block             twinsSpawner           = new BlockModSpawner("twinsSpawner", "Twins", "fireCrystal");
-    public static final Block             biphronSpawner         = new BlockModSpawner("biphronSpawner", "Biphron", "fireCrystal");
-    public static final Block             gorgosionSpawner       = new BlockModSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal");
+    public static final Block             dreamwreckerSpawner    = new BlockStupidModSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal");
+    public static final Block             vermenousSpawner       = new BlockStupidModSpawner("vermenousSpawner", "Vermenous", "fireCrystal");
+    public static final Block             twinsSpawner           = new BlockStupidModSpawner("twinsSpawner", "Twins", "fireCrystal");
+    public static final Block             biphronSpawner         = new BlockStupidModSpawner("biphronSpawner", "Biphron", "fireCrystal");
+    public static final Block             gorgosionSpawner       = new BlockStupidModSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal");
 
     public static final Block             wreckAltar             = new BlockMod("wreckAltar", 0.7F, DivineRPGTabs.spawner);
     public static final Block             quadroticAltar         = new BlockMod("quadroticAltar", 0.7F, DivineRPGTabs.spawner);

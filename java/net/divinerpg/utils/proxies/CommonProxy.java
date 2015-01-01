@@ -1,6 +1,7 @@
 package net.divinerpg.utils.proxies;
 
 import net.divinerpg.DivineRPG;
+import net.divinerpg.api.entity.tileentity.TileEntityStupidSpawner;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDramixAltar;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
@@ -115,6 +116,7 @@ public class CommonProxy{
 		GameRegistry.registerTileEntity(TileEntityWhitefireFurnace.class, "Whitefire Furnace");
 		GameRegistry.registerTileEntity(TileEntityDemonFurnace.class, "Demon Furnace");
 		GameRegistry.registerTileEntity(TileEntityAltarOfCorruption.class, "Altar Of Corruption");
+		GameRegistry.registerTileEntity(TileEntityStupidSpawner.class, "StupidMobSpawner");
 		LogHelper.info("Registering entities");
 		VanillaEntityRegistry.init();
 		TwilightEntityRegistry.init();

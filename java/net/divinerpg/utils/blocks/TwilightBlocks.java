@@ -7,6 +7,7 @@ import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
 import net.divinerpg.api.blocks.BlockModTorch;
 import net.divinerpg.api.blocks.BlockModVine;
+import net.divinerpg.api.blocks.BlockRedstonelessRails;
 import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.twilight.BlockBlueFire;
 import net.divinerpg.blocks.twilight.BlockBrambles;
@@ -68,6 +69,7 @@ public class TwilightBlocks {
     
     public static Block edenTorch;
     public static Block edenChest;
+    public static Block apalachiaRails;
     
     public static Block sunbloom;
     public static Block edenBrush;
@@ -130,6 +132,7 @@ public class TwilightBlocks {
         
         edenTorch		  = new BlockModTorch("edenTorch", "greenFlame");
         edenChest		  = new BlockEdenChest("edenChest");
+        apalachiaRails	  = new BlockRedstonelessRails("apalachiaRails");
         
         sunbloom		  = new BlockTwilightFlower("sunbloom", edenGrass);
         edenBrush		  = new BlockTwilightFlower("edenBrush", edenGrass);

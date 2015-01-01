@@ -53,7 +53,6 @@ import net.divinerpg.entities.vanilla.EntityFrost;
 import net.divinerpg.entities.vanilla.EntityGlacon;
 import net.divinerpg.entities.vanilla.EntityHellPig;
 import net.divinerpg.entities.vanilla.EntityHellSpider;
-import net.divinerpg.entities.vanilla.EntityIceMan;
 import net.divinerpg.entities.vanilla.EntityJackOMan;
 import net.divinerpg.entities.vanilla.EntityJungleBat;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
@@ -187,14 +186,13 @@ public class MobSpawning {
 	}
 
 	public static void addOverworldSpawns() {
-		EntityRegistry.addSpawn(EntityIceMan.class, 10, 1, 1, EnumCreatureType.monster, iceBiomes);
 		EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, iceBiomes);
 		EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, iceBiomes);
 		EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
 		//EntityRegistry.addSpawn(EntityHellBat.class, 50, 1, 1, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
 		EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.hell});
 		EntityRegistry.addSpawn(EntityJungleSpider.class, 10, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.jungle, BiomeGenBase.jungleHills});
-		EntityRegistry.addSpawn(EntityCyclops.class, 2, 2, 4, EnumCreatureType.monster, allBiomes);
+		EntityRegistry.addSpawn(EntityCyclops.class, 10, 2, 4, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityMiner.class, 1, 1, 1, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityJackOMan.class, 1, 1, 1, EnumCreatureType.monster, allBiomes);
 		EntityRegistry.addSpawn(EntityHellPig.class, 25, 5, 50, EnumCreatureType.creature, new BiomeGenBase[] {BiomeGenBase.hell});
@@ -204,8 +202,8 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityWhale.class, 50, 1, 1, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.ocean});
 		EntityRegistry.addSpawn(EntityShark.class, 50, 1, 1, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.ocean});
 		EntityRegistry.addSpawn(EntityCaveCrawler.class, 20, 2, 3, EnumCreatureType.monster, allBiomes);
-		EntityRegistry.addSpawn(EntityDesertCrawler.class, 3, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.desert, BiomeGenBase.desertHills});
-		EntityRegistry.addSpawn(EntityAridWarrior.class, 3, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.desert, BiomeGenBase.desertHills});
+		EntityRegistry.addSpawn(EntityDesertCrawler.class, 10, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.desert, BiomeGenBase.desertHills});
+		EntityRegistry.addSpawn(EntityAridWarrior.class, 10, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.desert, BiomeGenBase.desertHills});
 		EntityRegistry.addSpawn(EntityRotatick.class, 20, 3, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.plains, BiomeGenBase.extremeHills, BiomeGenBase.beach, BiomeGenBase.desert, BiomeGenBase.desertHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.icePlains, BiomeGenBase.iceMountains, BiomeGenBase.river});
 		EntityRegistry.addSpawn(EntityJungleDramcryx.class, 20, 1, 4, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.jungle, BiomeGenBase.jungleHills});
 		EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 20, 3, 4, EnumCreatureType.monster, allBiomes);

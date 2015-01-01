@@ -66,7 +66,6 @@ import net.divinerpg.entities.vanilla.EntityFrost;
 import net.divinerpg.entities.vanilla.EntityGlacon;
 import net.divinerpg.entities.vanilla.EntityHellPig;
 import net.divinerpg.entities.vanilla.EntityHellSpider;
-import net.divinerpg.entities.vanilla.EntityIceMan;
 import net.divinerpg.entities.vanilla.EntityJackOMan;
 import net.divinerpg.entities.vanilla.EntityJungleBat;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
@@ -143,7 +142,6 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnthralledDramcryx.class, new RenderSizeable(new ModelDramcryx(), 0.0F, 1.5F, x.caveDramcryx));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTheEye.class, new RenderDivineMob(new ModelEye(), 0.0F, x.theEye));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrost.class, new RenderDivineMob(new ModelFrost(), 0.0F, x.frost));
-		RenderingRegistry.registerEntityRenderingHandler(EntityIceMan.class, new RenderDivineMob(new ModelBiped(), 0.0F, x.iceMan));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRainbour.class, new RenderDivineMob(new ModelRainbour(), 0.0F, x.rainbour));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRotatick.class, new RenderDivineMob(new ModelRotatick(), 0.0F, x.rotatick));
 		RenderingRegistry.registerEntityRenderingHandler(EntityShark.class, new RenderDivineMob(new ModelShark(), 0.0F, x.shark));

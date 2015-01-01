@@ -5,12 +5,12 @@ import net.divinerpg.api.blocks.BlockModDoor;
 import net.divinerpg.api.blocks.BlockModGlass;
 import net.divinerpg.api.blocks.BlockModGrass;
 import net.divinerpg.api.blocks.BlockModLadder;
-import net.divinerpg.api.blocks.BlockModSpawner;
+import net.divinerpg.api.blocks.BlockStupidModSpawner;
 import net.divinerpg.api.blocks.BlockModTorch;
+import net.divinerpg.api.blocks.BlockRedstonelessRails;
 import net.divinerpg.blocks.arcana.BlockAquaMarine;
 import net.divinerpg.blocks.arcana.BlockArcanaFrame;
 import net.divinerpg.blocks.arcana.BlockArcanaPortal;
-import net.divinerpg.blocks.arcana.BlockArcaniteRails;
 import net.divinerpg.blocks.arcana.BlockDemonFurnace;
 import net.divinerpg.blocks.arcana.BlockDramixAltar;
 import net.divinerpg.blocks.arcana.BlockElevantium;
@@ -105,7 +105,7 @@ public class ArcanaBlocks {
     
     public static Block arcaniumTorch;
     public static Block elevantium;
-    public static BlockArcaniteRails arcaniteRails;
+    public static BlockRedstonelessRails arcaniteRails;
 	
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
@@ -132,12 +132,12 @@ public class ArcanaBlocks {
 		stainedGlass6         = new BlockModGlass("stainedGlass6", 0.3F);
 		stainedGlass7         = new BlockModGlass("stainedGlass7", 0.3F);
 		stainedGlass8         = new BlockModGlass("stainedGlass8", 0.3F);
-		dungenSpawnerPrisoner = new BlockModSpawner("dungeonSpawnerPrisoner", "Dungeon Prisoner", "arcanaSpawner");
-		razorbackSpawner      = new BlockModSpawner("razorbackSpawner", "Razorback", "arcanaSpawner");
-		deathHoundSpawner     = new BlockModSpawner("deathHoundSpawner", "DeathHound", "arcanaSpawner");
-		deathcryxSpawner      = new BlockModSpawner("deathcryxSpawner", "Deathcryx", "arcanaSpawner");
-		livingStatueSpawner   = new BlockModSpawner("livingStatueSpawner", "LivingStatue", "arcanaSpawner");
-		roamerSpawner         = new BlockModSpawner("roamerSpawner", "Roamer", "arcanaSpawner");
+		dungenSpawnerPrisoner = new BlockStupidModSpawner("dungeonSpawnerPrisoner", "Dungeon Prisoner", "arcanaSpawner");
+		razorbackSpawner      = new BlockStupidModSpawner("razorbackSpawner", "Razorback", "arcanaSpawner");
+		deathHoundSpawner     = new BlockStupidModSpawner("deathHoundSpawner", "DeathHound", "arcanaSpawner");
+		deathcryxSpawner      = new BlockStupidModSpawner("deathcryxSpawner", "Deathcryx", "arcanaSpawner");
+		livingStatueSpawner   = new BlockStupidModSpawner("livingStatueSpawner", "LivingStatue", "arcanaSpawner");
+		roamerSpawner         = new BlockStupidModSpawner("roamerSpawner", "Roamer", "arcanaSpawner");
 		ancientTile           = new BlockMod("ancientTile", false);
 		starBridge            = new BlockStarBridge("starBridge", false);
 		starBridgeOn          = new BlockStarBridge("starBridgeOn", true);
@@ -179,6 +179,6 @@ public class ArcanaBlocks {
 	    
 	    arcaniumTorch			= new BlockModTorch("arcaniumTorch", null);
 	    elevantium				= new BlockElevantium("elevantium");
-	    arcaniteRails			= new BlockArcaniteRails();
+	    arcaniteRails			= new BlockRedstonelessRails("arcaniteRails");
 	}
 }
