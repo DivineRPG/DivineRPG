@@ -11,7 +11,7 @@ public class ConfigurationHelper {
     private static HashMap<String, Integer> configMap = new HashMap<String, Integer>();
 
     public static void init() {
-        cfg = new Configuration(new File("./DivineRPG/DivineRPG.cfg"));
+        cfg = new Configuration(new File("./config/DivineRPG/DivineRPG.cfg"));
 
         cfg.load();
         dimensionInit();
