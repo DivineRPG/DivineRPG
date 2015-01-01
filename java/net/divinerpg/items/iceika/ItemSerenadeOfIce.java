@@ -3,7 +3,6 @@ package net.divinerpg.items.iceika;
 import java.util.List;
 
 import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +20,6 @@ public class ItemSerenadeOfIce extends ItemMod {
 	public ItemSerenadeOfIce(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.tools);
-		LangRegistry.addItem(this);
 		setMaxDamage(100);
 	}
 

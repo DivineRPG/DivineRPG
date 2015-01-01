@@ -7,7 +7,6 @@ import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorru
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -33,7 +32,6 @@ public class BlockAltarOfCorruption extends BlockContainer {
 		setBlockTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.blocks);
 		GameRegistry.registerBlock(this, name);
-		LangRegistry.addBlock(this);
 	}
 
 	@Override

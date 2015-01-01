@@ -8,7 +8,6 @@ import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

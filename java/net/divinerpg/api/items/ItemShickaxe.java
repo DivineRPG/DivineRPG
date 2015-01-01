@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -37,7 +36,6 @@ public class ItemShickaxe extends ItemTool {
         setTextureName(Reference.PREFIX + name);
         setUnlocalizedName(name);
         GameRegistry.registerItem(this, name);
-        LangRegistry.addItem(this);
     }
 
     @Override

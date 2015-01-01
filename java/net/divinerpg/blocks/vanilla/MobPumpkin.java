@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -38,7 +37,6 @@ public class MobPumpkin extends BlockDirectional {
 		setHardness(1.0F);
 		setCreativeTab(DivineRPGTabs.blocks);
 		setSoundType(wood);
-		LangRegistry.addBlock(this);
 	}
 
 	public Block setSoundType(Block.SoundType name) {

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.world.World;
@@ -22,7 +21,6 @@ public class BlockModTorch extends BlockTorch {
         this.setBlockName(name);
         this.setBlockTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
         this.particle = particle;
     }
 

@@ -6,7 +6,6 @@ import net.divinerpg.DivineRPG;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -42,7 +41,6 @@ public abstract class BlockModFurnace extends BlockContainer {
 		if(!act) setCreativeTab(DivineRPGTabs.blocks);
 		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
-		LangRegistry.addBlock(this);
 		active = act;
 		guiID = GuiID;
 		if(act) setLightLevel(0.875F);

@@ -3,7 +3,6 @@ package net.divinerpg.api.items;
 import java.util.List;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,7 +22,6 @@ public class ItemModAxe extends ItemAxe{
 		setTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.tools);
 		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 	
     @Override

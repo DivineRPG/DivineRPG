@@ -2,7 +2,6 @@ package net.divinerpg.blocks.vanilla;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -22,7 +21,6 @@ public class BlockTar extends BlockFluidClassic{
 		setLightLevel(1F);
 		GameRegistry.registerBlock(this, "Tar");
 		setBlockName("Tar");
-		LangRegistry.addBlock(this);
 	}
 
 	@Override

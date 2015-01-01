@@ -5,7 +5,6 @@ import java.util.Iterator;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.entities.vethea.EntityTwins;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;

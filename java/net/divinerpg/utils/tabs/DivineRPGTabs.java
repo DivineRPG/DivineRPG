@@ -1,6 +1,5 @@
 package net.divinerpg.utils.tabs;
 
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.items.ItemsFood;
@@ -36,7 +35,6 @@ public class DivineRPGTabs extends CreativeTabs {
     public DivineRPGTabs(String lable, String name) {
         super(getNextID(), lable);
         this.name = name;
-        LangRegistry.addTab(this);
     }
 
     public void setIcon(Item icon) {

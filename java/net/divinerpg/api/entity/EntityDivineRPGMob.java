@@ -1,7 +1,6 @@
 package net.divinerpg.api.entity;
 
 import net.divinerpg.entities.vethea.EntityTwins;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.SharedMonsterAttributes;

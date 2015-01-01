@@ -6,7 +6,6 @@ import java.util.Random;
 import net.divinerpg.api.worldgen.WorldGenAPI;
 import net.divinerpg.dimensions.vethea.TeleporterVethea;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
@@ -49,7 +48,6 @@ public class BlockNightmareBed extends BlockBed {
         setBlockName(name);
         setHardness(9);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
 	}
 	
 	@Override

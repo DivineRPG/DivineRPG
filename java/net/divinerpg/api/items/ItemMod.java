@@ -3,7 +3,6 @@ package net.divinerpg.api.items;
 import java.util.List;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -33,7 +32,6 @@ public class ItemMod extends Item {
 		setTextureName(Reference.PREFIX + textureName);
 		setCreativeTab(tab);
 		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 
 	public ItemMod setHealAmount(int healAmount){

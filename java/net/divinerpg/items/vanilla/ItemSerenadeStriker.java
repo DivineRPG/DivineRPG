@@ -6,7 +6,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -27,7 +26,6 @@ public class ItemSerenadeStriker extends ItemMod {
 	public ItemSerenadeStriker(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.tools);
-		LangRegistry.addItem(this);
 		setMaxDamage(100);
 	}
 

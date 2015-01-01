@@ -1,7 +1,6 @@
 package net.divinerpg.api.blocks;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
@@ -20,7 +19,6 @@ public class BlockModFence extends BlockFence {
         setBlockName(name);
         setBlockTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
     }
 
     @Override

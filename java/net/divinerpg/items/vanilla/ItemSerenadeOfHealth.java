@@ -6,7 +6,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -20,7 +19,6 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	public ItemSerenadeOfHealth(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.tools);
-		LangRegistry.addItem(this);
 		setMaxDamage(20);
 	}
 	

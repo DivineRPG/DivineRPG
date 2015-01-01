@@ -4,7 +4,6 @@ import net.divinerpg.DivineRPG;
 import net.divinerpg.api.blocks.BlockModFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
 import net.divinerpg.client.GuiHandler;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

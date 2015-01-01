@@ -10,7 +10,6 @@ import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;
@@ -56,7 +55,6 @@ public class BlockModPortal extends BlockBreakable {
         setCreativeTab(DivineRPGTabs.blocks);
         setTickRandomly(true);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
         setBlockUnbreakable();
         ((BlockModFire) fireBlock).addPortal(this);
     }

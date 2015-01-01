@@ -2,7 +2,6 @@ package net.divinerpg.blocks.vanilla;
 
 import java.util.List;
 
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -54,7 +53,6 @@ public class BlockSteel extends VanillaBlock implements IDivineMetaBlock{
 	@Override
 	public void addNames(){
 		for(int i = 0; i < 10; i++){
-			LangRegistry.instance.localizeName("tile", "tile." + names[i] + "Steel");
 		}
 	}
 

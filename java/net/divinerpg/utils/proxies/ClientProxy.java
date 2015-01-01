@@ -25,7 +25,6 @@ import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.DevHatEvent;
@@ -70,7 +69,6 @@ public class ClientProxy extends CommonProxy {
             LogHelper.dev("Entering DEBUG mode");
             Util.postForgeEvent(new EventOverlay());
             Util.postForgeEvent(new EventExtraArmor());
-            LangRegistry.registerNames();
             Sounds.init();
         }
     }

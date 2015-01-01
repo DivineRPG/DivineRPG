@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.TokenHelper;
 import net.divinerpg.utils.material.EnumArmor;
@@ -119,7 +118,6 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         setUnlocalizedName(this.name);
         setTextureName(Reference.PREFIX + this.name);
         GameRegistry.registerItem(this, this.name);
-        LangRegistry.addItem(this);
     }
 
     protected void setArmorType(String material, int armorType, boolean vethean, String helmType) {

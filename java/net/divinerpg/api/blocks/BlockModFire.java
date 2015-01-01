@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockFire;
@@ -32,7 +31,6 @@ public class BlockModFire extends BlockFire {
         setBlockName(name);
         setBlockTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
     }
 
     public void addPortal(BlockModPortal portal) {

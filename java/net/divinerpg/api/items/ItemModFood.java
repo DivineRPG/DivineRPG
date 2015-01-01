@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -27,7 +26,6 @@ public class ItemModFood extends ItemFood {
         setTextureName(Reference.PREFIX + name);
         setUnlocalizedName(name);
         GameRegistry.registerItem(this, name);
-        LangRegistry.addItem(this);
     }
 
     public ItemModFood(String name, int food, float sat, boolean wolfFood, int potionID, int potionDuration, int potionAmplifier, float potionEffectProbability) {

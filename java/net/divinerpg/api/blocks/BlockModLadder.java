@@ -1,7 +1,6 @@
 package net.divinerpg.api.blocks;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockLadder;
 
@@ -17,7 +16,6 @@ public class BlockModLadder extends BlockLadder {
         setBlockName(name);
         setCreativeTab(DivineRPGTabs.blocks);
         GameRegistry.registerBlock(this, name);
-		LangRegistry.addBlock(this);
 	}
 
 	
