@@ -242,6 +242,13 @@ public class EventArmorFullSet {
                     e.setCanceled(true);
                 }
             }
+            
+            //Jungle
+            if (boots == VanillaItemsArmor.jungleBoots && legs == VanillaItemsArmor.jungleLegs && body == VanillaItemsArmor.jungleBody && helmet == VanillaItemsArmor.jungleHelmet) {
+                if (s.equals(DamageSource.magic)) {
+                    e.setCanceled(true);
+                }
+            }
         }
     }
 

@@ -56,7 +56,7 @@ public class EntityDatticon extends EntityDivineRPGVillager {
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {
 		//var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 1, 0), new ItemStack(ArcanaItems.arcaniumBucket, 1, 0)));
-		//var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 0), new ItemStack(ArcanaBlocks.arcaniteRails, 8, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 0), new ItemStack(ArcanaBlocks.arcaniteRails, 8, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaBlocks.starBridge, 16, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 0), new ItemStack(ArcanaBlocks.arcanitetubes, 16, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaBlocks.moltenFurnace, 1, 0)));

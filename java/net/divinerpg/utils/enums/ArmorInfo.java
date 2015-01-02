@@ -23,7 +23,8 @@ public enum ArmorInfo {
     SCYTHE_DAMAGE("#x Scythe Damage"),
     SWIM("Swim Faster"),
     WITHER_PROTECTION("Wither Protection"),
-    ARCANA_REGEN("Arcana Regeneration");
+    ARCANA_REGEN("Arcana Regeneration"),
+    POISON_PROTECTION("Poison Proof");
     
     private String info;
 

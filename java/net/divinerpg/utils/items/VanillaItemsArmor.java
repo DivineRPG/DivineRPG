@@ -104,6 +104,12 @@ public class VanillaItemsArmor {
     public static final Item      enderLegs           = new ItemDivineArmor(EnumArmor.ENDER, LEGS, endInfo);
     public static final Item      enderBoots          = new ItemDivineArmor(EnumArmor.ENDER, BOOTS, endInfo);
     
+    private static final Object[] jungInfo            = new Object[] { ArmorInfo.POISON_PROTECTION };
+    public static final Item      jungleHelmet        = new ItemDivineArmor(EnumArmor.JUNGLE, HEAD, jungInfo);
+    public static final Item      jungleBody          = new ItemDivineArmor(EnumArmor.JUNGLE, BODY, jungInfo);
+    public static final Item      jungleLegs          = new ItemDivineArmor(EnumArmor.JUNGLE, LEGS, jungInfo);
+    public static final Item      jungleBoots         = new ItemDivineArmor(EnumArmor.JUNGLE, BOOTS, jungInfo);
+    
     public static final Item      diamondHelmet       = new ItemDivineArmor(EnumArmor.DIAMOND, HEAD);
     public static final Item      diamondBody         = new ItemDivineArmor(EnumArmor.DIAMOND, BODY);
     public static final Item      diamondLegs         = new ItemDivineArmor(EnumArmor.DIAMOND, LEGS);

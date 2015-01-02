@@ -363,6 +363,7 @@ tile.karosBrick2.name=Karos Brick2
 tile.infusionTable.name=Infusion Table
 tile.helioticBeam.name=Heliotic Beam
 tile.nightmareBedBlock.name=Nightmare Bed Block
+tile.arcaniteRails.name=Arcanite Rails
 item.bacon.name=Bacon
 item.baconCooked.name=Bacon Cooked
 item.boiledEgg.name=Boiled Egg
