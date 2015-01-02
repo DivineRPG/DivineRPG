@@ -1,5 +1,6 @@
 package net.divinerpg.utils.events;
 
+import net.divinerpg.DivineRPG;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.config.ConfigurationHelper;
@@ -204,7 +205,7 @@ public class EventArmorTick {
         	speedMultiplier = 2.2f;
         }
         
-        event.player.capabilities.setPlayerWalkSpeed(0.1f * speedMultiplier);
+        DivineRPG.proxy.setPlayerSpeed(event.player, 0.1f * speedMultiplier);
     }
 
 }

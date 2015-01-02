@@ -18,7 +18,7 @@ public class ModelHat extends ModelBase
     	this.top = new ModelRenderer(this, 0, 0).setTextureSize(128, 128);
         this.top.addBox(4f, 1f, 4f, 8, 8, 8, 0.0F);
         this.bottom = new ModelRenderer(this, 32, 0).setTextureSize(128, 128);
-        this.bottom.addBox(2F, 0F, 2F, 12, 1, 12, 0.0F);
+        this.bottom.addBox(2F, 0F, 2F, 12, 2, 12, 0.0F);
     }
 
     public void renderAll()

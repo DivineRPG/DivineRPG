@@ -59,6 +59,7 @@ import net.divinerpg.utils.recipes.VanillaRecipeHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
@@ -149,4 +150,5 @@ public class CommonProxy{
 	}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random, int randFactor) {}
+	public void setPlayerSpeed(EntityPlayer player, float speed) {}
 }

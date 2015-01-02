@@ -89,11 +89,11 @@ public class BlockModPortal extends BlockBreakable {
         } else {
         	if(entity.dimension != this.dimensionID) {
         		entity.timeUntilPortal = 10;
-        		sendEntityToDimension(entity, this.dimensionID, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(this.dimensionID), this.dimensionID, this, this.blockFrame));
+        		//sendEntityToDimension(entity, this.dimensionID, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(this.dimensionID), this.dimensionID, this, this.blockFrame));
         	}
         	else {
         		entity.timeUntilPortal = 10;
-        		sendEntityToDimension(entity, 0, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(0), 0, this, this.blockFrame));
+        		//sendEntityToDimension(entity, 0, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(0), 0, this, this.blockFrame));
         	}
         }
         }

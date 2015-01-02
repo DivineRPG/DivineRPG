@@ -36,6 +36,7 @@ import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityFlameFX;
 import net.minecraft.client.particle.EntityPortalFX;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -114,5 +115,10 @@ public class ClientProxy extends CommonProxy {
     	else if(particle == "blueFlame") fx = new EntityBlueFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	else if(particle == "orangeFlame") fx = new EntityFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
+    }
+    
+    @Override
+    public void setPlayerSpeed(EntityPlayer player, float speed) {
+    	player.capabilities.setPlayerWalkSpeed(speed);
     }
 }

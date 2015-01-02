@@ -17,14 +17,12 @@ public class DevHatEvent {
 	private static ModelHat hat = new ModelHat();
 	
 	@SubscribeEvent
-	public void playerRender(RenderPlayerEvent.Pre evt) {
+	public void playerRender(RenderPlayerEvent.Specials.Pre evt) {
 		if(Util.isDeveloperName(evt.entityPlayer.getCommandSenderName())) {
 			GL11.glPushMatrix();
-			GL11.glRotatef(-evt.entityPlayer.rotationYawHead, 0, 1, 0);
-			GL11.glTranslatef(0f, -0.1f, 0f);
-			GL11.glRotatef(evt.entityPlayer.rotationPitch, 1, 0, 0);
-			GL11.glTranslatef(-0.5f, 0.1f, -0.5f);
-			GL11.glTranslatef(0f, 0.2f, 0f);
+			evt.renderer.modelBipedMain.bipedHead.postRender(0.0625f);
+			GL11.glRotatef(180, 0, 0, 1);
+			GL11.glTranslatef(-0.5f, 0.5f, -0.5f);
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhat.png"));
 			hat.renderAll();
 			GL11.glPopMatrix();
