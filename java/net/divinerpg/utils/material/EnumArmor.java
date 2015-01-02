@@ -21,7 +21,7 @@ public enum EnumArmor {
     SHADOW(Util.addArmorMaterial("Shadow", 0, 10), "shadow", true, 60),
     NETHERITE(Util.addArmorMaterial("Netherite", 0, 10), "netherite", true, 50),
     ENDER(Util.addArmorMaterial("Ender", 0, 10), "ender", true, 65),
-    JUNGLE(Util.addArmorMaterial("Jungle", 0, 10), "jungle", true, 45),
+    JUNGLE(Util.addArmorMaterial("Jungle", 0, 10), "jungle", true, 55),
     EDEN(Util.addArmorMaterial("Eden", 0, 10), "eden", true, 60),
     WILD(Util.addArmorMaterial("Wild", 0, 10), "wildwood", true, 65),
     APALACHIA(Util.addArmorMaterial("Apalachia", 0, 10), "apalachia", true, 72),
