@@ -3,7 +3,6 @@ package net.divinerpg.api.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -26,7 +25,6 @@ public class ItemModDoor extends ItemMod {
 		setTextureName(Reference.PREFIX + name);
 		setUnlocalizedName(name);
 		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 
 	@Override

@@ -8,7 +8,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.divinerpg.api.blocks.BlockModFence;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -26,7 +25,6 @@ public class BlockLightFence extends BlockModFence {
 		this.powered = powered;
 		setBlockTextureName(Reference.PREFIX + name);
 		setStepSound(Block.soundTypeGlass);
-		LangRegistry.addBlock(this);
 		setHardness(hardness);
 		setCreativeTab(DivineRPGTabs.blocks);
 		if(powered){

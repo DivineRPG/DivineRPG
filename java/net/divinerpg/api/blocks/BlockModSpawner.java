@@ -3,7 +3,6 @@ package net.divinerpg.api.blocks;
 import java.util.Random;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -29,7 +28,6 @@ public class BlockModSpawner extends BlockContainer {
         setBlockTextureName(Reference.PREFIX + textureName);
         setCreativeTab(DivineRPGTabs.spawner);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
     }
 
     @Override

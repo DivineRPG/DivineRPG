@@ -5,7 +5,6 @@ import java.util.List;
 
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -83,7 +82,6 @@ public class ItemModBow extends ItemBow {
         this.texture = new String[] { textureName + "_0", textureName + "_1", textureName + "_2", textureName + "_3" };
         setUnlocalizedName(name);
         GameRegistry.registerItem(this, name);
-        LangRegistry.addItem(this);
         bowList.add(this);
     }
 

@@ -5,7 +5,6 @@ import java.util.Random;
 
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
 import net.divinerpg.libs.DivineRPGAchievements;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;
@@ -37,7 +36,6 @@ public class BlockFrostedChest extends BlockContainer {
 		setBlockTextureName("ice");
 		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
-		LangRegistry.addBlock(this);
 		this.dropsSnowflake = dropsSnowflake;
 	}
 	

@@ -1,7 +1,6 @@
 package net.divinerpg.api.items;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -22,7 +21,6 @@ public class ItemModSeeds extends ItemSeeds {
 		setTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.utility);
 		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 	
 	public ItemModSeeds(String name, Block block, Block placeOn) {
@@ -31,6 +29,5 @@ public class ItemModSeeds extends ItemSeeds {
 		setTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.utility);
 		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 }

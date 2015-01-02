@@ -4,7 +4,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailBase;
@@ -20,7 +19,6 @@ public class BlockRedstonelessRails extends BlockRailPowered {
 		setBlockName(name);
 		setBlockTextureName(Reference.PREFIX + name);
 		GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
 	}
 	
 	@Override

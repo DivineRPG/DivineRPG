@@ -7,7 +7,6 @@ import net.divinerpg.dimensions.iceika.village.WorldGenHouse1;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -31,6 +30,5 @@ public class ItemModBucket extends ItemBucket {
 		setTextureName(Reference.PREFIX + name);
 		setUnlocalizedName(name);
 		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 }

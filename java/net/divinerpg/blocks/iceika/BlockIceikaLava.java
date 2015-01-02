@@ -2,7 +2,6 @@ package net.divinerpg.blocks.iceika;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -22,7 +21,6 @@ public class BlockIceikaLava extends BlockFluidClassic{
 		setLightLevel(1F);
 		GameRegistry.registerBlock(this, "coldLava");
 		setBlockName("coldLava");
-		LangRegistry.addBlock(this);
 	}
 
 	@Override

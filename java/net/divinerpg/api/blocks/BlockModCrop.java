@@ -8,7 +8,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -38,7 +37,6 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable{
 		this.setStepSound(soundTypeGrass);
 		this.disableStats();
 		GameRegistry.registerBlock(this, name);
-		LangRegistry.addBlock(this);
 		amountOfStages = stages;
 		cropName = crop;
 	}

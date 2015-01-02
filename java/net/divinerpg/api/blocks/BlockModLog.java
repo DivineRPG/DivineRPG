@@ -1,7 +1,6 @@
 package net.divinerpg.api.blocks;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
@@ -31,7 +30,6 @@ public class BlockModLog extends BlockRotatedPillar {
         setCreativeTab(DivineRPGTabs.blocks);
         setStepSound(soundTypeWood);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
     }
 
     @SideOnly(Side.CLIENT)

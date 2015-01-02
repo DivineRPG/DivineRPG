@@ -5,7 +5,6 @@ import java.util.Random;
 import net.divinerpg.blocks.vanilla.DivineMetaItemBlock;
 import net.divinerpg.blocks.vanilla.IDivineMetaBlock;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.material.EnumToolType;
@@ -72,7 +71,6 @@ public class BlockMod extends Block{
         }else{
         	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
         }
-        LangRegistry.addBlock(this);
     }
 
     public BlockMod(EnumBlockType blockType, String name, float hardness, DivineRPGTabs tab) {
@@ -92,7 +90,6 @@ public class BlockMod extends Block{
         }else{
         	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
         }
-        LangRegistry.addBlock(this);
     }
     
     public BlockMod(EnumBlockType blockType, String name, float hardness, DivineRPGTabs tab, Class<? extends ItemBlock> item) {
@@ -108,7 +105,6 @@ public class BlockMod extends Block{
         setHardness(hardness);
         if(hardness == -1F) setBlockUnbreakable();
         GameRegistry.registerBlock(this, item, name);
-        LangRegistry.addBlock(this);
     }
 
     @Override

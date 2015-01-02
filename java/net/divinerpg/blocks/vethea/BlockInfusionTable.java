@@ -4,7 +4,6 @@ import net.divinerpg.DivineRPG;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -25,7 +24,6 @@ public class BlockInfusionTable extends BlockContainer {
 	
 	public BlockInfusionTable() {
 		super(Material.rock);
-		LangRegistry.addBlock(this);
 		setCreativeTab(DivineRPGTabs.vethea);
 	}
 

@@ -5,7 +5,6 @@ import java.util.List;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
@@ -34,7 +33,6 @@ public class ItemModSword extends ItemSword {
         setTextureName(textureName);
         setCreativeTab(DivineRPGTabs.swords);
         GameRegistry.registerItem(this, name);
-        LangRegistry.addItem(this);
         this.mat = toolMaterial;
     }
     

@@ -4,7 +4,6 @@ import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.entities.vanilla.EntityNetherWatcher;
 import net.divinerpg.libs.DivineRPGAchievements;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

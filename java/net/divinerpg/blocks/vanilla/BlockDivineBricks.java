@@ -4,7 +4,6 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -54,7 +53,6 @@ public class BlockDivineBricks extends VanillaBlock implements IDivineMetaBlock{
 	@Override
 	public void addNames() {
 		for(int i = 0; i < 15; i++){
-			LangRegistry.instance.localizeName("tile", "tile." + names[i] + "Bricks");
 		}
 	}
 

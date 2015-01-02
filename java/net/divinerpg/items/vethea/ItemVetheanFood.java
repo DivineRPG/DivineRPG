@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.divinerpg.api.items.ItemModFood;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;

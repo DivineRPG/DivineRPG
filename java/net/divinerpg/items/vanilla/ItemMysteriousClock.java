@@ -3,7 +3,6 @@ package net.divinerpg.items.vanilla;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vanilla.EntityAncientEntity;
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

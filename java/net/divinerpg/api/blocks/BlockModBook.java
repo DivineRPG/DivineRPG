@@ -1,7 +1,6 @@
 package net.divinerpg.api.blocks;
 
 import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -23,7 +22,6 @@ public class BlockModBook extends BlockBookshelf {
         setCreativeTab(DivineRPGTabs.blocks);
         setStepSound(Block.soundTypeWood);
         GameRegistry.registerBlock(this, name);
-        LangRegistry.addBlock(this);
     }
 
     @SideOnly(Side.CLIENT)
