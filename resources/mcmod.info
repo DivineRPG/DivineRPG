@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "DivineRPG",
+    "name": "DivineRPG",
+    "description": "Adds a new dimensions, mobs and items",
+    "version": "${version}",
+    "mcversion": "${MCversion}",
+    "url": "http://wiki.divinerpg.net/wiki/DivineRPG_Wiki",
+    "updateUrl": "",
+    "authors": [
+      "RadioactiveStud", "Eternaldoom", "Laorwick", "BlueEyes9"
+    ],
+    "credits": "BossLetsPlays, Sheenrox82, Declan, Insanity414all, The_SlayerMC, Mazetar, TLHPoE",
+    "logoFile": "",
+    "screenshots": [],
+    "parent":"",
+    "dependencies": []
+  }
+]
