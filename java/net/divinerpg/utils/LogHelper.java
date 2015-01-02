@@ -16,9 +16,9 @@ public class LogHelper {
     private static BufferedWriter writer;
     
     static{
-        File dir = new File("./DivineRPG");
+        File dir = new File("./config/DivineRPG");
         dir.mkdir();
-        dir = new File("./DivineRPG/debug.log");
+        dir = new File("./config/DivineRPG/debug.log");
         try {
             writer = new BufferedWriter(new FileWriter(dir));
         } catch (IOException e) {
