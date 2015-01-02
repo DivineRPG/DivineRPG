@@ -88,11 +88,11 @@ public class BlockModPortal extends BlockBreakable {
             }
         } else {
         	if(entity.dimension != this.dimensionID) {
-        		entity.timeUntilPortal = 1000;
+        		entity.timeUntilPortal = 10;
         		sendEntityToDimension(entity, this.dimensionID, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(this.dimensionID), this.dimensionID, this, this.blockFrame));
         	}
         	else {
-        		entity.timeUntilPortal = 1000;
+        		entity.timeUntilPortal = 10;
         		sendEntityToDimension(entity, 0, new DivineTeleporter(MinecraftServer.getServer().worldServerForDimension(0), 0, this, this.blockFrame));
         	}
         }
@@ -317,26 +317,24 @@ public class BlockModPortal extends BlockBreakable {
             WorldServer worldserver1 = minecraftserver.worldServerForDimension(dimId);
             entity.dimension = dimId;
 
-            if (j == 1 && dimId == 1) {
+            if (j == dimId && dimId != 0) {
                 worldserver1 = minecraftserver.worldServerForDimension(0);
                 entity.dimension = 0;
             }
 
             entity.worldObj.removeEntity(entity);
             entity.isDead = false;
-            entity.worldObj.theProfiler.startSection("reposition");
             minecraftserver.getConfigurationManager().transferEntityToWorld(entity, j, worldserver, worldserver1, tp);
-            entity.worldObj.theProfiler.endStartSection("reloading");
             Entity newEntity = EntityList.createEntityByName(EntityList.getEntityString(entity), worldserver1);
 
             if (newEntity != null) {
                 newEntity.copyDataFrom(entity, true);
 
-                if (j == 1 && dimId == 1)
+                if (j == dimId && dimId != 0)
                 {
                     ChunkCoordinates chunkcoordinates = worldserver1.getSpawnPoint();
                     chunkcoordinates.posY = entity.worldObj.getTopSolidOrLiquidBlock(chunkcoordinates.posX, chunkcoordinates.posZ);
-                    newEntity.setLocationAndAngles((double)chunkcoordinates.posX, (double)chunkcoordinates.posY, (double)chunkcoordinates.posZ, newEntity.rotationYaw, newEntity.rotationPitch);
+                    newEntity.setLocationAndAngles((double)chunkcoordinates.posX, (double)chunkcoordinates.posY, (double)chunkcoordinates.posZ+10, newEntity.rotationYaw, newEntity.rotationPitch);
                 }
 
                 worldserver1.spawnEntityInWorld(newEntity);
