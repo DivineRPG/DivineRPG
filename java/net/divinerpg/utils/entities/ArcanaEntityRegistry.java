@@ -33,35 +33,35 @@ import net.divinerpg.utils.Util;
 public class ArcanaEntityRegistry {
 
 	public static void init(){
-		Util.registerProjectile(EntityStar.class, "Star");
-		Util.registerProjectile(EntitySparkler.class, "Sparkler");
-		Util.registerProjectile(EntityFirefly.class, "Firefly");
-		Util.registerProjectile(EntityFyracryxFireball.class, "FyracryxFireball");
-		Util.registerProjectile(EntityGrenade.class, "Grenade");
-		Util.registerProjectile(EntityLamona.class, "Lamona");
-		Util.registerProjectile(EntityLivingStatueArrow.class, "LivingStatueArrow");
-		Util.registerProjectile(EntityMerikMissile.class, "MeriksMissile");
+		Util.registerProjectile(EntityStar.class, "divinerpg.Star");
+		Util.registerProjectile(EntitySparkler.class, "divinerpg.Sparkler");
+		Util.registerProjectile(EntityFirefly.class, "divinerpg.Firefly");
+		Util.registerProjectile(EntityFyracryxFireball.class, "divinerpg.FyracryxFireball");
+		Util.registerProjectile(EntityGrenade.class, "divinerpg.Grenade");
+		Util.registerProjectile(EntityLamona.class, "divinerpg.Lamona");
+		Util.registerProjectile(EntityLivingStatueArrow.class, "divinerpg.LivingStatueArrow");
+		Util.registerProjectile(EntityMerikMissile.class, "divinerpg.MeriksMissile");
 
-		Util.registerDivineRPGMob(EntityCaptianMerik.class, "CaptainMerik");
-		Util.registerDivineRPGMob(EntityConstructor.class, "DungeonConstructor");
-		Util.registerDivineRPGMob(EntityDatticon.class, "Datticon");
-		Util.registerDivineRPGMob(EntityDeathcryx.class, "Deathcryx");
-		Util.registerDivineRPGMob(EntityDeathHound.class, "DeathHound");
-		Util.registerDivineRPGMob(EntityDramix.class, "Dramix");
-		Util.registerDivineRPGMob(EntityDungeonPrisoner.class, "DungeonPrisoner");
-		Util.registerDivineRPGMob(EntityDungeonDemon.class, "DungeonDemon");
-		Util.registerDivineRPGMob(EntityFyracryx.class, "Fyracryx");
-		Util.registerDivineRPGMob(EntityGolemOfRejuv.class, "GolemOfRejuv");
-		Util.registerDivineRPGMob(EntityLeorna.class, "Leorna");
-		Util.registerDivineRPGMob(EntityLivingStatue.class, "LivingStatue");
-		Util.registerDivineRPGMob(EntityParasecta.class, "Parasecta");
-		Util.registerDivineRPGMob(EntityRazorback.class, "Razorback");
-		Util.registerDivineRPGMob(EntitySeimer.class, "Seimer");
-		Util.registerDivineRPGMob(EntityVatticus.class, "LordVatticus");
-		//Util.registerDivineRPGMob(EntityVermsillion.class, "Vermsillion", Util.mobID++);
-		Util.registerDivineRPGMob(EntityParatiku.class, "Paratiku");
-		Util.registerDivineRPGMob(EntityWraith.class, "Wraith");
-		Util.registerDivineRPGMob(EntityZelus.class, "Zelus");
-		Util.registerDivineRPGMob(EntityRoamer.class, "Roamer");
+		Util.registerDivineRPGMob(EntityCaptianMerik.class, "divinerpg.CaptainMerik");
+		Util.registerDivineRPGMob(EntityConstructor.class, "divinerpg.DungeonConstructor");
+		Util.registerDivineRPGMob(EntityDatticon.class, "divinerpg.Datticon");
+		Util.registerDivineRPGMob(EntityDeathcryx.class, "divinerpg.Deathcryx");
+		Util.registerDivineRPGMob(EntityDeathHound.class, "divinerpg.DeathHound");
+		Util.registerDivineRPGMob(EntityDramix.class, "divinerpg.Dramix");
+		Util.registerDivineRPGMob(EntityDungeonPrisoner.class, "divinerpg.DungeonPrisoner");
+		Util.registerDivineRPGMob(EntityDungeonDemon.class, "divinerpg.DungeonDemon");
+		Util.registerDivineRPGMob(EntityFyracryx.class, "divinerpg.Fyracryx");
+		Util.registerDivineRPGMob(EntityGolemOfRejuv.class, "divinerpg.GolemOfRejuv");
+		Util.registerDivineRPGMob(EntityLeorna.class, "divinerpg.Leorna");
+		Util.registerDivineRPGMob(EntityLivingStatue.class, "divinerpg.LivingStatue");
+		Util.registerDivineRPGMob(EntityParasecta.class, "divinerpg.Parasecta");
+		Util.registerDivineRPGMob(EntityRazorback.class, "divinerpg.Razorback");
+		Util.registerDivineRPGMob(EntitySeimer.class, "divinerpg.Seimer");
+		Util.registerDivineRPGMob(EntityVatticus.class, "divinerpg.LordVatticus");
+		//Util.registerDivineRPGMob(EntityVermsillion.class, "divinerpg.Vermsillion", Util.mobID++);
+		Util.registerDivineRPGMob(EntityParatiku.class, "divinerpg.Paratiku");
+		Util.registerDivineRPGMob(EntityWraith.class, "divinerpg.Wraith");
+		Util.registerDivineRPGMob(EntityZelus.class, "divinerpg.Zelus");
+		Util.registerDivineRPGMob(EntityRoamer.class, "divinerpg.Roamer");
 	}
 }

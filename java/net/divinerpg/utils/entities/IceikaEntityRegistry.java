@@ -18,20 +18,20 @@ import net.divinerpg.utils.Util;
 public class IceikaEntityRegistry {
 
 	public static void init() {
-		Util.registerProjectile(EntityCarol.class, "Carol");
-		Util.registerProjectile(EntityMusic.class, "Music");
-		Util.registerProjectile(EntitySnowflakeShuriken.class, "SnowflakeShuriken");
-		Util.registerProjectile(EntityFractiteShot.class, "FractiteShot");
+		Util.registerProjectile(EntityCarol.class, "divinerpg.Carol");
+		Util.registerProjectile(EntityMusic.class, "divinerpg.Music");
+		Util.registerProjectile(EntitySnowflakeShuriken.class, "divinerpg.SnowflakeShuriken");
+		Util.registerProjectile(EntityFractiteShot.class, "divinerpg.FractiteShot");
 		
-		Util.registerDivineRPGMob(EntityAlicanto.class, "Alicanto");
-		Util.registerDivineRPGMob(EntityFractite.class, "Fractite");
-		Util.registerDivineRPGMob(EntityGlacide.class, "Glacide");
-		Util.registerDivineRPGMob(EntityHastreus.class, "Hastreus");
-		Util.registerDivineRPGMob(EntityFrostArcher.class, "FrostArcher");
-        Util.registerDivineRPGMob(EntityRollum.class, "Rollum");
-        Util.registerDivineRPGMob(EntityFrosty.class, "Frosty");
-        Util.registerDivineRPGMob(EntityWorkshopTinkerer.class, "WorkshopTinkerer");
-        Util.registerDivineRPGMob(EntityWorkshopMerchant.class, "WorkshopMerchant");
+		Util.registerDivineRPGMob(EntityAlicanto.class, "divinerpg.Alicanto");
+		Util.registerDivineRPGMob(EntityFractite.class, "divinerpg.Fractite");
+		Util.registerDivineRPGMob(EntityGlacide.class, "divinerpg.Glacide");
+		Util.registerDivineRPGMob(EntityHastreus.class, "divinerpg.Hastreus");
+		Util.registerDivineRPGMob(EntityFrostArcher.class, "divinerpg.FrostArcher");
+        Util.registerDivineRPGMob(EntityRollum.class, "divinerpg.Rollum");
+        Util.registerDivineRPGMob(EntityFrosty.class, "divinerpg.Frosty");
+        Util.registerDivineRPGMob(EntityWorkshopTinkerer.class, "divinerpg.WorkshopTinkerer");
+        Util.registerDivineRPGMob(EntityWorkshopMerchant.class, "divinerpg.WorkshopMerchant");
 	}
 	
 }
