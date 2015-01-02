@@ -2,6 +2,7 @@ package net.divinerpg.entities.vethea;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
@@ -18,7 +19,7 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
-public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntityQuadro extends EntityDivineRPGBoss {
 
 	public int ability;
 	private final int SLOW = 0;
@@ -31,10 +32,9 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 	private int rangedAttackCounter;
 	public boolean dir;
 
-	public EntityQuadro(World par1World) {
-		super(par1World);
-		this.tasks.addTask(2, new EntityAIArrowAttack(this, 0.25F, 10, 64.0F));
-		this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1, true));
+	public EntityQuadro(World w) {
+		super(w);
+		this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1, false));
 		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 80));
 		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		ability = SLOW;
@@ -52,6 +52,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 
 	@Override
 	protected void updateAITasks() {
+		if(!this.worldObj.isRemote && this.entityToAttack != null && this.entityToAttack instanceof EntityLivingBase) this.attackEntityWithRangedAttack((EntityLivingBase)this.entityToAttack, 0);
 		if (this.abilityCoolDown == 0) {
 			ability = this.rand.nextInt(4);
 			this.abilityCoolDown = 500;
@@ -123,6 +124,14 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(EntityStats.quadroSpeedFast);
 			this.setAIMoveSpeed((float)EntityStats.quadroSpeedFast);
 		}
+		else if (ability == SLOW) {
+			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
+			this.setAIMoveSpeed(0);
+		}
+		else if (ability == FAST) {
+			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
+			this.setAIMoveSpeed(0);
+		}
 		super.updateAITasks();
 	}
 
@@ -151,20 +160,20 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 		this.dropItem(VetheaItems.quadroticLump, 25);
 	}
 
-	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase par1, float par2) {
 		switch(ability) {
             case FAST:
-            	EntityArrow var2 = new EntityArrow(this.worldObj, this, par1, 1.6F, 6.0F);
-                var2.setDamage(1);
-                this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-                this.worldObj.spawnEntityInWorld(var2);
+            	if ((this.rangedAttackCounter % 5) == 0) {
+            		EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, par1, 1.6f, 6f, 1, "quadroArrow");
+                	this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+                	this.worldObj.spawnEntityInWorld(var2);
+            	}
+            	this.rangedAttackCounter++;
                 break;
             case SLOW:
-                if ((this.rangedAttackCounter % 4) == 0) {
-                    EntityArrow var4 = new EntityArrow(this.worldObj, this, par1, 1.6F, 6.0F);
+                if ((this.rangedAttackCounter % 15) == 0) {
+                	EntityDivineArrow var4 = new EntityDivineArrow(this.worldObj, this, par1, 1.6f, 6f, 2, "quadroArrow");
                     this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-                    var4.setDamage(2);
                     this.worldObj.spawnEntityInWorld(var4);
                 }
                 this.rangedAttackCounter++;

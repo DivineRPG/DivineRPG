@@ -18,12 +18,15 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class EventClientLogin {
+	
+	boolean seen = false;
 
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void onPlayerLogin(EntityJoinWorldEvent e) {
 		if (e.entity instanceof EntityPlayer) {
 			EntityPlayer p = (EntityPlayer)e.entity;
-			if (!p.worldObj.isRemote) {
+			if (!p.worldObj.isRemote && !seen) {
 				try {
 					if(!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay){
 						if(Util.isDeveloperName(p.getCommandSenderName())) {
@@ -34,19 +37,14 @@ public class EventClientLogin {
 						p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, "Unable to check for latest version, you may want to check your internet connection!"));
 					}
 					else if(UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
-						if(Util.isDeveloperName(p.getCommandSenderName())) {
-							Util.sendMessageToAll("A DivineRPG developer has entered!");
-						}
 						p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you " + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 						p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "A DivineRPG update is avaliable."));
 						p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "[New Version: " + UpdateChecker.getCurrentVersion() + "]")); 
 					}
 					else {
-						if(Util.isDeveloperName(p.getCommandSenderName())) {
-							Util.sendMessageToAll("A DivineRPG developer has entered!");
-						}
 						p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you "  + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 					}
+					seen = true;
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
