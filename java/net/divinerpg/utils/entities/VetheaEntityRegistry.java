@@ -90,7 +90,7 @@ public class VetheaEntityRegistry {
 		Util.registerDivineRPGMob(EntityVermenous.class, "Vermenous");
         Util.registerDivineRPGMob(EntityEnt.class, "Ent");
         Util.registerDivineRPGMob(EntityCymesoid.class, "Cymesoid");
-        Util.registerDivineRPGMob(EntityDreamwrecker.class, "DreamWrecker");
+        Util.registerDivineRPGMob(EntityDreamwrecker.class, "Dreamwrecker");
         Util.registerDivineRPGMob(EntityTocaxin.class, "Tocaxin");
         Util.registerDivineRPGMob(EntityShadahier.class, "Shadahier");
         Util.registerDivineRPGMob(EntityAcidHag.class, "AcidHag");
