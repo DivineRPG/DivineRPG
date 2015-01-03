@@ -3,6 +3,7 @@ package net.divinerpg.dimensions.twilight.apalachia;
 import java.util.List;
 import java.util.Random;
 
+import net.divinerpg.api.worldgen.WorldGenModDoublePlant;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -21,7 +22,6 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderApalachia implements IChunkProvider{
@@ -282,7 +282,7 @@ public class ChunkProviderApalachia implements IChunkProvider{
 						var26 = var26 * (1.0D - var37) + -30.0D * var37;
 					}
 
-					var1[var12] += var26;
+					var1[var12] = var26;
 					++var12;
 				}
 			}
@@ -361,6 +361,13 @@ public class ChunkProviderApalachia implements IChunkProvider{
 			if (var21 > 20) {
 				var17.generate(this.worldObj, this.rand, var19, var21, var20);
 			}
+		}
+		
+		for (int c = 0; c < 30; ++c) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenModDoublePlant(TwilightBlocks.duskFlower)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
 		BlockSand.fallInstantly = false;

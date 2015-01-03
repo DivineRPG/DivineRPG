@@ -77,6 +77,7 @@ public class TwilightBlocks {
     public static Block moonlightFern;
     public static Block dawnBud;
     public static Block wildwoodTallgrass;
+    public static Block duskFlower;
     public static Block skythernBrush;
     public static Block dustBrambles;
     public static Block demonBrambles;
@@ -140,6 +141,7 @@ public class TwilightBlocks {
         moonlightFern	  = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
         dawnBud			  = new BlockTwilightFlower("dawnBud", wildwoodGrass);
         wildwoodTallgrass = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
+        duskFlower 		  = new BlockModDoublePlant("duskFlower", apalachiaGrass);
         skythernBrush 	  = new BlockTwilightFlower("skythernBrush", skythernGrass);
         dustBrambles	  = new BlockBrambles("dustBrambles", skythernGrass);
         demonBrambles	  = new BlockBrambles("demonBrambles", mortumGrass);

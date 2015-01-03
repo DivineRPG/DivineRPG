@@ -13,6 +13,7 @@ public class WorldProviderApalachia extends WorldProvider {
         this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Apalachia, 0.5F);
         this.dimensionId = ConfigurationHelper.apalachia;
         isHellWorld = false;
+        this.hasNoSky = true;
     }
     
     @Override
