@@ -99,7 +99,7 @@ public class WorldGenDivineDungeon extends WorldGenerator {
 		else return false;
 	}
 
-	private String pickMobSpawner(Random par1Random) {
-		return DivineDungeonHooks.getRandomDungeonMob(par1Random);
+	private String pickMobSpawner(Random rand) {
+		return DivineDungeonHooks.getRandomDungeonMob(rand);
 	}
 }

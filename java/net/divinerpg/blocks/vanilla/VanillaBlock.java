@@ -56,7 +56,7 @@ public class VanillaBlock extends BlockMod {
 	@Override
 	public void onEntityCollidedWithBlock(World w, int x, int y, int z, Entity e) {
 		if(!(e instanceof EntityItem) && w.getBlock(x, y, z) == VanillaBlocks.netheriteOre){
-			e.attackEntityFrom(DamageSource.cactus, 1.0F);
+			e.attackEntityFrom(DamageSource.onFire, 1.0F);
 		}
 	}
 	

@@ -159,7 +159,7 @@ public class VanillaBlocks {
 		arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND);
 		realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON);
 		bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem);
-		netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.netheriteIngot);
+		netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND);
 
 		rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 3.0F, DIAMOND);
 		arlemiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "arlemiteBlock", 3.0F, DIAMOND);

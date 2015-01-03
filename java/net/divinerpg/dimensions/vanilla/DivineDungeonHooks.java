@@ -13,13 +13,13 @@ public class DivineDungeonHooks {
         if(rarity <= 0) throw new IllegalArgumentException("Rarity must be greater then zero");
         for(DungeonMob mob : dungeonMobs) 
             if(name.equals(mob.type)) return mob.itemWeight += rarity;
-        dungeonMobs.add(new DungeonMob(rarity, name));
+        dungeonMobs.add(new DungeonMob(rarity, "divinerpg." + name));
         return rarity;
     }
 
     public static int removeDungeonMob(String name) {
         for(DungeonMob mob : dungeonMobs) {
-            if(name.equals(mob.type)) {
+            if(("divinerpg." + name).equals(mob.type)) {
                 dungeonMobs.remove(mob);
                 return mob.itemWeight;
             }

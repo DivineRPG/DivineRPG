@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 public class ItemsFood {
 
     public static Item bacon;
-    public static Item baconCooked;
     public static Item boiledEgg;
     public static Item cheese;
     public static Item whiteMushroom;
@@ -22,7 +21,6 @@ public class ItemsFood {
     
     public static void init() {
     	bacon              = new ItemModFood(4, 3.0F, true, "bacon");
-        baconCooked        = new ItemModFood(6, 10.0F, true, "baconCooked");
         boiledEgg          = new ItemModFood(4, 0.5F, false, "boiledEgg");
         cheese             = new ItemModFood(2, 0.2F, false, "cheese");
         whiteMushroom      = new ItemModFood(1, 0.1F, false, "whiteMushroom");
