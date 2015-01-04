@@ -4,6 +4,8 @@ import net.divinerpg.api.items.ItemDivineArmor;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.items.vethea.ItemDisk;
+import net.divinerpg.items.vethea.ItemDreamFlint;
+import net.divinerpg.items.vethea.ItemMoonClock;
 import net.divinerpg.items.vethea.ItemNightmareBed;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.items.vethea.ItemVetheanCannon;
@@ -144,8 +146,8 @@ public class VetheaItems {
     public static Item heliosisBow      = new ItemModBow("heliosisWrathbow", -1, 8, 28, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
     public static Item arksianeBow      = new ItemModBow("arksianeWrathbow", -1, 12, 36, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 
-    public static Item dreamFlint         = new ItemMod("dreamFlint").setCreativeTab(DivineRPGTabs.vethea);
-    public static Item moonClock          = new ItemMod("moonClock").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamFlint         = new ItemDreamFlint();
+    public static Item moonClock          = new ItemMoonClock();
     public static Item rockChunks         = new ItemMod("rockChunks").setCreativeTab(DivineRPGTabs.vethea);
     public static Item nightmareBed       = new ItemNightmareBed();
     

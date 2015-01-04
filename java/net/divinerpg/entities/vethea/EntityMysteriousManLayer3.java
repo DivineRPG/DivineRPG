@@ -32,7 +32,7 @@ public class EntityMysteriousManLayer3 extends EntityGive {
 			var1.addChatMessage(Util.getChatComponent("Mysterious Man: The surface is just above us."));
 			break;
 		case 3:
-			var1.addChatMessage(Util.getChatComponent("Mysterious Man: Can you believe that we're submerged so far?."));
+			var1.addChatMessage(Util.getChatComponent("Mysterious Man: Can you believe that we're submerged so far?"));
 			break;
 		}
 	}

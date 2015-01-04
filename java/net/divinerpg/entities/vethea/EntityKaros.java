@@ -36,7 +36,6 @@ public class EntityKaros extends EntityDivineRPGBoss {
 	private int[][] ceilingList = new int[47][3];
 	private int targetY;
 
-	private int rangedAttackCounter;
 	private int deathTicks;
 
 	public EntityKaros(World par1) {
@@ -156,12 +155,11 @@ public class EntityKaros extends EntityDivineRPGBoss {
 	}
 
 	public void manageAbilities() {
-		if (ability == DEFAULT && this.abilityCoolDown == 0 ) {
+		if (this.abilityCoolDown == 0) {
 			this.abilityCoolDown = 200;
 			switch(this.rand.nextInt(3)) {
 			case 0:
 				ability = CEILING;
-				this.rangedAttackCounter = 200;
 				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
 				this.playSound(Sounds.ceilingExplosions.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
@@ -169,44 +167,33 @@ public class EntityKaros extends EntityDivineRPGBoss {
 				break;
 			case 1:
 				ability = CANNONS;
-				this.rangedAttackCounter = 200;
 				break;
 			case 2:
 				ability = FLOOR;
-				this.rangedAttackCounter = 0;
 				break;
 			default: break;
 			}
 		}
-		else if (ability == DEFAULT && this.abilityCoolDown > 0) {
+		else if (this.abilityCoolDown > 0) {
 			this.abilityCoolDown--;
 		}
-		else if (ability != 0 && this.abilityCoolDown == 0) {
-			this.abilityCoolDown = 10;
-		}
-
 	}
 
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		int var2;
-		if (this.rangedAttackCounter == 0) {
-			ability = DEFAULT;
-		}
-		else if(ability == CEILING) {
+		if(ability == CEILING) {
 			var2 = this.rand.nextInt(46);
-			if ((this.rangedAttackCounter % 4) == 0) {
+			if ((this.abilityCoolDown % 4) == 0) {
 				VetheaBlocks.helioticBeam.dispense(this.worldObj, ceilingList[var2][0], ceilingList[var2][1], ceilingList[var2][2]);
 			}
-			this.rangedAttackCounter--;
 		}
 		else if(ability == CANNONS) {
 			var2 = this.rand.nextInt(36);
-			if ((this.rangedAttackCounter % 4) == 0) {
+			if ((this.abilityCoolDown % 4) == 0) {
 				VetheaBlocks.karosCannon.dispense(this.worldObj, cannonList[var2][0], cannonList[var2][1], cannonList[var2][2]);
 			}
-			this.rangedAttackCounter--;
 		}
 		else if(ability == FLOOR) {
 			for (int i = 0; i < 10; i++) {
@@ -220,7 +207,6 @@ public class EntityKaros extends EntityDivineRPGBoss {
 					var4 += Math.PI / 8.0D;
 				}
 			}
-			ability = DEFAULT;
 		}
 	}
 

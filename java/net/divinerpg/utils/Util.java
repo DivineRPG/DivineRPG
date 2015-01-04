@@ -119,7 +119,7 @@ public class Util {
     }
 
     public static void sendMessageToAll(String message) {
-    	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + GREEN + message));
+    	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(message));
     }
     
     public static void sendMessageToAll(String message, String color) {

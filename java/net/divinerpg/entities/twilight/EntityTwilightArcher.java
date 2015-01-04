@@ -26,7 +26,7 @@ public class EntityTwilightArcher extends EntityApalachiaArcher {
 
     public EntityTwilightArcher(World var1) {
         super(var1);
-        this.setSize(2.0F, 5.0F);
+        this.setSize(2.0F, 3.0F);
         this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 60, 10.0F));   
 	}
 
