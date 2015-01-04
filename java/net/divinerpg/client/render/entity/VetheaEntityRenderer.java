@@ -172,9 +172,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRaglok.class, new RenderDivineBoss(new RaglokGogdure(), 0.0F, x.RAGLOK, s.raglokBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityQuadro.class, new RenderDivineBoss(new Quadro(), 0.0F, x.QUADRO, s.quadroBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLadyLuna.class, new RenderLadyLuna(new LadyLuna(), 0.0F, x.LADY_LUNA_MELEE));
-		RenderingRegistry.registerEntityRenderingHandler(EntityWreck.class, new RenderWreck(new WreckForm1(), 0.0F, x.WRECK_1));
-		//RenderingRegistry.registerEntityRenderingHandler(EntityWreck.class, new RenderWreck(new WreckForm2(), 0.0F, x.WRECK_2));
-		//RenderingRegistry.registerEntityRenderingHandler(EntityWreck.class, new RenderWreck(new WreckForm3(), 0.0F, x.WRECK_3));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWreck.class, new RenderWreck(null, 0.0F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityKaros.class, new RenderDivineBoss(new Karos(), 0.0F, x.KAROS, s.karosBossID));
 
 	}

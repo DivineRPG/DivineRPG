@@ -23,7 +23,7 @@ public class EntityWreckExplosiveShot extends EntityThrowable {
     protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
         if (!this.worldObj.isRemote) {
             this.setDead();
-            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1, false);
+            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3, false);
         }
     }
 

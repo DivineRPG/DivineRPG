@@ -146,7 +146,7 @@ public class EntityStats {
 	public static double twinsHealth 			= 10.0D, twinsDamage = 2.0D, twinsSpeed = normalSpeed, twinsFollowRange = follow;
 	public static double vermenousHealth 		= 100.0D, vermenousDamage = 13.0D, vermenousSpeed = normalSpeed, vermenousFollowRange = follow;
 	public static double varaakHealth 			= 100.0D, varaakDamage = 30.0D, varaakSpeed = normalSpeed, varaakFollowRange = follow;
-	public static double wreckHealth 			= 5000.0D, wreckDamage = 0.0D, wreckSpeed = 0, wreckSpeedFast = 0.5D, wreckFollowRange = follow;
+	public static double wreckHealth 			= 5000.0D, wreckDamage = 30.0D, wreckSpeed = normalSpeed, wreckSpeedFast = normalSpeed*2, wreckFollowRange = follow;
 	public static double zoneHealth 			= 120.0D, zoneDamage = 0.0D, zoneSpeed = normalSpeed, zoneFollowRange = follow;
 	public static double zoragonHealth 			= 110.0D, zoragonDamage = 0.0D, zoragonSpeed = normalSpeed, zoragonFollowRange = follow;
 }

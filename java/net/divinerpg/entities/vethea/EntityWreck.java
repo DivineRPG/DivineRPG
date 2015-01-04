@@ -39,28 +39,28 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntityWreck extends EntityDivineRPGBoss {
 	
-	public static int stage, ability;
+	public int ability;
 	private final int MELEE = 0, ARCANA = 1, RANGED = 2;
 	private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
 	private int waitTick;
 	private int abilityCoolDown;
-	private EntityAIBase meleeAI;
-	private EntityAIBase rangedAI = new EntityAIArrowAttack(this, 0.25F, 5, 64.0F);
-	private int rangedAttackCounter;
+	private EntityAIBase meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false);
 	private int deathTicks;
 
 	public EntityWreck(World par1) {
 		super(par1);
-		addAttackingAI();
+		this.tasks.addTask(2, meleeAI);
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 0));
 		ability = DEFAULT;
 		if(!this.worldObj.isRemote){
 			Util.sendMessageToAll("Wreck: You should run while you still have the chance to live.");
 			Util.sendMessageToAll("I do love the smell of death!");
 		}
 		this.playSound(Sounds.wreckIntro.getPrefixedName(), 1.0F, 1.0F);
-		stage = MELEE;
+		this.setAbilityType(MELEE);
 	}
 
 	@Override
@@ -71,60 +71,38 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.wreckSpeed);
 	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.wreckFollowRange);
 	}
+	
+	@Override
+	public void entityInit() {
+		super.entityInit();
+		this.dataWatcher.addObject(17, MELEE);
+	}
 
 	@Override
 	protected void updateAITasks() {
-		if (ability == CHARGE || this.waitTick > 0) {
-			if (this.getAttackTarget() != null && this.waitTick <= 0) {
-				this.waitTick = 30;
-			}
-			else if (this.waitTick == 1) {
-				--this.waitTick;
-				ability = DEFAULT;
-			}
-			else if (this.waitTick == 5) {
-				this.setAIMoveSpeed(0);
-				--this.waitTick;        	
-			} else {
-				--this.waitTick;
-				this.moveEntityWithHeading(0F, this.getAIMoveSpeed());
-			}
-
-			return;
-		}
-
-		if (this.waitTick <= 0) {
-			this.manageAbilities();
-			super.updateAITasks();
-		}
-	} 
-
-	@Override
-	protected void entityInit() {
-        super.entityInit();
-        this.dataWatcher.addObject(16, 100);
-    }
+		this.manageAbilities();
+		super.updateAITasks();
+	}
 
 	public void manageAbilities() {
-		if (!this.worldObj.isRemote) {
-			this.dataWatcher.updateObject(16, getHealth());
-		}
-
-		EntityPlayerMP player = (EntityPlayerMP) this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
-
-		if (getHealth() < 5000 / 3 && ability == DEFAULT) {
-			stage = RANGED;
+		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
+		if (getHealth() < 5000 / 3) {
+			this.setAbilityType(RANGED);
 			this.tasks.removeTask(meleeAI);
 		}
-		else if (getHealth() < 5000 * 2 / 3 && ability == DEFAULT) {
-			stage = ARCANA;
-			this.tasks.addTask(2, rangedAI);
-			this.rangedAttackCounter = 1;
+		else if (getHealth() < 5000 * 2 / 3 && getHealth() > 5000 / 3) {
+			this.setAbilityType(ARCANA);
 		}
-
+		
+		if (abilityCoolDown > 0) {
+			abilityCoolDown--;
+		}
+		
+		if((this.getAbilityType() == 1 && (ability == CHARGE || ability == PULL)) || (this.getAbilityType() == 2 && (ability == FIRE || ability == BOUNCE || ability == FREEZE))) ability = DEFAULT;
+		
 		if (ability == DEFAULT && abilityCoolDown == 0) {
-			abilityCoolDown = 40;
-			switch (stage) {
+			abilityCoolDown = 200;
+			switch (this.getAbilityType()) {
 			case MELEE:
 				switch(this.rand.nextInt(2)) {
 				case 0:
@@ -147,7 +125,6 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 					break;
 				case 1:
 					ability = BOUNCE;
-					this.rangedAttackCounter = 0;
 					break;
 				case 2:
 					ability = FREEZE;
@@ -157,7 +134,6 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 				}
 				break;
 			case RANGED:
-				this.rangedAttackCounter = 0;
 				switch(this.rand.nextInt(3)) {
 				case 0:
 					ability = SPEED;
@@ -178,34 +154,31 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 
 			this.message();
 		}
-		else if (ability == DEFAULT && abilityCoolDown > 0) {
-			abilityCoolDown--;
-		}
-		else if (ability != 0 && abilityCoolDown == 0) {
-			abilityCoolDown = 40;
+				
+		if (ability == PULL) {
+			EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
+			if (var1 == null || var1.getDistanceToEntity(this) > 64) return;
+			else var1.addVelocity(Math.signum(this.posX - var1.posX) * 0.069, 0, Math.signum(this.posZ - var1.posZ) * 0.069);
 		}
 
 		if(ability == FIRE) {
 			if (player != null) {
-				for (int i = 0; i < 5; ++i) {
-					int var2 = (int) ((this.posX - player.posX) / 5) * i;
-					int var3 = (int) ((this.posZ - player.posZ) / 5) * i;
-					this.worldObj.setBlock((int)this.posX - var2, (int)this.posY, (int)this.posZ - var3, Blocks.fire);
+				for (int i = 1; i < 20; ++i) {
+					int var2 = (int) (((this.posX - player.posX)) * i)/5;
+					int var3 = (int) (((this.posZ - player.posZ)) * i)/5;
+					if(this.worldObj.getBlock((int)this.posX - var2, (int)this.posY, (int)this.posZ - var3) == Blocks.air)this.worldObj.setBlock((int)this.posX - var2, (int)this.posY, (int)this.posZ - var3, Blocks.fire);
 				}
 				ability = DEFAULT;
 			}
 		}
 		if(ability == FREEZE) {
 			if (player != null) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 5, 5));
-				this.rangedAttackCounter++;
-			}
-
-			if (this.rangedAttackCounter == 100) {
+				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 5));
 				ability = DEFAULT;
-				this.rangedAttackCounter = 0;
+				abilityCoolDown = 100;
 			}
 		}
+		this.attackEntityWithRangedAttack(player);
 	}
 
 	private void message() {
@@ -253,19 +226,6 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 		}
 
 
-	}
-
-	@Override
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		if (ability == PULL) {
-			EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
-			if (var1 == null || var1.getDistanceToEntity(this) > 64)
-				return;
-			else {
-				var1.addVelocity(Math.signum(this.posX - var1.posX) * 0.069,0, Math.signum(this.posZ - var1.posZ) * 0.069);
-			}
-		}
 	}
 
 	@Override
@@ -323,48 +283,36 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 		return var4;
 	}
 
-	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase entity, float par2) {
+	public void attackEntityWithRangedAttack(EntityLivingBase entity) {
+		if(entity == null)return;
 		switch(ability) {
-		case BOUNCE:
-			if (this.rangedAttackCounter == 0) {
+			case BOUNCE:
 				EntityBouncingProjectile projectile = new EntityBouncingProjectile(this.worldObj, this, 30);
 				this.worldObj.spawnEntityInWorld(projectile);
 				ability = DEFAULT;
-				this.rangedAttackCounter++;
-			}
 			break;
 			case SPEED:
-				EntityVetheanCannonShot var2 = new EntityVetheanCannonShot(this.worldObj, this, 15);
-                this.worldObj.spawnEntityInWorld(var2);
-                ++this.rangedAttackCounter;
-                if (this.rangedAttackCounter == 20) {
+				if(this.abilityCoolDown%5 == 0) {
+					EntityVetheanCannonShot shot = new EntityVetheanCannonShot(this.worldObj, this, 15);
+					this.worldObj.spawnEntityInWorld(shot);
+				}
+                if (this.abilityCoolDown == 100) {
                     ability = DEFAULT;
                 }
                 break;
             case EXPLOSIONS:
-                if ((this.rangedAttackCounter % 4) == 0) {
-                    EntityWreckExplosiveShot var3 = new EntityWreckExplosiveShot(this.worldObj, this);
-                    this.worldObj.spawnEntityInWorld(var3);
-                    ++this.rangedAttackCounter;
+                if ((this.abilityCoolDown % 40) == 0) {
+                    EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(this.worldObj, this);
+                    this.worldObj.spawnEntityInWorld(shot);
                 }
-                else if (this.rangedAttackCounter >= 24) {
-                    ability = DEFAULT;
-                } else {
-                    this.rangedAttackCounter++;
-                }
+                if(this.abilityCoolDown==0)ability = DEFAULT;
                 break;
             case STRENGTH:
-                if ((this.rangedAttackCounter & 4) == 0) {
+                if ((this.abilityCoolDown % 40) == 0) {
                 	EntityVetheanCannonShot var4 = new EntityVetheanCannonShot(this.worldObj, this, 40);
                     this.worldObj.spawnEntityInWorld(var4);
-                    ++this.rangedAttackCounter;
                 }
-                else if (this.rangedAttackCounter >= 12) {
-                    ability = DEFAULT;
-                } else {
-                    this.rangedAttackCounter++;
-                }
+                if(this.abilityCoolDown==0)ability = DEFAULT;
                 break;
 		default:
 			break;
@@ -419,6 +367,14 @@ public class EntityWreck extends EntityDivineRPGBoss implements IRangedAttackMob
 			}
 			this.setDead();
 		}
+	}
+	
+	public int getAbilityType() {
+		return this.dataWatcher.getWatchableObjectInt(17);
+	}
+	
+	public void setAbilityType(int type) {
+		this.dataWatcher.updateObject(17, type);
 	}
 
 	@Override
