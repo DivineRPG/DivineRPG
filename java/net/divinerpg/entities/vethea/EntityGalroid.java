@@ -117,6 +117,6 @@ public class EntityGalroid extends VetheaMob {
 
 	@Override
 	public String mobName() {
-		return "Glariod";
+		return "Galriod";
 	}
 }
