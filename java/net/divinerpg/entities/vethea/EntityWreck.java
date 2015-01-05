@@ -41,20 +41,20 @@ import net.minecraft.world.World;
 
 public class EntityWreck extends EntityDivineRPGBoss {
 	
-	public int ability;
 	private final int MELEE = 0, ARCANA = 1, RANGED = 2;
 	private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
 	private int waitTick;
-	private int abilityCoolDown;
+	private int abilityTimer;
 	private EntityAIBase meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false);
 	private int deathTicks;
 
 	public EntityWreck(World par1) {
 		super(par1);
-		this.tasks.addTask(2, meleeAI);
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 0));
-		ability = DEFAULT;
+		this.setSize(1.5f, 2);
+		this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1, false));
+		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 80));
+		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		this.setAbility(DEFAULT);
 		if(!this.worldObj.isRemote){
 			Util.sendMessageToAll("Wreck: You should run while you still have the chance to live.");
 			Util.sendMessageToAll("I do love the smell of death!");
@@ -76,6 +76,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 	public void entityInit() {
 		super.entityInit();
 		this.dataWatcher.addObject(17, MELEE);
+		this.dataWatcher.addObject(18, DEFAULT);
 	}
 
 	@Override
@@ -88,30 +89,31 @@ public class EntityWreck extends EntityDivineRPGBoss {
 		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
 		if (getHealth() < 5000 / 3) {
 			this.setAbilityType(RANGED);
-			this.tasks.removeTask(meleeAI);
 		}
 		else if (getHealth() < 5000 * 2 / 3 && getHealth() > 5000 / 3) {
 			this.setAbilityType(ARCANA);
+			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.1);
+			this.setAIMoveSpeed((float) this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue());
 		}
 		
-		if (abilityCoolDown > 0) {
-			abilityCoolDown--;
+		if (abilityTimer > 0) {
+			abilityTimer--;
 		}
 		
-		if((this.getAbilityType() == 1 && (ability == CHARGE || ability == PULL)) || (this.getAbilityType() == 2 && (ability == FIRE || ability == BOUNCE || ability == FREEZE))) ability = DEFAULT;
+		if((this.getAbilityType() == 1 && (this.getAbility() == CHARGE || this.getAbility() == PULL)) || (this.getAbilityType() == 2 && (this.getAbility() == FIRE || this.getAbility() == BOUNCE || this.getAbility() == FREEZE))) this.setAbility(DEFAULT);
 		
-		if (ability == DEFAULT && abilityCoolDown == 0) {
-			abilityCoolDown = 200;
+		if (this.getAbility() == DEFAULT && abilityTimer == 0) {
+			abilityTimer = 200;
 			switch (this.getAbilityType()) {
 			case MELEE:
 				switch(this.rand.nextInt(2)) {
 				case 0:
-					ability = PULL;
-					this.setAIMoveSpeed((float)EntityStats.wreckSpeed);
+					this.setAbility(PULL);
+					this.setAIMoveSpeed(0);
 					this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(EntityStats.wreckSpeed);
 					break;
 				case 1:
-					ability = CHARGE;
+					this.setAbility(CHARGE);
 					this.setAIMoveSpeed((float)EntityStats.wreckSpeedFast);
 					break;
 				default: 
@@ -121,13 +123,13 @@ public class EntityWreck extends EntityDivineRPGBoss {
 			case ARCANA:
 				switch(this.rand.nextInt(3)) {
 				case 0:
-					ability = FIRE;
+					this.setAbility(FIRE);
 					break;
 				case 1:
-					ability = BOUNCE;
+					this.setAbility(BOUNCE);
 					break;
 				case 2:
-					ability = FREEZE;
+					this.setAbility(FREEZE);
 					break;
 				default: 
 					break;
@@ -136,13 +138,13 @@ public class EntityWreck extends EntityDivineRPGBoss {
 			case RANGED:
 				switch(this.rand.nextInt(3)) {
 				case 0:
-					ability = SPEED;
+					this.setAbility(SPEED);
 					break;
 				case 1:
-					ability = EXPLOSIONS;
+					this.setAbility(EXPLOSIONS);
 					break;
 				case 2:
-					ability = STRENGTH;
+					this.setAbility(STRENGTH);
 					break;
 				default: 
 					break;
@@ -154,28 +156,24 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
 			this.message();
 		}
-				
-		if (ability == PULL) {
-			EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
-			if (var1 == null || var1.getDistanceToEntity(this) > 64) return;
-			else var1.addVelocity(Math.signum(this.posX - var1.posX) * 0.069, 0, Math.signum(this.posZ - var1.posZ) * 0.069);
-		}
+		
+		if(this.getAbility() == CHARGE && this.abilityTimer == 0) this.setAbility(DEFAULT);
 
-		if(ability == FIRE) {
+		if(this.getAbility() == FIRE) {
 			if (player != null) {
 				for (int i = 1; i < 20; ++i) {
 					int var2 = (int) (((this.posX - player.posX)) * i)/5;
 					int var3 = (int) (((this.posZ - player.posZ)) * i)/5;
 					if(this.worldObj.getBlock((int)this.posX - var2, (int)this.posY, (int)this.posZ - var3) == Blocks.air)this.worldObj.setBlock((int)this.posX - var2, (int)this.posY, (int)this.posZ - var3, Blocks.fire);
 				}
-				ability = DEFAULT;
+				this.setAbility(DEFAULT);
 			}
 		}
-		if(ability == FREEZE) {
+		if(this.getAbility() == FREEZE) {
 			if (player != null) {
 				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 5));
-				ability = DEFAULT;
-				abilityCoolDown = 100;
+				this.setAbility(DEFAULT);
+				abilityTimer = 100;
 			}
 		}
 		this.attackEntityWithRangedAttack(player);
@@ -186,7 +184,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 		for (int var1 = 0; var1 < list.size(); ++var1) {
 			if (list.get(var1) instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) list.get(var1);
-				switch (ability) {
+				switch (this.getAbility()) {
 				case CHARGE:
 					Util.sendMessageToAll("Wreck: CHARRGEE!");
 					break;
@@ -227,6 +225,18 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
 
 	}
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if(!this.worldObj.isRemote)return;
+		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
+		if (this.getAbility() == PULL) {
+			if (player != null){
+				player.addVelocity((this.posX - player.posX) * 0.069, (this.posY - player.posY) * 0.069, (this.posZ - player.posZ) * 0.069);
+			}
+		}
+	}
 
 	@Override
 	protected float getSoundVolume() {
@@ -240,35 +250,22 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
 	@Override
 	public boolean attackEntityAsMob(Entity par1Entity) {
-		int var2 = 0;
+		if(this.getAbility() != MELEE) return false;
+		float amount = (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
 
-		if (this.isPotionActive(Potion.damageBoost)) {
-			var2 += 3 << this.getActivePotionEffect(Potion.damageBoost).getAmplifier();
-		}
+		int knockback = 0;
 
-		if (this.isPotionActive(Potion.weakness)) {
-			var2 -= 2 << this.getActivePotionEffect(Potion.weakness).getAmplifier();
-		}
-
-		int var3 = 0;
-
-		if (par1Entity instanceof EntityLiving) {
-			var2 += EnchantmentHelper.getEnchantmentModifierLiving(this, (EntityLiving)par1Entity);
-			var3 += EnchantmentHelper.getKnockbackModifier(this, (EntityLiving)par1Entity);
-			//((EntityLiving) par1Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 16 * 5, 1));
-		}
-
-		boolean var4 = par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), var2);
+		boolean var4 = par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), amount);
 
 		if (var4) {
-			if (ability == PULL) {
-				ability = DEFAULT;
+			if (this.getAbility() == PULL) {
+				this.setAbility(CHARGE);
 				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
 				this.setAIMoveSpeed((float) this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue());
-				var3 = 2;
+				knockback = 2;
 			}
-			if (var3 > 0) {
-				par1Entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * var3 * 0.5F, 0.1D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * var3 * 0.5F);
+			if (knockback > 0) {
+				par1Entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * knockback * 0.5F, 0.1D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * knockback * 0.5F);
 				this.motionX *= 0.6D;
 				this.motionZ *= 0.6D;
 			}
@@ -285,34 +282,34 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
 	public void attackEntityWithRangedAttack(EntityLivingBase entity) {
 		if(entity == null)return;
-		switch(ability) {
+		switch(this.getAbility()) {
 			case BOUNCE:
 				EntityBouncingProjectile projectile = new EntityBouncingProjectile(this.worldObj, this, 30);
 				this.worldObj.spawnEntityInWorld(projectile);
-				ability = DEFAULT;
+				this.setAbility(DEFAULT);
 			break;
 			case SPEED:
-				if(this.abilityCoolDown%5 == 0) {
+				if(this.abilityTimer%5 == 0) {
 					EntityVetheanCannonShot shot = new EntityVetheanCannonShot(this.worldObj, this, 15);
 					this.worldObj.spawnEntityInWorld(shot);
 				}
-                if (this.abilityCoolDown == 100) {
-                    ability = DEFAULT;
+                if (this.abilityTimer == 100) {
+                    this.setAbility(DEFAULT);
                 }
                 break;
             case EXPLOSIONS:
-                if ((this.abilityCoolDown % 40) == 0) {
+                if ((this.abilityTimer % 40) == 0) {
                     EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(this.worldObj, this);
                     this.worldObj.spawnEntityInWorld(shot);
                 }
-                if(this.abilityCoolDown==0)ability = DEFAULT;
+                if(this.abilityTimer==0)this.setAbility(DEFAULT);
                 break;
             case STRENGTH:
-                if ((this.abilityCoolDown % 40) == 0) {
+                if ((this.abilityTimer % 40) == 0) {
                 	EntityVetheanCannonShot var4 = new EntityVetheanCannonShot(this.worldObj, this, 40);
                     this.worldObj.spawnEntityInWorld(var4);
                 }
-                if(this.abilityCoolDown==0)ability = DEFAULT;
+                if(this.abilityTimer==0)this.setAbility(DEFAULT);
                 break;
 		default:
 			break;
@@ -375,6 +372,14 @@ public class EntityWreck extends EntityDivineRPGBoss {
 	
 	public void setAbilityType(int type) {
 		this.dataWatcher.updateObject(17, type);
+	}
+	
+	public int getAbility() {
+		return this.dataWatcher.getWatchableObjectInt(18);
+	}
+	
+	public void setAbility(int ability) {
+		this.dataWatcher.updateObject(18, ability);
 	}
 
 	@Override

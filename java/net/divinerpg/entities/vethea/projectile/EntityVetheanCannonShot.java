@@ -18,7 +18,6 @@ public class EntityVetheanCannonShot extends EntityThrowable {
     public EntityVetheanCannonShot(World par1, EntityLivingBase par2, int par3) {
         super(par1, par2);
         this.damage = par3;
-        if(par2 instanceof EntityDivineRPGMob) this.setThrowableHeading(((EntityDivineRPGMob)par2).getEntityToAttack().posX, ((EntityDivineRPGMob)par2).getEntityToAttack().posY, ((EntityDivineRPGMob)par2).getEntityToAttack().posZ, this.func_70182_d(), 1.0F);
     }
 
     public EntityVetheanCannonShot(World par1, double par2, double par4, double par6) {
