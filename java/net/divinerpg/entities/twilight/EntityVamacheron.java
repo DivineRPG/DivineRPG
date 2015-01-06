@@ -1,6 +1,7 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -46,6 +47,7 @@ public class EntityVamacheron extends EntityDivineRPGBoss {
 	@Override
 	public void dropFewItems(boolean par1, int par2) {
 		this.dropItem(this.getDropItem(), 1);
+		if(this.rand.nextInt(2) == 0) this.dropItem(Item.getItemFromBlock(VanillaBlocks.vamacheronStatue), 1);
 	}
 
 	@Override

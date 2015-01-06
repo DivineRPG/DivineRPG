@@ -2,6 +2,7 @@ package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +20,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
@@ -72,6 +74,7 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
     @Override
     public void dropFewItems(boolean par1, int par2) {
         this.dropItem(TwilightItemsArmor.haliteLegs, 1);
+        if(this.rand.nextInt(3) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.reyvorStatue), 1);
     }
 
     @Override

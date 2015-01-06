@@ -166,17 +166,17 @@ public class VanillaEntityRenderer {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDivineArrow.class, new RenderDivineArrow());
 		
-		Util.registerItemRenderer(VanillaBlocks.KingStatue, new RenderStatueItem(VanillaBlocks.KingStatue));
-		Util.registerItemRenderer(VanillaBlocks.AncientStatue, new RenderStatueItem(VanillaBlocks.AncientStatue));
-		Util.registerItemRenderer(VanillaBlocks.AyeracoStatue, new RenderStatueItem(VanillaBlocks.AyeracoStatue));
-		Util.registerItemRenderer(VanillaBlocks.TDemonStatue, new RenderStatueItem(VanillaBlocks.TDemonStatue));
-		Util.registerItemRenderer(VanillaBlocks.VamacheronStatue, new RenderStatueItem(VanillaBlocks.VamacheronStatue));
-		Util.registerItemRenderer(VanillaBlocks.DensosStatue, new RenderStatueItem(VanillaBlocks.DensosStatue));
-		Util.registerItemRenderer(VanillaBlocks.DexStatue, new RenderStatueItem(VanillaBlocks.DexStatue));
-		Util.registerItemRenderer(VanillaBlocks.DramixStatue, new RenderStatueItem(VanillaBlocks.DramixStatue));
+		Util.registerItemRenderer(VanillaBlocks.kosStatue, new RenderStatueItem(VanillaBlocks.kosStatue));
+		Util.registerItemRenderer(VanillaBlocks.ancientEntityStatue, new RenderStatueItem(VanillaBlocks.ancientEntityStatue));
+		Util.registerItemRenderer(VanillaBlocks.ayeracoStatue, new RenderStatueItem(VanillaBlocks.ayeracoStatue));
+		Util.registerItemRenderer(VanillaBlocks.twilightDemonStatue, new RenderStatueItem(VanillaBlocks.twilightDemonStatue));
+		Util.registerItemRenderer(VanillaBlocks.vamacheronStatue, new RenderStatueItem(VanillaBlocks.vamacheronStatue));
+		Util.registerItemRenderer(VanillaBlocks.densosStatue, new RenderStatueItem(VanillaBlocks.densosStatue));
+		Util.registerItemRenderer(VanillaBlocks.dramixStatue, new RenderStatueItem(VanillaBlocks.dramixStatue));
 		//DivineAPI.registerItemRenderer(VanillaBlocks.ParasectaStatue, new RenderStatueItem(VanillaBlocks.ParasectaStatue));
-		Util.registerItemRenderer(VanillaBlocks.SoulFiendStatue, new RenderStatueItem(VanillaBlocks.SoulFiendStatue));
-		Util.registerItemRenderer(VanillaBlocks.WatcherStatue, new RenderStatueItem(VanillaBlocks.WatcherStatue));
+		Util.registerItemRenderer(VanillaBlocks.soulFiendStatue, new RenderStatueItem(VanillaBlocks.soulFiendStatue));
+		Util.registerItemRenderer(VanillaBlocks.watcherStatue, new RenderStatueItem(VanillaBlocks.watcherStatue));
+		Util.registerItemRenderer(VanillaBlocks.eternalArcherStatue, new RenderStatueItem(VanillaBlocks.eternalArcherStatue));
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());

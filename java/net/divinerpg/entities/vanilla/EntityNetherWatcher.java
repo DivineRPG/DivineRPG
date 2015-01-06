@@ -252,9 +252,7 @@ public class EntityNetherWatcher extends EntityDivineRPGBoss {
 			this.dropItem(VanillaItemsOther.divineShards, 1);
 		}
 
-		if (this.rand.nextInt(3) == 0) {
-			this.dropItem(Item.getItemFromBlock(VanillaBlocks.WatcherStatue), 1);
-		}
+		if (this.rand.nextInt(2) == 0) this.dropItem(Item.getItemFromBlock(VanillaBlocks.watcherStatue), 1);
 	}
 
 	@Override

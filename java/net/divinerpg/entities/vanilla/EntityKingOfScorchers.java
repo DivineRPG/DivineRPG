@@ -93,9 +93,7 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
         this.dropItem(getDropItem(), 1);
         this.dropItem(VanillaItemsOther.bluefireStone, 6);
 		
-		if(this.rand.nextInt(1) == 0) {
-			this.dropItem(Item.getItemFromBlock(VanillaBlocks.KingStatue), 1);
-		}
+		if(this.rand.nextInt(2) == 0) this.dropItem(Item.getItemFromBlock(VanillaBlocks.kosStatue), 1);
     }
 
 	@Override
@@ -108,12 +106,12 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
 
 	@Override
 	public String mobName() {
-		return "Scorcher King";
+		return "King of Scorchers";
 	}
 
 	@Override
 	public String name() {
-		return "Scorcher King";
+		return "King of Scorchers";
 	}
 
 	@Override

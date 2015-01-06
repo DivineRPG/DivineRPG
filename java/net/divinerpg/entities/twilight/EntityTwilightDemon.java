@@ -2,6 +2,7 @@ package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -64,6 +65,7 @@ public class EntityTwilightDemon extends EntityDivineRPGBoss {
 	@Override
 	public void dropFewItems(boolean par1, int par2)  {
 		this.dropItem(this.getDropItem(), 1);
+		if(this.rand.nextInt(2) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.twilightDemonStatue), 1);
 	}
 
 	@Override

@@ -2,12 +2,14 @@ package net.divinerpg.entities.twilight;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.entities.twilight.projectile.EntityEternalArcherArrow;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
@@ -61,6 +63,7 @@ public class EntityEternalArcher extends EntityDivineRPGBoss{
 		case 1:
 			this.dropItem(TwilightItemsArmor.haliteHelmet, 1);
 		}
+		if(this.rand.nextInt(2) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.eternalArcherStatue), 1);
 	}
 	
 	public int getSelectedArm() {
