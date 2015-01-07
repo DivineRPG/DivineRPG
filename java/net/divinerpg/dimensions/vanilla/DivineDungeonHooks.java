@@ -28,9 +28,9 @@ public class DivineDungeonHooks {
     }
 
     public static String getRandomDungeonMob(Random rand) {
-        WeightedRandom.Item mob = WeightedRandom.getRandomItem(rand, dungeonMobs);
+        DungeonMob mob = (DungeonMob) WeightedRandom.getRandomItem(rand, dungeonMobs);
         if(mob == null) return "";
-        return "banana";
+        return mob.type;
     }
 
     public static class DungeonMob extends WeightedRandom.Item {
