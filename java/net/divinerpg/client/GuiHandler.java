@@ -117,9 +117,9 @@ public class GuiHandler implements IGuiHandler{
 	}
 
 	private Entity getEntityByID(int entityID, World world) {
-		for(int i = 0; i < world.getLoadedEntityList().size(); i++) {
-			if(((Entity)world.getLoadedEntityList().get(i)).getEntityId() == entityID) {
-				return ((Entity)world.getLoadedEntityList().get(i));
+		for(int i = 0; i < world.loadedEntityList.size(); i++) {
+			if(((Entity)world.loadedEntityList.get(i)).getEntityId() == entityID) {
+				return ((Entity)world.loadedEntityList.get(i));
 			}
 		}
 		return null;
