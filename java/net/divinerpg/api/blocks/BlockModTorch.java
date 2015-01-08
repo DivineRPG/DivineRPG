@@ -21,6 +21,7 @@ public class BlockModTorch extends BlockTorch {
         this.setCreativeTab(DivineRPGTabs.blocks);
         this.setBlockName(name);
         this.setBlockTextureName(Reference.PREFIX + name);
+        this.setLightLevel(1);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
         this.particle = particle;

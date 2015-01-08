@@ -1,12 +1,9 @@
 package net.divinerpg.utils.recipes;
 
-import net.divinerpg.DivineRPG;
-import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
-import net.divinerpg.utils.items.TwilightItemsTools;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsTools;
@@ -322,6 +319,6 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(ItemsFood.advMushroomStew, ItemsFood.whiteMushroom, Items.mushroom_stew);
 		addShapelessRecipe(ItemsFood.chickenDinner, ItemsFood.advMushroomStew, Items.cooked_chicken, Items.bread);
 		
-		addShapelessRecipe(VanillaBlocks.divinePlank, VanillaBlocks.divineWood);
+		addShapelessRecipe(new ItemStack(VanillaBlocks.divinePlank, 4), VanillaBlocks.divineWood);
 	}
 }
