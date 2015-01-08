@@ -49,6 +49,7 @@ import net.divinerpg.utils.events.EventInteract;
 import net.divinerpg.utils.events.EventLightning;
 import net.divinerpg.utils.events.EventLightningStrike;
 import net.divinerpg.utils.events.EventTooltip;
+import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
@@ -63,16 +64,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class CommonProxy{
 	public void preInitClient(FMLPreInitializationEvent event){}
@@ -94,6 +92,7 @@ public class CommonProxy{
         Util.postForgeEvent(new EventLightning());
         Util.postForgeEvent(new EventClientLogin());
         Util.postForgeEvent(new EventInteract());
+        Util.postFMLEvent(new Ticker());
 		LogHelper.info("Registering tile entities");
 		ItemsFood.init();
 		VanillaBlocks.init();

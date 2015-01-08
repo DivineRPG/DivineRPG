@@ -218,6 +218,11 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsArmor.jungleLegs, "III", "I I", "I I", 'I', VanillaItemsOther.jungleStone);
 		addRecipe(VanillaItemsArmor.jungleBoots,  "I I", "I I", 'I', VanillaItemsOther.jungleStone);
 		
+		addRecipe(VanillaItemsArmor.frozenHelmet, "III", "III", "I I", 'I', IceikaItems.iceStone);
+		addRecipe(VanillaItemsArmor.frozenBody, "III", "III", " I ", 'I', IceikaItems.iceStone);
+		addRecipe(VanillaItemsArmor.frozenLegs, "III", "I I", "I I", 'I', IceikaItems.iceStone);
+		addRecipe(VanillaItemsArmor.frozenBoots,  "I I", "I I", 'I', IceikaItems.iceStone);
+		
 		//misc
 		addRecipe(VanillaItemsOther.netheriteChunk, " I ", "III", " I ", 'I', VanillaItemsOther.netheriteIngot);
 		addShapelessRecipe(IS.eyeShards, VanillaItemsOther.cyclopsEye);

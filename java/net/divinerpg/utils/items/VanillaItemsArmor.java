@@ -110,6 +110,12 @@ public class VanillaItemsArmor {
     public static final Item      jungleLegs          = new ItemDivineArmor(EnumArmor.JUNGLE, LEGS, jungInfo);
     public static final Item      jungleBoots         = new ItemDivineArmor(EnumArmor.JUNGLE, BOOTS, jungInfo);
     
+    private static final Object[] frozenInfo            = new Object[] { ArmorInfo.FREEZE };
+    public static final Item      frozenHelmet        = new ItemDivineArmor(EnumArmor.FROZEN, HEAD, frozenInfo);
+    public static final Item      frozenBody          = new ItemDivineArmor(EnumArmor.FROZEN, BODY, frozenInfo);
+    public static final Item      frozenLegs          = new ItemDivineArmor(EnumArmor.FROZEN, LEGS, frozenInfo);
+    public static final Item      frozenBoots         = new ItemDivineArmor(EnumArmor.FROZEN, BOOTS, frozenInfo);
+    
     public static final Item      diamondHelmet       = new ItemDivineArmor(EnumArmor.DIAMOND, HEAD);
     public static final Item      diamondBody         = new ItemDivineArmor(EnumArmor.DIAMOND, BODY);
     public static final Item      diamondLegs         = new ItemDivineArmor(EnumArmor.DIAMOND, LEGS);

@@ -24,7 +24,8 @@ public enum ArmorInfo {
     SWIM("Swim Faster"),
     WITHER_PROTECTION("Wither Protection"),
     ARCANA_REGEN("Arcana Regeneration"),
-    POISON_PROTECTION("Poison Resistance");
+    POISON_PROTECTION("Poison Resistance"),
+    FREEZE("Slows Hostile Mobs Within 6 Blocks");
     
     private String info;
 
