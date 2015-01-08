@@ -23,6 +23,7 @@ public enum EnumArmor {
     ENDER(Util.addArmorMaterial("Ender", 0, 10), "ender", true, 65),
     JUNGLE(Util.addArmorMaterial("Jungle", 0, 10), "jungle", true, 55),
     FROZEN(Util.addArmorMaterial("Frozen", 5000, 10), "frozen", false, 50),
+    CORRUPTED(Util.addArmorMaterial("Corrupted", 5000, 10), "corrupted", false, 55),
     EDEN(Util.addArmorMaterial("Eden", 0, 10), "eden", true, 60),
     WILD(Util.addArmorMaterial("Wild", 0, 10), "wildwood", true, 65),
     APALACHIA(Util.addArmorMaterial("Apalachia", 0, 10), "apalachia", true, 72),

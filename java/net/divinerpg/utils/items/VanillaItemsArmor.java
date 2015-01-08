@@ -116,6 +116,12 @@ public class VanillaItemsArmor {
     public static final Item      frozenLegs          = new ItemDivineArmor(EnumArmor.FROZEN, LEGS, frozenInfo);
     public static final Item      frozenBoots         = new ItemDivineArmor(EnumArmor.FROZEN, BOOTS, frozenInfo);
     
+    private static final Object[] corruptedInfo            = new Object[] { 20, ArmorInfo.RANGED_DAMAGE };
+    public static final Item      corruptedHelmet        = new ItemDivineArmor(EnumArmor.CORRUPTED, HEAD, corruptedInfo);
+    public static final Item      corruptedBody          = new ItemDivineArmor(EnumArmor.CORRUPTED, BODY, corruptedInfo);
+    public static final Item      corruptedLegs          = new ItemDivineArmor(EnumArmor.CORRUPTED, LEGS, corruptedInfo);
+    public static final Item      corruptedBoots         = new ItemDivineArmor(EnumArmor.CORRUPTED, BOOTS, corruptedInfo);
+    
     public static final Item      diamondHelmet       = new ItemDivineArmor(EnumArmor.DIAMOND, HEAD);
     public static final Item      diamondBody         = new ItemDivineArmor(EnumArmor.DIAMOND, BODY);
     public static final Item      diamondLegs         = new ItemDivineArmor(EnumArmor.DIAMOND, LEGS);

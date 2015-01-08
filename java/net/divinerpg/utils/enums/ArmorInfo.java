@@ -7,6 +7,7 @@ public enum ArmorInfo {
     FLY("Flight"),
     SPEED("#x Movement Speed"),
     MELEE_DAMAGE("+# Melee Damage"),
+    RANGED_DAMAGE("+#% Ranged Damage"),
     HUNGER("Refills Hunger"),
     DAMAGE_REDUCTION("#% Damage Reduction"),
     JUMP_HEIGHT("#x Jump Height"),

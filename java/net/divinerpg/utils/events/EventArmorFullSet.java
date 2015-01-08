@@ -284,13 +284,21 @@ public class EventArmorFullSet {
             }
         }
             
-      //Halite
+        //Halite
         if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteBody && legs == TwilightItemsArmor.haliteLegs && helmet == TwilightItemsArmor.haliteHelmet) {
             if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                 e.ammount += 24;
             }
         }
+        
+        //Corrupted
+        if(body == VanillaItemsArmor.corruptedBody && legs == VanillaItemsArmor.corruptedLegs && boots == VanillaItemsArmor.corruptedBoots && helmet == VanillaItemsArmor.corruptedHelmet) {
+        	if (((s.getEntity() instanceof EntityPlayer) && s.isProjectile())) {
+                e.ammount *= 1.2;
+            }
+        }
 
+        //Vethean
         if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningHelmet) {
         	if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                 e.ammount += 3;
