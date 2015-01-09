@@ -78,14 +78,14 @@ public class EventArmorFullSet {
             //Arlemite
             if (boots == VanillaItemsArmor.arlemiteBoots && legs == VanillaItemsArmor.arlemiteLegs && body == VanillaItemsArmor.arlemiteBody && helmet == VanillaItemsArmor.arlemiteHelmet) {
                 if (s.isProjectile() || s.damageType.equals("thrown")) {
-                    e.ammount *= 0.4;
+                    e.ammount *= 0.375;
                 }
             }
 
             //Rupee
-            if (boots == VanillaItemsArmor.rupeeBoots && legs == VanillaItemsArmor.rupeeLegs && body == VanillaItemsArmor.rupeeBody && helmet == VanillaItemsArmor.rupeeHelmet) {
+            if ((boots == VanillaItemsArmor.rupeeBoots || boots == VanillaItemsArmor.redRupeeBoots || boots == VanillaItemsArmor.yellowRupeeBoots || boots == VanillaItemsArmor.greenRupeeBoots || boots == VanillaItemsArmor.blueRupeeBoots || boots == VanillaItemsArmor.grayRupeeBoots) && (legs == VanillaItemsArmor.rupeeLegs || legs == VanillaItemsArmor.redRupeeLegs || legs == VanillaItemsArmor.yellowRupeeLegs || legs == VanillaItemsArmor.greenRupeeLegs || legs == VanillaItemsArmor.blueRupeeLegs || legs == VanillaItemsArmor.grayRupeeLegs) && (body == VanillaItemsArmor.rupeeBody || body == VanillaItemsArmor.redRupeeBody || body == VanillaItemsArmor.yellowRupeeBody || body == VanillaItemsArmor.greenRupeeBody || body == VanillaItemsArmor.blueRupeeBody || body == VanillaItemsArmor.grayRupeeBody) && (helmet == VanillaItemsArmor.rupeeHelmet || helmet == VanillaItemsArmor.redRupeeHelmet || helmet == VanillaItemsArmor.yellowRupeeHelmet || helmet == VanillaItemsArmor.greenRupeeHelmet || helmet == VanillaItemsArmor.blueRupeeHelmet || helmet == VanillaItemsArmor.grayRupeeHelmet)) {
                 if ((s.damageType.equals("mob")) && !s.isProjectile()) {
-                    e.ammount *= 0.4;
+                    e.ammount *= 0.375;
                 }
             }
 

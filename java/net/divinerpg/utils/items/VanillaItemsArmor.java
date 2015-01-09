@@ -49,6 +49,26 @@ public class VanillaItemsArmor {
     public static final Item      rupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE, BODY, rupInfo);
     public static final Item      rupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE, LEGS, rupInfo);
     public static final Item      rupeeBoots          = new ItemDivineArmor(EnumArmor.RUPEE, BOOTS, rupInfo);
+    public static final Item     yellowRupeeHelmet         = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, HEAD, rupInfo);
+    public static final Item     yellowRupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, BODY, rupInfo);
+    public static final Item     yellowRupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, LEGS, rupInfo);
+    public static final Item     yellowRupeeBoots          = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, BOOTS, rupInfo);
+    public static final Item     redRupeeHelmet         = new ItemDivineArmor(EnumArmor.RUPEE_RED, HEAD, rupInfo);
+    public static final Item     redRupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE_RED, BODY, rupInfo);
+    public static final Item     redRupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE_RED, LEGS, rupInfo);
+    public static final Item     redRupeeBoots          = new ItemDivineArmor(EnumArmor.RUPEE_RED, BOOTS, rupInfo);
+    public static final Item     greenRupeeHelmet         = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, HEAD, rupInfo);
+    public static final Item     greenRupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, BODY, rupInfo);
+    public static final Item     greenRupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, LEGS, rupInfo);
+    public static final Item     greenRupeeBoots          = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, BOOTS, rupInfo);
+    public static final Item     blueRupeeHelmet         = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, HEAD, rupInfo);
+    public static final Item     blueRupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, BODY, rupInfo);
+    public static final Item     blueRupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, LEGS, rupInfo);
+    public static final Item     blueRupeeBoots          = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, BOOTS, rupInfo);
+    public static final Item     grayRupeeHelmet         = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, HEAD, rupInfo);
+    public static final Item     grayRupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, BODY, rupInfo);
+    public static final Item     grayRupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, LEGS, rupInfo);
+    public static final Item     grayRupeeBoots          = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, BOOTS, rupInfo);
 
     private static final Object[] krInfo              = new Object[] { ArmorInfo.UNDERWATER };
     public static final Item      krakenHelmet        = new ItemDivineArmor(EnumArmor.KRAKEN, HEAD, krInfo);
