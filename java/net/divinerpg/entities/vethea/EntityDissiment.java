@@ -126,8 +126,8 @@ public class EntityDissiment extends EntityDivineRPGFlying {
         if (!this.worldObj.isRemote) {
             byte var12 = (byte)(this.attackCounter > 10 ? 1 : 0);
         }
-        super.onLivingUpdate();
     	}
+        super.onLivingUpdate();
     }
 
     private boolean isCourseTraversable(double par1, double par3, double par5, double par7) {

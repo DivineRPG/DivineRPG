@@ -11,7 +11,7 @@ import net.minecraft.world.biome.BiomeGenForest;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-
+import net.minecraftforge.common.BiomeDictionary;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenOverworld implements IWorldGenerator{
@@ -50,7 +50,7 @@ public class WorldGenOverworld implements IWorldGenerator{
 			(new WorldGenDivineDungeon()).generate(world, random, posX, posY, posZ);
 		}
 		
-		if(biome instanceof BiomeGenForest){
+		if(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.FOREST)){
 			for(int i = 0; i < 3; i++) {
 				int posX = x + random.nextInt(16);
 				int posZ = z + random.nextInt(16);
@@ -63,13 +63,6 @@ public class WorldGenOverworld implements IWorldGenerator{
 	private void generateNether(World world, Random random, int x, int z) {
 		addNetherOreSpawn(VanillaBlocks.netheriteOre, world, random, x, z, 16, 16, 10, 4, 1, 128);
 		addNetherOreSpawn(VanillaBlocks.bloodgemOre,  world, random, x, z, 16, 16, 11, 5, 1, 128);
-
-		for (int i = 0; i < 2; ++i) {
-			int posX = x + random.nextInt(16) + 8;
-			int posY = random.nextInt(120) + 4;
-			int posZ = z + random.nextInt(16) + 8;
-			(new WorldGenBlueFire()).generate(world, random, posX, posY, posZ);
-		}
 	}
 
 	private void generateEnd(World world, Random random, int x, int z) { }

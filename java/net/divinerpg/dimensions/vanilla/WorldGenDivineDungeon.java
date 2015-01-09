@@ -74,7 +74,6 @@ public class WorldGenDivineDungeon extends WorldGenerator {
 								world.setBlock(i2, y, j2, Blocks.chest, 0, 2);
 								TileEntityChest tileentitychest = (TileEntityChest)world.getTileEntity(i2, y, j2);
 								if(tileentitychest != null) {
-									System.out.println(x + " " + y + " " + z);
 									WeightedRandomChestContent.generateChestContents(rand, items, tileentitychest, 5);
 								}
 								break label101;
