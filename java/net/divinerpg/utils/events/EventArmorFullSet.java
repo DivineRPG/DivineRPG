@@ -44,9 +44,9 @@ public class EventArmorFullSet {
     private World                world;
     
     @SubscribeEvent
-    public void onPlayerHurtEvent(LivingHurtEvent e) {
-        if (e.entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) e.entity;
+    public void onPlayerHurtEvent(LivingHurtEvent evt) {
+        if (evt.entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) evt.entity;
 
             ItemStack stackBoots = player.inventory.armorItemInSlot(0);
             ItemStack stackLegs = player.inventory.armorItemInSlot(1);
@@ -65,57 +65,63 @@ public class EventArmorFullSet {
             if (stackHelmet != null) helmet = stackHelmet.getItem();
             else helmet = null;
 
-            DamageSource s = e.source;
+            DamageSource s = evt.source;
 
-            //Ender and Bedrock
-            if ((boots == VanillaItemsArmor.enderBoots && legs == VanillaItemsArmor.enderLegs && body == VanillaItemsArmor.enderBody && helmet == VanillaItemsArmor.enderHelmet)
-                    || (boots == VanillaItemsArmor.bedrockBoots && legs == VanillaItemsArmor.bedrockLegs && body == VanillaItemsArmor.bedrockBody && helmet == VanillaItemsArmor.bedrockHelmet)) {
+            //Bedrock
+            if ((boots == VanillaItemsArmor.bedrockBoots && legs == VanillaItemsArmor.bedrockLegs && body == VanillaItemsArmor.bedrockBody && helmet == VanillaItemsArmor.bedrockHelmet)) {
                 if (s.isExplosion()) {
-                    e.setCanceled(true);
+                    evt.setCanceled(true);
+                }
+            }
+            
+          //Ender
+            if ((boots == VanillaItemsArmor.enderBoots || boots == VanillaItemsArmor.redEnderBoots || boots == VanillaItemsArmor.yellowEnderBoots || boots == VanillaItemsArmor.greenEnderBoots || boots == VanillaItemsArmor.blueEnderBoots || boots == VanillaItemsArmor.grayEnderBoots) && (legs == VanillaItemsArmor.enderLegs || legs == VanillaItemsArmor.redEnderLegs || legs == VanillaItemsArmor.yellowEnderLegs || legs == VanillaItemsArmor.greenEnderLegs || legs == VanillaItemsArmor.blueEnderLegs || legs == VanillaItemsArmor.grayEnderLegs) && (body == VanillaItemsArmor.enderBody || body == VanillaItemsArmor.redEnderBody || body == VanillaItemsArmor.yellowEnderBody || body == VanillaItemsArmor.greenEnderBody || body == VanillaItemsArmor.blueEnderBody || body == VanillaItemsArmor.grayEnderBody) && (helmet == VanillaItemsArmor.enderHelmet || helmet == VanillaItemsArmor.redEnderHelmet || helmet == VanillaItemsArmor.yellowEnderHelmet || helmet == VanillaItemsArmor.greenEnderHelmet || helmet == VanillaItemsArmor.blueEnderHelmet || helmet == VanillaItemsArmor.grayEnderHelmet)) {
+                if (s.isExplosion()) {
+                    evt.setCanceled(true);
                 }
             }
 
             //Arlemite
             if (boots == VanillaItemsArmor.arlemiteBoots && legs == VanillaItemsArmor.arlemiteLegs && body == VanillaItemsArmor.arlemiteBody && helmet == VanillaItemsArmor.arlemiteHelmet) {
                 if (s.isProjectile() || s.damageType.equals("thrown")) {
-                    e.ammount *= 0.375;
+                    evt.ammount *= 0.375;
                 }
             }
 
             //Rupee
             if ((boots == VanillaItemsArmor.rupeeBoots || boots == VanillaItemsArmor.redRupeeBoots || boots == VanillaItemsArmor.yellowRupeeBoots || boots == VanillaItemsArmor.greenRupeeBoots || boots == VanillaItemsArmor.blueRupeeBoots || boots == VanillaItemsArmor.grayRupeeBoots) && (legs == VanillaItemsArmor.rupeeLegs || legs == VanillaItemsArmor.redRupeeLegs || legs == VanillaItemsArmor.yellowRupeeLegs || legs == VanillaItemsArmor.greenRupeeLegs || legs == VanillaItemsArmor.blueRupeeLegs || legs == VanillaItemsArmor.grayRupeeLegs) && (body == VanillaItemsArmor.rupeeBody || body == VanillaItemsArmor.redRupeeBody || body == VanillaItemsArmor.yellowRupeeBody || body == VanillaItemsArmor.greenRupeeBody || body == VanillaItemsArmor.blueRupeeBody || body == VanillaItemsArmor.grayRupeeBody) && (helmet == VanillaItemsArmor.rupeeHelmet || helmet == VanillaItemsArmor.redRupeeHelmet || helmet == VanillaItemsArmor.yellowRupeeHelmet || helmet == VanillaItemsArmor.greenRupeeHelmet || helmet == VanillaItemsArmor.blueRupeeHelmet || helmet == VanillaItemsArmor.grayRupeeHelmet)) {
                 if ((s.damageType.equals("mob")) && !s.isProjectile()) {
-                    e.ammount *= 0.375;
+                    evt.ammount *= 0.375;
                 }
             }
 
             //Santa
             if (boots == IceikaItems.santaBoots && legs == IceikaItems.santaLegs && body == IceikaItems.santaBody && helmet == IceikaItems.santaHead) {
-                if (e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
-                    e.ammount *= 0.2;
+                if (evt.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
+                    evt.ammount *= 0.2;
                 }
             }
             
             //Vethean
             
             if(body == VetheaItems.degradedBody && legs == VetheaItems.degradedLegs && boots == VetheaItems.degradedBoots) {
-            	if((helmet == VetheaItems.degradedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.degradedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.degradedHood && s.isMagicDamage())) e.ammount *= 0.82;
+            	if((helmet == VetheaItems.degradedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.degradedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.degradedHood && s.isMagicDamage())) evt.ammount *= 0.82;
             }
             
             if(body == VetheaItems.finishedBody && legs == VetheaItems.finishedLegs && boots == VetheaItems.finishedBoots) {
-            	if((helmet == VetheaItems.finishedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.finishedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.finishedHood && s.isMagicDamage())) e.ammount *= 0.773;
+            	if((helmet == VetheaItems.finishedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.finishedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.finishedHood && s.isMagicDamage())) evt.ammount *= 0.773;
             }
             
             if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots) {
-            	if((helmet == VetheaItems.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.glisteningMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.glisteningHood && s.isMagicDamage())) e.ammount *= 0.7;
+            	if((helmet == VetheaItems.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.glisteningMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.glisteningHood && s.isMagicDamage())) evt.ammount *= 0.7;
             }
             
             if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots) {
-            	if((helmet == VetheaItems.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.demonizedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.demonizedHood && s.isMagicDamage())) e.ammount *= 0.625;
+            	if((helmet == VetheaItems.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.demonizedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.demonizedHood && s.isMagicDamage())) evt.ammount *= 0.625;
             }
             
             if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots) {
-            	if((helmet == VetheaItems.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.tormentedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.tormentedHood && s.isMagicDamage())) e.ammount *= 0.348;
+            	if((helmet == VetheaItems.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.tormentedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == VetheaItems.tormentedHood && s.isMagicDamage())) evt.ammount *= 0.348;
             }
 
         }

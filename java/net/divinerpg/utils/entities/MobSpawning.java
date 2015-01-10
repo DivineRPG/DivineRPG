@@ -204,7 +204,7 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
-				} else {
+				} else if(biome != DimensionHelper.Apalachia && biome != DimensionHelper.Arcana && biome != DimensionHelper.Eden && biome != DimensionHelper.Iceika && biome != DimensionHelper.Mortum && biome != DimensionHelper.Skythern && biome != DimensionHelper.Vethea && biome != DimensionHelper.WildWoods){
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
 						EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);
