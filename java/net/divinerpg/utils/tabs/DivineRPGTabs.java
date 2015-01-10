@@ -62,7 +62,7 @@ public class DivineRPGTabs extends CreativeTabs {
         swords.setIcon(VanillaItemsWeapons.aquaton);
         tools.setIcon(VanillaItemsTools.rupeeShickaxe);
         items.setIcon(VanillaItemsOther.rupeeIngot);
-        armor.setIcon(VanillaItemsArmor.angelicHelmet);
+        armor.setIcon(VanillaItemsArmor.divineHelmet);
         spawner.setIcon(VanillaItemsOther.callWatcher);
         utility.setIcon(VanillaItemsOther.tarBucket);
         food.setIcon(ItemsFood.bacon);
