@@ -47,10 +47,7 @@ public class ItemVanillaSpawner extends ItemMod{
 						return true;
 					}
 				}
-			}
-			if(par3World.provider.dimensionId != -1){
-				player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in the Nether!"));
-			}
+			} else player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in the Nether."));
 		}
 		return false;
 	}

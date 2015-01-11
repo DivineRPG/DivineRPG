@@ -62,7 +62,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		addRecipe(VanillaItemsWeapons.hunterBow, " IX", "I X", " IX", 'I', VanillaItemsOther.jungleStone, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.shadowBow, " IX", "I X", " IX", 'I', VanillaItemsOther.shadowBar, 'X', Items.string);
-		addRecipe(VanillaItemsWeapons.enderBow, " IX", "I X", " IX", 'I', VanillaItemsOther.enderStone, 'X', Items.string);
+		addRecipe(VanillaItemsWeapons.enderBow, " IX", "E X", " IX", 'I', VanillaItemsOther.enderStone, 'X', Items.string, 'E', VanillaItemsOther.watchingEye);
 		addRecipe(VanillaItemsWeapons.bluefireBow, " IX", "I X", " IX", 'I', VanillaItemsOther.aquaticBlazeRod, 'X', VanillaItemsOther.bluefireStone);
 		addRecipe(VanillaItemsWeapons.infernoBow, " IX", "I X", " IX", 'I', VanillaItemsOther.moltenStone, 'X', Items.blaze_powder);
 		
@@ -278,6 +278,13 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaBlocks.realmiteBlock, "III", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaBlocks.netheriteBlock, "III", "III", "III", 'I', VanillaItemsOther.netheriteIngot);
 		addRecipe(VanillaBlocks.bloodgemBlock, "III", "III", "III", 'I', VanillaItemsOther.bloodgem);
+		
+		addRecipe(TwilightItemsOther.twilightClock, "CCC", "CCC", "CCC", 'C', Items.clock);
+		addRecipe(IceikaItems.snowGlobe, " G ", "GSG", "DBD", 'G', Blocks.glass, 'S', Blocks.snow, 'D', Items.diamond, 'B', VanillaItemsOther.shadowBar);
+		
+		addRecipe(VanillaItemsOther.mysteriousClock, " H ", "SCS", " S ", 'C', Items.clock, 'S', VanillaItemsOther.corruptedStone, 'H', VanillaItemsOther.hellstoneIngot);
+		addRecipe(VanillaItemsOther.callWatcher, " H ", "SES", " S ", 'E', VanillaItemsOther.watchingEye, 'S', VanillaItemsOther.moltenStone, 'H', VanillaItemsOther.hellstoneIngot);
+		addRecipe(VanillaItemsOther.hordeHorn, " H ", "SES", " S ", 'E', Items.ender_eye, 'S', VanillaItemsOther.enderStone, 'H', VanillaItemsOther.hellstoneIngot);
 		
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 0),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 6));
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 1),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 1));

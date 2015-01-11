@@ -94,26 +94,18 @@ public class EntityFrost extends EntityDivineRPGMob {
             if(this.attackTime == 0) {
                 ++this.anger;
 
-                if(this.anger == 1) {
-                    this.attackTime = 60;
-                }
-                else if(this.anger <= 4) {
-                    this.attackTime = 6;
-                } else {
-                    this.attackTime = 100;
-                    this.anger = 0;
+                this.attackTime = 10;
+                if(this.anger == 3) { 
+                	this.attackTime = 40;
+                	this.anger = 0;
                 }
 
-                if(this.anger > 1) {
-                    float var9 = MathHelper.sqrt_float(par2) * 0.5F;
-                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1009, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+                float var9 = MathHelper.sqrt_float(par2) * 0.5F;
+                this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1009, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
 
-                    for(int var10 = 0; var10 < 1; ++var10) {
-                        EntityFrostShot entity = new EntityFrostShot(this.worldObj, this, var3, var5, var7);
-                        entity.posY = this.posY + (double)(this.height / 2.0F) + 1.5D;
-                        this.worldObj.spawnEntityInWorld(entity);
-                    }
-                }
+                EntityFrostShot entity = new EntityFrostShot(this.worldObj, this, var3, var5, var7);
+                entity.posY = this.posY + (double)(this.height / 2.0F) + 1.5D;
+                this.worldObj.spawnEntityInWorld(entity);
             }
 
             this.rotationYaw = (float)(Math.atan2(var7, var3) * 180.0D / Math.PI) - 90.0F;

@@ -58,7 +58,7 @@ public class VanillaItemsOther {
     
     public static Item tarBucket;
     
-    public static Item myseriousClock;
+    public static Item mysteriousClock;
     public static Item watchingEye;
     public static Item callWatcher;
     public static Item infernalFlame;
@@ -117,7 +117,7 @@ public class VanillaItemsOther {
         
         tarBucket 			= new ItemModBucket(VanillaBlocks.tar, "bucketOfTar");
         
-        myseriousClock     = new ItemMysteriousClock("mysteriousClock");
+        mysteriousClock     = new ItemMysteriousClock("mysteriousClock");
         watchingEye        = new ItemMod("watchingEye");
         callWatcher        = new ItemVanillaSpawner("callOfTheWatcher");
         infernalFlame      = new ItemVanillaSpawner("infernalFlame");
