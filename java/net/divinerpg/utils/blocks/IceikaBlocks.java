@@ -14,7 +14,6 @@ import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
 import net.divinerpg.blocks.iceika.BlockIceikaFire;
-import net.divinerpg.blocks.iceika.BlockIceikaLava;
 import net.divinerpg.blocks.iceika.BlockXmasLights;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;
@@ -39,7 +38,6 @@ public class IceikaBlocks {
     public static Block decorativeFrostedChest= new BlockFrostedChest("decorativeFrostedChest", false).setHardness(2.5F);
     public static Block rollumSpawner       = new BlockModSpawner("rollumSpawner", "Rollum").setHardness(5.0F);
     public static Block frostArcherSpawner  = new BlockModSpawner("frostArcherSpawner", "FrostArcher").setHardness(5.0F);
-    public static Block iceikaLava 		  = new BlockIceikaLava();
     public static Block snowBricks          = new BlockMod("snowBricks", 6.0F);
     public static Block coalstone           = new BlockMod("coalstone", 3.0F);
     public static Block coalstoneStairs     = new BlockModStairs(coalstone, "coalstoneStairs");

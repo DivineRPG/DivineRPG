@@ -3,7 +3,6 @@ package net.divinerpg.utils;
 import java.lang.reflect.Method;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.utils.recipes.CraftingDivineTableManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
@@ -50,9 +49,6 @@ public class Util {
         GameRegistry.addRecipe(i, o);
     }
 
-    public static void addBigRecipe(ItemStack i, Object... o) {
-        CraftingDivineTableManager.getInstance().addRecipe(i, o);
-    }
 
     public static void addBucket(Fluid fluid, ItemStack modBucket) {
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME), modBucket, new ItemStack(Items.bucket));
@@ -68,10 +64,6 @@ public class Util {
 
     public static void addShapelessRecipe(ItemStack i, Object... o) {
         GameRegistry.addShapelessRecipe(i, o);
-    }
-
-    public static void addBigShapelessRecipe(ItemStack i, Object... o) {
-        CraftingDivineTableManager.getInstance().addShapelessRecipe(i, o);
     }
 
     public static void addSmelting(ItemStack input, ItemStack output, float XP) {

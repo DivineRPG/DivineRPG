@@ -6,7 +6,6 @@ import net.minecraft.item.Item.ToolMaterial;
 public class ToolMaterialMod {
 
     //Weapons
-    public static ToolMaterial Longsword      = Util.addMeleeMaterial(750, 10, 15);
     public static ToolMaterial IcicleBane     = Util.addMeleeMaterial(16, 15);
     public static ToolMaterial Icine          = Util.addMeleeMaterial(34, 15);
     public static ToolMaterial Enderice       = Util.addMeleeMaterial(28, 15);

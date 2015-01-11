@@ -224,7 +224,7 @@ public class MapGenIceikaCaves extends MapGenBase {
 
         if (block == IceikaBlocks.frozenStone || block == filler || block == top) {
             if (y < 10) {
-                data[index] = IceikaBlocks.iceikaLava;
+                data[index] = Blocks.lava;
             } else {
                 data[index] = null;
 

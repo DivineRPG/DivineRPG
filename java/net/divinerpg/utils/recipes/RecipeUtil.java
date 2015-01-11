@@ -33,25 +33,6 @@ public class RecipeUtil {
         GameRegistry.addShapelessRecipe(new ItemStack(b, 1), o);
     }
 	
-	protected static void addBigRecipe(ItemStack i, Object... o) {
-        CraftingDivineTableManager.getInstance().addRecipe(i, o);
-    }
-	protected static void addBigRecipe(Item i, Object... o) {
-        CraftingDivineTableManager.getInstance().addRecipe(new ItemStack(i, 1), o);
-    }
-	protected static void addBigRecipe(Block b, Object... o) {
-        CraftingDivineTableManager.getInstance().addRecipe(new ItemStack(b, 1), o);
-    }
-	
-	protected static void addBigShapelessRecipe(ItemStack i, Object... o) {
-        CraftingDivineTableManager.getInstance().addShapelessRecipe(i, o);
-    }
-	protected static void addBigShapelessRecipe(Item i, Object... o) {
-        CraftingDivineTableManager.getInstance().addShapelessRecipe(new ItemStack(i, 1), o);
-    }
-	protected static void addBigShapelessRecipe(Block b, Object... o) {
-        CraftingDivineTableManager.getInstance().addShapelessRecipe(new ItemStack(b, 1), o);
-    }
 
 	protected static void addSmelting(ItemStack input, ItemStack output, float XP) {
         GameRegistry.addSmelting(input, output, XP);

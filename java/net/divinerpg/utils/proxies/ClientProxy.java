@@ -30,7 +30,6 @@ import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.DevHatEvent;
 import net.divinerpg.utils.events.EventExtraArmor;
-import net.divinerpg.utils.events.EventFog;
 import net.divinerpg.utils.events.EventOverlay;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.particle.EntityFX;
@@ -88,7 +87,6 @@ public class ClientProxy extends CommonProxy {
         Util.postFMLEvent(new BossTickHandler());
         LogHelper.info("Adding sounds");
         Util.postForgeEvent(new DevHatEvent());
-        Util.postForgeEvent(new EventFog());
     }
     
     @Override

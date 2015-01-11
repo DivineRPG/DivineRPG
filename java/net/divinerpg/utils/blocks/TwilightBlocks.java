@@ -13,7 +13,6 @@ import net.divinerpg.blocks.twilight.BlockBlueFire;
 import net.divinerpg.blocks.twilight.BlockBrambles;
 import net.divinerpg.blocks.twilight.BlockEdenChest;
 import net.divinerpg.blocks.twilight.BlockTwilightFlower;
-import net.divinerpg.blocks.twilight.BlockTwilightFurnace;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;
@@ -64,8 +63,6 @@ public class TwilightBlocks {
     public static Block apalachiaPortal;
     public static Block skythernPortal;
     public static Block mortumPortal;
-    public static Block twilightFurnace;
-    public static Block twilightFurnaceOn;
     
     public static Block edenTorch;
     public static Block edenChest;
@@ -128,8 +125,6 @@ public class TwilightBlocks {
         apalachiaPortal   = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, wildwoodBlock);
         skythernPortal    = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, apalachiaBlock);
         mortumPortal      = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, skythernBlock);
-        twilightFurnace   = new BlockTwilightFurnace("twilightFurnace", false);
-        twilightFurnaceOn = new BlockTwilightFurnace("twilightFurnaceOn", true);
         
         edenTorch		  = new BlockModTorch("edenTorch", "greenFlame");
         edenChest		  = new BlockEdenChest("edenChest");

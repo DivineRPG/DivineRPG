@@ -11,7 +11,6 @@ import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
 import net.divinerpg.blocks.vanilla.BlockBoneChest;
 import net.divinerpg.blocks.vanilla.BlockDivineBricks;
-import net.divinerpg.blocks.vanilla.BlockDivineTable;
 import net.divinerpg.blocks.vanilla.BlockLamp1;
 import net.divinerpg.blocks.vanilla.BlockLamp2;
 import net.divinerpg.blocks.vanilla.BlockLightFence;
@@ -84,7 +83,6 @@ public class VanillaBlocks {
 	public static Block yellowVane;
 
 	public static Block divineRock;
-	public static Block divineCraftingTable;
 	public static Block acceleron;
 	public static Block tar;
 
@@ -199,7 +197,6 @@ public class VanillaBlocks {
 		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, STONE);
 
 		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE);
-		divineCraftingTable = new BlockDivineTable();
 		acceleron		  	  = new BlockAcceleron();
 		tar 				  = new BlockTar();
 

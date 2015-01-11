@@ -65,6 +65,4 @@ public class IceikaItems {
     public static final Item      santaBoots        = new ItemDivineArmor(EnumArmor.SANTA, BOOTS, santaInfo);
 
     public static final Item      snowGlobe         = new ItemSnowGlobe("snowGlobe");
-
-    public static final Item 	  frozenLavaBucket  = new ItemModBucket(IceikaBlocks.iceikaLava, "bucketOfFrozenLava");
 }

@@ -14,7 +14,6 @@ import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityWhitefireFurn
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
 import net.divinerpg.blocks.twilight.TileEntityEdenChest;
-import net.divinerpg.blocks.twilight.TileEntityTwilightFurnace;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
@@ -51,7 +50,6 @@ import net.divinerpg.utils.events.EventLightningStrike;
 import net.divinerpg.utils.events.EventTooltip;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.ArcanaItems;
-import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -101,7 +99,6 @@ public class CommonProxy{
 		ArcanaBlocks.init();
 		ArcanaItems.init();
 		DivineRPGTabs.init();
-		GameRegistry.registerTileEntity(TileEntityTwilightFurnace.class, "Twilight Furnace");
 		GameRegistry.registerTileEntity(TileEntityInfusionTable.class, "Infusion Table");
 		GameRegistry.registerTileEntity(TileEntityStatue.class, "Statue");
 		GameRegistry.registerTileEntity(TileEntityFrostedChest.class, "Frosted Chest");
@@ -142,7 +139,6 @@ public class CommonProxy{
 
 	public void postInit(FMLPostInitializationEvent event){
 		Util.addBucket(DivineRPG.tarFluid, new ItemStack(VanillaItemsOther.tarBucket));
-		Util.addBucket(DivineRPG.frozenLava, new ItemStack(IceikaItems.frozenLavaBucket));
 	}
 
 	public void serverStarting(FMLServerStartingEvent event){ 

@@ -64,7 +64,6 @@ public class VanillaItemsWeapons {
     public static final Item enderSwordGreen    = new ItemModSword(ToolMaterialMod.Ender, "enderSwordGreen");
     public static final Item enderSwordRed      = new ItemModSword(ToolMaterialMod.Ender, "enderSwordRed");
     public static final Item enderSwordYellow   = new ItemModSword(ToolMaterialMod.Ender, "enderSwordYellow");
-    public static final Item longsword   		= new ItemModSword(ToolMaterialMod.Longsword, "longsword").setFull3D();
     public static final Item cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
     
     public static final Item hunterBow          = new ItemModBow("hunterBow", 2500, 2, 11, Items.arrow, "hunterArrow");
