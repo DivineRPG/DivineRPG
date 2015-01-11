@@ -10,6 +10,7 @@ import net.divinerpg.client.render.RenderProjectile;
 import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.RenderEdenChest;
 import net.divinerpg.client.render.entity.twilight.RenderBunny;
+import net.divinerpg.client.render.entity.twilight.RenderDAR;
 import net.divinerpg.client.render.entity.twilight.RenderEnchantedArcher;
 import net.divinerpg.client.render.entity.twilight.RenderEternalArcher;
 import net.divinerpg.client.render.entity.twilight.RenderTwilightArcher;
@@ -130,8 +131,8 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityBaslisk.class, new RenderDivineMob(new ModelBasalisk(), 0.0F, x.basalisk));
         RenderingRegistry.registerEntityRenderingHandler(EntitySoulStealer.class, new RenderDivineMob(new ModelSoulStealer(), 0.0F, x.soulStealer));
         
-        RenderingRegistry.registerEntityRenderingHandler(EntityDensos.class, new RenderDivineBoss(new ModelDensos(), 0.0F, x.densos, s.densosBossID));
-        RenderingRegistry.registerEntityRenderingHandler(EntityReyvor.class, new RenderDivineBoss(new ModelDensos(), 0.0F, x.reyvor, s.reyvorBossID));
+        RenderingRegistry.registerEntityRenderingHandler(EntityDensos.class, new RenderDAR(new ModelDensos(), 0.0F, x.densos, s.densosBossID));
+        RenderingRegistry.registerEntityRenderingHandler(EntityReyvor.class, new RenderDAR(new ModelDensos(), 0.0F, x.reyvor, s.reyvorBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityTwilightDemon.class, new RenderDivineBoss(new ModelTwilightDemon(), 0.0F, 2.0F, x.twilightDemon, s.twilightDemonBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntitySoulFiend.class, new RenderDivineBoss(new ModelSoulFiend(), 0.0F, 1.0F, x.soulFiend, s.soulFiendBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityVamacheron.class, new RenderDivineBoss(new ModelVamacheron(), 0.0F, 3.0F, x.vamacheron, s.vamacheronBossID));
