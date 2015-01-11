@@ -33,19 +33,19 @@ public class ItemArcanaProjectile extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		Item item = stack.getItem();
-		if(ArcanaHelper.getProperties(player).useBar(arcana)) {
-			if(item == ArcanaItems.firefly && !world.isRemote){
+			if(item == ArcanaItems.firefly && !world.isRemote && ArcanaHelper.getProperties(player).useBar(arcana)){
 				Sounds.playSound(player, world, Sounds.firefly);
 				world.spawnEntityInWorld(new EntityFirefly(world, player, 0.6F, 50));
 			}
 			if(item == ArcanaItems.laVekor) {
+				if((player.inventory.hasItem(ArcanaItems.grenade) || player.capabilities.isCreativeMode) && ArcanaHelper.getProperties(player).useBar(arcana)) {
 				if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(ArcanaItems.grenade);
 				if(!world.isRemote){
 					Sounds.playSound(player, world, Sounds.laVekor);
 					world.spawnEntityInWorld(new EntityGrenade(world, player));
 				}
 			}
-		}
+			}
 		return stack;
 	}
 	
