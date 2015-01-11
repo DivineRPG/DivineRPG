@@ -18,6 +18,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
@@ -368,6 +369,13 @@ public class ChunkProviderApalachia implements IChunkProvider{
 			var16 = var5 + this.rand.nextInt(16)+8;
 			var15 = this.rand.nextInt(128)+1;
 			(new WorldGenModDoublePlant(TwilightBlocks.duskFlower)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
+		for (int c = 0; c < 45; ++c) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(128)+1;
+			(new WorldGenFlowers(TwilightBlocks.apalachiaTallgrass)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 
 		BlockSand.fallInstantly = false;

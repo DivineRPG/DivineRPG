@@ -189,7 +189,7 @@ public class ChunkProviderWildwood implements IChunkProvider{
 			var14 = var4 + this.rand.nextInt(16)+8;
 			var16 = var5 + this.rand.nextInt(16)+8;
 			var15 = this.rand.nextInt(128)+1;
-			(new WorldGenFlowers(TwilightBlocks.dawnBud)).generate(this.worldObj, this.rand, var14, var15, var16);
+			(new WorldGenFlowers(TwilightBlocks.moonBud)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 		
 		for (int var13 = 0; var13 < 30; ++var13) {

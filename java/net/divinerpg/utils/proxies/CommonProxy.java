@@ -46,7 +46,6 @@ import net.divinerpg.utils.events.EventDeath;
 import net.divinerpg.utils.events.EventHarvest;
 import net.divinerpg.utils.events.EventInteract;
 import net.divinerpg.utils.events.EventLightning;
-import net.divinerpg.utils.events.EventLightningStrike;
 import net.divinerpg.utils.events.EventTooltip;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.ArcanaItems;
@@ -80,7 +79,6 @@ public class CommonProxy{
 		Util.postForgeEvent(new EventBonemeal());
 		Util.postForgeEvent(new EventArmorFullSet());
 		Util.postFMLEvent(new EventArmorTick());
-		Util.postForgeEvent(new EventLightningStrike());
 		Util.postForgeEvent(new EventHarvest());
 		Util.postForgeEvent(new EventDeath());
         Util.postFMLEvent(new ArcanaTickHandler());

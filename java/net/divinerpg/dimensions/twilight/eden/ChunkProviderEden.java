@@ -332,7 +332,7 @@ public class ChunkProviderEden implements IChunkProvider{
 		int var16;
 
 		
-		if(this.rand.nextInt(5) == 0) {
+		if(this.rand.nextInt(3) == 0) {
 			var13 = var4 + this.rand.nextInt(16);
 			var15 = var5 + this.rand.nextInt(16);
 			var14 = this.worldObj.getHeightValue(var13, var15);
