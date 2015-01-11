@@ -37,6 +37,14 @@ public class EntityGorgosion extends VetheaMob {
 		}
 		super.fall(par1);
 	}
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 10) != null && this.rand.nextInt(30) == 0) {
+			this.addVelocity(0, 1, 0);
+		}
+	}
 
 	@Override
 	protected float getSoundVolume() {
@@ -58,10 +66,10 @@ public class EntityGorgosion extends VetheaMob {
 		return getHurtSound();
 	}
 
-	public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) {
-		if (par1DamageSource.isExplosion())
-			return false;
-		return super.attackEntityFrom(par1DamageSource, par2);
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float par2) {
+		if (source.isExplosion()) return false;
+		return super.attackEntityFrom(source, par2);
 	}
 
 	@Override
