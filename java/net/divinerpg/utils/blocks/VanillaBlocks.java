@@ -258,9 +258,9 @@ public class VanillaBlocks {
 		mushroom			  = new BlockMushroom("mushroomPlant");
 		
 		eucalyptusWood	  = new BlockModLog("eucalyptusLog");
-		eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", true, DivineRPGTabs.blocks);
+		eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", 2, DivineRPGTabs.blocks);
 		divineWood	  	  = new BlockModLog("divineLog");
-		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", true, DivineRPGTabs.blocks);
+		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks);
 		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
 		divineMossystone	  = new BlockMod("divineMossStone", 0.5F);
 		divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");

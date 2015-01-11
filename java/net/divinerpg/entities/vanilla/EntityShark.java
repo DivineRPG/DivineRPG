@@ -32,6 +32,11 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.sharkSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.sharkFollowRange);
     }
+    
+    @Override
+	public int getMaxSpawnedInChunk() {
+		return 1;
+	}
 
     @Override
     public boolean canBreatheUnderwater() {

@@ -13,13 +13,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityWhale extends EntityPeacefulUntilAttacked {
 
 	public EntityWhale(World var1) {
 		super(var1);
-		this.setSize(2.0F, 3.0F);
+		this.setSize(4.2F, 3.0F);
 	}
 
 	@Override
@@ -29,6 +30,11 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.whaleDamage);
 	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.whaleSpeed);
 	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.whaleFollowRange);
+	}
+	
+	@Override
+	public int getMaxSpawnedInChunk() {
+		return 1;
 	}
 
 	@Override
@@ -64,6 +70,14 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 			this.entityDropItem(new ItemStack(VanillaItemsOther.whaleFin), 0.0F);
 		}
 	}
+	
+	@Override
+    public boolean getCanSpawnHere() {
+        int var1 = MathHelper.floor_double(this.posX);
+        int var2 = MathHelper.floor_double(this.boundingBox.minY);
+        int var3 = MathHelper.floor_double(this.posZ);
+        return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
+    }
 
 	@Override
 	public void onEntityUpdate() {
