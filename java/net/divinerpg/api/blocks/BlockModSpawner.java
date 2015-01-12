@@ -30,6 +30,7 @@ public class BlockModSpawner extends BlockContainer {
         setCreativeTab(DivineRPGTabs.spawner);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
+        setHardness(5.0F);
     }
 
     @Override
