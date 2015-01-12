@@ -34,7 +34,7 @@ public class ItemSerenadeStriker extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		final double eyeHeight = 1.62;
 		final double reachDistance = 300;
-		Vec3 startPos = player.getPosition(1.0F);
+		Vec3 startPos = Vec3.createVectorHelper(player.posX, player.posY, player.posZ);
 		if (!world.isRemote) startPos = startPos.addVector(0, eyeHeight, 0);
 		Vec3 look = player.getLook(1.0F);
 		Vec3 endPos = startPos.addVector(look.xCoord * reachDistance, look.yCoord * reachDistance, look.zCoord * reachDistance);
@@ -51,25 +51,12 @@ public class ItemSerenadeStriker extends ItemMod {
 				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
 				if(!player.capabilities.isCreativeMode)stack.damageItem(1, player);
 			}
-			
-			/*//idk how to make this take up less code ~ caleb
-			world.func_147480_a(x, y, z, true);
-			world.func_147480_a(x+1, y, z, true);
-			world.func_147480_a(x-1, y, z, true); removed because the player can get through unbreakable blocks
-			world.func_147480_a(x, y, z-1, true);
-			world.func_147480_a(x, y, z+1, true);	//Changed this from removing the blocks to breaking them
-			world.func_147480_a(x-1, y, z-1, true);
-			world.func_147480_a(x-1, y, z+1, true);
-			world.func_147480_a(x+1, y, z-1, true);
-			world.func_147480_a(x+1, y, z+1, true);
-			//Lightning is enough sound.*/
 		}
 		return stack;
 	}
 
 	@Override
 	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-		infoList.add("Strikes lightning where you are looking");
-		//infoList.add("WARNING: Destroys blocks");
+		infoList.add("Shoots Lightning");
 	}
 }
