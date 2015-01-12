@@ -11,7 +11,7 @@ public class EntityEnthralledDramcryx extends EntityDivineRPGMob {
     public EntityEnthralledDramcryx(World par1World) {
         super(par1World);
         addAttackingAI();
-        setSize(1.5F, 1.5F);
+        setSize(1.25F, 1.25F);
     }
     
     @Override
