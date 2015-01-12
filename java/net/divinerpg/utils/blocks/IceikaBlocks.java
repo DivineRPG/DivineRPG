@@ -23,38 +23,75 @@ import net.minecraft.init.Blocks;
 
 public class IceikaBlocks {
 
-    public static Block frozenDirt          = new BlockMod(EnumBlockType.GRASS, "frozenDirt", 2.5F);
-    public static Block frozenGrass         = new BlockModGrass((BlockMod) frozenDirt, "frozenGrass", "frozenDirt", 2.5F);
-    public static Block frozenStone         = new BlockMod("frozenStone", 6.0F);
-    public static Block frozenWood          = new BlockModLog("frozenLog").setHardness(5.0F);
-    public static Block brittleLeaves       = new BlockModLeaves("brittleLeaves", 0.1F);
+	public static Block frozenDirt;
+	public static Block frozenGrass;
+	public static Block frozenStone;
+	public static Block frozenWood;
+	public static Block brittleLeaves;
 
-    public static Block winterberryBush     = new BlockModBush(false, "winterberryBush", "ripeWinterberryBush", null).setHardness(0.2F);
-    public static Block winterberryBushRipe = new BlockModBush(true, "ripeWinterberryBush", "winterberryBush", IceikaItems.winterberry).setHardness(0.2F);
+	public static Block winterberryBush;
+	public static Block winterberryBushRipe;
 
-    public static Block icyStone            = new BlockMod("icyStone", -1F);
-    public static Block icyBricks           = new BlockMod("icyBricks", -1F);
-    public static Block frostedChest        = new BlockFrostedChest("frostedChest", true).setHardness(2.5F);
-    public static Block decorativeFrostedChest= new BlockFrostedChest("decorativeFrostedChest", false).setHardness(2.5F);
-    public static Block rollumSpawner       = new BlockModSpawner("rollumSpawner", "Rollum").setHardness(5.0F);
-    public static Block frostArcherSpawner  = new BlockModSpawner("frostArcherSpawner", "FrostArcher").setHardness(5.0F);
-    public static Block snowBricks          = new BlockMod("snowBricks", 6.0F);
-    public static Block coalstone           = new BlockMod("coalstone", 3.0F);
-    public static Block coalstoneStairs     = new BlockModStairs(coalstone, "coalstoneStairs");
-    public static Block workshopCarpet      = new BlockMod(EnumBlockType.WOOL, "workshopCarpet", 0.1F);
-    public static Block frostedGlass        = new BlockModGlass("frostedGlass", 1.0F);
-    public static Block workshopBookcase    = new BlockModBook("workshopBookcase").setHardness(1.5F);
-    public static Block workshopLamp        = new BlockMod(EnumBlockType.GLASS, "workshopLamp", 0.3F).setLightLevel(1);
-    public static Block steelDoorBlock      = new BlockModDoor(EnumBlockType.IRON, "steelDoorBlock", 7.0F, true);
-    public static Block coalstoneFurnace    = new BlockCoalstoneFurnace("coalstoneFurnace", false);
-    public static Block coalstoneFurnaceOn  = new BlockCoalstoneFurnace("coalstoneFurnaceActive", true);
-    
-    public static Block redXmasLights		= new BlockXmasLights("redChristmasLights");
-    public static Block greenXmasLights		= new BlockXmasLights("greenChristmasLights");
-    public static Block blueXmasLights		= new BlockXmasLights("blueChristmasLights");
-    public static Block yellowXmasLights	= new BlockXmasLights("yellowChristmasLights");
-    public static Block purpleXmasLights	= new BlockXmasLights("purpleChristmasLights");
+	public static Block icyStone;
+	public static Block icyBricks;
+	public static Block frostedChest;
+	public static Block decorativeFrostedChest;
+	public static Block rollumSpawner;
+	public static Block frostArcherSpawner;
+	public static Block snowBricks;
+	public static Block coalstone;
+	public static Block coalstoneStairs;
+	public static Block workshopCarpet;
+	public static Block frostedGlass;
+	public static Block workshopBookcase;
+	public static Block workshopLamp;
+	public static Block steelDoorBlock;
+	public static Block coalstoneFurnace;
+	public static Block coalstoneFurnaceOn;
 
-    public static Block iceikaFire          = new BlockIceikaFire("iceikaFire");
-    public static Block iceikaPortal        = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
+	public static Block redXmasLights;
+	public static Block greenXmasLights;
+	public static Block blueXmasLights;
+	public static Block yellowXmasLights;
+	public static Block purpleXmasLights;
+
+	public static Block iceikaFire;
+	public static Block iceikaPortal;
+	
+	public static void init() {
+		frozenDirt          = new BlockMod(EnumBlockType.GRASS, "frozenDirt", 2.5F);
+	    frozenGrass         = new BlockModGrass((BlockMod) frozenDirt, "frozenGrass", "frozenDirt", 2.5F);
+	    frozenStone         = new BlockMod("frozenStone", 6.0F);
+	    frozenWood          = new BlockModLog("frozenLog").setHardness(5.0F);
+	    brittleLeaves       = new BlockModLeaves("brittleLeaves", 0.1F);
+
+	    winterberryBush     = new BlockModBush(false, "winterberryBush", "ripeWinterberryBush", null).setHardness(0.2F);
+	    winterberryBushRipe = new BlockModBush(true, "ripeWinterberryBush", "winterberryBush", IceikaItems.winterberry).setHardness(0.2F);
+
+	    icyStone            = new BlockMod("icyStone", -1F);
+	    icyBricks           = new BlockMod("icyBricks", -1F);
+	    frostedChest        = new BlockFrostedChest("frostedChest", true).setHardness(2.5F);
+	    decorativeFrostedChest= new BlockFrostedChest("decorativeFrostedChest", false).setHardness(2.5F);
+	    rollumSpawner       = new BlockModSpawner("rollumSpawner", "Rollum").setHardness(5.0F);
+	    frostArcherSpawner  = new BlockModSpawner("frostArcherSpawner", "FrostArcher").setHardness(5.0F);
+	    snowBricks          = new BlockMod("snowBricks", 6.0F);
+	    coalstone           = new BlockMod("coalstone", 3.0F);
+	    coalstoneStairs     = new BlockModStairs(coalstone, "coalstoneStairs");
+	    workshopCarpet      = new BlockMod(EnumBlockType.WOOL, "workshopCarpet", 0.1F);
+	    frostedGlass        = new BlockModGlass("frostedGlass", 1.0F);
+	    workshopBookcase    = new BlockModBook("workshopBookcase").setHardness(1.5F);
+	    workshopLamp        = new BlockMod(EnumBlockType.GLASS, "workshopLamp", 0.3F).setLightLevel(1);
+	    steelDoorBlock      = new BlockModDoor(EnumBlockType.IRON, "steelDoorBlock", 7.0F, true);
+	    coalstoneFurnace    = new BlockCoalstoneFurnace("coalstoneFurnace", false);
+	    coalstoneFurnaceOn  = new BlockCoalstoneFurnace("coalstoneFurnaceActive", true);
+	    
+	    redXmasLights		= new BlockXmasLights("redChristmasLights");
+	    greenXmasLights		= new BlockXmasLights("greenChristmasLights");
+	    blueXmasLights		= new BlockXmasLights("blueChristmasLights");
+	    yellowXmasLights	= new BlockXmasLights("yellowChristmasLights");
+	    purpleXmasLights	= new BlockXmasLights("purpleChristmasLights");
+
+	    iceikaFire          = new BlockIceikaFire("iceikaFire");
+	    iceikaPortal        = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
+	}
 }

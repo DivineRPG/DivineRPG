@@ -26,43 +26,82 @@ import net.minecraft.item.Item;
 
 public class IceikaItems {
 
-    public static int             HEAD              = 0, BODY = 1, LEGS = 2, BOOTS = 3;
+	public static int HEAD = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-    public static final Item      snowflake         = new ItemMod("snowflake");
-    public static final Item      iceShards         = new ItemMod("iceShards");
-    public static final Item      iceStone          = new ItemMod("iceStone");
+	public static Item snowflake;
+	public static Item iceShards;
+	public static Item iceStone;
 
-    public static final Item      icicleBane        = new ItemModSword(ToolMaterialMod.IcicleBane, "icicleBane");
-    public static final Item      icineSword        = new ItemModSword(ToolMaterialMod.Icine, "icineSword");
-    public static final Item      enderice          = new ItemModSword(ToolMaterialMod.Enderice, "enderice");
-    public static final Item      snowSlash         = new ItemModSword(ToolMaterialMod.Snowslash, "snowslash");
-    public static final Item      glacierSword      = new ItemModSword(ToolMaterialMod.Glacier, "glacierSword");
-    public static final Item      frostkingSword    = new ItemModSword(ToolMaterialMod.Frostking, "frostkingSword");
-    public static final Item      frozenMaul        = new ItemModSword(ToolMaterialMod.FrozenMaul, "frozenMaul");
-    public static final Item      frossivence       = new ItemHealingSword("frossivence", ToolMaterialMod.Massivence, 4);
+	public static Item icicleBane;
+	public static Item icineSword;
+	public static Item enderice;
+	public static Item snowSlash;
+	public static Item glacierSword;
+	public static Item frostkingSword;
+	public static Item frozenMaul;
+	public static Item frossivence;
 
-    public static final Item      soundOfCarols     = new ItemMusicShooter("soundOfCarols").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item      soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);
-    public static final Item      frostclawCannon   = new ItemProjectileShooter("frostclawCannon", 21F, Sounds.frostclawCannon.getPrefixedName(), EntityResourceLocation.frostclawCannon.toString(), 10000, 0);
-    public static final Item      fractiteCannon    = new ItemProjectileShooter("fractiteCannon", 15F, Sounds.fractiteCannon.getPrefixedName(), IceikaItems.iceShards, EntityResourceLocation.fractiteCannon.toString(), 10000, 0);
-    public static final Item      snowflakeShuriken = new ItemThrowable(7, "snowflakeShuriken");
-    public static final Item      serenadeOfIce     = new ItemSerenadeOfIce("serenadeOfIce");
+	public static Item soundOfCarols;
+	public static Item soundOfMusic;
+	public static Item frostclawCannon;
+	public static Item fractiteCannon;
+	public static Item snowflakeShuriken;
+	public static Item serenadeOfIce;
 
-    public static final Item      eggNog            = new ItemEggNog("eggNog");
-    public static final Item      peppermints       = new ItemModFood(1, 0.3F, false, "peppermints");
-    public static final Item      chocolateLog      = new ItemModFood(4, 1.0F, false, "chocolateLog");
-    public static final Item      snowCones         = new ItemModFood(2, 0.3F, false, "snowCones");
-    public static final Item      fruitCake         = new ItemModFood(16, 2.0F, false, "fruitCake");
-    public static final Item      winterberry       = new ItemModFood(4, 1.0F, false, "winterberry");
+	public static Item eggNog;
+	public static Item peppermints;
+	public static Item chocolateLog;
+	public static Item snowCones;
+	public static Item fruitCake;
+	public static Item winterberry;
 
-    public static final Item 	  icicleBow = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
-    public static final Item 	  snowstormBow = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
+	public static Item icicleBow;
+	public static Item snowstormBow;
 
-    private static final Object[] santaInfo         = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
-    public static final Item      santaHead         = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);
-    public static final Item      santaBody         = new ItemDivineArmor(EnumArmor.SANTA, BODY, santaInfo);
-    public static final Item      santaLegs         = new ItemDivineArmor(EnumArmor.SANTA, LEGS, santaInfo);
-    public static final Item      santaBoots        = new ItemDivineArmor(EnumArmor.SANTA, BOOTS, santaInfo);
+	public static Item santaHead;
+	public static Item santaBody;
+	public static Item santaLegs;
+	public static Item santaBoots;
 
-    public static final Item      snowGlobe         = new ItemSnowGlobe("snowGlobe");
+	public static Item snowGlobe;
+	
+	public static void init() {
+	     snowflake         = new ItemMod("snowflake");
+         iceShards         = new ItemMod("iceShards");
+         iceStone          = new ItemMod("iceStone");
+
+         icicleBane        = new ItemModSword(ToolMaterialMod.IcicleBane, "icicleBane");
+         icineSword        = new ItemModSword(ToolMaterialMod.Icine, "icineSword");
+         enderice          = new ItemModSword(ToolMaterialMod.Enderice, "enderice");
+         snowSlash         = new ItemModSword(ToolMaterialMod.Snowslash, "snowslash");
+         glacierSword      = new ItemModSword(ToolMaterialMod.Glacier, "glacierSword");
+         frostkingSword    = new ItemModSword(ToolMaterialMod.Frostking, "frostkingSword");
+         frozenMaul        = new ItemModSword(ToolMaterialMod.FrozenMaul, "frozenMaul");
+         frossivence       = new ItemHealingSword("frossivence", ToolMaterialMod.Massivence, 4);
+
+         soundOfCarols     = new ItemMusicShooter("soundOfCarols").setCreativeTab(DivineRPGTabs.ranged);
+         soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);
+         frostclawCannon   = new ItemProjectileShooter("frostclawCannon", 21F, Sounds.frostclawCannon.getPrefixedName(), EntityResourceLocation.frostclawCannon.toString(), 10000, 0);
+         fractiteCannon    = new ItemProjectileShooter("fractiteCannon", 15F, Sounds.fractiteCannon.getPrefixedName(), iceShards, EntityResourceLocation.fractiteCannon.toString(), 10000, 0);
+         snowflakeShuriken = new ItemThrowable(7, "snowflakeShuriken");
+         serenadeOfIce     = new ItemSerenadeOfIce("serenadeOfIce");
+
+         eggNog            = new ItemEggNog("eggNog");
+         peppermints       = new ItemModFood(1, 0.3F, false, "peppermints");
+         chocolateLog      = new ItemModFood(4, 1.0F, false, "chocolateLog");
+         snowCones         = new ItemModFood(2, 0.3F, false, "snowCones");
+         fruitCake         = new ItemModFood(16, 2.0F, false, "fruitCake");
+         winterberry       = new ItemModFood(4, 1.0F, false, "winterberry");
+
+    	 icicleBow = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
+    	 snowstormBow = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
+
+    	 Object[] santaInfo         = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
+         santaHead         = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);
+         santaBody         = new ItemDivineArmor(EnumArmor.SANTA, BODY, santaInfo);
+         santaLegs         = new ItemDivineArmor(EnumArmor.SANTA, LEGS, santaInfo);
+         santaBoots        = new ItemDivineArmor(EnumArmor.SANTA, BOOTS, santaInfo);
+
+         snowGlobe         = new ItemSnowGlobe("snowGlobe");
+	}
 }
