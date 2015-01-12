@@ -23,7 +23,7 @@ public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob implements 
 	public void onDeath(DamageSource d) {
 		super.onDeath(d);
 		if(!worldObj.isRemote && ConfigurationHelper.canShowDeathChat){
-			if(d.getSourceOfDamage() != null && d.getSourceOfDamage() instanceof EntityPlayer){
+			if(d.getSourceOfDamage() != null){
 				Util.sendMessageToAll("The " + mobName() + " has fallen.");
 			}
 		}

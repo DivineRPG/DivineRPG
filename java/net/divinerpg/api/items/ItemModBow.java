@@ -166,8 +166,8 @@ public class ItemModBow extends ItemBow {
         ArrowNockEvent nockEvent = new ArrowNockEvent(player, stack);
         MinecraftForge.EVENT_BUS.post(nockEvent);
         if (nockEvent.isCanceled()) return nockEvent.result;
-        boolean infiniteAmmo = !needArrow || player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
-        if (infiniteAmmo || player.inventory.hasItem(arrow) )
+        boolean infiniteAmmo = !needArrow || player.capabilities.isCreativeMode || (EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0 && player.inventory.hasItem(arrow));
+        if (infiniteAmmo || player.inventory.hasItem(arrow))
             player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         return stack;
     }

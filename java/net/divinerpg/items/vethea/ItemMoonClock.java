@@ -23,6 +23,7 @@ public class ItemMoonClock extends ItemMod {
 			EntityLadyLuna entity = new EntityLadyLuna(world);
 			entity.setLocationAndAngles(x, y+1, z, 0, 0);
 			world.spawnEntityInWorld(entity);
+			if(!player.capabilities.isCreativeMode)stack.stackSize--;
 			return true;
 		}
 		
