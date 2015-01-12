@@ -14,7 +14,7 @@ public class EventExtraArmor {
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public void renderOverlay(RenderGameOverlayEvent event){
+	public void renderOverlay(RenderGameOverlayEvent.Post event){
 		if(event.isCanceled() || event.type != ElementType.EXPERIENCE) return;
 		if((EventArmorTick.size != 0) && !Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
 			//gui.drawArmor();

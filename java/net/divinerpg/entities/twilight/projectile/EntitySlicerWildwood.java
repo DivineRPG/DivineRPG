@@ -8,19 +8,19 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 
-public class EntitySlicerWildWoods extends EntityThrowable
+public class EntitySlicerWildwood extends EntityThrowable
 {
-    public EntitySlicerWildWoods(World var1)
+    public EntitySlicerWildwood(World var1)
     {
         super(var1);
     }
 
-    public EntitySlicerWildWoods(World var1, EntityLivingBase var2)
+    public EntitySlicerWildwood(World var1, EntityLivingBase var2)
     {
         super(var1, var2);
     }
 
-    public EntitySlicerWildWoods(World var1, double var2, double var4, double var6)
+    public EntitySlicerWildwood(World var1, double var2, double var4, double var6)
     {
         super(var1, var2, var4, var6);
     }

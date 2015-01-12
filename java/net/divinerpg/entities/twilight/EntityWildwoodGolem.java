@@ -17,9 +17,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityWildWoodGolem extends EntityDivineRPGMob {
+public class EntityWildwoodGolem extends EntityDivineRPGMob {
 	
-    public EntityWildWoodGolem(World var1) {
+    public EntityWildwoodGolem(World var1) {
         super(var1);
         this.setSize(1.5F, 3.0F);
         addAttackingAI();
@@ -28,10 +28,10 @@ public class EntityWildWoodGolem extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodGolemHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodGolemDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodGolemSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodGolemFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodGolemHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodGolemDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodGolemSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodGolemFollowRange);
     }
 
     @Override
@@ -61,6 +61,6 @@ public class EntityWildWoodGolem extends EntityDivineRPGMob {
 
 	@Override
 	public String mobName() {
-		return "Wild Wood Golem";
+		return "Wildwood Golem";
 	}
 }

@@ -52,13 +52,13 @@ public class TwilightItemsOther {
     
     public static void init() {
     	edenSoul            = new ItemMod("edenSoul");
-        wildwoodSoul        = new ItemMod("wildWoodSoul");
+        wildwoodSoul        = new ItemMod("wildwoodSoul");
         apalachiaSoul       = new ItemMod("apalachiaSoul");
         skythernSoul        = new ItemMod("skythernSoul");
         mortumSoul          = new ItemMod("mortumSoul");
 
         edenFragments       = new ItemMod("edenFragments");
-        wildwoodFragments   = new ItemMod("wildWoodFragments");
+        wildwoodFragments   = new ItemMod("wildwoodFragments");
         apalachiaFragments  = new ItemMod("apalachiaFragments");
         skythernFragments   = new ItemMod("skythernFragments");
         mortumFragments     = new ItemMod("mortumFragments");
@@ -76,7 +76,7 @@ public class TwilightItemsOther {
         mortumChunk         = new ItemMod("mortumChunk");
 
         edenDust            = new ItemMod("edenDust");
-        wildwoodDust        = new ItemMod("wildWoodDust");
+        wildwoodDust        = new ItemMod("wildwoodDust");
         apalachiaDust       = new ItemMod("apalachiaDust");
         skythernDust        = new ItemMod("skythernDust");
         mortumDust          = new ItemMod("mortumDust");

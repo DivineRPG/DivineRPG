@@ -67,7 +67,7 @@ public class DivineRPGCommands extends CommandBase {
 				}
 			}
 
-			if (args[0].equalsIgnoreCase("WildWoods")) {
+			if (args[0].equalsIgnoreCase("Wildwood")) {
 				if (playerMP.dimension != ConfigurationHelper.wildwood) {
 					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, ConfigurationHelper.wildwood,
 							new DivineTeleporter(playerMP.mcServer.worldServerForDimension(ConfigurationHelper.wildwood), ConfigurationHelper.wildwood,
@@ -132,6 +132,6 @@ public class DivineRPGCommands extends CommandBase {
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender par1ICommandSender, String[] par2) {
-		return par2.length == 1 ? getListOfStringsMatchingLastWord(par2, new String[] { "Overworld", "Nether", "End", "Iceika", "Eden", "WildWoods", "Apalachia", "Skythern", "Mortum", "Arcana", "Vethea" }) : null;
+		return par2.length == 1 ? getListOfStringsMatchingLastWord(par2, new String[] { "Overworld", "Nether", "End", "Iceika", "Eden", "Wildwood", "Apalachia", "Skythern", "Mortum", "Arcana", "Vethea" }) : null;
 	}
 }

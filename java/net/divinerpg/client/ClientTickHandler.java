@@ -24,6 +24,6 @@ public class ClientTickHandler {
 		((BlockModLeaves)TwilightBlocks.edenLeaves).setGraphicsLevel(BlockModLeaves.isFancy);
 		((BlockModLeaves)TwilightBlocks.mortumLeaves).setGraphicsLevel(BlockModLeaves.isFancy);
 		((BlockModLeaves)TwilightBlocks.skythernLeaves).setGraphicsLevel(BlockModLeaves.isFancy);
-		((BlockModLeaves)TwilightBlocks.wildWoodLeaves).setGraphicsLevel(BlockModLeaves.isFancy);*/
+		((BlockModLeaves)TwilightBlocks.wildwoodLeaves).setGraphicsLevel(BlockModLeaves.isFancy);*/
 	}
 }

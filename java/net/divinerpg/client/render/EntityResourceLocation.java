@@ -106,10 +106,10 @@ public class EntityResourceLocation {
     public static ResourceLocation edenCori			 = addMob("edenCori");
     public static ResourceLocation nesro			 = addMob("nesro");
     public static ResourceLocation madivel			 = addMob("madivel");
-    public static ResourceLocation wildWoodGolem	 = addMob("wildWoodGolem");
-    public static ResourceLocation wildWoodTomo		 = addMob("wildWoodTomo");
+    public static ResourceLocation wildwoodGolem	 = addMob("wildwoodGolem");
+    public static ResourceLocation wildwoodTomo		 = addMob("wildwoodTomo");
     public static ResourceLocation varek			 = addMob("varek");
-    public static ResourceLocation wildWoodWolf		 = addMob("wildWoodWolf");
+    public static ResourceLocation wildwoodWolf		 = addMob("wildwoodWolf");
     public static ResourceLocation wildwoodCadillion = addMob("wildwoodCadillion");
     public static ResourceLocation apalachiaCadillion= addMob("apalachiaCadillion");
     public static ResourceLocation apalachiaTomo	 = addMob("apalachiaTomo");

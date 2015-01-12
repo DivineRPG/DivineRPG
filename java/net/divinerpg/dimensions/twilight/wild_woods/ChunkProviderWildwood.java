@@ -221,7 +221,7 @@ public class ChunkProviderWildwood implements IChunkProvider{
 
 	@Override
 	public String makeString() {
-		return "Wild Woods";
+		return "Wildwood";
 	}
 
 	@Override

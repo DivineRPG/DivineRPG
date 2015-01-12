@@ -72,7 +72,7 @@ public class EntityApalachiaArcher extends EntityDivineRPGMob implements IRanged
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase var1, float f) {
-        EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, var1, 1.6F, 12.0F, 15, "wildWoodArrow");
+        EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, var1, 1.6F, 12.0F, 15, "wildwoodArrow");
         var2.setDamage(17D);
         this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         this.worldObj.spawnEntityInWorld(var2);

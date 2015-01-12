@@ -23,7 +23,7 @@ public class BlockBlueFire extends BlockModFire {
 //            if (!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !this.canNeighborBurn(world, x, y, z)) world.setBlockToAir(x, y, z);
 //            else world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + world.rand.nextInt(10));
 //        }
-//        portal = (BlockModPortal) TwilightBlocks.wildWoodPortal;
+//        portal = (BlockModPortal) TwilightBlocks.wildwoodPortal;
 //        if(id > 0 || !portal.isPortalCorrectSize(world, x, y, z)){
 //            LogHelper.debug("Wildwood portal");
 //            if (!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !this.canNeighborBurn(world, x, y, z)) world.setBlockToAir(x, y, z);

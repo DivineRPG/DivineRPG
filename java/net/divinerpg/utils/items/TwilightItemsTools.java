@@ -35,25 +35,25 @@ public class TwilightItemsTools {
 	
 	public static void init() {
 		edenShickaxe       = new ItemShickaxe(ToolMaterialMod.EdenShick, "edenShickaxe");
-	    wildwoodShickaxe   = new ItemShickaxe(ToolMaterialMod.WildwoodShick, "wildWoodShickaxe");
+	    wildwoodShickaxe   = new ItemShickaxe(ToolMaterialMod.WildwoodShick, "wildwoodShickaxe");
 	    apalachiaShickaxe  = new ItemShickaxe(ToolMaterialMod.ApalachiaShick, "apalachiaShickaxe");
 	    skythernShickaxe   = new ItemShickaxe(ToolMaterialMod.SkythernShick, "skythernShickaxe");
 	    mortumShickaxe     = new ItemShickaxe(ToolMaterialMod.MortumShick, "mortumShickaxe");
 
 	    edenPickaxe        = new ItemModPickaxe(ToolMaterialMod.EdenPick, "edenPickaxe");
-	    wildwoodPickaxe    = new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildWoodPickaxe");
+	    wildwoodPickaxe    = new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwoodPickaxe");
 	    apalachiaPickaxe   = new ItemModPickaxe(ToolMaterialMod.ApalachiaPick, "apalachiaPickaxe");
 	    skythernPickaxe    = new ItemModPickaxe(ToolMaterialMod.SkythernPick, "skythernPickaxe");
 	    mortumPickaxe      = new ItemModPickaxe(ToolMaterialMod.MortumPick, "mortumPickaxe");
 
 	    edenAxe            = new ItemModAxe(ToolMaterialMod.EdenAxe, "edenAxe");
-	    wildwoodAxe        = new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildWoodAxe");
+	    wildwoodAxe        = new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildwoodAxe");
 	    apalachiaAxe       = new ItemModAxe(ToolMaterialMod.ApalachiaAxe, "apalachiaAxe");
 	    skythernAxe        = new ItemModAxe(ToolMaterialMod.SkythernAxe, "skythernAxe");
 	    mortumAxe          = new ItemModAxe(ToolMaterialMod.MortumAxe, "mortumAxe");
 
 	    edenShovel         = new ItemModShovel(ToolMaterialMod.EdenSpade, "edenShovel");
-	    wildwoodShovel     = new ItemModShovel(ToolMaterialMod.WildwoodSpade, "wildWoodShovel");
+	    wildwoodShovel     = new ItemModShovel(ToolMaterialMod.WildwoodSpade, "wildwoodShovel");
 	    apalachiaShovel    = new ItemModShovel(ToolMaterialMod.ApalachiaSpade, "apalachiaShovel");
 	    skythernShovel     = new ItemModShovel(ToolMaterialMod.SkythernSpade, "skythernShovel");
 	    mortumShovel       = new ItemModShovel(ToolMaterialMod.MortumSpade, "mortumShovel");

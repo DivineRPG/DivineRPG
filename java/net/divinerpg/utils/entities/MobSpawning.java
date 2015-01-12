@@ -36,8 +36,8 @@ import net.divinerpg.entities.twilight.EntitySkythernGolem;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
 import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityVerek;
-import net.divinerpg.entities.twilight.EntityWildWoodGolem;
-import net.divinerpg.entities.twilight.EntityWildWoodTomo;
+import net.divinerpg.entities.twilight.EntityWildwoodGolem;
+import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
@@ -147,7 +147,7 @@ public class MobSpawning {
 
 	public static void addTwilightSpawns() {
 		BiomeGenBase[] edenBiome = new BiomeGenBase[] {DimensionHelper.Eden};
-		BiomeGenBase[] wildWoodsBiome = new BiomeGenBase[] {DimensionHelper.WildWoods};
+		BiomeGenBase[] wildwoodsBiome = new BiomeGenBase[] {DimensionHelper.Wildwood};
 		BiomeGenBase[] apalachiaBiome = new BiomeGenBase[] {DimensionHelper.Apalachia};
 		BiomeGenBase[] skythernBiome = new BiomeGenBase[] {DimensionHelper.Skythern};
 		BiomeGenBase[] mortumBiome = new BiomeGenBase[] {DimensionHelper.Mortum};
@@ -162,14 +162,14 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityNesro.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityMadivel.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 
-		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.monster, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityWildWoodTomo.class, 1, 4, 4, EnumCreatureType.monster, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.creature, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityWildWoodTomo.class, 1, 4, 4, EnumCreatureType.creature, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityWildWoodGolem.class, 1, 4, 4, EnumCreatureType.monster, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityVerek.class, 1, 4, 4, EnumCreatureType.monster, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.monster, wildWoodsBiome);
-		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.creature, wildWoodsBiome);
+		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.monster, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 1, 4, 4, EnumCreatureType.monster, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.creature, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 1, 4, 4, EnumCreatureType.creature, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityWildwoodGolem.class, 1, 4, 4, EnumCreatureType.monster, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityVerek.class, 1, 4, 4, EnumCreatureType.monster, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.monster, wildwoodsBiome);
+		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.creature, wildwoodsBiome);
 
 		EntityRegistry.addSpawn(EntityApalachiaCadillion.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
 		EntityRegistry.addSpawn(EntityApalachiaGolem.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
@@ -204,7 +204,7 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
-				} else if(biome != DimensionHelper.Apalachia && biome != DimensionHelper.Arcana && biome != DimensionHelper.Eden && biome != DimensionHelper.Iceika && biome != DimensionHelper.Mortum && biome != DimensionHelper.Skythern && biome != DimensionHelper.Vethea && biome != DimensionHelper.WildWoods){
+				} else if(biome != DimensionHelper.Apalachia && biome != DimensionHelper.Arcana && biome != DimensionHelper.Eden && biome != DimensionHelper.Iceika && biome != DimensionHelper.Mortum && biome != DimensionHelper.Skythern && biome != DimensionHelper.Vethea && biome != DimensionHelper.Wildwood){
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
 						EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);

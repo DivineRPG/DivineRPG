@@ -17,9 +17,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityWildWoodTomo extends EntityPeacefulUntilAttacked {
+public class EntityWildwoodTomo extends EntityPeacefulUntilAttacked {
 
-	public EntityWildWoodTomo(World var1) {
+	public EntityWildwoodTomo(World var1) {
 		super(var1);
 		this.setSize(1.7F, 1.0F);
 		this.experienceValue = 40;
@@ -33,10 +33,10 @@ public class EntityWildWoodTomo extends EntityPeacefulUntilAttacked {
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodTomoHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodTomoDamage);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodTomoSpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.wildWoodTomoFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodTomoHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodTomoDamage);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodTomoSpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.wildwoodTomoFollowRange);
 	}
 
 	@Override
@@ -72,6 +72,6 @@ public class EntityWildWoodTomo extends EntityPeacefulUntilAttacked {
 
 	@Override
 	public String mobName() {
-		return "Wild Wood Tomo";
+		return "Wildwood Tomo";
 	}
 }

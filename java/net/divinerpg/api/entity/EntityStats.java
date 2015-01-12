@@ -69,9 +69,9 @@ public class EntityStats {
 	public static double soulStealerHealth 		= 900.0D, soulStealerDamage = 30.0D, soulStealerSpeed = normalSpeed, soulStealerFollowRange = follow;
 	public static double twilightDemonHealth 	= 6800.0D, twilightDemonDamage = 45.0D, twilightDemonSpeed = normalSpeed, twilightDemonFollowRange = follow;
 	public static double vamacheronHealth 		= 5000.0D, vamacheronDamage = 39.0D, vamacheronSpeed = normalSpeed, vamacheronFollowRange = follow;
-	public static double wildWoodCadillionHealth= 300.0D, wildWoodCadillionDamage = 25.0D, wildWoodCadillionSpeed = normalSpeed, wildWoodCadillionFollowRange = follow;
-	public static double wildWoodGolemHealth 	= 900.0D, wildWoodGolemDamage = 35.0D, wildWoodGolemSpeed = normalSpeed, wildWoodGolemFollowRange = follow;
-	public static double wildWoodTomoHealth 	= 300.0D, wildWoodTomoDamage = 35.0D, wildWoodTomoSpeed = normalSpeed, wildWoodTomoFollowRange = follow;
+	public static double wildwoodCadillionHealth= 300.0D, wildwoodCadillionDamage = 25.0D, wildwoodCadillionSpeed = normalSpeed, wildwoodCadillionFollowRange = follow;
+	public static double wildwoodGolemHealth 	= 900.0D, wildwoodGolemDamage = 35.0D, wildwoodGolemSpeed = normalSpeed, wildwoodGolemFollowRange = follow;
+	public static double wildwoodTomoHealth 	= 300.0D, wildwoodTomoDamage = 35.0D, wildwoodTomoSpeed = normalSpeed, wildwoodTomoFollowRange = follow;
 	public static double edenCoriHealth 		= 10.0D, edenCoriDamage = 30.0D, edenCoriSpeed = normalSpeed, edenCoriFollowRange = follow;
 	public static double skythernCoriHealth 	= 50.0D, skythernCoriDamage = 30.0D, skythernCoriSpeed = normalSpeed, skythernCoriFollowRange = follow;
 	public static double reyvorHealth 			= 5000.0D, reyvorDamage = 30.0D, reyvorSpeed = normalSpeed, reyvorFollowRange = follow;

@@ -21,7 +21,7 @@ import net.divinerpg.entities.fx.EntityGreenFlameFX;
 import net.divinerpg.entities.fx.EntityGreenPortalFX;
 import net.divinerpg.entities.fx.EntityMortumPortalFX;
 import net.divinerpg.entities.fx.EntitySkythernPortalFX;
-import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
+import net.divinerpg.entities.fx.EntityWildwoodPortalFX;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
@@ -103,7 +103,7 @@ public class ClientProxy extends CommonProxy {
     	}
     	EntityFX fx = null;
     	if(particle == "eden") fx = new EntityEdenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "wildwood") fx = new EntityWildWoodPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle == "wildwood") fx = new EntityWildwoodPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	else if(particle == "apalachia") fx = new EntityPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	else if(particle == "skythern") fx = new EntitySkythernPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	else if(particle == "mortum") fx = new EntityMortumPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);

@@ -11,7 +11,7 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerWildwood;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;

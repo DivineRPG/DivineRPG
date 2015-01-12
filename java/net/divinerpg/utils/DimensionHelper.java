@@ -27,7 +27,7 @@ public class DimensionHelper {
 	protected static final BiomeGenBase.Height vetheaHeight = new BiomeGenBase.Height(-1.0F, 0.0F);
 	
 	public static BiomeGenBase Eden 		= new BiomeGenEden(ConfigurationHelper.edenBiome);
-	public static BiomeGenBase WildWoods 	= new BiomeGenWildwood(ConfigurationHelper.wildwoodBiome);
+	public static BiomeGenBase Wildwood 	= new BiomeGenWildwood(ConfigurationHelper.wildwoodBiome);
 	public static BiomeGenBase Apalachia 	= new BiomeGenApalachia(ConfigurationHelper.apalachiaBiome);
 	public static BiomeGenBase Skythern 	= new BiomeGenSkythern(ConfigurationHelper.skythernBiome);
 	public static BiomeGenBase Mortum 		= new BiomeGenMortum(ConfigurationHelper.mortumBiome);

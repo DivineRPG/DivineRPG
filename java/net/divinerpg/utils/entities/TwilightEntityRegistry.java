@@ -32,8 +32,8 @@ import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
 import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
-import net.divinerpg.entities.twilight.EntityWildWoodGolem;
-import net.divinerpg.entities.twilight.EntityWildWoodTomo;
+import net.divinerpg.entities.twilight.EntityWildwoodGolem;
+import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
@@ -41,14 +41,14 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerWildwood;
 import net.divinerpg.utils.Util;
 
 public class TwilightEntityRegistry {
 	
 	public static void init(){	
 	    Util.registerProjectile(EntitySlicerEden.class, "EdenSlicer");
-	    Util.registerProjectile(EntitySlicerWildWoods.class, "WildSlicer");
+	    Util.registerProjectile(EntitySlicerWildwood.class, "WildSlicer");
         Util.registerProjectile(EntitySlicerApalachia.class, "ApalachiaSlicer");
         Util.registerProjectile(EntitySlicerSkythern.class, "SkythernSlicer");
         Util.registerProjectile(EntitySlicerMortum.class, "MortumSlicer");
@@ -63,8 +63,8 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntityEdenCori.class, "WeakCori");
         Util.registerDivineRPGMob(EntityMadivel.class, "Madivel");
         Util.registerDivineRPGMob(EntityNesro.class, "Nesro");
-        Util.registerDivineRPGMob(EntityWildWoodGolem.class, "WildwoodGolem");
-        Util.registerDivineRPGMob(EntityWildWoodTomo.class, "WildwoodTomo");
+        Util.registerDivineRPGMob(EntityWildwoodGolem.class, "WildwoodGolem");
+        Util.registerDivineRPGMob(EntityWildwoodTomo.class, "WildwoodTomo");
         Util.registerDivineRPGMob(EntityWildwoodCadillion.class, "WildwoodCadillion");
         Util.registerDivineRPGMob(EntityVerek.class, "Verek");
         Util.registerDivineRPGMob(EntityMoonWolf.class, "MoonWolf");

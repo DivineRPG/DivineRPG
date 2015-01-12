@@ -7,7 +7,7 @@ import net.divinerpg.api.worldgen.DivineTeleporter;
 import net.divinerpg.entities.fx.EntityEdenPortalFX;
 import net.divinerpg.entities.fx.EntityMortumPortalFX;
 import net.divinerpg.entities.fx.EntitySkythernPortalFX;
-import net.divinerpg.entities.fx.EntityWildWoodPortalFX;
+import net.divinerpg.entities.fx.EntityWildwoodPortalFX;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
@@ -245,7 +245,7 @@ public class BlockModPortal extends BlockBreakable {
                 d2 = (double) zPos + 0.5D + 0.25D * (double) i1;
                 d5 = (double) (rand.nextFloat() * 2.0F * (float) i1);
             }
-            EntityFX var20 = this == TwilightBlocks.edenPortal ? new EntityEdenPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.wildwoodPortal ? new EntityWildWoodPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.apalachiaPortal ? new EntityPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.skythernPortal ? new EntitySkythernPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.mortumPortal ? new EntityMortumPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == IceikaBlocks.iceikaPortal ? new EntitySkythernPortalFX(world, d0, d1, d2, d3, d4, d5) : null)))));
+            EntityFX var20 = this == TwilightBlocks.edenPortal ? new EntityEdenPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.wildwoodPortal ? new EntityWildwoodPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.apalachiaPortal ? new EntityPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.skythernPortal ? new EntitySkythernPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == TwilightBlocks.mortumPortal ? new EntityMortumPortalFX(world, d0, d1, d2, d3, d4, d5) : (this == IceikaBlocks.iceikaPortal ? new EntitySkythernPortalFX(world, d0, d1, d2, d3, d4, d5) : null)))));
             FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
         }
     }

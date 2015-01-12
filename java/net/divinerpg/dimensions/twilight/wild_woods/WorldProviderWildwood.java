@@ -10,7 +10,7 @@ public class WorldProviderWildwood extends WorldProvider {
 
     @Override
     public void registerWorldChunkManager() {
-        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.WildWoods, 0.5F);
+        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Wildwood, 0.5F);
         this.dimensionId = ConfigurationHelper.wildwood;
         isHellWorld = false;
     }

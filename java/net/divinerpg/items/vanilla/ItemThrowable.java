@@ -10,7 +10,7 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerWildwood;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.utils.items.ArcanaItems;
@@ -59,7 +59,7 @@ public class ItemThrowable extends ItemMod {
 			}
 
 			if(var1.getItem() == TwilightItemsWeapons.wildwoodSlicer){
-				var2.spawnEntityInWorld(new EntitySlicerWildWoods(var2, var3));
+				var2.spawnEntityInWorld(new EntitySlicerWildwood(var2, var3));
 			}
 
 			if(var1.getItem() == TwilightItemsWeapons.apalachiaSlicer){

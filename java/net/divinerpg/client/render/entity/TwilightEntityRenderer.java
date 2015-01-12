@@ -71,8 +71,8 @@ import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
 import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
-import net.divinerpg.entities.twilight.EntityWildWoodGolem;
-import net.divinerpg.entities.twilight.EntityWildWoodTomo;
+import net.divinerpg.entities.twilight.EntityWildwoodGolem;
+import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
@@ -80,7 +80,7 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerWildWoods;
+import net.divinerpg.entities.twilight.projectile.EntitySlicerWildwood;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
@@ -95,7 +95,7 @@ public class TwilightEntityRenderer {
 	
 	public static void init(){
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerEden.class, new RenderIconProjectile(TwilightItemsWeapons.edenSlicer));
-        RenderingRegistry.registerEntityRenderingHandler(EntitySlicerWildWoods.class, new RenderIconProjectile(TwilightItemsWeapons.wildwoodSlicer));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySlicerWildwood.class, new RenderIconProjectile(TwilightItemsWeapons.wildwoodSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerApalachia.class, new RenderIconProjectile(TwilightItemsWeapons.apalachiaSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerSkythern.class, new RenderIconProjectile(TwilightItemsWeapons.skythernSlicer));
         RenderingRegistry.registerEntityRenderingHandler(EntitySlicerMortum.class, new RenderIconProjectile(TwilightItemsWeapons.mortumSlicer));
@@ -110,11 +110,11 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenCori.class, new RenderDivineMob(new ModelCori(), 0.0F, x.edenCori));
         RenderingRegistry.registerEntityRenderingHandler(EntityMadivel.class, new RenderDivineMob(new ModelMadivel(), 0.0F, x.madivel));
         RenderingRegistry.registerEntityRenderingHandler(EntityNesro.class, new RenderDivineMob(new ModelNesro(), 0.0F, x.nesro));
-        RenderingRegistry.registerEntityRenderingHandler(EntityWildWoodGolem.class, new RenderDivineMob(new ModelTwilightGolem(), 0.0F, x.wildWoodGolem));
-        RenderingRegistry.registerEntityRenderingHandler(EntityWildWoodTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.wildWoodTomo));
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildwoodGolem.class, new RenderDivineMob(new ModelTwilightGolem(), 0.0F, x.wildwoodGolem));
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildwoodTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.wildwoodTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityWildwoodCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.wildwoodCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityVerek.class, new RenderDivineMob(new ModelSamek(), 0.0F, x.varek));
-        RenderingRegistry.registerEntityRenderingHandler(EntityMoonWolf.class, new RenderDivineMob(new ModelMoonWolf(), 0.0F, x.wildWoodWolf));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMoonWolf.class, new RenderDivineMob(new ModelMoonWolf(), 0.0F, x.wildwoodWolf));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.apalachiaCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.apalachiaTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityApalachiaGolem.class, new RenderDivineMob(new ModelTwilightGolem(), 0.0F, x.apalachiaGolem));
