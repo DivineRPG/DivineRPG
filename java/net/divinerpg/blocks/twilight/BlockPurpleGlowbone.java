@@ -39,7 +39,7 @@ public class BlockPurpleGlowbone extends BlockMod implements IPlantable {
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random par5Random) {
-		if(world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0 && world.getBlock(i, j-1, k) == ArcanaBlocks.arcanaGrass) {
+		if(world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0 && world.getBlock(i, j-1, k) == Blocks.grass) {
 			world.setBlock(i, j + 1, k, this, 2, 2);
 			world.setBlock(i, j, k, this, 1, 2);
 		}
@@ -58,7 +58,7 @@ public class BlockPurpleGlowbone extends BlockMod implements IPlantable {
 	protected void checkBlockCoordValid(World world, int i, int j, int k) {
 		if(!this.canBlockStay(world, i, j, k)) {
 			if(world.getBlockMetadata(i, j, k) == 2)this.dropBlockAsItemWithChance(world, i, j, k, world.getBlockMetadata(i, j, k), 1f, 0);
-			else if(world.getBlockMetadata(i, j, k) == 0)this.dropBlockAsItem(world, i, j, k, new ItemStack(this == ArcanaBlocks.pinfly ? ArcanaItems.pinflySeeds : ArcanaItems.firestockSeeds));
+			else if(world.getBlockMetadata(i, j, k) == 0)this.dropBlockAsItem(world, i, j, k, new ItemStack(TwilightItemsCrops.purpleGlowboneSeeds));
 			world.func_147480_a(i, j, k, false);
 		}else if(world.getBlockMetadata(i, j, k) != 0 && world.getBlock(i, j+1, k) != this){
 			world.setBlock(i, j, k, this, 0, 2);
