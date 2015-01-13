@@ -272,6 +272,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		//misc
 		addRecipe(VanillaItemsOther.netheriteChunk, " I ", "III", " I ", 'I', VanillaItemsOther.netheriteIngot);
 		addShapelessRecipe(IS.eyeShards, VanillaItemsOther.cyclopsEye);
+		addShapelessRecipe(new ItemStack(VanillaItemsOther.corruptedBullet, 16), VanillaItemsOther.corruptedShards);
 
 		addRecipe(VanillaBlocks.arlemiteBlock, "III", "III", "III", 'I', VanillaItemsOther.arlemiteIngot);
 		addRecipe(VanillaBlocks.rupeeBlock, "III", "III", "III", 'I', VanillaItemsOther.rupeeIngot);
