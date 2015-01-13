@@ -12,6 +12,9 @@ import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.twilight.BlockBlueFire;
 import net.divinerpg.blocks.twilight.BlockBrambles;
 import net.divinerpg.blocks.twilight.BlockEdenChest;
+import net.divinerpg.blocks.twilight.BlockMoonbulb;
+import net.divinerpg.blocks.twilight.BlockPinkGlowbone;
+import net.divinerpg.blocks.twilight.BlockPurpleGlowbone;
 import net.divinerpg.blocks.twilight.BlockTwilightFlower;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.TwilightItemsOther;
@@ -67,6 +70,9 @@ public class TwilightBlocks {
     public static Block edenTorch;
     public static Block edenChest;
     public static Block apalachiaRails;
+    
+    public static Block moonbulb;
+    public static Block pinkGlowbone, purpleGlowbone;
     
     public static Block sunbloom;
     public static Block edenBrush;
@@ -130,6 +136,10 @@ public class TwilightBlocks {
         edenTorch		  = new BlockModTorch("edenTorch", "greenFlame");
         edenChest		  = new BlockEdenChest("edenChest");
         apalachiaRails	  = new BlockRedstonelessRails("apalachiaRails");
+        
+	    moonbulb		  = new BlockMoonbulb();
+	    purpleGlowbone	  = new BlockPurpleGlowbone();
+	    pinkGlowbone	  = new BlockPinkGlowbone();
         
         sunbloom		  = new BlockTwilightFlower("sunbloom", edenGrass);
         edenBrush		  = new BlockTwilightFlower("edenBrush", edenGrass);

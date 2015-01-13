@@ -88,7 +88,6 @@ public class ArcanaBlocks {
     public static Block marsine;
     public static Block firestock;
     public static Block pinfly;
-    public static Block moonbulb;
 
     public static Block greenlightFurnace;
     public static Block greenlightFurnaceOn;
@@ -162,7 +161,6 @@ public class ArcanaBlocks {
 	    marsine		  			= new BlockMarsine("marsinePlant");
 	    firestock		  		= new BlockStackPlant("firestockPlant");
 	    pinfly		  			= new BlockStackPlant("pinflyPlant");
-	    moonbulb		  		= new BlockStackPlant("moonbulbPlant");
 
 	    greenlightFurnace 		= new BlockGreenlightFurnace("greenlightFurnace", false);
 	    greenlightFurnaceOn 	= new BlockGreenlightFurnace("greenlightFurnaceOn", true);
