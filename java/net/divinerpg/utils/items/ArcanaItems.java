@@ -82,8 +82,6 @@ public class ArcanaItems {
     public static Item firestockSeeds;
     public static Item pinfly;
     public static Item pinflySeeds;
-    public static Item moonbulb;
-    public static Item moonbulbSeeds;
     public static Item aquamarine;
     public static Item aquamarineSeeds;
     public static Item eucalyptusSeeds;
@@ -148,8 +146,6 @@ public class ArcanaItems {
         firestockSeeds 		 	 = new ItemArcanaSeeds("firestockSeeds", ArcanaBlocks.firestock);
         pinfly 	 		     	 = new ItemModFood(2, 0.3F, false, "pinfly").setPotionEffect(Potion.moveSpeed.id, 10, 2, 1.0F);
         pinflySeeds 		     = new ItemArcanaSeeds("pinflySeeds", ArcanaBlocks.pinfly);
-        moonbulb		 		 = new ItemMod("moonbulb");
-        moonbulbSeeds  		 	 = new ItemArcanaSeeds("moonbulbSeeds", ArcanaBlocks.moonbulb);
         aquamarine		 		 = new ItemAquamarine("aquamarine");
         aquamarineSeeds 		 = new ItemArcanaSeeds("aquamarineSeeds", ArcanaBlocks.aquamarine);
         eucalyptusSeeds    	 	 = new ItemArcanaSeeds("eucalyptusRootSeeds", ArcanaBlocks.eucalyptusRoot);

@@ -53,6 +53,7 @@ import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsArmor;
+import net.divinerpg.utils.items.TwilightItemsCrops;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.items.TwilightItemsTools;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
@@ -103,6 +104,7 @@ public class CommonProxy{
 		VanillaBlocks.init();
 		TwilightItemsOther.init();
 		TwilightBlocks.init();
+		TwilightItemsCrops.init();
 		TwilightItemsArmor.init();
 		TwilightItemsWeapons.init();
 		TwilightItemsTools.init();
