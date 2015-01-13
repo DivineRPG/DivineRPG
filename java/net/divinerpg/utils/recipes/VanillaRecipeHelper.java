@@ -279,6 +279,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaBlocks.realmiteBlock, "III", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaBlocks.netheriteBlock, "III", "III", "III", 'I', VanillaItemsOther.netheriteIngot);
 		addRecipe(VanillaBlocks.bloodgemBlock, "III", "III", "III", 'I', VanillaItemsOther.bloodgem);
+		addRecipe(new ItemStack(VanillaBlocks.arcanaPortalFrame, 12),  " c ", "iii", " c ", 'c', VanillaItemsOther.corruptedStone, 'i', Blocks.iron_block);
 		
 		addRecipe(TwilightItemsOther.twilightClock, "CCC", "CCC", "CCC", 'C', Items.clock);
 		addRecipe(IceikaItems.snowGlobe, " G ", "GSG", "DBD", 'G', Blocks.glass, 'S', Blocks.snow, 'D', Items.diamond, 'B', VanillaItemsOther.shadowBar);
