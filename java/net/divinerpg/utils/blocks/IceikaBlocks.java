@@ -79,7 +79,7 @@ public class IceikaBlocks {
 	    coalstoneStairs     = new BlockModStairs(coalstone, "coalstoneStairs");
 	    workshopCarpet      = new BlockMod(EnumBlockType.WOOL, "workshopCarpet", 0.1F);
 	    frostedGlass        = new BlockModGlass("frostedGlass", 1.0F);
-	    workshopBookcase    = new BlockModBook("workshopBookcase").setHardness(1.5F);
+	    workshopBookcase    = new BlockModBook(EnumBlockType.ROCK, "workshopBookcase").setHardness(1.5F);
 	    workshopLamp        = new BlockMod(EnumBlockType.GLASS, "workshopLamp", 0.3F).setLightLevel(1);
 	    steelDoorBlock      = new BlockModDoor(EnumBlockType.IRON, "steelDoorBlock", 7.0F, true);
 	    coalstoneFurnace    = new BlockCoalstoneFurnace("coalstoneFurnace", false);
