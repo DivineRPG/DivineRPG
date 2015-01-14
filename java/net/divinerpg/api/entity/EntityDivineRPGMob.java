@@ -65,7 +65,7 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 
 	public void onDeath(DamageSource d) {
 		super.onDeath(d);	
-		if(!worldObj.isRemote /*&& ConfigurationHelper.canShowDeathChat*/){
+		if(!worldObj.isRemote && ConfigurationHelper.canShowDeathChat){
 			if(d.getEntity() != null && d.getEntity() instanceof EntityPlayer){
 				EntityPlayer p = (EntityPlayer)d.getEntity();
 				String name = mobName() != null ? mobName() : "null";

@@ -47,7 +47,7 @@ public class BlockModLeaves extends BlockMod implements IShearable
 
     @Override
     public IIcon getIcon(IBlockAccess world, int i, int j, int k, int par5) {
-        if (Minecraft.getMinecraft().gameSettings.fancyGraphics || world.getBlock(i, j, k) == VetheaBlocks.firewoodLeaves || world.getBlock(i, j, k) == VetheaBlocks.hyrewoodLeaves || world.getBlock(i, j, k) == VetheaBlocks.dreamWoodLeaves || world.getBlock(i, j, k) == VetheaBlocks.mintwoodLeaves) return this.textures[0];
+        if (isFancy(world, i, j, k)) return this.textures[0];
         return this.textures[1];
     }
     
@@ -61,7 +61,7 @@ public class BlockModLeaves extends BlockMod implements IShearable
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockAccess w, int x, int y, int z, int meta) {
         Block block = w.getBlock(x, y, z);
-        return !Minecraft.getMinecraft().gameSettings.fancyGraphics && block == this ? false : super.shouldSideBeRendered(w, x, y, z, meta);
+        return !isFancy(w, x, y, z) && block == this ? false : super.shouldSideBeRendered(w, x, y, z, meta);
     }
 
     @Override
@@ -79,5 +79,10 @@ public class BlockModLeaves extends BlockMod implements IShearable
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 3));
         return ret;
+    }
+    
+    private boolean isFancy(IBlockAccess world, int x, int y, int z) {
+    	if(Minecraft.getMinecraft().gameSettings.fancyGraphics || world.getBlock(x, y, z) == VetheaBlocks.firewoodLeaves || world.getBlock(x, y, z) == VetheaBlocks.hyrewoodLeaves || world.getBlock(x, y, z) == VetheaBlocks.dreamWoodLeaves || world.getBlock(x, y, z) == VetheaBlocks.mintwoodLeaves) return true;
+		return false;
     }
 }

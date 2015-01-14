@@ -41,6 +41,11 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 	public boolean canBreatheUnderwater() {
 		return true;
 	}
+	
+	@Override
+	protected boolean canTriggerWalking() {
+        return false;
+    }
 
 	@Override
 	protected String getLivingSound() {

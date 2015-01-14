@@ -46,7 +46,7 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
     
     @Override
 	protected boolean canTriggerWalking() {
-        return true;
+        return false;
     }
 
     @Override
