@@ -22,7 +22,6 @@ public class BlockModBook extends BlockMod {
 
     public BlockModBook(EnumBlockType type, String name) {
     	super(type, name, DivineRPGTabs.blocks);
-        this.name = name;
     }
 
     @SideOnly(Side.CLIENT)
