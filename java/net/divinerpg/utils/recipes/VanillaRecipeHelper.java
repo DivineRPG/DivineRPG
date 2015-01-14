@@ -301,20 +301,23 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 9),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 13));
 		
 		addShapelessRecipe(new ItemStack(VanillaBlocks.milkStone, 4),  Blocks.stone, Blocks.stone, Blocks.stone, Items.milk_bucket);
-		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 1, 2),  Blocks.obsidian, Blocks.glowstone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 13),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.redstone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 5),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 2));
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 10),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 9));
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 11),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 5));
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 7),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 4));
+		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 3),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.diamond);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 9),  VanillaItemsOther.netheriteIngot);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 12),  VanillaItemsOther.realmiteIngot, VanillaItemsOther.realmiteIngot, VanillaItemsOther.realmiteIngot, VanillaItemsOther.realmiteIngot, VanillaItemsOther.realmiteIngot);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 4),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.gold_ingot);
+		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 8),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.lava_bucket);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 6),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.iron_ingot);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 2),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 0));
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 14),  VanillaBlocks.milkStone, VanillaBlocks.milkStone, VanillaBlocks.milkStone, VanillaBlocks.milkStone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 0),  VanillaItemsOther.aquaBall, Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick);
 		addRecipe(new ItemStack(VanillaBlocks.divineBricks, 10, 1),  "xyx", "yxy", "xyx", 'x', VanillaItemsOther.arlemiteIngot, 'y', Blocks.stonebrick);
+		
+		addShapelessRecipe(new ItemStack(VanillaBlocks.darkStone, 10),  Blocks.obsidian, Blocks.glowstone);
 		
 		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 10),  "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.rupeeIngot, 'z', Blocks.glowstone);
 		addRecipe(new ItemStack(VanillaBlocks.lamp1, 1, 0),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.water_bucket);
@@ -380,6 +383,6 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divinePlank, 4), VanillaBlocks.divineWood);
 		
-		addRecipe(VanillaBlocks.altarOfCorruption,  "sss", "ddd", "ddd", 's', VanillaItemsOther.corruptedStone, 'd', new ItemStack(VanillaBlocks.divineBricks, 1, 2));
+		addRecipe(VanillaBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', VanillaItemsOther.corruptedStone, 'd', VanillaBlocks.darkStone);
 	}
 }

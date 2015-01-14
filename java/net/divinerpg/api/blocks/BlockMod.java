@@ -86,6 +86,7 @@ public class BlockMod extends Block{
         setBlockTextureName(textureName);
         setBlockName(name);
         setHardness(hardness);
+        setResistance(hardness);
         if(hardness == -1F) setBlockUnbreakable();
         if(!(this instanceof IDivineMetaBlock)){
         	GameRegistry.registerBlock(this, name);
@@ -106,6 +107,7 @@ public class BlockMod extends Block{
         setBlockTextureName(textureName);
         setBlockName(name);
         setHardness(hardness);
+        setResistance(hardness);
         if(hardness == -1F) setBlockUnbreakable();
         GameRegistry.registerBlock(this, item, name);
         LangRegistry.addBlock(this);
