@@ -301,7 +301,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 9),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 13));
 		
 		addShapelessRecipe(new ItemStack(VanillaBlocks.milkStone, 4),  Blocks.stone, Blocks.stone, Blocks.stone, Items.milk_bucket);
-		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 10),  Blocks.obsidian, Blocks.glowstone);
+		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 10, 2),  Blocks.obsidian, Blocks.glowstone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 13),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, Items.redstone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 5),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 2));
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 10),  Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick, new ItemStack(Items.dye, 1, 9));
@@ -379,5 +379,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(ItemsFood.chickenDinner, ItemsFood.advMushroomStew, Items.cooked_chicken, Items.bread);
 		
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divinePlank, 4), VanillaBlocks.divineWood);
+		
+		addRecipe(VanillaBlocks.altarOfCorruption,  "sss", "ddd", "ddd", 's', VanillaItemsOther.corruptedStone, 'd', new ItemStack(VanillaBlocks.divineBricks, 1, 2));
 	}
 }
