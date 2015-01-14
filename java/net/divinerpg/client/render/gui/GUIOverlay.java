@@ -51,11 +51,11 @@ public class GUIOverlay {
 			Minecraft.getMinecraft().fontRenderer.drawString(text2, 2, 2, 4210752);
 		}
 	}
+	
+	private static final ResourceLocation r = new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar.png");;
 	public void drawArmor() {
-		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glColor4f(1, 1, 1, 1);
-		ResourceLocation r = new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar.png");
 		res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
 		int x = (res.getScaledWidth() / 2) - 11;
 		int y = res.getScaledHeight() - 49;
@@ -70,6 +70,5 @@ public class GUIOverlay {
 			break;
 		}
 		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glPopMatrix();
 	}
 }
