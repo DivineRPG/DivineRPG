@@ -20,7 +20,7 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 
 	public EntityWhale(World var1) {
 		super(var1);
-		this.setSize(4.2F, 3.0F);
+		this.setSize(2.0F, 1.5F);
 	}
 
 	@Override
@@ -81,10 +81,27 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 
 	@Override
 	public void onEntityUpdate() {
-		super.onEntityUpdate();
-		if(isInWater()) this.setAir(300);
-		else this.setAir(0);
-			
+		int i = this.getAir();
+        super.onEntityUpdate();
+
+        if (this.isEntityAlive() && !this.isInWater()) {
+        	if (!this.worldObj.isRemote) {
+                this.motionX = 0.0D;
+                this.motionY -= 0.08D;
+                this.motionY *= 0.9800000190734863D;
+                this.motionZ = 0.0D;
+            }
+            --i;
+            this.setAir(i);
+
+            if (this.getAir() == -20) {
+                this.setAir(0);
+                this.attackEntityFrom(DamageSource.drown, 2.0F);
+            }
+        }
+        else {
+            this.setAir(300);
+        }	
 	}
 
 	@Override

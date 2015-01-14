@@ -13,6 +13,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -21,7 +22,7 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
 	
     public EntityShark(World var1) {
         super(var1);
-        this.setSize(0.95F, 0.95F);
+        this.setSize(0.75F, 0.50F);
     }
 
     @Override
@@ -40,6 +41,11 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
 
     @Override
     public boolean canBreatheUnderwater() {
+        return true;
+    }
+    
+    @Override
+	protected boolean canTriggerWalking() {
         return true;
     }
 
@@ -73,9 +79,27 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
 
     @Override
     public void onEntityUpdate() {
-    	super.onEntityUpdate();
-    	if(this.isInWater()) this.setAir(300);
-    	else this.setAir(0);
+    	int i = this.getAir();
+        super.onEntityUpdate();
+
+        if (this.isEntityAlive() && !this.isInWater()) {
+        	if (!this.worldObj.isRemote) {
+                this.motionX = 0.0D;
+                this.motionY -= 0.08D;
+                this.motionY *= 0.9800000190734863D;
+                this.motionZ = 0.0D;
+            }
+            --i;
+            this.setAir(i);
+
+            if (this.getAir() == -20) {
+                this.setAir(0);
+                this.attackEntityFrom(DamageSource.drown, 2.0F);
+            }
+        }
+        else {
+            this.setAir(300);
+        }
     }
 
     @Override
