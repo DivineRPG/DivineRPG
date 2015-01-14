@@ -31,6 +31,7 @@ public class BlockBoneChest extends BlockContainer {
 		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
+		setHardness(4.0F);
 	}
 
 	@Override

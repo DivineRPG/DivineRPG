@@ -3,6 +3,8 @@ package net.divinerpg.api.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -45,7 +47,7 @@ public class BlockModLeaves extends BlockMod implements IShearable
 
     @Override
     public IIcon getIcon(IBlockAccess world, int i, int j, int k, int par5) {
-        if (Minecraft.getMinecraft().gameSettings.fancyGraphics) return this.textures[0];
+        if (Minecraft.getMinecraft().gameSettings.fancyGraphics || world.getBlock(i, j, k) == VetheaBlocks.firewoodLeaves || world.getBlock(i, j, k) == VetheaBlocks.hyrewoodLeaves || world.getBlock(i, j, k) == VetheaBlocks.dreamWoodLeaves || world.getBlock(i, j, k) == VetheaBlocks.mintwoodLeaves) return this.textures[0];
         return this.textures[1];
     }
     
