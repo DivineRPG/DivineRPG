@@ -20,7 +20,7 @@ import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.client.render.block.TileEntityStatue;
-import net.divinerpg.dimensions.vanilla.WorldGenOverworld;
+import net.divinerpg.dimensions.vanilla.WorldGenGenerate;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
@@ -153,7 +153,7 @@ public class CommonProxy{
 
 	public void init(FMLInitializationEvent event){
 		LogHelper.info("Adding world generators");
-		GameRegistry.registerWorldGenerator(new WorldGenOverworld(), 0);
+		GameRegistry.registerWorldGenerator(new WorldGenGenerate(), 0);
 		DivineRPGAchievements.init();
 	}
 

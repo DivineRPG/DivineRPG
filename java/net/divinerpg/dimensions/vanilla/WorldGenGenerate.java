@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class WorldGenOverworld implements IWorldGenerator{
+public class WorldGenGenerate implements IWorldGenerator{
 
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -34,7 +34,6 @@ public class WorldGenOverworld implements IWorldGenerator{
 		addOreSpawn(VanillaBlocks.realmiteOre, world, random, x, z, 16, 16, 5, 4, 1, 25);
 		addOreSpawn(VanillaBlocks.arlemiteOre, world, random, x, z, 16, 16, 2, 3, 1, 15);
 		addOreSpawn(VanillaBlocks.rupeeOre,    world, random, x, z, 16, 16, 2, 3, 1, 15);
-		addOreSpawn(Blocks.diamond_ore, 	   world, random, x, z, 16, 16, 2, 6, 1, 23);
 
 		if(random.nextInt(8) == 0) {
 			int posX = x + random.nextInt(16) + 8;
@@ -67,11 +66,9 @@ public class WorldGenOverworld implements IWorldGenerator{
 
 	private void generateEnd(World world, Random random, int x, int z) { }
 
-	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY)
-	{
+	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY) {
 		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < chancesToSpawn; x++)
-		{
+		for (int x = 0; x < chancesToSpawn; x++) {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
@@ -79,11 +76,9 @@ public class WorldGenOverworld implements IWorldGenerator{
 		}
 	}
 
-	public void addNetherOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY)
-	{
+	public void addNetherOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY) {
 		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < chancesToSpawn; x++)
-		{
+		for (int x = 0; x < chancesToSpawn; x++) {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
@@ -91,11 +86,9 @@ public class WorldGenOverworld implements IWorldGenerator{
 		}
 	}
 
-	public void addEndOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY)
-	{
+	public void addEndOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY) {
 		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < chancesToSpawn; x++)
-		{
+		for (int x = 0; x < chancesToSpawn; x++) {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
