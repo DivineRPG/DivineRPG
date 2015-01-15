@@ -228,7 +228,7 @@ public class VanillaBlocks {
 		lamp1				  = new BlockLamp1();
 		lamp2				  = new BlockLamp2();
 		milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
-		darkStone			  = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND);
+		darkStone			  = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setLightLevel(1);
 		
 		lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
 	    lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);
