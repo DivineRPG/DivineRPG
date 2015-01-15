@@ -294,6 +294,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsOther.mysteriousClock, " H ", "SCS", " S ", 'C', Items.clock, 'S', VanillaItemsOther.corruptedStone, 'H', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsOther.callWatcher, " H ", "SES", " S ", 'E', VanillaItemsOther.watchingEye, 'S', VanillaItemsOther.moltenStone, 'H', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsOther.hordeHorn, " H ", "SES", " S ", 'E', Items.ender_eye, 'S', VanillaItemsOther.enderStone, 'H', VanillaItemsOther.hellstoneIngot);
+		addRecipe(VanillaItemsOther.infernalFlame, "BBB", "BSB", "BBB", 'B', VanillaItemsOther.purpleBlaze, 'S', VanillaItemsWeapons.infernoSword);
 		
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 0),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 6));
 		addRecipe(new ItemStack(VanillaBlocks.steel, 1, 1),  "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', new ItemStack(Items.dye, 1, 1));

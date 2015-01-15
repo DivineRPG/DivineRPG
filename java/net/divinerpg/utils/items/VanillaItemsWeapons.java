@@ -3,6 +3,7 @@ package net.divinerpg.utils.items;
 import net.divinerpg.api.items.ItemHealingSword;
 import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.api.items.ItemModSword;
+import net.divinerpg.api.items.ItemSlowingSword;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
@@ -123,7 +124,7 @@ public class VanillaItemsWeapons {
 	    poisonSaber        = new ItemModSword(ToolMaterialMod.PoisonSaber, "poisonSaber");
 	    furyMaul           = new ItemModSword(ToolMaterialMod.FuryMaul, "furyMaul");
 	    corruptedMaul      = new ItemModSword(ToolMaterialMod.CorruptedMaul, "corruptedMaul");
-	    frostSword         = new ItemModSword(ToolMaterialMod.Frost, "frostSword");
+	    frostSword         = new ItemSlowingSword(ToolMaterialMod.Frost, "frostSword");
 	    infernoSword       = new ItemInfernoSword(ToolMaterialMod.Inferno, "infernoSword");
 	    bloodgemSword      = new ItemModSword(ToolMaterialMod.Bloodgem, "bloodgemSword");
 	    moltenSword        = new ItemModSword(ToolMaterialMod.Molten, "moltenSword");
