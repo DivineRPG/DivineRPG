@@ -20,7 +20,7 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 
 	public EntityWhale(World var1) {
 		super(var1);
-		this.setSize(2.0F, 1.5F);
+		this.setSize(4.0F, 2.5F);
 	}
 
 	@Override

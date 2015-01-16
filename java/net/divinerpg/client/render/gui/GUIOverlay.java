@@ -54,8 +54,7 @@ public class GUIOverlay {
 	
 	private static final ResourceLocation r = new ResourceLocation(Reference.PREFIX + "textures/gui/armorBar.png");;
 	public void drawArmor() {
-		GL11.glEnable(GL11.GL_BLEND);
-		GL11.glColor4f(1, 1, 1, 1);
+		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
 		int x = (res.getScaledWidth() / 2) - 11;
 		int y = res.getScaledHeight() - 49;
@@ -69,6 +68,5 @@ public class GUIOverlay {
 			Util.drawTexturedModalRect(x, y, 9, 0, 18, 9);
 			break;
 		}
-		GL11.glDisable(GL11.GL_BLEND);
 	}
 }

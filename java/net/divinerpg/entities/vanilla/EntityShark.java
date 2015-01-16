@@ -16,13 +16,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityShark extends EntityPeacefulUntilAttacked {
 	
     public EntityShark(World var1) {
         super(var1);
-        this.setSize(0.75F, 0.50F);
+        this.setSize(0.95F, 0.95F);
     }
 
     @Override
@@ -78,8 +79,8 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    public void onEntityUpdate() {
-    	int i = this.getAir();
+	public void onEntityUpdate() {
+		int i = this.getAir();
         super.onEntityUpdate();
 
         if (this.isEntityAlive() && !this.isInWater()) {
@@ -99,18 +100,15 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
         }
         else {
             this.setAir(300);
-        }
-    }
-
+        }	
+	}
+    
     @Override
     protected void fall(float var1) {}
 
     @Override
     public boolean getCanSpawnHere() {
-        int var1 = MathHelper.floor_double(this.posX);
-        int var2 = MathHelper.floor_double(this.boundingBox.minY);
-        int var3 = MathHelper.floor_double(this.posZ);
-        return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
+        return this.isInWater() && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL;
     }
     
     @Override
