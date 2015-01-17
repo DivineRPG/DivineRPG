@@ -2,20 +2,21 @@ package net.divinerpg.dimensions.vethea.layer3;
 import java.util.Random;
 
 import net.divinerpg.utils.blocks.VetheaBlocks;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class KarosMadhouse extends WorldGenerator
-{
-	protected int[] GetValidSpawnBlocks() {
-		return new int[] {
-		};
-	}
-	
-	public KarosMadhouse() { }
+public class KarosMadhouse extends WorldGenerator {
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-
+		
+		for(int x = 0; x < 31; x++) {
+			for(int y = 0; y < 6; y++) {
+				for(int z = 0; z < 20; z++) {
+					world.setBlock(i+x, j+y, k+z, Blocks.air);
+				}
+			}
+		}
 		world.setBlock(i + 0, j + 0, k + 2, VetheaBlocks.karosBricks2);
 		world.setBlock(i + 0, j + 0, k + 3, VetheaBlocks.karosBricks2);
 		world.setBlock(i + 0, j + 0, k + 4, VetheaBlocks.karosBricks2);

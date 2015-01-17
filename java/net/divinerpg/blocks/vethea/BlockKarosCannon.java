@@ -75,10 +75,10 @@ public class BlockKarosCannon extends BlockContainer {
 
 	public void dispense(World par1World, int par2, int par3, int par4) {
 		this.setDispenserDefaultDirection(par1World, par2, par3, par4);
-		this.func_82486_a(par1World, 0, EnumFacing.getFront(par1World.getBlockMetadata(par2, par3, par4)), par2, par3, par4);
+		this.doDispense(par1World, 0, EnumFacing.getFront(par1World.getBlockMetadata(par2, par3, par4)), par2, par3, par4);
 	}
 
-	public void func_82486_a(World par0World, int par2, EnumFacing par3EnumFacing, int par3, int par4, int par5) {
+	public void doDispense(World par0World, int par2, EnumFacing par3EnumFacing, int par3, int par4, int par5) {
 		double var5 = par3;
 		double var7 = par4;
 		double var9 = par5;

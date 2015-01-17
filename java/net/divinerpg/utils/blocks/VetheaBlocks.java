@@ -137,8 +137,8 @@ public class VetheaBlocks {
         hyrewood               = new BlockModLog("hyreWoodLog").setCreativeTab(DivineRPGTabs.vethea);
         mintwoodLeaves         = new BlockModLeaves("mintwoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         firewall               = new BlockMod("fireWall", 1.0F, DivineRPGTabs.vethea);
-        karosHeatTileGreen     = new BlockKarosHeatTile(false, "karosHeatTileGreen");
-        karosHeatTileRed       = new BlockKarosHeatTile(true, "karosHeatTileRed");
+        karosHeatTileGreen     = new BlockMod(EnumBlockType.GLASS, "karosHeatTileGreen", false, DivineRPGTabs.vethea);
+        karosHeatTileRed       = new BlockKarosHeatTile();
         firewood               = new BlockModLog("fireWoodLog").setCreativeTab(DivineRPGTabs.vethea);
         bacterialAcid          = new BlockAcid("bacterialAcid", false);
         blockAcid              = new BlockAcid("acidBlock", true);

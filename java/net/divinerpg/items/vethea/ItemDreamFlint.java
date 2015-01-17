@@ -31,7 +31,7 @@ public class ItemDreamFlint extends ItemMod {
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
 				world.spawnEntityInWorld(entity);
 			} else if(world.getBlock(x, y, z) == VetheaBlocks.karosAltar) {
-				EntityKaros entity = new EntityKaros(world);
+				EntityKaros entity = new EntityKaros(world, x, y+1, z);
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
 				world.spawnEntityInWorld(entity);
 			} else if(world.getBlock(x, y, z) == VetheaBlocks.quadroticAltar) {
