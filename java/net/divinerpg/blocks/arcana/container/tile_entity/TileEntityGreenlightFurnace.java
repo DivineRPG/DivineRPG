@@ -1,9 +1,9 @@
 package net.divinerpg.blocks.arcana.container.tile_entity;
 
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.arcana.BlockGreenlightFurnace;
 
-public class TileEntityGreenlightFurnace extends TileEntityModFurnace {
+public class TileEntityGreenlightFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityGreenlightFurnace() {
 		super("Greenlight Furnace", false, 300);

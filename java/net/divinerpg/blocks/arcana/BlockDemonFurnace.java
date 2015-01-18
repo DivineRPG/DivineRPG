@@ -2,13 +2,11 @@ package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.api.blocks.BlockModFurnace;
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
-import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityMoltenFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,7 +14,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -51,11 +48,14 @@ public class BlockDemonFurnace extends BlockModFurnace {
 	
 	@Override
 	public boolean onBlockActivated(World w, int x, int y, int z, EntityPlayer p, int i, float j, float k, float f) {
-		TileEntityModFurnace furnace  = (TileEntityModFurnace)w.getTileEntity(x, y, z);
-		if(!w.isRemote && furnace != null){
-			if(!p.isSneaking()){
-				p.openGui(DivineRPG.instance, GuiHandler.demon, w, x, y, z);
-				p.triggerAchievement(DivineRPGAchievements.totalDemonization);
+		TileEntityInfiniteFurnace furnace  = (TileEntityInfiniteFurnace)w.getTileEntity(x, y, z);
+		if(furnace != null){
+			if(!p.isSneaking()) {
+				if(!w.isRemote) {
+					p.openGui(DivineRPG.instance, GuiHandler.demon, w, x, y, z);
+					p.triggerAchievement(DivineRPGAchievements.totalDemonization);
+				}
+				return true;
 			}
 		}
 		return false;
@@ -73,6 +73,11 @@ public class BlockDemonFurnace extends BlockModFurnace {
 
 	@Override
 	public boolean renderAsNormalBlock() {
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube() {
 		return false;
 	}
 	

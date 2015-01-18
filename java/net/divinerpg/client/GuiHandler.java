@@ -1,9 +1,10 @@
 package net.divinerpg.client;
 
 import net.divinerpg.api.container.ContainerDivineMerchant;
+import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.api.entity.tileentity.container.ContainerInfiniteFurnace;
 import net.divinerpg.blocks.arcana.container.ContainerExtractor;
-import net.divinerpg.blocks.arcana.container.ContainerNoFuel;
 import net.divinerpg.blocks.iceika.container.ContainerCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
 import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
@@ -53,7 +54,7 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == extractor)
 			return new ContainerExtractor(player.inventory, (TileEntityModFurnace)entity);
 		if(ID == greenlight || ID == oceanfire || ID == molten || ID == whitefire || ID == moonlight || ID == demon)
-			return new ContainerNoFuel(player.inventory, (TileEntityModFurnace)entity);
+			return new ContainerInfiniteFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == altar)
 			return new ContainerAltarCorruption(player.inventory, world, x, y, z);
 		return null;
@@ -65,7 +66,7 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == infusionTable)
 			return new GuiInfusionTable(new ContainerInfusionTable(player.inventory, (TileEntityInfusionTable)entity));
 		if(ID == coalstone)
-			return new GuiCoalstoneFurnace(player.inventory, (TileEntityCoalstoneFurnace)entity);
+			return new GuiCoalstoneFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == jackOMan)
 			return new GuiJackOMan(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == merchent)
@@ -87,17 +88,17 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == extractor)
 			return new GuiExtractor(player.inventory, (TileEntityModFurnace)entity);
 		if(ID == greenlight)
-			return new GuiGreenlightFurnace(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiGreenlightFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == oceanfire)
-			return new GuiOceanfireFurnace(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiOceanfireFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == molten)
-			return new GuiMoltenFurnace(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiMoltenFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == whitefire)
-			return new GuiWhitefireFurnace(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiWhitefireFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == moonlight)
-			return new GuiMoonlightFurnace(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiMoonlightFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == demon)
-			return new GuiDemonFurnace(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiDemonFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == altar)
 			return new GuiAltarCorruption(player.inventory, world, x, y, z);
 		return null;

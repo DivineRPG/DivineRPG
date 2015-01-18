@@ -27,7 +27,6 @@ public class ConfigurationHelper {
     public static int     arcanaX, arcanaY;
 
     public static void dimensionInit() {
-    	//cfg.addCustomCategoryComment("", "Do NOT modify this unless you know what you're doing. It could mess up your DivineRPG installation.");
         edenBiome = cfg.get("Dimension", "Eden biome ID", 40).getInt();
         wildwoodBiome = cfg.get("Dimension", "The Wildwood biome ID", 41).getInt();
         apalachiaBiome = cfg.get("Dimension", "Apalachia biome ID", 42).getInt();

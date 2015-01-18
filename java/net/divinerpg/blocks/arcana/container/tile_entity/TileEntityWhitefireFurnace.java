@@ -1,9 +1,9 @@
 package net.divinerpg.blocks.arcana.container.tile_entity;
 
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.arcana.BlockWhitefireFurnace;
 
-public class TileEntityWhitefireFurnace extends TileEntityModFurnace {
+public class TileEntityWhitefireFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityWhitefireFurnace() {
 		super("Whitefire Furnace", false, 300);

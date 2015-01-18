@@ -3,9 +3,8 @@ package net.divinerpg.api.blocks;
 import java.util.Random;
 
 import net.divinerpg.DivineRPG;
+import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
-import net.divinerpg.client.GuiHandler;
-import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
@@ -13,7 +12,6 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,10 +19,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -69,7 +65,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World w, int x, int y, int z, EntityPlayer p, int i, float j, float k, float f) {
-		TileEntityModFurnace furnace  = (TileEntityModFurnace)w.getTileEntity(x, y, z);
+		TileEntity furnace  = w.getTileEntity(x, y, z);
 		if(furnace != null){
 			if(!p.isSneaking()){
 				if(!w.isRemote) p.openGui(DivineRPG.instance, guiID, w, x, y, z);
@@ -106,6 +102,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 	@Override
 	public void breakBlock(World w, int x, int y, int z, Block b, int meta) {
 		if(!keepInventory) {
+			if(w.getTileEntity(x, y, z) instanceof TileEntityModFurnace) {
 			TileEntityModFurnace entity = (TileEntityModFurnace)w.getTileEntity(x, y, z);
 
 			if(entity != null) {
@@ -132,6 +129,34 @@ public abstract class BlockModFurnace extends BlockContainer {
 				}
 				w.func_147453_f(x, y, z, b);
 			}
+		}else if(w.getTileEntity(x, y, z) instanceof TileEntityInfiniteFurnace) {
+			TileEntityInfiniteFurnace entity = (TileEntityInfiniteFurnace)w.getTileEntity(x, y, z);
+
+			if(entity != null) {
+				for(int i1 = 0; i1 < entity.getSizeInventory(); ++i1) {
+					ItemStack itemstack = entity.getStackInSlot(i1);
+					if(itemstack != null) {
+						float f = this.rand.nextFloat() * 0.8F + 0.1F;
+						float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
+						float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
+
+						while(itemstack.stackSize > 0) {
+							int j1 = this.rand.nextInt(21) + 10;
+							if(j1 > itemstack.stackSize) j1 = itemstack.stackSize;
+							itemstack.stackSize -= j1;
+							EntityItem entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							if(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+							float f3 = 0.05F;
+							entityitem.motionX = (double)((float)this.rand.nextGaussian() * f3);
+							entityitem.motionY = (double)((float)this.rand.nextGaussian() * f3 + 0.2F);
+							entityitem.motionZ = (double)((float)this.rand.nextGaussian() * f3);
+							w.spawnEntityInWorld(entityitem);
+						}
+					}
+				}
+				w.func_147453_f(x, y, z, b);
+			}
+		}
 		}
 		super.breakBlock(w, x, y, z, b, meta);
 	}
