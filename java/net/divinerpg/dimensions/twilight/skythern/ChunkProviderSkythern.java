@@ -368,6 +368,13 @@ public class ChunkProviderSkythern implements IChunkProvider{
 			(new WorldGenFlowers(TwilightBlocks.skythernBrush)).generate(this.worldObj, this.rand, var14, var15, var16);
 		}
 		
+		for (int c = 0; c < 20; ++c) {
+			var14 = var4 + this.rand.nextInt(16)+8;
+			var16 = var5 + this.rand.nextInt(16)+8;
+			var15 = this.rand.nextInt(255)+1;
+			(new WorldGenFlowers(TwilightBlocks.dustLily)).generate(this.worldObj, this.rand, var14, var15, var16);
+		}
+		
 		for (int c = 0; c < 30; ++c) {
 			var14 = var4 + this.rand.nextInt(16)+8;
 			var16 = var5 + this.rand.nextInt(16)+8;

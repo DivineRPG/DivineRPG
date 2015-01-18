@@ -10,8 +10,8 @@ public class ConfigurationHelper {
     public static Configuration             cfg;
     private static HashMap<String, Integer> configMap = new HashMap<String, Integer>();
 
-    public static void init() {
-        cfg = new Configuration(new File("./config/DivineRPG.cfg"));
+    public static void init(File dir) {
+        cfg = new Configuration(new File(dir, "DivineRPG.cfg"));
 
         cfg.load();
         dimensionInit();
@@ -27,7 +27,7 @@ public class ConfigurationHelper {
     public static int     arcanaX, arcanaY;
 
     public static void dimensionInit() {
-    	cfg.addCustomCategoryComment("", "Do NOT modify this unless you know what you're doing. It could mess up your DivineRPG installation.");
+    	//cfg.addCustomCategoryComment("", "Do NOT modify this unless you know what you're doing. It could mess up your DivineRPG installation.");
         edenBiome = cfg.get("Dimension", "Eden biome ID", 40).getInt();
         wildwoodBiome = cfg.get("Dimension", "The Wildwood biome ID", 41).getInt();
         apalachiaBiome = cfg.get("Dimension", "Apalachia biome ID", 42).getInt();

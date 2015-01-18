@@ -27,14 +27,15 @@ This mod is owned by XolovA, but he is no longer part of the team
 * RadioactiveStud (aka SoccerStud) - Lead Developer
 * Eternaldoom - Developer
 * Laorwick - Recipes
-* BlueEyes9 - Models/Textures
 
 #####Special Thanks to
-* BossLetsPlays - Exclusive Preview Videos / Former Devloper
+* BossLetsPlays - Exclusive Preview Videos / Former Developer
 * THEVOLCO - German Translations
-* ShadowOfStrelok - Russian Translations
+* ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
+* TikenTVC - Portuguese Translations
 * Sheenrox82 - Our Personal Jester / Former Developer
 * Declan (UKDeccy) - Models/Textures
+* BlueEyes9 - Models/Textures
 * Insanity414all - Wiki admin
 
 #####Other Credits

@@ -50,6 +50,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(TwilightItemsOther.apalachiaDust, TwilightBlocks.apalachiaTallgrass);
 		addShapelessRecipe(TwilightItemsOther.skythernDust, TwilightBlocks.skythernBrush);
 		addShapelessRecipe(TwilightItemsOther.skythernDust, TwilightBlocks.dustBrambles);
+		addShapelessRecipe(TwilightItemsOther.skythernDust, TwilightBlocks.dustLily);
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.eyePlant);
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.mortumBrush);
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.demonBrambles);

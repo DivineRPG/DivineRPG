@@ -31,7 +31,7 @@ public class DivineRPG {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		LogHelper.info("Configuring mod");
-		ConfigurationHelper.init();
+		ConfigurationHelper.init(event.getModConfigurationDirectory());
 		
 		proxy.preInitServer(event);
 		proxy.preInitClient(event);
