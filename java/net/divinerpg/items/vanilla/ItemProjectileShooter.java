@@ -6,6 +6,7 @@ import java.util.List;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
+import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -24,7 +25,7 @@ public class ItemProjectileShooter extends ItemMod {
 	private String projectileTex;
 	protected int uses;
 	private int counter;
-	private int currentCounter = 0;
+	private int canShootTick;
 	private boolean hasParticle;
 	private String fx;
 	public static List<Item> gunList = new ArrayList<Item>();
@@ -91,7 +92,7 @@ public class ItemProjectileShooter extends ItemMod {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if(currentCounter == 0) {
+		if(Ticker.tick >= canShootTick) {
 			if(player.capabilities.isCreativeMode || this.ammo == null || player.inventory.hasItem(ammo)) {
 				if(this.uses > -1 && !player.capabilities.isCreativeMode) stack.damageItem(1, player);
 				if(this.ammo != null && !player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(ammo);
@@ -99,11 +100,11 @@ public class ItemProjectileShooter extends ItemMod {
 					world.playSoundAtEntity(player, this.soundName != null ? this.soundName : "random.bow", 1, 1);
 					EntityThrowable bullet = this.hasParticle ? (this.projectileTex != null ? new EntityParticleBullet(world, player, this.damage, this.projectileTex, this.fx) : new EntityParticleBullet(world, player, this.damage, this.ammo, this.fx)) : (this.projectileTex != null ? new EntityShooterBullet(world, player, this.damage, this.projectileTex) : new EntityShooterBullet(world, player, this.damage, this.ammo));
 					world.spawnEntityInWorld(bullet);
+					canShootTick = Ticker.tick + counter*4;
 				}
+				if(canShootTick >= 100000)canShootTick = 0;
 			}
 		}
-		if(currentCounter < counter) currentCounter++;
-		if(currentCounter == counter) currentCounter = 0;
 		return stack;
 	}
 	
