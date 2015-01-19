@@ -169,6 +169,7 @@ public class VanillaEntityRenderer {
 		Util.registerItemRenderer(VanillaBlocks.kosStatue, new RenderStatueItem(VanillaBlocks.kosStatue));
 		Util.registerItemRenderer(VanillaBlocks.ancientEntityStatue, new RenderStatueItem(VanillaBlocks.ancientEntityStatue));
 		Util.registerItemRenderer(VanillaBlocks.ayeracoStatue, new RenderStatueItem(VanillaBlocks.ayeracoStatue));
+		Util.registerItemRenderer(VanillaBlocks.reyvorStatue, new RenderStatueItem(VanillaBlocks.reyvorStatue));
 		Util.registerItemRenderer(VanillaBlocks.twilightDemonStatue, new RenderStatueItem(VanillaBlocks.twilightDemonStatue));
 		Util.registerItemRenderer(VanillaBlocks.vamacheronStatue, new RenderStatueItem(VanillaBlocks.vamacheronStatue));
 		Util.registerItemRenderer(VanillaBlocks.densosStatue, new RenderStatueItem(VanillaBlocks.densosStatue));

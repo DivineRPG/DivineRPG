@@ -20,7 +20,7 @@ public class ModelReyvorStatue extends DivineModel
 
     public ModelReyvorStatue()
     {
-        super("TODO", 64, 32); //TODO
+        super("statueDensos", 64, 32);
 
         head = new DivineRenderer(this, 0, 0);
         head.addBox(-11F, -8F, -4F, 8, 8, 8);
