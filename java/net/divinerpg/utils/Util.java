@@ -180,15 +180,15 @@ public class Util {
     	return coords;
     }
     
-    public static void drawTexturedModalRect(int par1, int par2, int par3, int par4, int par5, int par6) {
+    public static void drawTexturedModalRect(int x1, int y1, int u, int v, int x2, int y2) {
         float f = 0.00390625F;
         float f1 = 0.00390625F;
         Tessellator tessellator = Tessellator.instance;
         tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV((double)(par1 + 0), (double)(par2 + par6), 1D, (double)((float)(par3 + 0) * f), (double)((float)(par4 + par6) * f1));
-        tessellator.addVertexWithUV((double)(par1 + par5), (double)(par2 + par6), 1D, (double)((float)(par3 + par5) * f), (double)((float)(par4 + par6) * f1));
-        tessellator.addVertexWithUV((double)(par1 + par5), (double)(par2 + 0), 1D, (double)((float)(par3 + par5) * f), (double)((float)(par4 + 0) * f1));
-        tessellator.addVertexWithUV((double)(par1 + 0), (double)(par2 + 0), 1D, (double)((float)(par3 + 0) * f), (double)((float)(par4 + 0) * f1));
+        tessellator.addVertexWithUV((double)(x1 + 0), (double)(y1 + y2), 1D, (double)((float)(u + 0) * f), (double)((float)(v + y2) * f1));
+        tessellator.addVertexWithUV((double)(x1 + x2), (double)(y1 + y2), 1D, (double)((float)(u + x2) * f), (double)((float)(v + y2) * f1));
+        tessellator.addVertexWithUV((double)(x1 + x2), (double)(y1 + 0), 1D, (double)((float)(u + x2) * f), (double)((float)(v + 0) * f1));
+        tessellator.addVertexWithUV((double)(x1 + 0), (double)(y1 + 0), 1D, (double)((float)(u + 0) * f), (double)((float)(v + 0) * f1));
         tessellator.draw();
     }
 }
