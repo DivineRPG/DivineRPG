@@ -29,7 +29,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		final double eyeHeight = 1.62;
 		final double reachDistance = 300;
-		Vec3 startPos = player.getPosition(1.0F);
+		Vec3 startPos = Vec3.createVectorHelper(player.posX, player.posY, player.posZ);
 		if (!world.isRemote) startPos = startPos.addVector(0, eyeHeight, 0);
 		Vec3 look = player.getLook(1.0F);
 		Vec3 endPos = startPos.addVector(look.xCoord * reachDistance, look.yCoord * reachDistance, look.zCoord * reachDistance);
