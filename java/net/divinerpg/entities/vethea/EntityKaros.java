@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 public class EntityKaros extends EntityDivineRPGBoss {
 
-	private static int ability;
+	private int ability;
 	private final int DEFAULT = 0;
 	private final int CEILING = 1;
 	private final int CANNONS = 2;

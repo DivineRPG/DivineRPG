@@ -49,7 +49,7 @@ public class DivineWorldgen implements IWorldGenerator{
 			(new WorldGenDivineDungeon()).generate(world, random, posX, posY, posZ);
 		}
 		
-		if(biome == BiomeGenBase.forest && biome == BiomeGenBase.forestHills && random.nextInt(2) == 0) {
+		if(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.FOREST) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.CONIFEROUS) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.JUNGLE) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.DENSE) && biome != BiomeGenBase.birchForest && biome != BiomeGenBase.birchForestHills && random.nextInt(2) == 0) {
 			int posX = x + random.nextInt(16);
 			int posZ = z + random.nextInt(16);
 			int posY = world.getHeightValue(posX, posZ);
