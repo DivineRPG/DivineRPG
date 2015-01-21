@@ -13,17 +13,15 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityShark extends EntityPeacefulUntilAttacked {
 	
     public EntityShark(World var1) {
         super(var1);
-        this.setSize(0.95F, 0.95F);
+        this.setSize(0.75F, 0.75F);
     }
 
     @Override
@@ -34,6 +32,7 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.sharkSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.sharkFollowRange);
     }
+
     
     @Override
 	public int getMaxSpawnedInChunk() {
@@ -108,10 +107,10 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.isInWater() && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL;
+        return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
     }
     
-    @Override
+	@Override
     public void onDeath(DamageSource d) {
 		super.onDeath(d);
 		if(!this.worldObj.isRemote) {
