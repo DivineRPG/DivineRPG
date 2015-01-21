@@ -55,7 +55,7 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
     		this.special--;
     		if (this.special % 5 == 0) {
     			EntityKingOfScorchersShot var1 = new EntityKingOfScorchersShot(this.worldObj, (double)this.getAttackTarget().posX, (double)this.getAttackTarget().posY + 10, (double)this.getAttackTarget().posZ);
-    			var1.setVelocity(0, -0.5, 0);
+    			var1.motionY = -0.5;
                 this.worldObj.spawnEntityInWorld(var1);
     		}
     	} else {

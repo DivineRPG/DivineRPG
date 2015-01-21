@@ -226,7 +226,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsArmor.corruptedLegs, "III", "I I", "I I", 'I', VanillaItemsOther.corruptedStone);
 		addRecipe(VanillaItemsArmor.corruptedBoots,  "I I", "I I", 'I', VanillaItemsOther.corruptedStone);
 		
-		//Armor Dye
+		//Colorable Weapons / Armor
 		addShapelessRecipe(VanillaItemsArmor.redRupeeHelmet, VanillaItemsArmor.rupeeHelmet, VanillaItemsOther.redDiamondChunk);
 		addShapelessRecipe(VanillaItemsArmor.redRupeeBody, VanillaItemsArmor.rupeeBody, VanillaItemsOther.redDiamondChunk);
 		addShapelessRecipe(VanillaItemsArmor.redRupeeLegs, VanillaItemsArmor.rupeeLegs, VanillaItemsOther.redDiamondChunk);
@@ -274,6 +274,18 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(VanillaItemsOther.blueDiamondChunk, Items.diamond, VanillaItemsOther.rupeeIngot);
 		addShapelessRecipe(VanillaItemsOther.yellowDiamondChunk, Items.diamond, VanillaItemsOther.realmiteIngot);
 		addShapelessRecipe(VanillaItemsOther.grayDiamondChunk, Items.diamond, VanillaItemsOther.shadowBar);
+		
+		addShapelessRecipe(VanillaItemsWeapons.redDivineSword, VanillaItemsWeapons.divineSword, VanillaItemsOther.redDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.yellowDivineSword, VanillaItemsWeapons.divineSword, VanillaItemsOther.yellowDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.greenDivineSword, VanillaItemsWeapons.divineSword, VanillaItemsOther.greenDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.blueDivineSword, VanillaItemsWeapons.divineSword, VanillaItemsOther.blueDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.grayDivineSword, VanillaItemsWeapons.divineSword, VanillaItemsOther.grayDiamondChunk);
+		
+		addShapelessRecipe(VanillaItemsWeapons.redEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.redDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.yellowEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.yellowDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.greenEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.greenDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.blueEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.blueDiamondChunk);
+		addShapelessRecipe(VanillaItemsWeapons.grayEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.grayDiamondChunk);
 		
 		//misc
 		addRecipe(VanillaItemsOther.netheriteChunk, " I ", "III", " I ", 'I', VanillaItemsOther.netheriteIngot);

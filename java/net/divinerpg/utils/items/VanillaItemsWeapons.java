@@ -37,8 +37,7 @@ public class VanillaItemsWeapons {
 	public static Item divineSword;
 	public static Item blueDivineSword;
 	public static Item yellowDivineSword;
-	public static Item pinkDivineSword;
-	public static Item purpleDivineSword;
+	public static Item grayDivineSword;
 	public static Item redDivineSword;
 	public static Item greenDivineSword;
 	public static Item bedrockMaul;
@@ -60,11 +59,11 @@ public class VanillaItemsWeapons {
 	public static Item scorchingSword;
 	public static Item bluefireSword;
 	public static Item enderSword;
-	public static Item enderSwordBlue;
-	public static Item enderSwordDark;
-	public static Item enderSwordGreen;
-	public static Item enderSwordRed;
-	public static Item enderSwordYellow;
+	public static Item blueEnderSword;
+	public static Item grayEnderSword;
+	public static Item greenEnderSword;
+	public static Item redEnderSword;
+	public static Item yellowEnderSword;
 	public static Item cyclopsianSword;
 
 	public static Item hunterBow;
@@ -108,8 +107,7 @@ public class VanillaItemsWeapons {
 	    divineSword        = new ItemModSword(ToolMaterialMod.Divine, "divineSword");
 	    blueDivineSword    = new ItemModSword(ToolMaterialMod.Divine, "blueDivineSword");
 	    yellowDivineSword  = new ItemModSword(ToolMaterialMod.Divine, "yellowDivineSword");
-	    pinkDivineSword    = new ItemModSword(ToolMaterialMod.Divine, "pinkDivineSword");
-	    purpleDivineSword  = new ItemModSword(ToolMaterialMod.Divine, "purpleDivineSword");
+	    grayDivineSword    = new ItemModSword(ToolMaterialMod.Divine, "grayDivineSword");
 	    redDivineSword     = new ItemModSword(ToolMaterialMod.Divine, "redDivineSword");
 	    greenDivineSword   = new ItemModSword(ToolMaterialMod.Divine, "greenDivineSword");
 	    bedrockMaul        = new ItemModSword(ToolMaterialMod.Bedrock, "bedrockMaul");
@@ -131,11 +129,11 @@ public class VanillaItemsWeapons {
 	    scorchingSword     = new ItemModSword(ToolMaterialMod.Scorching, "scorchingSword");
 	    bluefireSword      = new ItemModSword(ToolMaterialMod.Bluefire, "bluefireSword");
 	    enderSword         = new ItemModSword(ToolMaterialMod.Ender, "enderSword");
-	    enderSwordBlue     = new ItemModSword(ToolMaterialMod.Ender, "enderSwordBlue");
-	    enderSwordDark     = new ItemModSword(ToolMaterialMod.Ender, "enderSwordBlack");
-	    enderSwordGreen    = new ItemModSword(ToolMaterialMod.Ender, "enderSwordGreen");
-	    enderSwordRed      = new ItemModSword(ToolMaterialMod.Ender, "enderSwordRed");
-	    enderSwordYellow   = new ItemModSword(ToolMaterialMod.Ender, "enderSwordYellow");
+	    blueEnderSword     = new ItemModSword(ToolMaterialMod.Ender, "blueEnderSword");
+	    grayEnderSword     = new ItemModSword(ToolMaterialMod.Ender, "blackEnderSword");
+	    greenEnderSword    = new ItemModSword(ToolMaterialMod.Ender, "greenEnderSword");
+	    redEnderSword      = new ItemModSword(ToolMaterialMod.Ender, "redEnderSword");
+	    yellowEnderSword   = new ItemModSword(ToolMaterialMod.Ender, "yellowEnderSword");
 	    cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
 	    
 	    hunterBow          = new ItemModBow("hunterBow", 2500, 2, 11, Items.arrow, "hunterArrow");
