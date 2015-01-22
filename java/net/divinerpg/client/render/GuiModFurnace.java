@@ -1,7 +1,7 @@
 package net.divinerpg.client.render;
 
+import net.divinerpg.api.container.ContainerOldFurnace;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
-import net.divinerpg.blocks.iceika.container.ContainerCoalstoneFurnace;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -19,7 +19,7 @@ public class GuiModFurnace extends GuiContainer {
     private String name, texture;
 
     public GuiModFurnace(InventoryPlayer par1InventoryPlayer, TileEntityModFurnace par2TileEntityFurnace, String name, String texture) {
-        super(new ContainerCoalstoneFurnace(par1InventoryPlayer, par2TileEntityFurnace));
+        super(new ContainerOldFurnace(par1InventoryPlayer, par2TileEntityFurnace));
         this.tileFurnace = par2TileEntityFurnace;
         this.name = name;
         this.texture = texture;

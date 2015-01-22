@@ -21,7 +21,7 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
 	
     public EntityEdenTomo(World var1) {
         super(var1);
-        this.setSize(1.7F, 1.0F);
+        this.setSize(1.1F, 1.0F);
         this.experienceValue = 40;
     }
     

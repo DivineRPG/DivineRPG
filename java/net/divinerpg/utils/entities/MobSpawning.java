@@ -117,10 +117,8 @@ public class MobSpawning {
 	}
 
 	public static void addDungeonSpawns() {
-		DivineDungeonHooks.addDungeonMob("JungleDramcryx", 100);
-		DivineDungeonHooks.addDungeonMob("Crab", 100);
-		DivineDungeonHooks.addDungeonMob("Caveclops", 100);
-		DivineDungeonHooks.addDungeonMob("JungleBat", 100);
+		DivineDungeonHooks.addDungeonMob("EnthralledDramcryx", 100);
+		DivineDungeonHooks.addDungeonMob("Rotatick", 100);
 	}
 	
 	public static void addIceikaSpawns() {

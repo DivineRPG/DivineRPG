@@ -1,12 +1,12 @@
 package net.divinerpg.blocks.iceika.container.tile_entity;
 
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 
-public class TileEntityCoalstoneFurnace extends TileEntityModFurnace {
+public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityCoalstoneFurnace() {
-		super("Coalstone", false, 200);
+		super("Coalstone Furnace", false, 300);
 	}
 
 	@Override

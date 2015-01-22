@@ -18,6 +18,7 @@ public class EntitySeimer extends EntityDivineRPGTameable {
 
     public EntitySeimer(World par1World, EntityPlayer p) {
         this(par1World);
+        this.setSize(1.2f, 1);
         setTamed(true);
         func_152115_b(p.getUniqueID().toString());
     }

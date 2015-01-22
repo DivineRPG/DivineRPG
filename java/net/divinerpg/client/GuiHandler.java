@@ -5,8 +5,6 @@ import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.api.entity.tileentity.container.ContainerInfiniteFurnace;
 import net.divinerpg.blocks.arcana.container.ContainerExtractor;
-import net.divinerpg.blocks.iceika.container.ContainerCoalstoneFurnace;
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
 import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
@@ -47,13 +45,11 @@ public class GuiHandler implements IGuiHandler{
 		TileEntity entity = world.getTileEntity(x, y, z);
 		if(ID == infusionTable)
 			return new ContainerInfusionTable(player.inventory, (TileEntityInfusionTable)entity);
-		if(ID == coalstone)
-			return new ContainerCoalstoneFurnace(player.inventory, (TileEntityCoalstoneFurnace)entity);
 		if(ID == merchent || ID == tinker || ID == zelus || ID == hunger || ID == jackOMan || ID == vatticus || ID == leorna || ID == datticon || ID == captainMerik)
 			return new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world);
 		if(ID == extractor)
 			return new ContainerExtractor(player.inventory, (TileEntityModFurnace)entity);
-		if(ID == greenlight || ID == oceanfire || ID == molten || ID == whitefire || ID == moonlight || ID == demon)
+		if(ID == greenlight || ID == oceanfire || ID == molten || ID == whitefire || ID == moonlight || ID == demon || ID == coalstone)
 			return new ContainerInfiniteFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == altar)
 			return new ContainerAltarCorruption(player.inventory, world, x, y, z);
