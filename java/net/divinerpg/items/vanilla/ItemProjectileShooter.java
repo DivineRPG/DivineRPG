@@ -102,9 +102,9 @@ public class ItemProjectileShooter extends ItemMod {
 					world.spawnEntityInWorld(bullet);
 					canShootTick = Ticker.tick + counter*4;
 				}
-				if(canShootTick >= 100000)canShootTick = 0;
 			}
 		}
+		if(canShootTick >= 100000)canShootTick = 0;
 		return stack;
 	}
 	
