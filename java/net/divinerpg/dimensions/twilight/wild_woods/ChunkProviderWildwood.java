@@ -226,7 +226,8 @@ public class ChunkProviderWildwood implements IChunkProvider{
 
 	@Override
 	public List getPossibleCreatures(EnumCreatureType enumcreaturetype, int i, int j, int k) {
-		return null;
+		BiomeGenBase var5 = this.worldObj.getBiomeGenForCoords(i, k);
+		return var5 == null ? null : var5.getSpawnableList(enumcreaturetype);
 	}
 
 	@Override
