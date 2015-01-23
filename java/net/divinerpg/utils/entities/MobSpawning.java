@@ -156,7 +156,7 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityEdenTomo.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
 		EntityRegistry.addSpawn(EntityEdenCadillion.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
 		EntityRegistry.addSpawn(EntityBunny.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
-		EntityRegistry.addSpawn(EntityEdenCori.class, 1, 1, 1, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenCori.class, 1, 1, 1, EnumCreatureType.creature, edenBiome);
 		EntityRegistry.addSpawn(EntityNesro.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityMadivel.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 

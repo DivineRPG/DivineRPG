@@ -33,6 +33,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 * THEVOLCO - German Translations
 * ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
 * TikenTVC - Portuguese Translations
+* krwminer - Beta testing and fixing some bugs
 * Sheenrox82 - Our Personal Jester / Former Developer
 * Declan (UKDeccy) - Models/Textures
 * BlueEyes9 - Models/Textures

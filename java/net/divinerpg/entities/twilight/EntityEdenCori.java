@@ -149,11 +149,6 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
 
         return true;
     }
-    
-    @Override
-    public int getMaxSpawnedInChunk() {
-    	return 1;
-    }
 
     @Override
     protected String getLivingSound() {
