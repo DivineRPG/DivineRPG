@@ -1,7 +1,10 @@
 package net.divinerpg.dimensions.twilight.eden;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -23,6 +26,12 @@ public class WorldProviderEden extends WorldProvider {
     @Override
     public float getCloudHeight() {
         return 128.0F;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public Vec3 getFogColor(float f, float f1){
+        return Vec3.createVectorHelper(0.1361F, 0.95F, 1.0F);
     }
 
     @Override
