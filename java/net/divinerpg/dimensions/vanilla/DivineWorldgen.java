@@ -64,13 +64,16 @@ public class DivineWorldgen implements IWorldGenerator{
 
 	private void generateEnd(World world, Random random, int x, int z) { }
 
-	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY) {
+	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int minVeinAmount, int maxVeinAmount, int minVein, int maxVein, int minY, int maxY) {
+		int veinAmount = random.nextInt(maxVeinAmount - minVeinAmount + 1) + minVeinAmount;
 		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < chancesToSpawn; x++) {
+		for (int x = 0; x < veinAmount; x++) {
+			int veinSize = random.nextInt(maxVein - minVein + 1) + minVein;
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinable(block, maxVeinSize)).generate(world, random, posX, posY, posZ);
+			genOres(block, world, random, Blocks.stone, posX, posY, posZ, veinSize);
+			//(new WorldGenMinable(block, maxVein)).generate(world, random, posX, posY, posZ);
 		}
 	}
 
@@ -91,6 +94,32 @@ public class DivineWorldgen implements IWorldGenerator{
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
 			(new WorldGenMinable(block, maxVeinSize, Blocks.end_stone)).generate(world, random, posX, posY, posZ);
+		}
+	}
+	
+	public void genOres(Block b, World w, Random r, Block genIn, int posX, int posY, int posZ, int veinSize) {
+		int x = posX;
+		int y = posY;
+		int z = posZ;
+		for(int i=0; i <= veinSize; i++) {
+			if(i != 0) {
+				switch(r.nextInt(6)) {
+				case 0:
+					x++;
+				case 1:
+					x--;
+				case 2:
+					z++;
+				case 3:
+					z--;
+				case 4:
+					y++;
+				case 5:
+					y--;
+				}
+			}
+			if(w.getBlock(x, y, z).isReplaceableOreGen(w, x, y, z, genIn))
+				w.setBlock(x, y, z, b, 0, 2);
 		}
 	}
 }
