@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -32,8 +31,11 @@ public class BlockOceanfireFurnace extends BlockModFurnace {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int size, int meta) {
-		return size == 1 ? this.top : (size == 0 ? this.top : (size != meta ? side : this.front));
+	public IIcon getIcon(int size, int meta){
+		if(size == 3 && meta == 0)
+			return front;
+		else
+			return size == 1 ? this.top : (size == 0 ? this.top : (size != meta ? side : this.front));
 	}
 
 	@Override

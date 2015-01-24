@@ -49,8 +49,11 @@ public class BlockCoalstoneFurnace extends BlockModFurnace {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int size, int meta) { 
-		return size == 1 ? this.top : (size == 0 ? this.top : (size != meta ? side : this.front));
+	public IIcon getIcon(int size, int meta){
+		if(size == 3 && meta == 0)
+			return front;
+		else
+			return size == 1 ? this.top : (size == 0 ? this.top : (size != meta ? side : this.front));
 	}
 	
 	public static void updateActiveStates(boolean active, World w, int x, int y, int z) {
