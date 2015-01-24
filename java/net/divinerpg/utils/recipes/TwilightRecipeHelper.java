@@ -58,32 +58,32 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightBlocks.edenChest, "bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments);
 
 		//Eden (Dravite)
-		addRecipe(TwilightItemsArmor.edenHelmet, "III", "III", "I I", 'I', TwilightItemsOther.edenChunk);
-		addRecipe(TwilightItemsArmor.edenBody, "III", "III", " I ", 'I', TwilightItemsOther.edenChunk);
+		addRecipe(TwilightItemsArmor.edenHelmet, "III", "I I", 'I', TwilightItemsOther.edenChunk);
+		addRecipe(TwilightItemsArmor.edenBody, "I I", "III", "III", 'I', TwilightItemsOther.edenChunk);
 		addRecipe(TwilightItemsArmor.edenLegs, "III", "I I", "I I", 'I', TwilightItemsOther.edenChunk);
 		addRecipe(TwilightItemsArmor.edenBoots, "   ", "I I", "I I", 'I', TwilightItemsOther.edenChunk);
 
 		//wildwood (Azurite)
-		addRecipe(TwilightItemsArmor.wildwoodHelmet, "III", "III", "I I", 'I', TwilightItemsOther.wildwoodChunk);
-		addRecipe(TwilightItemsArmor.wildwoodBody, "III", "III", " I ", 'I', TwilightItemsOther.wildwoodChunk);
+		addRecipe(TwilightItemsArmor.wildwoodHelmet, "III", "I I", 'I', TwilightItemsOther.wildwoodChunk);
+		addRecipe(TwilightItemsArmor.wildwoodBody, "I I", "III", "III", 'I', TwilightItemsOther.wildwoodChunk);
 		addRecipe(TwilightItemsArmor.wildwoodLegs, "III", "I I", "I I", 'I', TwilightItemsOther.wildwoodChunk);
 		addRecipe(TwilightItemsArmor.wildwoodBoots, "   ", "I I", "I I", 'I', TwilightItemsOther.wildwoodChunk);
 
 		//Apalachia (Uvite)
-		addRecipe(TwilightItemsArmor.apalachiaHelmet, "III", "III", "I I", 'I', TwilightItemsOther.apalachiaChunk);
-		addRecipe(TwilightItemsArmor.apalachiaBody, "III", "III", " I ", 'I', TwilightItemsOther.apalachiaChunk);
+		addRecipe(TwilightItemsArmor.apalachiaHelmet, "III", "I I", 'I', TwilightItemsOther.apalachiaChunk);
+		addRecipe(TwilightItemsArmor.apalachiaBody, "I I", "III", "III", 'I', TwilightItemsOther.apalachiaChunk);
 		addRecipe(TwilightItemsArmor.apalachiaLegs, "III", "I I", "I I", 'I', TwilightItemsOther.apalachiaChunk);
 		addRecipe(TwilightItemsArmor.apalachiaBoots, "   ", "I I", "I I", 'I', TwilightItemsOther.apalachiaChunk);
 
 		//Skythern (Mythril)
-		addRecipe(TwilightItemsArmor.skythernHelmet, "III", "III", "I I", 'I', TwilightItemsOther.skythernChunk);	
-		addRecipe(TwilightItemsArmor.skythernBody, "III", "III", " I ", 'I', TwilightItemsOther.skythernChunk);
+		addRecipe(TwilightItemsArmor.skythernHelmet, "III", "I I", 'I', TwilightItemsOther.skythernChunk);	
+		addRecipe(TwilightItemsArmor.skythernBody, "I I", "III", "III", 'I', TwilightItemsOther.skythernChunk);
 		addRecipe(TwilightItemsArmor.skythernLegs, "III", "I I", "I I", 'I', TwilightItemsOther.skythernChunk);
 		addRecipe(TwilightItemsArmor.skythernBoots, "   ", "I I", "I I", 'I', TwilightItemsOther.skythernChunk);
 
 		//Mortum (Augite)
-		addRecipe(TwilightItemsArmor.mortumHelmet, "III", "III", "I I", 'I', TwilightItemsOther.mortumChunk);
-		addRecipe(TwilightItemsArmor.mortumBody, "III", "III", " I ", 'I', TwilightItemsOther.mortumChunk);
+		addRecipe(TwilightItemsArmor.mortumHelmet, "III", "I I", 'I', TwilightItemsOther.mortumChunk);
+		addRecipe(TwilightItemsArmor.mortumBody, "I I", "III", "III", 'I', TwilightItemsOther.mortumChunk);
 		addRecipe(TwilightItemsArmor.mortumLegs, "III", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
 		addRecipe(TwilightItemsArmor.mortumBoots, "   ", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
 
