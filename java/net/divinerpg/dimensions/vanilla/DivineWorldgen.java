@@ -31,9 +31,9 @@ public class DivineWorldgen implements IWorldGenerator{
 	private void generateOverworld(World world, Random random, int x, int z) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
-		addOreSpawn(VanillaBlocks.realmiteOre, world, random, x, z, 16, 16, 3, 5, 2, 5, 1, 25);
-		addOreSpawn(VanillaBlocks.arlemiteOre, world, random, x, z, 16, 16, 1, 2, 1, 3, 1, 15);
-		addOreSpawn(VanillaBlocks.rupeeOre,    world, random, x, z, 16, 16, 1, 2, 1, 3, 1, 15);
+		addOreSpawn(VanillaBlocks.realmiteOre, world, random, x, z, 3, 5, 2, 5, 1, 25);
+		addOreSpawn(VanillaBlocks.arlemiteOre, world, random, x, z, 1, 2, 1, 3, 1, 15);
+		addOreSpawn(VanillaBlocks.rupeeOre,    world, random, x, z, 1, 2, 1, 3, 150, 256);
 
 		if(random.nextInt(8) == 0) {
 			int posX = x + random.nextInt(16) + 8;
@@ -58,89 +58,21 @@ public class DivineWorldgen implements IWorldGenerator{
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
-		addNetherOreSpawn(VanillaBlocks.netheriteOre, world, random, x, z, 16, 16, 10, 4, 1, 128);
-		addNetherOreSpawn(VanillaBlocks.bloodgemOre,  world, random, x, z, 16, 16, 11, 5, 1, 128);
+		addOreSpawn(VanillaBlocks.netheriteOre, Blocks.netherrack, world, random, x, z, 8, 10, 3, 4, 1, 128);
+		addOreSpawn(VanillaBlocks.bloodgemOre, Blocks.netherrack, world, random, x, z, 9, 11, 4, 5, 1, 128);
 	}
 
 	private void generateEnd(World world, Random random, int x, int z) { }
 
-	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int minVeinAmount, int maxVeinAmount, int minVein, int maxVein, int minY, int maxY) {
+	public void addOreSpawn(Block block, Block genIn, World world, Random random, int blockXPos, int blockZPos, int minVeinAmount, int maxVeinAmount, int minVein, int maxVein, int minY, int maxY) {
 		int veinAmount = random.nextInt(maxVeinAmount - minVeinAmount + 1) + minVeinAmount;
 		int diffBtwnMinMaxY = maxY - minY;
 		for (int x = 0; x < veinAmount; x++) {
 			int veinSize = random.nextInt(maxVein - minVein + 1) + minVein;
-			int posX = blockXPos + random.nextInt(maxX);
+			int posX = blockXPos + random.nextInt(16);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
-			int posZ = blockZPos + random.nextInt(maxZ);
-			genOres(block, world, random, Blocks.stone, posX, posY, posZ, veinSize);
-			//(new WorldGenMinable(block, maxVein)).generate(world, random, posX, posY, posZ);
-		}
-	}
-
-	public void addNetherOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY) {
-		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < chancesToSpawn; x++) {
-			int posX = blockXPos + random.nextInt(maxX);
-			int posY = minY + random.nextInt(diffBtwnMinMaxY);
-			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinable(block, maxVeinSize, Blocks.netherrack)).generate(world, random, posX, posY, posZ);
-		}
-	}
-
-	public void addEndOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int maxVeinSize, int minY, int maxY) {
-		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < chancesToSpawn; x++) {
-			int posX = blockXPos + random.nextInt(maxX);
-			int posY = minY + random.nextInt(diffBtwnMinMaxY);
-			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinable(block, maxVeinSize, Blocks.end_stone)).generate(world, random, posX, posY, posZ);
-		}
-	}
-	
-	public void genOres(Block b, World w, Random r, Block genIn, int posX, int posY, int posZ, int veinSize) {
-		int x = posX;
-		int y = posY;
-		int z = posZ;
-		int[] arr = new int[veinSize];
-		for(int i=0; i < veinSize; i++) {
-			arr[i] = r.nextInt(6);
-			for(int j=0; j < i; j++) {
-				if(arr[i] == arr[j]) {
-					i--;
-					break;
-				}
-			}
-		}
-		for(int k=0; k < veinSize; k++) {
-			if(veinSize <= 6) {
-				x = posX;
-				y = posY;
-				z = posZ;
-			}
-			if(k != 0) {
-				switch(arr[k]) {
-				case 0:
-					x++;
-					break;
-				case 1:
-					x--;
-					break;
-				case 2:
-					z++;
-					break;
-				case 3:
-					z--;
-					break;
-				case 4:
-					y++;
-					break;
-				case 5:
-					y--;
-					break;
-				}
-			}
-			if(w.getBlock(x, y, z).isReplaceableOreGen(w, x, y, z, genIn))
-				w.setBlock(x, y, z, b, 0, 2);
+			int posZ = blockZPos + random.nextInt(16);
+			new WorldGenOres().generate(block, world, random, genIn, posX, posY, posZ, veinSize);
 		}
 	}
 }
