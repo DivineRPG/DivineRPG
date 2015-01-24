@@ -31,9 +31,9 @@ public class DivineWorldgen implements IWorldGenerator{
 	private void generateOverworld(World world, Random random, int x, int z) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
-		addOreSpawn(VanillaBlocks.realmiteOre, world, random, x, z, 16, 16, 5, 4, 1, 25);
-		addOreSpawn(VanillaBlocks.arlemiteOre, world, random, x, z, 16, 16, 2, 3, 1, 15);
-		addOreSpawn(VanillaBlocks.rupeeOre,    world, random, x, z, 16, 16, 2, 3, 1, 15);
+		addOreSpawn(VanillaBlocks.realmiteOre, world, random, x, z, 16, 16, 3, 5, 2, 5, 1, 25);
+		addOreSpawn(VanillaBlocks.arlemiteOre, world, random, x, z, 16, 16, 1, 2, 1, 3, 1, 15);
+		addOreSpawn(VanillaBlocks.rupeeOre,    world, random, x, z, 16, 16, 1, 2, 1, 3, 1, 15);
 
 		if(random.nextInt(8) == 0) {
 			int posX = x + random.nextInt(16) + 8;
@@ -101,21 +101,42 @@ public class DivineWorldgen implements IWorldGenerator{
 		int x = posX;
 		int y = posY;
 		int z = posZ;
-		for(int i=0; i <= veinSize; i++) {
-			if(i != 0) {
-				switch(r.nextInt(6)) {
+		int[] arr = new int[veinSize];
+		for(int i=0; i < veinSize; i++) {
+			arr[i] = r.nextInt(6);
+			for(int j=0; j < i; j++) {
+				if(arr[i] == arr[j]) {
+					i--;
+					break;
+				}
+			}
+		}
+		for(int k=0; k < veinSize; k++) {
+			if(veinSize <= 6) {
+				x = posX;
+				y = posY;
+				z = posZ;
+			}
+			if(k != 0) {
+				switch(arr[k]) {
 				case 0:
 					x++;
+					break;
 				case 1:
 					x--;
+					break;
 				case 2:
 					z++;
+					break;
 				case 3:
 					z--;
+					break;
 				case 4:
 					y++;
+					break;
 				case 5:
 					y--;
+					break;
 				}
 			}
 			if(w.getBlock(x, y, z).isReplaceableOreGen(w, x, y, z, genIn))
