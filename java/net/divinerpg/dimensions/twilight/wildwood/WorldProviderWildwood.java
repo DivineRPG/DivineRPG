@@ -1,4 +1,4 @@
-package net.divinerpg.dimensions.twilight.wild_woods;
+package net.divinerpg.dimensions.twilight.wildwood;
 
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
