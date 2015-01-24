@@ -1,4 +1,4 @@
-package net.divinerpg.dimensions.twilight.wild_woods;
+package net.divinerpg.dimensions.twilight.wildwood;
 
 import java.util.Random;
 
