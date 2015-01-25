@@ -104,7 +104,7 @@ public class ItemProjectileShooter extends ItemMod {
 				}
 			}
 		}
-		if(canShootTick >= 100000)canShootTick = 0;
+		if(canShootTick >= 100000 || canShootTick>Ticker.tick+counter*4+1)canShootTick = 0;
 		return stack;
 	}
 	
