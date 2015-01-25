@@ -46,7 +46,7 @@ public class ItemCorruptedCannon extends ItemMod {
 				if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(VanillaItemsOther.corruptedBullet);
 			}
 		}
-		if(canShootTick >= 100000)canShootTick = 0;
+		if(canShootTick >= 100000 || canShootTick>Ticker.tick+21)canShootTick = 0;
 		return stack;
 	}
 	
