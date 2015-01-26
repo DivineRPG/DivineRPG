@@ -29,6 +29,8 @@ public class BlockAltarOfCorruption extends BlockContainer {
 	public BlockAltarOfCorruption(String name) {
 		super(Material.rock);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
+		setHardness(5.0F);
+		setResistance(2000.0F);
 		setBlockName(name);
 		setBlockTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.blocks);
