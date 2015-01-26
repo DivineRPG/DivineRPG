@@ -104,9 +104,9 @@ public class VanillaBlocks {
 	public static Block dyeBlockMagenta;
 	
 	public static Block fancyWool;
-	public static Block dirtBlock;
-	public static Block soulSandBlock;
-	public static Block sandBlock;
+	//public static Block dirtBlock;
+	//public static Block soulSandBlock;
+	//public static Block sandBlock;
 	
 	public static Block steel;
 	public static Block divineBricks;
@@ -156,17 +156,17 @@ public class VanillaBlocks {
 	public static Block boneChest;
 	
 	public static void init() {
-		rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND).setResistance(50.0F);
-		arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND).setResistance(50.0F);
-		realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON).setResistance(50.0F);
-		bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem);
-		netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND);
+		rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND).setResistance(2000.0F);
+		arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND).setResistance(2000.0F);
+		realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON).setResistance(2000.0F);
+		bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem).setResistance(2000.0F);
+		netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND).setResistance(2000.0F);
 
-		rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 3.0F, DIAMOND);
-		arlemiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "arlemiteBlock", 3.0F, DIAMOND);
-		realmiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "realmiteBlock", 3.0F, IRON);
-		bloodgemBlock       = new VanillaBlock(EnumBlockType.ROCK, "bloodgemBlock", 3.0F, DIAMOND);
-		netheriteBlock      = new VanillaBlock(EnumBlockType.ROCK, "netheriteBlock", 3.0F, DIAMOND);
+		rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 5.0F, DIAMOND).setResistance(10F);
+		arlemiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "arlemiteBlock", 5.0F, DIAMOND).setResistance(10F);
+		realmiteBlock       = new VanillaBlock(EnumBlockType.ROCK, "realmiteBlock", 5.0F, IRON).setResistance(10F);
+		bloodgemBlock       = new VanillaBlock(EnumBlockType.ROCK, "bloodgemBlock", 5.0F, DIAMOND).setResistance(10F);
+		netheriteBlock      = new VanillaBlock(EnumBlockType.ROCK, "netheriteBlock", 5.0F, DIAMOND).setResistance(10F);
 
 		spiderPumpkin       = new MobPumpkin().setName("spiderPumpkin");
 		enderPumpkin        = new MobPumpkin().setName("enderPumpkin");
@@ -185,50 +185,50 @@ public class VanillaBlocks {
 		aquaTorch			= new BlockModTorch("aquaTorch", "blueFlame");
 		skeletonTorch		= new BlockModTorch("skeletonTorch", "blackFlame");
 
-		checker             = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.5F, WOOD_GOLD);
-		rainbowWool         = new VanillaBlock(EnumBlockType.WOOL, "rainbowWool", 0.5F, WOOD_GOLD);
-		crate               = new VanillaBlock(EnumBlockType.WOOD, "crate", 1.0F, WOOD_GOLD);
-		blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.0F, WOOD_GOLD);
-		purpleStone         = new VanillaBlock(EnumBlockType.ROCK, "purpleStone", 1.0F, WOOD_GOLD);
+		checker             = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD);
+		rainbowWool         = new VanillaBlock(EnumBlockType.WOOL, "rainbowWool", 0.8F, WOOD_GOLD);
+		crate               = new VanillaBlock(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD);
+		blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.5F, WOOD_GOLD).setResistance(10F);
+		purpleStone         = new VanillaBlock(EnumBlockType.ROCK, "purpleStone", 1.5F, WOOD_GOLD).setResistance(10F);
 
-		blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, STONE);
-		cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, STONE);
-		purpleVane          = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, STONE);
-		redVane             = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, STONE);
-		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, STONE);
+		blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, STONE).setResistance(10F);
+		cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, STONE).setResistance(10F);
+		purpleVane          = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, STONE).setResistance(10F);
+		redVane             = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, STONE).setResistance(10F);
+		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, STONE).setResistance(10F);
 
-		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE);
+		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE).setResistance(10F);
 		acceleron		  	  = new BlockAcceleron();
 		tar 				  = new BlockTar();
 
-		dyeBlockWhite 	  = new VanillaBlock(EnumBlockType.ROCK, "dyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockBlack 	  = new VanillaBlock(EnumBlockType.ROCK, "blackDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockBrown 	  = new VanillaBlock(EnumBlockType.ROCK, "brownDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockRed   	  = new VanillaBlock(EnumBlockType.ROCK, "redDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockGreen 	  = new VanillaBlock(EnumBlockType.ROCK, "greenDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockBlue  	  = new VanillaBlock(EnumBlockType.ROCK, "blueDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockYellow	  = new VanillaBlock(EnumBlockType.ROCK, "yellowDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockGray  	  = new VanillaBlock(EnumBlockType.ROCK, "grayDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockLightGray   = new VanillaBlock(EnumBlockType.ROCK, "lightGrayDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockOrange   	  = new VanillaBlock(EnumBlockType.ROCK, "orangeDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockLightGreen  = new VanillaBlock(EnumBlockType.ROCK, "lightGreenDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockLightBlue   = new VanillaBlock(EnumBlockType.ROCK, "lightBlueDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockCyan   	  = new VanillaBlock(EnumBlockType.ROCK, "cyanDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockPink        = new VanillaBlock(EnumBlockType.ROCK, "pinkDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockPurple   	  = new VanillaBlock(EnumBlockType.ROCK, "purpleDyeBlock", 1.5F, WOOD_GOLD);
-		dyeBlockMagenta     = new VanillaBlock(EnumBlockType.ROCK, "magentaDyeBlock", 1.5F, WOOD_GOLD);
+		dyeBlockWhite 	  = new VanillaBlock(EnumBlockType.ROCK, "dyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockBlack 	  = new VanillaBlock(EnumBlockType.ROCK, "blackDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockBrown 	  = new VanillaBlock(EnumBlockType.ROCK, "brownDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockRed   	  = new VanillaBlock(EnumBlockType.ROCK, "redDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockGreen 	  = new VanillaBlock(EnumBlockType.ROCK, "greenDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockBlue  	  = new VanillaBlock(EnumBlockType.ROCK, "blueDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockYellow	  = new VanillaBlock(EnumBlockType.ROCK, "yellowDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockGray  	  = new VanillaBlock(EnumBlockType.ROCK, "grayDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockLightGray   = new VanillaBlock(EnumBlockType.ROCK, "lightGrayDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockOrange   	  = new VanillaBlock(EnumBlockType.ROCK, "orangeDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockLightGreen  = new VanillaBlock(EnumBlockType.ROCK, "lightGreenDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockLightBlue   = new VanillaBlock(EnumBlockType.ROCK, "lightBlueDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockCyan   	  = new VanillaBlock(EnumBlockType.ROCK, "cyanDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockPink        = new VanillaBlock(EnumBlockType.ROCK, "pinkDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockPurple   	  = new VanillaBlock(EnumBlockType.ROCK, "purpleDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
+		dyeBlockMagenta     = new VanillaBlock(EnumBlockType.ROCK, "magentaDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
 		
-		fancyWool 		  = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.5F, WOOD_GOLD);
-		dirtBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "dirtBlock", 1.5F, WOOD_GOLD);
-		soulSandBlock       = new VanillaBlock(EnumBlockType.DIRT, "soulSandBlock", 1.5F, WOOD_GOLD);
-		sandBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "sandBlock", 1.5F, WOOD_GOLD);
+		fancyWool 		  = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.8F, WOOD_GOLD);
+		//dirtBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "dirtBlock", 1.5F, WOOD_GOLD);
+		//soulSandBlock       = new VanillaBlock(EnumBlockType.DIRT, "soulSandBlock", 1.5F, WOOD_GOLD);
+		//sandBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "sandBlock", 1.5F, WOOD_GOLD);
 		
 		steel       		  = new BlockSteel();
 		divineBricks        = new BlockDivineBricks();
 		lamp1				  = new BlockLamp1();
 		lamp2				  = new BlockLamp2();
 		milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
-		darkStone			  = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setLightLevel(1);
+		darkStone			  = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setResistance(2000.0F).setLightLevel(1);
 		
 		lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
 	    lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);
@@ -260,11 +260,11 @@ public class VanillaBlocks {
 		mushroom			  = new BlockMushroom("mushroomPlant");
 		
 		eucalyptusWood	  = new BlockModLog("eucalyptusLog");
-		eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", 2, DivineRPGTabs.blocks);
+		eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 		divineWood	  	  = new BlockModLog("divineLog");
-		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks);
+		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
-		divineMossystone	  = new BlockMod("divineMossStone", 2.0F);
+		divineMossystone	  = new BlockMod("divineMossStone", 2.0F).setResistance(10);
 		divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");
 		
 		altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");

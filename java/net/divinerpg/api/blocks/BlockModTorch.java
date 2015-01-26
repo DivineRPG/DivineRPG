@@ -22,6 +22,7 @@ public class BlockModTorch extends BlockTorch {
         this.setBlockName(name);
         this.setBlockTextureName(Reference.PREFIX + name);
         this.setLightLevel(1);
+        this.setHardness(0.0F);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
         this.particle = particle;
