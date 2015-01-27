@@ -75,7 +75,7 @@ public class EventArmorFullSet {
                 }
             }
             
-          //Ender
+            //Ender
             if ((boots == VanillaItemsArmor.enderBoots || boots == VanillaItemsArmor.redEnderBoots || boots == VanillaItemsArmor.yellowEnderBoots || boots == VanillaItemsArmor.greenEnderBoots || boots == VanillaItemsArmor.blueEnderBoots || boots == VanillaItemsArmor.grayEnderBoots) && (legs == VanillaItemsArmor.enderLegs || legs == VanillaItemsArmor.redEnderLegs || legs == VanillaItemsArmor.yellowEnderLegs || legs == VanillaItemsArmor.greenEnderLegs || legs == VanillaItemsArmor.blueEnderLegs || legs == VanillaItemsArmor.grayEnderLegs) && (body == VanillaItemsArmor.enderBody || body == VanillaItemsArmor.redEnderBody || body == VanillaItemsArmor.yellowEnderBody || body == VanillaItemsArmor.greenEnderBody || body == VanillaItemsArmor.blueEnderBody || body == VanillaItemsArmor.grayEnderBody) && (helmet == VanillaItemsArmor.enderHelmet || helmet == VanillaItemsArmor.redEnderHelmet || helmet == VanillaItemsArmor.yellowEnderHelmet || helmet == VanillaItemsArmor.greenEnderHelmet || helmet == VanillaItemsArmor.blueEnderHelmet || helmet == VanillaItemsArmor.grayEnderHelmet)) {
                 if (s.isExplosion()) {
                     evt.setCanceled(true);
@@ -200,11 +200,10 @@ public class EventArmorFullSet {
 
     	        //Eden
     	        if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenBody && legs == TwilightItemsArmor.edenLegs && helmet == TwilightItemsArmor.edenHelmet) {
-    	        	int extraDrops = event.drops.size() * 3;
     	        	ItemStack fragment = event.drops.get(0);
-    	        	
-    	        	while (extraDrops-- > 0)
-    	        		event.drops.add(fragment.copy());
+	        		event.drops.add(fragment.copy());
+	        		event.drops.add(fragment.copy());
+	        		event.drops.add(fragment.copy());
     	        }
     		}
     	}
