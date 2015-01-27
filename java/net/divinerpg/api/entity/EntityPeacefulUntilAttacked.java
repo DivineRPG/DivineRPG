@@ -25,16 +25,17 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 	}
 
 	public int angerLevel = 0;
-	public void writeEntityToNBT(NBTTagCompound var1) {
-		super.writeEntityToNBT(var1);
-		var1.setShort("Anger", (short)this.angerLevel);
+	public void writeEntityToNBT(NBTTagCompound tag) {
+		super.writeEntityToNBT(tag);
+		tag.setShort("Anger", (short)this.angerLevel);
 	}
 
-	public void readEntityFromNBT(NBTTagCompound var1) {
-		super.readEntityFromNBT(var1);
-		this.angerLevel = var1.getShort("Anger");
+	public void readEntityFromNBT(NBTTagCompound tag) {
+		super.readEntityFromNBT(tag);
+		this.angerLevel = tag.getShort("Anger");
 	}
 
+	@Override
 	protected Entity findPlayerToAttack() {
 		return this.angerLevel == 0 ? null : super.findPlayerToAttack();
 	}
@@ -43,7 +44,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 	public boolean attackEntityFrom(DamageSource source, float par2) {
 		if(source.getEntity() instanceof EntityPlayer){
 			angerLevel = 400;
-			if(!((EntityPlayer)source.getEntity()).capabilities.isCreativeMode) this.entityToAttack = source.getEntity();
+			if(source.getEntity() instanceof EntityPlayer && !((EntityPlayer)source.getEntity()).capabilities.isCreativeMode) this.entityToAttack = source.getEntity();
 		}
 		return super.attackEntityFrom(source, par2);
 	}
