@@ -25,6 +25,7 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -176,31 +177,37 @@ public class EventArmorFullSet {
     }
 
     @SubscribeEvent
-    public void onInteractEvent(PlayerInteractEvent event) {
-        ItemStack stackBoots = event.entityPlayer.inventory.armorItemInSlot(0);
-        ItemStack stackLegs = event.entityPlayer.inventory.armorItemInSlot(1);
-        ItemStack stackBody = event.entityPlayer.inventory.armorItemInSlot(2);
-        ItemStack stackHelmet = event.entityPlayer.inventory.armorItemInSlot(3);
+    public void onBlockDrops(HarvestDropsEvent event) {
+    	if (event.block != null && event.block instanceof BlockMod && ((BlockMod)event.block).isTwilightOre()) {
+    		if(event.harvester != null && event.harvester instanceof EntityPlayer) {
+    			EntityPlayer player = event.harvester;
+    			ItemStack stackBoots = player.inventory.armorItemInSlot(0);
+    			ItemStack stackLegs = player.inventory.armorItemInSlot(1);
+    			ItemStack stackBody = player.inventory.armorItemInSlot(2);
+    			ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+            
+    	        if (stackBoots != null) boots = stackBoots.getItem();
+    	        else boots = null;
 
-        if (stackBoots != null) boots = stackBoots.getItem();
-        else boots = null;
+    	        if (stackBody != null) body = stackBody.getItem();
+    	        else body = null;
 
-        if (stackBody != null) body = stackBody.getItem();
-        else body = null;
+    	        if (stackLegs != null) legs = stackLegs.getItem();
+    	        else legs = null;
 
-        if (stackLegs != null) legs = stackLegs.getItem();
-        else legs = null;
+    	        if (stackHelmet != null) helmet = stackHelmet.getItem();
+    	        else helmet = null;
 
-        if (stackHelmet != null) helmet = stackHelmet.getItem();
-        else helmet = null;
-
-        //Eden
-        if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenBody && legs == TwilightItemsArmor.edenLegs && helmet == TwilightItemsArmor.edenHelmet) {
-            Random rand = new Random();
-            BlockMod.edenArmor = 4;
-        } else {
-            BlockMod.edenArmor = 1;
-        }
+    	        //Eden
+    	        if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenBody && legs == TwilightItemsArmor.edenLegs && helmet == TwilightItemsArmor.edenHelmet) {
+    	        	int extraDrops = event.drops.size() * 3;
+    	        	ItemStack fragment = event.drops.get(0);
+    	        	
+    	        	while (extraDrops-- > 0)
+    	        		event.drops.add(fragment.copy());
+    	        }
+    		}
+    	}
     }
 
     @SubscribeEvent
