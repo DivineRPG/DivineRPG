@@ -1,20 +1,16 @@
 package net.divinerpg.dimensions.vanilla;
 
-import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
-
 import java.util.Random;
 
+import net.divinerpg.api.entity.tileentity.TileEntityStupidSpawner;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.ChestGenHooks;
 
 public class WorldGenDivineDungeon extends WorldGenerator {
 
@@ -89,8 +85,9 @@ public class WorldGenDivineDungeon extends WorldGenerator {
 			}
 
 			world.setBlock(x, y, z, VanillaBlocks.divineMobSpawner, 0, 2);
-			TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(x, y, z);
-			if(tileentitymobspawner != null) tileentitymobspawner.func_145881_a().setEntityName(this.pickMobSpawner(rand));
+			System.out.println(x + " " + y + " " + z);
+			TileEntityStupidSpawner spawnerTE = (TileEntityStupidSpawner)world.getTileEntity(x, y, z);
+			if(spawnerTE != null) spawnerTE.setEntityName(this.pickMobSpawner(rand));
 			else System.err.println("[DivineRPG] Failed to fetch mob spawner entity at (" + x + ", " + y + ", " + z + ")");
 			return true;
 		}

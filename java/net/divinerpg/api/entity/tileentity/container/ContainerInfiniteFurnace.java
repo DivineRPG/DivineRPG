@@ -70,15 +70,15 @@ public class ContainerInfiniteFurnace extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
         ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(par2);
+        Slot slot = (Slot)this.inventorySlots.get(slotNumber);
 
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 0) {
+            if (slotNumber == 0) {
                 if (!this.mergeItemStack(itemstack1, 1, 37, true)) {
                     return null;
                 }
@@ -107,7 +107,7 @@ public class ContainerInfiniteFurnace extends Container {
                 return null;
             }
 
-            slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
+            slot.onPickupFromSlot(player, itemstack1);
         }
         return itemstack;
     }

@@ -3,9 +3,9 @@ package net.divinerpg.utils.blocks;
 import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockModSpawner;
 import net.divinerpg.api.blocks.BlockModTorch;
 import net.divinerpg.api.blocks.BlockStatue;
+import net.divinerpg.api.blocks.BlockStupidSpawner;
 import net.divinerpg.blocks.vanilla.BlockAcceleron;
 import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
@@ -265,7 +265,7 @@ public class VanillaBlocks {
 		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
 		divineMossystone	  = new BlockMod("divineMossStone", 2.0F).setResistance(10);
-		divineMobSpawner	  = new BlockModSpawner("divineSpawner", "null", "divineSpawner");
+		divineMobSpawner	  = new BlockStupidSpawner("divineSpawner", "null", "divineSpawner");
 		
 		altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");
 		boneChest			  = new BlockBoneChest("boneChest");

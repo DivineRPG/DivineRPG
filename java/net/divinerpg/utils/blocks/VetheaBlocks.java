@@ -6,7 +6,7 @@ import net.divinerpg.api.blocks.BlockModGlass;
 import net.divinerpg.api.blocks.BlockModGrass;
 import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockStupidModSpawner;
+import net.divinerpg.api.blocks.BlockStupidSpawner;
 import net.divinerpg.api.blocks.BlockModVine;
 import net.divinerpg.blocks.vethea.BlockAcid;
 import net.divinerpg.blocks.vethea.BlockHelioticBeam;
@@ -100,11 +100,11 @@ public class VetheaBlocks {
 	public static Block nightmareBedBlock;
 	
 	public static void init() {
-        dreamwreckerSpawner    = new BlockStupidModSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal");
-        vermenousSpawner       = new BlockStupidModSpawner("vermenousSpawner", "Vermenous", "fireCrystal");
-        twinsSpawner           = new BlockStupidModSpawner("twinsSpawner", "Twins", "fireCrystal");
-        biphronSpawner         = new BlockStupidModSpawner("biphronSpawner", "Biphron", "fireCrystal");
-        gorgosionSpawner       = new BlockStupidModSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal");
+        dreamwreckerSpawner    = new BlockStupidSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal");
+        vermenousSpawner       = new BlockStupidSpawner("vermenousSpawner", "Vermenous", "fireCrystal");
+        twinsSpawner           = new BlockStupidSpawner("twinsSpawner", "Twins", "fireCrystal");
+        biphronSpawner         = new BlockStupidSpawner("biphronSpawner", "Biphron", "fireCrystal");
+        gorgosionSpawner       = new BlockStupidSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal");
 
         wreckAltar             = new BlockMod("wreckAltar", 0.7F, DivineRPGTabs.spawner);
         quadroticAltar         = new BlockMod("quadroticAltar", 0.7F, DivineRPGTabs.spawner);

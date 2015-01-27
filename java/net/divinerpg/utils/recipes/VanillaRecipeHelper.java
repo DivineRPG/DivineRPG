@@ -404,7 +404,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', VanillaItemsOther.corruptedStone, 'd', VanillaBlocks.darkStone);
 
 		addRecipe(VanillaBlocks.lightFenceRed, "   ", "III", "III", 'I', Items.redstone);
-		addRecipe(VanillaBlocks.lightFenceGreen, "   ", "III", "III", 'I', Items.emerald);
+		addRecipe(VanillaBlocks.lightFenceGreen, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 2));
 		addRecipe(VanillaBlocks.lightFenceBlue, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 4));
 	}
 }

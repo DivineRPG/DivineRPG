@@ -12,16 +12,16 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlockStupidModSpawner extends BlockContainer {
+public class BlockStupidSpawner extends BlockContainer {
 
     protected String name;
     protected String mobName;
 
-    public BlockStupidModSpawner(String name, String mobName) {
+    public BlockStupidSpawner(String name, String mobName) {
         this(name, mobName, "frozenDungeonSpawner");
     }
 
-    public BlockStupidModSpawner(String name, String mobName, String textureName) {
+    public BlockStupidSpawner(String name, String mobName, String textureName) {
         super(Material.rock);
         this.name = name;
         this.mobName = "divinerpg." + mobName;
