@@ -19,8 +19,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockMod extends Block{
 
-    public static int       edenArmor   = 1;
-
     protected String        name;
     protected EnumBlockType blockType;
     protected Item          drop;
@@ -160,8 +158,15 @@ public class BlockMod extends Block{
     }
 
     @Override
-    public int quantityDropped(Random rand) {
-        if (twilightOre) return edenArmor;
+    public int quantityDropped(int meta, int fortune, Random random) {
+        if (twilightOre && fortune > 0) {
+            int j = random.nextInt(fortune + 2) - 1;
+
+            if (j < 0)
+                j = 0;
+
+            return (j + 1);
+        }
         return 1;
     }
 }
