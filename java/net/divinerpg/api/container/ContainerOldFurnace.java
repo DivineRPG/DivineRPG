@@ -2,7 +2,7 @@ package net.divinerpg.api.container;
 
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.api.entity.tileentity.container.ContainerModFurnace;
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityCoalstoneFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

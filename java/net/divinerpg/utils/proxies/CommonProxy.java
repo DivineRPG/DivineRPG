@@ -11,8 +11,9 @@ import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityMoonlightFurn
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityOceanfireFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityParasectaAltar;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityWhitefireFurnace;
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityCoalstoneFurnace;
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityCoalstoneFurnace;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityPresentBox;
 import net.divinerpg.blocks.twilight.TileEntityEdenChest;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
@@ -137,6 +138,7 @@ public class CommonProxy{
 		GameRegistry.registerTileEntity(TileEntityDemonFurnace.class, "Demon Furnace");
 		GameRegistry.registerTileEntity(TileEntityAltarOfCorruption.class, "Altar Of Corruption");
 		GameRegistry.registerTileEntity(TileEntityStupidSpawner.class, "StupidMobSpawner");
+		GameRegistry.registerTileEntity(TileEntityPresentBox.class, "PresentBox");
 		LogHelper.info("Registering entities");
 		VanillaEntityRegistry.init();
 		TwilightEntityRegistry.init();

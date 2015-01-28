@@ -1,7 +1,8 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.blocks.twilight.TileEntityEdenChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityPresentBox;
 import net.divinerpg.client.render.block.model.ModelEdenChest;
+import net.divinerpg.client.render.block.model.ModelPresentBox;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -10,19 +11,17 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+public class RenderPresentBox extends TileEntitySpecialRenderer {
 
-public class RenderEdenChest extends TileEntitySpecialRenderer {
+	private static final ResourceLocation texture = new ResourceLocation(Reference.PREFIX + "textures/model/presentBox.png");
+	private ModelPresentBox model;
 
-	private static final ResourceLocation texture = new ResourceLocation(Reference.PREFIX + "textures/model/edenChest.png");
-	private ModelEdenChest model;
-
-	public RenderEdenChest() {
-		model = new ModelEdenChest();
+	public RenderPresentBox() {
+		model = new ModelPresentBox();
 	}
 
-	public void render(TileEntityEdenChest entity, double x, double y, double z, float f) {
+	public void render(TileEntityPresentBox entity, double x, double y, double z, float f) {
+		model = new ModelPresentBox();//TODO: remove
 		int i;
 		
 		if (!entity.hasWorldObj()) {
@@ -65,7 +64,7 @@ public class RenderEdenChest extends TileEntitySpecialRenderer {
 
 		f1 = 1.0F - f1;
 		f1 = 1.0F - f1 * f1 * f1;
-		model.chestLid.rotateAngleX = -(f1 * (float)Math.PI / 2.0F);
+		model.lid.rotateAngleX = -(f1 * (float)Math.PI / 2.0F);
 		model.renderAll();
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 		GL11.glPopMatrix();
@@ -75,6 +74,6 @@ public class RenderEdenChest extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity var1, double x, double y, double z, float f) {
-		this.render((TileEntityEdenChest)var1, x, y, z, f);
+		this.render((TileEntityPresentBox)var1, x, y, z, f);
 	}
 }

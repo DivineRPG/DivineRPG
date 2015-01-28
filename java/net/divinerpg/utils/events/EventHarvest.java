@@ -15,18 +15,5 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class EventHarvest {
 
 	@SubscribeEvent
-	public void onBlockHarvested(HarvestDropsEvent e){
-		Block ice = Blocks.ice;
-		Block snowLayer = Blocks.snow_layer;
-		Block snow = Blocks.snow;
-		Item snowFlake = IceikaItems.snowflake;
-		Random dropChance = new Random();
-		EntityItem flake = new EntityItem(e.world, e.x, e.y, e.z, new ItemStack(snowFlake));
-		if(e.harvester != null){
-			if(e.block == snow || e.block == snowLayer || e.block == ice){
-				if(dropChance.nextInt(100) == 0)
-					e.world.spawnEntityInWorld(flake);
-			}
-		}	
-	}
+	public void onBlockHarvested(HarvestDropsEvent e) {}
 }

@@ -3,13 +3,12 @@ package net.divinerpg.client.render.block;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

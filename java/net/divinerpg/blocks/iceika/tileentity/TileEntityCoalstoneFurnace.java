@@ -1,4 +1,4 @@
-package net.divinerpg.blocks.iceika.container.tile_entity;
+package net.divinerpg.blocks.iceika.tileentity;
 
 import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;

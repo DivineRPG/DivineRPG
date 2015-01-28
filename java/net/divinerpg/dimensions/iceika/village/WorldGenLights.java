@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.divinerpg.api.items.ItemModDoor;
 import net.divinerpg.api.worldgen.WorldGenAPI;
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.block.Block;

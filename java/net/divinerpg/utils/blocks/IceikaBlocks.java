@@ -14,6 +14,7 @@ import net.divinerpg.api.blocks.portal.BlockModPortal;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
 import net.divinerpg.blocks.iceika.BlockIceikaFire;
+import net.divinerpg.blocks.iceika.BlockPresentBox;
 import net.divinerpg.blocks.iceika.BlockXmasLights;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;
@@ -54,6 +55,8 @@ public class IceikaBlocks {
 	public static Block blueXmasLights;
 	public static Block yellowXmasLights;
 	public static Block purpleXmasLights;
+	
+	public static Block presentBox;
 
 	public static Block iceikaFire;
 	public static Block iceikaPortal;
@@ -90,6 +93,8 @@ public class IceikaBlocks {
 	    blueXmasLights		= new BlockXmasLights("blueChristmasLights");
 	    yellowXmasLights	= new BlockXmasLights("yellowChristmasLights");
 	    purpleXmasLights	= new BlockXmasLights("purpleChristmasLights");
+	    
+	    presentBox			= new BlockPresentBox();
 
 	    iceikaFire          = new BlockIceikaFire("iceikaFire");
 	    iceikaPortal        = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);

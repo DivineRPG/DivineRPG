@@ -1,14 +1,10 @@
 package net.divinerpg.blocks.iceika;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
-import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityPresentBox;
+import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
-import net.divinerpg.utils.blocks.IceikaBlocks;
-import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -17,7 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -25,32 +20,20 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlockFrostedChest extends BlockContainer {
+public class BlockPresentBox extends BlockContainer {
 
 	private Random rand = new Random();
-	private boolean dropsSnowflake;
 
-	public BlockFrostedChest(String name, boolean dropsSnowflake) {
-		super(Material.wood);
+	public BlockPresentBox() {
+		super(Material.rock);
+		String name = "presentBox";
 		setCreativeTab(DivineRPGTabs.blocks);
-		setStepSound(soundTypeGlass);
-		setBlockTextureName("ice");
+		setStepSound(soundTypePiston);
+		setBlockTextureName(Reference.PREFIX + name);
 		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
-		this.dropsSnowflake = dropsSnowflake;
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
-		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-		if(this.dropsSnowflake) {
-			drops.add(new ItemStack(IceikaItems.snowflake, 1, 0));
-			if(this.rand.nextInt(20) == 0) drops.add(new ItemStack(IceikaBlocks.decorativeFrostedChest, 1, 0));
-		} else drops.add(new ItemStack(IceikaBlocks.decorativeFrostedChest, 1, 0));
-		
-		return drops;
-    }
 
 	@Override
 	public boolean isOpaqueCube() {
@@ -71,14 +54,13 @@ public class BlockFrostedChest extends BlockContainer {
 			if (iinventory != null) {
 				p.displayGUIChest(iinventory);
 			}
-				p.triggerAchievement(DivineRPGAchievements.frozenGoods);
 			return true;
 		}
 	}
 
 	@Override
 	public void breakBlock(World w, int x, int y, int z, Block b, int i) {
-		TileEntityFrostedChest items = (TileEntityFrostedChest)w.getTileEntity(x, y, z);
+		TileEntityPresentBox items = (TileEntityPresentBox)w.getTileEntity(x, y, z);
 		if(items != null) {
 			ItemStack itemstack = null;
 			for(int i1 = 0; i1 < items.getSizeInventory(); i1++) {
@@ -107,13 +89,9 @@ public class BlockFrostedChest extends BlockContainer {
 		super.breakBlock(w, x, y, z, b, i);
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess w, int x, int y, int z) {
-		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
-	}
 
 	private IInventory getInventory(World w, int x, int y, int z) {
-		Object o = (TileEntityFrostedChest)w.getTileEntity(x, y, z);
+		Object o = (TileEntityPresentBox)w.getTileEntity(x, y, z);
 		return (IInventory)o;
 	}
 
@@ -144,6 +122,6 @@ public class BlockFrostedChest extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new TileEntityFrostedChest();
+		return new TileEntityPresentBox();
 	}
 }

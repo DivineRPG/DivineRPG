@@ -1,12 +1,14 @@
 package net.divinerpg.client.render.entity;
 
-import net.divinerpg.blocks.iceika.container.tile_entity.TileEntityFrostedChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
+import net.divinerpg.blocks.iceika.tileentity.TileEntityPresentBox;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineMob;
 import net.divinerpg.client.render.RenderIconProjectile;
 import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.RenderFrostedChest;
+import net.divinerpg.client.render.block.RenderPresentBox;
 import net.divinerpg.client.render.entity.iceika.RenderFrosty;
 import net.divinerpg.client.render.entity.iceika.model.ModelAlicanto;
 import net.divinerpg.client.render.entity.iceika.model.ModelFractite;
@@ -16,6 +18,7 @@ import net.divinerpg.client.render.entity.iceika.model.ModelRollum;
 import net.divinerpg.client.render.entity.iceika.model.ModelWorkshop;
 import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
 import net.divinerpg.client.render.item.ItemRendererFrostedChest;
+import net.divinerpg.client.render.item.ItemRendererPresentBox;
 import net.divinerpg.entities.iceika.EntityAlicanto;
 import net.divinerpg.entities.iceika.EntityFractite;
 import net.divinerpg.entities.iceika.EntityFrostArcher;
@@ -59,5 +62,7 @@ public class IceikaEntityRenderer {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
         MinecraftForgeClient.registerItemRenderer(Util.toItem(IceikaBlocks.frostedChest), new ItemRendererFrostedChest());
         MinecraftForgeClient.registerItemRenderer(Util.toItem(IceikaBlocks.decorativeFrostedChest), new ItemRendererFrostedChest());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
+        MinecraftForgeClient.registerItemRenderer(Util.toItem(IceikaBlocks.presentBox), new ItemRendererPresentBox());
     }
 }
