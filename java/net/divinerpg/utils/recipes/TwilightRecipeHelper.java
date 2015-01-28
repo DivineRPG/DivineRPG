@@ -15,6 +15,9 @@ import net.minecraft.item.ItemStack;
 public class TwilightRecipeHelper extends RecipeUtil {
 	
 	public static void init() {
+
+		/* Dust, Fragments, Gems and Souls */
+
 		addShapelessRecipe(TwilightItemsOther.edenFragments, TwilightItemsOther.edenSoul);
 		addShapelessRecipe(TwilightItemsOther.wildwoodFragments, TwilightItemsOther.wildwoodSoul);
 		addShapelessRecipe(TwilightItemsOther.apalachiaFragments, TwilightItemsOther.apalachiaSoul);
@@ -55,7 +58,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.mortumBrush);
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.demonBrambles);
 		
-		addRecipe(TwilightBlocks.edenChest, "bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments);
+		/* Armor */
 
 		//Eden (Dravite)
 		addRecipe(TwilightItemsArmor.edenHelmet, "III", "I I", 'I', TwilightItemsOther.edenChunk);
@@ -87,7 +90,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsArmor.mortumLegs, "III", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
 		addRecipe(TwilightItemsArmor.mortumBoots, "   ", "I I", "I I", 'I', TwilightItemsOther.mortumChunk);
 
-		/* Weapons and other Stuff */
+		/* Weapons and Tools */
 
 		//Eden
 		addRecipe(TwilightItemsWeapons.edenBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);
@@ -104,6 +107,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsWeapons.wildwoodBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.wildwoodChunk);
 		addShapelessRecipe(TwilightItemsWeapons.wildwoodSlicer, TwilightItemsOther.wildwoodGem);
 		addRecipe(TwilightItemsWeapons.wildwoodArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.wildwoodFragments, 'S', Items.stick, 'Z', Items.feather);
+
 		//Apalachia
 		addRecipe(TwilightItemsWeapons.apalachiaBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
 		addRecipe(TwilightItemsWeapons.apalachiaBow, " IX", "I X", " IX", 'I', TwilightItemsOther.apalachiaChunk, 'X', Items.string);
@@ -152,8 +156,18 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsTools.mortumAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addShapelessRecipe(TwilightItemsTools.mortumShickaxe, TwilightItemsTools.mortumPickaxe, TwilightItemsTools.mortumShovel, TwilightItemsTools.mortumAxe);
 		
-		addRecipe(VetheaItems.nightmareBed, "MMM", "WWW", 'M', TwilightBlocks.mortumBlock, 'W', TwilightBlocks.mortumLogs);
+		/* Spawners and other stuff */
+		addShapelessRecipe(TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul);
+		addShapelessRecipe(TwilightItemsOther.reyvorCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.mortumSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.edenSoul, TwilightItemsOther.wildwoodSoul);
+		addShapelessRecipe(TwilightItemsOther.eternalArcherCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.edenSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.edenSoul, TwilightItemsOther.wildwoodSoul);
+		addShapelessRecipe(TwilightItemsOther.soulFiendCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.apalachiaSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.wildwoodSoul, TwilightItemsOther.edenSoul);
+		addShapelessRecipe(TwilightItemsOther.twilightDemonCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.mortumSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.wildwoodSoul, TwilightItemsOther.skythernSoul);
+		addShapelessRecipe(TwilightItemsOther.densosCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.apalachiaSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.wildwoodSoul, TwilightItemsOther.skythernSoul);
+		addShapelessRecipe(TwilightItemsOther.vamacheronCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.mortumSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.mortumSoul);
+		addShapelessRecipe(TwilightItemsOther.karotCrystal, TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.apalachiaSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.mortumSoul, TwilightItemsOther.skythernSoul);
 
+		addRecipe(TwilightBlocks.edenChest, "bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments);
+		addRecipe(VetheaItems.nightmareBed, "MMM", "WWW", 'M', TwilightBlocks.mortumBlock, 'W', TwilightBlocks.mortumLogs);
 	}
 }
 
