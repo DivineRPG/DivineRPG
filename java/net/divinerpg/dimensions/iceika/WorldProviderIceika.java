@@ -11,7 +11,7 @@ public class WorldProviderIceika extends WorldProvider{
 	@Override
 	public void registerWorldChunkManager() {
 		this.dimensionId = ConfigurationHelper.iceika;
-		this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Iceika, 1.0F);
+		this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.iceikaBiome, 1.0F);
 	}
 
 	@Override

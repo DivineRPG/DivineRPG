@@ -23,17 +23,18 @@ import net.minecraftforge.common.DimensionManager;
 
 public class DimensionHelper {
 
-	protected static final BiomeGenBase.Height iceikaHeight = new BiomeGenBase.Height(0.0F, 0.7F); 
-	protected static final BiomeGenBase.Height vetheaHeight = new BiomeGenBase.Height(-1.0F, 0.0F);
+	protected static final BiomeGenBase.Height iceikaHeight 	= new BiomeGenBase.Height(0.0F, 0.7F); 
+	protected static final BiomeGenBase.Height vetheaHeight 	= new BiomeGenBase.Height(-1.0F, 0.0F);
+	protected static final BiomeGenBase.Height apalachiaHeight	= new BiomeGenBase.Height(0.5F, 2.0F);
 	
-	public static BiomeGenBase Eden 		= new BiomeGenEden(ConfigurationHelper.edenBiome);
-	public static BiomeGenBase Wildwood 	= new BiomeGenWildwood(ConfigurationHelper.wildwoodBiome);
-	public static BiomeGenBase Apalachia 	= new BiomeGenApalachia(ConfigurationHelper.apalachiaBiome);
-	public static BiomeGenBase Skythern 	= new BiomeGenSkythern(ConfigurationHelper.skythernBiome);
-	public static BiomeGenBase Mortum 		= new BiomeGenMortum(ConfigurationHelper.mortumBiome);
-	public static BiomeGenBase Iceika 		= new BiomeGenIceika(ConfigurationHelper.iceikaBiome).setHeight(iceikaHeight);
-	public static BiomeGenBase Vethea 		= new BiomeGenVethea(ConfigurationHelper.vetheaBiome).setHeight(vetheaHeight);
-	public static BiomeGenBase Arcana 		= new BiomeGenArcana(ConfigurationHelper.arcanaBiome);
+	public static BiomeGenBase edenBiome 		= new BiomeGenEden(ConfigurationHelper.edenBiome);
+	public static BiomeGenBase wildwoodBiome	= new BiomeGenWildwood(ConfigurationHelper.wildwoodBiome);
+	public static BiomeGenBase apalachiaBiome	= new BiomeGenApalachia(ConfigurationHelper.apalachiaBiome);
+	public static BiomeGenBase skythernBiome	= new BiomeGenSkythern(ConfigurationHelper.skythernBiome);
+	public static BiomeGenBase mortumBiome 		= new BiomeGenMortum(ConfigurationHelper.mortumBiome);
+	public static BiomeGenBase iceikaBiome 		= new BiomeGenIceika(ConfigurationHelper.iceikaBiome).setHeight(iceikaHeight);
+	public static BiomeGenBase vetheaBiome 		= new BiomeGenVethea(ConfigurationHelper.vetheaBiome).setHeight(vetheaHeight);
+	public static BiomeGenBase arcanaBiome 		= new BiomeGenArcana(ConfigurationHelper.arcanaBiome);
 
 	public static void init(){
 	    LogHelper.info("Adding dimensions");

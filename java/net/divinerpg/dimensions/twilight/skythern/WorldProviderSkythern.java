@@ -10,7 +10,7 @@ public class WorldProviderSkythern extends WorldProvider {
  
     @Override
     public void registerWorldChunkManager() {
-        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Skythern, 0.5F);
+        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.skythernBiome, 0.5F);
         this.dimensionId = ConfigurationHelper.skythern;
         isHellWorld = false;
         this.hasNoSky = true;

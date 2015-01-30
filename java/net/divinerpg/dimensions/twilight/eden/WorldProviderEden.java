@@ -13,7 +13,7 @@ public class WorldProviderEden extends WorldProvider {
 
     @Override
     public void registerWorldChunkManager() {
-        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Eden, 0.5F);
+        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.edenBiome, 0.5F);
         this.dimensionId = ConfigurationHelper.eden;
         isHellWorld = false;
     }

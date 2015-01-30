@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 public class WorldProviderVethea extends WorldProvider {
 	
 	public void registerWorldChunkManager()  {
-		this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.Vethea, 1.0F);
+		this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.vetheaBiome, 1.0F);
 		this.dimensionId = ConfigurationHelper.vethea;
 	}
 

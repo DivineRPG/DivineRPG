@@ -122,7 +122,7 @@ public class MobSpawning {
 	}
 	
 	public static void addIceikaSpawns() {
-		BiomeGenBase[] iceikaBiome = new BiomeGenBase[] {DimensionHelper.Iceika};
+		BiomeGenBase[] iceikaBiome = new BiomeGenBase[] {DimensionHelper.iceikaBiome};
 
 		EntityRegistry.addSpawn(EntityAlicanto.class, 2, 1, 10, EnumCreatureType.monster,  iceikaBiome);
         EntityRegistry.addSpawn(EntityFractite.class, 2, 1, 10, EnumCreatureType.monster,  iceikaBiome);
@@ -134,7 +134,7 @@ public class MobSpawning {
 	}
 
 	public static void addArcanaSpawns() {
-		BiomeGenBase[] arcanaBiome = new BiomeGenBase[] {DimensionHelper.Arcana};
+		BiomeGenBase[] arcanaBiome = new BiomeGenBase[] {DimensionHelper.arcanaBiome};
 
 		EntityRegistry.addSpawn(EntityLeorna.class, 1, 1, 1, EnumCreatureType.creature, arcanaBiome);
 		EntityRegistry.addSpawn(EntityDatticon.class, 1, 1, 1, EnumCreatureType.creature, arcanaBiome);
@@ -144,11 +144,11 @@ public class MobSpawning {
 	}
 
 	public static void addTwilightSpawns() {
-		BiomeGenBase[] edenBiome = new BiomeGenBase[] {DimensionHelper.Eden};
-		BiomeGenBase[] wildwoodBiome = new BiomeGenBase[] {DimensionHelper.Wildwood};
-		BiomeGenBase[] apalachiaBiome = new BiomeGenBase[] {DimensionHelper.Apalachia};
-		BiomeGenBase[] skythernBiome = new BiomeGenBase[] {DimensionHelper.Skythern};
-		BiomeGenBase[] mortumBiome = new BiomeGenBase[] {DimensionHelper.Mortum};
+		BiomeGenBase[] edenBiome = new BiomeGenBase[] {DimensionHelper.edenBiome};
+		BiomeGenBase[] wildwoodBiome = new BiomeGenBase[] {DimensionHelper.wildwoodBiome};
+		BiomeGenBase[] apalachiaBiome = new BiomeGenBase[] {DimensionHelper.apalachiaBiome};
+		BiomeGenBase[] skythernBiome = new BiomeGenBase[] {DimensionHelper.skythernBiome};
+		BiomeGenBase[] mortumBiome = new BiomeGenBase[] {DimensionHelper.mortumBiome};
 
 		EntityRegistry.addSpawn(EntityEdenTomo.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityEdenCadillion.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
@@ -202,7 +202,7 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
-				} else if(biome != DimensionHelper.Apalachia && biome != DimensionHelper.Arcana && biome != DimensionHelper.Eden && biome != DimensionHelper.Iceika && biome != DimensionHelper.Mortum && biome != DimensionHelper.Skythern && biome != DimensionHelper.Vethea && biome != DimensionHelper.Wildwood){
+				} else if(biome != DimensionHelper.apalachiaBiome && biome != DimensionHelper.arcanaBiome && biome != DimensionHelper.edenBiome && biome != DimensionHelper.iceikaBiome && biome != DimensionHelper.mortumBiome && biome != DimensionHelper.skythernBiome && biome != DimensionHelper.vetheaBiome && biome != DimensionHelper.wildwoodBiome){
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
 						EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);
@@ -240,7 +240,7 @@ public class MobSpawning {
 	}
 
 	public static void addVetheaSpawns() {
-		BiomeGenBase[] vetheaBiome = new BiomeGenBase[] {DimensionHelper.Vethea};
+		BiomeGenBase[] vetheaBiome = new BiomeGenBase[] {DimensionHelper.vetheaBiome};
 
 		EntityRegistry.addSpawn(EntityVermenous.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);
 		EntityRegistry.addSpawn(EntityCymesoid.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
