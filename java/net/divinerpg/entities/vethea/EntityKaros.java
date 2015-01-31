@@ -1,24 +1,16 @@
 package net.divinerpg.entities.vethea;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
@@ -34,6 +26,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 	private int abilityCoolDown;
 	private int[][] cannonList = new int[36][3];
 	private int[][] ceilingList = new int[47][3];
+	private List<ChunkCoordinates> newCeiling = new ArrayList<ChunkCoordinates>();
 	private int targetY;
 
 	private int deathTicks;
@@ -47,6 +40,19 @@ public class EntityKaros extends EntityDivineRPGBoss {
 			Util.sendMessageToAll("Dr. Karos: Let the game begin!");
 		}
 		this.playSound(Sounds.karosIntro.getPrefixedName(), 1.0F, 1.0F);
+		for(int x = -40; x<40; x++) {
+			for(int y = -5; y<20; y++) {
+				for(int z = -40; z<40; z++) {
+					if(this.worldObj.getBlock(x+(int)this.posX, y+(int)this.posY, z+(int)this.posZ) == VetheaBlocks.helioticBeam) {
+						ChunkCoordinates c = new ChunkCoordinates();
+						c.posX = x+(int)this.posX;
+						c.posY = y+(int)this.posY;
+						c.posZ = z+(int)this.posZ;
+						newCeiling.add(c);
+					}
+				}
+			}
+		}
 	}
 
 	@Override
@@ -97,7 +103,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		this.cannonList[34] = new int[]{par2 + 29, par3 + 2, par4 + 15};
 		this.cannonList[35] = new int[]{par2 + 29, par3 + 2, par4 + 17};
 
-		this.ceilingList[0] = new int[]{par2 + 13, par3 + 4, par4 + 4};
+		/*this.ceilingList[0] = new int[]{par2 + 13, par3 + 4, par4 + 4};
 		this.ceilingList[1] = new int[]{par2 + 13, par3 + 4, par4 + 5};
 		this.ceilingList[2] = new int[]{par2 + 13, par3 + 4, par4 + 6};
 		this.ceilingList[3] = new int[]{par2 + 14, par3 + 4, par4 + 4};
@@ -144,7 +150,20 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		this.ceilingList[43] = new int[]{par2 + 25, par3 + 4, par4 + 6};
 		this.ceilingList[44] = new int[]{par2 + 24, par3 + 4, par4 + 12};
 		this.ceilingList[45] = new int[]{par2 + 24, par3 + 4, par4 + 13};
-		this.ceilingList[46] = new int[]{par2 + 24, par3 + 4, par4 + 14};
+		this.ceilingList[46] = new int[]{par2 + 24, par3 + 4, par4 + 14};*/
+		for(int x = -40; x<40; x++) {
+			for(int y = -5; y<20; y++) {
+				for(int z = -40; z<40; z++) {
+					if(this.worldObj.getBlock(x+(int)this.posX, y+(int)this.posY, z+(int)this.posZ) == VetheaBlocks.helioticBeam) {
+						ChunkCoordinates c = new ChunkCoordinates();
+						c.posX = x+(int)this.posX;
+						c.posY = y+(int)this.posY;
+						c.posZ = z+(int)this.posZ;
+						newCeiling.add(c);
+					}
+				}
+			}
+		}
 		this.targetY = par3;
 	}
 
@@ -186,7 +205,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		if(ability == CEILING) {
 			var2 = this.rand.nextInt(46);
 			if ((this.abilityCoolDown % 4) == 0) {
-				VetheaBlocks.helioticBeam.dispense(this.worldObj, ceilingList[var2][0], ceilingList[var2][1], ceilingList[var2][2]);
+				//ChunkCoordinates c = newCeiling.get(this.rand.nextInt(newCeiling.size()));
+				//VetheaBlocks.helioticBeam.dispense(this.worldObj, c.posX, c.posY, c.posZ);
 			}
 		}
 		else if(ability == CANNONS) {
