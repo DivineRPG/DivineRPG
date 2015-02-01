@@ -30,7 +30,8 @@ public class BlockStupidSpawner extends BlockContainer {
         setCreativeTab(DivineRPGTabs.spawner);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
-    }
+        setHardness(5.0F);
+}
 
     @Override
     public TileEntity createNewTileEntity(World world, int par1) {
