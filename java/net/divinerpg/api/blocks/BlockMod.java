@@ -52,7 +52,10 @@ public class BlockMod extends Block{
 
     public BlockMod(EnumBlockType blockType, String name, boolean breakable, DivineRPGTabs tab) {
         this(blockType, name, tab);
-        if (!breakable) setBlockUnbreakable();
+        if (!breakable) {
+        	setBlockUnbreakable();
+        	setResistance(18000000F);
+        }
     }
 
     public BlockMod(EnumBlockType blockType, String name, DivineRPGTabs tab) {
@@ -84,7 +87,10 @@ public class BlockMod extends Block{
         setBlockTextureName(textureName);
         setBlockName(name);
         setHardness(hardness);
-        if(hardness == -1F) setBlockUnbreakable();
+        if(hardness == -1F) {
+        	setBlockUnbreakable();
+        	setResistance(18000000F);
+        }
         if(!(this instanceof IDivineMetaBlock)){
         	GameRegistry.registerBlock(this, name);
         }else{
@@ -104,7 +110,10 @@ public class BlockMod extends Block{
         setBlockTextureName(textureName);
         setBlockName(name);
         setHardness(hardness);
-        if(hardness == -1F) setBlockUnbreakable();
+        if(hardness == -1F) {
+        	setBlockUnbreakable();
+        	setResistance(18000000F);
+        }
         GameRegistry.registerBlock(this, item, name);
         LangRegistry.addBlock(this);
     }

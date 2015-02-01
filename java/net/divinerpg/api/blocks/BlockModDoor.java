@@ -29,7 +29,10 @@ public class BlockModDoor extends BlockMod {
 
     public BlockModDoor(EnumBlockType blockType, String name, float hardness, boolean canOpenByHand) {
         super(blockType, name, hardness);
-        if(hardness == -1F) setBlockUnbreakable();
+        if(hardness == -1F) {
+        	setBlockUnbreakable();
+        	setResistance(18000000F);
+        }
         setCreativeTab(null);
         this.canOpenByHand = canOpenByHand;
         setTickRandomly(true);
