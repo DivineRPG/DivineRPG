@@ -21,6 +21,7 @@ public class BlockExtractor extends BlockModFurnace {
 		super(name, false, GuiHandler.extractor);
 		setCreativeTab(DivineRPGTabs.blocks);
 		setBlockUnbreakable();
+		setResistance(18000000F);
 		setBlockTextureName("stone");
 	}
 
