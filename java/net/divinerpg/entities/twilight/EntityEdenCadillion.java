@@ -32,7 +32,7 @@ public class EntityEdenCadillion extends EntityPeacefulUntilAttacked {
 	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.edenCadillionSpeed);
 	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.edenCadillionFollowRange);
 	}
-
+	
 	@Override
 	protected String getLivingSound() {
 		return Sounds.getSoundName(Sounds.cadillion);

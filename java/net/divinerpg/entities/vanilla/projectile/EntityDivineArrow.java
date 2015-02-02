@@ -40,8 +40,8 @@ public class EntityDivineArrow extends EntityArrow
     public Entity shootingEntity;
     protected int ticksInGround;
     protected int ticksInAir;
-    protected double damageMin;
-    protected double damageMax;
+    public double damageMin;
+    public double damageMax;
     protected int knockbackStrength;
     public Item ammoItem;
     

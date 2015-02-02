@@ -25,11 +25,12 @@ public class EntityKaros extends EntityDivineRPGBoss {
 
 	private int abilityCoolDown;
 	private int[][] cannonList = new int[36][3];
-	private int[][] ceilingList = new int[47][3];
-	private List<ChunkCoordinates> newCeiling = new ArrayList<ChunkCoordinates>();
-	private int targetY;
+	private List<ChunkCoordinates> ceiling = new ArrayList<ChunkCoordinates>();
+	private List<ChunkCoordinates> cannons = new ArrayList<ChunkCoordinates>();
 
 	private int deathTicks;
+	
+	private boolean hasLoadedBlocks = false;
 
 	public EntityKaros(World par1) {
 		super(par1);
@@ -40,19 +41,6 @@ public class EntityKaros extends EntityDivineRPGBoss {
 			Util.sendMessageToAll("Dr. Karos: Let the game begin!");
 		}
 		this.playSound(Sounds.karosIntro.getPrefixedName(), 1.0F, 1.0F);
-		for(int x = -40; x<40; x++) {
-			for(int y = -5; y<20; y++) {
-				for(int z = -40; z<40; z++) {
-					if(this.worldObj.getBlock(x+(int)this.posX, y+(int)this.posY, z+(int)this.posZ) == VetheaBlocks.helioticBeam) {
-						ChunkCoordinates c = new ChunkCoordinates();
-						c.posX = x+(int)this.posX;
-						c.posY = y+(int)this.posY;
-						c.posZ = z+(int)this.posZ;
-						newCeiling.add(c);
-					}
-				}
-			}
-		}
 	}
 
 	@Override
@@ -62,109 +50,6 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.karosDamage);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.karosSpeed);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.karosFollowRange);
-	}
-
-	public EntityKaros(World par1, int par2, int par3, int par4) {
-		this(par1);
-		this.cannonList[0] = new int[]{par2 + 10, par3 + 2, par4 + 3};
-		this.cannonList[1] = new int[]{par2 + 10, par3 + 2, par4 + 5};
-		this.cannonList[2] = new int[]{par2 + 10, par3 + 2, par4 + 7};
-		this.cannonList[3] = new int[]{par2 + 10, par3 + 2, par4 + 12};
-		this.cannonList[4] = new int[]{par2 + 10, par3 + 2, par4 + 14};
-		this.cannonList[5] = new int[]{par2 + 10, par3 + 2, par4 + 16};
-		this.cannonList[6] = new int[]{par2 + 12, par3 + 2, par4 + 1};
-		this.cannonList[7] = new int[]{par2 + 12, par3 + 2, par4 + 18};
-		this.cannonList[8] = new int[]{par2 + 14, par3 + 2, par4 + 1};
-		this.cannonList[9] = new int[]{par2 + 14, par3 + 2, par4 + 18};
-		this.cannonList[10] = new int[]{par2 + 16, par3 + 2, par4 + 1};
-		this.cannonList[11] = new int[]{par2 + 16, par3 + 2, par4 + 18};
-		this.cannonList[12] = new int[]{par2 + 18, par3 + 2, par4 + 1};
-		this.cannonList[13] = new int[]{par2 + 18, par3 + 2, par4 + 18};
-		this.cannonList[14] = new int[]{par2 + 20, par3 + 2, par4 + 1};
-		this.cannonList[15] = new int[]{par2 + 20, par3 + 2, par4 + 18};
-		this.cannonList[16] = new int[]{par2 + 20, par3 + 2, par4 + 1};
-		this.cannonList[17] = new int[]{par2 + 20, par3 + 2, par4 + 18};
-		this.cannonList[18] = new int[]{par2 + 24, par3 + 2, par4 + 1};
-		this.cannonList[19] = new int[]{par2 + 24, par3 + 2, par4 + 18};
-		this.cannonList[20] = new int[]{par2 + 26, par3 + 2, par4 + 1};
-		this.cannonList[21] = new int[]{par2 + 26, par3 + 2, par4 + 18};
-		this.cannonList[22] = new int[]{par2 + 28, par3 + 2, par4 + 1};
-		this.cannonList[23] = new int[]{par2 + 28, par3 + 2, par4 + 18};
-		this.cannonList[24] = new int[]{par2 + 28, par3 + 3, par4 + 9};
-		this.cannonList[25] = new int[]{par2 + 28, par3 + 3, par4 + 10};
-		this.cannonList[26] = new int[]{par2 + 29, par3 + 2, par4 + 2};
-		this.cannonList[27] = new int[]{par2 + 29, par3 + 2, par4 + 4};
-		this.cannonList[28] = new int[]{par2 + 29, par3 + 2, par4 + 6};
-		this.cannonList[29] = new int[]{par2 + 29, par3 + 2, par4 + 8};
-		this.cannonList[30] = new int[]{par2 + 29, par3 + 2, par4 + 9};
-		this.cannonList[31] = new int[]{par2 + 29, par3 + 2, par4 + 10};
-		this.cannonList[32] = new int[]{par2 + 29, par3 + 2, par4 + 11};
-		this.cannonList[33] = new int[]{par2 + 29, par3 + 2, par4 + 13};
-		this.cannonList[34] = new int[]{par2 + 29, par3 + 2, par4 + 15};
-		this.cannonList[35] = new int[]{par2 + 29, par3 + 2, par4 + 17};
-
-		/*this.ceilingList[0] = new int[]{par2 + 13, par3 + 4, par4 + 4};
-		this.ceilingList[1] = new int[]{par2 + 13, par3 + 4, par4 + 5};
-		this.ceilingList[2] = new int[]{par2 + 13, par3 + 4, par4 + 6};
-		this.ceilingList[3] = new int[]{par2 + 14, par3 + 4, par4 + 4};
-		this.ceilingList[4] = new int[]{par2 + 14, par3 + 4, par4 + 5};
-		this.ceilingList[5] = new int[]{par2 + 14, par3 + 4, par4 + 6};
-		this.ceilingList[6] = new int[]{par2 + 15, par3 + 4, par4 + 4};
-		this.ceilingList[7] = new int[]{par2 + 15, par3 + 4, par4 + 5};
-		this.ceilingList[8] = new int[]{par2 + 15, par3 + 4, par4 + 6};
-		this.ceilingList[9] = new int[]{par2 + 13, par3 + 4, par4 + 14};
-		this.ceilingList[10] = new int[]{par2 + 13, par3 + 4, par4 + 15};
-		this.ceilingList[11] = new int[]{par2 + 13, par3 + 4, par4 + 16};
-		this.ceilingList[12] = new int[]{par2 + 14, par3 + 4, par4 + 14};
-		this.ceilingList[13] = new int[]{par2 + 14, par3 + 4, par4 + 15};
-		this.ceilingList[14] = new int[]{par2 + 14, par3 + 4, par4 + 16};
-		this.ceilingList[15] = new int[]{par2 + 15, par3 + 4, par4 + 14};
-		this.ceilingList[16] = new int[]{par2 + 15, par3 + 4, par4 + 15};
-		this.ceilingList[17] = new int[]{par2 + 15, par3 + 4, par4 + 16};
-		this.ceilingList[18] = new int[]{par2 + 18, par3 + 4, par4 + 9};
-		this.ceilingList[19] = new int[]{par2 + 18, par3 + 4, par4 + 10};
-		this.ceilingList[20] = new int[]{par2 + 18, par3 + 4, par4 + 11};
-		this.ceilingList[21] = new int[]{par2 + 19, par3 + 4, par4 + 9};
-		this.ceilingList[22] = new int[]{par2 + 19, par3 + 4, par4 + 10};
-		this.ceilingList[23] = new int[]{par2 + 19, par3 + 4, par4 + 11};
-		this.ceilingList[23] = new int[]{par2 + 20, par3 + 4, par4 + 9};
-		this.ceilingList[24] = new int[]{par2 + 20, par3 + 4, par4 + 10};
-		this.ceilingList[25] = new int[]{par2 + 20, par3 + 4, par4 + 11};
-		this.ceilingList[26] = new int[]{par2 + 22, par3 + 4, par4 + 12};
-		this.ceilingList[27] = new int[]{par2 + 22, par3 + 4, par4 + 13};
-		this.ceilingList[28] = new int[]{par2 + 22, par3 + 4, par4 + 14};
-		this.ceilingList[29] = new int[]{par2 + 23, par3 + 4, par4 + 12};
-		this.ceilingList[30] = new int[]{par2 + 23, par3 + 4, par4 + 13};
-		this.ceilingList[31] = new int[]{par2 + 23, par3 + 4, par4 + 14};
-		this.ceilingList[32] = new int[]{par2 + 24, par3 + 4, par4 + 12};
-		this.ceilingList[33] = new int[]{par2 + 24, par3 + 4, par4 + 13};
-		this.ceilingList[34] = new int[]{par2 + 24, par3 + 4, par4 + 14};
-		this.ceilingList[35] = new int[]{par2 + 23, par3 + 4, par4 + 4};
-		this.ceilingList[36] = new int[]{par2 + 23, par3 + 4, par4 + 5};
-		this.ceilingList[37] = new int[]{par2 + 23, par3 + 4, par4 + 6};
-		this.ceilingList[38] = new int[]{par2 + 24, par3 + 4, par4 + 4};
-		this.ceilingList[39] = new int[]{par2 + 24, par3 + 4, par4 + 5};
-		this.ceilingList[40] = new int[]{par2 + 24, par3 + 4, par4 + 6};
-		this.ceilingList[41] = new int[]{par2 + 25, par3 + 4, par4 + 4};
-		this.ceilingList[42] = new int[]{par2 + 25, par3 + 4, par4 + 5};
-		this.ceilingList[43] = new int[]{par2 + 25, par3 + 4, par4 + 6};
-		this.ceilingList[44] = new int[]{par2 + 24, par3 + 4, par4 + 12};
-		this.ceilingList[45] = new int[]{par2 + 24, par3 + 4, par4 + 13};
-		this.ceilingList[46] = new int[]{par2 + 24, par3 + 4, par4 + 14};*/
-		for(int x = -40; x<40; x++) {
-			for(int y = -5; y<20; y++) {
-				for(int z = -40; z<40; z++) {
-					if(this.worldObj.getBlock(x+(int)this.posX, y+(int)this.posY, z+(int)this.posZ) == VetheaBlocks.helioticBeam) {
-						ChunkCoordinates c = new ChunkCoordinates();
-						c.posX = x+(int)this.posX;
-						c.posY = y+(int)this.posY;
-						c.posZ = z+(int)this.posZ;
-						newCeiling.add(c);
-					}
-				}
-			}
-		}
-		this.targetY = par3;
 	}
 
 	@Override
@@ -197,22 +82,53 @@ public class EntityKaros extends EntityDivineRPGBoss {
 			this.abilityCoolDown--;
 		}
 	}
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float par2) {
+		if(source.isExplosion()) return false;
+		return super.attackEntityFrom(source, par2);
+    }
 
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		if(!hasLoadedBlocks) {
+			for(int x = -40; x<40; x++) {
+				for(int y = -5; y<20; y++) {
+					for(int z = -40; z<40; z++) {
+						if(this.worldObj.getBlock(x+(int)this.posX, y+(int)this.posY, z+(int)this.posZ) == VetheaBlocks.helioticBeam) {
+							ChunkCoordinates c = new ChunkCoordinates();
+							c.posX = x+(int)this.posX;
+							c.posY = y+(int)this.posY;
+							c.posZ = z+(int)this.posZ;
+							ceiling.add(c);
+						}
+						else if(this.worldObj.getBlock(x+(int)this.posX, y+(int)this.posY, z+(int)this.posZ) == VetheaBlocks.karosCannon) {
+							ChunkCoordinates c = new ChunkCoordinates();
+							c.posX = x+(int)this.posX;
+							c.posY = y+(int)this.posY;
+							c.posZ = z+(int)this.posZ;
+							cannons.add(c);
+						}
+					}
+				}
+			}
+			hasLoadedBlocks = true;
+		}
 		int var2;
-		if(ability == CEILING) {
+		ability = CANNONS;
+		if(ability == CEILING && this.ceiling.size() != 0) {
 			var2 = this.rand.nextInt(46);
 			if ((this.abilityCoolDown % 4) == 0) {
-				//ChunkCoordinates c = newCeiling.get(this.rand.nextInt(newCeiling.size()));
-				//VetheaBlocks.helioticBeam.dispense(this.worldObj, c.posX, c.posY, c.posZ);
+				ChunkCoordinates c = ceiling.get(this.rand.nextInt(ceiling.size()));
+				VetheaBlocks.helioticBeam.dispense(this.worldObj, c.posX, c.posY, c.posZ);
 			}
 		}
-		else if(ability == CANNONS) {
+		else if(ability == CANNONS && this.cannons.size() != 0) {
 			var2 = this.rand.nextInt(36);
 			if ((this.abilityCoolDown % 4) == 0) {
-				VetheaBlocks.karosCannon.dispense(this.worldObj, cannonList[var2][0], cannonList[var2][1], cannonList[var2][2]);
+				ChunkCoordinates c = cannons.get(this.rand.nextInt(cannons.size()));
+				VetheaBlocks.karosCannon.dispense(this.worldObj, c.posX, c.posY, c.posZ);
 			}
 		}
 		else if(ability == FLOOR) {
@@ -221,8 +137,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
 				while (var4 < 2 * Math.PI) {
 					int var1 = (int) Math.round(Math.sin(var4)*i);
 					int var3 = (int) Math.round(Math.cos(var4)*i);
-					if (this.worldObj.getBlock((int)this.posX + var1, this.targetY, (int)this.posZ + var3) == VetheaBlocks.karosHeatTileGreen) {
-						this.worldObj.setBlock((int)this.posX + var1, this.targetY, (int)this.posZ + var3, VetheaBlocks.karosHeatTileRed);
+					if (this.worldObj.getBlock((int)this.posX + var1, (int)this.posY-1, (int)this.posZ + var3) == VetheaBlocks.karosHeatTileGreen) {
+						this.worldObj.setBlock((int)this.posX + var1, (int)this.posY-1, (int)this.posZ + var3, VetheaBlocks.karosHeatTileRed);
 					}
 					var4 += Math.PI / 8.0D;
 				}
@@ -272,13 +188,6 @@ public class EntityKaros extends EntityDivineRPGBoss {
 	protected void dropFewItems(boolean par1, int par2) {
 		this.dropItem(VetheaItems.rockChunks, par2);
 		this.dropItem(VetheaItems.karosLump, 20);
-	}
-
-	@Override
-	public boolean attackEntityFrom(DamageSource par1, float par2) {
-		if (par1.isExplosion())
-			return false;
-		return super.attackEntityFrom(par1, par2);
 	}
 
 	@Override

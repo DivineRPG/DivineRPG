@@ -2,12 +2,12 @@ package net.divinerpg.blocks.vethea;
 
 import java.util.Random;
 
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityDispenser;
@@ -82,8 +82,10 @@ public class BlockKarosCannon extends BlockContainer {
 		double var5 = par3;
 		double var7 = par4;
 		double var9 = par5;
-		EntityArrow var11 = new EntityArrow(par0World, var5 + 0.5D + par3EnumFacing.getFrontOffsetX(), var7 + 0.5D, var9 + 0.5D + par3EnumFacing.getFrontOffsetZ());
-        double var12 = par0World.rand.nextDouble() * 0.1D + 0.9D;
+		EntityDivineArrow var11 = new EntityDivineArrow(par0World, var5 + 0.5D + par3EnumFacing.getFrontOffsetX(), var7 + 0.5D, var9 + 0.5D + par3EnumFacing.getFrontOffsetZ());
+        var11.damageMin = var11.damageMax = 12;
+        var11.getDataWatcher().updateObject(17, "karosArrow");
+		double var12 = par0World.rand.nextDouble() * 0.1D + 0.9D;
         var11.motionX = (double)par3EnumFacing.getFrontOffsetX() * var12;
         var11.motionY = 0D;
         var11.motionZ = (double)par3EnumFacing.getFrontOffsetZ() * var12;
