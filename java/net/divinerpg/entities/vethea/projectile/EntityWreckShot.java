@@ -8,19 +8,19 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 
-public class EntityVetheanCannonShot extends EntityThrowable {
+public class EntityWreckShot extends EntityThrowable {
 	
     public int damage;
-    public EntityVetheanCannonShot(World par1) {
+    public EntityWreckShot(World par1) {
         super(par1);
     }
 
-    public EntityVetheanCannonShot(World par1, EntityLivingBase par2, int par3) {
+    public EntityWreckShot(World par1, EntityLivingBase par2, int par3) {
         super(par1, par2);
         this.damage = par3;
     }
 
-    public EntityVetheanCannonShot(World par1, double par2, double par4, double par6) {
+    public EntityWreckShot(World par1, double par2, double par4, double par6) {
         super(par1, par2, par4, par6);
     }
 

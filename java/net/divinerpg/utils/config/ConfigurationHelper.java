@@ -27,23 +27,23 @@ public class ConfigurationHelper {
     public static int     arcanaX, arcanaY;
 
     public static void dimensionInit() {
-        edenBiome = cfg.get("Dimension", "Eden biome ID", 40).getInt();
-        wildwoodBiome = cfg.get("Dimension", "The Wildwood biome ID", 41).getInt();
-        apalachiaBiome = cfg.get("Dimension", "Apalachia biome ID", 42).getInt();
-        skythernBiome = cfg.get("Dimension", "Skythern biome ID", 43).getInt();
-        mortumBiome = cfg.get("Dimension", "Mortum biome ID", 44).getInt();
-        vetheaBiome = cfg.get("Dimension", "Vethea biome ID", 45).getInt();
-        arcanaBiome = cfg.get("Dimension", "Arcana biome ID", 46).getInt();
-        iceikaBiome = cfg.get("Dimension", "Iceika biome ID", 47).getInt();
+        edenBiome = cfg.get("Dimension", "Eden biome ID", 100).getInt();
+        wildwoodBiome = cfg.get("Dimension", "The Wildwood biome ID", 101).getInt();
+        apalachiaBiome = cfg.get("Dimension", "Apalachia biome ID", 102).getInt();
+        skythernBiome = cfg.get("Dimension", "Skythern biome ID", 103).getInt();
+        mortumBiome = cfg.get("Dimension", "Mortum biome ID", 104).getInt();
+        vetheaBiome = cfg.get("Dimension", "Vethea biome ID", 105).getInt();
+        arcanaBiome = cfg.get("Dimension", "Arcana biome ID", 106).getInt();
+        iceikaBiome = cfg.get("Dimension", "Iceika biome ID", 107).getInt();
 
-        eden = cfg.get("Dimension", "Eden dimension ID", 10).getInt();
-        wildwood = cfg.get("Dimension", "Wildwood dimension ID", 11).getInt();
-        apalachia = cfg.get("Dimension", "Apalachia dimension ID", 12).getInt();
-        skythern = cfg.get("Dimension", "Skythern dimension ID", 13).getInt();
-        mortum = cfg.get("Dimension", "Mortum dimension ID", 14).getInt();
-        vethea = cfg.get("Dimension", "Vethea dimension ID", 15).getInt();
-        arcana = cfg.get("Dimension", "Arcana dimension ID", 16).getInt();
-        iceika = cfg.get("Dimension", "Iceika dimension ID", 17).getInt();
+        eden = cfg.get("Dimension", "Eden dimension ID", 50).getInt();
+        wildwood = cfg.get("Dimension", "Wildwood dimension ID", 51).getInt();
+        apalachia = cfg.get("Dimension", "Apalachia dimension ID", 52).getInt();
+        skythern = cfg.get("Dimension", "Skythern dimension ID", 53).getInt();
+        mortum = cfg.get("Dimension", "Mortum dimension ID", 54).getInt();
+        vethea = cfg.get("Dimension", "Vethea dimension ID", 55).getInt();
+        arcana = cfg.get("Dimension", "Arcana dimension ID", 56).getInt();
+        iceika = cfg.get("Dimension", "Iceika dimension ID", 57).getInt();
 
         keepLoadingEden = cfg.get("Dimension", "Keep loading Eden", true).getBoolean(true);
         keepLoadingWildwood = cfg.get("Dimension", "Keep loading The Wildwood", true).getBoolean(true);

@@ -46,7 +46,6 @@ import net.divinerpg.client.render.entity.vethea.model.Tocaxin;
 import net.divinerpg.client.render.entity.vethea.model.Twins;
 import net.divinerpg.client.render.entity.vethea.model.Vermenous;
 import net.divinerpg.client.render.entity.vethea.model.Vhraak;
-import net.divinerpg.client.render.entity.vethea.model.WreckForm1;
 import net.divinerpg.client.render.entity.vethea.model.Zone;
 import net.divinerpg.client.render.entity.vethea.model.Zoragon;
 import net.divinerpg.entities.vethea.EntityAcidHag;
@@ -104,6 +103,10 @@ import net.divinerpg.entities.vethea.projectile.EntityPardimalDisk;
 import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
 import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
 import net.divinerpg.entities.vethea.projectile.EntityTeakerDisk;
+import net.divinerpg.entities.vethea.projectile.EntityWreckBouncingProjectile;
+import net.divinerpg.entities.vethea.projectile.EntityWreckExplosiveShot;
+import net.divinerpg.entities.vethea.projectile.EntityWreckShot;
+import net.divinerpg.entities.vethea.projectile.EntityZoragonBomb;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.client.model.ModelBiped;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -125,7 +128,11 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisk.class, new RenderIconProjectile(VetheaItems.teakerDisk));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDissimentShot.class, new RenderSpecialProjectile(x.DISSIMENT_SHOT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRaglokBomb.class, new RenderSpecialProjectile(x.RAGLOK_BOMB));
-
+		RenderingRegistry.registerEntityRenderingHandler(EntityZoragonBomb.class, new RenderSpecialProjectile(x.ZORAGON_BOMB));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWreckShot.class, new RenderSpecialProjectile(x.WRECK_SHOT));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWreckExplosiveShot.class, new RenderSpecialProjectile(x.WRECK_SHOT));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWreckBouncingProjectile.class, new RenderSpecialProjectile(x.WRECK_BOUNCING));
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.staffProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.evernight));
 

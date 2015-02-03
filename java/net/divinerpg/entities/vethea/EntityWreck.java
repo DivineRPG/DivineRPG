@@ -4,34 +4,24 @@ import java.util.List;
 
 import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.api.entity.EntityStats;
-import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
-import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonShot;
+import net.divinerpg.entities.vethea.projectile.EntityWreckBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityWreckExplosiveShot;
+import net.divinerpg.entities.vethea.projectile.EntityWreckShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -283,14 +273,15 @@ public class EntityWreck extends EntityDivineRPGBoss {
 	public void attackEntityWithRangedAttack(EntityLivingBase entity) {
 		if(entity == null)return;
 		switch(this.getAbility()) {
+		//TODO: add better aim for projectiles
 			case BOUNCE:
-				EntityBouncingProjectile projectile = new EntityBouncingProjectile(this.worldObj, this, 30);
+				EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(this.worldObj, this, 30);
 				this.worldObj.spawnEntityInWorld(projectile);
 				this.setAbility(DEFAULT);
 			break;
 			case SPEED:
 				if(this.abilityTimer%5 == 0) {
-					EntityVetheanCannonShot shot = new EntityVetheanCannonShot(this.worldObj, this, 15);
+					EntityWreckShot shot = new EntityWreckShot(this.worldObj, this, 15);
 					this.worldObj.spawnEntityInWorld(shot);
 				}
                 if (this.abilityTimer == 100) {
@@ -306,10 +297,10 @@ public class EntityWreck extends EntityDivineRPGBoss {
                 break;
             case STRENGTH:
                 if ((this.abilityTimer % 40) == 0) {
-                	EntityVetheanCannonShot var4 = new EntityVetheanCannonShot(this.worldObj, this, 40);
+                	EntityWreckShot var4 = new EntityWreckShot(this.worldObj, this, 40);
                     this.worldObj.spawnEntityInWorld(var4);
                 }
-                if(this.abilityTimer==0)this.setAbility(DEFAULT);
+                if(this.abilityTimer==0) this.setAbility(DEFAULT);
                 break;
 		default:
 			break;

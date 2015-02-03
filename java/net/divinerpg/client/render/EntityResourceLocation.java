@@ -161,6 +161,7 @@ public class EntityResourceLocation {
     public static ResourceLocation HOVER_STINGER 	 = addMob("hoverStinger");
     public static ResourceLocation ZONE 			 = addMob("zone");
     public static ResourceLocation ZORAGON 			 = addMob("zoragon");
+    public static ResourceLocation ZORAGON_BOMB 	 = addProjectile("zoragonBomb");
     public static ResourceLocation DISSIMENT 		 = addMob("dissiment");
     public static ResourceLocation DISSIMENT_SHOT    = addProjectile("dissimentShot");
     public static ResourceLocation VHRAAK 			 = addMob("vhraak");
@@ -199,6 +200,8 @@ public class EntityResourceLocation {
     public static ResourceLocation HUSK 			 = addMob("husk");
     public static ResourceLocation VERMSILLION 		 = addMob("vermsillion");
     public static ResourceLocation STONE_GOLEM 		 = addMob("stoneGolem");
+    public static ResourceLocation WRECK_SHOT 		 = addProjectile("wreckShot");
+    public static ResourceLocation WRECK_BOUNCING 	 = addProjectile("wreckBouncingProjectile");
     
     public static ResourceLocation KING_STATUE 		 = addModel("statueKos");
     public static ResourceLocation ANCIENT_STATUE 	 = addModel("statueAnchient");

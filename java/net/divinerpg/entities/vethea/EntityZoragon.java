@@ -91,7 +91,7 @@ public class EntityZoragon extends EntityDivineRPGFlying {
                 this.rotationYaw += var8;
             }
 
-            if (Math.abs(var1) < 1 && Math.abs(var3) < 1 && Math.abs(var5) < 1) {
+            if (Math.abs(var1) < 3 && Math.abs(var3) < 3 && Math.abs(var5) < 3) {
                 if (this.special == 0) {
                     this.special = 120;
                     EntityZoragonBomb var9 = new EntityZoragonBomb(this.worldObj, this.posX, this.posY - 1, this.posZ);

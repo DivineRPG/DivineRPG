@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
 
-public class EntityEversightProjectile extends EntityVetheanCannonShot
+public class EntityEversightProjectile extends EntityWreckShot
 {
     public EntityEversightProjectile(World par1)
     {

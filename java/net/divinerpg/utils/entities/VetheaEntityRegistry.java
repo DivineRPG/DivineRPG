@@ -58,8 +58,9 @@ import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
 import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
 import net.divinerpg.entities.vethea.projectile.EntityTeakerDisk;
 import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonEversight;
-import net.divinerpg.entities.vethea.projectile.EntityVetheanCannonShot;
+import net.divinerpg.entities.vethea.projectile.EntityWreckBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityWreckExplosiveShot;
+import net.divinerpg.entities.vethea.projectile.EntityWreckShot;
 import net.divinerpg.entities.vethea.projectile.EntityZoragonBomb;
 import net.divinerpg.utils.Util;
 
@@ -77,7 +78,7 @@ public class VetheaEntityRegistry {
 		Util.registerProjectile(EntityTeakerDisk.class, "TeakerDisk");
 		Util.registerProjectile(EntityBouncingProjectile.class, "Staff");
 		Util.registerProjectile(EntityEvernightProjectile.class, "Evernight");
-		Util.registerProjectile(EntityVetheanCannonShot.class, "Cannon");
+		Util.registerProjectile(EntityWreckShot.class, "WreckShot");
 		Util.registerProjectile(EntityVetheanCannonEversight.class, "CannonEversight");
 		Util.registerProjectile(EntityEversightProjectile.class, "Eversight");
 		Util.registerProjectile(EntityDissimentShot.class, "DissimentShot");
@@ -86,6 +87,7 @@ public class VetheaEntityRegistry {
 		Util.registerProjectile(EntityRaglokBomb.class, "RaglokBomb");
 		Util.registerProjectile(EntityWreckExplosiveShot.class, "WreckExplosiveShot");
 		Util.registerProjectile(EntityZoragonBomb.class, "ZoragonBomb");
+		Util.registerProjectile(EntityWreckBouncingProjectile.class, "WreckBouncing");
 
 		Util.registerDivineRPGMob(EntityVermenous.class, "Vermenous");
         Util.registerDivineRPGMob(EntityEnt.class, "Ent");
