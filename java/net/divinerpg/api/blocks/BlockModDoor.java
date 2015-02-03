@@ -31,7 +31,7 @@ public class BlockModDoor extends BlockMod {
         super(blockType, name, hardness);
         if(hardness == -1F) {
         	setBlockUnbreakable();
-        	setResistance(18000000F);
+        	setResistance(6000000F);
         }
         setCreativeTab(null);
         this.canOpenByHand = canOpenByHand;
