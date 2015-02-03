@@ -23,7 +23,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 	private final int CANNONS = 2;
 	private final int FLOOR = 3;
 
-	private int abilityCoolDown;
+	private int abilityCooldown;
 	private int[][] cannonList = new int[36][3];
 	private List<ChunkCoordinates> ceiling = new ArrayList<ChunkCoordinates>();
 	private List<ChunkCoordinates> cannons = new ArrayList<ChunkCoordinates>();
@@ -59,8 +59,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
 	}
 
 	public void manageAbilities() {
-		if (this.abilityCoolDown == 0) {
-			this.abilityCoolDown = 200;
+		if (this.abilityCooldown == 0) {
+			this.abilityCooldown = 200;
 			switch(this.rand.nextInt(3)) {
 			case 0:
 				ability = CEILING;
@@ -78,9 +78,10 @@ public class EntityKaros extends EntityDivineRPGBoss {
 			default: break;
 			}
 		}
-		else if (this.abilityCoolDown > 0) {
-			this.abilityCoolDown--;
+		else if (this.abilityCooldown > 0) {
+			this.abilityCooldown--;
 		}
+		System.out.println(abilityCooldown);
 	}
 	
 	@Override
@@ -116,23 +117,22 @@ public class EntityKaros extends EntityDivineRPGBoss {
 			hasLoadedBlocks = true;
 		}
 		int var2;
-		ability = CANNONS;
 		if(ability == CEILING && this.ceiling.size() != 0) {
 			var2 = this.rand.nextInt(46);
-			if ((this.abilityCoolDown % 4) == 0) {
+			if ((this.abilityCooldown % 8) == 0) {
 				ChunkCoordinates c = ceiling.get(this.rand.nextInt(ceiling.size()));
 				VetheaBlocks.helioticBeam.dispense(this.worldObj, c.posX, c.posY, c.posZ);
 			}
 		}
 		else if(ability == CANNONS && this.cannons.size() != 0) {
 			var2 = this.rand.nextInt(36);
-			if ((this.abilityCoolDown % 4) == 0) {
+			if ((this.abilityCooldown % 4) == 0) {
 				ChunkCoordinates c = cannons.get(this.rand.nextInt(cannons.size()));
 				VetheaBlocks.karosCannon.dispense(this.worldObj, c.posX, c.posY, c.posZ);
 			}
 		}
 		else if(ability == FLOOR) {
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 3; i++) {
 				double var4 = 0;
 				while (var4 < 2 * Math.PI) {
 					int var1 = (int) Math.round(Math.sin(var4)*i);

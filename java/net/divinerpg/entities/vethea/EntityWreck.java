@@ -272,16 +272,20 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
 	public void attackEntityWithRangedAttack(EntityLivingBase entity) {
 		if(entity == null)return;
+		double tx = entity.posX - this.posX;
+        double ty = entity.boundingBox.minY - this.posY;
+        double tz = entity.posZ - this.posZ;
 		switch(this.getAbility()) {
-		//TODO: add better aim for projectiles
 			case BOUNCE:
 				EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(this.worldObj, this, 30);
+				projectile.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
 				this.worldObj.spawnEntityInWorld(projectile);
 				this.setAbility(DEFAULT);
 			break;
 			case SPEED:
 				if(this.abilityTimer%5 == 0) {
 					EntityWreckShot shot = new EntityWreckShot(this.worldObj, this, 15);
+					shot.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
 					this.worldObj.spawnEntityInWorld(shot);
 				}
                 if (this.abilityTimer == 100) {
@@ -291,14 +295,16 @@ public class EntityWreck extends EntityDivineRPGBoss {
             case EXPLOSIONS:
                 if ((this.abilityTimer % 40) == 0) {
                     EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(this.worldObj, this);
+                    shot.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
                     this.worldObj.spawnEntityInWorld(shot);
                 }
                 if(this.abilityTimer==0)this.setAbility(DEFAULT);
                 break;
             case STRENGTH:
                 if ((this.abilityTimer % 40) == 0) {
-                	EntityWreckShot var4 = new EntityWreckShot(this.worldObj, this, 40);
-                    this.worldObj.spawnEntityInWorld(var4);
+                	EntityWreckShot shot = new EntityWreckShot(this.worldObj, this, 40);
+                	shot.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
+                    this.worldObj.spawnEntityInWorld(shot);
                 }
                 if(this.abilityTimer==0) this.setAbility(DEFAULT);
                 break;
