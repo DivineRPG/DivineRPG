@@ -54,7 +54,7 @@ public class BlockMod extends Block{
         this(blockType, name, tab);
         if (!breakable) {
         	setBlockUnbreakable();
-        	setResistance(18000000F);
+        	setResistance(6000000F);
         }
     }
 
@@ -89,7 +89,7 @@ public class BlockMod extends Block{
         setHardness(hardness);
         if(hardness == -1F) {
         	setBlockUnbreakable();
-        	setResistance(18000000F);
+        	setResistance(6000000F);
         }
         if(!(this instanceof IDivineMetaBlock)){
         	GameRegistry.registerBlock(this, name);
@@ -112,7 +112,7 @@ public class BlockMod extends Block{
         setHardness(hardness);
         if(hardness == -1F) {
         	setBlockUnbreakable();
-        	setResistance(18000000F);
+        	setResistance(6000000F);
         }
         GameRegistry.registerBlock(this, item, name);
         LangRegistry.addBlock(this);
