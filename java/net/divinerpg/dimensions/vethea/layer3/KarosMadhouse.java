@@ -17,7 +17,6 @@ public class KarosMadhouse extends WorldGenerator {
 				}
 			}
 		}
-		System.out.println(i + " " + k);
 		world.setBlock(i + 0, j + 0, k + 2, VetheaBlocks.karosBricks2);
 		world.setBlock(i + 0, j + 0, k + 3, VetheaBlocks.karosBricks2);
 		world.setBlock(i + 0, j + 0, k + 4, VetheaBlocks.karosBricks2);

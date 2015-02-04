@@ -48,7 +48,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.dungeonMaster.desc=Kill Dramix");
         instance.addToFile("achievement.eyeOfEvil.desc=Look into the eye of The Eye");
         instance.addToFile("achievement.tripleDanger.desc=Kill an Ender Triplet");
-        instance.addToFile("achievement.hotterThanHell.desc=Step on a hot block in Arcana");
+        instance.addToFile("achievement.hotterThanHell.desc=Step on a Heat Trap in Arcana");
         instance.addToFile("achievement.mealToRemember.desc=Eat a chicken dinner");
         instance.addToFile("achievement.yuk.desc=Use an Arcana potion");
         instance.addToFile("achievement.spawnDAR.desc=Spawn Densos and Reyvor");

@@ -81,7 +81,6 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		else if (this.abilityCooldown > 0) {
 			this.abilityCooldown--;
 		}
-		System.out.println(abilityCooldown);
 	}
 	
 	@Override

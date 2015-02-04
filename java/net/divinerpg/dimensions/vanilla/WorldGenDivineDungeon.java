@@ -85,7 +85,6 @@ public class WorldGenDivineDungeon extends WorldGenerator {
 			}
 
 			world.setBlock(x, y, z, VanillaBlocks.divineMobSpawner, 0, 2);
-			System.out.println(x + " " + y + " " + z);
 			TileEntityStupidSpawner spawnerTE = (TileEntityStupidSpawner)world.getTileEntity(x, y, z);
 			if(spawnerTE != null) spawnerTE.setEntityName(this.pickMobSpawner(rand));
 			else System.err.println("[DivineRPG] Failed to fetch mob spawner entity at (" + x + ", " + y + ", " + z + ")");
