@@ -166,7 +166,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 				abilityTimer = 100;
 			}
 		}
-		this.attackEntityWithRangedAttack(player);
+		if(!this.worldObj.isRemote)this.attackEntityWithRangedAttack(player);
 	}
 
 	private void message() {
@@ -285,17 +285,17 @@ public class EntityWreck extends EntityDivineRPGBoss {
 			case SPEED:
 				if(this.abilityTimer%5 == 0) {
 					EntityWreckShot shot = new EntityWreckShot(this.worldObj, this, 15);
-					shot.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
+					shot.setThrowableHeading(tx, ty, tz, 1.6f, 12f);
 					this.worldObj.spawnEntityInWorld(shot);
 				}
-                if (this.abilityTimer == 100) {
+                if (this.abilityTimer <= 100) {
                     this.setAbility(DEFAULT);
                 }
                 break;
             case EXPLOSIONS:
                 if ((this.abilityTimer % 40) == 0) {
                     EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(this.worldObj, this);
-                    shot.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
+                    shot.setThrowableHeading(tx, ty, tz, 1.6f, 12f);
                     this.worldObj.spawnEntityInWorld(shot);
                 }
                 if(this.abilityTimer==0)this.setAbility(DEFAULT);
@@ -303,7 +303,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
             case STRENGTH:
                 if ((this.abilityTimer % 40) == 0) {
                 	EntityWreckShot shot = new EntityWreckShot(this.worldObj, this, 40);
-                	shot.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
+                	shot.setThrowableHeading(tx, ty, tz, 1.6f, 12f);
                     this.worldObj.spawnEntityInWorld(shot);
                 }
                 if(this.abilityTimer==0) this.setAbility(DEFAULT);
