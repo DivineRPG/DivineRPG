@@ -148,7 +148,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityGorgosion.class, new RenderDivineMob(new Gorgosion(), 0.0F, x.GORGOSION));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHoverStinger.class, new RenderDivineMob(new HoverStinger(), 0.0F, x.HOVER_STINGER));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZone.class, new RenderDivineMob(new Zone(), 0.0F, x.ZONE));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZoragon.class, new RenderDivineMob(new Zoragon(), 0.0F, x.ZORAGON));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZoragon.class, new RenderDivineMob(new Zoragon(), 0.0F, 5.0F, x.ZORAGON));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDissiment.class, new RenderDivineMob(new Dissiment(), 0.0F, 3, x.DISSIMENT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityVhraak.class, new RenderDivineMob(new Vhraak(), 0.0F, x.VHRAAK));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGalroid.class, new RenderGalroid(new Galroid(), 0.0F));
