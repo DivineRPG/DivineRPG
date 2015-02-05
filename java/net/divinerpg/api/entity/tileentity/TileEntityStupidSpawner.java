@@ -3,7 +3,6 @@ package net.divinerpg.api.entity.tileentity;
 import java.util.Random;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.entities.arcana.EntityRoamer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
@@ -35,29 +34,26 @@ public class TileEntityStupidSpawner extends TileEntity {
         for(int n = 0; n < 3; n++) {
         	DivineRPG.proxy.spawnParticle(this.worldObj, this.xCoord+0.5, this.yCoord+0.5, this.zCoord+0.5, "blackFlame", true, 3);
         }
-        if(!this.worldObj.isRemote) {
-        	//System.out.println(this.spawnTimer);
+        if(!this.worldObj.isRemote && this.worldObj.getClosestPlayer(this.xCoord+0.5D, this.yCoord+0.5D, this.zCoord+0.5D, 16D) != null) {
         	if(this.spawnTimer > 0) this.spawnTimer--;
         	if(this.spawnTimer == 0) {
-        		int c = this.worldObj.getEntitiesWithinAABB(EntityRoamer.class, AxisAlignedBB.getBoundingBox(this.xCoord, this.yCoord, this.zCoord, this.xCoord+1, this.yCoord+1, this.zCoord+1).expand(8, 6, 8)).size();
-
-        		if(c < 8) {
-        			for(int x = -4; x <= 4; x++) {
-        				for(int y = -2; y <= 4; y++) {
-        					for(int z = -4; z <= 4; z++) {
-        						if(this.yCoord+y > 0 && this.worldObj.getBlock(this.xCoord+x, this.yCoord+y, this.zCoord+z) == Blocks.air && this.worldObj.getBlock(this.xCoord+x, this.yCoord+y+1, this.zCoord+z) == Blocks.air && this.worldObj.getBlock(this.xCoord+x, this.yCoord+y-1, this.zCoord+z) != Blocks.air && this.rand.nextInt(20) == 0) {
-        							Entity e = EntityList.createEntityByName(this.entityName, this.worldObj);
-        							if(e != null) {
-        								e.setLocationAndAngles(this.xCoord+x, this.yCoord+y, this.zCoord+z, this.rand.nextInt(360), 0);
-        								this.worldObj.spawnEntityInWorld(e);
-        				            	System.out.println("HI");
-        							}
-        						}
-        					}
+        		int c = this.worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.xCoord, this.yCoord, this.zCoord, this.xCoord+1, this.yCoord+1, this.zCoord+1).expand(8, 6, 8)).size();
+        		if (c < 8) {
+        			for(int i = 0; i < 4; i++) {
+                		Entity e = EntityList.createEntityByName(this.entityName, this.worldObj);
+        				if (e != null) {
+        					int x = this.xCoord + this.rand.nextInt(9) - 4;
+            				int y = this.yCoord + this.rand.nextInt(3) - 1;
+            				int z = this.zCoord + this.rand.nextInt(9) - 4;
+                			AxisAlignedBB boundingBox = AxisAlignedBB.getBoundingBox(x+e.boundingBox.minX, y+e.boundingBox.minY, z+e.boundingBox.minZ, x+e.boundingBox.maxX, y+e.boundingBox.maxY, z+e.boundingBox.maxZ);
+            				if (this.worldObj.checkNoEntityCollision(boundingBox) && this.worldObj.getCollidingBoundingBoxes(e, boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(boundingBox)) {
+            					e.setLocationAndAngles(x, y, z, this.rand.nextInt(360), 0);
+            					this.worldObj.spawnEntityInWorld(e);
+            				}
         				}
         			}
         		}
-        		this.spawnTimer = 50;
+        		this.spawnTimer = 400;
         	}
         }
     }
