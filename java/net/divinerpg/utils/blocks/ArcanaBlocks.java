@@ -109,7 +109,7 @@ public class ArcanaBlocks {
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
 		arcanaGrass           = new BlockModGrass((BlockMod) arcanaDirt, "arcaniteGrass", "arcaniteDirt", 0.5F);
-		arcaniumOre           = new BlockMod("arcaniumOre", 0.2F);
+		arcaniumOre           = new BlockMod("arcaniumOre", 3.0F);
 		arcaniumMetal         = new BlockMod("arcaniumMetal", false);
 		arcanitetubes         = new BlockModLadder("arcaniteTubes");
 		arcaniumPower         = new BlockMod("arcaniumPower", 0.1F);

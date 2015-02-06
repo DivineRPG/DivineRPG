@@ -18,7 +18,7 @@ public class BlockModLadder extends BlockLadder {
         setCreativeTab(DivineRPGTabs.blocks);
         GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
-	}
+		setHardness(0.4F);
+		}
 
-	
 }
