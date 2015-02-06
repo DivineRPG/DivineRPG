@@ -6,11 +6,8 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class WorldProviderArcana extends WorldProvider
-{
-    /**
-     * creates a new world chunk manager for WorldProvider
-     */
+public class WorldProviderArcana extends WorldProvider {
+	
     @Override
     public void registerWorldChunkManager()
     {
@@ -18,9 +15,6 @@ public class WorldProviderArcana extends WorldProvider
         this.dimensionId = ConfigurationHelper.arcana;
     }
 
-    /**
-     * Creates the light to brightness table
-     */
     @Override
     protected void generateLightBrightnessTable()
     {
@@ -33,9 +27,6 @@ public class WorldProviderArcana extends WorldProvider
         }
     }
 
-    /**
-     * the y level at which clouds are rendered.
-     */
     @Override
     public float getCloudHeight()
     {
@@ -43,35 +34,23 @@ public class WorldProviderArcana extends WorldProvider
     }
 
     @Override
-    /**
-     * Returns a new chunk provider which generates chunks for this world
-     */
     public IChunkProvider createChunkGenerator()
     {
         return new ChunkProviderArcana(this.worldObj, this.worldObj.getSeed());
     }
 
-    /**
-     * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
-     */
     @Override
     public boolean isSurfaceWorld()
     {
         return false;
     }
 
-    /**
-     * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
-     */
     @Override
     public float calculateCelestialAngle(long var1, float var3)
     {
         return 0F;
     }
 
-    /**
-     * True if the player can respawn in this dimension (true = overworld, false = nether).
-     */
     @Override
     public boolean canRespawnHere()
     {
@@ -79,15 +58,8 @@ public class WorldProviderArcana extends WorldProvider
     }
 
     @Override
-    public String getWelcomeMessage()
-    {
-        return "Entering the Dungeon of Arcana";
-    }
-
-    @Override
-    public String getDepartMessage()
-    {
-        return "Leaving the Dungeon of Arcana";
+    public String getSaveFolder() {
+    	return "Arcana";
     }
 
     @Override

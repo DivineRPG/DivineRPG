@@ -2,6 +2,7 @@ package net.divinerpg.dimensions.arcana;
 
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
@@ -202,15 +203,15 @@ public class TeleporterArcana extends Teleporter {
 
 	private void makePortalAt(World world, int x, int y, int z) {
 
-		if(y < 10) 
-			y = 10;
-
-		world.getClass();
-
-		if(y > 14) 
-			y = 16;
-
-		y--;
+		y=9;
+		
+		for(int i = 0; i < 5; i++) {
+			for(int j = 0; j < 5; j++) {
+				for(int k = 0; k < 5; k++) {
+					world.setBlock(x+i, y+j, z+k-1, Blocks.air);
+				}
+			}
+		}
 
 		world.setBlock(x, y, z, ArcanaBlocks.arcanaPortalFrame);
 		world.setBlock(x, y, z + 1, ArcanaBlocks.arcanaPortalFrame);
