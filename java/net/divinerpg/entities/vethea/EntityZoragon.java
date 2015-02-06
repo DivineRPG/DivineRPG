@@ -1,15 +1,16 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.entities.vethea.projectile.EntityZoragonBomb;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityZoragon extends EntityDivineRPGFlying {
+public class EntityZoragon extends EntityDivineRPGMob {
 	
 	private static final double spawnLayer = 4;
     private ChunkCoordinates currentFlightTarget;
@@ -20,7 +21,7 @@ public class EntityZoragon extends EntityDivineRPGFlying {
         super(var1);
         flyTimer = 0;
         special = 120;
-        this.setSize(4.0F, 4.0F);
+        this.setSize(6.0F, 6.0F);
     }
 
     @Override
@@ -61,16 +62,20 @@ public class EntityZoragon extends EntityDivineRPGFlying {
         super.onUpdate();
         this.motionY *= 0.6000000238418579D;
     }
+    
+    @Override
+    public void fall(float f) {}
 
     @Override
     protected void updateAITasks() {
         super.updateAITasks();
 
-        if (this.getAttackTarget() != null) {
-            int targetX = (int) this.getAttackTarget().posX;
-            int targetY = (int) this.getAttackTarget().posY;
-            int targetZ = (int) this.getAttackTarget().posZ;
+        if (this.entityToAttack != null) {
+            int targetX = (int) this.entityToAttack.posX;
+            int targetY = (int) this.entityToAttack.posY;
+            int targetZ = (int) this.entityToAttack.posZ;
             currentFlightTarget = new ChunkCoordinates(targetX, targetY + 15, targetZ);
+            if(this.entityToAttack instanceof EntityPlayer && ((EntityPlayer)this.entityToAttack).capabilities.isCreativeMode) this.entityToAttack = null;
         }
         else if (flyTimer != 0) {
             flyTimer = 360;
@@ -92,7 +97,7 @@ public class EntityZoragon extends EntityDivineRPGFlying {
                 this.rotationYaw += var8;
             }
 
-            /*if (Math.abs(distX) < 3 && Math.abs(distY) < 3 && Math.abs(distZ) < 3) {
+            if (Math.abs(distX) < 3 && Math.abs(distY) < 3 && Math.abs(distZ) < 3) {
                 if (special == 0) {
                     special = 120;
                     EntityZoragonBomb bomb = new EntityZoragonBomb(this.worldObj, this.posX, this.posY - 1, this.posZ);
@@ -101,15 +106,6 @@ public class EntityZoragon extends EntityDivineRPGFlying {
                 } else {
                     special--;
                 }
-            }*/
-            
-            if (special == 0) {
-                special = 120;
-                EntityZoragonBomb bomb = new EntityZoragonBomb(this.worldObj, this.posX, this.posY - 1, this.posZ);
-                bomb.setVelocity(0, -0.1, 0);
-                this.worldObj.spawnEntityInWorld(bomb);
-            } else {
-                special--;
             }
 
             flyTimer--;
