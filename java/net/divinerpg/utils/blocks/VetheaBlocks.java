@@ -6,8 +6,8 @@ import net.divinerpg.api.blocks.BlockModGlass;
 import net.divinerpg.api.blocks.BlockModGrass;
 import net.divinerpg.api.blocks.BlockModLeaves;
 import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockStupidSpawner;
 import net.divinerpg.api.blocks.BlockModVine;
+import net.divinerpg.api.blocks.BlockStupidSpawner;
 import net.divinerpg.blocks.vethea.BlockAcid;
 import net.divinerpg.blocks.vethea.BlockHelioticBeam;
 import net.divinerpg.blocks.vethea.BlockInfusionTable;
@@ -16,6 +16,7 @@ import net.divinerpg.blocks.vethea.BlockKarosHeatTile;
 import net.divinerpg.blocks.vethea.BlockNightmareBed;
 import net.divinerpg.blocks.vethea.BlockShimmer;
 import net.divinerpg.blocks.vethea.BlockVetheaPlant;
+import net.divinerpg.blocks.vethea.BlockVetheaPortal;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -23,6 +24,8 @@ import net.minecraft.block.material.Material;
 
 public class VetheaBlocks {
 
+	public static Block vetheaPortal;
+	
 	public static Block dreamwreckerSpawner;
 	public static Block vermenousSpawner;
 	public static Block twinsSpawner;
@@ -100,6 +103,8 @@ public class VetheaBlocks {
 	public static Block nightmareBedBlock;
 	
 	public static void init() {
+		vetheaPortal 		   = new BlockVetheaPortal();
+		
         dreamwreckerSpawner    = new BlockStupidSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal");
         vermenousSpawner       = new BlockStupidSpawner("vermenousSpawner", "Vermenous", "fireCrystal");
         twinsSpawner           = new BlockStupidSpawner("twinsSpawner", "Twins", "fireCrystal");
