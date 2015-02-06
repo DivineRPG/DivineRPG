@@ -39,6 +39,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
+        setHardness(3.5F);
 		active = act;
 		guiID = GuiID;
 		if(act) setLightLevel(0.875F);
