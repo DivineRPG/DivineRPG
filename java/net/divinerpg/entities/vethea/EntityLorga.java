@@ -1,14 +1,13 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityLorga extends VetheaMob {
 	
-    private int lifeTick;
     private int spawnTick;
     public boolean canSpawnMinions;
     
@@ -20,7 +19,6 @@ public class EntityLorga extends VetheaMob {
         super(var1);
         addAttackingAI();
         this.canSpawnMinions = canSpawnMinions;
-        this.lifeTick = -1;
     }
 
     @Override
@@ -37,23 +35,30 @@ public class EntityLorga extends VetheaMob {
     	return 1;
     }
 
-    public EntityLorga(World var1, int life, boolean canSpawnMinions) {
-        this(var1, canSpawnMinions);
-        this.lifeTick = life;
-    }
-
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.lifeTick == -1 && this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
+        if (this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
             this.spawnTick = 120;
-            EntityLorga var2 = new EntityLorga(this.worldObj, 10, false);
+            EntityLorga var2 = new EntityLorga(this.worldObj, false);
             var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
             this.worldObj.spawnEntityInWorld(var2);
         }
         else if (this.spawnTick > 0) {
             this.spawnTick--;
         }
+    }
+    
+    @Override
+    public void writeToNBT(NBTTagCompound tag) {
+    	super.writeToNBT(tag);
+    	tag.setBoolean("CanSpawnMinions", this.canSpawnMinions);
+    }
+    
+    @Override
+    public void readFromNBT(NBTTagCompound tag) {
+    	super.readFromNBT(tag);
+    	this.canSpawnMinions = tag.getBoolean("CanSpawnMinions");
     }
 
     @Override

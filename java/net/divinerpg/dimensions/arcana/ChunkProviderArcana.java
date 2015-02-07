@@ -41,13 +41,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkProviderArcana implements IChunkProvider{
 
-	private ArrayList<Object> Rooms;
-	private ArrayList<Object> BossRooms;
+	private ArrayList Rooms;
+	private ArrayList BossRooms;
 	private DungeonCeiling Ceiling;
 	private World worldObj;
 	private Random random;
-	private final Block[] cachedBlockIDs = new Block[256];
-	private final byte[] cachedBlockMetadata = new byte[256];
 
 
 	public ChunkProviderArcana(World world, long seed){
@@ -55,8 +53,8 @@ public class ChunkProviderArcana implements IChunkProvider{
 		worldObj = world;
 		random = new Random(seed);
 
-		Rooms = new ArrayList<Object>(21);
-		BossRooms = new ArrayList<Object>(2);
+		Rooms = new ArrayList(21);
+		BossRooms = new ArrayList(2);
 		
 		Rooms.add(new DungeonComponent());
 		Rooms.add(new DungeonComponent1());

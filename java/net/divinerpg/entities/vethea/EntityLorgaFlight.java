@@ -9,15 +9,15 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityLorgaFlight extends EntityDivineRPGFlying {
+public class EntityLorgaFlight extends VetheaMob {
 	
-    private static final double spawnLayer = 3;
     private ChunkCoordinates currentFlightTarget;
-    private int flyTimer, lifeTick, spawnTick;
+    private int flyTimer, spawnTick;
     public boolean canSpawnMinions;
 
     public EntityLorgaFlight(World w){
@@ -28,6 +28,7 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
         super(var1);
         this.canSpawnMinions = canSpawnMinions;
         this.flyTimer = 0;
+        this.addAttackingAI();
     }
 
     @Override
@@ -39,13 +40,8 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 48.0D * spawnLayer  && this.posY > 48.0D * (spawnLayer - 1) && super.getCanSpawnHere();
-    }
-
-    public EntityLorgaFlight(World var1, int life, boolean canSpawnMinions) {
-        this(var1, canSpawnMinions);
-        this.lifeTick = life;
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override
@@ -67,9 +63,9 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
-        if (this.lifeTick == -1 && this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
+        if (this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
             this.spawnTick = 120;
-            EntityLorgaFlight var2 = new EntityLorgaFlight(this.worldObj, 10, false);
+            EntityLorgaFlight var2 = new EntityLorgaFlight(this.worldObj, false);
             var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
             this.worldObj.spawnEntityInWorld(var2);
         }
@@ -88,10 +84,10 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     protected void updateAITasks() {
         super.updateAITasks();
 
-        if (this.getAttackTarget() != null) {
-            int var1 = (int) this.getAttackTarget().posX;
-            int var2 = (int) this.getAttackTarget().posY;
-            int var3 = (int) this.getAttackTarget().posZ;
+        if (this.entityToAttack != null) {
+            int var1 = (int) this.entityToAttack.posX;
+            int var2 = (int) this.entityToAttack.posY;
+            int var3 = (int) this.entityToAttack.posZ;
             this.currentFlightTarget = new ChunkCoordinates(var1, var2, var3);
         }
         else if (this.flyTimer != 0) {
@@ -118,12 +114,24 @@ public class EntityLorgaFlight extends EntityDivineRPGFlying {
     }
     
     @Override
+    public void writeToNBT(NBTTagCompound tag) {
+    	super.writeToNBT(tag);
+    	tag.setBoolean("CanSpawnMinions", this.canSpawnMinions);
+    }
+    
+    @Override
+    public void readFromNBT(NBTTagCompound tag) {
+    	super.readFromNBT(tag);
+    	this.canSpawnMinions = tag.getBoolean("CanSpawnMinions");
+    }
+    
+    @Override
     protected void dropFewItems(boolean par1, int par2) {
         this.dropItem(VetheaItems.polishedPearls, 1);
     }
 
 	@Override
 	public String mobName() {
-		return "Flying Lorga";
+		return "Lorgaflight";
 	}
 }
