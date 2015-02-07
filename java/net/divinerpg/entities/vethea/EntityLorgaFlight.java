@@ -43,6 +43,9 @@ public class EntityLorgaFlight extends VetheaMob {
     public int getSpawnLayer() {
     	return 3;
     }
+    
+    @Override
+    public void fall(float f){}
 
     @Override
     protected String getLivingSound() {
