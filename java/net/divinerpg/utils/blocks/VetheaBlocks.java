@@ -105,11 +105,11 @@ public class VetheaBlocks {
 	public static void init() {
 		vetheaPortal 		   = new BlockVetheaPortal();
 		
-        dreamwreckerSpawner    = new BlockStupidSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal");
-        vermenousSpawner       = new BlockStupidSpawner("vermenousSpawner", "Vermenous", "fireCrystal");
-        twinsSpawner           = new BlockStupidSpawner("twinsSpawner", "Twins", "fireCrystal");
-        biphronSpawner         = new BlockStupidSpawner("biphronSpawner", "Biphron", "fireCrystal");
-        gorgosionSpawner       = new BlockStupidSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal");
+        dreamwreckerSpawner    = new BlockStupidSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal", true);
+        vermenousSpawner       = new BlockStupidSpawner("vermenousSpawner", "Vermenous", "fireCrystal", true);
+        twinsSpawner           = new BlockStupidSpawner("twinsSpawner", "Twins", "fireCrystal", true);
+        biphronSpawner         = new BlockStupidSpawner("biphronSpawner", "Biphron", "fireCrystal", true);
+        gorgosionSpawner       = new BlockStupidSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal", true);
 
         wreckAltar             = new BlockMod("wreckAltar", 0.7F, DivineRPGTabs.spawner);
         quadroticAltar         = new BlockMod("quadroticAltar", 0.7F, DivineRPGTabs.spawner);

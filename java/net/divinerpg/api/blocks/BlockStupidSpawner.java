@@ -16,32 +16,39 @@ public class BlockStupidSpawner extends BlockContainer {
 
     protected String name;
     protected String mobName;
+    protected boolean spawnParticles;
 
     public BlockStupidSpawner(String name, String mobName) {
-        this(name, mobName, "frozenDungeonSpawner");
+        this(name, mobName, "frozenDungeonSpawner", true);
     }
 
-    public BlockStupidSpawner(String name, String mobName, String textureName) {
+    public BlockStupidSpawner(String name, String mobName, String textureName, boolean spawnParticles) {
         super(Material.rock);
         this.name = name;
         this.mobName = "divinerpg." + mobName;
+        this.spawnParticles = spawnParticles;
         setBlockName(name);
         setBlockTextureName(Reference.PREFIX + textureName);
         setCreativeTab(DivineRPGTabs.spawner);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
         setHardness(5.0F);
-}
+    }
 
     @Override
     public TileEntity createNewTileEntity(World world, int par1) {
         TileEntityStupidSpawner spawner = new TileEntityStupidSpawner();
         setEntityName(spawner);
+        setSpawnParticles(spawner);
         return spawner;
     }
 
     protected void setEntityName(TileEntityStupidSpawner spawner) {
         spawner.setEntityName(mobName);
+    }
+
+    protected void setSpawnParticles(TileEntityStupidSpawner spawner) {
+        spawner.setSpawnParticles(spawnParticles);
     }
 
     @Override

@@ -151,6 +151,8 @@ public class VanillaBlocks {
 	public static Block divineLeaves;
 	public static Block divineMossystone;
 	public static Block divineMobSpawner;
+	public static Block enthralledDramcryxSpawner;
+	public static Block rotatickSpawner;
 	
 	public static Block altarOfCorruption;
 	public static Block boneChest;
@@ -265,7 +267,9 @@ public class VanillaBlocks {
 		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);
 		divineMossystone	  = new BlockMod("divineMossStone", 2.0F).setResistance(10);
-		divineMobSpawner	  = new BlockStupidSpawner("divineSpawner", "null", "divineSpawner");
+		divineMobSpawner	  = new BlockStupidSpawner("divineSpawner", "null", "divineSpawner", true);
+		enthralledDramcryxSpawner      = new BlockStupidSpawner("enthralledDramcryxSpawner", "EnthralledDramcryx", "divineSpawner", true);
+		rotatickSpawner   = new BlockStupidSpawner("rotatickSpawner", "Rotatick", "divineSpawner", true);
 		
 		altarOfCorruption	  = new BlockAltarOfCorruption("altarOfCorruption");
 		boneChest			  = new BlockBoneChest("boneChest");

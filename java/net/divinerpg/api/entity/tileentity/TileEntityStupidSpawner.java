@@ -14,6 +14,7 @@ public class TileEntityStupidSpawner extends TileEntity {
 	
 	private String entityName;
 	private int spawnTimer;
+	private boolean spawnParticles = false;
 	private Random rand = new Random();
 
 	@Override
@@ -31,10 +32,13 @@ public class TileEntityStupidSpawner extends TileEntity {
 	@Override
     public void updateEntity() {
         super.updateEntity();
-        for(int n = 0; n < 3; n++) {
-        	DivineRPG.proxy.spawnParticle(this.worldObj, this.xCoord+0.5, this.yCoord+0.5, this.zCoord+0.5, "blackFlame", true, 3);
-        }
-        if(!this.worldObj.isRemote && this.worldObj.getClosestPlayer(this.xCoord+0.5D, this.yCoord+0.5D, this.zCoord+0.5D, 16D) != null) {
+        if(this.worldObj.isRemote) {
+        	if (this.spawnParticles) {
+		        for(int n = 0; n < 3; n++) {
+		        	DivineRPG.proxy.spawnParticle(this.worldObj, this.xCoord+0.5, this.yCoord+0.5, this.zCoord+0.5, "blackFlame", true, 3);
+		        }
+        	}
+        } else if (this.worldObj.getClosestPlayer(this.xCoord+0.5D, this.yCoord+0.5D, this.zCoord+0.5D, 16D) != null) {
         	if(this.spawnTimer > 0) this.spawnTimer--;
         	if(this.spawnTimer == 0) {
         		int c = this.worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.xCoord, this.yCoord, this.zCoord, this.xCoord+1, this.yCoord+1, this.zCoord+1).expand(8, 6, 8)).size();
@@ -60,5 +64,9 @@ public class TileEntityStupidSpawner extends TileEntity {
     
     public void setEntityName(String name) {
     	this.entityName = name;
+    }
+
+    public void setSpawnParticles(boolean spawnParticles) {
+    	this.spawnParticles = spawnParticles;
     }
 }
