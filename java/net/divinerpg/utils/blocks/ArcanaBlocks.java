@@ -112,7 +112,7 @@ public class ArcanaBlocks {
 		arcaniumOre           = new BlockMod("arcaniumOre", 3.0F);
 		arcaniumMetal         = new BlockMod("arcaniumMetal", false);
 		arcanitetubes         = new BlockModLadder("arcaniteTubes");
-		arcaniumPower         = new BlockMod("arcaniumPower", 0.1F);
+		arcaniumPower         = new BlockMod("arcaniumPower", false);
 		dungenLamp            = new BlockMod("dungeonLamp", false).setLightLevel(1.0F);
 		heatTrap              = new BlockHeatTrap("heatTrap", -1F);
 		heatTrapOn            = new BlockHeatTrap("heatTrapOn", -1F);
