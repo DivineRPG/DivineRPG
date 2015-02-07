@@ -181,7 +181,7 @@ public class BlockModDoor extends BlockMod {
         Item key = this == ArcanaBlocks.oreDoor1 ? ArcanaItems.key1 : (this == ArcanaBlocks.oreDoor2 ? ArcanaItems.key2 : (this == ArcanaBlocks.oreDoor3 ? ArcanaItems.key3 : (this == ArcanaBlocks.oreDoor4 ? ArcanaItems.key4 : null)));
         if (!canOpenByHand) {
             if (player.getHeldItem() != null && player.getHeldItem().getItem() == key) {
-                //player.getHeldItem().stackSize--;
+            	player.inventory.consumeInventoryItem(key);
                 notifyAndUpdateBlock(world, x, y, z, j1, flag, player);
                 return true;
             }
