@@ -1,7 +1,9 @@
 package net.divinerpg.dimensions.arcana;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import net.divinerpg.dimensions.arcana.components.DungeonCeiling;
@@ -31,7 +33,11 @@ import net.divinerpg.dimensions.arcana.components.DungeonComponentDramix;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentParasecta;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IProgressUpdate;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -41,12 +47,42 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkProviderArcana implements IChunkProvider{
 
+	public class ChunkCoords
+	{
+	    public final int chunkCoordX;
+	    public final int chunkCoordZ;
+
+	    public ChunkCoords(int X, int Z)
+	    {
+	        this.chunkCoordX = X;
+	        this.chunkCoordZ = Z;
+	    }
+
+	    public boolean equals(Object o)
+	    {
+	        if (!(o instanceof ChunkCoords))
+	        {
+	            return false;
+	        }
+	        else
+	        {
+	        	ChunkCoords chunkCoords = (ChunkCoords)o;
+	            return chunkCoords.chunkCoordX == this.chunkCoordX && chunkCoords.chunkCoordZ == this.chunkCoordZ;
+	        }
+	    }
+
+	    public int hashCode()
+	    {
+	        return this.chunkCoordX + this.chunkCoordZ * 31;
+	    }
+	}
+	
 	private ArrayList Rooms;
 	private ArrayList BossRooms;
 	private DungeonCeiling Ceiling;
 	private World worldObj;
 	private Random random;
-
+	private Map chunkTileEntityMap;
 
 	public ChunkProviderArcana(World world, long seed){
 
@@ -80,7 +116,7 @@ public class ChunkProviderArcana implements IChunkProvider{
 		BossRooms.add(new DungeonComponentParasecta());
 		BossRooms.add(new DungeonComponentDramix());
 		Ceiling = new DungeonCeiling();
-
+		this.chunkTileEntityMap = new HashMap();
 	}
 
 	@Override
@@ -106,6 +142,8 @@ public class ChunkProviderArcana implements IChunkProvider{
         
 		Ceiling.generate(c, random, 0, 40, 0);
         
+		chunkTileEntityMap.put(new ChunkCoords(par1, par2), c.chunkTileEntityPositions);
+
 		Chunk chunk = new Chunk(this.worldObj, c.getChunkData(), c.getChunkMetadata(), par1, par2);
         chunk.generateSkylightMap();
         BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, par1 * 16, par2 * 16, 16, 16);
@@ -140,6 +178,17 @@ public class ChunkProviderArcana implements IChunkProvider{
 		Random rand = random;
 		Chunk chunk = this.worldObj.getChunkFromChunkCoords(chunkX, chunkY);
 
+		ChunkCoords chunkCoords = new ChunkCoords(chunkX, chunkY);
+		List<ChunkPosition> chunkTileEntityPositions = (List<ChunkPosition>)chunkTileEntityMap.get(chunkCoords);
+		if (chunkTileEntityPositions != null) {
+			for (int i = 0; i < chunkTileEntityPositions.size(); i++) {
+				ChunkPosition chunkPosition = chunkTileEntityPositions.get(i);
+				Block b = chunk.getBlock(chunkPosition.chunkPosX, chunkPosition.chunkPosY, chunkPosition.chunkPosZ);
+				TileEntity te = b.createTileEntity(this.worldObj, 0);
+				this.worldObj.setTileEntity(x + chunkPosition.chunkPosX, chunkPosition.chunkPosY, y + chunkPosition.chunkPosZ, te);
+			}
+			chunkTileEntityMap.remove(chunkCoords);
+		}
 		for(int i = 1; i < 4; i++) {
 			roomToGenerate = rand.nextInt(2);
 
