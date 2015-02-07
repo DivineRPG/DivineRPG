@@ -6,7 +6,7 @@ import net.divinerpg.blocks.arcana.BlockMoonlightFurnace;
 public class TileEntityMoonlightFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityMoonlightFurnace() {
-		super("Moonlight Furnace", false, 300);
+		super("Moonlight Furnace", false, 200);
 	}
 
 	@Override

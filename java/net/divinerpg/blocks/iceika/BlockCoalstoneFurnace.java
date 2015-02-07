@@ -42,7 +42,7 @@ public class BlockCoalstoneFurnace extends BlockModFurnace {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister icon) {
 		this.side = icon.registerIcon(Reference.PREFIX + "coalstone");
-		this.front = icon.registerIcon(Reference.PREFIX + "coalstoneFurnace");
+		this.front = icon.registerIcon(active ? Reference.PREFIX + "coalstoneFurnace_front_on" : Reference.PREFIX + "coalstoneFurnace_front_off");
 		this.top = icon.registerIcon(Reference.PREFIX + "coalstone");
 	}
 	

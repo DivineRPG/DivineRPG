@@ -8,6 +8,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -78,23 +79,39 @@ public class ContainerInfiniteFurnace extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (slotNumber == 0) {
-                if (!this.mergeItemStack(itemstack1, 1, 37, true)) {
-                    return null;
-                }
-            } else {
-                if (((Slot)this.inventorySlots.get(0)).getHasStack() || !((Slot)this.inventorySlots.get(0)).isItemValid(itemstack1)) {
+            if (slotNumber == 1)
+            {
+                if (!this.mergeItemStack(itemstack1, 2, 38, true))
+                {
                     return null;
                 }
 
-                if (itemstack1.hasTagCompound() && itemstack1.stackSize == 1) {
-                    ((Slot)this.inventorySlots.get(0)).putStack(itemstack1.copy());
-                    itemstack1.stackSize = 0;
+                slot.onSlotChange(itemstack1, itemstack);
+            }
+            else if (slotNumber != 0)
+            {
+                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
+                {
+                    if (!this.mergeItemStack(itemstack1, 0, 1, false))
+                    {
+                        return null;
+                    }
                 }
-                else if (itemstack1.stackSize >= 1) {
-                    ((Slot)this.inventorySlots.get(0)).putStack(new ItemStack(itemstack1.getItem(), 1, itemstack1.getItemDamage()));
-                    itemstack1.stackSize--;
+                else if (slotNumber >= 2 && slotNumber < 29)
+                {
+                    if (!this.mergeItemStack(itemstack1, 29, 38, false))
+                    {
+                        return null;
+                    }
                 }
+                else if (slotNumber >= 29 && slotNumber < 38 && !this.mergeItemStack(itemstack1, 2, 29, false))
+                {
+                    return null;
+                }
+            }
+            else if (!this.mergeItemStack(itemstack1, 2, 38, false))
+            {
+                return null;
             }
 
             if (itemstack1.stackSize == 0) {

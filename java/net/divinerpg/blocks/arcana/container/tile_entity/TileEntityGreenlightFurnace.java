@@ -6,7 +6,7 @@ import net.divinerpg.blocks.arcana.BlockGreenlightFurnace;
 public class TileEntityGreenlightFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityGreenlightFurnace() {
-		super("Greenlight Furnace", false, 300);
+		super("Greenlight Furnace", false, 200);
 	}
 
 	@Override

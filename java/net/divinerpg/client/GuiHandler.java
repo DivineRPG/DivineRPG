@@ -5,6 +5,7 @@ import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.api.entity.tileentity.container.ContainerInfiniteFurnace;
 import net.divinerpg.blocks.arcana.container.ContainerExtractor;
+import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
 import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
 import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
@@ -82,7 +83,7 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == hunger)
 			return new GuiHunger(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == extractor)
-			return new GuiExtractor(player.inventory, (TileEntityModFurnace)entity);
+			return new GuiExtractor(player.inventory, (TileEntityExtractor)entity);
 		if(ID == greenlight)
 			return new GuiGreenlightFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == oceanfire)

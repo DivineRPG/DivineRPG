@@ -1,8 +1,8 @@
 package net.divinerpg.blocks.arcana.container.tile_entity;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.recipes.ExtractorRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +18,7 @@ import net.minecraft.item.ItemTool;
 public class TileEntityExtractor extends TileEntityModFurnace {
 
 	public TileEntityExtractor() {
-		super("Extractor", true, 400);
+		super("Extractor", true, 100);
 	}
 	
 	@Override
@@ -96,7 +96,9 @@ public class TileEntityExtractor extends TileEntityModFurnace {
 	}
 	
 	public int getItemBurnTime(ItemStack stack) {
-		return stack != null ? 400 : 0;
+		if (stack == null || stack.getItem() != ArcanaItems.chargedCollector)
+			return 0;
+		return 400;
 	}
 
 	@Override
