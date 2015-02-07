@@ -165,27 +165,27 @@ public abstract class BlockModFurnace extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World w, int x, int y, int z, Random r) {
-		if(active) {
-			int meta = w.getBlockMetadata(x, y, z);
+		int meta = w.getBlockMetadata(x, y, z);
+		if(active || meta >= 8) {
 			float f = (float)x + 0.5F;
 			float f1 = (float)y + 0.0F + r.nextFloat() * 6.0F / 16.0F;
 			float f2 = (float)z + 0.5F;
 			float f3 = 0.52F;
 			float f4 = r.nextFloat() * 0.6F - 0.3F;
 
-			if(meta == 4) {
+			if(meta == 4 || meta == 9) {
 				w.spawnParticle("smoke", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 				w.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 			}
-			else if(meta == 5) {
+			else if(meta == 5 || meta == 11) {
 				w.spawnParticle("smoke", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 				w.spawnParticle("flame", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 			}
-			else if(meta == 2) {
+			else if(meta == 2 || meta == 8) {
 				w.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
 				w.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
 			}
-			else if(meta == 3) {
+			else if(meta == 3 || meta == 10) {
 				w.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
 				w.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
 			}

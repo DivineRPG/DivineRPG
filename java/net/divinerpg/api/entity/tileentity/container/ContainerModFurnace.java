@@ -76,31 +76,54 @@ public class ContainerModFurnace extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
         ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(par2);
+        Slot slot = (Slot)this.inventorySlots.get(slotNumber);
 
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 0) {
-                if (!this.mergeItemStack(itemstack1, 1, 37, true)) {
-                    return null;
-                }
-            } else {
-                if (((Slot)this.inventorySlots.get(0)).getHasStack() || !((Slot)this.inventorySlots.get(0)).isItemValid(itemstack1)) {
+            if (slotNumber == 2)
+            {
+                if (!this.mergeItemStack(itemstack1, 3, 39, true))
+                {
                     return null;
                 }
 
-                if (itemstack1.hasTagCompound() && itemstack1.stackSize == 1) {
-                    ((Slot)this.inventorySlots.get(0)).putStack(itemstack1.copy());
-                    itemstack1.stackSize = 0;
+                slot.onSlotChange(itemstack1, itemstack);
+            }
+            else if (slotNumber != 1 && slotNumber != 0)
+            {
+                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
+                {
+                    if (!this.mergeItemStack(itemstack1, 0, 1, false))
+                    {
+                        return null;
+                    }
                 }
-                else if (itemstack1.stackSize >= 1) {
-                    ((Slot)this.inventorySlots.get(0)).putStack(new ItemStack(itemstack1.getItem(), 1, itemstack1.getItemDamage()));
-                    itemstack1.stackSize--;
+                else if (tileFurnace.isItemFuel(itemstack1))
+                {
+                    if (!this.mergeItemStack(itemstack1, 1, 2, false))
+                    {
+                        return null;
+                    }
                 }
+                else if (slotNumber >= 3 && slotNumber < 30)
+                {
+                    if (!this.mergeItemStack(itemstack1, 30, 39, false))
+                    {
+                        return null;
+                    }
+                }
+                else if (slotNumber >= 30 && slotNumber < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+                {
+                    return null;
+                }
+            }
+            else if (!this.mergeItemStack(itemstack1, 3, 39, false))
+            {
+                return null;
             }
 
             if (itemstack1.stackSize == 0) {
@@ -113,7 +136,7 @@ public class ContainerModFurnace extends Container {
                 return null;
             }
 
-            slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
+            slot.onPickupFromSlot(player, itemstack1);
         }
         return itemstack;
     }

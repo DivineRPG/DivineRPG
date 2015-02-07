@@ -6,7 +6,7 @@ import net.divinerpg.blocks.arcana.BlockDemonFurnace;
 public class TileEntityDemonFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityDemonFurnace() {
-		super("Demon Furnace", false, 300);
+		super("Demon Furnace", false, 100);
 	}
 
 	@Override

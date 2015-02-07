@@ -248,7 +248,6 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
 				return GameRegistry.getFuelValue(stack);
 			}
 		} else {
-			if(stack == null) return 40;
 			return 40;
 		}
 	}
