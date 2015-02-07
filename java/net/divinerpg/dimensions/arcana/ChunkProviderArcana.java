@@ -164,28 +164,28 @@ public class ChunkProviderArcana implements IChunkProvider{
 	}
 
 	@Override
-	public void populate(IChunkProvider chunkProvider, int chunkX, int chunkY) {
+	public void populate(IChunkProvider chunkProvider, int chunkX, int chunkZ) {
 		int x = chunkX * 16;
-		int y = chunkY * 16;
-		BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(x + 16, y + 16);
+		int z = chunkZ * 16;
+		BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(x + 16, z + 16);
 		boolean flag = false;
 		this.random.setSeed(this.worldObj.getSeed());
 		long var8 = this.random.nextLong() / 2L * 2L + 1L;
 		long var10 = this.random.nextLong() / 2L * 2L + 1L;
-		this.random.setSeed(chunkX * var8 + chunkY * var10 ^ this.worldObj.getSeed());
+		this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed());
 		int roomToGenerate;
 
 		Random rand = random;
-		Chunk chunk = this.worldObj.getChunkFromChunkCoords(chunkX, chunkY);
+		Chunk chunk = this.worldObj.getChunkFromChunkCoords(chunkX, chunkZ);
 
-		ChunkCoords chunkCoords = new ChunkCoords(chunkX, chunkY);
+		ChunkCoords chunkCoords = new ChunkCoords(chunkX, chunkZ);
 		List<ChunkPosition> chunkTileEntityPositions = (List<ChunkPosition>)chunkTileEntityMap.get(chunkCoords);
 		if (chunkTileEntityPositions != null) {
 			for (int i = 0; i < chunkTileEntityPositions.size(); i++) {
 				ChunkPosition chunkPosition = chunkTileEntityPositions.get(i);
 				Block b = chunk.getBlock(chunkPosition.chunkPosX, chunkPosition.chunkPosY, chunkPosition.chunkPosZ);
 				TileEntity te = b.createTileEntity(this.worldObj, 0);
-				this.worldObj.setTileEntity(x + chunkPosition.chunkPosX, chunkPosition.chunkPosY, y + chunkPosition.chunkPosZ, te);
+				this.worldObj.setTileEntity(x + chunkPosition.chunkPosX, chunkPosition.chunkPosY, z + chunkPosition.chunkPosZ, te);
 			}
 			chunkTileEntityMap.remove(chunkCoords);
 		}
@@ -193,8 +193,8 @@ public class ChunkProviderArcana implements IChunkProvider{
 			roomToGenerate = rand.nextInt(2);
 
 			if(this.random.nextInt(50) == 0){
-				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, y);
-				this.random.setSeed(chunkX * var8 + chunkY * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
+				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, z);
+				this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
 			}
 		}
 	}
