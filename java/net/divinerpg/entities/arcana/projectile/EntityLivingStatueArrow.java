@@ -8,22 +8,22 @@ import net.minecraft.world.World;
 
 public class EntityLivingStatueArrow extends EntityArrow {
 	
-	public EntityLivingStatueArrow(World var1) {
-		super(var1);
+	public EntityLivingStatueArrow(World world) {
+		super(world);
 		this.setSize(0.5F, 0.5F);
-		this.setDamage(26);
+		setRealDamage(26);
 	}
 
-	public EntityLivingStatueArrow(World var1, double var2, double var4, double var6) {
-		super(var1);
-		this.setDamage(26);
+	public EntityLivingStatueArrow(World world, double x, double y, double z) {
+		super(world);
+		setRealDamage(26);
 		this.setSize(0.5F, 0.5F);
-		this.setPosition(var2, var4, var6);
+		this.setPosition(x, y, z);
 		this.yOffset = 0.0F;
 	}
 
-	public EntityLivingStatueArrow(World var1, EntityLiving var2, EntityLiving var3, float var4, float var5) {
-		super(var1);
+	public EntityLivingStatueArrow(World world, EntityLiving var2, EntityLiving var3, float var4, float var5) {
+		super(world);
 		setRealDamage(26);
 		this.shootingEntity = var2;
 		this.canBePickedUp = 0;
@@ -45,8 +45,8 @@ public class EntityLivingStatueArrow extends EntityArrow {
 		}
 	}
 
-	public EntityLivingStatueArrow(World var1, EntityLiving var2, float var3) {
-		super(var1);
+	public EntityLivingStatueArrow(World world, EntityLiving var2, float var3) {
+		super(world);
 		setRealDamage(26);
 		this.shootingEntity = var2;
 		this.canBePickedUp = 0;
