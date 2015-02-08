@@ -11,12 +11,12 @@ public class EntityLivingStatueArrow extends EntityArrow {
 	public EntityLivingStatueArrow(World var1) {
 		super(var1);
 		this.setSize(0.5F, 0.5F);
-		this.setDamage(26);
+		this.setDamage(1);
 	}
 
 	public EntityLivingStatueArrow(World var1, double var2, double var4, double var6) {
 		super(var1);
-		this.setDamage(26);
+		this.setDamage(1);
 		this.setSize(0.5F, 0.5F);
 		this.setPosition(var2, var4, var6);
 		this.yOffset = 0.0F;
@@ -24,9 +24,9 @@ public class EntityLivingStatueArrow extends EntityArrow {
 
 	public EntityLivingStatueArrow(World var1, EntityLiving var2, EntityLiving var3, float var4, float var5) {
 		super(var1);
-		this.setDamage(26);
+		this.setDamage(1);
 		this.shootingEntity = var2;
-		this.canBePickedUp = 1;
+		this.canBePickedUp = 0;
 		this.posY = var2.posY + (double)var2.getEyeHeight() - 0.10000000149011612D;
 		double var6 = var3.posX - var2.posX;
 		double var8 = var3.posY + (double)var3.getEyeHeight() - 0.699999988079071D - this.posY;
@@ -47,9 +47,9 @@ public class EntityLivingStatueArrow extends EntityArrow {
 
 	public EntityLivingStatueArrow(World var1, EntityLiving var2, float var3) {
 		super(var1);
-		this.setDamage(26);
+		this.setDamage(1);
 		this.shootingEntity = var2;
-		this.canBePickedUp = 1;
+		this.canBePickedUp = 0;
 		this.setSize(0.5F, 0.5F);
 		this.setLocationAndAngles(var2.posX, var2.posY + (double)var2.getEyeHeight(), var2.posZ, var2.rotationYaw, var2.rotationPitch);
 		this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -64,7 +64,7 @@ public class EntityLivingStatueArrow extends EntityArrow {
 	}
 
 	public void setArrowHeading(double var1, double var3, double var5, float var7, float var8) {
-		this.setDamage(26);
+		this.setDamage(1);
 		float var9 = MathHelper.sqrt_double(var1 * var1 + var3 * var3 + var5 * var5);
 		var1 /= (double)var9;
 		var3 /= (double)var9;
