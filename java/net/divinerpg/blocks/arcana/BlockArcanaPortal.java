@@ -6,13 +6,14 @@ import java.util.Random;
 import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.dimensions.arcana.TeleporterArcana;
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.material.EnumBlockType;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -51,6 +52,29 @@ public class BlockArcanaPortal extends BlockMod {
             } else {
                 thePlayer.timeUntilPortal = 10;
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterArcana(thePlayer.mcServer.worldServerForDimension(0)));
+            }
+        }
+    }
+
+    @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+        int startX = x;
+        int startZ = z;
+
+        if (block == ArcanaBlocks.arcanaPortalFrame) {
+            /* Find upper left hand corner of portal */
+            while (world.getBlock(startX - 1, y, startZ) == this)
+    	        startX--;
+            while (world.getBlock(startX, y, startZ - 1) == this)
+    	        startZ--;
+       	
+            /* Replace portal blocks with air */
+            for (int scanZ = startZ; scanZ < startZ + 3; scanZ++) {
+                for (int scanX = startX; scanX < startX + 3; scanX++) {
+                	if (world.getBlock(scanX, y, scanZ) == this) {
+                		world.setBlockToAir(scanX, y, scanZ);
+                	}
+                }
             }
         }
     }

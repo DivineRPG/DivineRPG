@@ -22,7 +22,7 @@ public class TileEntityDemonFurnace extends TileEntityInfiniteFurnace {
     public void updateEntity() {
     	super.updateEntity();
         if(!this.worldObj.isRemote) {
-            if(this.isBurning() && this.rand.nextInt(30) == 0) {
+            if(this.isBurning() && this.rand.nextInt(50) == 0) {
 				int x = this.xCoord + this.rand.nextInt(3) - 1;
 				int y = this.yCoord + this.rand.nextInt(3) - 1;
 				int z = this.zCoord + this.rand.nextInt(3) - 1;
