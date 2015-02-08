@@ -28,6 +28,7 @@ public class ItemGlowingCollector extends ItemMod {
 			if(block == ArcanaBlocks.dramixAltar){
 				con.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
 				w.spawnEntityInWorld(con);
+				if (!p.capabilities.isCreativeMode) --i.stackSize;
 				return true;
 			}
 		}
