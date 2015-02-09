@@ -5,15 +5,15 @@ import java.util.Random;
 
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
-import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
@@ -21,7 +21,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemCorruptedCannon extends ItemMod {
 	private Random rand = new Random();
-	private int canShootTick = 0;
 	public ItemCorruptedCannon(String name) {
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
@@ -30,7 +29,10 @@ public class ItemCorruptedCannon extends ItemMod {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if(Ticker.tick >= canShootTick) {
+		
+		if (!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
+		
+		if(Ticker.tick >= stack.getTagCompound().getLong("CanShootTime")) {
 			if(player.inventory.hasItem(VanillaItemsOther.corruptedBullet) || player.capabilities.isCreativeMode) {
 				if(!world.isRemote)world.playSoundAtEntity(player, Sounds.ghastCannon.getPrefixedName(), 1.0F, 1.0F);
 				for(int i = 0; i < 4; i++){
@@ -40,13 +42,14 @@ public class ItemCorruptedCannon extends ItemMod {
 					entity.posZ += (this.rand.nextDouble()-this.rand.nextDouble())/2;
 					if(!world.isRemote) {
 						world.spawnEntityInWorld(entity);
-						canShootTick = Ticker.tick + 20;
+						stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 20);
 					}
 				}
-				if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(VanillaItemsOther.corruptedBullet);
+				if(!player.capabilities.isCreativeMode && !world.isRemote) player.inventory.consumeInventoryItem(VanillaItemsOther.corruptedBullet);
 			}
 		}
-		if(canShootTick >= 100000 || canShootTick>Ticker.tick+21)canShootTick = 0;
+		if(player instanceof EntityPlayerMP)((EntityPlayerMP)player).sendContainerToPlayer(player.inventoryContainer);
+		if (stack.getTagCompound().getLong("CanShootTime") >= 100000 || stack.getTagCompound().getLong("CanShootTime") > Ticker.tick + 141)stack.getTagCompound().setLong("CanShootTime", 0);
 		return stack;
 	}
 	
