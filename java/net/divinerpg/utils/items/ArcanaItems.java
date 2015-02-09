@@ -3,6 +3,7 @@ package net.divinerpg.utils.items;
 import net.divinerpg.api.items.ItemDivineArmor;
 import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.api.items.ItemModFood;
+import net.divinerpg.api.items.ItemModOrb;
 import net.divinerpg.api.items.ItemModPotion;
 import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.items.arcana.ItemAquamarine;
@@ -12,8 +13,8 @@ import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
 import net.divinerpg.items.arcana.ItemArcaniumSaber;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
-import net.divinerpg.items.arcana.ItemGlowingCollector;
 import net.divinerpg.items.arcana.ItemEnderScepter;
+import net.divinerpg.items.arcana.ItemGlowingCollector;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
 import net.divinerpg.items.arcana.ItemMeriksMissile;
@@ -115,7 +116,7 @@ public class ArcanaItems {
         glowingCollector   		 = new ItemGlowingCollector("glowingCollector");
         wizardBook	     	  	 = new ItemWizardsBook("wizardsBook");
         staffOfEnrichment		 = new ItemStaffEnrichment("staffOfEnrichment");
-        orbOfLight	 			 = new ItemMod("orbOfLight");//TODO: make this work.
+        orbOfLight	 			 = new ItemModOrb("orbOfLight");//TODO: make this work.
     	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     	grenade		 			 = new ItemGrenade("grenade");
     	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
