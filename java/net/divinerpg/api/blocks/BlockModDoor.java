@@ -181,7 +181,7 @@ public class BlockModDoor extends BlockMod {
         Item key = this == ArcanaBlocks.soulSludgeDoor ? ArcanaItems.sludgeKey : (this == ArcanaBlocks.ancientBrickDoor ? ArcanaItems.ancientKey : (this == ArcanaBlocks.soulStoneDoor ? ArcanaItems.soulKey : (this == ArcanaBlocks.degradedBrickDoor ? ArcanaItems.degradedKey : null)));
         if (!canOpenByHand) {
             if (player.getHeldItem() != null && player.getHeldItem().getItem() == key) {
-            	player.inventory.consumeInventoryItem(key);
+            	if(!player.capabilities.isCreativeMode)player.inventory.consumeInventoryItem(key);
                 notifyAndUpdateBlock(world, x, y, z, j1, flag, player);
                 return true;
             }

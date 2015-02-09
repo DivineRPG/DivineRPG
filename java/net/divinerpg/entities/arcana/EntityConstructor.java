@@ -65,6 +65,7 @@ public class EntityConstructor extends EntityDivineRPGMob {
 
     @Override
     protected Item getDropItem() {
+    	if(this.rand.nextBoolean())return null;
         switch (this.rand.nextInt(4)) {
         case 0:
         	return ArcanaItems.degradedKey;
