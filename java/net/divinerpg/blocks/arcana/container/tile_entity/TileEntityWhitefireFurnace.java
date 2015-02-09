@@ -6,7 +6,7 @@ import net.divinerpg.blocks.arcana.BlockWhitefireFurnace;
 public class TileEntityWhitefireFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityWhitefireFurnace() {
-		super("Whitefire Furnace", false, 200);
+		super("Whitefire Furnace", false, 150);
 	}
 
 	@Override
