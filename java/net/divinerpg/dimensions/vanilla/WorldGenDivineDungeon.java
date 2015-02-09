@@ -83,17 +83,16 @@ public class WorldGenDivineDungeon extends WorldGenerator {
 					break;
 				}
 			}
+			
+			switch(rand.nextInt(2)) {
+			case 0:
+				world.setBlock(x, y, z, VanillaBlocks.rotatickSpawner, 0, 2);break;
+			case 1:
+				world.setBlock(x, y, z, VanillaBlocks.enthralledDramcryxSpawner, 0, 2);break;
+			}
 
-			world.setBlock(x, y, z, VanillaBlocks.divineMobSpawner, 0, 2);
-			TileEntityStupidSpawner spawnerTE = (TileEntityStupidSpawner)world.getTileEntity(x, y, z);
-			if(spawnerTE != null) spawnerTE.setEntityName(this.pickMobSpawner(rand));
-			else System.err.println("[DivineRPG] Failed to fetch mob spawner entity at (" + x + ", " + y + ", " + z + ")");
 			return true;
 		}
 		else return false;
-	}
-
-	private String pickMobSpawner(Random rand) {
-		return DivineDungeonHooks.getRandomDungeonMob(rand);
 	}
 }

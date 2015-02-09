@@ -1,6 +1,5 @@
 package net.divinerpg.utils.entities;
 
-import net.divinerpg.dimensions.vanilla.DivineDungeonHooks;
 import net.divinerpg.entities.arcana.EntityCaptianMerik;
 import net.divinerpg.entities.arcana.EntityDatticon;
 import net.divinerpg.entities.arcana.EntityLeorna;
@@ -36,9 +35,9 @@ import net.divinerpg.entities.twilight.EntitySkythernGolem;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
 import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityVerek;
+import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.EntityWildwoodGolem;
 import net.divinerpg.entities.twilight.EntityWildwoodTomo;
-import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
@@ -98,7 +97,6 @@ import net.divinerpg.entities.vethea.EntityZone;
 import net.divinerpg.entities.vethea.EntityZoragon;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
@@ -113,12 +111,6 @@ public class MobSpawning {
 		addTwilightSpawns();
 		addVetheaSpawns();
 		addIceikaSpawns();
-		addDungeonSpawns();
-	}
-
-	public static void addDungeonSpawns() {
-		DivineDungeonHooks.addDungeonMob("EnthralledDramcryx", 100);
-		DivineDungeonHooks.addDungeonMob("Rotatick", 100);
 	}
 	
 	public static void addIceikaSpawns() {
