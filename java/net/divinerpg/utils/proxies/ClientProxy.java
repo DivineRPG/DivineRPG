@@ -114,9 +114,4 @@ public class ClientProxy extends CommonProxy {
     	else if(particle == "orangeFlame") fx = new EntityFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
     }
-    
-    @Override
-    public void setPlayerSpeed(EntityPlayer player, float speed) {
-    	player.capabilities.setPlayerWalkSpeed(speed);
-    }
 }

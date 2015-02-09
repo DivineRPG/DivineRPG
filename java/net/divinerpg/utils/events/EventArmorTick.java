@@ -15,6 +15,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -36,6 +37,7 @@ public class EventArmorTick {
 
     public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
     public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
+    public static final String[] walkSpeed      = new String[] { "g", "field_75097_g", "walkSpeed" };
 
     private World                world;
     
@@ -213,7 +215,7 @@ public class EventArmorTick {
         	speedMultiplier = 2.2f;
         }
         
-        DivineRPG.proxy.setPlayerSpeed(evt.player, 0.1f * speedMultiplier);
+        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, evt.player.capabilities, 0.1f*speedMultiplier, walkSpeed);
     }
 
 }

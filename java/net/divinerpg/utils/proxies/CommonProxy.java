@@ -170,5 +170,4 @@ public class CommonProxy{
 	}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random, int randFactor) {}
-	public void setPlayerSpeed(EntityPlayer player, float speed) {}
 }
