@@ -320,7 +320,7 @@ public class DungeonComponent5 extends DungeonComponentBase {
         world.setBlock(i + 3, j + 5, k + 2, dungeonBricks);
         world.setBlock(i + 3, j + 5, k + 4, dungeonBricks);
         world.setBlock(i + 3, j + 5, k + 6, dungeonBricks);
-        world.setBlock(i + 3, j + 5, k + 11, ArcanaBlocks.oreDoor3, 1);
+        world.setBlock(i + 3, j + 5, k + 11, ArcanaBlocks.soulStoneDoor, 1);
         world.setBlock(i + 3, j + 5, k + 15, arcaniumSoulSludge);
         world.setBlock(i + 3, j + 6, k + 0, arcaniumSoulSludge);
         world.setBlock(i + 3, j + 6, k + 1, dungeonBricks);
@@ -328,7 +328,7 @@ public class DungeonComponent5 extends DungeonComponentBase {
         world.setBlock(i + 3, j + 6, k + 3, dungeonBricks);
         world.setBlock(i + 3, j + 6, k + 4, dungeonBricks);
         world.setBlock(i + 3, j + 6, k + 6, dungeonBricks);
-        world.setBlock(i + 3, j + 6, k + 11, ArcanaBlocks.oreDoor3, 8);
+        world.setBlock(i + 3, j + 6, k + 11, ArcanaBlocks.soulStoneDoor, 8);
         world.setBlock(i + 3, j + 6, k + 15, arcaniumSoulSludge);
         world.setBlock(i + 3, j + 7, k + 0, arcaniumSoulSludge);
         world.setBlock(i + 3, j + 7, k + 2, dungeonBricks);
@@ -500,11 +500,11 @@ public class DungeonComponent5 extends DungeonComponentBase {
         world.setBlock(i + 6, j + 4, k + 14, ancientbricks);
         world.setBlock(i + 6, j + 4, k + 15, soulStone);
         world.setBlock(i + 6, j + 5, k + 0, arcaniumSoulSludge);
-        world.setBlock(i + 6, j + 5, k + 6, ArcanaBlocks.oreDoor1, 3);
+        world.setBlock(i + 6, j + 5, k + 6, ArcanaBlocks.soulSludgeDoor, 3);
         //world.setBlockIDAndMetadata(i + 6, j + 5, k + 14, ArcanaBlocks.oreDoor1, 2);
         world.setBlock(i + 6, j + 5, k + 15, arcaniumSoulSludge);
         world.setBlock(i + 6, j + 6, k + 0, arcaniumSoulSludge);
-        world.setBlock(i + 6, j + 6, k + 6, ArcanaBlocks.oreDoor1, 8);
+        world.setBlock(i + 6, j + 6, k + 6, ArcanaBlocks.soulSludgeDoor, 8);
         //world.setBlockIDAndMetadata(i + 6, j + 6, k + 14, ArcanaBlocks.oreDoor1, 2);
         world.setBlock(i + 6, j + 6, k + 15, arcaniumSoulSludge);
         world.setBlock(i + 6, j + 7, k + 0, arcaniumSoulSludge);
@@ -610,10 +610,10 @@ public class DungeonComponent5 extends DungeonComponentBase {
         world.setBlock(i + 8, j + 4, k + 14, ancientbricks);
         world.setBlock(i + 8, j + 4, k + 15, soulStone);
         world.setBlock(i + 8, j + 5, k + 0, arcaniumSoulSludge);
-        world.setBlock(i + 8, j + 5, k + 6, ArcanaBlocks.oreDoor1, 3);
+        world.setBlock(i + 8, j + 5, k + 6, ArcanaBlocks.soulSludgeDoor, 3);
         world.setBlock(i + 8, j + 5, k + 15, arcaniumSoulSludge);
         world.setBlock(i + 8, j + 6, k + 0, arcaniumSoulSludge);
-        world.setBlock(i + 8, j + 6, k + 6, ArcanaBlocks.oreDoor1, 8);
+        world.setBlock(i + 8, j + 6, k + 6, ArcanaBlocks.soulSludgeDoor, 8);
         world.setBlock(i + 8, j + 6, k + 15, arcaniumSoulSludge);
         world.setBlock(i + 8, j + 7, k + 0, arcaniumSoulSludge);
         world.setBlock(i + 8, j + 7, k + 6, dungeonBricks);
@@ -674,9 +674,9 @@ public class DungeonComponent5 extends DungeonComponentBase {
         world.setBlock(i + 9, j + 5, k + 2, dungeonBricks);
         world.setBlock(i + 9, j + 5, k + 4, dungeonBricks);
         world.setBlock(i + 9, j + 5, k + 6, dungeonBricks);
-        world.setBlock(i + 9, j + 5, k + 7, ArcanaBlocks.oreDoor1);
+        world.setBlock(i + 9, j + 5, k + 7, ArcanaBlocks.soulSludgeDoor);
         world.setBlock(i + 9, j + 5, k + 8, dungeonBricks);
-        world.setBlock(i + 9, j + 5, k + 9, ArcanaBlocks.oreDoor1);
+        world.setBlock(i + 9, j + 5, k + 9, ArcanaBlocks.soulSludgeDoor);
         world.setBlock(i + 9, j + 5, k + 10, dungeonBricks);
         world.setBlock(i + 9, j + 5, k + 12, dungeonBricks);
         world.setBlock(i + 9, j + 5, k + 14, dungeonBricks);
@@ -687,9 +687,9 @@ public class DungeonComponent5 extends DungeonComponentBase {
         world.setBlock(i + 9, j + 6, k + 4, dungeonBricks);
         world.setBlock(i + 9, j + 6, k + 5, dungeonBricks);
         world.setBlock(i + 9, j + 6, k + 6, dungeonBricks);
-        world.setBlock(i + 9, j + 6, k + 7, ArcanaBlocks.oreDoor1, 8);
+        world.setBlock(i + 9, j + 6, k + 7, ArcanaBlocks.soulSludgeDoor, 8);
         world.setBlock(i + 9, j + 6, k + 8, dungeonBricks);
-        world.setBlock(i + 9, j + 6, k + 9, ArcanaBlocks.oreDoor1, 8);
+        world.setBlock(i + 9, j + 6, k + 9, ArcanaBlocks.soulSludgeDoor, 8);
         world.setBlock(i + 9, j + 6, k + 10, dungeonBricks);
         world.setBlock(i + 9, j + 6, k + 11, dungeonBricks);
         world.setBlock(i + 9, j + 6, k + 12, dungeonBricks);

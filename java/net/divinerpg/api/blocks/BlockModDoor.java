@@ -178,7 +178,7 @@ public class BlockModDoor extends BlockMod {
         int i1 = this.getBlockMetadata(world, x, y, z);
         int j1 = (i1 & 7) ^ 4;
         boolean flag = (i1 & 8) == 0;
-        Item key = this == ArcanaBlocks.oreDoor1 ? ArcanaItems.key1 : (this == ArcanaBlocks.oreDoor2 ? ArcanaItems.key2 : (this == ArcanaBlocks.oreDoor3 ? ArcanaItems.key3 : (this == ArcanaBlocks.oreDoor4 ? ArcanaItems.key4 : null)));
+        Item key = this == ArcanaBlocks.soulSludgeDoor ? ArcanaItems.sludgeKey : (this == ArcanaBlocks.ancientBrickDoor ? ArcanaItems.ancientKey : (this == ArcanaBlocks.soulStoneDoor ? ArcanaItems.soulKey : (this == ArcanaBlocks.degradedBrickDoor ? ArcanaItems.degradedKey : null)));
         if (!canOpenByHand) {
             if (player.getHeldItem() != null && player.getHeldItem().getItem() == key) {
             	player.inventory.consumeInventoryItem(key);

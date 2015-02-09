@@ -61,10 +61,10 @@ public class ArcanaItems {
 	public static Item 	  shadowSword;
 	public static Item 	  liviciaSword;
 
-    public static Item key1;
-    public static Item key2;
-    public static Item key3;
-    public static Item key4;
+    public static Item sludgeKey;
+    public static Item ancientKey;
+    public static Item soulKey;
+    public static Item degradedKey;
 
 	public static Item 	  golemSpawner;
 	public static Item 	  seimerSpawner;
@@ -125,10 +125,10 @@ public class ArcanaItems {
     	shadowSword  	 	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
     	liviciaSword  	 		 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
 
-        key1 				 	 = new ItemKey("key1");
-        key2 				 	 = new ItemKey("key2");
-        key3 				 	 = new ItemKey("key3");
-        key4 				 	 = new ItemKey("key4");
+        sludgeKey 				 = new ItemKey("sludgeKey");
+        ancientKey 				 = new ItemKey("ancientKey");
+        soulKey 				 = new ItemKey("soulKey");
+        degradedKey 			 = new ItemKey("degradedKey");
 
     	golemSpawner   	 		 = new ItemArcanaSpawnEgg("golemSpawner");
     	seimerSpawner   	 	 = new ItemArcanaSpawnEgg("seimerSpawner");

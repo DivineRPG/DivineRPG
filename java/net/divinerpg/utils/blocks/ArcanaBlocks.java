@@ -68,10 +68,10 @@ public class ArcanaBlocks {
     public static Block starBridge;
     public static Block starBridgeOn;
 
-    public static Block oreDoor1;
-    public static Block oreDoor2;
-    public static Block oreDoor3;
-    public static Block oreDoor4;
+    public static Block soulSludgeDoor;
+    public static Block ancientBrickDoor;
+    public static Block soulStoneDoor;
+    public static Block degradedBrickDoor;
     
     public static Block dramixAltar;
     public static Block parasectaAltar;
@@ -141,10 +141,10 @@ public class ArcanaBlocks {
 		starBridge            = new BlockStarBridge("starBridge", false);
 		starBridgeOn          = new BlockStarBridge("starBridgeOn", true);
 		
-		oreDoor1              = new BlockModDoor(EnumBlockType.IRON, "oreDoor1", -1F, false);
-	    oreDoor2              = new BlockModDoor(EnumBlockType.IRON, "oreDoor2", -1F, false);
-	    oreDoor3              = new BlockModDoor(EnumBlockType.IRON, "oreDoor3", -1F, false);
-	    oreDoor4              = new BlockModDoor(EnumBlockType.IRON, "oreDoor4", -1F, false);
+		soulSludgeDoor        = new BlockModDoor(EnumBlockType.IRON, "soulSludgeDoor", -1F, false);
+	    ancientBrickDoor      = new BlockModDoor(EnumBlockType.IRON, "ancientBrickDoor", -1F, false);
+	    soulStoneDoor         = new BlockModDoor(EnumBlockType.IRON, "soulStoneDoor", -1F, false);
+	    degradedBrickDoor     = new BlockModDoor(EnumBlockType.IRON, "degradedBrickDoor", -1F, false);
 	    
 	    dramixAltar           = new BlockDramixAltar("dramixAltar");
 	    parasectaAltar        = new BlockParasectaAltar("parasectaAltar");

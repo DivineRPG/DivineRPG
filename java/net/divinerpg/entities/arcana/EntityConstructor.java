@@ -67,13 +67,13 @@ public class EntityConstructor extends EntityDivineRPGMob {
     protected Item getDropItem() {
         switch (this.rand.nextInt(4)) {
         case 0:
-        	return ArcanaItems.key4;
+        	return ArcanaItems.degradedKey;
         case 1:
-        	return ArcanaItems.key1;
+        	return ArcanaItems.sludgeKey;
         case 2:
-        	return ArcanaItems.key2;
+        	return ArcanaItems.ancientKey;
         case 3:
-        	return ArcanaItems.key3;
+        	return ArcanaItems.soulKey;
         }
         return null;
     }

@@ -255,8 +255,8 @@ public class DungeonComponent3 extends DungeonComponentBase {
         world.setBlock(i + 3, j + 1, k + 0, dungeonBricks);
         world.setBlock(i + 3, j + 1, k + 3, ancientbricks);
         world.setBlock(i + 3, j + 1, k + 5, ancientbricks);
-        world.setBlock(i + 3, j + 1, k + 6, ArcanaBlocks.oreDoor2);
-        world.setBlock(i + 3, j + 1, k + 7, ArcanaBlocks.oreDoor2);
+        world.setBlock(i + 3, j + 1, k + 6, ArcanaBlocks.ancientBrickDoor);
+        world.setBlock(i + 3, j + 1, k + 7, ArcanaBlocks.ancientBrickDoor);
         world.setBlock(i + 3, j + 1, k + 8, ancientbricks);
         world.setBlock(i + 3, j + 1, k + 10, ancientbricks);
         world.setBlock(i + 3, j + 1, k + 12, ancientbricks);
@@ -265,8 +265,8 @@ public class DungeonComponent3 extends DungeonComponentBase {
         world.setBlock(i + 3, j + 2, k + 3, ancientbricks);
         world.setBlock(i + 3, j + 2, k + 4, ancientbricks);
         world.setBlock(i + 3, j + 2, k + 5, ancientbricks);
-        world.setBlock(i + 3, j + 2, k + 6, ArcanaBlocks.oreDoor2, 8);
-        world.setBlock(i + 3, j + 2, k + 7, ArcanaBlocks.oreDoor2, 9);
+        world.setBlock(i + 3, j + 2, k + 6, ArcanaBlocks.ancientBrickDoor, 8);
+        world.setBlock(i + 3, j + 2, k + 7, ArcanaBlocks.ancientBrickDoor, 9);
         world.setBlock(i + 3, j + 2, k + 8, ancientbricks);
         world.setBlock(i + 3, j + 2, k + 9, ancientbricks);
         world.setBlock(i + 3, j + 2, k + 10, ancientbricks);
@@ -604,14 +604,14 @@ public class DungeonComponent3 extends DungeonComponentBase {
         world.setBlock(i + 9, j + 1, k + 0, dungeonBricks);
         world.setBlock(i + 9, j + 1, k + 3, ancientbricks);
         world.setBlock(i + 9, j + 1, k + 6, dungeonBricks);
-        world.setBlock(i + 9, j + 1, k + 7, ArcanaBlocks.oreDoor1, 2);
+        world.setBlock(i + 9, j + 1, k + 7, ArcanaBlocks.soulSludgeDoor, 2);
         world.setBlock(i + 9, j + 1, k + 8, dungeonBricks);
         world.setBlock(i + 9, j + 1, k + 9, dungeonBricks);
         world.setBlock(i + 9, j + 1, k + 15, ancientbricks);
         world.setBlock(i + 9, j + 2, k + 0, dungeonBricks);
         world.setBlock(i + 9, j + 2, k + 3, ancientbricks);
         world.setBlock(i + 9, j + 2, k + 6, dungeonBricks);
-        world.setBlock(i + 9, j + 2, k + 7, ArcanaBlocks.oreDoor1, 8);
+        world.setBlock(i + 9, j + 2, k + 7, ArcanaBlocks.soulSludgeDoor, 8);
         world.setBlock(i + 9, j + 2, k + 8, dungeonBricks);
         world.setBlock(i + 9, j + 2, k + 9, ancientbricks);
         world.setBlock(i + 9, j + 2, k + 12, ancientbricks);
