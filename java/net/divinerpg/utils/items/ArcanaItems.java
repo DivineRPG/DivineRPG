@@ -14,7 +14,6 @@ import net.divinerpg.items.arcana.ItemArcaniumSaber;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
 import net.divinerpg.items.arcana.ItemEnderScepter;
-import net.divinerpg.items.arcana.ItemGlowingCollector;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
 import net.divinerpg.items.arcana.ItemMeriksMissile;
@@ -48,7 +47,6 @@ public class ArcanaItems {
     public static Item      weakArcanaPotion;
     public static Item      collector;
     public static Item      chargedCollector;
-    public static Item      glowingCollector;
     public static Item      wizardBook;
     public static Item      staffOfEnrichment;
     public static Item      orbOfLight;
@@ -113,7 +111,6 @@ public class ArcanaItems {
         weakArcanaPotion   		 = new ItemModPotion("weakArcanaPotion", 100);
         collector         		 = new ItemMod("collector");
         chargedCollector   		 = new ItemChargedCollector("chargedCollector");
-        glowingCollector   		 = new ItemGlowingCollector("glowingCollector");
         wizardBook	     	  	 = new ItemWizardsBook("wizardsBook");
         staffOfEnrichment		 = new ItemStaffEnrichment("staffOfEnrichment");
         orbOfLight	 			 = new ItemModOrb("orbOfLight");//TODO: make this work.

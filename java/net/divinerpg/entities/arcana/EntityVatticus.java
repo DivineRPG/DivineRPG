@@ -55,8 +55,7 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.collector, 4, 0), new ItemStack(ArcanaItems.glowingCollector, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.glowingCollector, 4, 0), new ItemStack(ArcanaItems.chargedCollector, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.collector, 16, 0), new ItemStack(ArcanaItems.chargedCollector, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaHelmet, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaBody, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaLegs, 1, 0)));

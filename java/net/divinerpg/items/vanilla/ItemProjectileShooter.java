@@ -9,9 +9,11 @@ import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
@@ -24,8 +26,7 @@ public class ItemProjectileShooter extends ItemMod {
 	protected Item ammo;
 	private String projectileTex;
 	protected int uses;
-	private int counter;
-	private int canShootTick;
+	private int delay;
 	private boolean hasParticle;
 	private String fx;
 	public static List<Item> gunList = new ArrayList<Item>();
@@ -38,7 +39,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.damage = damage;
 		this.projectileTex = projectileTex;
 		this.uses = uses;
-		this.counter = counter;
+		this.delay = counter;
 		setMaxDamage(uses);
 		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon") && !name.contains("Anchor")) gunList.add(this);
 		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon") || name.contains("Anchor")) phaserList.add(this);
@@ -56,7 +57,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.damage = damage;
 		this.ammo = ammo;
 		this.uses = uses;
-		this.counter = counter;
+		this.delay = counter;
 		setMaxDamage(uses);
 		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon")) gunList.add(this);
 		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon")) phaserList.add(this);
@@ -76,7 +77,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.damage = damage;
 		this.ammo = ammo;
 		this.uses = uses;
-		this.counter = counter;
+		this.delay = counter;
 		this.projectileTex = projectileTex;
 		setMaxDamage(uses);
 		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon")) gunList.add(this);
@@ -92,7 +93,8 @@ public class ItemProjectileShooter extends ItemMod {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if(Ticker.tick >= canShootTick) {
+		if (!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
+		if(Ticker.tick >= stack.getTagCompound().getLong("CanShootTime")) {
 			if(player.capabilities.isCreativeMode || this.ammo == null || player.inventory.hasItem(ammo)) {
 				if(this.uses > -1 && !player.capabilities.isCreativeMode) stack.damageItem(1, player);
 				if(this.ammo != null && !player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(ammo);
@@ -100,11 +102,12 @@ public class ItemProjectileShooter extends ItemMod {
 					world.playSoundAtEntity(player, this.soundName != null ? this.soundName : "random.bow", 1, 1);
 					EntityThrowable bullet = this.hasParticle ? (this.projectileTex != null ? new EntityParticleBullet(world, player, this.damage, this.projectileTex, this.fx) : new EntityParticleBullet(world, player, this.damage, this.ammo, this.fx)) : (this.projectileTex != null ? new EntityShooterBullet(world, player, this.damage, this.projectileTex) : new EntityShooterBullet(world, player, this.damage, this.ammo));
 					world.spawnEntityInWorld(bullet);
-					canShootTick = Ticker.tick + counter*4;
+					stack.getTagCompound().setLong("CanShootTime", Ticker.tick + delay*4);
 				}
 			}
 		}
-		if(canShootTick >= 100000 || canShootTick>Ticker.tick+counter*4+1)canShootTick = 0;
+		if(player instanceof EntityPlayerMP)((EntityPlayerMP)player).sendContainerToPlayer(player.inventoryContainer);
+		if(stack.getTagCompound().getLong("CanShootTime") >= 100000 || stack.getTagCompound().getLong("CanShootTime")>Ticker.tick+delay*4+1)stack.getTagCompound().setLong("CanShootTime", 0);
 		return stack;
 	}
 	
