@@ -3,27 +3,19 @@ package net.divinerpg.api.entity;
 import java.util.Iterator;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.client.GuiHandler;
-import net.divinerpg.entities.vethea.EntityTwins;
-import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.entities.vethea.EntityHungerHungry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.items.IceikaItems;
-import net.divinerpg.utils.items.VanillaItemsWeapons;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
 import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITradePlayer;
 import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.IMob;
@@ -34,7 +26,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.village.MerchantRecipe;
@@ -181,7 +172,8 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 
 		if(var1.hasKey("Offers")) {
 			NBTTagCompound var2 = var1.getCompoundTag("Offers");
-			this.buyingList = new MerchantRecipeList(var2);
+			if(this instanceof EntityHungerHungry) this.buyingList = new InfiniteTradeList(var2);
+			else this.buyingList = new MerchantRecipeList(var2);
 		}
 	}
 
