@@ -45,7 +45,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class ChunkProviderArcana implements IChunkProvider{
+public class ChunkProviderArcana implements IChunkProvider {
 
 	public class ChunkCoords
 	{
@@ -125,9 +125,8 @@ public class ChunkProviderArcana implements IChunkProvider{
 	}
 
 	@Override
-	public Chunk provideChunk(int par1, int par2) {
-		ArcanaChunk c = new ArcanaChunk();
-        int l;
+	public Chunk provideChunk(int chunkX, int chunkZ) {
+		ArcanaChunk arcanaChunk = new ArcanaChunk();
         
         int roomToGenerate;
         
@@ -137,21 +136,21 @@ public class ChunkProviderArcana implements IChunkProvider{
 			
 			if(room instanceof DungeonComponent8 && i >= 3) room = (DungeonComponentBase)(Rooms.get(this.random.nextInt(10)+10));
 
-			room.generate(c, random, 0, i * 8, 0);			
+			room.generate(arcanaChunk, random, 0, i * 8, 0);			
 		}
         
-		Ceiling.generate(c, random, 0, 40, 0);
+		Ceiling.generate(arcanaChunk, random, 0, 40, 0);
         
-		chunkTileEntityMap.put(new ChunkCoords(par1, par2), c.chunkTileEntityPositions);
+		chunkTileEntityMap.put(new ChunkCoords(chunkX, chunkZ), arcanaChunk.chunkTileEntityPositions);
 
-		Chunk chunk = new Chunk(this.worldObj, c.getChunkData(), c.getChunkMetadata(), par1, par2);
+		Chunk chunk = new Chunk(this.worldObj, arcanaChunk.getChunkData(), arcanaChunk.getChunkMetadata(), chunkX, chunkZ);
         chunk.generateSkylightMap();
-        BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, par1 * 16, par2 * 16, 16, 16);
+        BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, chunkX * 16, chunkZ * 16, 16, 16);
         byte[] abyte = chunk.getBiomeArray();
 
-        for (l = 0; l < abyte.length; ++l)
+        for (int i = 0; i < abyte.length; ++i)
         {
-            abyte[l] = (byte)abiomegenbase[l].biomeID;
+            abyte[i] = (byte)abiomegenbase[i].biomeID;
         }
 
         chunk.generateSkylightMap();
