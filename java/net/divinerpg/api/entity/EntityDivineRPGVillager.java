@@ -42,7 +42,7 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.village.Village;
 import net.minecraft.world.World;
 
-public abstract class EntityDivineRPGVillager extends EntityVillager implements INpc, IMerchant, IMob {
+public abstract class EntityDivineRPGVillager extends EntityVillager implements INpc, IMerchant {
 
 	private int randomTickDivider;
 	private Village villageObj;
