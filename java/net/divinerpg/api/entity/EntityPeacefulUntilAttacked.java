@@ -24,12 +24,6 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 		super(w);
 		this.tasks.addTask(5, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false));
 	}
-	
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		
-	}
 
 	public int angerLevel = 0;
 	public void writeEntityToNBT(NBTTagCompound tag) {

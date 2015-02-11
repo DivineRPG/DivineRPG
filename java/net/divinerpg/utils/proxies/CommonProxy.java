@@ -121,7 +121,7 @@ public class CommonProxy{
 		ArcanaItems.init();
 		DivineRPGTabs.init();
 		GameRegistry.registerTileEntity(TileEntityInfusionTable.class, "Infusion Table");
-		GameRegistry.registerTileEntity(TileEntityStatue.class, "Statue");
+		GameRegistry.registerTileEntity(TileEntityStatue.class, "DivineRPGStatue");
 		GameRegistry.registerTileEntity(TileEntityFrostedChest.class, "Frosted Chest");
 		GameRegistry.registerTileEntity(TileEntityEdenChest.class, "Eden Chest");
 		GameRegistry.registerTileEntity(TileEntityBoneChest.class, "Bone Chest");
