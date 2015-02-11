@@ -28,7 +28,6 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 public class EventArmorTick {
 	
 	private float                flyTemp;
-	private boolean 			 immune 		= false;
 
     private Item                 boots          = null;
     private Item                 body           = null;
@@ -95,7 +94,7 @@ public class EventArmorTick {
             }
         }
         
-      //Korma
+        //Korma
         if (boots == ArcanaItems.kormaBoots && body == ArcanaItems.kormaBody && legs == ArcanaItems.kormaLegs && helmet == ArcanaItems.kormaHelmet) {
         	ArcanaHelper.getProperties(evt.player).regen(1);
         }
@@ -110,7 +109,7 @@ public class EventArmorTick {
 
         //Mortum
         if (boots == TwilightItemsArmor.mortumBoots && body == TwilightItemsArmor.mortumBody && legs == TwilightItemsArmor.mortumLegs && helmet == TwilightItemsArmor.mortumHelmet) {
-            evt.player.addPotionEffect(new PotionEffect(16, 210, 10));
+            evt.player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 210, 10, true));
         }
 
         //Skythern
@@ -122,13 +121,7 @@ public class EventArmorTick {
         if ((boots == VanillaItemsArmor.netheriteBoots && legs == VanillaItemsArmor.netheriteLegs && body == VanillaItemsArmor.netheriteBody && helmet == VanillaItemsArmor.netheriteHelmet)
                 || (boots == VanillaItemsArmor.infernoBoots && legs == VanillaItemsArmor.infernoLegs && body == VanillaItemsArmor.infernoBody && helmet == VanillaItemsArmor.infernoHelmet)
                 || (boots == VanillaItemsArmor.bedrockBoots && legs == VanillaItemsArmor.bedrockLegs && body == VanillaItemsArmor.bedrockBody && helmet == VanillaItemsArmor.bedrockHelmet)) {
-            ObfuscationReflectionHelper.setPrivateValue(Entity.class, evt.player, true, isImmuneToFire);
-            if(!immune)
-            	immune = true;
-        }
-        else if(immune){
-            ObfuscationReflectionHelper.setPrivateValue(Entity.class, evt.player, false, isImmuneToFire);
-            immune = false;
+            evt.player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 40, 0, true));
         }
 
         //Aquastrive
