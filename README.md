@@ -89,7 +89,7 @@ Found a bug in our mod?  Please let us know so we can fix it ASAP!
 Want to test the mod but you don't know how to compile the mod? Here's how. Warning: This mod is incomplete and most likely has bugs. Not recomended for casual use.
 
 1. Download [forge](http://files.minecraftforge.net).
-2. Decompile forge with the terminal command `gradlew setupDecompWorkspace`.
+2. Set up a forge workspace with the terminal command `gradlew setupDecompWorkspace`.
 3. Download DivineRPG's source [here](https://github.com/DivineRPG/DivineRPG/archive/master.zip).
 4. Inside the forge folder, copy the files from the source inside `src/main`. (Create the `main` folder)
 	* You may need to remove the `resources/mcmod.info` file from the source for it to compile.
