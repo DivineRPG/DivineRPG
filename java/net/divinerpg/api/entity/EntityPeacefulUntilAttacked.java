@@ -3,6 +3,7 @@ package net.divinerpg.api.entity;
 import java.util.List;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +22,13 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 
 	public EntityPeacefulUntilAttacked(World w) {
 		super(w);
-		addAttackingAI();
+		this.tasks.addTask(5, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false));
+	}
+	
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		
 	}
 
 	public int angerLevel = 0;
@@ -44,7 +51,10 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 	public boolean attackEntityFrom(DamageSource source, float par2) {
 		if(source.getEntity() instanceof EntityPlayer){
 			angerLevel = 400;
-			if(source.getEntity() instanceof EntityPlayer && !((EntityPlayer)source.getEntity()).capabilities.isCreativeMode) this.entityToAttack = source.getEntity();
+			if(source.getEntity() instanceof EntityPlayer && !((EntityPlayer)source.getEntity()).capabilities.isCreativeMode) {
+				this.entityToAttack = source.getEntity();
+				this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+			}
 		}
 		return super.attackEntityFrom(source, par2);
 	}
