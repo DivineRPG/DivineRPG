@@ -110,10 +110,13 @@ public class Util {
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(b), te);
     }
 
+    public static void sendMessageToAll(ChatComponentTranslation chatComponentTranslation) {
+    	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(chatComponentTranslation);
+    }
+    
     public static void sendMessageToAll(String message) {
     	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(message));
     }
-    
     public static void sendMessageToAll(String message, String color) {
     	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + color + message));
     }
