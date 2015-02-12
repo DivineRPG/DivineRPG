@@ -15,6 +15,7 @@ public class ConfigurationHelper {
 
         cfg.load();
         dimensionInit();
+        dataWatcherInit();
         miscInit();
         cfg.save();
     }
@@ -25,10 +26,11 @@ public class ConfigurationHelper {
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
     public static int     arcanaX, arcanaY;
+    public static int	  barValue, barRegen;
 
     public static void dimensionInit() {
         edenBiome = cfg.get("Dimension", "Eden biome ID", 100).getInt();
-        wildwoodBiome = cfg.get("Dimension", "The Wildwood biome ID", 101).getInt();
+        wildwoodBiome = cfg.get("Dimension", "Wildwood biome ID", 101).getInt();
         apalachiaBiome = cfg.get("Dimension", "Apalachia biome ID", 102).getInt();
         skythernBiome = cfg.get("Dimension", "Skythern biome ID", 103).getInt();
         mortumBiome = cfg.get("Dimension", "Mortum biome ID", 104).getInt();
@@ -46,13 +48,18 @@ public class ConfigurationHelper {
         iceika = cfg.get("Dimension", "Iceika dimension ID", 57).getInt();
 
         keepLoadingEden = cfg.get("Dimension", "Keep loading Eden", true).getBoolean(true);
-        keepLoadingWildwood = cfg.get("Dimension", "Keep loading The Wildwood", true).getBoolean(true);
+        keepLoadingWildwood = cfg.get("Dimension", "Keep loading Wildwood", true).getBoolean(true);
         keepLoadingApalachia = cfg.get("Dimension", "Keep loading Apalachia", true).getBoolean(true);
         keepLoadingSkythern = cfg.get("Dimension", "Keep loading Skythern", true).getBoolean(true);
         keepLoadingMortum = cfg.get("Dimension", "Keep loading Mortum", true).getBoolean(true);
         keepLoadingVethea = cfg.get("Dimension", "Keep loading Vethea", true).getBoolean(true);
         keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", true).getBoolean(true);
         keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", true).getBoolean(true);
+    }
+    
+    public static void dataWatcherInit() {
+    	barValue = cfg.get("Data Watcher", "Arcana Bar Value ID", 25).getInt();
+    	barRegen = cfg.get("Data Watcher", "Arcana Bar Regeneration ID", 26).getInt();
     }
 
     public static void miscInit() {
