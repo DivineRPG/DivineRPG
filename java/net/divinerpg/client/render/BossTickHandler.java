@@ -27,28 +27,23 @@ public class BossTickHandler {
 	private Minecraft mc = Minecraft.getMinecraft();
 
 	@SubscribeEvent
-	public void onTick(PlayerTickEvent event){
-		if(event.phase == Phase.START){
-			onTickStart();
-		} else {
-			onTickEnd();
-		}
-	}
-
-	@SubscribeEvent
 	public void onRender(RenderTickEvent event){
 		onTickRender();
 	}
 
 	@SideOnly(Side.CLIENT)
 	private void onTickRender() {
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glEnable(GL11.GL_BLEND);
-		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		this.mc.mcProfiler.startSection("divineBossHealth");
-		this.renderBossHealth();
-		this.mc.mcProfiler.endSection();
-		GL11.glDisable(GL11.GL_BLEND);
+		if(DivineBossStatus.statusBarTime > 0 && mc.currentScreen == null) {
+			DivineBossStatus.statusBarTime--;
+
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glEnable(GL11.GL_BLEND);
+			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+			this.mc.mcProfiler.startSection("divineBossHealth");
+			this.renderBossHealth();
+			this.mc.mcProfiler.endSection();
+			GL11.glDisable(GL11.GL_BLEND);
+		}
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -130,31 +125,24 @@ public class BossTickHandler {
 			break;
 		}
 
-		if(DivineBossStatus.statusBarTime > 0 && mc.currentScreen == null) {
-			DivineBossStatus.statusBarTime--;
-			GuiIngame gig = mc.ingameGUI;
-			FontRenderer fontrenderer = this.mc.fontRenderer;
-			ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
-			int i = scaledresolution.getScaledWidth();
-			int barLength = 182;
-			int finalBarLength = barLength + 1;
-			int barDisX = i / 2 - barLength / 2;
-			int barDisY = 12;
-			int health = (int)(DivineBossStatus.healthScale * (float)(finalBarLength));
-			int barHeight = 10;
-			this.mc.getTextureManager().bindTexture(r);
-			gig.drawTexturedModalRect(barDisX, barDisY, 0, 0, health, barHeight);
-			gig.drawTexturedModalRect(barDisX, barDisY, 0, barHeight, finalBarLength, barHeight);
-			if(health > 0)
-				gig.drawTexturedModalRect(barDisX, barDisY, 0, 0, health, 10);
-		}
+		GuiIngame gig = mc.ingameGUI;
+		FontRenderer fontrenderer = this.mc.fontRenderer;
+		ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+		int i = scaledresolution.getScaledWidth();
+		int barLength = 182;
+		int finalBarLength = barLength + 1;
+		int barDisX = i / 2 - barLength / 2;
+		int barDisY = 12;
+		int health = (int)(DivineBossStatus.healthScale * (float)(finalBarLength));
+		int barHeight = 10;
+		this.mc.getTextureManager().bindTexture(r);
+		gig.drawTexturedModalRect(barDisX, barDisY, 0, 0, health, barHeight);
+		gig.drawTexturedModalRect(barDisX, barDisY, 0, barHeight, finalBarLength, barHeight);
+		if(health > 0)
+			gig.drawTexturedModalRect(barDisX, barDisY, 0, 0, health, 10);
 	}
 
 	public ResourceLocation set(String name){
 		return new ResourceLocation(Reference.PREFIX + "textures/gui/bossBar/" + name + ".png");
 	}
-
-	private void onTickEnd() { }
-
-	private void onTickStart() { }
 }
