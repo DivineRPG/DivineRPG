@@ -12,28 +12,25 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 	private final EntityPlayer player;
 	private static final String NAME = "ArcanaBar";
 	
-	private static int value = ConfigurationHelper.barValue;
-	private static int regen = ConfigurationHelper.barRegen;
-	
 	public ArcanaHelper(EntityPlayer player) {
 		this.player = player;
-		player.getDataWatcher().addObject(value, 0F);//Arcana value
-		player.getDataWatcher().addObject(regen, 1);//Regen delay
+		player.getDataWatcher().addObject(ConfigurationHelper.barValue, 0F);//Arcana ConfigurationHelper.barValue
+		player.getDataWatcher().addObject(ConfigurationHelper.barRegen, 1);//Regen delay
 	}
 
 	@Override
 	public void saveNBTData(NBTTagCompound n) {
 		NBTTagCompound tag = new NBTTagCompound();
-		tag.setFloat("Value", this.player.getDataWatcher().getWatchableObjectFloat(value));
-		tag.setInteger("RegenDelay", this.player.getDataWatcher().getWatchableObjectInt(regen));
+		tag.setFloat("ConfigurationHelper.barValue", this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue));
+		tag.setInteger("RegenDelay", this.player.getDataWatcher().getWatchableObjectInt(ConfigurationHelper.barRegen));
 		n.setTag(NAME, tag);
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound n) {
 		NBTTagCompound tag = (NBTTagCompound) n.getTag(NAME);
-		this.player.getDataWatcher().updateObject(value, tag.getFloat("Value"));
-		this.player.getDataWatcher().updateObject(regen, tag.getInteger("RegenDelay"));
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, tag.getFloat("ConfigurationHelper.barValue"));
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barRegen, tag.getInteger("RegenDelay"));
 	}
 	
 	public static void addProperties(EntityPlayer player) {
@@ -45,45 +42,45 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 	}
 
 	public void updateAllBars() {
-		if(this.player.getDataWatcher().getWatchableObjectFloat(value) != 200F){
+		if(this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) != 200F){
 			regen(1);
 		} else {
 			regen(0);
 		}
-		if(this.player.getDataWatcher().getWatchableObjectFloat(value) >= 200F){
-			this.player.getDataWatcher().updateObject(value, 200F);
+		if(this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) >= 200F){
+			this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, 200F);
 		}
 	}                
 
 	public boolean useBar(float amount) {
-		if(this.player.getDataWatcher().getWatchableObjectFloat(value) < amount) {
-			this.player.getDataWatcher().updateObject(regen, 50);
+		if(this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) < amount) {
+			this.player.getDataWatcher().updateObject(ConfigurationHelper.barRegen, 50);
 			return false;
 		}
-		this.player.getDataWatcher().updateObject(value, this.player.getDataWatcher().getWatchableObjectFloat(value) - amount);
-		this.player.getDataWatcher().updateObject(regen, 50);
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) - amount);
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barRegen, 50);
 		return true;
 	}
 
 	public void regen(float amount) {
-		if(this.player.getDataWatcher().getWatchableObjectInt(regen) == 0) {
-			this.player.getDataWatcher().updateObject(value, this.player.getDataWatcher().getWatchableObjectFloat(value) + amount);
+		if(this.player.getDataWatcher().getWatchableObjectInt(ConfigurationHelper.barRegen) == 0) {
+			this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) + amount);
 		} else {
-			this.player.getDataWatcher().updateObject(regen, this.player.getDataWatcher().getWatchableObjectInt(regen) - 1);
+			this.player.getDataWatcher().updateObject(ConfigurationHelper.barRegen, this.player.getDataWatcher().getWatchableObjectInt(ConfigurationHelper.barRegen) - 1);
 		}
 	}
 
 	public float getBarValue() {
-		return this.player.getDataWatcher().getWatchableObjectFloat(value);
+		return this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue);
 	}
 
 	public void setBarValue(float i) {
-		this.player.getDataWatcher().updateObject(value, i);
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, i);
 	}
 	
-	public void removeBarValue(float i) {
-		this.player.getDataWatcher().updateObject(regen, 50);
-		this.player.getDataWatcher().updateObject(value, this.player.getDataWatcher().getWatchableObjectFloat(value) - i);
+	public void removeValue(float i) {
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barRegen, 50);
+		this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) - i);
 	}
 
 	@Override

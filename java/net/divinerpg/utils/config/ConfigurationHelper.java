@@ -47,19 +47,19 @@ public class ConfigurationHelper {
         arcana = cfg.get("Dimension", "Arcana dimension ID", 56).getInt();
         iceika = cfg.get("Dimension", "Iceika dimension ID", 57).getInt();
 
-        keepLoadingEden = cfg.get("Dimension", "Keep loading Eden", true).getBoolean(true);
-        keepLoadingWildwood = cfg.get("Dimension", "Keep loading Wildwood", true).getBoolean(true);
-        keepLoadingApalachia = cfg.get("Dimension", "Keep loading Apalachia", true).getBoolean(true);
-        keepLoadingSkythern = cfg.get("Dimension", "Keep loading Skythern", true).getBoolean(true);
-        keepLoadingMortum = cfg.get("Dimension", "Keep loading Mortum", true).getBoolean(true);
-        keepLoadingVethea = cfg.get("Dimension", "Keep loading Vethea", true).getBoolean(true);
-        keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", true).getBoolean(true);
-        keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", true).getBoolean(true);
+        keepLoadingEden = cfg.get("Dimension", "Keep loading Eden", false).getBoolean(true);
+        keepLoadingWildwood = cfg.get("Dimension", "Keep loading The Wildwood", false).getBoolean(true);
+        keepLoadingApalachia = cfg.get("Dimension", "Keep loading Apalachia", false).getBoolean(true);
+        keepLoadingSkythern = cfg.get("Dimension", "Keep loading Skythern", false).getBoolean(true);
+        keepLoadingMortum = cfg.get("Dimension", "Keep loading Mortum", false).getBoolean(true);
+        keepLoadingVethea = cfg.get("Dimension", "Keep loading Vethea", false).getBoolean(true);
+        keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", false).getBoolean(true);
+        keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", false).getBoolean(true);
     }
     
     public static void dataWatcherInit() {
-    	barValue = cfg.get("Data Watcher", "Arcana Bar Value ID", 25).getInt();
-    	barRegen = cfg.get("Data Watcher", "Arcana Bar Regeneration ID", 26).getInt();
+    	barValue = cfg.get("Data Watcher", "Arcana Bar Datawatcher ID", 25).getInt();
+    	barRegen = cfg.get("Data Watcher", "Arcana Delay Datawatcher ID", 26).getInt();
     }
 
     public static void miscInit() {
