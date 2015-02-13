@@ -2,7 +2,7 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

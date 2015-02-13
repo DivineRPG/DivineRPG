@@ -2,7 +2,7 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

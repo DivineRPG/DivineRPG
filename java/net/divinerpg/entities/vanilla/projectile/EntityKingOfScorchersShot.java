@@ -1,6 +1,6 @@
 package net.divinerpg.entities.vanilla.projectile;
 
-import net.divinerpg.api.entity.EntityModArrow;
+import net.divinerpg.entities.base.EntityModArrow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

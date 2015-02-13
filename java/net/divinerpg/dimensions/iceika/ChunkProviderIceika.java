@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import net.divinerpg.api.items.WorldGenSantaHouse;
 import net.divinerpg.dimensions.iceika.village.WorldGenHouse1;
 import net.divinerpg.dimensions.iceika.village.WorldGenHouse2;
 import net.divinerpg.dimensions.iceika.village.WorldGenHouse3;
@@ -13,6 +12,7 @@ import net.divinerpg.dimensions.iceika.village.WorldGenHouse5;
 import net.divinerpg.dimensions.iceika.village.WorldGenLibrary;
 import net.divinerpg.dimensions.iceika.village.WorldGenLights;
 import net.divinerpg.dimensions.iceika.village.WorldGenWorkShop;
+import net.divinerpg.items.base.WorldGenSantaHouse;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

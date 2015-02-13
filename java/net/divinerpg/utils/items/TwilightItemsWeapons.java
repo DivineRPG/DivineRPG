@@ -1,9 +1,9 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.api.items.ItemModBow;
-import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.client.render.EntityResourceLocation;
+import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.items.base.ItemModBow;
+import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.items.twilight.ItemTwilightBlitz;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.items.vanilla.ItemThrowable;

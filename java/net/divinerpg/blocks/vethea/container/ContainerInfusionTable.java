@@ -1,6 +1,6 @@
 package net.divinerpg.blocks.vethea.container;
 
-import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
+import net.divinerpg.blocks.vethea.container.tileentity.TileEntityInfusionTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

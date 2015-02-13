@@ -1,6 +1,6 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.Entity;
@@ -22,10 +22,10 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.soulFiendHealth);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.soulFiendDamage);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.soulFiendSpeed);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.soulFiendFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.soulFiendHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.soulFiendDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.soulFiendSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.soulFiendFollowRange);
 	}
 
 	@Override

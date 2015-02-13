@@ -1,6 +1,6 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
+import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.Entity;
@@ -33,10 +33,10 @@ public class EntityVhraak extends VetheaMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.varaakHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.varaakDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.varaakSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.varaakFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.varaakHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.varaakDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.varaakSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.varaakFollowRange);
     }
 
     @Override

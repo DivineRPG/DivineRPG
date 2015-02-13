@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.gui;
 
-import net.divinerpg.api.container.ContainerDivineMerchant;
+import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.minecraft.entity.IMerchant;
 
 public class GuiDatticon extends GuiDivineMerchent{

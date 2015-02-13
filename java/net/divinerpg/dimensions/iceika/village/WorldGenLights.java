@@ -2,9 +2,9 @@ package net.divinerpg.dimensions.iceika.village;
 
 import java.util.Random;
 
-import net.divinerpg.api.items.ItemModDoor;
-import net.divinerpg.api.worldgen.WorldGenAPI;
 import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
+import net.divinerpg.dimensions.base.WorldGenAPI;
+import net.divinerpg.items.base.ItemModDoor;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.block.Block;

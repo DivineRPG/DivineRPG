@@ -2,7 +2,7 @@ package net.divinerpg.blocks.arcana;
 
 import java.util.Random;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
@@ -12,7 +12,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

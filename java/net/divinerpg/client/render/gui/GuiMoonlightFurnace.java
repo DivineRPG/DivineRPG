@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.gui;
 
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 import net.minecraft.entity.player.InventoryPlayer;
 
 public class GuiMoonlightFurnace extends GuiInfiniteFurnace {

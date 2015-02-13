@@ -2,7 +2,7 @@ package net.divinerpg.utils.events;
 
 import java.util.Random;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.DivineRPGAchievements;

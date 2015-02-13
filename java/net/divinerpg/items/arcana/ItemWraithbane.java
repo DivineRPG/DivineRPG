@@ -2,8 +2,8 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.arcana.EntityWraith;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

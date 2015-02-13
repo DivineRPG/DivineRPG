@@ -1,6 +1,6 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.entities.base.EntityDivineRPGFlying;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.TwilightItemsOther;
@@ -33,9 +33,9 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.edenCoriHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.edenCoriSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.edenCoriFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.edenCoriHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.edenCoriSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.edenCoriFollowRange);
     }
 
     protected void entityInit() {

@@ -2,8 +2,8 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemModRanged;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
+import net.divinerpg.items.base.ItemModRanged;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;

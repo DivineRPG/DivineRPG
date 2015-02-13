@@ -1,7 +1,7 @@
 package net.divinerpg.dimensions.iceika;
 import java.util.Random;
 
-import net.divinerpg.api.worldgen.WorldGenAPI;
+import net.divinerpg.dimensions.base.WorldGenAPI;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

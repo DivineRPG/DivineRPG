@@ -3,8 +3,8 @@ package net.divinerpg.blocks.iceika;
 import java.util.Random;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.api.blocks.BlockModFurnace;
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.blocks.base.BlockModFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.iceika.tileentity.TileEntityCoalstoneFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.Reference;

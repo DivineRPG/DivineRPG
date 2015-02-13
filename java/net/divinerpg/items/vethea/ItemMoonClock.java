@@ -1,7 +1,7 @@
 package net.divinerpg.items.vethea;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vethea.EntityLadyLuna;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;

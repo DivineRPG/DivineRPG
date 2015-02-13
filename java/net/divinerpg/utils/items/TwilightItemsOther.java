@@ -1,6 +1,6 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.twilight.ItemTwilightClock;
 import net.divinerpg.items.twilight.ItemTwilightSeeds;
 import net.divinerpg.items.twilight.ItemTwilightSpawner;

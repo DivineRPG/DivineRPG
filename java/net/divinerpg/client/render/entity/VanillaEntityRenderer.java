@@ -1,9 +1,8 @@
 package net.divinerpg.client.render.entity;
 
-import net.divinerpg.api.entity.EntityStats;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAltarOfCorruption;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoBeam;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityBoneChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineArrow;
 import net.divinerpg.client.render.RenderDivineBoss;
@@ -45,6 +44,7 @@ import net.divinerpg.client.render.entity.vanilla.model.ModelWhale;
 import net.divinerpg.client.render.entity.vanilla.model.ModelWildfire;
 import net.divinerpg.client.render.item.ItemRendererBoneChest;
 import net.divinerpg.client.render.item.RenderStatueItem;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vanilla.EntityAncientEntity;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
 import net.divinerpg.entities.vanilla.EntityAyeracoBlue;

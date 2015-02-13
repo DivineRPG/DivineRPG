@@ -1,6 +1,6 @@
 package net.divinerpg.entities.iceika;
 
-import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.entities.base.EntityDivineRPGFlying;
 import net.divinerpg.entities.iceika.projectile.EntityFractiteShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.IceikaItems;
@@ -42,9 +42,9 @@ public class EntityFractite extends EntityDivineRPGFlying {
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.fractiteHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.fractiteSpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.fractiteFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.fractiteHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.fractiteSpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.fractiteFollowRange);
 	}
 
 	@Override

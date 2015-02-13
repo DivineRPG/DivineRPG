@@ -1,6 +1,5 @@
 package net.divinerpg.client.render.entity;
 
-import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDramixAltar;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
@@ -58,6 +57,7 @@ import net.divinerpg.entities.arcana.projectile.EntityLamona;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
 import net.divinerpg.entities.arcana.projectile.EntitySparkler;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;

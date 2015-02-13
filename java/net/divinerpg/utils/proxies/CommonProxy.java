@@ -1,7 +1,6 @@
 package net.divinerpg.utils.proxies;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.api.entity.tileentity.TileEntityStupidSpawner;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDramixAltar;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
@@ -11,14 +10,15 @@ import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityMoonlightFurn
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityOceanfireFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityParasectaAltar;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityWhitefireFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityStupidSpawner;
 import net.divinerpg.blocks.iceika.tileentity.TileEntityCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.tileentity.TileEntityFrostedChest;
 import net.divinerpg.blocks.iceika.tileentity.TileEntityPresentBox;
 import net.divinerpg.blocks.twilight.TileEntityEdenChest;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
-import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAltarOfCorruption;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoBeam;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityBoneChest;
+import net.divinerpg.blocks.vethea.container.tileentity.TileEntityInfusionTable;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.client.render.block.TileEntityStatue;
 import net.divinerpg.dimensions.vanilla.DivineWorldgen;

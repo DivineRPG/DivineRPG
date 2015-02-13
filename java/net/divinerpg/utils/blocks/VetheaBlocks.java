@@ -1,13 +1,13 @@
 package net.divinerpg.utils.blocks;
 
-import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.api.blocks.BlockModDoor;
-import net.divinerpg.api.blocks.BlockModGlass;
-import net.divinerpg.api.blocks.BlockModGrass;
-import net.divinerpg.api.blocks.BlockModLeaves;
-import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockModVine;
-import net.divinerpg.api.blocks.BlockStupidSpawner;
+import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.blocks.base.BlockModDoor;
+import net.divinerpg.blocks.base.BlockModGlass;
+import net.divinerpg.blocks.base.BlockModGrass;
+import net.divinerpg.blocks.base.BlockModLeaves;
+import net.divinerpg.blocks.base.BlockModLog;
+import net.divinerpg.blocks.base.BlockModVine;
+import net.divinerpg.blocks.base.BlockStupidSpawner;
 import net.divinerpg.blocks.vethea.BlockAcid;
 import net.divinerpg.blocks.vethea.BlockHelioticBeam;
 import net.divinerpg.blocks.vethea.BlockInfusionTable;

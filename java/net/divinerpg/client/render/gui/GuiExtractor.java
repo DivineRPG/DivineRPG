@@ -2,10 +2,10 @@ package net.divinerpg.client.render.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import net.divinerpg.api.container.ContainerOldFurnace;
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.arcana.container.ContainerExtractor;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
+import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
+import net.divinerpg.blocks.base.tileentity.container.ContainerOldFurnace;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;

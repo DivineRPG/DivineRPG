@@ -2,9 +2,9 @@ package net.divinerpg.items.iceika;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
@@ -14,7 +14,6 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

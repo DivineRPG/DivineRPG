@@ -2,8 +2,8 @@ package net.divinerpg.entities.vethea;
 
 import java.util.List;
 
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vethea.projectile.EntityWreckBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityWreckExplosiveShot;
 import net.divinerpg.entities.vethea.projectile.EntityWreckShot;
@@ -56,10 +56,10 @@ public class EntityWreck extends EntityDivineRPGBoss {
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.wreckHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.wreckDamage);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.wreckSpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.wreckFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckDamage);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckSpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckFollowRange);
 	}
 	
 	@Override

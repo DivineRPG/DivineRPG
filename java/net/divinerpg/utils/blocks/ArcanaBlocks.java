@@ -1,13 +1,5 @@
 package net.divinerpg.utils.blocks;
 
-import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.api.blocks.BlockModDoor;
-import net.divinerpg.api.blocks.BlockModGlass;
-import net.divinerpg.api.blocks.BlockModGrass;
-import net.divinerpg.api.blocks.BlockModLadder;
-import net.divinerpg.api.blocks.BlockStupidSpawner;
-import net.divinerpg.api.blocks.BlockModTorch;
-import net.divinerpg.api.blocks.BlockRedstonelessRails;
 import net.divinerpg.blocks.arcana.BlockAquaMarine;
 import net.divinerpg.blocks.arcana.BlockArcanaFrame;
 import net.divinerpg.blocks.arcana.BlockArcanaPortal;
@@ -29,6 +21,14 @@ import net.divinerpg.blocks.arcana.BlockStackPlant;
 import net.divinerpg.blocks.arcana.BlockStarBridge;
 import net.divinerpg.blocks.arcana.BlockVeilo;
 import net.divinerpg.blocks.arcana.BlockWhitefireFurnace;
+import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.blocks.base.BlockModDoor;
+import net.divinerpg.blocks.base.BlockModGlass;
+import net.divinerpg.blocks.base.BlockModGrass;
+import net.divinerpg.blocks.base.BlockModLadder;
+import net.divinerpg.blocks.base.BlockModTorch;
+import net.divinerpg.blocks.base.BlockRedstonelessRails;
+import net.divinerpg.blocks.base.BlockStupidSpawner;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 

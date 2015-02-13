@@ -1,6 +1,5 @@
 package net.divinerpg.client.render.entity;
 
-import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.blocks.twilight.TileEntityEdenChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineBoss;
@@ -39,6 +38,7 @@ import net.divinerpg.client.render.entity.twilight.model.ModelTwilightGolem;
 import net.divinerpg.client.render.entity.twilight.model.ModelVamacheron;
 import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
 import net.divinerpg.client.render.item.ItemRendererEdenChest;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.twilight.EntityAngryBunny;
 import net.divinerpg.entities.twilight.EntityApalachiaArcher;
 import net.divinerpg.entities.twilight.EntityApalachiaCadillion;

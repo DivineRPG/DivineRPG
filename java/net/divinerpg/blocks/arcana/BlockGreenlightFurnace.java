@@ -1,7 +1,7 @@
 package net.divinerpg.blocks.arcana;
 
-import net.divinerpg.api.blocks.BlockModFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityGreenlightFurnace;
+import net.divinerpg.blocks.base.BlockModFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.blocks.ArcanaBlocks;

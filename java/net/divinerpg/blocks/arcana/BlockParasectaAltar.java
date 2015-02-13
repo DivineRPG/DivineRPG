@@ -1,9 +1,8 @@
 package net.divinerpg.blocks.arcana;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import net.divinerpg.api.blocks.BlockMod;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityParasectaAltar;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;

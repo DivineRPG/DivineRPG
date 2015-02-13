@@ -1,6 +1,5 @@
 package net.divinerpg.items.twilight;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.twilight.EntityDensos;
 import net.divinerpg.entities.twilight.EntityEternalArcher;
 import net.divinerpg.entities.twilight.EntityKarot;
@@ -8,6 +7,7 @@ import net.divinerpg.entities.twilight.EntityReyvor;
 import net.divinerpg.entities.twilight.EntitySoulFiend;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
 import net.divinerpg.entities.twilight.EntityVamacheron;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;

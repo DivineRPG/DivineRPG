@@ -1,9 +1,9 @@
 package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.api.blocks.BlockModFurnace;
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
+import net.divinerpg.blocks.base.BlockModFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.ArcanaBlocks;

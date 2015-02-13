@@ -2,7 +2,7 @@ package net.divinerpg.blocks.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

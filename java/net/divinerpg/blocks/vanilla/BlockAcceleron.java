@@ -1,12 +1,11 @@
 package net.divinerpg.blocks.vanilla;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

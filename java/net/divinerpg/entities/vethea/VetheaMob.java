@@ -1,6 +1,6 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
+import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.minecraft.world.World;
 
 public abstract class VetheaMob extends EntityDivineRPGMob {

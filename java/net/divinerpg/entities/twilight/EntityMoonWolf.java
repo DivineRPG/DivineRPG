@@ -1,7 +1,7 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.api.entity.EntityDivineRPGTameable;
-import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.entities.base.EntityDivineRPGTameable;
+import net.divinerpg.entities.base.EntityStats;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -39,18 +39,18 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         if(this.isTamed()) {
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.moonWolfTamedSpeed);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.moonWolfTamedFollowRange);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfTamedSpeed);
+            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfTamedFollowRange);
         } else {
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.moonWolfSpeed);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.moonWolfFollowRange);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfSpeed);
+            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfFollowRange);
         }
     }
     
     @Override
     public void setTamed(boolean par1) {
         super.setTamed(par1);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.moonWolfHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfHealth);
     }
  
     public boolean isAIEnabled() {

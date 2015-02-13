@@ -1,7 +1,7 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.api.entity.EntityDivineRPGTameable;
-import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.entities.base.EntityDivineRPGTameable;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -29,9 +29,9 @@ public class EntityAngryBunny extends EntityBunny {
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.angryBunnyHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.angryBunnySpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.angryBunnyFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.angryBunnyHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.angryBunnySpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.angryBunnyFollowRange);
 	}
 	
 	@Override

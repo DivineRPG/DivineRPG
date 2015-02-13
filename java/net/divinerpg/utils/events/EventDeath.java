@@ -1,9 +1,9 @@
 package net.divinerpg.utils.events;
 
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.api.entity.EntityDivineRPGMob;
-import net.divinerpg.api.entity.EntityDivineRPGTameable;
-import net.divinerpg.api.entity.EntityDivineRPGVillager;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityDivineRPGMob;
+import net.divinerpg.entities.base.EntityDivineRPGTameable;
+import net.divinerpg.entities.base.EntityDivineRPGVillager;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.EntityList;
@@ -12,7 +12,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EventDeath {

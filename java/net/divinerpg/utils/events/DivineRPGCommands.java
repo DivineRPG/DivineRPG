@@ -2,8 +2,8 @@ package net.divinerpg.utils.events;
 
 import java.util.List;
 
-import net.divinerpg.api.worldgen.DivineTeleporter;
 import net.divinerpg.dimensions.arcana.TeleporterArcana;
+import net.divinerpg.dimensions.base.DivineTeleporter;
 import net.divinerpg.dimensions.vethea.TeleporterVethea;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.IceikaBlocks;

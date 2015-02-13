@@ -5,8 +5,7 @@ import java.util.Random;
 import scala.xml.PrefixedAttribute;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import net.divinerpg.api.blocks.BlockModFence;
+import net.divinerpg.blocks.base.BlockModFence;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.VanillaBlocks;

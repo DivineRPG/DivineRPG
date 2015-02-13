@@ -1,6 +1,6 @@
 package net.divinerpg.entities.arcana;
 
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,10 +24,10 @@ public class EntityDramix extends EntityDivineRPGBoss {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.dramixHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.dramixDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.dramixSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.dramixFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixFollowRange);
     }
     
     @Override

@@ -1,6 +1,6 @@
 package net.divinerpg.blocks.vethea;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;

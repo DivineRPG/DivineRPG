@@ -1,6 +1,5 @@
 package net.divinerpg.entities.vanilla;
 
-import net.divinerpg.api.entity.EntityDivineRPGMob;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -10,6 +9,7 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.libs.Sounds;
 
@@ -25,10 +25,10 @@ public class EntityCaveclops extends EntityDivineRPGMob implements IRangedAttack
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.caveclopsHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.caveclopsDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.caveclopsSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.caveclopsFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.caveclopsHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.caveclopsDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.caveclopsSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.caveclopsFollowRange);
     }
 
 	@Override

@@ -1,8 +1,8 @@
 package net.divinerpg.items.arcana;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.arcana.EntityDramix;
 import net.divinerpg.entities.arcana.EntityParasecta;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

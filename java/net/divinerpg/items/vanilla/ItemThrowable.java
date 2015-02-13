@@ -2,7 +2,6 @@ package net.divinerpg.items.vanilla;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.arcana.projectile.EntityLamona;
 import net.divinerpg.entities.iceika.projectile.EntitySnowflakeShuriken;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
@@ -13,6 +12,7 @@ import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
 import net.divinerpg.entities.twilight.projectile.EntitySlicerWildwood;
 import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.TwilightItemsWeapons;

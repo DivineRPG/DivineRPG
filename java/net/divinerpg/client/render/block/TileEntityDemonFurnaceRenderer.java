@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.client.render.block.model.ModelDemonFurnace;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;

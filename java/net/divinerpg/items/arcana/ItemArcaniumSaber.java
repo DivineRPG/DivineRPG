@@ -2,7 +2,7 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemModSword;
+import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;

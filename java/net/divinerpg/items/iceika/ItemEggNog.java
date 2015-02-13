@@ -1,6 +1,6 @@
 package net.divinerpg.items.iceika;
 
-import net.divinerpg.api.items.ItemModFood;
+import net.divinerpg.items.base.ItemModFood;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;

@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.api.model.DivineModel;
+import net.divinerpg.client.model.DivineModel;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 

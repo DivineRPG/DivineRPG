@@ -1,7 +1,7 @@
 package net.divinerpg.entities.arcana;
 
-import net.divinerpg.api.entity.EntityDivineRPGTameable;
 import net.divinerpg.entities.arcana.projectile.EntityFyracryxFireball;
+import net.divinerpg.entities.base.EntityDivineRPGTameable;
 import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -30,9 +30,9 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.fyracryxHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.fyracryxSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.fyracryxFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.fyracryxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.fyracryxSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.fyracryxFollowRange);
     }
 
     @Override

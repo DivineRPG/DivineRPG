@@ -1,7 +1,7 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemFastFood;
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemFastFood;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.twilight.ItemTwilightSeeds;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.init.Blocks;

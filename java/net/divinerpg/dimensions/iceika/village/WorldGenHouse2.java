@@ -2,7 +2,7 @@ package net.divinerpg.dimensions.iceika.village;
 
 import java.util.Random;
 
-import net.divinerpg.api.worldgen.WorldGenAPI;
+import net.divinerpg.dimensions.base.WorldGenAPI;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.utils.blocks.IceikaBlocks;

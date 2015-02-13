@@ -1,14 +1,14 @@
 package net.divinerpg.utils.blocks;
 
-import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.api.blocks.BlockModDoublePlant;
-import net.divinerpg.api.blocks.BlockModGrass;
-import net.divinerpg.api.blocks.BlockModLeaves;
-import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockModTorch;
-import net.divinerpg.api.blocks.BlockModVine;
-import net.divinerpg.api.blocks.BlockRedstonelessRails;
-import net.divinerpg.api.blocks.portal.BlockModPortal;
+import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.blocks.base.BlockModDoublePlant;
+import net.divinerpg.blocks.base.BlockModGrass;
+import net.divinerpg.blocks.base.BlockModLeaves;
+import net.divinerpg.blocks.base.BlockModLog;
+import net.divinerpg.blocks.base.BlockModTorch;
+import net.divinerpg.blocks.base.BlockModVine;
+import net.divinerpg.blocks.base.BlockRedstonelessRails;
+import net.divinerpg.blocks.base.portal.BlockModPortal;
 import net.divinerpg.blocks.twilight.BlockBlueFire;
 import net.divinerpg.blocks.twilight.BlockBrambles;
 import net.divinerpg.blocks.twilight.BlockEdenChest;

@@ -1,6 +1,6 @@
 package net.divinerpg.blocks.iceika.tileentity;
 
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 
 public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {

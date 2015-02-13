@@ -1,9 +1,9 @@
 package net.divinerpg.client.render.entity.twilight;
 
-import net.divinerpg.api.entity.DivineBossStatus;
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.client.render.RenderLivingCreature;
 import net.divinerpg.client.render.entity.twilight.model.ModelEternalArcher;
+import net.divinerpg.entities.base.DivineBossStatus;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

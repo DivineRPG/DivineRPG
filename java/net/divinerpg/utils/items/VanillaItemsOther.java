@@ -1,8 +1,8 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.api.items.ItemModBucket;
-import net.divinerpg.api.items.ItemModSeeds;
+import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.items.base.ItemModBucket;
+import net.divinerpg.items.base.ItemModSeeds;
 import net.divinerpg.items.vanilla.ItemHordeHorn;
 import net.divinerpg.items.vanilla.ItemMysteriousClock;
 import net.divinerpg.items.vanilla.ItemVanillaSpawner;

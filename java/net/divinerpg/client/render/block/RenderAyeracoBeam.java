@@ -1,7 +1,7 @@
 package net.divinerpg.client.render.block;
 
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoBeam;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoBeam;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

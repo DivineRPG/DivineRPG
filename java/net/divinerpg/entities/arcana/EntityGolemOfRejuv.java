@@ -1,6 +1,6 @@
 package net.divinerpg.entities.arcana;
 
-import net.divinerpg.api.entity.EntityDivineRPGTameable;
+import net.divinerpg.entities.base.EntityDivineRPGTameable;
 import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -28,9 +28,9 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.golemRejuvHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.golemRejuvSpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.golemRejuvFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.golemRejuvHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.golemRejuvSpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.golemRejuvFollowRange);
 	}
 
 	@Override

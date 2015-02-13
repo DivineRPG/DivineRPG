@@ -1,10 +1,10 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemHealingSword;
-import net.divinerpg.api.items.ItemModBow;
-import net.divinerpg.api.items.ItemModSword;
-import net.divinerpg.api.items.ItemSlowingSword;
 import net.divinerpg.client.render.EntityResourceLocation;
+import net.divinerpg.items.base.ItemHealingSword;
+import net.divinerpg.items.base.ItemModBow;
+import net.divinerpg.items.base.ItemModSword;
+import net.divinerpg.items.base.ItemSlowingSword;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;

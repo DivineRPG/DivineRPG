@@ -1,6 +1,6 @@
 package net.divinerpg.utils.events;
 
-import net.divinerpg.api.items.ItemHealingSword;
+import net.divinerpg.items.base.ItemHealingSword;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;

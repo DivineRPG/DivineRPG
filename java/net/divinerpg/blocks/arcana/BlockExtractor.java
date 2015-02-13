@@ -1,8 +1,8 @@
 package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.api.blocks.BlockModFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
+import net.divinerpg.blocks.base.BlockModFurnace;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -12,7 +12,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockExtractor extends BlockModFurnace {

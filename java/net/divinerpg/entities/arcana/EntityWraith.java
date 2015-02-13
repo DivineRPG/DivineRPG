@@ -1,7 +1,7 @@
 package net.divinerpg.entities.arcana;
 
-import net.divinerpg.api.Sound;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.Sound;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;

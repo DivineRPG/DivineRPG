@@ -1,14 +1,14 @@
 package net.divinerpg.client;
 
-import net.divinerpg.api.container.ContainerDivineMerchant;
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
-import net.divinerpg.api.entity.tileentity.container.ContainerInfiniteFurnace;
 import net.divinerpg.blocks.arcana.container.ContainerExtractor;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
+import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
+import net.divinerpg.blocks.base.tileentity.container.ContainerInfiniteFurnace;
 import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
-import net.divinerpg.blocks.vethea.container.tile_entity.TileEntityInfusionTable;
+import net.divinerpg.blocks.vethea.container.tileentity.TileEntityInfusionTable;
 import net.divinerpg.client.render.gui.GuiAltarCorruption;
 import net.divinerpg.client.render.gui.GuiCoalstoneFurnace;
 import net.divinerpg.client.render.gui.GuiDatticon;

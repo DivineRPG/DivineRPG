@@ -2,7 +2,6 @@ package net.divinerpg.utils.proxies;
 
 import java.util.Random;
 
-import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.client.ArcanaRenderer;
 import net.divinerpg.client.ClientTickHandler;
 import net.divinerpg.client.render.BossTickHandler;
@@ -22,6 +21,7 @@ import net.divinerpg.entities.fx.EntityGreenPortalFX;
 import net.divinerpg.entities.fx.EntityMortumPortalFX;
 import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.divinerpg.entities.fx.EntityWildwoodPortalFX;
+import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;

@@ -3,8 +3,7 @@ package net.divinerpg.items.vanilla;
 import java.util.List;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;

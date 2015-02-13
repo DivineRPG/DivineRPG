@@ -1,6 +1,6 @@
 package net.divinerpg.items.twilight;
 
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;

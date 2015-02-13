@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityBoneChest;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityBoneChest;
 import net.divinerpg.client.render.block.model.ModelEdenChest;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

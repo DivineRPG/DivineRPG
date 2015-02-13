@@ -1,8 +1,8 @@
 package net.divinerpg.client.render;
 
-import net.divinerpg.api.entity.DivineBossStatus;
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
 import net.divinerpg.client.render.RenderLivingCreature;
+import net.divinerpg.entities.base.DivineBossStatus;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

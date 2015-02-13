@@ -1,10 +1,10 @@
 package net.divinerpg.client.render.entity.twilight;
 
-import net.divinerpg.api.entity.DivineBossStatus;
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.client.render.RenderLivingCreature;
 import net.divinerpg.client.render.entity.twilight.model.ModelDensos;
+import net.divinerpg.entities.base.DivineBossStatus;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.items.base.ItemModBow;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

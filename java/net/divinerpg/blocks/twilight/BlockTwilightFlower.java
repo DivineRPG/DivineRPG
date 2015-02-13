@@ -1,6 +1,6 @@
 package net.divinerpg.blocks.twilight;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;

@@ -1,6 +1,6 @@
 package net.divinerpg.items.iceika;
 
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.twilight.ItemTwilightClock;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;

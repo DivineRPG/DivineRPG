@@ -1,7 +1,7 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemFastFood;
-import net.divinerpg.api.items.ItemModFood;
+import net.divinerpg.items.base.ItemFastFood;
+import net.divinerpg.items.base.ItemModFood;
 import net.minecraft.item.Item;
 
 public class ItemsFood {

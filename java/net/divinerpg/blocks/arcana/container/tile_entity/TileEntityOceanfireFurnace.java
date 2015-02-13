@@ -1,7 +1,7 @@
 package net.divinerpg.blocks.arcana.container.tile_entity;
 
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.arcana.BlockOceanfireFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 
 public class TileEntityOceanfireFurnace extends TileEntityInfiniteFurnace {
 

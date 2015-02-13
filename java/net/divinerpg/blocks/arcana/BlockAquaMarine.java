@@ -1,6 +1,6 @@
 package net.divinerpg.blocks.arcana;
 
-import net.divinerpg.api.blocks.BlockModCrop;
+import net.divinerpg.blocks.base.BlockModCrop;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.item.Item;
 

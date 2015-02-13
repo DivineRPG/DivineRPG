@@ -1,6 +1,5 @@
 package net.divinerpg.client.render.entity;
 
-import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineBoss;
 import net.divinerpg.client.render.RenderDivineMob;
@@ -48,6 +47,7 @@ import net.divinerpg.client.render.entity.vethea.model.Vermenous;
 import net.divinerpg.client.render.entity.vethea.model.Vhraak;
 import net.divinerpg.client.render.entity.vethea.model.Zone;
 import net.divinerpg.client.render.entity.vethea.model.Zoragon;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vethea.EntityAcidHag;
 import net.divinerpg.entities.vethea.EntityBiphron;
 import net.divinerpg.entities.vethea.EntityBohemite;

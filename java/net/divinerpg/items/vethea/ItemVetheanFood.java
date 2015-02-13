@@ -2,7 +2,7 @@ package net.divinerpg.items.vethea;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemModFood;
+import net.divinerpg.items.base.ItemModFood;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;

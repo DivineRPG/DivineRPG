@@ -2,8 +2,8 @@ package net.divinerpg.entities.vethea;
 
 import java.util.List;
 
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.api.entity.EntityStats;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
@@ -58,10 +58,10 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.raglokHealth);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.api.entity.EntityStats.raglokDamage);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.raglokSpeed);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.raglokFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.raglokHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.raglokDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.raglokSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.raglokFollowRange);
 	}
 
 	public void manageAbilities() {

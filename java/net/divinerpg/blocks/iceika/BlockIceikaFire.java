@@ -1,7 +1,7 @@
 package net.divinerpg.blocks.iceika;
 
-import net.divinerpg.api.blocks.BlockModFire;
-import net.divinerpg.api.blocks.portal.BlockModPortal;
+import net.divinerpg.blocks.base.BlockModFire;
+import net.divinerpg.blocks.base.portal.BlockModPortal;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.minecraft.init.Blocks;

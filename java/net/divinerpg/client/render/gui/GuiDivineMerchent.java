@@ -3,7 +3,7 @@ package net.divinerpg.client.render.gui;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
-import net.divinerpg.api.container.ContainerDivineMerchant;
+import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;

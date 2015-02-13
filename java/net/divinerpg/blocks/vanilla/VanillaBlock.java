@@ -2,7 +2,7 @@ package net.divinerpg.blocks.vanilla;
 
 import java.util.Random;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;

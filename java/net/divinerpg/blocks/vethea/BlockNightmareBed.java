@@ -3,7 +3,7 @@ package net.divinerpg.blocks.vethea;
 import java.util.Iterator;
 import java.util.Random;
 
-import net.divinerpg.api.worldgen.WorldGenAPI;
+import net.divinerpg.dimensions.base.WorldGenAPI;
 import net.divinerpg.dimensions.vethea.TeleporterVethea;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;

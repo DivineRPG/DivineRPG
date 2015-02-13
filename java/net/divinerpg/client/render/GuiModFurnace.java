@@ -1,7 +1,7 @@
 package net.divinerpg.client.render;
 
-import net.divinerpg.api.container.ContainerOldFurnace;
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
+import net.divinerpg.blocks.base.tileentity.container.ContainerOldFurnace;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;

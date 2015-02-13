@@ -2,8 +2,8 @@ package net.divinerpg.client.render.item;
 
 import org.lwjgl.opengl.GL11;
 
-import net.divinerpg.api.blocks.BlockStatue;
-import net.divinerpg.api.model.DivineModel;
+import net.divinerpg.blocks.base.BlockStatue;
+import net.divinerpg.client.model.DivineModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

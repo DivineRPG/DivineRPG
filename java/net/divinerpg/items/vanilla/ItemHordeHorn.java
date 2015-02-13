@@ -1,12 +1,12 @@
 package net.divinerpg.items.vanilla;
 
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAyeracoSpawn;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoSpawn;
 import net.divinerpg.entities.vanilla.EntityAyeracoBlue;
 import net.divinerpg.entities.vanilla.EntityAyeracoGreen;
 import net.divinerpg.entities.vanilla.EntityAyeracoPurple;
 import net.divinerpg.entities.vanilla.EntityAyeracoRed;
 import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;

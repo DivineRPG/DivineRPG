@@ -2,7 +2,7 @@ package net.divinerpg.dimensions.vanilla;
 
 import java.util.Random;
 
-import net.divinerpg.api.entity.tileentity.TileEntityStupidSpawner;
+import net.divinerpg.blocks.base.tileentity.TileEntityStupidSpawner;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.block.material.Material;

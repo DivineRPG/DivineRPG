@@ -2,11 +2,11 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.arcana.EntityFyracryx;
 import net.divinerpg.entities.arcana.EntityGolemOfRejuv;
 import net.divinerpg.entities.arcana.EntityParatiku;
 import net.divinerpg.entities.arcana.EntitySeimer;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;

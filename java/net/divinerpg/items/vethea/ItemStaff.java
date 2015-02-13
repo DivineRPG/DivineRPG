@@ -2,9 +2,9 @@ package net.divinerpg.items.vethea;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.ArcanaHelper;

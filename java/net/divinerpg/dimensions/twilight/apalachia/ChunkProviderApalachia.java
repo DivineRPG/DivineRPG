@@ -3,7 +3,7 @@ package net.divinerpg.dimensions.twilight.apalachia;
 import java.util.List;
 import java.util.Random;
 
-import net.divinerpg.api.worldgen.WorldGenModDoublePlant;
+import net.divinerpg.dimensions.base.WorldGenModDoublePlant;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;

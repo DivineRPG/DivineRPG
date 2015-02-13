@@ -1,10 +1,10 @@
 package net.divinerpg.client.render.entity.vethea;
 
-import net.divinerpg.api.entity.DivineBossStatus;
-import net.divinerpg.api.entity.EntityStats;
 import net.divinerpg.client.render.entity.vethea.model.WreckForm1;
 import net.divinerpg.client.render.entity.vethea.model.WreckForm2;
 import net.divinerpg.client.render.entity.vethea.model.WreckForm3;
+import net.divinerpg.entities.base.DivineBossStatus;
+import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vethea.EntityWreck;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.model.ModelBase;

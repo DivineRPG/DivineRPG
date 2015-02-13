@@ -1,8 +1,8 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemDivineArmor;
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.api.items.ItemModBow;
+import net.divinerpg.items.base.ItemDivineArmor;
+import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.items.vethea.ItemDisk;
 import net.divinerpg.items.vethea.ItemDreamFlint;
 import net.divinerpg.items.vethea.ItemMoonClock;

@@ -1,11 +1,5 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemDivineArmor;
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.api.items.ItemModFood;
-import net.divinerpg.api.items.ItemModOrb;
-import net.divinerpg.api.items.ItemModPotion;
-import net.divinerpg.api.items.ItemModSword;
 import net.divinerpg.items.arcana.ItemAquamarine;
 import net.divinerpg.items.arcana.ItemArcanaProjectile;
 import net.divinerpg.items.arcana.ItemArcanaSeeds;
@@ -17,6 +11,7 @@ import net.divinerpg.items.arcana.ItemEnderScepter;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
 import net.divinerpg.items.arcana.ItemMeriksMissile;
+import net.divinerpg.items.arcana.ItemOrbOfLight;
 import net.divinerpg.items.arcana.ItemReflector;
 import net.divinerpg.items.arcana.ItemShadowSword;
 import net.divinerpg.items.arcana.ItemStaffEnrichment;
@@ -24,6 +19,11 @@ import net.divinerpg.items.arcana.ItemStaffStarlight;
 import net.divinerpg.items.arcana.ItemStormSword;
 import net.divinerpg.items.arcana.ItemWizardsBook;
 import net.divinerpg.items.arcana.ItemWraithbane;
+import net.divinerpg.items.base.ItemDivineArmor;
+import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.items.base.ItemModFood;
+import net.divinerpg.items.base.ItemModPotion;
+import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
@@ -113,7 +113,7 @@ public class ArcanaItems {
         chargedCollector   		 = new ItemChargedCollector("chargedCollector");
         wizardBook	     	  	 = new ItemWizardsBook("wizardsBook");
         staffOfEnrichment		 = new ItemStaffEnrichment("staffOfEnrichment");
-        orbOfLight	 			 = new ItemModOrb("orbOfLight");//TODO: make this work.
+        orbOfLight	 			 = new ItemOrbOfLight();
     	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     	grenade		 			 = new ItemGrenade("grenade");
     	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);

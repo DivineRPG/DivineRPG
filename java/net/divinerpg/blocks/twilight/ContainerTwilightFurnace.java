@@ -1,7 +1,7 @@
 package net.divinerpg.blocks.twilight;
 
-import net.divinerpg.api.entity.tileentity.TileEntityModFurnace;
-import net.divinerpg.api.entity.tileentity.container.ContainerModFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
+import net.divinerpg.blocks.base.tileentity.container.ContainerModFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

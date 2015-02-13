@@ -2,7 +2,7 @@ package net.divinerpg.items.iceika;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.EntityLivingBase;

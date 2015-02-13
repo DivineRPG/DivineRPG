@@ -1,12 +1,12 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemDivineArmor;
-import net.divinerpg.api.items.ItemHealingSword;
-import net.divinerpg.api.items.ItemMod;
-import net.divinerpg.api.items.ItemModBow;
-import net.divinerpg.api.items.ItemModFood;
-import net.divinerpg.api.items.ItemSlowingSword;
 import net.divinerpg.client.render.EntityResourceLocation;
+import net.divinerpg.items.base.ItemDivineArmor;
+import net.divinerpg.items.base.ItemHealingSword;
+import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.items.base.ItemModBow;
+import net.divinerpg.items.base.ItemModFood;
+import net.divinerpg.items.base.ItemSlowingSword;
 import net.divinerpg.items.iceika.ItemEggNog;
 import net.divinerpg.items.iceika.ItemMusicShooter;
 import net.divinerpg.items.iceika.ItemSerenadeOfIce;

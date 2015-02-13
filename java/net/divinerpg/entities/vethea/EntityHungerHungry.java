@@ -1,8 +1,8 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGVillager;
-import net.divinerpg.api.entity.InfiniteTrade;
 import net.divinerpg.client.GuiHandler;
+import net.divinerpg.entities.base.EntityDivineRPGVillager;
+import net.divinerpg.entities.base.InfiniteTrade;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;

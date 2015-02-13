@@ -2,8 +2,8 @@ package net.divinerpg.blocks.arcana.container.tile_entity;
 
 import java.util.Random;
 
-import net.divinerpg.api.entity.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.arcana.BlockDemonFurnace;
+import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 

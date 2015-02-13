@@ -2,8 +2,6 @@ package net.divinerpg.utils;
 
 import java.util.ArrayList;
 
-import net.divinerpg.api.Sound;
-
 public class SoundGenerator extends RegistryFile {
 
     private static ArrayList<Sound>   sounds    = new ArrayList<Sound>();

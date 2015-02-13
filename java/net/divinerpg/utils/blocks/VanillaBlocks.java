@@ -1,11 +1,11 @@
 package net.divinerpg.utils.blocks;
 
-import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.api.blocks.BlockModLeaves;
-import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockModTorch;
-import net.divinerpg.api.blocks.BlockStatue;
-import net.divinerpg.api.blocks.BlockStupidSpawner;
+import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.blocks.base.BlockModLeaves;
+import net.divinerpg.blocks.base.BlockModLog;
+import net.divinerpg.blocks.base.BlockModTorch;
+import net.divinerpg.blocks.base.BlockStatue;
+import net.divinerpg.blocks.base.BlockStupidSpawner;
 import net.divinerpg.blocks.vanilla.BlockAcceleron;
 import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;

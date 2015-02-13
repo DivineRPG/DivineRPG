@@ -1,8 +1,8 @@
 package net.divinerpg.entities.iceika;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.api.entity.EntityDivineRPGVillager;
 import net.divinerpg.client.GuiHandler;
+import net.divinerpg.entities.base.EntityDivineRPGVillager;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.IceikaItems;

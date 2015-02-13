@@ -1,6 +1,6 @@
 package net.divinerpg.client.render.block;
 
-import net.divinerpg.blocks.vanilla.container.tile_entity.TileEntityAltarOfCorruption;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAltarOfCorruption;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

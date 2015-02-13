@@ -1,9 +1,9 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemModAxe;
-import net.divinerpg.api.items.ItemModPickaxe;
-import net.divinerpg.api.items.ItemModShovel;
-import net.divinerpg.api.items.ItemShickaxe;
+import net.divinerpg.items.base.ItemModAxe;
+import net.divinerpg.items.base.ItemModPickaxe;
+import net.divinerpg.items.base.ItemModShovel;
+import net.divinerpg.items.base.ItemShickaxe;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.minecraft.item.Item;
 

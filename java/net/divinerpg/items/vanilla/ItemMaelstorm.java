@@ -2,9 +2,9 @@ package net.divinerpg.items.vanilla;
 
 import java.util.List;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;

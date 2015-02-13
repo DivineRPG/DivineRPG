@@ -3,7 +3,7 @@ package net.divinerpg.blocks.twilight;
 import java.util.ArrayList;
 import java.util.Random;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;

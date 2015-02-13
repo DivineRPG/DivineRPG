@@ -1,11 +1,10 @@
 package net.divinerpg.client;
 
-import net.divinerpg.api.blocks.BlockModBush;
-import net.divinerpg.api.blocks.BlockModLeaves;
+import net.divinerpg.blocks.base.BlockModBush;
+import net.divinerpg.blocks.base.BlockModLeaves;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraft.client.Minecraft;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.relauncher.Side;

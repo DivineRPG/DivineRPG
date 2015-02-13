@@ -1,6 +1,6 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityGive;
+import net.divinerpg.entities.base.EntityGive;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.player.EntityPlayer;

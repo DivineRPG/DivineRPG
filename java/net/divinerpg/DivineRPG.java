@@ -1,6 +1,6 @@
 package net.divinerpg;
 
-import net.divinerpg.api.ModFluid;
+import net.divinerpg.blocks.base.ModFluid;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;

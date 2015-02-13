@@ -3,7 +3,7 @@ package net.divinerpg.blocks.arcana;
 import java.util.List;
 import java.util.Random;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.dimensions.arcana.TeleporterArcana;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.blocks.ArcanaBlocks;

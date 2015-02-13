@@ -1,6 +1,6 @@
 package net.divinerpg.libs;
 
-import net.divinerpg.api.Sound;
+import net.divinerpg.utils.Sound;
 import net.divinerpg.utils.SoundGenerator;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;

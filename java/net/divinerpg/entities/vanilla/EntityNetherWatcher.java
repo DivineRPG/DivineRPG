@@ -1,8 +1,8 @@
 package net.divinerpg.entities.vanilla;
 
-import net.divinerpg.api.entity.EntityDivineRPGBoss;
-import net.divinerpg.api.entity.EntityDivineRPGFlying;
-import net.divinerpg.api.entity.IDivineRPGBoss;
+import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityDivineRPGFlying;
+import net.divinerpg.entities.base.IDivineRPGBoss;
 import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
@@ -46,9 +46,9 @@ public class EntityNetherWatcher extends EntityDivineRPGBoss {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.theWatcherHealth);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.api.entity.EntityStats.theWatcherSpeed);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.api.entity.EntityStats.theWatcherFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.theWatcherHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.theWatcherSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.theWatcherFollowRange);
 	}
 	
 	@Override

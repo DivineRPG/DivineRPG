@@ -1,6 +1,6 @@
 package net.divinerpg.blocks.twilight;
 
-import net.divinerpg.api.blocks.BlockModDoublePlant;
+import net.divinerpg.blocks.base.BlockModDoublePlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.entity.Entity;

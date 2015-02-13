@@ -1,8 +1,8 @@
 package net.divinerpg.items.vanilla;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.entities.vanilla.EntityNetherWatcher;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;

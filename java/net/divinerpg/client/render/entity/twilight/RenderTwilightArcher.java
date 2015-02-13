@@ -1,7 +1,7 @@
 package net.divinerpg.client.render.entity.twilight;
 
-import net.divinerpg.api.items.ItemModBow;
 import net.divinerpg.client.render.entity.twilight.model.ModelTwilightArcher;
+import net.divinerpg.items.base.ItemModBow;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

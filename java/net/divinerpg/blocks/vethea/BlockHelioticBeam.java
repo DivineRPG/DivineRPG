@@ -2,7 +2,7 @@ package net.divinerpg.blocks.vethea;
 
 import java.util.Random;
 
-import net.divinerpg.api.blocks.BlockMod;
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.entities.vethea.projectile.EntityZoragonBomb;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;

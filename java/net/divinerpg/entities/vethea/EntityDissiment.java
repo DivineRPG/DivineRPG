@@ -1,6 +1,6 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.api.entity.EntityDivineRPGFlying;
+import net.divinerpg.entities.base.EntityDivineRPGFlying;
 import net.divinerpg.entities.vethea.projectile.EntityDissimentShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
@@ -44,7 +44,7 @@ public class EntityDissiment extends EntityDivineRPGFlying {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.api.entity.EntityStats.dissimentHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.dissimentHealth);
     }
     
     @Override

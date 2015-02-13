@@ -1,6 +1,6 @@
 package net.divinerpg.utils.items;
 
-import net.divinerpg.api.items.ItemDivineArmor;
+import net.divinerpg.items.base.ItemDivineArmor;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;

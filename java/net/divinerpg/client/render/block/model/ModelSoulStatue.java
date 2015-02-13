@@ -1,7 +1,7 @@
 package net.divinerpg.client.render.block.model;
 
-import net.divinerpg.api.model.DivineModel;
-import net.divinerpg.api.model.DivineRenderer;
+import net.divinerpg.client.model.DivineModel;
+import net.divinerpg.client.model.DivineRenderer;
 import net.minecraft.client.model.ModelRenderer;
 
 public class ModelSoulStatue extends DivineModel

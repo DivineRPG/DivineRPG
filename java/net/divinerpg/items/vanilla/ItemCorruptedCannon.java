@@ -3,8 +3,8 @@ package net.divinerpg.items.vanilla;
 import java.util.List;
 import java.util.Random;
 
-import net.divinerpg.api.items.ItemMod;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.VanillaItemsOther;

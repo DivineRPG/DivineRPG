@@ -2,7 +2,7 @@ package net.divinerpg.blocks.vethea;
 
 import java.util.Random;
 
-import net.divinerpg.api.worldgen.DivineTeleporter;
+import net.divinerpg.dimensions.base.DivineTeleporter;
 import net.divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
 import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.divinerpg.libs.Reference;

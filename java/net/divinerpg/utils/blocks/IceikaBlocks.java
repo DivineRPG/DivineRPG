@@ -1,16 +1,16 @@
 package net.divinerpg.utils.blocks;
 
-import net.divinerpg.api.blocks.BlockMod;
-import net.divinerpg.api.blocks.BlockModBook;
-import net.divinerpg.api.blocks.BlockModBush;
-import net.divinerpg.api.blocks.BlockModDoor;
-import net.divinerpg.api.blocks.BlockModGlass;
-import net.divinerpg.api.blocks.BlockModGrass;
-import net.divinerpg.api.blocks.BlockModLeaves;
-import net.divinerpg.api.blocks.BlockModLog;
-import net.divinerpg.api.blocks.BlockModSpawner;
-import net.divinerpg.api.blocks.BlockModStairs;
-import net.divinerpg.api.blocks.portal.BlockModPortal;
+import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.blocks.base.BlockModBook;
+import net.divinerpg.blocks.base.BlockModBush;
+import net.divinerpg.blocks.base.BlockModDoor;
+import net.divinerpg.blocks.base.BlockModGlass;
+import net.divinerpg.blocks.base.BlockModGrass;
+import net.divinerpg.blocks.base.BlockModLeaves;
+import net.divinerpg.blocks.base.BlockModLog;
+import net.divinerpg.blocks.base.BlockModSpawner;
+import net.divinerpg.blocks.base.BlockModStairs;
+import net.divinerpg.blocks.base.portal.BlockModPortal;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
 import net.divinerpg.blocks.iceika.BlockIceikaFire;
