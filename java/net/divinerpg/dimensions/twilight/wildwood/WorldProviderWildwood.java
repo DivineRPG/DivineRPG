@@ -47,6 +47,6 @@ public class WorldProviderWildwood extends WorldProvider {
     
     @Override
     public String getDimensionName() {
-        return "Wildwood";
+        return "The Wildwood";
     }
 }
