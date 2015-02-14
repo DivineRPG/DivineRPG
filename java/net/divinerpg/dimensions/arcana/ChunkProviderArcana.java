@@ -31,6 +31,7 @@ import net.divinerpg.dimensions.arcana.components.DungeonComponent9;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentBase;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentDramix;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentParasecta;
+import net.divinerpg.dimensions.arcana.components.DungeonComponentPortal;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -47,122 +48,119 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkProviderArcana implements IChunkProvider {
 
-	public class ChunkCoords
-	{
-	    public final int chunkCoordX;
-	    public final int chunkCoordZ;
+    public class ChunkCoords {
+        public final int chunkCoordX;
+        public final int chunkCoordZ;
 
-	    public ChunkCoords(int X, int Z)
-	    {
-	        this.chunkCoordX = X;
-	        this.chunkCoordZ = Z;
-	    }
+        public ChunkCoords(int X, int Z) {
+            this.chunkCoordX = X;
+            this.chunkCoordZ = Z;
+        }
 
-	    public boolean equals(Object o)
-	    {
-	        if (!(o instanceof ChunkCoords))
-	        {
-	            return false;
-	        }
-	        else
-	        {
-	        	ChunkCoords chunkCoords = (ChunkCoords)o;
-	            return chunkCoords.chunkCoordX == this.chunkCoordX && chunkCoords.chunkCoordZ == this.chunkCoordZ;
-	        }
-	    }
+        public boolean equals(Object o) {
+            if (!(o instanceof ChunkCoords)) {
+                return false;
+            } else {
+                ChunkCoords chunkCoords = (ChunkCoords) o;
+                return chunkCoords.chunkCoordX == this.chunkCoordX
+                        && chunkCoords.chunkCoordZ == this.chunkCoordZ;
+            }
+        }
 
-	    public int hashCode()
-	    {
-	        return this.chunkCoordX + this.chunkCoordZ * 31;
-	    }
-	}
-	
-	private ArrayList Rooms;
-	private ArrayList BossRooms;
-	private DungeonCeiling Ceiling;
-	private World worldObj;
-	private Random random;
-	private Map chunkTileEntityMap;
+        public int hashCode() {
+            return this.chunkCoordX + this.chunkCoordZ * 31;
+        }
+    }
 
-	public ChunkProviderArcana(World world, long seed){
+    private ArrayList Rooms;
+    private ArrayList BossRooms;
+    private DungeonCeiling Ceiling;
+    private DungeonComponentPortal roomPortal;
+    private World worldObj;
+    private Random random;
+    private Map chunkTileEntityMap;
 
-		worldObj = world;
-		random = new Random(seed);
+    public ChunkProviderArcana(World world, long seed) {
 
-		Rooms = new ArrayList(21);
-		BossRooms = new ArrayList(2);
-		
-		Rooms.add(new DungeonComponent());
-		Rooms.add(new DungeonComponent1());
-		Rooms.add(new DungeonComponent2());
-		Rooms.add(new DungeonComponent3());
-		Rooms.add(new DungeonComponent4());
-		Rooms.add(new DungeonComponent5());
-		Rooms.add(new DungeonComponent6());
-		Rooms.add(new DungeonComponent7());
-		Rooms.add(new DungeonComponent9());
-		Rooms.add(new DungeonComponent10());
-		Rooms.add(new DungeonComponent11());
-		Rooms.add(new DungeonComponent12());
-		Rooms.add(new DungeonComponent13());
-		Rooms.add(new DungeonComponent14());
-		Rooms.add(new DungeonComponent15());
-		Rooms.add(new DungeonComponent16());
-		Rooms.add(new DungeonComponent17());
-		Rooms.add(new DungeonComponent22());
-		Rooms.add(new DungeonComponenet18());
-		Rooms.add(new DungeonComponenet19());
-		Rooms.add(new DungeonComponent8());
-		BossRooms.add(new DungeonComponentParasecta());
-		BossRooms.add(new DungeonComponentDramix());
-		Ceiling = new DungeonCeiling();
-		this.chunkTileEntityMap = new HashMap();
-	}
+        worldObj = world;
+        random = new Random(seed);
 
-	@Override
-	public boolean chunkExists(int i, int j) {	
-		return false;
-	}
+        Rooms = new ArrayList(21);
+        BossRooms = new ArrayList(2);
 
-	@Override
-	public Chunk provideChunk(int chunkX, int chunkZ) {
-		ArcanaChunk arcanaChunk = new ArcanaChunk();
-        
-        int roomToGenerate;
-        
+        Rooms.add(new DungeonComponent());
+        Rooms.add(new DungeonComponent1());
+        Rooms.add(new DungeonComponent2());
+        Rooms.add(new DungeonComponent3());
+        Rooms.add(new DungeonComponent4());
+        Rooms.add(new DungeonComponent5());
+        Rooms.add(new DungeonComponent6());
+        Rooms.add(new DungeonComponent7());
+        Rooms.add(new DungeonComponent9());
+        Rooms.add(new DungeonComponent10());
+        Rooms.add(new DungeonComponent11());
+        Rooms.add(new DungeonComponent12());
+        Rooms.add(new DungeonComponent13());
+        Rooms.add(new DungeonComponent14());
+        Rooms.add(new DungeonComponent15());
+        Rooms.add(new DungeonComponent16());
+        Rooms.add(new DungeonComponent17());
+        Rooms.add(new DungeonComponent22());
+        Rooms.add(new DungeonComponenet18());
+        Rooms.add(new DungeonComponenet19());
+        Rooms.add(new DungeonComponent8());
+        BossRooms.add(new DungeonComponentParasecta());
+        BossRooms.add(new DungeonComponentDramix());
+        roomPortal = new DungeonComponentPortal();
+        Ceiling = new DungeonCeiling();
+        this.chunkTileEntityMap = new HashMap();
+    }
+
+    @Override
+    public boolean chunkExists(int i, int j) {
+        return false;
+    }
+
+    @Override
+    public Chunk provideChunk(int chunkX, int chunkZ) {
+        ArcanaChunk arcanaChunk = new ArcanaChunk();
+
         for (int i = 4; i > 0; i--) {
-			roomToGenerate = random.nextInt(21);
-			DungeonComponentBase room = (DungeonComponentBase)(Rooms.get(roomToGenerate));
-			
-			if(room instanceof DungeonComponent8 && i >= 3) room = (DungeonComponentBase)(Rooms.get(this.random.nextInt(10)+10));
+            if (chunkX == 0 && chunkZ == 0 && i == 1) {
+                roomPortal.generate(arcanaChunk, random, 0, i * 8, 0);
+            } else {
+                DungeonComponentBase room = (DungeonComponentBase) (Rooms.get(random.nextInt(21)));
+                if (room instanceof DungeonComponent8 && i >= 3)
+                    room = (DungeonComponentBase) (Rooms.get(this.random.nextInt(10) + 10));
 
-			room.generate(arcanaChunk, random, 0, i * 8, 0);			
-		}
-        
-		Ceiling.generate(arcanaChunk, random, 0, 40, 0);
-        
-		chunkTileEntityMap.put(new ChunkCoords(chunkX, chunkZ), arcanaChunk.chunkTileEntityPositions);
+                room.generate(arcanaChunk, random, 0, i * 8, 0);
+            }
+        }
 
-		Chunk chunk = new Chunk(this.worldObj, arcanaChunk.getChunkData(), arcanaChunk.getChunkMetadata(), chunkX, chunkZ);
+        Ceiling.generate(arcanaChunk, random, 0, 40, 0);
+
+        chunkTileEntityMap.put(new ChunkCoords(chunkX, chunkZ), arcanaChunk.chunkTileEntityPositions);
+
+        Chunk chunk = new Chunk(this.worldObj, arcanaChunk.getChunkData(), arcanaChunk.getChunkMetadata(), chunkX, chunkZ);
         chunk.generateSkylightMap();
-        BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[])null, chunkX * 16, chunkZ * 16, 16, 16);
+        BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[]) null, chunkX * 16,
+                        chunkZ * 16, 16, 16);
         byte[] abyte = chunk.getBiomeArray();
 
-        for (int i = 0; i < abyte.length; ++i)
-        {
-            abyte[i] = (byte)abiomegenbase[i].biomeID;
+        for (int i = 0; i < abyte.length; ++i) {
+            abyte[i] = (byte) abiomegenbase[i].biomeID;
         }
 
         chunk.generateSkylightMap();
         return chunk;
-	}
+    }
 
-	@Override
-	public Chunk loadChunk(int i, int j) {
-		return this.provideChunk(i, j);
-	}
+    @Override
+    public Chunk loadChunk(int i, int j) {
+        return this.provideChunk(i, j);
+    }
 
-	@Override
+    @Override
 	public void populate(IChunkProvider chunkProvider, int chunkX, int chunkZ) {
 		int x = chunkX * 16;
 		int z = chunkZ * 16;
@@ -188,55 +186,58 @@ public class ChunkProviderArcana implements IChunkProvider {
 			}
 			chunkTileEntityMap.remove(chunkCoords);
 		}
-		for(int i = 1; i < 4; i++) {
-			roomToGenerate = rand.nextInt(2);
-
-			if(this.random.nextInt(50) == 0){
-				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, z);
-				this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
-			}
+		if (chunkX != 0 || chunkZ != 0) {
+		    for(int i = 1; i < 4; i++) {
+    			if(this.random.nextInt(50) == 0){
+    	            roomToGenerate = rand.nextInt(2);
+    				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, z);
+    				this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
+    			}
+		    }
 		}
 	}
 
-	@Override
-	public boolean saveChunks(boolean flag, IProgressUpdate iprogressupdate) {
-		return true;
-	}
+    @Override
+    public boolean saveChunks(boolean flag, IProgressUpdate iprogressupdate) {
+        return true;
+    }
 
-	@Override
-	public boolean unloadQueuedChunks() {
-		return false;
-	}
+    @Override
+    public boolean unloadQueuedChunks() {
+        return false;
+    }
 
-	@Override
-	public boolean canSave() {
-		return true;
-	}
+    @Override
+    public boolean canSave() {
+        return true;
+    }
 
-	@Override
-	public String makeString() {
-		return "Arcana";
-	}
+    @Override
+    public String makeString() {
+        return "Arcana";
+    }
 
-	@Override
-	public List getPossibleCreatures(EnumCreatureType enumcreaturetype, int i, int j, int k) {
-		BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(i, k);
-		return biomegenbase == null ? null : biomegenbase.getSpawnableList(enumcreaturetype);
-	}
+    @Override
+    public List getPossibleCreatures(EnumCreatureType enumcreaturetype, int i, int j, int k) {
+        BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(i, k);
+        return biomegenbase == null ? null : biomegenbase.getSpawnableList(enumcreaturetype);
+    }
 
-	@Override
-	public int getLoadedChunkCount() {
-		return 0;
-	}
+    @Override
+    public int getLoadedChunkCount() {
+        return 0;
+    }
 
-	@Override
-	public void recreateStructures(int i, int j) {}
+    @Override
+    public void recreateStructures(int i, int j) {
+    }
 
-	@Override
-	public void saveExtraData() { }
+    @Override
+    public void saveExtraData() {
+    }
 
-	@Override
-	public ChunkPosition func_147416_a(World var1, String var2, int var3, int var4, int var5) {
-		return null;
-	}
+    @Override
+    public ChunkPosition func_147416_a(World var1, String var2, int var3, int var4, int var5) {
+        return null;
+    }
 }

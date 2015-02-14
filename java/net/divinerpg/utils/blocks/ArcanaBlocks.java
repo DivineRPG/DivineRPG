@@ -79,6 +79,7 @@ public class ArcanaBlocks {
 
     public static Block arcanaPortal;
     public static Block arcanaPortalFrame;
+    public static Block arcanaHardPortalFrame;
     
 	public static Block aquamarine;
 	public static Block eucalyptusRoot;
@@ -152,6 +153,7 @@ public class ArcanaBlocks {
 
 	    arcanaPortal          = new BlockArcanaPortal("arcanaPortal");
 	    arcanaPortalFrame     = new BlockArcanaFrame("arcanaPortalFrame", arcanaPortal);
+	    arcanaHardPortalFrame = new BlockArcanaFrame("arcanaHardPortalFrame", arcanaPortal).setBlockUnbreakable().setResistance(6000000F);
 	    
 		aquamarine		  		= new BlockAquaMarine("aquamarinePlant");
 		eucalyptusRoot	  		= new BlockEucalyptusRoot("eucalyptusPlant");

@@ -10,12 +10,15 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 public class ArcanaHelper implements IExtendedEntityProperties {
 
 	private final EntityPlayer player;
-	private static final String NAME = "ArcanaBar";
+	private static final String NAME = "Arcana";
+    private double returnPortalX;
+    private double returnPortalY;
+    private double returnPortalZ;
 	
 	public ArcanaHelper(EntityPlayer player) {
 		this.player = player;
-		player.getDataWatcher().addObject(ConfigurationHelper.barValue, 0F);//Arcana ConfigurationHelper.barValue
-		player.getDataWatcher().addObject(ConfigurationHelper.barRegen, 1);//Regen delay
+		player.getDataWatcher().addObject(ConfigurationHelper.barValue, 0F);  //Arcana ConfigurationHelper.barValue
+		player.getDataWatcher().addObject(ConfigurationHelper.barRegen, 1);   //Regen delay
 	}
 
 	@Override
@@ -23,6 +26,9 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setFloat("ConfigurationHelper.barValue", this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue));
 		tag.setInteger("RegenDelay", this.player.getDataWatcher().getWatchableObjectInt(ConfigurationHelper.barRegen));
+        tag.setDouble("returnPortalX", returnPortalX);
+        tag.setDouble("returnPortalY", returnPortalY);
+        tag.setDouble("returnPortalZ", returnPortalZ);
 		n.setTag(NAME, tag);
 	}
 
@@ -31,6 +37,9 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		NBTTagCompound tag = (NBTTagCompound) n.getTag(NAME);
 		this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, tag.getFloat("ConfigurationHelper.barValue"));
 		this.player.getDataWatcher().updateObject(ConfigurationHelper.barRegen, tag.getInteger("RegenDelay"));
+        this.returnPortalX = tag.getDouble("returnPortalX");
+        this.returnPortalY = tag.getDouble("returnPortalY");
+        this.returnPortalZ = tag.getDouble("returnPortalZ");
 	}
 	
 	public static void addProperties(EntityPlayer player) {
@@ -83,6 +92,30 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		this.player.getDataWatcher().updateObject(ConfigurationHelper.barValue, this.player.getDataWatcher().getWatchableObjectFloat(ConfigurationHelper.barValue) - i);
 	}
 
-	@Override
+    public void setReturnPortalX(double x) {
+        this.returnPortalX = x;
+    }
+
+    public double getReturnPortalX() {
+        return this.returnPortalX;
+    }
+
+    public void setReturnPortalY(double y) {
+        this.returnPortalY = y;
+    }
+
+    public double getReturnPortalY() {
+        return this.returnPortalY;
+    }
+
+    public void setReturnPortalZ(double z) {
+        this.returnPortalZ = z;
+    }
+
+    public double getReturnPortalZ() {
+        return this.returnPortalZ;
+    }
+
+    @Override
 	public void init(Entity entity, World world) {}
 }

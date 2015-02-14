@@ -24,6 +24,8 @@ public class BlockArcanaPortal extends BlockMod {
     public BlockArcanaPortal(String name) {
         super(EnumBlockType.PORTAL, name, 5.0F);
         setLightLevel(1.0F);
+		setBlockUnbreakable();
+		setResistance(6000000F);
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
     }
 
