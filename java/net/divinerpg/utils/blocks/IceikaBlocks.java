@@ -11,6 +11,7 @@ import net.divinerpg.blocks.base.BlockModLog;
 import net.divinerpg.blocks.base.BlockModSpawner;
 import net.divinerpg.blocks.base.BlockModStairs;
 import net.divinerpg.blocks.base.portal.BlockModPortal;
+import net.divinerpg.blocks.iceika.BlockCandyCane;
 import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
 import net.divinerpg.blocks.iceika.BlockIceikaFire;
@@ -55,6 +56,7 @@ public class IceikaBlocks {
 	public static Block blueXmasLights;
 	public static Block yellowXmasLights;
 	public static Block purpleXmasLights;
+	public static Block candyCane;
 	
 	public static Block presentBox;
 
@@ -93,6 +95,7 @@ public class IceikaBlocks {
 	    blueXmasLights		= new BlockXmasLights("blueChristmasLights");
 	    yellowXmasLights	= new BlockXmasLights("yellowChristmasLights");
 	    purpleXmasLights	= new BlockXmasLights("purpleChristmasLights");
+	    candyCane 			= new BlockCandyCane();
 	    
 	    presentBox			= new BlockPresentBox();
 

@@ -14,6 +14,10 @@ public class InfiniteTrade extends MerchantRecipe {
 		super(buy, sell);
 	}
 	
+	public InfiniteTrade(ItemStack buy, ItemStack buy2, ItemStack sell) {
+		super(buy, buy2, sell);
+	}
+	
 	@Override
 	public boolean isRecipeDisabled() {
 		return false;

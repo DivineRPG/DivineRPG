@@ -3,6 +3,8 @@ package net.divinerpg.entities.base;
 import java.util.Iterator;
 
 import net.divinerpg.DivineRPG;
+import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
+import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.entities.vethea.EntityHungerHungry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
@@ -18,7 +20,6 @@ import net.minecraft.entity.ai.EntityAITradePlayer;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -172,7 +173,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 
 		if(var1.hasKey("Offers")) {
 			NBTTagCompound var2 = var1.getCompoundTag("Offers");
-			if(this instanceof EntityHungerHungry) this.buyingList = new InfiniteTradeList(var2);
+			if(this instanceof EntityHungerHungry || this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant) this.buyingList = new InfiniteTradeList(var2);
 			else this.buyingList = new MerchantRecipeList(var2);
 		}
 	}
