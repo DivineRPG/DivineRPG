@@ -45,8 +45,8 @@ public class ItemTeleportationCrystal extends ItemMod {
 		    if (player.dimension != 0) {
 		        MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) player, 0);
 		    }
-		    player.setPositionAndUpdate(x, y, z);
-		    player.setPositionAndRotation(x, y, z, player.rotationYaw, 0.0F);
+		    player.setPositionAndUpdate(x + 0.5D, y + 0.5D, z + 0.5D);
+		    player.setPositionAndRotation(x + 0.5D, y + 0.5D, z + 0.5D, player.rotationYaw, 0.0F);
             player.motionX = player.motionY = player.motionZ = 0.0D;            
 		}
 		return stack;
