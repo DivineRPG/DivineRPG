@@ -21,7 +21,6 @@ public class ItemSerenadeOfIce extends ItemMod {
 	public ItemSerenadeOfIce(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.tools);
-		LangRegistry.addItem(this);
 		setMaxDamage(100);
 	}
 

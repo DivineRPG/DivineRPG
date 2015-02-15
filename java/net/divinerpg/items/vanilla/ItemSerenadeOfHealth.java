@@ -19,7 +19,6 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	public ItemSerenadeOfHealth(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.tools);
-		LangRegistry.addItem(this);
 		setMaxDamage(20);
 	}
 	

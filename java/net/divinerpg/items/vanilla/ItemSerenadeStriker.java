@@ -26,7 +26,6 @@ public class ItemSerenadeStriker extends ItemMod {
 	public ItemSerenadeStriker(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.tools);
-		LangRegistry.addItem(this);
 		setMaxDamage(100);
 	}
 

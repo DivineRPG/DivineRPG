@@ -25,7 +25,6 @@ public class BlockLightFence extends BlockModFence {
 		this.powered = powered;
 		setBlockTextureName(Reference.PREFIX + name);
 		setStepSound(Block.soundTypeGlass);
-		LangRegistry.addBlock(this);
 		setHardness(hardness);
 		setCreativeTab(DivineRPGTabs.blocks);
 		if(powered){
