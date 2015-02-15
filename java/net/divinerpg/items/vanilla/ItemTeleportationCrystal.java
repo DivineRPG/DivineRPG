@@ -27,7 +27,7 @@ public class ItemTeleportationCrystal extends ItemMod {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if (player instanceof EntityPlayerMP) {
+		if (player instanceof EntityPlayerMP && !player.isRiding()) {
 		    ChunkCoordinates bedSpawn = player.getBedLocation(0);
 		    int x;
 		    int y;
