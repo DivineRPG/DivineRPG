@@ -45,8 +45,8 @@ public class TeleporterArcana extends Teleporter {
             }
             
             // Find a location to create a new portal room, avoiding double high rooms
-            for (y = 32; y > 0; y -= 8) {
-                if (this.myWorld.getBlock(chunkX + 7, y, chunkZ + 7) != Blocks.air) {
+            for (y = 8; y < 40; y += 8) {
+                if (this.myWorld.getBlock(chunkX + 7, y, chunkZ + 7) != Blocks.air && this.myWorld.getBlock(chunkX + 7, y + 8, chunkZ + 7) != Blocks.air) {
                     generatePortalRoom(this.myWorld, chunkX, y, chunkZ);
                     entity.setLocationAndAngles(chunkX + 7.5D, y + 1.5D, chunkZ + 7.5D, entity.rotationYaw, 0.0F);
                     entity.motionX = entity.motionY = entity.motionZ = 0.0D;
