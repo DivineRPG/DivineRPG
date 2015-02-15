@@ -5,6 +5,7 @@ import net.divinerpg.items.base.ItemModBucket;
 import net.divinerpg.items.base.ItemModSeeds;
 import net.divinerpg.items.vanilla.ItemHordeHorn;
 import net.divinerpg.items.vanilla.ItemMysteriousClock;
+import net.divinerpg.items.vanilla.ItemTeleportationCrystal;
 import net.divinerpg.items.vanilla.ItemVanillaSpawner;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.item.Item;
@@ -69,6 +70,8 @@ public class VanillaItemsOther {
     public static Item krakenSkin;
     public static Item krakenScale;
     
+    public static Item teleportationCrystal;
+
     public static void init() {
     	rupeeIngot         = new ItemMod("rupeeIngot");
         arlemiteIngot      = new ItemMod("arlemiteIngot");
@@ -127,6 +130,8 @@ public class VanillaItemsOther {
         tomatoSeeds 		= new ItemModSeeds("tomatoSeeds", VanillaBlocks.tomato);
         krakenSkin 		= new ItemMod("krakenSkin");
         krakenScale 		= new ItemMod("krakenScale");
+        
+        teleportationCrystal = new ItemTeleportationCrystal("teleportationCrystal");
     }
     
 }

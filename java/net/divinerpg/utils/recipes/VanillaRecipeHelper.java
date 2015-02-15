@@ -406,5 +406,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaBlocks.lightFenceRed, "   ", "III", "III", 'I', Items.redstone);
 		addRecipe(VanillaBlocks.lightFenceGreen, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 2));
 		addRecipe(VanillaBlocks.lightFenceBlue, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 4));
+
+        addRecipe(VanillaItemsOther.teleportationCrystal, "EEE", "EDE", "EEE", 'E', Items.ender_pearl, 'D', Items.diamond);	
 	}
 }
