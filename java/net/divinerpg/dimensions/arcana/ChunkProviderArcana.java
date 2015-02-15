@@ -31,7 +31,6 @@ import net.divinerpg.dimensions.arcana.components.DungeonComponent9;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentBase;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentDramix;
 import net.divinerpg.dimensions.arcana.components.DungeonComponentParasecta;
-import net.divinerpg.dimensions.arcana.components.DungeonComponentPortal;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -75,7 +74,6 @@ public class ChunkProviderArcana implements IChunkProvider {
     private ArrayList Rooms;
     private ArrayList BossRooms;
     private DungeonCeiling Ceiling;
-    private DungeonComponentPortal roomPortal;
     private World worldObj;
     private Random random;
     private Map chunkTileEntityMap;
@@ -111,7 +109,6 @@ public class ChunkProviderArcana implements IChunkProvider {
         Rooms.add(new DungeonComponent8());
         BossRooms.add(new DungeonComponentParasecta());
         BossRooms.add(new DungeonComponentDramix());
-        roomPortal = new DungeonComponentPortal();
         Ceiling = new DungeonCeiling();
         this.chunkTileEntityMap = new HashMap();
     }
@@ -126,15 +123,11 @@ public class ChunkProviderArcana implements IChunkProvider {
         ArcanaChunk arcanaChunk = new ArcanaChunk();
 
         for (int i = 4; i > 0; i--) {
-            if (chunkX == 0 && chunkZ == 0 && i == 1) {
-                roomPortal.generate(arcanaChunk, random, 0, i * 8, 0);
-            } else {
-                DungeonComponentBase room = (DungeonComponentBase) (Rooms.get(random.nextInt(21)));
-                if (room instanceof DungeonComponent8 && i >= 3)
-                    room = (DungeonComponentBase) (Rooms.get(this.random.nextInt(10) + 10));
+            DungeonComponentBase room = (DungeonComponentBase) (Rooms.get(random.nextInt(21)));
+            if (room instanceof DungeonComponent8 && i >= 3)
+                room = (DungeonComponentBase) (Rooms.get(this.random.nextInt(10) + 10));
 
-                room.generate(arcanaChunk, random, 0, i * 8, 0);
-            }
+            room.generate(arcanaChunk, random, 0, i * 8, 0);
         }
 
         Ceiling.generate(arcanaChunk, random, 0, 40, 0);
@@ -186,12 +179,13 @@ public class ChunkProviderArcana implements IChunkProvider {
 			}
 			chunkTileEntityMap.remove(chunkCoords);
 		}
-		if (chunkX != 0 || chunkZ != 0) {
+		if ((chunkX & 1) == 1 && (chunkZ & 1) == 1) {
 		    for(int i = 1; i < 4; i++) {
-    			if(this.random.nextInt(50) == 0){
+    			if(this.random.nextInt(50) == 0 || this.random.nextInt(50) == 0 || this.random.nextInt(50) == 0) {
     	            roomToGenerate = rand.nextInt(2);
     				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, z);
     				this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
+    				break;
     			}
 		    }
 		}
