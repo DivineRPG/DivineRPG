@@ -49,7 +49,7 @@ public class BlockElevantium extends BlockMod {
 	
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-		entity.motionY += 0.5;
+		entity.motionY += 0.75;
 		entity.fallDistance = 0;
 		if(entity instanceof EntityPlayer) ((EntityPlayer)entity).triggerAchievement(DivineRPGAchievements.skyHigh);
 	}
