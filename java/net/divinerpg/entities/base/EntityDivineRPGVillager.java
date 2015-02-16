@@ -224,7 +224,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 		}
 
 		for(int var3 = 0; var3 < par1 && var3 < rec.size(); ++var3) {
-			this.buyingList.addToListWithCheck((MerchantRecipe)rec.get(var3));
+			this.buyingList.add((MerchantRecipe)rec.get(var3));
 		}
 	}
 

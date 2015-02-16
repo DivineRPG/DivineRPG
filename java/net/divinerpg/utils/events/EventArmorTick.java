@@ -2,7 +2,6 @@ package net.divinerpg.utils.events;
 
 import java.util.List;
 
-import net.divinerpg.DivineRPG;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.config.ConfigurationHelper;
@@ -63,7 +62,7 @@ public class EventArmorTick {
 
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;
-
+        
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
             evt.player.fallDistance = -0.5F;
             evt.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
