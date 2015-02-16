@@ -65,12 +65,15 @@ public class BlockModLog extends BlockRotatedPillar {
         byte var11 = 0;
 
         switch (side) {
+            case 0:
             case 1:
                 var11 = 0;
                 break;
+            case 2:
             case 3:
                 var11 = 8;
                 break;
+            case 4:
             case 5:
                 var11 = 4;
                 break;
