@@ -18,6 +18,7 @@ import net.divinerpg.entities.arcana.EntityRazorback;
 import net.divinerpg.entities.arcana.EntityRoamer;
 import net.divinerpg.entities.arcana.EntitySeimer;
 import net.divinerpg.entities.arcana.EntityVatticus;
+import net.divinerpg.entities.arcana.EntityWarGeneral;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.entities.arcana.EntityZelus;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
@@ -45,6 +46,7 @@ public class ArcanaEntityRegistry {
 		Util.registerDivineRPGMob(EntityCaptianMerik.class, "CaptainMerik");
 		Util.registerDivineRPGMob(EntityConstructor.class, "DungeonConstructor");
 		Util.registerDivineRPGMob(EntityDatticon.class, "Datticon");
+		Util.registerDivineRPGMob(EntityWarGeneral.class, "WarGeneral");
 		Util.registerDivineRPGMob(EntityDeathcryx.class, "Deathcryx");
 		Util.registerDivineRPGMob(EntityDeathHound.class, "DeathHound");
 		Util.registerDivineRPGMob(EntityDramix.class, "Dramix");

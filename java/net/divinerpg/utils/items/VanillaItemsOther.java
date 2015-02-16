@@ -131,7 +131,7 @@ public class VanillaItemsOther {
         krakenSkin 		= new ItemMod("krakenSkin");
         krakenScale 		= new ItemMod("krakenScale");
         
-        teleportationCrystal = new ItemTeleportationCrystal("teleportationCrystal");
+        teleportationCrystal = new ItemTeleportationCrystal();
     }
     
 }

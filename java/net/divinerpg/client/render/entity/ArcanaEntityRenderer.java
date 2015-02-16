@@ -49,6 +49,7 @@ import net.divinerpg.entities.arcana.EntityRazorback;
 import net.divinerpg.entities.arcana.EntityRoamer;
 import net.divinerpg.entities.arcana.EntitySeimer;
 import net.divinerpg.entities.arcana.EntityVatticus;
+import net.divinerpg.entities.arcana.EntityWarGeneral;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.entities.arcana.EntityZelus;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
@@ -90,6 +91,7 @@ public class ArcanaEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityCaptianMerik.class, new RenderDivineMob(new ModelSamek(), x.captain_merik));
         RenderingRegistry.registerEntityRenderingHandler(EntityDatticon.class, new RenderDivineMob(new ModelSamek(), x.datticon));
         RenderingRegistry.registerEntityRenderingHandler(EntityVatticus.class, new RenderDivineMob(new ModelBiped(), x.vatticus));
+        RenderingRegistry.registerEntityRenderingHandler(EntityWarGeneral.class, new RenderDivineMob(new ModelSamek(), x.warGeneral));
         RenderingRegistry.registerEntityRenderingHandler(EntityZelus.class, new RenderDivineMob(new ModelBiped(), x.zelus));
         RenderingRegistry.registerEntityRenderingHandler(EntityFyracryx.class, new RenderDivineMob(new ModelDeathcryx(), x.fyracryx));
         RenderingRegistry.registerEntityRenderingHandler(EntityParatiku.class, new RenderDivineMob(new ModelParatiku(), x.paratiku));

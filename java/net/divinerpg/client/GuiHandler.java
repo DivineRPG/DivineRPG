@@ -26,6 +26,7 @@ import net.divinerpg.client.render.gui.GuiMoonlightFurnace;
 import net.divinerpg.client.render.gui.GuiOceanfireFurnace;
 import net.divinerpg.client.render.gui.GuiTinker;
 import net.divinerpg.client.render.gui.GuiVatticus;
+import net.divinerpg.client.render.gui.GuiWarGeneral;
 import net.divinerpg.client.render.gui.GuiWhitefireFurnace;
 import net.divinerpg.client.render.gui.GuiZelus;
 import net.minecraft.entity.Entity;
@@ -39,14 +40,14 @@ public class GuiHandler implements IGuiHandler{
 
 	public static int guiID = 0;
 	public static int twilightFurnace = guiID++, infusionTable = guiID++, hunger = guiID++, coalstone = guiID++, tinker = guiID++, merchent = guiID++, jackOMan = guiID++, zelus = guiID++, vatticus = guiID++,
-			leorna = guiID++, captainMerik = guiID++, datticon = guiID++, extractor = guiID++ , greenlight = guiID++, oceanfire = guiID++, molten = guiID++, whitefire = guiID++, moonlight = guiID++, demon = guiID++, altar = guiID++;
+			warGeneral = guiID++, leorna = guiID++, captainMerik = guiID++, datticon = guiID++, extractor = guiID++ , greenlight = guiID++, oceanfire = guiID++, molten = guiID++, whitefire = guiID++, moonlight = guiID++, demon = guiID++, altar = guiID++;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity entity = world.getTileEntity(x, y, z);
 		if(ID == infusionTable)
 			return new ContainerInfusionTable(player.inventory, (TileEntityInfusionTable)entity);
-		if(ID == merchent || ID == tinker || ID == zelus || ID == hunger || ID == jackOMan || ID == vatticus || ID == leorna || ID == datticon || ID == captainMerik)
+		if(ID == merchent || ID == tinker || ID == zelus || ID == hunger || ID == jackOMan || ID == vatticus || ID == leorna || ID == datticon || ID == captainMerik || ID == warGeneral)
 			return new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world);
 		if(ID == extractor)
 			return new ContainerExtractor(player.inventory, (TileEntityModFurnace)entity);
@@ -80,6 +81,8 @@ public class GuiHandler implements IGuiHandler{
 			return new GuiDatticon(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == captainMerik)
 			return new GuiMerik(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
+		if(ID == warGeneral)
+			return new GuiWarGeneral(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == hunger)
 			return new GuiHunger(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == extractor)

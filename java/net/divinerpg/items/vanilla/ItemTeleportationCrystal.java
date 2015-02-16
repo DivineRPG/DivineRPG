@@ -19,9 +19,11 @@ import net.minecraft.world.World;
 
 public class ItemTeleportationCrystal extends ItemMod {
 	
-	public ItemTeleportationCrystal(String name) {
-		super(name);
+	public ItemTeleportationCrystal() {
+		super("teleportationCrystal");
 		setCreativeTab(DivineRPGTabs.utility);
+		setMaxStackSize(1);
+		setMaxDamage(10);
 	}
 	
 	@Override
@@ -39,20 +41,22 @@ public class ItemTeleportationCrystal extends ItemMod {
 		    } else {
                 x = world.getWorldInfo().getSpawnX();
                 z = world.getWorldInfo().getSpawnZ();
-                y = world.getTopSolidOrLiquidBlock(x, z);
+                y = world.getHeightValue(x, z);
 		    }
 		    if (player.dimension != 0) {
 		        MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) player, 0);
 		    }
 		    player.setPositionAndUpdate(x + 0.5D, y + 0.5D, z + 0.5D);
 		    player.setPositionAndRotation(x + 0.5D, y + 0.5D, z + 0.5D, player.rotationYaw, 0.0F);
-            player.motionX = player.motionY = player.motionZ = 0.0D;            
+            player.motionX = player.motionY = player.motionZ = 0.0D;
+            if(!player.capabilities.isCreativeMode)stack.damageItem(1, player);
 		}
 		return stack;
 	}
 	
 	@Override
-	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-		infoList.add("Teleport to Bed/Spawn");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("Teleport to spawn point");
+		list.add(stack.getMaxDamage()-stack.getItemDamage() + " Uses Remaining");
 	}
 }

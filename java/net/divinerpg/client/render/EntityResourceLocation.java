@@ -140,6 +140,7 @@ public class EntityResourceLocation {
     public static ResourceLocation captain_merik     = addMob("captainMerik");
     public static ResourceLocation datticon          = addMob("datticon");
     public static ResourceLocation vatticus          = addMob("vatticus");
+    public static ResourceLocation warGeneral        = addMob("warGeneral");
     public static ResourceLocation zelus             = addMob("zelus");
     public static ResourceLocation fyracryx          = addMob("fyracryx");
     public static ResourceLocation paratiku          = addMob("paratiku");
