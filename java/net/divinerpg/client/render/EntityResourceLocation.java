@@ -90,6 +90,7 @@ public class EntityResourceLocation {
     public static ResourceLocation fractiteShot  	 = addProjectile("fractiteShot");
     public static ResourceLocation tripletFireball   = addProjectile("tripletFireball");
     public static ResourceLocation meteor	    	 = addProjectile("meteor");
+    public static ResourceLocation arcaniteBlaster	 = addProjectile("blasterShot");
     
     public static ResourceLocation angryBunny		 = addMob("angryBunny");
     public static ResourceLocation angryBunnyTamed 	 = addMob("angryBunnyTamed");

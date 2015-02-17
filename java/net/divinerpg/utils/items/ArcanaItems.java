@@ -4,6 +4,7 @@ import net.divinerpg.items.arcana.ItemAquamarine;
 import net.divinerpg.items.arcana.ItemArcanaProjectile;
 import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
+import net.divinerpg.items.arcana.ItemArcaniteBlaster;
 import net.divinerpg.items.arcana.ItemArcaniumSaber;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
@@ -64,6 +65,7 @@ public class ArcanaItems {
 	public static Item 	  liviciaSword;
 	public static Item	  meteorMash;
 	public static Item	  divineAccumulator;
+	public static Item 	  arcaniteBlaster;
 
     public static Item sludgeKey;
     public static Item ancientKey;
@@ -130,6 +132,7 @@ public class ArcanaItems {
     	liviciaSword  	 		 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
     	meteorMash				 = new ItemMeteorMash();
     	divineAccumulator		 = new ItemDivineAccumulator();
+    	arcaniteBlaster			 = new ItemArcaniteBlaster();
 
         sludgeKey 				 = new ItemKey("sludgeKey");
         ancientKey 				 = new ItemKey("ancientKey");

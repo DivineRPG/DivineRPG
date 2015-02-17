@@ -10,6 +10,7 @@ import net.divinerpg.client.render.entity.IceikaEntityRenderer;
 import net.divinerpg.client.render.entity.TwilightEntityRenderer;
 import net.divinerpg.client.render.entity.VanillaEntityRenderer;
 import net.divinerpg.client.render.entity.VetheaEntityRenderer;
+import net.divinerpg.client.render.item.RenderArcaniteBlaster;
 import net.divinerpg.client.render.item.RenderBow;
 import net.divinerpg.client.render.item.RenderPhaser;
 import net.divinerpg.client.render.item.RenderProjectileShooter;
@@ -33,6 +34,7 @@ import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.DevHatEvent;
 import net.divinerpg.utils.events.EventExtraArmor;
 import net.divinerpg.utils.events.EventOverlay;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityFlameFX;
@@ -70,6 +72,7 @@ public class ClientProxy extends CommonProxy {
         }
         
         MinecraftForgeClient.registerItemRenderer(VanillaItemsWeapons.corruptedCannon, new RenderProjectileShooter());
+        MinecraftForgeClient.registerItemRenderer(ArcanaItems.arcaniteBlaster, new RenderArcaniteBlaster());
         
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
