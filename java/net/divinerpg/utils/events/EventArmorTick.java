@@ -72,7 +72,7 @@ public class EventArmorTick {
         	evt.player.capabilities.isFlying = false;
         	evt.player.capabilities.allowFlying = false;
         }
-
+        
         //Elite Realmite
         if (boots == VanillaItemsArmor.eliteRealmiteBoots && body == VanillaItemsArmor.eliteRealmiteBody && legs == VanillaItemsArmor.eliteRealmiteLegs && helmet == VanillaItemsArmor.eliteRealmiteHelmet) {
             evt.player.fallDistance = -0.5F;

@@ -13,6 +13,7 @@ import net.divinerpg.client.render.entity.VetheaEntityRenderer;
 import net.divinerpg.client.render.item.RenderBow;
 import net.divinerpg.client.render.item.RenderPhaser;
 import net.divinerpg.client.render.item.RenderProjectileShooter;
+import net.divinerpg.client.render.item.RenderStaff;
 import net.divinerpg.entities.fx.EntityBlackFlameFX;
 import net.divinerpg.entities.fx.EntityBlueFlameFX;
 import net.divinerpg.entities.fx.EntityEdenPortalFX;
@@ -23,6 +24,7 @@ import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.divinerpg.entities.fx.EntityWildwoodPortalFX;
 import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
+import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
@@ -35,7 +37,6 @@ import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityFlameFX;
 import net.minecraft.client.particle.EntityPortalFX;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -62,6 +63,10 @@ public class ClientProxy extends CommonProxy {
         
         for(Item phaser : ItemProjectileShooter.phaserList) {
         	MinecraftForgeClient.registerItemRenderer(phaser, new RenderPhaser());
+        }
+        
+        for(Item staff : ItemStaff.staffList) {
+        	MinecraftForgeClient.registerItemRenderer(staff, new RenderStaff());
         }
         
         MinecraftForgeClient.registerItemRenderer(VanillaItemsWeapons.corruptedCannon, new RenderProjectileShooter());

@@ -2,13 +2,12 @@ package net.divinerpg.items.arcana;
 
 import java.util.List;
 
-import net.divinerpg.entities.arcana.projectile.EntityStar;
-import net.divinerpg.items.base.ItemModRanged;
+import net.divinerpg.entities.arcana.projectile.EntityMeteor;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;
-import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
@@ -17,11 +16,11 @@ import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class ItemStaffStarlight extends ItemModRanged {
+public class ItemMeteorMash extends ItemMod {
 
-    public ItemStaffStarlight(String name) {
-        super(name, -1, Sounds.starlight, EntityStar.class);
-        ItemProjectileShooter.gunList.add(this);
+    public ItemMeteorMash() {
+        super("meteorMash");
+        setMaxStackSize(1);
         this.setFull3D();
         ItemStaff.staffList.add(this);
     }
@@ -58,37 +57,19 @@ public class ItemStaffStarlight extends ItemModRanged {
             if (side == 4) --blockX;
             if (side == 5) ++blockX;
 
-            if (stack.getItem() == ArcanaItems.staffStarlight) {
-                if (!world.isRemote && ArcanaHelper.getProperties(player).useBar(25)) {
-                    for (int i = 0; i < 8; i++)
-                        world.spawnEntityInWorld(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
-                    Sounds.playSound(Sounds.starlight, world, player, 1.0F, 0.5F);
-                }
-            } else {
-                if (!world.isRemote && ArcanaHelper.getProperties(player).useBar(5)) {
-                    world.spawnEntityInWorld(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                if (!world.isRemote && ArcanaHelper.getProperties(player).useBar(35)) {
+                    world.spawnEntityInWorld(new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
                     Sounds.playSound(player, world, Sounds.starlight);
                 }
-            }
             player.getLook(1);
         }
         return stack;
     }
 
     @Override
-    protected void addAdditionalInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        int damage = 0;
-        int arcana = 0;
-        boolean stars = false;
-        if (stack.getItem() == ArcanaItems.staffStarlight) {
-            arcana = 25;
-            stars = true;
-        } else {
-            arcana = 5;
-            stars = false;
-        }
-        list.add(arcana + " Arcana");
-        list.add(stars ? "Drops several stars from the sky" : "Drops a star from the sky");
-        list.add("40 Ranged Damage");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        list.add("Drops an explosive meteor from the sky");
+        list.add("Consumes 35 Arcana");
+        list.add("Infinite Uses");
     }
 }

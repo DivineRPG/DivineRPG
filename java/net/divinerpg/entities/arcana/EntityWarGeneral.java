@@ -51,8 +51,9 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
 	}
 
 	@Override
-	public void addRecipies(MerchantRecipeList var2) {
-		
+	public void addRecipies(MerchantRecipeList list) {
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6), new ItemStack(ArcanaItems.divineAccumulator)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 17), new ItemStack(ArcanaItems.meteorMash)));
 	}
 
 	@Override

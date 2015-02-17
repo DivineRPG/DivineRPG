@@ -7,10 +7,12 @@ import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
 import net.divinerpg.items.arcana.ItemArcaniumSaber;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
+import net.divinerpg.items.arcana.ItemDivineAccumulator;
 import net.divinerpg.items.arcana.ItemEnderScepter;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
 import net.divinerpg.items.arcana.ItemMeriksMissile;
+import net.divinerpg.items.arcana.ItemMeteorMash;
 import net.divinerpg.items.arcana.ItemOrbOfLight;
 import net.divinerpg.items.arcana.ItemReflector;
 import net.divinerpg.items.arcana.ItemShadowSword;
@@ -60,6 +62,8 @@ public class ArcanaItems {
 	public static Item 	  reflector;
 	public static Item 	  shadowSword;
 	public static Item 	  liviciaSword;
+	public static Item	  meteorMash;
+	public static Item	  divineAccumulator;
 
     public static Item sludgeKey;
     public static Item ancientKey;
@@ -124,6 +128,8 @@ public class ArcanaItems {
     	reflector  	 	 		 = new ItemReflector("arcaniumReflector");
     	shadowSword  	 	 	 = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
     	liviciaSword  	 		 = new ItemModSword(ToolMaterialMod.LiviciaSword, "liviciaSword");
+    	meteorMash				 = new ItemMeteorMash();
+    	divineAccumulator		 = new ItemDivineAccumulator();
 
         sludgeKey 				 = new ItemKey("sludgeKey");
         ancientKey 				 = new ItemKey("ancientKey");
