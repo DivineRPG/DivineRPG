@@ -14,6 +14,8 @@ public class ArcanaRenderer {
 	
 	Minecraft mc = Minecraft.getMinecraft();
 	
+	public static float value;
+	
 	@SubscribeEvent
 	public void onRender(RenderTickEvent event){
 		onTickRender();
@@ -30,7 +32,7 @@ public class ArcanaRenderer {
 			int y = k - cfg.arcanaY;
 			int x = i - cfg.arcanaX;
 			gig.drawTexturedModalRect(x, y, 0, 0, 100, 9);
-			gig.drawTexturedModalRect(x, y, 0, 9, (int)(12.5 * (ArcanaHelper.getProperties(mc.thePlayer).getBarValue() / 25)), 18);  
+			gig.drawTexturedModalRect(x, y, 0, 9, (int)(12.5 * (value / 25)), 18);  
 		}
 	}
 

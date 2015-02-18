@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.PlayerUtil;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,14 +20,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class EventClientLogin {
 	
-	boolean seen = false;
-
-	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void onPlayerLogin(EntityJoinWorldEvent e) {
 		if (e.entity instanceof EntityPlayer) {
 			EntityPlayer p = (EntityPlayer)e.entity;
-			if (!p.worldObj.isRemote && !seen) {
+			if (!p.worldObj.isRemote && !PlayerUtil.getProperties(p).seen) {
 				try {
 					if(!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay){
 						if(Util.isDeveloperName(p.getCommandSenderName())) {
@@ -44,7 +42,7 @@ public class EventClientLogin {
 					else {
 						p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "Thank you "  + p.getDisplayName() + ", for downloading and playing" + Util.GREEN + " DivineRPG!"));
 					}
-					seen = true;
+					PlayerUtil.getProperties(p).seen = true;
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

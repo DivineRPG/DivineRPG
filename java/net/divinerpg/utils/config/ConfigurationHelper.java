@@ -15,7 +15,6 @@ public class ConfigurationHelper {
 
         cfg.load();
         dimensionInit();
-        dataWatcherInit();
         miscInit();
         cfg.save();
     }
@@ -26,7 +25,6 @@ public class ConfigurationHelper {
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
     public static int     arcanaX, arcanaY;
-    public static int	  barValue, barRegen;
 
     public static void dimensionInit() {
         edenBiome = cfg.get("Dimension", "Eden biome ID", 100).getInt();
@@ -55,11 +53,6 @@ public class ConfigurationHelper {
         keepLoadingVethea = cfg.get("Dimension", "Keep loading Vethea", false).getBoolean(true);
         keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", false).getBoolean(true);
         keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", false).getBoolean(true);
-    }
-    
-    public static void dataWatcherInit() {
-    	barValue = cfg.get("Data Watcher", "Arcana Bar Datawatcher ID", 25).getInt();
-    	barRegen = cfg.get("Data Watcher", "Arcana Delay Datawatcher ID", 26).getInt();
     }
 
     public static void miscInit() {

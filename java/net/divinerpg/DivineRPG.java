@@ -2,6 +2,7 @@ package net.divinerpg;
 
 import net.divinerpg.blocks.base.ModFluid;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.network.MessageArcanaBar;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.proxies.CommonProxy;
@@ -14,6 +15,9 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class DivineRPG {
@@ -24,6 +28,8 @@ public class DivineRPG {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.COMMON_PROXY)
 	public static CommonProxy proxy;
 	
+	public static SimpleNetworkWrapper network;
+	
 	//Awesome seed: 1414274842007233730
 	
 	public static Fluid tarFluid = new ModFluid("Tar", 10, 5000);
@@ -32,6 +38,9 @@ public class DivineRPG {
 	public void preInit(FMLPreInitializationEvent event){
 		LogHelper.info("Configuring mod");
 		ConfigurationHelper.init(event.getModConfigurationDirectory());
+		
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("DivineRPGNetwork");
+		network.registerMessage(MessageArcanaBar.Handler.class, MessageArcanaBar.class, 0, Side.CLIENT);
 		
 		proxy.preInitServer(event);
 		proxy.preInitClient(event);
