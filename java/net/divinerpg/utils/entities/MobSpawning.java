@@ -158,7 +158,6 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 1, 4, 4, EnumCreatureType.creature, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityWildwoodGolem.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityVerek.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.creature, wildwoodBiome);
 
 		EntityRegistry.addSpawn(EntityApalachiaCadillion.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
