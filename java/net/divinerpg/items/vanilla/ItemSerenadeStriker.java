@@ -32,11 +32,8 @@ public class ItemSerenadeStriker extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		final double eyeHeight = 1.62;
 		final double reachDistance = 300;
-		Vec3 startPos = Vec3.createVectorHelper(player.posX, player.posY, player.posZ);
-		if (!world.isRemote) startPos = startPos.addVector(0, eyeHeight, 0);
-		Vec3 look = player.getLook(1.0F);
-		Vec3 endPos = startPos.addVector(look.xCoord * reachDistance, look.yCoord * reachDistance, look.zCoord * reachDistance);
-		MovingObjectPosition rarTrace = world.rayTraceBlocks(startPos, endPos);
+		
+		MovingObjectPosition rarTrace = Util.rayTrace(player, 100);
 
 		if (rarTrace != null && rarTrace.typeOfHit == MovingObjectType.BLOCK) {
 			int x = rarTrace.blockX;
@@ -54,7 +51,8 @@ public class ItemSerenadeStriker extends ItemMod {
 	}
 
 	@Override
-	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-		infoList.add("Shoots Lightning");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("Shoots Lightning");
+		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
 	}
 }

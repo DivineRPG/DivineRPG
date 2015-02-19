@@ -21,6 +21,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,7 +46,7 @@ public class Util {
     private static Method  fieldAccessorSet       = null;
     private static boolean isSetup                = false;
     public static String   mobName;
-
+    
     public static void addRecipe(ItemStack i, Object... o) {
         GameRegistry.addRecipe(i, o);
     }
@@ -170,7 +172,7 @@ public class Util {
     }
     
     public static boolean isDeveloperName(String name) {
-		return name.equals("Doomturd") || name.equals("XolovA") || name.equals("geekclb") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all") || name.equals("deathman12e3") || name.equals("Fire_Sight") || name.equals("iTzaKiLLsHoT") || name.equals("krwminer");
+		return name.equals("Doomturd") || name.equals("Xolova") || name.equals("RadioactivStud") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all") || name.equals("deathman12e3") || name.equals("Fire_Sight") || name.equals("iTzaKiLLsHoT") || name.equals("krwminer");
 	}
     
     public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
@@ -193,5 +195,13 @@ public class Util {
         tessellator.addVertexWithUV((double)(x1 + x2), (double)(y1 + 0), 1D, (double)((float)(u + x2) * f), (double)((float)(v + 0) * f1));
         tessellator.addVertexWithUV((double)(x1 + 0), (double)(y1 + 0), 1D, (double)((float)(u + 0) * f), (double)((float)(v + 0) * f1));
         tessellator.draw();
+    }
+    
+    public static MovingObjectPosition rayTrace(EntityPlayer player, double distance)
+    {
+        Vec3 pos = Vec3.createVectorHelper(player.posX, player.posY + (player.getEyeHeight() - player.getDefaultEyeHeight()), player.posZ);
+        Vec3 look = player.getLook(1);
+        Vec3 vec32 = pos.addVector(look.xCoord * distance, look.yCoord * distance, look.zCoord * distance);
+        return player.worldObj.func_147447_a(pos, vec32, false, false, true);
     }
 }

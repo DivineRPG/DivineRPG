@@ -66,6 +66,7 @@ public class ArcanaItems {
 	public static Item	  meteorMash;
 	public static Item	  divineAccumulator;
 	public static Item 	  arcaniteBlaster;
+	public static Item	  arcaniteBlade;
 
     public static Item sludgeKey;
     public static Item ancientKey;
@@ -133,6 +134,7 @@ public class ArcanaItems {
     	meteorMash				 = new ItemMeteorMash();
     	divineAccumulator		 = new ItemDivineAccumulator();
     	arcaniteBlaster			 = new ItemArcaniteBlaster();
+    	arcaniteBlade  	 		 = new ItemModSword(ToolMaterialMod.ArcaniteBlade, "arcaniteBlade");
 
         sludgeKey 				 = new ItemKey("sludgeKey");
         ancientKey 				 = new ItemKey("ancientKey");

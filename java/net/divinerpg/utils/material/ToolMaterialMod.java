@@ -54,6 +54,7 @@ public class ToolMaterialMod {
     public static ToolMaterial Palavence      = Util.addMeleeMaterial(120, 1, 0);
     public static ToolMaterial Massivence     = Util.addMeleeMaterial(540, 1, 0);
     public static ToolMaterial FlamingFury    = Util.addMeleeMaterial(6000, 32, 15);
+    public static ToolMaterial ArcaniteBlade  = Util.addMeleeMaterial(3500, 55, 15);
 
     //Shickaxes
     public static ToolMaterial RupeeShick     = Util.addShickMaterial(4, 15.0F, 8, 15);
