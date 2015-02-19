@@ -94,10 +94,11 @@ public class CommonProxy{
 		Util.postForgeEvent(new EventHarvest());
 		Util.postForgeEvent(new EventDeath());
         Util.postFMLEvent(new ArcanaTickHandler());
+        Util.postForgeEvent(new ArcanaTickHandler());
         Util.postForgeEvent(new EntityConstructorEvent());
         Util.postForgeEvent(new EventTooltip());
         Util.postForgeEvent(new EventLightning());
-        Util.postForgeEvent(new EventClientLogin());
+        Util.postFMLEvent(new EventClientLogin());
         Util.postForgeEvent(new EventInteract());
         Util.postFMLEvent(new Ticker());
 		LogHelper.info("Registering tile entities");

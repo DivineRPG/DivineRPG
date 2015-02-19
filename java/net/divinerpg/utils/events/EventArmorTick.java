@@ -17,6 +17,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -61,7 +62,7 @@ public class EventArmorTick {
         else legs = null;
 
         if (stackHelmet != null) helmet = stackHelmet.getItem();
-        else helmet = null;
+        else helmet = null;        
         
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet) {
             evt.player.fallDistance = -0.5F;

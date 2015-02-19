@@ -12,12 +12,12 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 public class ArcanaHelper implements IExtendedEntityProperties {
 
 	private final EntityPlayer player;
-	private static final String NAME = "Arcana";
-    private double returnPortalX;
-    private double returnPortalY;
-    private double returnPortalZ;
+	public static final String NAME = "Arcana";
+    public double returnPortalX;
+    public double returnPortalY;
+    public double returnPortalZ;
     private float barValue;
-    private int regenDelay;
+    public int regenDelay;
 	
 	public ArcanaHelper(EntityPlayer player) {
 		this.player = player;
@@ -25,23 +25,25 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 
 	@Override
 	public void saveNBTData(NBTTagCompound n) {
-		NBTTagCompound tag = new NBTTagCompound();
-		tag.setFloat("BarValue", barValue);
-		tag.setInteger("RegenDelay", regenDelay);
+		NBTTagCompound tag = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
+		tag.setFloat("ArcanaBarValue", barValue);
+		tag.setInteger("ArcanaRegenDelay", regenDelay);
         tag.setDouble("returnPortalX", returnPortalX);
         tag.setDouble("returnPortalY", returnPortalY);
         tag.setDouble("returnPortalZ", returnPortalZ);
-		n.setTag(NAME, tag);
+        player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound n) {
-		NBTTagCompound tag = (NBTTagCompound) n.getTag(NAME);
-		barValue = tag.getFloat("BarValue");
-		regenDelay = tag.getInteger("RegenDelay");
+		NBTTagCompound tag = (NBTTagCompound) player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
+		if(!tag.hasKey("ArcanaBarValue"))return;
+		barValue = tag.getFloat("ArcanaBarValue");
+		regenDelay = tag.getInteger("ArcanaRegenDelay");
         this.returnPortalX = tag.getDouble("returnPortalX");
         this.returnPortalY = tag.getDouble("returnPortalY");
         this.returnPortalZ = tag.getDouble("returnPortalZ");
+        player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
 	}
 	
 	public static void addProperties(EntityPlayer player) {

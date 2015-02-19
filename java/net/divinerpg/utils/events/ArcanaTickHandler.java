@@ -1,18 +1,12 @@
 package net.divinerpg.utils.events;
 
-import net.divinerpg.libs.Reference;
-import net.divinerpg.utils.config.ConfigurationHelper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiIngame;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.RenderTickEvent;
 
 public class ArcanaTickHandler {
 	
@@ -42,10 +36,10 @@ public class ArcanaTickHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event){ 
-		ArcanaHelper.getProperties(event.player).setBarValue(200);
+	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent evt){ 
+		ArcanaHelper.getProperties(evt.player).setBarValue(200);
 	}
-
+	
 	@SubscribeEvent
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event){
 		ArcanaHelper.getProperties(event.player).setBarValue(200);
