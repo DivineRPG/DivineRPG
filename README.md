@@ -92,6 +92,5 @@ Want to test the mod but you don't know how to compile the mod? Here's how. Warn
 2. Set up a forge workspace with the terminal command `gradlew setupDecompWorkspace`.
 3. Download DivineRPG's source [here](https://github.com/DivineRPG/DivineRPG/archive/master.zip).
 4. Inside the forge folder, copy the files from the source inside `src/main`. (Create the `main` folder)
-	* You may need to remove the `resources/mcmod.info` file from the source for it to compile.
 5. Run the terminal command from inside the forge folder: `gradlew clean build`.
 6. The mod will be in `build/libs` and will most likely be named `modid-1.0.jar`.
