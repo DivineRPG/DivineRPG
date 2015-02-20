@@ -1,10 +1,8 @@
 package net.divinerpg.dimensions.arcana;
 
-import java.util.Random;
-
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.events.ArcanaHelper;
+import net.divinerpg.utils.events.ArcanaPortalCoords;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +23,7 @@ public class TeleporterArcana extends Teleporter {
 
 	@Override
 	public boolean placeInExistingPortal(Entity entity, double notUsed_entityX, double notUsed_entityY, double notUsed_entityZ, float notUsed_entityRotation) {
-        ArcanaHelper props = ArcanaHelper.getProperties((EntityPlayer)entity);
+        ArcanaPortalCoords props = ArcanaPortalCoords.getProperties((EntityPlayer)entity);
 	    if (entity.dimension == ConfigurationHelper.arcana) {        
             int chunkX = (MathHelper.floor_double(entity.posX) & ~0xf);
             int chunkZ = (MathHelper.floor_double(entity.posZ) & ~0xf);

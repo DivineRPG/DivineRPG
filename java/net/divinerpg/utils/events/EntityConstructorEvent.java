@@ -16,6 +16,10 @@ public class EntityConstructorEvent {
 		if(evt.entity instanceof EntityPlayer && PlayerUtil.getProperties((EntityPlayer)evt.entity) == null){
 			PlayerUtil.addProperties((EntityPlayer)evt.entity);
 		}
+		
+		if(evt.entity instanceof EntityPlayer && ArcanaPortalCoords.getProperties((EntityPlayer)evt.entity) == null){
+			ArcanaPortalCoords.addProperties((EntityPlayer)evt.entity);
+		}
 	}
 
 }

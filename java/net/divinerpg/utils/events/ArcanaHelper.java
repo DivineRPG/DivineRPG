@@ -13,9 +13,6 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 
 	private final EntityPlayer player;
 	public static final String NAME = "Arcana";
-    public double returnPortalX;
-    public double returnPortalY;
-    public double returnPortalZ;
     private float barValue;
     public int regenDelay;
 	
@@ -28,9 +25,6 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		NBTTagCompound tag = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
 		tag.setFloat("ArcanaBarValue", barValue);
 		tag.setInteger("ArcanaRegenDelay", regenDelay);
-        tag.setDouble("returnPortalX", returnPortalX);
-        tag.setDouble("returnPortalY", returnPortalY);
-        tag.setDouble("returnPortalZ", returnPortalZ);
         player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
 	}
 
@@ -40,9 +34,6 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		if(!tag.hasKey("ArcanaBarValue"))return;
 		barValue = tag.getFloat("ArcanaBarValue");
 		regenDelay = tag.getInteger("ArcanaRegenDelay");
-        this.returnPortalX = tag.getDouble("returnPortalX");
-        this.returnPortalY = tag.getDouble("returnPortalY");
-        this.returnPortalZ = tag.getDouble("returnPortalZ");
         player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
 	}
 	
@@ -100,30 +91,6 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		barValue -= i;
 		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
 	}
-
-    public void setReturnPortalX(double x) {
-        this.returnPortalX = x;
-    }
-
-    public double getReturnPortalX() {
-        return this.returnPortalX;
-    }
-
-    public void setReturnPortalY(double y) {
-        this.returnPortalY = y;
-    }
-
-    public double getReturnPortalY() {
-        return this.returnPortalY;
-    }
-
-    public void setReturnPortalZ(double z) {
-        this.returnPortalZ = z;
-    }
-
-    public double getReturnPortalZ() {
-        return this.returnPortalZ;
-    }
 
     @Override
 	public void init(Entity entity, World world) {}
