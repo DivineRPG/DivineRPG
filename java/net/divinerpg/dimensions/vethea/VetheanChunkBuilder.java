@@ -46,6 +46,8 @@ public class VetheanChunkBuilder {
 	private static IVetheanStructure[] l2Trees = {new Tree3(), new Tree6()};
 
 	private static IVetheanStructure pillar = new WorldGenVetheanPillar();
+	
+	private static IVetheanStructure floorTexture = new FloorTexture();
 
 	private static Random rand = new Random();
 	private int tree1Countl1 = 0;
@@ -294,6 +296,11 @@ public class VetheanChunkBuilder {
 						containsl2Tree = true;
 						l2Trees[this.rand.nextInt(2)].generate(chunk, 0, 65, 0);
 					}
+					
+				if(rand.nextInt(5)==0) floorTexture.generate(chunk, 8, 16, 8);
+				if(rand.nextInt(5)==0) floorTexture.generate(chunk, 8, 64, 8);
+				if(rand.nextInt(5)==0) floorTexture.generate(chunk, 8, 112, 8);
+				if(rand.nextInt(5)==0) floorTexture.generate(chunk, 8, 160, 8);
 		
 		return chunk;
 		

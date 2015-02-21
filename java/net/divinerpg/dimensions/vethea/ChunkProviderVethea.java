@@ -54,7 +54,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 	//private final WorldGenerator layer3TreeBig;
 	private final MapGenFloorCrystals firecrystals = new MapGenFloorCrystals();
 	private final CeilingTexture ceilingTexture;
-	private final WorldGenerator floorTexture;
 	private final WorldGenerator cracklespikes;
 	private final WorldGenerator fernites;
 	private final WorldGenerator bulatobes;
@@ -78,7 +77,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 		crypts.add(new Crypt2());     
 		
 		ceilingTexture = new CeilingTexture(Blocks.air);
-		floorTexture = new WorldGenConeDown(Blocks.air);
 		hungerVillages = new WorldGenVillageIsland();
 		
 		this.pyramids = new ArrayList(3);
@@ -173,12 +171,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 				var14 = var5 + this.rand.nextInt(16) + 8;
 				(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14);
 				
-				var12 = var4 + this.rand.nextInt(16) + 8;
-				var13 = 16;
-				var14 = var5 + this.rand.nextInt(16) + 8;
-				(floorTexture).generate(this.worldObj, this.rand, var12, var13, var14);
-				
-				
 				if(this.rand.nextInt(5)==0)greenGemTops.generate(worldObj, rand, var4, 17, var5);
 				if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, var4, 17, var5);
 				if(this.rand.nextInt(5)==0)yellowDulahs.generate(worldObj, rand, var4, 17, var5);
@@ -211,11 +203,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 				var13 = 97;
 				var14 = var5 + this.rand.nextInt(16) + 8;
 				(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14);
-					 
-				var12 = var4 + this.rand.nextInt(16) + 8;
-				var13 = 64;
-				var14 = var5 + this.rand.nextInt(16) + 8;
-				(floorTexture).generate(this.worldObj, this.rand, var12, var13, var14);
 
 				if (this.rand.nextInt(250) == 0) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
@@ -263,11 +250,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 				var13 = 145;
 				var14 = var5 + this.rand.nextInt(16) + 8;
 				(ceilingTexture).generate(this.worldObj, this.rand, var12, var13, var14);
-					
-				var12 = var4 + this.rand.nextInt(16) + 8;
-				var13 = 112;
-				var14 = var5 + this.rand.nextInt(16) + 8;
-				(floorTexture).generate(this.worldObj, this.rand, var12, var13, var14);
 
 				for (int i = 0; i < 3; i++) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
@@ -306,10 +288,6 @@ public class ChunkProviderVethea implements IChunkProvider {
 
 				   //Layer 4
 				
-				var12 = var4 + this.rand.nextInt(16) + 8;
-				var13 = 160;
-				var14 = var5 + this.rand.nextInt(16) + 8;
-				(floorTexture).generate(this.worldObj, this.rand, var12, var13, var14);
 				
 				for (int i = 0; i < 5; i++) {
 					var12 = var4 + this.rand.nextInt(16) + 8;
