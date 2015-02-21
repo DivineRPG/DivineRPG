@@ -10,6 +10,8 @@ public class BiomeGenArcana extends BiomeGenBase {
         this.setBiomeName("Arcana");
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
+        this.spawnableCaveCreatureList.clear();
+        this.spawnableWaterCreatureList.clear();
         this.topBlock = (Block)null;
         this.fillerBlock = (Block)null;
         this.waterColorMultiplier = 2368548;

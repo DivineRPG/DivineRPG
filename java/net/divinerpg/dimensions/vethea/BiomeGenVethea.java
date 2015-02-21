@@ -10,6 +10,8 @@ public class BiomeGenVethea extends BiomeGenBase {
         this.setBiomeName("Arksiane");
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
+        this.spawnableCaveCreatureList.clear();
+        this.spawnableWaterCreatureList.clear();
         this.topBlock = VetheaBlocks.dreamGrass;
         this.fillerBlock = VetheaBlocks.dreamDirt;
         setDisableRain();
