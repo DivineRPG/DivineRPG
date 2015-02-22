@@ -1,6 +1,7 @@
 package net.divinerpg.utils.items;
 
 import net.divinerpg.items.arcana.ItemAquamarine;
+import net.divinerpg.items.arcana.ItemArcanaPotion;
 import net.divinerpg.items.arcana.ItemArcanaProjectile;
 import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
@@ -28,7 +29,6 @@ import net.divinerpg.items.arcana.ItemWraithbane;
 import net.divinerpg.items.base.ItemDivineArmor;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModFood;
-import net.divinerpg.items.base.ItemModPotion;
 import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
@@ -119,8 +119,8 @@ public class ArcanaItems {
         starlight        	     = new ItemStaffStarlight("starlight");
         stormSword        		 = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
         captainsSparkler	     = new ItemCaptainsSparkler("captainsSparkler");
-        strongArcanaPotion 		 = new ItemModPotion("strongArcanaPotion", 200);
-        weakArcanaPotion   		 = new ItemModPotion("weakArcanaPotion", 100);
+        strongArcanaPotion 		 = new ItemArcanaPotion("strongArcanaPotion", 200);
+        weakArcanaPotion   		 = new ItemArcanaPotion("weakArcanaPotion", 100);
         collector         		 = new ItemMod("collector");
         chargedCollector   		 = new ItemChargedCollector("chargedCollector");
         wizardBook	     	  	 = new ItemWizardsBook("wizardsBook");

@@ -43,7 +43,6 @@ import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
-import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
@@ -62,7 +61,6 @@ public class VanillaEntityRegistry {
 		Util.registerProjectile(EntityKingOfScorchersShot.class, "KOSShot");
 		Util.registerProjectile(EntityCaveRock.class, "CaveRock");
 		Util.registerProjectile(EntityWatcherShot.class, "WatcherShot");
-		Util.registerProjectile(EntityMaelstorm.class, "Maelstorm");
 		Util.registerProjectile(EntityFrostShot.class, "FrostShot");
 		Util.registerProjectile(EntityScorcherShot.class, "ScorcherShot");
 		Util.registerProjectile(EntityCorruptedBullet.class, "CorruptedBullet");

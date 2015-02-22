@@ -76,6 +76,11 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		}
 		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
 	}
+	
+	public void forceRegen(float amount) {
+		barValue += amount;
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+	}
 
 	public float getBarValue() {
 		return barValue;

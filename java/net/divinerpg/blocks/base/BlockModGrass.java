@@ -7,6 +7,7 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -35,6 +36,11 @@ public class BlockModGrass extends BlockMod {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int intSide, int meta) {
         return intSide == 1 ? top : (intSide == 0 ? bottom : side);
+    }
+    
+    @Override
+    public Item getItemDropped(int par1, Random rand, int par3) {
+    	return Item.getItemFromBlock(dirt);
     }
 
     @SideOnly(Side.CLIENT)

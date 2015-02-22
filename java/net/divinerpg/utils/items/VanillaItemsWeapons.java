@@ -8,7 +8,6 @@ import net.divinerpg.items.base.ItemSlowingSword;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
-import net.divinerpg.items.vanilla.ItemMaelstorm;
 import net.divinerpg.items.vanilla.ItemProjectileShooter;
 import net.divinerpg.items.vanilla.ItemScythe;
 import net.divinerpg.items.vanilla.ItemSerenadeOfDeath;
@@ -77,7 +76,7 @@ public class VanillaItemsWeapons {
 	public static Item scythe;
 	public static Item frostCannon;
 	public static Item cyclopsianStaff;
-	public static Item maelstorm;
+	public static Item maelstrom;
 	public static Item crabAnchor;
 	public static Item sharkAnchor;
 	public static Item bowheadAnchor;
@@ -147,7 +146,7 @@ public class VanillaItemsWeapons {
 	    scythe		       	= new ItemScythe("scythe");
 	    frostCannon       	= new ItemProjectileShooter("frostCannon", 8F, Sounds.frostCannon.getPrefixedName(), Items.snowball, EntityResourceLocation.frostCannon.toString(), 15000, 0);
 	    cyclopsianStaff    = new ItemProjectileShooter("cyclopsianStaff", 7F, Sounds.staff.getPrefixedName(), VanillaItemsOther.cyclopsEyeShards, 3000, 0);
-	    maelstorm          = new ItemMaelstorm("maelstorm");
+	    maelstrom          = new ItemProjectileShooter("maelstrom", 14F, Sounds.ghastCannon.getPrefixedName(), x.maelstrom.toString(), 100, 0);
 	    crabAnchor         = new ItemAnchor("crabAnchor", x.crabAnchor.toString(), 4);
 	    sharkAnchor        = new ItemAnchor("sharkAnchor", x.bowheadAnchor.toString(), 5);
 	    bowheadAnchor      = new ItemAnchor("bowheadAnchor", x.bowheadAnchor.toString(), 6);

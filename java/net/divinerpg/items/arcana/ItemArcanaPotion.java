@@ -1,7 +1,9 @@
-package net.divinerpg.items.base;
+package net.divinerpg.items.arcana;
 
 import java.util.List;
 
+import net.divinerpg.client.ArcanaRenderer;
+import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.Util;
@@ -12,11 +14,11 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemModPotion extends ItemMod {
+public class ItemArcanaPotion extends ItemMod {
 
     protected int amountToAdd;
 
-    public ItemModPotion(String name, int amountToAdd) {
+    public ItemArcanaPotion(String name, int amountToAdd) {
         super(name, DivineRPGTabs.utility);
         this.amountToAdd = amountToAdd;
     }
@@ -30,7 +32,7 @@ public class ItemModPotion extends ItemMod {
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!player.capabilities.isCreativeMode) stack.stackSize--;
-        if (!world.isRemote) ArcanaHelper.getProperties(player).regen(amountToAdd);
+        if (!world.isRemote) ArcanaHelper.getProperties(player).forceRegen(amountToAdd);
         player.triggerAchievement(DivineRPGAchievements.yuk);
         return stack;
     }
@@ -47,7 +49,7 @@ public class ItemModPotion extends ItemMod {
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (ArcanaHelper.getProperties(player).getBarValue() != 200) player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+        if (ArcanaHelper.getProperties(player).getBarValue() != 200 || ArcanaRenderer.value != 200) player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         return stack;
     }
 

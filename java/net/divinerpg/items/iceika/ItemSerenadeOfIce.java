@@ -28,8 +28,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		final double eyeHeight = 1.62;
 		final double reachDistance = 300;
-		Vec3 startPos = Vec3.createVectorHelper(player.posX, player.posY, player.posZ);
-		if (!world.isRemote) startPos = startPos.addVector(0, eyeHeight, 0);
+		Vec3 startPos = Vec3.createVectorHelper(player.posX, player.posY + eyeHeight, player.posZ);
 		Vec3 look = player.getLook(1.0F);
 		Vec3 endPos = startPos.addVector(look.xCoord * reachDistance, look.yCoord * reachDistance, look.zCoord * reachDistance);
 		MovingObjectPosition rarTrace = world.rayTraceBlocks(startPos, endPos);
@@ -42,7 +41,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 			if(Math.abs(Math.sqrt(player.posX*player.posX + player.posY*player.posY + player.posZ*player.posZ) - Math.sqrt(x*x+y*y+z*z)) < 100){
 				if(!player.capabilities.isCreativeMode)stack.damageItem(1, player);
 				for(Object o : e){
-					if(o instanceof EntityLivingBase)((EntityLivingBase)o).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 2, true));
+					if(o instanceof EntityLivingBase)((EntityLivingBase)o).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 2, false));
 				}
 			}
 		}

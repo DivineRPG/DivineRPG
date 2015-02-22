@@ -87,7 +87,6 @@ import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
-import net.divinerpg.entities.vanilla.projectile.EntityMaelstorm;
 import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
@@ -118,7 +117,6 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDeath.class, new RenderSpecialProjectile(x.death));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, new RenderSpecialProjectile(x.cave));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class, new RenderSpecialProjectile(x.watcherShot));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMaelstorm.class, new RenderSpecialProjectile(x.maelstorm));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedBullet.class, new RenderIconProjectile(VanillaItemsOther.corruptedBullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderTripletFireball.class, new RenderSpecialProjectile(x.tripletFireball));
 		RenderingRegistry.registerEntityRenderingHandler(EntityShooterBullet.class, new RenderProjectile());

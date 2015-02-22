@@ -2,6 +2,7 @@ package net.divinerpg.utils.recipes;
 
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
@@ -54,7 +55,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addShapelessRecipe(VanillaItemsWeapons.vileStorm, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
 		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
-		addRecipe(VanillaItemsWeapons.maelstorm, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
+		addRecipe(VanillaItemsWeapons.maelstrom, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
 		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.sharkAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.sharkFin, 'X', VanillaItemsOther.aquaticIngot);
@@ -359,6 +360,15 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 9),  Blocks.glowstone, VanillaItemsOther.enderStone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 6),  Blocks.glowstone, VanillaItemsOther.moltenStone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 3),  Blocks.glowstone, VanillaItemsOther.bluefireStone);
+		
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass, 1), "y  ", " x ", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass2, 1), " y ", " x ", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass3, 1), "  y", " x ", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass4, 1), "   ", "yx ", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass5, 1), "   ", " xy", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass6, 1), "   ", " x ", "y  ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass7, 1), "   ", " x ", " y ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
+		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass8, 1), "   ", " x ", "  y", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
 		
 		addRecipe(VanillaBlocks.boneChest, "bbb", "b b", "bbb", 'b', Items.bone);
 		
