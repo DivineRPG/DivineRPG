@@ -37,6 +37,12 @@ public class EntityShooterBullet extends EntityThrowable {
         this.dataWatcher.updateObject(17, texture);
     }
     
+    public EntityShooterBullet(World world, double posX, double posY, double posZ, float damage, String texture) {
+        super(world, posX, posY, posZ);
+        this.damage = damage;
+        this.dataWatcher.updateObject(17, texture);
+    }
+    
     @Override
     protected void entityInit() {
     	this.dataWatcher.addObject(17, "");

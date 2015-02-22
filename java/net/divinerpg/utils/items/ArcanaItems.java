@@ -4,12 +4,14 @@ import net.divinerpg.items.arcana.ItemAquamarine;
 import net.divinerpg.items.arcana.ItemArcanaProjectile;
 import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
+import net.divinerpg.items.arcana.ItemArcaniteBlade;
 import net.divinerpg.items.arcana.ItemArcaniteBlaster;
 import net.divinerpg.items.arcana.ItemArcaniumSaber;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
 import net.divinerpg.items.arcana.ItemDivineAccumulator;
 import net.divinerpg.items.arcana.ItemEnderScepter;
+import net.divinerpg.items.arcana.ItemGeneralsStaff;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
 import net.divinerpg.items.arcana.ItemMeriksMissile;
@@ -67,6 +69,7 @@ public class ArcanaItems {
 	public static Item	  divineAccumulator;
 	public static Item 	  arcaniteBlaster;
 	public static Item	  arcaniteBlade;
+	public static Item	  generalsStaff;
 
     public static Item sludgeKey;
     public static Item ancientKey;
@@ -134,7 +137,8 @@ public class ArcanaItems {
     	meteorMash				 = new ItemMeteorMash();
     	divineAccumulator		 = new ItemDivineAccumulator();
     	arcaniteBlaster			 = new ItemArcaniteBlaster();
-    	arcaniteBlade  	 		 = new ItemModSword(ToolMaterialMod.ArcaniteBlade, "arcaniteBlade");
+    	arcaniteBlade  	 		 = new ItemArcaniteBlade();
+    	generalsStaff			 = new ItemGeneralsStaff();
 
         sludgeKey 				 = new ItemKey("sludgeKey");
         ancientKey 				 = new ItemKey("ancientKey");

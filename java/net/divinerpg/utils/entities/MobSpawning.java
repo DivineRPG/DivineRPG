@@ -4,6 +4,7 @@ import net.divinerpg.entities.arcana.EntityCaptianMerik;
 import net.divinerpg.entities.arcana.EntityDatticon;
 import net.divinerpg.entities.arcana.EntityLeorna;
 import net.divinerpg.entities.arcana.EntityVatticus;
+import net.divinerpg.entities.arcana.EntityWarGeneral;
 import net.divinerpg.entities.arcana.EntityZelus;
 import net.divinerpg.entities.iceika.EntityAlicanto;
 import net.divinerpg.entities.iceika.EntityFractite;
@@ -133,6 +134,7 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityZelus.class, 1, 1, 1, EnumCreatureType.creature, arcanaBiome);
 		EntityRegistry.addSpawn(EntityVatticus.class, 1, 1, 1, EnumCreatureType.creature, arcanaBiome);
 		EntityRegistry.addSpawn(EntityCaptianMerik.class, 1, 1, 1, EnumCreatureType.creature, arcanaBiome);
+		EntityRegistry.addSpawn(EntityWarGeneral.class, 1, 1, 1, EnumCreatureType.creature, arcanaBiome);
 	}
 
 	public static void addTwilightSpawns() {

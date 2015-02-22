@@ -35,6 +35,7 @@ public class RenderStaff implements IItemRenderer
         
         GL11.glScalef(1.25f, 1.25f, 1.25f);
         GL11.glRotatef(90, -0.2f, 1, 0.4f);
+        GL11.glTranslatef(-0.05f, 0.2f, -0.05f);
 		this.renderItem(e, item, 0);
         GL11.glPushMatrix();
 	}

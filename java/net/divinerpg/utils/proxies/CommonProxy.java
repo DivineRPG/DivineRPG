@@ -1,5 +1,7 @@
 package net.divinerpg.utils.proxies;
 
+import java.awt.Color;
+
 import net.divinerpg.DivineRPG;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDramixAltar;
@@ -67,11 +69,8 @@ import net.divinerpg.utils.items.VetheaItems;
 import net.divinerpg.utils.recipes.TwilightRecipeHelper;
 import net.divinerpg.utils.recipes.VanillaRecipeHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
@@ -173,4 +172,5 @@ public class CommonProxy{
 	}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random, int randFactor) {}
+	public void spawnParticle(World w, double x, double y, double z, Color c, boolean random) {}
 }

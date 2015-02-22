@@ -1,5 +1,6 @@
 package net.divinerpg.utils.proxies;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.divinerpg.client.ArcanaRenderer;
@@ -17,6 +18,7 @@ import net.divinerpg.client.render.item.RenderProjectileShooter;
 import net.divinerpg.client.render.item.RenderStaff;
 import net.divinerpg.entities.fx.EntityBlackFlameFX;
 import net.divinerpg.entities.fx.EntityBlueFlameFX;
+import net.divinerpg.entities.fx.EntityColoredFX;
 import net.divinerpg.entities.fx.EntityEdenPortalFX;
 import net.divinerpg.entities.fx.EntityGreenFlameFX;
 import net.divinerpg.entities.fx.EntityGreenPortalFX;
@@ -120,6 +122,16 @@ public class ClientProxy extends CommonProxy {
     	else if(particle == "blackFlame") fx = new EntityBlackFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	else if(particle == "blueFlame") fx = new EntityBlueFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	else if(particle == "orangeFlame") fx = new EntityFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
+    }
+    
+    public void spawnParticle(World w, double x, double y, double z, Color c, boolean random) {
+    	if(random) {
+    		x += (rand.nextDouble()-rand.nextDouble())/4;
+    		y += (rand.nextDouble()-rand.nextDouble())/4;
+    		z += (rand.nextDouble()-rand.nextDouble())/4;
+    	}
+    	EntityFX fx = new EntityColoredFX(w, x, y, z, 0.0D, 0.0D, 0.0D, c);
     	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
     }
 }
