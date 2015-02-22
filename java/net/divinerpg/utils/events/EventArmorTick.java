@@ -209,6 +209,18 @@ public class EventArmorTick {
         }
         
         ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, evt.player.capabilities, 0.1f*speedMultiplier, walkSpeed);
+        
+        if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs && boots == VetheaItems.glisteningBoots && helmet == VetheaItems.glisteningHood) {
+        	evt.player.fallDistance = -0.5F;
+        }
+            
+        if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs && boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedHood) {
+        	evt.player.fallDistance = -0.5F;
+        }
+            
+        if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHood) {
+        	evt.player.fallDistance = -0.5F;
+        }
     }
 
 }

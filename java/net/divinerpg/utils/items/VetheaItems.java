@@ -318,13 +318,13 @@ public class VetheaItems {
 	    Object[] basicHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION};
 	    Object[] glisteningHelmInfo = {15, ArmorInfo.MELEE_PROTECTION, 3, ArmorInfo.MELEE_DAMAGE};
 	    Object[] glisteningMaskInfo = {15, ArmorInfo.RANGED_PROTECTION, 1.4, ArmorInfo.SPEED};
-	    Object[] glisteningHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT};
+	    Object[] glisteningHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL};
 	    Object[] demonizedHelmInfo = {15, ArmorInfo.MELEE_PROTECTION, 6, ArmorInfo.MELEE_DAMAGE};
 	    Object[] demonizedMaskInfo = {15, ArmorInfo.RANGED_PROTECTION, 1.8, ArmorInfo.SPEED};
-	    Object[] demonizedHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT};
+	    Object[] demonizedHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL};
 	    Object[] tormentedHelmInfo = {15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE};
 	    Object[] tormentedMaskInfo = {15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED};
-	    Object[] tormentedHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT};
+	    Object[] tormentedHoodInfo = {15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL};
 	    
 	    degradedHelmet	= new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHelmInfo, true, "Helmet");
 	    degradedMask		= new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicMaskInfo, true, "Mask");
