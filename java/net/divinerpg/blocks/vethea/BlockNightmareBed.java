@@ -96,6 +96,7 @@ public class BlockNightmareBed extends BlockBed {
                     
                     EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
                     func_149979_a(world, x, y, z, false);
+                    MPPlayer.timeUntilPortal = 10;
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
                     this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
                 	player.getEntityData().setTag("PlayerPersisted", this.persistantData);

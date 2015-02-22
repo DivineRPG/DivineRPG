@@ -56,9 +56,4 @@ public class DivineRPG {
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit(event);
 	}
-	
-	@EventHandler
-	public void serverStarting(FMLServerStartingEvent event){
-		proxy.serverStarting(event);
-	}
 }

@@ -40,7 +40,6 @@ import net.divinerpg.utils.entities.TwilightEntityRegistry;
 import net.divinerpg.utils.entities.VanillaEntityRegistry;
 import net.divinerpg.utils.entities.VetheaEntityRegistry;
 import net.divinerpg.utils.events.ArcanaTickHandler;
-import net.divinerpg.utils.events.DivineRPGCommands;
 import net.divinerpg.utils.events.EntityConstructorEvent;
 import net.divinerpg.utils.events.EventArmorFullSet;
 import net.divinerpg.utils.events.EventArmorTick;
@@ -69,15 +68,11 @@ import net.divinerpg.utils.items.VetheaItems;
 import net.divinerpg.utils.recipes.TwilightRecipeHelper;
 import net.divinerpg.utils.recipes.VanillaRecipeHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
-import net.minecraft.command.CommandHandler;
-import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -165,11 +160,6 @@ public class CommonProxy{
 		Util.addBucket(DivineRPG.tarFluid, new ItemStack(VanillaItemsOther.tarBucket));
 	}
 
-	public void serverStarting(FMLServerStartingEvent event){ 
-		LogHelper.info("Setting up commands");
-		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager)
-			((CommandHandler)MinecraftServer.getServer().getCommandManager()).registerCommand(new DivineRPGCommands());
-	}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
 	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random, int randFactor) {}
 	public void spawnParticle(World w, double x, double y, double z, Color c, boolean random) {}

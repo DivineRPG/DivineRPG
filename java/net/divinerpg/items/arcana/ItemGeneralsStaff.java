@@ -34,16 +34,13 @@ public class ItemGeneralsStaff extends ItemMod {
 		if (!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		
 		if(Ticker.tick >= stack.getTagCompound().getLong("CanShootTime")) {
-			if(ArcanaHelper.getProperties(player).useBar(20)) {
-				if(!world.isRemote)world.playSoundAtEntity(player, Sounds.starlight.getPrefixedName(), 1.0F, 1.0F);
+			if(!world.isRemote && ArcanaHelper.getProperties(player).useBar(20)) {
+				world.playSoundAtEntity(player, Sounds.starlight.getPrefixedName(), 1.0F, 1.0F);
 				EntityThrowable entity = new EntityGeneralsStaff(world, player);
-				if(!world.isRemote) {
-					world.spawnEntityInWorld(entity);
-					stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 12);
-				}
+				world.spawnEntityInWorld(entity);
+				stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 12);
 			}
 		}
-		if(player instanceof EntityPlayerMP)((EntityPlayerMP)player).sendContainerToPlayer(player.inventoryContainer);
 		if (stack.getTagCompound().getLong("CanShootTime") >= 100000 || stack.getTagCompound().getLong("CanShootTime") > Ticker.tick + 141)stack.getTagCompound().setLong("CanShootTime", 0);
 		return stack;
 	}

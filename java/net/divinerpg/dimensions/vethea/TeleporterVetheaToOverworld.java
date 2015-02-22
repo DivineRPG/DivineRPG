@@ -28,7 +28,6 @@ public class TeleporterVetheaToOverworld extends Teleporter {
 
 	public void placeInPortal(EntityPlayer player, double x, double y, double z, float par8) {
 		if(worldServerInstance.provider.dimensionId == 0) {
-			player.travelToDimension(0);
 			ChunkCoordinates bed = player.getBedLocation(0);
 			if(bed == null) {
 				bed = worldServerInstance.getSpawnPoint();

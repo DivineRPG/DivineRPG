@@ -128,7 +128,7 @@ public class VetheaBlocks {
         dreamBricks2           = new BlockMod("dreamBricks2", 1.0F, DivineRPGTabs.vethea);
         lunaStone              = new BlockMod("lunaStone", 1.0F, DivineRPGTabs.vethea);
         lunaBricks             = new BlockMod("lunaBrick", 1.0F, DivineRPGTabs.vethea);
-        metalCaging            = new BlockMod("metalCaging", 1.0F, DivineRPGTabs.vethea);
+        metalCaging            = new BlockModGlass("metalCaging", 1.0F).setStepSound(Block.soundTypeMetal).setCreativeTab(DivineRPGTabs.vethea);
         dreamLampOn            = new BlockMod(EnumBlockType.GLASS, "dreamLampOn", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
         dreamLamp              = new BlockMod(EnumBlockType.GLASS, "dreamLampOff", 1.0F, DivineRPGTabs.vethea);
         weedwoodVine           = new BlockModVine("weedWoodVine").setCreativeTab(DivineRPGTabs.vethea);

@@ -178,6 +178,7 @@ public class ItemModBow extends ItemBow {
     }
     
     public ItemModBow setVethean() {
+    	this.setCreativeTab(DivineRPGTabs.vethea);
     	this.vethean = true;
     	return this;
     }

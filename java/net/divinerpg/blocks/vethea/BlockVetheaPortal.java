@@ -15,6 +15,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -26,7 +28,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockVetheaPortal extends BlockBreakable {
 
     public static final int[][] sides = new int[][] { new int[0], { 3, 1 }, { 2, 0 } };
-
+    
     public BlockVetheaPortal() {
         super(Reference.PREFIX + "vetheaPortal", Material.portal, false);
     	String name = "vetheaPortal";
@@ -41,16 +43,24 @@ public class BlockVetheaPortal extends BlockBreakable {
 
     @Override
     public void onEntityCollidedWithBlock(World world, int xPos, int yPos, int zPos, Entity entity) {
+    	
         if ((entity.ridingEntity == null) && (entity.riddenByEntity == null)){
         	if(entity instanceof EntityPlayerMP) {
-        		EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-        		if (thePlayer.timeUntilPortal > 0) {
-        			thePlayer.timeUntilPortal = 10;
+        		EntityPlayerMP player = (EntityPlayerMP) entity;
+        		if (player.timeUntilPortal > 0) {
+        			player.timeUntilPortal = 10;
         		}
 
-        		if(thePlayer.dimension == ConfigurationHelper.vethea) {
-        			thePlayer.timeUntilPortal = 10;
-        			thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterVetheaToOverworld(thePlayer.mcServer.worldServerForDimension(0)));
+        		else if(player.dimension == ConfigurationHelper.vethea) {
+        			player.timeUntilPortal = 10;
+        			NBTTagCompound persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
+        			persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
+                	player.getEntityData().setTag("PlayerPersisted", persistantData);
+                    player.inventory.clearInventory(null, -1);
+                    NBTTagList inv = persistantData.getTagList("OverworldInv", 10);
+                    player.inventory.readFromNBT(inv);
+                    player.inventoryContainer.detectAndSendChanges();
+        			player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterVetheaToOverworld(player.mcServer.worldServerForDimension(0)));
         		}
         	}
         }

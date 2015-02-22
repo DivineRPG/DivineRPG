@@ -21,6 +21,7 @@ import net.divinerpg.entities.arcana.EntityVatticus;
 import net.divinerpg.entities.arcana.EntityWarGeneral;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.entities.arcana.EntityZelus;
+import net.divinerpg.entities.arcana.projectile.EntityAttractor;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
 import net.divinerpg.entities.arcana.projectile.EntityFyracryxFireball;
 import net.divinerpg.entities.arcana.projectile.EntityGrenade;
@@ -44,6 +45,7 @@ public class ArcanaEntityRegistry {
 		Util.registerProjectile(EntityLivingStatueArrow.class, "LivingStatueArrow");
 		Util.registerProjectile(EntityMerikMissile.class, "MeriksMissile");
 		Util.registerProjectile(EntityMeteor.class, "MeteorMash");
+		Util.registerProjectile(EntityAttractor.class, "Attractor");
 
 		Util.registerDivineRPGMob(EntityCaptianMerik.class, "CaptainMerik");
 		Util.registerDivineRPGMob(EntityConstructor.class, "DungeonConstructor");

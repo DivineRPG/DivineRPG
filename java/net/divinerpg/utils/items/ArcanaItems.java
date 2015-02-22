@@ -7,6 +7,7 @@ import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
 import net.divinerpg.items.arcana.ItemArcaniteBlade;
 import net.divinerpg.items.arcana.ItemArcaniteBlaster;
 import net.divinerpg.items.arcana.ItemArcaniumSaber;
+import net.divinerpg.items.arcana.ItemAttractor;
 import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
 import net.divinerpg.items.arcana.ItemDivineAccumulator;
@@ -70,6 +71,7 @@ public class ArcanaItems {
 	public static Item 	  arcaniteBlaster;
 	public static Item	  arcaniteBlade;
 	public static Item	  generalsStaff;
+	public static Item	  attractor;
 
     public static Item sludgeKey;
     public static Item ancientKey;
@@ -139,6 +141,7 @@ public class ArcanaItems {
     	arcaniteBlaster			 = new ItemArcaniteBlaster();
     	arcaniteBlade  	 		 = new ItemArcaniteBlade();
     	generalsStaff			 = new ItemGeneralsStaff();
+    	attractor				 = new ItemAttractor();
 
         sludgeKey 				 = new ItemKey("sludgeKey");
         ancientKey 				 = new ItemKey("ancientKey");

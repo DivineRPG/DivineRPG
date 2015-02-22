@@ -52,6 +52,7 @@ import net.divinerpg.entities.arcana.EntityVatticus;
 import net.divinerpg.entities.arcana.EntityWarGeneral;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.entities.arcana.EntityZelus;
+import net.divinerpg.entities.arcana.projectile.EntityAttractor;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
 import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.entities.arcana.projectile.EntityLamona;
@@ -80,6 +81,7 @@ public class ArcanaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityLamona.class, new RenderIconProjectile(ArcanaItems.lamona));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderSpecialProjectile(x.meriksMissile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, new RenderSpecialProjectile(x.meteor, 2.5f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAttractor.class, new RenderSpecialProjectile(x.blank, 1));
 		
         RenderingRegistry.registerEntityRenderingHandler(EntityRoamer.class, new RenderDivineMob(new ModelRoamer(), x.roamer));
         RenderingRegistry.registerEntityRenderingHandler(EntityDeathcryx.class, new RenderDivineMob(new ModelDeathcryx(), x.deathcryx));

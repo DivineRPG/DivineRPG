@@ -71,6 +71,8 @@ public class EntityResourceLocation {
     public static ResourceLocation frostclawCannon 	 = addProjectile("frostclawCannon");
     public static ResourceLocation fractiteCannon 	 = addProjectile("fractiteCannon");
     
+    public static ResourceLocation blank 	 		 = addProjectile("blank");
+    
     public static ResourceLocation scytheProjectile  = addProjectile("scythe");
     public static ResourceLocation starlight	     = addProjectile("starlight");
     public static ResourceLocation sparkler		     = addProjectile("sparkler");
