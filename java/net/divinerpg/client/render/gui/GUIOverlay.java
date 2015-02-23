@@ -9,7 +9,6 @@ import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.UpdateChecker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 

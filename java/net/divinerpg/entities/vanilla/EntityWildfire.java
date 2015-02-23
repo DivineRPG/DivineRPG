@@ -1,6 +1,7 @@
 package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.entities.base.EntityDivineRPGMob;
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
@@ -8,16 +9,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
-import net.minecraft.entity.ai.EntityAIFleeSun;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIRestrictSun;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -29,8 +22,8 @@ public class EntityWildfire extends EntityDivineRPGMob implements IRangedAttackM
     public EntityWildfire(World par1World) {
         super(par1World);
         float moveSpeed = 0.25F;
+        this.targetTasks.addTask(7, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 10.0F));        
-        addAttackingAI();
         this.isImmuneToFire = true;
     }
 
@@ -80,7 +73,7 @@ public class EntityWildfire extends EntityDivineRPGMob implements IRangedAttackM
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase var1, float f) {
-        EntityArrow var2 = new EntityArrow(this.worldObj, this, var1, 1.6F, 12.0F);
+        EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, var1, 1.6F, 12.0F, 8, "infernoArrow");
         
         var2.setDamage(14);
         var2.setFire(100);
