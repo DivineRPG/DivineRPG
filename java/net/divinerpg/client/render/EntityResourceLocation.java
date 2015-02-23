@@ -70,7 +70,6 @@ public class EntityResourceLocation {
     public static ResourceLocation music	 	 	 = addProjectile("music");
     public static ResourceLocation frostclawCannon 	 = addProjectile("frostclawCannon");
     public static ResourceLocation fractiteCannon 	 = addProjectile("fractiteCannon");
-    public static ResourceLocation ice		 	 	 = addProjectile("ice");
     
     public static ResourceLocation blank 	 		 = addProjectile("blank");
     

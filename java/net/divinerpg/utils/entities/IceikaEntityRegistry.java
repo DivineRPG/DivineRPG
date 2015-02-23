@@ -11,7 +11,7 @@ import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
 import net.divinerpg.entities.iceika.projectile.EntityFractiteShot;
-import net.divinerpg.entities.iceika.projectile.EntityIce;
+import net.divinerpg.entities.iceika.projectile.EntitySerenadeOfIce;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
 import net.divinerpg.entities.iceika.projectile.EntitySnowflakeShuriken;
 import net.divinerpg.utils.Util;
@@ -23,7 +23,7 @@ public class IceikaEntityRegistry {
 		Util.registerProjectile(EntityMusic.class, "Music");
 		Util.registerProjectile(EntitySnowflakeShuriken.class, "SnowflakeShuriken");
 		Util.registerProjectile(EntityFractiteShot.class, "FractiteShot");
-		Util.registerProjectile(EntityIce.class, "Ice");
+		Util.registerProjectile(EntitySerenadeOfIce.class, "Ice");
 		
 		Util.registerDivineRPGMob(EntityAlicanto.class, "Alicanto");
 		Util.registerDivineRPGMob(EntityFractite.class, "Fractite");

@@ -45,8 +45,8 @@ public class ItemSerenadeOfDeath extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("12 Ranged damage");
+		list.add("12 Ranged Damage");
 		list.add("Poisons target for 2 seconds");
-		list.add(getMaxDamage() - stack.getItemDamage() + " Uses");
+		list.add(getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
 	}
 }

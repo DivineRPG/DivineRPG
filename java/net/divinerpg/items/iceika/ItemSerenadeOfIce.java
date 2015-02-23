@@ -3,7 +3,7 @@ package net.divinerpg.items.iceika;
 import java.util.List;
 
 import net.divinerpg.entities.iceika.projectile.EntityCarol;
-import net.divinerpg.entities.iceika.projectile.EntityIce;
+import net.divinerpg.entities.iceika.projectile.EntitySerenadeOfIce;
 import net.divinerpg.entities.iceika.projectile.EntityMusic;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
@@ -32,7 +32,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!world.isRemote) {
-			world.spawnEntityInWorld(new EntityIce(world, player));
+			world.spawnEntityInWorld(new EntitySerenadeOfIce(world, player));
 			world.playSoundAtEntity(player, Sounds.serenade.getPrefixedName(), 1, 1);
 			stack.damageItem(1, player);
 		}
@@ -43,6 +43,6 @@ public class ItemSerenadeOfIce extends ItemMod {
 	@Override
 	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
 		infoList.add("Slows mobs for 5 seconds");
-		infoList.add(getMaxDamage() - item.getItemDamage() + " Uses");
+		infoList.add(getMaxDamage() - item.getItemDamage() + " Uses Remaining");
 	}
 }
