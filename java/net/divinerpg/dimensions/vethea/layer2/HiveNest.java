@@ -7983,7 +7983,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 9, k + 11, Blocks.air);
 		world.setBlock(i + 7, j + 9, k + 12, Blocks.air);
 		world.setBlock(i + 7, j + 9, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 9, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 9, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 9, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 9, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 9, k + 17, Blocks.air);
@@ -8026,7 +8026,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 10, k + 11, Blocks.air);
 		world.setBlock(i + 7, j + 10, k + 12, Blocks.air);
 		world.setBlock(i + 7, j + 10, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 10, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 10, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 10, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 10, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 10, k + 17, Blocks.air);
@@ -8069,7 +8069,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 11, k + 11, Blocks.air);
 		world.setBlock(i + 7, j + 11, k + 12, Blocks.air);
 		world.setBlock(i + 7, j + 11, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 11, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 11, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 11, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 11, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 11, k + 17, Blocks.air);
@@ -8112,7 +8112,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 12, k + 11, Blocks.air);
 		world.setBlock(i + 7, j + 12, k + 12, Blocks.air);
 		world.setBlock(i + 7, j + 12, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 12, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 12, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 12, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 12, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 12, k + 17, Blocks.air);
@@ -8155,14 +8155,14 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 13, k + 11, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 12, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 13, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 13, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 13, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 17, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 7, j + 13, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 13, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 13, k + 22, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 23, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 24, Blocks.air);
@@ -8198,14 +8198,14 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 14, k + 11, VetheaBlocks.hiveWall);
 		world.setBlock(i + 7, j + 14, k + 12, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 14, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 14, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 14, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 17, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 18, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 19, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 20, Blocks.air);
-		world.setBlock(i + 7, j + 14, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 14, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 14, k + 22, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 23, Blocks.air);
 		world.setBlock(i + 7, j + 14, k + 24, Blocks.air);
@@ -8241,14 +8241,14 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 15, k + 11, VetheaBlocks.hiveWall);
 		world.setBlock(i + 7, j + 15, k + 12, VetheaBlocks.hiveWall);
 		world.setBlock(i + 7, j + 15, k + 13, Blocks.air);
-		world.setBlock(i + 7, j + 15, k + 14, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 15, k + 14, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 15, k + 15, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 16, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 17, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 18, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 19, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 20, Blocks.air);
-		world.setBlock(i + 7, j + 15, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 15, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 15, k + 22, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 23, Blocks.air);
 		world.setBlock(i + 7, j + 15, k + 24, Blocks.air);
@@ -8291,7 +8291,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 16, k + 18, Blocks.air);
 		world.setBlock(i + 7, j + 16, k + 19, Blocks.air);
 		world.setBlock(i + 7, j + 16, k + 20, Blocks.air);
-		world.setBlock(i + 7, j + 16, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 16, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 16, k + 22, Blocks.air);
 		world.setBlock(i + 7, j + 16, k + 23, Blocks.air);
 		world.setBlock(i + 7, j + 16, k + 24, Blocks.air);
@@ -8334,7 +8334,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 7, j + 17, k + 18, Blocks.air);
 		world.setBlock(i + 7, j + 17, k + 19, Blocks.air);
 		world.setBlock(i + 7, j + 17, k + 20, Blocks.air);
-		world.setBlock(i + 7, j + 17, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 7, j + 17, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 7, j + 17, k + 22, Blocks.air);
 		world.setBlock(i + 7, j + 17, k + 23, VetheaBlocks.hiveWall);
 		world.setBlock(i + 7, j + 17, k + 24, VetheaBlocks.hiveWall);
@@ -9205,7 +9205,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 8, j + 12, k + 23, Blocks.air);
 		world.setBlock(i + 8, j + 12, k + 24, Blocks.air);
 		world.setBlock(i + 8, j + 12, k + 25, Blocks.air);
-		world.setBlock(i + 8, j + 12, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 8, j + 12, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 8, j + 12, k + 27, Blocks.air);
 		world.setBlock(i + 8, j + 12, k + 28, Blocks.air);
 		world.setBlock(i + 8, j + 12, k + 29, Blocks.air);
@@ -9248,7 +9248,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 8, j + 13, k + 23, Blocks.air);
 		world.setBlock(i + 8, j + 13, k + 24, Blocks.air);
 		world.setBlock(i + 8, j + 13, k + 25, Blocks.air);
-		world.setBlock(i + 8, j + 13, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 8, j + 13, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 8, j + 13, k + 27, Blocks.air);
 		world.setBlock(i + 8, j + 13, k + 28, Blocks.air);
 		world.setBlock(i + 8, j + 13, k + 29, Blocks.air);
@@ -9291,7 +9291,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 8, j + 14, k + 23, Blocks.air);
 		world.setBlock(i + 8, j + 14, k + 24, Blocks.air);
 		world.setBlock(i + 8, j + 14, k + 25, Blocks.air);
-		world.setBlock(i + 8, j + 14, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 8, j + 14, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 8, j + 14, k + 27, Blocks.air);
 		world.setBlock(i + 8, j + 14, k + 28, Blocks.air);
 		world.setBlock(i + 8, j + 14, k + 29, Blocks.air);
@@ -9334,7 +9334,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 8, j + 15, k + 23, Blocks.air);
 		world.setBlock(i + 8, j + 15, k + 24, Blocks.air);
 		world.setBlock(i + 8, j + 15, k + 25, Blocks.air);
-		world.setBlock(i + 8, j + 15, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 8, j + 15, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 8, j + 15, k + 27, Blocks.air);
 		world.setBlock(i + 8, j + 15, k + 28, Blocks.air);
 		world.setBlock(i + 8, j + 15, k + 29, VetheaBlocks.hiveWall);
@@ -9377,7 +9377,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 8, j + 16, k + 23, Blocks.air);
 		world.setBlock(i + 8, j + 16, k + 24, Blocks.air);
 		world.setBlock(i + 8, j + 16, k + 25, Blocks.air);
-		world.setBlock(i + 8, j + 16, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 8, j + 16, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 8, j + 16, k + 27, Blocks.air);
 		world.setBlock(i + 8, j + 16, k + 28, VetheaBlocks.hiveWall);
 		world.setBlock(i + 8, j + 16, k + 29, VetheaBlocks.hiveWall);
@@ -15842,7 +15842,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 14, j + 16, k + 14, Blocks.air);
 		world.setBlock(i + 14, j + 16, k + 15, Blocks.air);
 		world.setBlock(i + 14, j + 16, k + 16, Blocks.air);
-		world.setBlock(i + 14, j + 16, k + 17, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 14, j + 16, k + 17, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 14, j + 16, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 16, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 16, k + 20, Blocks.air);
@@ -15885,7 +15885,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 14, j + 17, k + 14, Blocks.air);
 		world.setBlock(i + 14, j + 17, k + 15, Blocks.air);
 		world.setBlock(i + 14, j + 17, k + 16, Blocks.air);
-		world.setBlock(i + 14, j + 17, k + 17, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 14, j + 17, k + 17, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 14, j + 17, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 17, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 17, k + 20, Blocks.air);
@@ -15928,7 +15928,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 14, j + 18, k + 14, Blocks.air);
 		world.setBlock(i + 14, j + 18, k + 15, Blocks.air);
 		world.setBlock(i + 14, j + 18, k + 16, Blocks.air);
-		world.setBlock(i + 14, j + 18, k + 17, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 14, j + 18, k + 17, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 14, j + 18, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 18, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 18, k + 20, Blocks.air);
@@ -15971,7 +15971,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 14, j + 19, k + 14, Blocks.air);
 		world.setBlock(i + 14, j + 19, k + 15, Blocks.air);
 		world.setBlock(i + 14, j + 19, k + 16, Blocks.air);
-		world.setBlock(i + 14, j + 19, k + 17, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 14, j + 19, k + 17, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 14, j + 19, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 19, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 19, k + 20, Blocks.air);
@@ -16014,7 +16014,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 14, j + 20, k + 14, Blocks.air);
 		world.setBlock(i + 14, j + 20, k + 15, Blocks.air);
 		world.setBlock(i + 14, j + 20, k + 16, Blocks.air);
-		world.setBlock(i + 14, j + 20, k + 17, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 14, j + 20, k + 17, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 14, j + 20, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 20, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 20, k + 20, Blocks.air);
@@ -16057,7 +16057,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 14, j + 21, k + 14, VetheaBlocks.hiveWall);
 		world.setBlock(i + 14, j + 21, k + 15, VetheaBlocks.hiveWall);
 		world.setBlock(i + 14, j + 21, k + 16, Blocks.air);
-		world.setBlock(i + 14, j + 21, k + 17, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 14, j + 21, k + 17, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 14, j + 21, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 21, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 21, k + 20, Blocks.air);
@@ -16846,7 +16846,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 14, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 14, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 14, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 14, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 14, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 14, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 14, k + 28, Blocks.air);
 		world.setBlock(i + 15, j + 14, k + 29, Blocks.air);
@@ -16889,7 +16889,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 15, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 15, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 15, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 15, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 15, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 15, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 15, k + 28, Blocks.air);
 		world.setBlock(i + 15, j + 15, k + 29, Blocks.air);
@@ -16932,7 +16932,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 16, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 16, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 16, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 16, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 16, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 16, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 16, k + 28, Blocks.air);
 		world.setBlock(i + 15, j + 16, k + 29, Blocks.air);
@@ -16975,7 +16975,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 17, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 17, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 17, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 17, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 17, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 17, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 17, k + 28, Blocks.air);
 		world.setBlock(i + 15, j + 17, k + 29, Blocks.air);
@@ -17018,7 +17018,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 18, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 18, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 18, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 18, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 18, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 18, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 18, k + 28, Blocks.air);
 		world.setBlock(i + 15, j + 18, k + 29, Blocks.air);
@@ -17061,7 +17061,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 19, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 19, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 19, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 19, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 19, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 19, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 19, k + 28, Blocks.air);
 		world.setBlock(i + 15, j + 19, k + 29, Blocks.air);
@@ -17104,7 +17104,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 15, j + 20, k + 23, Blocks.air);
 		world.setBlock(i + 15, j + 20, k + 24, Blocks.air);
 		world.setBlock(i + 15, j + 20, k + 25, Blocks.air);
-		world.setBlock(i + 15, j + 20, k + 26, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 15, j + 20, k + 26, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 15, j + 20, k + 27, Blocks.air);
 		world.setBlock(i + 15, j + 20, k + 28, VetheaBlocks.hiveWall);
 		world.setBlock(i + 15, j + 20, k + 29, VetheaBlocks.hiveWall);
@@ -17885,7 +17885,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 13, k + 30, Blocks.air);
 		world.setBlock(i + 16, j + 13, k + 31, Blocks.air);
 		world.setBlock(i + 16, j + 13, k + 32, Blocks.air);
-		world.setBlock(i + 16, j + 13, k + 33, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 13, k + 33, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 13, k + 34, Blocks.air);
 		world.setBlock(i + 16, j + 13, k + 35, Blocks.air);
 		world.setBlock(i + 16, j + 13, k + 36, VetheaBlocks.hiveWall);
@@ -17928,7 +17928,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 14, k + 30, Blocks.air);
 		world.setBlock(i + 16, j + 14, k + 31, Blocks.air);
 		world.setBlock(i + 16, j + 14, k + 32, Blocks.air);
-		world.setBlock(i + 16, j + 14, k + 33, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 14, k + 33, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 14, k + 34, Blocks.air);
 		world.setBlock(i + 16, j + 14, k + 35, Blocks.air);
 		world.setBlock(i + 16, j + 14, k + 36, VetheaBlocks.hiveWall);
@@ -17951,7 +17951,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 15, k + 10, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 11, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 12, Blocks.air);
-		world.setBlock(i + 16, j + 15, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 15, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 15, k + 14, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 15, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 16, Blocks.air);
@@ -17971,7 +17971,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 15, k + 30, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 31, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 32, Blocks.air);
-		world.setBlock(i + 16, j + 15, k + 33, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 15, k + 33, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 15, k + 34, Blocks.air);
 		world.setBlock(i + 16, j + 15, k + 35, VetheaBlocks.hiveWall);
 		world.setBlock(i + 16, j + 15, k + 36, VetheaBlocks.hiveWall);
@@ -17994,7 +17994,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 16, k + 10, Blocks.air);
 		world.setBlock(i + 16, j + 16, k + 11, Blocks.air);
 		world.setBlock(i + 16, j + 16, k + 12, Blocks.air);
-		world.setBlock(i + 16, j + 16, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 16, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 16, k + 14, Blocks.air);
 		world.setBlock(i + 16, j + 16, k + 15, Blocks.air);
 		world.setBlock(i + 16, j + 16, k + 16, Blocks.air);
@@ -18014,7 +18014,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 16, k + 30, Blocks.air);
 		world.setBlock(i + 16, j + 16, k + 31, Blocks.air);
 		world.setBlock(i + 16, j + 16, k + 32, Blocks.air);
-		world.setBlock(i + 16, j + 16, k + 33, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 16, k + 33, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 16, k + 34, VetheaBlocks.hiveWall);
 		world.setBlock(i + 16, j + 16, k + 35, VetheaBlocks.hiveWall);
 		world.setBlock(i + 16, j + 16, k + 36, VetheaBlocks.hiveWall);
@@ -18037,7 +18037,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 17, k + 10, Blocks.air);
 		world.setBlock(i + 16, j + 17, k + 11, Blocks.air);
 		world.setBlock(i + 16, j + 17, k + 12, Blocks.air);
-		world.setBlock(i + 16, j + 17, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 17, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 17, k + 14, Blocks.air);
 		world.setBlock(i + 16, j + 17, k + 15, Blocks.air);
 		world.setBlock(i + 16, j + 17, k + 16, Blocks.air);
@@ -18080,7 +18080,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 18, k + 10, Blocks.air);
 		world.setBlock(i + 16, j + 18, k + 11, Blocks.air);
 		world.setBlock(i + 16, j + 18, k + 12, Blocks.air);
-		world.setBlock(i + 16, j + 18, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 18, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 18, k + 14, Blocks.air);
 		world.setBlock(i + 16, j + 18, k + 15, Blocks.air);
 		world.setBlock(i + 16, j + 18, k + 16, Blocks.air);
@@ -18129,7 +18129,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 19, k + 10, Blocks.air);
 		world.setBlock(i + 16, j + 19, k + 11, Blocks.air);
 		world.setBlock(i + 16, j + 19, k + 12, Blocks.air);
-		world.setBlock(i + 16, j + 19, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 19, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 19, k + 14, Blocks.air);
 		world.setBlock(i + 16, j + 19, k + 15, Blocks.air);
 		world.setBlock(i + 16, j + 19, k + 16, Blocks.air);
@@ -18172,7 +18172,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 16, j + 20, k + 10, VetheaBlocks.hiveWall);
 		world.setBlock(i + 16, j + 20, k + 11, VetheaBlocks.hiveWall);
 		world.setBlock(i + 16, j + 20, k + 12, Blocks.air);
-		world.setBlock(i + 16, j + 20, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 16, j + 20, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 16, j + 20, k + 14, Blocks.air);
 		world.setBlock(i + 16, j + 20, k + 15, Blocks.air);
 		world.setBlock(i + 16, j + 20, k + 16, Blocks.air);
@@ -20167,7 +20167,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 18, j + 16, k + 21, Blocks.air);
 		world.setBlock(i + 18, j + 16, k + 22, Blocks.air);
 		world.setBlock(i + 18, j + 16, k + 23, Blocks.air);
-		world.setBlock(i + 18, j + 16, k + 24, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 18, j + 16, k + 24, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 18, j + 16, k + 25, Blocks.air);
 		world.setBlock(i + 18, j + 16, k + 26, Blocks.air);
 		world.setBlock(i + 18, j + 16, k + 27, Blocks.air);
@@ -20210,7 +20210,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 18, j + 17, k + 21, Blocks.air);
 		world.setBlock(i + 18, j + 17, k + 22, Blocks.air);
 		world.setBlock(i + 18, j + 17, k + 23, Blocks.air);
-		world.setBlock(i + 18, j + 17, k + 24, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 18, j + 17, k + 24, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 18, j + 17, k + 25, Blocks.air);
 		world.setBlock(i + 18, j + 17, k + 26, Blocks.air);
 		world.setBlock(i + 18, j + 17, k + 27, Blocks.air);
@@ -20253,7 +20253,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 18, j + 18, k + 21, Blocks.air);
 		world.setBlock(i + 18, j + 18, k + 22, Blocks.air);
 		world.setBlock(i + 18, j + 18, k + 23, Blocks.air);
-		world.setBlock(i + 18, j + 18, k + 24, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 18, j + 18, k + 24, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 18, j + 18, k + 25, Blocks.air);
 		world.setBlock(i + 18, j + 18, k + 26, Blocks.air);
 		world.setBlock(i + 18, j + 18, k + 27, Blocks.air);
@@ -20296,7 +20296,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 18, j + 19, k + 21, Blocks.air);
 		world.setBlock(i + 18, j + 19, k + 22, Blocks.air);
 		world.setBlock(i + 18, j + 19, k + 23, Blocks.air);
-		world.setBlock(i + 18, j + 19, k + 24, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 18, j + 19, k + 24, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 18, j + 19, k + 25, Blocks.air);
 		world.setBlock(i + 18, j + 19, k + 26, Blocks.air);
 		world.setBlock(i + 18, j + 19, k + 27, Blocks.air);
@@ -20339,7 +20339,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 18, j + 20, k + 21, Blocks.air);
 		world.setBlock(i + 18, j + 20, k + 22, Blocks.air);
 		world.setBlock(i + 18, j + 20, k + 23, Blocks.air);
-		world.setBlock(i + 18, j + 20, k + 24, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 18, j + 20, k + 24, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 18, j + 20, k + 25, Blocks.air);
 		world.setBlock(i + 18, j + 20, k + 26, Blocks.air);
 		world.setBlock(i + 18, j + 20, k + 27, Blocks.air);
@@ -20382,7 +20382,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 18, j + 21, k + 21, Blocks.air);
 		world.setBlock(i + 18, j + 21, k + 22, Blocks.air);
 		world.setBlock(i + 18, j + 21, k + 23, Blocks.air);
-		world.setBlock(i + 18, j + 21, k + 24, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 18, j + 21, k + 24, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 18, j + 21, k + 25, Blocks.air);
 		world.setBlock(i + 18, j + 21, k + 26, Blocks.air);
 		world.setBlock(i + 18, j + 21, k + 27, Blocks.air);
@@ -22266,7 +22266,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 20, j + 15, k + 7, Blocks.air);
 		world.setBlock(i + 20, j + 15, k + 8, Blocks.air);
 		world.setBlock(i + 20, j + 15, k + 9, Blocks.air);
-		world.setBlock(i + 20, j + 15, k + 10, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 20, j + 15, k + 10, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 20, j + 15, k + 11, Blocks.air);
 		world.setBlock(i + 20, j + 15, k + 12, Blocks.air);
 		world.setBlock(i + 20, j + 15, k + 13, Blocks.air);
@@ -22309,7 +22309,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 20, j + 16, k + 7, Blocks.air);
 		world.setBlock(i + 20, j + 16, k + 8, Blocks.air);
 		world.setBlock(i + 20, j + 16, k + 9, Blocks.air);
-		world.setBlock(i + 20, j + 16, k + 10, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 20, j + 16, k + 10, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 20, j + 16, k + 11, Blocks.air);
 		world.setBlock(i + 20, j + 16, k + 12, Blocks.air);
 		world.setBlock(i + 20, j + 16, k + 13, Blocks.air);
@@ -22352,7 +22352,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 20, j + 17, k + 7, Blocks.air);
 		world.setBlock(i + 20, j + 17, k + 8, Blocks.air);
 		world.setBlock(i + 20, j + 17, k + 9, Blocks.air);
-		world.setBlock(i + 20, j + 17, k + 10, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 20, j + 17, k + 10, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 20, j + 17, k + 11, Blocks.air);
 		world.setBlock(i + 20, j + 17, k + 12, Blocks.air);
 		world.setBlock(i + 20, j + 17, k + 13, Blocks.air);
@@ -22395,7 +22395,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 20, j + 18, k + 7, VetheaBlocks.hiveWall);
 		world.setBlock(i + 20, j + 18, k + 8, Blocks.air);
 		world.setBlock(i + 20, j + 18, k + 9, Blocks.air);
-		world.setBlock(i + 20, j + 18, k + 10, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 20, j + 18, k + 10, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 20, j + 18, k + 11, Blocks.air);
 		world.setBlock(i + 20, j + 18, k + 12, Blocks.air);
 		world.setBlock(i + 20, j + 18, k + 13, Blocks.air);
@@ -22438,7 +22438,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 20, j + 19, k + 7, VetheaBlocks.hiveWall);
 		world.setBlock(i + 20, j + 19, k + 8, VetheaBlocks.hiveWall);
 		world.setBlock(i + 20, j + 19, k + 9, VetheaBlocks.hiveWall);
-		world.setBlock(i + 20, j + 19, k + 10, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 20, j + 19, k + 10, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 20, j + 19, k + 11, Blocks.air);
 		world.setBlock(i + 20, j + 19, k + 12, Blocks.air);
 		world.setBlock(i + 20, j + 19, k + 13, Blocks.air);
@@ -23494,7 +23494,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 21, j + 18, k + 25, Blocks.air);
 		world.setBlock(i + 21, j + 18, k + 26, Blocks.air);
 		world.setBlock(i + 21, j + 18, k + 27, Blocks.air);
-		world.setBlock(i + 21, j + 18, k + 28, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 21, j + 18, k + 28, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 21, j + 18, k + 29, Blocks.air);
 		world.setBlock(i + 21, j + 18, k + 30, Blocks.air);
 		world.setBlock(i + 21, j + 18, k + 31, Blocks.air);
@@ -23537,7 +23537,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 21, j + 19, k + 25, Blocks.air);
 		world.setBlock(i + 21, j + 19, k + 26, Blocks.air);
 		world.setBlock(i + 21, j + 19, k + 27, Blocks.air);
-		world.setBlock(i + 21, j + 19, k + 28, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 21, j + 19, k + 28, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 21, j + 19, k + 29, Blocks.air);
 		world.setBlock(i + 21, j + 19, k + 30, Blocks.air);
 		world.setBlock(i + 21, j + 19, k + 31, VetheaBlocks.hiveWall);
@@ -23580,7 +23580,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 21, j + 20, k + 25, Blocks.air);
 		world.setBlock(i + 21, j + 20, k + 26, Blocks.air);
 		world.setBlock(i + 21, j + 20, k + 27, Blocks.air);
-		world.setBlock(i + 21, j + 20, k + 28, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 21, j + 20, k + 28, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 21, j + 20, k + 29, Blocks.air);
 		world.setBlock(i + 21, j + 20, k + 30, VetheaBlocks.hiveWall);
 		world.setBlock(i + 21, j + 20, k + 31, VetheaBlocks.hiveWall);
@@ -24480,7 +24480,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 16, k + 16, Blocks.air);
 		world.setBlock(i + 22, j + 16, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 16, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 16, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 16, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 16, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 16, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 16, k + 22, Blocks.air);
@@ -24523,7 +24523,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 17, k + 16, Blocks.air);
 		world.setBlock(i + 22, j + 17, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 17, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 17, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 17, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 17, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 17, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 17, k + 22, Blocks.air);
@@ -24566,7 +24566,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 18, k + 16, Blocks.air);
 		world.setBlock(i + 22, j + 18, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 18, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 18, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 18, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 18, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 18, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 18, k + 22, Blocks.air);
@@ -24609,7 +24609,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 19, k + 16, Blocks.air);
 		world.setBlock(i + 22, j + 19, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 19, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 19, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 19, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 19, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 19, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 19, k + 22, Blocks.air);
@@ -24652,7 +24652,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 20, k + 16, Blocks.air);
 		world.setBlock(i + 22, j + 20, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 20, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 20, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 20, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 20, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 20, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 20, k + 22, Blocks.air);
@@ -24695,7 +24695,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 21, k + 16, Blocks.air);
 		world.setBlock(i + 22, j + 21, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 21, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 21, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 21, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 21, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 21, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 21, k + 22, Blocks.air);
@@ -24738,7 +24738,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 22, j + 22, k + 16, VetheaBlocks.hiveWall);
 		world.setBlock(i + 22, j + 22, k + 17, Blocks.air);
 		world.setBlock(i + 22, j + 22, k + 18, Blocks.air);
-		world.setBlock(i + 22, j + 22, k + 19, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 22, j + 22, k + 19, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 22, j + 22, k + 20, Blocks.air);
 		world.setBlock(i + 22, j + 22, k + 21, Blocks.air);
 		world.setBlock(i + 22, j + 22, k + 22, Blocks.air);
@@ -25549,7 +25549,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 23, j + 16, k + 10, Blocks.air);
 		world.setBlock(i + 23, j + 16, k + 11, Blocks.air);
 		world.setBlock(i + 23, j + 16, k + 12, Blocks.air);
-		world.setBlock(i + 23, j + 16, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 23, j + 16, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 23, j + 16, k + 14, Blocks.air);
 		world.setBlock(i + 23, j + 16, k + 15, Blocks.air);
 		world.setBlock(i + 23, j + 16, k + 16, Blocks.air);
@@ -25592,7 +25592,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 23, j + 17, k + 10, Blocks.air);
 		world.setBlock(i + 23, j + 17, k + 11, Blocks.air);
 		world.setBlock(i + 23, j + 17, k + 12, Blocks.air);
-		world.setBlock(i + 23, j + 17, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 23, j + 17, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 23, j + 17, k + 14, Blocks.air);
 		world.setBlock(i + 23, j + 17, k + 15, Blocks.air);
 		world.setBlock(i + 23, j + 17, k + 16, Blocks.air);
@@ -25641,7 +25641,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 23, j + 18, k + 10, Blocks.air);
 		world.setBlock(i + 23, j + 18, k + 11, Blocks.air);
 		world.setBlock(i + 23, j + 18, k + 12, Blocks.air);
-		world.setBlock(i + 23, j + 18, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 23, j + 18, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 23, j + 18, k + 14, Blocks.air);
 		world.setBlock(i + 23, j + 18, k + 15, Blocks.air);
 		world.setBlock(i + 23, j + 18, k + 16, Blocks.air);
@@ -25684,7 +25684,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 23, j + 19, k + 10, Blocks.air);
 		world.setBlock(i + 23, j + 19, k + 11, Blocks.air);
 		world.setBlock(i + 23, j + 19, k + 12, Blocks.air);
-		world.setBlock(i + 23, j + 19, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 23, j + 19, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 23, j + 19, k + 14, Blocks.air);
 		world.setBlock(i + 23, j + 19, k + 15, Blocks.air);
 		world.setBlock(i + 23, j + 19, k + 16, Blocks.air);
@@ -25727,7 +25727,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 23, j + 20, k + 10, VetheaBlocks.hiveWall);
 		world.setBlock(i + 23, j + 20, k + 11, VetheaBlocks.hiveWall);
 		world.setBlock(i + 23, j + 20, k + 12, Blocks.air);
-		world.setBlock(i + 23, j + 20, k + 13, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 23, j + 20, k + 13, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 23, j + 20, k + 14, Blocks.air);
 		world.setBlock(i + 23, j + 20, k + 15, Blocks.air);
 		world.setBlock(i + 23, j + 20, k + 16, Blocks.air);
@@ -28641,7 +28641,7 @@ public class HiveNest extends WorldGenerator
 	}
 
 	public boolean generate20(World world, Random rand, int i, int j, int k) {
-		world.setBlock(i + 26, j + 12, k + 34, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 12, k + 34, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 12, k + 35, Blocks.air);
 		world.setBlock(i + 26, j + 12, k + 36, VetheaBlocks.hiveWall);
 		world.setBlock(i + 26, j + 12, k + 37, VetheaBlocks.hiveWall);
@@ -28679,12 +28679,12 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 26, j + 13, k + 26, Blocks.air);
 		world.setBlock(i + 26, j + 13, k + 27, Blocks.air);
 		world.setBlock(i + 26, j + 13, k + 28, Blocks.air);
-		world.setBlock(i + 26, j + 13, k + 29, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 13, k + 29, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 13, k + 30, Blocks.air);
 		world.setBlock(i + 26, j + 13, k + 31, Blocks.air);
 		world.setBlock(i + 26, j + 13, k + 32, Blocks.air);
 		world.setBlock(i + 26, j + 13, k + 33, Blocks.air);
-		world.setBlock(i + 26, j + 13, k + 34, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 13, k + 34, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 13, k + 35, Blocks.air);
 		world.setBlock(i + 26, j + 13, k + 36, VetheaBlocks.hiveWall);
 		world.setBlock(i + 26, j + 13, k + 37, VetheaBlocks.hiveWall);
@@ -28722,12 +28722,12 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 26, j + 14, k + 26, Blocks.air);
 		world.setBlock(i + 26, j + 14, k + 27, Blocks.air);
 		world.setBlock(i + 26, j + 14, k + 28, Blocks.air);
-		world.setBlock(i + 26, j + 14, k + 29, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 14, k + 29, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 14, k + 30, Blocks.air);
 		world.setBlock(i + 26, j + 14, k + 31, Blocks.air);
 		world.setBlock(i + 26, j + 14, k + 32, Blocks.air);
 		world.setBlock(i + 26, j + 14, k + 33, Blocks.air);
-		world.setBlock(i + 26, j + 14, k + 34, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 14, k + 34, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 14, k + 35, VetheaBlocks.hiveWall);
 		world.setBlock(i + 26, j + 14, k + 36, VetheaBlocks.hiveWall);
 		world.setBlock(i + 26, j + 14, k + 37, Blocks.air);
@@ -28765,7 +28765,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 26, j + 15, k + 26, Blocks.air);
 		world.setBlock(i + 26, j + 15, k + 27, Blocks.air);
 		world.setBlock(i + 26, j + 15, k + 28, Blocks.air);
-		world.setBlock(i + 26, j + 15, k + 29, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 15, k + 29, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 15, k + 30, Blocks.air);
 		world.setBlock(i + 26, j + 15, k + 31, Blocks.air);
 		world.setBlock(i + 26, j + 15, k + 32, Blocks.air);
@@ -28808,7 +28808,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 26, j + 16, k + 26, Blocks.air);
 		world.setBlock(i + 26, j + 16, k + 27, Blocks.air);
 		world.setBlock(i + 26, j + 16, k + 28, Blocks.air);
-		world.setBlock(i + 26, j + 16, k + 29, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 16, k + 29, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 16, k + 30, Blocks.air);
 		world.setBlock(i + 26, j + 16, k + 31, Blocks.air);
 		world.setBlock(i + 26, j + 16, k + 32, Blocks.air);
@@ -28851,7 +28851,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 26, j + 17, k + 26, Blocks.air);
 		world.setBlock(i + 26, j + 17, k + 27, Blocks.air);
 		world.setBlock(i + 26, j + 17, k + 28, Blocks.air);
-		world.setBlock(i + 26, j + 17, k + 29, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 17, k + 29, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 17, k + 30, Blocks.air);
 		world.setBlock(i + 26, j + 17, k + 31, Blocks.air);
 		world.setBlock(i + 26, j + 17, k + 32, VetheaBlocks.hiveWall);
@@ -28894,7 +28894,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 26, j + 18, k + 26, Blocks.air);
 		world.setBlock(i + 26, j + 18, k + 27, Blocks.air);
 		world.setBlock(i + 26, j + 18, k + 28, Blocks.air);
-		world.setBlock(i + 26, j + 18, k + 29, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 26, j + 18, k + 29, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 26, j + 18, k + 30, Blocks.air);
 		world.setBlock(i + 26, j + 18, k + 31, VetheaBlocks.hiveWall);
 		world.setBlock(i + 26, j + 18, k + 32, VetheaBlocks.hiveWall);
@@ -30956,7 +30956,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 28, j + 16, k + 18, Blocks.air);
 		world.setBlock(i + 28, j + 16, k + 19, Blocks.air);
 		world.setBlock(i + 28, j + 16, k + 20, Blocks.air);
-		world.setBlock(i + 28, j + 16, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 28, j + 16, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 28, j + 16, k + 22, Blocks.air);
 		world.setBlock(i + 28, j + 16, k + 23, Blocks.air);
 		world.setBlock(i + 28, j + 16, k + 24, Blocks.air);
@@ -30999,7 +30999,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 28, j + 17, k + 18, Blocks.air);
 		world.setBlock(i + 28, j + 17, k + 19, Blocks.air);
 		world.setBlock(i + 28, j + 17, k + 20, Blocks.air);
-		world.setBlock(i + 28, j + 17, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 28, j + 17, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 28, j + 17, k + 22, Blocks.air);
 		world.setBlock(i + 28, j + 17, k + 23, Blocks.air);
 		world.setBlock(i + 28, j + 17, k + 24, Blocks.air);
@@ -31042,7 +31042,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 28, j + 18, k + 18, Blocks.air);
 		world.setBlock(i + 28, j + 18, k + 19, Blocks.air);
 		world.setBlock(i + 28, j + 18, k + 20, Blocks.air);
-		world.setBlock(i + 28, j + 18, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 28, j + 18, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 28, j + 18, k + 22, Blocks.air);
 		world.setBlock(i + 28, j + 18, k + 23, Blocks.air);
 		world.setBlock(i + 28, j + 18, k + 24, Blocks.air);
@@ -31085,7 +31085,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 28, j + 19, k + 18, Blocks.air);
 		world.setBlock(i + 28, j + 19, k + 19, Blocks.air);
 		world.setBlock(i + 28, j + 19, k + 20, Blocks.air);
-		world.setBlock(i + 28, j + 19, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 28, j + 19, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 28, j + 19, k + 22, Blocks.air);
 		world.setBlock(i + 28, j + 19, k + 23, Blocks.air);
 		world.setBlock(i + 28, j + 19, k + 24, Blocks.air);
@@ -31128,7 +31128,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 28, j + 20, k + 18, Blocks.air);
 		world.setBlock(i + 28, j + 20, k + 19, Blocks.air);
 		world.setBlock(i + 28, j + 20, k + 20, Blocks.air);
-		world.setBlock(i + 28, j + 20, k + 21, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 28, j + 20, k + 21, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 28, j + 20, k + 22, Blocks.air);
 		world.setBlock(i + 28, j + 20, k + 23, Blocks.air);
 		world.setBlock(i + 28, j + 20, k + 24, Blocks.air);
@@ -31946,7 +31946,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 29, j + 14, k + 13, Blocks.air);
 		world.setBlock(i + 29, j + 14, k + 14, Blocks.air);
 		world.setBlock(i + 29, j + 14, k + 15, Blocks.air);
-		world.setBlock(i + 29, j + 14, k + 16, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 29, j + 14, k + 16, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 29, j + 14, k + 17, Blocks.air);
 		world.setBlock(i + 29, j + 14, k + 18, Blocks.air);
 		world.setBlock(i + 29, j + 14, k + 19, Blocks.air);
@@ -31989,7 +31989,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 29, j + 15, k + 13, Blocks.air);
 		world.setBlock(i + 29, j + 15, k + 14, Blocks.air);
 		world.setBlock(i + 29, j + 15, k + 15, Blocks.air);
-		world.setBlock(i + 29, j + 15, k + 16, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 29, j + 15, k + 16, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 29, j + 15, k + 17, Blocks.air);
 		world.setBlock(i + 29, j + 15, k + 18, Blocks.air);
 		world.setBlock(i + 29, j + 15, k + 19, Blocks.air);
@@ -32032,7 +32032,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 29, j + 16, k + 13, Blocks.air);
 		world.setBlock(i + 29, j + 16, k + 14, Blocks.air);
 		world.setBlock(i + 29, j + 16, k + 15, Blocks.air);
-		world.setBlock(i + 29, j + 16, k + 16, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 29, j + 16, k + 16, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 29, j + 16, k + 17, Blocks.air);
 		world.setBlock(i + 29, j + 16, k + 18, Blocks.air);
 		world.setBlock(i + 29, j + 16, k + 19, Blocks.air);
@@ -32075,7 +32075,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 29, j + 17, k + 13, Blocks.air);
 		world.setBlock(i + 29, j + 17, k + 14, Blocks.air);
 		world.setBlock(i + 29, j + 17, k + 15, Blocks.air);
-		world.setBlock(i + 29, j + 17, k + 16, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 29, j + 17, k + 16, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 29, j + 17, k + 17, Blocks.air);
 		world.setBlock(i + 29, j + 17, k + 18, Blocks.air);
 		world.setBlock(i + 29, j + 17, k + 19, Blocks.air);
@@ -32118,7 +32118,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 29, j + 18, k + 13, Blocks.air);
 		world.setBlock(i + 29, j + 18, k + 14, Blocks.air);
 		world.setBlock(i + 29, j + 18, k + 15, Blocks.air);
-		world.setBlock(i + 29, j + 18, k + 16, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 29, j + 18, k + 16, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 29, j + 18, k + 17, Blocks.air);
 		world.setBlock(i + 29, j + 18, k + 18, Blocks.air);
 		world.setBlock(i + 29, j + 18, k + 19, Blocks.air);
@@ -32161,7 +32161,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 29, j + 19, k + 13, VetheaBlocks.hiveWall);
 		world.setBlock(i + 29, j + 19, k + 14, Blocks.air);
 		world.setBlock(i + 29, j + 19, k + 15, Blocks.air);
-		world.setBlock(i + 29, j + 19, k + 16, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 29, j + 19, k + 16, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 29, j + 19, k + 17, Blocks.air);
 		world.setBlock(i + 29, j + 19, k + 18, Blocks.air);
 		world.setBlock(i + 29, j + 19, k + 19, Blocks.air);
@@ -32842,7 +32842,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 30, j + 10, k + 6, Blocks.air);
 		world.setBlock(i + 30, j + 10, k + 7, Blocks.air);
 		world.setBlock(i + 30, j + 10, k + 8, Blocks.air);
-		world.setBlock(i + 30, j + 10, k + 9, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 30, j + 10, k + 9, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 30, j + 10, k + 10, Blocks.air);
 		world.setBlock(i + 30, j + 10, k + 11, Blocks.air);
 		world.setBlock(i + 30, j + 10, k + 12, Blocks.air);
@@ -32885,7 +32885,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 30, j + 11, k + 6, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 11, k + 7, Blocks.air);
 		world.setBlock(i + 30, j + 11, k + 8, Blocks.air);
-		world.setBlock(i + 30, j + 11, k + 9, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 30, j + 11, k + 9, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 30, j + 11, k + 10, Blocks.air);
 		world.setBlock(i + 30, j + 11, k + 11, Blocks.air);
 		world.setBlock(i + 30, j + 11, k + 12, Blocks.air);
@@ -32928,7 +32928,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 30, j + 12, k + 6, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 12, k + 7, Blocks.air);
 		world.setBlock(i + 30, j + 12, k + 8, Blocks.air);
-		world.setBlock(i + 30, j + 12, k + 9, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 30, j + 12, k + 9, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 30, j + 12, k + 10, Blocks.air);
 		world.setBlock(i + 30, j + 12, k + 11, Blocks.air);
 		world.setBlock(i + 30, j + 12, k + 12, Blocks.air);
@@ -32971,7 +32971,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 30, j + 13, k + 6, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 13, k + 7, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 13, k + 8, Blocks.air);
-		world.setBlock(i + 30, j + 13, k + 9, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 30, j + 13, k + 9, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 30, j + 13, k + 10, Blocks.air);
 		world.setBlock(i + 30, j + 13, k + 11, Blocks.air);
 		world.setBlock(i + 30, j + 13, k + 12, Blocks.air);
@@ -33014,7 +33014,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 30, j + 14, k + 6, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 14, k + 7, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 14, k + 8, VetheaBlocks.hiveWall);
-		world.setBlock(i + 30, j + 14, k + 9, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 30, j + 14, k + 9, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 30, j + 14, k + 10, Blocks.air);
 		world.setBlock(i + 30, j + 14, k + 11, Blocks.air);
 		world.setBlock(i + 30, j + 14, k + 12, Blocks.air);
@@ -33057,7 +33057,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 30, j + 15, k + 6, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 15, k + 7, VetheaBlocks.hiveWall);
 		world.setBlock(i + 30, j + 15, k + 8, VetheaBlocks.hiveWall);
-		world.setBlock(i + 30, j + 15, k + 9, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 30, j + 15, k + 9, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 30, j + 15, k + 10, Blocks.air);
 		world.setBlock(i + 30, j + 15, k + 11, Blocks.air);
 		world.setBlock(i + 30, j + 15, k + 12, Blocks.air);
@@ -38209,7 +38209,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 35, j + 9, k + 17, Blocks.air);
 		world.setBlock(i + 35, j + 9, k + 18, Blocks.air);
 		world.setBlock(i + 35, j + 9, k + 19, Blocks.air);
-		world.setBlock(i + 35, j + 9, k + 20, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 35, j + 9, k + 20, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 35, j + 9, k + 21, Blocks.air);
 		world.setBlock(i + 35, j + 9, k + 22, Blocks.air);
 		world.setBlock(i + 35, j + 9, k + 23, Blocks.air);
@@ -38252,7 +38252,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 35, j + 10, k + 17, Blocks.air);
 		world.setBlock(i + 35, j + 10, k + 18, Blocks.air);
 		world.setBlock(i + 35, j + 10, k + 19, Blocks.air);
-		world.setBlock(i + 35, j + 10, k + 20, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 35, j + 10, k + 20, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 35, j + 10, k + 21, Blocks.air);
 		world.setBlock(i + 35, j + 10, k + 22, Blocks.air);
 		world.setBlock(i + 35, j + 10, k + 23, Blocks.air);
@@ -38295,7 +38295,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 35, j + 11, k + 17, Blocks.air);
 		world.setBlock(i + 35, j + 11, k + 18, Blocks.air);
 		world.setBlock(i + 35, j + 11, k + 19, Blocks.air);
-		world.setBlock(i + 35, j + 11, k + 20, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 35, j + 11, k + 20, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 35, j + 11, k + 21, Blocks.air);
 		world.setBlock(i + 35, j + 11, k + 22, Blocks.air);
 		world.setBlock(i + 35, j + 11, k + 23, Blocks.air);
@@ -38338,7 +38338,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 35, j + 12, k + 17, Blocks.air);
 		world.setBlock(i + 35, j + 12, k + 18, Blocks.air);
 		world.setBlock(i + 35, j + 12, k + 19, Blocks.air);
-		world.setBlock(i + 35, j + 12, k + 20, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 35, j + 12, k + 20, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 35, j + 12, k + 21, Blocks.air);
 		world.setBlock(i + 35, j + 12, k + 22, Blocks.air);
 		world.setBlock(i + 35, j + 12, k + 23, Blocks.air);
@@ -38381,7 +38381,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 35, j + 13, k + 17, Blocks.air);
 		world.setBlock(i + 35, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 35, j + 13, k + 19, Blocks.air);
-		world.setBlock(i + 35, j + 13, k + 20, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 35, j + 13, k + 20, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 35, j + 13, k + 21, Blocks.air);
 		world.setBlock(i + 35, j + 13, k + 22, Blocks.air);
 		world.setBlock(i + 35, j + 13, k + 23, Blocks.air);
@@ -38424,7 +38424,7 @@ public class HiveNest extends WorldGenerator
 		world.setBlock(i + 35, j + 14, k + 17, Blocks.air);
 		world.setBlock(i + 35, j + 14, k + 18, Blocks.air);
 		world.setBlock(i + 35, j + 14, k + 19, Blocks.air);
-		world.setBlock(i + 35, j + 14, k + 20, VetheaBlocks.hungerstone2);
+		world.setBlock(i + 35, j + 14, k + 20, VetheaBlocks.greenHungerstone);
 		world.setBlock(i + 35, j + 14, k + 21, Blocks.air);
 		world.setBlock(i + 35, j + 14, k + 22, Blocks.air);
 		world.setBlock(i + 35, j + 14, k + 23, Blocks.air);

@@ -35,10 +35,6 @@ public class VanillaBlock extends BlockMod {
 		return Item.getItemFromBlock(b);
 	}
 
-	public Item getItemDropped(int par1, Random par2, int par3) {
-		return (this == VanillaBlocks.bloodgemOre) ? VanillaItemsOther.bloodgem : getBlock(this);
-	}
-
 	public int quantityDroppedWithBonus(int par1, Random par2) {
 		if (par1 > 0 && getBlock(this) != this.getItemDropped(0, par2, par1)) {
 			int j = par2.nextInt(par1 + 2) - 1;
