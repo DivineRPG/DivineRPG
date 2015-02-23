@@ -33,19 +33,20 @@ public class ItemSerenadeOfDeath extends ItemMod {
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
-		if(!var2.isRemote){
-			Sounds.getSoundName(Sounds.serenade);
-			var2.spawnEntityInWorld(new EntityDeath(var2, var3));
-			var1.damageItem(1, var3);
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		if(!world.isRemote){
+			world.playSoundAtEntity(player, Sounds.serenade.getPrefixedName(), 1, 1);
+			world.spawnEntityInWorld(new EntityDeath(world, player));
+			stack.damageItem(1, player);
 		}
-		return var1;
+		return stack;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("12 Ranged damage");
-		par3List.add(getMaxDamage() - var1.getItemDamage() + " Uses");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("12 Ranged damage");
+		list.add("Poisons target for 2 seconds");
+		list.add(getMaxDamage() - stack.getItemDamage() + " Uses");
 	}
 }

@@ -65,7 +65,7 @@ public class VanillaBlocks {
 	public static Block glaconPumpkin;
 	public static Block enderWatcherPumpkin;
 	public static Block jungleSpiderPumpkin;
-	public static Block hellSpiderPumpkin;
+	public static Block hellspiderPumpkin;
 	
 	public static Block aquaTorch;
 	public static Block skeletonTorch;
@@ -181,7 +181,7 @@ public class VanillaBlocks {
 		glaconPumpkin       = new MobPumpkin().setName("glaconPumpkin");
 		enderWatcherPumpkin = new MobPumpkin().setName("enderWatcherPumpkin");
 		jungleSpiderPumpkin = new MobPumpkin().setName("jungleSpiderPumpkin");
-		hellSpiderPumpkin   = new MobPumpkin().setName("hellSpiderPumpkin");
+		hellspiderPumpkin   = new MobPumpkin().setName("hellspiderPumpkin");
 		
 		aquaTorch			= new BlockModTorch("aquaTorch", "blueFlame");
 		skeletonTorch		= new BlockModTorch("skeletonTorch", "blackFlame");
@@ -192,11 +192,11 @@ public class VanillaBlocks {
 		blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.5F, WOOD_GOLD).setResistance(10F);
 		purpleStone         = new VanillaBlock(EnumBlockType.ROCK, "purpleStone", 1.5F, WOOD_GOLD).setResistance(10F);
 
-		blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, STONE).setResistance(10F);
-		cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, STONE).setResistance(10F);
-		purpleVane          = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, STONE).setResistance(10F);
-		redVane             = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, STONE).setResistance(10F);
-		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, STONE).setResistance(10F);
+		blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, IRON).setResistance(10F);
+		cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, IRON).setResistance(10F);
+		purpleVane          = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, IRON).setResistance(10F);
+		redVane             = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, IRON).setResistance(10F);
+		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, IRON).setResistance(10F);
 
 		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE).setResistance(10F);
 		acceleron		  	  = new BlockAcceleron();

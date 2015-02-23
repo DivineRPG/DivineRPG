@@ -43,6 +43,12 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightBlocks.skythernBlock, "III", "III", "III", 'I', TwilightItemsOther.skythernFragments);
 		addRecipe(TwilightBlocks.mortumBlock, "III", "III", "III", 'I', TwilightItemsOther.mortumFragments);
 		
+		addSmelting(TwilightBlocks.edenOre, TwilightItemsOther.edenFragments, 0.7F);
+		addSmelting(TwilightBlocks.wildwoodOre, TwilightItemsOther.wildwoodFragments, 1.0F);
+		addSmelting(TwilightBlocks.apalachiaOre, TwilightItemsOther.apalachiaFragments, 1.3F);
+		addSmelting(TwilightBlocks.skythernOre, TwilightItemsOther.skythernFragments, 1.7F);
+		addSmelting(TwilightBlocks.mortumOre, TwilightItemsOther.mortumFragments, 2.0F);
+		
 		addShapelessRecipe(TwilightItemsOther.edenDust, TwilightBlocks.sunbloom);
 		addShapelessRecipe(TwilightItemsOther.edenDust, TwilightBlocks.edenBrush);
 		addShapelessRecipe(TwilightItemsOther.edenDust, TwilightBlocks.sunBlossom);

@@ -71,7 +71,7 @@ public class MobPumpkin extends BlockDirectional {
 				w.playSoundAtEntity(p, "mob.endermen.idle", 1, 1);
 			if(w.getBlock(x, y, z) == VanillaBlocks.jungleSpiderPumpkin)
 				w.playSoundAtEntity(p, Sounds.hellSpider.getPrefixedName(), 1, 1);
-			if(w.getBlock(x, y, z) == VanillaBlocks.hellSpiderPumpkin)
+			if(w.getBlock(x, y, z) == VanillaBlocks.hellspiderPumpkin)
 				w.playSoundAtEntity(p, Sounds.hellSpider.getPrefixedName(), 1, 1);
 			if(w.getBlock(x, y, z) == VanillaBlocks.enderPumpkin)
 				w.playSoundAtEntity(p, "mob.endermen.scream", 1, 1);

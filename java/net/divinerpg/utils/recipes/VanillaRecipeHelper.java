@@ -418,5 +418,25 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaBlocks.lightFenceBlue, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 4));
 
         addRecipe(VanillaItemsOther.teleportationCrystal, "EEE", "EDE", "EEE", 'E', Items.ender_pearl, 'D', Items.diamond);	
+        
+        addRecipe(VanillaBlocks.hellspiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.moltenShards, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.frostPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceStone, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.jungleSpiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.jungleShards, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.blazePumpkin, "MMM", "MPM", "MMM", 'M', Items.blaze_rod, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.enderWatcherPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.enderShard, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.glaconPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceShards, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.zombiePumpkin, "MMM", "MPM", "MMM", 'M', Items.rotten_flesh, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.creeperPumpkin, "MMM", "MPM", "MMM", 'M', Items.gunpowder, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.cyclopsPumpkin, "MMM", "MPM", "MMM", 'M', Items.gold_ingot, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.enderPumpkin, "MMM", "MPM", "MMM", 'M', Items.ender_pearl, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.ghastPumpkin, "MMM", "MPM", "MMM", 'M', Items.ghast_tear, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.skeletonPumpkin, "MMM", "MPM", "MMM", 'M', Items.bone, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.spiderPumpkin, "MMM", "MPM", "MMM", 'M', Items.string, 'D', Blocks.pumpkin);
+        
+        addRecipe(new ItemStack(VanillaBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 4), 'O', Blocks.obsidian);
+        addRecipe(new ItemStack(VanillaBlocks.redVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 1), 'O', Blocks.obsidian);
+        addRecipe(new ItemStack(VanillaBlocks.cyanVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 6), 'O', Blocks.obsidian);
+        addRecipe(new ItemStack(VanillaBlocks.purpleVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 5), 'O', Blocks.obsidian);
+        addRecipe(new ItemStack(VanillaBlocks.yellowVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 11), 'O', Blocks.obsidian);
 	}
 }
