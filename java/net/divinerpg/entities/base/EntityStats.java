@@ -112,7 +112,7 @@ public class EntityStats {
 
 	//Vethea
 	public static double cryptKeeperHealth 		= 200.0D, cryptKeeperSpeed = normalSpeed, cryptKeeperFollowRange = follow;
-	public static double bohemiteHealth 		= 60.0D, bohemiteDamage = 13.0D, bohemiteSpeed = normalSpeed*10, bohemiteFollowRange = follow;
+	public static double bohemiteHealth 		= 60.0D, bohemiteDamage = 13.0D, bohemiteSpeed = normalSpeed*2, bohemiteFollowRange = follow;
 	public static double biphronHealth 			= 40.0D, biphronDamage = 14.0D, biphronSpeed = normalSpeed, biphronFollowRange = follow;
 	public static double acidHagHealth 			= 25.0D, acidHagDamage = 5.0D, acidHagSpeed = normalSpeed, acidHagFollowRange = follow;
 	public static double cymesoidHealth 		= 25.0D, cymesoidDamage = 8.0D, cymesoidSpeed = normalSpeed, cymesoidFollowRange = follow;

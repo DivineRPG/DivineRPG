@@ -1,6 +1,7 @@
 package net.divinerpg.utils.recipes;
 
 import net.divinerpg.utils.blocks.ArcanaBlocks;
+import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
@@ -412,6 +413,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divinePlank, 4), VanillaBlocks.divineWood);
 		
 		addRecipe(VanillaBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', VanillaItemsOther.corruptedStone, 'd', VanillaBlocks.darkStone);
+		
+		addRecipe(IceikaBlocks.coalstoneStairs, "c  ", "cc ", "ccc", 'c', IceikaBlocks.coalstone);
 
 		addRecipe(VanillaBlocks.lightFenceRed, "   ", "III", "III", 'I', Items.redstone);
 		addRecipe(VanillaBlocks.lightFenceGreen, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 2));

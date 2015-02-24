@@ -155,7 +155,7 @@ public class ItemModBow extends ItemBow {
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1) list.add(speed + " Times Faster");
         if (speed < 1) list.add((1 / speed) + " Times Slower");
-        list.add(!unbreakable ? (stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining") : "Unlimited Uses");
+        list.add(!unbreakable ? (stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining") : "Infinite Uses");
         if(this.arrowTex == "bluefireArrow" || this.arrowTex == "snowstormArrow") list.add(EnumChatFormatting.AQUA + "Exploding Arrows");
         list.add(this.arrow == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.arrow.getUnlocalizedName() + ".name"));
         if(this.vethean) list.add(Util.GREEN + "Vethean");

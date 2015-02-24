@@ -308,15 +308,16 @@ public class EntityDivineArrow extends EntityArrow
                         damagesource = DamageSource.causeArrowDamage(this, this.shootingEntity);
                     }
                     
-                    if(this.getTextureName() == "hunterArrow" && position.entityHit instanceof EntityLivingBase){
-                    	((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 40, 2));
-                    }
-
-                    if (this.isBurning() && !(position.entityHit instanceof EntityEnderman)) position.entityHit.setFire(5);
-                    if(this.getTextureName() == "infernoArrow") position.entityHit.setFire(12);
 
                     if (position.entityHit.attackEntityFrom(damagesource, (float)k))
                     {
+                    	if(this.getTextureName() == "hunterArrow" && position.entityHit instanceof EntityLivingBase){
+                        	((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 40, 2));
+                        }
+
+                        if (this.isBurning() && !(position.entityHit instanceof EntityEnderman)) position.entityHit.setFire(5);
+                        if(this.getTextureName() == "infernoArrow") position.entityHit.setFire(12);
+                        
                     	if(this.getTextureName() == "bluefireArrow" || this.getTextureName() == "snowstormArrow") this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
                         if (position.entityHit instanceof EntityLivingBase)
                         {
