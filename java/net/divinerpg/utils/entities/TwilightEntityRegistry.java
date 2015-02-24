@@ -18,7 +18,7 @@ import net.divinerpg.entities.twilight.EntityMadivel;
 import net.divinerpg.entities.twilight.EntityMoonWolf;
 import net.divinerpg.entities.twilight.EntityMortumCadillion;
 import net.divinerpg.entities.twilight.EntityMortumDemon;
-import net.divinerpg.entities.twilight.EntityNesro;
+import net.divinerpg.entities.twilight.EntityGreenfeet;
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.twilight.EntityReyvor;
 import net.divinerpg.entities.twilight.EntitySamek;
@@ -62,7 +62,7 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntityAngryBunny.class, "AngryBunny");
         Util.registerDivineRPGMob(EntityEdenCori.class, "WeakCori");
         Util.registerDivineRPGMob(EntityMadivel.class, "Madivel");
-        Util.registerDivineRPGMob(EntityNesro.class, "Nesro");
+        Util.registerDivineRPGMob(EntityGreenfeet.class, "Greenfeet");
         Util.registerDivineRPGMob(EntityWildwoodGolem.class, "WildwoodGolem");
         Util.registerDivineRPGMob(EntityWildwoodTomo.class, "WildwoodTomo");
         Util.registerDivineRPGMob(EntityWildwoodCadillion.class, "WildwoodCadillion");

@@ -109,7 +109,7 @@ public class EntityResourceLocation {
     public static ResourceLocation edenTomo			 = addMob("edenTomo");
     public static ResourceLocation edenCadillion	 = addMob("edenCadillion");
     public static ResourceLocation edenCori			 = addMob("edenCori");
-    public static ResourceLocation nesro			 = addMob("nesro");
+    public static ResourceLocation greenfeet		 = addMob("greenfeet");
     public static ResourceLocation madivel			 = addMob("madivel");
     public static ResourceLocation wildwoodGolem	 = addMob("wildwoodGolem");
     public static ResourceLocation wildwoodTomo		 = addMob("wildwoodTomo");

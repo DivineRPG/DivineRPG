@@ -59,7 +59,7 @@ public class EntityStats {
 	public static double mortumArcherHealth 	= 430.0D, mortumArcherDamage = 30.0D, mortumArcherSpeed = normalSpeed, mortumArcherFollowRange = follow;
 	public static double mortumCadillionHealth 	= 800.0D, mortumCadillionDamage = 35.0D, mortumCadillionSpeed = normalSpeed, mortumCadillionFollowRange = follow;
 	public static double mortumDemonHealth 		= 900.0D, mortumDemonDamage = 30.0D, mortumDemonSpeed = normalSpeed, mortumDemonFollowRange = follow;
-	public static double nesroHealth 			= 800.0D, nesroDamage = 20.0D, nesroSpeed = normalSpeed, nesroFollowRange = follow;
+	public static double greenfeetHealth 			= 800.0D, greenfeetDamage = 20.0D, greenfeetSpeed = normalSpeed, greenfeetFollowRange = follow;
 	public static double samekHealth 			= 300.0D, samekDamage = 35.0D, samekSpeed = normalSpeed, samekFollowRange = follow;
 	public static double skythernArcherHealth 	= 430.0D, skythernArcherDamage = 30.0D, skythernArcherSpeed = normalSpeed, skythernArcherFollowRange = follow;
 	public static double skythernFiendHealth 	= 800.0D, skythernFiendDamage = 39.0D, skythernFiendSpeed = normalSpeed, skythernFiendFollowRange = follow;

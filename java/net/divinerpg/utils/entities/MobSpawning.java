@@ -27,7 +27,7 @@ import net.divinerpg.entities.twilight.EntityMadivel;
 import net.divinerpg.entities.twilight.EntityMoonWolf;
 import net.divinerpg.entities.twilight.EntityMortumCadillion;
 import net.divinerpg.entities.twilight.EntityMortumDemon;
-import net.divinerpg.entities.twilight.EntityNesro;
+import net.divinerpg.entities.twilight.EntityGreenfeet;
 import net.divinerpg.entities.twilight.EntitySamek;
 import net.divinerpg.entities.twilight.EntitySkythernArcher;
 import net.divinerpg.entities.twilight.EntitySkythernCori;
@@ -99,6 +99,7 @@ import net.divinerpg.entities.vethea.EntityZoragon;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -151,7 +152,7 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityEdenCadillion.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
 		EntityRegistry.addSpawn(EntityBunny.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
 		EntityRegistry.addSpawn(EntityEdenCori.class, 1, 1, 1, EnumCreatureType.creature, edenBiome);
-		EntityRegistry.addSpawn(EntityNesro.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityGreenfeet.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityMadivel.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 
 		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
@@ -195,7 +196,7 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
-				} else if(biome != DimensionHelper.apalachiaBiome && biome != DimensionHelper.arcanaBiome && biome != DimensionHelper.edenBiome && biome != DimensionHelper.iceikaBiome && biome != DimensionHelper.mortumBiome && biome != DimensionHelper.skythernBiome && biome != DimensionHelper.vetheaBiome && biome != DimensionHelper.wildwoodBiome){
+				} else if(biome.topBlock == Blocks.grass || biome.topBlock == Blocks.sand || biome.topBlock == Blocks.snow){
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
 						EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);

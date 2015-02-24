@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 
-public class ModelNesro extends ModelBase
+public class ModelGreenfeet extends ModelBase
 {
     //fields
     ModelRenderer head;
@@ -26,7 +26,7 @@ public class ModelNesro extends ModelBase
     ModelRenderer Shape5;
     ModelRenderer Shape6;
 
-    public ModelNesro()
+    public ModelGreenfeet()
     {
         textureWidth = 64;
         textureHeight = 32;

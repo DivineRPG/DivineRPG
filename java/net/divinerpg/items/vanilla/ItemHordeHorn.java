@@ -26,13 +26,13 @@ public class ItemHordeHorn extends ItemMod {
 		this.setCreativeTab(DivineRPGTabs.spawner);
 	}
 
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int var7, float xFloat, float yFloat, float zFloat) {
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float xFloat, float yFloat, float zFloat) {
 		if(world.isRemote) {
 			return true;
 		} else {
-			x += Facing.offsetsXForSide[var7];
-			y += Facing.offsetsYForSide[var7];
-			z += Facing.offsetsZForSide[var7];
+			x += Facing.offsetsXForSide[side];
+			y += Facing.offsetsYForSide[side];
+			z += Facing.offsetsZForSide[side];
 
 			if (world.provider.dimensionId == 1) {
 			    world.playSoundAtEntity(player, Sounds.ayeracoSpawn.getPrefixedName(), 20.0F, 1.0F);

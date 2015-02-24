@@ -10,22 +10,22 @@ import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityNesro extends EntityDivineRPGMob {
+public class EntityGreenfeet extends EntityDivineRPGMob {
 
-	private int slimeJumpDelay = 0;
 
-	public EntityNesro(World var1) {
-		super(var1);
-		this.slimeJumpDelay = this.rand.nextInt(20) + 10;
+	public EntityGreenfeet(World w) {
+		super(w);
+		this.addAttackingAI();
+		this.setSize(1, 2);
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 	    super.applyEntityAttributes();
-	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.nesroHealth);
-	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.nesroDamage);
-	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.nesroSpeed);
-	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.nesroFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.greenfeetHealth);
+	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.greenfeetDamage);
+	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.greenfeetSpeed);
+	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.greenfeetFollowRange);
 	}
 
 	@Override
@@ -43,34 +43,6 @@ public class EntityNesro extends EntityDivineRPGMob {
 			}
 		}
 		super.onLivingUpdate();
-	}
-
-	protected int getJumpDelay() {
-		return slimeJumpDelay;
-	}
-
-	@Override
-	protected void updateEntityActionState() {
-		this.despawnEntity();
-		EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
-		if(var1 != null) {
-			this.faceEntity(var1, 10.0F, 20.0F);
-		}
-		if(this.onGround && this.slimeJumpDelay-- <= 0) {
-			this.slimeJumpDelay = this.getJumpDelay();
-
-			if(var1 != null) {
-				this.slimeJumpDelay /= 3;
-			}
-			this.isJumping = true;
-			this.moveStrafing = 1.0F - this.rand.nextFloat() * 2.0F;
-			this.moveForward = 1.0F;
-		} else {
-			this.isJumping = false;
-			if(this.onGround) {
-				this.moveStrafing = this.moveForward = 0.0F;
-			}
-		}
 	}
 
 	@Override
@@ -95,6 +67,6 @@ public class EntityNesro extends EntityDivineRPGMob {
 
 	@Override
 	public String mobName() {
-		return "Nesro";
+		return "Greenfeet";
 	}
 }
