@@ -54,7 +54,7 @@ public class ItemGeneralsStaff extends ItemMod {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("18 Ranged Damage");
-		list.add("Projectile splits into 6 on impact");
+		list.add("Projectile splits into 5 on impact");
 		list.add("Consumes 20 Arcana");
 		list.add("Infinite Uses");
 	}

@@ -17,6 +17,7 @@ public class EntityParticleBullet extends EntityShooterBullet {
 	
 	private String particle = "";
 	private Color color;
+	private boolean lotsOfParticles;
 	
 	public EntityParticleBullet(World w) {
 		super(w);
@@ -79,10 +80,14 @@ public class EntityParticleBullet extends EntityShooterBullet {
         } else {
         	for (int var3 = 0; var3 < 8; ++var3) {
         		EntityColoredFX e = new EntityColoredFX(this.worldObj, this.posX+(rand.nextDouble()-rand.nextDouble())/4, this.posY+(rand.nextDouble()-rand.nextDouble())/4, this.posZ+(rand.nextDouble()-rand.nextDouble())/4, 0, 0, 0, this.color);
+        		if(this.lotsOfParticles) e.bigger = true;
         		FMLClientHandler.instance().getClient().effectRenderer.addEffect(e);
         	}
         }
     }
-
+	public EntityParticleBullet setMoreParticles() {
+		this.lotsOfParticles = true;
+		return this;
+	}
 
 }

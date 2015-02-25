@@ -13,6 +13,7 @@ public class EntityColoredFX extends EntityFX {
 	
     private float portalParticleScale;
     private double portalPosX, portalPosY, portalPosZ;
+    public boolean bigger;
 
     public EntityColoredFX(World var1, double var2, double var4, double var6, double var8, double var10, double var12, Color c) {
         super(var1, var2, var4, var6, var8, var10, var12);
@@ -38,7 +39,11 @@ public class EntityColoredFX extends EntityFX {
         var8 = 1.0F - var8;
         var8 *= var8;
         var8 = 1.0F - var8;
-        this.particleScale = this.portalParticleScale * var8;
+        if(bigger) {
+        	this.particleScale = (this.portalParticleScale * var8 * 7);
+        } else {
+        	this.particleScale = (this.portalParticleScale * var8);
+        }
         super.renderParticle(var1, var2, var3, var4, var5, var6, var7);
     }
 
