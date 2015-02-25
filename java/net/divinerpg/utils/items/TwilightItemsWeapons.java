@@ -95,6 +95,6 @@ public class TwilightItemsWeapons {
 	    skythernBow        = new ItemModBow("skythernBow", -1, 15, 46, 36000, wildwoodArrow);
 	    mortumBow          = new ItemModBow("mortumBow", -1, 20, 61, furyArrow);
 	    haliteBow          = new ItemModBow("haliteBow", -1, 20, 61, 36000, furyArrow);
-	    twilightBow        = new ItemModBow("twilightBow", -1, 20, 61, 14400, furyArrow);
+	    twilightBow        = new ItemModBow("twilightBow", -1, 20, 61, 14400, furyArrow).setCreativeTab(null);
 	}
 }

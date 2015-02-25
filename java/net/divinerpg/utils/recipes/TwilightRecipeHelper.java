@@ -174,6 +174,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 
 		addRecipe(TwilightBlocks.edenChest, "bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments);
 		addRecipe(VetheaItems.nightmareBed, "MMM", "WWW", 'M', TwilightBlocks.mortumBlock, 'W', TwilightBlocks.mortumLogs);
+		addRecipe(new ItemStack(TwilightBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', TwilightItemsOther.apalachiaFragments);
 	}
 }
 

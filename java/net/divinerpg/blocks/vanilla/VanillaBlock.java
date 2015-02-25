@@ -26,9 +26,6 @@ public class VanillaBlock extends BlockMod {
 	public VanillaBlock(EnumBlockType type, String name, float hardness, int harvest) {
 		super(type, name, hardness, DivineRPGTabs.blocks);
 		setHarvestLevel("pickaxe", harvest);
-		if(this == VanillaBlocks.purpleStone || this == VanillaBlocks.blueStone) {
-			setLightLevel(1.0F);
-		}
 	}
 
 	public static Item getBlock(Block b){

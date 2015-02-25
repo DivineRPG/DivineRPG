@@ -1,7 +1,9 @@
 package net.divinerpg.utils.recipes;
 
+import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
@@ -337,6 +339,14 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(VanillaBlocks.divineBricks, 4, 0),  VanillaItemsOther.aquaBall, Blocks.stonebrick, Blocks.stonebrick, Blocks.stonebrick);
 		addRecipe(new ItemStack(VanillaBlocks.divineBricks, 10, 1),  "xyx", "yxy", "xyx", 'x', VanillaItemsOther.arlemiteIngot, 'y', Blocks.stonebrick);
 		
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 4, 3), "XXX", "XXX", "XXX", 'X', Blocks.stonebrick);
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 8, 0), "XXX", "XCX", "XXX", 'X', new ItemStack(VanillaBlocks.minibricks, 1, 3), 'C', VanillaItemsOther.rupeeIngot);
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 8, 1), "XXX", "XCX", "XXX", 'X', new ItemStack(VanillaBlocks.minibricks, 1, 3), 'C', VanillaItemsOther.realmiteIngot);
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 8, 2), "XXX", "XCX", "XXX", 'X', new ItemStack(VanillaBlocks.minibricks, 1, 3), 'C', VanillaItemsOther.arlemiteIngot);
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 8, 4), "XXX", "XCX", "XXX", 'X', new ItemStack(VanillaBlocks.minibricks, 1, 3), 'C', VanillaItemsOther.bloodgem);
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 8, 5), "XXX", "XCX", "XXX", 'X', new ItemStack(VanillaBlocks.minibricks, 1, 3), 'C', VanillaItemsOther.netheriteIngot);
+		addRecipe(new ItemStack(VanillaBlocks.minibricks, 8, 6), "XXX", "XCX", "XXX", 'X', new ItemStack(VanillaBlocks.minibricks, 1, 3), 'C', Blocks.bedrock);
+		
 		addShapelessRecipe(new ItemStack(VanillaBlocks.darkStone, 10),  Blocks.obsidian, Blocks.glowstone);
 		
 		addRecipe(new ItemStack(VanillaBlocks.lamp2, 1, 10),  "xxx", "xyx", "xzx", 'x', Items.iron_ingot, 'y', VanillaItemsOther.rupeeIngot, 'z', Blocks.glowstone);
@@ -435,6 +445,15 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(VanillaBlocks.ghastPumpkin, "MMM", "MPM", "MMM", 'M', Items.ghast_tear, 'D', Blocks.pumpkin);
         addRecipe(VanillaBlocks.skeletonPumpkin, "MMM", "MPM", "MMM", 'M', Items.bone, 'D', Blocks.pumpkin);
         addRecipe(VanillaBlocks.spiderPumpkin, "MMM", "MPM", "MMM", 'M', Items.string, 'D', Blocks.pumpkin);
+        
+        addShapelessRecipe(new ItemStack(VanillaBlocks.rainbowWool, 4), new ItemStack(Blocks.wool, 1, 1), new ItemStack(Blocks.wool, 1, 14), new ItemStack(Blocks.wool, 1, 4), new ItemStack(Blocks.wool, 1, 5), new ItemStack(Blocks.wool, 1, 9), new ItemStack(Blocks.wool, 1, 11), new ItemStack(Blocks.wool, 1, 10));
+        addRecipe(new ItemStack(VanillaBlocks.blueStone, 8), "GGG", "GLG", "GGG", 'G', Blocks.glowstone, 'L', new ItemStack(Items.dye, 1, 4));
+        addRecipe(new ItemStack(VanillaBlocks.crate, 4), "xxx", "y y", "xxx", 'x', Blocks.planks, 'y', Blocks.log );
+        addRecipe(new ItemStack(VanillaBlocks.plankDesign, 4), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.planks, 1, 0), 'y', new ItemStack(Blocks.planks, 1, 1) );
+        
+        addRecipe(new ItemStack(VanillaBlocks.skeletonTorch, 4), "x", "y", 'y', Items.bone, 'x', Items.coal);
+        addRecipe(new ItemStack(VanillaBlocks.aquaTorch, 4), "x", "y", 'y', Items.stick, 'x', VanillaItemsOther.aquaticBlazeRod);
+        addRecipe(new ItemStack(TwilightBlocks.edenTorch, 4), "x", "y", 'y', Items.stick, 'x', TwilightItemsOther.edenFragments);
         
         addRecipe(new ItemStack(VanillaBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 4), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.redVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 1), 'O', Blocks.obsidian);

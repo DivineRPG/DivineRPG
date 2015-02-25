@@ -14,6 +14,7 @@ import net.divinerpg.blocks.vanilla.BlockDivineBricks;
 import net.divinerpg.blocks.vanilla.BlockLamp1;
 import net.divinerpg.blocks.vanilla.BlockLamp2;
 import net.divinerpg.blocks.vanilla.BlockLightFence;
+import net.divinerpg.blocks.vanilla.BlockMinibricks;
 import net.divinerpg.blocks.vanilla.BlockMushroom;
 import net.divinerpg.blocks.vanilla.BlockSteel;
 import net.divinerpg.blocks.vanilla.BlockTar;
@@ -73,8 +74,8 @@ public class VanillaBlocks {
 	public static Block checker;
 	public static Block rainbowWool;
 	public static Block crate;
+	public static Block plankDesign;
 	public static Block blueStone;
-	public static Block purpleStone;
 
 	public static Block blueVane;
 	public static Block cyanVane;
@@ -110,6 +111,7 @@ public class VanillaBlocks {
 	
 	public static Block steel;
 	public static Block divineBricks;
+	public static Block minibricks;
 	public static Block lamp1;
 	public static Block lamp2;
 	public static Block milkStone;
@@ -189,8 +191,8 @@ public class VanillaBlocks {
 		checker             = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD);
 		rainbowWool         = new VanillaBlock(EnumBlockType.WOOL, "rainbowWool", 0.8F, WOOD_GOLD);
 		crate               = new VanillaBlock(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD);
-		blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.5F, WOOD_GOLD).setResistance(10F);
-		purpleStone         = new VanillaBlock(EnumBlockType.ROCK, "purpleStone", 1.5F, WOOD_GOLD).setResistance(10F);
+		plankDesign               = new VanillaBlock(EnumBlockType.WOOD, "plankDesign", 2.5F, WOOD_GOLD);
+		blueStone           = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.5F, WOOD_GOLD).setResistance(10F).setLightLevel(1);
 
 		blueVane            = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, IRON).setResistance(10F);
 		cyanVane            = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, IRON).setResistance(10F);
@@ -225,7 +227,8 @@ public class VanillaBlocks {
 		//sandBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "sandBlock", 1.5F, WOOD_GOLD);
 		
 		steel       		  = new BlockSteel();
-		divineBricks        = new BlockDivineBricks();
+		divineBricks          = new BlockDivineBricks();
+		minibricks			  = new BlockMinibricks();
 		lamp1				  = new BlockLamp1();
 		lamp2				  = new BlockLamp2();
 		milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
