@@ -26,7 +26,7 @@ import net.divinerpg.entities.fx.EntityMortumPortalFX;
 import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.divinerpg.entities.fx.EntityWildwoodPortalFX;
 import net.divinerpg.items.base.ItemModBow;
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
+import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;

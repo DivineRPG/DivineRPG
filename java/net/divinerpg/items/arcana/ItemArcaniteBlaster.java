@@ -7,7 +7,7 @@ import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
 import net.divinerpg.items.base.ItemMod;
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
+import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.events.Ticker;

@@ -4,9 +4,9 @@ import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.items.base.ItemModSword;
+import net.divinerpg.items.base.ItemProjectileShooter;
+import net.divinerpg.items.base.ItemThrowable;
 import net.divinerpg.items.twilight.ItemTwilightBlitz;
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
-import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -64,12 +64,12 @@ public class TwilightItemsWeapons {
 	    mortumBlade        = new ItemModSword(ToolMaterialMod.Mortum, "mortumBlade");
 	    haliteBlade        = new ItemModSword(ToolMaterialMod.Halite, "haliteBlade");
 	    
-	    edenSlicer         = new ItemThrowable(12, "edenSlicer");
-	    wildwoodSlicer     = new ItemThrowable(18, "wildwoodSlicer");
-	    apalachiaSlicer    = new ItemThrowable(22, "apalachiaSlicer");
-	    skythernSlicer     = new ItemThrowable(28, "skythernSlicer");
-	    mortumSlicer       = new ItemThrowable(36, "mortumSlicer");
-	    haliteSlicer       = new ItemThrowable(42, "haliteSlicer");
+	    edenSlicer         = new ItemThrowable("edenSlicer", 12);
+	    wildwoodSlicer     = new ItemThrowable("wildwoodSlicer", 18);
+	    apalachiaSlicer    = new ItemThrowable("apalachiaSlicer", 22);
+	    skythernSlicer     = new ItemThrowable("skythernSlicer", 28);
+	    mortumSlicer       = new ItemThrowable("mortumSlicer", 36);
+	    haliteSlicer       = new ItemThrowable("haliteSlicer", 42);
 
 	    edenBlitz          = new ItemTwilightBlitz("edenBlitz", x.blitzEden.toString(), TwilightItemsOther.edenDust, 14F).setHasParticle("eden");
 	    wildwoodBlitz      = new ItemTwilightBlitz("wildwoodBlitz", x.blitzWild.toString(), TwilightItemsOther.wildwoodDust, 19F).setHasParticle("wildwood");

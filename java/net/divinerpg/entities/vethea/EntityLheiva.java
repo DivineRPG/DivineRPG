@@ -52,12 +52,12 @@ public class EntityLheiva extends VetheaMob {
     }
     
     @Override
-    public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
-        Entity var1 = par1DamageSource.getEntity();
+    public boolean attackEntityFrom(DamageSource source, float par2) {
+        Entity var1 = source.getEntity();
         if (var1 != null && var1 instanceof EntityPlayer) {
             if (((EntityPlayer)var1).inventory.hasItem(VetheaItems.heivaBelt))
-                return super.attackEntityFrom(par1DamageSource, par2);
-        }
+                return super.attackEntityFrom(source, par2);
+        } else if(source == DamageSource.outOfWorld) return super.attackEntityFrom(source, par2);
         return false;
     }
 

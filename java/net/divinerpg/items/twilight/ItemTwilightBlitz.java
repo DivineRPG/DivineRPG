@@ -2,7 +2,7 @@ package net.divinerpg.items.twilight;
 
 import java.util.List;
 
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
+import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;

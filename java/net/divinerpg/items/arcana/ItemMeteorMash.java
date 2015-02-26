@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.divinerpg.entities.arcana.projectile.EntityMeteor;
 import net.divinerpg.items.base.ItemMod;
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
+import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;

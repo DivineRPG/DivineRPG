@@ -1,11 +1,10 @@
-package net.divinerpg.items.vanilla;
+package net.divinerpg.items.base;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
-import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;

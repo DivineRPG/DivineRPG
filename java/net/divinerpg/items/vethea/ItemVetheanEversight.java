@@ -3,7 +3,7 @@ package net.divinerpg.items.vethea;
 import java.util.List;
 
 import net.divinerpg.client.render.EntityResourceLocation;
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
+import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;

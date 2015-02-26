@@ -6,13 +6,13 @@ import net.divinerpg.items.base.ItemHealingSword;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.items.base.ItemModFood;
+import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.base.ItemSlowingSword;
+import net.divinerpg.items.base.ItemThrowable;
 import net.divinerpg.items.iceika.ItemEggNog;
 import net.divinerpg.items.iceika.ItemMusicShooter;
 import net.divinerpg.items.iceika.ItemSerenadeOfIce;
 import net.divinerpg.items.iceika.ItemSnowGlobe;
-import net.divinerpg.items.vanilla.ItemProjectileShooter;
-import net.divinerpg.items.vanilla.ItemThrowable;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.enums.ArmorInfo;
@@ -81,7 +81,7 @@ public class IceikaItems {
          soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);
          frostclawCannon   = new ItemProjectileShooter("frostclawCannon", 21F, Sounds.frostclawCannon.getPrefixedName(), EntityResourceLocation.frostclawCannon.toString(), 10000, 0);
          fractiteCannon    = new ItemProjectileShooter("fractiteCannon", 15F, Sounds.fractiteCannon.getPrefixedName(), iceShards, EntityResourceLocation.fractiteCannon.toString(), 10000, 0);
-         snowflakeShuriken = new ItemThrowable(7, "snowflakeShuriken");
+         snowflakeShuriken = new ItemThrowable("snowflakeShuriken", 7);
          serenadeOfIce     = new ItemSerenadeOfIce("serenadeOfIce");
 
          eggNog            = new ItemEggNog("eggNog");
