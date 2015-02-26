@@ -13,12 +13,12 @@ import net.divinerpg.entities.twilight.EntityEdenCadillion;
 import net.divinerpg.entities.twilight.EntityEdenCori;
 import net.divinerpg.entities.twilight.EntityEdenTomo;
 import net.divinerpg.entities.twilight.EntityEternalArcher;
+import net.divinerpg.entities.twilight.EntityGreenfeet;
 import net.divinerpg.entities.twilight.EntityKarot;
 import net.divinerpg.entities.twilight.EntityMadivel;
 import net.divinerpg.entities.twilight.EntityMoonWolf;
 import net.divinerpg.entities.twilight.EntityMortumCadillion;
 import net.divinerpg.entities.twilight.EntityMortumDemon;
-import net.divinerpg.entities.twilight.EntityGreenfeet;
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.twilight.EntityReyvor;
 import net.divinerpg.entities.twilight.EntitySamek;
@@ -32,27 +32,15 @@ import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
 import net.divinerpg.entities.twilight.EntityVamacheron;
 import net.divinerpg.entities.twilight.EntityVerek;
+import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.EntityWildwoodGolem;
 import net.divinerpg.entities.twilight.EntityWildwoodTomo;
-import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerApalachia;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerEden;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerHalite;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerMortum;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerSkythern;
-import net.divinerpg.entities.twilight.projectile.EntitySlicerWildwood;
 import net.divinerpg.utils.Util;
 
 public class TwilightEntityRegistry {
 	
 	public static void init(){	
-	    Util.registerProjectile(EntitySlicerEden.class, "EdenSlicer");
-	    Util.registerProjectile(EntitySlicerWildwood.class, "WildSlicer");
-        Util.registerProjectile(EntitySlicerApalachia.class, "ApalachiaSlicer");
-        Util.registerProjectile(EntitySlicerSkythern.class, "SkythernSlicer");
-        Util.registerProjectile(EntitySlicerMortum.class, "MortumSlicer");
-        Util.registerProjectile(EntitySlicerHalite.class, "HaliteSlicer");
         Util.registerProjectile(EntityCoriShot.class, "WeakCoriShot");
         Util.registerProjectile(EntityParticleBullet.class, "ParticleBullet");
         

@@ -77,7 +77,7 @@ public class EntityQuadro extends EntityDivineRPGBoss {
 			case 3:
 				this.playSound(Sounds.quadroIsNext.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: Looks like im done with this. You're next!");
+					Util.sendMessageToAll("Quadro: Looks like I'm done with this. You're next!");
 				break;
 			case 4:
 				this.playSound(Sounds.quadroKillMine.getPrefixedName(), 1.0F, 1.0F);

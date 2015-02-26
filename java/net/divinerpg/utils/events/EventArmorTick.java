@@ -2,7 +2,6 @@ package net.divinerpg.utils.events;
 
 import java.util.List;
 
-import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.ArcanaItems;
@@ -17,7 +16,6 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -182,12 +180,13 @@ public class EventArmorTick {
         }
 
         //Jack O Man
-        if (boots == VanillaItemsArmor.jackOManBoots && body == VanillaItemsArmor.jackOManBody && legs == VanillaItemsArmor.jackOManLegs && helmet == VanillaItemsArmor.jackOManHelmet) {
+        /*if (boots == VanillaItemsArmor.jackOManBoots && body == VanillaItemsArmor.jackOManBody && legs == VanillaItemsArmor.jackOManLegs && helmet == VanillaItemsArmor.jackOManHelmet) {
             EntityScythe.damage = 16.0F;
         }
         else if (!(EntityScythe.damage == 4.0F)) {
             EntityScythe.damage = 4.0F;
-        }
+        }*/
+        //TODO: make this not stupid
         
         if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet)
             size = 1;

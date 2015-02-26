@@ -44,9 +44,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
-import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
-import net.divinerpg.entities.vanilla.projectile.EntityShuriken;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.entities.vanilla.projectile.EntityWatcherShot;
 import net.divinerpg.utils.Util;
@@ -54,8 +52,6 @@ import net.divinerpg.utils.Util;
 public class VanillaEntityRegistry {
 
 	public static void init(){
-		Util.registerProjectile(EntityScythe.class, "Scythe");
-		Util.registerProjectile(EntityShuriken.class, "Shuriken");
 		Util.registerProjectile(EntityVileStorm.class, "VileStorm");
 		Util.registerProjectile(EntityDeath.class, "Death");
 		Util.registerProjectile(EntityKingOfScorchersShot.class, "KOSShot");

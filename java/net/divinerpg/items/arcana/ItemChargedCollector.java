@@ -1,14 +1,8 @@
 package net.divinerpg.items.arcana;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.entities.arcana.EntityConstructor;
-import net.divinerpg.entities.vanilla.projectile.EntityScythe;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
-import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
