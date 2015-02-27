@@ -57,6 +57,8 @@ public class ClientProxy extends CommonProxy {
         Util.postFMLEvent(new ClientTickHandler());
         Util.postFMLEvent(new ArcanaRenderer());
         
+        ItemProjectileShooter.gunList.remove(VanillaItemsWeapons.scythe);
+        
         for(Item bow : ItemModBow.bowList) {
         	MinecraftForgeClient.registerItemRenderer(bow, new RenderBow());
         }
