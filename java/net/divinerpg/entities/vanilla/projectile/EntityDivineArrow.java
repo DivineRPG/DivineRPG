@@ -288,8 +288,8 @@ public class EntityDivineArrow extends EntityArrow
             {
                 if (position.entityHit != null)
                 {
-                    f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-                    int k = MathHelper.ceiling_double_int(f2 * this.damageMin);
+                    f2 = MathHelper.sqrt_double(4*(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ));
+                    int k = MathHelper.ceiling_double_int(f2 * (this.damageMin));
                     if(k>this.damageMax) k = MathHelper.ceiling_double_int(this.damageMax);
 
                     if (this.getIsCritical())
