@@ -126,7 +126,7 @@ public class BossTickHandler {
 		}
 
 		GuiIngame gig = mc.ingameGUI;
-		FontRenderer fontrenderer = this.mc.fontRenderer;
+		FontRenderer fontrenderer = this.mc.fontRendererObj;
 		ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 		int i = scaledresolution.getScaledWidth();
 		int barLength = 182;

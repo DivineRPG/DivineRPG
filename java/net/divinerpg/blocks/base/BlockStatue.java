@@ -18,7 +18,7 @@ public class BlockStatue extends BlockMod {
 
     public BlockStatue(String name, DivineModel model) {
         super(EnumBlockType.ROCK, name, 6.0F);
-        setBlockTextureName("cobblestone");
+        setTextureName("cobblestone");
         this.texture = new ResourceLocation(Reference.PREFIX + "textures/model/" + name + ".png");
         this.model = model;
         setHarvestLevel("pickaxe", 3);

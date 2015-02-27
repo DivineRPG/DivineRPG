@@ -21,7 +21,7 @@ public class BlockTar extends BlockFluidClassic{
 		DivineRPG.tarFluid.setBlock(this);
 		setLightLevel(1F);
 		GameRegistry.registerBlock(this, "Tar");
-		setBlockName("Tar");
+		setUnlocalizedName("Tar");
 		LangRegistry.addBlock(this);
 	}
 

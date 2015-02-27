@@ -18,7 +18,7 @@ public class ItemStaffEnrichment extends ItemMod {
 	public ItemStaffEnrichment(String name) {
 		super(name, DivineRPGTabs.tools);
 		this.maxStackSize = 1;
-		this.setMaxDamage(100);
+		this.setMaxDurability(100);
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class ItemStaffEnrichment extends ItemMod {
 
 			if(var11 == ArcanaBlocks.arcanaDirt) {
 				Block var13 = ArcanaBlocks.arcanaGrass;
-				par3World.playSoundEffect((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), var13.stepSound.getStepResourcePath(), (var13.stepSound.getVolume() + 1.0F) / 2.0F, var13.stepSound.getPitch() * 0.8F);
+				par3World.playSoundEffect((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), var13.stepSound.getStepSound(), (var13.stepSound.getVolume() + 1.0F) / 2.0F, var13.stepSound.getFrequency() * 0.8F);
 				par2EntityPlayer.triggerAchievement(DivineRPGAchievements.enrichment);
 				if (par3World.isRemote) {
 					return true;
@@ -49,7 +49,7 @@ public class ItemStaffEnrichment extends ItemMod {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("Use on arcana dirt to purify.");
-		par3List.add(par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage() + " Uses");
+		par3List.add(par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata() + " Uses");
 	}
 
 	@Override

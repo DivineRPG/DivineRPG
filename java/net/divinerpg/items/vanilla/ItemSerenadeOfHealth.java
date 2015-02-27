@@ -19,7 +19,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	public ItemSerenadeOfHealth(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.utility);
-		setMaxDamage(20);
+		setMaxDurability(20);
 	}
 	
 	@Override
@@ -35,6 +35,6 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	
 	@Override
 	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-		infoList.add(20 - item.getItemDamage() + " Uses Remaining");
+		infoList.add(20 - item.getMetadata() + " Uses Remaining");
 	}
 }

@@ -30,7 +30,7 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable{
 	private String cropName;
 
 	public BlockModCrop(String name, int stages, String crop) {
-	    setBlockName(name);
+	    setUnlocalizedName(name);
 		this.setTickRandomly(true);
 		float f = 0.5F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
@@ -111,12 +111,12 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable{
 	}
 
 	@Override
-	public boolean func_149851_a(World w, int x, int y, int z, boolean b) {
+	public boolean canFertilize(World w, int x, int y, int z, boolean b) {
 		return w.getBlockMetadata(x, y, z) != amountOfStages;
 	}
 
 	@Override
-	public boolean func_149852_a(World w, Random r, int x, int y, int z) {
+	public boolean shouldFertilize(World w, Random r, int x, int y, int z) {
 		return true;
 	}
 
@@ -151,14 +151,14 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable{
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister icon) {
+	public void registerIcons(IIconRegister icon) {
 		this.icons = new IIcon[amountOfStages + 1];
 		for(int i = 0; i < this.icons.length; ++i)
 			this.icons[i] = icon.registerIcon(Reference.PREFIX + cropName + "_" + i);
 	}
 
 	@Override
-	public void func_149853_b(World w, Random r, int x, int y, int z) {
+	public void fertilize(World w, Random r, int x, int y, int z) {
 		this.boneMeal(w, x, y, z);
 	}
 

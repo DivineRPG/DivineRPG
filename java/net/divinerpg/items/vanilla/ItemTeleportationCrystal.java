@@ -40,7 +40,7 @@ public class ItemTeleportationCrystal extends ItemMod {
 		super("teleportationCrystal");
 		setCreativeTab(DivineRPGTabs.utility);
 		setMaxStackSize(1);
-		setMaxDamage(10);
+		setMaxDurability(10);
 	}
 	
 	@Override
@@ -127,6 +127,6 @@ public class ItemTeleportationCrystal extends ItemMod {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Teleport to spawn point");
-		list.add(stack.getMaxDamage()-stack.getItemDamage() + " Uses Remaining");
+		list.add(stack.getMaxDurability()-stack.getMetadata() + " Uses Remaining");
 	}
 }

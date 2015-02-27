@@ -89,7 +89,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					if(!var1.capabilities.isCreativeMode) {
 						--var2.stackSize;
 					}
-					this.heal((float)var3.func_150905_g(var2));
+					this.heal((float)var3.getHealAmount(var2));
 					if(var2.stackSize <= 0) {
 						var1.inventory.setInventorySlotContents(var1.inventory.currentItem, (ItemStack)null);
 					}

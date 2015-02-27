@@ -77,7 +77,7 @@ public class BlockModDoublePlant extends BlockMod {
     
     @Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister i) {
+	public void registerIcons(IIconRegister i) {
 		this.blockIcon = i.registerIcon(Reference.PREFIX + name + "_bottom");
 		this.bottomIcon = i.registerIcon(Reference.PREFIX + name + "_top");
 	}

@@ -93,7 +93,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean isCustomInventoryName() {
         return true;
     }
 
@@ -136,7 +136,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
         }
 
         nbt.setTag("Items", nbttaglist);
-        if (this.hasCustomInventoryName()) nbt.setString("CustomName", this.customName);
+        if (this.isCustomInventoryName()) nbt.setString("CustomName", this.customName);
     }
 
     @Override
@@ -212,7 +212,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
 		if (this.furnaceItemStacks[0] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+			ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
 			if (itemstack == null) return false;
 			if (this.furnaceItemStacks[2] == null) return true;
 			if (!this.furnaceItemStacks[2].isItemEqual(itemstack)) return false;
@@ -224,7 +224,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
 
     public void smeltItem() {
         if(this.canSmelt()) {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
 
             if(this.furnaceItemStacks[2] == null) 
                 this.furnaceItemStacks[2] = itemstack.copy();
@@ -262,10 +262,10 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
     }
 
     @Override
-    public void openInventory() {}
+    public void openChest() {}
 
     @Override
-    public void closeInventory() {}
+    public void closeChest() {}
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack par2ItemStack) {
@@ -273,7 +273,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int slot) {
+    public int[] getSlotsForFace(int slot) {
         return slot == 0 ? slotsBottom : (slot == 1 ? slotsTop : slotsSides);
     }
 

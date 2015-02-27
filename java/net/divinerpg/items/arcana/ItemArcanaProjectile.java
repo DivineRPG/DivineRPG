@@ -25,7 +25,7 @@ public class ItemArcanaProjectile extends ItemMod {
 	public ItemArcanaProjectile(String name, DivineRPGTabs tab, int size, int uses, int arcana, int damage) {
 		super(name, tab);
 		this.maxStackSize = size;
-		this.setMaxDamage(uses);
+		this.setMaxDurability(uses);
 		this.arcana = arcana;
 		this.damage = damage;
 	}
@@ -63,6 +63,6 @@ public class ItemArcanaProjectile extends ItemMod {
 		list.add(this == ArcanaItems.laVekor ? "Ammo: " + StatCollector.translateToLocal(ArcanaItems.grenade.getUnlocalizedName() + ".name") : "Infinite Ammo");
 		list.add(arcana == 0 ? "" : "Uses " + arcana + " Arcana");
 		list.add(this.damage + " Ranged Damage");
-		list.add(this.getMaxDamage() == -1 ? "Unlimited Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		list.add(this.getMaxDurability() == -1 ? "Unlimited Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

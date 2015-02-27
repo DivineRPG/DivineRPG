@@ -36,7 +36,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 		super(Material.rock);
 		setStepSound(Block.soundTypeStone);
 		if(!act) setCreativeTab(DivineRPGTabs.blocks);
-		setBlockName(name);
+		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
         setHardness(3.5F);
@@ -56,10 +56,10 @@ public abstract class BlockModFurnace extends BlockContainer {
 		if(!w.isRemote) {
 			int meta = 3;
 			Block block = w.getBlock(x, y, z - 1), block1 = w.getBlock(x, y, z + 1), block2 = w.getBlock(x - 1, y, z), block3 = w.getBlock(x + 1, y, z);
-			if(block.func_149730_j() && !block1.func_149730_j()) meta = 3;
-			if(block1.func_149730_j() && !block.func_149730_j()) meta = 2;
-			if(block2.func_149730_j() && !block3.func_149730_j()) meta = 5;
-			if(block3.func_149730_j() && !block2.func_149730_j()) meta = 4;
+			if(block.isFullBlock() && !block1.isFullBlock()) meta = 3;
+			if(block1.isFullBlock() && !block.isFullBlock()) meta = 2;
+			if(block2.isFullBlock() && !block3.isFullBlock()) meta = 5;
+			if(block3.isFullBlock() && !block2.isFullBlock()) meta = 4;
 			w.setBlockMetadataWithNotify(x, y, z, meta, 2);
 		}
 	}
@@ -118,7 +118,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 							int j1 = this.rand.nextInt(21) + 10;
 							if(j1 > itemstack.stackSize) j1 = itemstack.stackSize;
 							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							EntityItem entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getMetadata()));
 							if(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
 							float f3 = 0.05F;
 							entityitem.motionX = (double)((float)this.rand.nextGaussian() * f3);
@@ -128,7 +128,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 						}
 					}
 				}
-				w.func_147453_f(x, y, z, b);
+				w.updateNeighborsAboutBlockChange(x, y, z, b);
 			}
 		}else if(w.getTileEntity(x, y, z) instanceof TileEntityInfiniteFurnace) {
 			TileEntityInfiniteFurnace entity = (TileEntityInfiniteFurnace)w.getTileEntity(x, y, z);
@@ -145,7 +145,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 							int j1 = this.rand.nextInt(21) + 10;
 							if(j1 > itemstack.stackSize) j1 = itemstack.stackSize;
 							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							EntityItem entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getMetadata()));
 							if(itemstack.hasTagCompound()) entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
 							float f3 = 0.05F;
 							entityitem.motionX = (double)((float)this.rand.nextGaussian() * f3);
@@ -155,7 +155,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 						}
 					}
 				}
-				w.func_147453_f(x, y, z, b);
+				w.updateNeighborsAboutBlockChange(x, y, z, b);
 			}
 		}
 		}

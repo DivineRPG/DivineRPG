@@ -18,7 +18,7 @@ public class ItemSerenadeOfDeath extends ItemMod {
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
-		setMaxDamage(500);
+		setMaxDurability(500);
 	}
 	
 	@Override
@@ -36,6 +36,6 @@ public class ItemSerenadeOfDeath extends ItemMod {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("12 Ranged Damage");
 		list.add("Poisons target for 2 seconds");
-		list.add(getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		list.add(getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

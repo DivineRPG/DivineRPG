@@ -29,7 +29,7 @@ public class BlockModGrass extends BlockMod {
         this.dirt = dirt;
         this.textureName = Reference.PREFIX + name;
         this.dirtName = Reference.PREFIX + dirtName;
-        setBlockTextureName(textureName);
+        setTextureName(textureName);
         setTickRandomly(true);
     }
 
@@ -43,8 +43,9 @@ public class BlockModGrass extends BlockMod {
     	return Item.getItemFromBlock(dirt);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister icon) {
+    public void registerIcons(IIconRegister icon) {
         side = icon.registerIcon(textureName + "_side");
         top = icon.registerIcon(textureName + "_top");
         bottom = icon.registerIcon(dirtName);

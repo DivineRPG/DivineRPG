@@ -46,7 +46,7 @@ public class BlockNightmareBed extends BlockBed {
         String name = "nightmareBedBlock";
         setStepSound(Block.soundTypeStone);
         setCreativeTab(null);
-        setBlockName(name);
+        setUnlocalizedName(name);
         setHardness(9);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
@@ -62,8 +62,8 @@ public class BlockNightmareBed extends BlockBed {
 
             if (!isBlockHeadOfBed(i1)) {
                 int j1 = getDirection(i1);
-                x += field_149981_a[j1][0];
-                z += field_149981_a[j1][1];
+                x += bedDirections[j1][0];
+                z += bedDirections[j1][1];
 
                 if (world.getBlock(x, y, z) != this)
                     return true;
@@ -74,7 +74,7 @@ public class BlockNightmareBed extends BlockBed {
             this.persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
             
             if (player.worldObj.provider.dimensionId != ConfigurationHelper.vethea) {
-                if (func_149976_c(i1)) {
+                if (isBedOccupied(i1)) {
                     EntityPlayer entityplayer1 = null;
                     Iterator iterator = world.playerEntities.iterator();
 
@@ -95,7 +95,7 @@ public class BlockNightmareBed extends BlockBed {
                     }
                     
                     EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
-                    func_149979_a(world, x, y, z, false);
+                    setBedOccupied(world, x, y, z, false);
                     MPPlayer.timeUntilPortal = 10;
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
                     this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
@@ -115,7 +115,7 @@ public class BlockNightmareBed extends BlockBed {
                 EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
 
                 if (enumstatus == EntityPlayer.EnumStatus.OK) {
-                    func_149979_a(world, x, y, z, true);
+                    setBedOccupied(world, x, y, z, true);
                     player.addChatMessage(Util.addChatMessage(EnumChatFormatting.DARK_RED, "WARNING! Are you sure you want to enter Vethea; every Minecraft player's worst nightmare?"));
                     player.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, "There may be no coming back..."));
                     return true;
@@ -147,8 +147,8 @@ public class BlockNightmareBed extends BlockBed {
                 double d1 = (double)z + 0.5D;
                 world.setBlockToAir(x, y, z);
                 int k1 = getDirection(i1);
-                x += field_149981_a[k1][0];
-                z += field_149981_a[k1][1];
+                x += bedDirections[k1][0];
+                z += bedDirections[k1][1];
 
                 if (world.getBlock(x, y, z) == this) {
                     world.setBlockToAir(x, y, z);
@@ -184,7 +184,7 @@ public class BlockNightmareBed extends BlockBed {
 
 	@Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register) {
+    public void registerIcons(IIconRegister register) {
         top = new IIcon[] {register.registerIcon(Reference.PREFIX + "nightmareBedFeetTop"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadTop")};
         end = new IIcon[] {register.registerIcon(Reference.PREFIX + "nightmareBedFeetEnd"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadEnd")};
         side = new IIcon[] {register.registerIcon(Reference.PREFIX + "nightmareBedFeetSide"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadSide")};

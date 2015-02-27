@@ -101,6 +101,7 @@ import net.divinerpg.utils.LogHelper;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -196,7 +197,7 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
-				} else if(biome.topBlock == Blocks.grass || biome.topBlock == Blocks.sand || biome.topBlock == Blocks.snow){
+				} else if(WorldChunkManager.allowedBiomes.contains(biome)){
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
 						EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);

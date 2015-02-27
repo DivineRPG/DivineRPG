@@ -19,8 +19,9 @@ public class BlockAcceleron extends BlockMod{
 		slipperiness = 4.0F;
 	}
 	
+	@Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister icon) {
+    public void registerIcons(IIconRegister icon) {
         side = icon.registerIcon(Reference.PREFIX + "acceleron" + "_side");
         top = icon.registerIcon(Reference.PREFIX + "acceleron" + "_top");
     }

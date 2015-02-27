@@ -28,8 +28,8 @@ public class BlockModFire extends BlockFire {
         this.name = name;
         setLightLevel(1.0F);
         setCreativeTab(null);
-        setBlockName(name);
-        setBlockTextureName(Reference.PREFIX + name);
+        setUnlocalizedName(name);
+        setTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
     }

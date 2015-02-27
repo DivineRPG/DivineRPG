@@ -95,13 +95,13 @@ public class TileEntityInfusionTable extends TileEntity implements IInventory {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return true;
 	}
 
 	@Override
-	public void openInventory() { }
+	public void openChest() { }
 
 	@Override
-	public void closeInventory() { }
+	public void closeChest() { }
 }

@@ -33,13 +33,9 @@ public class BlockInfusionTable extends BlockContainer {
 		return new TileEntityInfusionTable();
 	}
 	
-    public Block setTextureName(String name) {
-        return setBlockTextureName(Reference.PREFIX + name);
-    }
-	
 	public Block setName(String name){
 		setTextureName(name);
-        setBlockName(name);
+        setUnlocalizedName(name);
         GameRegistry.registerBlock(this, name);
 		return this;
 	}

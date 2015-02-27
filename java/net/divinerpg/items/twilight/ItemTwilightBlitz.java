@@ -26,7 +26,7 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
 	public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", this.damage, 0));
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", this.damage, 0));
         return multimap;
     }
 	
@@ -35,6 +35,6 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add(damage + " Ranged and Melee Damage");
 		list.add("Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
-		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

@@ -35,6 +35,6 @@ public class ItemHealingSword extends ItemModSword {
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		 list.add("Heals " + this.healAmount + " health on use");
-		 list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		 list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

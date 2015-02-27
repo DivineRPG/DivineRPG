@@ -16,14 +16,14 @@ public class ItemVetheanSword extends ItemModSword {
 
     public ItemVetheanSword(String name, ToolMaterial toolMaterial) {
         super(toolMaterial, name);
-        setMaxDamage(-1);
+        setMaxDurability(-1);
         setCreativeTab(DivineRPGTabs.vethea);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-        if (item.getMaxDamage() != -1) infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
+        if (item.getMaxDurability() != -1) infoList.add(item.getMaxDurability() - item.getMetadata() + " Uses Remaining");
         else infoList.add(Util.GREEN + "Infinite Uses");
         if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+4 + " Melee Damage");
     	else infoList.add(this.mat.getDamageVsEntity()+4 + " Melee Damage");

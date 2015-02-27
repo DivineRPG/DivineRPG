@@ -66,7 +66,7 @@ public class ItemModSword extends ItemSword {
     	if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+4 + " Melee Damage");
     	else infoList.add(this.mat.getDamageVsEntity()+4 + " Melee Damage");
         addAdditionalInformation(infoList);
-        if (item.getMaxDamage() != -1) infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
+        if (item.getMaxDurability() != -1) infoList.add(item.getMaxDurability() - item.getMetadata() + " Uses Remaining");
         else infoList.add(Util.GREEN + "Infinite Uses");
     }
     

@@ -202,6 +202,6 @@ public class Util {
         Vec3 pos = Vec3.createVectorHelper(player.posX, player.posY + player.getEyeHeight(), player.posZ);
         Vec3 look = player.getLook(1);
         Vec3 vec32 = pos.addVector(look.xCoord * distance, look.yCoord * distance, look.zCoord * distance);
-        return player.worldObj.func_147447_a(pos, vec32, false, false, true);
+        return player.worldObj.rayTraceBlocks(pos, vec32, false, false, true);
     }
 }

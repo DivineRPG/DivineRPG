@@ -80,7 +80,7 @@ public class BlockModBush extends BlockMod implements IShearable {
     }
     
     @Override
-    public void registerBlockIcons(IIconRegister i) {
+    public void registerIcons(IIconRegister i) {
     	this.blockIcon = i.registerIcon(textureName);
     	this.textures[0] = i.registerIcon(textureName);
     	this.textures[1] = i.registerIcon(textureName + "_fast");

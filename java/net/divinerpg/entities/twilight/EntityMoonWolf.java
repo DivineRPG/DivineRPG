@@ -79,7 +79,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    protected void func_145780_a(int x, int y, int z, Block steppedOn) {
+    protected void playStepSound(int x, int y, int z, Block steppedOn) {
         this.playSound("mob.wolf.step", 0.15F, 1.0F);
     }
 
@@ -252,7 +252,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                 if(itemfood.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 20.0F) {
                     if(!par1EntityPlayer.capabilities.isCreativeMode) --itemstack.stackSize;
 
-                    this.heal((float)itemfood.func_150905_g(itemstack));
+                    this.heal((float)itemfood.getHealAmount(itemstack));
 
                     if(itemstack.stackSize <= 0)
                         par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);

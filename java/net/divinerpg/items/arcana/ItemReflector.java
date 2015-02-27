@@ -15,7 +15,7 @@ public class ItemReflector extends ItemMod {
     public ItemReflector(String name) {
         super(name, DivineRPGTabs.utility);
         this.maxStackSize = 1;
-        this.setMaxDamage(-1);
+        this.setMaxDurability(-1);
     }
     
     @Override

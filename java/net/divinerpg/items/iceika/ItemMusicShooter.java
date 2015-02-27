@@ -23,7 +23,7 @@ public class ItemMusicShooter extends ItemMod {
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
-		setMaxDamage(4000);
+		setMaxDurability(4000);
 	}
 	
 	@Override
@@ -49,6 +49,6 @@ public class ItemMusicShooter extends ItemMod {
 		} else {
 			par3List.add("10 Ranged damage");
 		}
-		par3List.add(var1.getMaxDamage() - var1.getItemDamage() + " Uses remaining");
+		par3List.add(var1.getMaxDurability() - var1.getMetadata() + " Uses remaining");
 	}
 }

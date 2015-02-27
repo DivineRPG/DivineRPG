@@ -39,7 +39,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.projectileTex = projectileTex;
 		this.uses = uses;
 		this.delay = counter;
-		setMaxDamage(uses);
+		setMaxDurability(uses);
 		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon") && !name.contains("Anchor")) gunList.add(this);
 		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon") || name.contains("Anchor")) phaserList.add(this);
 	}
@@ -57,7 +57,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.ammo = ammo;
 		this.uses = uses;
 		this.delay = counter;
-		setMaxDamage(uses);
+		setMaxDurability(uses);
 		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon")) gunList.add(this);
 		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon")) phaserList.add(this);
 	}
@@ -78,7 +78,7 @@ public class ItemProjectileShooter extends ItemMod {
 		this.uses = uses;
 		this.delay = counter;
 		this.projectileTex = projectileTex;
-		setMaxDamage(uses);
+		setMaxDurability(uses);
 		if(!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon") && !name.contains("bowheadCannon")) gunList.add(this);
 		else if(name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon") || name.contains("bowheadCannon")) phaserList.add(this);
 	}
@@ -121,7 +121,7 @@ public class ItemProjectileShooter extends ItemMod {
 		if((int)this.damage == this.damage) list.add((int)damage + " Ranged Damage");
 		else list.add(damage + " Ranged Damage");
 		list.add(this.ammo == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
-		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 	
 	public ItemProjectileShooter setHasParticle(String fx) {

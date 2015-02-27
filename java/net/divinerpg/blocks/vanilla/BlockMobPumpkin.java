@@ -22,7 +22,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class MobPumpkin extends BlockDirectional {
+public class BlockMobPumpkin extends BlockDirectional {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon top;
@@ -32,7 +32,7 @@ public class MobPumpkin extends BlockDirectional {
 	private static Material pumpkin = Material.gourd;
 	private Random rand = new Random();
 	
-	public MobPumpkin() {
+	public BlockMobPumpkin() {
 		super(pumpkin);
 		setTickRandomly(true);
 		setHardness(1.0F);
@@ -46,6 +46,7 @@ public class MobPumpkin extends BlockDirectional {
 	}
 
 	@SideOnly(Side.CLIENT)
+	@Override
 	public IIcon getIcon(int par1, int par2) {
 		return par1 == 1 ? this.top : (par1 == 0 ? this.top : (par2 == 2 && par1 == 2 ? this.front : (par2 == 3 && par1 == 5 ? this.front : (par2 == 0 && par1 == 3 ? this.front : (par2 == 1 && par1 == 4 ? this.front : this.blockIcon)))));
 	}
@@ -94,20 +95,17 @@ public class MobPumpkin extends BlockDirectional {
 	}
 
 	public Block setName(String name){
-		setBlockName(name);
+		setUnlocalizedName(name);
 		setTextureName(name);
 		GameRegistry.registerBlock(this, name);
 		return this;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister icon) {
-		this.front = icon.registerIcon(this.getTextureName() + "_front");
-		this.top = icon.registerIcon(this.getTextureName() + "_top");
-		this.blockIcon = icon.registerIcon(this.getTextureName() + "_side");
-	}
-
-	public Block setTextureName(String name){
-		return setBlockTextureName(Reference.PREFIX + name);
+	public void registerIcons(IIconRegister icon) {
+		this.front = icon.registerIcon(Reference.PREFIX + this.getTextureName() + "_front");
+		this.top = icon.registerIcon(Reference.PREFIX + this.getTextureName() + "_top");
+		this.blockIcon = icon.registerIcon(Reference.PREFIX + this.getTextureName() + "_side");
 	}
 }

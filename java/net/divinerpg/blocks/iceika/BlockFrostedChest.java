@@ -34,8 +34,8 @@ public class BlockFrostedChest extends BlockContainer {
 		super(Material.wood);
 		setCreativeTab(DivineRPGTabs.blocks);
 		setStepSound(soundTypeGlass);
-		setBlockTextureName("ice");
-		setBlockName(name);
+		setTextureName("ice");
+		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
 		this.dropsSnowflake = dropsSnowflake;
@@ -95,14 +95,14 @@ public class BlockFrostedChest extends BlockContainer {
 							j1 = itemstack.stackSize;
 
 						itemstack.stackSize -= j1;
-						entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+						entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getMetadata()));
 						entityitem.motionX = (double)((float)rand.nextGaussian() * f3);
 						entityitem.motionY = (double)((float)rand.nextGaussian() * f3 + 0.2F);
 						entityitem.motionZ = (double)((float)rand.nextGaussian() * f3);
 					}
 				}
 			}
-			w.func_147453_f(x, y, z, b);
+			w.updateNeighborsAboutBlockChange(x, y, z, b);
 		}
 		super.breakBlock(w, x, y, z, b, i);
 	}

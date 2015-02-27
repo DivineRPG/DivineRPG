@@ -29,7 +29,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 		super("arcaniteBlaster");
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
-		setMaxDamage(6500);
+		setMaxDurability(6500);
 	}
 	
 	@Override
@@ -68,6 +68,6 @@ public class ItemArcaniteBlaster extends ItemMod {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("30x30 Ranged damage");
 		list.add("Consumes 20 Arcana");
-		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

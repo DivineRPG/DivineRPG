@@ -25,7 +25,7 @@ public class ItemAnchor extends ItemProjectileShooter {
 	public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 8, 0));
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", 8, 0));
         return multimap;
     }
 	
@@ -35,6 +35,6 @@ public class ItemAnchor extends ItemProjectileShooter {
 		list.add(damage + " Ranged Damage");
 		list.add("8 Melee Damage");
 		list.add(this.ammo == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
-		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

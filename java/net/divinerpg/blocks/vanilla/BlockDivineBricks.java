@@ -39,7 +39,7 @@ public class BlockDivineBricks extends VanillaBlock implements IDivineMetaBlock{
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister ir){
+	public void registerIcons(IIconRegister ir){
 		for(int i = 0; i<15; i++) {
 			this.iconArray[i] = ir.registerIcon("divinerpg:" + names[i] + "Bricks");
 		}

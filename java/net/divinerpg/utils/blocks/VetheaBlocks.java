@@ -166,9 +166,9 @@ public class VetheaBlocks {
         hiveWall               = new BlockMod(EnumBlockType.GLASS, "hiveWalls", 1.0F, DivineRPGTabs.vethea).setLightLevel(0.533F);
         dreamglow              = new BlockVetheaPlant("dreamglow").setLightLevel(0.4F);
         hyrewoodVine           = new BlockModVine("hyreWoodVine").setCreativeTab(DivineRPGTabs.vethea);
-        chamberWall            = new BlockMod(EnumBlockType.ROCK, "chamberWall1", false, DivineRPGTabs.vethea).setBlockName("chamberWall");
-        chamberWall1           = new BlockMod(EnumBlockType.ROCK, "chamberWall2", false, DivineRPGTabs.vethea).setBlockName("chamberWall");
-        chamberWall2           = new BlockMod(EnumBlockType.ROCK, "chamberWall3", false, DivineRPGTabs.vethea).setBlockName("chamberWall");
+        chamberWall            = new BlockMod(EnumBlockType.ROCK, "chamberWall1", false, DivineRPGTabs.vethea).setUnlocalizedName("chamberWall");
+        chamberWall1           = new BlockMod(EnumBlockType.ROCK, "chamberWall2", false, DivineRPGTabs.vethea).setUnlocalizedName("chamberWall");
+        chamberWall2           = new BlockMod(EnumBlockType.ROCK, "chamberWall3", false, DivineRPGTabs.vethea).setUnlocalizedName("chamberWall");
         whiteEverstone         = new BlockMod(EnumBlockType.ROCK, "whiteEverstone", false, DivineRPGTabs.vethea);
         darkEverstone          = new BlockMod(EnumBlockType.ROCK, "darkEverstone", false, DivineRPGTabs.vethea);
         blackHungerstone       = new BlockMod(EnumBlockType.ROCK, "blackHungerstone", false, DivineRPGTabs.vethea);

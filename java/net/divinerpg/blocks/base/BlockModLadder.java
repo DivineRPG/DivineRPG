@@ -13,8 +13,8 @@ public class BlockModLadder extends BlockLadder {
     
 	public BlockModLadder(String name) {
 	    this.name = name;
-	    setBlockTextureName(Reference.PREFIX + name);
-        setBlockName(name);
+	    setTextureName(Reference.PREFIX + name);
+        setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.blocks);
         GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);

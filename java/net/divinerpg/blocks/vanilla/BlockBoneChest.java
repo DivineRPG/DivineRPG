@@ -27,8 +27,8 @@ public class BlockBoneChest extends BlockContainer {
 		super(Material.rock);
 		setCreativeTab(DivineRPGTabs.blocks);
 		setStepSound(soundTypePiston);
-		setBlockTextureName("snow");
-		setBlockName(name);
+		setTextureName("snow");
+		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
 		setHardness(4.0F);
@@ -76,14 +76,14 @@ public class BlockBoneChest extends BlockContainer {
 							j1 = itemstack.stackSize;
 
 						itemstack.stackSize -= j1;
-						entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+						entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getMetadata()));
 						entityitem.motionX = (double)((float)rand.nextGaussian() * f3);
 						entityitem.motionY = (double)((float)rand.nextGaussian() * f3 + 0.2F);
 						entityitem.motionZ = (double)((float)rand.nextGaussian() * f3);
 					}
 				}
 			}
-			w.func_147453_f(x, y, z, b);
+			w.updateNeighborsAboutBlockChange(x, y, z, b);
 		}
 		super.breakBlock(w, x, y, z, b, i);
 	}

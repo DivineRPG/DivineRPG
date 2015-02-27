@@ -178,7 +178,7 @@ public class DivineTeleporter extends Teleporter {
                 } else if (i4 == Direction.rotateOpposite[j2]) {
                     f3 = -1.0F;
                     f4 = -1.0F;
-                } else if (i4 == Direction.rotateRight[j2]) {
+                } else if (i4 == Direction.enderEyeMetaToDirection[j2]) {
                     f5 = 1.0F;
                     f6 = -1.0F;
                 } else {

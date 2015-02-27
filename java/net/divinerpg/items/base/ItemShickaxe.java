@@ -46,7 +46,7 @@ public class ItemShickaxe extends ItemTool {
     }
 
     @Override
-    public boolean func_150897_b(Block block) {
+    public boolean canItemHarvestBlock(Block block) {
         return isEfficient(block);
     }
 
@@ -85,8 +85,7 @@ public class ItemShickaxe extends ItemTool {
 
         if (par7 != 0 && world.getBlock(x, y + 1, z).isAir(world, x, y + 1, z) && (block == Blocks.grass || block == Blocks.dirt)) {
             Block block1 = Blocks.farmland;
-            world.playSoundEffect((double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), block1.stepSound.getStepResourcePath(),
-                    (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.getPitch() * 0.8F);
+            world.playSoundEffect((double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), block1.stepSound.getStepSound(), (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.getFrequency() * 0.8F);
 
             if (world.isRemote) return true;
 
@@ -101,7 +100,7 @@ public class ItemShickaxe extends ItemTool {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         list.add("Efficiency: " + toolMaterial.getEfficiencyOnProperMaterial());
-        if (stack.getMaxDamage() != -1) list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses");
+        if (stack.getMaxDurability() != -1) list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses");
         else list.add(Util.GREEN + "Infinite Uses");
     }
 }

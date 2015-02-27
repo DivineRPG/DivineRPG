@@ -135,7 +135,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 		byte[] by = new byte[65536];
 		this.generateTerrain(par1, par2, block);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		this.firecrystals.func_151539_a(this, this.worldObj, par1, par2, block);
+		this.firecrystals.generate(this, this.worldObj, par1, par2, block);
 		Chunk var4 = new Chunk(this.worldObj, block, by, par1, par2);
 		byte[] var5 = var4.getBiomeArray();
 		for (int var6 = 0; var6 < var5.length; ++var6) {
@@ -371,7 +371,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 	public void saveExtraData() { }
 
 	@Override
-	public ChunkPosition func_147416_a(World var1, String var2, int var3, int var4, int var5) {
+	public ChunkPosition findClosestStructure(World var1, String var2, int var3, int var4, int var5) {
 		return null;
 	}
 }

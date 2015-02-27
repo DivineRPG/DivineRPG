@@ -147,13 +147,13 @@ public class CommonProxy{
 		TwilightRecipeHelper.init();
 		DimensionHelper.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
-        MobSpawning.addSpawns();
 	}
 
 	public void init(FMLInitializationEvent event){
 		LogHelper.info("Adding world generators");
 		GameRegistry.registerWorldGenerator(new DivineWorldgen(), 0);
 		DivineRPGAchievements.init();
+        MobSpawning.addSpawns();
 	}
 
 	public void postInit(FMLPostInitializationEvent event){

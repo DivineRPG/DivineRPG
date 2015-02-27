@@ -55,7 +55,7 @@ public class ContainerInfusionTable extends Container {
                     itemstack1.stackSize = 0;
                 }
                 else if (itemstack1.stackSize >= 1) {
-                    ((Slot)this.inventorySlots.get(0)).putStack(new ItemStack(itemstack1.getItem(), 1, itemstack1.getItemDamage()));
+                    ((Slot)this.inventorySlots.get(0)).putStack(new ItemStack(itemstack1.getItem(), 1, itemstack1.getMetadata()));
                     itemstack1.stackSize--;
                 }
             }

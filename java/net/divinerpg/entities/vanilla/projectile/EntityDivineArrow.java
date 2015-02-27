@@ -231,7 +231,7 @@ public class EntityDivineArrow extends EntityArrow
             ++this.ticksInAir;
             Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
             Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-            MovingObjectPosition position = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
+            MovingObjectPosition position = this.worldObj.rayTraceBlocks(vec31, vec3, false, true, false);
             vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
             vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
             
@@ -448,7 +448,7 @@ public class EntityDivineArrow extends EntityArrow
             this.motionZ *= (double)f3;
             this.motionY -= (double)f1;
             this.setPosition(this.posX, this.posY, this.posZ);
-            this.func_145775_I();
+            this.doBlockCollisions();
             
             if((this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY)-1, (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY), (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX)+1, (int)Math.floor(this.posY), (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX)-1, (int)Math.floor(this.posY), (int)Math.round(this.posZ)) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY), (int)Math.round(this.posZ)+1) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY), (int)Math.round(this.posZ)-1) != Blocks.air || this.worldObj.getBlock((int)Math.round(this.posX), (int)Math.floor(this.posY)+1, (int)Math.round(this.posZ)) != Blocks.air) && this.getTextureName() == "snowstormArrow"){
             	this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);

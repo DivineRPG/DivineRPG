@@ -222,7 +222,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     }
 
 	@Override
-	public IChatComponent func_145748_c_() {
+	public IChatComponent getFormattedCommandSenderName() {
 		return null;
 	}
 
