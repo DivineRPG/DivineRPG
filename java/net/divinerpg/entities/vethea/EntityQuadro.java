@@ -14,6 +14,7 @@ import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.IChatComponent;
@@ -31,6 +32,7 @@ public class EntityQuadro extends EntityDivineRPGBoss {
 
 	private int rangedAttackCounter;
 	public boolean dir;
+	private int deathTicks;
 
 	public EntityQuadro(World w) {
 		super(w);
@@ -181,6 +183,51 @@ public class EntityQuadro extends EntityDivineRPGBoss {
             default: 
             	break;
         }
+	}
+	
+	@Override
+	protected void onDeathUpdate() {
+		++this.deathTicks;
+
+		if (this.deathTicks >= 180 && this.deathTicks <= 200) {
+			float var1 = (this.rand.nextFloat() - 0.5F) * 8.0F;
+			float var2 = (this.rand.nextFloat() - 0.5F) * 4.0F;
+			float var3 = (this.rand.nextFloat() - 0.5F) * 8.0F;
+			this.worldObj.spawnParticle("hugeexplosion", this.posX + var1, this.posY + 2.0D + var2, this.posZ + var3, 0.0D, 0.0D, 0.0D);
+		}
+
+		int var4;
+		int var5;
+
+		if (!this.worldObj.isRemote) {
+			if (this.deathTicks > 150 && this.deathTicks % 5 == 0) {
+				var4 = 1000;
+
+				while (var4 > 0) {
+					var5 = EntityXPOrb.getXPSplit(var4);
+					var4 -= var5;
+					this.worldObj.spawnEntityInWorld(new EntityXPOrb(this.worldObj, this.posX, this.posY, this.posZ, var5));
+				}
+			}
+
+			if (this.deathTicks == 1) {
+				this.worldObj.playBroadcastSound(1018, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+			}
+		}
+
+		this.moveEntity(0.0D, 0.10000000149011612D, 0.0D);
+		this.renderYawOffset = this.rotationYaw += 20.0F;
+
+		if (this.deathTicks == 200 && !this.worldObj.isRemote) {
+			var4 = 2000;
+
+			while (var4 > 0) {
+				var5 = EntityXPOrb.getXPSplit(var4);
+				var4 -= var5;
+				this.worldObj.spawnEntityInWorld(new EntityXPOrb(this.worldObj, this.posX, this.posY, this.posZ, var5));
+			}
+			this.setDead();
+		}
 	}
 
 	@Override
