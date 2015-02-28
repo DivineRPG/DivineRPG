@@ -63,8 +63,8 @@ public class ItemModSword extends ItemSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-    	if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+4 + " Melee Damage");
-    	else infoList.add(this.mat.getDamageVsEntity()+4 + " Melee Damage");
+    	if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+5 + " Melee Damage");
+    	else infoList.add(this.mat.getDamageVsEntity()+5 + " Melee Damage");
         addAdditionalInformation(infoList);
         if (item.getMaxDurability() != -1) infoList.add(item.getMaxDurability() - item.getMetadata() + " Uses Remaining");
         else infoList.add(Util.GREEN + "Infinite Uses");

@@ -30,8 +30,9 @@ public class BlockTar extends BlockFluidClassic{
         return par1 != 0 && par1 != 1 ? this.theIIcon[1] : this.theIIcon[0];
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister par1IIconRegister) {
-		this.theIIcon = new IIcon[] {par1IIconRegister.registerIcon(Reference.PREFIX + "Tar"), par1IIconRegister.registerIcon(Reference.PREFIX + "Tar")};
+	public void registerIcons(IIconRegister registry) {
+		this.theIIcon = new IIcon[] {registry.registerIcon(Reference.PREFIX + "Tar"), registry.registerIcon(Reference.PREFIX + "Tar")};
 	}
 }
