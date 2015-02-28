@@ -22,7 +22,7 @@ public class EntityEnderTripletFireball extends EntityFireball{
 	@Override
 	protected void onImpact(MovingObjectPosition mop) {
 		if(!this.worldObj.isRemote) {
-			if(mop.entityHit != null && mop.entityHit instanceof EntityLivingBase) mop.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 20);
+			if(mop.entityHit != null && mop.entityHit instanceof EntityLivingBase) mop.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 10);
 			this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 3F, false);
 			this.setDead();
 		}

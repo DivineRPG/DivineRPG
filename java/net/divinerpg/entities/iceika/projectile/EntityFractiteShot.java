@@ -29,7 +29,7 @@ public class EntityFractiteShot extends EntityFireball {
 	protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
 		if (!this.worldObj.isRemote) {
 			if (par1MovingObjectPosition.entityHit != null) {
-				par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 20);
+				par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 12);
 			}
 
 			this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 3.0F, false);

@@ -109,7 +109,7 @@ public class VanillaItemsWeapons {
 	    grayDivineSword    = new ItemModSword(ToolMaterialMod.Divine, "grayDivineSword");
 	    redDivineSword     = new ItemModSword(ToolMaterialMod.Divine, "redDivineSword");
 	    greenDivineSword   = new ItemModSword(ToolMaterialMod.Divine, "greenDivineSword");
-	    bedrockMaul        = new ItemModSword(ToolMaterialMod.Bedrock, "bedrockMaul");
+	    bedrockMaul        = new ItemModSword(ToolMaterialMod.BedrockMaul, "bedrockMaul");
 	    jungleKnife        = new ItemModSword(ToolMaterialMod.JungleKnife, "jungleKnife");
 	    donatorSword       = new ItemModSword(ToolMaterialMod.Donator, "donatorSword");
 	    aquaticTrident     = new ItemModSword(ToolMaterialMod.AquaTrident, "aquaticTrident");

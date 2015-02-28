@@ -60,7 +60,7 @@ public class EntityFrostShot extends EntityFireball{
 					this.worldObj.setBlock(var2, var3, var4, Blocks.fire);
 				}
 		}else if(pos.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY){
-			pos.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 10.0F);
+			pos.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 6.0F);
 		}
 			
 			setDead();

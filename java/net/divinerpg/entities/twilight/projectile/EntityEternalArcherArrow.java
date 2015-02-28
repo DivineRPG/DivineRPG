@@ -33,7 +33,7 @@ public class EntityEternalArcherArrow extends EntityDivineArrow {
 	}
 	
 	public EntityEternalArcherArrow(World w, EntityLivingBase shooter, EntityLivingBase target, int arm) {
-		super(w, shooter, target, 1.6f, 5, 23, "furyArrow");
+		super(w, shooter, target, 1.6f, 5, 26, "furyArrow");
 		this.dataWatcher.updateObject(18, arm);
 	}
 	

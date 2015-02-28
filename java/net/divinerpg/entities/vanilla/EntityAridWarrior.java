@@ -78,20 +78,7 @@ public class EntityAridWarrior extends EntityDivineRPGMob implements IRangedAtta
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase var1, float f) {
         EntityArrow var2 = new EntityArrow(this.worldObj, this, var1, 1.6F, 12.0F);
-        int var3 = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, this.getHeldItem());
-        int var4 = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, this.getHeldItem());
-
-        if(var3 > 0) {
-            var2.setDamage(var2.getDamage() + (double)var3 * 0.5D + 0.5D);
-        }
-
-        if(var4 > 0) {
-            var2.setKnockbackStrength(var4);
-        }
-
-        if(EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, this.getHeldItem()) > 0) {
-            var2.setFire(100);
-        }
+        var2.setDamage(1.5);
 
         this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         this.worldObj.spawnEntityInWorld(var2);

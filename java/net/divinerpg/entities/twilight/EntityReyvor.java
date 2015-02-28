@@ -1,6 +1,7 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsArmor;
@@ -79,8 +80,7 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase var1, float f) {
-        EntityArrow var2 = new EntityArrow(this.worldObj, this, var1, 1.6F, 8.0F);
-        var2.setDamage(24D);
+    	EntityDivineArrow var2 = new EntityDivineArrow(this.worldObj, this, var1, 1.6F, 12.0F, 22, "furyArrow");
         this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         this.worldObj.spawnEntityInWorld(var2);
     }

@@ -19,7 +19,7 @@ public class EntityWatcherShot extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition var1) {
     	if(!this.worldObj.isRemote)this.worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 5.0F, true);
-        if (var1.entityHit != null) var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 14.0F);
+        if (var1.entityHit != null) var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 10.0F);
 
         if (!this.worldObj.isRemote) {
             this.setDead();

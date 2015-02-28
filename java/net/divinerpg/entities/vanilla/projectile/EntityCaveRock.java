@@ -27,7 +27,7 @@ public class EntityCaveRock extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition var1) {
         if (var1.entityHit != null) {
-            var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 12.0F);
+            var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 6.0F);
         }
 
         if (!this.worldObj.isRemote) {

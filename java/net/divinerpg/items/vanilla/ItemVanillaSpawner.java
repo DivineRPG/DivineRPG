@@ -1,7 +1,7 @@
 package net.divinerpg.items.vanilla;
 
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
-import net.divinerpg.entities.vanilla.EntityNetherWatcher;
+import net.divinerpg.entities.vanilla.EntityTheWatcher;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.LangRegistry;
@@ -27,7 +27,7 @@ public class ItemVanillaSpawner extends ItemMod{
 			if(par3World.provider.dimensionId == -1){
 				while(var4 < 1) {
 					if(par1ItemStack.getItem() == VanillaItemsOther.callWatcher){
-						EntityNetherWatcher var5 = new EntityNetherWatcher(par3World);
+						EntityTheWatcher var5 = new EntityTheWatcher(par3World);
 						var5.setPosition(x, y + 1, z);
 						par3World.spawnEntityInWorld(var5);
 						par1ItemStack.stackSize--;

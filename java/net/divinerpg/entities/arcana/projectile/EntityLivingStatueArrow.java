@@ -47,7 +47,7 @@ public class EntityLivingStatueArrow extends EntityArrow {
 
 	public EntityLivingStatueArrow(World world, EntityLiving var2, float var3) {
 		super(world);
-		setRealDamage(26);
+		setRealDamage(6);
 		this.shootingEntity = var2;
 		this.canBePickedUp = 0;
 		this.setSize(0.5F, 0.5F);

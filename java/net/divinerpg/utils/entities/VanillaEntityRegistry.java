@@ -7,7 +7,6 @@ import net.divinerpg.entities.vanilla.EntityAyeracoGreen;
 import net.divinerpg.entities.vanilla.EntityAyeracoPurple;
 import net.divinerpg.entities.vanilla.EntityAyeracoRed;
 import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
-import net.divinerpg.entities.vanilla.EntityBabyCrab;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
 import net.divinerpg.entities.vanilla.EntityCrab;
@@ -28,7 +27,7 @@ import net.divinerpg.entities.vanilla.EntityJungleSpider;
 import net.divinerpg.entities.vanilla.EntityKingCrab;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.entities.vanilla.EntityMiner;
-import net.divinerpg.entities.vanilla.EntityNetherWatcher;
+import net.divinerpg.entities.vanilla.EntityTheWatcher;
 import net.divinerpg.entities.vanilla.EntityRainbour;
 import net.divinerpg.entities.vanilla.EntityRotatick;
 import net.divinerpg.entities.vanilla.EntityScorcher;
@@ -66,7 +65,6 @@ public class VanillaEntityRegistry {
 
 		Util.registerDivineRPGMob(EntityEnderWatcher.class, "EnderWatcher");		
 		Util.registerDivineRPGMob(EntityCrab.class, "Crab");
-		Util.registerDivineRPGMob(EntityBabyCrab.class, "BabyCrab");
 		Util.registerDivineRPGMob(EntityMiner.class, "UndeadMiner");
 		Util.registerDivineRPGMob(EntityKingCrab.class, "KingCrab");
 		Util.registerDivineRPGMob(EntityDesertCrawler.class, "DesertCrawler");
@@ -94,7 +92,7 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityRainbour.class, "Rainbour");
 		Util.registerDivineRPGMob(EntityRotatick.class, "Rotatick");
 		Util.registerDivineRPGMob(EntityShark.class, "Shark");
-		Util.registerDivineRPGMob(EntityNetherWatcher.class, "TheWatcher");
+		Util.registerDivineRPGMob(EntityTheWatcher.class, "TheWatcher");
 		Util.registerDivineRPGMob(EntityWildfire.class, "Wildfire");
 		Util.registerDivineRPGMob(EntityGlacon.class, "Glacon");
 		Util.registerDivineRPGMob(EntityJackOMan.class, "JackOMan");

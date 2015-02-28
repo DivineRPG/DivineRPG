@@ -52,7 +52,6 @@ import net.divinerpg.entities.vanilla.EntityAyeracoGreen;
 import net.divinerpg.entities.vanilla.EntityAyeracoPurple;
 import net.divinerpg.entities.vanilla.EntityAyeracoRed;
 import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
-import net.divinerpg.entities.vanilla.EntityBabyCrab;
 import net.divinerpg.entities.vanilla.EntityCaveCrawler;
 import net.divinerpg.entities.vanilla.EntityCaveclops;
 import net.divinerpg.entities.vanilla.EntityCrab;
@@ -73,7 +72,7 @@ import net.divinerpg.entities.vanilla.EntityJungleSpider;
 import net.divinerpg.entities.vanilla.EntityKingCrab;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.entities.vanilla.EntityMiner;
-import net.divinerpg.entities.vanilla.EntityNetherWatcher;
+import net.divinerpg.entities.vanilla.EntityTheWatcher;
 import net.divinerpg.entities.vanilla.EntityRainbour;
 import net.divinerpg.entities.vanilla.EntityRotatick;
 import net.divinerpg.entities.vanilla.EntityScorcher;
@@ -119,7 +118,6 @@ public class VanillaEntityRenderer {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderWatcher.class, new RenderDivineMob(new ModelWatcher(), 0.0F, x.enderWatcher));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 1.0F, x.crab));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBabyCrab.class, new RenderSizeable(new ModelCrab(), 0.0F, 0.5F, x.crab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityKingCrab.class, new RenderSizeable(new ModelKingCrab(), 0.0F, 2.6F, x.kingCrab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCaveCrawler.class, new RenderDivineMob(new ModelCrawler(), 0.0F, x.caveCrawler));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDesertCrawler.class, new RenderDivineMob(new ModelCrawler(), 0.0F, x.desertCrawler));
@@ -147,7 +145,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityJungleBat.class, new RenderSizeable(new ModelJungleBat(), 0.0F, 0.5F, x.jungleBat));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityKingOfScorchers.class, new RenderDivineBoss(new ModelKingScorcher(), 0.0F, x.kingOfScorchers, s.scorcherKingBossID));
-		RenderingRegistry.registerEntityRenderingHandler(EntityNetherWatcher.class, new RenderDivineBoss(new ModelWatcher(), 0.0F, 4.5F, x.netherWatcher, s.netherWatcherBossID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityTheWatcher.class, new RenderDivineBoss(new ModelWatcher(), 0.0F, 4.5F, x.netherWatcher, s.netherWatcherBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoBlue.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Blue, s.ayeracoBlueBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoGreen.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Green, s.ayeracoGreenBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoPurple.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Purple, s.ayeracoPurpleBossID));

@@ -24,7 +24,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityNetherWatcher extends EntityDivineRPGBoss {
+public class EntityTheWatcher extends EntityDivineRPGBoss {
 
 	public int courseChangeCooldown = 0;
 	public double waypointX;
@@ -36,7 +36,7 @@ public class EntityNetherWatcher extends EntityDivineRPGBoss {
 	public int attackCounter = 0;
 	private ChunkCoordinates spawnPosition;
 	
-	public EntityNetherWatcher(World var1) {
+	public EntityTheWatcher(World var1) {
 		super(var1);
 		this.setSize(4.0F, 4.0F);
 		this.isImmuneToFire = true;
