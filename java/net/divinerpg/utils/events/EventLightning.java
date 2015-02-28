@@ -1,5 +1,6 @@
 package net.divinerpg.utils.events;
 
+import net.divinerpg.entities.twilight.EntityEpiphite;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
@@ -14,6 +15,8 @@ public class EventLightning {
 			if(player.getHeldItem() != null && player.getHeldItem().getItem() == ArcanaItems.stormSword) {
 				evt.setCanceled(true);
 			}
+		} else if(evt.entity instanceof EntityEpiphite) {
+			evt.setCanceled(true);
 		}
 	}
 

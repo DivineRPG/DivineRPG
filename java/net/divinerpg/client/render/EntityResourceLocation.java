@@ -113,6 +113,7 @@ public class EntityResourceLocation {
     public static ResourceLocation madivel			 = addMob("madivel");
     public static ResourceLocation wildwoodGolem	 = addMob("wildwoodGolem");
     public static ResourceLocation wildwoodTomo		 = addMob("wildwoodTomo");
+    public static ResourceLocation epiphite			 = addMob("epiphite");
     public static ResourceLocation varek			 = addMob("varek");
     public static ResourceLocation wildwoodWolf		 = addMob("wildwoodWolf");
     public static ResourceLocation wildwoodCadillion = addMob("wildwoodCadillion");
