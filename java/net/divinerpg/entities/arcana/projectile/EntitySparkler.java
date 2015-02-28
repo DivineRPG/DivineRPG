@@ -38,8 +38,7 @@ public class EntitySparkler extends EntityThrowable {
     
     protected void onImpact(MovingObjectPosition var1) {
         if (var1.entityHit != null) {
-            byte var2 = 26;
-            var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
+            var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 20);
         }
 
         if (!this.worldObj.isRemote) {

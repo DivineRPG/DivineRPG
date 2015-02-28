@@ -27,7 +27,7 @@ public class EntityDeath extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition var1) {
         if (var1.entityHit != null) {
-            var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 12.0F);
+            var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 14.0F);
             ((EntityLivingBase)var1.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 45, 3));
         }
 

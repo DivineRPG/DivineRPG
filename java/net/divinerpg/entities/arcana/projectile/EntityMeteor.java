@@ -36,7 +36,7 @@ public class EntityMeteor extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
         if(par1MovingObjectPosition.entityHit != null) {
-            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 15);
+            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 12);
         }
         
         this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 4.5F, false);

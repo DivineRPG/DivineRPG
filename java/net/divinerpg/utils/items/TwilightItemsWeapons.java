@@ -64,37 +64,37 @@ public class TwilightItemsWeapons {
 	    mortumBlade        = new ItemModSword(ToolMaterialMod.Mortum, "mortumBlade");
 	    haliteBlade        = new ItemModSword(ToolMaterialMod.Halite, "haliteBlade");
 	    
-	    edenSlicer         = new ItemThrowable("edenSlicer", 12);
-	    wildwoodSlicer     = new ItemThrowable("wildwoodSlicer", 18);
-	    apalachiaSlicer    = new ItemThrowable("apalachiaSlicer", 22);
-	    skythernSlicer     = new ItemThrowable("skythernSlicer", 28);
-	    mortumSlicer       = new ItemThrowable("mortumSlicer", 36);
-	    haliteSlicer       = new ItemThrowable("haliteSlicer", 42);
+	    edenSlicer         = new ItemThrowable("edenSlicer", 8);
+	    wildwoodSlicer     = new ItemThrowable("wildwoodSlicer", 10);
+	    apalachiaSlicer    = new ItemThrowable("apalachiaSlicer", 12);
+	    skythernSlicer     = new ItemThrowable("skythernSlicer", 14);
+	    mortumSlicer       = new ItemThrowable("mortumSlicer", 16);
+	    haliteSlicer       = new ItemThrowable("haliteSlicer", 20);
 
-	    edenBlitz          = new ItemTwilightBlitz("edenBlitz", x.blitzEden.toString(), TwilightItemsOther.edenDust, 14F).setHasParticle("eden");
-	    wildwoodBlitz      = new ItemTwilightBlitz("wildwoodBlitz", x.blitzWild.toString(), TwilightItemsOther.wildwoodDust, 19F).setHasParticle("wildwood");
-	    apalachiaBlitz     = new ItemTwilightBlitz("apalachiaBlitz", x.blitzApalachia.toString(), TwilightItemsOther.apalachiaDust, 22F).setHasParticle("apalachia");
-	    skythernBlitz      = new ItemTwilightBlitz("skythernBlitz", x.blitzSkythern.toString(), TwilightItemsOther.skythernDust, 27F).setHasParticle("skythern");
-	    mortumBlitz        = new ItemTwilightBlitz("mortumBlitz", x.blitzMortum.toString(), TwilightItemsOther.mortumDust, 31F).setHasParticle("mortum");
-	    haliteBlitz        = new ItemTwilightBlitz("haliteBlitz", x.blitzHalite.toString(), TwilightItemsOther.mortumDust, 33F).setHasParticle("halite");
+	    edenBlitz          = new ItemTwilightBlitz("edenBlitz", x.blitzEden.toString(), TwilightItemsOther.edenDust, 10F).setHasParticle("eden");
+	    wildwoodBlitz      = new ItemTwilightBlitz("wildwoodBlitz", x.blitzWild.toString(), TwilightItemsOther.wildwoodDust, 12F).setHasParticle("wildwood");
+	    apalachiaBlitz     = new ItemTwilightBlitz("apalachiaBlitz", x.blitzApalachia.toString(), TwilightItemsOther.apalachiaDust, 14F).setHasParticle("apalachia");
+	    skythernBlitz      = new ItemTwilightBlitz("skythernBlitz", x.blitzSkythern.toString(), TwilightItemsOther.skythernDust, 16F).setHasParticle("skythern");
+	    mortumBlitz        = new ItemTwilightBlitz("mortumBlitz", x.blitzMortum.toString(), TwilightItemsOther.mortumDust, 18F).setHasParticle("mortum");
+	    haliteBlitz        = new ItemTwilightBlitz("haliteBlitz", x.blitzHalite.toString(), TwilightItemsOther.mortumDust, 20F).setHasParticle("halite");
 
-	    edenPhaser         = new ItemProjectileShooter("edenPhaser", 24F, Sounds.phaser.getPrefixedName(), x.phaserEden.toString(), 3000, 3).setHasParticle("eden");
-	    wildwoodPhaser     = new ItemProjectileShooter("wildwoodPhaser", 31F, Sounds.phaser.getPrefixedName(), x.phaserWild.toString(), 3000, 3).setHasParticle("wildwood");
-	    apalachiaPhaser    = new ItemProjectileShooter("apalachiaPhaser", 35F, Sounds.phaser.getPrefixedName(), x.phaserApalachia.toString(), 3000, 3).setHasParticle("apalachia");
-	    skythernPhaser     = new ItemProjectileShooter("skythernPhaser", 41F, Sounds.phaser.getPrefixedName(), x.phaserSkythern.toString(), 3000, 3).setHasParticle("skythern");
-	    mortumPhaser       = new ItemProjectileShooter("mortumPhaser", 46F, Sounds.phaser.getPrefixedName(), x.phaserMortum.toString(), 3000, 3).setHasParticle("mortum");
-	    halitePhaser       = new ItemProjectileShooter("halitePhaser", 51F, Sounds.phaser.getPrefixedName(), x.phaserHalite.toString(), 3000, 3).setHasParticle("halite");
+	    edenPhaser         = new ItemProjectileShooter("edenPhaser", 12F, Sounds.phaser.getPrefixedName(), x.phaserEden.toString(), 3000, 3).setHasParticle("eden");
+	    wildwoodPhaser     = new ItemProjectileShooter("wildwoodPhaser", 15F, Sounds.phaser.getPrefixedName(), x.phaserWild.toString(), 3000, 3).setHasParticle("wildwood");
+	    apalachiaPhaser    = new ItemProjectileShooter("apalachiaPhaser", 18F, Sounds.phaser.getPrefixedName(), x.phaserApalachia.toString(), 3000, 3).setHasParticle("apalachia");
+	    skythernPhaser     = new ItemProjectileShooter("skythernPhaser", 21F, Sounds.phaser.getPrefixedName(), x.phaserSkythern.toString(), 3000, 3).setHasParticle("skythern");
+	    mortumPhaser       = new ItemProjectileShooter("mortumPhaser", 24F, Sounds.phaser.getPrefixedName(), x.phaserMortum.toString(), 3000, 3).setHasParticle("mortum");
+	    halitePhaser       = new ItemProjectileShooter("halitePhaser", 27F, Sounds.phaser.getPrefixedName(), x.phaserHalite.toString(), 3000, 3).setHasParticle("halite");
 	    
 	    edenArrow          = new ItemMod("edenArrow").setCreativeTab(DivineRPGTabs.ranged);
 	    wildwoodArrow      = new ItemMod("wildwoodArrow").setCreativeTab(DivineRPGTabs.ranged);
 	    furyArrow          = new ItemMod("furyArrow").setCreativeTab(DivineRPGTabs.ranged);
 
-	    edenBow            = new ItemModBow("edenBow", -1, 10, 31, edenArrow);
-	    wildwoodBow        = new ItemModBow("wildwoodBow", -1, 10, 31, 36000, wildwoodArrow);
-	    apalachiaBow       = new ItemModBow("apalachiaBow", -1, 15, 46, wildwoodArrow);
-	    skythernBow        = new ItemModBow("skythernBow", -1, 15, 46, 36000, wildwoodArrow);
-	    mortumBow          = new ItemModBow("mortumBow", -1, 20, 61, furyArrow);
-	    haliteBow          = new ItemModBow("haliteBow", -1, 20, 61, 36000, furyArrow);
-	    twilightBow        = new ItemModBow("twilightBow", -1, 20, 61, 14400, furyArrow).setCreativeTab(null);
+	    edenBow            = new ItemModBow("edenBow", -1, 6, 16, edenArrow);
+	    wildwoodBow        = new ItemModBow("wildwoodBow", -1, 6, 16, 36000, wildwoodArrow);
+	    apalachiaBow       = new ItemModBow("apalachiaBow", -1, 10, 20, wildwoodArrow);
+	    skythernBow        = new ItemModBow("skythernBow", -1, 10, 20, 36000, wildwoodArrow);
+	    mortumBow          = new ItemModBow("mortumBow", -1, 13, 25, furyArrow);
+	    haliteBow          = new ItemModBow("haliteBow", -1, 13, 25, 36000, furyArrow);
+	    twilightBow        = new ItemModBow("twilightBow", -1, 13, 25, 14400, furyArrow).setCreativeTab(null);
 	}
 }

@@ -61,7 +61,7 @@ public class ItemCorruptedCannon extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("4x14 Ranged Damage");
+		list.add("4x10 Ranged Damage");
 		list.add("Ammo: " + StatCollector.translateToLocal(VanillaItemsOther.corruptedBullet.getUnlocalizedName()+".name"));
 		list.add("Infinite Uses");
 	}

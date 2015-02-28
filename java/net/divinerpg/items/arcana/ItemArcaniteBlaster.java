@@ -66,7 +66,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("30x30 Ranged damage");
+		list.add("30x12 Ranged damage");
 		list.add("Consumes 20 Arcana");
 		list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}

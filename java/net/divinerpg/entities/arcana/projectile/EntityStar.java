@@ -45,8 +45,7 @@ public class EntityStar extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
         if(par1MovingObjectPosition.entityHit != null) {
-            byte var2 = 40;
-            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
+            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 20);
         }
 
         if(!this.worldObj.isRemote) {

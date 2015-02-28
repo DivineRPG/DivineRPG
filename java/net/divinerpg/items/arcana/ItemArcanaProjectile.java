@@ -5,7 +5,6 @@ import java.util.List;
 import net.divinerpg.entities.arcana.projectile.EntityFirefly;
 import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.items.base.ItemMod;
-import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
@@ -20,14 +19,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemArcanaProjectile extends ItemMod {
 
-	private int arcana, damage;
+	private int arcana;
 
-	public ItemArcanaProjectile(String name, DivineRPGTabs tab, int size, int uses, int arcana, int damage) {
+	public ItemArcanaProjectile(String name, DivineRPGTabs tab, int size, int uses, int arcana) {
 		super(name, tab);
 		this.maxStackSize = size;
 		this.setMaxDurability(uses);
 		this.arcana = arcana;
-		this.damage = damage;
 	}
 
 	@Override
@@ -35,7 +33,9 @@ public class ItemArcanaProjectile extends ItemMod {
 		Item item = stack.getItem();
 			if(item == ArcanaItems.firefly && !world.isRemote && ArcanaHelper.getProperties(player).useBar(arcana)){
 				Sounds.playSound(player, world, Sounds.firefly);
-				world.spawnEntityInWorld(new EntityFirefly(world, player, 0.6F, 50));
+				EntityFirefly e = new EntityFirefly(world, player, 0.6F, 50);
+				e.setDamage(15);
+				world.spawnEntityInWorld(e);
 			}
 			if(item == ArcanaItems.laVekor) {
 				if((player.inventory.hasItem(ArcanaItems.grenade) || player.capabilities.isCreativeMode) && ArcanaHelper.getProperties(player).useBar(arcana)) {
@@ -62,7 +62,7 @@ public class ItemArcanaProjectile extends ItemMod {
 		if(stack.getItem() == ArcanaItems.laVekor) list.add("Launches Explosive Projectiles");
 		list.add(this == ArcanaItems.laVekor ? "Ammo: " + StatCollector.translateToLocal(ArcanaItems.grenade.getUnlocalizedName() + ".name") : "Infinite Ammo");
 		list.add(arcana == 0 ? "" : "Uses " + arcana + " Arcana");
-		list.add(this.damage + " Ranged Damage");
+		if(stack.getItem() == ArcanaItems.firefly) list.add("15 Ranged Damage");
 		list.add(this.getMaxDurability() == -1 ? "Unlimited Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}
 }

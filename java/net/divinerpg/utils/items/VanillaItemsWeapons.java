@@ -144,17 +144,17 @@ public class VanillaItemsWeapons {
 	    shuriken       	= new ItemThrowable("shuriken", 4);
 	    vileStorm       	= new ItemVileStorm();
 	    scythe		       	= new ItemProjectileShooter("scythe", 4f, EntityResourceLocation.scytheProjectile.toString(), -1, 0);
-	    frostCannon       	= new ItemProjectileShooter("frostCannon", 8F, Sounds.frostCannon.getPrefixedName(), Items.snowball, EntityResourceLocation.frostCannon.toString(), 15000, 0);
+	    frostCannon       	= new ItemProjectileShooter("frostCannon", 6F, Sounds.frostCannon.getPrefixedName(), Items.snowball, EntityResourceLocation.frostCannon.toString(), 15000, 0);
 	    cyclopsianStaff    = new ItemProjectileShooter("cyclopsianStaff", 7F, Sounds.staff.getPrefixedName(), VanillaItemsOther.cyclopsEyeShards, 3000, 0);
-	    maelstrom          = new ItemProjectileShooter("maelstrom", 14F, Sounds.ghastCannon.getPrefixedName(), x.maelstrom.toString(), 100, 0);
+	    maelstrom          = new ItemProjectileShooter("maelstrom", 12F, Sounds.ghastCannon.getPrefixedName(), x.maelstrom.toString(), 100, 0);
 	    crabAnchor         = new ItemAnchor("crabAnchor", x.crabAnchor.toString(), 4);
 	    sharkAnchor        = new ItemAnchor("sharkAnchor", x.bowheadAnchor.toString(), 5);
 	    bowheadAnchor      = new ItemAnchor("bowheadAnchor", x.bowheadAnchor.toString(), 6);
-	    goldenFury         = new ItemProjectileShooter("goldenFury", 32F, Sounds.blitz.getPrefixedName(), Items.gold_nugget, -1, 0);
+	    goldenFury         = new ItemProjectileShooter("goldenFury", 30F, Sounds.blitz.getPrefixedName(), Items.gold_nugget, -1, 0);
 	    corruptedCannon    = new ItemCorruptedCannon("corruptedCannon");
-	    ghastCannon        = new ItemProjectileShooter("ghastCannon", 40F, Sounds.ghastCannon.getPrefixedName(), x.ghastCannon.toString(), 100, 5);
-	    crabclawCannon     = new ItemProjectileShooter("crabclawCannon", 19F, Sounds.ghastCannon.getPrefixedName(), Util.toItem(Blocks.cactus), x.crabAnchor.toString(), 1000, 3);
-	    bowheadCannon      = new ItemProjectileShooter("bowheadCannon", 19F, Sounds.ghastCannon.getPrefixedName(), Util.toItem(Blocks.cactus), x.bowheadAnchor.toString(), 1000, 3);
+	    ghastCannon        = new ItemProjectileShooter("ghastCannon", 16F, Sounds.ghastCannon.getPrefixedName(), x.ghastCannon.toString(), 100, 5);
+	    crabclawCannon     = new ItemProjectileShooter("crabclawCannon", 12F, Sounds.ghastCannon.getPrefixedName(), Util.toItem(Blocks.cactus), x.crabAnchor.toString(), 1000, 3);
+	    bowheadCannon      = new ItemProjectileShooter("bowheadCannon", 12F, Sounds.ghastCannon.getPrefixedName(), Util.toItem(Blocks.cactus), x.bowheadAnchor.toString(), 1000, 3);
 
 	    serenadeOfHealth 	= new ItemSerenadeOfHealth("serenadeOfHealth");
 	    serenadeStriker 	= new ItemSerenadeStriker("serenadeStriker");

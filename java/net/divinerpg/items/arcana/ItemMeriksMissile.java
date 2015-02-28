@@ -75,8 +75,7 @@ public class ItemMeriksMissile extends ItemModBow {
 				if ((double)var7 < 0.1D) return;
 				if (var7 > 1.0F) var7 = 1.0F;
 				EntityMerikMissile var8 = new EntityMerikMissile(world, player, 0.6F, 300);
-				int var9 = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
-				if (var9 > 0) var8.setDamage((int) ((var7 * (double)var9 * 0.5D + 0.5D) * 2));
+				var8.setDamage(18);
 				world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + var7 * 0.5F);
 				if (!world.isRemote)  world.spawnEntityInWorld(var8);
 			}
@@ -90,9 +89,10 @@ public class ItemMeriksMissile extends ItemModBow {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("Explosive homing projectile");
-		par3List.add("Uses " + arcana + " arcana");
-		par3List.add("Unlimited uses");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("Explosive homing projectile");
+		list.add("18 Ranged Damage");
+		list.add("Uses " + arcana + " arcana");
+		list.add("Unlimited uses");
 	}
 }

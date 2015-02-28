@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityCorruptedBullet extends EntityThrowable {
 	
-	public static float damage = 14.0F;
+	public static float damage = 10.0F;
 	public List<Entity> toExcludeList = new ArrayList<Entity>();
 
 	public EntityCorruptedBullet(World var1) {

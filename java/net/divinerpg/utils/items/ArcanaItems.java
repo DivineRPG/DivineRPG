@@ -128,8 +128,8 @@ public class ArcanaItems {
         orbOfLight	 			 = new ItemOrbOfLight();
     	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     	grenade		 			 = new ItemGrenade("grenade");
-    	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5, 10);
-    	laVekor		 			 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5, 10);
+    	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5);
+    	laVekor		 			 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5);
     	enderScepter  			 = new ItemEnderScepter("enderScepter");
     	arcaniumSaber  			 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
     	wraithbane  	 		 = new ItemWraithbane("wraithbane");
