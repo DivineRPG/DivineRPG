@@ -207,20 +207,20 @@ public class VetheaItems {
 	    darvenDisk         = new ItemDisk(9, "darvenDisk");
 	    cermileDisk        = new ItemDisk(13, "cermileDisk");
 	    pardimalDisk       = new ItemDisk(16, "pardimalDisk");
-	    quadroticDisk      = new ItemDisk(20, "quadroticDisk");
-	    karosDisk          = new ItemDisk(22, "karosDisk");
-	    heliosisDisk       = new ItemDisk(29, "heliosisDisk");
-	    arksianeDisk       = new ItemDisk(37, "arksianeDisk");
+	    quadroticDisk      = new ItemDisk(20, "quadroticWardisk");
+	    karosDisk          = new ItemDisk(22, "karosWardisk");
+	    heliosisDisk       = new ItemDisk(29, "heliosisWrathdisk");
+	    arksianeDisk       = new ItemDisk(37, "arksianeWrathdisk");
 
 	    teakerStaff        = new ItemStaff(3, 10, "teakerStaff");
 	    amthrimisStaff     = new ItemStaff(5, 10, "amthirmisStaff");
 	    darvenStaff        = new ItemStaff(8, 10, "darvenStaff");
 	    cermileStaff       = new ItemStaff(12, 10, "cermileStaff");
 	    pardimalStaff      = new ItemStaff(15, 10, "pardimalStaff");
-	    quadroticStaff     = new ItemStaff(19, 10, "quadroticStaff");
-	    karosStaff         = new ItemStaff(21, 10, "karosStaff");
-	    heliosisStaff      = new ItemStaff(28, 10, "heliosisStaff");
-	    arksianeStaff      = new ItemStaff(36, 10, "arksianeStaff");
+	    quadroticStaff     = new ItemStaff(19, 10, "quadroticWarstaff");
+	    karosStaff         = new ItemStaff(21, 10, "karosWarstaff");
+	    heliosisStaff      = new ItemStaff(28, 10, "heliosisWrathstaff");
+	    arksianeStaff      = new ItemStaff(36, 10, "arksianeWrathstaff");
 
 	    honeysuckle        = new ItemVetheanFood(1, 0.2F, "honeysuckle");
 	    honeychunk         = new ItemVetheanFood(1, 0.2F, "honeychunk");
@@ -231,7 +231,7 @@ public class VetheaItems {
 	    dreamSweets        = new ItemVetheanHealingFood(0, 0F, false, 2, "dreamSweets");
 	    dreamSours         = new ItemVetheanHealingFood(0, 0F, false, 8, "dreamSours");
 	    acid               = new ItemMod("acid").setCreativeTab(DivineRPGTabs.vethea);
-	    heivaBelt          = new ItemMod("heivaBelt").setCreativeTab(DivineRPGTabs.vethea);
+	    heivaBelt          = new ItemMod("bandOfHeivaHunting").setCreativeTab(DivineRPGTabs.vethea);
 
 	    hammerTemplate     = new ItemMod("hammerTemplate").setCreativeTab(DivineRPGTabs.vethea);
 	    backswordTemplate  = new ItemMod("backswordTemplate").setCreativeTab(DivineRPGTabs.vethea);
@@ -250,7 +250,7 @@ public class VetheaItems {
 	    amthrimisCannon    = new ItemVetheanCannon("amthirmisCannon", 5);
 	    darvenCannon       = new ItemVetheanCannon("darvenCannon", 8);
 	    cermileCannon      = new ItemVetheanCannon("cermileCannon", 12);
-	    pardimalCannon     = new ItemVetheanCannon("pardimalWarcannon", 15);
+	    pardimalCannon     = new ItemVetheanCannon("pardimalCannon", 15);
 	    quadroticCannon    = new ItemVetheanCannon("quadroticWarcannon", 19);
 	    karosCannon    	= new ItemVetheanCannon("karosWarcannon", 21);
 	    heliosisCannon     = new ItemVetheanCannon("heliosisWrathcannon", 28);
@@ -261,37 +261,37 @@ public class VetheaItems {
 	    darvenHammer       = new ItemVetheanSword("darvenHammer", Util.addHammerMaterial(12));
 	    cermileHammer      = new ItemVetheanSword("cermileHammer", Util.addHammerMaterial(15));
 	    pardimalHammer     = new ItemVetheanSword("pardimalHammer", Util.addHammerMaterial(19));
-	    quadroticHammer    = new ItemVetheanSword("quadroticHammer", Util.addHammerMaterial(24));
-	    karosHammer        = new ItemVetheanSword("karosHammer", Util.addHammerMaterial(26));
-	    heliosisHammer     = new ItemVetheanSword("heliosisHammer", Util.addHammerMaterial(33));
-	    arksianeHammer     = new ItemVetheanSword("arksianeHammer", Util.addHammerMaterial(39));
+	    quadroticHammer    = new ItemVetheanSword("quadroticWarhammer", Util.addHammerMaterial(24));
+	    karosHammer        = new ItemVetheanSword("karosWarhammer", Util.addHammerMaterial(26));
+	    heliosisHammer     = new ItemVetheanSword("heliosisWrathhammer", Util.addHammerMaterial(33));
+	    arksianeHammer     = new ItemVetheanSword("arksianeWrathhammer", Util.addHammerMaterial(39));
 	    
 	    teakerSword        = new ItemVetheanSword("teakerBacksword", Util.addHammerMaterial(4));
 	    amthrimisSword     = new ItemVetheanSword("amthirmisBacksword", Util.addHammerMaterial(6));
 	    darvenSword        = new ItemVetheanSword("darvenBacksword", Util.addHammerMaterial(9));
 	    cermileSword       = new ItemVetheanSword("cermileBacksword", Util.addHammerMaterial(13));
 	    pardimalSword      = new ItemVetheanSword("pardimalBacksword", Util.addHammerMaterial(16));
-	    quadroticSword     = new ItemVetheanSword("quadroticBacksword", Util.addHammerMaterial(20));
-	    karosSword         = new ItemVetheanSword("karosBacksword", Util.addHammerMaterial(22));
-	    heliosisSword      = new ItemVetheanSword("heliosisBacksword", Util.addHammerMaterial(29));
-	    arksianeSword      = new ItemVetheanSword("arksianeBacksword", Util.addHammerMaterial(37));
+	    quadroticSword     = new ItemVetheanSword("quadroticWarsword", Util.addHammerMaterial(20));
+	    karosSword         = new ItemVetheanSword("karosWarsword", Util.addHammerMaterial(22));
+	    heliosisSword      = new ItemVetheanSword("heliosisWrathsword", Util.addHammerMaterial(29));
+	    arksianeSword      = new ItemVetheanSword("arksianeWrathsword", Util.addHammerMaterial(37));
 
 	    teakerClaw         = new ItemVetheanClaw(3, "teakerClaw");
 	    amthrimisClaw      = new ItemVetheanClaw(5, "amthirmisClaw");
 	    darvenClaw         = new ItemVetheanClaw(7, "darvenClaw");
 	    cermileClaw        = new ItemVetheanClaw(8, "cermileClaw");
 	    pardimalClaw       = new ItemVetheanClaw(12, "pardimalClaw");
-	    quadroticClaw      = new ItemVetheanClaw(14, "quadroticClaw");
-	    karosClaw          = new ItemVetheanClaw(19, "karosClaw");
-	    heliosisClaw       = new ItemVetheanClaw(26, "heliosisClaw");
-	    arksianeClaw       = new ItemVetheanClaw(35, "arksianeClaw");
+	    quadroticClaw      = new ItemVetheanClaw(14, "quadroticWarclaw");
+	    karosClaw          = new ItemVetheanClaw(19, "karosWarclaw");
+	    heliosisClaw       = new ItemVetheanClaw(26, "heliosisWrathclaw");
+	    arksianeClaw       = new ItemVetheanClaw(35, "arksianeWrathclaw");
 
 	    eversight          = new ItemVetheanEversight("eversight");
 	    everlight          = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
 	    everbright         = new ItemVetheanClaw(42, "everbright");
 	    everArrow          = new ItemMod("everArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    everfright		    = new ItemModBow("everfright", -1, 25, 46, everArrow).setVethean();
-	    evernight          = new ItemStaff(115, 200, "evernight");
+	    evernight          = new ItemStaff(115, 80, "evernight");
 
 	    teakerArrow        = new ItemMod("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    darvenArrow    	= new ItemMod("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
@@ -302,7 +302,7 @@ public class VetheaItems {
 	    amthrimisBow     = new ItemModBow("amthirmisBow", -1, 2, 7, teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 	    darvenBow        = new ItemModBow("darvenBow", -1, 3, 11, darvenArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 	    cermileBow       = new ItemModBow("cermileBow", -1, 4, 14, darvenArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
-	    pardimalBow      = new ItemModBow("pardimalWarbow", -1, 5, 18, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+	    pardimalBow      = new ItemModBow("pardimalBow", -1, 5, 18, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 	    quadroticBow     = new ItemModBow("quadroticWarbow", -1, 6, 21, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 	    karosBow         = new ItemModBow("karosWarbow", -1, 7, 23, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 	    heliosisBow      = new ItemModBow("heliosisWrathbow", -1, 8, 28, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();

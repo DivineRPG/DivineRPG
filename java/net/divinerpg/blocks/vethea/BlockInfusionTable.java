@@ -51,8 +51,8 @@ public class BlockInfusionTable extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister icon) {
-        side = icon.registerIcon(getTextureName() + "_side");
-        top = icon.registerIcon(getTextureName() + "_top");
+        side = icon.registerIcon(Reference.PREFIX + getTextureName() + "_side");
+        top = icon.registerIcon(Reference.PREFIX + getTextureName() + "_top");
     }
 	
     public IIcon getIcon(int par1, int par2) {

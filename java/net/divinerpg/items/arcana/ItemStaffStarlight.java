@@ -89,6 +89,6 @@ public class ItemStaffStarlight extends ItemModRanged {
         }
         list.add(arcana + " Arcana");
         list.add(stars ? "Drops several stars from the sky" : "Drops a star from the sky");
-        list.add("40 Ranged Damage");
+        list.add("20 Ranged Damage");
     }
 }

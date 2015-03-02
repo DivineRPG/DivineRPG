@@ -2,6 +2,7 @@ package net.divinerpg.entities.arcana;
 
 import net.divinerpg.entities.base.EntityDivineRPGTameable;
 import net.divinerpg.utils.events.ArcanaHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowOwner;
@@ -11,6 +12,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntitySeimer extends EntityDivineRPGTameable {
@@ -18,20 +20,13 @@ public class EntitySeimer extends EntityDivineRPGTameable {
 
     public EntitySeimer(World par1World, EntityPlayer p) {
         this(par1World);
-        this.setSize(1.2f, 1);
         setTamed(true);
         func_152115_b(p.getUniqueID().toString());
     }
     
     public EntitySeimer(World par1World) {
         super(par1World);
-        this.setSize(1.0F, 1.0F);
-        this.getNavigator().setAvoidsWater(true);
-        this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, this.aiSit);
-        this.tasks.addTask(4, new EntityAIFollowOwner(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 4.0F, 2.0F));
-        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(9, new EntityAILookIdle(this));
+        this.setSize(1.2f, 1);
     }
 
     @Override
@@ -80,6 +75,11 @@ public class EntitySeimer extends EntityDivineRPGTameable {
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
             ArcanaHelper.getProperties((EntityPlayer)this.getOwner()).regen(1);
         }
+    }
+    
+    @Override
+    public boolean attackEntityAsMob(Entity e) {
+    	return e.attackEntityFrom(DamageSource.causeMobDamage(this), 10);
     }
 
 	@Override

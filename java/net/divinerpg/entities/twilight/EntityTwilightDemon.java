@@ -58,13 +58,11 @@ public class EntityTwilightDemon extends EntityDivineRPGBoss {
 	}
 
 	@Override
-	protected Item getDropItem() {
-		return TwilightItemsWeapons.haliteBow;
-	}
-
-	@Override
 	public void dropFewItems(boolean par1, int par2)  {
-		this.dropItem(this.getDropItem(), 1);
+		switch(this.rand.nextInt(2)) {
+			case 0: this.dropItem(TwilightItemsWeapons.haliteBlitz, 1);break;
+			case 1: this.dropItem(TwilightItemsWeapons.haliteBow, 1);
+		}
 		if(this.rand.nextInt(2) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.twilightDemonStatue), 1);
 	}
 

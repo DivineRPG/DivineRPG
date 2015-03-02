@@ -164,7 +164,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
     }
 
     @Override
-    public void damageArmor(EntityLivingBase livingBase, ItemStack stack, DamageSource dmgSrc, int par4, int par5) {
+    public void damageArmor(EntityLivingBase livingBase, ItemStack stack, DamageSource source, int par4, int par5) {
         if (!unbreakable) stack.damageItem(1, livingBase);
     }
 
@@ -174,7 +174,8 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
     }
 
     @Override
-    public ArmorProperties getProperties(EntityLivingBase livingBase, ItemStack stack, DamageSource dmgSrc, double par4, int par5) {
+    public ArmorProperties getProperties(EntityLivingBase livingBase, ItemStack stack, DamageSource source, double par4, int par5) {
+        if(source.isUnblockable()) return new ISpecialArmor.ArmorProperties(0, 0, 50000);
         return new ISpecialArmor.ArmorProperties(0, damageReduction, 50000);
     }
 

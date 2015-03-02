@@ -19,6 +19,7 @@ import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.material.ToolMaterialMod;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
@@ -79,7 +80,7 @@ public class IceikaItems {
 
          soundOfCarols     = new ItemMusicShooter("soundOfCarols").setCreativeTab(DivineRPGTabs.ranged);
          soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);
-         frostclawCannon   = new ItemProjectileShooter("frostclawCannon", 16F, Sounds.frostclawCannon.getPrefixedName(), EntityResourceLocation.frostclawCannon.toString(), 10000, 0);
+         frostclawCannon   = new ItemProjectileShooter("frostclawCannon", 16F, Sounds.frostclawCannon.getPrefixedName(), Item.getItemFromBlock(Blocks.cactus), EntityResourceLocation.frostclawCannon.toString(), 10000, 0);
          fractiteCannon    = new ItemProjectileShooter("fractiteCannon", 14F, Sounds.fractiteCannon.getPrefixedName(), iceShards, EntityResourceLocation.fractiteCannon.toString(), 10000, 0);
          snowflakeShuriken = new ItemThrowable("snowflakeShuriken", 7);
          serenadeOfIce     = new ItemSerenadeOfIce("serenadeOfIce");

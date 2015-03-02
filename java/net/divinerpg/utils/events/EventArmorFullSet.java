@@ -290,6 +290,13 @@ public class EventArmorFullSet {
             }
         }
         
+        //Divine
+        if (boots == VanillaItemsArmor.divineBoots && body == VanillaItemsArmor.divineBody && legs == VanillaItemsArmor.divineLegs && helmet == VanillaItemsArmor.divineHelmet) {
+            if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.ammount += 6;
+            }
+        }
+        
         //Corrupted
         if(body == VanillaItemsArmor.corruptedBody && legs == VanillaItemsArmor.corruptedLegs && boots == VanillaItemsArmor.corruptedBoots && helmet == VanillaItemsArmor.corruptedHelmet) {
         	if (((s.getEntity() instanceof EntityPlayer) && s.isProjectile())) {

@@ -29,17 +29,7 @@ public class EntityHastreus extends EntityDivineRPGMob {
         super(var1);
         double moveSpeed = 0.3;
         this.setSize(1.0F, 1.9F);
-        this.getNavigator().setBreakDoors(true);
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIBreakDoor(this));
-        this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, moveSpeed, false));
-        this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, moveSpeed));
-        this.tasks.addTask(5, new EntityAIMoveThroughVillage(this, moveSpeed, false));
-        this.tasks.addTask(6, new EntityAIWander(this, moveSpeed));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(7, new EntityAILookIdle(this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        addAttackingAI();
     }
 
     @Override

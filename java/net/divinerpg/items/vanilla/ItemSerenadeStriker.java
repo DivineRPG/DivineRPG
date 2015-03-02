@@ -27,6 +27,7 @@ public class ItemSerenadeStriker extends ItemMod {
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxDurability(100);
+		setMaxStackSize(1);
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {

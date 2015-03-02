@@ -63,5 +63,10 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked{
 	public String mobName() {
 		return "Frosty";
 	}
+	
+	@Override
+	public boolean shouldRenderInPass(int pass) {
+		return pass == 0;
+	}
 
 }

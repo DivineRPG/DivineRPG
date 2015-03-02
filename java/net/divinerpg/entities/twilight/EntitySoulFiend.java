@@ -46,15 +46,9 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
 		}
 	}
 
-
-	@Override
-	protected Item getDropItem() {
-		return TwilightItemsWeapons.haliteBlade;
-	}
-
 	@Override
 	public void dropFewItems(boolean par1, int par2) {
-		this.dropItem(this.getDropItem(), 1);
+		this.dropItem(TwilightItemsWeapons.haliteSlicer, 200);
 		if(this.rand.nextInt(2) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.soulFiendStatue), 1);
 	}
 

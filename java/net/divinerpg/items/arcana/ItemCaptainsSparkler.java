@@ -23,7 +23,7 @@ public class ItemCaptainsSparkler extends ItemModRanged {
 
     @Override
     protected void addAdditionalInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-    	list.add("26 Ranged Damage");
+    	list.add("20 Ranged Damage");
         list.add("Consumes 7 Arcana");
     }
 }

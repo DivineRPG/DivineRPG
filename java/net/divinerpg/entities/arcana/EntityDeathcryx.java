@@ -62,7 +62,7 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
 
     @Override
     public boolean attackEntityAsMob(Entity par1Entity) {
-        float var2 = 36;
+        float var2 = (float)net.divinerpg.entities.base.EntityStats.deathcryxDamage;
 
         if (this.isPotionActive(Potion.damageBoost)) {
             var2 += 3 << this.getActivePotionEffect(Potion.damageBoost).getAmplifier();

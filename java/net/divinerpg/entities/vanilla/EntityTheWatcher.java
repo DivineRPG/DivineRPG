@@ -104,15 +104,13 @@ public class EntityTheWatcher extends EntityDivineRPGBoss {
 			}
 		}
 		
-		System.out.println(this.targetedEntity == null);
-
 		double var9 = 100.0D;
 
 		if (this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < var9 * var9) {
-			double var11 = this.targetedEntity.posX - this.posX;
-			double var13 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
-			double var15 = this.targetedEntity.posZ - this.posZ;
-			this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(var11, var15)) * 180.0F / (float)Math.PI;
+			double tx = this.targetedEntity.posX - this.posX;
+	        double ty = this.targetedEntity.boundingBox.minY - this.posY;
+	        double tz = this.targetedEntity.posZ - this.posZ;
+			this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(tx, tz)) * 180.0F / (float)Math.PI;
 
 			if (this.canEntityBeSeen(this.targetedEntity)) {
 				if (this.attackCounter == 20) {
@@ -123,7 +121,8 @@ public class EntityTheWatcher extends EntityDivineRPGBoss {
 
 				if (this.attackCounter == 20) {
 					EntityWatcherShot shot = new EntityWatcherShot(this.worldObj, this);
-					this.worldObj.spawnEntityInWorld(shot);
+					shot.setThrowableHeading(tx, ty, tz, 1.6f, 12);
+					if(!this.worldObj.isRemote)this.worldObj.spawnEntityInWorld(shot);
 					this.attackCounter = -40;
 				}
 			}

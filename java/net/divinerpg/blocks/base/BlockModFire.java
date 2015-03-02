@@ -57,7 +57,8 @@ public class BlockModFire extends BlockFire {
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconReg) {
+    @Override
+    public void registerIcons(IIconRegister iconReg) {
         this.icons = new IIcon[] { iconReg.registerIcon(Reference.PREFIX + "blueFire_0"), iconReg.registerIcon(Reference.PREFIX + "blueFire_1") };
     }
 

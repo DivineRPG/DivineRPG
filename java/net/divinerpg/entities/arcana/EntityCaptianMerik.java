@@ -65,6 +65,7 @@ public class EntityCaptianMerik extends EntityDivineRPGVillager {
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 4, 1), new ItemStack(ArcanaItems.starlight, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 1), new ItemStack(ArcanaItems.arcaniumSaber, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 20, 1), new ItemStack(ArcanaItems.captainsSparkler, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 12, 1), new ItemStack(ArcanaItems.firefly, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 20, 1), new ItemStack(ArcanaItems.staffStarlight, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 15, 1), new ItemStack(ArcanaItems.meriksMissile, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 30, 1), new ItemStack(ArcanaItems.liviciaSword, 1, 0)));
