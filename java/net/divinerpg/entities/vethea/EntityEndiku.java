@@ -25,7 +25,7 @@ public class EntityEndiku extends VetheaMob {
     public EntityEndiku(World var1) {
         super(var1);
         addAttackingAI();
-        this.setSize(2, 1);
+        this.setSize(1.2f, 1);
     }
 
     @Override

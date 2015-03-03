@@ -22,7 +22,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 
 	public EntityPeacefulUntilAttacked(World w) {
 		super(w);
-		this.tasks.addTask(5, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false));
+		this.tasks.addTask(5, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1F, false));
 	}
 
 	public int angerLevel = 0;
@@ -47,7 +47,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 			angerLevel = 400;
 			if(source.getEntity() instanceof EntityPlayer && !((EntityPlayer)source.getEntity()).capabilities.isCreativeMode) {
 				this.entityToAttack = source.getEntity();
-				this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+				this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 			}
 		}
 		return super.attackEntityFrom(source, par2);

@@ -35,7 +35,6 @@ public class EntityWreck extends EntityDivineRPGBoss {
 	private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
 	private int waitTick;
 	private int abilityTimer;
-	private EntityAIBase meleeAI = new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false);
 	private int deathTicks;
 
 	public EntityWreck(World par1) {
@@ -240,7 +239,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
 	@Override
 	public boolean attackEntityAsMob(Entity par1Entity) {
-		if(this.getAbility() != MELEE) return false;
+		if(this.getAbilityType() != MELEE) return false;
 		float amount = (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
 
 		int knockback = 0;

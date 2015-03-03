@@ -123,7 +123,7 @@ public class EntityStats {
 	public static double ehuHealth 				= 200.0D, ehuSpeed = normalSpeed, ehuFollowRange = follow;
 	public static double endikuHealth 			= 70.0D, endikuDamage = 17.0D, endikuSpeed = normalSpeed, endikuFollowRange = follow;
 	public static double gorgosionHealth 		= 60.0D, gorgosionSpeed = normalSpeed, gorgosionFollowRange = follow;
-	public static double helioHealth 			= 140.0D, helioDamage = 60.0D, helioSpeed = normalSpeed, helioFollowRange = follow;
+	public static double helioHealth 			= 140.0D, helioDamage = 40.0D, helioSpeed = normalSpeed, helioFollowRange = follow;
 	public static double herbomancerHealth 		= 40.0D, herbomancerDamage = 5.0D, herbomancerSpeed = normalSpeed, herbomancerFollowRange = follow;
 	public static double herbomancerMinionHealth= 10.0D, herbomancerMinionDamage = 5.0D, herbomancerMinionSpeed = normalSpeed, herbomancerMinionFollowRange = follow;
 	public static double hiveQueenHealth 		= 1500.0D, hiveQueenDamage = 60.0D, hiveQueenSpeed = normalSpeed, hiveQueenFollowRange = follow;

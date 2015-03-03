@@ -18,7 +18,7 @@ public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
     public EntityKazrotic(World par1World) {
         super(par1World);
         this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 10.0F));
+        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 40.0F));
     }
 
     @Override
@@ -51,11 +51,14 @@ public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
     }
     
     @Override
-    public void attackEntityWithRangedAttack(EntityLivingBase par1, float par2) {
-        EntityKazroticShot var1 = new EntityKazroticShot(this.worldObj, this);
-        var1.setThrowableHeading(var1.motionX, var1.motionY, var1.motionZ, 0.3F, 0.3F);
+    public void attackEntityWithRangedAttack(EntityLivingBase entity, float par2) {
+    	double tx = entity.posX - this.posX;
+        double ty = entity.boundingBox.minY - this.posY;
+        double tz = entity.posZ - this.posZ;
+        EntityKazroticShot shot = new EntityKazroticShot(this.worldObj, this);
+        shot.setThrowableHeading(tx, ty, tz, 0.6F, 0.3F);
         this.playSound("random.bow", 1.0F, 1.0F);
-        this.worldObj.spawnEntityInWorld(var1);
+        this.worldObj.spawnEntityInWorld(shot);
     }
 
     @Override

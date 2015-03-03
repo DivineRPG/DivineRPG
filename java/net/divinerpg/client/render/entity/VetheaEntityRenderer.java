@@ -99,6 +99,7 @@ import net.divinerpg.entities.vethea.projectile.EntityDissimentShot;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityHeliosisDisk;
 import net.divinerpg.entities.vethea.projectile.EntityKarosDisk;
+import net.divinerpg.entities.vethea.projectile.EntityKazroticShot;
 import net.divinerpg.entities.vethea.projectile.EntityPardimalDisk;
 import net.divinerpg.entities.vethea.projectile.EntityQuadroticDisk;
 import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
@@ -132,6 +133,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWreckShot.class, new RenderSpecialProjectile(x.WRECK_SHOT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWreckExplosiveShot.class, new RenderSpecialProjectile(x.WRECK_SHOT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWreckBouncingProjectile.class, new RenderSpecialProjectile(x.WRECK_BOUNCING));
+		RenderingRegistry.registerEntityRenderingHandler(EntityKazroticShot.class, new RenderSpecialProjectile(x.KAZROTIC_SHOT));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.staffProjectile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, new RenderSpecialProjectile(EntityResourceLocation.evernight));

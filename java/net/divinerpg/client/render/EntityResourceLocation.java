@@ -209,6 +209,7 @@ public class EntityResourceLocation {
     public static ResourceLocation STONE_GOLEM 		 = addMob("stoneGolem");
     public static ResourceLocation WRECK_SHOT 		 = addProjectile("wreckShot");
     public static ResourceLocation WRECK_BOUNCING 	 = addProjectile("wreckBouncingProjectile");
+    public static ResourceLocation KAZROTIC_SHOT 	 = addProjectile("kazroticShot");
     
     public static ResourceLocation KING_STATUE 		 = addModel("statueKos");
     public static ResourceLocation ANCIENT_STATUE 	 = addModel("statueAnchient");

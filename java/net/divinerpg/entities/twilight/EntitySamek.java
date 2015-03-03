@@ -25,7 +25,7 @@ public class EntitySamek extends EntityPeacefulUntilAttacked {
 
 	public EntitySamek(World var1) {
 		super(var1);
-		this.setSize(2.0F, 2.0F);
+		this.setSize(0.6F, 1.8F);
 		this.experienceValue = 40;
 	}
 
