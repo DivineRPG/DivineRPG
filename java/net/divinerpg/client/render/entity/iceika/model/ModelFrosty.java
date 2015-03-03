@@ -110,16 +110,16 @@ public class ModelFrosty extends ModelBase
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
     super.render(entity, f, f1, f2, f3, f4, f5);
     setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    hatBase.render(f5);
-    rightFinger1.render(f5);
     GL11.glPushMatrix();
     GL11.glEnable(GL11.GL_BLEND);
     GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+    GL11.glDepthMask(true);
+    GL11.glEnable(GL11.GL_ALPHA_TEST);
+    hatBase.render(f5);
+    rightFinger1.render(f5);
     bottom.render(f5);
     middle.render(f5);
     head.render(f5);
-    GL11.glDisable(GL11.GL_BLEND);
-    GL11.glPopMatrix();
     rightArm.render(f5);
     leftArm.render(f5);
     rightFinger3.render(f5);
@@ -128,6 +128,8 @@ public class ModelFrosty extends ModelBase
     leftFinger3.render(f5);
     leftFinger1.render(f5);
     hatTop.render(f5);
+    GL11.glDisable(GL11.GL_BLEND);
+    GL11.glPopMatrix();
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

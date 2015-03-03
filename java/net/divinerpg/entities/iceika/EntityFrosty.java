@@ -66,7 +66,7 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked{
 	
 	@Override
 	public boolean shouldRenderInPass(int pass) {
-		return pass == 0;
+		return pass == 1;
 	}
 
 }

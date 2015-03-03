@@ -95,7 +95,7 @@ public class VanillaItemsOther {
         corruptedStone     = new ItemMod("corruptedStone");
         moltenStone        = new ItemMod("moltenStone");
         enderStone         = new ItemMod("enderStone");
-        healingStone       = new ItemMod("healingStone").setHealAmount(10);
+        healingStone       = new ItemMod("healingStone").setHealAmount(20);
 
         aquaticIngot       = new ItemMod("aquaticIngot");
         aquaticPellets     = new ItemMod("aquaticPellets");
