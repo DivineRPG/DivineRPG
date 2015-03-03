@@ -84,13 +84,3 @@ Found a bug in our mod?  Please let us know so we can fix it ASAP!
 		* Detailed description of the bug
 	* Please note, if you are not using an official version, the bug may go un-fixed
 5. Click `Submit new issue`, and be patient so we can fix it!
- 
-####Building the Mod
-Want to test the mod but you don't know how to compile the mod? Here's how. Warning: This mod is incomplete and most likely has bugs. Not recomended for casual use.
-
-1. Download [forge](http://files.minecraftforge.net).
-2. Set up a forge workspace with the terminal command `gradlew setupDecompWorkspace`.
-3. Download DivineRPG's source [here](https://github.com/DivineRPG/DivineRPG/archive/master.zip).
-4. Inside the forge folder, copy the files from the source inside `src/main`. (Create the `main` folder)
-5. Run the terminal command from inside the forge folder: `gradlew clean build`.
-6. The mod will be in `build/libs` and will most likely be named `modid-1.0.jar`.
