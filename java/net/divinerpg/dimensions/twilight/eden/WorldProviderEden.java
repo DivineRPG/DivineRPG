@@ -1,13 +1,13 @@
 package net.divinerpg.dimensions.twilight.eden;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderEden extends WorldProvider {
 

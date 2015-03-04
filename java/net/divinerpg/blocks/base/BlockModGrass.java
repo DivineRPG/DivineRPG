@@ -54,13 +54,13 @@ public class BlockModGrass extends BlockMod {
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
-            if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2) world.setBlock(x, y, z, dirt);
-            else if (world.getBlockLightValue(x, y + 1, z) >= 9) {
+            if (world.getBlockLightOpacity(x, y + 1, z) > 2) world.setBlock(x, y, z, dirt);
+            else {
                 for (int l = 0; l < 4; ++l) {
                     int i1 = x + random.nextInt(3) - 1;
                     int j1 = y + random.nextInt(5) - 3;
                     int k1 = z + random.nextInt(3) - 1;
-                    if(world.getBlock(i1, j1, k1) == dirt && world.getBlockLightValue(i1, j1 + 1, k1) >= 4 && world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2)
+                    if(world.getBlock(i1, j1, k1) == dirt && world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2)
                         world.setBlock(i1, j1, k1, this);
                 }
             }
