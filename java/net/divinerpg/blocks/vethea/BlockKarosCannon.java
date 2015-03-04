@@ -96,7 +96,7 @@ public class BlockKarosCannon extends BlockContainer {
 	}
 
 	public Block setName(String name) {
-		setTextureName(name);
+		setTextureName(Reference.PREFIX + name);
 		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
 		return this;

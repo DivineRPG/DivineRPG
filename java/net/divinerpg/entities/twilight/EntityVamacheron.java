@@ -27,7 +27,7 @@ public class EntityVamacheron extends EntityDivineRPGBoss {
 	public EntityVamacheron(World var1) {
 		super(var1);
 		addAttackingAI();
-		this.setSize(3F, 4F);
+		this.setSize(1.25F, 2F);
 	}
 
 	@Override
@@ -37,6 +37,7 @@ public class EntityVamacheron extends EntityDivineRPGBoss {
 	    this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.vamacheronDamage);
 	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.vamacheronSpeed);
 	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.vamacheronFollowRange);
+	    this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1);
 	}
 
 	@Override

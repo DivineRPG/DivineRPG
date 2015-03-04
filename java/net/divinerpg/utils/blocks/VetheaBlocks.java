@@ -118,7 +118,7 @@ public class VetheaBlocks {
         raglokAltar            = new BlockMod("raglokAltar", 0.7F, DivineRPGTabs.spawner);
         lunicAltar             = new BlockMod("lunicAltar", 0.7F, DivineRPGTabs.spawner);
 
-        dreamStone             = new BlockMod("dreamStone", 0.4F, DivineRPGTabs.vethea);
+        dreamStone             = new BlockMod("dreamStone", 0.25F, DivineRPGTabs.vethea);
         dreamDirt              = new BlockMod(EnumBlockType.DIRT, "dreamDirt", 0.3F, DivineRPGTabs.vethea);
         dreamGrass             = new BlockModGrass((BlockMod)dreamDirt, "dreamGrass", "dreamDirt", 0.3F);
         fireCrystal            = new BlockMod(EnumBlockType.GLASS, "fireCrystal", 1.0F, DivineRPGTabs.vethea).setLightLevel(0.7F);

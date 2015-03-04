@@ -14,11 +14,16 @@ import net.minecraft.world.World;
 
 public class EntityGalroid extends VetheaMob {
 	
-    private int invulnTicks;
-
     public EntityGalroid(World var1) {
         super(var1);
         addAttackingAI();
+    }
+    
+    @Override
+    public void entityInit() {
+    	super.entityInit();
+    	this.dataWatcher.addObject(19, 200);
+    	this.dataWatcher.addObject(20, 1);
     }
 
     @Override
@@ -30,12 +35,31 @@ public class EntityGalroid extends VetheaMob {
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
-        if (this.rand.nextInt(200) == 0 && !this.isEntityInvulnerable()) {
-            this.invulnTicks = 200;
+        if (this.getProtectionTimer() <= 0 && !this.getInvincible()) {
+            this.setProtectionTimer(200);
+            this.setInvincible(1);
         }
-        else if (this.isEntityInvulnerable()) {
-            this.invulnTicks--;
+        else if (this.isEntityInvulnerable() && this.getProtectionTimer() <= 0) {
+        	this.setProtectionTimer(200);
+        	this.setInvincible(0);
         }
+        this.setProtectionTimer(this.getProtectionTimer()-1);
+    }
+    
+    public boolean getInvincible() {
+    	return this.dataWatcher.getWatchableObjectInt(20) == 1;
+    }
+    
+    public int getProtectionTimer() {
+        return this.dataWatcher.getWatchableObjectInt(19);
+    }
+    
+    public void setInvincible(int i) {
+    	this.dataWatcher.updateObject(20, i);
+    }
+    
+    public void setProtectionTimer(int i) {
+    	this.dataWatcher.updateObject(19, i);
     }
 
     @Override
@@ -107,7 +131,7 @@ public class EntityGalroid extends VetheaMob {
 
     @Override
     public boolean isEntityInvulnerable() {
-        return (this.invulnTicks > 1);
+        return this.getInvincible();
     }
 
     @Override
@@ -117,6 +141,6 @@ public class EntityGalroid extends VetheaMob {
 
 	@Override
 	public String mobName() {
-		return "Galriod";
+		return "Galroid";
 	}
 }

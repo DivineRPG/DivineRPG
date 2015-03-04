@@ -68,7 +68,7 @@ public class EntityStats {
 	public static double soulFiendHealth 		= 1100.0D, soulFiendDamage = 28.0D, soulFiendSpeed = normalSpeed, soulFiendFollowRange = follow;
 	public static double soulStealerHealth 		= 140.0D, soulStealerDamage = 20.0D, soulStealerSpeed = normalSpeed, soulStealerFollowRange = follow;
 	public static double twilightDemonHealth 	= 1600.0D, twilightDemonDamage = 30.0D, twilightDemonSpeed = normalSpeed, twilightDemonFollowRange = follow;
-	public static double vamacheronHealth 		= 1350.0D, vamacheronDamage = 34.0D, vamacheronSpeed = normalSpeed, vamacheronFollowRange = follow;
+	public static double vamacheronHealth 		= 1350.0D, vamacheronDamage = 34.0D, vamacheronSpeed = normalSpeed*1.5, vamacheronFollowRange = follow;
 	public static double wildwoodCadillionHealth= 85.0D, wildwoodCadillionDamage = 12.0D, wildwoodCadillionSpeed = normalSpeed, wildwoodCadillionFollowRange = follow;
 	public static double wildwoodGolemHealth 	= 250.0D, wildwoodGolemDamage = 16.0D, wildwoodGolemSpeed = normalSpeed, wildwoodGolemFollowRange = follow;
 	public static double epiphiteHealth 		= 100.0D, epiphiteDamage = 14.0D, epiphiteSpeed = normalSpeed, epiphiteFollowRange = follow;

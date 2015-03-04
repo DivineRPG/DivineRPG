@@ -4,24 +4,13 @@ import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
-import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -31,14 +20,19 @@ import net.minecraft.world.World;
 
 public class EntityLadyLuna extends EntityDivineRPGBoss {
 	
-    private int waitTick, protType, protTimer, deathTicks;
+    private int deathTicks;
 
     public EntityLadyLuna(World var1) {
         super(var1);
         addAttackingAI();
-        this.protTimer = 500;
-        this.protType = 0;
         this.setSize(1.25F, 3.9F);
+    }
+    
+    @Override
+    public void entityInit() {
+    	super.entityInit();
+    	this.dataWatcher.addObject(19, 500);
+    	this.dataWatcher.addObject(20, 1);
     }
 
     @Override
@@ -49,19 +43,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.ladyLunaSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.ladyLunaFollowRange);
     }
-
-    @Override
-    protected void updateAITasks() {
-        if (this.getAttackTarget() != null && this.getDistanceToEntity(this.getAttackTarget()) < 0.5) {
-            this.waitTick = 60;
-        }
-        else if (this.waitTick == 0) {
-            super.updateAITasks();
-        } else {
-            --this.waitTick;
-        }
-    }
-
+    
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
@@ -79,12 +61,12 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
             }
         }
 
-        if (this.protTimer == 0) {
-            this.protType = this.rand.nextInt(3) + 1;
-            this.protTimer = 200 + this.rand.nextInt(200);
+        if (this.getProtectionTimer() == 0) {
+            this.setProtectionType(this.rand.nextInt(3) + 1);
+            setProtectionTimer(200 + this.rand.nextInt(200));
         }
-        else if (this.protTimer > 0) {
-            this.protTimer--;
+        else if (this.getProtectionTimer() > 0) {
+            this.setProtectionTimer(getProtectionTimer()-1);
         }
     }
  
@@ -118,7 +100,19 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
     }
 
     public int getProtectionType() {
-        return this.protType;
+    	return this.dataWatcher.getWatchableObjectInt(20);
+    }
+    
+    public int getProtectionTimer() {
+        return this.dataWatcher.getWatchableObjectInt(19);
+    }
+    
+    public void setProtectionType(int i) {
+    	this.dataWatcher.updateObject(20, i);
+    }
+    
+    public void setProtectionTimer(int i) {
+    	this.dataWatcher.updateObject(19, i);
     }
 
     @Override
@@ -242,5 +236,17 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
 	@Override
 	public IChatComponent chat() {
 		return null;
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		tag.setInteger("Immunity", this.getProtectionType());
+		tag.setInteger("ImmunityCooldown", this.getProtectionTimer());
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		this.setProtectionType(tag.getInteger("Immunity"));
+		this.setProtectionTimer(tag.getInteger("ImmunityCooldown"));
 	}
 }

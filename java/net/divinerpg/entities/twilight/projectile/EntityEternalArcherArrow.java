@@ -177,7 +177,7 @@ public class EntityEternalArcherArrow extends EntityDivineArrow {
                     	if(this.getArcherAbility() == WITHER) ((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 2, true));
                     	else if(this.getArcherAbility() == SLOW) ((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 2, true));
                     	else if(this.getArcherAbility() == BLIND) ((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0, true));
-                    	else if(this.getArcherAbility() == NAUSEA) ((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0, true));
+                    	else if(this.getArcherAbility() == NAUSEA) ((EntityLivingBase)position.entityHit).addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0, true));
                     }
 
                     if (this.isBurning()) position.entityHit.setFire(5);

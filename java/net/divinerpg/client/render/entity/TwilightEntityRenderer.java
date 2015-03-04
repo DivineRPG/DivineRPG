@@ -124,7 +124,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityReyvor.class, new RenderDAR(new ModelDensos(), 0.0F, x.reyvor, s.reyvorBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityTwilightDemon.class, new RenderDivineBoss(new ModelTwilightDemon(), 0.0F, 2.0F, x.twilightDemon, s.twilightDemonBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntitySoulFiend.class, new RenderDivineBoss(new ModelSoulFiend(), 0.0F, 1.0F, x.soulFiend, s.soulFiendBossID));
-        RenderingRegistry.registerEntityRenderingHandler(EntityVamacheron.class, new RenderDivineBoss(new ModelVamacheron(), 0.0F, 3.0F, x.vamacheron, s.vamacheronBossID));
+        RenderingRegistry.registerEntityRenderingHandler(EntityVamacheron.class, new RenderDivineBoss(new ModelVamacheron(), 0.0F, 1.5F, x.vamacheron, s.vamacheronBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityKarot.class, new RenderDivineBoss(new ModelKarot(), 0.0F, 5.0F, x.karot, s.karotBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityEternalArcher.class, new RenderEternalArcher(new ModelEternalArcher(), 0.0F, 2.5F, x.eternalArcher, s.eternalArcherBossID));
         
