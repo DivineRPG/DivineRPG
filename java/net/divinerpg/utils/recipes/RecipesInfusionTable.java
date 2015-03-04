@@ -10,14 +10,13 @@ import net.minecraft.item.ItemStack;
 
 public class RecipesInfusionTable {
 
-	public static HashMap<List<Integer>, ItemStack> recipes = new HashMap<List<Integer>, ItemStack>();
-	public static HashMap<List<Integer>, Integer> number = new HashMap<List<Integer>, Integer>();
+	public static HashMap<InfusionRecipe, Item> recipes = new HashMap<InfusionRecipe, Item>();
 
 	public RecipesInfusionTable() {
-		this.recipes();
+		this.addRecipes();
 	}
 
-	public static void recipes() {
+	public static void addRecipes() {
 		addRecipe(VetheaItems.teakerLump, VetheaItems.bowTemplate, 4, new ItemStack(VetheaItems.teakerBow));
 		addRecipe(VetheaItems.amthirmisLump, VetheaItems.bowTemplate, 5, new ItemStack(VetheaItems.amthrimisBow));
 		addRecipe(VetheaItems.darvenLump, VetheaItems.bowTemplate, 6, new ItemStack(VetheaItems.darvenBow));
@@ -124,31 +123,34 @@ public class RecipesInfusionTable {
 		addRecipe(VetheaItems.pardimalLump, VetheaItems.tormentedTemplate, 14, new ItemStack(VetheaItems.tormentedBody));
 	}
 
-	public static void addRecipe(Item Item1, Item Item2, int i, ItemStack item) {
-		int i1 = Item.getIdFromItem(Item1);
-		int i2 = Item.getIdFromItem(Item2);
-		if(i1 != 0 && item != null) 
-			recipes.put(Arrays.asList(i1, i2, number.put(Arrays.asList(i1, i2), i)), item);
-
+	public static void addRecipe(Item lump, Item template, int count, ItemStack res) {
+		recipes.put(new InfusionRecipe(lump, template, count), res.getItem());
 	}
-
-	public static ItemStack getResult(Item Item1, Item Item2) {
-		int i1 = Item.getIdFromItem(Item1);
-		int i2 = Item.getIdFromItem(Item2);
-		ItemStack item = (ItemStack)recipes.get(Arrays.asList(i1, i2, number.get(Arrays.asList(i1, i2))));
-		if(item != null)
-			return item;
-		else
-			return null;
+	
+	public static Item getOutput(Item lump, Item template, int count) {
+		if(recipes.containsKey(new InfusionRecipe(lump, template, count)))return recipes.get(new InfusionRecipe(lump, template, count));
+		return null;
 	}
-
-	public static int getStackSize(Item Item1, Item Item2) {
-		int i1 = Item.getIdFromItem(Item1);
-		int i2 = Item.getIdFromItem(Item2);
-		int i = number.get(Arrays.asList(i1, i2));
-		if(i != 0)
-			return i;
-		else
-			return 0;
+	
+	private static class InfusionRecipe {
+		public final Item template;
+		public final Item lump;
+		private final int lumpCount;
+		
+		public InfusionRecipe(Item lump, Item template, int lumpCount) {
+			this.lump=lump;
+			this.template=template;
+			this.lumpCount=lumpCount;
+		}
+		
+		@Override
+		public int hashCode() {
+			return Item.getIdFromItem(template)*200 + Item.getIdFromItem(lump) + lumpCount;
+		}
+		
+		@Override
+		public boolean equals(Object o) {
+			return o instanceof InfusionRecipe && ((InfusionRecipe)o).template == this.template && ((InfusionRecipe)o).lump == this.lump && ((InfusionRecipe)o).lumpCount == this.lumpCount;
+		}
 	}
 }

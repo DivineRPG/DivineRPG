@@ -14,10 +14,8 @@ public class EntityDisk extends EntityThrowable
 {
     public int damage;
     public int counter;
-    public boolean rebound;
     public Item item;
     public int icon;
-    public int collideCounter;
     private int bounces;
 
     public EntityDisk(World par1World)
@@ -30,8 +28,6 @@ public class EntityDisk extends EntityThrowable
         super(par1World, entity);
         this.damage = par3;
         this.counter = 30;
-        this.collideCounter = 0;
-        this.rebound = false;
         this.item = i;
     }
 
@@ -50,27 +46,23 @@ public class EntityDisk extends EntityThrowable
         this.motionX  = this.motionX / 0.99D;
         this.motionY  = this.motionY / 0.99D;
         this.motionZ  = this.motionZ / 0.99D;
-        if (this.counter == 0 && !this.rebound && this.getThrower() != null && this.collideCounter == 0)
+        if (this.counter == 0 && this.getThrower() != null)
         {
             this.motionX *= -1;
             this.motionY *= -1;
             this.motionZ *= -1;
-            this.rebound = true;
-            this.collideCounter = 5;
+            this.bounces++;
+            this.counter = 30;
         }
         else if (this.counter > 0)
         {
             this.counter--;
         }
-        else if (this.collideCounter > 0)
-        {
-            this.collideCounter--;
+        if (this.bounces == 12 && !this.worldObj.isRemote) {
+                this.setDead();
         }
     }
 
-    /**
-     * Called when this EntityThrowable hits a block or entity.
-     */
     @Override
     public void onImpact(MovingObjectPosition par1MovingObjectPosition)
     {
@@ -80,7 +72,7 @@ public class EntityDisk extends EntityThrowable
             {
                 par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), this.damage);
             }
-            else if (par1MovingObjectPosition.entityHit == this.getThrower() && this.getThrower() instanceof EntityPlayer && this.rebound)
+            else if (par1MovingObjectPosition.entityHit == this.getThrower() && this.getThrower() instanceof EntityPlayer && this.bounces > 0)
             {
                 if (!((EntityPlayer)this.getThrower()).capabilities.isCreativeMode)
                 {
@@ -92,21 +84,11 @@ public class EntityDisk extends EntityThrowable
                 }
             }
 
-            if (this.collideCounter == 0)
+            if (this.bounces == 0)
             {
-                this.rebound = false;
                 this.counter = 0;
 
                 this.bounces++;
-
-                if (this.bounces == 20)
-                {
-
-                    if (!this.worldObj.isRemote)
-                    {
-                        this.setDead();
-                    }
-                }
             }
         }
         else if (!this.worldObj.isRemote)

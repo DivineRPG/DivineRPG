@@ -14,6 +14,7 @@ public class EntityCaveCrawler extends EntityDivineRPGMob {
 	public EntityCaveCrawler(World par1World) {
 		super(par1World);
 		this.setSize(1.5F, 2.0F);
+		addAttackingAI();
 	}
 
 	@Override

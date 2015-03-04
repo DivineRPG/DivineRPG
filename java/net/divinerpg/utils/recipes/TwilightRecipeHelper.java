@@ -30,6 +30,8 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsOther.skythernGem, "GGG", 'G', TwilightItemsOther.skythernFragments);
 		addRecipe(TwilightItemsOther.mortumGem, "GGG", 'G', TwilightItemsOther.mortumFragments);
 		
+		addSmelting(TwilightItemsOther.edenFragments, TwilightItemsOther.edenSparkles, 1);
+		
 		addRecipe(TwilightItemsOther.edenChunk, "GGG", "G G", "G G", 'G', TwilightItemsOther.edenGem);
 		addRecipe(TwilightItemsOther.wildwoodChunk, "GGG", "G G", "G G", 'G', TwilightItemsOther.wildwoodGem);
 		addRecipe(TwilightItemsOther.apalachiaChunk, "GGG", "G G", "G G", 'G', TwilightItemsOther.apalachiaGem);

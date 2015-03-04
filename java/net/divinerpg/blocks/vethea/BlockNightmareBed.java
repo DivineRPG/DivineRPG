@@ -105,9 +105,9 @@ public class BlockNightmareBed extends BlockBed {
                     player.inventory.readFromNBT(inv);
                     player.inventoryContainer.detectAndSendChanges();
                     ChunkCoordinates c = new ChunkCoordinates();
-                    c.posX = (int)player.posX;
+                    c.posX = (int)player.posX+2;
                     c.posY = 18;
-                    c.posZ = (int)player.posZ;
+                    c.posZ = (int)player.posZ-2;
                     player.setSpawnChunk(c, true, ConfigurationHelper.vethea);
                     return true;
                 }

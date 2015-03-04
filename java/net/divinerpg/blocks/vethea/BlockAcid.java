@@ -9,6 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.IBlockAccess;
@@ -18,13 +20,18 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockAcid extends BlockMod {
 	
-	private boolean decays;
+	private boolean decays, poison;
 	
     public BlockAcid(String name, boolean decays) {
+        this(name, decays, false);
+    }
+    
+    public BlockAcid(String name, boolean decays, boolean poison) {
         super(EnumBlockType.SNOW, name, 0.1F, DivineRPGTabs.vethea);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
         this.setTickRandomly(true);
         this.decays = decays;
+        this.poison = poison;
     }
  
     @Override
@@ -91,9 +98,12 @@ public class BlockAcid extends BlockMod {
     }
  
     @Override
-    public void onEntityCollidedWithBlock(World var1, int var2, int var3, int var4, Entity var5) {
-        if (var5 instanceof EntityPlayer)
-            var5.attackEntityFrom(DamageSource.cactus, 3);
+    public void onEntityCollidedWithBlock(World w, int x, int y, int z, Entity e) {
+        if(e instanceof EntityPlayer) {
+        	e.attackEntityFrom(DamageSource.cactus, 3);
+        	if(poison)((EntityPlayer)e).addPotionEffect(new PotionEffect(Potion.poison.id, 150, 1, true));
+        }
+        
     }
 
     @Override

@@ -2,6 +2,8 @@ package net.divinerpg.entities.twilight;
 
 import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.ItemsFood;
+import net.divinerpg.utils.items.TwilightItemsCrops;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -55,8 +57,10 @@ public class EntityWildwoodGolem extends EntityDivineRPGMob {
     }
  
     @Override
-    protected Item getDropItem() {
-        return TwilightItemsOther.wildwoodSoul;
+    protected void dropFewItems(boolean var1, int var2)  {
+        this.dropItem(ItemsFood.magicMeat, 1);
+        this.dropItem(TwilightItemsOther.wildwoodSoul, this.rand.nextInt(3)+1);
+        if(rand.nextInt(2) == 0) this.dropItem(TwilightItemsCrops.moonbulbSeeds, rand.nextInt(3)+1);
     }
 
 	@Override

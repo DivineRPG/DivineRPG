@@ -86,23 +86,6 @@ public class VanillaBlocks {
 	public static Block divineRock;
 	public static Block acceleron;
 	public static Block tar;
-
-	public static Block dyeBlockWhite;
-	public static Block dyeBlockBlack;
-	public static Block dyeBlockBrown;
-	public static Block dyeBlockRed;
-	public static Block dyeBlockGreen;
-	public static Block dyeBlockBlue;
-	public static Block dyeBlockYellow;
-	public static Block dyeBlockGray;
-	public static Block dyeBlockLightGray;
-	public static Block dyeBlockOrange;
-	public static Block dyeBlockLightGreen;
-	public static Block dyeBlockLightBlue;
-	public static Block dyeBlockCyan;
-	public static Block dyeBlockPink;
-	public static Block dyeBlockPurple;
-	public static Block dyeBlockMagenta;
 	
 	public static Block fancyWool;
 	//public static Block dirtBlock;
@@ -203,23 +186,6 @@ public class VanillaBlocks {
 		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE).setResistance(10F);
 		acceleron		  	  = new BlockAcceleron();
 		tar 				  = new BlockTar();
-
-		dyeBlockWhite 	  = new VanillaBlock(EnumBlockType.ROCK, "dyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockBlack 	  = new VanillaBlock(EnumBlockType.ROCK, "blackDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockBrown 	  = new VanillaBlock(EnumBlockType.ROCK, "brownDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockRed   	  = new VanillaBlock(EnumBlockType.ROCK, "redDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockGreen 	  = new VanillaBlock(EnumBlockType.ROCK, "greenDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockBlue  	  = new VanillaBlock(EnumBlockType.ROCK, "blueDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockYellow	  = new VanillaBlock(EnumBlockType.ROCK, "yellowDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockGray  	  = new VanillaBlock(EnumBlockType.ROCK, "grayDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockLightGray   = new VanillaBlock(EnumBlockType.ROCK, "lightGrayDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockOrange   	  = new VanillaBlock(EnumBlockType.ROCK, "orangeDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockLightGreen  = new VanillaBlock(EnumBlockType.ROCK, "lightGreenDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockLightBlue   = new VanillaBlock(EnumBlockType.ROCK, "lightBlueDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockCyan   	  = new VanillaBlock(EnumBlockType.ROCK, "cyanDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockPink        = new VanillaBlock(EnumBlockType.ROCK, "pinkDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockPurple   	  = new VanillaBlock(EnumBlockType.ROCK, "purpleDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
-		dyeBlockMagenta     = new VanillaBlock(EnumBlockType.ROCK, "magentaDyeBlock", 1.5F, WOOD_GOLD).setResistance(5.0F);
 		
 		fancyWool 		  = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.8F, WOOD_GOLD);
 		//dirtBlock 		  = new VanillaBlock(EnumBlockType.DIRT, "dirtBlock", 1.5F, WOOD_GOLD);

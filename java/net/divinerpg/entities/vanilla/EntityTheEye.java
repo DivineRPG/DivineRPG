@@ -25,6 +25,7 @@ public class EntityTheEye extends EntityDivineRPGMob {
 
     public EntityTheEye(World par1World) {
         super(par1World);
+        addAttackingAI();
     }
     
     @Override

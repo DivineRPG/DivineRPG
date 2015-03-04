@@ -41,12 +41,8 @@ public class ItemStaff extends ItemMod {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Deals " + this.damage + " Arcana Damage");
 		list.add("Bouncing Projectile");
-		if(stack.getItem() == VetheaItems.evernight){
-			list.add("Consumes All Of Your Arcana");
-			list.add("Deals 16 Damage to Player");
-		} else {
-			list.add("Consumes " + this.cost + " Arcana");
-		}
+		if(stack.getItem() == VetheaItems.evernight) list.add("Deals 20 Damage to Player");
+		list.add("Consumes " + this.cost + " Arcana");
 		list.add(Util.GREEN + "Vethean");
 	}
 

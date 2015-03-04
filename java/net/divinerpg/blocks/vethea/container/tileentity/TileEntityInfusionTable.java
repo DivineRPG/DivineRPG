@@ -1,11 +1,12 @@
 package net.divinerpg.blocks.vethea.container.tileentity;
 
-import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
 import net.divinerpg.utils.recipes.RecipesInfusionTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityInfusionTable extends TileEntity implements IInventory {
@@ -24,21 +25,17 @@ public class TileEntityInfusionTable extends TileEntity implements IInventory {
 	}
 
 	public void updateEntity() {
-		if(inventory[2] == null) {
-			if(inventory[0] != null && inventory[1] != null) {
-				Item item1 = inventory[0].getItem();
-				Item item2 = inventory[1].getItem();
-				if(item1 != null && item2 != null) {
-					RecipesInfusionTable x = new RecipesInfusionTable();
-					ItemStack item = x.getResult(item1, item2);
-					if(item != null && x.getStackSize(item1, item2) <= inventory[0].stackSize) {
-						inventory[2] = item;
-						this.decrStackSize(0, x.getStackSize(item1, item2));
-						this.decrStackSize(1, 1);
-					}
-				}
+		if(inventory[0] != null && inventory[1] != null) {
+			Item item1 = inventory[0].getItem();
+			Item item2 = inventory[1].getItem();
+			int c = inventory[0].stackSize;
+			if(item1 != null && item2 != null) {
+				RecipesInfusionTable x = new RecipesInfusionTable();
+				Item item = x.getOutput(item1, item2, c);
+				if(item != null) inventory[2] = new ItemStack(item);
+				else inventory[2] = null;
 			}
-		}
+		} else inventory[2] = null;
 		super.updateEntity();
 	}
 	
@@ -104,4 +101,37 @@ public class TileEntityInfusionTable extends TileEntity implements IInventory {
 
 	@Override
 	public void closeChest() { }
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+        NBTTagList nbttaglist = tag.getTagList("Items", 10);
+        this.inventory = new ItemStack[this.getSizeInventory()];
+
+        for (int i = 0; i < nbttaglist.tagCount(); ++i) {
+            NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
+            int j = nbttagcompound1.getByte("Slot") & 255;
+
+            if (j >= 0 && j < this.inventory.length) {
+                this.inventory[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+            }
+        }
+    }
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		NBTTagList list = new NBTTagList();
+
+	    for (int i = 0; i < this.inventory.length; ++i) {
+	        if (this.inventory[i] != null) {
+	            NBTTagCompound slottag = new NBTTagCompound();
+	            slottag.setByte("Slot", (byte)i);
+	            this.inventory[i].writeToNBT(slottag);
+	            list.appendTag(slottag);
+	        }
+	    }
+
+	    tag.setTag("Items", list);
+	}
 }

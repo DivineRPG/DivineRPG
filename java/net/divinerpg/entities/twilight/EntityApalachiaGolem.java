@@ -4,6 +4,7 @@ package net.divinerpg.entities.twilight;
 import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ItemsFood;
+import net.divinerpg.utils.items.TwilightItemsCrops;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -55,7 +56,11 @@ public class EntityApalachiaGolem extends EntityDivineRPGMob {
  
     @Override
     protected void dropFewItems(boolean var1, int var2)  {
-        this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
+        this.dropItem(ItemsFood.enrichedMagicMeat, 1);
+        this.dropItem(TwilightItemsOther.apalachiaSoul, this.rand.nextInt(3)+1);
+        int i = rand.nextInt(4);
+        if(i == 0) this.dropItem(TwilightItemsCrops.pinkGlowboneSeeds, rand.nextInt(3)+1);
+        else if(i == 1) this.dropItem(TwilightItemsCrops.pinkGlowboneSeeds, rand.nextInt(3)+1);
     }
 
 	@Override

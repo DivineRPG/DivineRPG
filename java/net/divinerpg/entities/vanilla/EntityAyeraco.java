@@ -98,7 +98,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
             }
         }
 
-        if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 64) != null) this.setAttackTarget(this.worldObj.getClosestVulnerablePlayerToEntity(this, 64));
+        if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 128) != null) this.setAttackTarget(this.worldObj.getClosestVulnerablePlayerToEntity(this, 128));
         
         if(this.waitTick == 0) {
             if (this.getAttackTarget() != null) {

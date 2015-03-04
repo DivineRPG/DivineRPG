@@ -61,6 +61,7 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 4), new ItemStack(VanillaItemsWeapons.serenadeStriker, 1, 0), new ItemStack(IceikaItems.serenadeOfIce, 1, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 7), new ItemStack(VanillaItemsWeapons.slimeSword, 1, 0), new ItemStack(IceikaItems.glacierSword, 1, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 12), new ItemStack(VanillaItemsWeapons.shadowBow, 1, 0),new ItemStack(IceikaItems.icicleBow, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 6), new ItemStack(VanillaItemsWeapons.massivence, 1, 0),new ItemStack(IceikaItems.frossivence, 1, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 12), new ItemStack(VanillaItemsWeapons.crabclawCannon, 1, 0),new ItemStack(IceikaItems.frostclawCannon, 1, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 12), new ItemStack(VanillaItemsWeapons.frostCannon, 1, 0),new ItemStack(IceikaItems.fractiteCannon, 1, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 15), new ItemStack(VanillaItemsWeapons.frostSword, 1, 0), new ItemStack(IceikaItems.frostkingSword, 1, 0)));

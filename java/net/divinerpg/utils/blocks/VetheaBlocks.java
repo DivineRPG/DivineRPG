@@ -149,7 +149,7 @@ public class VetheaBlocks {
         bacterialAcid          = new BlockAcid("bacterialAcid", false);
         blockAcid              = new BlockAcid("acidBlock", true);
         everstone              = new BlockMod("greenEverstone", 3.0F, DivineRPGTabs.vethea);
-        lunicAcid              = new BlockAcid("lunicAcid", true);
+        lunicAcid              = new BlockAcid("lunicAcid", true, true);
         firewoodLeaves         = new BlockModLeaves("fireWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         hyrewoodLeaves         = new BlockModLeaves("hyreWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         gemtopGreen            = new BlockVetheaPlant("greenGemTop");

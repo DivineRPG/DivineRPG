@@ -25,7 +25,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.massivence, "X X", "III", " I ", 'I', VanillaItemsOther.netheriteIngot, 'X', VanillaItemsOther.bloodgem);
 		
 		addRecipe(VanillaItemsWeapons.frostSword, " I ", " I ", " S ", 'I', IceikaItems.iceStone, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.bloodgemSword, " I ", " I", " S", 'I', VanillaItemsOther.bloodgem, 'S', Items.stick);
+		addRecipe(VanillaItemsWeapons.bloodgemSword, " I ", " I ", " S ", 'I', VanillaItemsOther.bloodgem, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.infernoSword, "BOB", "BOB", "BSB", 'B', Items.blaze_powder, 'O', Blocks.redstone_ore, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.moltenSword, " I ", " I ", " S ", 'I', VanillaItemsOther.moltenStone, 'S', Items.stick);
 		addRecipe(VanillaItemsWeapons.scorchingSword, " I ", " I ", " S ", 'I', VanillaItemsOther.purpleBlaze, 'S', VanillaItemsOther.netheriteIngot);
@@ -56,7 +56,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		//ranged weapons
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
-		addShapelessRecipe(VanillaItemsWeapons.vileStorm, VanillaItemsOther.jungleShards, VanillaItemsWeapons.vileStorm);
+		addRecipe(new ItemStack(VanillaItemsWeapons.vileStorm, 8), "SSS", "SJS", "SSS", 'J', VanillaItemsOther.jungleShards, 'S', VanillaItemsWeapons.shuriken);
 		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.maelstrom, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
 		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
@@ -81,6 +81,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.realmiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.realmiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
+		addRecipe(VanillaItemsTools.realmiteHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
 		
 		addRecipe(VanillaItemsTools.corruptedPickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
 		addRecipe(VanillaItemsTools.corruptedShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
@@ -401,6 +402,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		addRecipe(VanillaItemsOther.pureAquaticPellets, "PPP", "PPP", "PPP", 'P', VanillaItemsOther.aquaticPellets);
 		addRecipe(VanillaItemsOther.aquaBall,"wsw", "wkw", "wsw", 'w', Items.water_bucket, 's', Items.slime_ball, 'k', VanillaItemsOther.krakenSkin);
+		addShapelessRecipe(VanillaItemsOther.aquaticBlazeRod, VanillaItemsOther.aquaBall, Items.blaze_rod);
 		
 		addRecipe(VanillaItemsOther.corruptedStone, "III", "III", "III", 'I', VanillaItemsOther.corruptedShards);
 		addRecipe(VanillaItemsOther.jungleStone, "III", "III", "III", 'I', VanillaItemsOther.jungleShards);
@@ -447,6 +449,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(VanillaBlocks.spiderPumpkin, "MMM", "MPM", "MMM", 'M', Items.string, 'D', Blocks.pumpkin);
         
         addShapelessRecipe(new ItemStack(VanillaBlocks.rainbowWool, 4), new ItemStack(Blocks.wool, 1, 1), new ItemStack(Blocks.wool, 1, 14), new ItemStack(Blocks.wool, 1, 4), new ItemStack(Blocks.wool, 1, 5), new ItemStack(Blocks.wool, 1, 9), new ItemStack(Blocks.wool, 1, 11), new ItemStack(Blocks.wool, 1, 10));
+        addRecipe(new ItemStack(VanillaBlocks.checker, 3), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.wool, 1, 0), 'y', new ItemStack(Blocks.wool, 1, 15));
         addRecipe(new ItemStack(VanillaBlocks.blueStone, 8), "GGG", "GLG", "GGG", 'G', Blocks.glowstone, 'L', new ItemStack(Items.dye, 1, 4));
         addRecipe(new ItemStack(VanillaBlocks.crate, 4), "xxx", "y y", "xxx", 'x', Blocks.planks, 'y', Blocks.log );
         addRecipe(new ItemStack(VanillaBlocks.plankDesign, 4), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.planks, 1, 0), 'y', new ItemStack(Blocks.planks, 1, 1) );
@@ -454,6 +457,9 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(new ItemStack(VanillaBlocks.skeletonTorch, 4), "x", "y", 'y', Items.bone, 'x', Items.coal);
         addRecipe(new ItemStack(VanillaBlocks.aquaTorch, 4), "x", "y", 'y', Items.stick, 'x', VanillaItemsOther.aquaticBlazeRod);
         addRecipe(new ItemStack(TwilightBlocks.edenTorch, 4), "x", "y", 'y', Items.stick, 'x', TwilightItemsOther.edenFragments);
+        
+        addShapelessRecipe(new ItemStack(VanillaItemsOther.mushroomSeeds, 4), ItemsFood.whiteMushroom);
+        addShapelessRecipe(new ItemStack(VanillaItemsOther.tomatoSeeds, 4), ItemsFood.tomato);
         
         addRecipe(new ItemStack(VanillaBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 4), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.redVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 1), 'O', Blocks.obsidian);

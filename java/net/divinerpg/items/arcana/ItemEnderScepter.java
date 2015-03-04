@@ -23,6 +23,7 @@ public class ItemEnderScepter extends ItemMod {
 	
 	public ItemEnderScepter(String name) {
 		super(name, DivineRPGTabs.swords);
+		setMaxStackSize(1);
 	}
 
 	public ItemStack onItemRightClick(ItemStack par1, World par2, EntityPlayer par3) {

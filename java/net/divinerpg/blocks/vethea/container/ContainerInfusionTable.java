@@ -11,14 +11,13 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerInfusionTable extends Container {
 	public TileEntityInfusionTable tileentity;
-	private Slot slot;
 	
-	public ContainerInfusionTable(InventoryPlayer player_inventory, TileEntityInfusionTable tile_entity) {
-		this.tileentity = tile_entity;
-		addSlotToContainer(new Slot(tile_entity, 0, 18, 39));
-		addSlotToContainer(new Slot(tile_entity, 1, 18, 59));
-		slot = addSlotToContainer(new SlotFurnace(player_inventory.player, tile_entity, 2, 63, 49));
-		bindPlayerInventory(player_inventory);
+	public ContainerInfusionTable(InventoryPlayer inv, TileEntityInfusionTable te) {
+		this.tileentity = te;
+		addSlotToContainer(new Slot(te, 0, 18, 39));
+		addSlotToContainer(new Slot(te, 1, 18, 59));
+		addSlotToContainer(new SlotInfusion(inv.player, te, 2, 63, 49));
+		bindPlayerInventory(inv);
 	}
 
 	public void bindPlayerInventory(InventoryPlayer inventoryplayer) {
@@ -37,6 +36,7 @@ public class ContainerInfusionTable extends Container {
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(par2);
 
+        System.out.println("HI");
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
