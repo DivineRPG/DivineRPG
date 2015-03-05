@@ -25,7 +25,7 @@ public class EntityGeneralsStaff extends EntityParticleBullet {
 			e.setThrowableHeading(Math.cos(theta), 0.4, Math.sin(theta), 0.7f, 0);
 			this.worldObj.spawnEntityInWorld(e);
 		}
-		EntityParticleBullet e = new EntityParticleBullet(this.worldObj, this.posX, this.posY, this.posZ, 15, this.getTextureName(), new Color(56, 152, 186));
+		EntityParticleBullet e = new EntityParticleBullet(this.worldObj, this.posX, this.posY, this.posZ, 15, this.getTextureName(), new Color(56, 152, 186)).setMoreParticles();
 		e.setThrowableHeading(0, 1, 0, 0.7f, 0);
 		this.worldObj.spawnEntityInWorld(e);
 	}

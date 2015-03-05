@@ -57,6 +57,8 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
 		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 18), new ItemStack(ArcanaItems.arcaniteBlaster)));
 		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 30), new ItemStack(ArcanaItems.arcaniteBlade)));
 		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 18), new ItemStack(ArcanaItems.generalsStaff)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7), new ItemStack(ArcanaItems.reflector, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7), new ItemStack(ArcanaItems.attractor, 1, 0)));
 	}
 
 	@Override

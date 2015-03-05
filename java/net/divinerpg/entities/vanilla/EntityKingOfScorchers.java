@@ -1,31 +1,23 @@
 package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersMeteor;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.util.IChatComponent;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntityKingOfScorchers extends EntityDivineRPGBoss {
     private int special;
 
 	public EntityKingOfScorchers(World var1) {
         super(var1);
         this.setSize(2.0F, 3.9F);
-        this.tasks.addTask(4, new EntityAIArrowAttack(this, 0.56D, 3, 10));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.special = 0;
     }
     
@@ -47,20 +39,25 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
 	
 	@Override
     protected void updateAITasks() {
-    	if (this.rand.nextInt(250) == 0 && this.special == 0) {
-    		this.special = 25;
+    	if (this.ticksExisted%250==0 && this.special == 0) {
+    		this.special = 15;
     	}
     	
-    	if (this.special > 0 && this.getAttackTarget() != null) {
+    	if (this.special > 0 && this.entityToAttack != null) {
     		this.special--;
     		if (this.special % 5 == 0) {
-    			EntityKingOfScorchersShot var1 = new EntityKingOfScorchersShot(this.worldObj, (double)this.getAttackTarget().posX, (double)this.getAttackTarget().posY + 10, (double)this.getAttackTarget().posZ);
-    			var1.motionY = -0.5;
-                this.worldObj.spawnEntityInWorld(var1);
+    			for(int i = 0; i<4; i++) {
+    				EntityKingOfScorchersMeteor var1 = new EntityKingOfScorchersMeteor(this.worldObj, entityToAttack.posX + (rand.nextDouble()-rand.nextDouble())*2, entityToAttack.posY + 10, entityToAttack.posZ + (rand.nextDouble()-rand.nextDouble())*2);
+    				var1.motionX = (rand.nextDouble()-rand.nextDouble())/5;
+                	var1.motionY = -0.7;
+                	var1.motionZ = (rand.nextDouble()-rand.nextDouble())/5;
+    				this.worldObj.spawnEntityInWorld(var1);
+    			}
     		}
-    	} else {
-        	super.updateAITasks();
     	}
+        super.updateAITasks();
+        this.entityToAttack = this.worldObj.getClosestPlayerToEntity(this, 40);
+        if(this.entityToAttack != null && !this.worldObj.isRemote && this.ticksExisted%15==0) this.attackEntityWithRangedAttack(this.entityToAttack);
     }
 
 	@Override
@@ -96,12 +93,13 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements IRange
 		if(this.rand.nextInt(2) == 0) this.dropItem(Item.getItemFromBlock(VanillaBlocks.kosStatue), 1);
     }
 
-	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase entityliving, float f) {
-		EntityArrow var3 = new EntityArrow(this.worldObj, this, entityliving, 1.6F, 1.6F);
-        this.worldObj.playSoundAtEntity(this, "random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-        this.worldObj.spawnEntityInWorld(var3);
-        var3.setFire(100);
+	public void attackEntityWithRangedAttack(Entity entity) {
+		double tx = entity.posX - this.posX;
+        double ty = entity.boundingBox.minY - this.posY-2;
+        double tz = entity.posZ - this.posZ;
+		EntityKingOfScorchersShot e = new EntityKingOfScorchersShot(this.worldObj, this);
+		e.setThrowableHeading(tx, ty, tz, 1.3f, 1);
+        this.worldObj.spawnEntityInWorld(e);
 	}
 
 	@Override

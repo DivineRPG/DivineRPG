@@ -419,6 +419,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(IS.bacon, Items.porkchop);
 		addRecipe(IS.cheese, "MMM", "MMM", "MMM", 'M', Items.milk_bucket);
 		addSmelting(Items.egg, ItemsFood.boiledEgg, 0.3F);
+		addSmelting(Blocks.pumpkin, ItemsFood.hotPie, 0.3F);
 		addShapelessRecipe(ItemsFood.advMushroomStew, ItemsFood.whiteMushroom, Items.mushroom_stew);
 		addShapelessRecipe(ItemsFood.chickenDinner, ItemsFood.advMushroomStew, Items.cooked_chicken, Items.bread);
 		

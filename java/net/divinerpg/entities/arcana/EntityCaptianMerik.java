@@ -58,7 +58,6 @@ public class EntityCaptianMerik extends EntityDivineRPGVillager {
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 1), new ItemStack(ArcanaItems.stormSword, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7, 1), new ItemStack(ArcanaItems.reflector, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 12, 1), new ItemStack(ArcanaItems.enderScepter, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 20, 1), new ItemStack(ArcanaItems.wraithbane, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 1), new ItemStack(ArcanaItems.shadowSword, 1, 0)));

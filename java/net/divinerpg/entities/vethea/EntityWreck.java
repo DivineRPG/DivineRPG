@@ -276,8 +276,8 @@ public class EntityWreck extends EntityDivineRPGBoss {
         double tz = entity.posZ - this.posZ;
 		switch(this.getAbility()) {
 			case BOUNCE:
-				EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(this.worldObj, this, 30);
-				projectile.setThrowableHeading(tz, ty, tz, 1.6f, 12f);
+				EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(this.worldObj, this, 35);
+				projectile.setThrowableHeading(tx, ty, tz, 1.6f, 12f);
 				this.worldObj.spawnEntityInWorld(projectile);
 				this.setAbility(DEFAULT);
 			break;

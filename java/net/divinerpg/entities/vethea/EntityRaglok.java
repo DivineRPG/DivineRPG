@@ -119,17 +119,23 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 			}
 		}
 		if(ability == BOMBS) {
-			if(abilityCooldown%40 == 0 && player != null) {
-				EntityRaglokBomb var2 = new EntityRaglokBomb(this.worldObj);
-                var2.setPosition(player.posX, player.posY + 10, player.posZ);
-                var2.setVelocity(0, -2, 0);
-                this.worldObj.spawnEntityInWorld(var2);
-                ++this.rangedAttackCounter;
-			}
+			if(abilityCooldown%30 == 0 && player != null) {
+				
+				for(int i = 0; i<4; i++) {
+					EntityRaglokBomb var2 = new EntityRaglokBomb(this.worldObj);
+					var2.setPosition(player.posX, player.posY + 10, player.posZ);
+                	var2.motionX = (rand.nextDouble()-rand.nextDouble())/5;
+                	var2.motionY = -0.14;
+                	var2.motionZ = (rand.nextDouble()-rand.nextDouble())/5;
+                	this.worldObj.spawnEntityInWorld(var2);
+                	++this.rangedAttackCounter;
+				}
+			}  
 			if (this.rangedAttackCounter == 12) {
 				ability = DEFAULT;
 			}
 		}
+		ability = BOMBS;
 
 	}
 
