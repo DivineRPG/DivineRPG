@@ -37,6 +37,7 @@ import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.EntityWildwoodGolem;
 import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
+import net.divinerpg.entities.twilight.projectile.EntityTwilightDemonShot;
 import net.divinerpg.utils.Util;
 
 public class TwilightEntityRegistry {
@@ -44,6 +45,7 @@ public class TwilightEntityRegistry {
 	public static void init(){	
         Util.registerProjectile(EntityCoriShot.class, "WeakCoriShot");
         Util.registerProjectile(EntityParticleBullet.class, "ParticleBullet");
+        Util.registerProjectile(EntityTwilightDemonShot.class, "TwilightDemonShot");
         
         Util.registerDivineRPGMob(EntityEdenCadillion.class, "EdenCadillion");
         Util.registerDivineRPGMob(EntityEdenTomo.class, "EdenTomo");

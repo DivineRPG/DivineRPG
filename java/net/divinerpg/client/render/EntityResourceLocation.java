@@ -96,6 +96,7 @@ public class EntityResourceLocation {
     public static ResourceLocation generalsStaff	 = addProjectile("generalsStaff");
     public static ResourceLocation kosMeteor	     = addProjectile("kosMeteor");
     public static ResourceLocation kosShot		     = addProjectile("kosShot");
+    public static ResourceLocation twilightDemonShot = addProjectile("twilightDemonShot");
     
     public static ResourceLocation angryBunny		 = addMob("angryBunny");
     public static ResourceLocation angryBunnyTamed 	 = addMob("angryBunnyTamed");

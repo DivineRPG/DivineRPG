@@ -39,7 +39,7 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 	protected void addBasicAI(){
 		this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(8, new EntityAIWander(this, 1.0F));
-        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
         this.tasks.addTask(6, new EntityAILookIdle(this));
 	}
 	

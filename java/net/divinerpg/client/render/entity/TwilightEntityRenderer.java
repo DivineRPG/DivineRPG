@@ -76,6 +76,7 @@ import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.EntityWildwoodGolem;
 import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
+import net.divinerpg.entities.twilight.projectile.EntityTwilightDemonShot;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -90,7 +91,8 @@ public class TwilightEntityRenderer {
 	public static void init() {
         RenderingRegistry.registerEntityRenderingHandler(EntityCoriShot.class, new RenderSpecialProjectile(x.coriShot));
         RenderingRegistry.registerEntityRenderingHandler(EntityParticleBullet.class, new RenderProjectile());
-
+        RenderingRegistry.registerEntityRenderingHandler(EntityTwilightDemonShot.class, new RenderSpecialProjectile(x.twilightDemonShot));
+        
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.edenCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.edenTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityBunny.class, new RenderBunny(new ModelBunny(), 0.0F));

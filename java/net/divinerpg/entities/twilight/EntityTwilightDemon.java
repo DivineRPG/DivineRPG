@@ -1,24 +1,25 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.twilight.projectile.EntityTwilightDemonShot;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class EntityTwilightDemon extends EntityDivineRPGBoss {
+	
+	int shooting;
 
 	public EntityTwilightDemon(World var1) {
 		super(var1);
 		this.setSize(2.0F, 4.0F);
-		addAttackingAI();
+        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 40.0F, 50));
 	}
 
 	@Override
@@ -36,18 +37,6 @@ public class EntityTwilightDemon extends EntityDivineRPGBoss {
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity var1) {
-		if(super.attackEntityAsMob(var1)) {
-			if(var1 instanceof EntityLivingBase) {
-				((EntityLivingBase)var1).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20, 50));
-			}
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
 	protected String getLivingSound() {
 		return Sounds.getSoundName(Sounds.insect);
 	}
@@ -55,6 +44,31 @@ public class EntityTwilightDemon extends EntityDivineRPGBoss {
 	@Override
 	protected String getHurtSound() {
 		return getLivingSound();
+	}
+	
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		if(this.ticksExisted%160==0) this.shooting=100;
+		this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, 40D);
+		if(this.entityToAttack != null && !this.worldObj.isRemote && this.shooting>0) {
+			double tx = this.entityToAttack.posX - this.posX;
+	        double ty = this.entityToAttack.boundingBox.minY - this.posY-2;
+	        double tz = this.entityToAttack.posZ - this.posZ;
+			double angle = Math.atan(-(tx)/(tz));
+			EntityTwilightDemonShot e = new EntityTwilightDemonShot(this.worldObj, this);
+			e.posZ += Math.sin(angle);
+			e.posX += Math.cos(angle);
+			e.setThrowableHeading(tx-Math.cos(angle), ty, tz-Math.sin(angle), 1.6f, 0);
+			this.worldObj.spawnEntityInWorld(e);
+			
+			EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(this.worldObj, this);
+			e1.posZ -= Math.sin(angle);
+			e1.posX -= Math.cos(angle);
+			e1.setThrowableHeading(tx+Math.cos(angle), ty, tz+Math.sin(angle), 1.6f, 0);
+			this.worldObj.spawnEntityInWorld(e1);
+		}
+		if(this.shooting>0)this.shooting--;
 	}
 
 	@Override
