@@ -16,8 +16,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemModSeeds extends ItemSeeds {
 	
+	public Block crop;
+	
 	public ItemModSeeds(String name, Block block) {
 		super(block, Blocks.farmland);
+		this.crop=block;
 		setUnlocalizedName(name);
 		setTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.utility);
@@ -27,6 +30,7 @@ public class ItemModSeeds extends ItemSeeds {
 	
 	public ItemModSeeds(String name, Block block, Block placeOn) {
 		super(block, placeOn);
+		this.crop=block;
 		setUnlocalizedName(name);
 		setTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.utility);
