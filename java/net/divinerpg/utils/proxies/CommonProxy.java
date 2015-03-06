@@ -101,8 +101,8 @@ public class CommonProxy{
 		ItemsFood.init();
 		IceikaItems.init();
 		IceikaBlocks.init();
-		VetheaItems.init();
 		VetheaBlocks.init();
+		VetheaItems.init();
 		VanillaBlocks.init();
 		TwilightItemsOther.init();
 		TwilightBlocks.init();

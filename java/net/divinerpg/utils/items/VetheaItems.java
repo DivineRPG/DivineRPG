@@ -3,6 +3,7 @@ package net.divinerpg.utils.items;
 import net.divinerpg.items.base.ItemDivineArmor;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModBow;
+import net.divinerpg.items.base.ItemModDoor;
 import net.divinerpg.items.vethea.ItemDisk;
 import net.divinerpg.items.vethea.ItemDreamFlint;
 import net.divinerpg.items.vethea.ItemMoonClock;
@@ -16,6 +17,7 @@ import net.divinerpg.items.vethea.ItemVetheanHealingFood;
 import net.divinerpg.items.vethea.ItemVetheanSword;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -29,6 +31,8 @@ public class VetheaItems {
 	public static Item cleanPearls;
 	public static Item polishedPearls;
 	public static Item shinyPearls;
+	
+	public static Item barredDoor;
 
 	public static Item teakerLump;
 	public static Item amthirmisLump;
@@ -191,6 +195,8 @@ public class VetheaItems {
 	    cleanPearls        = new ItemMod("cleanPearls").setCreativeTab(DivineRPGTabs.vethea);
 	    polishedPearls     = new ItemMod("polishedPearls").setCreativeTab(DivineRPGTabs.vethea);
 	    shinyPearls        = new ItemMod("shinyPearls").setCreativeTab(DivineRPGTabs.vethea);
+	    
+	    barredDoor		   = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor");
 
 	    teakerLump         = new ItemMod("teakerLump").setCreativeTab(DivineRPGTabs.vethea);
 	    amthirmisLump      = new ItemMod("amthirmisLump").setCreativeTab(DivineRPGTabs.vethea);

@@ -53,6 +53,7 @@ public class EntityHungerHungry extends EntityDivineRPGVillager {
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.dreamMelon, 4, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.dreamPie, 5, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 10, 0), new ItemStack(VetheaItems.dreamCake, 8, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.barredDoor, 1, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.diskTemplate, 1, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.cannonTemplate, 1, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.backswordTemplate, 1, 0)));

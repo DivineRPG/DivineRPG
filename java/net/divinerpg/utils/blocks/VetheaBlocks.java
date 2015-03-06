@@ -26,7 +26,7 @@ import net.minecraft.block.material.Material;
 public class VetheaBlocks {
 
 	public static Block vetheaPortal;
-	
+		
 	public static Block dreamwreckerSpawner;
 	public static Block vermenousSpawner;
 	public static Block twinsSpawner;
@@ -138,7 +138,7 @@ public class VetheaBlocks {
         smoothGlass            = new BlockModGlass("smoothGlass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         villageLamp            = new BlockMod(EnumBlockType.GLASS, "villageLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
         cellLamp               = new BlockMod(EnumBlockType.GLASS, "cellLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
-        barredDoor             = new BlockModDoor(EnumBlockType.IRON, "barredDoorBlock", 3.0F, true);
+        barredDoor             = new BlockModDoor(EnumBlockType.IRON, "barredDoorBlock", 0.5F, true);
         firelight              = new BlockMod(EnumBlockType.GLASS, "firelight", 1.0F, DivineRPGTabs.vethea).setLightLevel(1).setResistance(1);
         hyrewood               = new BlockModLog("hyreWoodLog").setCreativeTab(DivineRPGTabs.vethea);
         mintwoodLeaves         = new BlockModLeaves("mintwoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
