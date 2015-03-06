@@ -65,7 +65,7 @@ public class EntityStats {
 	public static double skythernFiendHealth 	= 80.0D, skythernFiendDamage = 20.0D, skythernFiendSpeed = normalSpeed, skythernFiendFollowRange = follow;
 	public static double skythernGolemHealth 	= 300.0D, skythernGolemDamage = 18.0D, skythernGolemSpeed = normalSpeed, skythernGolemFollowRange = follow;
 	public static double verekHealth 			= 50.0D, verekDamage = 12.0D, verekSpeed = normalSpeed, verekFollowRange = follow;
-	public static double soulFiendHealth 		= 1100.0D, soulFiendDamage = 28.0D, soulFiendSpeed = normalSpeed, soulFiendFollowRange = follow;
+	public static double soulFiendHealth 		= 1100.0D, soulFiendDamage = 24.0D, soulFiendSpeed = normalSpeed, soulFiendFollowRange = follow;
 	public static double soulStealerHealth 		= 140.0D, soulStealerDamage = 20.0D, soulStealerSpeed = normalSpeed, soulStealerFollowRange = follow;
 	public static double twilightDemonHealth 	= 1600.0D, twilightDemonDamage = 30.0D, twilightDemonSpeed = normalSpeed, twilightDemonFollowRange = follow;
 	public static double vamacheronHealth 		= 1350.0D, vamacheronDamage = 34.0D, vamacheronSpeed = normalSpeed*1.5, vamacheronFollowRange = follow;
@@ -76,6 +76,7 @@ public class EntityStats {
 	public static double edenCoriHealth 		= 10.0D, edenCoriDamage = 30.0D, edenCoriSpeed = normalSpeed, edenCoriFollowRange = follow;
 	public static double skythernCoriHealth 	= 35.0D, skythernCoriDamage = 100.0D, skythernCoriSpeed = normalSpeed, skythernCoriFollowRange = follow;
 	public static double reyvorHealth 			= 1000.0D, reyvorDamage = 20.0D, reyvorSpeed = normalSpeed, reyvorFollowRange = follow;
+	public static double soulSpiderHealth 		= 35.0D, soulSpiderDamage = 12.0D, soulSpiderSpeed = normalSpeed, soulSpiderFollowRange = follow;
 	
 	//Overworld
 	public static double ancientEntityHealth 	= 800.0D, ancientEntityDamage = 12.0D, ancientEntitySpeed = normalSpeed, ancientEntityFollowRange = follow;

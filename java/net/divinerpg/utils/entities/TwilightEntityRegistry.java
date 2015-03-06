@@ -28,6 +28,7 @@ import net.divinerpg.entities.twilight.EntitySkythernCori;
 import net.divinerpg.entities.twilight.EntitySkythernFiend;
 import net.divinerpg.entities.twilight.EntitySkythernGolem;
 import net.divinerpg.entities.twilight.EntitySoulFiend;
+import net.divinerpg.entities.twilight.EntitySoulSpider;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
 import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
@@ -37,6 +38,7 @@ import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.EntityWildwoodGolem;
 import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
+import net.divinerpg.entities.twilight.projectile.EntitySoulFiendProjectile;
 import net.divinerpg.entities.twilight.projectile.EntityTwilightDemonShot;
 import net.divinerpg.utils.Util;
 
@@ -46,6 +48,7 @@ public class TwilightEntityRegistry {
         Util.registerProjectile(EntityCoriShot.class, "WeakCoriShot");
         Util.registerProjectile(EntityParticleBullet.class, "ParticleBullet");
         Util.registerProjectile(EntityTwilightDemonShot.class, "TwilightDemonShot");
+        Util.registerProjectile(EntitySoulFiendProjectile.class, "SoulFiendShot");
         
         Util.registerDivineRPGMob(EntityEdenCadillion.class, "EdenCadillion");
         Util.registerDivineRPGMob(EntityEdenTomo.class, "EdenTomo");
@@ -82,5 +85,6 @@ public class TwilightEntityRegistry {
         Util.registerDivineRPGMob(EntityVamacheron.class, "Vamacheron");
         Util.registerDivineRPGMob(EntityKarot.class, "Karot");
         Util.registerDivineRPGMob(EntityEternalArcher.class, "EternalArcher");
+        Util.registerDivineRPGMob(EntitySoulSpider.class, "SoulSpider");
 	}
 }

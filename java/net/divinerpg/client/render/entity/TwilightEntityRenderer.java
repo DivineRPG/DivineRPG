@@ -30,6 +30,7 @@ import net.divinerpg.client.render.entity.twilight.model.ModelMoonWolf;
 import net.divinerpg.client.render.entity.twilight.model.ModelSamek;
 import net.divinerpg.client.render.entity.twilight.model.ModelSkythernFiend;
 import net.divinerpg.client.render.entity.twilight.model.ModelSoulFiend;
+import net.divinerpg.client.render.entity.twilight.model.ModelSoulSpider;
 import net.divinerpg.client.render.entity.twilight.model.ModelSoulStealer;
 import net.divinerpg.client.render.entity.twilight.model.ModelTomo;
 import net.divinerpg.client.render.entity.twilight.model.ModelTwilightArcher;
@@ -67,6 +68,7 @@ import net.divinerpg.entities.twilight.EntitySkythernCori;
 import net.divinerpg.entities.twilight.EntitySkythernFiend;
 import net.divinerpg.entities.twilight.EntitySkythernGolem;
 import net.divinerpg.entities.twilight.EntitySoulFiend;
+import net.divinerpg.entities.twilight.EntitySoulSpider;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
 import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityTwilightDemon;
@@ -76,6 +78,7 @@ import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
 import net.divinerpg.entities.twilight.EntityWildwoodGolem;
 import net.divinerpg.entities.twilight.EntityWildwoodTomo;
 import net.divinerpg.entities.twilight.projectile.EntityCoriShot;
+import net.divinerpg.entities.twilight.projectile.EntitySoulFiendProjectile;
 import net.divinerpg.entities.twilight.projectile.EntityTwilightDemonShot;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
@@ -92,6 +95,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityCoriShot.class, new RenderSpecialProjectile(x.coriShot));
         RenderingRegistry.registerEntityRenderingHandler(EntityParticleBullet.class, new RenderProjectile());
         RenderingRegistry.registerEntityRenderingHandler(EntityTwilightDemonShot.class, new RenderSpecialProjectile(x.twilightDemonShot));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySoulFiendProjectile.class, new RenderSpecialProjectile(x.blank));
         
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.edenCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.edenTomo));
@@ -121,6 +125,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityMortumDemon.class, new RenderDivineMob(new ModelDenseDemon(), 0.0F, x.mortumDemon));
         RenderingRegistry.registerEntityRenderingHandler(EntityBaslisk.class, new RenderDivineMob(new ModelBasalisk(), 0.0F, x.basalisk));
         RenderingRegistry.registerEntityRenderingHandler(EntitySoulStealer.class, new RenderDivineMob(new ModelSoulStealer(), 0.0F, x.soulStealer));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySoulSpider.class, new RenderDivineMob(new ModelSoulSpider(), 0.0F, x.soulSpider));
         
         RenderingRegistry.registerEntityRenderingHandler(EntityDensos.class, new RenderDAR(new ModelDensos(), 0.0F, x.densos, s.densosBossID));
         RenderingRegistry.registerEntityRenderingHandler(EntityReyvor.class, new RenderDAR(new ModelDensos(), 0.0F, x.reyvor, s.reyvorBossID));

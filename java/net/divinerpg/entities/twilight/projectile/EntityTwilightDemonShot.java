@@ -36,6 +36,7 @@ public class EntityTwilightDemonShot extends EntityParticleBullet {
 	
 	@Override
 	public void onImpact(MovingObjectPosition pos) {
+		super.onImpact(pos);
 		if(pos.entityHit != null && pos.entityHit instanceof EntityPlayer) ((EntityPlayer)pos.entityHit).addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0, true));
 	}
 }

@@ -107,6 +107,7 @@ public class EntityResourceLocation {
     public static ResourceLocation bunny			 = addMob("bunny");
     public static ResourceLocation bunnyTamed		 = addMob("bunnyTamed");
     public static ResourceLocation soulFiend		 = addMob("soulFiend");
+    public static ResourceLocation soulSpider		 = addMob("soulSpider");
     public static ResourceLocation twilightDemon	 = addMob("twilightDemon");
     public static ResourceLocation vamacheron		 = addMob("vamacheron");
     public static ResourceLocation edenTomo			 = addMob("edenTomo");
