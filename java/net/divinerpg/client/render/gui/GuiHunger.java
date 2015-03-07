@@ -13,6 +13,6 @@ public class GuiHunger extends GuiDivineMerchent{
 	@Override
 	protected void drawGuiContainerForegroundLayer(int var1, int var2) {
 		this.fontRendererObj.drawString(name, 56, 6, 16733279);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 16733279);
 	}
 }

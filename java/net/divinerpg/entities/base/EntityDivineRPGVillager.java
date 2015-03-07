@@ -5,7 +5,7 @@ import java.util.Iterator;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
-import net.divinerpg.entities.vethea.EntityHungerHungry;
+import net.divinerpg.entities.vethea.EntityTheHunger;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.IMerchant;
@@ -124,7 +124,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 						}
 					}
 
-					this.addDefaultEquipmentAndRecipies(30);
+					this.addDefaultEquipmentAndRecipies(75);
 					this.needsInitilization = false;
 
 					if(this.villageObj != null && this.lastBuyingPlayer != null) {
@@ -173,7 +173,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 
 		if(var1.hasKey("Offers")) {
 			NBTTagCompound var2 = var1.getCompoundTag("Offers");
-			if(this instanceof EntityHungerHungry || this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant) this.buyingList = new InfiniteTradeList(var2);
+			if(this instanceof EntityTheHunger || this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant) this.buyingList = new InfiniteTradeList(var2);
 			else this.buyingList = new MerchantRecipeList(var2);
 		}
 	}
@@ -203,7 +203,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 	@Override
 	public MerchantRecipeList getRecipes(EntityPlayer var1) {
 		if(this.buyingList == null) {
-			this.addDefaultEquipmentAndRecipies(30);
+			this.addDefaultEquipmentAndRecipies(75);
 		}
 		return this.buyingList;
 	}

@@ -66,7 +66,7 @@ import net.divinerpg.entities.vethea.EntityHerbomancer;
 import net.divinerpg.entities.vethea.EntityHiveQueen;
 import net.divinerpg.entities.vethea.EntityHiveSoldier;
 import net.divinerpg.entities.vethea.EntityHoverStinger;
-import net.divinerpg.entities.vethea.EntityHungerHungry;
+import net.divinerpg.entities.vethea.EntityTheHunger;
 import net.divinerpg.entities.vethea.EntityHusk;
 import net.divinerpg.entities.vethea.EntityKaros;
 import net.divinerpg.entities.vethea.EntityKazrotic;
@@ -175,7 +175,7 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityLorgaFlight.class, new RenderDivineMob(new Lorgaflight(), 0.0F, x.LORGA_FLIGHT));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMandragora.class, new RenderDivineMob(new Mandragora(), 0.0F, x.MANDRAGORA));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTocaxin.class, new RenderDivineMob(new Tocaxin(), 0.0F, x.TOCAXIN));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHungerHungry.class, new RenderDivineMob(new ModelHungerHungry(), 0.0F, x.HUNGER_HUNGRY));
+		RenderingRegistry.registerEntityRenderingHandler(EntityTheHunger.class, new RenderDivineMob(new ModelHungerHungry(), 0.0F, x.HUNGER_HUNGRY));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityHiveQueen.class, new RenderDivineBoss(new HiveQueen(), 0.0F, x.HIVE_QUEEN, s.hiveQueenBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRaglok.class, new RenderDivineBoss(new RaglokGogdure(), 0.0F, x.RAGLOK, s.raglokBossID));

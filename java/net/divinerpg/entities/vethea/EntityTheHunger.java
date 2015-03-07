@@ -13,9 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityHungerHungry extends EntityDivineRPGVillager {
+public class EntityTheHunger extends EntityDivineRPGVillager {
 
-	public EntityHungerHungry(World var1) {
+	public EntityTheHunger(World var1) {
 		super(var1);
 	}
 

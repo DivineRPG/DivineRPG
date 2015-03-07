@@ -17,7 +17,7 @@ import net.divinerpg.entities.vethea.EntityHelio;
 import net.divinerpg.entities.vethea.EntityHiveQueen;
 import net.divinerpg.entities.vethea.EntityHiveSoldier;
 import net.divinerpg.entities.vethea.EntityHoverStinger;
-import net.divinerpg.entities.vethea.EntityHungerHungry;
+import net.divinerpg.entities.vethea.EntityTheHunger;
 import net.divinerpg.entities.vethea.EntityHusk;
 import net.divinerpg.entities.vethea.EntityKaros;
 import net.divinerpg.entities.vethea.EntityKazrotic;
@@ -124,7 +124,7 @@ public class VetheaEntityRegistry {
         Util.registerDivineRPGMob(EntityMysteriousManLayer1.class, "MysteriousMan1");
         Util.registerDivineRPGMob(EntityMysteriousManLayer2.class, "MysteriousMan2");
         Util.registerDivineRPGMob(EntityMysteriousManLayer3.class, "MysteriousMan3");
-        Util.registerDivineRPGMob(EntityHungerHungry.class, "HungerHungry");
+        Util.registerDivineRPGMob(EntityTheHunger.class, "TheHunger");
         Util.registerDivineRPGMob(EntityCryptKeeper.class, "CryptKeeper");
         Util.registerDivineRPGMob(EntityTempleGuardian.class, "TempleGuardian");
         Util.registerDivineRPGMob(EntityEhu.class, "Ehu");
