@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.material.Material;
@@ -52,7 +53,7 @@ public class BlockHeatTrap extends BlockMod {
         }
 
         if(this == ArcanaBlocks.heatTrapOn && var5 instanceof EntityPlayerMP) {
-            var5.attackEntityFrom(DamageSource.onFire, 16);
+            var5.attackEntityFrom(Util.trapSource, 16);
             var5.setFire(15);
             ((EntityPlayerMP)var5).addStat(DivineRPGAchievements.hoterThanHell, 1);
         }

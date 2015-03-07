@@ -9,6 +9,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityDissiment extends EntityDivineRPGFlying {
@@ -49,34 +50,11 @@ public class EntityDissiment extends EntityDivineRPGFlying {
     
     @Override
     public void onLivingUpdate() {
+    	if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+            this.setDead();
+        }
     	if(!this.worldObj.isRemote) {
-        this.despawnEntity();
         this.prevAttackCounter = this.attackCounter;
-        double var1 = this.waypointX - this.posX;
-        double var3 = this.waypointY - this.posY;
-        double var5 = this.waypointZ - this.posZ;
-        double var7 = var1 * var1 + var3 * var3 + var5 * var5;
-
-        if (var7 < 1.0D || var7 > 3600.0D) {
-            this.waypointX = this.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-            this.waypointY = this.posY + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-            this.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-        }
-
-        if (this.courseChangeCooldown-- <= 0) {
-            this.courseChangeCooldown += this.rand.nextInt(5) + 2;
-            var7 = MathHelper.sqrt_double(var7);
-
-            if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, var7)) {
-                this.motionX += var1 / var7 * 0.1D;
-                this.motionY += var3 / var7 * 0.1D;
-                this.motionZ += var5 / var7 * 0.1D;
-            } else {
-                this.waypointX = this.posX;
-                this.waypointY = this.posY;
-                this.waypointZ = this.posZ;
-            }
-        }
                 
         if (this.targetedEntity != null && this.targetedEntity.isDead) {
             this.targetedEntity = null;
@@ -99,8 +77,6 @@ public class EntityDissiment extends EntityDivineRPGFlying {
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(var11, var15)) * 180.0F / (float)Math.PI;
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
-            	System.out.println(this.attackCounter);
-
                 if (this.attackCounter == 0) {
                     EntityDissimentShot var17 = new EntityDissimentShot(this.worldObj, this);
                     double var18 = 4.0D;
@@ -121,10 +97,6 @@ public class EntityDissiment extends EntityDivineRPGFlying {
             if (this.attackCounter > 0) {
                 --this.attackCounter;
             }
-        }
-
-        if (!this.worldObj.isRemote) {
-            byte var12 = (byte)(this.attackCounter > 10 ? 1 : 0);
         }
     	}
         super.onLivingUpdate();

@@ -179,6 +179,10 @@ public class Util {
         return new EntityDamageSourceIndirect("arrow", projectile, shooter).setMagicDamage();
     }
     
+    public static DamageSource acidSource = new DamageSource("acid");
+    public static DamageSource trapSource = new DamageSource("trap");
+    public static DamageSource arcanaSource = new DamageSource("arcana");
+    
     public static ChunkCoordinates getPlayerSpawnChunk(EntityPlayer player) {
     	String[] spawnChunkNames = new String[] { "c", "field_71077_c", "spawnChunk" };
     	ChunkCoordinates coords = (ChunkCoordinates)ObfuscationReflectionHelper.getPrivateValue(EntityPlayer.class, player, spawnChunkNames);

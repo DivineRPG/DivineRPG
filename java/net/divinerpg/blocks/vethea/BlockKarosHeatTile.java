@@ -3,6 +3,7 @@ package net.divinerpg.blocks.vethea;
 import java.util.Random;
 
 import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
@@ -29,7 +30,7 @@ public class BlockKarosHeatTile extends BlockMod {
     public void onEntityCollidedWithBlock(World w, int x, int y, int z, Entity entity) {
     	if(entity instanceof EntityPlayer && !((EntityPlayer)entity).capabilities.isCreativeMode) {
     		entity.setFire(5);
-    		entity.attackEntityFrom(DamageSource.onFire, 6);
+    		entity.attackEntityFrom(Util.trapSource, 6);
     	}
     }
     

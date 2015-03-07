@@ -103,7 +103,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 					break;
 				case 1:
 					this.setAbility(CHARGE);
-					this.setAIMoveSpeed((float)EntityStats.wreckSpeedFast);
+					this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckSpeedFast);
 					break;
 				default: 
 					break;
@@ -146,7 +146,10 @@ public class EntityWreck extends EntityDivineRPGBoss {
 			this.message();
 		}
 		
-		if(this.getAbility() == CHARGE && this.abilityTimer == 0) this.setAbility(DEFAULT);
+		if(this.getAbility() == CHARGE && this.abilityTimer == 0) {
+			this.setAbility(DEFAULT);
+			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckSpeed);
+		}
 
 		if(this.getAbility() == FIRE) {
 			if (player != null) {
@@ -250,7 +253,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 			if (this.getAbility() == PULL) {
 				this.setAbility(CHARGE);
 				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
-				this.setAIMoveSpeed((float) this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue());
+				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.wreckSpeedFast);
 				knockback = 2;
 			}
 			if (knockback > 0) {

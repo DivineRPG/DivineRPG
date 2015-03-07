@@ -20,6 +20,7 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
     public EntityFyracryx(World par1World, EntityPlayer par2EntityPlayer) {
         this(par1World);
         this.setTamed(true);
+        this.isImmuneToFire=true;
         this.func_152115_b(par2EntityPlayer.getUniqueID().toString()); //setOwner
     }
 

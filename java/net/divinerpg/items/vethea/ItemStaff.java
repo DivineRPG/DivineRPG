@@ -50,7 +50,7 @@ public class ItemStaff extends ItemMod {
 	public ItemStack onItemRightClick(ItemStack par1, World par2, EntityPlayer par3) {
 		if (!par2.isRemote && ArcanaHelper.getProperties(par3).useBar(this.cost)) {		
 			if(par1.getItem() == VetheaItems.evernight){
-				par3.attackEntityFrom(new EntityDamageSourceIndirect("arcana", par3, par3).setMagicDamage(), 20);
+				par3.attackEntityFrom(Util.arcanaSource, 20);
 				par2.spawnEntityInWorld(new EntityEvernightProjectile(par2, par3, this.damage));
 			} else {
 				par2.spawnEntityInWorld(new EntityBouncingProjectile(par2, par3, this.damage));

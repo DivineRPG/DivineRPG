@@ -3,6 +3,7 @@ package net.divinerpg.blocks.vethea;
 import java.util.Random;
 
 import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -100,7 +101,7 @@ public class BlockAcid extends BlockMod {
     @Override
     public void onEntityCollidedWithBlock(World w, int x, int y, int z, Entity e) {
         if(e instanceof EntityPlayer) {
-        	e.attackEntityFrom(DamageSource.cactus, 3);
+        	e.attackEntityFrom(Util.acidSource, 3);
         	if(poison)((EntityPlayer)e).addPotionEffect(new PotionEffect(Potion.poison.id, 150, 1, true));
         }
         

@@ -89,6 +89,12 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.skyHigh=Sky High");
         instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp=One Lamp Two Lamp Red Lamp Blue Lamp");
     }
+    
+    public static void addDeaths() {
+        instance.addToFile("death.attack.arcana=%1$s was killed by magic");
+        instance.addToFile("death.attack.trap=%1$s fell into a trap");
+        instance.addToFile("death.attack.acid=%1$s melted in acid");
+    }
 
     public static void addMob(String name) {
         mobs.add(name);
@@ -121,6 +127,7 @@ public class LangRegistry extends RegistryFile {
         addKeyItemNames();
         addMobNames();
         addAchievements();
+        addDeaths();
         instance.write();
     }
 

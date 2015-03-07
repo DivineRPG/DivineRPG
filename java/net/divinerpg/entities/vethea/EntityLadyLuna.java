@@ -157,13 +157,13 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        switch(this.rand.nextInt(5)) {
+        switch(this.rand.nextInt(6)) {
             case 0:
                 this.dropItem(VetheaItems.everbright, 1);
-                this.dropItem(VetheaItems.everArrow, 128);
                 break;
             case 1:
                 this.dropItem(VetheaItems.everfright, 1);
+                this.dropItem(VetheaItems.everArrow, 128);
                 break;
             case 2:
                 this.dropItem(VetheaItems.evernight, 1);
@@ -173,6 +173,9 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
                 break;
             case 4:
                 this.dropItem(VetheaItems.evernight, 1);
+                break;
+            case 5:
+                this.dropItem(VetheaItems.eversight, 1);
                 break;
         }
     }

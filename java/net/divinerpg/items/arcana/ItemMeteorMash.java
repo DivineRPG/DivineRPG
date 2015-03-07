@@ -8,6 +8,7 @@ import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.events.ArcanaHelper;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
@@ -19,7 +20,7 @@ import net.minecraft.world.World;
 public class ItemMeteorMash extends ItemMod {
 
     public ItemMeteorMash() {
-        super("meteorMash");
+        super("meteorMash", DivineRPGTabs.ranged);
         setMaxStackSize(1);
         this.setFull3D();
         ItemStaff.staffList.add(this);

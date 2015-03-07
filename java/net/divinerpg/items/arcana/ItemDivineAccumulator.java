@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.events.ArcanaHelper;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -12,7 +13,7 @@ import net.minecraft.world.World;
 public class ItemDivineAccumulator extends ItemMod {
 
 	public ItemDivineAccumulator() {
-		super("divineAccumulator");
+		super("divineAccumulator", DivineRPGTabs.utility);
 		setMaxStackSize(1);
 		this.setFull3D();
 	}
