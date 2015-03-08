@@ -435,19 +435,19 @@ public class VanillaRecipeHelper extends RecipeUtil {
 
         addRecipe(VanillaItemsOther.teleportationCrystal, "EEE", "EDE", "EEE", 'E', Items.ender_pearl, 'D', Items.diamond);	
         
-        addRecipe(VanillaBlocks.hellspiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.moltenShards, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.frostPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceStone, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.jungleSpiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.jungleShards, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.blazePumpkin, "MMM", "MPM", "MMM", 'M', Items.blaze_rod, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.enderWatcherPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.enderShard, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.glaconPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceShards, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.zombiePumpkin, "MMM", "MPM", "MMM", 'M', Items.rotten_flesh, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.creeperPumpkin, "MMM", "MPM", "MMM", 'M', Items.gunpowder, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.cyclopsPumpkin, "MMM", "MPM", "MMM", 'M', Items.gold_ingot, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.enderPumpkin, "MMM", "MPM", "MMM", 'M', Items.ender_pearl, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.ghastPumpkin, "MMM", "MPM", "MMM", 'M', Items.ghast_tear, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.skeletonPumpkin, "MMM", "MPM", "MMM", 'M', Items.bone, 'D', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.spiderPumpkin, "MMM", "MPM", "MMM", 'M', Items.string, 'D', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.hellspiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.moltenShards, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.frostPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceStone, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.jungleSpiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.jungleShards, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.blazePumpkin, "MMM", "MPM", "MMM", 'M', Items.blaze_rod, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.enderWatcherPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.enderShard, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.glaconPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceShards, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.zombiePumpkin, "MMM", "MPM", "MMM", 'M', Items.rotten_flesh, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.creeperPumpkin, "MMM", "MPM", "MMM", 'M', Items.gunpowder, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.cyclopsPumpkin, "MMM", "MPM", "MMM", 'M', Items.gold_ingot, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.enderPumpkin, "MMM", "MPM", "MMM", 'M', Items.ender_pearl, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.ghastPumpkin, "MMM", "MPM", "MMM", 'M', Items.ghast_tear, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.skeletonPumpkin, "MMM", "MPM", "MMM", 'M', Items.bone, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.spiderPumpkin, "MMM", "MPM", "MMM", 'M', Items.string, 'P', Blocks.pumpkin);
         
         addShapelessRecipe(new ItemStack(VanillaBlocks.rainbowWool, 4), new ItemStack(Blocks.wool, 1, 1), new ItemStack(Blocks.wool, 1, 14), new ItemStack(Blocks.wool, 1, 4), new ItemStack(Blocks.wool, 1, 5), new ItemStack(Blocks.wool, 1, 9), new ItemStack(Blocks.wool, 1, 11), new ItemStack(Blocks.wool, 1, 10));
         addRecipe(new ItemStack(VanillaBlocks.checker, 3), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.wool, 1, 0), 'y', new ItemStack(Blocks.wool, 1, 15));
