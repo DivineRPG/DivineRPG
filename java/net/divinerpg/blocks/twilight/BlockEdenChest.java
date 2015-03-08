@@ -31,6 +31,8 @@ public class BlockEdenChest extends BlockContainer {
 		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
+		setHardness(15);
+		setResistance(1000000);
 	}
 
 	@Override

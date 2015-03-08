@@ -27,6 +27,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 		super(name);
 		setCreativeTab(DivineRPGTabs.utility);
 		setMaxDurability(100);
+		setMaxStackSize(1);
 	}
 
 	@Override

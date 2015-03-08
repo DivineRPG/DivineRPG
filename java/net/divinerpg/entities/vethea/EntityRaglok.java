@@ -135,8 +135,6 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 				ability = DEFAULT;
 			}
 		}
-		ability = BOMBS;
-
 	}
 
 	private void message() {

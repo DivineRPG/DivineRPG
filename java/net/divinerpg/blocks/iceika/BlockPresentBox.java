@@ -25,7 +25,7 @@ public class BlockPresentBox extends BlockContainer {
 	private Random rand = new Random();
 
 	public BlockPresentBox() {
-		super(Material.rock);
+		super(Material.wood);
 		String name = "presentBox";
 		setCreativeTab(DivineRPGTabs.blocks);
 		setStepSound(soundTypePiston);
@@ -33,6 +33,8 @@ public class BlockPresentBox extends BlockContainer {
 		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
+		setHardness(2);
+		setResistance(1000000);
 	}
 
 	@Override
