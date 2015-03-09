@@ -296,12 +296,12 @@ public class VetheaItems {
 	    everlight          = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
 	    everbright         = new ItemVetheanClaw(42, "everbright");
 	    everArrow          = new ItemMod("everArrow").setCreativeTab(DivineRPGTabs.vethea);
-	    everfright		    = new ItemModBow("everfright", -1, 25, 46, everArrow).setVethean();
+	    everfright		   = new ItemModBow("everfright", -1, 25, 46, everArrow).setVethean();
 	    evernight          = new ItemStaff(115, 80, "evernight");
 
 	    teakerArrow        = new ItemMod("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
-	    darvenArrow    	= new ItemMod("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
-	    pardimalArrow  	= new ItemMod("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);
+	    darvenArrow    	   = new ItemMod("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
+	    pardimalArrow  	   = new ItemMod("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    karosArrow         = new ItemMod("karosArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    
 	    teakerBow        = new ItemModBow("teakerBow", -1, 2, 5, teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();

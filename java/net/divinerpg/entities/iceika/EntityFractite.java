@@ -16,6 +16,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityFractite extends EntityDivineRPGFlying {
@@ -50,6 +51,10 @@ public class EntityFractite extends EntityDivineRPGFlying {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
+		if(!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
+            this.setDead();
+        }
+		
 		this.prevAttackCounter = this.attackCounter;
 		double var1 = this.waypointX - this.posX;
 		double var3 = this.waypointY - this.posY;
