@@ -70,10 +70,10 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 				EntityPlayer p = (EntityPlayer)d.getEntity();
 				String name = mobName() != null ? mobName() : "null";
 				if(!(d.getEntity() instanceof EntityDivineRPGBoss))
-				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name + ".");
+				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name);
 
 				if(d.getEntity() instanceof EntityTwins){
-					Util.sendMessageToAll(p.getDisplayName() + " has slain the " + name + ".");
+					Util.sendMessageToAll(p.getDisplayName() + " has slain the " + name);
 				}
 			}
 		}

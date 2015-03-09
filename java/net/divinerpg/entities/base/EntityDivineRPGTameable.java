@@ -92,7 +92,7 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 			if(d.getSourceOfDamage() != null && d.getSourceOfDamage() instanceof EntityPlayer){
 				String name = mobName() != null ? mobName() : "null";
 				EntityPlayer p = (EntityPlayer)d.getSourceOfDamage();
-				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name + ".");
+				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name);
 			}
 		}
 	}

@@ -104,7 +104,7 @@ public abstract class EntityDivineRPGFlying extends EntityFlying implements IMob
 			if(d.getSourceOfDamage() != null && d.getSourceOfDamage() instanceof EntityPlayer){
 				EntityPlayer p = (EntityPlayer)d.getSourceOfDamage();
 				String name = mobName() != null ? mobName() : "null";
-				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name + ".");
+				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name);
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 package net.divinerpg.utils.events;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.entities.base.EntityDivineRPGFlying;
 import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.entities.base.EntityDivineRPGTameable;
 import net.divinerpg.entities.base.EntityDivineRPGVillager;
@@ -22,8 +23,8 @@ public class EventDeath {
 			if(e.source.getSourceOfDamage() != null){	
 				if(e.source.getSourceOfDamage() instanceof EntityPlayer){
 					EntityPlayer p = (EntityPlayer)e.source.getSourceOfDamage();
-					if(e.entity instanceof EntityLiving && !(e.entity instanceof EntityDivineRPGMob) && !(e.entity instanceof EntityDivineRPGVillager) && !(e.entity instanceof EntityDivineRPGTameable)) {
-						Util.sendMessageToAll(p.getDisplayName() + " has slain an " + getEntityName(e.entityLiving));
+					if(e.entity instanceof EntityLiving && !(e.entity instanceof EntityDivineRPGMob) && !(e.entity instanceof EntityDivineRPGVillager) && !(e.entity instanceof EntityDivineRPGTameable) && !(e.entity instanceof EntityDivineRPGFlying)) {
+						Util.sendMessageToAll(p.getDisplayName() + " has slain a " + getEntityName(e.entityLiving));
 					}
 				}
 			}
