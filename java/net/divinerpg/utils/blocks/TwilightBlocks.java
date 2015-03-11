@@ -16,6 +16,7 @@ import net.divinerpg.blocks.twilight.BlockMoonbulb;
 import net.divinerpg.blocks.twilight.BlockPinkGlowbone;
 import net.divinerpg.blocks.twilight.BlockPurpleGlowbone;
 import net.divinerpg.blocks.twilight.BlockTwilightFlower;
+import net.divinerpg.blocks.twilight.BlockTwilightGrass;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;
@@ -144,20 +145,20 @@ public class TwilightBlocks {
 	    pinkGlowbone	  = new BlockPinkGlowbone();
         
         sunbloom		  = new BlockTwilightFlower("sunbloom", edenGrass);
-        edenBrush		  = new BlockTwilightFlower("edenBrush", edenGrass);
+        edenBrush		  = new BlockTwilightGrass("edenBrush", edenGrass);
         sunBlossom		  = new BlockTwilightFlower("sunBlossom", edenGrass);
         moonlightFern	  = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
         moonBud			  = new BlockTwilightFlower("moonBud", wildwoodGrass);
         wildwoodTallgrass = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
         duskFlower 		  = new BlockModDoublePlant("duskFlower", apalachiaGrass);
         duskBloom 		  = new BlockTwilightFlower("duskBloom", apalachiaGrass);
-        apalachiaTallgrass= new BlockTwilightFlower("apalachiaTallgrass", apalachiaGrass);
-        skythernBrush 	  = new BlockTwilightFlower("skythernBrush", skythernGrass);
+        apalachiaTallgrass= new BlockTwilightGrass("apalachiaTallgrass", apalachiaGrass);
+        skythernBrush 	  = new BlockTwilightGrass("skythernBrush", skythernGrass);
         dustLily 	  	  = new BlockTwilightFlower("dustLily", skythernGrass);
         dustBrambles	  = new BlockBrambles("dustBrambles", skythernGrass);
         demonBrambles	  = new BlockBrambles("demonBrambles", mortumGrass);
         eyePlant		  = new BlockTwilightFlower("eyePlant", mortumGrass);
-        mortumBrush		  = new BlockTwilightFlower("mortumBrush", mortumGrass);
+        mortumBrush		  = new BlockTwilightGrass("mortumBrush", mortumGrass);
     }
 
 }

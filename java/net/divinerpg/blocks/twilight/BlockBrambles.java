@@ -24,5 +24,4 @@ public class BlockBrambles extends BlockModDoublePlant {
 		super.harvestBlock(w, player, x, y, z, meta);
 		player.attackEntityFrom(DamageSource.cactus, 1);
     }
-
 }
