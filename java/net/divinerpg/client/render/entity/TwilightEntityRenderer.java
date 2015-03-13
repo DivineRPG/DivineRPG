@@ -100,7 +100,7 @@ public class TwilightEntityRenderer {
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenCadillion.class, new RenderDivineMob(new ModelCadillion(), 0.0F, x.edenCadillion));
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenTomo.class, new RenderDivineMob(new ModelTomo(), 0.0F, x.edenTomo));
         RenderingRegistry.registerEntityRenderingHandler(EntityBunny.class, new RenderBunny(new ModelBunny(), 0.0F));
-        RenderingRegistry.registerEntityRenderingHandler(EntityAngryBunny.class, new RenderBunny(new ModelAngryBunny(), 0.0F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityAngryBunny.class, new RenderDivineMob(new ModelAngryBunny(), 0.0F, 2f, x.angryBunny));
         RenderingRegistry.registerEntityRenderingHandler(EntityEdenCori.class, new RenderDivineMob(new ModelCori(), 0.0F, x.edenCori));
         RenderingRegistry.registerEntityRenderingHandler(EntityMadivel.class, new RenderDivineMob(new ModelMadivel(), 0.0F, x.madivel));
         RenderingRegistry.registerEntityRenderingHandler(EntityGreenfeet.class, new RenderDivineMob(new ModelGreenfeet(), 0.0F, x.greenfeet));

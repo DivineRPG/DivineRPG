@@ -1,29 +1,21 @@
 package net.divinerpg.entities.twilight;
 
-import net.divinerpg.entities.base.EntityDivineRPGTameable;
+import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.libs.Sounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityAngryBunny extends EntityBunny {
+public class EntityAngryBunny extends EntityDivineRPGMob {
 	
 	public EntityAngryBunny(World var1) {
 		super(var1);
 		this.setSize(1.5F, 2F);
 		this.experienceValue = 40;
-		addBasicAI();
 		addAttackingAI();
-	}
-	
-	public EntityAngryBunny(World var1, boolean tamed, String owner) {
-		this(var1);
-		this.setTamed(tamed);
-        this.func_152115_b(owner);
 	}
 
 	@Override
@@ -33,17 +25,6 @@ public class EntityAngryBunny extends EntityBunny {
 	    this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.angryBunnySpeed);
 	    this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.angryBunnyFollowRange);
 	}
-	
-	@Override
-	public void onLivingUpdate() {
-        super.onLivingUpdate();
-        if(!this.worldObj.isRemote && this.isTamed() && (this.getAttackTarget() == null || this.getAttackTarget().isDead)) {
-            EntityBunny var2 = new EntityBunny(this.worldObj, true, this.func_152113_b());
-            var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
-            this.worldObj.spawnEntityInWorld(var2);
-            this.setDead();
-        }
-    }
 	
 	@Override
 	public boolean attackEntityAsMob(Entity par1Entity) {
@@ -69,10 +50,5 @@ public class EntityAngryBunny extends EntityBunny {
 	@Override
 	public String mobName() {
 		return "Angry Bunny";
-	}
-
-	@Override
-	public EntityAgeable createChild(EntityAgeable var1) {
-		return null;
 	}
 }

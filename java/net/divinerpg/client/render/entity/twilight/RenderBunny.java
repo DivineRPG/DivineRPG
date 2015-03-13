@@ -22,26 +22,12 @@ public class RenderBunny extends RenderLiving {
 
 	public RenderBunny(ModelBase par1ModelBase, float shadowSize) {
 		super(par1ModelBase, shadowSize);
-		this.scale = 2.0F;
 	}
 
 	protected ResourceLocation texture(EntityBunny b) {
 		ResourceLocation tex = null;
-		if(b instanceof EntityAngryBunny)
-			tex = b.isTamed() ? angryBunnyTame : angryBunny;
-		else
-			tex = b.isTamed() ? bunnyTame : bunny;
+		tex = b.isTamed() ? bunnyTame : bunny;
 		return tex;
-	}
-
-	public void preRenderScale(EntityBunny var1, float var2) {
-		if(var1 instanceof EntityAngryBunny)
-			GL11.glScalef(this.scale, this.scale, this.scale);
-	}
-
-	@Override
-	protected void preRenderCallback(EntityLivingBase var1, float var2) {
-		this.preRenderScale((EntityBunny)var1, var2);
 	}
 
 	@Override

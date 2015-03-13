@@ -67,7 +67,7 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
+        if(!this.spawnsNaturally())this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
 	}
 	
 	protected void addAttackingAI(){
@@ -84,5 +84,9 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	@Override
 	public boolean getCanSpawnHere() {
 		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
+	}
+	
+	public boolean spawnsNaturally() {
+		return false;
 	}
 }

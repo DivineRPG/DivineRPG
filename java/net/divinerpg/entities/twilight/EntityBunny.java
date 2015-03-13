@@ -9,6 +9,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -22,12 +24,6 @@ public class EntityBunny extends EntityDivineRPGTameable {
 		super(var1);
 		this.setSize(0.5F, 0.5F);
 		this.experienceValue = 40;
-	}
-
-	public EntityBunny(World w, boolean tamed, String owner) {
-		this(w);
-		this.setTamed(tamed);
-		this.func_152115_b(owner);
 	}
 
 	@Override
@@ -46,7 +42,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	public void onDeath(DamageSource var1) {
 		super.onDeath(var1);
-		if(!this.worldObj.isRemote && !this.isTamed() && !(this instanceof EntityAngryBunny)) {
+		if(!this.worldObj.isRemote && !this.isTamed()) {
 			Entity var3 = var1.getEntity();
 			if(var3 instanceof EntityPlayer) {
 				((EntityPlayer)var3).addStat(DivineRPGAchievements.friendOrFoe, 1);
@@ -67,7 +63,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 
 	private void transform(boolean tamed, Entity var3)  {
 		if(!this.worldObj.isRemote) {
-			EntityAngryBunny var2 = new EntityAngryBunny(this.worldObj, tamed, this.func_152113_b());
+			EntityAngryBunny var2 = new EntityAngryBunny(this.worldObj);
 			var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
 			this.worldObj.spawnEntityInWorld(var2);
 			if(var3 instanceof EntityLiving) 
@@ -78,7 +74,6 @@ public class EntityBunny extends EntityDivineRPGTameable {
 
 	@Override
 	public boolean interact(EntityPlayer var1) {
-		if(!(this instanceof EntityAngryBunny)) {
 		ItemStack var2 = var1.inventory.getCurrentItem();
 
 		if(this.isTamed()) {
@@ -118,8 +113,9 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					this.setAttackTarget((EntityLiving)null);
 					this.aiSit.setSitting(true);
 					this.setHealth(20);
-					this.func_152115_b(var1.getDisplayName());
+					this.func_152115_b(var1.getUniqueID().toString());
 					this.playTameEffect(true);
+					this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
 					this.worldObj.setEntityState(this, (byte)7);
 				} else {
 					this.playTameEffect(false);
@@ -127,7 +123,6 @@ public class EntityBunny extends EntityDivineRPGTameable {
 				}
 			}
 			return true;
-		}
 		}
 		return super.interact(var1);
 	}
@@ -155,6 +150,11 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	public String mobName() {
 		return "Bunny";
+	}
+	
+	@Override
+	public boolean spawnsNaturally() {
+		return true;
 	}
 
 	@Override
