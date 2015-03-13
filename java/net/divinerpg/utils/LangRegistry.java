@@ -56,6 +56,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.allHellLoose.desc=Use a Storm Sword");
         instance.addToFile("achievement.skyHigh.desc=Jump on an Elevantium Block");
         instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp.desc=Craft an Eden Lamp");
+        instance.addToFile("achievement.sixInOne.desc=Spawn the Eternal Archer");
         
         instance.addToFile("achievement.divineIntervention=Divine Intervention");
         instance.addToFile("achievement.possibilities=Possibilities");
@@ -88,6 +89,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.allHellLoose=All Hell Loose");
         instance.addToFile("achievement.skyHigh=Sky High");
         instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp=One Lamp Two Lamp Red Lamp Blue Lamp");
+        instance.addToFile("achievement.sixInOne=Six in One, Half a Dozen in the Other");
     }
     
     public static void addDeaths() {

@@ -185,7 +185,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
-		this.dropItem(VetheaItems.rockChunks, par2);
+		this.dropItem(VetheaItems.rockChunks, this.rand.nextInt(3)+1);
 		this.dropItem(VetheaItems.karosLump, 20);
 	}
 

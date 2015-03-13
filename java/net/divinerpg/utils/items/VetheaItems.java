@@ -134,6 +134,8 @@ public class VetheaItems {
 	public static Item everArrow;
 	public static Item everfright;
 	public static Item evernight;
+	
+	public static Item karosRockmaul;
 
 	public static Item teakerArrow;
 	public static Item darvenArrow;
@@ -298,7 +300,9 @@ public class VetheaItems {
 	    everArrow          = new ItemMod("everArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    everfright		   = new ItemModBow("everfright", -1, 25, 46, everArrow).setVethean();
 	    evernight          = new ItemStaff(115, 80, "evernight");
-
+	    
+	    karosRockmaul      = new ItemVetheanSword("karosRockmaul", Util.addHammerMaterial(46));
+	    
 	    teakerArrow        = new ItemMod("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    darvenArrow    	   = new ItemMod("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
 	    pardimalArrow  	   = new ItemMod("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);

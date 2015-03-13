@@ -30,49 +30,62 @@ public class ItemTwilightSpawner extends ItemMod{
 		if (!world.isRemote) {
 			if(world.provider.dimensionId == ConfigurationHelper.mortum){
 					if(stack.getItem() == TwilightItemsOther.karotCrystal){
-						EntityKarot var5 = new EntityKarot(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						--stack.stackSize;
+						EntityKarot e = new EntityKarot(world);
+						e.setPosition(x, y+1, z);
+						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
+							world.spawnEntityInWorld(e);
+							--stack.stackSize;
+						}
 						return true;
 					}
 					if(stack.getItem() == TwilightItemsOther.densosCrystal || stack.getItem() == TwilightItemsOther.reyvorCrystal){
-						EntityDensos var5 = new EntityDensos(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						EntityReyvor var6 = new EntityReyvor(world);
-						var6.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var6);
-						--stack.stackSize;
-						player.triggerAchievement(DivineRPGAchievements.tenHeadsIsBetterThanOne);
+						EntityDensos e = new EntityDensos(world);
+						e.setPosition(x, y+1, z);
+						EntityReyvor e1 = new EntityReyvor(world);
+						e1.setPosition(x, y+1, z);
+						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty() && world.getCollidingBoundingBoxes(e1, e1.boundingBox).isEmpty()) {
+							world.spawnEntityInWorld(e);
+							world.spawnEntityInWorld(e1);
+							--stack.stackSize;
+							player.triggerAchievement(DivineRPGAchievements.tenHeadsIsBetterThanOne);
+						}
 						return true;
 					}
 					if(stack.getItem() == TwilightItemsOther.soulFiendCrystal){
-						EntitySoulFiend var5 = new EntitySoulFiend(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						--stack.stackSize;
+						EntitySoulFiend e = new EntitySoulFiend(world);
+						e.setPosition(x, y+1, z);
+						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
+							world.spawnEntityInWorld(e);
+							--stack.stackSize;
+						}
 						return true;
 					}
 					if(stack.getItem() == TwilightItemsOther.twilightDemonCrystal){
-						EntityTwilightDemon var5 = new EntityTwilightDemon(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						--stack.stackSize;
+						EntityTwilightDemon e = new EntityTwilightDemon(world);
+						e.setPosition(x, y+1, z);
+						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
+							world.spawnEntityInWorld(e);
+							--stack.stackSize;
+						}
 						return true;
 					}
 					if(stack.getItem() == TwilightItemsOther.vamacheronCrystal){
-						EntityVamacheron var5 = new EntityVamacheron(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						--stack.stackSize;
+						EntityVamacheron e = new EntityVamacheron(world);
+						e.setPosition(x, y+1, z);
+						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
+							world.spawnEntityInWorld(e);
+							--stack.stackSize;
+						}
 						return true;
 					}
 					if(stack.getItem() == TwilightItemsOther.eternalArcherCrystal){
-						EntityEternalArcher var5 = new EntityEternalArcher(world);
-						var5.setPosition(x, y+1, z);
-						world.spawnEntityInWorld(var5);
-						--stack.stackSize;
+						EntityEternalArcher e = new EntityEternalArcher(world);
+						e.setPosition(x, y+1, z);
+						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
+							world.spawnEntityInWorld(e);
+							--stack.stackSize;
+							player.triggerAchievement(DivineRPGAchievements.sixInOne);
+						}
 						return true;
 					}
 			} else {

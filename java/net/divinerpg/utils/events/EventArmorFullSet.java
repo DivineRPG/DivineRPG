@@ -1,6 +1,7 @@
 package net.divinerpg.utils.events;
 
 import net.divinerpg.blocks.base.BlockMod;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.TwilightItemsArmor;
@@ -230,7 +231,7 @@ public class EventArmorFullSet {
 
             //Uvite
             if (boots == TwilightItemsArmor.apalachiaBoots && legs == TwilightItemsArmor.apalachiaLegs && body == TwilightItemsArmor.apalachiaBody && helmet == TwilightItemsArmor.apalachiaHelmet) {
-                if (s.equals(DamageSource.cactus) || s.equals(DamageSource.fallingBlock) || s.equals(DamageSource.anvil) || s.equals(DamageSource.inWall)) {
+                if (s.equals(DamageSource.cactus) || s.equals(DamageSource.fallingBlock) || s.equals(DamageSource.anvil) || s.equals(DamageSource.inWall) || s.equals(Util.trapSource)) {
                     e.setCanceled(true);
                 }
             }
