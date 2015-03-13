@@ -106,7 +106,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsWeapons.edenPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.edenChunk, 'S', Items.stick);
 		addRecipe(TwilightItemsWeapons.edenBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.edenChunk);
 		addShapelessRecipe(new ItemStack(TwilightItemsWeapons.edenSlicer, 20), TwilightItemsOther.edenGem);
-		addRecipe(TwilightItemsWeapons.edenArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.edenFragments, 'S', Items.stick, 'Z', Items.feather);
+		addRecipe(new ItemStack(TwilightItemsWeapons.edenArrow, 4), " I ", " S ", " Z ", 'I', TwilightItemsOther.edenFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//wildwood
 		addRecipe(TwilightItemsWeapons.wildwoodBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
@@ -114,7 +114,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsWeapons.wildwoodPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.wildwoodChunk, 'S', Items.stick);
 		addRecipe(TwilightItemsWeapons.wildwoodBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.wildwoodChunk);
 		addShapelessRecipe(new ItemStack(TwilightItemsWeapons.wildwoodSlicer, 20), TwilightItemsOther.wildwoodGem);
-		addRecipe(TwilightItemsWeapons.wildwoodArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.wildwoodFragments, 'S', Items.stick, 'Z', Items.feather);
+		addRecipe(new ItemStack(TwilightItemsWeapons.wildwoodArrow, 4), " I ", " S ", " Z ", 'I', TwilightItemsOther.wildwoodFragments, 'S', Items.stick, 'Z', Items.feather);
 
 		//Apalachia
 		addRecipe(TwilightItemsWeapons.apalachiaBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', Items.stick);
@@ -136,7 +136,7 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addRecipe(TwilightItemsWeapons.mortumPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.mortumChunk, 'S', Items.stick);
 		addRecipe(TwilightItemsWeapons.mortumBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.mortumChunk);
 		addShapelessRecipe(new ItemStack(TwilightItemsWeapons.mortumSlicer, 20), TwilightItemsOther.mortumGem);
-		addRecipe(TwilightItemsWeapons.furyArrow, " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);
+		addRecipe(new ItemStack(TwilightItemsWeapons.furyArrow, 4), " I ", " S ", " Z ", 'I', TwilightItemsOther.mortumFragments, 'S', Items.stick, 'Z', Items.feather);
 		
 		//Tools
 		addRecipe(TwilightItemsTools.edenPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', Items.stick);

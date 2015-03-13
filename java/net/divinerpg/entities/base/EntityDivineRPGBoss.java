@@ -19,13 +19,4 @@ public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob implements 
 	public boolean canDespawn() {
 		return false;	
 	}
-
-	public void onDeath(DamageSource d) {
-		super.onDeath(d);
-		if(!worldObj.isRemote && ConfigurationHelper.canShowDeathChat){
-			if(d.getSourceOfDamage() != null){
-				Util.sendMessageToAll("The " + mobName() + " has fallen");
-			}
-		}
-	}
 }

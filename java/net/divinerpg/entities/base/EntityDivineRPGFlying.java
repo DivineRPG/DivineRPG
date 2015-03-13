@@ -97,17 +97,6 @@ public abstract class EntityDivineRPGFlying extends EntityFlying implements IMob
     public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)  {
         this.attackEntityAsMob(par1EntityPlayer);
     }
-
-	public void onDeath(DamageSource d) {
-		super.onDeath(d);	
-		if(!worldObj.isRemote && ConfigurationHelper.canShowDeathChat){
-			if(d.getSourceOfDamage() != null && d.getSourceOfDamage() instanceof EntityPlayer){
-				EntityPlayer p = (EntityPlayer)d.getSourceOfDamage();
-				String name = mobName() != null ? mobName() : "null";
-				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name);
-			}
-		}
-	}
 	
 	@Override
 	public boolean getCanSpawnHere() {

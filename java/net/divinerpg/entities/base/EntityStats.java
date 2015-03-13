@@ -81,7 +81,7 @@ public class EntityStats {
 	//Overworld
 	public static double ancientEntityHealth 	= 800.0D, ancientEntityDamage = 12.0D, ancientEntitySpeed = normalSpeed, ancientEntityFollowRange = follow;
 	public static double aridWarriorHealth 		= 40.0D, aridWarriorDamage = 8.0D, aridWarriorSpeed = normalSpeed, aridWarriorFollowRange = follow;
-	public static double ayeracoHealth 			= 600.0D, ayeracoDamage = 18.0D, ayeracoSpeed = normalSpeed, ayeracoFollowRange = follow;
+	public static double ayeracoHealth 			= 600.0D, ayeracoDamage = 14.0D, ayeracoSpeed = normalSpeed, ayeracoFollowRange = follow;
 	public static double corruptedDramcryxHealth= 80.0D, corruptedDramcryxDamage = 7.0D, corruptedDramcryxSpeed = normalSpeed, corruptedDramcryxFollowRange = follow;
 	public static double caveclopsHealth 		= 60.0D, caveclopsDamage = 6.0D, caveclopsSpeed = normalSpeed, caveclopsFollowRange = follow;
 	public static double caveCrawlerHealth 		= 30.0D, caveCrawlerDamage = 4.0D, caveCrawlerSpeed = normalSpeed, caveCrawlerFollowRange = follow;

@@ -85,15 +85,4 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	public boolean getCanSpawnHere() {
 		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
 	}
-
-	public void onDeath(DamageSource d) {
-		super.onDeath(d);
-		if(!worldObj.isRemote && ConfigurationHelper.canShowDeathChat){
-			if(d.getSourceOfDamage() != null && d.getSourceOfDamage() instanceof EntityPlayer){
-				String name = mobName() != null ? mobName() : "null";
-				EntityPlayer p = (EntityPlayer)d.getSourceOfDamage();
-				Util.sendMessageToAll(p.getDisplayName() + " has slain a " + name);
-			}
-		}
-	}
 }

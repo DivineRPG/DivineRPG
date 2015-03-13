@@ -34,7 +34,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.offKey.desc=Shoot a Sound of Music");
         instance.addToFile("achievement.enrichment.desc=");
         instance.addToFile("achievement.littleCreature.desc=Spawn a Golem Of Rejuv'");
-        instance.addToFile("achievement.halloweenSpirit.desc=Trade with a Jack-O-Man");
+        instance.addToFile("achievement.halloweenSpirit.desc=Talk to a Jack-O-Man");
         instance.addToFile("achievement.feedingOnTheFish.desc=Kill a Shark");
         instance.addToFile("achievement.frozenLand.desc=Enter the Iceika dimension");
         instance.addToFile("achievement.frozenGoods.desc=Open a frozen chest");
