@@ -2,15 +2,13 @@ package net.divinerpg.items.vanilla;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.divinerpg.blocks.vanilla.VanillaBlock;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
-import net.divinerpg.utils.LangRegistry;
-import net.divinerpg.utils.Util;
-import net.divinerpg.utils.items.VanillaItemsOther;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

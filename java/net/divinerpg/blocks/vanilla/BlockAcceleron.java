@@ -24,7 +24,7 @@ public class BlockAcceleron extends BlockMod {
 	
 	public BlockAcceleron() {
 		super(EnumBlockType.ROCK, "acceleron", 3.0F);
-		slipperiness = 4.0F;
+		slipperiness = 2.0F;
 	}
 	
 	@Override
@@ -39,8 +39,7 @@ public class BlockAcceleron extends BlockMod {
 	
     @Override
     public IIcon getIcon(int side, int meta) {
-    	if(side == 0 || side == 1)
-    		return meta == 2 ? top_n : (meta == 3 ? top_s : (meta == 4 ? top_w : top_e));
+    	if(side <= 1) return meta == 2 ? top_n : (meta == 3 ? top_s : (meta == 4 ? top_w : top_e));
     	return this.side;
     }
     

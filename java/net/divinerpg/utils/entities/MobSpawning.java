@@ -224,11 +224,11 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityCyclops.class, 2, 2, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityMiner.class, 1, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityJackOMan.class, 1, 1, 1, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityCaveCrawler.class, 20, 2, 3, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityRotatick.class, 20, 3, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 20, 3, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityTheEye.class, 7, 1, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityCaveclops.class, 20, 1, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityCaveCrawler.class, 50, 2, 3, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityRotatick.class, 50, 3, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 50, 3, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityTheEye.class, 20, 1, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityCaveclops.class, 50, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityEnderSpider.class, 2, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityRainbour.class, 2, 1, 1, EnumCreatureType.ambient, biome);
 				}

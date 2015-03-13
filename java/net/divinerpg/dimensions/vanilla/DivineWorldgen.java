@@ -65,7 +65,7 @@ public class DivineWorldgen implements IWorldGenerator{
 	private void generateEnd(World world, Random random, int x, int z) { }
 
 	public void addOreSpawn(Block block, Block genIn, World world, Random random, int blockXPos, int blockZPos, int minVeinAmount, int maxVeinAmount, int minVein, int maxVein, int minY, int maxY) {
-		int veinAmount = random.nextInt(maxVeinAmount - minVeinAmount + 1) + minVeinAmount;
+		int veinAmount = random.nextInt(maxVeinAmount - minVeinAmount + 1);
 		int diffBtwnMinMaxY = maxY - minY;
 		for (int x = 0; x < veinAmount; x++) {
 			int veinSize = random.nextInt(maxVein - minVein + 1) + minVein;

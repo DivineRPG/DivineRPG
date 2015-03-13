@@ -39,7 +39,7 @@ public class ItemEnderScepter extends ItemMod {
 		float var16 = MathHelper.sin(-var4 * 0.01745329F);
 		float var17 = var14 * var15;
 		float var18 = var13 * var15;
-		double var19 = 30.0D;
+		double var19 = 50.0D;
 		Vec3 var21 = var12.addVector((double)var17 * var19, (double)var16 * var19, (double)var18 * var19);
 		MovingObjectPosition var22 = par2.rayTraceBlocks(var12, var21);
 
