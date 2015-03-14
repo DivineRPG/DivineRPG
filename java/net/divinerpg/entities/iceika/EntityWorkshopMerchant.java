@@ -42,7 +42,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 		if(!this.worldObj.isRemote) {
 			extraInteract(var1);
 			var1.openGui(DivineRPG.instance, guiID(), this.worldObj, getEntityId(), 0, 0);
-			var1.triggerAchievement(DivineRPGAchievements.lilTinkerin);
+			var1.triggerAchievement(DivineRPGAchievements.lilGift);
 			return true;
 		} else {
 			return super.interact(var1);

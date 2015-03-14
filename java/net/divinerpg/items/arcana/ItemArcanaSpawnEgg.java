@@ -26,30 +26,31 @@ public class ItemArcanaSpawnEgg extends ItemMod {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack i, EntityPlayer p, World w, int x, int y, int z, int i1, float j, float k, float l) {
-		Item item = i.getItem();
-		EntityFyracryx fyracryx = new EntityFyracryx(w, p);
-		EntitySeimer seimer = new EntitySeimer(w, p);
-		EntityGolemOfRejuv golem = new EntityGolemOfRejuv(w, p);
-		EntityParatiku paratiku = new EntityParatiku(w, p);
-		if(!w.isRemote){
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+		Item item = stack.getItem();
+		EntityFyracryx fyracryx = new EntityFyracryx(world, player);
+		EntitySeimer seimer = new EntitySeimer(world, player);
+		EntityGolemOfRejuv golem = new EntityGolemOfRejuv(world, player);
+		EntityParatiku paratiku = new EntityParatiku(world, player);
+		if(!world.isRemote){
 			if(item == ArcanaItems.fyracryxSpawner){
 				fyracryx.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
-				w.spawnEntityInWorld(fyracryx);
+				world.spawnEntityInWorld(fyracryx);
 			}
 			if(item == ArcanaItems.seimerSpawner){
 				seimer.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
-				w.spawnEntityInWorld(seimer);
+				world.spawnEntityInWorld(seimer);
 			}
 			if(item == ArcanaItems.golemSpawner){
 				golem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
-				w.spawnEntityInWorld(golem);
-				p.triggerAchievement(DivineRPGAchievements.littleCreature);
+				world.spawnEntityInWorld(golem);
 			}
 			if(item == ArcanaItems.paratikuSpawner){
 				paratiku.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
-				w.spawnEntityInWorld(paratiku);
+				world.spawnEntityInWorld(paratiku);
 			}
+			player.triggerAchievement(DivineRPGAchievements.littleCreature);
+			stack.stackSize--;
 			return true;
 		}
 		return false;

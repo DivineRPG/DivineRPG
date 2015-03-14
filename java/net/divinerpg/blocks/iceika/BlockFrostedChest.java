@@ -20,6 +20,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -106,7 +107,13 @@ public class BlockFrostedChest extends BlockContainer {
 		}
 		super.breakBlock(w, x, y, z, b, i);
 	}
-
+	
+	@Override
+	public void harvestBlock(World w, EntityPlayer player, int x, int y, int z, int meta) {
+		super.harvestBlock(w, player, x, y, z, meta);
+		player.triggerAchievement(DivineRPGAchievements.frozenGoods);
+    }
+	
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess w, int x, int y, int z) {
 		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);

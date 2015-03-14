@@ -205,8 +205,8 @@ public class MobSpawning {
 						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SANDY)) {
-						EntityRegistry.addSpawn(EntityDesertCrawler.class, 10, 1, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityAridWarrior.class, 10, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityDesertCrawler.class, 50, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityAridWarrior.class, 35, 1, 4, EnumCreatureType.monster, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.OCEAN)) {
 						EntityRegistry.addSpawn(EntityWhale.class, 1, 1, 1, EnumCreatureType.waterCreature, biome);

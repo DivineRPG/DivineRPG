@@ -32,7 +32,7 @@ public class ItemVanillaSpawner extends ItemMod{
 						par3World.spawnEntityInWorld(var5);
 						par1ItemStack.stackSize--;
 						var4++;
-						player.triggerAchievement(DivineRPGAchievements.divineInervention);
+						player.triggerAchievement(DivineRPGAchievements.divineIntervention);
 						Util.sendMessageToAll(Util.AQUA + player.getDisplayName() + " Spawned The Watcher");
 						return true;
 					} 
