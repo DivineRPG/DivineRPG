@@ -232,7 +232,7 @@ public class VanillaItemsArmor {
         krakenLegs          = new ItemDivineArmor(EnumArmor.KRAKEN, LEGS, krakenInfo);
         krakenBoots         = new ItemDivineArmor(EnumArmor.KRAKEN, BOOTS, krakenInfo);
 
-        Object[] jackomanInfo            = new Object[] { 4, ArmorInfo.SCYTHE_DAMAGE };
+        Object[] jackomanInfo            = new Object[] { 3, ArmorInfo.SCYTHE_DAMAGE };
         jackOManHelmet      = new ItemDivineArmor(EnumArmor.JACKOMAN, HEAD, "jackOMan", jackomanInfo);
         jackOManBody        = new ItemDivineArmor(EnumArmor.JACKOMAN, BODY, "jackOMan", jackomanInfo);
         jackOManLegs        = new ItemDivineArmor(EnumArmor.JACKOMAN, LEGS, "jackOMan", jackomanInfo);

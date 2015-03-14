@@ -10,6 +10,7 @@ import net.divinerpg.items.base.ItemThrowable;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
 import net.divinerpg.items.vanilla.ItemInfernoSword;
+import net.divinerpg.items.vanilla.ItemScythe;
 import net.divinerpg.items.vanilla.ItemSerenadeOfDeath;
 import net.divinerpg.items.vanilla.ItemSerenadeOfHealth;
 import net.divinerpg.items.vanilla.ItemSerenadeStriker;
@@ -143,7 +144,7 @@ public class VanillaItemsWeapons {
 	    
 	    shuriken       	= new ItemThrowable("shuriken", 4);
 	    vileStorm       	= new ItemVileStorm();
-	    scythe		       	= new ItemProjectileShooter("scythe", 4f, EntityResourceLocation.scytheProjectile.toString(), -1, 0);
+	    scythe		       	= new ItemScythe();
 	    frostCannon       	= new ItemProjectileShooter("frostCannon", 6F, Sounds.frostCannon.getPrefixedName(), Items.snowball, EntityResourceLocation.frostCannon.toString(), 15000, 0);
 	    cyclopsianStaff    = new ItemProjectileShooter("cyclopsianStaff", 7F, Sounds.staff.getPrefixedName(), VanillaItemsOther.cyclopsEyeShards, 3000, 0);
 	    maelstrom          = new ItemProjectileShooter("maelstrom", 12F, Sounds.ghastCannon.getPrefixedName(), x.maelstrom.toString(), 100, 0);

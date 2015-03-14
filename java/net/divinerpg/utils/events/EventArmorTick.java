@@ -183,15 +183,6 @@ public class EventArmorTick {
                 speedMultiplier = 2;
             }
         }
-
-        //Jack O Man
-        /*if (boots == VanillaItemsArmor.jackOManBoots && body == VanillaItemsArmor.jackOManBody && legs == VanillaItemsArmor.jackOManLegs && helmet == VanillaItemsArmor.jackOManHelmet) {
-            EntityScythe.damage = 16.0F;
-        }
-        else if (!(EntityScythe.damage == 4.0F)) {
-            EntityScythe.damage = 4.0F;
-        }*/
-        //TODO: make this not stupid
         
         if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet)
             size = 1;
