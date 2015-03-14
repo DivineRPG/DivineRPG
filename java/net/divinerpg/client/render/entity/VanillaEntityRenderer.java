@@ -2,6 +2,7 @@ package net.divinerpg.client.render.entity;
 
 import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoBeam;
+import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoSpawn;
 import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityBoneChest;
 import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.client.render.RenderDivineArrow;
@@ -13,6 +14,7 @@ import net.divinerpg.client.render.RenderSizeable;
 import net.divinerpg.client.render.RenderSpecialProjectile;
 import net.divinerpg.client.render.block.RenderAltarOfCorruption;
 import net.divinerpg.client.render.block.RenderAyeracoBeam;
+import net.divinerpg.client.render.block.RenderAyeracoSpawn;
 import net.divinerpg.client.render.block.RenderBoneChest;
 import net.divinerpg.client.render.block.RenderStatue;
 import net.divinerpg.client.render.block.TileEntityStatue;
@@ -176,6 +178,7 @@ public class VanillaEntityRenderer {
 		Util.registerItemRenderer(VanillaBlocks.eternalArcherStatue, new RenderStatueItem(VanillaBlocks.eternalArcherStatue));
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoSpawn.class, new RenderAyeracoSpawn());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());

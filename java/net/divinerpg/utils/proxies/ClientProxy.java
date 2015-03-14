@@ -33,6 +33,7 @@ import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.events.ClientTicker;
 import net.divinerpg.utils.events.DevHatEvent;
 import net.divinerpg.utils.events.EventExtraArmor;
 import net.divinerpg.utils.events.EventOverlay;
@@ -56,6 +57,9 @@ public class ClientProxy extends CommonProxy {
         LogHelper.info("Adding events");
         Util.postFMLEvent(new ClientTickHandler());
         Util.postFMLEvent(new ArcanaRenderer());
+        Util.postFMLEvent(new ClientTicker());
+        Util.postForgeEvent(new EventOverlay());
+        Util.postForgeEvent(new EventExtraArmor());
         
         ItemProjectileShooter.gunList.remove(VanillaItemsWeapons.scythe);
         
@@ -80,8 +84,6 @@ public class ClientProxy extends CommonProxy {
         
         if (Reference.DEBUG) {
             LogHelper.dev("Entering DEBUG mode");
-            Util.postForgeEvent(new EventOverlay());
-            Util.postForgeEvent(new EventExtraArmor());
             LangRegistry.registerNames();
             Sounds.init();
         }

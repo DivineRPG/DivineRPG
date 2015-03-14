@@ -21,7 +21,7 @@ public class TileEntityAyeracoSpawn extends TileEntity {
     
     public void updateEntity() {
     	super.updateEntity();
-        if(!this.worldObj.isRemote) {
+        if(!this.worldObj.isRemote && 1==0) {
 			if (this.spawnTick == 600) {
 			    Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.GREEN, "The Green Ayeraco Has Been Called Upon"));
 				this.worldObj.setBlock((int)(this.xCoord + 8), (int)(this.yCoord),(int)(this.zCoord + 8), VanillaBlocks.ayeracoBeamGreen);

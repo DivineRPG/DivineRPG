@@ -9,17 +9,18 @@ import net.divinerpg.blocks.base.BlockStupidSpawner;
 import net.divinerpg.blocks.vanilla.BlockAcceleron;
 import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
+import net.divinerpg.blocks.vanilla.BlockAyeracoSpawn;
 import net.divinerpg.blocks.vanilla.BlockBoneChest;
 import net.divinerpg.blocks.vanilla.BlockDivineBricks;
 import net.divinerpg.blocks.vanilla.BlockLamp1;
 import net.divinerpg.blocks.vanilla.BlockLamp2;
 import net.divinerpg.blocks.vanilla.BlockLightFence;
 import net.divinerpg.blocks.vanilla.BlockMinibricks;
+import net.divinerpg.blocks.vanilla.BlockMobPumpkin;
 import net.divinerpg.blocks.vanilla.BlockMushroom;
 import net.divinerpg.blocks.vanilla.BlockSteel;
 import net.divinerpg.blocks.vanilla.BlockTar;
 import net.divinerpg.blocks.vanilla.BlockTomato;
-import net.divinerpg.blocks.vanilla.BlockMobPumpkin;
 import net.divinerpg.blocks.vanilla.VanillaBlock;
 import net.divinerpg.client.render.block.model.ModelAncientStatue;
 import net.divinerpg.client.render.block.model.ModelAyeracoStatue;
@@ -112,7 +113,8 @@ public class VanillaBlocks {
     public static Block ayeracoBeamRed;
     public static Block ayeracoBeamYellow; 
     public static Block ayeracoBeamPurple; 
-
+    public static Block ayeracoSpawn;
+    
 	public static BlockStatue kosStatue;
 	public static BlockStatue ancientEntityStatue;
 	public static BlockStatue ayeracoStatue;
@@ -140,6 +142,7 @@ public class VanillaBlocks {
 	
 	public static Block altarOfCorruption;
 	public static Block boneChest;
+	
 	
 	public static void init() {
 		rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND).setResistance(2000.0F);
@@ -211,7 +214,8 @@ public class VanillaBlocks {
 	    ayeracoBeamGreen 	  = new BlockAyeracoBeam("ayeracoBeamGreen", "Green"); 
 	    ayeracoBeamRed 	  = new BlockAyeracoBeam("ayeracoBeamRed", "Red");
 	    ayeracoBeamYellow   = new BlockAyeracoBeam("ayeracoBeamYellow", "Yellow"); 
-	    ayeracoBeamPurple   = new BlockAyeracoBeam("ayeracoBeamPurple", "Purple"); 
+	    ayeracoBeamPurple   = new BlockAyeracoBeam("ayeracoBeamPurple", "Purple");
+	    ayeracoSpawn   = new BlockAyeracoSpawn();
 
 		kosStatue 	  = new BlockStatue("kingOfScorchersStatue", new ModelKingStatue());
 		ancientEntityStatue = new BlockStatue("ancientEntityStatue", new ModelAncientStatue());
