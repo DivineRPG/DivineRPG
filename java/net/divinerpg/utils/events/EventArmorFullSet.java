@@ -85,7 +85,7 @@ public class EventArmorFullSet {
             }
 
             //Santa
-            if (boots == IceikaItems.santaBoots && legs == IceikaItems.santaLegs && body == IceikaItems.santaBody && helmet == IceikaItems.santaHead) {
+            if (boots == IceikaItems.santaBoots && legs == IceikaItems.santaPants && body == IceikaItems.santaTunic && helmet == IceikaItems.santaCap) {
                 if (evt.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
                     evt.ammount *= 0.2;
                 }
@@ -143,7 +143,7 @@ public class EventArmorFullSet {
             }
 
             //Skythern
-            if (boots == TwilightItemsArmor.skythernBoots && body == TwilightItemsArmor.skythernBody && legs == TwilightItemsArmor.skythernLegs && helmet == TwilightItemsArmor.skythernHelmet) {
+            if (boots == TwilightItemsArmor.skythernBoots && body == TwilightItemsArmor.skythernChestplate && legs == TwilightItemsArmor.skythernLeggings && helmet == TwilightItemsArmor.skythernHelmet) {
                 player.addVelocity(0, 0.5D, 0);
             }
             
@@ -187,11 +187,13 @@ public class EventArmorFullSet {
     	        else helmet = null;
 
     	        //Eden
-    	        if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenBody && legs == TwilightItemsArmor.edenLegs && helmet == TwilightItemsArmor.edenHelmet) {
-    	        	ItemStack fragment = event.drops.get(0);
-	        		event.drops.add(fragment.copy());
-	        		event.drops.add(fragment.copy());
-	        		event.drops.add(fragment.copy());
+    	        if (boots == TwilightItemsArmor.edenBoots && body == TwilightItemsArmor.edenChestplate && legs == TwilightItemsArmor.edenLeggings && helmet == TwilightItemsArmor.edenHelmet) {
+    	        	if(!event.isSilkTouching) {
+	    	        	ItemStack fragment = event.drops.get(0);
+		        		event.drops.add(fragment.copy());
+		        		event.drops.add(fragment.copy());
+		        		event.drops.add(fragment.copy());
+    	        	}
     	        }
     		}
     	}
@@ -230,7 +232,7 @@ public class EventArmorFullSet {
             }
 
             //Uvite
-            if (boots == TwilightItemsArmor.apalachiaBoots && legs == TwilightItemsArmor.apalachiaLegs && body == TwilightItemsArmor.apalachiaBody && helmet == TwilightItemsArmor.apalachiaHelmet) {
+            if (boots == TwilightItemsArmor.apalachiaBoots && legs == TwilightItemsArmor.apalachiaLeggings && body == TwilightItemsArmor.apalachiaChestplate && helmet == TwilightItemsArmor.apalachiaHelmet) {
                 if (s.equals(DamageSource.cactus) || s.equals(DamageSource.fallingBlock) || s.equals(DamageSource.anvil) || s.equals(DamageSource.inWall) || s.equals(Util.trapSource)) {
                     e.setCanceled(true);
                 }
@@ -278,14 +280,14 @@ public class EventArmorFullSet {
         DamageSource s = e.source;
 
         //Santa
-        if (boots == IceikaItems.santaBoots && body == IceikaItems.santaBody && legs == IceikaItems.santaLegs && helmet == IceikaItems.santaHead) {
+        if (boots == IceikaItems.santaBoots && body == IceikaItems.santaTunic && legs == IceikaItems.santaPants && helmet == IceikaItems.santaCap) {
             if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                 e.ammount += 6;
             }
         }
             
         //Halite
-        if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteBody && legs == TwilightItemsArmor.haliteLegs && helmet == TwilightItemsArmor.haliteHelmet) {
+        if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteChestplate && legs == TwilightItemsArmor.haliteLeggings && helmet == TwilightItemsArmor.haliteHelmet) {
             if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                 e.ammount += 24;
             }

@@ -74,7 +74,7 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
 
     @Override
     public void dropFewItems(boolean par1, int par2) {
-        this.dropItem(TwilightItemsArmor.haliteLegs, 1);
+        this.dropItem(TwilightItemsArmor.haliteLeggings, 1);
         if(this.rand.nextInt(3) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.reyvorStatue), 1);
     }
 

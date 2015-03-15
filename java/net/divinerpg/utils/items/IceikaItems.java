@@ -57,9 +57,9 @@ public class IceikaItems {
 	public static Item icicleBow;
 	public static Item snowstormBow;
 
-	public static Item santaHead;
-	public static Item santaBody;
-	public static Item santaLegs;
+	public static Item santaCap;
+	public static Item santaTunic;
+	public static Item santaPants;
 	public static Item santaBoots;
 
 	public static Item snowGlobe;
@@ -92,13 +92,13 @@ public class IceikaItems {
          fruitCake         = new ItemModFood(16, 2.0F, false, "fruitCake");
          winterberry       = new ItemModFood(4, 1.0F, false, "winterberry");
 
-    	 icicleBow = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
-    	 snowstormBow = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
+    	 icicleBow 		   = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
+    	 snowstormBow      = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
 
-    	 Object[] santaInfo         = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
-         santaHead         = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);
-         santaBody         = new ItemDivineArmor(EnumArmor.SANTA, BODY, santaInfo);
-         santaLegs         = new ItemDivineArmor(EnumArmor.SANTA, LEGS, santaInfo);
+    	 Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
+         santaCap          = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);
+         santaTunic        = new ItemDivineArmor(EnumArmor.SANTA, BODY, santaInfo);
+         santaPants        = new ItemDivineArmor(EnumArmor.SANTA, LEGS, santaInfo);
          santaBoots        = new ItemDivineArmor(EnumArmor.SANTA, BOOTS, santaInfo);
 
          snowGlobe         = new ItemSnowGlobe("snowGlobe");

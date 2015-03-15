@@ -40,7 +40,7 @@ public enum EnumArmor {
     SKYTHERN(Util.addArmorMaterial("Skythern", 0, 10), "skythern", true, 78),
     MORTUM(Util.addArmorMaterial("Mortum", 0, 10), "mortum", true, 80),
     HALITE(Util.addArmorMaterial("Halite", 0, 12), "halite", true, 83),
-    SANTA(Util.addArmorMaterial("Santa", 0, 10), "santa", true, 0),
+    SANTA(Util.addArmorMaterial("Santa", 0, 10), "santa", true, 0, true),
     KORMA(Util.addArmorMaterial("Korma", 0, 22), "korma", true, 70),
     VEMOS(Util.addArmorMaterial("Vemos", 0, 22), "vemos", true, 65),
     DIAMOND(Util.addArmorMaterial("Diamond", 3000, 10), "diamond", false, 65),
@@ -57,12 +57,22 @@ public enum EnumArmor {
     private String        type;
     private boolean       undamageable;
     private int           damageReduction;
+    private boolean       clothing;
 
     private EnumArmor(ArmorMaterial armorMaterial, String type, boolean undamageable, int damageReduction) {
         this.armorMaterial = armorMaterial;
         this.type = type;
         this.undamageable = undamageable;
         this.damageReduction = damageReduction;
+        this.clothing = false;
+    }
+    
+    private EnumArmor(ArmorMaterial armorMaterial, String type, boolean undamageable, int damageReduction, boolean clothing) {
+        this.armorMaterial = armorMaterial;
+        this.type = type;
+        this.undamageable = undamageable;
+        this.damageReduction = damageReduction;
+        this.clothing = clothing;
     }
 
     public ArmorMaterial getArmorMaterial() {
@@ -80,5 +90,8 @@ public enum EnumArmor {
     public int getDamageReduction() {
         return damageReduction;
     }
-
+    
+    public boolean isClothing() {
+        return clothing;
+    }
 }

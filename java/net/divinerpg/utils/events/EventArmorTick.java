@@ -88,7 +88,7 @@ public class EventArmorTick {
         }
 
         //Wildwood
-        if (boots == TwilightItemsArmor.wildwoodBoots && body == TwilightItemsArmor.wildwoodBody && legs == TwilightItemsArmor.wildwoodLegs && helmet == TwilightItemsArmor.wildwoodHelmet) {
+        if (boots == TwilightItemsArmor.wildwoodBoots && body == TwilightItemsArmor.wildwoodChestplate && legs == TwilightItemsArmor.wildwoodLeggings && helmet == TwilightItemsArmor.wildwoodHelmet) {
             if (evt.player.isInsideOfMaterial(Material.water)) {
                 float current = evt.player.getHealth();
                 if ((current > 0.0F) && (current < 20.0F)) {
@@ -111,12 +111,12 @@ public class EventArmorTick {
         }
 
         //Mortum
-        if (boots == TwilightItemsArmor.mortumBoots && body == TwilightItemsArmor.mortumBody && legs == TwilightItemsArmor.mortumLegs && helmet == TwilightItemsArmor.mortumHelmet) {
+        if (boots == TwilightItemsArmor.mortumBoots && body == TwilightItemsArmor.mortumChestplate && legs == TwilightItemsArmor.mortumLeggings && helmet == TwilightItemsArmor.mortumHelmet) {
             evt.player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 210, 10, true));
         }
 
         //Skythern
-        if (boots == TwilightItemsArmor.skythernBoots && body == TwilightItemsArmor.skythernBody && legs == TwilightItemsArmor.skythernLegs && helmet == TwilightItemsArmor.skythernHelmet) {
+        if (boots == TwilightItemsArmor.skythernBoots && body == TwilightItemsArmor.skythernChestplate && legs == TwilightItemsArmor.skythernLeggings && helmet == TwilightItemsArmor.skythernHelmet) {
             evt.player.fallDistance = -0.5F;
         }
 
@@ -175,7 +175,7 @@ public class EventArmorTick {
         }
 
         //Santa
-        if (boots == IceikaItems.santaBoots && body == IceikaItems.santaBody && legs == IceikaItems.santaLegs && helmet == IceikaItems.santaHead) {
+        if (boots == IceikaItems.santaBoots && body == IceikaItems.santaTunic && legs == IceikaItems.santaPants && helmet == IceikaItems.santaCap) {
             if (evt.player.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
                 if (evt.player.getFoodStats().needFood()) {
                     evt.player.getFoodStats().addStats(1, 0);
@@ -184,7 +184,7 @@ public class EventArmorTick {
             }
         }
         
-        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLegs && body == TwilightItemsArmor.haliteBody && helmet == TwilightItemsArmor.haliteHelmet)
+        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLeggings && body == TwilightItemsArmor.haliteChestplate && helmet == TwilightItemsArmor.haliteHelmet)
             size = 1;
 		else if(size != 0)
 			size = 0;

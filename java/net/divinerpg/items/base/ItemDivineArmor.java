@@ -124,9 +124,11 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
 
     protected void setArmorType(String material, int armorType, boolean vethean, String helmType) {
     	if(!vethean) {
-    		this.name = armorType == HEAD ? material + "Helmet" : armorType == BODY ? material + "Body" : armorType == LEGS ? material + "Legs" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
+    		this.name = armorType == HEAD ? material + "Helmet" : armorType == BODY ? material + "Chestplate" : armorType == LEGS ? material + "Leggings" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
+    	} else if(!armorMaterial.isClothing()) {
+    		this.name = armorType == HEAD ? material + "Cap" : armorType == BODY ? material + "Tunic" : armorType == LEGS ? material + "Pants" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
     	} else {
-    		this.name = armorType == HEAD ? material + helmType : armorType == BODY ? material + "Body" : armorType == LEGS ? material + "Legs" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
+    		this.name = armorType == HEAD ? material + helmType : armorType == BODY ? material + "Chestplate" : armorType == LEGS ? material + "Leggings" : armorType == BOOTS ? material + "Boots" : material + "Unknown";
     	}
 		this.textureName = (armorType == 0 || armorType == 1 || armorType == 3) ? textureName + "_1.png" : textureName + "_2.png";
     }
