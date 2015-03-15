@@ -192,7 +192,8 @@ public class Util {
     
     public static Entity findEntityByUUID(String uuid, World world) {
 		for(int i = 0; i < world.loadedEntityList.size(); i++) {
-			if(((Entity)world.loadedEntityList.get(i)).getUniqueID().toString() == uuid) {
+		    Entity e = (Entity)world.loadedEntityList.get(i);
+			if(((Entity)world.loadedEntityList.get(i)).getPersistentID().toString().equals(uuid)) {
 				return ((Entity)world.loadedEntityList.get(i));
 			}
 		}
