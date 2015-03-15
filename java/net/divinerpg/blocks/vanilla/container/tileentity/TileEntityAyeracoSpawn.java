@@ -45,7 +45,7 @@ public class TileEntityAyeracoSpawn extends TileEntity {
     private BeamCoords redBeam;
     private BeamCoords yellowBeam;
     private BeamCoords purpleBeam;
-	private int spawnTick;
+	public int spawnTick;
     
     public TileEntityAyeracoSpawn() {
         greenBeam = new BeamCoords();
@@ -112,11 +112,10 @@ public class TileEntityAyeracoSpawn extends TileEntity {
 				this.worldObj.spawnEntityInWorld(ayercoPurple);
 				Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.AQUA, "The Ayeraco Horde Has Arrived!"));
 		    }
-	        if (this.spawnTick > 0) {
-	        	this.spawnTick--;
-	        } else {
-	            this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, Blocks.air);
-	        }
+			if(spawnTick == 0)this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, Blocks.air);
+        }
+        if (this.spawnTick > 0) {
+        	this.spawnTick--;
         }
     }
     

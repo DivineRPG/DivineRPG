@@ -23,6 +23,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
@@ -188,6 +189,15 @@ public class Util {
     	ChunkCoordinates coords = (ChunkCoordinates)ObfuscationReflectionHelper.getPrivateValue(EntityPlayer.class, player, spawnChunkNames);
     	return coords;
     }
+    
+    public static Entity findEntityByUUID(String uuid, World world) {
+		for(int i = 0; i < world.loadedEntityList.size(); i++) {
+			if(((Entity)world.loadedEntityList.get(i)).getUniqueID().toString() == uuid) {
+				return ((Entity)world.loadedEntityList.get(i));
+			}
+		}
+		return null;
+	}
     
     public static void drawTexturedModalRect(int x1, int y1, int u, int v, int x2, int y2) {
         float f = 0.00390625F;

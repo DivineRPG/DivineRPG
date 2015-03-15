@@ -15,11 +15,19 @@ import org.lwjgl.opengl.GL12;
 
 public class RenderAyeracoSpawn extends TileEntitySpecialRenderer {
 	
-	private static ResourceLocation greenTexture = new ResourceLocation(Reference.PREFIX + "textures/model/ayeracoSymbolGreen.png");	
+	private static ResourceLocation greenTexture = new ResourceLocation(Reference.PREFIX + "textures/model/ayeracoSymbolGreen.png");
+	private static ResourceLocation redTexture = new ResourceLocation(Reference.PREFIX + "textures/model/ayeracoSymbolRed.png");
+	private static ResourceLocation yellowTexture = new ResourceLocation(Reference.PREFIX + "textures/model/ayeracoSymbolYellow.png");
+	private static ResourceLocation blueTexture = new ResourceLocation(Reference.PREFIX + "textures/model/ayeracoSymbolBlue.png");
+	private static ResourceLocation purpleTexture = new ResourceLocation(Reference.PREFIX + "textures/model/ayeracoSymbolPurple.png");
 	
-	public void renderTileEntity(TileEntityAyeracoSpawn entity, double x, double y, double z, float f) {
+	public void renderTileEntity(TileEntityAyeracoSpawn te, double x, double y, double z, float f) {
 		GL11.glPushMatrix();
-        Minecraft.getMinecraft().renderEngine.bindTexture(greenTexture);
+        if(te.spawnTick > 430)Minecraft.getMinecraft().renderEngine.bindTexture(greenTexture);
+        else if(te.spawnTick > 300)Minecraft.getMinecraft().renderEngine.bindTexture(blueTexture);
+        else if(te.spawnTick > 210)Minecraft.getMinecraft().renderEngine.bindTexture(redTexture);
+        else if(te.spawnTick > 145)Minecraft.getMinecraft().renderEngine.bindTexture(yellowTexture);
+        else if(te.spawnTick > 0)Minecraft.getMinecraft().renderEngine.bindTexture(purpleTexture);
         GL11.glTranslatef((float)x+0.5f, (float)y+0.01f, (float)z+1.0625f);
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glScalef(2, 2, 2);
