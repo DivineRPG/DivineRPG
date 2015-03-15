@@ -25,6 +25,9 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     private double moveZ;
     private boolean halfHp;
     public float moveSpeed = 0.3F;
+    public int beamX;
+    public int beamY;
+    public int beamZ;
     
     public EntityAyeraco(World var1, String par3) {
         super(var1);
@@ -221,6 +224,12 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
         this.motionZ = this.rand.nextInt(5);
     }
 
+    public void setBeamLocation(int x, int y, int z) {
+        beamX = x;
+        beamY = y;
+        beamZ = z;
+    }
+    
 	@Override
 	public IChatComponent getFormattedCommandSenderName() {
 		return null;

@@ -14,10 +14,6 @@ public class EntityAyeracoBlue extends EntityAyeraco {
     private EntityAyeraco aYellow;
     private EntityAyeraco aPurple;
 
-    private int beamX;
-    private int beamY;
-    private int beamZ;
-
     public EntityAyeracoBlue (World par1World) {
         super(par1World, "Blue");
     }
@@ -27,12 +23,6 @@ public class EntityAyeracoBlue extends EntityAyeraco {
 		this.aRed = par3;
 		this.aYellow = par4;
 		this.aPurple = par5;
-	}
-	
-    public void setBeamLocation(int x, int y, int z) {
-		beamX = x;
-		beamY = y;
-		beamZ = z;
 	}
 	
     @Override

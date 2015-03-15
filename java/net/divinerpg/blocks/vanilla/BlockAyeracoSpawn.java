@@ -6,7 +6,9 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockAyeracoSpawn extends BlockContainer {
@@ -14,6 +16,7 @@ public class BlockAyeracoSpawn extends BlockContainer {
 	public BlockAyeracoSpawn() {
 		super(Material.rock);
 		setBlockUnbreakable();
+		setResistance(6000000F);
 		setBlockBounds(0, 0, 0, 0, 0, 0);
 		String name = "ayeracoSpawn";
 		setUnlocalizedName(name);
@@ -37,4 +40,8 @@ public class BlockAyeracoSpawn extends BlockContainer {
 		return false;
 	}
 
+	@Override
+    public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity) {
+	    return false;
+	}
 }

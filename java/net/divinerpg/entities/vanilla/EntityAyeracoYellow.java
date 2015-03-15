@@ -14,10 +14,6 @@ public class EntityAyeracoYellow extends EntityAyeraco {
     private EntityAyeraco aRed;
     private EntityAyeraco aPurple;
 
-    private int beamX;
-    private int beamY;
-    private int beamZ;
-
     public EntityAyeracoYellow (World par1World) {
         super (par1World, "Yellow");
     }
@@ -29,12 +25,6 @@ public class EntityAyeracoYellow extends EntityAyeraco {
 		this.aPurple = par5;
 	}
 	
-    public void setBeamLocation(int x, int y, int z) {
-		beamX = x;
-		beamY = y;
-		beamZ = z;
-	}
- 
     @Override
     public void onDeath(DamageSource par1DamageSource) {
     	super.onDeath(par1DamageSource);

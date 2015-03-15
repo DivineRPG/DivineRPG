@@ -1,19 +1,13 @@
 package net.divinerpg.items.vanilla;
 
-import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoSpawn;
-import net.divinerpg.entities.vanilla.EntityAyeracoBlue;
-import net.divinerpg.entities.vanilla.EntityAyeracoGreen;
-import net.divinerpg.entities.vanilla.EntityAyeracoPurple;
-import net.divinerpg.entities.vanilla.EntityAyeracoRed;
-import net.divinerpg.entities.vanilla.EntityAyeracoYellow;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
@@ -35,9 +29,11 @@ public class ItemHordeHorn extends ItemMod {
 			z += Facing.offsetsZForSide[side];
 
 			if (world.provider.dimensionId == 1) {
+			    if (world.getBlock(x, y, z) != Blocks.air) {
+			        return false;
+			    }
 			    world.playSoundAtEntity(player, Sounds.ayeracoSpawn.getPrefixedName(), 20.0F, 1.0F);
-				TileEntity ayeracoSpawnTE = new TileEntityAyeracoSpawn();
-				world.setTileEntity(x, y, z, ayeracoSpawnTE);
+				world.setBlock(x, y, z, VanillaBlocks.ayeracoSpawn);
 				if(!player.capabilities.isCreativeMode) {
 					player.inventory.consumeInventoryItem(this);
 				}
