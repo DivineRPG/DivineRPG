@@ -32,7 +32,7 @@ public class EntityLeorna extends EntityDivineRPGVillager {
 			var2.addChatMessage(Util.getChatComponent("Leorna: Embracing nature is part of the importance of life."));
 			break;
 		case 2:
-			var2.addChatMessage(Util.getChatComponent("Leorna: Have you tried throwing Lomonas? They are mighty handy for finding my way."));
+			var2.addChatMessage(Util.getChatComponent("Leorna: Have you tried throwing Lamona? It is mighty handy for finding my way."));
 			break;
 		case 3:
 			var2.addChatMessage(Util.getChatComponent("Leorna: Hitchak sure is tasty."));
