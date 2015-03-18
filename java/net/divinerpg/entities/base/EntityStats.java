@@ -43,7 +43,7 @@ public class EntityStats {
 	public static double angryBunnyHealth 		= 60.0D, angryBunnyDamage = 12.0D, angryBunnySpeed = normalSpeed, angryBunnyFollowRange = follow;
 	public static double apalachiaArcherHealth 	= 55.0D, apalachiaArcherDamage = 5.0D, apalachiaArcherSpeed = normalSpeed, apalachiaArcherFollowRange = follow;
 	public static double apalachiaCadillionHealth= 90.0D, apalachiaCadillionDamage = 12.0D, apalachiaCadillionSpeed = normalSpeed, apalachiaCadillionFollowRange = follow;
-	public static double apalachiaGolemHealth 	= 150.0D, apalachiaGolemDamage = 16.0D, apalachiaGolemSpeed = normalSpeed, apalachiaGolemFollowRange = follow;
+	public static double apalachiaGolemHealth 	= 250.0D, apalachiaGolemDamage = 16.0D, apalachiaGolemSpeed = normalSpeed, apalachiaGolemFollowRange = follow;
 	public static double apalachiaTomoHealth 	= 115.0D, apalachiaTomoDamage = 10.0D, apalachiaTomoSpeed = normalSpeed, apalachiaTomoFollowRange = follow;
 	public static double apalachiaWarriorHealth = 60.0D, apalachiaWarriorDamage = 20.0D, apalachiaWarriorSpeed = normalSpeed, apalachiaWarriorFollowRange = follow;
 	public static double bunnyHealth 			= 10.0D, bunnyDamage = 1.0D, bunnySpeed = normalSpeed, bunnyFollowRange = follow;
@@ -70,7 +70,7 @@ public class EntityStats {
 	public static double twilightDemonHealth 	= 1600.0D, twilightDemonDamage = 30.0D, twilightDemonSpeed = normalSpeed, twilightDemonFollowRange = follow;
 	public static double vamacheronHealth 		= 1350.0D, vamacheronDamage = 34.0D, vamacheronSpeed = normalSpeed*1.5, vamacheronFollowRange = follow;
 	public static double wildwoodCadillionHealth= 85.0D, wildwoodCadillionDamage = 12.0D, wildwoodCadillionSpeed = normalSpeed, wildwoodCadillionFollowRange = follow;
-	public static double wildwoodGolemHealth 	= 250.0D, wildwoodGolemDamage = 16.0D, wildwoodGolemSpeed = normalSpeed, wildwoodGolemFollowRange = follow;
+	public static double wildwoodGolemHealth 	= 200.0D, wildwoodGolemDamage = 16.0D, wildwoodGolemSpeed = normalSpeed, wildwoodGolemFollowRange = follow;
 	public static double epiphiteHealth 		= 100.0D, epiphiteDamage = 14.0D, epiphiteSpeed = normalSpeed, epiphiteFollowRange = follow;
 	public static double wildwoodTomoHealth 	= 110.0D, wildwoodTomoDamage = 10.0D, wildwoodTomoSpeed = normalSpeed, wildwoodTomoFollowRange = follow;
 	public static double edenCoriHealth 		= 10.0D, edenCoriDamage = 30.0D, edenCoriSpeed = normalSpeed, edenCoriFollowRange = follow;
