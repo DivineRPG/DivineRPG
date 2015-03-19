@@ -196,9 +196,4 @@ public class EntityHellPig extends EntityDivineRPGTameable {
         }
         else return false;
     }
-	
-	@Override
-	public boolean spawnsNaturally() {
-		return true;
-	}
 }

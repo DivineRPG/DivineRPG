@@ -54,10 +54,10 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	public boolean attackEntityAsMob(Entity par1Entity) {
 		double i = EntityStats.bunnyDamage;
-		if(this.isTamed()) {
-			this.transform(true, par1Entity);
-			return false;
-		}
+		//if(this.isTamed()) {
+			//this.transform(true, par1Entity);
+			//return false;
+		//}
 		return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
 	}
 
@@ -115,7 +115,6 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					this.setHealth(20);
 					this.func_152115_b(var1.getUniqueID().toString());
 					this.playTameEffect(true);
-					this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
 					this.worldObj.setEntityState(this, (byte)7);
 				} else {
 					this.playTameEffect(false);
@@ -150,11 +149,6 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	public String mobName() {
 		return "Bunny";
-	}
-	
-	@Override
-	public boolean spawnsNaturally() {
-		return true;
 	}
 
 	@Override

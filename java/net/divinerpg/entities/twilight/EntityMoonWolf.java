@@ -389,11 +389,6 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
             return false;
         }
     }
-    
-    @Override
-	public boolean spawnsNaturally() {
-		return true;
-	}
 
 	@Override
 	public String mobName() {
