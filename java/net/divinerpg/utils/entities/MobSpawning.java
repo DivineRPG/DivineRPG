@@ -201,8 +201,8 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
 				} else if(WorldChunkManager.allowedBiomes.contains(biome)){
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
-						EntityRegistry.addSpawn(EntityGlacon.class, 10, 1, 1, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityFrost.class, 10, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityGlacon.class, 30, 1, 1, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityFrost.class, 50, 1, 4, EnumCreatureType.monster, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SANDY)) {
 						EntityRegistry.addSpawn(EntityDesertCrawler.class, 50, 1, 4, EnumCreatureType.monster, biome);
@@ -213,13 +213,13 @@ public class MobSpawning {
 						EntityRegistry.addSpawn(EntityShark.class, 1, 1, 1, EnumCreatureType.waterCreature, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.BEACH)) {
-						EntityRegistry.addSpawn(EntityCrab.class, 15, 4, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityKingCrab.class, 5, 4, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityCrab.class, 100, 4, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityKingCrab.class, 40, 4, 4, EnumCreatureType.monster, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.JUNGLE)) {
-						EntityRegistry.addSpawn(EntityJungleBat.class, 20, 1, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityJungleDramcryx.class, 20, 1, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityJungleSpider.class, 10, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityJungleBat.class, 50, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityJungleDramcryx.class, 70, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityJungleSpider.class, 40, 1, 4, EnumCreatureType.monster, biome);
 					}
 					EntityRegistry.addSpawn(EntityCyclops.class, 2, 2, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityMiner.class, 1, 1, 1, EnumCreatureType.monster, biome);
