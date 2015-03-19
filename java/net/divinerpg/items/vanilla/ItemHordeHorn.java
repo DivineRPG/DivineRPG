@@ -38,7 +38,7 @@ public class ItemHordeHorn extends ItemMod {
 					player.inventory.consumeInventoryItem(this);
 				}
 			} else 
-				player.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "The Ayeraco Horde Can Only Be Spawned In The End"));
+				player.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "The Ayeraco Horde can only be spawned in The End"));
 			return false;
 		}
 	}

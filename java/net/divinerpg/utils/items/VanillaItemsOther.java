@@ -3,10 +3,11 @@ package net.divinerpg.utils.items;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModBucket;
 import net.divinerpg.items.base.ItemModSeeds;
+import net.divinerpg.items.vanilla.ItemCallOfTheWatcher;
 import net.divinerpg.items.vanilla.ItemHordeHorn;
+import net.divinerpg.items.vanilla.ItemInfernalFlame;
 import net.divinerpg.items.vanilla.ItemMysteriousClock;
 import net.divinerpg.items.vanilla.ItemTeleportationCrystal;
-import net.divinerpg.items.vanilla.ItemVanillaSpawner;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.item.Item;
 
@@ -122,8 +123,8 @@ public class VanillaItemsOther {
         
         mysteriousClock     = new ItemMysteriousClock("mysteriousClock");
         watchingEye        = new ItemMod("watchingEye");
-        callWatcher        = new ItemVanillaSpawner("callOfTheWatcher");
-        infernalFlame      = new ItemVanillaSpawner("infernalFlame");
+        callWatcher        = new ItemCallOfTheWatcher("callOfTheWatcher");
+        infernalFlame      = new ItemInfernalFlame("infernalFlame");
         hordeHorn      	= new ItemHordeHorn("hordeHorn");
         
         mushroomSeeds 		= new ItemModSeeds("mushroomSeeds", VanillaBlocks.mushroom);
