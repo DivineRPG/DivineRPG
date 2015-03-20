@@ -17,6 +17,7 @@ public class EntityDramix extends EntityDivineRPGBoss {
 
     public EntityDramix(World var1) {
         super(var1);
+        setSize(0.85f, 3);
         addAttackingAI();
         this.isImmuneToFire = true;
     }

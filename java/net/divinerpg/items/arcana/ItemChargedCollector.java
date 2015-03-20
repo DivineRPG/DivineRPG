@@ -15,13 +15,16 @@ public class ItemChargedCollector extends ItemMod {
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack i, EntityPlayer p, World w, int x, int y, int z, int par7, float par8, float par9, float par10) {
-		EntityConstructor con = new EntityConstructor(w);
-		Block block = w.getBlock(x, y, z);
-		if(!w.isRemote){
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
+		EntityConstructor con = new EntityConstructor(world);
+		Block block = world.getBlock(x, y, z);
+		if(!world.isRemote){
 			if(block == ArcanaBlocks.dramixAltar){
 				con.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
-				w.spawnEntityInWorld(con);
+				if(world.getCollidingBoundingBoxes(con, con.boundingBox).isEmpty()) { 
+                    world.spawnEntityInWorld(con);
+                    if(!player.capabilities.isCreativeMode)stack.stackSize--;
+                }
 				return true;
 			}
 		}

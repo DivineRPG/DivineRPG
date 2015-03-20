@@ -25,28 +25,42 @@ public class ItemDreamFlint extends ItemMod {
 			if(world.getBlock(x, y, z) == VetheaBlocks.wreckAltar) {
 				EntityWreck entity = new EntityWreck(world);
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
-				world.spawnEntityInWorld(entity);
+				if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+				    world.spawnEntityInWorld(entity);
+				    if(!player.capabilities.isCreativeMode)stack.stackSize--;
+				}
 			} else if(world.getBlock(x, y, z) == VetheaBlocks.raglokAltar) {
 				EntityRaglok entity = new EntityRaglok(world);
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
-				world.spawnEntityInWorld(entity);
+				if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+                    world.spawnEntityInWorld(entity);
+                    if(!player.capabilities.isCreativeMode)stack.stackSize--;
+                }
 			} else if(world.getBlock(x, y, z) == VetheaBlocks.karosAltar) {
 				EntityKaros entity = new EntityKaros(world);
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
-				world.spawnEntityInWorld(entity);
+				if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+                    world.spawnEntityInWorld(entity);
+                    if(!player.capabilities.isCreativeMode)stack.stackSize--;
+                }
 			} else if(world.getBlock(x, y, z) == VetheaBlocks.quadroticAltar) {
 				EntityQuadro entity = new EntityQuadro(world);
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
-				world.spawnEntityInWorld(entity);
+				if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+                    world.spawnEntityInWorld(entity);
+                    if(!player.capabilities.isCreativeMode)stack.stackSize--;
+                }
 			} else if(world.getBlock(x, y, z) == VetheaBlocks.wreckAltar) {
 				EntityWreck entity = new EntityWreck(world);
 				entity.setLocationAndAngles(x, y+1, z, 0, 0);
-				world.spawnEntityInWorld(entity);
+				if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+                    world.spawnEntityInWorld(entity);
+                    if(!player.capabilities.isCreativeMode)stack.stackSize--;
+                }
 			}
 			else {
 				return false;
 			}
-			if(!player.capabilities.isCreativeMode)stack.stackSize--;
 			return true;
 		}
 		return false;

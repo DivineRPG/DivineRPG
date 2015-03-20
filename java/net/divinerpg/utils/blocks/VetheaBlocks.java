@@ -133,7 +133,7 @@ public class VetheaBlocks {
         dreamLampOn            = new BlockMod(EnumBlockType.GLASS, "dreamLampOn", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
         dreamLamp              = new BlockMod(EnumBlockType.GLASS, "dreamLampOff", 1.0F, DivineRPGTabs.vethea);
         weedwoodVine           = new BlockModVine("weedWoodVine").setCreativeTab(DivineRPGTabs.vethea);
-        blossomingWeedwoodVine = new BlockModVine("blossemedWeedWoodVine").setCreativeTab(DivineRPGTabs.vethea);
+        blossomingWeedwoodVine = new BlockModVine("blossomedWeedWoodVine").setCreativeTab(DivineRPGTabs.vethea);
         cryptWall              = new BlockMod("cryptWall", 1.0F, DivineRPGTabs.vethea);
         smoothGlass            = new BlockModGlass("smoothGlass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         villageLamp            = new BlockMod(EnumBlockType.GLASS, "villageLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);

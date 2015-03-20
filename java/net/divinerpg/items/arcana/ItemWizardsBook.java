@@ -19,23 +19,27 @@ public class ItemWizardsBook extends ItemMod {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack item, EntityPlayer p, World w, int x, int y, int z, int i, float f, float f1, float f2) {
-		EntityParasecta parasecta = new EntityParasecta(w);
-		EntityDramix dramix = new EntityDramix(w);
-		Block block = w.getBlock(x, y, z);
+	public boolean onItemUse(ItemStack stack, EntityPlayer p, World world, int x, int y, int z, int i, float f, float f1, float f2) {
+		EntityParasecta parasecta = new EntityParasecta(world);
+		EntityDramix dramix = new EntityDramix(world);
+		Block block = world.getBlock(x, y, z);
 
-		if(!w.isRemote){
+		if(!world.isRemote){
 			if(block == ArcanaBlocks.parasectaAltar){
 				parasecta.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
-				w.spawnEntityInWorld(parasecta);
-				Util.sendMessageToAll(p.getDisplayName() + " Spawned the Parasecta!");
+				if(world.getCollidingBoundingBoxes(parasecta, parasecta.boundingBox).isEmpty()) { 
+				    world.spawnEntityInWorld(parasecta);
+				    if(!p.capabilities.isCreativeMode) stack.stackSize--;
+				}
 				return true;
 			} 
 
 			if(block == ArcanaBlocks.dramixAltar){
 				dramix.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
-				w.spawnEntityInWorld(dramix);
-				Util.sendMessageToAll(p.getDisplayName() + " Spawned the Dramix!");
+				if(world.getCollidingBoundingBoxes(dramix, dramix.boundingBox).isEmpty()) { 
+				    world.spawnEntityInWorld(dramix);
+				    if(!p.capabilities.isCreativeMode) stack.stackSize--;
+				}
 				return true;
 			}
 		}
