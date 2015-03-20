@@ -34,7 +34,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						e.setPosition(x, y+1, z);
 						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
 							world.spawnEntityInWorld(e);
-							if(player.capabilities.isCreativeMode) --stack.stackSize;
+							if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 						}
 						return true;
 					}
@@ -46,7 +46,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty() && world.getCollidingBoundingBoxes(e1, e1.boundingBox).isEmpty()) {
 							world.spawnEntityInWorld(e);
 							world.spawnEntityInWorld(e1);
-							if(player.capabilities.isCreativeMode) --stack.stackSize;
+							if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 							player.triggerAchievement(DivineRPGAchievements.tenHeadsIsBetterThanOne);
 						}
 						return true;
@@ -56,7 +56,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						e.setPosition(x, y+1, z);
 						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
 							world.spawnEntityInWorld(e);
-							if(player.capabilities.isCreativeMode) --stack.stackSize;
+							if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 						}
 						return true;
 					}
@@ -65,7 +65,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						e.setPosition(x, y+1, z);
 						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
 							world.spawnEntityInWorld(e);
-							if(player.capabilities.isCreativeMode) --stack.stackSize;
+							if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 						}
 						return true;
 					}
@@ -74,7 +74,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						e.setPosition(x, y+1, z);
 						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
 							world.spawnEntityInWorld(e);
-							if(player.capabilities.isCreativeMode) --stack.stackSize;
+							if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 						}
 						return true;
 					}
@@ -83,7 +83,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						e.setPosition(x, y+1, z);
 						if(world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
 							world.spawnEntityInWorld(e);
-							if(player.capabilities.isCreativeMode) --stack.stackSize;
+							if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 							player.triggerAchievement(DivineRPGAchievements.sixInOne);
 						}
 						return true;
