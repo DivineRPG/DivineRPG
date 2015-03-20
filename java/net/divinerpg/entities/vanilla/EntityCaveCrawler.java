@@ -55,6 +55,11 @@ public class EntityCaveCrawler extends EntityDivineRPGMob {
 		}
 	}
 
+    @Override
+    protected boolean isValidLightLevel() {
+        return true;
+    }
+    
 	@Override
 	public boolean getCanSpawnHere() {
 		return this.posY < 35.0D && super.getCanSpawnHere();

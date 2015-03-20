@@ -56,6 +56,11 @@ public class EntityRotatick extends EntityDivineRPGMob {
     }
 
     @Override
+    protected boolean isValidLightLevel() {
+        return true;
+    }
+    
+    @Override
     public boolean getCanSpawnHere() {
         return this.posY < 25.0D && super.getCanSpawnHere();
     }

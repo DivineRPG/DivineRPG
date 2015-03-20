@@ -108,6 +108,11 @@ public class EntityTheEye extends EntityDivineRPGMob {
         this.dropItem(VanillaItemsOther.rupeeIngot, 1);
         this.dropItem(Item.getItemFromBlock(Blocks.torch), 16 * var3);
     }
+
+    @Override
+    protected boolean isValidLightLevel() {
+        return true;
+    }
     
     @Override
     public boolean getCanSpawnHere() {

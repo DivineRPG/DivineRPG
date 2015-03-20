@@ -64,6 +64,11 @@ public class EntityCaveclops extends EntityDivineRPGMob implements IRangedAttack
     }
 
     @Override
+    protected boolean isValidLightLevel() {
+        return true;
+    }
+    
+    @Override
     public boolean getCanSpawnHere() {
         return this.posY < 20.0D && super.getCanSpawnHere();
     }
