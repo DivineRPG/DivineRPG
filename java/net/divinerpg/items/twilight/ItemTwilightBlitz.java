@@ -23,8 +23,7 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
 	}
 
 	@Override
-	public Multimap getItemAttributeModifiers()
-    {
+	public Multimap getItemAttributeModifiers() {
         Multimap multimap = super.getItemAttributeModifiers();
         multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", this.damage, 0));
         return multimap;

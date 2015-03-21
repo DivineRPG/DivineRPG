@@ -48,7 +48,7 @@ public class ItemStaffEnrichment extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("Use on arcana dirt to purify.");
+		par3List.add("Use on arcanite dirt to purify.");
 		par3List.add(par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata() + " Uses");
 	}
 
