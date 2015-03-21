@@ -52,58 +52,60 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity par1Entity) {
+	public boolean attackEntityAsMob(Entity target) {
 		double i = EntityStats.bunnyDamage;
-		//if(this.isTamed()) {
-			//this.transform(true, par1Entity);
-			//return false;
-		//}
-		return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
+		if(this.isTamed()) {
+			this.transform(true, target);
+			return false;
+		}
+		return target.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
 	}
 
-	private void transform(boolean tamed, Entity var3)  {
+	private void transform(boolean tamed, Entity target)  {
 		if(!this.worldObj.isRemote) {
-			EntityAngryBunny var2 = new EntityAngryBunny(this.worldObj);
-			var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
-			this.worldObj.spawnEntityInWorld(var2);
-			if(var3 instanceof EntityLiving) 
-				var2.setAttackTarget((EntityLiving) var3);
+			EntityAngryBunny bunny = new EntityAngryBunny(this.worldObj, target);
+			bunny.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
+			this.worldObj.spawnEntityInWorld(bunny);
+			if(target instanceof EntityLiving) 
+				bunny.setAttackTarget((EntityLiving) target);
 			this.setDead();
 		}
 	}
 
 	@Override
-	public boolean interact(EntityPlayer var1) {
-		ItemStack var2 = var1.inventory.getCurrentItem();
+	public boolean interact(EntityPlayer player) {
+		ItemStack stack = player.inventory.getCurrentItem();
 
 		if(this.isTamed()) {
-			if(var2 != null && var2.getItem() instanceof ItemFood) {
-				ItemFood var3 = (ItemFood)var2.getItem();
+			if(stack != null && stack.getItem() instanceof ItemFood) {
+				ItemFood food = (ItemFood)stack.getItem();
 
-				if(var3.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectInt(18) < 20) {
-					if(!var1.capabilities.isCreativeMode) {
-						--var2.stackSize;
+				//Crashes when getting dataWatcher
+				/*if(food.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 20.0F) {
+					if(!player.capabilities.isCreativeMode) {
+						--stack.stackSize;
 					}
-					this.heal((float)var3.getHealAmount(var2));
-					if(var2.stackSize <= 0) {
-						var1.inventory.setInventorySlotContents(var1.inventory.currentItem, (ItemStack)null);
+					this.heal((float)food.getHealAmount(stack));
+					if(stack.stackSize <= 0) {
+						player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
 					}
 					return true;
-				}
+				}*/
 			}
-			if(var1.getDisplayName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote) {
+			//It's not even going in this function
+			if(player.getDisplayName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote) {
 				this.aiSit.setSitting(!this.isSitting());
 				this.isJumping = false;
 				this.setPathToEntity((PathEntity)null);
 			}
 		}
-		else if(var2 != null && var2.getItem() == TwilightItemsOther.edenSparkles) {
-			if(!var1.capabilities.isCreativeMode) {
-				--var2.stackSize;
+		else if(stack != null && stack.getItem() == TwilightItemsOther.edenSparkles) {
+			if(!player.capabilities.isCreativeMode) {
+				--stack.stackSize;
 			}
 
-			if(var2.stackSize <= 0) {
-				var1.inventory.setInventorySlotContents(var1.inventory.currentItem, (ItemStack)null);
+			if(stack.stackSize <= 0) {
+				player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
 			}
 
 			if(!this.worldObj.isRemote) {
@@ -113,7 +115,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					this.setAttackTarget((EntityLiving)null);
 					this.aiSit.setSitting(true);
 					this.setHealth(20);
-					this.func_152115_b(var1.getUniqueID().toString());
+					this.func_152115_b(player.getUniqueID().toString());
 					this.playTameEffect(true);
 					this.worldObj.setEntityState(this, (byte)7);
 				} else {
@@ -123,7 +125,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 			}
 			return true;
 		}
-		return super.interact(var1);
+		return super.interact(player);
 	}
 
 	@Override

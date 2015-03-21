@@ -279,7 +279,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                     this.setTamed(true);
                     this.setPathToEntity((PathEntity)null);
                     this.setAttackTarget((EntityLivingBase)null);
-                    //this.aiSit.setSitting(true);
+                    this.aiSit.setSitting(true);
                     this.setHealth(200.0F);
                     this.func_152115_b(par1EntityPlayer.getCommandSenderName());
                     this.playTameEffect(true);
