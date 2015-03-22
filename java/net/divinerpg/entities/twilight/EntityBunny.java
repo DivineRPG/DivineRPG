@@ -127,10 +127,6 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	}
 
 	@Override
-    public void onLivingUpdate() {
-	    System.out.println(this.getHealth());
-	}
-	@Override
 	protected String getLivingSound() {
 		return Sounds.getSoundName(Sounds.bunny);
 	}
