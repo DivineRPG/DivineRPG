@@ -8,6 +8,7 @@ import net.divinerpg.utils.items.TwilightItemsOther;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.IMob;
@@ -80,33 +81,30 @@ public class EntityBunny extends EntityDivineRPGTameable {
 			if(stack != null && stack.getItem() instanceof ItemFood) {
 				ItemFood food = (ItemFood)stack.getItem();
 
-				//Crashes when getting dataWatcher
-				/*if(food.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 20.0F) {
-					if(!player.capabilities.isCreativeMode) {
-						--stack.stackSize;
-					}
+				if(food.isWolfsFavoriteMeat()) {
+					if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
+					
 					this.heal((float)food.getHealAmount(stack));
-					if(stack.stackSize <= 0) {
+					if(stack.stackSize <= 0)
 						player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
-					}
+
 					return true;
-				}*/
+				}
 			}
-			//It's not even going in this function
-			if(player.getDisplayName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote) {
-				this.aiSit.setSitting(!this.isSitting());
-				this.isJumping = false;
-				this.setPathToEntity((PathEntity)null);
+			
+			if(this.func_152114_e(player) && !this.worldObj.isRemote && (stack == null || !this.isBreedingItem(stack))) {
+			    this.aiSit.setSitting(!this.isSitting());
+                this.isJumping = false;
+                this.setPathToEntity((PathEntity)null);
+                this.setTarget((Entity)null);
+                this.setAttackTarget((EntityLivingBase)null);
 			}
 		}
 		else if(stack != null && stack.getItem() == TwilightItemsOther.edenSparkles) {
-			if(!player.capabilities.isCreativeMode) {
-				--stack.stackSize;
-			}
+			if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
 
-			if(stack.stackSize <= 0) {
+			if(stack.stackSize <= 0)
 				player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
-			}
 
 			if(!this.worldObj.isRemote) {
 				if(this.rand.nextInt(3) == 0) {
@@ -128,6 +126,10 @@ public class EntityBunny extends EntityDivineRPGTameable {
 		return super.interact(player);
 	}
 
+	@Override
+    public void onLivingUpdate() {
+	    System.out.println(this.getHealth());
+	}
 	@Override
 	protected String getLivingSound() {
 		return Sounds.getSoundName(Sounds.bunny);

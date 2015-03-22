@@ -242,37 +242,39 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public boolean interact(EntityPlayer par1EntityPlayer) {
-        ItemStack itemstack = par1EntityPlayer.inventory.getCurrentItem();
+    public boolean interact(EntityPlayer player) {
+        ItemStack stack = player.inventory.getCurrentItem();
 
         if(this.isTamed()) {
-            if(itemstack != null && itemstack.getItem() instanceof ItemFood) {
-                ItemFood itemfood = (ItemFood)itemstack.getItem();
+            if(stack != null && stack.getItem() instanceof ItemFood) {
+                ItemFood food = (ItemFood)stack.getItem();
 
-                if(itemfood.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 20.0F) {
-                    if(!par1EntityPlayer.capabilities.isCreativeMode) --itemstack.stackSize;
+                if(food.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 200.0F) {
+                    if(!player.capabilities.isCreativeMode) --stack.stackSize;
 
-                    this.heal((float)itemfood.getHealAmount(itemstack));
+                    this.heal((float)food.getHealAmount(stack));
 
-                    if(itemstack.stackSize <= 0)
-                        par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
+                    if(stack.stackSize <= 0)
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
 
                     return true;
                 }
             }
-            else if(par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote) {
-                this.aiSit.setSitting(false);
+            
+            if(this.func_152114_e(player) && !this.worldObj.isRemote && (stack == null || !this.isBreedingItem(stack))) {             
+                this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.setPathToEntity((PathEntity)null);
                 this.setTarget((Entity)null);
                 this.setAttackTarget((EntityLivingBase)null);
             }
         }
-        else if(itemstack != null && itemstack.getItem() == Items.bone && !this.isAngry()) {
-            if(!par1EntityPlayer.capabilities.isCreativeMode) --itemstack.stackSize;
+        
+        else if(stack != null && stack.getItem() == Items.bone && !this.isAngry()) {
+            if(!player.capabilities.isCreativeMode) --stack.stackSize;
 
-            if(itemstack.stackSize <= 0)
-                par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
+            if(stack.stackSize <= 0)
+                player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
 
             if(!this.worldObj.isRemote) {
                 if(ranCount == 0) {
@@ -281,7 +283,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                     this.setAttackTarget((EntityLivingBase)null);
                     this.aiSit.setSitting(true);
                     this.setHealth(200.0F);
-                    this.func_152115_b(par1EntityPlayer.getCommandSenderName());
+                    this.func_152115_b(player.getUniqueID().toString());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte)7);
                 } else {
@@ -292,7 +294,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
             }
             return true;
         }
-        return super.interact(par1EntityPlayer);
+        return super.interact(player);
     }
 
     @SideOnly(Side.CLIENT)
