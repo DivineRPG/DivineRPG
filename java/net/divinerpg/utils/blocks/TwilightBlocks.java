@@ -128,7 +128,7 @@ public class TwilightBlocks {
         mortumLogs        = new BlockModLog("mortumLog");
 
         twilightStone     = new BlockMod("twilightStone", 6.0F);
-        wildwoodVine     = new BlockModVine("wildwoodVine");
+        wildwoodVine      = new BlockModVine("wildwoodVine");
         blueFire          = new BlockBlueFire("blueFire");
         edenPortal        = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, VanillaBlocks.divineRock);
         wildwoodPortal    = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, edenBlock);

@@ -1,17 +1,11 @@
 package net.divinerpg.entities.vanilla;
 
-import java.util.List;
-
-import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.entities.base.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntityCyclops extends EntityPeacefulUntilAttacked {
@@ -47,22 +41,11 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
 	}
 
 	@Override
-	protected void dropFewItems(boolean var1, int var2) {
-		int var3 = this.rand.nextInt(2 + var2);
-
-		for(int var4 = 0; var4 < var3; ++var4) {
-			this.dropItem(VanillaItemsOther.cyclopsEye, 1);
-		}
-	}
-
-	@Override
-	protected void dropRareDrop(int var1) {
-		this.dropItem(VanillaItemsOther.healingStone, 1);
-	}
-
-	@Override
-	protected Item getDropItem() {
-		return VanillaItemsOther.cyclopsEye;
+	protected void dropFewItems(boolean var1, int loot) {
+		dropItem(VanillaItemsOther.cyclopsEye, rand.nextInt(2 + loot));
+		dropItem(Items.gold_ingot, rand.nextInt(2 + loot));
+		if(rand.nextInt(100) == 0)
+		    dropItem(VanillaItemsOther.bloodgem, 1);
 	}
 
 	@Override

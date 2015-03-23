@@ -1,5 +1,8 @@
 package net.divinerpg.blocks.base;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.libs.Reference;
@@ -7,12 +10,15 @@ import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
-public class BlockModDoublePlant extends BlockMod {
+public class BlockModDoublePlant extends BlockMod implements IShearable {
 
 	private Block grass;
 	private IIcon bottomIcon;
@@ -73,6 +79,23 @@ public class BlockModDoublePlant extends BlockMod {
     @Override
     public int getRenderType() {
     	return 1;
+    }
+    
+    @Override
+    public Item getItemDropped(int par1, Random rand, int par3) {
+        return null;
+    }
+    
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1));
+        return ret;
+    }
+
+    @Override
+    public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) {
+        return true;
     }
     
     @Override

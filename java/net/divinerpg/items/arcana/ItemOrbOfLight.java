@@ -2,6 +2,7 @@ package net.divinerpg.items.arcana;
 
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.events.Ticker;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -13,6 +14,7 @@ public class ItemOrbOfLight extends ItemMod {
 
 	public ItemOrbOfLight() {
 		super("orbOfLight");
+		setCreativeTab(DivineRPGTabs.utility);
 	}
 	
 	@Override
