@@ -19,6 +19,7 @@ public class BlockAyeracoBeam extends BlockContainer {
 		setTextureName(Reference.PREFIX + "beam" + tex);
 		setUnlocalizedName(name);
 		setCreativeTab(null);
+		setResistance(1000000);
 		this.tex = tex;
 		GameRegistry.registerBlock(this, name);
 	}
