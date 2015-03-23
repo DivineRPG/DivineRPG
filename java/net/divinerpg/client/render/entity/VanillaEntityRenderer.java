@@ -18,6 +18,7 @@ import net.divinerpg.client.render.block.RenderAyeracoSpawn;
 import net.divinerpg.client.render.block.RenderBoneChest;
 import net.divinerpg.client.render.block.RenderStatue;
 import net.divinerpg.client.render.block.TileEntityStatue;
+import net.divinerpg.client.render.entity.vanilla.RenderAridWarrior;
 import net.divinerpg.client.render.entity.vanilla.RenderHellPig;
 import net.divinerpg.client.render.entity.vanilla.RenderModBiped;
 import net.divinerpg.client.render.entity.vanilla.RenderWildfire;
@@ -136,7 +137,7 @@ public class VanillaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityHellSpider.class, new RenderSizeable(new ModelHellSpider(), 0.6F, 1F, x.hellSpider));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderSpider.class, new RenderSizeable(new ModelSpider(), 0.0F, 0.5F, x.enderSpider));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderTriplets.class, new RenderDivineMob(new ModelEnderTriplets(), 0.0F, x.enderTriplets));	
-		RenderingRegistry.registerEntityRenderingHandler(EntityAridWarrior.class, new RenderDivineMob(new ModelAridWarrior(), 0.0F, x.aridWarrior));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAridWarrior.class, new RenderAridWarrior(new ModelAridWarrior(), x.aridWarrior));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnthralledDramcryx.class, new RenderSizeable(new ModelDramcryx(), 0.0F, 1.5F, x.caveDramcryx));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTheEye.class, new RenderDivineMob(new ModelEye(), 0.0F, x.theEye));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrost.class, new RenderDivineMob(new ModelFrost(), 0.0F, x.frost));

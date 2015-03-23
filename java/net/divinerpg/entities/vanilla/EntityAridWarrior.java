@@ -2,6 +2,7 @@ package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,7 +27,7 @@ import net.minecraft.world.World;
 
 public class EntityAridWarrior extends EntityDivineRPGMob implements IRangedAttackMob {
 	
-    private static final ItemStack defaultHeldItem = new ItemStack(Items.bow, 1);
+    private static final ItemStack defaultHeldItem = new ItemStack(VanillaItemsWeapons.shadowBow, 1);
 
     public EntityAridWarrior(World par1World) {
         super(par1World);
