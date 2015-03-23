@@ -148,10 +148,10 @@ public class ArcanaItems {
         soulKey 				 = new ItemKey("soulKey");
         degradedKey 			 = new ItemKey("degradedKey");
 
-    	golemSpawner   	 		 = new ItemArcanaSpawnEgg("golemSpawner");
-    	seimerSpawner   	 	 = new ItemArcanaSpawnEgg("seimerSpawner");
-    	paratikuSpawner   		 = new ItemArcanaSpawnEgg("paratikuSpawner");
-    	fyracryxSpawner    		 = new ItemArcanaSpawnEgg("fyracryxSpawner");
+    	golemSpawner   	 		 = new ItemArcanaSpawnEgg("golemEgg");
+    	seimerSpawner   	 	 = new ItemArcanaSpawnEgg("seimerEgg");
+    	paratikuSpawner   		 = new ItemArcanaSpawnEgg("paratikuEgg");
+    	fyracryxSpawner    		 = new ItemArcanaSpawnEgg("fyracryxEgg");
 
         hitchak		 		 	 = new ItemModFood(2, 3, false, "hitchak");
         hitchakSeeds 			 = new ItemArcanaSeeds("hitchakSeeds", ArcanaBlocks.hitchak);

@@ -1,6 +1,6 @@
 package net.divinerpg.utils.events;
 
-import net.divinerpg.utils.PlayerUtil;
+import net.divinerpg.utils.FlyingHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -13,8 +13,8 @@ public class EntityConstructorEvent {
 			ArcanaHelper.addProperties((EntityPlayer)evt.entity);
 		}
 		
-		if(evt.entity instanceof EntityPlayer && PlayerUtil.getProperties((EntityPlayer)evt.entity) == null){
-			PlayerUtil.addProperties((EntityPlayer)evt.entity);
+		if(evt.entity instanceof EntityPlayer && FlyingHelper.getProperties((EntityPlayer)evt.entity) == null){
+		    FlyingHelper.addProperties((EntityPlayer)evt.entity);
 		}
 		
 		if(evt.entity instanceof EntityPlayer && ArcanaPortalCoords.getProperties((EntityPlayer)evt.entity) == null){

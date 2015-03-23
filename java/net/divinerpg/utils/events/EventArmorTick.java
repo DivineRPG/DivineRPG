@@ -3,6 +3,7 @@ package net.divinerpg.utils.events;
 import java.util.List;
 
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.FlyingHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.IceikaItems;
@@ -66,16 +67,21 @@ public class EventArmorTick {
             evt.player.fallDistance = -0.5F;
             evt.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
             evt.player.capabilities.allowFlying = true;
-            if(evt.player.capabilities.isFlying && !evt.player.capabilities.isCreativeMode) ArcanaHelper.getProperties(evt.player).useBar(0.5f);
-            if(ArcanaHelper.getProperties(evt.player).getBarValue() < 1 && !evt.player.capabilities.isCreativeMode) {
+            if(evt.player.capabilities.isFlying && !evt.player.capabilities.isCreativeMode && !FlyingHelper.getProperties(evt.player).couldFly) ArcanaHelper.getProperties(evt.player).useBar(0.5f);
+            if(ArcanaHelper.getProperties(evt.player).getBarValue() < 1 && !evt.player.capabilities.isCreativeMode && !FlyingHelper.getProperties(evt.player).couldFly) {
             	evt.player.capabilities.isFlying = false;
             	evt.player.capabilities.allowFlying = false;
             }
         }
-        else if(evt.player.capabilities.allowFlying && !evt.player.capabilities.isCreativeMode){
+        else if(evt.player.capabilities.allowFlying && !evt.player.capabilities.isCreativeMode && !FlyingHelper.getProperties(evt.player).couldFly){
         	evt.player.capabilities.isFlying = false;
         	evt.player.capabilities.allowFlying = false;
         }
+        
+        if(boots != VanillaItemsArmor.angelicBoots || body != VanillaItemsArmor.angelicBody || legs != VanillaItemsArmor.angelicLegs || helmet != VanillaItemsArmor.angelicHelmet) {
+            FlyingHelper.getProperties(evt.player).couldFly = evt.player.capabilities.allowFlying;
+        }
+        if(evt.player.capabilities.isCreativeMode) FlyingHelper.getProperties(evt.player).couldFly = false;
         
         //Elite Realmite
         if (boots == VanillaItemsArmor.eliteRealmiteBoots && body == VanillaItemsArmor.eliteRealmiteBody && legs == VanillaItemsArmor.eliteRealmiteLegs && helmet == VanillaItemsArmor.eliteRealmiteHelmet) {
