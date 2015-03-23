@@ -7,6 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityDreamLamp extends TileEntity implements IInventory {
@@ -96,6 +99,17 @@ public class TileEntityDreamLamp extends TileEntity implements IInventory {
     }
     
     @Override
+    public Packet getDescriptionPacket() {
+        if(slot != null) return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 3, slot.writeToNBT(new NBTTagCompound()));
+        return null;
+    }
+    
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
+        this.slot = ItemStack.loadItemStackFromNBT(packet.getNbtCompound());
+    }
+    
+    @Override
     public void writeToNBT(NBTTagCompound tag) {
         super.writeToNBT(tag);
         if(this.slot != null) tag.setTag("Slot", this.slot.writeToNBT(new NBTTagCompound()));
@@ -106,5 +120,4 @@ public class TileEntityDreamLamp extends TileEntity implements IInventory {
         super.readFromNBT(tag);
         if(tag.hasKey("Slot")) this.slot = ItemStack.loadItemStackFromNBT((NBTTagCompound) tag.getTag("Slot"));
     }
-
 }

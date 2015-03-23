@@ -46,13 +46,8 @@ public class ContainerDreamLamp extends Container {
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
-            
             if(itemstack.getItem() != VetheaItems.acid) return null;
-
-                if (!this.mergeItemStack(itemstack1, this.numRows * 9, this.inventorySlots.size(), true)) {
-                    return null;
-                }
-
+            if ((index == 0 && !this.mergeItemStack(itemstack1, 1, this.inventorySlots.size(), false)) || (index != 0 && !this.mergeItemStack(itemstack1, 0, 1, false))) return null;
             if (itemstack1.stackSize == 0) {
                 slot.putStack((ItemStack)null);
             } else {
