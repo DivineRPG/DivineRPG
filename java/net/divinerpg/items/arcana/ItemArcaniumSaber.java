@@ -44,7 +44,7 @@ public class ItemArcaniumSaber extends ItemModSword {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("12 Arcana");
-		par3List.add("28 Melee Damage");
+		par3List.add("Consumes 12 Arcana");
+		par3List.add("22 Melee Damage");
 	}
 }

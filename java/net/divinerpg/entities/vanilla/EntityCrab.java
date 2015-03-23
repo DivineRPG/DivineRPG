@@ -47,17 +47,8 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
 	}
 
 	@Override
-	protected Item getDropItem() {
-		return VanillaItemsOther.crabClaw;
-	}
-	
-	@Override
-	protected void dropFewItems(boolean var1, int var2) {		
-		int var3 = this.rand.nextInt(2 + var2);
-
-		for (int var4 = 0; var4 < var3; ++var4) {
-			this.dropItem(getDropItem(), 1);
-		}
+	protected void dropFewItems(boolean var1, int looting) {		
+		this.dropItem(VanillaItemsOther.crabClaw, this.rand.nextInt(2 + looting));
 	}
 
 	@Override

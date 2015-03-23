@@ -7,12 +7,14 @@ import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.divinerpg.blocks.base.tileentity.container.ContainerInfiniteFurnace;
 import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
+import net.divinerpg.blocks.vethea.container.ContainerDreamLamp;
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
 import net.divinerpg.blocks.vethea.container.tileentity.TileEntityInfusionTable;
 import net.divinerpg.client.render.gui.GuiAltarCorruption;
 import net.divinerpg.client.render.gui.GuiCoalstoneFurnace;
 import net.divinerpg.client.render.gui.GuiDatticon;
 import net.divinerpg.client.render.gui.GuiDemonFurnace;
+import net.divinerpg.client.render.gui.GuiDreamLamp;
 import net.divinerpg.client.render.gui.GuiExtractor;
 import net.divinerpg.client.render.gui.GuiGreenlightFurnace;
 import net.divinerpg.client.render.gui.GuiHunger;
@@ -32,6 +34,7 @@ import net.divinerpg.client.render.gui.GuiZelus;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -39,7 +42,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 public class GuiHandler implements IGuiHandler{
 
 	public static int guiID = 0;
-	public static int twilightFurnace = guiID++, infusionTable = guiID++, hunger = guiID++, coalstone = guiID++, tinker = guiID++, merchent = guiID++, jackOMan = guiID++, zelus = guiID++, vatticus = guiID++, warGeneral = guiID++, leorna = guiID++, captainMerik = guiID++, datticon = guiID++, extractor = guiID++ , greenlight = guiID++, oceanfire = guiID++, molten = guiID++, whitefire = guiID++, moonlight = guiID++, demon = guiID++, altar = guiID++;
+	public static int twilightFurnace = guiID++, infusionTable = guiID++, hunger = guiID++, coalstone = guiID++, tinker = guiID++, merchent = guiID++, jackOMan = guiID++, zelus = guiID++, vatticus = guiID++, warGeneral = guiID++, leorna = guiID++, captainMerik = guiID++, datticon = guiID++, extractor = guiID++ , greenlight = guiID++, oceanfire = guiID++, molten = guiID++, whitefire = guiID++, moonlight = guiID++, demon = guiID++, altar = guiID++, dreamLamp = guiID++;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -54,6 +57,8 @@ public class GuiHandler implements IGuiHandler{
 			return new ContainerInfiniteFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == altar)
 			return new ContainerAltarCorruption(player.inventory, world, x, y, z);
+		if(ID == dreamLamp)
+            return new ContainerDreamLamp(player.inventory, (IInventory) entity);
 		return null;
 	}
 
@@ -100,6 +105,8 @@ public class GuiHandler implements IGuiHandler{
 			return new GuiDemonFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == altar)
 			return new GuiAltarCorruption(player.inventory, world, x, y, z);
+		if(ID == dreamLamp)
+            return new GuiDreamLamp(player.inventory, (IInventory) entity);
 		return null;
 	}
 

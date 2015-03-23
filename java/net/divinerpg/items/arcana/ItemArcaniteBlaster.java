@@ -41,7 +41,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 			if(ArcanaHelper.getProperties(player).useBar(20)) {
 			if(!world.isRemote)world.playSoundAtEntity(player, Sounds.ghastCannon.getPrefixedName(), 1.0F, 1.0F);
 				for(int i = 0; i < 30; i++) {
-					EntityThrowable entity = new EntityShooterBullet(world, player, 30, EntityResourceLocation.arcaniteBlaster.toString());
+					EntityThrowable entity = new EntityShooterBullet(world, player, 23, EntityResourceLocation.arcaniteBlaster.toString());
 					entity.posX += (this.rand.nextDouble()-this.rand.nextDouble())*1.5;
 					entity.posY += (this.rand.nextDouble()-this.rand.nextDouble())*1.5;
 					entity.posZ += (this.rand.nextDouble()-this.rand.nextDouble())*1.5;
@@ -66,7 +66,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("30x12 Ranged damage");
+		list.add("30x23 Ranged damage");
 		list.add("Consumes 20 Arcana");
 		list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
 	}

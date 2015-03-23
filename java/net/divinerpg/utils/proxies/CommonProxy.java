@@ -21,6 +21,7 @@ import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAltarOfCorrup
 import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoBeam;
 import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityAyeracoSpawn;
 import net.divinerpg.blocks.vanilla.container.tileentity.TileEntityBoneChest;
+import net.divinerpg.blocks.vethea.container.tileentity.TileEntityDreamLamp;
 import net.divinerpg.blocks.vethea.container.tileentity.TileEntityInfusionTable;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.client.render.block.TileEntityStatue;
@@ -136,6 +137,7 @@ public class CommonProxy{
 		GameRegistry.registerTileEntity(TileEntityStupidSpawner.class, "StupidMobSpawner");
         GameRegistry.registerTileEntity(TileEntityPresentBox.class, "PresentBox");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, "AyeracoSpawn");
+        GameRegistry.registerTileEntity(TileEntityDreamLamp.class, "DreamLamp");
 		LogHelper.info("Registering entities");
 		VanillaEntityRegistry.init();
 		TwilightEntityRegistry.init();

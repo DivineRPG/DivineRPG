@@ -1,5 +1,7 @@
 package net.divinerpg.utils.entities;
 
+import java.util.List;
+
 import net.divinerpg.entities.arcana.EntityCaptianMerik;
 import net.divinerpg.entities.arcana.EntityDatticon;
 import net.divinerpg.entities.arcana.EntityLeorna;
@@ -100,10 +102,12 @@ import net.divinerpg.entities.vethea.EntityZoragon;
 import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.LogHelper;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class MobSpawning {
@@ -199,9 +203,10 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.monster, biome);
-				} else if(WorldChunkManager.allowedBiomes.contains(biome)){
+				} else if(overworldBiome(biome)) {
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SNOWY)) {
 						EntityRegistry.addSpawn(EntityGlacon.class, 30, 1, 1, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityGlacon.class, 30, 1, 1, EnumCreatureType.creature, biome);
 						EntityRegistry.addSpawn(EntityFrost.class, 50, 1, 4, EnumCreatureType.monster, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SANDY)) {
@@ -221,7 +226,7 @@ public class MobSpawning {
 						EntityRegistry.addSpawn(EntityJungleDramcryx.class, 70, 1, 4, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityJungleSpider.class, 40, 1, 4, EnumCreatureType.monster, biome);
 					}
-					EntityRegistry.addSpawn(EntityCyclops.class, 2, 2, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityCyclops.class, 35, 2, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityMiner.class, 1, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityJackOMan.class, 1, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityCaveCrawler.class, 50, 2, 3, EnumCreatureType.monster, biome);
@@ -269,5 +274,13 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityEhu.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 		EntityRegistry.addSpawn(EntityHusk.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 		EntityRegistry.addSpawn(EntityStoneGolem.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
+	}
+	
+	public static boolean overworldBiome(BiomeGenBase b) {
+	    List<SpawnListEntry> monsterList = ObfuscationReflectionHelper.getPrivateValue(BiomeGenBase.class, b, "as", "field_76761_J", "spawnableMonsterList");
+	    for(SpawnListEntry e : monsterList) {
+	        if(e.entityClass == EntityZombie.class) return true;
+	    }
+	    return false;
 	}
 }

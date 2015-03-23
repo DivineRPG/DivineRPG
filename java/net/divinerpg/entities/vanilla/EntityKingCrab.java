@@ -48,17 +48,11 @@ public class EntityKingCrab extends EntityPeacefulUntilAttacked {
 
 	@Override
     protected void dropFewItems(boolean var1, int var2) {
-        int var3 = this.rand.nextInt(2 + var2);
-        int var4;
-
-        for(var4 = 0; var4 < var3; ++var4)
-            this.dropItem(VanillaItemsOther.crabClaw, 1);
-
-        for(var4 = 0; var4 < var3; ++var4) 
-            this.dropItem(VanillaItemsOther.aquaticPellets, 3);
+	    this.dropItem(VanillaItemsOther.crabClaw, this.rand.nextInt(2 + var2));
+	    this.dropItem(VanillaItemsOther.aquaticPellets, this.rand.nextInt(2 + var2)*3);
     }
 
-        @Override
+    @Override
     protected Item getDropItem() {
         return VanillaItemsOther.crabClaw;
     }
