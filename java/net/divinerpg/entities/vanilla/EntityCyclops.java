@@ -44,7 +44,7 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
 	protected void dropFewItems(boolean var1, int loot) {
 		dropItem(VanillaItemsOther.cyclopsEye, rand.nextInt(2 + loot));
 		dropItem(Items.gold_ingot, rand.nextInt(2 + loot));
-		if(rand.nextInt(100) == 0)
+		if(rand.nextInt(40) == 0)
 		    dropItem(VanillaItemsOther.bloodgem, 1);
 	}
 
