@@ -57,8 +57,8 @@ public class ConfigurationHelper {
 
     public static void miscInit() {
         canShowOverlay = cfg.get("GUI", "Can show overlay in top left corner or debug screen", true).getBoolean(true);
-        arcanaX = 111;
-        arcanaY = 18;
+        arcanaX = cfg.get("GUI", "Arcana Bar X", 111).getInt();
+        arcanaY = cfg.get("GUI", "Arcana Bar Y", 18).getInt();
     }
 
     public static int getConfig(String name) {

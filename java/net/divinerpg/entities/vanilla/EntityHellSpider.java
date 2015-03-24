@@ -151,16 +151,8 @@ public class EntityHellSpider extends EntityDivineRPGMob {
 
 	@Override
     protected void dropFewItems(boolean var1, int var2) {
-        int var3 = this.rand.nextInt(2 + var2);
-        int var4;
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(Item.getItemFromBlock(Blocks.netherrack), 10);
-        }
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(VanillaItemsOther.moltenShards, 1);
-        }
+	    if(this.rand.nextInt(2) == 0)this.dropItem(Item.getItemFromBlock(Blocks.netherrack), 10);
+	    this.dropItem(VanillaItemsOther.moltenShards, this.rand.nextInt(2 + var2));
     }
 
 	@Override

@@ -24,35 +24,35 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.palavence, "I I", "III", " I ", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaItemsWeapons.massivence, "X X", "III", " I ", 'I', VanillaItemsOther.netheriteIngot, 'X', VanillaItemsOther.bloodgem);
 		
-		addRecipe(VanillaItemsWeapons.frostSword, " I ", " I ", " S ", 'I', IceikaItems.iceStone, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.bloodgemSword, " I ", " I ", " S ", 'I', VanillaItemsOther.bloodgem, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.infernoSword, "BOB", "BOB", "BSB", 'B', Items.blaze_powder, 'O', Blocks.redstone_ore, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.moltenSword, " I ", " I ", " S ", 'I', VanillaItemsOther.moltenStone, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.frostSword, " I ", " I ", " S ", 'I', IceikaItems.iceStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.bloodgemSword, " I ", " I ", " S ", 'I', VanillaItemsOther.bloodgem, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.infernoSword, "BOB", "BOB", "BSB", 'B', Items.blaze_powder, 'O', Blocks.redstone_ore, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.moltenSword, " I ", " I ", " S ", 'I', VanillaItemsOther.moltenStone, 'S', "stickWood");
 		addRecipe(VanillaItemsWeapons.scorchingSword, " I ", " I ", " S ", 'I', VanillaItemsOther.purpleBlaze, 'S', VanillaItemsOther.netheriteIngot);
 		addRecipe(VanillaItemsWeapons.bluefireSword, " I ", " I ", " S ", 'I', VanillaItemsOther.bluefireStone, 'S', VanillaItemsOther.shadowBar);
 		addRecipe(VanillaItemsWeapons.flamingFury, "XIX", "XIX", "XOX", 'I', VanillaItemsOther.furyFire, 'X', VanillaItemsWeapons.infernoSword, 'O', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsWeapons.poisonSaber, " R ", "BRB", "BSB", 'R', VanillaItemsOther.jungleStone, 'B', VanillaItemsOther.shadowBar, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.poisonSaber, " R ", "BRB", "BSB", 'R', VanillaItemsOther.jungleStone, 'B', VanillaItemsOther.shadowBar, 'S', "stickWood");
 		addRecipe(VanillaItemsWeapons.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsWeapons.arlemiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.realmiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.arlemiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.realmiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");
 		addRecipe(VanillaItemsWeapons.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
-		addRecipe(VanillaItemsWeapons.oceanKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.aquaticDagger, "   ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.aquaticTrident, " I ", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.aquaton, "III", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.oceanKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.aquaticDagger, "   ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.aquaticTrident, " I ", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.aquaton, "III", "III", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
 		addRecipe(VanillaItemsWeapons.sharkSword, " I ", " I ", " S ", 'I', VanillaItemsOther.sharkFin, 'S', VanillaItemsOther.aquaticIngot);
-		addRecipe(VanillaItemsWeapons.crabclawMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.crabClaw, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.divineSword, " I ", "III", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.crabclawMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.crabClaw, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.divineSword, " I ", "III", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
 		addRecipe(VanillaItemsWeapons.furyMaul, "OBO", "BBB", "OBO", 'B', Blocks.bedrock, 'O', Blocks.diamond_ore);
-		addRecipe(VanillaItemsWeapons.deathBringer, " I ", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.corruptedMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.bedrockMaul, " B ", "BBB", " I ", 'B', Blocks.bedrock, 'I', Items.stick);
-		addRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', Items.stick);
-		addRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.deathBringer, " I ", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.corruptedMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.bedrockMaul, " B ", "BBB", " I ", 'B', Blocks.bedrock, 'I', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
 		
 		//ranged weapons
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
@@ -73,39 +73,39 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.frostCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', IceikaItems.iceStone);
 		addRecipe(VanillaItemsWeapons.bowheadCannon, " I ", " I ", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.crabclawCannon, " I ", " I ", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
-		addRecipe(VanillaItemsWeapons.corruptedCannon, "III", "S S", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsWeapons.corruptedCannon, "III", "S S", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
 		
 		addRecipe(VanillaItemsWeapons.goldenFury, "III", "IXI", "IXI", 'I', VanillaItemsOther.furyFire, 'X', Blocks.gold_block);
 		
 		//Tools
-		addRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.realmiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.realmiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.realmiteHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.realmiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.realmiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.realmiteHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");
 		
-		addRecipe(VanillaItemsTools.corruptedPickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.corruptedShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.corruptedAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsTools.corruptedPickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.corruptedShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.corruptedAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
 		
-		addRecipe(VanillaItemsTools.bedrockPickaxe, "III", " S ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.bedrockShovel, " I ", " S ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.bedrockAxe, "II ", "IS ", " S ", 'I', Blocks.bedrock, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsTools.bedrockPickaxe, "III", " S ", " S ", 'I', Blocks.bedrock, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.bedrockShovel, " I ", " S ", " S ", 'I', Blocks.bedrock, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.bedrockAxe, "II ", "IS ", " S ", 'I', Blocks.bedrock, 'S', "stickWood");
 		
-		addRecipe(VanillaItemsTools.arlemitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.arlemiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.arlemiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.arlemiteHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsTools.arlemitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.arlemiteShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.arlemiteAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.arlemiteHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', "stickWood");
 		addShapelessRecipe(VanillaItemsTools.arlemiteShickaxe, VanillaItemsTools.arlemitePickaxe, VanillaItemsTools.arlemiteShovel, VanillaItemsTools.arlemiteAxe, VanillaItemsTools.arlemiteHoe);
 		
-		addRecipe(VanillaItemsTools.rupeePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.rupeeShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.rupeeAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.rupeeHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsTools.rupeePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.rupeeShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.rupeeAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.rupeeHoe, "II ", " S ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', "stickWood");
 		addShapelessRecipe(VanillaItemsTools.rupeeShickaxe, VanillaItemsTools.rupeePickaxe, VanillaItemsTools.rupeeShovel, VanillaItemsTools.rupeeAxe, VanillaItemsTools.rupeeHoe);
 		
-		addRecipe(VanillaItemsTools.divinePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.divineShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);
-		addRecipe(VanillaItemsTools.divineAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.divineStone, 'S', Items.stick);
+		addOredictRecipe(VanillaItemsTools.divinePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.divineShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsTools.divineAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
 		addShapelessRecipe(VanillaItemsTools.divineShickaxe, VanillaItemsTools.divinePickaxe, VanillaItemsTools.divineShovel, VanillaItemsTools.divineAxe);
 		
 		//serenades
@@ -456,8 +456,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(new ItemStack(VanillaBlocks.plankDesign, 4), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.planks, 1, 0), 'y', new ItemStack(Blocks.planks, 1, 1) );
         
         addRecipe(new ItemStack(VanillaBlocks.skeletonTorch, 4), "x", "y", 'y', Items.bone, 'x', Items.coal);
-        addRecipe(new ItemStack(VanillaBlocks.aquaTorch, 4), "x", "y", 'y', Items.stick, 'x', VanillaItemsOther.aquaticBlazeRod);
-        addRecipe(new ItemStack(TwilightBlocks.edenTorch, 4), "x", "y", 'y', Items.stick, 'x', TwilightItemsOther.edenFragments);
+        addOredictRecipe(new ItemStack(VanillaBlocks.aquaTorch, 4), "x", "y", 'y', "stickWood", 'x', VanillaItemsOther.aquaticBlazeRod);
+        addOredictRecipe(new ItemStack(TwilightBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', TwilightItemsOther.edenFragments);
         
         addShapelessRecipe(new ItemStack(VanillaItemsOther.mushroomSeeds, 4), ItemsFood.whiteMushroom);
         addShapelessRecipe(new ItemStack(VanillaItemsOther.tomatoSeeds, 4), ItemsFood.tomato);

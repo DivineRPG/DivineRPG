@@ -145,8 +145,6 @@ public class CommonProxy{
 		VetheaEntityRegistry.init();
 		ArcanaEntityRegistry.init();
 		LogHelper.info("Adding crafting/smelting recipes");
-		VanillaRecipeHelper.init();
-		TwilightRecipeHelper.init();
 		DimensionHelper.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
 	}
@@ -156,6 +154,8 @@ public class CommonProxy{
 		GameRegistry.registerWorldGenerator(new DivineWorldgen(), 0);
 		DivineRPGAchievements.init();
         MobSpawning.addSpawns();
+        VanillaRecipeHelper.init();
+        TwilightRecipeHelper.init();
 	}
 
 	public void postInit(FMLPostInitializationEvent event){

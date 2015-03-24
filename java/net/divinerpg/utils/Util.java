@@ -31,6 +31,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -212,8 +213,7 @@ public class Util {
         tessellator.draw();
     }
     
-    public static MovingObjectPosition rayTrace(EntityPlayer player, double distance)
-    {
+    public static MovingObjectPosition rayTrace(EntityPlayer player, double distance) {
         Vec3 pos = Vec3.createVectorHelper(player.posX, player.posY + player.getEyeHeight(), player.posZ);
         Vec3 look = player.getLook(1);
         Vec3 vec32 = pos.addVector(look.xCoord * distance, look.yCoord * distance, look.zCoord * distance);

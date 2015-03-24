@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeUtil {
@@ -48,6 +49,18 @@ public class RecipeUtil {
     }
 	protected static void addSmelting(Item input, Block output, float XP) {
         GameRegistry.addSmelting(new ItemStack(input, 1), new ItemStack(output, 1), XP);
+    }
+	
+    public static void addOredictRecipe(ItemStack result, Object... materials) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(result, materials));
+    }
+    
+    public static void addOredictRecipe(Item result, Object... materials) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(result, materials));
+    }
+    
+    public static void addOredictRecipe(Block result, Object... materials) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(result, materials));
     }
 	
 	protected static void removeCraftingRecipe(Item removed) {
