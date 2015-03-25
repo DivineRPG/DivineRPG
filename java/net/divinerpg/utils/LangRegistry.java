@@ -225,6 +225,7 @@ public class LangRegistry extends RegistryFile {
         addAchievements();
         addDeaths();
         addTooltips();
+        addMessages();
         instance.write();
     }
 
