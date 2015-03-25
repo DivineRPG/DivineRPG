@@ -138,7 +138,7 @@ public class VetheaBlocks {
         smoothGlass            = new BlockModGlass("smoothGlass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         villageLamp            = new BlockMod(EnumBlockType.GLASS, "villageLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
         cellLamp               = new BlockMod(EnumBlockType.GLASS, "cellLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
-        barredDoor             = new BlockModDoor(EnumBlockType.IRON, "barredDoorBlock", 0.5F, true).setCreativeTab(DivineRPGTabs.vethea);
+        barredDoor             = new BlockModDoor(EnumBlockType.IRON, "barredDoorBlock", 0.5F, true);
         firelight              = new BlockMod(EnumBlockType.GLASS, "firelight", 1.0F, DivineRPGTabs.vethea).setLightLevel(1).setResistance(1);
         hyrewood               = new BlockModLog("hyreWoodLog").setCreativeTab(DivineRPGTabs.vethea);
         mintwoodLeaves         = new BlockModLeaves("mintwoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);

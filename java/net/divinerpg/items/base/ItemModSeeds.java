@@ -23,7 +23,7 @@ public class ItemModSeeds extends ItemSeeds {
 		this.crop=block;
 		setUnlocalizedName(name);
 		setTextureName(Reference.PREFIX + name);
-		setCreativeTab(DivineRPGTabs.utility);
+		setCreativeTab(DivineRPGTabs.food);
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
 	}
@@ -33,7 +33,7 @@ public class ItemModSeeds extends ItemSeeds {
 		this.crop=block;
 		setUnlocalizedName(name);
 		setTextureName(Reference.PREFIX + name);
-		setCreativeTab(DivineRPGTabs.utility);
+		setCreativeTab(DivineRPGTabs.food);
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
 	}
