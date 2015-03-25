@@ -1,8 +1,8 @@
 package net.divinerpg.entities.arcana;
 
-import net.divinerpg.DivineRPG;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.entities.base.EntityDivineRPGVillager;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,23 +24,7 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		switch (this.rand.nextInt(5)) {
-		case 0:
-			p.addChatMessage(Util.getChatComponent("Lord Vatticus: Can you feel the empowerment of the arcanium around you?"));
-			break;
-		case 1:
-			p.addChatMessage(Util.getChatComponent("Lord Vatticus: I hear there's no end to this place, there's no end to me either."));
-			break;
-		case 2:
-			p.addChatMessage(Util.getChatComponent("Lord Vatticus: Arcana come upon me, give me the ultimate strength!"));
-			break;
-		case 3:
-			p.addChatMessage(Util.getChatComponent("Lord Vatticus: I've discovered how to awake the ancient leader of the dungeon."));
-			break;
-		case 4:
-			p.addChatMessage(Util.getChatComponent("Lord Vatticus: Hurr drah drah, magic."));
-			break;
-		}
+		p.addChatMessage(Util.getChatComponent("Lord Vatticus: " + MessageLocalizer.vatticus(rand.nextInt(5))));
 	}
 
 	@Override

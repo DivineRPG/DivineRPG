@@ -6,6 +6,7 @@ import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vethea.projectile.EntityRaglokBomb;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -45,7 +46,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 		this.isImmuneToFire = true;
 		ability = DEFAULT;
 		this.setSize(1.5F, 4.0F);
-		if(!this.worldObj.isRemote) Util.sendMessageToAll("Raglok: You dare wake me from my slumber?!");
+		if(!this.worldObj.isRemote) Util.sendMessageToAll(MessageLocalizer.raglok(0));
 		this.playSound(Sounds.raglokAwaken.getPrefixedName(), 1.0F, 1.0F);
 	}
 
@@ -146,26 +147,26 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 				case LIGHTNING:
 					this.playSound(Sounds.raglokGuardian.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll("Raglok: You think you can fight me?");
-						Util.sendMessageToAll("Raglok: I am the great guardian of Heliosis!");
+						Util.sendMessageToAll(MessageLocalizer.raglok(1));
+						Util.sendMessageToAll(MessageLocalizer.raglok(2));
 					}
 					break;
 				case BLIND:
 					this.playSound(Sounds.raglokDark.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll("Raglok: Your future is dark.");
+						Util.sendMessageToAll(MessageLocalizer.raglok(3));
 					break;
 				case BOMBS:
 					this.playSound(Sounds.raglokRain.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll("Raglok: Rain rain come my way");
-						Util.sendMessageToAll("Raglok: Kill this human, kill him today!");
+						Util.sendMessageToAll(MessageLocalizer.raglok(4));
+						Util.sendMessageToAll(MessageLocalizer.raglok(5));
 					}
 					break;
 				case SLOW:
 					this.playSound(Sounds.raglokNothing.getPrefixedName(), 1.0F, 1.0F); 
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll("Raglok: You're nothing compared to me! Nothing!");
+						Util.sendMessageToAll(MessageLocalizer.raglok(6));
 					break;
 				default:
 					break;
@@ -187,7 +188,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
 	@Override
 	protected String getDeathSound() {
-		if(!this.worldObj.isRemote) Util.sendMessageToAll("Raglok: Heliosis! Avenge me!");
+		if(!this.worldObj.isRemote) Util.sendMessageToAll(MessageLocalizer.raglok(7));
 		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
 		if(player != null) {
 			for(int i = 0; i < 10; i++) {

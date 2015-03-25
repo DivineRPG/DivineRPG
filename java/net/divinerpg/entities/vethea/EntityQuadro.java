@@ -4,6 +4,7 @@ import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.entities.base.EntityStats;
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
@@ -64,49 +65,49 @@ public class EntityQuadro extends EntityDivineRPGBoss {
 			case 0:
 				this.playSound(Sounds.quadroDieBefore.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: Die before me!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(0));
 				break;
 			case 1:
 				this.playSound(Sounds.quadroEnough.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: Enough of you! You don't deserve my kill!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(1));
 				break;
 			case 2:
 				this.playSound(Sounds.quadroPunch.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: Incoming punch!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(2));
 				break;
 			case 3:
 				this.playSound(Sounds.quadroIsNext.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: Looks like I'm done with this. You're next!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(3));
 				break;
 			case 4:
 				this.playSound(Sounds.quadroKillMine.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: This kill is mine!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(4));
 				break;
 			case 5:
 				this.playSound(Sounds.quadroMyKill.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: You're my kill!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(5));
 				break;
 			case 6:
 				this.playSound(Sounds.quadroNoDie.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: No! Die before me!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(6));
 				break;
 			case 7:
 				this.playSound(Sounds.quadroSitDown.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote){
-					Util.sendMessageToAll("Quadro: Sit down human!");
-					Util.sendMessageToAll("Quadro: You don't deserve to be near a guardian of Arksiane!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(7));
+					Util.sendMessageToAll(MessageLocalizer.quadro(8));
 				}
 				break;
 			default:
 				this.playSound(Sounds.quadroTasteFist.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll("Quadro: Taste fist!");
+					Util.sendMessageToAll(MessageLocalizer.quadro(9));
 				break;
 			}
 		}

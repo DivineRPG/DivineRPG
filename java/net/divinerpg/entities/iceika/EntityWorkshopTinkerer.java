@@ -5,6 +5,7 @@ import net.divinerpg.client.GuiHandler;
 import net.divinerpg.entities.base.EntityDivineRPGVillager;
 import net.divinerpg.entities.base.InfiniteTrade;
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
@@ -22,20 +23,7 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		switch(this.rand.nextInt(4)) {
-		case 0:
-			p.addChatMessage(Util.getChatComponent("Tinkerer: Hohoho."));
-			break;
-		case 1:
-			p.addChatMessage(Util.getChatComponent("Tinkerer: It's cold outside."));
-			break;
-		case 2:
-			p.addChatMessage(Util.getChatComponent("Tinkerer: It's cold inside."));
-			break;
-		case 3:
-			p.addChatMessage(Util.getChatComponent("Tinkerer: Burr!"));
-			break;
-		}
+	    p.addChatMessage(Util.getChatComponent("Tinkerer: " + MessageLocalizer.merchant(rand.nextInt(4))));
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import net.divinerpg.client.GuiHandler;
 import net.divinerpg.entities.base.EntityDivineRPGVillager;
 import net.divinerpg.entities.base.InfiniteTrade;
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
@@ -21,20 +22,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		switch(this.rand.nextInt(4)) {
-		case 0:
-			p.addChatMessage(Util.getChatComponent("Merchant: Hohoho."));
-			break;
-		case 1:
-			p.addChatMessage(Util.getChatComponent("Merchant: It's cold outside."));
-			break;
-		case 2:
-			p.addChatMessage(Util.getChatComponent("Merchant: It's cold inside."));
-			break;
-		case 3:
-			p.addChatMessage(Util.getChatComponent("Merchant: Burr!"));
-			break;
-		}
+		p.addChatMessage(Util.getChatComponent("Merchant: " + MessageLocalizer.merchant(rand.nextInt(4))));
 	}
 	
 	@Override

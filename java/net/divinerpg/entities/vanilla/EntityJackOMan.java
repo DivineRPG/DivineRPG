@@ -8,6 +8,7 @@ import java.util.Random;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -76,22 +77,7 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		if(!this.worldObj.isRemote) {
-            switch(this.rand.nextInt(4)) {
-        	case 0:
-        		p.addChatMessage(Util.getChatComponent("Jack'O Man: BOO!"));
-        		break;
-        	case 1:
-        		p.addChatMessage(Util.getChatComponent("Jack'O Man: I seem to have lost my head."));
-        		break;
-        	case 2:
-        		p.addChatMessage(Util.getChatComponent("Jack'O Man: HURAH!"));
-        		break;
-        	case 3:
-        		p.addChatMessage(Util.getChatComponent("Jack'O Man: Have you seen my head?"));
-        		break;
-        	}            
-		}
+        p.addChatMessage(Util.getChatComponent("Jack'O Man: " + MessageLocalizer.jackOMan(rand.nextInt(4))));
 	}
 	
 	@Override

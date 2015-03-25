@@ -8,6 +8,7 @@ import net.divinerpg.entities.vethea.projectile.EntityWreckBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityWreckExplosiveShot;
 import net.divinerpg.entities.vethea.projectile.EntityWreckShot;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -45,8 +46,8 @@ public class EntityWreck extends EntityDivineRPGBoss {
 		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		this.setAbility(DEFAULT);
 		if(!this.worldObj.isRemote){
-			Util.sendMessageToAll("Wreck: You should run while you still have the chance to live.");
-			Util.sendMessageToAll("I do love the smell of death!");
+			Util.sendMessageToAll(MessageLocalizer.wreck(0));
+			Util.sendMessageToAll(MessageLocalizer.wreck(1));
 		}
 		this.playSound(Sounds.wreckIntro.getPrefixedName(), 1.0F, 1.0F);
 		this.setAbilityType(MELEE);
@@ -178,36 +179,36 @@ public class EntityWreck extends EntityDivineRPGBoss {
 				EntityPlayer player = (EntityPlayer) list.get(var1);
 				switch (this.getAbility()) {
 				case CHARGE:
-					Util.sendMessageToAll("Wreck: CHARRGEE!");
+					Util.sendMessageToAll(MessageLocalizer.wreck(2));
 					break;
 				case PULL:
 					this.playSound(Sounds.feelSoulArksiane.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll("Wreck: Come Feel the Soul of Arksiane.");
+						Util.sendMessageToAll(MessageLocalizer.wreck(3));
 					break;
 				case FIRE:
-					Util.sendMessageToAll("Wreck: Arksiane, give me fire!");
+					Util.sendMessageToAll(MessageLocalizer.wreck(4));
 					break;
 				case FREEZE:
 					this.playSound(Sounds.stopAtOnce.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll("Wreck: Stop at once in the name of the great Arksiane!");
+						Util.sendMessageToAll(MessageLocalizer.wreck(5));
 					}
 					break;
 				case SPEED:
 					this.playSound(Sounds.wreckSpeed.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll("Wreck: Speed!");
+						Util.sendMessageToAll(MessageLocalizer.wreck(6));
 					break;
 				case EXPLOSIONS:
 					this.playSound(Sounds.explosions.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll("Wreck: Explosions!");
+						Util.sendMessageToAll(MessageLocalizer.wreck(7));
 					break;
 				case STRENGTH:
 					this.playSound(Sounds.wreckStrength.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll("Wreck: Strength!");
+						Util.sendMessageToAll(MessageLocalizer.wreck(8));
 					break;
 				default:
 					break;

@@ -3,6 +3,7 @@ package net.divinerpg.entities.arcana;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.client.GuiHandler;
 import net.divinerpg.entities.base.EntityDivineRPGVillager;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,20 +25,7 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		switch (this.rand.nextInt(5)) {
-		case 0:
-			p.addChatMessage(Util.getChatComponent("War General: My weapons will conquer any foe."));
-			break;
-		case 1:
-			p.addChatMessage(Util.getChatComponent("War General: "));
-			break;
-		case 2:
-			p.addChatMessage(Util.getChatComponent("War General: "));
-			break;
-		case 3:
-			p.addChatMessage(Util.getChatComponent("War General: "));
-			break;
-		}
+		p.addChatMessage(Util.getChatComponent("War General: " + MessageLocalizer.general(this.rand.nextInt(4))));
 	}
 
 	@Override

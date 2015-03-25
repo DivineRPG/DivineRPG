@@ -3,6 +3,7 @@ package net.divinerpg.utils;
 import java.util.ArrayList;
 
 import net.divinerpg.blocks.vanilla.IDivineMetaBlock;
+import net.divinerpg.utils.events.UpdateChecker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -119,6 +120,76 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("tooltip.vethean=Vethean");
         instance.addToFile("tooltip.efficiency=Efficiency: #");
         instance.addToFile("tooltip.cannotBlock=Cannot Block");
+    }
+    
+    public static void addMessages() {
+        instance.addToFile("message.vatticus0=Can you feel the empowerment of the arcanium around you?");
+        instance.addToFile("message.vatticus1=I hear there's no end to this place, there's no end to me either.");
+        instance.addToFile("message.vatticus2=Arcana come upon me, give me the ultimate strength!");
+        instance.addToFile("message.vatticus3=I've discovered how to awake the ancient leader of the dungeon.");
+        instance.addToFile("message.vatticus4=Hurr drah drah, magic.");
+        instance.addToFile("message.general0=My weapons will conquer any foe.");
+        instance.addToFile("message.general1=");
+        instance.addToFile("message.general2=");
+        instance.addToFile("message.general3=");
+        instance.addToFile("message.merchant0=Hohoho.");
+        instance.addToFile("message.merchant1=It's cold outside.");
+        instance.addToFile("message.merchant2=It's cold inside.");
+        instance.addToFile("message.merchant3=Burr!");
+        instance.addToFile("message.jackoman0=BOO!");
+        instance.addToFile("message.jackoman1=I seem to have lost my head.");
+        instance.addToFile("message.jackoman2=HURAH!");
+        instance.addToFile("message.jackoman3=Have you seen my head?");
+        instance.addToFile("message.guardian0=You are moving upwards, beware of the imminent danger.");
+        instance.addToFile("message.guardian1=These places aren't for you.");
+        instance.addToFile("message.guardian2=This is dangerous, what are you doing here?");
+        instance.addToFile("message.guardian3=Temples are suited for humans.");
+        instance.addToFile("message.guardian4=They are getting closer to killing you.");
+        instance.addToFile("message.developer=Welcome DivineRPG developer!");
+        instance.addToFile("message.standard=Thank you # for downloading and playing &!");
+        instance.addToFile("message.internet=Unable to check for latest version, you may want to check your internet connection!");
+        instance.addToFile("message.update=A DivineRPG update is avaliable.");
+        instance.addToFile("message.version=[New Version: #]");
+        instance.addToFile("message.ayeraco0=The Green Ayeraco has been called upon");
+        instance.addToFile("message.ayeraco1=The Blue Ayeraco has been called upon");
+        instance.addToFile("message.ayeraco2=The Red Ayeraco has been called upon");
+        instance.addToFile("message.ayeraco3=The Yellow Ayeraco has been called upon");
+        instance.addToFile("message.ayeraco4=The Purple Ayeraco has been called upon");
+        instance.addToFile("message.ayeracospawn=The Ayeraco Horde has arrived!");
+        instance.addToFile("message.karos0=So you came to play a game?");
+        instance.addToFile("message.karos1=Let the game begin!");
+        instance.addToFile("message.karos2=I heard you like explosions! Hahaha");
+        instance.addToFile("message.karos3=Hahahaha");
+        instance.addToFile("message.karos4=I'm here for you to meet your doom!");
+        instance.addToFile("message.karos5=C'mon c'mon get me, try your best!");
+        instance.addToFile("message.karos6=You can't kill me! You weak excuse for a human");
+        instance.addToFile("message.quadro0=Die before me!");
+        instance.addToFile("message.quadro1=Enough of you! You don't deserve my kill!");
+        instance.addToFile("message.quadro2=Incoming punch!");
+        instance.addToFile("message.quadro3=Looks like I'm done with this. You're next!");
+        instance.addToFile("message.quadro4=This kill is mine!");
+        instance.addToFile("message.quadro5=You're my kill!");
+        instance.addToFile("message.quadro6=No! Die before me!");
+        instance.addToFile("message.quadro7=Sit down human!");
+        instance.addToFile("message.quadro8=You don't deserve to be near a guardian of Arksiane!");
+        instance.addToFile("message.quadro9=Taste fist!");
+        instance.addToFile("message.raglok0=You dare wake me from my slumber?!");
+        instance.addToFile("message.raglok1=You think you can fight me?");
+        instance.addToFile("message.raglok2=I am the great guardian of Heliosis!");
+        instance.addToFile("message.raglok3=Your future is dark.");
+        instance.addToFile("message.raglok4=Rain rain come my way");
+        instance.addToFile("message.raglok5=Kill this human, kill it today!");
+        instance.addToFile("message.raglok6=You're nothing compared to me! Nothing!");
+        instance.addToFile("message.raglok7=Heliosis! Avenge me!");
+        instance.addToFile("message.wreck0=You should run while you still have the chance to live.");
+        instance.addToFile("message.wreck1=I do love the smell of death!");
+        instance.addToFile("message.wreck2=CHARRGEE!");
+        instance.addToFile("message.wreck3=Come feel the Soul of Arksiane.");
+        instance.addToFile("message.wreck4=Arksiane, give me fire!");
+        instance.addToFile("message.wreck5=Stop at once in the name of the great Arksiane!");
+        instance.addToFile("message.wreck6=Speed!");
+        instance.addToFile("message.wreck7=Explosions!");
+        instance.addToFile("message.wreck8=Strength!");
     }
 
     public static void addMob(String name) {

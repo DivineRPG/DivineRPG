@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
@@ -37,8 +38,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		addAttackingAI();
 		ability = DEFAULT;
 		if(!this.worldObj.isRemote){
-			Util.sendMessageToAll("Dr. Karos: So you came to play a game?");
-			Util.sendMessageToAll("Dr. Karos: Let the game begin!");
+			Util.sendMessageToAll(MessageLocalizer.karos(0));
+			Util.sendMessageToAll(MessageLocalizer.karos(1));
 		}
 		this.playSound(Sounds.karosIntro.getPrefixedName(), 1.0F, 1.0F);
 	}
@@ -67,7 +68,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
 				this.playSound(Sounds.ceilingExplosions.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-				Util.sendMessageToAll("Dr. Karos: I heard you like explosions! Hahaha");
+				Util.sendMessageToAll(MessageLocalizer.karos(2));
 				break;
 			case 1:
 				ability = CANNONS;
@@ -155,19 +156,19 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		switch(this.rand.nextInt(4)) {
 		case 0:
 			if(!this.worldObj.isRemote)
-			Util.sendMessageToAll("Dr. Karos: Hahahaha");
+			Util.sendMessageToAll(MessageLocalizer.karos(3));
 			return Sounds.karosLaugh.getPrefixedName();
 		case 1:
 			if(!this.worldObj.isRemote)
-			Util.sendMessageToAll("Dr. Karos: I'm here for you to meet your doom!");
+			Util.sendMessageToAll(MessageLocalizer.karos(4));
 			return Sounds.meetDoom.getPrefixedName();
 		case 2:
 			if(!this.worldObj.isRemote)
-			Util.sendMessageToAll("Dr. Karos: C'mon c'mon get me, try your best!");
+			Util.sendMessageToAll(MessageLocalizer.karos(5));
 			return Sounds.tryYourBest.getPrefixedName();
 		default:
 			if(!this.worldObj.isRemote){
-			Util.sendMessageToAll("Dr. Karos: You can't kill me! You weak excuse for a human");
+			Util.sendMessageToAll(MessageLocalizer.karos(6));
 			}
 			return Sounds.youCantKillMe.getPrefixedName();
 		}
