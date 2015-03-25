@@ -8,6 +8,7 @@ import net.divinerpg.entities.iceika.projectile.EntityMusic;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -44,6 +45,6 @@ public class ItemSerenadeOfIce extends ItemMod {
 	@Override
 	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
 		infoList.add("Slows mobs for 5 seconds");
-		infoList.add(getMaxDurability() - item.getMetadata() + " Uses Remaining");
+		infoList.add(TooltipLocalizer.usesRemaining(getMaxDurability() - item.getMetadata()));
 	}
 }

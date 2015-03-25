@@ -6,6 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -54,6 +55,6 @@ public class ItemSerenadeStriker extends ItemMod {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Shoots Lightning");
-		list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 }

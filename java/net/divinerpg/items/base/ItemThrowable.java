@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,7 +43,6 @@ public class ItemThrowable extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		if((int)this.damage == this.damage) list.add((int)damage + " Ranged Damage");
-		else list.add(damage + " Ranged Damage");
+		list.add(TooltipLocalizer.rangedDam(damage));
 	}
 }

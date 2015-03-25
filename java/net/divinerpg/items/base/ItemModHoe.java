@@ -4,13 +4,13 @@ import java.util.List;
 
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemModHoe extends ItemHoe {
@@ -28,8 +28,7 @@ public class ItemModHoe extends ItemHoe {
 
     @Override
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-        if (item.getMaxDurability() != -1) infoList.add(item.getMaxDurability() - item.getMetadata() + " Uses Remaining");
-        else infoList.add(Util.GREEN + "Infinite Uses");
-        infoList.add(Util.DARK_AQUA + Reference.MOD_NAME);
+        if(item.getMaxDurability() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        else infoList.add(TooltipLocalizer.infiniteUses());
     }
 }

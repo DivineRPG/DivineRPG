@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.items.base.ItemModFood;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,10 +27,10 @@ public class ItemVetheanFood extends ItemModFood {
 	}
 
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("Replenishes " + food + " Hunger");
-		par3List.add(saturation + " Saturation");
-		par3List.add("Pet Food: False");
-		par3List.add(Util.GREEN + "Vethean");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("Replenishes " + food + " Hunger");
+		list.add(saturation + " Saturation");
+		list.add("Pet Food: False");
+		list.add(TooltipLocalizer.vethean());
 	}
 }

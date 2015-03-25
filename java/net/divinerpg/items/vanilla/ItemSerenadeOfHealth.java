@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.blocks.vanilla.VanillaBlock;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	}
 	
 	@Override
-	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-		infoList.add(20 - item.getMetadata() + " Uses Remaining");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 }

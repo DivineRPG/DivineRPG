@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.divinerpg.entities.twilight.EntityParticleBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -118,10 +119,9 @@ public class ItemProjectileShooter extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		if((int)this.damage == this.damage) list.add((int)damage + " Ranged Damage");
-		else list.add(damage + " Ranged Damage");
-		list.add(this.ammo == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
-		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.rangedDam(damage));
+		list.add(this.ammo == null ? TooltipLocalizer.infiniteAmmo() : TooltipLocalizer.ammo(this.ammo));
+		list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses() : TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 	
 	public ItemProjectileShooter setHasParticle(String fx) {

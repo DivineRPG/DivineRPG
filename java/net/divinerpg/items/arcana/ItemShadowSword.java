@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,7 @@ public class ItemShadowSword extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-    	par3List.add("12 Arcana");
+    	par3List.add(TooltipLocalizer.arcanaConsumed(12));
     	par3List.add("Speeds up player when used");
     }
 }

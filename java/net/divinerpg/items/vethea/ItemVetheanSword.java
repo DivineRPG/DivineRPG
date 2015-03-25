@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,11 +24,10 @@ public class ItemVetheanSword extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-        if (item.getMaxDurability() != -1) infoList.add(item.getMaxDurability() - item.getMetadata() + " Uses Remaining");
-        else infoList.add(Util.GREEN + "Infinite Uses");
-        if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+5 + " Melee Damage");
-    	else infoList.add(this.mat.getDamageVsEntity()+5 + " Melee Damage");
-        if(this instanceof ItemVetheanClaw) infoList.add("Cannot block");
-        infoList.add(Util.GREEN + "Vethean");
+        if (item.getMaxDurability() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        else infoList.add(TooltipLocalizer.infiniteUses());
+    	infoList.add(TooltipLocalizer.meleeDam(this.mat.getDamageVsEntity()+5));
+        if(this instanceof ItemVetheanClaw) infoList.add(TooltipLocalizer.cantBlock());
+        infoList.add(TooltipLocalizer.vethean());
     }
 }

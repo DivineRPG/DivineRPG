@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -37,6 +38,6 @@ public class ItemGrenade extends ItemMod {
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("Explosive projectile");
+		list.add(TooltipLocalizer.explosiveShots());
 	}
 }

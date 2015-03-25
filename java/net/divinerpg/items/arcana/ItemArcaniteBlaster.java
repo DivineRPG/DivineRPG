@@ -9,6 +9,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -66,8 +67,8 @@ public class ItemArcaniteBlaster extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("30x23 Ranged damage");
-		list.add("Consumes 20 Arcana");
-		list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.bowDam("30x23"));
+		list.add(TooltipLocalizer.arcanaConsumed(20));
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 }

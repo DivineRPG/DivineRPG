@@ -7,6 +7,7 @@ import net.divinerpg.entities.arcana.EntityGeneralsStaff;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -53,9 +54,9 @@ public class ItemGeneralsStaff extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("18 Ranged Damage");
+		list.add(TooltipLocalizer.rangedDam(18));
 		list.add("Projectile splits into 5 on impact");
-		list.add("Consumes 20 Arcana");
-		list.add("Infinite Uses");
+		list.add(TooltipLocalizer.arcanaConsumed(20));
+		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

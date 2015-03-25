@@ -99,6 +99,27 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("death.attack.trap=%1$s fell into a trap");
         instance.addToFile("death.attack.acid=%1$s melted in acid");
     }
+    
+    public static void addTooltips() {
+        instance.addToFile("tooltip.uses=# Uses Remaining");
+        instance.addToFile("tooltip.arcana=Consumes # Arcana");
+        instance.addToFile("tooltip.meleeDam=# Melee Damage");
+        instance.addToFile("tooltip.rangedDam=# Ranged Damage");
+        instance.addToFile("tooltip.arcanaDam=# Arcana Damage");
+        instance.addToFile("tooltip.ammo=Ammo: |item|");
+        instance.addToFile("tooltip.infiniteAmmo=Infinite Ammo");
+        instance.addToFile("tooltip.infiniteUses=Infinite Uses");
+        instance.addToFile("tooltip.rangedAndMeleeDam=# Ranged and Melee Damage");
+        instance.addToFile("tooltip.regensArcana=Replenishes # Arcana");
+        instance.addToFile("tooltip.explosiveProjectiles=Explosive Projectiles");
+        instance.addToFile("tooltip.homingProjectiles=Homing Projectiles");
+        instance.addToFile("tooltip.fullSetPerks=Full Set Perks: ");
+        instance.addToFile("tooltip.damageReduction=|percent| Damage Reduction (|percentFull| Full)");
+        instance.addToFile("tooltip.noProtection=No Protection");
+        instance.addToFile("tooltip.vethean=Vethean");
+        instance.addToFile("tooltip.efficiency=Efficiency: #");
+        instance.addToFile("tooltip.cannotBlock=Cannot Block");
+    }
 
     public static void addMob(String name) {
         mobs.add(name);
@@ -132,6 +153,7 @@ public class LangRegistry extends RegistryFile {
         addMobNames();
         addAchievements();
         addDeaths();
+        addTooltips();
         instance.write();
     }
 

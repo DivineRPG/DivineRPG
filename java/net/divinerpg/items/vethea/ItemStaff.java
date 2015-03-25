@@ -7,6 +7,7 @@ import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
 import net.divinerpg.entities.vethea.projectile.EntityEvernightProjectile;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.VetheaItems;
@@ -39,11 +40,11 @@ public class ItemStaff extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("Deals " + this.damage + " Arcana Damage");
+		list.add(TooltipLocalizer.arcanaDam(damage));
 		list.add("Bouncing Projectile");
 		if(stack.getItem() == VetheaItems.evernight) list.add("Deals 20 Damage to Player");
-		list.add("Consumes " + this.cost + " Arcana");
-		list.add(Util.GREEN + "Vethean");
+		list.add(TooltipLocalizer.arcanaConsumed(cost));
+		list.add(TooltipLocalizer.vethean());
 	}
 
 	@Override

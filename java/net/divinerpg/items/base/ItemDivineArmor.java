@@ -7,6 +7,7 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.TokenHelper;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.Entity;
@@ -142,8 +143,8 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
     public void addInformation(ItemStack item, EntityPlayer player, List list, boolean par4) {
         double roundPH = Math.round(damageReduction * 1000);
         double roundedDamage = roundPH / 10;
-        list.add(damageReduction == 0.0 ? ("No Protection") : "Damage Reduction: " + roundedDamage + "% (" + fullReduction + "% full)");
-        list.add(!unbreakable ? (item.getMaxDurability() - item.getMetadata() + " Uses Remaining") : "Infinite Uses");
+        list.add(damageReduction == 0.0 ? TooltipLocalizer.noProtection() : TooltipLocalizer.damageReduction(roundedDamage, fullReduction));
+        list.add(!unbreakable ? TooltipLocalizer.usesRemaining((item.getMaxDurability() - item.getMetadata())) : TooltipLocalizer.infiniteUses());
         String perks = "";
         for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++)
             if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) perks += "In " + armorInfo[0].toString() + ": ";
@@ -153,7 +154,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         }
         String[] perksArray = perks.split("\n");
         if (armorInfo[0] != "null"){
-            list.add("Fullset Perks: ");
+            list.add(TooltipLocalizer.fullsetPerks());
             for(int j = 0; j < perksArray.length; j++){
             	list.add(perksArray[j]);
             }

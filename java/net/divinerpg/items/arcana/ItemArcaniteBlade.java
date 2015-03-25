@@ -5,6 +5,7 @@ import java.util.List;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.items.base.ItemModSword;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.material.ToolMaterialMod;
@@ -26,7 +27,7 @@ public class ItemArcaniteBlade extends ItemModSword {
 	
 	@Override
 	public void addAdditionalInformation(List list) {
-		list.add("Consumes 12 Arcana");
+		list.add(TooltipLocalizer.arcanaConsumed(12));
 	}
 
 }

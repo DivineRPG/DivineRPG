@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
 import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -91,8 +92,8 @@ public class ItemMeriksMissile extends ItemModBow {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Explosive homing projectile");
-		list.add("18 Ranged Damage");
-		list.add("Uses " + arcana + " arcana");
-		list.add("Unlimited uses");
+		list.add(TooltipLocalizer.rangedDam(18));
+		list.add(TooltipLocalizer.arcanaConsumed(arcana));
+		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

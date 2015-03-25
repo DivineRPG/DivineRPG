@@ -6,6 +6,7 @@ import java.util.List;
 import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -151,14 +152,14 @@ public class ItemModBow extends ItemBow {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add(damageMin + "-" + damageMax + " Ranged Damage");
+        list.add(TooltipLocalizer.bowDam(damageMin + "-" + damageMax));
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1) list.add(speed + " Times Faster");
         if (speed < 1) list.add((1 / speed) + " Times Slower");
-        list.add(!unbreakable ? (stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining") : "Infinite Uses");
-        if(this.arrowTex == "bluefireArrow" || this.arrowTex == "snowstormArrow") list.add(EnumChatFormatting.AQUA + "Exploding Arrows");
-        list.add(this.arrow == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.arrow.getUnlocalizedName() + ".name"));
-        if(this.vethean) list.add(Util.GREEN + "Vethean");
+        list.add(!unbreakable ? TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()) : TooltipLocalizer.infiniteUses());
+        if(this.arrowTex == "bluefireArrow" || this.arrowTex == "snowstormArrow") list.add(TooltipLocalizer.explosiveShots());
+        list.add(this.arrow == null ? TooltipLocalizer.infiniteAmmo() : TooltipLocalizer.ammo(this.arrow));
+        if(this.vethean) list.add(TooltipLocalizer.vethean());
     }
 
     @Override

@@ -8,6 +8,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -127,6 +128,6 @@ public class ItemTeleportationCrystal extends ItemMod {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Teleport to spawn point");
-		list.add(stack.getMaxDurability()-stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability()-stack.getMetadata()));
 	}
 }

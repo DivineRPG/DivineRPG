@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -33,7 +34,7 @@ public class ItemVileStorm extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("4 Ranged Damage");
+		list.add(TooltipLocalizer.rangedDam(4));
 		list.add("Poisons Enemies");
 	}
 }

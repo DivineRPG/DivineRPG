@@ -5,6 +5,7 @@ import java.util.Set;
 
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -97,10 +98,9 @@ public class ItemShickaxe extends ItemTool {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add("Efficiency: " + toolMaterial.getEfficiencyOnProperMaterial());
-        if (stack.getMaxDurability() != -1) list.add(stack.getMaxDurability() - stack.getMetadata() + " Uses");
-        else list.add(Util.GREEN + "Infinite Uses");
+    public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
+        infoList.add(TooltipLocalizer.efficiency(toolMaterial.getEfficiencyOnProperMaterial()));
+        if(item.getMaxDurability() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        else infoList.add(TooltipLocalizer.infiniteUses());
     }
 }

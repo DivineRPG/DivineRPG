@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.entities.arcana.EntityWraith;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.ChatFormats;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,7 @@ public class ItemWraithbane extends ItemMod {
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("200 Arcana");
+		list.add(TooltipLocalizer.arcanaConsumed(200));
 		list.add("Spawns a friendly Wraith");
 		list.add("13 Damage");
 		list.add("20 Health");

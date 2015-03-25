@@ -3,6 +3,7 @@ package net.divinerpg.utils.events;
 import net.divinerpg.items.base.ItemHealingSword;
 import net.divinerpg.items.base.ItemModSword;
 import net.divinerpg.items.base.ItemProjectileShooter;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -19,7 +20,7 @@ public class EventTooltip {
 		}
 		
 		if(!(evt.itemStack.getItem() instanceof ItemModSword) && evt.itemStack.getItem() instanceof ItemSword) {
-			evt.toolTip.add((int)(((ItemSword)evt.itemStack.getItem()).func_150931_i()+4) + " Melee Damage");
+			evt.toolTip.add(TooltipLocalizer.meleeDam(((ItemSword)evt.itemStack.getItem()).func_150931_i()+4));
 		}
 		
 		if(evt.itemStack.getItem() instanceof ItemHealingSword) {

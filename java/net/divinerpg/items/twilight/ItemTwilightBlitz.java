@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,8 +33,8 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add(damage + " Ranged and Melee Damage");
-		list.add("Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
-		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.rangedAndMelee(damage));
+		list.add(TooltipLocalizer.ammo(this.ammo));
+		list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses() : TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 }

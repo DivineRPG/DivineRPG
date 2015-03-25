@@ -7,6 +7,7 @@ import net.divinerpg.entities.arcana.projectile.EntityAttractor;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.events.Ticker;
 import net.divinerpg.utils.items.VanillaItemsOther;
@@ -43,7 +44,7 @@ public class ItemAttractor extends ItemMod {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Pulls mobs toward you");
-		list.add("Consumes 20 Arcana");
-		list.add("Infinite Uses");
+		list.add(TooltipLocalizer.arcanaConsumed(20));
+		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

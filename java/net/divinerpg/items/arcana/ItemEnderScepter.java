@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -76,8 +77,9 @@ public class ItemEnderScepter extends ItemMod {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("75 Arcana");
-		par3List.add("On use: Teleports the player");
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add(TooltipLocalizer.arcanaConsumed(75));
+		list.add("On use: Teleports the player");
+		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

@@ -7,6 +7,7 @@ import net.divinerpg.items.base.ItemModRanged;
 import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -87,8 +88,8 @@ public class ItemStaffStarlight extends ItemModRanged {
             arcana = 5;
             stars = false;
         }
-        list.add(arcana + " Arcana");
+        list.add(TooltipLocalizer.arcanaConsumed(25));
         list.add(stars ? "Drops several stars from the sky" : "Drops a star from the sky");
-        list.add("20 Ranged Damage");
+        list.add(TooltipLocalizer.rangedDam(20));
     }
 }

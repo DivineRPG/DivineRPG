@@ -6,6 +6,7 @@ import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
@@ -62,12 +63,11 @@ public class ItemModSword extends ItemSword {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-    	if((int)this.mat.getDamageVsEntity() == this.mat.getDamageVsEntity())infoList.add((int)this.mat.getDamageVsEntity()+5 + " Melee Damage");
-    	else infoList.add(this.mat.getDamageVsEntity()+5 + " Melee Damage");
-        addAdditionalInformation(infoList);
-        if (item.getMaxDurability() != -1) infoList.add(item.getMaxDurability() - item.getMetadata() + " Uses Remaining");
-        else infoList.add(Util.GREEN + "Infinite Uses");
+    public void addInformation(ItemStack item, EntityPlayer player, List list, boolean par4) {
+    	list.add(TooltipLocalizer.meleeDam(this.mat.getDamageVsEntity()+5));
+        addAdditionalInformation(list);
+        if (item.getMaxDurability() != -1) list.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        else list.add(TooltipLocalizer.infiniteUses());
     }
     
     protected boolean canUseSpecialEffect(EntityPlayer player) { return false; }

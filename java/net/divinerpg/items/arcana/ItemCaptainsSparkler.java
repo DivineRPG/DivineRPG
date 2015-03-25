@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.entities.arcana.projectile.EntitySparkler;
 import net.divinerpg.items.base.ItemModRanged;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -23,7 +24,7 @@ public class ItemCaptainsSparkler extends ItemModRanged {
 
     @Override
     protected void addAdditionalInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-    	list.add("20 Ranged Damage");
-        list.add("Consumes 7 Arcana");
+    	list.add(TooltipLocalizer.rangedDam(20));
+        list.add(TooltipLocalizer.arcanaConsumed(7));
     }
 }

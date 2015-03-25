@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -34,8 +35,8 @@ public class ItemSerenadeOfDeath extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("14 Ranged Damage");
-		list.add("Poisons target for 2 seconds");
-		list.add(getMaxDurability() - stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.rangedDam(14));
+		list.add("Poisons enemies for 2 seconds");
+		list.add(TooltipLocalizer.usesRemaining(getMaxDurability() - stack.getMetadata()));
 	}
 }

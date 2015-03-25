@@ -23,6 +23,6 @@ public class ItemInfernoSword extends ItemModSword {
 
 	@Override
 	protected void addAdditionalInformation(List list) {
-	    list.add("On hit: Burns victim for 12 seconds");
+	    list.add("Burns enemies for 12 seconds");
 	}
 }

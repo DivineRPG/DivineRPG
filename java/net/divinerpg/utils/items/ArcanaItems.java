@@ -2,7 +2,7 @@ package net.divinerpg.utils.items;
 
 import net.divinerpg.items.arcana.ItemAquamarine;
 import net.divinerpg.items.arcana.ItemArcanaPotion;
-import net.divinerpg.items.arcana.ItemArcanaProjectile;
+import net.divinerpg.items.arcana.ItemLaVekor;
 import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
 import net.divinerpg.items.arcana.ItemArcaniteBlade;
@@ -13,6 +13,7 @@ import net.divinerpg.items.arcana.ItemCaptainsSparkler;
 import net.divinerpg.items.arcana.ItemChargedCollector;
 import net.divinerpg.items.arcana.ItemDivineAccumulator;
 import net.divinerpg.items.arcana.ItemEnderScepter;
+import net.divinerpg.items.arcana.ItemFirefly;
 import net.divinerpg.items.arcana.ItemGeneralsStaff;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
@@ -128,8 +129,8 @@ public class ArcanaItems {
         orbOfLight	 			 = new ItemOrbOfLight();
     	meriksMissile 			 = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     	grenade		 			 = new ItemGrenade("grenade");
-    	firefly 	 			 = new ItemArcanaProjectile("firefly", DivineRPGTabs.ranged, 1, -1, 5);
-    	laVekor		 			 = new ItemArcanaProjectile("laVekor", DivineRPGTabs.ranged, 1, -1, 5);
+    	firefly 	 			 = new ItemFirefly();
+    	laVekor		 			 = new ItemLaVekor();
     	enderScepter  			 = new ItemEnderScepter("enderScepter");
     	arcaniumSaber  			 = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
     	wraithbane  	 		 = new ItemWraithbane("wraithbane");

@@ -69,7 +69,7 @@ public class TwilightItemsWeapons {
 	    apalachiaSlicer    = new ItemThrowable("apalachiaSlicer", 12);
 	    skythernSlicer     = new ItemThrowable("skythernSlicer", 14);
 	    mortumSlicer       = new ItemThrowable("mortumSlicer", 16);
-	    haliteSlicer       = new ItemThrowable("haliteSlicer", 20);
+	    haliteSlicer       = new ItemThrowable("haliteSlicer", 22);
 
 	    edenBlitz          = new ItemTwilightBlitz("edenBlitz", x.blitzEden.toString(), TwilightItemsOther.edenDust, 10F).setHasParticle("eden");
 	    wildwoodBlitz      = new ItemTwilightBlitz("wildwoodBlitz", x.blitzWild.toString(), TwilightItemsOther.wildwoodDust, 12F).setHasParticle("wildwood");
@@ -78,12 +78,12 @@ public class TwilightItemsWeapons {
 	    mortumBlitz        = new ItemTwilightBlitz("mortumBlitz", x.blitzMortum.toString(), TwilightItemsOther.mortumDust, 18F).setHasParticle("mortum");
 	    haliteBlitz        = new ItemTwilightBlitz("haliteBlitz", x.blitzHalite.toString(), TwilightItemsOther.mortumDust, 20F).setHasParticle("halite");
 
-	    edenPhaser         = new ItemProjectileShooter("edenPhaser", 12F, Sounds.phaser.getPrefixedName(), x.phaserEden.toString(), 3000, 3).setHasParticle("eden");
-	    wildwoodPhaser     = new ItemProjectileShooter("wildwoodPhaser", 15F, Sounds.phaser.getPrefixedName(), x.phaserWild.toString(), 3000, 3).setHasParticle("wildwood");
-	    apalachiaPhaser    = new ItemProjectileShooter("apalachiaPhaser", 18F, Sounds.phaser.getPrefixedName(), x.phaserApalachia.toString(), 3000, 3).setHasParticle("apalachia");
-	    skythernPhaser     = new ItemProjectileShooter("skythernPhaser", 21F, Sounds.phaser.getPrefixedName(), x.phaserSkythern.toString(), 3000, 3).setHasParticle("skythern");
-	    mortumPhaser       = new ItemProjectileShooter("mortumPhaser", 24F, Sounds.phaser.getPrefixedName(), x.phaserMortum.toString(), 3000, 3).setHasParticle("mortum");
-	    halitePhaser       = new ItemProjectileShooter("halitePhaser", 27F, Sounds.phaser.getPrefixedName(), x.phaserHalite.toString(), 3000, 3).setHasParticle("halite");
+	    edenPhaser         = new ItemProjectileShooter("edenPhaser", 14F, Sounds.phaser.getPrefixedName(), x.phaserEden.toString(), 3000, 3).setHasParticle("eden");
+	    wildwoodPhaser     = new ItemProjectileShooter("wildwoodPhaser", 17F, Sounds.phaser.getPrefixedName(), x.phaserWild.toString(), 3000, 3).setHasParticle("wildwood");
+	    apalachiaPhaser    = new ItemProjectileShooter("apalachiaPhaser", 20F, Sounds.phaser.getPrefixedName(), x.phaserApalachia.toString(), 3000, 3).setHasParticle("apalachia");
+	    skythernPhaser     = new ItemProjectileShooter("skythernPhaser", 23F, Sounds.phaser.getPrefixedName(), x.phaserSkythern.toString(), 3000, 3).setHasParticle("skythern");
+	    mortumPhaser       = new ItemProjectileShooter("mortumPhaser", 26F, Sounds.phaser.getPrefixedName(), x.phaserMortum.toString(), 3000, 3).setHasParticle("mortum");
+	    halitePhaser       = new ItemProjectileShooter("halitePhaser", 29F, Sounds.phaser.getPrefixedName(), x.phaserHalite.toString(), 3000, 3).setHasParticle("halite");
 	    
 	    edenArrow          = new ItemMod("edenArrow").setCreativeTab(DivineRPGTabs.ranged);
 	    wildwoodArrow      = new ItemMod("wildwoodArrow").setCreativeTab(DivineRPGTabs.ranged);

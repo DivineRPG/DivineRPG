@@ -49,7 +49,6 @@ public class ItemModFood extends ItemFood {
         list.add(getSaturationModifier(stack) + " Saturation");
         list.add(!isWolfsFavoriteMeat() ? Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " false"
                 : Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " true");
-        list.add(Util.DARK_AQUA + Reference.MOD_NAME);
     }
 
 }

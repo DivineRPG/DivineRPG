@@ -2,6 +2,7 @@ package net.divinerpg.items.vethea;
 
 import java.util.List;
 
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -34,6 +35,6 @@ public class ItemVetheanHealingFood extends ItemVetheanFood {
         par3List.add("Replenishes " + this.healthGain + " Health");
         par3List.add(saturation + " Saturation");
         par3List.add("Pet Food: False");
-        par3List.add(Util.GREEN + "Vethean");
+        par3List.add(TooltipLocalizer.vethean());
     }
 }

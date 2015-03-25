@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,9 +33,9 @@ public class ItemAnchor extends ItemProjectileShooter {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add(damage + " Ranged Damage");
-		list.add("8 Melee Damage");
-		list.add(this.ammo == null ? "Infinite Ammo" : "Ammo: " + StatCollector.translateToLocal(this.ammo.getUnlocalizedName() + ".name"));
-		list.add(this.uses == -1 ? "Infinite Uses" : stack.getMaxDurability() - stack.getMetadata() + " Uses Remaining");
+		list.add(TooltipLocalizer.rangedDam(damage));
+		list.add(TooltipLocalizer.meleeDam(8));
+		list.add(TooltipLocalizer.infiniteAmmo());
+		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

@@ -7,6 +7,7 @@ import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -53,8 +54,8 @@ public class ItemScythe extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("6 Ranged Damage");
-		list.add("Infinite Ammo");
-		list.add("Infinite Uses");
+		list.add(TooltipLocalizer.rangedDam(6));
+		list.add(TooltipLocalizer.infiniteAmmo());
+		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

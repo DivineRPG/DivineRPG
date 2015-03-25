@@ -6,6 +6,7 @@ import net.divinerpg.client.ArcanaRenderer;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -25,8 +26,7 @@ public class ItemArcanaPotion extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add("Replenishes: " + amountToAdd + " Arcana");
-        list.add(Util.DARK_AQUA + Reference.MOD_NAME);
+        list.add(TooltipLocalizer.arcanaRegen(amountToAdd));
     }
 
     @Override

@@ -8,6 +8,7 @@ import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -43,12 +44,12 @@ public class ItemMusicShooter extends ItemMod {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack var1, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		if(this == IceikaItems.soundOfCarols) {
-			par3List.add("16 Ranged damage");
+			list.add(TooltipLocalizer.rangedDam(16));
 		} else {
-			par3List.add("10 Ranged damage");
+			list.add(TooltipLocalizer.rangedDam(10));
 		}
-		par3List.add(var1.getMaxDurability() - var1.getMetadata() + " Uses remaining");
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 }

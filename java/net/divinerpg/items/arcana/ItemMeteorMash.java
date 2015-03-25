@@ -7,6 +7,7 @@ import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.vethea.ItemStaff;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -70,7 +71,7 @@ public class ItemMeteorMash extends ItemMod {
     @Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         list.add("Drops an explosive meteor from the sky");
-        list.add("Consumes 35 Arcana");
-        list.add("Infinite Uses");
+        list.add(TooltipLocalizer.arcanaConsumed(35));
+        list.add(TooltipLocalizer.infiniteUses());
     }
 }

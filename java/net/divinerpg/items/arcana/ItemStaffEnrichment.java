@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.DivineRPGAchievements;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -47,9 +48,9 @@ public class ItemStaffEnrichment extends ItemMod {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		par3List.add("Use on arcanite dirt to purify.");
-		par3List.add(par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata() + " Uses");
+	public void addInformation(ItemStack stack, EntityPlayer par2EntityPlayer, List list, boolean par4) {
+		list.add("Use on arcanite dirt to purify.");
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 
 	@Override

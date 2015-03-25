@@ -3,6 +3,7 @@ package net.divinerpg.items.vethea;
 import java.util.List;
 
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,10 +25,10 @@ public class ItemVetheanDisk extends ItemMod {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add(this.damage + " Ranged Damage");
-        par3List.add("Returns to sender");
-        par3List.add(Util.GREEN + "Vethean");
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        list.add(TooltipLocalizer.rangedDam(damage));
+        list.add("Returns to sender");
+        list.add(TooltipLocalizer.vethean());
     }
 
     @Override

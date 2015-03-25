@@ -3,6 +3,7 @@ package net.divinerpg.items.arcana;
 import java.util.List;
 
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,9 +31,9 @@ public class ItemReflector extends ItemMod {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add("Consumes 20 Arcana");
-        par3List.add("Knocks mobs away");
-        par3List.add("No damage");
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List list, boolean par4) {
+        list.add(TooltipLocalizer.arcanaConsumed(20));
+        list.add("Knocks mobs away");
+        list.add("No damage");
     }
 }
