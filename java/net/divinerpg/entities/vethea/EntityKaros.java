@@ -19,10 +19,8 @@ import net.minecraft.world.World;
 public class EntityKaros extends EntityDivineRPGBoss {
 
 	private int ability;
-	private final int DEFAULT = 0;
-	private final int CEILING = 1;
-	private final int CANNONS = 2;
-	private final int FLOOR = 3;
+	private final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;
+	private final int GAME = 0, BEGIN = 1, EXPLOSIONS = 2, LAUGH = 3, DOOM = 4, CMON = 5, WEAK = 6;
 
 	private int abilityCooldown;
 	private int[][] cannonList = new int[36][3];
@@ -38,8 +36,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		addAttackingAI();
 		ability = DEFAULT;
 		if(!this.worldObj.isRemote){
-			Util.sendMessageToAll(MessageLocalizer.karos(0));
-			Util.sendMessageToAll(MessageLocalizer.karos(1));
+			Util.sendMessageToAll(MessageLocalizer.karos(GAME));
+			Util.sendMessageToAll(MessageLocalizer.karos(BEGIN));
 		}
 		this.playSound(Sounds.karosIntro.getPrefixedName(), 1.0F, 1.0F);
 	}
@@ -68,7 +66,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
 				this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
 				this.playSound(Sounds.ceilingExplosions.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-				Util.sendMessageToAll(MessageLocalizer.karos(2));
+				Util.sendMessageToAll(MessageLocalizer.karos(EXPLOSIONS));
 				break;
 			case 1:
 				ability = CANNONS;
@@ -156,19 +154,19 @@ public class EntityKaros extends EntityDivineRPGBoss {
 		switch(this.rand.nextInt(4)) {
 		case 0:
 			if(!this.worldObj.isRemote)
-			Util.sendMessageToAll(MessageLocalizer.karos(3));
+			Util.sendMessageToAll(MessageLocalizer.karos(LAUGH));
 			return Sounds.karosLaugh.getPrefixedName();
 		case 1:
 			if(!this.worldObj.isRemote)
-			Util.sendMessageToAll(MessageLocalizer.karos(4));
+			Util.sendMessageToAll(MessageLocalizer.karos(DOOM));
 			return Sounds.meetDoom.getPrefixedName();
 		case 2:
 			if(!this.worldObj.isRemote)
-			Util.sendMessageToAll(MessageLocalizer.karos(5));
+			Util.sendMessageToAll(MessageLocalizer.karos(CMON));
 			return Sounds.tryYourBest.getPrefixedName();
 		default:
 			if(!this.worldObj.isRemote){
-			Util.sendMessageToAll(MessageLocalizer.karos(6));
+			Util.sendMessageToAll(MessageLocalizer.karos(WEAK));
 			}
 			return Sounds.youCantKillMe.getPrefixedName();
 		}

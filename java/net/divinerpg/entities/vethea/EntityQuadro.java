@@ -24,10 +24,8 @@ import net.minecraft.world.World;
 public class EntityQuadro extends EntityDivineRPGBoss {
 
 	public int ability;
-	private final int SLOW = 0;
-	private final int FAST = 1;
-	private final int MSLOW = 2;
-	private final int MFAST = 3;
+	private final int SLOW = 0, FAST = 1, MSLOW = 2, MFAST = 3;
+	private final int DIE = 0, ENOUGH = 1, PUNCH = 2, NEXT = 3, MINE = 4, KILL = 5, NO = 6, SIT = 7, DESERVE = 8, TASTE = 9;
 
 	private int abilityCoolDown;
 
@@ -65,49 +63,49 @@ public class EntityQuadro extends EntityDivineRPGBoss {
 			case 0:
 				this.playSound(Sounds.quadroDieBefore.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(0));
+					Util.sendMessageToAll(MessageLocalizer.quadro(DIE));
 				break;
 			case 1:
 				this.playSound(Sounds.quadroEnough.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(1));
+					Util.sendMessageToAll(MessageLocalizer.quadro(ENOUGH));
 				break;
 			case 2:
 				this.playSound(Sounds.quadroPunch.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(2));
+					Util.sendMessageToAll(MessageLocalizer.quadro(PUNCH));
 				break;
 			case 3:
 				this.playSound(Sounds.quadroIsNext.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(3));
+					Util.sendMessageToAll(MessageLocalizer.quadro(NEXT));
 				break;
 			case 4:
 				this.playSound(Sounds.quadroKillMine.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(4));
+					Util.sendMessageToAll(MessageLocalizer.quadro(MINE));
 				break;
 			case 5:
 				this.playSound(Sounds.quadroMyKill.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(5));
+					Util.sendMessageToAll(MessageLocalizer.quadro(KILL));
 				break;
 			case 6:
 				this.playSound(Sounds.quadroNoDie.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(6));
+					Util.sendMessageToAll(MessageLocalizer.quadro(NO));
 				break;
 			case 7:
 				this.playSound(Sounds.quadroSitDown.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote){
-					Util.sendMessageToAll(MessageLocalizer.quadro(7));
-					Util.sendMessageToAll(MessageLocalizer.quadro(8));
+					Util.sendMessageToAll(MessageLocalizer.quadro(SIT));
+					Util.sendMessageToAll(MessageLocalizer.quadro(DESERVE));
 				}
 				break;
 			default:
 				this.playSound(Sounds.quadroTasteFist.getPrefixedName(), 1.0F, 1.0F);
 				if(!this.worldObj.isRemote)
-					Util.sendMessageToAll(MessageLocalizer.quadro(9));
+					Util.sendMessageToAll(MessageLocalizer.quadro(TASTE));
 				break;
 			}
 		}

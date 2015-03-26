@@ -34,6 +34,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 	
 	private final int MELEE = 0, ARCANA = 1, RANGED = 2;
 	private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
+	private final int RUN = 0, SMELL = 1;
 	private int waitTick;
 	private int abilityTimer;
 	private int deathTicks;
@@ -46,8 +47,8 @@ public class EntityWreck extends EntityDivineRPGBoss {
 		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		this.setAbility(DEFAULT);
 		if(!this.worldObj.isRemote){
-			Util.sendMessageToAll(MessageLocalizer.wreck(0));
-			Util.sendMessageToAll(MessageLocalizer.wreck(1));
+			Util.sendMessageToAll(MessageLocalizer.wreck(RUN));
+			Util.sendMessageToAll(MessageLocalizer.wreck(SMELL));
 		}
 		this.playSound(Sounds.wreckIntro.getPrefixedName(), 1.0F, 1.0F);
 		this.setAbilityType(MELEE);
@@ -179,36 +180,36 @@ public class EntityWreck extends EntityDivineRPGBoss {
 				EntityPlayer player = (EntityPlayer) list.get(var1);
 				switch (this.getAbility()) {
 				case CHARGE:
-					Util.sendMessageToAll(MessageLocalizer.wreck(2));
+					Util.sendMessageToAll(MessageLocalizer.wreck(CHARGE+1));
 					break;
 				case PULL:
 					this.playSound(Sounds.feelSoulArksiane.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll(MessageLocalizer.wreck(3));
+						Util.sendMessageToAll(MessageLocalizer.wreck(PULL+1));
 					break;
 				case FIRE:
-					Util.sendMessageToAll(MessageLocalizer.wreck(4));
+					Util.sendMessageToAll(MessageLocalizer.wreck(FIRE+1));
 					break;
 				case FREEZE:
 					this.playSound(Sounds.stopAtOnce.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll(MessageLocalizer.wreck(5));
+						Util.sendMessageToAll(MessageLocalizer.wreck(FREEZE));
 					}
 					break;
 				case SPEED:
 					this.playSound(Sounds.wreckSpeed.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll(MessageLocalizer.wreck(6));
+						Util.sendMessageToAll(MessageLocalizer.wreck(SPEED));
 					break;
 				case EXPLOSIONS:
 					this.playSound(Sounds.explosions.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll(MessageLocalizer.wreck(7));
+						Util.sendMessageToAll(MessageLocalizer.wreck(EXPLOSIONS));
 					break;
 				case STRENGTH:
 					this.playSound(Sounds.wreckStrength.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll(MessageLocalizer.wreck(8));
+						Util.sendMessageToAll(MessageLocalizer.wreck(STRENGTH));
 					break;
 				default:
 					break;

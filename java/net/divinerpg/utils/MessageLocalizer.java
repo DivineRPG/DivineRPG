@@ -5,23 +5,23 @@ import net.minecraft.util.StatCollector;
 
 public class MessageLocalizer {
 
-    protected static final String[] VATT = {"message.vatticus0", "message.vatticus1", "message.vatticus2", "message.vatticus3", "message.vatticus4"},
-            WARGEN = {"message.general0", "message.general1", "message.general2", "message.general3"},
-            MERCH = {"message.merchant0", "message.merchant1", "message.merchant2", "message.merchant3"},
-            JACK = {"message.jackoman0", "message.jackoman1", "message.jackoman2", "message.jackoman3"},
-            GUARD = {"message.guardian0", "message.guardian1", "message.guardian2", "message.guardian3", "message.guardian4"},
-            AYERACO = {"message.ayeraco0", "message.ayeraco1", "message.ayeraco2", "message.ayeraco3", "message.ayeraco4"},
-            KAROS = {"message.karos0", "message.karos1", "message.karos2", "message.karos3", "message.karos4", "message.karos5", "message.karos6"},
-            QUADRO = {"message.quadro0", "message.quadro1", "message.quadro2", "message.quadro3", "message.quadro4", "message.quadro5", "message.quadro6", "message.quadro7", "message.quadro8", "message.quadro9"},
-            RAGLOK = {"message.raglok0", "message.raglok1", "message.raglok2", "message.raglok3", "message.raglok4", "message.raglok5", "message.raglok6", "message.raglok7"},
-            WRECK = {"message.wreck0", "message.wreck1", "message.wreck2", "message.wreck3", "message.wreck4", "message.wreck5", "message.wreck6", "message.wreck7", "message.wreck8"};
+    protected static final String[] VATT = {"message.vatticus.feel", "message.vatticus.noend", "message.vatticus.strength", "message.vatticus.discover", "message.vatticus.magic"},
+            WARGEN = {"message.general.weapons", "message.general.1", "message.general.2", "message.general.3"},
+            MERCH = {"message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr"},
+            JACK = {"message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah", "message.jackoman.seen"},
+            GUARD = {"message.guardian.up", "message.guardian.places", "message.guardian.doing", "message.guardian.temples", "message.guardian.closer"},
+            AYERACO = {"message.ayeraco.green", "message.ayeraco.blue", "message.ayeraco.red", "message.ayeraco.yellow", "message.ayeraco.purple"},
+            KAROS = {"message.karos.game", "message.karos.begin", "message.karos.explosion", "message.karos.laugh", "message.karos.doom", "message.karos.cmon", "message.karos.weak"},
+            QUADRO = {"message.quadro.die", "message.quadro.enough", "message.quadro.punch", "message.quadro.next", "message.quadro.mine", "message.quadro.kill", "message.quadro.no", "message.quadro.sit", "message.quadro.deserve", "message.quadro.taste"},
+            RAGLOK = {"message.raglok.dare", "message.raglok.think", "message.raglok.great", "message.raglok.future", "message.raglok.rain", "message.raglok.kill", "message.raglok.compare", "message.raglok.avenge"},
+            WRECK = {"message.wreck.run", "message.wreck.smell", "message.wreck.charge", "message.wreck.pull", "message.wreck.fire", "message.wreck.freeze", "message.wreck.speed", "message.wreck.explosion", "message.wreck.strength"};
     
     protected static final String DEV = "message.developer",
             STAND = "message.standard",
             INTER = "message.internet",
             UPDATE = "message.update",
             NEW = "message.version",
-            AYERACOS = "message.ayeracospawn";
+            AYERACOS = "message.ayeraco.spawn";
 
     public static String vatticus(int loc) {
         return StatCollector.translateToLocal(VATT[loc]);
@@ -79,7 +79,7 @@ public class MessageLocalizer {
         return StatCollector.translateToLocal(NEW).replace("#", vers);
     }
     
-    public static String ayeracoColors(int loc) {
+    public static String ayeracoAppear(int loc) {
         return StatCollector.translateToLocal(AYERACO[loc]);
     }
     

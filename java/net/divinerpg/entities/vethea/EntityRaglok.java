@@ -32,6 +32,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
 	private int ability;
 	private final int DEFAULT = 0, LIGHTNING = 1, BLIND = 2, BOMBS = 3, SLOW = 4;
+	private final int DARE = 0, THINK = 1, GREAT = 2, FUTURE = 3, RAIN = 4, KILL = 5, COMPARE = 6, AVENGE = 7;
 	
 	private double prevPlayerX, prevPlayerY, prevPlayerZ;
 
@@ -46,7 +47,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 		this.isImmuneToFire = true;
 		ability = DEFAULT;
 		this.setSize(1.5F, 4.0F);
-		if(!this.worldObj.isRemote) Util.sendMessageToAll(MessageLocalizer.raglok(0));
+		if(!this.worldObj.isRemote) Util.sendMessageToAll(MessageLocalizer.raglok(DARE));
 		this.playSound(Sounds.raglokAwaken.getPrefixedName(), 1.0F, 1.0F);
 	}
 
@@ -147,26 +148,26 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 				case LIGHTNING:
 					this.playSound(Sounds.raglokGuardian.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll(MessageLocalizer.raglok(1));
-						Util.sendMessageToAll(MessageLocalizer.raglok(2));
+						Util.sendMessageToAll(MessageLocalizer.raglok(THINK));
+						Util.sendMessageToAll(MessageLocalizer.raglok(GREAT));
 					}
 					break;
 				case BLIND:
 					this.playSound(Sounds.raglokDark.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll(MessageLocalizer.raglok(3));
+						Util.sendMessageToAll(MessageLocalizer.raglok(FUTURE));
 					break;
 				case BOMBS:
 					this.playSound(Sounds.raglokRain.getPrefixedName(), 1.0F, 1.0F);
 					if(!this.worldObj.isRemote){
-						Util.sendMessageToAll(MessageLocalizer.raglok(4));
-						Util.sendMessageToAll(MessageLocalizer.raglok(5));
+						Util.sendMessageToAll(MessageLocalizer.raglok(RAIN));
+						Util.sendMessageToAll(MessageLocalizer.raglok(KILL));
 					}
 					break;
 				case SLOW:
 					this.playSound(Sounds.raglokNothing.getPrefixedName(), 1.0F, 1.0F); 
 					if(!this.worldObj.isRemote)
-						Util.sendMessageToAll(MessageLocalizer.raglok(6));
+						Util.sendMessageToAll(MessageLocalizer.raglok(COMPARE));
 					break;
 				default:
 					break;
@@ -188,7 +189,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
 	@Override
 	protected String getDeathSound() {
-		if(!this.worldObj.isRemote) Util.sendMessageToAll(MessageLocalizer.raglok(7));
+		if(!this.worldObj.isRemote) Util.sendMessageToAll(MessageLocalizer.raglok(AVENGE));
 		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
 		if(player != null) {
 			for(int i = 0; i < 10; i++) {
