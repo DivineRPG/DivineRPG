@@ -4,16 +4,15 @@ import net.divinerpg.entities.base.EntityDivineRPGBoss;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class EntityDramix extends EntityDivineRPGBoss {
 
     private int firetick;
-    private int firemax = 300;
-    private int firemax2 = 200;
 
-    private boolean isInvi;
 
     public EntityDramix(World var1) {
         super(var1);
@@ -29,6 +28,7 @@ public class EntityDramix extends EntityDivineRPGBoss {
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixDamage);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.dramixFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1);
     }
     
     @Override
@@ -36,26 +36,10 @@ public class EntityDramix extends EntityDivineRPGBoss {
         return "Dramix";
     }
 
-    public boolean isInv() {
-        return isInvi;
-    }
-
     @Override
     public void onLivingUpdate() {
 
-        if(firemax == firetick && firetick != 0) {
-            this.isInvi = true;
-            this.firetick = 0;
-        } else {
-            ++firetick;
-        }
-
-        if(firemax2 == firetick && firetick != 0) {
-            this.isInvi = false;
-            this.firetick = 0;
-        } else {
-            ++firetick;
-        }
+        if(this.ticksExisted%600 < 300) this.addPotionEffect(new PotionEffect(Potion.invisibility.id, 5, 0, true));
 
         super.onLivingUpdate();
     }

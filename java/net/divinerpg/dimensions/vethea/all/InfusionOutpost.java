@@ -23,8 +23,8 @@ public class InfusionOutpost implements IVetheanStructure
 		chunk[i + 0][j + 5][k + 1] = VetheaBlocks.everstone;
 		chunk[i + 0][j + 5][k + 8] = VetheaBlocks.everstone;
 		chunk[i + 0][j + 5][k + 9] = VetheaBlocks.everstone;
-		chunk[i + 0][j + 6][k + 0] = VetheaBlocks.firelight;
-		chunk[i + 0][j + 6][k + 9] = VetheaBlocks.firelight;
+		chunk[i + 0][j + 6][k + 0] = VetheaBlocks.fireCrystal;
+		chunk[i + 0][j + 6][k + 9] = VetheaBlocks.fireCrystal;
 		chunk[i + 1][j + 0][k + 0] = VetheaBlocks.everstone;
 		chunk[i + 1][j + 0][k + 9] = VetheaBlocks.everstone;
 		chunk[i + 1][j + 5][k + 0] = VetheaBlocks.everstone;
@@ -59,8 +59,8 @@ public class InfusionOutpost implements IVetheanStructure
 		chunk[i + 4][j + 3][k + 5] = VetheaBlocks.infusionTable;
 		chunk[i + 4][j + 5][k + 4] = VetheaBlocks.everstone;
 		chunk[i + 4][j + 5][k + 5] = VetheaBlocks.everstone;
-		chunk[i + 4][j + 6][k + 4] = VetheaBlocks.firelight;
-		chunk[i + 4][j + 6][k + 5] = VetheaBlocks.firelight;
+		chunk[i + 4][j + 6][k + 4] = VetheaBlocks.fireCrystal;
+		chunk[i + 4][j + 6][k + 5] = VetheaBlocks.fireCrystal;
 		chunk[i + 4][j + 7][k + 2] = VetheaBlocks.everstone;
 		chunk[i + 4][j + 7][k + 3] = VetheaBlocks.everstone;
 		chunk[i + 4][j + 7][k + 4] = VetheaBlocks.everstone;
@@ -81,8 +81,8 @@ public class InfusionOutpost implements IVetheanStructure
 		chunk[i + 5][j + 3][k + 5] = VetheaBlocks.infusionTable;
 		chunk[i + 5][j + 5][k + 4] = VetheaBlocks.everstone;
 		chunk[i + 5][j + 5][k + 5] = VetheaBlocks.everstone;
-		chunk[i + 5][j + 6][k + 4] = VetheaBlocks.firelight;
-		chunk[i + 5][j + 6][k + 5] = VetheaBlocks.firelight;
+		chunk[i + 5][j + 6][k + 4] = VetheaBlocks.fireCrystal;
+		chunk[i + 5][j + 6][k + 5] = VetheaBlocks.fireCrystal;
 		chunk[i + 5][j + 7][k + 2] = VetheaBlocks.everstone;
 		chunk[i + 5][j + 7][k + 3] = VetheaBlocks.everstone;
 		chunk[i + 5][j + 7][k + 4] = VetheaBlocks.everstone;
@@ -125,7 +125,7 @@ public class InfusionOutpost implements IVetheanStructure
 		chunk[i + 9][j + 5][k + 1] = VetheaBlocks.everstone;
 		chunk[i + 9][j + 5][k + 8] = VetheaBlocks.everstone;
 		chunk[i + 9][j + 5][k + 9] = VetheaBlocks.everstone;
-		chunk[i + 9][j + 6][k + 0] = VetheaBlocks.firelight;
-		chunk[i + 9][j + 6][k + 9] = VetheaBlocks.firelight;
+		chunk[i + 9][j + 6][k + 0] = VetheaBlocks.fireCrystal;
+		chunk[i + 9][j + 6][k + 9] = VetheaBlocks.fireCrystal;
 	}
 }

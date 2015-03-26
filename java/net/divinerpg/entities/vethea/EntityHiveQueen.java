@@ -30,7 +30,7 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.hiveQueenHealth);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(net.divinerpg.entities.base.EntityStats.hiveQueenDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.hiveQueenSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.hiveQueenFollowRange);
     }
 
