@@ -89,5 +89,9 @@ public class EntityParticleBullet extends EntityShooterBullet {
 		this.lotsOfParticles = true;
 		return this;
 	}
+	
+	public void setColor(Color c) {
+	    this.color = c;
+	}
 
 }

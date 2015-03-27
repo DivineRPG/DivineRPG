@@ -298,7 +298,7 @@ public class VetheaItems {
 	    everlight          = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
 	    everbright         = new ItemVetheanClaw(42, "everbright");
 	    everArrow          = new ItemMod("everArrow").setCreativeTab(DivineRPGTabs.vethea);
-	    everfright		   = new ItemModBow("everfright", -1, 25, 46, everArrow).setVethean();
+	    everfright		   = new ItemModBow("everfright", -1, 25, 46, everArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 	    evernight          = new ItemStaff(115, 80, "evernight");
 	    
 	    karosRockmaul      = new ItemVetheanSword("karosRockmaul", Util.addHammerMaterial(46));

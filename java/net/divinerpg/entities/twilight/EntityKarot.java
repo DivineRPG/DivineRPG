@@ -1,6 +1,7 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -81,13 +82,9 @@ public class EntityKarot extends EntityDivineRPGBoss {
     }
 
     @Override
-    protected Item getDropItem() {
-        return TwilightItemsWeapons.halitePhaser;
-    }
-
-    @Override
     public void dropFewItems(boolean par1, int par2) {
-        this.dropItem(this.getDropItem(), 1);
+        this.dropItem(TwilightItemsWeapons.halitePhaser, 1);
+        if(this.rand.nextInt(2) == 0)this.dropItem(Item.getItemFromBlock(VanillaBlocks.karotStatue), 1);
     }
 
 	@Override

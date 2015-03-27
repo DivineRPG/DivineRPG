@@ -21,7 +21,7 @@ public class BlockStatue extends BlockMod {
         setTextureName("cobblestone");
         this.texture = new ResourceLocation(Reference.PREFIX + "textures/model/" + name + ".png");
         this.model = model;
-        setHarvestLevel("pickaxe", 3);
+        setHarvestLevel("pickaxe", 0);
     }
     
     public DivineModel getModel(){
@@ -30,12 +30,6 @@ public class BlockStatue extends BlockMod {
     
     public ResourceLocation getTexture(){
         return texture;
-    }
-    
-    @Override
-    public BlockMod setTextureName(String textureName) {
-        this.textureName = textureName + ".png";
-        return this;
     }
 
     @Override

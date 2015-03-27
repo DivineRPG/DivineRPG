@@ -27,6 +27,7 @@ import net.divinerpg.client.render.block.model.ModelAyeracoStatue;
 import net.divinerpg.client.render.block.model.ModelDensosStatue;
 import net.divinerpg.client.render.block.model.ModelDramixStatue;
 import net.divinerpg.client.render.block.model.ModelEternArcherStatue;
+import net.divinerpg.client.render.block.model.ModelKarotStatue;
 import net.divinerpg.client.render.block.model.ModelKingStatue;
 import net.divinerpg.client.render.block.model.ModelReyvorStatue;
 import net.divinerpg.client.render.block.model.ModelSoulStatue;
@@ -127,6 +128,7 @@ public class VanillaBlocks {
 	public static BlockStatue soulFiendStatue;
 	public static BlockStatue watcherStatue;
 	public static BlockStatue eternalArcherStatue;
+	public static BlockStatue karotStatue;
 	
 	public static Block tomato;
 	public static Block mushroom;
@@ -229,6 +231,7 @@ public class VanillaBlocks {
 		soulFiendStatue = new BlockStatue("soulFiendStatue", new ModelSoulStatue());
 		watcherStatue = new BlockStatue("watcherStatue", new ModelWatcherStatue());
 		eternalArcherStatue = new BlockStatue("eternalArcherStatue", new ModelEternArcherStatue());
+		karotStatue = new BlockStatue("karotStatue", new ModelKarotStatue());
 		
 		tomato			  = new BlockTomato("tomatoPlant");
 		mushroom			  = new BlockMushroom("mushroomPlant");

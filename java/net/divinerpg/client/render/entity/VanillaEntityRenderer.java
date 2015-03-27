@@ -177,6 +177,7 @@ public class VanillaEntityRenderer {
 		Util.registerItemRenderer(VanillaBlocks.soulFiendStatue, new RenderStatueItem(VanillaBlocks.soulFiendStatue));
 		Util.registerItemRenderer(VanillaBlocks.watcherStatue, new RenderStatueItem(VanillaBlocks.watcherStatue));
 		Util.registerItemRenderer(VanillaBlocks.eternalArcherStatue, new RenderStatueItem(VanillaBlocks.eternalArcherStatue));
+		Util.registerItemRenderer(VanillaBlocks.karotStatue, new RenderStatueItem(VanillaBlocks.karotStatue));
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoSpawn.class, new RenderAyeracoSpawn());

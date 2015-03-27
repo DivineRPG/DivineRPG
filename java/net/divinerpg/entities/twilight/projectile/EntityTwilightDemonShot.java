@@ -21,6 +21,7 @@ public class EntityTwilightDemonShot extends EntityParticleBullet {
 	public EntityTwilightDemonShot(World world, EntityLivingBase e) {
 		super(world, e, 16, EntityResourceLocation.twilightDemonShot.toString(), new Color(0, 0, 0));
 		setMoreParticles();
+		if(this.rand.nextInt(50)==0)this.setColor(new Color(255, 0, 0));
 	}
 
 	@Override

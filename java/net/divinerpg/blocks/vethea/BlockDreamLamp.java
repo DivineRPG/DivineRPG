@@ -23,6 +23,7 @@ public class BlockDreamLamp extends BlockContainer {
 
     public BlockDreamLamp(String name, boolean on) {
         super(Material.glass);
+        setStepSound(soundTypeGlass);
         if(on) {
             setCreativeTab(null);
             setLightLevel(1);
