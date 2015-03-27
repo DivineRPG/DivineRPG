@@ -13,13 +13,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class EntityTheEye extends EntityDivineRPGMob {
-     
-    private int teleportDelay = 0;
-    private int stare = 0;
 
     private boolean hasPotion = false;
 
@@ -52,47 +50,20 @@ public class EntityTheEye extends EntityDivineRPGMob {
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.theEyeFollowRange);
     }
 
-    protected Entity findPlayerToAttack() {
-        EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
-
-        if (var1 != null) {
-            if (this.shouldAttackPlayer(var1)) {
-                if (this.stare == 0) {
-                    this.worldObj.playSoundAtEntity(var1, "mob.endermen.stare", 1.0F, 1.0F);
-                }
-
-                if (this.stare++ == 5) {
-                    this.stare = 0;
-                    return var1;
-                }
-            } else {
-                this.stare = 0;
-            }
-        }
-        return null;
-    }
-
-    private boolean shouldAttackPlayer(EntityPlayer par1EntityPlayer) {
-        ItemStack var2 = par1EntityPlayer.inventory.armorInventory[3];
-
-        if (var2 != null && var2.getItem() == Item.getItemFromBlock(Blocks.pumpkin)) {
-            return false;
-        } else {
-            Vec3 var3 = par1EntityPlayer.getLook(1.0F).normalize();
-            Vec3 var4 = Vec3.createVectorHelper(this.posX - par1EntityPlayer.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (par1EntityPlayer.posY + (double)par1EntityPlayer.getEyeHeight()), this.posZ - par1EntityPlayer.posZ);
-            double var5 = var4.lengthVector();
-            var4 = var4.normalize();
-            double var7 = var3.dotProduct(var4);
-            return var7 > 1.0D - 0.025D / var5 ? par1EntityPlayer.canEntityBeSeen(this) : false;
-        }
-    }
-
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.entityToAttack instanceof EntityPlayerMP) {
-            ((EntityPlayerMP)entityToAttack).addPotionEffect(new PotionEffect(Potion.blindness.id, 2 * 40, 2));
-            ((EntityPlayer) entityToAttack).triggerAchievement(DivineRPGAchievements.eyeOfEvil);
+        EntityPlayer p = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
+        if(p != null) {
+            Vec3 lookVec = p.getLook(1.0F).normalize();
+            Vec3 lookAtMeVec = Vec3.createVectorHelper(this.posX - p.posX, this.boundingBox.minY + this.height - (p.posY + p.getEyeHeight()), this.posZ - p.posZ);
+            double distMagnitude = lookAtMeVec.lengthVector();
+            lookAtMeVec = lookAtMeVec.normalize();
+            double var7 = lookVec.dotProduct(lookAtMeVec);
+            if(var7 > 1.0D - 0.025D / distMagnitude && p.canEntityBeSeen(this)) {
+                p.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0, true));
+                p.triggerAchievement(DivineRPGAchievements.eyeOfEvil);
+            }
         }
     }
 
