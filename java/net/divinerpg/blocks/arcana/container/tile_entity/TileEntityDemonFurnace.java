@@ -11,7 +11,7 @@ public class TileEntityDemonFurnace extends TileEntityInfiniteFurnace {
 	private Random rand = new Random();
 
 	public TileEntityDemonFurnace() {
-		super("Demon Furnace", false, 100);
+		super("Demon Furnace", 100);
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 public class TileEntityMoltenFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityMoltenFurnace() {
-		super("Molten Furnace", false, 275);
+		super("Molten Furnace", 275);
 	}
 
 	@Override

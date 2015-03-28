@@ -97,7 +97,7 @@ public abstract class BlockModFurnace extends BlockContainer {
 		if(meta == 1) w.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		if(meta == 2) w.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		if(meta == 3) w.setBlockMetadataWithNotify(x, y, z, 4, 2);
-		if(item.hasDisplayName()) ((TileEntityModFurnace)w.getTileEntity(x, y, z)).setCustomName(item.getDisplayName());
+		if(item.hasDisplayName()) ((TileEntityModFurnace)w.getTileEntity(x, y, z)).setCustomInventoryName(item.getDisplayName());
 	}
 
 	@Override

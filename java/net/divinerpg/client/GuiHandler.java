@@ -6,6 +6,7 @@ import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
 import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
 import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.divinerpg.blocks.base.tileentity.container.ContainerInfiniteFurnace;
+import net.divinerpg.blocks.base.tileentity.container.ContainerModFurnace;
 import net.divinerpg.blocks.vanilla.container.ContainerAltarCorruption;
 import net.divinerpg.blocks.vethea.container.ContainerDreamLamp;
 import net.divinerpg.blocks.vethea.container.ContainerInfusionTable;
@@ -53,8 +54,10 @@ public class GuiHandler implements IGuiHandler{
 			return new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world);
 		if(ID == extractor)
 			return new ContainerExtractor(player.inventory, (TileEntityModFurnace)entity);
-		if(ID == greenlight || ID == oceanfire || ID == molten || ID == whitefire || ID == moonlight || ID == demon || ID == coalstone)
+		if(ID == oceanfire || ID == molten || ID == whitefire || ID == demon || ID == coalstone)
 			return new ContainerInfiniteFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
+		if(ID == greenlight || ID == moonlight)
+		    return new ContainerModFurnace(player.inventory, (TileEntityModFurnace)entity);
 		if(ID == altar)
 			return new ContainerAltarCorruption(player.inventory, world, x, y, z);
 		if(ID == dreamLamp)
@@ -92,7 +95,7 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == extractor)
 			return new GuiExtractor(player.inventory, (TileEntityExtractor)entity);
 		if(ID == greenlight)
-			return new GuiGreenlightFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
+			return new GuiGreenlightFurnace(player.inventory, (TileEntityModFurnace)entity);
 		if(ID == oceanfire)
 			return new GuiOceanfireFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == molten)
@@ -100,7 +103,7 @@ public class GuiHandler implements IGuiHandler{
 		if(ID == whitefire)
 			return new GuiWhitefireFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == moonlight)
-			return new GuiMoonlightFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
+			return new GuiMoonlightFurnace(player.inventory, (TileEntityModFurnace)entity);
 		if(ID == demon)
 			return new GuiDemonFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == altar)

@@ -33,7 +33,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     public int furnaceBurnTime, furnaceCookTime, speed, flameTime;
     private String customName;
     
-    public TileEntityInfiniteFurnace(String name, boolean fuel, int speed) {
+    public TileEntityInfiniteFurnace(String name, int speed) {
 		setCustomName(name);
 		this.speed = speed;
 	}

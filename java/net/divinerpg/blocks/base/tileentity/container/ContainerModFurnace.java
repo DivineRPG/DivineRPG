@@ -18,14 +18,12 @@ public class ContainerModFurnace extends Container {
 
 	private TileEntityModFurnace tileFurnace;
 	private int lastCookTime, lastBurnTime, lastItemBurnTime;
-	private boolean hasFuel;
 
-	public ContainerModFurnace(InventoryPlayer player, TileEntityModFurnace furnace, boolean hasFuel) {
+	public ContainerModFurnace(InventoryPlayer player, TileEntityModFurnace furnace) {
 		this.tileFurnace = furnace;
 		this.addSlotToContainer(new Slot(furnace, 0, 56, 17));
 		this.addSlotToContainer(new Slot(furnace, 1, 56, 53));
 		this.addSlotToContainer(new SlotFurnace(player.player, furnace, 2, 116, 35));
-		this.hasFuel = hasFuel;
 		int i;
 		for(i = 0; i < 3; ++i) {
 			for(int j = 0; j < 9; ++j) {

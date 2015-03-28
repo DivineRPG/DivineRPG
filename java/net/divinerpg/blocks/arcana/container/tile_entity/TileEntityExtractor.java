@@ -18,7 +18,7 @@ import net.minecraft.item.ItemTool;
 public class TileEntityExtractor extends TileEntityModFurnace {
 
 	public TileEntityExtractor() {
-		super("Extractor", true, 100);
+		super("Extractor", 100);
 	}
 	
 	@Override
@@ -100,7 +100,4 @@ public class TileEntityExtractor extends TileEntityModFurnace {
 			return 0;
 		return 400;
 	}
-
-	@Override
-	public void addUpdate() { }
 }

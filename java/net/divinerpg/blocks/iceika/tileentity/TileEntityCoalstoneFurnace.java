@@ -6,7 +6,7 @@ import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {
 
 	public TileEntityCoalstoneFurnace() {
-		super("Coalstone Furnace", false, 300);
+		super("Coalstone Furnace", 300);
 	}
 
 	@Override

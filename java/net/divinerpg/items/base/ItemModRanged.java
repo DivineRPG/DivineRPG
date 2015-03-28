@@ -51,7 +51,6 @@ public class ItemModRanged extends ItemMod {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         addAdditionalInformation(stack, player, list, par4);
         if(getMaxDurability() == -1) list.add(Util.GREEN + "Infinite Uses");
-        list.add(Util.DARK_AQUA + Reference.MOD_NAME);
     }
     
     protected void addAdditionalInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) { }
