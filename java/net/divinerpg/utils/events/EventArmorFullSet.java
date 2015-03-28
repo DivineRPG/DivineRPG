@@ -289,7 +289,7 @@ public class EventArmorFullSet {
         //Halite
         if (boots == TwilightItemsArmor.haliteBoots && body == TwilightItemsArmor.haliteChestplate && legs == TwilightItemsArmor.haliteLeggings && helmet == TwilightItemsArmor.haliteHelmet) {
             if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                e.ammount += 24;
+                e.ammount += 16;
             }
         }
         

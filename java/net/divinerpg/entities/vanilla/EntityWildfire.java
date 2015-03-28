@@ -1,7 +1,7 @@
 package net.divinerpg.entities.vanilla;
 
+import net.divinerpg.entities.base.EntityDivineArrow;
 import net.divinerpg.entities.base.EntityDivineRPGMob;
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsWeapons;

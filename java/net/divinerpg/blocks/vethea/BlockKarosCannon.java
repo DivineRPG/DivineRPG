@@ -2,7 +2,7 @@ package net.divinerpg.blocks.vethea;
 
 import java.util.Random;
 
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.entities.base.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

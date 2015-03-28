@@ -3,7 +3,7 @@ package net.divinerpg.items.base;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.entities.base.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.TooltipLocalizer;

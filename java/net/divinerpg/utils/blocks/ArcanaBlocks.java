@@ -26,10 +26,12 @@ import net.divinerpg.blocks.base.BlockModDoor;
 import net.divinerpg.blocks.base.BlockModGlass;
 import net.divinerpg.blocks.base.BlockModGrass;
 import net.divinerpg.blocks.base.BlockModLadder;
+import net.divinerpg.blocks.base.BlockModLog;
 import net.divinerpg.blocks.base.BlockModTorch;
 import net.divinerpg.blocks.base.BlockRedstonelessRails;
 import net.divinerpg.blocks.base.BlockStupidSpawner;
 import net.divinerpg.utils.material.EnumBlockType;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 
 public class ArcanaBlocks {
@@ -89,6 +91,9 @@ public class ArcanaBlocks {
     public static Block marsine;
     public static Block firestock;
     public static Block pinfly;
+    
+    public static Block eucalyptusWood;
+    public static Block eucalyptusPlank;
 
     public static Block greenlightFurnace;
     public static Block greenlightFurnaceOn;
@@ -163,6 +168,9 @@ public class ArcanaBlocks {
 	    marsine		  			= new BlockMarsine("marsinePlant");
 	    firestock		  		= new BlockStackPlant("firestockPlant");
 	    pinfly		  			= new BlockStackPlant("pinflyPlant");
+	    
+	    eucalyptusWood          = new BlockModLog("eucalyptus");
+        eucalyptusPlank         = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 
 	    greenlightFurnace 		= new BlockGreenlightFurnace("greenlightFurnace", false);
 	    greenlightFurnaceOn 	= new BlockGreenlightFurnace("greenlightFurnaceOn", true);

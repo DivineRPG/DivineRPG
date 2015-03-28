@@ -1,4 +1,4 @@
-package net.divinerpg.entities.vanilla.projectile;
+package net.divinerpg.entities.base;
 
 import java.util.List;
 

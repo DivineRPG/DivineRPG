@@ -18,7 +18,7 @@ public class EntityKingCrab extends EntityPeacefulUntilAttacked {
 
     public EntityKingCrab(World var1) {
         super(var1);
-        this.setSize(1.25F, 1.0F);
+        this.setSize(1.55F, 1.25F);
         this.experienceValue = 40;
     }
     

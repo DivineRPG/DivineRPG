@@ -22,7 +22,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class BlockModCrop extends BlockBush implements IGrowable{
+public abstract class BlockModCrop extends BlockBush implements IGrowable {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
@@ -46,9 +46,13 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable{
 
 
 	@Override
-	protected boolean canPlaceBlockOn(Block block) {
+	public boolean canPlaceBlockOn(Block block) {
 		return block == Blocks.farmland;
 	}
+	
+	public boolean canBlockStay(World w, int x, int y, int z) {
+        return canPlaceBlockOn(w.getBlock(x, y - 1, z));
+    }
 
 	@Override
 	public void updateTick(World w, int x, int y, int z, Random r) {
@@ -88,9 +92,9 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable{
 		for(int l = x - 1; l <= x + 1; ++l) {
 			for(int i1 = z - 1; i1 <= z + 1; ++i1) {
 				float f1 = 0.0F;
-				if(w.getBlock(l, y - 1, i1).canSustainPlant(w, l, y - 1, i1, ForgeDirection.UP, this)) {
+				if(canPlaceBlockOn(w.getBlock(l, y - 1, i1))) {
 					f1 = 1.0F;
-					if (w.getBlock(l, y - 1, i1).isFertile(w, l, y - 1, i1))
+					if (w.getBlock(l, y - 1, i1).isFertile(w, l, y - 1, i1) || w.getBlock(l, y - 1, i1) != Blocks.farmland)
 						f1 = 3.0F;
 				}
 				if(l != x || i1 != z)

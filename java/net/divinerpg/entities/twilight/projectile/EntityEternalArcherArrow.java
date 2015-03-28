@@ -3,7 +3,7 @@ package net.divinerpg.entities.twilight.projectile;
 import java.util.List;
 
 import net.divinerpg.DivineRPG;
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.entities.base.EntityDivineArrow;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;

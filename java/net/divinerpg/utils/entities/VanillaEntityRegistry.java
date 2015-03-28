@@ -1,5 +1,6 @@
 package net.divinerpg.utils.entities;
 
+import net.divinerpg.entities.base.EntityDivineArrow;
 import net.divinerpg.entities.vanilla.EntityAncientEntity;
 import net.divinerpg.entities.vanilla.EntityAridWarrior;
 import net.divinerpg.entities.vanilla.EntityAyeracoBlue;
@@ -38,7 +39,6 @@ import net.divinerpg.entities.vanilla.EntityWildfire;
 import net.divinerpg.entities.vanilla.projectile.EntityCaveRock;
 import net.divinerpg.entities.vanilla.projectile.EntityCorruptedBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityDeath;
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
 import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersMeteor;

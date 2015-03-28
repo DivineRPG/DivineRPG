@@ -32,8 +32,7 @@ public class ItemFirefly extends ItemMod {
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if(!world.isRemote && ArcanaHelper.getProperties(player).useBar(arcana)){
             Sounds.playSound(player, world, Sounds.firefly);
-            EntityFirefly e = new EntityFirefly(world, player, 0.6F, 50);
-            e.setDamage(15);
+            EntityFirefly e = new EntityFirefly(world, player);
             world.spawnEntityInWorld(e);
         }
         return stack;

@@ -1,5 +1,6 @@
 package net.divinerpg.utils.items;
 
+import net.divinerpg.blocks.base.BlockModCrop;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModBucket;
 import net.divinerpg.items.base.ItemModSeeds;
@@ -127,8 +128,8 @@ public class VanillaItemsOther {
         infernalFlame      = new ItemInfernalFlame("infernalFlame");
         hordeHorn      	= new ItemHordeHorn("hordeHorn");
         
-        mushroomSeeds 		= new ItemModSeeds("mushroomSeeds", VanillaBlocks.mushroom);
-        tomatoSeeds 		= new ItemModSeeds("tomatoSeeds", VanillaBlocks.tomato);
+        mushroomSeeds 		= new ItemModSeeds("whiteMushroomSeeds", (BlockModCrop)VanillaBlocks.mushroom);
+        tomatoSeeds 		= new ItemModSeeds("tomatoSeeds", (BlockModCrop)VanillaBlocks.tomato);
         krakenSkin 		= new ItemMod("krakenSkin");
         krakenScale 		= new ItemMod("krakenScale");
         

@@ -1,10 +1,11 @@
 package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.blocks.base.BlockModCrop;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.item.Item;
 
-public class BlockEucalyptusRoot extends BlockModCrop{
+public class BlockEucalyptusRoot extends BlockArcanaCrop {
 
 	public BlockEucalyptusRoot(String name) {
 		super(name, 3, "eucalyptusRoot");
@@ -17,6 +18,6 @@ public class BlockEucalyptusRoot extends BlockModCrop{
 	
 	@Override
 	public Item getDropItem() {
-		return ArcanaItems.eucalyptusSeeds;
+		return Item.getItemFromBlock(ArcanaBlocks.eucalyptusWood);
 	}
 }

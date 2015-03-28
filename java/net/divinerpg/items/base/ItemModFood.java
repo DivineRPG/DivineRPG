@@ -47,8 +47,7 @@ public class ItemModFood extends ItemFood {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         list.add("Fills " + (double) getHealAmount(stack) / 2 + " Hunger Bars");
         list.add(getSaturationModifier(stack) + " Saturation");
-        list.add(!isWolfsFavoriteMeat() ? Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " false"
-                : Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " true");
+        list.add(!isWolfsFavoriteMeat() ? Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " false" : Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " true");
     }
 
 }

@@ -1,21 +1,26 @@
 package net.divinerpg.items.twilight;
 
-import net.divinerpg.items.base.ItemModSeeds;
-import net.divinerpg.utils.blocks.ArcanaBlocks;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.util.ForgeDirection;
 
-public class ItemTwilightSeeds extends ItemModSeeds {
-	private Block grass;
+public class ItemTwilightSeeds extends ItemSeeds {
+	private Block grass, crop;
 	public ItemTwilightSeeds(String name, Block block, Block grass) {
-		super(name, block, grass);
+		super(block, grass);
 		this.grass=grass;
+		this.crop = block;
+		setUnlocalizedName(name);
+		setTextureName(Reference.PREFIX + name);
+		LangRegistry.addItem(this);
+		GameRegistry.registerItem(this, name);
 	}
 	
 	@Override

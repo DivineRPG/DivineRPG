@@ -133,8 +133,6 @@ public class VanillaBlocks {
 	public static Block tomato;
 	public static Block mushroom;
 	
-	public static Block eucalyptusWood;
-	public static Block eucalyptusPlank;
 	public static Block divineWood;
 	public static Block divinePlank;
 	public static Block divineLeaves;
@@ -236,8 +234,6 @@ public class VanillaBlocks {
 		tomato			  = new BlockTomato("tomatoPlant");
 		mushroom			  = new BlockMushroom("mushroomPlant");
 		
-		eucalyptusWood	  = new BlockModLog("eucalyptusLog");
-		eucalyptusPlank	  = new BlockMod(EnumBlockType.WOOD, "eucalyptusPlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 		divineWood	  	  = new BlockModLog("divineLog");
 		divinePlank	  	  = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
 		divineLeaves	  	  = new BlockModLeaves("divineLeaves", 0.3F);

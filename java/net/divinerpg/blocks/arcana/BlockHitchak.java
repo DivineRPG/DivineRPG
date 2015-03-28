@@ -4,7 +4,7 @@ import net.divinerpg.blocks.base.BlockModCrop;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.item.Item;
 
-public class BlockHitchak extends BlockModCrop{
+public class BlockHitchak extends BlockArcanaCrop {
 
 	public BlockHitchak(String name) {
 		super(name, 3, "hitchak");

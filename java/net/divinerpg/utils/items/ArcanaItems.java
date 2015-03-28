@@ -1,8 +1,8 @@
 package net.divinerpg.utils.items;
 
+import net.divinerpg.blocks.base.BlockModCrop;
 import net.divinerpg.items.arcana.ItemAquamarine;
 import net.divinerpg.items.arcana.ItemArcanaPotion;
-import net.divinerpg.items.arcana.ItemLaVekor;
 import net.divinerpg.items.arcana.ItemArcanaSeeds;
 import net.divinerpg.items.arcana.ItemArcanaSpawnEgg;
 import net.divinerpg.items.arcana.ItemArcaniteBlade;
@@ -17,6 +17,7 @@ import net.divinerpg.items.arcana.ItemFirefly;
 import net.divinerpg.items.arcana.ItemGeneralsStaff;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
+import net.divinerpg.items.arcana.ItemLaVekor;
 import net.divinerpg.items.arcana.ItemLamona;
 import net.divinerpg.items.arcana.ItemMeriksMissile;
 import net.divinerpg.items.arcana.ItemMeteorMash;
@@ -32,11 +33,11 @@ import net.divinerpg.items.base.ItemDivineArmor;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.items.base.ItemModFood;
 import net.divinerpg.items.base.ItemModSword;
+import net.divinerpg.items.twilight.ItemTwilightSeeds;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.material.ToolMaterialMod;
-import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 
@@ -155,20 +156,20 @@ public class ArcanaItems {
     	fyracryxSpawner    		 = new ItemArcanaSpawnEgg("fyracryxEgg");
 
         hitchak		 		 	 = new ItemModFood(2, 3, false, "hitchak");
-        hitchakSeeds 			 = new ItemArcanaSeeds("hitchakSeeds", ArcanaBlocks.hitchak);
+        hitchakSeeds 			 = new ItemArcanaSeeds("hitchakSeeds", (BlockModCrop)ArcanaBlocks.hitchak);
         veilo		 		     = new ItemMod("veilo");
-        veiloSeeds 			 	 = new ItemArcanaSeeds("veiloSeeds", ArcanaBlocks.veilo);
+        veiloSeeds 			 	 = new ItemArcanaSeeds("veiloSeeds", (BlockModCrop)ArcanaBlocks.veilo);
         marsine		 		 	 = new ItemMod("marsine");
-        marsineSeeds 			 = new ItemArcanaSeeds("marsineSeeds", ArcanaBlocks.marsine);
+        marsineSeeds 			 = new ItemArcanaSeeds("marsineSeeds", (BlockModCrop)ArcanaBlocks.marsine);
         lamona		 			 = new ItemLamona();
-        lamonaSeeds 			 = new ItemArcanaSeeds("lamonaSeeds", ArcanaBlocks.lamona);
+        lamonaSeeds 			 = new ItemArcanaSeeds("lamonaSeeds", (BlockModCrop)ArcanaBlocks.lamona);
         firestock		 		 = new ItemMod("firestock");
-        firestockSeeds 		 	 = new ItemArcanaSeeds("firestockSeeds", ArcanaBlocks.firestock);
+        firestockSeeds 		 	 = new ItemTwilightSeeds("firestockSeeds", ArcanaBlocks.firestock, ArcanaBlocks.arcanaGrass);
         pinfly 	 		     	 = new ItemModFood(2, 0.3F, false, "pinfly").setPotionEffect(Potion.moveSpeed.id, 10, 2, 1.0F);
-        pinflySeeds 		     = new ItemArcanaSeeds("pinflySeeds", ArcanaBlocks.pinfly);
+        pinflySeeds 		     = new ItemTwilightSeeds("pinflySeeds", ArcanaBlocks.pinfly, ArcanaBlocks.arcanaGrass);
         aquamarine		 		 = new ItemAquamarine("aquamarine");
-        aquamarineSeeds 		 = new ItemArcanaSeeds("aquamarineSeeds", ArcanaBlocks.aquamarine);
-        eucalyptusSeeds    	 	 = new ItemArcanaSeeds("eucalyptusRootSeeds", ArcanaBlocks.eucalyptusRoot);
+        aquamarineSeeds 		 = new ItemArcanaSeeds("aquamarineSeeds", (BlockModCrop)ArcanaBlocks.aquamarine);
+        eucalyptusSeeds    	 	 = new ItemArcanaSeeds("eucalyptusRootSeeds", (BlockModCrop)ArcanaBlocks.eucalyptusRoot);
 
         
         kormaHelmet        = new ItemDivineArmor(EnumArmor.KORMA, HEAD, kormInfo);

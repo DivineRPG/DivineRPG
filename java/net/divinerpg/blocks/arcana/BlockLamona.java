@@ -4,7 +4,7 @@ import net.divinerpg.blocks.base.BlockModCrop;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.minecraft.item.Item;
 
-public class BlockLamona extends BlockModCrop{
+public class BlockLamona extends BlockArcanaCrop {
 
 	public BlockLamona(String name) {
 		super(name, 3, "lamona");

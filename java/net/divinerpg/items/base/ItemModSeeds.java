@@ -1,8 +1,8 @@
 package net.divinerpg.items.base;
 
+import net.divinerpg.blocks.base.BlockModCrop;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
-import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,15 +10,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemModSeeds extends ItemSeeds {
 	
-	public Block crop;
+	public BlockModCrop crop;
 	
-	public ItemModSeeds(String name, Block block) {
+	public ItemModSeeds(String name, BlockModCrop block) {
 		super(block, Blocks.farmland);
 		this.crop=block;
 		setUnlocalizedName(name);
@@ -28,7 +26,7 @@ public class ItemModSeeds extends ItemSeeds {
 		LangRegistry.addItem(this);
 	}
 	
-	public ItemModSeeds(String name, Block block, Block placeOn) {
+	public ItemModSeeds(String name, BlockModCrop block, Block placeOn) {
 		super(block, placeOn);
 		this.crop=block;
 		setUnlocalizedName(name);
@@ -37,4 +35,22 @@ public class ItemModSeeds extends ItemSeeds {
 		GameRegistry.registerItem(this, name);
 		LangRegistry.addItem(this);
 	}
+	
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+        if (side != 1) return false;
+        if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
+            if (this.crop.canPlaceBlockOn(world.getBlock(x, y, z)) && world.isAirBlock(x, y + 1, z))
+            {
+                world.setBlock(x, y + 1, z, this.crop);
+                --stack.stackSize;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return false;
+    }
 }

@@ -3,7 +3,7 @@ package net.divinerpg.client.render;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import net.divinerpg.entities.vanilla.projectile.EntityDivineArrow;
+import net.divinerpg.entities.base.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderArrow;

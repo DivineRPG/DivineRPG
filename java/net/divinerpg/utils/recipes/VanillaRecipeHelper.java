@@ -462,6 +462,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addShapelessRecipe(new ItemStack(VanillaItemsOther.mushroomSeeds, 4), ItemsFood.whiteMushroom);
         addShapelessRecipe(new ItemStack(VanillaItemsOther.tomatoSeeds, 4), ItemsFood.tomato);
         
+        addShapelessRecipe(new ItemStack(ArcanaBlocks.eucalyptusPlank, 4), ArcanaBlocks.eucalyptusWood);
+        
         addRecipe(new ItemStack(VanillaBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 4), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.redVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 1), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.cyanVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 6), 'O', Blocks.obsidian);

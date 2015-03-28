@@ -7,6 +7,7 @@ import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -49,13 +50,13 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity var1) {
-		if(super.attackEntityAsMob(var1)) {
-			if(var1 instanceof EntityLiving) {
-				((EntityLiving)var1).addPotionEffect(new PotionEffect(Potion.confusion.id, 12 * 20, 0));
-				((EntityLiving)var1).addPotionEffect(new PotionEffect(Potion.blindness.id, 12 * 20, 0));
+	public boolean attackEntityAsMob(Entity e) {
+		if(super.attackEntityAsMob(e)) {
+			if(e instanceof EntityPlayer) {
+				((EntityLiving)e).addPotionEffect(new PotionEffect(Potion.confusion.id, 12 * 20, 0));
+				((EntityLiving)e).addPotionEffect(new PotionEffect(Potion.blindness.id, 12 * 20, 0));
 			}
-			var1.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * 2.5, 0.4D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * 2.5);
+			e.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * 2.5, 0.4D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * 2.5);
 			this.motionX *= 0.6D;
 			this.motionZ *= 0.6D;
 			return true;
