@@ -73,7 +73,7 @@ Want to help improve our code? Fix bugs? Add to the mod? Make artistic improveme
 Found a bug in our mod?  Please let us know so we can fix it ASAP!
 
 1. Make sure your issue hasn't already been answered or fixed.  Also think about whether your issue is a valid one before submitting it.
-2. Go to [the issues page](http://github.com/BossLetsPlays/DivineRPG/issues).
+2. Go to [the issues page](http://github.com/DivineRPG/DivineRPG/issues).
 3. Click `New Issue` right below `Star` and `Fork`.
 4. Enter your Issue's title (something that summarizes your issue), and then create a detailed description ("Could you add/change _____?" or "Found an exploit/bug:  stuff").
 	* If you are reporting a bug report from an outdated or unofficial version (you got the mod from someone else, a website other than our forums or wiki, or if its been modified in ANY way) , make sure you include the following:
