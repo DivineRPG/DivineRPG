@@ -1,39 +1,42 @@
 package net.divinerpg.items.arcana;
 
 import java.util.List;
+import java.util.Random;
 
+import net.divinerpg.entities.arcana.projectile.EntityReflector;
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.TooltipLocalizer;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.world.World;
 
 public class ItemReflector extends ItemMod {
+	private Random rand = new Random();
+	public ItemReflector() {
+		super("arcaniumReflector");
+		setCreativeTab(DivineRPGTabs.utility);
+		setMaxStackSize(1);
+		setFull3D();
+	}
 	
-    public ItemReflector(String name) {
-        super(name, DivineRPGTabs.utility);
-        this.maxStackSize = 1;
-        this.setMaxDurability(-1);
-    }
-    
-    @Override
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
-    	return false;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public boolean isFull3D() {
-        return true;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List list, boolean par4) {
-        list.add(TooltipLocalizer.arcanaConsumed(20));
-        list.add("Knocks mobs away");
-        list.add("No damage");
-    }
+	@Override
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {	
+		if(!world.isRemote && ArcanaHelper.getProperties(player).useBar(20)) {
+			if(!world.isRemote)world.playSoundAtEntity(player, Sounds.reflector.getPrefixedName(), 1.0F, 1.0F);
+			EntityThrowable entity = new EntityReflector(world, player);
+			world.spawnEntityInWorld(entity);
+		}
+		return stack;
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("Knocks mobs away");
+		list.add(TooltipLocalizer.arcanaConsumed(20));
+		list.add(TooltipLocalizer.infiniteUses());
+	}
 }

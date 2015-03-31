@@ -12,10 +12,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemWraithbane extends ItemMod {
+public class ItemGhostbane extends ItemMod {
 
-	public ItemWraithbane(String name) {
-		super(name, DivineRPGTabs.spawner);
+	public ItemGhostbane() {
+		super("ghostbane", DivineRPGTabs.spawner);
 		setMaxStackSize(1);
 	}
 

@@ -15,6 +15,9 @@ public class EntityAttractor extends EntityThrowable {
 	
 	public EntityAttractor(World w, EntityLivingBase e) {
 		super(w, e);
+		this.motionX*=3;
+		this.motionY*=3;
+		this.motionZ*=3;
 	}
 
 	@Override

@@ -58,6 +58,7 @@ import net.divinerpg.entities.arcana.projectile.EntityGrenade;
 import net.divinerpg.entities.arcana.projectile.EntityLamona;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
 import net.divinerpg.entities.arcana.projectile.EntityMeteor;
+import net.divinerpg.entities.arcana.projectile.EntityReflector;
 import net.divinerpg.entities.arcana.projectile.EntitySparkler;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
 import net.divinerpg.entities.base.EntityStats;
@@ -82,6 +83,7 @@ public class ArcanaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class, new RenderSpecialProjectile(x.meriksMissile));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, new RenderSpecialProjectile(x.meteor, 2.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAttractor.class, new RenderSpecialProjectile(x.blank, 1));
+		RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, new RenderSpecialProjectile(x.blank, 1));
 		
         RenderingRegistry.registerEntityRenderingHandler(EntityRoamer.class, new RenderDivineMob(new ModelRoamer(), x.roamer));
         RenderingRegistry.registerEntityRenderingHandler(EntityDeathcryx.class, new RenderDivineMob(new ModelDeathcryx(), x.deathcryx));

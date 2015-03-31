@@ -29,6 +29,7 @@ import net.divinerpg.entities.arcana.projectile.EntityLamona;
 import net.divinerpg.entities.arcana.projectile.EntityLivingStatueArrow;
 import net.divinerpg.entities.arcana.projectile.EntityMerikMissile;
 import net.divinerpg.entities.arcana.projectile.EntityMeteor;
+import net.divinerpg.entities.arcana.projectile.EntityReflector;
 import net.divinerpg.entities.arcana.projectile.EntitySparkler;
 import net.divinerpg.entities.arcana.projectile.EntityStar;
 import net.divinerpg.utils.Util;
@@ -46,6 +47,7 @@ public class ArcanaEntityRegistry {
 		Util.registerProjectile(EntityMerikMissile.class, "MeriksMissile");
 		Util.registerProjectile(EntityMeteor.class, "MeteorMash");
 		Util.registerProjectile(EntityAttractor.class, "Attractor");
+		Util.registerProjectile(EntityReflector.class, "Reflector");
 
 		Util.registerDivineRPGMob(EntityCaptianMerik.class, "CaptainMerik");
 		Util.registerDivineRPGMob(EntityConstructor.class, "DungeonConstructor");

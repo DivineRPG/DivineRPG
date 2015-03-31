@@ -1,10 +1,11 @@
 package net.divinerpg.entities.iceika.projectile;
 
+import java.util.List;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
@@ -18,6 +19,9 @@ public class EntitySerenadeOfIce extends EntityThrowable {
 
     public EntitySerenadeOfIce(World var1, EntityLivingBase var2) {
         super(var1, var2);
+        this.motionX*=3;
+        this.motionY*=3;
+        this.motionZ*=3;
     }
 
     public EntitySerenadeOfIce(World var1, double var2, double var4, double var6) {
@@ -38,7 +42,12 @@ public class EntitySerenadeOfIce extends EntityThrowable {
 
     @Override
     protected void onImpact(MovingObjectPosition pos) {
-        if (pos.entityHit != null)  ((EntityLivingBase)pos.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 3, true));
+        if (pos.entityHit != null) {
+            List<EntityLivingBase> entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, pos.entityHit.boundingBox.expand(3, 3, 3));
+            for(EntityLivingBase e : entities) {
+                if(e != this.getThrower()) e.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 3, true));
+            }
+        }
         
         if (!this.worldObj.isRemote) this.setDead();
     }
