@@ -6,7 +6,7 @@ import net.minecraft.item.Item.ToolMaterial;
 public class ToolMaterialMod {
 
     //Weapons
-    public static ToolMaterial IcicleBane     = Util.addMeleeMaterial(18, 15);
+    public static ToolMaterial IcicleBane     = Util.addMeleeMaterial(14, 15);
     public static ToolMaterial Icine          = Util.addMeleeMaterial(22, 15);
     public static ToolMaterial Enderice       = Util.addMeleeMaterial(19, 15);
     public static ToolMaterial Snowslash      = Util.addMeleeMaterial(150, 25, 15);
@@ -45,7 +45,7 @@ public class ToolMaterialMod {
     public static ToolMaterial Sandslash      = Util.addMeleeMaterial(100, 21, 22);
     public static ToolMaterial Rupee          = Util.addMeleeMaterial(2500, 12, 15);
     public static ToolMaterial Inferno        = Util.addMeleeMaterial(12, 22);
-    public static ToolMaterial Cyclops        = Util.addMeleeMaterial(1000, 10, 10);
+    public static ToolMaterial Cyclops        = Util.addMeleeMaterial(1000, 6, 10);
     public static ToolMaterial Bloodgem       = Util.addMeleeMaterial(9, 15);
     public static ToolMaterial Realmite       = Util.addMeleeMaterial(4000, 6, 10);
     public static ToolMaterial Storm          = Util.addMeleeMaterial(5, 22);

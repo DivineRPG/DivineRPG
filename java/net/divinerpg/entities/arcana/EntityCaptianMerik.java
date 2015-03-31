@@ -23,7 +23,7 @@ public class EntityCaptianMerik extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer var2) {
-		switch (this.rand.nextInt(6)) {
+		switch (this.rand.nextInt(5)) {
 		case 0:
 			var2.addChatMessage(Util.getChatComponent("Captian Merik: Like my sword? You should."));
 			break;
@@ -34,12 +34,9 @@ public class EntityCaptianMerik extends EntityDivineRPGVillager {
 			var2.addChatMessage(Util.getChatComponent("Captian Merik: Hurry up, I've got work to do."));
 			break;
 		case 3:
-			var2.addChatMessage(Util.getChatComponent("Captian Merik: Want real protection? My armor does it all."));
-			break;
-		case 4:
 			var2.addChatMessage(Util.getChatComponent("Captian Merik: I've been in more battles than this dungeon has creatures."));
 			break;
-		case 5:
+		case 4:
 			var2.addChatMessage(Util.getChatComponent("Captian Merik: If you see the phoenix, let me know, it's just another day for me."));
 			break;
 		}

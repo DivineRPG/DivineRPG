@@ -34,15 +34,6 @@ public class ItemArcaniumSaber extends ItemModSword {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3) {
-		if(ArcanaHelper.getProperties(var3).useBar(12)) {
-			Sounds.playSound(var3, var2, Sounds.arcaniumSaber);
-			var3.setItemInUse(var1, this.getMaxItemUseDuration(var1));
-		}
-		return var1;
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add(TooltipLocalizer.arcanaConsumed(12));

@@ -52,7 +52,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.chocolateLog, 5, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.peppermints, 15, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.fruitCake, 3, 0)));
-		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 15), new ItemStack(IceikaItems.icicleBane, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 20), new ItemStack(IceikaItems.icicleBane, 1, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.greenXmasLights, 16, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.redXmasLights, 16, 0)));
 		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.blueXmasLights, 16, 0)));

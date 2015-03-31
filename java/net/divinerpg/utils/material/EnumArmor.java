@@ -21,7 +21,7 @@ public enum EnumArmor {
     WITHER_REAPER(Util.addArmorMaterial("Wither Roeaper", 0, 22), "witherReaper", true, 0),
     SKELEMAN(Util.addArmorMaterial("Skeleman", 0, 22), "skeleman", true, 0),
     JACKOMAN(Util.addArmorMaterial("Jack O Man", 0, 22), "jackOMan", true, 0),
-    INFERNO(Util.addArmorMaterial("Inferno", 0, 10), "inferno", true, 70),
+    INFERNO(Util.addArmorMaterial("Inferno", 0, 10), "inferno", true, 73),
     AQUATIC(Util.addArmorMaterial("Aquastrive", 0, 10), "aquastrive", true, 70),
     SHADOW(Util.addArmorMaterial("Shadow", 0, 10), "shadow", true, 75),
     NETHERITE(Util.addArmorMaterial("Netherite", 5000, 10), "netherite", false, 70),
