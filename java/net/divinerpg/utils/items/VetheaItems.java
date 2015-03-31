@@ -198,7 +198,7 @@ public class VetheaItems {
 	    polishedPearls     = new ItemMod("polishedPearls").setCreativeTab(DivineRPGTabs.vethea);
 	    shinyPearls        = new ItemMod("shinyPearls").setCreativeTab(DivineRPGTabs.vethea);
 	    
-	    barredDoor		   = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor");
+	    barredDoor		   = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
 
 	    teakerLump         = new ItemMod("teakerLump").setCreativeTab(DivineRPGTabs.vethea);
 	    amthirmisLump      = new ItemMod("amthirmisLump").setCreativeTab(DivineRPGTabs.vethea);

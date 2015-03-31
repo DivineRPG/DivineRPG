@@ -1,11 +1,15 @@
 package net.divinerpg.entities.vanilla;
 
+import java.util.List;
+
 import net.divinerpg.entities.base.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VanillaItemsOther;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntityCyclops extends EntityPeacefulUntilAttacked {
@@ -44,8 +48,19 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
 	protected void dropFewItems(boolean var1, int loot) {
 		dropItem(VanillaItemsOther.cyclopsEye, rand.nextInt(2 + loot));
 		dropItem(Items.gold_ingot, rand.nextInt(2 + loot));
-		if(rand.nextInt(40) == 0)
-		    dropItem(VanillaItemsOther.bloodgem, 1);
+		if(rand.nextInt(40) == 0) dropItem(VanillaItemsOther.bloodgem, 1);
+	}
+	
+	@Override
+    public boolean attackEntityFrom(DamageSource source, float par2) {
+	    boolean hurt = super.attackEntityFrom(source, par2);
+	    if(hurt && source.getEntity() != null && source.getEntity() instanceof EntityPlayer) {
+	        List<Entity> entities = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(20, 20, 20));
+	        for(Entity e : entities) {
+	            if(e instanceof EntityCyclops) ((EntityCyclops)e).makeAngryAt((EntityPlayer)source.getEntity());
+	        }
+	    }
+	    return hurt;
 	}
 
 	@Override

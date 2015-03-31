@@ -32,7 +32,7 @@ public class ItemArcanaPotion extends ItemMod {
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, EntityPlayer player) {
         if (!player.capabilities.isCreativeMode) stack.stackSize--;
-        if (!world.isRemote) ArcanaHelper.getProperties(player).forceRegen(amountToAdd);
+        ArcanaHelper.getProperties(player).forceRegen(amountToAdd);
         player.triggerAchievement(DivineRPGAchievements.yuk);
         return stack;
     }

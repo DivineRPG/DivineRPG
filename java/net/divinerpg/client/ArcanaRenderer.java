@@ -15,6 +15,7 @@ public class ArcanaRenderer {
 	Minecraft mc = Minecraft.getMinecraft();
 	
 	public static float value;
+	public static boolean regen;
 	
 	@SubscribeEvent
 	public void onRender(RenderTickEvent event){

@@ -325,7 +325,7 @@ public class ChunkProviderEden implements IChunkProvider{
 		int var4 = i * 16;
 		int var5 = j * 16;
 		BiomeGenBase var6 = this.worldObj.getWorldChunkManager().getBiomeGenAt(var4 + 16, var5 + 16);
-		this.rand.setSeed(this.worldObj.getSeed());
+		this.rand.setSeed(this.worldObj.getSeed() * (i + j) * this.rand.nextInt());
 		int var13;
 		int var14;
 		int var15;

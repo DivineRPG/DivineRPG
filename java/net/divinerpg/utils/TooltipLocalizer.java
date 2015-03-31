@@ -22,7 +22,9 @@ public class TooltipLocalizer {
             NOPROT = "tooltip.noProtection",
             VETHEAN = "tooltip.vethean",
             EFFICIENCY = "tooltip.efficiency",
-            CANTBLOCK = "tooltip.cannotBlock";
+            CANTBLOCK = "tooltip.cannotBlock",
+            POISON = "tooltip.poison",
+            BURNS = "tooltip.burns";
 
     public static String usesRemaining(int uses) {
         return StatCollector.translateToLocal(USES).replace("#", String.valueOf(uses));
@@ -98,5 +100,13 @@ public class TooltipLocalizer {
     
     public static String efficiency(double eff) {
         return StatCollector.translateToLocal(EFFICIENCY).replace("#", String.valueOf(eff));
+    }
+    
+    public static String poison(float seconds) {
+        return StatCollector.translateToLocal(POISON).replace("|seconds|", String.valueOf(seconds));
+    }
+    
+    public static String burn(int seconds) {
+        return StatCollector.translateToLocal(BURNS).replace("|seconds|", String.valueOf(seconds));
     }
 }

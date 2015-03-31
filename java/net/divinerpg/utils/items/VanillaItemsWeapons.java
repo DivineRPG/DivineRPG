@@ -4,12 +4,13 @@ import net.divinerpg.client.render.EntityResourceLocation;
 import net.divinerpg.items.base.ItemHealingSword;
 import net.divinerpg.items.base.ItemModBow;
 import net.divinerpg.items.base.ItemModSword;
+import net.divinerpg.items.base.ItemPoisonousSword;
 import net.divinerpg.items.base.ItemProjectileShooter;
 import net.divinerpg.items.base.ItemSlowingSword;
 import net.divinerpg.items.base.ItemThrowable;
 import net.divinerpg.items.vanilla.ItemAnchor;
 import net.divinerpg.items.vanilla.ItemCorruptedCannon;
-import net.divinerpg.items.vanilla.ItemInfernoSword;
+import net.divinerpg.items.vanilla.ItemBurningSword;
 import net.divinerpg.items.vanilla.ItemScythe;
 import net.divinerpg.items.vanilla.ItemSerenadeOfDeath;
 import net.divinerpg.items.vanilla.ItemSerenadeOfHealth;
@@ -111,7 +112,7 @@ public class VanillaItemsWeapons {
 	    redDivineSword     = new ItemModSword(ToolMaterialMod.Divine, "redDivineSword");
 	    greenDivineSword   = new ItemModSword(ToolMaterialMod.Divine, "greenDivineSword");
 	    bedrockMaul        = new ItemModSword(ToolMaterialMod.BedrockMaul, "bedrockMaul");
-	    jungleKnife        = new ItemModSword(ToolMaterialMod.JungleKnife, "jungleKnife");
+	    jungleKnife        = new ItemPoisonousSword(ToolMaterialMod.JungleKnife, "jungleKnife", 2.5f);
 	    donatorSword       = new ItemModSword(ToolMaterialMod.Donator, "donatorSword");
 	    aquaticTrident     = new ItemModSword(ToolMaterialMod.AquaTrident, "aquaticTrident");
 	    aquaticDagger      = new ItemModSword(ToolMaterialMod.AquaDagger, "aquaticDagger");
@@ -119,13 +120,13 @@ public class VanillaItemsWeapons {
 	    sharkSword         = new ItemModSword(ToolMaterialMod.Shark, "sharkSword");
 	    deathBringer       = new ItemModSword(ToolMaterialMod.DeathBringer, "deathBringer");
 	    crabclawMaul       = new ItemModSword(ToolMaterialMod.CrabclawMaul, "crabclawMaul");
-	    poisonSaber        = new ItemModSword(ToolMaterialMod.PoisonSaber, "poisonSaber");
+	    poisonSaber        = new ItemPoisonousSword(ToolMaterialMod.PoisonSaber, "poisonSaber", 5);
 	    furyMaul           = new ItemModSword(ToolMaterialMod.FuryMaul, "furyMaul");
 	    corruptedMaul      = new ItemModSword(ToolMaterialMod.CorruptedMaul, "corruptedMaul");
 	    frostSword         = new ItemSlowingSword(ToolMaterialMod.Frost, "frostSword");
-	    infernoSword       = new ItemInfernoSword(ToolMaterialMod.Inferno, "infernoSword");
+	    infernoSword       = new ItemBurningSword(ToolMaterialMod.Inferno, "infernoSword", 12);
 	    bloodgemSword      = new ItemModSword(ToolMaterialMod.Bloodgem, "bloodgemSword");
-	    moltenSword        = new ItemModSword(ToolMaterialMod.Molten, "moltenSword");
+	    moltenSword        = new ItemBurningSword(ToolMaterialMod.Molten, "moltenSword", 5);
 	    scorchingSword     = new ItemModSword(ToolMaterialMod.Scorching, "scorchingSword");
 	    bluefireSword      = new ItemModSword(ToolMaterialMod.Bluefire, "bluefireSword");
 	    enderSword         = new ItemModSword(ToolMaterialMod.Ender, "enderSword");
@@ -135,6 +136,7 @@ public class VanillaItemsWeapons {
 	    redEnderSword      = new ItemModSword(ToolMaterialMod.Ender, "redEnderSword");
 	    yellowEnderSword   = new ItemModSword(ToolMaterialMod.Ender, "yellowEnderSword");
 	    cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
+	    flamingFury        = new ItemBurningSword(ToolMaterialMod.FlamingFury, "flamingFury", 15);
 	    
 	    hunterBow          = new ItemModBow("hunterBow", 2500, 2, 11, Items.arrow, "hunterArrow");
 	    shadowBow          = new ItemModBow("shadowBow", 10000, 2, 11, 36000, Items.arrow, "shadowArrow");
@@ -163,6 +165,5 @@ public class VanillaItemsWeapons {
 	    
 	    palavence 		    = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 1);
 	    massivence 	    = new ItemHealingSword("massivence", ToolMaterialMod.Massivence, 2);
-		flamingFury		= new ItemModSword(ToolMaterialMod.FlamingFury, "flamingFury");
 	}
 }

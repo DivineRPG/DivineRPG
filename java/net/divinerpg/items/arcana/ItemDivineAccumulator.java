@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -28,6 +29,7 @@ public class ItemDivineAccumulator extends ItemMod {
 					DivineRPG.proxy.spawnParticle(world, x+(r*Math.cos(theta)), y, z+(r*Math.sin(theta)), "eden", true);
 				}
 			}
+			if(!world.isRemote) world.playSoundAtEntity(player, Sounds.divineAccumulator.getPrefixedName(), 1, 1);
 			player.motionY = 2;
 		}
 		return stack;

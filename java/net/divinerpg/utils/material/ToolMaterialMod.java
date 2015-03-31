@@ -30,7 +30,7 @@ public class ToolMaterialMod {
     public static ToolMaterial Shark          = Util.addMeleeMaterial(2000, 14, 15);
     public static ToolMaterial DeathBringer   = Util.addMeleeMaterial(6000, 13, 15);
     public static ToolMaterial CrabclawMaul   = Util.addMeleeMaterial(4000, 15, 15);
-    public static ToolMaterial PoisonSaber    = Util.addMeleeMaterial(10000, 17, 15);
+    public static ToolMaterial PoisonSaber    = Util.addMeleeMaterial(10000, 16, 15);
     public static ToolMaterial FuryMaul       = Util.addMeleeMaterial(4000, 18, 15);
     public static ToolMaterial Scorching      = Util.addMeleeMaterial(500, 20, 15);
     public static ToolMaterial Bluefire       = Util.addMeleeMaterial(3000, 20, 15);
@@ -54,7 +54,7 @@ public class ToolMaterialMod {
     public static ToolMaterial LiviciaSword   = Util.addMeleeMaterial(10000, 26, 22);
     public static ToolMaterial Palavence      = Util.addMeleeMaterial(120, 1, 0);
     public static ToolMaterial Massivence     = Util.addMeleeMaterial(540, 1, 0);
-    public static ToolMaterial FlamingFury    = Util.addMeleeMaterial(6000, 28, 15);
+    public static ToolMaterial FlamingFury    = Util.addMeleeMaterial(6000, 26, 15);
     public static ToolMaterial ArcaniteBlade  = Util.addMeleeMaterial(7000, 34, 15);
 
     //Shickaxes

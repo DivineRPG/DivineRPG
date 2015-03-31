@@ -120,6 +120,8 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("tooltip.vethean=Vethean");
         instance.addToFile("tooltip.efficiency=Efficiency: #");
         instance.addToFile("tooltip.cannotBlock=Cannot Block");
+        instance.addToFile("tooltip.poison=Poisons mobs for |seconds| seconds");
+        instance.addToFile("tooltip.burns=Burns mobs for |seconds| seconds");
     }
     
     public static void addMessages() {
@@ -129,7 +131,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("message.vatticus.discover=I've discovered how to awake the ancient leader of the dungeon.");
         instance.addToFile("message.vatticus.magic=Hurr drah drah, magic.");
         instance.addToFile("message.general.weapons=My weapons will conquer any foe.");
-        instance.addToFile("message.general.1=");
+        instance.addToFile("message.general.1=Do not buy from Captain Merik. He does not care about quality.");
         instance.addToFile("message.general.2=");
         instance.addToFile("message.general.3=");
         instance.addToFile("message.merchant.ho=Hohoho.");

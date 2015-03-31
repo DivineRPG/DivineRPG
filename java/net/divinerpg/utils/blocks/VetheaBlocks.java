@@ -120,7 +120,7 @@ public class VetheaBlocks {
 
         dreamStone             = new BlockMod("dreamStone", 0.25F, DivineRPGTabs.vethea);
         dreamDirt              = new BlockMod(EnumBlockType.DIRT, "dreamDirt", 0.3F, DivineRPGTabs.vethea);
-        dreamGrass             = new BlockModGrass((BlockMod)dreamDirt, "dreamGrass", "dreamDirt", 0.3F);
+        dreamGrass             = new BlockModGrass((BlockMod)dreamDirt, "dreamGrass", "dreamDirt", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         fireCrystal            = new BlockMod(EnumBlockType.GLASS, "fireCrystal", 1.0F, DivineRPGTabs.vethea).setLightLevel(0.7F);
 
         dreamWoodLog           = new BlockModLog("dreamWoodLog").setCreativeTab(DivineRPGTabs.vethea);
@@ -179,7 +179,7 @@ public class VetheaBlocks {
         blackKarosBricks       = new BlockMod(EnumBlockType.ROCK, "blackKarosBricks", false, DivineRPGTabs.vethea);
         infusionTable          = new BlockInfusionTable().setName("infusionTable").setBlockUnbreakable();
         helioticBeam           = (BlockHelioticBeam) new BlockHelioticBeam("helioticBeam");
-        karosCannon            = (BlockKarosCannon) new BlockKarosCannon(Material.rock).setName("karosCannonBlock");
+        karosCannon            = (BlockKarosCannon) new BlockKarosCannon(Material.rock).register();
         nightmareBedBlock      = new BlockNightmareBed();
 	}
 }

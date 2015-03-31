@@ -1876,6 +1876,11 @@
 
  "vetheaBow": {
   "category":"neutral","sounds": ["vetheaBow"] }
+,
+
+
+ "divineAccumulator": {
+  "category":"neutral","sounds": ["divineAccumulator"] }
 
 
 }

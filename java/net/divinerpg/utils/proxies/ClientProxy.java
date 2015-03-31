@@ -33,12 +33,14 @@ import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.LogHelper;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.events.ArcanaHelper;
 import net.divinerpg.utils.events.ClientTicker;
 import net.divinerpg.utils.events.DevHatEvent;
 import net.divinerpg.utils.events.EventExtraArmor;
 import net.divinerpg.utils.events.EventOverlay;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityFlameFX;
 import net.minecraft.client.particle.EntityPortalFX;
@@ -137,5 +139,9 @@ public class ClientProxy extends CommonProxy {
     	}
     	EntityFX fx = new EntityColoredFX(w, x, y, z, 0.0D, 0.0D, 0.0D, c);
     	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
+    }
+    
+    public void updateClientArcana(float amount) {
+        ArcanaHelper.getProperties(Minecraft.getMinecraft().thePlayer).setBarValue(amount);
     }
 }

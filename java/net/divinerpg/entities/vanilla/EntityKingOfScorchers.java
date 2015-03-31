@@ -9,6 +9,7 @@ import net.divinerpg.utils.items.VanillaItemsOther;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
@@ -92,6 +93,12 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss {
 		
 		if(this.rand.nextInt(2) == 0) this.dropItem(Item.getItemFromBlock(VanillaBlocks.kosStatue), 1);
     }
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float par2) {
+	    if(source.isExplosion())return false;
+	    return super.attackEntityFrom(source, par2);
+	}
 
 	public void attackEntityWithRangedAttack(Entity entity) {
 		double tx = entity.posX - this.posX;

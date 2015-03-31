@@ -53,7 +53,8 @@ public class BlockModPortal extends BlockBreakable {
         this.blockFrame = blockFrame;
         setUnlocalizedName(name);
         setTextureName(Reference.PREFIX + name);
-        setCreativeTab(DivineRPGTabs.blocks);
+        if(Reference.DEBUG)setCreativeTab(DivineRPGTabs.blocks);
+        else setCreativeTab(null);
         setTickRandomly(true);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);

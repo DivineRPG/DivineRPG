@@ -54,7 +54,7 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		if(barValue >= 200F){
 			barValue = 200F;
 		}
-		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue, regenDelay == 0), (EntityPlayerMP)player);
 	}                
 
 	public boolean useBar(float amount) {
@@ -64,7 +64,7 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		}
 		barValue -= amount;
 		regenDelay = 50;
-		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue, regenDelay == 0), (EntityPlayerMP)player);
 		return true;
 	}
 
@@ -74,12 +74,12 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 		} else {
 			regenDelay--;
 		}
-		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue, regenDelay == 0), (EntityPlayerMP)player);
 	}
 	
 	public void forceRegen(float amount) {
 		barValue += amount;
-		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue, regenDelay == 0), (EntityPlayerMP)player);
 	}
 
 	public float getBarValue() {
@@ -88,13 +88,13 @@ public class ArcanaHelper implements IExtendedEntityProperties {
 
 	public void setBarValue(float i) {
 		barValue = i;
-		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue, regenDelay == 0), (EntityPlayerMP)player);
 	}
 	
 	public void removeValue(float i) {
 		regenDelay = 50;
 		barValue -= i;
-		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue), (EntityPlayerMP)player);
+		if(player instanceof EntityPlayerMP) DivineRPG.network.sendTo(new MessageArcanaBar(barValue, regenDelay == 0), (EntityPlayerMP)player);
 	}
 
     @Override

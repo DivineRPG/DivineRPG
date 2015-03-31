@@ -207,6 +207,7 @@ public class Sounds {
     public static Sound reflector	      = new Sound(true, "reflector");
     public static Sound shadowSaber	      = new Sound(true, "shadowSaber");
     public static Sound vetheaBow	      = new Sound(true, "vetheaBow");
+    public static Sound divineAccumulator = new Sound(true, "divineAccumulator");
 
     public static void playSound(Sound sound, World world, Entity entity, float volume, float pitch) {
         world.playSoundAtEntity(entity, sound.getPrefixedName(), volume, pitch);

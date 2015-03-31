@@ -4,6 +4,8 @@ import java.util.Random;
 
 import net.divinerpg.entities.base.EntityDivineArrow;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -25,6 +27,7 @@ public class BlockKarosCannon extends BlockContainer {
 	public BlockKarosCannon(Material par3) {
 		super(par3);
 		setBlockUnbreakable();
+		setCreativeTab(DivineRPGTabs.vethea);
 	}
 
 	public int tickRate(World w) {
@@ -95,10 +98,11 @@ public class BlockKarosCannon extends BlockContainer {
         par0World.spawnEntityInWorld(var11);
 	}
 
-	public Block setName(String name) {
-		setTextureName(Reference.PREFIX + name);
-		setUnlocalizedName(name);
-		GameRegistry.registerBlock(this, name);
+	public Block register() {
+		setTextureName(Reference.PREFIX + "karosCannonBlock");
+		setUnlocalizedName("karosCannon");
+		GameRegistry.registerBlock(this, "karosCannonBlock");
+		LangRegistry.addBlock(this);
 		return this;
 	}
 
