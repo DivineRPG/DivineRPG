@@ -6,18 +6,19 @@ import net.divinerpg.blocks.base.BlockModLog;
 import net.divinerpg.blocks.base.BlockModTorch;
 import net.divinerpg.blocks.base.BlockStatue;
 import net.divinerpg.blocks.base.BlockStupidSpawner;
-import net.divinerpg.blocks.vanilla.BlockAcceleron;
 import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
 import net.divinerpg.blocks.vanilla.BlockAyeracoSpawn;
 import net.divinerpg.blocks.vanilla.BlockBoneChest;
 import net.divinerpg.blocks.vanilla.BlockDivineBricks;
+import net.divinerpg.blocks.vanilla.BlockHotSpike;
 import net.divinerpg.blocks.vanilla.BlockLamp1;
 import net.divinerpg.blocks.vanilla.BlockLamp2;
 import net.divinerpg.blocks.vanilla.BlockLightFence;
 import net.divinerpg.blocks.vanilla.BlockMinibricks;
 import net.divinerpg.blocks.vanilla.BlockMobPumpkin;
 import net.divinerpg.blocks.vanilla.BlockMushroom;
+import net.divinerpg.blocks.vanilla.BlockSpike;
 import net.divinerpg.blocks.vanilla.BlockSteel;
 import net.divinerpg.blocks.vanilla.BlockTar;
 import net.divinerpg.blocks.vanilla.BlockTomato;
@@ -86,7 +87,6 @@ public class VanillaBlocks {
 	public static Block yellowVane;
 
 	public static Block divineRock;
-	public static Block acceleron;
 	public static Block tar;
 	
 	public static Block fancyWool;
@@ -101,6 +101,8 @@ public class VanillaBlocks {
 	public static Block lamp2;
 	public static Block milkStone;
 	public static Block darkStone;
+	public static Block spikeBlock;
+	public static Block hotSpikeBlock;
 	
 	public static Block lightFenceBlue;
     public static Block lightFenceRed;
@@ -187,7 +189,6 @@ public class VanillaBlocks {
 		yellowVane          = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, IRON).setResistance(10F);
 
 		divineRock          = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE).setResistance(10F);
-		acceleron		  	  = new BlockAcceleron();
 		tar 				  = new BlockTar();
 		
 		fancyWool 		  = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.8F, WOOD_GOLD);
@@ -202,6 +203,8 @@ public class VanillaBlocks {
 		lamp2				  = new BlockLamp2();
 		milkStone			  = new VanillaBlock(EnumBlockType.ROCK, "milkStone", 1.5F, WOOD_GOLD).setResistance(10F);
 		darkStone			  = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setResistance(2000.0F).setLightLevel(1);
+		spikeBlock            = new BlockSpike();
+		hotSpikeBlock         = new BlockHotSpike();
 		
 		lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
 	    lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);

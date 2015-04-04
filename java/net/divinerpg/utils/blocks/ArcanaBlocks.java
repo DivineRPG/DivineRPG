@@ -1,5 +1,6 @@
 package net.divinerpg.utils.blocks;
 
+import net.divinerpg.blocks.arcana.BlockAcceleron;
 import net.divinerpg.blocks.arcana.BlockAquaMarine;
 import net.divinerpg.blocks.arcana.BlockArcanaFrame;
 import net.divinerpg.blocks.arcana.BlockArcanaPortal;
@@ -111,6 +112,7 @@ public class ArcanaBlocks {
     public static Block arcaniumTorch;
     public static Block elevantium;
     public static BlockRedstonelessRails arcaniteRails;
+    public static Block acceleron;
 	
 	public static void init(){
 		arcanaDirt            = new BlockMod(EnumBlockType.DIRT, "arcaniteDirt", 0.5F);
@@ -188,5 +190,6 @@ public class ArcanaBlocks {
 	    arcaniumTorch			= new BlockModTorch("arcaniumTorch", null);
 	    elevantium				= new BlockElevantium("elevantium");
 	    arcaniteRails			= new BlockRedstonelessRails("arcaniteRails");
+	    acceleron               = new BlockAcceleron();
 	}
 }

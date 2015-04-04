@@ -184,6 +184,7 @@ public class Util {
     public static DamageSource acidSource = new DamageSource("acid");
     public static DamageSource trapSource = new DamageSource("trap");
     public static DamageSource arcanaSource = new DamageSource("arcana");
+    public static DamageSource spikeSource = new DamageSource("spikes");
     
     public static ChunkCoordinates getPlayerSpawnChunk(EntityPlayer player) {
     	String[] spawnChunkNames = new String[] { "c", "field_71077_c", "spawnChunk" };

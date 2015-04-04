@@ -62,7 +62,7 @@ public class ClientProxy extends CommonProxy {
         Util.postFMLEvent(new ClientTicker());
         Util.postForgeEvent(new EventOverlay());
         Util.postForgeEvent(new EventExtraArmor());
-        
+                
         ItemProjectileShooter.gunList.remove(VanillaItemsWeapons.scythe);
         
         for(Item bow : ItemModBow.bowList) {

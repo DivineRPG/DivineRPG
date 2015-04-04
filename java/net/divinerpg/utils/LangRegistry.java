@@ -99,6 +99,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("death.attack.arcana=%1$s was killed by magic");
         instance.addToFile("death.attack.trap=%1$s fell into a trap");
         instance.addToFile("death.attack.acid=%1$s melted in acid");
+        instance.addToFile("death.attack.spikes=%1$s walked on spikes");
     }
     
     public static void addTooltips() {

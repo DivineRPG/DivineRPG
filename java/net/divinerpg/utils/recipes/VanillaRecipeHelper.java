@@ -459,6 +459,9 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addOredictRecipe(new ItemStack(VanillaBlocks.aquaTorch, 4), "x", "y", 'y', "stickWood", 'x', VanillaItemsOther.aquaticBlazeRod);
         addOredictRecipe(new ItemStack(TwilightBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', TwilightItemsOther.edenFragments);
         
+        addRecipe(new ItemStack(VanillaBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.iron_ingot);
+        addRecipe(new ItemStack(VanillaBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', VanillaItemsOther.netheriteIngot);
+        
         addShapelessRecipe(new ItemStack(VanillaItemsOther.mushroomSeeds, 4), ItemsFood.whiteMushroom);
         addShapelessRecipe(new ItemStack(VanillaItemsOther.tomatoSeeds, 4), ItemsFood.tomato);
         

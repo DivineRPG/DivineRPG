@@ -1,4 +1,4 @@
-package net.divinerpg.blocks.vanilla;
+package net.divinerpg.blocks.arcana;
 
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.blocks.base.tileentity.TileEntityModFurnace;
