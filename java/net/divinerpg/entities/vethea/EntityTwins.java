@@ -1,6 +1,7 @@
 package net.divinerpg.entities.vethea;
 
 import net.divinerpg.entities.base.EntityDivineRPGMob;
+import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -91,6 +92,21 @@ public class EntityTwins extends VetheaMob implements IRangedAttackMob {
     @Override
     protected void dropFewItems(boolean par1, int par2) {
         this.dropItem(VetheaItems.cleanPearls, 1);
+    }
+    
+    @Override
+    protected String getLivingSound() {
+        return Sounds.duo.getPrefixedName();
+    }
+
+    @Override
+    protected String getHurtSound() {
+        return Sounds.duoHurt.getPrefixedName();
+    }
+
+    @Override
+    protected String getDeathSound() {
+        return getHurtSound();
     }
 
 	@Override

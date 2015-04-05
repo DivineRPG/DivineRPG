@@ -123,6 +123,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("tooltip.cannotBlock=Cannot Block");
         instance.addToFile("tooltip.poison=Poisons mobs for |seconds| seconds");
         instance.addToFile("tooltip.burns=Burns mobs for |seconds| seconds");
+        instance.addToFile("tooltip.slows=Slows mobs for |seconds| seconds");
     }
     
     public static void addMessages() {

@@ -18,6 +18,7 @@ import net.divinerpg.blocks.vanilla.BlockLightFence;
 import net.divinerpg.blocks.vanilla.BlockMinibricks;
 import net.divinerpg.blocks.vanilla.BlockMobPumpkin;
 import net.divinerpg.blocks.vanilla.BlockMushroom;
+import net.divinerpg.blocks.vanilla.BlockSlimeLight;
 import net.divinerpg.blocks.vanilla.BlockSpike;
 import net.divinerpg.blocks.vanilla.BlockSteel;
 import net.divinerpg.blocks.vanilla.BlockTar;
@@ -103,6 +104,7 @@ public class VanillaBlocks {
 	public static Block darkStone;
 	public static Block spikeBlock;
 	public static Block hotSpikeBlock;
+	public static Block slimeLight, slimeLightOn;
 	
 	public static Block lightFenceBlue;
     public static Block lightFenceRed;
@@ -205,6 +207,8 @@ public class VanillaBlocks {
 		darkStone			  = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setResistance(2000.0F).setLightLevel(1);
 		spikeBlock            = new BlockSpike();
 		hotSpikeBlock         = new BlockHotSpike();
+		slimeLight            = new BlockSlimeLight(false);
+		slimeLightOn          = new BlockSlimeLight(true);
 		
 		lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
 	    lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);

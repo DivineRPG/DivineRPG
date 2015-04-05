@@ -1376,6 +1376,7 @@ tooltip.efficiency=Efficiency: #
 tooltip.cannotBlock=Cannot Block
 tooltip.poison=Poisons mobs for |seconds| seconds
 tooltip.burns=Burns mobs for |seconds| seconds
+tooltip.slows=Slows mobs for |seconds| seconds
 message.vatticus.feel=Can you feel the empowerment of the arcanium around you?
 message.vatticus.noend=I hear there's no end to this place, there's no end to me either.
 message.vatticus.strength=Arcana come upon me, give me the ultimate strength!

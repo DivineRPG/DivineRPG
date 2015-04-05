@@ -102,6 +102,21 @@ public class EntityMiner extends EntityDivineRPGMob {
                 this.dropItem(Item.getItemFromBlock(Blocks.torch), 32);
         }
     }
+	
+	@Override
+	protected String getLivingSound() {
+        return "mob.zombie.say";
+    }
+
+    @Override
+    protected String getHurtSound() {
+        return "mob.zombie.hurt";
+    }
+
+    @Override
+    protected String getDeathSound() {
+        return "mob.zombie.death";
+    }
 
 	@Override
 	public String mobName() {

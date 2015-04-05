@@ -24,7 +24,8 @@ public class TooltipLocalizer {
             EFFICIENCY = "tooltip.efficiency",
             CANTBLOCK = "tooltip.cannotBlock",
             POISON = "tooltip.poison",
-            BURNS = "tooltip.burns";
+            BURNS = "tooltip.burns",
+            SLOWS = "tooltip.slows";
 
     public static String usesRemaining(int uses) {
         return StatCollector.translateToLocal(USES).replace("#", String.valueOf(uses));
@@ -108,5 +109,9 @@ public class TooltipLocalizer {
     
     public static String burn(int seconds) {
         return StatCollector.translateToLocal(BURNS).replace("|seconds|", String.valueOf(seconds));
+    }
+    
+    public static String slow(double seconds) {
+        return StatCollector.translateToLocal(SLOWS).replace("|seconds|", String.valueOf(seconds));
     }
 }

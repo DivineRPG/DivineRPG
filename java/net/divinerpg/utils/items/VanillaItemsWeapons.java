@@ -66,6 +66,7 @@ public class VanillaItemsWeapons {
 	public static Item redEnderSword;
 	public static Item yellowEnderSword;
 	public static Item cyclopsianSword;
+	public static Item dualClaw;
 
 	public static Item hunterBow;
 	public static Item shadowBow;
@@ -137,6 +138,7 @@ public class VanillaItemsWeapons {
 	    yellowEnderSword   = new ItemModSword(ToolMaterialMod.Ender, "yellowEnderSword");
 	    cyclopsianSword    = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsianSword");
 	    flamingFury        = new ItemBurningSword(ToolMaterialMod.FlamingFury, "flamingFury", 15);
+	    dualClaw           = new ItemModSword(ToolMaterialMod.DualClaw, "dualClaw");
 	    
 	    hunterBow          = new ItemModBow("hunterBow", 2500, 2, 11, Items.arrow, "hunterArrow");
 	    shadowBow          = new ItemModBow("shadowBow", 10000, 2, 11, 36000, Items.arrow, "shadowArrow");
