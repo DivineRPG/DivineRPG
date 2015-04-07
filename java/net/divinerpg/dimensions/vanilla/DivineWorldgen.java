@@ -31,7 +31,7 @@ public class DivineWorldgen implements IWorldGenerator{
 	private void generateOverworld(World world, Random random, int x, int z) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
-		addOreSpawn(VanillaBlocks.realmiteOre, Blocks.stone, world, random, x, z, 3, 5, 2, 5, 1, 25);
+		addOreSpawn(VanillaBlocks.realmiteOre, Blocks.stone, world, random, x, z, 3, 5, 2, 5, 1, 15);
 		addOreSpawn(VanillaBlocks.arlemiteOre, Blocks.stone, world, random, x, z, 1, 2, 1, 3, 1, 15);
 		addOreSpawn(VanillaBlocks.rupeeOre,    Blocks.stone, world, random, x, z, 1, 2, 1, 3, 1, 15);
 
@@ -46,7 +46,6 @@ public class DivineWorldgen implements IWorldGenerator{
 			int posX = x + random.nextInt(16) + 8;
 			int posY = random.nextInt(60);
 			int posZ = z + random.nextInt(16) + 8;
-			(new WorldGenDivineDungeon()).generate(world, random, posX, posY, posZ);
 		}
 		
 		if(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.FOREST) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.CONIFEROUS) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.JUNGLE) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.DENSE) && biome != BiomeGenBase.birchForest && biome != BiomeGenBase.birchForestHills && random.nextInt(2) == 0) {

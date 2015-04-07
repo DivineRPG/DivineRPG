@@ -229,14 +229,14 @@ public class MobSpawning {
 					if(BiomeDictionary.isBiomeOfType(biome, Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, Type.MOUNTAIN)) {
 					    EntityRegistry.addSpawn(EntityCyclops.class, 35, 2, 4, EnumCreatureType.monster, biome);
 					}
-					EntityRegistry.addSpawn(EntityMiner.class, 1, 1, 1, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityMiner.class, 5, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityJackOMan.class, 1, 1, 1, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityCaveCrawler.class, 50, 2, 3, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityRotatick.class, 50, 3, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 50, 3, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityTheEye.class, 20, 1, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityCaveclops.class, 50, 1, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityEnderSpider.class, 2, 1, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityCaveCrawler.class, 70, 2, 3, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityRotatick.class, 70, 3, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityTheEye.class, 30, 1, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityCaveclops.class, 70, 1, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityEnderSpider.class, 4, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityRainbour.class, 2, 1, 1, EnumCreatureType.ambient, biome);
 				}
 			}

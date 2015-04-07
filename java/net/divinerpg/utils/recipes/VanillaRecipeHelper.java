@@ -147,11 +147,6 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsArmor.goldLegs, "III", "I I", "I I", 'I', Items.gold_ingot);
 		addRecipe(VanillaItemsArmor.goldBoots,  "I I", "I I", 'I', Items.gold_ingot);
 		
-		addRecipe(VanillaItemsArmor.leatherHelmet, "III", "I I",  'I', Items.leather);
-		addRecipe(VanillaItemsArmor.leatherBody, "I I", "III", "III", 'I', Items.leather);
-		addRecipe(VanillaItemsArmor.leatherLegs, "III", "I I", "I I", 'I', Items.leather);
-		addRecipe(VanillaItemsArmor.leatherBoots,  "I I", "I I", 'I', Items.leather);
-		
 		addRecipe(VanillaItemsArmor.realmiteHelmet, "III", "I I",  'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaItemsArmor.realmiteBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaItemsArmor.realmiteLegs, "III", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
@@ -202,10 +197,10 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsArmor.angelicLegs, "III", "X X", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
 		addRecipe(VanillaItemsArmor.angelicBoots,  "I I", "X X", 'I', VanillaItemsOther.bluefireStone, 'X', IceikaItems.iceStone);
 		
-		addRecipe(VanillaItemsArmor.shadowHelmet, "III", "I I", 'I', VanillaItemsOther.shadowBar);//TODO: use shadow stones somehow.
-		addRecipe(VanillaItemsArmor.shadowBody, "I I", "III", "III", 'I', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsArmor.shadowLegs, "III", "I I", "I I", 'I', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsArmor.shadowBoots,  "I I", "I I", 'I', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsArmor.shadowHelmet, "III", "I I", 'I', VanillaItemsOther.shadowStone);
+		addRecipe(VanillaItemsArmor.shadowBody, "I I", "III", "III", 'I', VanillaItemsOther.shadowStone);
+		addRecipe(VanillaItemsArmor.shadowLegs, "III", "I I", "I I", 'I', VanillaItemsOther.shadowStone);
+		addRecipe(VanillaItemsArmor.shadowBoots,  "I I", "I I", 'I', VanillaItemsOther.shadowStone);
 		
 		addRecipe(VanillaItemsArmor.aquastriveHelmet, "III", "I I", 'I', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsArmor.aquastriveBody, "I I", "III", "III", 'I', VanillaItemsOther.aquaticIngot);
@@ -411,6 +406,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsOther.moltenStone, "III", "III", "III", 'I', VanillaItemsOther.moltenShards);
 		addRecipe(VanillaItemsOther.divineStone, "III", "III", "III", 'I', VanillaItemsOther.divineShards);
 		addRecipe(VanillaItemsOther.enderStone, "III", "III", "III", 'I', VanillaItemsOther.enderShard);
+		addRecipe(VanillaItemsOther.shadowStone, "III", "III", "III", 'I', VanillaItemsOther.shadowBar);
 
 		addRecipe(VanillaItemsOther.legendaryEnderEye, "III", "III", "III", 'I', VanillaItemsOther.enderStone);
 		

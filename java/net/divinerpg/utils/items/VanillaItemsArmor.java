@@ -159,11 +159,6 @@ public class VanillaItemsArmor {
 	public static Item goldLegs;
 	public static Item goldBoots;
 
-	public static Item leatherHelmet;
-	public static Item leatherBody;
-	public static Item leatherLegs;
-	public static Item leatherBoots;
-
 	public static void init() {
     	Object[] angelicInfo             = new Object[] { ArmorInfo.NO_FALL, ArmorInfo.FLY,};
         angelicHelmet       = new ItemDivineArmor(EnumArmor.ANGELIC, HEAD, angelicInfo);

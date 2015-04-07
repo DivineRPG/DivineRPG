@@ -244,13 +244,8 @@ public class EntityTheWatcher extends EntityDivineRPGBoss {
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {
 		this.dropItem(VanillaItemsOther.netheriteIngot, 100);
-		int var3 = this.rand.nextInt(4);
 		this.dropItem(VanillaItemsOther.bluefireStone, 1);
-
-		for (int var4 = 0; var4 < 3 + var3; ++var4) {
-			this.dropItem(VanillaItemsOther.divineShards, 1);
-		}
-
+		this.dropItem(VanillaItemsOther.divineShards, this.rand.nextInt(4)+3);
 		if (this.rand.nextInt(2) == 0) this.dropItem(Item.getItemFromBlock(VanillaBlocks.watcherStatue), 1);
 	}
 

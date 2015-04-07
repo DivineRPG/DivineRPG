@@ -40,14 +40,14 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 	@Override
 	public void addRecipies(MerchantRecipeList var2) {
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.collector, 16, 0), new ItemStack(ArcanaItems.chargedCollector, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaHelmet, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaBody, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaLegs, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 0), new ItemStack(ArcanaItems.kormaBoots, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.vemosHelmet, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.vemosBody, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.vemosLegs, 1, 0)));
-		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.vemosBoots, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaHelmet, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaBody, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaLegs, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaBoots, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosHelmet, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosBody, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosLegs, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosBoots, 1, 0)));
 
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaItems.staffOfEnrichment, 1, 0)));
 		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaItems.wizardBook, 1, 0)));
