@@ -57,19 +57,8 @@ public class EntityAncientEntity extends EntityDivineRPGBoss {
 
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {   	
-		Item i = getDropItem();
-		Item i2 = VanillaItemsWeapons.sandslash;
-		int var3, var4;
-		var3 = this.rand.nextInt(6) + 4;
-		for(var4 = 0; var4 < var3; var4++) 
-			this.dropItem(i, 1);
-		for(var4 = 0; var4 < 1; var4++) 
-			this.dropItem(i2, 1);
-	}
-
-	@Override
-	protected Item getDropItem() {
-		return VanillaItemsOther.divineShards;
+		this.dropItem(VanillaItemsOther.divineShards, this.rand.nextInt(4) + 3);
+		this.dropItem(VanillaItemsWeapons.sandslash, 1);
 	}
 
 	@Override
