@@ -76,7 +76,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsWeapons.crabclawCannon, " I ", " I ", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
 		addOredictRecipe(VanillaItemsWeapons.corruptedCannon, "III", "S S", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
 		
-		addRecipe(VanillaItemsWeapons.goldenFury, "III", "IXI", "IXI", 'I', VanillaItemsOther.furyFire, 'X', Blocks.gold_block);
+		addRecipe(VanillaItemsWeapons.goldenFury, "GGG", "GFG", "FFF", 'F', VanillaItemsOther.furyFire, 'G', Blocks.gold_block);
 		
 		//Tools
 		addOredictRecipe(VanillaItemsTools.realmitePickaxe, "III", " S ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");

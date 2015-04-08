@@ -10,7 +10,7 @@ public class EntityRotatick extends EntityDivineRPGMob {
 	
     public EntityRotatick(World par1World) {
         super(par1World);
-        this.setSize(1.25F, 0.5F);
+        this.setSize(1.15F, 1F);
         addAttackingAI();
     }
 

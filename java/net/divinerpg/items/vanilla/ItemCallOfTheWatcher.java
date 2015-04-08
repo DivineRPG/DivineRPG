@@ -24,7 +24,7 @@ public class ItemCallOfTheWatcher extends ItemMod {
                 entity.setPosition(x, y + 1, z);
                 if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
                     world.spawnEntityInWorld(entity);
-                    if(player.capabilities.isCreativeMode) stack.stackSize--;
+                    if(!player.capabilities.isCreativeMode) stack.stackSize--;
                 }
                 
         }

@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.Random;
 
 import net.divinerpg.client.ArcanaRenderer;
-import net.divinerpg.client.ClientTickHandler;
 import net.divinerpg.client.render.BossTickHandler;
 import net.divinerpg.client.render.entity.ArcanaEntityRenderer;
 import net.divinerpg.client.render.entity.IceikaEntityRenderer;
@@ -57,7 +56,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInitClient(FMLPreInitializationEvent event) {
         LogHelper.info("Adding events");
-        Util.postFMLEvent(new ClientTickHandler());
         Util.postFMLEvent(new ArcanaRenderer());
         Util.postFMLEvent(new ClientTicker());
         Util.postForgeEvent(new EventOverlay());

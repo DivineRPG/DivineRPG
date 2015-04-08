@@ -62,21 +62,20 @@ public class EntityConstructor extends EntityDivineRPGMob {
     protected String getDeathSound() {
         return null;
     }
-
+    
     @Override
-    protected Item getDropItem() {
-    	if(this.rand.nextBoolean())return null;
+    public void dropFewItems(boolean beenHit, int lootingLevel) {
+        if(this.rand.nextBoolean())return;
         switch (this.rand.nextInt(4)) {
-        case 0:
-        	return ArcanaItems.degradedKey;
-        case 1:
-        	return ArcanaItems.sludgeKey;
-        case 2:
-        	return ArcanaItems.ancientKey;
-        case 3:
-        	return ArcanaItems.soulKey;
-        }
-        return null;
+            case 0:
+                this.dropItem(ArcanaItems.degradedKey, 1);break;
+            case 1:
+                this.dropItem(ArcanaItems.sludgeKey, 1);break;
+            case 2:
+                this.dropItem(ArcanaItems.ancientKey, 1);break;
+            case 3:
+                this.dropItem(ArcanaItems.soulKey, 1);break;
+            }
     }
 
     @Override
@@ -87,6 +86,6 @@ public class EntityConstructor extends EntityDivineRPGMob {
 
 	@Override
 	public String mobName() {
-		return "Constructor";
+		return "Dungeon Constructor";
 	}
 }

@@ -23,8 +23,8 @@ public class BlockAcceleron extends BlockMod {
 	private IIcon top_w;
 	
 	public BlockAcceleron() {
-		super(EnumBlockType.ROCK, "acceleron", 3.0F);
-		slipperiness = 2.0F;
+		super(EnumBlockType.ROCK, "acceleron", 3.0F, DivineRPGTabs.utility);
+		slipperiness = 1.2F;
 	}
 	
 	@Override
