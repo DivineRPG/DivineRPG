@@ -1,25 +1,19 @@
 package net.divinerpg.entities.twilight;
 
 import net.divinerpg.entities.base.EntityDivineRPGMob;
-import net.divinerpg.entities.base.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraft.world.World;
 
-public class EntityApalachiaCadillion extends EntityPeacefulUntilAttacked {
+public class EntityApalachiaCadillion extends EntityDivineRPGMob {
 
 	public EntityApalachiaCadillion(World var1) {
 		super(var1);
 		this.setSize(1.0F, 1.3F);
+		addAttackingAI();
 		this.experienceValue = 40;
 	}
 

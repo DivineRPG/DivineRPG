@@ -396,6 +396,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(IS.bloodgem, VanillaBlocks.bloodgemBlock);
 		addShapelessRecipe(VanillaItemsOther.shadowBar, VanillaItemsOther.rupeeIngot, VanillaItemsOther.arlemiteIngot);
 		
+		addSmelting(ItemsFood.rawEmpoweredMeat, ItemsFood.empoweredMeat, 1);
+		
 		addRecipe(VanillaItemsOther.pureAquaticPellets, "PPP", "PPP", "PPP", 'P', VanillaItemsOther.aquaticPellets);
 		addRecipe(VanillaItemsOther.aquaBall,"wsw", "wkw", "wsw", 'w', Items.water_bucket, 's', Items.slime_ball, 'k', VanillaItemsOther.krakenSkin);
 		addShapelessRecipe(VanillaItemsOther.aquaticBlazeRod, VanillaItemsOther.aquaBall, Items.blaze_rod);

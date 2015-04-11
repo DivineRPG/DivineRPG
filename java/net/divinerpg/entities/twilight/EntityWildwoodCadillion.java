@@ -16,11 +16,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityWildwoodCadillion extends EntityPeacefulUntilAttacked {
+public class EntityWildwoodCadillion extends EntityDivineRPGMob {
 
 	public EntityWildwoodCadillion(World var1) {
 		super(var1);
 		this.setSize(1.0F, 1.3F);
+		addAttackingAI();
 		this.experienceValue = 40;
 	}
 

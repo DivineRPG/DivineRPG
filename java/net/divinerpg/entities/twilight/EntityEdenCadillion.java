@@ -1,26 +1,19 @@
 package net.divinerpg.entities.twilight;
 
-import java.util.List;
-
 import net.divinerpg.entities.base.EntityDivineRPGMob;
-import net.divinerpg.entities.base.EntityPeacefulUntilAttacked;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.items.TwilightItemsOther;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityEdenCadillion extends EntityPeacefulUntilAttacked {
+public class EntityEdenCadillion extends EntityDivineRPGMob {
 
 	public EntityEdenCadillion(World var1) {
 		super(var1);
 		this.setSize(1.0F, 1.3F);
+		addAttackingAI();
 		this.experienceValue = 40;
 	}
 
