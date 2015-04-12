@@ -43,18 +43,8 @@ public class EntityApalachiaCadillion extends EntityDivineRPGMob {
 
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {
-		int var3 = this.rand.nextInt(2 + var2);
-		int var4;
-
-		for (var4 = 0; var4 < var3; ++var4) {
-			this.dropItem(getDropItem(), 1);
-		}
-		this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
-	}
-
-	@Override
-	protected Item getDropItem() {
-		return TwilightItemsOther.apalachiaSoul;
+		this.dropItem(TwilightItemsOther.apalachiaSoul, this.rand.nextInt(2 + var2));
+		this.dropItem(ItemsFood.enrichedMagicMeat, 1);
 	}
 
 	@Override
