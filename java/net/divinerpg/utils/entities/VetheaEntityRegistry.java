@@ -127,8 +127,8 @@ public class VetheaEntityRegistry {
         Util.registerDivineRPGMob(EntityTheHunger.class, "TheHunger");
         Util.registerDivineRPGMob(EntityCryptKeeper.class, "CryptKeeper");
         Util.registerDivineRPGMob(EntityTempleGuardian.class, "TempleGuardian");
-        Util.registerDivineRPGMob(EntityEhu.class, "Ehu");
-        Util.registerDivineRPGMob(EntityStoneGolem.class, "StoneGolem");
-        Util.registerDivineRPGMob(EntityHusk.class, "Husk");
+        //Util.registerDivineRPGMob(EntityEhu.class, "Ehu");
+        //Util.registerDivineRPGMob(EntityStoneGolem.class, "StoneGolem");
+        //Util.registerDivineRPGMob(EntityHusk.class, "Husk");
 	}
 }

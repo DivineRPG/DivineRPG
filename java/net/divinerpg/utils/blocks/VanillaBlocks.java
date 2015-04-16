@@ -9,6 +9,7 @@ import net.divinerpg.blocks.base.BlockStupidSpawner;
 import net.divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
 import net.divinerpg.blocks.vanilla.BlockAyeracoSpawn;
+import net.divinerpg.blocks.vanilla.BlockBloodgemOre;
 import net.divinerpg.blocks.vanilla.BlockBoneChest;
 import net.divinerpg.blocks.vanilla.BlockDivineBricks;
 import net.divinerpg.blocks.vanilla.BlockHotSpike;
@@ -36,7 +37,6 @@ import net.divinerpg.client.render.block.model.ModelSoulStatue;
 import net.divinerpg.client.render.block.model.ModelTwilightStatue;
 import net.divinerpg.client.render.block.model.ModelVamacheronStatue;
 import net.divinerpg.client.render.block.model.ModelWatcherStatue;
-import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -152,7 +152,7 @@ public class VanillaBlocks {
 		rupeeOre            = new VanillaBlock(EnumBlockType.ROCK, "rupeeOre", 3.0F, DIAMOND).setResistance(2000.0F);
 		arlemiteOre         = new VanillaBlock(EnumBlockType.ROCK, "arlemiteOre", 3.0F, DIAMOND).setResistance(2000.0F);
 		realmiteOre         = new VanillaBlock(EnumBlockType.ROCK, "realmiteOre", 3.0F, IRON).setResistance(2000.0F);
-		bloodgemOre         = new VanillaBlock(EnumBlockType.ROCK, "bloodgemOre", 3.0F, DIAMOND).setDropItem(VanillaItemsOther.bloodgem).setResistance(2000.0F);
+		bloodgemOre         = new BlockBloodgemOre();
 		netheriteOre        = new VanillaBlock(EnumBlockType.ROCK, "netheriteOre", 3.0F, DIAMOND).setResistance(2000.0F);
 
 		rupeeBlock          = new VanillaBlock(EnumBlockType.ROCK, "rupeeBlock", 5.0F, DIAMOND).setResistance(10F);

@@ -273,9 +273,9 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityMysteriousManLayer1.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 		EntityRegistry.addSpawn(EntityMysteriousManLayer2.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 		EntityRegistry.addSpawn(EntityMysteriousManLayer3.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
-		EntityRegistry.addSpawn(EntityEhu.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
-		EntityRegistry.addSpawn(EntityHusk.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
-		EntityRegistry.addSpawn(EntityStoneGolem.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
+		//EntityRegistry.addSpawn(EntityEhu.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
+		//EntityRegistry.addSpawn(EntityHusk.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
+		//EntityRegistry.addSpawn(EntityStoneGolem.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 	}
 	
 	public static boolean overworldBiome(BiomeGenBase b) {

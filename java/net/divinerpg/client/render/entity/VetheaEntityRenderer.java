@@ -166,9 +166,9 @@ public class VetheaEntityRenderer {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMysteriousManLayer3.class, new RenderDivineMob(new MysteriousMan(), 0.0F, x.MM3));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCryptKeeper.class, new RenderDivineMob(new CryptKeeper(), 0.0F, x.CRYPT_KEEPER));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDuo.class, new RenderDivineMob(new Duo(), 0.0F, x.DUO));
-		RenderingRegistry.registerEntityRenderingHandler(EntityEhu.class, new RenderDivineMob(new Ehu(), 0.0F, x.EHU));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHusk.class, new RenderDivineMob(new Husk(), 0.0F, x.HUSK));
-		RenderingRegistry.registerEntityRenderingHandler(EntityStoneGolem.class, new RenderDivineMob(new StoneGolem(), 0.0F, x.STONE_GOLEM));
+		//RenderingRegistry.registerEntityRenderingHandler(EntityEhu.class, new RenderDivineMob(new Ehu(), 0.0F, x.EHU));
+		//RenderingRegistry.registerEntityRenderingHandler(EntityHusk.class, new RenderDivineMob(new Husk(), 0.0F, x.HUSK));
+		//RenderingRegistry.registerEntityRenderingHandler(EntityStoneGolem.class, new RenderDivineMob(new StoneGolem(), 0.0F, x.STONE_GOLEM));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHerbomancer.class, new RenderDivineMob(new Herbomancer(), 0.0F, x.HERBOMANCER));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLheiva.class, new RenderDivineMob(new Lheiva(), 0.0F, x.LHEIVA));
 		RenderingRegistry.registerEntityRenderingHandler(EntityLorga.class, new RenderDivineMob(new Lorga(), 0.0F, x.LORGA));
