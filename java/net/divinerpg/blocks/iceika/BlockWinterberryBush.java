@@ -1,11 +1,13 @@
-package net.divinerpg.blocks.base;
+package net.divinerpg.blocks.iceika;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -19,9 +21,7 @@ import net.minecraftforge.common.IShearable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockModBush extends BlockMod implements IShearable {
-
-    protected static Map<String, Block> bushMap = new HashMap<String, Block>();
+public class BlockWinterberryBush extends BlockMod implements IShearable {
 
     protected IIcon                     grown, notGrown;
     
@@ -30,39 +30,22 @@ public class BlockModBush extends BlockMod implements IShearable {
     protected String                    stateChangeName;
     public boolean               		isGrown;
 
-    protected Item                      drop;
 
-    public BlockModBush(boolean grown, String name) {
-        this(grown, name, "null", null);
-    }
 
-    public BlockModBush(boolean grown, String name, Item drop) {
-        this(grown, name, "null", drop);
-    }
-
-    public BlockModBush(boolean grown, String name, String stateChangeName, Item drop) {
+    public BlockWinterberryBush(boolean grown, String name) {
         super(EnumBlockType.LEAVES, name, 0.3F);
         this.isGrown = grown;
-        this.stateChangeName = stateChangeName;
-        this.drop = drop;
         setTickRandomly(true);
-        bushMap.put(name, this);
     }
 
     @Override
     public void onBlockDestroyedByPlayer(World w, int x, int y, int z, int meta) {
-        if (isGrown && stateChangeName != "null") w.setBlock(x, y, z, bushMap.get(stateChangeName));
+        if (isGrown) w.setBlock(x, y, z, IceikaBlocks.winterberryBush);
     }
 
     @Override
     public void updateTick(World w, int x, int y, int z, Random r) {
-        if (r.nextInt(2) == 0 && w.getBlock(x, y, z) == IceikaBlocks.winterberryBush)
-            w.setBlock(x, y, z, IceikaBlocks.winterberryBushRipe);
-    }
-
-    public void grow(World w, int x, int y, int z) {
-        if (!isGrown && stateChangeName != "null")
-            w.setBlock(x, y, z, bushMap.get(stateChangeName));
+        if (r.nextInt(2) == 0 && w.getBlock(x, y, z) == IceikaBlocks.winterberryBush) w.setBlock(x, y, z, IceikaBlocks.winterberryBushRipe);
     }
 
     public boolean isOpaqueCube() {
@@ -87,8 +70,8 @@ public class BlockModBush extends BlockMod implements IShearable {
     }
 
     @Override
-    public Item getItemDropped(int par1, Random par2Random, int par3) {
-        if (drop != null) return drop;
+    public Item getItemDropped(int meta, Random rand, int fortune) {
+        if (this == IceikaBlocks.winterberryBushRipe) return IceikaItems.winterberry;
         return null;
     }
 
@@ -100,7 +83,7 @@ public class BlockModBush extends BlockMod implements IShearable {
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 3));
+        if(this == IceikaBlocks.winterberryBush)ret.add(new ItemStack(this, 1));
         return ret;
     }
     

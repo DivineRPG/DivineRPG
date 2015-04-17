@@ -2,7 +2,6 @@ package net.divinerpg.utils.blocks;
 
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.blocks.base.BlockModBook;
-import net.divinerpg.blocks.base.BlockModBush;
 import net.divinerpg.blocks.base.BlockModDoor;
 import net.divinerpg.blocks.base.BlockModGlass;
 import net.divinerpg.blocks.base.BlockModGrass;
@@ -16,6 +15,7 @@ import net.divinerpg.blocks.iceika.BlockCoalstoneFurnace;
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
 import net.divinerpg.blocks.iceika.BlockIceikaFire;
 import net.divinerpg.blocks.iceika.BlockPresentBox;
+import net.divinerpg.blocks.iceika.BlockWinterberryBush;
 import net.divinerpg.blocks.iceika.BlockXmasLights;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.IceikaItems;
@@ -70,8 +70,8 @@ public class IceikaBlocks {
 	    frozenWood          = new BlockModLog("frozenLog").setHardness(5.0F);
 	    brittleLeaves       = new BlockModLeaves("brittleLeaves", 0.1F);
 
-	    winterberryBush     = new BlockModBush(false, "winterberryBush", "ripeWinterberryBush", null).setHardness(0.2F);
-	    winterberryBushRipe = new BlockModBush(true, "ripeWinterberryBush", "winterberryBush", IceikaItems.winterberry).setHardness(0.2F);
+	    winterberryBush     = new BlockWinterberryBush(false, "winterberryBush").setHardness(0.2F);
+	    winterberryBushRipe = new BlockWinterberryBush(true, "ripeWinterberryBush").setHardness(0.2F);
 
 	    icyStone            = new BlockMod("icyStone", -1F);
 	    icyBricks           = new BlockMod("icyBricks", -1F);

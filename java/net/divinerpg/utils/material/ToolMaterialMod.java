@@ -57,16 +57,11 @@ public class ToolMaterialMod {
     public static ToolMaterial FlamingFury    = Util.addMeleeMaterial(6000, 26, 15);
     public static ToolMaterial ArcaniteBlade  = Util.addMeleeMaterial(7000, 34, 15);
     public static ToolMaterial DualClaw       = Util.addMeleeMaterial(4000, 12, 15);
-
+    
     //Shickaxes
     public static ToolMaterial RupeeShick     = Util.addShickMaterial(6, 16.0F, 8, 15);
     public static ToolMaterial ArlemiteShick  = Util.addShickMaterial(6, 12000, 13.0F, 8, 15);
     public static ToolMaterial DivineShick    = Util.addShickMaterial(8, 20.0F, 9, 10);
-    public static ToolMaterial SkythernShick  = Util.addShickMaterial(100, 6000, 48.0F, 11, 22);
-    public static ToolMaterial EdenShick      = Util.addShickMaterial(100, 6000, 20.0F, 8, 22);
-    public static ToolMaterial WildwoodShick  = Util.addShickMaterial(100, 6000, 28.0F, 9, 22);
-    public static ToolMaterial ApalachiaShick = Util.addShickMaterial(100, 6000, 40.0F, 10, 22);
-    public static ToolMaterial MortumShick    = Util.addShickMaterial(100, 6000, 55.0F, 12, 22);
 
     //Axes
     public static ToolMaterial RupeeAxe       = Util.addAxeMaterial(6, 2500, 16.0F, 7, 0);

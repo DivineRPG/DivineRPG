@@ -34,11 +34,6 @@ public class TwilightItemsTools {
 	public static Item mortumShovel;
 	
 	public static void init() {
-		edenShickaxe       = new ItemShickaxe(ToolMaterialMod.EdenShick, "edenShickaxe");
-	    wildwoodShickaxe   = new ItemShickaxe(ToolMaterialMod.WildwoodShick, "wildwoodShickaxe");
-	    apalachiaShickaxe  = new ItemShickaxe(ToolMaterialMod.ApalachiaShick, "apalachiaShickaxe");
-	    skythernShickaxe   = new ItemShickaxe(ToolMaterialMod.SkythernShick, "skythernShickaxe");
-	    mortumShickaxe     = new ItemShickaxe(ToolMaterialMod.MortumShick, "mortumShickaxe");
 
 	    edenPickaxe        = new ItemModPickaxe(ToolMaterialMod.EdenPick, "edenPickaxe");
 	    wildwoodPickaxe    = new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwoodPickaxe");

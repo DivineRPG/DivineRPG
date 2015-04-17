@@ -471,5 +471,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(new ItemStack(VanillaBlocks.cyanVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 6), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.purpleVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 5), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.yellowVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 11), 'O', Blocks.obsidian);
+        
+        addRecipe(new ItemStack(Blocks.crafting_table), "WW", "WW", 'W', VanillaBlocks.divinePlank);
+        addRecipe(new ItemStack(Items.stick, 4), "W", "W", 'W', VanillaBlocks.divinePlank);
 	}
 }
