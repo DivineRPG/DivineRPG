@@ -20,6 +20,7 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss {
         super(var1);
         this.setSize(2.0F, 3.9F);
         this.special = 0;
+        this.isImmuneToFire = true;
     }
     
 	@Override

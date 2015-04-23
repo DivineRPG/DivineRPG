@@ -142,27 +142,22 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addOredictRecipe(TwilightItemsTools.edenPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.edenShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.edenAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.edenChunk, 'S', "stickWood");
-		addShapelessRecipe(TwilightItemsTools.edenShickaxe, TwilightItemsTools.edenPickaxe, TwilightItemsTools.edenShovel, TwilightItemsTools.edenAxe);
 		
 		addOredictRecipe(TwilightItemsTools.wildwoodPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.wildwoodShovel, " I ", " S " , " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.wildwoodAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.wildwoodChunk, 'S', "stickWood");
-		addShapelessRecipe(TwilightItemsTools.wildwoodShickaxe, TwilightItemsTools.wildwoodPickaxe, TwilightItemsTools.wildwoodShovel, TwilightItemsTools.wildwoodAxe);
 		
 		addOredictRecipe(TwilightItemsTools.apalachiaPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.apalachiaShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.apalachiaAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.apalachiaChunk, 'S', "stickWood");
-		addShapelessRecipe(TwilightItemsTools.apalachiaShickaxe, TwilightItemsTools.apalachiaPickaxe, TwilightItemsTools.apalachiaShovel, TwilightItemsTools.apalachiaAxe);
 		
 		addOredictRecipe(TwilightItemsTools.skythernPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.skythernChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.skythernShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.skythernChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.skythernAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.skythernChunk, 'S', "stickWood");
-		addShapelessRecipe(TwilightItemsTools.skythernShickaxe, TwilightItemsTools.skythernPickaxe, TwilightItemsTools.skythernShovel, TwilightItemsTools.skythernAxe);
 		
 		addOredictRecipe(TwilightItemsTools.mortumPickaxe, "III", " S ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.mortumShovel, " I ", " S ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', "stickWood");
 		addOredictRecipe(TwilightItemsTools.mortumAxe, "II ", "IS ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', "stickWood");
-		addShapelessRecipe(TwilightItemsTools.mortumShickaxe, TwilightItemsTools.mortumPickaxe, TwilightItemsTools.mortumShovel, TwilightItemsTools.mortumAxe);
 		
 		/* Spawners and other stuff */
 		addShapelessRecipe(TwilightItemsOther.baseSpawnCrystal, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul, TwilightItemsOther.skythernSoul);

@@ -9,12 +9,6 @@ import net.minecraft.item.Item;
 
 public class TwilightItemsTools {
 
-	public static Item edenShickaxe;
-	public static Item wildwoodShickaxe;
-	public static Item apalachiaShickaxe;
-	public static Item skythernShickaxe;
-	public static Item mortumShickaxe;
-
 	public static Item edenPickaxe;
 	public static Item wildwoodPickaxe;
 	public static Item apalachiaPickaxe;
