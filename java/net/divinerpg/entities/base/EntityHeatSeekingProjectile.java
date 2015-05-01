@@ -44,8 +44,8 @@ public abstract class EntityHeatSeekingProjectile extends EntityThrowable {
             ideal = ideal.normalize();
             double diffX = motion.dotProduct(ideal)*Math.signum(target.posX-this.posX);
             double diffZ = Math.sin(Math.acos(diffX))*Math.signum(target.posZ-this.posZ);
-            this.motionX+=diffX/dist;
-            this.motionZ+=diffZ/dist;
+            this.motionX+=(diffX/dist)*(diffX/dist)*(diffX/dist);
+            this.motionZ+=(diffZ/dist)*(diffZ/dist)*(diffZ/dist);
         }
     }
 }

@@ -75,8 +75,7 @@ public class ItemMeriksMissile extends ItemModBow {
 				var7 = (var7 * var7 + var7 * 2.0F) / 3.0F;
 				if ((double)var7 < 0.1D) return;
 				if (var7 > 1.0F) var7 = 1.0F;
-				EntityMerikMissile var8 = new EntityMerikMissile(world, player, 0.6F, 300);
-				var8.setDamage(18);
+				EntityMerikMissile var8 = new EntityMerikMissile(world, player);
 				world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + var7 * 0.5F);
 				if (!world.isRemote)  world.spawnEntityInWorld(var8);
 			}
@@ -92,7 +91,7 @@ public class ItemMeriksMissile extends ItemModBow {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Explosive homing projectile");
-		list.add(TooltipLocalizer.rangedDam(18));
+		list.add(TooltipLocalizer.rangedDam(22));
 		list.add(TooltipLocalizer.arcanaConsumed(arcana));
 		list.add(TooltipLocalizer.infiniteUses());
 	}
