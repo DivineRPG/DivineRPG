@@ -451,7 +451,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addShapelessRecipe(new ItemStack(VanillaBlocks.rainbowWool, 4), new ItemStack(Blocks.wool, 1, 1), new ItemStack(Blocks.wool, 1, 14), new ItemStack(Blocks.wool, 1, 4), new ItemStack(Blocks.wool, 1, 5), new ItemStack(Blocks.wool, 1, 9), new ItemStack(Blocks.wool, 1, 11), new ItemStack(Blocks.wool, 1, 10));
         addRecipe(new ItemStack(VanillaBlocks.checker, 3), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.wool, 1, 0), 'y', new ItemStack(Blocks.wool, 1, 15));
         addRecipe(new ItemStack(VanillaBlocks.blueStone, 8), "GGG", "GLG", "GGG", 'G', Blocks.glowstone, 'L', new ItemStack(Items.dye, 1, 4));
-        addRecipe(new ItemStack(VanillaBlocks.crate, 4), "xxx", "y y", "xxx", 'x', Blocks.planks, 'y', Blocks.log );
+        addOredictRecipe(new ItemStack(VanillaBlocks.crate, 4), "xxx", "y y", "xxx", 'x', "plankWood", 'y', "logWood");
         addRecipe(new ItemStack(VanillaBlocks.plankDesign, 4), "xyx", "yxy", "xyx", 'x', new ItemStack(Blocks.planks, 1, 0), 'y', new ItemStack(Blocks.planks, 1, 1) );
         
         addRecipe(new ItemStack(VanillaBlocks.skeletonTorch, 4), "x", "y", 'y', Items.bone, 'x', Items.coal);

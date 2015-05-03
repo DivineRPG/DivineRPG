@@ -47,5 +47,7 @@ public abstract class EntityHeatSeekingProjectile extends EntityThrowable {
             this.motionX+=(diffX/dist)*(diffX/dist)*(diffX/dist);
             this.motionZ+=(diffZ/dist)*(diffZ/dist)*(diffZ/dist);
         }
+        
+        if(this.ticksExisted>50)this.setDead();
     }
 }
