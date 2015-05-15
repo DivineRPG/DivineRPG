@@ -100,6 +100,8 @@ public class ModelCadillion extends ModelBase {
 	public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6) {
 		this.head.rotateAngleY = (var4 / 57.295776F);
 		this.Horn.rotateAngleY = (var4 / 63.661976F);
+		this.horn1.rotateAngleY = var4 / (180F / (float)Math.PI);
+		this.horn2.rotateAngleY = var4 / (180F / (float)Math.PI);
 		this.body.rotateAngleX = 1.570796F;
 		this.leg1.rotateAngleX = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
 		this.leg2.rotateAngleX = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
