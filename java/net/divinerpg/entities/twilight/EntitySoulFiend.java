@@ -5,7 +5,7 @@ import net.divinerpg.entities.twilight.projectile.EntitySoulFiendProjectile;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.TwilightItemsWeapons;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -53,8 +53,8 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
 	public boolean attackEntityAsMob(Entity e) {
 		if(super.attackEntityAsMob(e)) {
 			if(e instanceof EntityPlayer) {
-				((EntityLiving)e).addPotionEffect(new PotionEffect(Potion.confusion.id, 12 * 20, 0));
-				((EntityLiving)e).addPotionEffect(new PotionEffect(Potion.blindness.id, 12 * 20, 0));
+				((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.confusion.id, 12 * 20, 0));
+				((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.blindness.id, 12 * 20, 0));
 			}
 			e.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * 2.5, 0.4D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * 2.5);
 			this.motionX *= 0.6D;

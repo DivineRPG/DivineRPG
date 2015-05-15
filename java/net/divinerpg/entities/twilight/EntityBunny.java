@@ -10,11 +10,10 @@ import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -26,6 +25,13 @@ public class EntityBunny extends EntityDivineRPGTameable {
 		this.setSize(0.5F, 0.5F);
 		this.experienceValue = 40;
 	}
+	
+	public EntityBunny(World var1, String player) {
+        super(var1);
+        this.setSize(0.5F, 0.5F);
+        this.experienceValue = 40;
+        this.func_152115_b(player);
+    }
 
 	@Override
 	protected void applyEntityAttributes() {
@@ -64,7 +70,11 @@ public class EntityBunny extends EntityDivineRPGTameable {
 
 	private void transform(boolean tamed, Entity target)  {
 		if(!this.worldObj.isRemote) {
-			EntityAngryBunny bunny = new EntityAngryBunny(this.worldObj, target);
+		    EntityAngryBunny bunny;
+		    if(getOwner() == null)
+		        bunny = new EntityAngryBunny(this.worldObj, target);
+		    else
+		        bunny = new EntityAngryBunny(this.worldObj, target, getOwner().getUniqueID().toString());
 			bunny.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
 			this.worldObj.spawnEntityInWorld(bunny);
 			if(target instanceof EntityLiving) 
