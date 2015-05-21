@@ -104,26 +104,26 @@ public class LangRegistry extends RegistryFile {
     
     public static void addTooltips() {
         instance.addToFile("tooltip.uses=# Uses Remaining");
+        instance.addToFile("tooltip.uses.infinite=Infinite Uses");
         instance.addToFile("tooltip.arcana=Consumes # Arcana");
-        instance.addToFile("tooltip.meleeDam=# Melee Damage");
-        instance.addToFile("tooltip.rangedDam=# Ranged Damage");
-        instance.addToFile("tooltip.arcanaDam=# Arcana Damage");
+        instance.addToFile("tooltip.arcana.regen=Replenishes # Arcana");
+        instance.addToFile("tooltip.damage.melee=# Melee Damage");
+        instance.addToFile("tooltip.damage.ranged=# Ranged Damage");
+        instance.addToFile("tooltip.damage.both=# Ranged and Melee Damage");
+        instance.addToFile("tooltip.damage.arcana=# Arcana Damage");
+        instance.addToFile("tooltip.damage.reduction=|percent| Damage Reduction (|percentFull| Full)");
         instance.addToFile("tooltip.ammo=Ammo: |item|");
-        instance.addToFile("tooltip.infiniteAmmo=Infinite Ammo");
-        instance.addToFile("tooltip.infiniteUses=Infinite Uses");
-        instance.addToFile("tooltip.rangedAndMeleeDam=# Ranged and Melee Damage");
-        instance.addToFile("tooltip.regensArcana=Replenishes # Arcana");
-        instance.addToFile("tooltip.explosiveProjectiles=Explosive Projectiles");
-        instance.addToFile("tooltip.homingProjectiles=Homing Projectiles");
-        instance.addToFile("tooltip.fullSetPerks=Full Set Perks: ");
-        instance.addToFile("tooltip.damageReduction=|percent| Damage Reduction (|percentFull| Full)");
-        instance.addToFile("tooltip.noProtection=No Protection");
+        instance.addToFile("tooltip.ammo.infinite=Infinite Ammo");
+        instance.addToFile("tooltip.shots.explosive=Explosive Projectiles");
+        instance.addToFile("tooltip.shots.homing=Homing Projectiles");
+        instance.addToFile("tooltip.fullset=Full Set Perks: ");
+        instance.addToFile("tooltip.noprotection=No Protection");
         instance.addToFile("tooltip.vethean=Vethean");
         instance.addToFile("tooltip.efficiency=Efficiency: #");
-        instance.addToFile("tooltip.cannotBlock=Cannot Block");
-        instance.addToFile("tooltip.poison=Poisons mobs for |seconds| seconds");
-        instance.addToFile("tooltip.burns=Burns mobs for |seconds| seconds");
-        instance.addToFile("tooltip.slows=Slows mobs for |seconds| seconds");
+        instance.addToFile("tooltip.noblock=Cannot Block");
+        instance.addToFile("tooltip.effect.poisons=Poisons mobs for |seconds| seconds");
+        instance.addToFile("tooltip.effect.burns=Burns mobs for |seconds| seconds");
+        instance.addToFile("tooltip.effect.slows=Slows mobs for |seconds| seconds");
     }
     
     public static void addMessages() {

@@ -6,26 +6,26 @@ import net.minecraft.util.StatCollector;
 public class TooltipLocalizer {
 
     protected static final String USES = "tooltip.uses",
-            INFINITEUSES = "tooltip.infiniteUses",
+            INFINITEUSES = "tooltip.uses.infinite",
             ARCANA = "tooltip.arcana",
-            MELEEDAM = "tooltip.meleeDam",
-            RANGEDDAM = "tooltip.rangedDam",
-            ARCANADAM = "tooltip.arcanaDam",
-            INFINITEAMMO = "tooltip.infiniteAmmo",
+            ARCANAREGEN = "tooltip.arcana.regen",
+            MELEEDAM = "tooltip.damage.melee",
+            RANGEDDAM = "tooltip.damage.ranged",
+            RANGEDNMELEE = "tooltip.damage.both",
+            ARCANADAM = "tooltip.damage.arcana",
+            DAMAGEREDUCTION = "tooltip.damage.reduction",
             AMMO = "tooltip.ammo",
-            RANGEDNMELEE = "tooltip.rangedAndMeleeDam",
-            ARCANAREGEN = "tooltip.regensArcana",
-            EXPLOSIVESHOTS = "tooltip.explosiveProjectiles",
-            HOMINGSHOTS = "tooltip.homingProjectiles",
-            FULLSETPERKS = "tooltip.fullSetPerks",
-            DAMAGEREDUCTION = "tooltip.damageReduction",
-            NOPROT = "tooltip.noProtection",
+            INFINITEAMMO = "tooltip.ammo.infinite",
+            EXPLOSIVESHOTS = "tooltip.shots.explosive",
+            HOMINGSHOTS = "tooltip.shots.homing",
+            FULLSETPERKS = "tooltip.fullset",
+            NOPROT = "tooltip.noprotection",
             VETHEAN = "tooltip.vethean",
             EFFICIENCY = "tooltip.efficiency",
-            CANTBLOCK = "tooltip.cannotBlock",
-            POISON = "tooltip.poison",
-            BURNS = "tooltip.burns",
-            SLOWS = "tooltip.slows";
+            CANTBLOCK = "tooltip.noblock",
+            POISON = "tooltip.effect.poisons",
+            BURNS = "tooltip.effect.burns",
+            SLOWS = "tooltip.effect.slows";
 
     public static String usesRemaining(int uses) {
         return StatCollector.translateToLocal(USES).replace("#", String.valueOf(uses));
