@@ -31,20 +31,15 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     private boolean isShaking, dontKnow;
     private int ranCount = this.rand.nextInt(4);
 
-    public EntityMoonWolf(World par1World) {
-        super(par1World);
+    public EntityMoonWolf(World world) {
+        super(world);
         this.setSize(0.6F, 0.8F);
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        if(this.isTamed()) {
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfTamedSpeed);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfTamedFollowRange);
-        } else {
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfSpeed);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfFollowRange);
-        }
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.30000001192092896D);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfFollowRange);
     }
     
     @Override
@@ -58,9 +53,9 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public void setAttackTarget(EntityLivingBase par1EntityLivingBase) {
-        super.setAttackTarget(par1EntityLivingBase);
-        if(par1EntityLivingBase == null) 
+    public void setAttackTarget(EntityLivingBase target) {
+        super.setAttackTarget(target);
+        if(target == null) 
             this.setAngry(false);
         else if(!this.isTamed()) 
             this.setAngry(true);
@@ -84,15 +79,15 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
-        super.writeEntityToNBT(par1NBTTagCompound);
-        par1NBTTagCompound.setBoolean("Angry", this.isAngry());
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        compound.setBoolean("Angry", this.isAngry());
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
-        super.readEntityFromNBT(par1NBTTagCompound);
-        this.setAngry(par1NBTTagCompound.getBoolean("Angry"));
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
+        this.setAngry(compound.getBoolean("Angry"));
     }
 
     @Override
@@ -221,24 +216,24 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
+    public boolean attackEntityFrom(DamageSource source, float par2) {
         if(this.isEntityInvulnerable()) {
             return false;
         } else {
-            Entity entity = par1DamageSource.getEntity();
+            Entity entity = source.getEntity();
             this.aiSit.setSitting(false);
 
             if(entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow)) {
                 par2 = (par2 + 1.0F) / 2.0F;
             }
 
-            return super.attackEntityFrom(par1DamageSource, par2);
+            return super.attackEntityFrom(source, par2);
         }
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity par1Entity) {
-        return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)EntityStats.moonWolfDamage);
+    public boolean attackEntityAsMob(Entity entity) {
+        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)EntityStats.moonWolfDamage);
     }
 
     @Override
@@ -314,8 +309,8 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public boolean isBreedingItem(ItemStack par1ItemStack) {
-        return par1ItemStack == null ? false : (!(par1ItemStack.getItem() instanceof ItemFood) ? false : ((ItemFood)par1ItemStack.getItem()).isWolfsFavoriteMeat());
+    public boolean isBreedingItem(ItemStack stack) {
+        return stack == null ? false : (!(stack.getItem() instanceof ItemFood) ? false : ((ItemFood)stack.getItem()).isWolfsFavoriteMeat());
     }
 
     public boolean isAngry() {
@@ -377,16 +372,16 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public boolean func_142018_a(EntityLivingBase par1EntityLivingBase, EntityLivingBase par2EntityLivingBase) {
-        if(!(par1EntityLivingBase instanceof EntityCreeper) && !(par1EntityLivingBase instanceof EntityGhast)) {
-            if(par1EntityLivingBase instanceof EntityMoonWolf) {
-                EntityMoonWolf EntityMoonWolf = (EntityMoonWolf)par1EntityLivingBase;
+    public boolean func_142018_a(EntityLivingBase target, EntityLivingBase player) {
+        if(!(target instanceof EntityCreeper) && !(target instanceof EntityGhast)) {
+            if(target instanceof EntityMoonWolf) {
+                EntityMoonWolf EntityMoonWolf = (EntityMoonWolf)target;
 
-                if(EntityMoonWolf.isTamed() && EntityMoonWolf.getOwner() == par2EntityLivingBase) {
+                if(EntityMoonWolf.isTamed() && EntityMoonWolf.getOwner() == player) {
                     return false;
                 }
             }
-            return par1EntityLivingBase instanceof EntityPlayer && par2EntityLivingBase instanceof EntityPlayer && !((EntityPlayer)par2EntityLivingBase).canAttackPlayer((EntityPlayer)par1EntityLivingBase) ? false : !(par1EntityLivingBase instanceof EntityHorse) || !((EntityHorse)par1EntityLivingBase).isTame();
+            return target instanceof EntityPlayer && player instanceof EntityPlayer && !((EntityPlayer)player).canAttackPlayer((EntityPlayer)target) ? false : !(target instanceof EntityHorse) || !((EntityHorse)target).isTame();
         } else {
             return false;
         }
