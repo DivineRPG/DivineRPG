@@ -33,7 +33,7 @@ public class EntityAridWarrior extends EntityDivineRPGMob {
     public void onUpdate() {
         super.onUpdate();
         if(!this.worldObj.isRemote) {
-            this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64);
+            this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16);
             if(this.entityToAttack != null && this.ticksExisted%18==0) this.attackEntityWithRangedAttack((EntityLivingBase)this.entityToAttack);
         }
     }
@@ -54,24 +54,14 @@ public class EntityAridWarrior extends EntityDivineRPGMob {
         return defaultHeldItem;
     }
 
+    @Override
     protected void dropFewItems(boolean par1, int par2) {
-        int var3;
-        int var4;
-        var3 = this.rand.nextInt(3 + par2);
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(Item.getItemFromBlock(Blocks.sandstone), 30);
-        }
-
-        var3 = this.rand.nextInt(3 + par2);
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.entityDropItem(new ItemStack(Blocks.wool, 10, 14), 0.0F);
-        }
+        this.dropItem(Item.getItemFromBlock(Blocks.sandstone), this.rand.nextInt(10));
+        this.entityDropItem(new ItemStack(Blocks.wool, this.rand.nextInt(10), 14), 0.0F);
     }
 
     public void attackEntityWithRangedAttack(EntityLivingBase e) {
-        EntityArrow var2 = new EntityArrow(this.worldObj, this, e, 1.6F, 12.0F);
+        EntityArrow var2 = new EntityArrow(this.worldObj, this, e, 1.6F, 4.5F);
         var2.setDamage(1.5);
 
         this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
