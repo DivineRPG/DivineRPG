@@ -433,6 +433,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaBlocks.lightFenceBlue, "   ", "III", "III", 'I', new ItemStack(Items.dye, 1, 4));
 
         addRecipe(VanillaItemsOther.teleportationCrystal, "EEE", "EDE", "EEE", 'E', Items.ender_pearl, 'D', Items.diamond);	
+        addRecipe(new ItemStack(VanillaBlocks.darkBridge), "GGG", "G G", "GGG", 'G', Items.glowstone_dust); 
         
         addRecipe(VanillaBlocks.hellspiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.moltenShards, 'P', Blocks.pumpkin);
         addRecipe(VanillaBlocks.frostPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceStone, 'P', Blocks.pumpkin);

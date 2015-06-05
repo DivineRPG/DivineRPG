@@ -11,6 +11,7 @@ import net.divinerpg.blocks.vanilla.BlockAyeracoBeam;
 import net.divinerpg.blocks.vanilla.BlockAyeracoSpawn;
 import net.divinerpg.blocks.vanilla.BlockBloodgemOre;
 import net.divinerpg.blocks.vanilla.BlockBoneChest;
+import net.divinerpg.blocks.vanilla.BlockDarkBridge;
 import net.divinerpg.blocks.vanilla.BlockDivineBricks;
 import net.divinerpg.blocks.vanilla.BlockHotSpike;
 import net.divinerpg.blocks.vanilla.BlockLamp1;
@@ -105,6 +106,7 @@ public class VanillaBlocks {
 	public static Block spikeBlock;
 	public static Block hotSpikeBlock;
 	public static Block slimeLight, slimeLightOn;
+	public static Block darkBridge, darkBridgeOn;
 	
 	public static Block lightFenceBlue;
     public static Block lightFenceRed;
@@ -209,6 +211,8 @@ public class VanillaBlocks {
 		hotSpikeBlock         = new BlockHotSpike();
 		slimeLight            = new BlockSlimeLight(false);
 		slimeLightOn          = new BlockSlimeLight(true);
+		darkBridge            = new BlockDarkBridge(false);
+		darkBridgeOn          = new BlockDarkBridge(true);
 		
 		lightFenceBlue 	  = new BlockLightFence(false, "blueFence", 0.5F);
 	    lightFenceRed 	  = new BlockLightFence(false, "redFence", 0.5F);
