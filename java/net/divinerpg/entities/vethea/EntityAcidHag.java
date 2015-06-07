@@ -38,18 +38,9 @@ public class EntityAcidHag extends VetheaMob {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-
-        int var1 = MathHelper.floor_double(this.posX);
-        int var2 = MathHelper.floor_double(this.posZ);
-
-        for (var1 = 0; var1 < 4; ++var1) {
-            var2 = MathHelper.floor_double(this.posX + (var1 % 2 * 2 - 1) * 0.25F);
-            int var3 = MathHelper.floor_double(this.posY);
-            int var4 = MathHelper.floor_double(this.posZ + (var1 / 2 % 2 * 2 - 1) * 0.25F);
-
-            if (this.worldObj.getBlock(var2, var3 - 1, var4).getMaterial().isSolid() && Blocks.snow.canPlaceBlockAt(this.worldObj, var2, var3, var4)) {
-                this.worldObj.setBlock(var2, var3, var4, VetheaBlocks.blockAcid);
-            }
+        
+        if (this.worldObj.getBlock((int)Math.round(this.posX)-1, MathHelper.floor_double(this.posY) - 1, (int)Math.round(this.posZ)-1).isOpaqueCube() && this.worldObj.getBlock((int)Math.round(this.posX)-1, MathHelper.floor_double(this.posY), (int)Math.round(this.posZ)-1) == Blocks.air) {
+            this.worldObj.setBlock((int)Math.round(this.posX)-1, MathHelper.floor_double(this.posY), (int)Math.round(this.posZ)-1, VetheaBlocks.blockAcid);
         }
     }
 
