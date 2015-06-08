@@ -29,18 +29,18 @@ This mod is owned by XolovA, but he is no longer part of the team
 * krwminer - Developer
 
 #####Special Thanks to
-* BossLetsPlays - Exclusive Preview Videos / Former Developer
 * THEVOLCO - German Translations
 * ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
 * TikenTVC - Portuguese Translations
-* Sheenrox82 - Our Personal Jester / Former Developer
-* Declan (UKDeccy) - Models/Textures
-* BlueEyes9 - Models/Textures
+* Declan (UKDeccy) - A few Models/Textures
+* BlueEyes9 - A few Models/Textures
 * Insanity414all - Wiki admin
-* Laorwick - Recipes
+* Laorwick - Some Recipes
 
 #####Other Credits
+* BossLetsPlays - Former Developer
 * The_SlayerMC - Former Developer
+* Sheenrox82 - Former Developer
 * Mazetar - Former Developer
 * TLHPoE - Former Developer
 * Sactage - Server Owner and maintainer
