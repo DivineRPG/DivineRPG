@@ -37,7 +37,7 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.spawnTick % 40 == 0 && !this.worldObj.isRemote) {
+        if (this.spawnTick % 40 == 0 && !this.worldObj.isRemote && this.worldObj.getClosestVulnerablePlayerToEntity(this, 20) != null) {
         	if(this.rand.nextBoolean()) {
         		EntityHoverStinger var2 = new EntityHoverStinger(this.worldObj);
         		var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
