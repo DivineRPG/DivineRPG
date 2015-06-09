@@ -39,6 +39,7 @@ public class BlockVetheaPortal extends BlockBreakable {
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
         setBlockUnbreakable();
+        setLightLevel(0.8f);
     }
 
     @Override

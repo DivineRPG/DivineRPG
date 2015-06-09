@@ -60,6 +60,7 @@ public class BlockModPortal extends BlockBreakable {
         LangRegistry.addBlock(this);
         setBlockUnbreakable();
         ((BlockModFire) fireBlock).addPortal(this);
+        setLightLevel(0.8f);
     }
 
     @Override
