@@ -3,7 +3,9 @@ package net.divinerpg.utils;
 import java.lang.reflect.Method;
 
 import net.divinerpg.DivineRPG;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -219,5 +221,19 @@ public class Util {
         Vec3 look = player.getLook(1);
         Vec3 vec32 = pos.addVector(look.xCoord * distance, look.yCoord * distance, look.zCoord * distance);
         return player.worldObj.rayTraceBlocks(pos, vec32, false, false, true);
+    }
+    
+    public static boolean bordersTar(World w, int x, int y, int z) {
+        for (int i = x - 4; i <= x + 4; ++i) {
+            for (int j = y; j <= y + 1; ++j) {
+                for (int k = z - 4; k <= z + 4; ++k) {
+                    if (w.getBlock(i, j, k) == VanillaBlocks.tar) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }

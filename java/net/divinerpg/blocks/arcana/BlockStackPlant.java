@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.material.EnumBlockType;
@@ -38,6 +39,11 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 
  
 	public void onBlockAdded(World par1World, int par2, int par3, int par4) { }
+	
+	@Override
+    public boolean canPlaceBlockAt(World w, int x, int y, int z) {
+        return Util.bordersTar(w, x, y-1, z);
+    }
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random par5Random) {
@@ -49,7 +55,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	
 	@Override
 	public boolean canBlockStay(World w, int x, int y, int z) {
-		return w.getBlock(x, y - 1, z) == this || w.getBlock(x, y - 1, z) == ArcanaBlocks.arcanaGrass;
+		return w.getBlock(x, y - 1, z) == this || (w.getBlock(x, y - 1, z) == ArcanaBlocks.arcanaGrass && Util.bordersTar(w, x, y-1, z));
 	}
 	
 	@Override

@@ -40,8 +40,7 @@ public class ItemModSeeds extends ItemSeeds {
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         if (side != 1) return false;
         if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
-            if (this.crop.canPlaceBlockOn(world.getBlock(x, y, z)) && world.isAirBlock(x, y + 1, z))
-            {
+            if (this.crop.canPlaceBlockOn(world.getBlock(x, y, z)) && this.crop.canPlaceBlockAt(world, x, y, z) && world.isAirBlock(x, y + 1, z)) {
                 world.setBlock(x, y + 1, z, this.crop);
                 --stack.stackSize;
                 return true;
