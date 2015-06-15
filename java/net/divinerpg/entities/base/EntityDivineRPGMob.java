@@ -1,19 +1,18 @@
 package net.divinerpg.entities.base;
 
-import net.divinerpg.entities.vethea.EntityTwins;
-import net.divinerpg.utils.LangRegistry;
-import net.divinerpg.utils.Util;
-import net.divinerpg.utils.config.ConfigurationHelper;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -32,7 +31,7 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 	public abstract String mobName();
 
 	protected void addAttackingAI(){
-        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false));
+        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, getMoveSpeed()*5, false));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 	}
 	
@@ -61,5 +60,14 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 	@Override
 	protected boolean isAIEnabled() {
 		return true;
+	}
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+	    boolean attack = super.attackEntityFrom(source, amount);
+	    if(attack) {
+	        if(source.getEntity() instanceof EntityDivineRPGTameable) this.setAttackTarget((EntityLivingBase)source.getEntity());
+	    }
+	    return attack;
 	}
 }

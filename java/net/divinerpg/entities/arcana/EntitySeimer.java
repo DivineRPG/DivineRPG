@@ -79,7 +79,7 @@ public class EntitySeimer extends EntityDivineRPGTameable {
     
     @Override
     public boolean attackEntityAsMob(Entity e) {
-    	return e.attackEntityFrom(DamageSource.causeMobDamage(this), 10);
+    	return e.attackEntityFrom(DamageSource.causeMobDamage(this), 6);
     }
 
 	@Override

@@ -56,8 +56,8 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit);
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
-        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, getMoveSpeed(), true));
-        this.tasks.addTask(5, new EntityAIFollowOwner(this, getMoveSpeed(), 10.0F, 2.0F));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, getMoveSpeed()*5, true));
+        this.tasks.addTask(5, new EntityAIFollowOwner(this, getMoveSpeed()*5, 4F, 16F));
         this.tasks.addTask(6, new EntityAIMate(this, 1.0F));
         this.tasks.addTask(7, new EntityAIWander(this, 1.0F));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
