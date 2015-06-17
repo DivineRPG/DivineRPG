@@ -28,8 +28,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class EntityMoonWolf extends EntityDivineRPGTameable {
 	
     private float headRotationX, headRotationY, timeWolfIsShaking, prevTimeWolfIsShaking;
-    private boolean isShaking, dontKnow;
-    private int ranCount = this.rand.nextInt(4);
+    private boolean isShaking, shakingAndDry;
 
     public EntityMoonWolf(World world) {
         super(world);
@@ -39,26 +38,17 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.30000001192092896D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfHealth);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfFollowRange);
     }
     
     @Override
     public void setTamed(boolean par1) {
         super.setTamed(par1);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfHealth);
     }
  
     public boolean isAIEnabled() {
         return true;
-    }
-
-    @Override
-    public void setAttackTarget(EntityLivingBase target) {
-        super.setAttackTarget(target);
-        if(target == null) 
-            this.setAngry(false);
-        else if(!this.isTamed()) 
-            this.setAngry(true);
     }
 
     @Override
@@ -119,11 +109,16 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
-        if(!this.worldObj.isRemote && this.isShaking && !this.dontKnow && !this.hasPath() && this.onGround) {
-            this.dontKnow = true;
+        if(!this.worldObj.isRemote && this.isShaking && !this.shakingAndDry && !this.hasPath() && this.onGround) {
+            this.shakingAndDry = true;
             this.timeWolfIsShaking = 0.0F;
             this.prevTimeWolfIsShaking = 0.0F;
             this.worldObj.setEntityState(this, (byte)8);
+        }
+        
+        if(this.isAngry()) {
+            this.setAttackTarget(this.worldObj.getClosestVulnerablePlayerToEntity(this, 24));
+            if(this.rand.nextInt(400) == 0 && this.getAttackTarget() == null) this.setAngry(false);
         }
     }
 
@@ -144,11 +139,11 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
 
         if(this.isWet()) {
             this.isShaking = true;
-            this.dontKnow = false;
+            this.shakingAndDry = false;
             this.timeWolfIsShaking = 0.0F;
             this.prevTimeWolfIsShaking = 0.0F;
         }
-        else if((this.isShaking || this.dontKnow) && this.dontKnow) {
+        else if((this.isShaking || this.shakingAndDry) && this.shakingAndDry) {
             if(this.timeWolfIsShaking == 0.0F) {
                 this.playSound("mob.wolf.shake", this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             }
@@ -158,7 +153,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
 
             if(this.prevTimeWolfIsShaking >= 2.0F) {
                 this.isShaking = false;
-                this.dontKnow = false;
+                this.shakingAndDry = false;
                 this.prevTimeWolfIsShaking = 0.0F;
                 this.timeWolfIsShaking = 0.0F;
             }
@@ -226,6 +221,8 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
             if(entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow)) {
                 par2 = (par2 + 1.0F) / 2.0F;
             }
+            
+            if(entity instanceof EntityPlayer && !this.isTamed()) this.setAngry(true);
 
             return super.attackEntityFrom(source, par2);
         }
@@ -272,17 +269,17 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                 player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
 
             if(!this.worldObj.isRemote) {
-                if(ranCount == 0) {
+                if(this.rand.nextInt(4) == 0) {
                     this.setTamed(true);
                     this.setPathToEntity((PathEntity)null);
                     this.setAttackTarget((EntityLivingBase)null);
                     this.aiSit.setSitting(true);
-                    this.setHealth(200.0F);
+                    this.setHealth(20.0F);
+                    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
                     this.func_152115_b(player.getUniqueID().toString());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte)7);
                 } else {
-                	ranCount--;
                     this.playTameEffect(false);
                     this.worldObj.setEntityState(this, (byte)6);
                 }
@@ -290,17 +287,6 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
             return true;
         }
         return super.interact(player);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void handleHealthUpdate(byte par1) {
-        if(par1 == 8) {
-            this.dontKnow = true;
-            this.timeWolfIsShaking = 0.0F;
-            this.prevTimeWolfIsShaking = 0.0F;
-        } else {
-            super.handleHealthUpdate(par1);
-        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -313,6 +299,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
         return stack == null ? false : (!(stack.getItem() instanceof ItemFood) ? false : ((ItemFood)stack.getItem()).isWolfsFavoriteMeat());
     }
 
+    @Override
     public boolean isAngry() {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
     }
@@ -328,38 +315,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
 
     @Override
     public EntityMoonWolf createChild(EntityAgeable par1EntityAgeable) {
-        EntityMoonWolf EntityMoonWolf = new EntityMoonWolf(this.worldObj);
-        String s = this.func_152113_b();
-
-        if(s != null && s.trim().length() > 0) {
-            EntityMoonWolf.func_152115_b(s);
-            EntityMoonWolf.setTamed(true);
-        }
-
-        return EntityMoonWolf;
-    }
-
-    public void func_70918_i(boolean par1) {
-        if(par1) {
-            this.dataWatcher.updateObject(19, Byte.valueOf((byte)1));
-        }
-        else {
-            this.dataWatcher.updateObject(19, Byte.valueOf((byte)0));
-        }
-    }
-
-    @Override
-    public boolean canMateWith(EntityAnimal par1EntityAnimal) {
-        if(par1EntityAnimal == this) return false;
-        
-        else if(!this.isTamed()) return false;
-        
-        else if(!(par1EntityAnimal instanceof EntityMoonWolf))  return false;
-        
-        else {
-            EntityMoonWolf EntityMoonWolf = (EntityMoonWolf)par1EntityAnimal;
-            return !EntityMoonWolf.isTamed() ? false : (EntityMoonWolf.isSitting() ? false : this.isInLove() && EntityMoonWolf.isInLove());
-        }
+        return null;
     }
 
     public boolean isRotatingCalled() {
@@ -368,25 +324,9 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
 
     @Override
     protected boolean canDespawn() {
-        return !this.isTamed() && this.ticksExisted > 2400;
+        return !this.isTamed();
     }
-
-    @Override
-    public boolean func_142018_a(EntityLivingBase target, EntityLivingBase player) {
-        if(!(target instanceof EntityCreeper) && !(target instanceof EntityGhast)) {
-            if(target instanceof EntityMoonWolf) {
-                EntityMoonWolf EntityMoonWolf = (EntityMoonWolf)target;
-
-                if(EntityMoonWolf.isTamed() && EntityMoonWolf.getOwner() == player) {
-                    return false;
-                }
-            }
-            return target instanceof EntityPlayer && player instanceof EntityPlayer && !((EntityPlayer)player).canAttackPlayer((EntityPlayer)target) ? false : !(target instanceof EntityHorse) || !((EntityHorse)target).isTame();
-        } else {
-            return false;
-        }
-    }
-
+    
 	@Override
 	public String mobName() {
 		return "Moon Wolf";

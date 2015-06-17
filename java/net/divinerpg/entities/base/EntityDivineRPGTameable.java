@@ -1,5 +1,6 @@
 package net.divinerpg.entities.base;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -76,7 +77,7 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	
 	@Override
 	public EntityLivingBase getAttackTarget() {
-		return this.isTamed() ? super.getAttackTarget() : null;
+		return this.isTamed() || this.isAngry() ? super.getAttackTarget() : null;
 	}
 	
 	@Override
@@ -88,4 +89,6 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	public boolean getCanSpawnHere() {
 		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
 	}
+	
+	public boolean isAngry() {return false;}
 }
