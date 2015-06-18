@@ -1,6 +1,7 @@
 package net.divinerpg.utils;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.blocks.VanillaBlocks;
@@ -82,6 +83,8 @@ public class Util {
         EntityList.stringToClassMapping.put(entityName, entityClass);
         EntityList.classToStringMapping.put(entityClass, entityName);
         EntityList.idToClassMap.put(id, entityClass);
+        ((Map)ObfuscationReflectionHelper.getPrivateValue(EntityList.class, null, new String[]{"f", "field_75624_e", "classToIDMapping"})).put(entityClass, id);
+        ((Map)ObfuscationReflectionHelper.getPrivateValue(EntityList.class, null, new String[]{"g", "field_75622_f", "stringToIDMapping"})).put(entityName, id);
         EntityList.entityEggs.put(id, new EntityEggInfo(id, 0x000000, 0xFFFFFF));
     }
 

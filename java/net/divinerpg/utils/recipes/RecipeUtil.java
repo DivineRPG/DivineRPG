@@ -76,7 +76,6 @@ public class RecipeUtil {
             }
 
             if (ItemStack.areItemStacksEqual(new ItemStack(removed), recipeResult)) {
-                System.out.println("[DivineRPG] Removed recipe: " + recipes.get(i) + " -> " + recipeResult);
                 recipes.remove(i);
             }
         }
