@@ -66,7 +66,7 @@ public class ItemArcanaSpawnEgg extends ItemMod {
 			list.add("Spawns a pet Seimer");
 		
 		if(item == ArcanaItems.golemSpawner)
-			list.add("Spawns a pet Golem Of Rejuv'");
+			list.add("Spawns a pet Golem Of Rejuvenation");
 		
 		if(item == ArcanaItems.paratikuSpawner)
 			list.add("Spawns a pet Paratiku");

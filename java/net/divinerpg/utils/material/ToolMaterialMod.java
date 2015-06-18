@@ -52,8 +52,8 @@ public class ToolMaterialMod {
     public static ToolMaterial Saber          = Util.addMeleeMaterial(22, 22);
     public static ToolMaterial ShadowSaber    = Util.addMeleeMaterial(20, 22);
     public static ToolMaterial LiviciaSword   = Util.addMeleeMaterial(10000, 26, 22);
-    public static ToolMaterial Palavence      = Util.addMeleeMaterial(120, 1, 0);
-    public static ToolMaterial Massivence     = Util.addMeleeMaterial(540, 1, 0);
+    public static ToolMaterial Palavence      = Util.addMeleeMaterial(60, 1, 0);
+    public static ToolMaterial Frossivence     = Util.addMeleeMaterial(270, 1, 0);
     public static ToolMaterial FlamingFury    = Util.addMeleeMaterial(6000, 26, 15);
     public static ToolMaterial ArcaniteBlade  = Util.addMeleeMaterial(7000, 34, 15);
     public static ToolMaterial DualClaw       = Util.addMeleeMaterial(4000, 12, 15);

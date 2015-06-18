@@ -76,7 +76,7 @@ public class IceikaItems {
          glacierSword      = new ItemSlowingSword(ToolMaterialMod.Glacier, "glacierSword");
          frostkingSword    = new ItemSlowingSword(ToolMaterialMod.Frostking, "frostkingSword");
          frozenMaul        = new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozenMaul");
-         frossivence       = new ItemHealingSword("frossivence", ToolMaterialMod.Massivence, 4);
+         frossivence       = new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1);
 
          soundOfCarols     = new ItemMusicShooter("soundOfCarols").setCreativeTab(DivineRPGTabs.ranged);
          soundOfMusic      = new ItemMusicShooter("soundOfMusic").setCreativeTab(DivineRPGTabs.ranged);

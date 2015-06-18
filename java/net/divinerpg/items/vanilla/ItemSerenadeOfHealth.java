@@ -18,7 +18,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
 	public ItemSerenadeOfHealth(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.utility);
-		setMaxDurability(20);
+		setMaxDurability(7);
 		setMaxStackSize(1);
 	}
 	

@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class ItemHealingSword extends ItemModSword {
 	
-	private int healAmount;
+	private float healAmount;
 
-	public ItemHealingSword(String name, ToolMaterial mat, int healAmount) {
+	public ItemHealingSword(String name, ToolMaterial mat, float healAmount) {
 		super(mat, name);
 		this.healAmount = healAmount;
 	}

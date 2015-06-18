@@ -165,7 +165,7 @@ public class VanillaItemsWeapons {
 	    serenadeStriker 	= new ItemSerenadeStriker("serenadeStriker");
 	    serenadeOfDeath 	= new ItemSerenadeOfDeath("serenadeOfDeath");
 	    
-	    palavence 		    = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 1);
-	    massivence 	    = new ItemHealingSword("massivence", ToolMaterialMod.Massivence, 2);
+	    palavence 		    = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5f);
+	    massivence 	    = new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1);
 	}
 }

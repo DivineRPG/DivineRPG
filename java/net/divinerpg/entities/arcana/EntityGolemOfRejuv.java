@@ -15,7 +15,7 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 
 	public EntityGolemOfRejuv(World par1World) {
 		super(par1World);
-		this.setSize(1.0F, 1.0F);
+		this.setSize(1F, 2.2F);
 		this.healTimer = 0;
 	}
 	
@@ -74,7 +74,7 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 	public void onUpdate() {
 		super.onUpdate();
 		if (this.getOwner() != null) {
-			if (this.healTimer == 8) {
+			if (this.healTimer == 16) {
 				this.getOwner().heal(1);
 				this.healTimer = 0;
 			} else {
