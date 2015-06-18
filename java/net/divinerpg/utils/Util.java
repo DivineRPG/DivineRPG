@@ -5,10 +5,10 @@ import java.lang.reflect.Method;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -33,7 +33,6 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -79,7 +78,11 @@ public class Util {
     public static void registerDivineRPGMob(Class entityClass, String entityName) {
     	LangRegistry.addMob(entityName);
         EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 128, 5, true);
-        EntityList.addMapping(entityClass, entityName, entityListID++, 0x000000, 0xFFFFFF);
+        int id = entityListID++;
+        EntityList.stringToClassMapping.put(entityName, entityClass);
+        EntityList.classToStringMapping.put(entityClass, entityName);
+        EntityList.idToClassMap.put(id, entityClass);
+        EntityList.entityEggs.put(id, new EntityEggInfo(id, 0x000000, 0xFFFFFF));
     }
 
     public static void registerProjectile(Class entityClass, String entityName) {

@@ -108,29 +108,29 @@ public class ModelMoonWolf extends ModelBase {
 		Ear3.mirror = true;
 		setRotation(Ear3, 0F, 0F, 0F);
 		spike1 = new ModelRenderer(this, 37, 0);
-		spike1.addBox(-1F, -8F, 0F, 2, 6, 1);
+		spike1.addBox(13F, 0F, -1F, 2, 6, 1);
 		spike1.setRotationPoint(0F, 14F, 2F);
 		spike1.setTextureSize(64, 32);
 		spike1.mirror = true;
-		setRotation(spike1, 0F, 0F, 0.7853982F);
+		setRotation(spike1, 0.7853982F, 0F, 3*(float)Math.PI/2);
 		spike2 = new ModelRenderer(this, 37, 0);
-		spike2.addBox(-1F, -8F, 3F, 2, 6, 1);
-		spike2.setRotationPoint(0F, 14F, 3F);
+		spike2.addBox(8F, 0F, -1F, 2, 6, 1);
+		spike2.setRotationPoint(0F, 14F, 2F);
 		spike2.setTextureSize(64, 32);
 		spike2.mirror = true;
-		setRotation(spike2, 0F, 0F, 0.7853982F);
+		setRotation(spike2, 0.7853982F, 0F, 3*(float)Math.PI/2);
 		spike3 = new ModelRenderer(this, 37, 0);
-		spike3.addBox(-2F, -8F, 0F, 2, 6, 1);
+		spike3.addBox(-15F, 0.5F, -1.5F, 2, 6, 1);
 		spike3.setRotationPoint(-1F, 14F, 2F);
 		spike3.setTextureSize(64, 32);
 		spike3.mirror = true;
-		setRotation(spike3, 0F, 0F, -0.7853982F);
+		setRotation(spike3, 0.7853982F, 0F, (float)Math.PI/2);
 		spike4 = new ModelRenderer(this, 37, 0);
-		spike4.addBox(-2F, -9F, 4F, 2, 6, 1);
-		spike4.setRotationPoint(0F, 14F, 2F);
+		spike4.addBox(-10F, 0.5F, -1.5F, 2, 6, 1);
+		spike4.setRotationPoint(-1F, 14F, 2F);
 		spike4.setTextureSize(64, 32);
 		spike4.mirror = true;
-		setRotation(spike4, 0F, 0F, -0.7853982F);
+		setRotation(spike4, 0.7853982F, 0F, (float)Math.PI/2);
 		Shape1 = new ModelRenderer(this, 4, 0);
 		Shape1.addBox(0F, 0F, 0F, 1, 1, 4);
 		Shape1.setRotationPoint(1F, 11F, -12F);
@@ -143,6 +143,10 @@ public class ModelMoonWolf extends ModelBase {
 		Shape2.setTextureSize(64, 32);
 		Shape2.mirror = true;
 		setRotation(Shape2, 0F, 0F, 0F);
+		this.Body.addChild(spike1);
+		this.Body.addChild(spike2);
+		this.Body.addChild(spike3);
+		this.Body.addChild(spike4);
 	}
 
 	@Override
@@ -161,10 +165,6 @@ public class ModelMoonWolf extends ModelBase {
 		Nose.render(f5);
 		Ear4.render(f5);
 		Ear3.render(f5);
-		spike1.render(f5);
-		spike2.render(f5);
-		spike3.render(f5);
-		spike4.render(f5);
 		Shape1.render(f5);
 		Shape2.render(f5);
 	}
@@ -184,10 +184,6 @@ public class ModelMoonWolf extends ModelBase {
 			this.Mane.rotateAngleY = 0.0F;
 			this.Body.setRotationPoint(0.0F, 18.0F, 0.0F);
 			this.Body.rotateAngleX = ((float)Math.PI / 4F);
-			spike1.setRotationPoint(0F, 18F, 2F);
-			spike2.setRotationPoint(0F, 18F, 3F);
-			spike3.setRotationPoint(-1F, 18F, 2F);
-			spike4.setRotationPoint(0F, 18F, 2F);
 
 			this.Leg1.setRotationPoint(-2.5F, 22.0F, 2.0F);
 			this.Leg1.rotateAngleX = ((float)Math.PI * 3F / 2F);
@@ -200,10 +196,6 @@ public class ModelMoonWolf extends ModelBase {
 		} else {
 			this.Body.setRotationPoint(0.0F, 14.0F, 2.0F);
 			this.Body.rotateAngleX = ((float)Math.PI / 2F);
-			spike1.setRotationPoint(0F, 14F, 2F);
-			spike2.setRotationPoint(0F, 14F, 3F);
-			spike3.setRotationPoint(-1F, 14F, 2F);
-			spike4.setRotationPoint(0F, 14F, 2F);
 
 			this.Mane.setRotationPoint(-1.0F, 14.0F, -3.0F);
 			this.Mane.rotateAngleX = this.Body.rotateAngleX;

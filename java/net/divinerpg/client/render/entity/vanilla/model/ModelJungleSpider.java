@@ -9,7 +9,7 @@ import net.minecraft.util.MathHelper;
 public class ModelJungleSpider extends ModelBase
 {
   //fields
-    ModelRenderer Head;
+    ModelRenderer Headp1;
     ModelRenderer Body;
     ModelRenderer RearEnd;
     ModelRenderer Leg8;
@@ -20,7 +20,7 @@ public class ModelJungleSpider extends ModelBase
     ModelRenderer Leg5;
     ModelRenderer Leg3;
     ModelRenderer Leg1;
-    ModelRenderer Headp1;
+    ModelRenderer Head;
     ModelRenderer Headp2;
     ModelRenderer Headp3;
     ModelRenderer Headp4;
@@ -34,12 +34,12 @@ public class ModelJungleSpider extends ModelBase
     textureWidth = 64;
     textureHeight = 32;
     
-      Head = new ModelRenderer(this, 32, 16);
-      Head.addBox(4F, 1F, -7F, 1, 4, 2);
-      Head.setRotationPoint(0F, 14F, -3F);
-      Head.setTextureSize(64, 32);
-      Head.mirror = true;
-      setRotation(Head, 0F, 0F, 0F);
+      Headp1 = new ModelRenderer(this, 32, 16);
+      Headp1.addBox(4F, -15F, -5F, 1, 4, 2);
+      Headp1.setRotationPoint(0F, 14F, -3F);
+      Headp1.setTextureSize(64, 32);
+      Headp1.mirror = true;
+      setRotation(Headp1, 0F, 0F, 0F);
       Body = new ModelRenderer(this, 0, 0);
       Body.addBox(-3F, -3F, -3F, 6, 6, 6);
       Body.setRotationPoint(0F, 16F, 0F);
@@ -100,38 +100,38 @@ public class ModelJungleSpider extends ModelBase
       Leg1.setTextureSize(64, 32);
       Leg1.mirror = true;
       setRotation(Leg1, 0F, 0.5759587F, -0.1919862F);
-      Headp1 = new ModelRenderer(this, 32, 4);
-      Headp1.addBox(-4F, -4F, -8F, 8, 8, 8);
-      Headp1.setRotationPoint(0F, 16F, -3F);
-      Headp1.setTextureSize(64, 32);
-      Headp1.mirror = true;
-      setRotation(Headp1, 0F, 0F, 0F);
+      Head = new ModelRenderer(this, 32, 4);
+      Head.addBox(-4F, -4F, -8F, 8, 8, 8);
+      Head.setRotationPoint(0F, 16F, -3F);
+      Head.setTextureSize(64, 32);
+      Head.mirror = true;
+      setRotation(Head, 0F, 0F, 0F);
       Headp2 = new ModelRenderer(this, 25, 19);
-      Headp2.addBox(2F, 5F, -5F, 1, 2, 5);
+      Headp2.addBox(2F, -11F, -3F, 1, 2, 5);
       Headp2.setRotationPoint(0F, 12F, -10F);
       Headp2.setTextureSize(64, 32);
       Headp2.mirror = true;
       setRotation(Headp2, 0F, 0F, 0F);
       Headp3 = new ModelRenderer(this, 32, 16);
-      Headp3.addBox(-5F, 1F, -7F, 1, 4, 2);
+      Headp3.addBox(-5F, -15F, -5F, 1, 4, 2);
       Headp3.setRotationPoint(0F, 14F, -3F);
       Headp3.setTextureSize(64, 32);
       Headp3.mirror = true;
       setRotation(Headp3, 0F, 0F, 0F);
       Headp4 = new ModelRenderer(this, 25, 19);
-      Headp4.addBox(-3F, 5F, -5F, 1, 2, 5);
+      Headp4.addBox(-3F, -11F, -3F, 1, 2, 5);
       Headp4.setRotationPoint(0F, 12F, -10F);
       Headp4.setTextureSize(64, 32);
       Headp4.mirror = true;
       setRotation(Headp4, 0F, 0F, 0F);
       Headp5 = new ModelRenderer(this, 25, 19);
-      Headp5.addBox(4F, 5F, -5F, 1, 2, 5);
+      Headp5.addBox(4F, -11F, -3F, 1, 2, 5);
       Headp5.setRotationPoint(0F, 12F, -10F);
       Headp5.setTextureSize(64, 32);
       Headp5.mirror = true;
       setRotation(Headp5, 0F, 0F, 0F);
       Headp6 = new ModelRenderer(this, 25, 19);
-      Headp6.addBox(-5F, 5F, -5F, 1, 2, 5);
+      Headp6.addBox(-5F, -11F, -3F, 1, 2, 5);
       Headp6.setRotationPoint(0F, 12F, -10F);
       Headp6.setTextureSize(64, 32);
       Headp6.mirror = true;
@@ -148,13 +148,18 @@ public class ModelJungleSpider extends ModelBase
       RearBump1.setTextureSize(64, 32);
       RearBump1.mirror = true;
       setRotation(RearBump1, 0F, 0F, 0F);
+      Head.addChild(Headp1);
+      Head.addChild(Headp2);
+      Head.addChild(Headp3);
+      Head.addChild(Headp4);
+      Head.addChild(Headp5);
+      Head.addChild(Headp6);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.render(entity, f, f1, f2, f3, f4, f5);
     setRotationAngles(f, f1, f2, f3, f4, f5);
-    Head.render(f5);
     Body.render(f5);
     RearEnd.render(f5);
     Leg8.render(f5);
@@ -165,12 +170,7 @@ public class ModelJungleSpider extends ModelBase
     Leg5.render(f5);
     Leg3.render(f5);
     Leg1.render(f5);
-    Headp1.render(f5);
-    Headp2.render(f5);
-    Headp3.render(f5);
-    Headp4.render(f5);
-    Headp5.render(f5);
-    Headp6.render(f5);
+    Head.render(f5);
     RearBump2.render(f5);
     RearBump1.render(f5);
   }
@@ -186,18 +186,6 @@ public class ModelJungleSpider extends ModelBase
   {
       this.Head.rotateAngleY = par4 / (180F / (float)Math.PI);
       this.Head.rotateAngleX = par5 / (180F / (float)Math.PI);
-      this.Headp1.rotateAngleY = par4 / (180F / (float)Math.PI);
-      this.Headp1.rotateAngleX = par5 / (180F / (float)Math.PI);
-      this.Headp2.rotateAngleY = par4 / (180F / (float)Math.PI);
-      this.Headp2.rotateAngleX = par5 / (180F / (float)Math.PI);
-      this.Headp3.rotateAngleY = par4 / (180F / (float)Math.PI);
-      this.Headp3.rotateAngleX = par5 / (180F / (float)Math.PI);
-      this.Headp4.rotateAngleY = par4 / (180F / (float)Math.PI);
-      this.Headp4.rotateAngleX = par5 / (180F / (float)Math.PI);
-      this.Headp5.rotateAngleY = par4 / (180F / (float)Math.PI);
-      this.Headp5.rotateAngleX = par5 / (180F / (float)Math.PI);
-      this.Headp6.rotateAngleY = par4 / (180F / (float)Math.PI);
-      this.Headp6.rotateAngleX = par5 / (180F / (float)Math.PI);
       
       float var8 = ((float)Math.PI / 4F);
       this.Leg1.rotateAngleZ = -var8;

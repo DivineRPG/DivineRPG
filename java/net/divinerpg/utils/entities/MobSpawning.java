@@ -223,8 +223,8 @@ public class MobSpawning {
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.JUNGLE)) {
 						EntityRegistry.addSpawn(EntityJungleBat.class, 50, 1, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityJungleDramcryx.class, 70, 1, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntityJungleSpider.class, 40, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityJungleDramcryx.class, 80, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityJungleSpider.class, 80, 1, 4, EnumCreatureType.monster, biome);
 					}
 					if(BiomeDictionary.isBiomeOfType(biome, Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, Type.MOUNTAIN)) {
 					    EntityRegistry.addSpawn(EntityCyclops.class, 35, 2, 4, EnumCreatureType.monster, biome);

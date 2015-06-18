@@ -269,7 +269,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                 player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
 
             if(!this.worldObj.isRemote) {
-                if(this.rand.nextInt(4) == 0) {
+                if(this.rand.nextInt(3) == 0) {
                     this.setTamed(true);
                     this.setPathToEntity((PathEntity)null);
                     this.setAttackTarget((EntityLivingBase)null);
