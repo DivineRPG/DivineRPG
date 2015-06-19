@@ -160,15 +160,15 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityGreenfeet.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityMadivel.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 
-		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 1, 4, 4, EnumCreatureType.creature, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 1, 4, 4, EnumCreatureType.creature, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 4, 4, 4, EnumCreatureType.creature, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 4, 4, 4, EnumCreatureType.creature, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityEpiphite.class, 1, 2, 2, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityEpiphite.class, 1, 2, 2, EnumCreatureType.creature, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityWildwoodGolem.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityVerek.class, 1, 4, 4, EnumCreatureType.monster, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityMoonWolf.class, 1, 4, 4, EnumCreatureType.creature, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityWildwoodGolem.class, 3, 4, 4, EnumCreatureType.monster, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityVerek.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityMoonWolf.class, 4, 4, 4, EnumCreatureType.creature, wildwoodBiome);
 
 		EntityRegistry.addSpawn(EntityApalachiaCadillion.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
 		EntityRegistry.addSpawn(EntityApalachiaGolem.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);

@@ -23,7 +23,7 @@ public class EntityWildwoodGolem extends EntityDivineRPGMob {
 	
     public EntityWildwoodGolem(World var1) {
         super(var1);
-        this.setSize(1.5F, 3.0F);
+        this.setSize(1F, 2.8F);
         addAttackingAI();
     }
 
