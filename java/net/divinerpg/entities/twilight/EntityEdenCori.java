@@ -174,4 +174,8 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
 	public String mobName() {
 		return "Weak Cori";
 	}
+	
+	public int getMaxSpawnedInChunk() {
+	    return 1;
+    }
 }

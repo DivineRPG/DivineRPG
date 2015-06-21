@@ -150,15 +150,16 @@ public class MobSpawning {
 		BiomeGenBase[] skythernBiome = new BiomeGenBase[] {DimensionHelper.skythernBiome};
 		BiomeGenBase[] mortumBiome = new BiomeGenBase[] {DimensionHelper.mortumBiome};
 
-		EntityRegistry.addSpawn(EntityEdenTomo.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
-		EntityRegistry.addSpawn(EntityEdenCadillion.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
-		EntityRegistry.addSpawn(EntityBunny.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
-		EntityRegistry.addSpawn(EntityEdenTomo.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
-		EntityRegistry.addSpawn(EntityEdenCadillion.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
-		EntityRegistry.addSpawn(EntityBunny.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
-		EntityRegistry.addSpawn(EntityEdenCori.class, 5, 1, 1, EnumCreatureType.creature, edenBiome);
-		EntityRegistry.addSpawn(EntityGreenfeet.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
-		EntityRegistry.addSpawn(EntityMadivel.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenTomo.class, 10, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenCadillion.class, 10, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityBunny.class, 10, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenTomo.class, 10, 4, 4, EnumCreatureType.creature, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenCadillion.class, 10, 4, 4, EnumCreatureType.creature, edenBiome);
+		EntityRegistry.addSpawn(EntityBunny.class, 10, 4, 4, EnumCreatureType.creature, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenCori.class, 1, 4, 4, EnumCreatureType.creature, edenBiome);
+		EntityRegistry.addSpawn(EntityEdenCori.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityGreenfeet.class, 10, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntityMadivel.class, 10, 4, 4, EnumCreatureType.monster, edenBiome);
 
 		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
