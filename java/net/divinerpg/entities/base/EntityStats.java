@@ -108,7 +108,7 @@ public class EntityStats {
 	public static double theEyeHealth 			= 40.0D, theEyeDamage = 10.0D, theEyeSpeed = normalSpeed, theEyeFollowRange = follow;
 	public static double whaleHealth 			= 120.0D, whaleDamage = 10.0D, whaleSpeed = normalSpeed, whaleFollowRange = follow;
 	public static double wildFireHealth 		= 50.0D, wildFireDamage = 8.0D, wildFireSpeed = normalSpeed, wildFireFollowRange = follow;
-	public static double hellPigHealth	 		= 50.0D, hellPigTamedHealth = 60.0D, hellPigSpeed = normalSpeed, hellPigRange = follow;
+	public static double hellPigHealth	 		= 50.0D, hellPigTamedHealth = 20.0D, hellPigSpeed = normalSpeed, hellPigRange = follow;
 
 	//Vethea
 	public static double cryptKeeperHealth 		= 200.0D, cryptKeeperSpeed = normalSpeed, cryptKeeperFollowRange = follow;

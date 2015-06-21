@@ -38,7 +38,8 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.30000001192092896D);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfHealth);
+        if(!this.isTamed())this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfHealth);
+        else this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.moonWolfFollowRange);
     }
     

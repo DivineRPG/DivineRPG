@@ -13,7 +13,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -26,17 +25,17 @@ public class EntityBunny extends EntityDivineRPGTameable {
 		this.experienceValue = 40;
 	}
 	
-	public EntityBunny(World var1, String player) {
-        super(var1);
-        this.setSize(0.5F, 0.5F);
-        this.experienceValue = 40;
-        this.func_152115_b(player);
-    }
+	@Override
+	public void entityInit() {
+	    super.entityInit();
+	    this.dataWatcher.addObject(19, 0);
+	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnyHealth);
+		if(!this.isTamed())this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnyHealth);
+		else this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnySpeed);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnyFollowRange);
 	}
@@ -54,7 +53,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 			if(var3 instanceof EntityPlayer) {
 				((EntityPlayer)var3).addStat(DivineRPGAchievements.friendOrFoe, 1);
 			}
-			this.transform(false, var3);
+			this.transform();
 		}
 	}
 
@@ -62,59 +61,61 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	public boolean attackEntityAsMob(Entity target) {
 		double i = EntityStats.bunnyDamage;
 		if(this.isTamed()) {
-			this.transform(true, target);
-			return false;
+			this.dataWatcher.updateObject(19, 1);
 		}
 		return target.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
 	}
+	
+	@Override
+	public void onUpdate() {
+	    super.onUpdate();
+	    if(!this.worldObj.isRemote) {
+	        if(this.isTamed() && this.getAttackTarget() == null) this.dataWatcher.updateObject(19, 0);
+	    }
+	}
 
-	private void transform(boolean tamed, Entity target)  {
+	private void transform()  {
 		if(!this.worldObj.isRemote) {
-		    EntityAngryBunny bunny;
-		    if(getOwner() == null)
-		        bunny = new EntityAngryBunny(this.worldObj, target);
-		    else
-		        bunny = new EntityAngryBunny(this.worldObj, target, getOwner().getUniqueID().toString());
-			bunny.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
-			this.worldObj.spawnEntityInWorld(bunny);
-			if(target instanceof EntityLiving) 
-				bunny.setAttackTarget((EntityLiving) target);
+			EntityAngryBunny e = new EntityAngryBunny(this.worldObj);
+			e.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
+			this.worldObj.spawnEntityInWorld(e);
 			this.setDead();
 		}
 	}
 
 	@Override
 	public boolean interact(EntityPlayer player) {
-		ItemStack stack = player.inventory.getCurrentItem();
+		ItemStack held = player.inventory.getCurrentItem();
 
 		if(this.isTamed()) {
-			if(stack != null && stack.getItem() instanceof ItemFood) {
-				ItemFood food = (ItemFood)stack.getItem();
+			if(held != null && held.getItem() instanceof ItemFood) {
+				ItemFood food = (ItemFood)held.getItem();
 
-				if(food.isWolfsFavoriteMeat()) {
-					if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
-					
-					this.heal((float)food.getHealAmount(stack));
-					if(stack.stackSize <= 0)
+				if(food.isWolfsFavoriteMeat() && this.getHealth() < 20) {
+					if(!player.capabilities.isCreativeMode) {
+						--held.stackSize;
+					}
+					this.heal((float)food.getHealAmount(held));
+					if(held.stackSize <= 0) {
 						player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
-
+					}
 					return true;
 				}
 			}
-			
-			if(this.func_152114_e(player) && !this.worldObj.isRemote && (stack == null || !this.isBreedingItem(stack))) {
-			    this.aiSit.setSitting(!this.isSitting());
-                this.isJumping = false;
-                this.setPathToEntity((PathEntity)null);
-                this.setTarget((Entity)null);
-                this.setAttackTarget((EntityLivingBase)null);
+			if(player.getUniqueID().toString().equals(this.func_152113_b()) && !this.worldObj.isRemote) {
+				this.aiSit.setSitting(!this.isSitting());
+				this.isJumping = false;
+				this.setPathToEntity((PathEntity)null);
 			}
 		}
-		else if(stack != null && stack.getItem() == TwilightItemsOther.edenSparkles) {
-			if(!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
+		else if(held != null && held.getItem() == TwilightItemsOther.edenSparkles) {
+			if(!player.capabilities.isCreativeMode) {
+				--held.stackSize;
+			}
 
-			if(stack.stackSize <= 0)
+			if(held.stackSize <= 0) {
 				player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
+			}
 
 			if(!this.worldObj.isRemote) {
 				if(this.rand.nextInt(3) == 0) {
@@ -122,6 +123,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					this.setPathToEntity((PathEntity)null);
 					this.setAttackTarget((EntityLiving)null);
 					this.aiSit.setSitting(true);
+					this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
 					this.setHealth(20);
 					this.func_152115_b(player.getUniqueID().toString());
 					this.playTameEffect(true);
@@ -164,5 +166,12 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	public EntityAgeable createChild(EntityAgeable var1) {
 		return null;
+	}
+	
+	@Override
+	public EntityLivingBase getAttackTarget() {
+	    EntityLivingBase e = super.getAttackTarget();
+	    if(e != null && ((this.isTamed() && this.getDistanceSqToEntity(e) < 144) || !this.isTamed())) return e;
+	    return null;
 	}
 }
