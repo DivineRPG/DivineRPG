@@ -2,6 +2,7 @@ package net.divinerpg.entities.iceika;
 
 import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -11,6 +12,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -55,6 +57,11 @@ public class EntityAlicanto extends EntityDivineRPGMob {
     @Override
     protected float getSoundPitch() {
         return super.getSoundPitch() * 0.95F;
+    }
+    
+    @Override
+    protected Item getDropItem() {
+        return IceikaItems.iceShards;
     }
 
     @Override
