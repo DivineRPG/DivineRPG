@@ -25,8 +25,6 @@ public class ItemModDoor extends ItemMod {
 		setCreativeTab(DivineRPGTabs.blocks);
 		setTextureName(Reference.PREFIX + name);
 		setUnlocalizedName(name);
-		GameRegistry.registerItem(this, name);
-		LangRegistry.addItem(this);
 	}
 
 	@Override

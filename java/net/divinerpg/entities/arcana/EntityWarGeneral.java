@@ -25,7 +25,7 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("War General: " + MessageLocalizer.general(this.rand.nextInt(4))));
+		p.addChatMessage(Util.getChatComponent("War General: " + MessageLocalizer.general(this.rand.nextInt(3))));
 	}
 
 	@Override

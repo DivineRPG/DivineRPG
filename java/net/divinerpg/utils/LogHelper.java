@@ -28,7 +28,6 @@ public class LogHelper {
 
     private static void log(Level level, Object msg) {
         FMLLog.log(Reference.MOD_NAME, level, msg.toString());
-        System.err.println(msg);
         writeFile(msg);
         flush();
     }

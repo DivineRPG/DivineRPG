@@ -37,7 +37,6 @@ public class DimensionHelper {
 	public static BiomeGenBase arcanaBiome 		= new BiomeGenArcana(ConfigurationHelper.arcanaBiome);
 
 	public static void init(){
-	    LogHelper.info("Adding dimensions");
 		addDimension(ConfigurationHelper.eden, WorldProviderEden.class, ConfigurationHelper.keepLoadingEden);
 		addDimension(ConfigurationHelper.wildwood, WorldProviderWildwood.class, ConfigurationHelper.keepLoadingWildwood);
 		addDimension(ConfigurationHelper.arcana, WorldProviderArcana.class, ConfigurationHelper.keepLoadingArcana);
@@ -49,7 +48,7 @@ public class DimensionHelper {
 	}
 
 	private static void addDimension(int id, Class<? extends WorldProvider> w, boolean keeploading){
-	    LogHelper.info("Registering dimension ID: " + id);
+	    LogHelper.debug("Registering dimension ID: " + id);
 		DimensionManager.registerProviderType(id, w, keeploading);
 		DimensionManager.registerDimension(id, id);
 	}

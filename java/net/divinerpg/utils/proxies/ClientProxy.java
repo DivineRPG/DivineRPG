@@ -55,7 +55,6 @@ public class ClientProxy extends CommonProxy {
 	
     @Override
     public void preInitClient(FMLPreInitializationEvent event) {
-        LogHelper.info("Adding events");
         Util.postFMLEvent(new ArcanaRenderer());
         Util.postFMLEvent(new ClientTicker());
         Util.postForgeEvent(new EventOverlay());
@@ -91,15 +90,12 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void renderThings() {
-        LogHelper.info("Adding renderers");
         VanillaEntityRenderer.init();
         TwilightEntityRenderer.init();
         IceikaEntityRenderer.init();
         VetheaEntityRenderer.init();
         ArcanaEntityRenderer.init();
-        LogHelper.info("Adding gui renderers");
         Util.postFMLEvent(new BossTickHandler());
-        LogHelper.info("Adding sounds");
         Util.postForgeEvent(new DevHatEvent());
     }
     

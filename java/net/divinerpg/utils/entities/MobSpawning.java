@@ -112,7 +112,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class MobSpawning {
 	public static void addSpawns(){
-		LogHelper.info("Adding mob spawns");
 		addArcanaSpawns();
 		addOverworldSpawns();
 		addTwilightSpawns();

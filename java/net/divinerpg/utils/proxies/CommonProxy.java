@@ -82,7 +82,6 @@ public class CommonProxy{
 	public void renderThings(){}
 	
 	public void preInitServer(FMLPreInitializationEvent event){
-		LogHelper.info("Adding events");
 		Util.postForgeEvent(new EventBucketFill());
 		Util.postForgeEvent(new EventBonemeal());
 		Util.postForgeEvent(new EventArmorFullSet());
@@ -95,7 +94,6 @@ public class CommonProxy{
         Util.postForgeEvent(new EventLightning());
         Util.postFMLEvent(new EventClientLogin());
         Util.postFMLEvent(new Ticker());
-		LogHelper.info("Registering tile entities");
 		ItemsFood.init();
 		IceikaItems.init();
 		IceikaBlocks.init();
@@ -136,19 +134,16 @@ public class CommonProxy{
         GameRegistry.registerTileEntity(TileEntityPresentBox.class, "PresentBox");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, "AyeracoSpawn");
         GameRegistry.registerTileEntity(TileEntityDreamLamp.class, "DreamLamp");
-		LogHelper.info("Registering entities");
 		VanillaEntityRegistry.init();
 		TwilightEntityRegistry.init();
 		IceikaEntityRegistry.init();
 		VetheaEntityRegistry.init();
 		ArcanaEntityRegistry.init();
-		LogHelper.info("Adding crafting/smelting recipes");
 		DimensionHelper.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GuiHandler());
 	}
 
 	public void init(FMLInitializationEvent event){
-		LogHelper.info("Adding world generators");
 		GameRegistry.registerWorldGenerator(new DivineWorldgen(), 0);
 		DivineRPGAchievements.init();
         MobSpawning.addSpawns();

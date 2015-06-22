@@ -6,7 +6,7 @@ import net.minecraft.util.StatCollector;
 public class MessageLocalizer {
 
     protected static final String[] VATT = {"message.vatticus.feel", "message.vatticus.noend", "message.vatticus.strength", "message.vatticus.discover", "message.vatticus.magic"},
-            WARGEN = {"message.general.weapons", "message.general.1", "message.general.2", "message.general.3"},
+            WARGEN = {"message.general.weapons", "message.general.1", "message.general.2"},
             MERCH = {"message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr"},
             JACK = {"message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah", "message.jackoman.seen"},
             GUARD = {"message.guardian.up", "message.guardian.places", "message.guardian.doing", "message.guardian.temples", "message.guardian.closer"},

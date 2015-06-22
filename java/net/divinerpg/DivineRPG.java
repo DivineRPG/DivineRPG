@@ -35,7 +35,7 @@ public class DivineRPG {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		LogHelper.info("Configuring mod");
+		LogHelper.info("Loading DivineRPG...");
 		ConfigurationHelper.init(event.getModConfigurationDirectory());
 		
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("DivineRPGNetwork");
@@ -54,7 +54,7 @@ public class DivineRPG {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit(event);
-
+		LogHelper.info("DivineRPG has finished loading!");
 	}
 	
 }

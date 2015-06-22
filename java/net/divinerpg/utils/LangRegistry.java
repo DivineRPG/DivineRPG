@@ -134,8 +134,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("message.vatticus.magic=Hurr drah drah, magic.");
         instance.addToFile("message.general.weapons=My weapons will conquer any foe.");
         instance.addToFile("message.general.1=Do not buy from Captain Merik. He does not care about quality.");
-        instance.addToFile("message.general.2=");
-        instance.addToFile("message.general.3=");
+        instance.addToFile("message.general.2=The Arcanite Blade is incredibly powerful.");
         instance.addToFile("message.merchant.ho=Hohoho.");
         instance.addToFile("message.merchant.out=It's cold outside.");
         instance.addToFile("message.merchant.in=It's cold inside.");
