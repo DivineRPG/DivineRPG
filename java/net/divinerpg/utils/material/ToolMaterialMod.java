@@ -36,11 +36,11 @@ public class ToolMaterialMod {
     public static ToolMaterial Bluefire       = Util.addMeleeMaterial(3000, 20, 15);
     public static ToolMaterial CorruptedMaul  = Util.addMeleeMaterial(6000, 15, 15);
     public static ToolMaterial Halite         = Util.addMeleeMaterial(2000, 36, 22);
-    public static ToolMaterial Skythern       = Util.addMeleeMaterial(6000, 31, 22);
-    public static ToolMaterial Eden           = Util.addMeleeMaterial(6000, 24, 22);
-    public static ToolMaterial Wildwood       = Util.addMeleeMaterial(6000, 26, 22);
-    public static ToolMaterial Apalachia      = Util.addMeleeMaterial(6000, 29, 22);
-    public static ToolMaterial Mortum         = Util.addMeleeMaterial(6000, 33, 22);
+    public static ToolMaterial Skythern       = Util.addMeleeMaterial(2000, 31, 22);
+    public static ToolMaterial Eden           = Util.addMeleeMaterial(2000, 24, 22);
+    public static ToolMaterial Wildwood       = Util.addMeleeMaterial(2000, 26, 22);
+    public static ToolMaterial Apalachia      = Util.addMeleeMaterial(2000, 29, 22);
+    public static ToolMaterial Mortum         = Util.addMeleeMaterial(2000, 33, 22);
     public static ToolMaterial Arlemite       = Util.addMeleeMaterial(4000, 12, 10);
     public static ToolMaterial Sandslash      = Util.addMeleeMaterial(100, 21, 22);
     public static ToolMaterial Rupee          = Util.addMeleeMaterial(2500, 12, 15);
