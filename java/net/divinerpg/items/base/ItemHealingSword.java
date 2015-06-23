@@ -35,7 +35,7 @@ public class ItemHealingSword extends ItemModSword {
 	@Override
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		 list.add("Heals " + this.healAmount + " health on use");
+		 list.add("Heals " + this.healAmount/2 + " hearts on use");
 		 list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
 	}
 }
