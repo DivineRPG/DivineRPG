@@ -83,11 +83,12 @@ public class ModelEnchantedWarrior extends ModelBiped
         this.handleft.setTextureSize(64, 32);
         this.handleft.mirror = true;
         this.setRotation(this.handleft, 0.0F, ((float)Math.PI / 2F), 0.0F);
+        this.head.addChild(hornright);
+        this.head.addChild(hornleft);
     }
 
     @Override
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
-    {
+    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7) {
         this.setRotationAngles(var2, var3, var4, var5, var6, var7);
         this.head.render(var7);
         this.body.render(var7);
@@ -95,25 +96,17 @@ public class ModelEnchantedWarrior extends ModelBiped
         this.bipedLeftArm.render(var7);
         this.rightleg.render(var7);
         this.leftleg.render(var7);
-        this.hornright.render(var7);
-        this.hornleft.render(var7);
     }
 
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4)
-    {
+    private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {
         var1.rotateAngleX = var2;
         var1.rotateAngleY = var3;
         var1.rotateAngleZ = var4;
     }
 
-    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6)
-    {
+    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6) {
         this.head.rotateAngleY = var4 / (180F / (float)Math.PI);
         this.head.rotateAngleX = var5 / (180F / (float)Math.PI);
-        this.hornleft.rotateAngleY = var4 / (180F / (float)Math.PI);
-        this.hornleft.rotateAngleX = var5 / (180F / (float)Math.PI);
-        this.hornright.rotateAngleY = var4 / (180F / (float)Math.PI);
-        this.hornright.rotateAngleX = var5 / (180F / (float)Math.PI);
         this.bipedRightArm.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
         this.bipedLeftArm.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
         this.bipedRightArm.rotateAngleZ = 0.0F;

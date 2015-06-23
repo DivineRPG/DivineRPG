@@ -57,7 +57,7 @@ public class TileEntityStupidSpawner extends TileEntity {
         				}
         			}
         		}
-        		this.spawnTimer = 400;
+        		this.spawnTimer = 300;
         	}
         }
     }

@@ -29,7 +29,7 @@ public class GUIOverlay {
 					text2 = Util.DARK_PURPLE + "Offline";
 				}
 				else if(UpdateChecker.isUpdateAvailable()) {
-					text2 = Util.DARK_BLUE + "DivineRPG: " + Util.DARK_RED + "Update Availble (" + UpdateChecker.getCurrentVersion() + ")";
+					text2 = Util.DARK_BLUE + "DivineRPG: " + Util.DARK_RED + "Update Available (" + UpdateChecker.getCurrentVersion() + ")";
 				}
 				else {
 					text2 = "";
@@ -48,7 +48,7 @@ public class GUIOverlay {
 		if(Minecraft.getMinecraft().gameSettings.showDebugInfo) {
 			Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(EnumChatFormatting.DARK_BLUE + text, 2, res.getScaledHeight()-10, 4210752);
 		} else if(!Minecraft.getMinecraft().gameSettings.showDebugInfo) {
-			Minecraft.getMinecraft().fontRendererObj.drawString(text2, 2, 2, 4210752);
+			Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(text2, 2, 2, 4210752);
 		}
 	}
 	

@@ -264,25 +264,25 @@ public class VetheanChunkBuilder {
 					}
 					
 					//L1
-					if(!containsPillarL1 && !containsInfusionTableL1 && !containsLampL1 && rand.nextInt(48) == 0){
+					if(!containsPillarL1 && !containsInfusionTableL1 && !containsLampL1 && rand.nextInt(24) == 0){
 						containsItemL1 = true;
 						items[this.rand.nextInt(8)].generate(chunk, rand.nextInt(3), 17, rand.nextInt(16));
 					}
 					
 					//L2
-					if(!containsPillarL2 && !containsInfusionTableL2 && !containsLampL2 && rand.nextInt(48) == 0){
+					if(!containsPillarL2 && !containsInfusionTableL2 && !containsLampL2 && rand.nextInt(24) == 0){
 						containsItemL2 = true;
 						items[this.rand.nextInt(8)].generate(chunk, rand.nextInt(3), 65, rand.nextInt(16));
 					}
 					
 					//L3
-					if(!containsPillarL3 && !containsInfusionTableL3 && !containsLampL3 && rand.nextInt(48) == 0){
+					if(!containsPillarL3 && !containsInfusionTableL3 && !containsLampL3 && rand.nextInt(24) == 0){
 						containsItemL3 = true;
 						items[this.rand.nextInt(8)].generate(chunk, rand.nextInt(3), 113, rand.nextInt(16));
 					}
 					
 					//L4
-					if(!containsInfusionTableL4 && !containsLampL4 && rand.nextInt(48) == 0){
+					if(!containsInfusionTableL4 && !containsLampL4 && rand.nextInt(24) == 0){
 						containsItemL4 = true;
 						items[this.rand.nextInt(8)].generate(chunk, rand.nextInt(3), 161, rand.nextInt(16));
 					}
