@@ -71,7 +71,7 @@ public class TwilightItemsArmor {
 	    mortumLeggings      = new ItemDivineArmor(EnumArmor.MORTUM, LEGS, mortInfo);
 	    mortumBoots     	= new ItemDivineArmor(EnumArmor.MORTUM, BOOTS, mortInfo);
 
-	    Object[] halInfo    = new Object[] { 24, ArmorInfo.MELEE_DAMAGE };
+	    Object[] halInfo    = new Object[] { 16, ArmorInfo.MELEE_DAMAGE };
 	    haliteHelmet    	= new ItemDivineArmor(EnumArmor.HALITE, HEAD, halInfo);
 	    haliteChestplate    = new ItemDivineArmor(EnumArmor.HALITE, BODY, halInfo);
 	    haliteLeggings      = new ItemDivineArmor(EnumArmor.HALITE, LEGS, halInfo);
