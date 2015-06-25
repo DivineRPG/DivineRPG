@@ -16,14 +16,11 @@ public class EventBucketFill {
 
 	@SubscribeEvent
 	public void onBucketFilledEvent(FillBucketEvent e){
-		if(e.current.getItem() != Items.bucket){
-			return;
-		}
+		if(e.current.getItem() != Items.bucket) return;
 
 		ItemStack filledBucket = getLiquid(e.world, e.target);
 
-		if(filledBucket == null)
-			return;
+		if(filledBucket == null) return;
 
 		e.world.setBlockToAir(e.target.blockX, e.target.blockY, e.target.blockZ);
 		e.result = filledBucket;
@@ -32,9 +29,7 @@ public class EventBucketFill {
 
 	public ItemStack getLiquid(World w, MovingObjectPosition m){
 		Block block = w.getBlock(m.blockX, m.blockY, m.blockZ);
-		if(block == VanillaBlocks.tar){
-			return new ItemStack(VanillaItemsOther.tarBucket);
-		}
+		if(block == VanillaBlocks.tar) return new ItemStack(VanillaItemsOther.tarBucket);
 
 		return null;
 	}
