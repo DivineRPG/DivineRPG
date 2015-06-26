@@ -1,54 +1,23 @@
 package net.divinerpg.entities.vanilla;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
-
 import net.divinerpg.DivineRPG;
+import net.divinerpg.client.GuiHandler;
+import net.divinerpg.entities.base.EntityDivineRPGVillager;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VanillaItemsArmor;
-import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
-import net.divinerpg.client.GuiHandler;
-import net.divinerpg.entities.base.EntityDivineRPGMob;
-import net.divinerpg.entities.base.EntityDivineRPGVillager;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.IMerchant;
-import net.minecraft.entity.INpc;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
-import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIPlay;
-import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITradePlayer;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.Tuple;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
-import net.minecraft.village.Village;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityJackOMan extends EntityDivineRPGVillager {
     
@@ -113,6 +82,26 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(Items.skull, 2, 1), new ItemStack(VanillaItemsArmor.witherReaperBoots)));
         list.add(new MerchantRecipe(new ItemStack(Items.skull, 6, 1), new ItemStack(Items.ender_eye, 60), new ItemStack(VanillaItemsWeapons.scythe)));
 	}
+	
+	public boolean isValidLightLevel() {
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+
+        if (this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > this.rand.nextInt(32)) return false;
+        else {
+            int l = this.worldObj.getBlockLightValue(i, j, k);
+
+            if (this.worldObj.isThundering()) {
+                int i1 = this.worldObj.skylightSubtracted;
+                this.worldObj.skylightSubtracted = 10;
+                l = this.worldObj.getBlockLightValue(i, j, k);
+                this.worldObj.skylightSubtracted = i1;
+            }
+
+            return l <= this.rand.nextInt(8);
+        }
+    }
 
 	@Override
 	public String mobName() {
@@ -126,6 +115,6 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere();
+		return this.isValidLightLevel() && super.getCanSpawnHere();
 	}
 }

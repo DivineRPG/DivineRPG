@@ -230,7 +230,7 @@ public class MobSpawning {
 					    EntityRegistry.addSpawn(EntityCyclops.class, 80, 2, 4, EnumCreatureType.monster, biome);
 					}
 					EntityRegistry.addSpawn(EntityMiner.class, 5, 1, 1, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityJackOMan.class, 1, 1, 1, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityJackOMan.class, 5, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityCaveCrawler.class, 70, 2, 3, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityRotatick.class, 70, 3, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.monster, biome);
