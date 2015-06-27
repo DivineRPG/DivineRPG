@@ -52,7 +52,7 @@ public abstract class RegistryFile {
     			if(Character.isUpperCase(str.charAt(i)) && str.charAt(i-1) != ' ') str = new StringBuffer(str).insert(i, " ").toString();
     		}
     	}
-    	
+    	str = str.replace("DRPG", "");
     	return str;
     }
     

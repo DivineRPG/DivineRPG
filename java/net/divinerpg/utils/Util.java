@@ -80,6 +80,7 @@ public class Util {
     	LangRegistry.addMob(entityName);
         EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 128, 5, true);
         int id = entityListID++;
+        entityName = "DRPG" + entityName;
         EntityList.stringToClassMapping.put(entityName, entityClass);
         EntityList.classToStringMapping.put(entityClass, entityName);
         EntityList.idToClassMap.put(id, entityClass);
