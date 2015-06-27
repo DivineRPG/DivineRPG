@@ -64,7 +64,7 @@ public class EntityEnthralledDramcryx extends EntityDivineRPGMob {
     
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY < 15.0D && super.getCanSpawnHere();
+        return this.posY <= 16.0D && super.getCanSpawnHere();
     }
 
 	@Override

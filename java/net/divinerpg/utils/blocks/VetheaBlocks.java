@@ -16,6 +16,7 @@ import net.divinerpg.blocks.vethea.BlockKarosCannon;
 import net.divinerpg.blocks.vethea.BlockKarosHeatTile;
 import net.divinerpg.blocks.vethea.BlockNightmareBed;
 import net.divinerpg.blocks.vethea.BlockShimmer;
+import net.divinerpg.blocks.vethea.BlockVetheaLog;
 import net.divinerpg.blocks.vethea.BlockVetheaPlant;
 import net.divinerpg.blocks.vethea.BlockVetheaPortal;
 import net.divinerpg.utils.material.EnumBlockType;
@@ -123,7 +124,7 @@ public class VetheaBlocks {
         dreamGrass             = new BlockModGrass((BlockMod)dreamDirt, "dreamGrass", "dreamDirt", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         fireCrystal            = new BlockMod(EnumBlockType.GLASS, "fireCrystal", 1.0F, DivineRPGTabs.vethea).setLightLevel(0.7F);
 
-        dreamWoodLog           = new BlockModLog("dreamWoodLog").setCreativeTab(DivineRPGTabs.vethea);
+        dreamWoodLog           = new BlockVetheaLog("dreamwoodLog");
         dreamWoodLeaves        = new BlockModLeaves("dreamWoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         lightDreamBricks       = new BlockMod("lightDreamBricks", 1.0F, DivineRPGTabs.vethea);
         darkDreamBricks        = new BlockMod("darkDreamBricks", 1.0F, DivineRPGTabs.vethea);
@@ -140,12 +141,12 @@ public class VetheaBlocks {
         cellLamp               = new BlockMod(EnumBlockType.GLASS, "cellLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
         barredDoor             = new BlockModDoor(EnumBlockType.IRON, "barredDoorBlock", 0.5F, true);
         firelight              = new BlockMod(EnumBlockType.GLASS, "firelight", 1.0F, DivineRPGTabs.vethea).setLightLevel(1).setResistance(1);
-        hyrewood               = new BlockModLog("hyreWoodLog").setCreativeTab(DivineRPGTabs.vethea);
+        hyrewood               = new BlockVetheaLog("hyrewoodLog");
         mintwoodLeaves         = new BlockModLeaves("mintwoodLeaves", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
         redDreamBricks         = new BlockMod("redDreamBricks", 1.0F, DivineRPGTabs.vethea);
         karosHeatTileGreen     = new BlockMod(EnumBlockType.GLASS, "karosHeatTileGreen", false, DivineRPGTabs.vethea);
         karosHeatTileRed       = new BlockKarosHeatTile();
-        firewood               = new BlockModLog("fireWoodLog").setCreativeTab(DivineRPGTabs.vethea);
+        firewood               = new BlockVetheaLog("firewoodLog");
         bacterialAcid          = new BlockAcid("bacterialAcid", false);
         blockAcid              = new BlockAcid("acidBlock", true);
         everstone              = new BlockMod("greenEverstone", 3.0F, DivineRPGTabs.vethea);
@@ -157,7 +158,7 @@ public class VetheaBlocks {
         purpleDulah            = new BlockVetheaPlant("purpleDulah");
         yellowDulah            = new BlockVetheaPlant("yellowDulah");
         greenDulah             = new BlockVetheaPlant("greenDulah");
-        mintwood               = new BlockModLog("mintwoodLog").setCreativeTab(DivineRPGTabs.vethea);
+        mintwood               = new BlockVetheaLog("mintwoodLog");
         cracklespike           = new BlockVetheaPlant("crackleSpike");
         fernite                = new BlockVetheaPlant("fernite");
         bulatobe               = new BlockVetheaPlant("bulbatobe");

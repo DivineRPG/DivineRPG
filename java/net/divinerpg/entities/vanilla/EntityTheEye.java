@@ -74,10 +74,9 @@ public class EntityTheEye extends EntityDivineRPGMob {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        int var4;
-        int var3 = this.rand.nextInt(2 + par2) + 1;
+        int torchRand = this.rand.nextInt(2) + 1;
         this.dropItem(VanillaItemsOther.rupeeIngot, 1);
-        this.dropItem(Item.getItemFromBlock(Blocks.torch), 16 * var3);
+        this.dropItem(Item.getItemFromBlock(Blocks.torch), 16 * torchRand);
     }
 
     @Override
@@ -87,7 +86,7 @@ public class EntityTheEye extends EntityDivineRPGMob {
     
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY < 15.0D && super.getCanSpawnHere();
+        return this.posY <= 16.0D && super.getCanSpawnHere();
     }
 
 	@Override
