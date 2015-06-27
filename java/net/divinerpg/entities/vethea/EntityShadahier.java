@@ -33,7 +33,7 @@ public class EntityShadahier extends VetheaMob {
     @Override
     public void onLivingUpdate() {
     	super.onLivingUpdate();
-        EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
+        EntityPlayer var1 = this.worldObj.getClosestVulnerablePlayerToEntity(this, 6.0D);
         if(var1 != null) {
             var1.addPotionEffect(new PotionEffect(Potion.blindness.id, 1, 1));
         }
