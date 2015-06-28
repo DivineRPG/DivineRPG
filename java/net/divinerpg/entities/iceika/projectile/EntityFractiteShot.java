@@ -1,5 +1,6 @@
 package net.divinerpg.entities.iceika.projectile;
 
+import net.divinerpg.DivineRPG;
 import net.divinerpg.entities.fx.EntityWildwoodPortalFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -42,8 +43,7 @@ public class EntityFractiteShot extends EntityFireball {
 	public void onUpdate() {
 		super.onUpdate();
 		for(int i = 0; i<5; i++){
-			EntityWildwoodPortalFX var20 = new EntityWildwoodPortalFX(this.worldObj, this.posX+(this.rand.nextDouble()-this.rand.nextDouble())/3, this.posY + 0.5D+(this.rand.nextDouble()-this.rand.nextDouble())/3, this.posZ+(this.rand.nextDouble()-this.rand.nextDouble())/3, 0.0D, 0.0D, 0.0D);
-			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+		    DivineRPG.proxy.spawnParticle(this.worldObj, this.posX, this.posY, this.posZ, "wildwood", true);
 		}
 	}
 }

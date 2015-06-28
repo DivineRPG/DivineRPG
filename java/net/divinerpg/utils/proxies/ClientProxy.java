@@ -112,16 +112,16 @@ public class ClientProxy extends CommonProxy {
     		z += (rand.nextDouble()-rand.nextDouble())/(4/randFactor);
     	}
     	EntityFX fx = null;
-    	if(particle == "eden") fx = new EntityEdenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "wildwood") fx = new EntityWildwoodPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "apalachia") fx = new EntityPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "skythern") fx = new EntitySkythernPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "mortum") fx = new EntityMortumPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "halite") fx = new EntityGreenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "greenFlame") fx = new EntityGreenFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "blackFlame") fx = new EntityBlackFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "blueFlame") fx = new EntityBlueFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
-    	else if(particle == "orangeFlame") fx = new EntityFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	if(particle.equals("eden")) fx = new EntityEdenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("wildwood")) fx = new EntityWildwoodPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("apalachia")) fx = new EntityPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("skythern")) fx = new EntitySkythernPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("mortum")) fx = new EntityMortumPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("halite")) fx = new EntityGreenPortalFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("greenFlame")) fx = new EntityGreenFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("blackFlame")) fx = new EntityBlackFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("blueFlame")) fx = new EntityBlueFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
+    	else if(particle.equals("orangeFlame")) fx = new EntityFlameFX(w, x, y, z, 0.0D, 0.0D, 0.0D);
     	if(fx != null) FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
     }
     
