@@ -41,7 +41,7 @@ public class UpdateChecker {
 	}
 	
 	public static String getCurrentVersion() throws MalformedURLException, IOException {
-		BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
+		BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.githubusercontent.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
 		String curVersion = versionFile.readLine();
 		versionFile.close();
 		return curVersion;
