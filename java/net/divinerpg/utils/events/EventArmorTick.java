@@ -63,6 +63,11 @@ public class EventArmorTick {
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;        
         
+        if(boots != VanillaItemsArmor.angelicBoots || body != VanillaItemsArmor.angelicBody || legs != VanillaItemsArmor.angelicLegs || helmet != VanillaItemsArmor.angelicHelmet) {
+            FlyingHelper.getProperties(evt.player).couldFly = evt.player.capabilities.allowFlying;
+        }
+        if(evt.player.capabilities.isCreativeMode) FlyingHelper.getProperties(evt.player).couldFly = false;
+        
         if (boots == VanillaItemsArmor.angelicBoots && body == VanillaItemsArmor.angelicBody && legs == VanillaItemsArmor.angelicLegs && helmet == VanillaItemsArmor.angelicHelmet && ArcanaHelper.getProperties(evt.player).getBarValue() != 0) {
             evt.player.fallDistance = -0.5F;
             evt.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
@@ -77,11 +82,6 @@ public class EventArmorTick {
         	evt.player.capabilities.isFlying = false;
         	evt.player.capabilities.allowFlying = false;
         }
-        
-        if(boots != VanillaItemsArmor.angelicBoots || body != VanillaItemsArmor.angelicBody || legs != VanillaItemsArmor.angelicLegs || helmet != VanillaItemsArmor.angelicHelmet) {
-            FlyingHelper.getProperties(evt.player).couldFly = evt.player.capabilities.allowFlying;
-        }
-        if(evt.player.capabilities.isCreativeMode) FlyingHelper.getProperties(evt.player).couldFly = false;
         
         //Elite Realmite
         if (boots == VanillaItemsArmor.eliteRealmiteBoots && body == VanillaItemsArmor.eliteRealmiteBody && legs == VanillaItemsArmor.eliteRealmiteLegs && helmet == VanillaItemsArmor.eliteRealmiteHelmet) {
