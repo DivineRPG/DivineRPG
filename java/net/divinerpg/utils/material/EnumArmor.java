@@ -43,7 +43,7 @@ public enum EnumArmor {
     SANTA(Util.addArmorMaterial("Santa", 0, 10), "santa", true, 0, true),
     KORMA(Util.addArmorMaterial("Korma", 0, 22), "korma", true, 78),
     VEMOS(Util.addArmorMaterial("Vemos", 0, 22), "vemos", true, 65),
-    DIAMOND(Util.addArmorMaterial("Diamond", 3000, 10), "diamond", false, 40),
+    DIAMOND(Util.addArmorMaterial("Diamond", 3000, 10), "diamond", false, 55),
     IRON(Util.addArmorMaterial("Iron", 2000, 12), "iron", false, 30),
     GOLD(Util.addArmorMaterial("Gold", 1000, 10), "gold", false, 22),
     
