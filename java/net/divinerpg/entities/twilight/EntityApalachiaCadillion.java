@@ -46,6 +46,11 @@ public class EntityApalachiaCadillion extends EntityDivineRPGMob {
 		this.dropItem(TwilightItemsOther.apalachiaSoul, this.rand.nextInt(2 + var2));
 		this.dropItem(ItemsFood.enrichedMagicMeat, 1);
 	}
+	
+	@Override
+    public boolean isValidLightLevel() {
+        return true;
+    }
 
 	@Override
 	public String mobName() {

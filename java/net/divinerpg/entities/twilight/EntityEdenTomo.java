@@ -54,7 +54,8 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
     protected void dropFewItems(boolean beenHit, int lootingLevel) {
         super.dropFewItems(beenHit, lootingLevel);
         if(this.rand.nextInt(2) == 0) this.dropItem(TwilightItemsOther.edenSoul, 1+lootingLevel);
-        this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
+        if(this.isBurning()) this.dropItem(ItemsFood.empoweredMeat, 1);
+        else this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
         if(this.rand.nextInt(3) == 0) this.dropItem(Items.gold_ingot, this.rand.nextInt(3)+1);
     }
 

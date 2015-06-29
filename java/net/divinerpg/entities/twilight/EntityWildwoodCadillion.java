@@ -67,6 +67,11 @@ public class EntityWildwoodCadillion extends EntityDivineRPGMob {
 	protected Item getDropItem() {
 		return TwilightItemsOther.wildwoodSoul;
 	}
+	
+	@Override
+    public boolean isValidLightLevel() {
+        return true;
+    }
 
 	@Override
 	public String mobName() {

@@ -44,20 +44,21 @@ public class EntityEdenCadillion extends EntityDivineRPGMob {
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {
 		int var3 = this.rand.nextInt(2 + var2);
-		this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
+		if(this.isBurning()) this.dropItem(ItemsFood.empoweredMeat, 1);
+        else this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
 		for(int var4 = 0; var4 < var3; ++var4) {
 			this.dropItem(TwilightItemsOther.edenSoul, 1);
 		}
 	}
 
 	@Override
-	protected void dropRareDrop(int var1) {
-		this.dropItem(TwilightItemsOther.edenSoul, 1);
-	}
-
-	@Override
 	protected Item getDropItem() {
 		return TwilightItemsOther.edenSoul;
+	}
+	
+	@Override
+	public boolean isValidLightLevel() {
+	    return true;
 	}
 
 	@Override

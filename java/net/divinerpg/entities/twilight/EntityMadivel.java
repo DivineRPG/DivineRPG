@@ -57,7 +57,8 @@ public class EntityMadivel extends EntityDivineRPGMob {
     @Override
     protected void dropFewItems(boolean var1, int var2) {
         super.dropFewItems(var1, var2);
-        this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
+        if(this.isBurning()) this.dropItem(ItemsFood.empoweredMeat, 1);
+        else this.dropItem(ItemsFood.rawEmpoweredMeat, 1);
     }
 
 	@Override
