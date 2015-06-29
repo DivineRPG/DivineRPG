@@ -31,9 +31,9 @@ public class DivineWorldgen implements IWorldGenerator{
 	private void generateOverworld(World world, Random random, int x, int z) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
-		addOreSpawn(VanillaBlocks.realmiteOre, Blocks.stone, world, random, x, z, 3, 5, 2, 5, 1, 15);
-		addOreSpawn(VanillaBlocks.arlemiteOre, Blocks.stone, world, random, x, z, 1, 2, 1, 3, 1, 15);
-		addOreSpawn(VanillaBlocks.rupeeOre,    Blocks.stone, world, random, x, z, 1, 2, 1, 3, 1, 15);
+		addOreSpawn(VanillaBlocks.realmiteOre, Blocks.air, world, random, x, z, 3, 5, 2, 5, 106, 120);
+		addOreSpawn(VanillaBlocks.arlemiteOre, Blocks.air, world, random, x, z, 1, 2, 1, 3, 106, 200);
+		addOreSpawn(VanillaBlocks.rupeeOre,    Blocks.air, world, random, x, z, 1, 2, 1, 3, 106, 200);
 
 		if(random.nextInt(8) == 0) {
 			int posX = x + random.nextInt(16) + 8;
