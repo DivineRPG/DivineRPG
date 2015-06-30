@@ -127,10 +127,6 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		removeCraftingRecipe(Items.iron_leggings);
 		removeCraftingRecipe(Items.iron_boots);
 		removeCraftingRecipe(Items.iron_helmet);
-		removeCraftingRecipe(Items.leather_chestplate);
-		removeCraftingRecipe(Items.leather_leggings);
-		removeCraftingRecipe(Items.leather_boots);
-		removeCraftingRecipe(Items.leather_helmet);
 		
 		addRecipe(VanillaItemsArmor.diamondHelmet, "III", "I I",  'I', Items.diamond);
 		addRecipe(VanillaItemsArmor.diamondBody, "I I", "III", "III", 'I', Items.diamond);
