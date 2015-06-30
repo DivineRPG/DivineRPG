@@ -92,7 +92,7 @@ public class EntityStats {
 	public static double enderTripletsHealth 	= 10.0D,  enderTripletsSpeed = normalSpeed, enderTripletsFollowRange = follow;
 	public static double enderWatcherHealth 	= 50.0D, enderWatcherDamage = 8.0D, enderWatcherSpeed = normalSpeed, enderWatcherFollowRange = follow;
 	public static double frostHealth 			= 50.0D, frostDamage = 6.0D, frostSpeed = normalSpeed, frostFollowRange = follow;
-	public static double glaconHealth 			= 60.0D, glaconDamage = 7.0D, glaconSpeed = normalSpeed, glaconFollowRange = follow;
+	public static double glaconHealth 			= 60.0D, glaconDamage = 7.0D, glaconSpeed = normalSpeed*1.6, glaconFollowRange = follow;
 	public static double jungleDramcryxHealth 	= 40.0D, jungleDramcryxDamage = 7.0D, jungleDramcryxSpeed = normalSpeed, jungleDramcryxFollowRange = follow;
 	public static double jungleBatHealth 		= 20.0D, jungleBatDamage = 5.0D, jungleBatSpeed = normalSpeed, jungleBatFollowRange = follow;
 	public static double jungleSpiderHealth		= 45.0D, jungleSpiderDamage = 7.0D, jungleSpiderSpeed = normalSpeed, jungleSpiderFollowRange = follow;

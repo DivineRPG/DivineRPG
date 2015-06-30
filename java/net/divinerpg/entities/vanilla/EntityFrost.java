@@ -119,20 +119,9 @@ public class EntityFrost extends EntityDivineRPGMob {
 
     @Override
     protected void dropFewItems(boolean var1, int var2) {
-        int var3 = this.rand.nextInt(2 + var2);
-        int var4;
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(ItemsFood.tomato, 2);
-        }
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(IceikaItems.iceShards, 5);
-        }
-
-        for(var4 = 0; var4 < var3; ++var4) {
-            this.dropItem(IceikaItems.iceStone, 1);
-        }
+        if(this.rand.nextBoolean())this.dropItem(ItemsFood.tomato, 2+this.rand.nextInt(2 + var2));
+        this.dropItem(IceikaItems.iceShards, 3+this.rand.nextInt(3 + var2));
+        if(this.rand.nextInt(3)==0)this.dropItem(IceikaItems.iceStone, this.rand.nextInt(2)+1);
     }
 
 	@Override

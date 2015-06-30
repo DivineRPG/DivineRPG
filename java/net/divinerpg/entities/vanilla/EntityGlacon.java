@@ -47,13 +47,8 @@ public class EntityGlacon extends EntityDivineRPGMob {
 
     @Override
     protected void dropFewItems(boolean var1, int var2) {
-    	int var3 = this.rand.nextInt(2 + var2);
-		int var4;
-		for(var4 = 0; var4 < var3; ++var4) 
-			this.dropItem(ItemsFood.whiteMushroom, 1);
-
-		for(var4 = 0; var4 < var3; ++var4) 
-			this.dropItem(IceikaItems.iceShards, 3);
+		this.dropItem(ItemsFood.whiteMushroom, this.rand.nextInt(2 + var2));
+		this.dropItem(IceikaItems.iceShards, 3 + this.rand.nextInt(3 + var2));
     }
 
 	@Override
