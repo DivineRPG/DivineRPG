@@ -41,7 +41,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Util {
 	
-	private static final String[] devs = { "RadioactiveStud", "EternalDoom", "BossLetsPlays", "Xolova", "sheenrox82", "The_SlayerMC", "insanity414all", "deathman12e3", "Fire_Sight", "krwminer" };
+	private static final String[] devs = { "RadioactiveStud", "Eternaldoom1", "BossLetsPlays", "Xolova", "sheenrox82", "The_SlayerMC", "insanity414all", "deathman12e3", "Fire_Sight", "krwminer" };
 
     public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
 
