@@ -54,12 +54,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
             this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 	    }
 	}
-	
-	@Override
-	public boolean getCanSpawnHere() {
-		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.isValidLightLevel() && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
-	}
-	
+
 	@Override
 	public boolean isValidLightLevel() {
 		return true;

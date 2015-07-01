@@ -14,6 +14,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public abstract class EntityDivineRPGMob extends EntityMob{
@@ -31,7 +32,7 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 	public abstract String mobName();
 
 	protected void addAttackingAI(){
-        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, getMoveSpeed()*5, false));
+        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, getMoveSpeed()*4, false));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 	}
 	
@@ -61,6 +62,11 @@ public abstract class EntityDivineRPGMob extends EntityMob{
 	protected boolean isAIEnabled() {
 		return true;
 	}
+	
+	@Override
+    public boolean getCanSpawnHere() {
+        return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.isValidLightLevel() && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
+    }
 	
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {

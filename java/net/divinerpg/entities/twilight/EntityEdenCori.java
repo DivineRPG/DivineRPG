@@ -94,7 +94,7 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
 
         if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < d4 * d4) {
             double d5 = this.targetedEntity.posX - this.posX;
-            double d6 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d6 = this.targetedEntity.boundingBox.minY+1 - this.posY;
             double d7 = this.targetedEntity.posZ - this.posZ;
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
 
@@ -107,8 +107,9 @@ public class EntityEdenCori extends EntityDivineRPGFlying {
 
                 if(this.attackCounter == 20) {
             		this.worldObj.playSoundAtEntity(this.targetedEntity, Sounds.getSoundName(Sounds.coriShoot), 1.0F, 1.0F);
-            		EntityCoriShot shot = new EntityCoriShot(this.worldObj, this, 50);
-            		this.worldObj.spawnEntityInWorld(shot);
+            		EntityCoriShot shot = new EntityCoriShot(this.worldObj, this, 30);
+            		shot.setThrowableHeading(d5, d6, d7, 1.6f, 4);
+            		if(!this.worldObj.isRemote)this.worldObj.spawnEntityInWorld(shot);
             		this.attackCounter = -40;
                 }
             }
