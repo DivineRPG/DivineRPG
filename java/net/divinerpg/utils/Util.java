@@ -40,6 +40,8 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Util {
+	
+	private static final String[] devs = { "RadioactiveStud", "EternalDoom", "BossLetsPlays", "Xolova", "sheenrox82", "The_SlayerMC", "insanity414all", "deathman12e3", "Fire_Sight", "krwminer" };
 
     public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
 
@@ -182,8 +184,12 @@ public class Util {
         return Item.getItemFromBlock(block);
     }
     
+    //TODO: USE UUIDs!!!!!!!!!!!!!!!!!!!
     public static boolean isDeveloperName(String name) {
-		return name.equals("Doomturd") || name.equals("Xolova") || name.equals("RadioactivStud") || name.equals("sheenrox82") || name.equals("The_SlayerMC") || name.equals("insanity414all") || name.equals("deathman12e3") || name.equals("Fire_Sight") || name.equals("iTzaKiLLsHoT") || name.equals("krwminer");
+		for(int i = 0; i < devs.length; i++){
+			return name.equals(devs[i]);
+		}
+		return false;
 	}
     
     public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
