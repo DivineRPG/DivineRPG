@@ -28,50 +28,66 @@ public class DivineWorldgen implements IWorldGenerator{
 		}
 	}
 
-	private void generateOverworld(World world, Random random, int x, int z) {
-		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
+	private void generateOverworld(World world, Random random, int i, int k) {
+		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(i, k);
 		
-		addOreSpawn(VanillaBlocks.realmiteOre, Blocks.air, world, random, x, z, 3, 5, 2, 5, 106, 120);
-		addOreSpawn(VanillaBlocks.arlemiteOre, Blocks.air, world, random, x, z, 1, 2, 1, 3, 106, 200);
-		addOreSpawn(VanillaBlocks.rupeeOre,    Blocks.air, world, random, x, z, 1, 2, 1, 3, 106, 200);
+		for (int c = 0; c < 3; c++) {
+		    int x = i + random.nextInt(16);
+		    int y = random.nextInt(20);
+		    int z = k + random.nextInt(16);
+		    new WorldGenOres().generate(VanillaBlocks.realmiteOre, world, random, Blocks.stone, x, y, z, 5);
+		}
+		
+		for (int c = 0; c < 2; c++) {
+		    int x = i + random.nextInt(16);
+		    int y = random.nextInt(16);
+		    int z = k + random.nextInt(16);
+		    new WorldGenOres().generate(VanillaBlocks.arlemiteOre, world, random, Blocks.stone, x, y, z, 2);
+		}
+		
+		for (int c = 0; c < 2; c++) {
+		    int x = i + random.nextInt(16);
+		    int y = random.nextInt(16);
+		    int z = k + random.nextInt(16);
+		    new WorldGenOres().generate(VanillaBlocks.rupeeOre, world, random, Blocks.stone, x, y, z, 2);
+		}
 
 		if(random.nextInt(8) == 0) {
-			int posX = x + random.nextInt(16) + 8;
+			int posX = i + random.nextInt(16) + 8;
 			int posY = random.nextInt(150);
-			int posZ = z + random.nextInt(16) + 8;
+			int posZ = k + random.nextInt(16) + 8;
 			if(random.nextInt(10) == 0 || posY < 60) (new WorldGenLakes(VanillaBlocks.tar)).generate(world, random, posX, posY, posZ);
 		}
 
-		for(int i = 0; i < 3; i++) {
-			int posX = x + random.nextInt(16) + 8;
+		for(int c = 0; c < 3; c++) {
+			int posX = i + random.nextInt(16) + 8;
 			int posY = random.nextInt(60);
-			int posZ = z + random.nextInt(16) + 8;
+			int posZ = k + random.nextInt(16) + 8;
 		}
 		
 		if(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.FOREST) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.CONIFEROUS) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.JUNGLE) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.DENSE) && biome != BiomeGenBase.birchForest && biome != BiomeGenBase.birchForestHills && random.nextInt(2) == 0) {
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
+			int posX = i + random.nextInt(16);
+			int posZ = k + random.nextInt(16);
 			int posY = world.getHeightValue(posX, posZ);
 			(new WorldGenDivineTree(true)).generate(world, random, posX, posY, posZ);
 		}
 	}
 
-	private void generateNether(World world, Random random, int x, int z) {
-		addOreSpawn(VanillaBlocks.netheriteOre, Blocks.netherrack, world, random, x, z, 8, 10, 3, 4, 1, 128);
-		addOreSpawn(VanillaBlocks.bloodgemOre,  Blocks.netherrack, world, random, x, z, 9, 11, 4, 5, 1, 128);
+	private void generateNether(World world, Random random, int i, int k) {
+	    for (int c = 0; c < 5; c++) {
+	        int x = i + random.nextInt(16);
+	        int y = random.nextInt(128);
+	        int z = k + random.nextInt(16);
+	        new WorldGenOres().generate(VanillaBlocks.netheriteOre, world, random, Blocks.netherrack, x, y, z, 4);
+	    }
+	    
+	    for (int c = 0; c < 5; c++) {
+	        int x = i + random.nextInt(16);
+	        int y = random.nextInt(128);
+	        int z = k + random.nextInt(16);
+	        new WorldGenOres().generate(VanillaBlocks.bloodgemOre, world, random, Blocks.netherrack, x, y, z, 4);
+	    }
 	}
 
 	private void generateEnd(World world, Random random, int x, int z) { }
-
-	public void addOreSpawn(Block block, Block genIn, World world, Random random, int blockXPos, int blockZPos, int minVeinAmount, int maxVeinAmount, int minVein, int maxVein, int minY, int maxY) {
-		int veinAmount = random.nextInt(maxVeinAmount - minVeinAmount + 1);
-		int diffBtwnMinMaxY = maxY - minY;
-		for (int x = 0; x < veinAmount; x++) {
-			int veinSize = random.nextInt(maxVein - minVein + 1) + minVein;
-			int posX = blockXPos + random.nextInt(16);
-			int posY = minY + random.nextInt(diffBtwnMinMaxY);
-			int posZ = blockZPos + random.nextInt(16);
-			new WorldGenOres().generate(block, world, random, genIn, posX, posY, posZ, veinSize);
-		}
-	}
 }
