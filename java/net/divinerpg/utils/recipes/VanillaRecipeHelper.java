@@ -165,7 +165,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		
 		addRecipe(VanillaItemsArmor.arlemiteHelmet, "III", "X X", 'I', VanillaItemsOther.arlemiteIngot ,'X', Items.iron_ingot);
 		addRecipe(VanillaItemsArmor.arlemiteBody, "I I", "XIX", "IXI", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
-		addRecipe(VanillaItemsArmor.arlemiteLegs, "XXX", "I I", "S S", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsArmor.arlemiteLegs, "III", "X X", "I I", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
 		addRecipe(VanillaItemsArmor.arlemiteBoots,  "X X", "I I", 'I', VanillaItemsOther.arlemiteIngot, 'X', Items.iron_ingot);
 		
 		addRecipe(VanillaItemsArmor.infernoHelmet, "III", "I I", 'I', VanillaItemsOther.moltenStone);
@@ -173,10 +173,10 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsArmor.infernoLegs ,"III", "I I", "I I", 'I', VanillaItemsOther.moltenStone);
 		addRecipe(VanillaItemsArmor.infernoBoots,  "I I", "I I", 'I', VanillaItemsOther.moltenStone);
 		
-		addRecipe(VanillaItemsArmor.netheriteHelmet, "SIS", "I I", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsArmor.netheriteBody, "I I", "ISI", "ISI", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsArmor.netheriteLegs, "SSS", "I I", "S S", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
-		addRecipe(VanillaItemsArmor.netheriteBoots,  "S S", "I I", 'I', VanillaItemsOther.netheriteChunk, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsArmor.netheriteHelmet, "III", "S S", 'I', VanillaBlocks.netheriteBlock, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsArmor.netheriteBody, "S S", "III", "III", 'I', VanillaBlocks.netheriteBlock, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsArmor.netheriteLegs, "III", "S S", "I I", 'I', VanillaBlocks.netheriteBlock, 'S', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsArmor.netheriteBoots,  "S S", "I I", 'I', VanillaBlocks.netheriteBlock, 'S', VanillaItemsOther.shadowBar);
 		
 		addRecipe(VanillaItemsArmor.enderHelmet, "III", "I I", 'I', VanillaItemsOther.enderStone);
 		addRecipe(VanillaItemsArmor.enderBody, "I I", "III", "III", 'I', VanillaItemsOther.enderStone);
@@ -404,7 +404,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsOther.moltenStone, "III", "III", "III", 'I', VanillaItemsOther.moltenShards);
 		addRecipe(VanillaItemsOther.divineStone, "III", "III", "III", 'I', VanillaItemsOther.divineShards);
 		addRecipe(VanillaItemsOther.enderStone, "III", "III", "III", 'I', VanillaItemsOther.enderShard);
-		addRecipe(VanillaItemsOther.shadowStone, "III", "III", "III", 'I', VanillaItemsOther.shadowBar);
+		addRecipe(VanillaItemsOther.shadowStone, "II", "II", 'I', VanillaItemsOther.shadowBar);
 
 		addRecipe(VanillaItemsOther.legendaryEnderEye, "III", "III", "III", 'I', VanillaItemsOther.enderStone);
 		
