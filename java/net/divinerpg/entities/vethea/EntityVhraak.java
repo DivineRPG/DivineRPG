@@ -104,7 +104,7 @@ public class EntityVhraak extends VetheaMob {
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        this.dropItem(VetheaItems.shinyPearls, 1);
+        if(this.lifeTick == -1)this.dropItem(VetheaItems.shinyPearls, 1);
     }
 
 	@Override
