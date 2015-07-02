@@ -189,13 +189,13 @@ public class VanillaItemsArmor {
         eliteRealmiteLegs   = new ItemDivineArmor(EnumArmor.ELITE_REALMITE, LEGS, eliteRealmiteInfo);
         eliteRealmiteBoots  = new ItemDivineArmor(EnumArmor.ELITE_REALMITE, BOOTS, eliteRealmiteInfo);
 
-        Object[] arlemiteInfo             = new Object[] { 90, ArmorInfo.RANGED_PROTECTION };
+        Object[] arlemiteInfo             = new Object[] { 85, ArmorInfo.RANGED_PROTECTION };
         arlemiteHelmet      = new ItemDivineArmor(EnumArmor.ARLEMITE, HEAD, arlemiteInfo);
         arlemiteBody        = new ItemDivineArmor(EnumArmor.ARLEMITE, BODY, arlemiteInfo);
         arlemiteLegs        = new ItemDivineArmor(EnumArmor.ARLEMITE, LEGS, arlemiteInfo);
         arlemiteBoots       = new ItemDivineArmor(EnumArmor.ARLEMITE, BOOTS, arlemiteInfo);
 
-        Object[] rupeeInfo             = new Object[] { 90, ArmorInfo.MELEE_PROTECTION };
+        Object[] rupeeInfo             = new Object[] { 85, ArmorInfo.MELEE_PROTECTION };
         rupeeHelmet         = new ItemDivineArmor(EnumArmor.RUPEE, HEAD, rupeeInfo);
         rupeeBody           = new ItemDivineArmor(EnumArmor.RUPEE, BODY, rupeeInfo);
         rupeeLegs           = new ItemDivineArmor(EnumArmor.RUPEE, LEGS, rupeeInfo);
