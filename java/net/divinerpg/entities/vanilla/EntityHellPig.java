@@ -32,7 +32,7 @@ public class EntityHellPig extends EntityDivineRPGTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(EntityStats.hellPigSpeed);
-        if(this.isTamed()) this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(EntityStats.hellPigHealth);
+        if(!this.isTamed()) this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(EntityStats.hellPigHealth);
         else this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(EntityStats.hellPigTamedHealth);
     }
 
@@ -133,14 +133,6 @@ public class EntityHellPig extends EntityDivineRPGTameable {
                     }
                 }
             }
-
-            if (par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.func_152113_b()) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
-                this.aiSit.setSitting(!this.isSitting());
-                this.isJumping = false;
-                this.setPathToEntity((PathEntity)null);
-                this.setTarget((Entity)null);
-                this.setAttackTarget((EntityLivingBase)null);
-            }
         }
         
         else if (itemstack != null && itemstack.getItem() == Items.blaze_powder && !this.isAngry()) {
@@ -155,9 +147,8 @@ public class EntityHellPig extends EntityDivineRPGTameable {
                     this.setTamed(true);
                     this.setPathToEntity((PathEntity)null);
                     this.setAttackTarget((EntityLivingBase)null);
-                    this.aiSit.setSitting(true);
                     this.setHealth(20.0F);
-                    this.func_152115_b(par1EntityPlayer.getCommandSenderName());
+                    this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte)7);
                 } else {
