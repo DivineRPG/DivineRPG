@@ -1,6 +1,7 @@
 package net.divinerpg.entities.vanilla;
 
 import net.divinerpg.entities.base.EntityDivineRPGBoss;
+import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.items.VanillaItemsWeapons;
 import net.minecraft.entity.Entity;
@@ -59,6 +60,7 @@ public class EntityAncientEntity extends EntityDivineRPGBoss {
 	protected void dropFewItems(boolean par1, int par2) {   	
 		this.dropItem(VanillaItemsOther.divineShards, this.rand.nextInt(4) + 3);
 		this.dropItem(VanillaItemsWeapons.sandslash, 1);
+		this.dropItem(Item.getItemFromBlock(VanillaBlocks.ancientEntityStatue), 1);
 	}
 
 	@Override
