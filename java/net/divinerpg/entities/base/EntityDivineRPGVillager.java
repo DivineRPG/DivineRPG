@@ -5,9 +5,8 @@ import java.util.Iterator;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
+import net.divinerpg.entities.vanilla.EntityJackOMan;
 import net.divinerpg.entities.vethea.EntityTheHunger;
-import net.divinerpg.utils.Util;
-import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -27,7 +26,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
@@ -62,6 +60,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 		this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
 		this.tasks.addTask(5, new EntityAIWatchClosest2(this, EntityPlayer.class, 3.0F, 1.0F));
 		this.tasks.addTask(5, new EntityAIWander(this, EntityStats.modVillagerSpeed));
+		setProfession(1234);
 	}
 
 	@Override
@@ -96,6 +95,9 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 	protected String getHurtSound() {
 		return null;
 	}
+	
+	@Override
+	public void setProfession(int i) {super.setProfession(12345);}
 
 	@Override
 	protected void updateAITick() {
@@ -157,7 +159,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound var1) {
 		super.writeEntityToNBT(var1);
-		var1.setInteger("Profession", this.getProfession());
+		var1.setInteger("Profession", 1234);
 		var1.setInteger("Riches", this.wealth);
 
 		if(this.buyingList != null) {
@@ -168,7 +170,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager implements 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound var1) {
 		super.readEntityFromNBT(var1);
-		this.setProfession(var1.getInteger("Profession"));
+		this.setProfession(1234);
 		this.wealth = var1.getInteger("Riches");
 
 		if(var1.hasKey("Offers")) {
