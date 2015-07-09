@@ -187,7 +187,7 @@ public class Util {
     //TODO: USE UUIDs!!!!!!!!!!!!!!!!!!!
     public static boolean isDeveloperName(String name) {
 		for(int i = 0; i < devs.length; i++){
-			return name.equals(devs[i]);
+			if(name.equalsIgnoreCase(devs[i]))return true;
 		}
 		return false;
 	}
