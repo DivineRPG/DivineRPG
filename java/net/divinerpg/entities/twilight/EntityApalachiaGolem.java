@@ -60,7 +60,7 @@ public class EntityApalachiaGolem extends EntityDivineRPGMob {
         this.dropItem(TwilightItemsOther.apalachiaSoul, this.rand.nextInt(3)+1);
         int i = rand.nextInt(4);
         if(i == 0) this.dropItem(TwilightItemsCrops.pinkGlowboneSeeds, rand.nextInt(3)+1);
-        else if(i == 1) this.dropItem(TwilightItemsCrops.pinkGlowboneSeeds, rand.nextInt(3)+1);
+        else if(i == 1) this.dropItem(TwilightItemsCrops.purpleGlowboneSeeds, rand.nextInt(3)+1);
     }
 
 	@Override
