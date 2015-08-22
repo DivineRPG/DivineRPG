@@ -31,6 +31,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 * krwminer - Developer
 
 #####Special Thanks to
+* Dizzlepop12 - A few models/textures
 * THEVOLCO - German Translations
 * ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
 * TikenTVC - Portuguese Translations
