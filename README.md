@@ -29,6 +29,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 * RadioactiveStud (aka SoccerStud) - Developer
 * Eternaldoom - Developer
 * krwminer - Developer
+* BossLetsPlays - Sound Artist & Maintenance Developer
 
 #####Special Thanks to
 * Dizzlepop12 - A few models/textures
@@ -41,7 +42,6 @@ This mod is owned by XolovA, but he is no longer part of the team
 * Laorwick - Some Recipes
 
 #####Other Credits
-* BossLetsPlays - Former Developer
 * The_SlayerMC - Former Developer
 * Sheenrox82 - Former Developer
 * Mazetar - Former Developer

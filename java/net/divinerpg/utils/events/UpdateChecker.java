@@ -3,6 +3,7 @@ package net.divinerpg.utils.events;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
@@ -15,35 +16,61 @@ import java.util.Iterator;
 import java.util.List;
 
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.LogHelper;
 
 public class UpdateChecker {
 
-	public static boolean isUpdateAvailable() throws IOException, MalformedURLException {
-		if (!getCurrentVersion().contains(Reference.MOD_VERSION)) 
-			return true;
-		return false;
-	}
+    public static boolean isUpdateAvailable() {
+        try {
+            if (!getCurrentVersion().contains(Reference.MOD_VERSION))
+                return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return false;
+    }
 
-	public static boolean isOnline() throws SocketException {
-		Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-		while (interfaces.hasMoreElements()) {
-			NetworkInterface interf = interfaces.nextElement();
-			if (interf.isUp() && !interf.isLoopback()) {
-				List<InterfaceAddress> adrs = interf.getInterfaceAddresses();
-				for (Iterator<InterfaceAddress> iter = adrs.iterator(); iter.hasNext();) {
-					InterfaceAddress adr = iter.next();
-					InetAddress inadr = adr.getAddress();
-					if (inadr instanceof Inet4Address) return true;
-				}
-			}
-		}
-		return false;
-	}
-	
-	public static String getCurrentVersion() throws MalformedURLException, IOException {
-		BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
-		String curVersion = versionFile.readLine();
-		versionFile.close();
-		return curVersion;
-	}
+    public static boolean isOnline() {
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
+                NetworkInterface interf = interfaces.nextElement();
+                if (interf.isUp() && !interf.isLoopback()) {
+                    List<InterfaceAddress> adrs = interf.getInterfaceAddresses();
+                    for (Iterator<InterfaceAddress> iter = adrs.iterator(); iter.hasNext();) {
+                        InterfaceAddress adr = iter.next();
+                        InetAddress inadr = adr.getAddress();
+                        if (inadr instanceof Inet4Address){
+                            LogHelper.info("Internet connection found");
+                            return true;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            LogHelper.warn("Something is probably wrong in your network configuration. "
+                    + "DivineRPG can continue but joining worlds will be slightly slower!");
+            try {
+                URL url = new URL("https://github.com");
+                HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+                Object data = httpConnection.getContent();
+            } catch (Exception ex) {
+                LogHelper.info("Internet connection not found");
+                return false;
+            }
+            LogHelper.info("Internet connection found");
+            return true;
+        }
+        LogHelper.info("Internet connection not found");
+        return false;
+    }
+
+    public static String getCurrentVersion() throws IOException {
+        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL(
+                "https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
+        String curVersion = versionFile.readLine();
+        versionFile.close();
+        return curVersion;
+    }
 }
