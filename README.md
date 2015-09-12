@@ -29,7 +29,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 * RadioactiveStud (aka SoccerStud) - Developer
 * Eternaldoom - Developer
 * krwminer - Developer
-* BossLetsPlays - Sound Artist & Maintenance Developer
+* BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
 
 #####Special Thanks to
 * Dizzlepop12 - A few models/textures
@@ -47,10 +47,10 @@ This mod is owned by XolovA, but he is no longer part of the team
 * Mazetar - Former Developer
 * TLHPoE - Former Developer
 * Sactage - Server Owner and maintainer
-* Aginsun - Ex Developer 
+* Aginsun - Ex Developer
 * Hologuardian - Ex Developer
 * Vazkii - Ex Developer
-* Majorsir - for the name of the mod. 
+* Majorsir - for the name of the mod.
 * Terraria - for some resources.
 * Vattic - for some block textures, featured in a version of the faithful32 pack
 * Vanilla MC - for some textures.
