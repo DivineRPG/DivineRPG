@@ -42,7 +42,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
     public EntityWreck(World par1) {
         super(par1);
-        this.setSize(1.5f, 2);
+        this.setSize(1f, 1.7f);
         this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1, false));
         this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 80));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));

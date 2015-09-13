@@ -229,6 +229,8 @@ public class EventArmorTick {
         if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs && boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHood) {
         	evt.player.fallDistance = -0.5F;
         }
+        
+        if(evt.player.inventory.hasItem(VetheaItems.minersAmulet)) evt.player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 1, 2, true));
     }
 
 }
