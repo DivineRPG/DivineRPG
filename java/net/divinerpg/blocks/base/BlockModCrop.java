@@ -1,12 +1,8 @@
 package net.divinerpg.blocks.base;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.minecraft.block.Block;
@@ -20,7 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class BlockModCrop extends BlockBush implements IGrowable {
 
@@ -132,6 +130,11 @@ public abstract class BlockModCrop extends BlockBush implements IGrowable {
 	@Override
 	public Item getItemDropped(int meta, Random r, int i) {
 		return meta == amountOfStages ? this.getDropItem() : this.getSeeds();
+	}
+
+	@Override
+	public boolean canPlaceBlockAt(World w, int x, int y, int z) {
+		return true;
 	}
 
 	@Override

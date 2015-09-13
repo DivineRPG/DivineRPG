@@ -3,6 +3,8 @@ package net.divinerpg.blocks.arcana;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.dimensions.arcana.TeleporterArcana;
 import net.divinerpg.libs.DivineRPGAchievements;
@@ -13,9 +15,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockArcanaPortal extends BlockMod {
     private int firetick;
@@ -24,12 +25,17 @@ public class BlockArcanaPortal extends BlockMod {
     public BlockArcanaPortal(String name) {
         super(EnumBlockType.PORTAL, name, 5.0F);
         setLightLevel(1.0F);
-		setBlockUnbreakable();
-		setResistance(6000000F);
+        setBlockUnbreakable();
+        setResistance(6000000F);
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
     }
 
     public boolean isOpaqueCube() {
+        return false;
+    }
+
+    @Override
+    public boolean isReplaceable(IBlockAccess w, int x, int y, int z) {
         return false;
     }
 
@@ -42,9 +48,14 @@ public class BlockArcanaPortal extends BlockMod {
     }
 
     @Override
+    public void dropBlockAsItemWithChance(World worldIn, int x, int y, int z, int meta, float chance, int fortune) {
+
+    }
+
+    @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
         if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP))) {
-            EntityPlayerMP thePlayer = (EntityPlayerMP)entity;
+            EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
             if (thePlayer.timeUntilPortal > 0)
                 thePlayer.timeUntilPortal = 10;
             else if (thePlayer.dimension != ConfigurationHelper.arcana) {
@@ -66,16 +77,16 @@ public class BlockArcanaPortal extends BlockMod {
         if (block == ArcanaBlocks.arcanaPortalFrame) {
             /* Find upper left hand corner of portal */
             while (world.getBlock(startX - 1, y, startZ) == this)
-    	        startX--;
+                startX--;
             while (world.getBlock(startX, y, startZ - 1) == this)
-    	        startZ--;
-       	
+                startZ--;
+
             /* Replace portal blocks with air */
             for (int scanZ = startZ; scanZ < startZ + 3; scanZ++) {
                 for (int scanX = startX; scanX < startX + 3; scanX++) {
-                	if (world.getBlock(scanX, y, scanZ) == this) {
-                		world.setBlockToAir(scanX, y, scanZ);
-                	}
+                    if (world.getBlock(scanX, y, scanZ) == this) {
+                        world.setBlockToAir(scanX, y, scanZ);
+                    }
                 }
             }
         }
@@ -83,7 +94,7 @@ public class BlockArcanaPortal extends BlockMod {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World world, int x, int y, int z, Random rand){
+    public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
         double distanceX = x + rand.nextFloat();
         double distanceY = y + 0.8F;
         double distanceZ = z + rand.nextFloat();

@@ -8,13 +8,22 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenWildwoodTree3 extends WorldGenerator {
+    
+    private boolean regardless = false;
+    
+    public WorldGenWildwoodTree3() {}
+    
+    public WorldGenWildwoodTree3(boolean check) {
+        regardless = check;
+    }
 
 	public boolean generate(World w, Random rand, int i, int j, int k) {
 		
 		i+=3;
 		k+=3;
 		int height = rand.nextInt(5) + 1;
-		if(w.getBlock(i, j, k) != Blocks.air || w.getBlock(i+3, j, k) != Blocks.air || w.getBlock(i-3, j, k) != Blocks.air || w.getBlock(i, j, k+3) != Blocks.air || w.getBlock(i, j, k-3) != Blocks.air || w.getBlock(i, j+height, k) != Blocks.air || w.getBlock(i, j-1, k) != TwilightBlocks.wildwoodGrass) return false;
+		if(!regardless && (w.getBlock(i, j, k) != Blocks.air || w.getBlock(i+3, j, k) != Blocks.air || w.getBlock(i-3, j, k) != Blocks.air || w.getBlock(i, j, k+3) != Blocks.air || w.getBlock(i, j, k-3) != Blocks.air || w.getBlock(i, j+height, k) != Blocks.air || w.getBlock(i, j-1, k) != TwilightBlocks.wildwoodGrass)) return false;
+		else if(regardless && (w.getBlock(i, j, k) != Blocks.air || w.getBlock(i, j+height, k) != Blocks.air || w.getBlock(i, j-1, k) != TwilightBlocks.wildwoodGrass)) return false;
 		
 		for(int y = 0; y<height; y++) {
 			w.setBlock(i, j+y, k, TwilightBlocks.wildwoodLogs);

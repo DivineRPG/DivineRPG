@@ -15,8 +15,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockLamp2 extends VanillaBlock implements IDivineMetaBlock{
 
-	private static IIcon[] iconArray = new IIcon[11];
-	public static String[] names = {"ice", "jungle", "kraken", "lapisLazuli", "lava", "milky", "molten", "netherite", "realmite", "redstoneOre", "rupee"};
+	private static IIcon[] iconArray = new IIcon[12];
+	public static String[] names = {"ice", "jungle", "kraken", "lapisLazuli", "lava", "milky", "molten", "netherite", "realmite", "redstoneOre", "rupee", "terran"};
 	
 	public BlockLamp2() {
 		super(EnumBlockType.GLASS, "lamp2", 3.0F, 3);
@@ -33,7 +33,7 @@ public class BlockLamp2 extends VanillaBlock implements IDivineMetaBlock{
 	@Override
     public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
-		for(int i = 0; i < 11; i++){
+		for(int i = 0; i < 12; i++){
 			list.add(new ItemStack(item, 1, i));
 		}
     }
@@ -41,7 +41,7 @@ public class BlockLamp2 extends VanillaBlock implements IDivineMetaBlock{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister ir){
-		for(int i = 0; i<11; i++) {
+		for(int i = 0; i<12; i++) {
 			this.iconArray[i] = ir.registerIcon("divinerpg:" + names[i] + "Lamp");
 		}
 	}
@@ -54,7 +54,7 @@ public class BlockLamp2 extends VanillaBlock implements IDivineMetaBlock{
 	
 	@Override
 	public void addNames(){
-		for(int i = 0; i < 11; i++){
+		for(int i = 0; i < 12; i++){
 			LangRegistry.instance.localizeName("tile", "tile." + names[i] + "Lamp");
 		}
 	}

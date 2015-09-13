@@ -20,7 +20,7 @@ public class EventTooltip {
 		}
 		
 		if(!(evt.itemStack.getItem() instanceof ItemModSword) && evt.itemStack.getItem() instanceof ItemSword) {
-			evt.toolTip.add(TooltipLocalizer.meleeDam(((ItemSword)evt.itemStack.getItem()).func_150931_i()+4));
+			evt.toolTip.add(TooltipLocalizer.meleeDam(((ItemSword)evt.itemStack.getItem()).func_150931_i()+5));
 		}
 		
 		if(evt.itemStack.getItem() instanceof ItemHealingSword) {

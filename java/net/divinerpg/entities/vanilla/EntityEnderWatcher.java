@@ -30,7 +30,7 @@ public class EntityEnderWatcher extends EntityEnderman {
 
 	@Override
 	protected Item getDropItem() {
-		return VanillaItemsOther.enderShard;
+		return VanillaItemsOther.enderShards;
 	}
 
 	@Override

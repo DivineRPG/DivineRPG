@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class BlockHelioticBeam extends BlockMod {
 
     public BlockHelioticBeam(String name) {
-        super(name, 1.0F, DivineRPGTabs.vethea);
+        super(name, false, DivineRPGTabs.vethea);
     }
 
     @Override

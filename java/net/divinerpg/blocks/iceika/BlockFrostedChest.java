@@ -72,7 +72,6 @@ public class BlockFrostedChest extends BlockContainer {
 			if (iinventory != null) {
 				p.displayGUIChest(iinventory);
 			}
-				p.triggerAchievement(DivineRPGAchievements.frozenGoods);
 			return true;
 		}
 	}
@@ -111,7 +110,7 @@ public class BlockFrostedChest extends BlockContainer {
 	@Override
 	public void harvestBlock(World w, EntityPlayer player, int x, int y, int z, int meta) {
 		super.harvestBlock(w, player, x, y, z, meta);
-		player.triggerAchievement(DivineRPGAchievements.frozenGoods);
+		if(this == IceikaBlocks.frostedChest)player.triggerAchievement(DivineRPGAchievements.frozenGoods);
     }
 	
 	@Override

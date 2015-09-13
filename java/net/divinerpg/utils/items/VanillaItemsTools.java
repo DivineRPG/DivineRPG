@@ -10,66 +10,36 @@ import net.minecraft.item.Item;
 
 public class VanillaItemsTools {
 
-	public static Item rupeeShickaxe;
-	public static Item rupeePickaxe;
-	public static Item rupeeAxe;
-	public static Item rupeeShovel;
-	public static Item rupeeHoe;
+	public static Item rupeeShickaxe = new ItemShickaxe(ToolMaterialMod.RupeeShick, "rupeeShickaxe");
+	public static Item rupeePickaxe = new ItemModPickaxe(ToolMaterialMod.RupeePick, "rupeePickaxe");
+	public static Item rupeeAxe = new ItemModAxe(ToolMaterialMod.RupeeAxe, "rupeeAxe");
+	public static Item rupeeShovel = new ItemModShovel(ToolMaterialMod.RupeeSpade, "rupeeShovel");
+	public static Item rupeeHoe = new ItemModHoe(ToolMaterialMod.RupeePick, "rupeeHoe");
 
-	public static Item arlemiteShickaxe;
-	public static Item arlemitePickaxe;
-	public static Item arlemiteAxe;
-	public static Item arlemiteShovel;
-	public static Item arlemiteHoe;
+	public static Item arlemiteShickaxe = new ItemShickaxe(ToolMaterialMod.ArlemiteShick, "arlemiteShickaxe");
+	public static Item arlemitePickaxe = new ItemModPickaxe(ToolMaterialMod.ArlemitePick, "arlemitePickaxe");
+	public static Item arlemiteAxe = new ItemModAxe(ToolMaterialMod.ArlemiteAxe, "arlemiteAxe");
+	public static Item arlemiteShovel = new ItemModShovel(ToolMaterialMod.ArlemiteSpade, "arlemiteShovel");
+	public static Item arlemiteHoe = new ItemModHoe(ToolMaterialMod.ArlemitePick, "arlemiteHoe");
 
-	public static Item realmitePickaxe;
-	public static Item realmiteAxe;
-	public static Item realmiteShovel;
-	public static Item realmiteHoe;
+	public static Item realmitePickaxe = new ItemModPickaxe(ToolMaterialMod.RealmitePick, "realmitePickaxe");
+	public static Item realmiteAxe = new ItemModAxe(ToolMaterialMod.RealmiteAxe, "realmiteAxe");
+	public static Item realmiteShovel = new ItemModShovel(ToolMaterialMod.RealmiteSpade, "realmiteShovel");
+	public static Item realmiteHoe = new ItemModHoe(ToolMaterialMod.RealmitePick, "realmiteHoe");
 
-	public static Item bedrockPickaxe;
-	public static Item bedrockAxe;
-	public static Item bedrockShovel;
+	public static Item bedrockPickaxe = new ItemModPickaxe(ToolMaterialMod.BedrockPick, "bedrockPickaxe");
+	public static Item bedrockAxe = new ItemModAxe(ToolMaterialMod.BedrockAxe, "bedrockAxe");
+	public static Item bedrockShovel = new ItemModShovel(ToolMaterialMod.BedrockSpade, "bedrockShovel");
 
-	public static Item corruptedPickaxe;
-	public static Item corruptedAxe;
-	public static Item corruptedShovel;
+	public static Item corruptedPickaxe = new ItemModPickaxe(ToolMaterialMod.CorruptedPick, "corruptedPickaxe");
+	public static Item corruptedAxe = new ItemModAxe(ToolMaterialMod.CorruptedAxe, "corruptedAxe");
+	public static Item corruptedShovel = new ItemModShovel(ToolMaterialMod.CorruptedSpade, "corruptedShovel");
 
-	public static Item divineShickaxe;
-	public static Item divinePickaxe;
-	public static Item divineAxe;
-	public static Item divineShovel;
-	
-	public static void init() {
-		rupeeShickaxe      = new ItemShickaxe(ToolMaterialMod.RupeeShick, "rupeeShickaxe");
-	    rupeePickaxe       = new ItemModPickaxe(ToolMaterialMod.RupeePick, "rupeePickaxe");
-	    rupeeAxe           = new ItemModAxe(ToolMaterialMod.RupeeAxe, "rupeeAxe");
-	    rupeeShovel        = new ItemModShovel(ToolMaterialMod.RupeeSpade, "rupeeShovel");
-	    rupeeHoe           = new ItemModHoe(ToolMaterialMod.RupeePick, "rupeeHoe");
+	public static Item divineShickaxe = new ItemShickaxe(ToolMaterialMod.DivineShick, "divineShickaxe");
+	public static Item divinePickaxe = new ItemModPickaxe(ToolMaterialMod.DivinePick, "divinePickaxe");
+	public static Item divineAxe = new ItemModAxe(ToolMaterialMod.DivineAxe, "divineAxe");
+	public static Item divineShovel = new ItemModShovel(ToolMaterialMod.DivineSpade, "divineShovel");
 
-	    arlemiteShickaxe   = new ItemShickaxe(ToolMaterialMod.ArlemiteShick, "arlemiteShickaxe");
-	    arlemitePickaxe    = new ItemModPickaxe(ToolMaterialMod.ArlemitePick, "arlemitePickaxe");
-	    arlemiteAxe        = new ItemModAxe(ToolMaterialMod.ArlemiteAxe, "arlemiteAxe");
-	    arlemiteShovel     = new ItemModShovel(ToolMaterialMod.ArlemiteSpade, "arlemiteShovel");
-	    arlemiteHoe        = new ItemModHoe(ToolMaterialMod.ArlemitePick, "arlemiteHoe");
-
-	    realmitePickaxe    = new ItemModPickaxe(ToolMaterialMod.RealmitePick, "realmitePickaxe");
-	    realmiteAxe        = new ItemModAxe(ToolMaterialMod.RealmiteAxe, "realmiteAxe");
-	    realmiteShovel     = new ItemModShovel(ToolMaterialMod.RealmiteSpade, "realmiteShovel");
-	    realmiteHoe        = new ItemModHoe(ToolMaterialMod.RealmitePick, "realmiteHoe");
-
-	    bedrockPickaxe     = new ItemModPickaxe(ToolMaterialMod.BedrockPick, "bedrockPickaxe");
-	    bedrockAxe         = new ItemModAxe(ToolMaterialMod.BedrockAxe, "bedrockAxe");
-	    bedrockShovel      = new ItemModShovel(ToolMaterialMod.BedrockSpade, "bedrockShovel");
-
-	    corruptedPickaxe   = new ItemModPickaxe(ToolMaterialMod.CorruptedPick, "corruptedPickaxe");
-	    corruptedAxe       = new ItemModAxe(ToolMaterialMod.CorruptedAxe, "corruptedAxe");
-	    corruptedShovel    = new ItemModShovel(ToolMaterialMod.CorruptedSpade, "corruptedShovel");
-	    
-	    divineShickaxe     = new ItemShickaxe(ToolMaterialMod.DivineShick, "divineShickaxe");
-	    divinePickaxe      = new ItemModPickaxe(ToolMaterialMod.DivinePick, "divinePickaxe");
-	    divineAxe          = new ItemModAxe(ToolMaterialMod.DivineAxe, "divineAxe");
-	    divineShovel       = new ItemModShovel(ToolMaterialMod.DivineSpade, "divineShovel");
-	}
+	public static void init() {}
 
 }

@@ -27,6 +27,7 @@ public class BlockKarosCannon extends BlockContainer {
 	public BlockKarosCannon(Material par3) {
 		super(par3);
 		setBlockUnbreakable();
+		setResistance(6000000);
 		setCreativeTab(DivineRPGTabs.vethea);
 	}
 

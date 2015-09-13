@@ -2,17 +2,15 @@ package net.divinerpg.dimensions.vanilla;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.IWorldGenerator;
 import net.divinerpg.utils.blocks.VanillaBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenForest;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
-import cpw.mods.fml.common.IWorldGenerator;
 
 public class DivineWorldgen implements IWorldGenerator{
 
@@ -27,7 +25,8 @@ public class DivineWorldgen implements IWorldGenerator{
 			generateEnd(world, rand, chunkX * 16, chunkZ * 16);break;
 		}
 	}
-
+	private static WorldGenDivineTree tree = new WorldGenDivineTree(true);
+	private static WorldGenHut hut = new WorldGenHut();
 	private void generateOverworld(World world, Random random, int i, int k) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(i, k);
 		
@@ -69,7 +68,11 @@ public class DivineWorldgen implements IWorldGenerator{
 			int posX = i + random.nextInt(16);
 			int posZ = k + random.nextInt(16);
 			int posY = world.getHeightValue(posX, posZ);
-			(new WorldGenDivineTree(true)).generate(world, random, posX, posY, posZ);
+			tree.generate(world, random, posX, posY, posZ);
+		}
+				
+		if(world.provider.terrainType != WorldType.FLAT && (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SAVANNA))) {
+			if(random.nextInt(6)==0)hut.generate(world, random, i+8, world.getHeightValue(i+8, k+8)-1, k+8);
 		}
 	}
 

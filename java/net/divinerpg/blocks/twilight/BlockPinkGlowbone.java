@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.libs.Reference;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.items.ArcanaItems;
 import net.divinerpg.utils.items.TwilightItemsCrops;
@@ -39,16 +40,21 @@ public class BlockPinkGlowbone extends BlockMod implements IPlantable {
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random par5Random) {
-		if(world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0 && world.getBlock(i, j-1, k) == Blocks.grass) {
-			world.setBlock(i, j + 1, k, this, 2, 2);
-			world.setBlock(i, j, k, this, 1, 2);
-		}
-	}
-	
+        if (world.isAirBlock(i, j + 1, k) && world.getBlockMetadata(i, j, k) == 0 && world.getBlock(i, j - 1, k) == Blocks.grass) {
+            world.setBlock(i, j + 1, k, this, 2, 2);
+            world.setBlock(i, j, k, this, 1, 2);
+        }
+    }
+
 	@Override
 	public boolean canBlockStay(World w, int x, int y, int z) {
 		return w.getBlock(x, y - 1, z) == this || w.getBlock(x, y - 1, z) == Blocks.grass;
 	}
+
+    @Override
+    public boolean canPlaceBlockAt(World w, int x, int y, int z) {
+        return true;
+    }
 	
 	@Override
 	public void onNeighborBlockChange(World w, int x, int y, int z, Block b) {

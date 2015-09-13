@@ -2,6 +2,8 @@ package net.divinerpg.utils.entities;
 
 import java.util.List;
 
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import net.divinerpg.entities.arcana.EntityCaptianMerik;
 import net.divinerpg.entities.arcana.EntityDatticon;
 import net.divinerpg.entities.arcana.EntityLeorna;
@@ -21,6 +23,7 @@ import net.divinerpg.entities.twilight.EntityApalachiaGolem;
 import net.divinerpg.entities.twilight.EntityApalachiaTomo;
 import net.divinerpg.entities.twilight.EntityApalachiaWarrior;
 import net.divinerpg.entities.twilight.EntityBaslisk;
+import net.divinerpg.entities.twilight.EntityBehemoth;
 import net.divinerpg.entities.twilight.EntityBunny;
 import net.divinerpg.entities.twilight.EntityEdenCadillion;
 import net.divinerpg.entities.twilight.EntityEdenCori;
@@ -28,15 +31,21 @@ import net.divinerpg.entities.twilight.EntityEdenTomo;
 import net.divinerpg.entities.twilight.EntityEpiphite;
 import net.divinerpg.entities.twilight.EntityGreenfeet;
 import net.divinerpg.entities.twilight.EntityMadivel;
+import net.divinerpg.entities.twilight.EntityMage;
+import net.divinerpg.entities.twilight.EntityMegalith;
 import net.divinerpg.entities.twilight.EntityMoonWolf;
 import net.divinerpg.entities.twilight.EntityMortumCadillion;
 import net.divinerpg.entities.twilight.EntityMortumDemon;
+import net.divinerpg.entities.twilight.EntityMystic;
 import net.divinerpg.entities.twilight.EntitySamek;
 import net.divinerpg.entities.twilight.EntitySkythernArcher;
 import net.divinerpg.entities.twilight.EntitySkythernCori;
 import net.divinerpg.entities.twilight.EntitySkythernFiend;
 import net.divinerpg.entities.twilight.EntitySkythernGolem;
+import net.divinerpg.entities.twilight.EntitySorcerer;
 import net.divinerpg.entities.twilight.EntitySoulStealer;
+import net.divinerpg.entities.twilight.EntitySpellbinder;
+import net.divinerpg.entities.twilight.EntitySunArcher;
 import net.divinerpg.entities.twilight.EntityTwilightArcher;
 import net.divinerpg.entities.twilight.EntityVerek;
 import net.divinerpg.entities.twilight.EntityWildwoodCadillion;
@@ -61,12 +70,17 @@ import net.divinerpg.entities.vanilla.EntityJungleBat;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
 import net.divinerpg.entities.vanilla.EntityJungleSpider;
 import net.divinerpg.entities.vanilla.EntityKingCrab;
+import net.divinerpg.entities.vanilla.EntityKobblin;
+import net.divinerpg.entities.vanilla.EntityLiopleurodon;
 import net.divinerpg.entities.vanilla.EntityMiner;
+import net.divinerpg.entities.vanilla.EntityPumpkinSpider;
 import net.divinerpg.entities.vanilla.EntityRainbour;
 import net.divinerpg.entities.vanilla.EntityRotatick;
+import net.divinerpg.entities.vanilla.EntitySaguaroWorm;
 import net.divinerpg.entities.vanilla.EntityScorcher;
 import net.divinerpg.entities.vanilla.EntityShark;
 import net.divinerpg.entities.vanilla.EntityTheEye;
+import net.divinerpg.entities.vanilla.EntityTheGrue;
 import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildfire;
 import net.divinerpg.entities.vethea.EntityAcidHag;
@@ -76,13 +90,10 @@ import net.divinerpg.entities.vethea.EntityCymesoid;
 import net.divinerpg.entities.vethea.EntityDissiment;
 import net.divinerpg.entities.vethea.EntityDreamwrecker;
 import net.divinerpg.entities.vethea.EntityDuo;
-import net.divinerpg.entities.vethea.EntityEhu;
-import net.divinerpg.entities.vethea.EntityEndiku;
 import net.divinerpg.entities.vethea.EntityGalroid;
 import net.divinerpg.entities.vethea.EntityGorgosion;
 import net.divinerpg.entities.vethea.EntityHelio;
 import net.divinerpg.entities.vethea.EntityHoverStinger;
-import net.divinerpg.entities.vethea.EntityHusk;
 import net.divinerpg.entities.vethea.EntityKazrotic;
 import net.divinerpg.entities.vethea.EntityLheiva;
 import net.divinerpg.entities.vethea.EntityLorga;
@@ -92,7 +103,6 @@ import net.divinerpg.entities.vethea.EntityMysteriousManLayer1;
 import net.divinerpg.entities.vethea.EntityMysteriousManLayer2;
 import net.divinerpg.entities.vethea.EntityMysteriousManLayer3;
 import net.divinerpg.entities.vethea.EntityShadahier;
-import net.divinerpg.entities.vethea.EntityStoneGolem;
 import net.divinerpg.entities.vethea.EntityTocaxin;
 import net.divinerpg.entities.vethea.EntityTwins;
 import net.divinerpg.entities.vethea.EntityVermenous;
@@ -100,15 +110,12 @@ import net.divinerpg.entities.vethea.EntityVhraak;
 import net.divinerpg.entities.vethea.EntityZone;
 import net.divinerpg.entities.vethea.EntityZoragon;
 import net.divinerpg.utils.DimensionHelper;
-import net.divinerpg.utils.LogHelper;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class MobSpawning {
 	public static void addSpawns(){
@@ -159,6 +166,8 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityEdenCori.class, 1, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityGreenfeet.class, 20, 4, 4, EnumCreatureType.monster, edenBiome);
 		EntityRegistry.addSpawn(EntityMadivel.class, 20, 4, 4, EnumCreatureType.monster, edenBiome);
+		EntityRegistry.addSpawn(EntitySunArcher.class, 6, 4, 4, EnumCreatureType.creature, edenBiome);
+		EntityRegistry.addSpawn(EntitySunArcher.class, 6, 4, 4, EnumCreatureType.monster, edenBiome);
 
 		EntityRegistry.addSpawn(EntityWildwoodCadillion.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
@@ -166,27 +175,34 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityWildwoodTomo.class, 4, 4, 4, EnumCreatureType.creature, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityEpiphite.class, 1, 2, 2, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityEpiphite.class, 1, 2, 2, EnumCreatureType.creature, wildwoodBiome);
-		EntityRegistry.addSpawn(EntityWildwoodGolem.class, 3, 4, 4, EnumCreatureType.monster, wildwoodBiome);
+        EntityRegistry.addSpawn(EntityBehemoth.class, 1, 1, 1, EnumCreatureType.monster, wildwoodBiome);
+        EntityRegistry.addSpawn(EntityBehemoth.class, 1, 1, 1, EnumCreatureType.creature, wildwoodBiome);
+        EntityRegistry.addSpawn(EntityWildwoodGolem.class, 3, 4, 4, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityVerek.class, 4, 4, 4, EnumCreatureType.monster, wildwoodBiome);
+		EntityRegistry.addSpawn(EntityMage.class, 2, 4, 4, EnumCreatureType.monster, wildwoodBiome);
 		EntityRegistry.addSpawn(EntityMoonWolf.class, 4, 4, 4, EnumCreatureType.creature, wildwoodBiome);
 
-		EntityRegistry.addSpawn(EntityApalachiaCadillion.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
-		EntityRegistry.addSpawn(EntityApalachiaGolem.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
-		EntityRegistry.addSpawn(EntityApalachiaTomo.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
-		EntityRegistry.addSpawn(EntityApalachiaWarrior.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
-		EntityRegistry.addSpawn(EntityApalachiaArcher.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+		EntityRegistry.addSpawn(EntityApalachiaCadillion.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+		EntityRegistry.addSpawn(EntityApalachiaGolem.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+		EntityRegistry.addSpawn(EntityApalachiaTomo.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+		EntityRegistry.addSpawn(EntityApalachiaWarrior.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+		EntityRegistry.addSpawn(EntityApalachiaArcher.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+		EntityRegistry.addSpawn(EntitySpellbinder.class, 1, 4, 4, EnumCreatureType.monster, apalachiaBiome);
 
-		EntityRegistry.addSpawn(EntitySkythernFiend.class, 1, 4, 4, EnumCreatureType.monster, skythernBiome);
-		EntityRegistry.addSpawn(EntitySkythernGolem.class, 1, 4, 4, EnumCreatureType.monster, skythernBiome);
-		EntityRegistry.addSpawn(EntitySkythernArcher.class, 1, 4, 4, EnumCreatureType.monster, skythernBiome);
-		EntityRegistry.addSpawn(EntitySamek.class, 1, 4, 4, EnumCreatureType.monster, skythernBiome);
-		EntityRegistry.addSpawn(EntitySkythernCori.class, 1, 4, 4, EnumCreatureType.monster,skythernBiome);
+		EntityRegistry.addSpawn(EntitySkythernFiend.class, 4, 4, 4, EnumCreatureType.monster, skythernBiome);
+		EntityRegistry.addSpawn(EntitySkythernGolem.class, 4, 4, 4, EnumCreatureType.monster, skythernBiome);
+		EntityRegistry.addSpawn(EntitySkythernArcher.class, 4, 4, 4, EnumCreatureType.monster, skythernBiome);
+		EntityRegistry.addSpawn(EntitySamek.class, 4, 4, 4, EnumCreatureType.monster, skythernBiome);
+		EntityRegistry.addSpawn(EntitySkythernCori.class, 1, 4, 4, EnumCreatureType.monster, skythernBiome);
+		EntityRegistry.addSpawn(EntityMystic.class, 2, 4, 4, EnumCreatureType.monster, skythernBiome);
+		EntityRegistry.addSpawn(EntityMegalith.class, 1, 4, 4, EnumCreatureType.monster, skythernBiome);
 
-		EntityRegistry.addSpawn(EntityMortumDemon.class, 1, 4, 4, EnumCreatureType.monster, mortumBiome);
-		EntityRegistry.addSpawn(EntityBaslisk.class, 1, 4, 4, EnumCreatureType.monster, mortumBiome);
-		EntityRegistry.addSpawn(EntitySoulStealer.class, 1, 4, 4, EnumCreatureType.monster, mortumBiome);
-		EntityRegistry.addSpawn(EntityMortumCadillion.class, 1, 4, 4, EnumCreatureType.monster, mortumBiome);
-		EntityRegistry.addSpawn(EntityTwilightArcher.class, 1, 4, 4, EnumCreatureType.monster, mortumBiome);
+		EntityRegistry.addSpawn(EntityMortumDemon.class, 2, 4, 4, EnumCreatureType.monster, mortumBiome);
+		EntityRegistry.addSpawn(EntityBaslisk.class, 2, 4, 4, EnumCreatureType.monster, mortumBiome);
+		EntityRegistry.addSpawn(EntitySoulStealer.class, 2, 4, 4, EnumCreatureType.monster, mortumBiome);
+		EntityRegistry.addSpawn(EntityMortumCadillion.class, 2, 4, 4, EnumCreatureType.monster, mortumBiome);
+		EntityRegistry.addSpawn(EntityTwilightArcher.class, 2, 4, 4, EnumCreatureType.monster, mortumBiome);
+		EntityRegistry.addSpawn(EntitySorcerer.class, 1, 4, 4, EnumCreatureType.monster, mortumBiome);
 	}
 
 	public static void addOverworldSpawns() {
@@ -212,10 +228,12 @@ public class MobSpawning {
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SANDY)) {
 						EntityRegistry.addSpawn(EntityDesertCrawler.class, 50, 1, 4, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityAridWarrior.class, 35, 1, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntitySaguaroWorm.class, 7, 1, 4, EnumCreatureType.creature, biome);
 					}
-					if (BiomeDictionary.isBiomeOfType(biome, Type.OCEAN)) {
+					if (biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean) {
 						EntityRegistry.addSpawn(EntityWhale.class, 1, 1, 1, EnumCreatureType.waterCreature, biome);
 						EntityRegistry.addSpawn(EntityShark.class, 1, 1, 1, EnumCreatureType.waterCreature, biome);
+						EntityRegistry.addSpawn(EntityLiopleurodon.class, 1, 1, 1, EnumCreatureType.waterCreature, biome);
 					}
 					if (BiomeDictionary.isBiomeOfType(biome, Type.BEACH)) {
 						EntityRegistry.addSpawn(EntityCrab.class, 100, 4, 4, EnumCreatureType.monster, biome);
@@ -226,15 +244,22 @@ public class MobSpawning {
 						EntityRegistry.addSpawn(EntityJungleDramcryx.class, 80, 1, 4, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityJungleSpider.class, 80, 1, 4, EnumCreatureType.monster, biome);
 					}
+					if(BiomeDictionary.isBiomeOfType(biome, Type.PLAINS)) {
+						EntityRegistry.addSpawn(EntityKobblin.class, 5, 1, 1, EnumCreatureType.monster, biome);
+					}
 					if(BiomeDictionary.isBiomeOfType(biome, Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, Type.MOUNTAIN)) {
 					    EntityRegistry.addSpawn(EntityCyclops.class, 80, 2, 4, EnumCreatureType.monster, biome);
 					}
+					if(BiomeDictionary.isBiomeOfType(biome, Type.FOREST)) {
+                        EntityRegistry.addSpawn(EntityPumpkinSpider.class, 5, 1, 1, EnumCreatureType.monster, biome);
+                    }
 					EntityRegistry.addSpawn(EntityMiner.class, 5, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityJackOMan.class, 5, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityCaveCrawler.class, 70, 2, 3, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityRotatick.class, 70, 3, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityTheEye.class, 30, 1, 4, EnumCreatureType.monster, biome);
+					EntityRegistry.addSpawn(EntityTheGrue.class, 30, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityCaveclops.class, 70, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityEnderSpider.class, 4, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityRainbour.class, 2, 1, 1, EnumCreatureType.ambient, biome);
@@ -260,8 +285,7 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityAcidHag.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
 		EntityRegistry.addSpawn(EntityKazrotic.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
 		EntityRegistry.addSpawn(EntityVhraak.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
-		EntityRegistry.addSpawn(EntityEndiku.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
-		EntityRegistry.addSpawn(EntityHelio.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
+		EntityRegistry.addSpawn(EntityHelio.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);
 		EntityRegistry.addSpawn(EntityBiphron.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
 		EntityRegistry.addSpawn(EntityZoragon.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
 		EntityRegistry.addSpawn(EntityGorgosion.class, 1, 1, 1, EnumCreatureType.monster, vetheaBiome);	
@@ -273,9 +297,6 @@ public class MobSpawning {
 		EntityRegistry.addSpawn(EntityMysteriousManLayer1.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 		EntityRegistry.addSpawn(EntityMysteriousManLayer2.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 		EntityRegistry.addSpawn(EntityMysteriousManLayer3.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
-		//EntityRegistry.addSpawn(EntityEhu.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
-		//EntityRegistry.addSpawn(EntityHusk.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
-		//EntityRegistry.addSpawn(EntityStoneGolem.class, 1, 1, 1, EnumCreatureType.creature, vetheaBiome);
 	}
 	
 	public static boolean overworldBiome(BiomeGenBase b) {

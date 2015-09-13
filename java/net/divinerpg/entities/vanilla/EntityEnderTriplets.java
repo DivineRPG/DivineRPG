@@ -190,7 +190,7 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
 
     @Override
     protected Item getDropItem() {
-        return VanillaItemsOther.enderShard;
+        return VanillaItemsOther.enderShards;
     }
 
     @Override
@@ -200,7 +200,7 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
         j = this.rand.nextInt(3) + this.rand.nextInt(1 + par2);
 
         for (int k = 0; k < j; ++k) {
-            this.dropItem(VanillaItemsOther.enderShard, 3);
+            this.dropItem(VanillaItemsOther.enderShards, 3);
         }
         
         if(this.rand.nextInt(20) == 0)this.dropItem(Util.toItem(Blocks.end_portal_frame), 1);

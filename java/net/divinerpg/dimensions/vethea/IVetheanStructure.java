@@ -1,9 +1,9 @@
 package net.divinerpg.dimensions.vethea;
 
-import net.minecraft.block.Block;
+import net.divinerpg.dimensions.arcana.ArcanaChunk;
 
 public interface IVetheanStructure {
 	
-	public void generate(Block[][][] chunk, int x, int y, int z);
+	public void generate(VetheaChunk chunk, int x, int y, int z);
 
 }

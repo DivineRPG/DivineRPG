@@ -2,6 +2,11 @@ package net.divinerpg.utils.proxies;
 
 import java.awt.Color;
 
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDemonFurnace;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityDramixAltar;
@@ -28,7 +33,7 @@ import net.divinerpg.client.render.block.TileEntityStatue;
 import net.divinerpg.dimensions.vanilla.DivineWorldgen;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.utils.DimensionHelper;
-import net.divinerpg.utils.LogHelper;
+import net.divinerpg.utils.DivineOredict;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.blocks.IceikaBlocks;
@@ -48,6 +53,7 @@ import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.EventBonemeal;
 import net.divinerpg.utils.events.EventBucketFill;
 import net.divinerpg.utils.events.EventClientLogin;
+import net.divinerpg.utils.events.EventEnsureVetheaSpawn;
 import net.divinerpg.utils.events.EventHarvest;
 import net.divinerpg.utils.events.EventLightning;
 import net.divinerpg.utils.events.EventTooltip;
@@ -70,11 +76,6 @@ import net.divinerpg.utils.recipes.VanillaRecipeHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy{
 	public void preInitClient(FMLPreInitializationEvent event){}
@@ -94,6 +95,8 @@ public class CommonProxy{
         Util.postForgeEvent(new EventLightning());
         Util.postFMLEvent(new EventClientLogin());
         Util.postFMLEvent(new Ticker());
+        Util.postFMLEvent(new EventEnsureVetheaSpawn());
+        Util.postForgeEvent(new EventEnsureVetheaSpawn());
 		ItemsFood.init();
 		IceikaItems.init();
 		IceikaBlocks.init();
@@ -113,6 +116,7 @@ public class CommonProxy{
 		ArcanaBlocks.init();
 		ArcanaItems.init();
 		DivineRPGTabs.init();
+		DivineOredict.init();
 		GameRegistry.registerTileEntity(TileEntityInfusionTable.class, "Infusion Table");
 		GameRegistry.registerTileEntity(TileEntityStatue.class, "DivineRPGStatue");
 		GameRegistry.registerTileEntity(TileEntityFrostedChest.class, "Frosted Chest");

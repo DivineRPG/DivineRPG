@@ -20,7 +20,7 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 
 	public EntityWhale(World var1) {
 		super(var1);
-		this.setSize(4.0F, 2.5F);
+		this.setSize(2.5F, 2.5F);
 	}
 
 	@Override
@@ -69,19 +69,12 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {
-		int var3 = this.rand.nextInt(3 + var2) + 1;
-
-		for (int var4 = 0; var4 < var3; ++var4) {
-			this.entityDropItem(new ItemStack(VanillaItemsOther.whaleFin), 0.0F);
-		}
+		this.dropItem(VanillaItemsOther.whaleFin, this.rand.nextInt(3 + var2) + 1);
 	}
 	
 	@Override
     public boolean getCanSpawnHere() {
-        int var1 = MathHelper.floor_double(this.posX);
-        int var2 = MathHelper.floor_double(this.boundingBox.minY);
-        int var3 = MathHelper.floor_double(this.posZ);
-        return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
+        return this.isInWater();
     }
 
 	@Override
@@ -110,9 +103,9 @@ public class EntityWhale extends EntityPeacefulUntilAttacked {
 	}
 
 	@Override
-	public boolean isInWater() {
-		return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
-	}
+    public boolean isInWater() {
+        return this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ).getMaterial() == Material.water;
+    }
 
 	@Override
 	protected void fall(float var1) {}

@@ -28,7 +28,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
         if ((current >= 0.0F) && (current < 20.0F)) {
             player.setHealth(20.0F);
             stack.damageItem(1, player);
-            Sounds.getSoundName(Sounds.heal);
+            world.playSoundAtEntity(player, Sounds.heal.getPrefixedName(), 1, 1);
         }
 		return stack;
 	}

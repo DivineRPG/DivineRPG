@@ -54,6 +54,7 @@ public class EntityStats {
 	public static double karotHealth 			= 1250.0D, karotDamage = 32.0D, karotSpeed = normalSpeed, karotFollowRange = follow;
 	public static double eternalArcherHealth 	= 1550.0D, eternalArcherSpeed = normalSpeed, eternalArcherFollowRange = follow;
 	public static double madivelHealth 			= 150.0D, madivelDamage = 18.0D, madivelSpeed = normalSpeed, madivelFollowRange = follow;
+	public static double sunArcherHealth        = 85.0D, sunArcherDamage = 9.0D, sunArcherSpeed = normalSpeed, sunArcherFollowRange = follow;
 	public static double moonWolfHealth 		= 200.0D, moonWolfDamage = 1.0D, moonWolfSpeed = normalSpeed, moonWolfFollowRange = follow;
 	public static double moonWolfTamedHealth 	= 250.0D, moonWolfTamedDamage = 10.0D, moonWolfTamedSpeed = normalSpeed, moonWolfTamedFollowRange = follow;
 	public static double mortumArcherHealth 	= 55.0D, mortumArcherDamage = 5.0D, mortumArcherSpeed = normalSpeed, mortumArcherFollowRange = follow;
@@ -64,6 +65,7 @@ public class EntityStats {
 	public static double skythernArcherHealth 	= 55.0D, skythernArcherDamage = 5.0D, skythernArcherSpeed = normalSpeed, skythernArcherFollowRange = follow;
 	public static double skythernFiendHealth 	= 80.0D, skythernFiendDamage = 20.0D, skythernFiendSpeed = normalSpeed, skythernFiendFollowRange = follow;
 	public static double skythernGolemHealth 	= 300.0D, skythernGolemDamage = 18.0D, skythernGolemSpeed = normalSpeed, skythernGolemFollowRange = follow;
+	public static double megalithHealth         = 350.0D, megalithDamage = 20.0D, megalithSpeed = normalSpeed*0.9f, megalithFollowRange = follow;
 	public static double verekHealth 			= 50.0D, verekDamage = 12.0D, verekSpeed = normalSpeed, verekFollowRange = follow;
 	public static double soulFiendHealth 		= 1100.0D, soulFiendDamage = 24.0D, soulFiendSpeed = normalSpeed, soulFiendFollowRange = follow;
 	public static double soulStealerHealth 		= 140.0D, soulStealerDamage = 20.0D, soulStealerSpeed = normalSpeed, soulStealerFollowRange = follow;
@@ -73,15 +75,20 @@ public class EntityStats {
 	public static double wildwoodGolemHealth 	= 200.0D, wildwoodGolemDamage = 16.0D, wildwoodGolemSpeed = normalSpeed, wildwoodGolemFollowRange = follow;
 	public static double epiphiteHealth 		= 100.0D, epiphiteDamage = 14.0D, epiphiteSpeed = normalSpeed, epiphiteFollowRange = follow;
 	public static double wildwoodTomoHealth 	= 110.0D, wildwoodTomoDamage = 10.0D, wildwoodTomoSpeed = normalSpeed, wildwoodTomoFollowRange = follow;
+	public static double behemothHealth         = 180.0D, behemothDamage = 9.0D, behemothSpeed = normalSpeed, behemothFollowRange = follow;
 	public static double edenCoriHealth 		= 10.0D, edenCoriDamage = 30.0D, edenCoriSpeed = normalSpeed, edenCoriFollowRange = follow;
 	public static double skythernCoriHealth 	= 35.0D, skythernCoriDamage = 100.0D, skythernCoriSpeed = normalSpeed, skythernCoriFollowRange = follow;
 	public static double reyvorHealth 			= 1000.0D, reyvorDamage = 20.0D, reyvorSpeed = normalSpeed, reyvorFollowRange = follow;
 	public static double soulSpiderHealth 		= 35.0D, soulSpiderDamage = 12.0D, soulSpiderSpeed = normalSpeed, soulSpiderFollowRange = follow;
+	public static double mageHealth             = 90.0D, mageDamage = 5.0D, mageSpeed = normalSpeed, mageFollowRange = follow;
+	public static double spellbinderHealth      = 95.0D, spellbinderDamage = 7.0D, spellbinderSpeed = normalSpeed, spellbinderFollowRange = follow;
+	public static double mysticHealth           = 120.0D, mysticDamage = 10.0D, mysticSpeed = normalSpeed, mysticFollowRange = follow;
+	public static double sorcererHealth         = 150.0D, sorcererDamage = 12.0D, sorcererSpeed = normalSpeed, sorcererFollowRange = follow;
 	
 	//Overworld
 	public static double ancientEntityHealth 	= 800.0D, ancientEntityDamage = 12.0D, ancientEntitySpeed = normalSpeed, ancientEntityFollowRange = follow;
 	public static double aridWarriorHealth 		= 40.0D, aridWarriorDamage = 8.0D, aridWarriorSpeed = normalSpeed, aridWarriorFollowRange = follow;
-	public static double ayeracoHealth 			= 600.0D, ayeracoDamage = 14.0D, ayeracoSpeed = normalSpeed, ayeracoFollowRange = follow;
+	public static double ayeracoHealth 			= 600.0D, ayeracoDamage = 5.0D, ayeracoSpeed = normalSpeed, ayeracoFollowRange = follow;
 	public static double corruptedDramcryxHealth= 80.0D, corruptedDramcryxDamage = 7.0D, corruptedDramcryxSpeed = normalSpeed, corruptedDramcryxFollowRange = follow;
 	public static double caveclopsHealth 		= 60.0D, caveclopsDamage = 6.0D, caveclopsSpeed = normalSpeed, caveclopsFollowRange = follow;
 	public static double caveCrawlerHealth 		= 30.0D, caveCrawlerDamage = 4.0D, caveCrawlerSpeed = normalSpeed, caveCrawlerFollowRange = follow;
@@ -107,12 +114,24 @@ public class EntityStats {
 	public static double sharkHealth 			= 80.0D, sharkDamage = 8.0D, sharkSpeed = normalSpeed, sharkFollowRange = follow;
 	public static double theEyeHealth 			= 40.0D, theEyeDamage = 10.0D, theEyeSpeed = normalSpeed, theEyeFollowRange = follow;
 	public static double whaleHealth 			= 120.0D, whaleDamage = 10.0D, whaleSpeed = normalSpeed, whaleFollowRange = follow;
+	public static double liopleurodonHealth     = 150.0D, liopleurodonDamage = 13.0D, liopleurodonSpeed = normalSpeed, liopleurodonFollowRange = follow;
 	public static double wildFireHealth 		= 50.0D, wildFireDamage = 8.0D, wildFireSpeed = normalSpeed, wildFireFollowRange = follow;
 	public static double hellPigHealth	 		= 50.0D, hellPigTamedHealth = 20.0D, hellPigSpeed = normalSpeed, hellPigRange = follow;
+	public static double kobblinHealth 		    = 35.0D, kobblinDamage = 7.0D, kobblinSpeed = normalSpeed, kobblinFollowRange = follow;
+	public static double theGrueHealth 			= 30.0D, theGrueDamage = 10.0D, theGrueSpeed = normalSpeed*1.3, theGrueFollowRange = follow;
+	public static double saguaroWormHealth 		= 80.0D, saguaroWormDamage = 4.0D, saguaroWormSpeed = 0, saguaroWormFollowRange = follow;
+	public static double pumpkinSpiderHealth 	= 50.0D, pumpkinSpiderDamage = 7.0D, pumpkinSpiderSpeed = normalSpeed, pumpkinSpiderFollowRange = follow;
+	
+	public static double ehuHealth 				= 60.0D, ehuDamage = 6.0D, ehuSpeed = normalSpeed, ehuFollowRange = follow;
+	public static double huskHealth 			= 80.0D, huskDamage = 10.0D, huskSpeed = normalSpeed, huskFollowRange = follow;
+	public static double stoneGolemHealth 		= 100.0D, stoneGolemDamage = 5.0D, stoneGolemSpeed = normalSpeed, stoneGolemFollowRange = follow;
+	public static double smelterHealth 			= 120.0D, smelterDamage = 7.0D, smelterSpeed = normalSpeed, smelterFollowRange = follow;
+	public static double grizzleHealth          = 100.0D, grizzleDamage = 9.0D, grizzleSpeed = normalSpeed*1.3, grizzleFollowRange = follow;
+	public static double snapperHealth          = 150.0D, snapperDamage = 4.0D, snapperSpeed = normalSpeed/1.4, snapperFollowRange = follow;
 
 	//Vethea
 	public static double cryptKeeperHealth 		= 200.0D, cryptKeeperSpeed = normalSpeed, cryptKeeperFollowRange = follow;
-	public static double bohemiteHealth 		= 60.0D, bohemiteDamage = 13.0D, bohemiteSpeed = normalSpeed*2, bohemiteFollowRange = follow;
+	public static double bohemiteHealth 		= 60.0D, bohemiteDamage = 13.0D, bohemiteSpeed = normalSpeed*1.5, bohemiteFollowRange = follow;
 	public static double biphronHealth 			= 40.0D, biphronDamage = 14.0D, biphronSpeed = normalSpeed, biphronFollowRange = follow;
 	public static double acidHagHealth 			= 25.0D, acidHagDamage = 5.0D, acidHagSpeed = normalSpeed, acidHagFollowRange = follow;
 	public static double cymesoidHealth 		= 25.0D, cymesoidDamage = 8.0D, cymesoidSpeed = normalSpeed, cymesoidFollowRange = follow;
@@ -121,8 +140,6 @@ public class EntityStats {
 	public static double dissimentHealth 		= 70.0D;
 	public static double dreamWreckerHealth 	= 60.0D, dreamWreckerDamage = 8.0D, dreamWreckerSpeed = normalSpeed, dreamWreckerFollowRange = follow;
 	public static double duoHealth 				= 20.0D, duoDamage = 7.0D, duoSpeed = normalSpeed, duoFollowRange = follow;
-	public static double ehuHealth 				= 200.0D, ehuSpeed = normalSpeed, ehuFollowRange = follow;
-	public static double endikuHealth 			= 70.0D, endikuDamage = 17.0D, endikuSpeed = normalSpeed, endikuFollowRange = follow;
 	public static double gorgosionHealth 		= 60.0D, gorgosionSpeed = normalSpeed, gorgosionFollowRange = follow;
 	public static double helioHealth 			= 140.0D, helioDamage = 40.0D, helioSpeed = normalSpeed, helioFollowRange = follow;
 	public static double herbomancerHealth 		= 40.0D, herbomancerDamage = 5.0D, herbomancerSpeed = normalSpeed, herbomancerFollowRange = follow;
@@ -130,18 +147,16 @@ public class EntityStats {
 	public static double hiveQueenHealth 		= 1500.0D, hiveQueenDamage = 60.0D, hiveQueenSpeed = normalSpeed, hiveQueenFollowRange = follow;
 	public static double hiveSoldierHealth 		= 20.0D, hiveSoldierDamage = 6.0D, hiveSoldierSpeed = normalSpeed, hiveSoldierFollowRange = follow;
 	public static double hoverStingerHealth 	= 20.0D, hoverStingerDamage = 4.0D, hoverStingerSpeed = normalSpeed, hoverStingerFollowRange = follow;
-	public static double huskHealth 			= 200.0D, huskDamage = 10.0D, huskSpeed = normalSpeed, huskFollowRange = follow;
 	public static double karosHealth 			= 4000.0D, karosDamage = 20.0D, karosSpeed = normalSpeed, karosFollowRange = follow;
 	public static double kazroticHealth 		= 65.0D, kazroticSpeed = normalSpeed, kazroticFollowRange = follow;
 	public static double ladyLunaHealth 		= 8000.0D, ladyLunaDamage = 20.0D, ladyLunaSpeed = normalSpeed, ladyLunaFollowRange = follow;
 	public static double lheviaHealth 			= 85.0D, lheviaDamage = 19.0D, lheviaSpeed = normalSpeed, lheviaFollowRange = follow;
 	public static double lorgaHealth 			= 15.0D, lorgaDamage = 4.0D, lorgaSpeed = normalSpeed, lorgaFollowRange = follow;
 	public static double lorgaFlightHealth 		= 40.0D, lorgaFlightDamage = 7.0D, lorgaFlightSpeed = normalSpeed, lorgaFlightFollowRange = follow;
-	public static double mandragoraHealth 		= 35.0D, mandragoraDamage = 8.0D, mandragoraSpeed = normalSpeed, mandragoraFollowRange = follow;
+	public static double mandragoraHealth 		= 35.0D, mandragoraDamage = 6.0D, mandragoraSpeed = normalSpeed, mandragoraFollowRange = follow;
 	public static double quadroHealth 			= 4000.0D, quadroAttack = 1D, quadroSpeedFast = 0.5D, quadroSpeedSlow = 0.25D, quadroFollowRange = follow;
 	public static double raglokHealth 			= 5000.0D, raglokDamage = 30.0D, raglokSpeed = normalSpeed, raglokFollowRange = follow;
 	public static double shadahierHealth 		= 10.0D, shadahierDamage = 6.0D, shadahierSpeed = normalSpeed, shadahierFollowRange = follow;
-	public static double stoneGolemHealth 		= 200.0D, stoneGolemDamage = 10.0D, stoneGolemSpeed = normalSpeed, stoneGolemFollowRange = follow;
 	public static double tocaxinHealth 			= 65.0D, tocaxinDamage = 10.0D, tocaxinSpeed = normalSpeed, tocaxinFollowRange = follow;
 	public static double twinsHealth 			= 10.0D, twinsDamage = 2.0D, twinsSpeed = normalSpeed, twinsFollowRange = follow;
 	public static double vermenousHealth 		= 100.0D, vermenousDamage = 13.0D, vermenousSpeed = normalSpeed, vermenousFollowRange = follow;

@@ -65,6 +65,7 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.lightDreamBricks, 16, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.darkDreamBricks, 16, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.redDreamBricks, 16, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 2, 0), new ItemStack(VetheaBlocks.dreamDirt, 64, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.smoothGlass, 16, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(VetheaBlocks.firelight, 1, 0)));
 		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(Blocks.chest, 1, 0)));

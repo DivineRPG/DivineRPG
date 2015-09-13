@@ -3,31 +3,38 @@ package net.divinerpg.blocks.base;
 import java.util.ArrayList;
 import java.util.Random;
 
-import net.divinerpg.utils.blocks.IceikaBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockModLeaves extends BlockMod implements IShearable
 {
     protected int[] adjacentTreeBlocks;
     private IIcon[] textures = new IIcon[2];
+    private Block sapling;
 
     public BlockModLeaves(String name, float hardness) {
         super(EnumBlockType.LEAVES, name, hardness);
         this.setHardness(0.3F);
         this.setLightOpacity(1);
         this.setTickRandomly(true);
+    }
+    
+    public BlockModLeaves(String name, float hardness, Block sapling) {
+        this(name, hardness);
+        this.sapling = sapling;
     }
     
     @Override
@@ -43,6 +50,14 @@ public class BlockModLeaves extends BlockMod implements IShearable
     @Override
     public boolean renderAsNormalBlock() {
         return false;
+    }
+    
+    @Override
+    public void harvestBlock(World w, EntityPlayer p, int x, int y, int z, int meta) {
+        super.harvestBlock(w, p, x, y, z, meta);
+        if(!w.isRemote && sapling != null && this.rand.nextInt(100) == 0 && (p.getHeldItem() == null || (p.getHeldItem() != null && !(p.getHeldItem().getItem() instanceof ItemShears)))) {
+            this.dropBlockAsItem(w, x, y, z, new ItemStack(sapling, 1));
+        }
     }
 
     @Override

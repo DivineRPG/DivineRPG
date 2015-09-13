@@ -61,11 +61,6 @@ public class EntityWildwoodTomo extends EntityPeacefulUntilAttacked {
 	}
 
 	@Override
-	protected void dropRareDrop(int var1) {
-		this.dropItem(TwilightItemsOther.wildwoodSoul, 1);
-	}
-
-	@Override
 	protected Item getDropItem() {
 		return TwilightItemsOther.wildwoodSoul;
 	}

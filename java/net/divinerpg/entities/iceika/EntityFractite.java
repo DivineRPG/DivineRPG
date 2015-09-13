@@ -103,14 +103,11 @@ public class EntityFractite extends EntityDivineRPGFlying {
 			this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(var11, var15)) * 180.0F / (float)Math.PI;
 
 			if (this.canEntityBeSeen(this.targetedEntity)) {
-				if (this.attackCounter == 10) {
-					this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1007, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-				}
 
 				++this.attackCounter;
 
 				if (this.attackCounter == 20) {
-					this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1008, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+				    if(!this.worldObj.isRemote)this.worldObj.playSoundAtEntity(this.targetedEntity, Sounds.fractiteAttack.getPrefixedName(), 1, 1);
 					EntityFractiteShot var17 = new EntityFractiteShot(this.worldObj, this, var11, var13, var15);
                     double var18 = 4.0D;
                     Vec3 var20 = this.getLook(1.0F);

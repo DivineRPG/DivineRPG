@@ -32,6 +32,11 @@ public class BlockArcanaFrame extends BlockMod {
     }
 
     @Override
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+
+    @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLiving, ItemStack stack) {
         int var6 = ((MathHelper.floor_double(entityLiving.rotationYaw * 4.0F / 360.0F + 0.5D) & 3) + 2) % 4;
         world.setBlockMetadataWithNotify(x, y, z, var6, 3);
@@ -39,7 +44,7 @@ public class BlockArcanaFrame extends BlockMod {
             boolean validFrame = true;
             int startX = x;
             int startZ = z;
-            
+
             /* Find upper left hand corner of frame */
             if (world.getBlock(startX - 1, y, startZ) == this || world.getBlock(startX + 1, y, startZ) == this) {
                 while (world.getBlock(startX - 1, y, startZ) == this) {
@@ -60,8 +65,7 @@ public class BlockArcanaFrame extends BlockMod {
             }
 
             /* Check if it is a valid Arcana portal frame */
-    frameCheckLoops:
-            for (int scanZ = startZ; scanZ < startZ + 5; scanZ++) {
+            frameCheckLoops: for (int scanZ = startZ; scanZ < startZ + 5; scanZ++) {
                 if ((scanZ == startZ || scanZ == startZ + 4)) {
                     for (int scanX = startX + 1; scanX < startX + 4; scanX++) {
                         if (world.getBlock(scanX, y, scanZ) != this) {
@@ -83,7 +87,7 @@ public class BlockArcanaFrame extends BlockMod {
                     }
                 }
             }
-            
+
             /* Set portal blocks */
             if (validFrame) {
                 world.setBlock(startX + 1, y, startZ + 1, portal);

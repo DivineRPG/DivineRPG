@@ -66,6 +66,12 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.mortumBrush);
 		addShapelessRecipe(TwilightItemsOther.mortumDust, TwilightBlocks.demonBrambles);
 		
+		addShapelessRecipe(new ItemStack(TwilightBlocks.edenPlanks, 4), TwilightBlocks.edenLogs);
+		addShapelessRecipe(new ItemStack(TwilightBlocks.wildwoodPlanks, 4), TwilightBlocks.wildwoodLogs);
+		addShapelessRecipe(new ItemStack(TwilightBlocks.apalachiaPlanks, 4), TwilightBlocks.apalachiaLogs);
+		addShapelessRecipe(new ItemStack(TwilightBlocks.skythernPlanks, 4), TwilightBlocks.skythernLogs);
+		addShapelessRecipe(new ItemStack(TwilightBlocks.mortumPlanks, 4), TwilightBlocks.mortumLogs);
+		
 		/* Armor */
 
 		//Eden (Dravite)

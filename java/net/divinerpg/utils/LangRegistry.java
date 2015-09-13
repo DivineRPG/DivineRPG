@@ -3,7 +3,7 @@ package net.divinerpg.utils;
 import java.util.ArrayList;
 
 import net.divinerpg.blocks.vanilla.IDivineMetaBlock;
-import net.divinerpg.utils.events.UpdateChecker;
+import net.divinerpg.items.base.IDivineMetaItem;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -59,6 +59,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp.desc=Craft an Eden Lamp");
         instance.addToFile("achievement.sixInOne.desc=Spawn the Eternal Archer");
         instance.addToFile("achievement.arrowToTheKnee.desc=Get shot by a Twilight Archer");
+        instance.addToFile("achievement.petCollector.desc=Spawn a pet from the Livestock Merchant");
         
         instance.addToFile("achievement.divineIntervention=Divine Intervention");
         instance.addToFile("achievement.possibilities=1001 Possibilities");
@@ -93,6 +94,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("achievement.oneLampTwoLampRedLampBlueLamp=One Lamp Two Lamp Red Lamp Blue Lamp");
         instance.addToFile("achievement.sixInOne=Six in One, Half a Dozen in the Other");
         instance.addToFile("achievement.arrowToTheKnee=Arrow to the Knee");
+        instance.addToFile("achievement.petCollector=Pet Collector");
     }
     
     public static void addDeaths() {
@@ -222,7 +224,8 @@ public class LangRegistry extends RegistryFile {
         	if(!(block instanceof IDivineMetaBlock))localizeName("tile", block.getUnlocalizedName());
         	else ((IDivineMetaBlock)block).addNames();
         for (Item item : items)
-            localizeName("item", item.getUnlocalizedName());
+            if(!(item instanceof IDivineMetaItem))localizeName("item", item.getUnlocalizedName());
+            else ((IDivineMetaItem)item).addNames();
         addKeyItemNames();
         addMobNames();
         addAchievements();

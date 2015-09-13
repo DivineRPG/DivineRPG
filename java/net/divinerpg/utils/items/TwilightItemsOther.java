@@ -10,92 +10,48 @@ import net.minecraft.item.Item;
 
 public class TwilightItemsOther {
 
-    public static Item edenSoul;
-    public static Item wildwoodSoul;
-    public static Item apalachiaSoul;
-    public static Item skythernSoul;
-    public static Item mortumSoul;
+	public static Item edenSoul = new ItemMod("edenSoul");
+	public static Item wildwoodSoul = new ItemMod("wildwoodSoul");
+	public static Item apalachiaSoul = new ItemMod("apalachiaSoul");
+	public static Item skythernSoul = new ItemMod("skythernSoul");
+	public static Item mortumSoul = new ItemMod("mortumSoul");
 
-    public static Item edenFragments;
-    public static Item wildwoodFragments;
-    public static Item apalachiaFragments;
-    public static Item skythernFragments;
-    public static Item mortumFragments;
+	public static Item edenFragments = new ItemMod("edenFragments");
+	public static Item wildwoodFragments = new ItemMod("wildwoodFragments");
+	public static Item apalachiaFragments = new ItemMod("apalachiaFragments");
+	public static Item skythernFragments = new ItemMod("skythernFragments");
+	public static Item mortumFragments = new ItemMod("mortumFragments");
 
-    public static Item edenGem;
-    public static Item wildwoodGem;
-    public static Item apalachiaGem;
-    public static Item skythernGem;
-    public static Item mortumGem;
+	public static Item edenGem = new ItemMod("edenGem");
+	public static Item wildwoodGem = new ItemMod("wildwoodGem");
+	public static Item apalachiaGem = new ItemMod("apalachiaGem");
+	public static Item skythernGem = new ItemMod("skythernGem");
+	public static Item mortumGem = new ItemMod("mortumGem");
 
-    public static Item edenChunk;
-    public static Item wildwoodChunk;
-    public static Item apalachiaChunk;
-    public static Item skythernChunk;
-    public static Item mortumChunk;
+	public static Item edenChunk = new ItemMod("edenChunk");
+	public static Item wildwoodChunk = new ItemMod("wildwoodChunk");
+	public static Item apalachiaChunk = new ItemMod("apalachiaChunk");
+	public static Item skythernChunk = new ItemMod("skythernChunk");
+	public static Item mortumChunk = new ItemMod("mortumChunk");
 
-    public static Item edenDust;
-    public static Item wildwoodDust;
-    public static Item apalachiaDust;
-    public static Item skythernDust;
-    public static Item mortumDust;
+	public static Item edenDust = new ItemMod("edenDust");
+	public static Item wildwoodDust = new ItemMod("wildwoodDust");
+	public static Item apalachiaDust = new ItemMod("apalachiaDust");
+	public static Item skythernDust = new ItemMod("skythernDust");
+	public static Item mortumDust = new ItemMod("mortumDust");
 
-    public static Item twilightClock;
+	public static Item twilightClock = new ItemTwilightClock("twilightClock");
 
-    public static Item edenSparkles;
+	public static Item edenSparkles = new ItemMod("edenSparkles");
 
-    public static Item baseSpawnCrystal;
-    public static Item densosCrystal;
-    public static Item karotCrystal;
-    public static Item reyvorCrystal;
-    public static Item soulFiendCrystal;
-    public static Item twilightDemonCrystal;
-    public static Item vamacheronCrystal;
-    public static Item eternalArcherCrystal;
-    
-    public static void init() {
-    	edenSoul            = new ItemMod("edenSoul");
-        wildwoodSoul        = new ItemMod("wildwoodSoul");
-        apalachiaSoul       = new ItemMod("apalachiaSoul");
-        skythernSoul        = new ItemMod("skythernSoul");
-        mortumSoul          = new ItemMod("mortumSoul");
-
-        edenFragments       = new ItemMod("edenFragments");
-        wildwoodFragments   = new ItemMod("wildwoodFragments");
-        apalachiaFragments  = new ItemMod("apalachiaFragments");
-        skythernFragments   = new ItemMod("skythernFragments");
-        mortumFragments     = new ItemMod("mortumFragments");
-
-        edenGem             = new ItemMod("edenGem");
-        wildwoodGem         = new ItemMod("wildwoodGem");
-        apalachiaGem        = new ItemMod("apalachiaGem");
-        skythernGem         = new ItemMod("skythernGem");
-        mortumGem           = new ItemMod("mortumGem");
-
-        edenChunk           = new ItemMod("edenChunk");
-        wildwoodChunk       = new ItemMod("wildwoodChunk");
-        apalachiaChunk      = new ItemMod("apalachiaChunk");
-        skythernChunk       = new ItemMod("skythernChunk");
-        mortumChunk         = new ItemMod("mortumChunk");
-
-        edenDust            = new ItemMod("edenDust");
-        wildwoodDust        = new ItemMod("wildwoodDust");
-        apalachiaDust       = new ItemMod("apalachiaDust");
-        skythernDust        = new ItemMod("skythernDust");
-        mortumDust          = new ItemMod("mortumDust");
-
-        twilightClock 		= new ItemTwilightClock("twilightClock");
-
-        edenSparkles	    = new ItemMod("edenSparkles");
-
-        baseSpawnCrystal 	= new ItemMod("baseSpawnCrystal");
-        densosCrystal 		= new ItemTwilightSpawner("densosCrystal");
-        karotCrystal 		= new ItemTwilightSpawner("karotCrystal");
-        reyvorCrystal 		= new ItemTwilightSpawner("reyvorCrystal");
-        soulFiendCrystal	= new ItemTwilightSpawner("soulFiendCrystal");
-        twilightDemonCrystal= new ItemTwilightSpawner("twilightDemonCrystal");
-        vamacheronCrystal	= new ItemTwilightSpawner("vamacheronCrystal");
-        eternalArcherCrystal= new ItemTwilightSpawner("eternalArcherCrystal");
-    }
-    
+	public static Item baseSpawnCrystal = new ItemMod("baseSpawnCrystal");
+	public static Item densosCrystal = new ItemTwilightSpawner("densosCrystal");
+	public static Item karotCrystal = new ItemTwilightSpawner("karotCrystal");
+	public static Item reyvorCrystal = new ItemTwilightSpawner("reyvorCrystal");
+	public static Item soulFiendCrystal = new ItemTwilightSpawner("soulFiendCrystal");
+	public static Item twilightDemonCrystal = new ItemTwilightSpawner("twilightDemonCrystal");
+	public static Item vamacheronCrystal = new ItemTwilightSpawner("vamacheronCrystal");
+	public static Item eternalArcherCrystal = new ItemTwilightSpawner("eternalArcherCrystal");
+	
+	public static void init(){}
 }

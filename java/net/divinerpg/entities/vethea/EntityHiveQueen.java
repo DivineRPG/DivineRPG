@@ -9,7 +9,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class EntityHiveQueen extends EntityDivineRPGBoss {
-	
+
     private int spawnTick;
     private int deathTicks;
 
@@ -17,7 +17,7 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
         super(var1);
         addAttackingAI();
         this.spawnTick = 80;
-        this.setSize(1.5F, 4.0F); 
+        this.setSize(1.5F, 4.0F);
     }
 
     @Override
@@ -38,18 +38,18 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (this.spawnTick % 40 == 0 && !this.worldObj.isRemote && this.worldObj.getClosestVulnerablePlayerToEntity(this, 20) != null) {
-        	if(this.rand.nextBoolean()) {
-        		EntityHoverStinger var2 = new EntityHoverStinger(this.worldObj);
-        		var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-        		this.worldObj.spawnEntityInWorld(var2);
-        		this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-        	} else {
-        		EntityHiveSoldier var2 = new EntityHiveSoldier(this.worldObj);
+            if (this.rand.nextBoolean()) {
+                EntityHoverStinger var2 = new EntityHoverStinger(this.worldObj);
+                var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                this.worldObj.spawnEntityInWorld(var2);
+                this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+            } else {
+                EntityHiveSoldier var2 = new EntityHiveSoldier(this.worldObj);
                 var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
                 this.worldObj.spawnEntityInWorld(var2);
                 this.worldObj.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
 
-        	}
+            }
             spawnTick = 80;
         }
 
@@ -74,9 +74,8 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
     @Override
     protected void dropFewItems(boolean par1, int par2) {
         this.dropItem(VetheaItems.honeychunk, 10);
-        if (this.rand.nextInt(5) != 0) {
-            this.dropItem(VetheaItems.honeysuckle, 15);
-        }
+        this.dropItem(VetheaItems.honeysuckle, 15);
+        this.dropItem(VetheaItems.cermileLump, 17);
     }
 
     @Override
@@ -99,7 +98,7 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
                 }
             }
             if (this.deathTicks == 1) {
-                this.worldObj.playBroadcastSound(1018, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+                this.worldObj.playBroadcastSound(1018, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
             }
         }
 
@@ -118,13 +117,13 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
         }
     }
 
-	@Override
-	public String name() {
-		return "Hive Queen";
-	}
+    @Override
+    public String name() {
+        return "Hive Queen";
+    }
 
-	@Override
-	public IChatComponent chat() {
-		return null;
-	}
+    @Override
+    public IChatComponent chat() {
+        return null;
+    }
 }

@@ -43,6 +43,11 @@ public class EntityCryptKeeper extends EntityGive {
 			}
 		}
 	}
+	
+	@Override
+	public boolean canDespawn() {
+	    return false;
+	}
 
 	@Override
 	public String mobName() {

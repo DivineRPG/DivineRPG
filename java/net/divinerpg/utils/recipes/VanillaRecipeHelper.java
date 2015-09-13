@@ -54,6 +54,12 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addOredictRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
 		addRecipe(new ItemStack(VanillaItemsWeapons.dualClaw), " C ", "AAA", " C ", 'C', VanillaItemsOther.crabClaw, 'A', VanillaItemsOther.aquaticIngot);
+		addOredictRecipe(VanillaItemsWeapons.terranDagger, " T ", " S ", 'T', VanillaItemsOther.terranStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.terranKnife, " T ", " T ", " S ", 'T', VanillaItemsOther.terranStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.terranMaul, "TTT", " T ", " S ", 'T', VanillaItemsOther.terranStone, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.aquatoothSword, " T ", "TKT", " S ", 'T', VanillaItemsOther.liopleurodonTeeth, 'K', VanillaItemsOther.liopleurodonSkull, 'S', "stickWood");
+		addOredictRecipe(VanillaItemsWeapons.aquatoothMaul, "TKT", "TKT", "KSK", 'T', VanillaItemsOther.liopleurodonTeeth, 'K', VanillaItemsOther.liopleurodonSkull, 'S', "stickWood");
+		addRecipe(new ItemStack(VanillaItemsWeapons.jungleRapier), "S S", "SBS", " B ", 'S', VanillaItemsOther.jungleStone, 'B', VanillaItemsOther.shadowBar);
 		
 		//ranged weapons
 		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
@@ -61,6 +67,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.maelstrom, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
 		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
+		addRecipe(VanillaItemsWeapons.liopleurodonAnchor, "SIS", "IXI", " X ", 'I', VanillaItemsOther.liopleurodonTeeth, 'X', VanillaItemsOther.aquaticIngot, 'S', VanillaItemsOther.liopleurodonSkull);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.sharkAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.sharkFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.crabAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
@@ -223,6 +230,11 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(VanillaItemsArmor.corruptedLegs, "III", "I I", "I I", 'I', VanillaItemsOther.corruptedStone);
 		addRecipe(VanillaItemsArmor.corruptedBoots,  "I I", "I I", 'I', VanillaItemsOther.corruptedStone);
 		
+		addRecipe(VanillaItemsArmor.terranHelmet, "III", "I I", 'I', VanillaItemsOther.terranStone);
+        addRecipe(VanillaItemsArmor.terranBody, "I I", "III", "III", 'I', VanillaItemsOther.terranStone);
+        addRecipe(VanillaItemsArmor.terranLegs, "III", "I I", "I I", 'I', VanillaItemsOther.terranStone);
+        addRecipe(VanillaItemsArmor.terranBoots,  "I I", "I I", 'I', VanillaItemsOther.terranStone);
+		
 		//Colorable Weapons / Armor
 		addShapelessRecipe(VanillaItemsArmor.redRupeeHelmet, VanillaItemsArmor.rupeeHelmet, VanillaItemsOther.redDiamondChunk);
 		addShapelessRecipe(VanillaItemsArmor.redRupeeBody, VanillaItemsArmor.rupeeBody, VanillaItemsOther.redDiamondChunk);
@@ -364,6 +376,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 9),  Blocks.glowstone, VanillaItemsOther.enderStone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 6),  Blocks.glowstone, VanillaItemsOther.moltenStone);
 		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp1, 2, 3),  Blocks.glowstone, VanillaItemsOther.bluefireStone);
+		addShapelessRecipe(new ItemStack(VanillaBlocks.lamp2, 2, 11),  Blocks.glowstone, VanillaItemsOther.terranStone);
 		
 		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass, 1), "y  ", " x ", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
 		addRecipe(new ItemStack(ArcanaBlocks.stainedGlass2, 1), " y ", " x ", "   ", 'x', Blocks.glass, 'y', ArcanaItems.marsine);
@@ -392,6 +405,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(IS.bloodgem, VanillaBlocks.bloodgemBlock);
 		addShapelessRecipe(VanillaItemsOther.shadowBar, VanillaItemsOther.rupeeIngot, VanillaItemsOther.arlemiteIngot);
 		
+		addShapelessRecipe(new ItemStack(VanillaItemsOther.shadowCoins, 6), VanillaItemsOther.shadowStone);
+		
 		addSmelting(ItemsFood.rawEmpoweredMeat, ItemsFood.empoweredMeat, 1);
 		
 		addRecipe(VanillaItemsOther.pureAquaticPellets, "PPP", "PPP", "PPP", 'P', VanillaItemsOther.aquaticPellets);
@@ -403,7 +418,8 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addRecipe(IceikaItems.iceStone, "III", "III", "III", 'I', IceikaItems.iceShards);
 		addRecipe(VanillaItemsOther.moltenStone, "III", "III", "III", 'I', VanillaItemsOther.moltenShards);
 		addRecipe(VanillaItemsOther.divineStone, "III", "III", "III", 'I', VanillaItemsOther.divineShards);
-		addRecipe(VanillaItemsOther.enderStone, "III", "III", "III", 'I', VanillaItemsOther.enderShard);
+		addRecipe(VanillaItemsOther.enderStone, "III", "III", "III", 'I', VanillaItemsOther.enderShards);
+		addRecipe(VanillaItemsOther.terranStone, "III", "III", "III", 'I', VanillaItemsOther.terranShards);
 		addRecipe(VanillaItemsOther.shadowStone, "II", "II", 'I', VanillaItemsOther.shadowBar);
 
 		addRecipe(VanillaItemsOther.legendaryEnderEye, "III", "III", "III", 'I', VanillaItemsOther.enderStone);
@@ -435,7 +451,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(VanillaBlocks.frostPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceStone, 'P', Blocks.pumpkin);
         addRecipe(VanillaBlocks.jungleSpiderPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.jungleShards, 'P', Blocks.pumpkin);
         addRecipe(VanillaBlocks.blazePumpkin, "MMM", "MPM", "MMM", 'M', Items.blaze_rod, 'P', Blocks.pumpkin);
-        addRecipe(VanillaBlocks.enderWatcherPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.enderShard, 'P', Blocks.pumpkin);
+        addRecipe(VanillaBlocks.enderWatcherPumpkin, "MMM", "MPM", "MMM", 'M', VanillaItemsOther.enderShards, 'P', Blocks.pumpkin);
         addRecipe(VanillaBlocks.glaconPumpkin, "MMM", "MPM", "MMM", 'M', IceikaItems.iceShards, 'P', Blocks.pumpkin);
         addRecipe(VanillaBlocks.zombiePumpkin, "MMM", "MPM", "MMM", 'M', Items.rotten_flesh, 'P', Blocks.pumpkin);
         addRecipe(VanillaBlocks.creeperPumpkin, "MMM", "MPM", "MMM", 'M', Items.gunpowder, 'P', Blocks.pumpkin);
@@ -468,8 +484,5 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(new ItemStack(VanillaBlocks.cyanVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 6), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.purpleVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 5), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.yellowVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 11), 'O', Blocks.obsidian);
-        
-        addRecipe(new ItemStack(Blocks.crafting_table), "WW", "WW", 'W', VanillaBlocks.divinePlank);
-        addRecipe(new ItemStack(Items.stick, 4), "W", "W", 'W', VanillaBlocks.divinePlank);
 	}
 }

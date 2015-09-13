@@ -7,7 +7,7 @@
     "mcversion": "${mcversion}",
     "url": "http://wiki.divinerpg.net/wiki/DivineRPG_Wiki",
     "updateUrl": "",
-    "authors": [],
+    "authors": ["Eternaldoom", "RadioactiveStud", "XolovA"],
     "credits": "XolovA, RadioactiveStud, Eternaldoom, BossLetsPlays, sheenrox82, Declan, Insanity414all, The_SlayerMC, Mazetar, TLHPoE, Laorwick, BlueEyes9, Sactage",
     "logoFile": "logo.png",
     "screenshots": [],

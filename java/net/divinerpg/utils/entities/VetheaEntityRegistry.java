@@ -1,46 +1,7 @@
 package net.divinerpg.utils.entities;
 
-import net.divinerpg.entities.vethea.EntityAcidHag;
-import net.divinerpg.entities.vethea.EntityBiphron;
-import net.divinerpg.entities.vethea.EntityBohemite;
-import net.divinerpg.entities.vethea.EntityCryptKeeper;
-import net.divinerpg.entities.vethea.EntityCymesoid;
-import net.divinerpg.entities.vethea.EntityDissiment;
-import net.divinerpg.entities.vethea.EntityDreamwrecker;
-import net.divinerpg.entities.vethea.EntityDuo;
-import net.divinerpg.entities.vethea.EntityEhu;
-import net.divinerpg.entities.vethea.EntityEndiku;
-import net.divinerpg.entities.vethea.EntityEnt;
-import net.divinerpg.entities.vethea.EntityGalroid;
-import net.divinerpg.entities.vethea.EntityGorgosion;
-import net.divinerpg.entities.vethea.EntityHelio;
-import net.divinerpg.entities.vethea.EntityHiveQueen;
-import net.divinerpg.entities.vethea.EntityHiveSoldier;
-import net.divinerpg.entities.vethea.EntityHoverStinger;
-import net.divinerpg.entities.vethea.EntityTheHunger;
-import net.divinerpg.entities.vethea.EntityHusk;
-import net.divinerpg.entities.vethea.EntityKaros;
-import net.divinerpg.entities.vethea.EntityKazrotic;
-import net.divinerpg.entities.vethea.EntityLadyLuna;
-import net.divinerpg.entities.vethea.EntityLheiva;
-import net.divinerpg.entities.vethea.EntityLorga;
-import net.divinerpg.entities.vethea.EntityLorgaFlight;
-import net.divinerpg.entities.vethea.EntityMandragora;
-import net.divinerpg.entities.vethea.EntityMysteriousManLayer1;
-import net.divinerpg.entities.vethea.EntityMysteriousManLayer2;
-import net.divinerpg.entities.vethea.EntityMysteriousManLayer3;
-import net.divinerpg.entities.vethea.EntityQuadro;
-import net.divinerpg.entities.vethea.EntityRaglok;
-import net.divinerpg.entities.vethea.EntityShadahier;
-import net.divinerpg.entities.vethea.EntityStoneGolem;
-import net.divinerpg.entities.vethea.EntityTempleGuardian;
-import net.divinerpg.entities.vethea.EntityTocaxin;
-import net.divinerpg.entities.vethea.EntityTwins;
-import net.divinerpg.entities.vethea.EntityVermenous;
-import net.divinerpg.entities.vethea.EntityVhraak;
-import net.divinerpg.entities.vethea.EntityWreck;
-import net.divinerpg.entities.vethea.EntityZone;
-import net.divinerpg.entities.vethea.EntityZoragon;
+import net.divinerpg.entities.vethea.*;
+import net.divinerpg.entities.twilight.EntityBehemoth;
 import net.divinerpg.entities.vethea.projectile.EntityAmthirmisDisk;
 import net.divinerpg.entities.vethea.projectile.EntityArksianeDisk;
 import net.divinerpg.entities.vethea.projectile.EntityBouncingProjectile;
@@ -88,6 +49,7 @@ public class VetheaEntityRegistry {
 		Util.registerProjectile(EntityWreckExplosiveShot.class, "WreckExplosiveShot");
 		Util.registerProjectile(EntityZoragonBomb.class, "ZoragonBomb");
 		Util.registerProjectile(EntityWreckBouncingProjectile.class, "WreckBouncing");
+		Util.registerProjectile(EntityLadyLunaSparkler.class, "LadyLunaSparkler");
 
 		Util.registerDivineRPGMob(EntityVermenous.class, "Vermenous");
         Util.registerDivineRPGMob(EntityEnt.class, "Ent");
@@ -118,7 +80,6 @@ public class VetheaEntityRegistry {
         Util.registerDivineRPGMob(EntityRaglok.class, "Raglok");
         Util.registerDivineRPGMob(EntityQuadro.class, "Quadro");
         Util.registerDivineRPGMob(EntityDuo.class, "Duo");
-        Util.registerDivineRPGMob(EntityEndiku.class, "Endiku");
         Util.registerDivineRPGMob(EntityLorga.class, "Lorga");
         Util.registerDivineRPGMob(EntityLorgaFlight.class, "LorgaFlight");
         Util.registerDivineRPGMob(EntityMysteriousManLayer1.class, "MysteriousMan1");
@@ -127,8 +88,5 @@ public class VetheaEntityRegistry {
         Util.registerDivineRPGMob(EntityTheHunger.class, "TheHunger");
         Util.registerDivineRPGMob(EntityCryptKeeper.class, "CryptKeeper");
         Util.registerDivineRPGMob(EntityTempleGuardian.class, "TempleGuardian");
-        //Util.registerDivineRPGMob(EntityEhu.class, "Ehu");
-        //Util.registerDivineRPGMob(EntityStoneGolem.class, "StoneGolem");
-        //Util.registerDivineRPGMob(EntityHusk.class, "Husk");
 	}
 }

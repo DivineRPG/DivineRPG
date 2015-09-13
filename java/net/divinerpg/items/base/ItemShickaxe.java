@@ -28,12 +28,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemShickaxe extends ItemTool {
 
-    private static final Set<Block> blocksEffectiveAgainst = Sets.newHashSet(Block.blockRegistry);
-    
     protected String name;
     
     public ItemShickaxe(ToolMaterial toolMaterial, String name) {
-        super(0, toolMaterial, blocksEffectiveAgainst);
+        super(0, toolMaterial, null);
         setCreativeTab(DivineRPGTabs.tools);
         setTextureName(Reference.PREFIX + name);
         setUnlocalizedName(name);
@@ -49,6 +47,10 @@ public class ItemShickaxe extends ItemTool {
     @Override
     public boolean canItemHarvestBlock(Block block) {
         return isEfficient(block);
+    }
+
+    public float getStrVsBlock(ItemStack stack, Block block) {
+        return this.toolMaterial.getEfficiencyOnProperMaterial();
     }
 
     protected boolean isEfficient(Block block) {

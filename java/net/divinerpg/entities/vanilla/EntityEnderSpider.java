@@ -38,11 +38,11 @@ public class EntityEnderSpider extends EntityEnderman {
  
 	@Override
 	protected Item getDropItem() {
-		return VanillaItemsOther.enderShard;
+		return VanillaItemsOther.enderShards;
 	}
  
 	@Override
 	protected void dropFewItems(boolean var1, int var2) {   
-		this.dropItem(VanillaItemsOther.enderShard, 1);
+		this.dropItem(VanillaItemsOther.enderShards, 1);
 	}
 }

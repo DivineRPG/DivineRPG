@@ -49,6 +49,11 @@ public class BlockMoonbulb extends BlockMod implements IPlantable {
 	public boolean canBlockStay(World w, int x, int y, int z) {
 		return w.getBlock(x, y - 1, z) == this || w.getBlock(x, y - 1, z) == Blocks.grass;
 	}
+
+	@Override
+	public boolean canPlaceBlockAt(World w, int x, int y, int z) {
+		return true;
+	}
 	
 	@Override
 	public void onNeighborBlockChange(World w, int x, int y, int z, Block b) {

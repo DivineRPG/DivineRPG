@@ -1,17 +1,15 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.entities.vethea.projectile.EntityMandragoraProjectile;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.util.DamageSource;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityMandragora extends VetheaMob implements IRangedAttackMob {
-	
+public class EntityMandragora extends VetheaMob {
+
     public EntityMandragora(World var1) {
         super(var1);
         addAttackingAI();
@@ -28,7 +26,7 @@ public class EntityMandragora extends VetheaMob implements IRangedAttackMob {
 
     @Override
     public int getSpawnLayer() {
-    	return 2;
+        return 2;
     }
 
     @Override
@@ -50,21 +48,22 @@ public class EntityMandragora extends VetheaMob implements IRangedAttackMob {
     protected String getDeathSound() {
         return getHurtSound();
     }
-
-  
+    
     @Override
-    public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
-        if (par1DamageSource.isExplosion())
-            return false;
-        return super.attackEntityFrom(par1DamageSource, par2);
+    public void onUpdate() {
+        super.onUpdate();
+        EntityPlayer target = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16);
+        if(!worldObj.isRemote && target != null && this.ticksExisted%20 == 0) attackEntity(target);
     }
 
-    @Override
-    public void attackEntityWithRangedAttack(EntityLivingBase par1, float par2) {
-        EntityMandragoraProjectile var1 = new EntityMandragoraProjectile(this.worldObj, this);
-        this.playSound(Sounds.mandragora.getPrefixedName(), 1.0F, 2.0F);
-        var1.setVelocity(0, var1.motionY, 0);
-        this.worldObj.spawnEntityInWorld(var1);
+    public void attackEntity(EntityLivingBase e) {
+        double tx = e.posX - this.posX;
+        double ty = e.boundingBox.minY - this.posY;
+        double tz = e.posZ - this.posZ;
+        EntityMandragoraProjectile p = new EntityMandragoraProjectile(this.worldObj, this);
+        p.setThrowableHeading(tx, ty, tz, 1.3f, 15);
+        this.playSound(Sounds.mandragora.getPrefixedName(), 2.0F, 2.0F);
+        if(!worldObj.isRemote)this.worldObj.spawnEntityInWorld(p);
     }
 
     @Override
@@ -72,8 +71,8 @@ public class EntityMandragora extends VetheaMob implements IRangedAttackMob {
         this.dropItem(VetheaItems.cleanPearls, 1);
     }
 
-	@Override
-	public String mobName() {
-		return "Mandragora";
-	}
+    @Override
+    public String mobName() {
+        return "Mandragora";
+    }
 }

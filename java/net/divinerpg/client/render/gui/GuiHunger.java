@@ -4,7 +4,7 @@ import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.util.StatCollector;
 
-public class GuiHunger extends GuiDivineMerchent{
+public class GuiHunger extends GuiDivineMerchant{
 
 	public GuiHunger(ContainerDivineMerchant container, IMerchant mer) {
 		super(container, mer, "The Hunger", "hunger");

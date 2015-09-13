@@ -1,14 +1,18 @@
 package net.divinerpg.utils.material;
 
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.items.IceikaItems;
+import net.divinerpg.utils.items.VanillaItemsOther;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 public enum EnumArmor {
 
     ANGELIC(Util.addArmorMaterial("Angelic", 0, 10), "angelic", true, 30),
-    DIVINE(Util.addArmorMaterial("Divine", 10000, 10), "divine", true, 78),
-    BEDROCK(Util.addArmorMaterial("Bedrock", 10000, 10), "bedrock", true, 78),
-    REALMITE(Util.addArmorMaterial("Realmite", 5000, 10), "realmite", false, 50),
+    DIVINE(Util.addArmorMaterial("Divine", 10000, 10, VanillaItemsOther.divineStone), "divine", false, 78),
+    BEDROCK(Util.addArmorMaterial("Bedrock", 10000, 10, Item.getItemFromBlock(Blocks.bedrock)), "bedrock", false, 78),
+    REALMITE(Util.addArmorMaterial("Realmite", 5000, 10, VanillaItemsOther.realmiteIngot), "realmite", false, 50),
     ELITE_REALMITE(Util.addArmorMaterial("Elite Realmite", 0, 10), "eliteRealmite", true, 65),
     ARLEMITE(Util.addArmorMaterial("Arlemite", 0, 22), "arlemite", true, 50),
     RUPEE(Util.addArmorMaterial("Rupee", 0, 10), "rupee", true, 50),
@@ -17,23 +21,24 @@ public enum EnumArmor {
     RUPEE_GREEN(Util.addArmorMaterial("Rupee", 0, 10), "greenRupee", true, 50),
     RUPEE_GRAY(Util.addArmorMaterial("Rupee", 0, 10), "grayRupee", true, 50),
     RUPEE_BLUE(Util.addArmorMaterial("Rupee", 0, 10), "blueRupee", true, 50),
-    KRAKEN(Util.addArmorMaterial("Kraken", 5000, 10), "kraken", false, 45),
+    KRAKEN(Util.addArmorMaterial("Kraken", 5000, 10, VanillaItemsOther.krakenSkin), "kraken", false, 45),
     WITHER_REAPER(Util.addArmorMaterial("Wither Reaper", 0, 22), "witherReaper", true, 0),
     SKELEMAN(Util.addArmorMaterial("Skeleman", 0, 22), "skeleman", true, 0),
     JACKOMAN(Util.addArmorMaterial("Jack O Man", 0, 22), "jackOMan", true, 0),
     INFERNO(Util.addArmorMaterial("Inferno", 6500, 10), "inferno", true, 73),
     AQUATIC(Util.addArmorMaterial("Aquastrive", 0, 10), "aquastrive", true, 70),
     SHADOW(Util.addArmorMaterial("Shadow", 0, 10), "shadow", true, 75),
-    NETHERITE(Util.addArmorMaterial("Netherite", 5000, 10), "netherite", false, 70),
-    ENDER(Util.addArmorMaterial("Ender", 7500, 10), "ender", true, 73),
-    ENDER_YELLOW(Util.addArmorMaterial("Ender", 7500, 10), "yellowEnder", true, 73),
-    ENDER_RED(Util.addArmorMaterial("Ender", 7500, 10), "redEnder", true, 73),
-    ENDER_GREEN(Util.addArmorMaterial("Ender", 7500, 10), "greenEnder", true, 73),
-    ENDER_GRAY(Util.addArmorMaterial("Ender", 7500, 10), "grayEnder", true, 73),
-    ENDER_BLUE(Util.addArmorMaterial("Ender", 7500, 10), "blueEnder", true, 73),
-    JUNGLE(Util.addArmorMaterial("Jungle", 8200, 10), "jungle", true, 65),
-    FROZEN(Util.addArmorMaterial("Frozen", 5000, 10), "frozen", false, 65),
-    CORRUPTED(Util.addArmorMaterial("Corrupted", 5000, 10), "corrupted", false, 68),
+    NETHERITE(Util.addArmorMaterial("Netherite", 5000, 10, VanillaItemsOther.netheriteIngot), "netherite", false, 70),
+    ENDER(Util.addArmorMaterial("Ender", 7500, 10, VanillaItemsOther.enderStone), "ender", false, 73),
+    ENDER_YELLOW(Util.addArmorMaterial("Ender", 7500, 10, VanillaItemsOther.enderStone), "yellowEnder", false, 73),
+    ENDER_RED(Util.addArmorMaterial("Ender", 7500, 10, VanillaItemsOther.enderStone), "redEnder", false, 73),
+    ENDER_GREEN(Util.addArmorMaterial("Ender", 7500, 10, VanillaItemsOther.enderStone), "greenEnder", false, 73),
+    ENDER_GRAY(Util.addArmorMaterial("Ender", 7500, 10, VanillaItemsOther.enderStone), "grayEnder", false, 73),
+    ENDER_BLUE(Util.addArmorMaterial("Ender", 7500, 10, VanillaItemsOther.enderStone), "blueEnder", false, 73),
+    JUNGLE(Util.addArmorMaterial("Jungle", 5000, 10, VanillaItemsOther.jungleStone), "jungle", false, 65),
+    FROZEN(Util.addArmorMaterial("Frozen", 3000, 10, IceikaItems.iceStone), "frozen", false, 65),
+    CORRUPTED(Util.addArmorMaterial("Corrupted", 5000, 10, VanillaItemsOther.corruptedStone), "corrupted", false, 68),
+    TERRAN(Util.addArmorMaterial("Terran", 3000, 10, VanillaItemsOther.terranStone), "terran", false, 68),
     EDEN(Util.addArmorMaterial("Eden", 0, 10), "eden", true, 72),
     WILD(Util.addArmorMaterial("Wild", 0, 10), "wildwood", true, 74),
     APALACHIA(Util.addArmorMaterial("Apalachia", 0, 10), "apalachia", true, 76),

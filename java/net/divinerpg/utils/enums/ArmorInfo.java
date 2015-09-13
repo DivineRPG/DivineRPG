@@ -26,7 +26,8 @@ public enum ArmorInfo {
     WITHER_PROTECTION("Wither Protection"),
     ARCANA_REGEN("Arcana Regeneration"),
     POISON_PROTECTION("Poison Resistance"),
-    FREEZE("Slows Hostile Mobs Within 6 Blocks");
+    FREEZE("Slows Hostile Mobs Within 6 Blocks"),
+    HASTE("Increased Mining Speed");
     
     private String info;
 

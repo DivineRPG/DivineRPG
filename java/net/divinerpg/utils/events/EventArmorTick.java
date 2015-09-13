@@ -10,6 +10,7 @@ import net.divinerpg.utils.items.IceikaItems;
 import net.divinerpg.utils.items.TwilightItemsArmor;
 import net.divinerpg.utils.items.VanillaItemsArmor;
 import net.divinerpg.utils.items.VetheaItems;
+import net.divinerpg.utils.material.EnumArmor;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -61,9 +62,9 @@ public class EventArmorTick {
         else legs = null;
 
         if (stackHelmet != null) helmet = stackHelmet.getItem();
-        else helmet = null;        
-        
-        if(boots != VanillaItemsArmor.angelicBoots || body != VanillaItemsArmor.angelicBody || legs != VanillaItemsArmor.angelicLegs || helmet != VanillaItemsArmor.angelicHelmet) {
+        else helmet = null;       
+                
+        if(boots != VanillaItemsArmor.angelicBoots && body != VanillaItemsArmor.angelicBody && legs != VanillaItemsArmor.angelicLegs && helmet != VanillaItemsArmor.angelicHelmet) {
             FlyingHelper.getProperties(evt.player).couldFly = evt.player.capabilities.allowFlying;
         }
         if(evt.player.capabilities.isCreativeMode) FlyingHelper.getProperties(evt.player).couldFly = false;
@@ -173,6 +174,12 @@ public class EventArmorTick {
             	((EntityMob)e).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40, 1, true));
             }
         }
+
+        //Terran
+        if (boots == VanillaItemsArmor.terranBoots && body == VanillaItemsArmor.terranBody && legs == VanillaItemsArmor.terranLegs && helmet == VanillaItemsArmor.terranHelmet) {
+            evt.player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 20, 2, true));
+        }
+
         //Skeleman
         if (boots == VanillaItemsArmor.skelemanBoots && body == VanillaItemsArmor.skelemanBody && legs == VanillaItemsArmor.skelemanLegs && helmet == VanillaItemsArmor.skelemanHelmet) {
             if (evt.player.getFoodStats().needFood()) {

@@ -89,9 +89,9 @@ public class RecipesInfusionTable {
 
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 8, new ItemStack(VetheaItems.degradedHelmet));
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 6, new ItemStack(VetheaItems.degradedHood));
-		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 9, new ItemStack(VetheaItems.degradedMask));
+		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 7, new ItemStack(VetheaItems.degradedMask));
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 5, new ItemStack(VetheaItems.degradedBoots));
-		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 8, new ItemStack(VetheaItems.degradedLegs));
+		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 9, new ItemStack(VetheaItems.degradedLegs));
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 10, new ItemStack(VetheaItems.degradedBody));
 
 		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 12, new ItemStack(VetheaItems.finishedHelmet));

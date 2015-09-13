@@ -17,6 +17,12 @@ public class EntityTempleGuardian extends EntityGive {
 	public void Interact(EntityPlayer p) {
 		p.addChatMessage(Util.getChatComponent("Temple Guardian: " + MessageLocalizer.guardian(rand.nextInt(5))));
 	}
+	
+
+    @Override
+    public boolean canDespawn() {
+        return false;
+    }
 
 	@Override
 	public String mobName() {

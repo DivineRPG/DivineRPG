@@ -1,5 +1,6 @@
 package net.divinerpg.client;
 
+import cpw.mods.fml.common.network.IGuiHandler;
 import net.divinerpg.blocks.arcana.container.ContainerExtractor;
 import net.divinerpg.blocks.arcana.container.tile_entity.TileEntityExtractor;
 import net.divinerpg.blocks.base.tileentity.TileEntityInfiniteFurnace;
@@ -22,7 +23,8 @@ import net.divinerpg.client.render.gui.GuiHunger;
 import net.divinerpg.client.render.gui.GuiInfusionTable;
 import net.divinerpg.client.render.gui.GuiJackOMan;
 import net.divinerpg.client.render.gui.GuiLeorna;
-import net.divinerpg.client.render.gui.GuiMerchent;
+import net.divinerpg.client.render.gui.GuiLivestockMerchant;
+import net.divinerpg.client.render.gui.GuiWorkshopMerchant;
 import net.divinerpg.client.render.gui.GuiMerik;
 import net.divinerpg.client.render.gui.GuiMoltenFurnace;
 import net.divinerpg.client.render.gui.GuiMoonlightFurnace;
@@ -38,19 +40,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler{
 
 	public static int guiID = 0;
-	public static int twilightFurnace = guiID++, infusionTable = guiID++, hunger = guiID++, coalstone = guiID++, tinker = guiID++, merchent = guiID++, jackOMan = guiID++, zelus = guiID++, vatticus = guiID++, warGeneral = guiID++, leorna = guiID++, captainMerik = guiID++, datticon = guiID++, extractor = guiID++ , greenlight = guiID++, oceanfire = guiID++, molten = guiID++, whitefire = guiID++, moonlight = guiID++, demon = guiID++, altar = guiID++, dreamLamp = guiID++;
+	public static int twilightFurnace = guiID++, infusionTable = guiID++, hunger = guiID++, coalstone = guiID++, tinker = guiID++, merchant = guiID++, jackOMan = guiID++, zelus = guiID++, vatticus = guiID++, warGeneral = guiID++, leorna = guiID++, captainMerik = guiID++, datticon = guiID++, extractor = guiID++ , greenlight = guiID++, oceanfire = guiID++, molten = guiID++, whitefire = guiID++, moonlight = guiID++, demon = guiID++, altar = guiID++, dreamLamp = guiID++, livestockMerchant = guiID++;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity entity = world.getTileEntity(x, y, z);
 		if(ID == infusionTable)
 			return new ContainerInfusionTable(player.inventory, (TileEntityInfusionTable)entity);
-		if(ID == merchent || ID == tinker || ID == zelus || ID == hunger || ID == jackOMan || ID == vatticus || ID == leorna || ID == datticon || ID == captainMerik || ID == warGeneral)
+		if(ID == merchant || ID == tinker || ID == zelus || ID == hunger || ID == jackOMan || ID == vatticus || ID == leorna || ID == datticon || ID == captainMerik || ID == warGeneral || ID == livestockMerchant)
 			return new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world);
 		if(ID == extractor)
 			return new ContainerExtractor(player.inventory, (TileEntityModFurnace)entity);
@@ -74,8 +75,8 @@ public class GuiHandler implements IGuiHandler{
 			return new GuiCoalstoneFurnace(player.inventory, (TileEntityInfiniteFurnace)entity);
 		if(ID == jackOMan)
 			return new GuiJackOMan(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
-		if(ID == merchent)
-			return new GuiMerchent(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
+		if(ID == merchant)
+			return new GuiWorkshopMerchant(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == tinker)
 			return new GuiTinker(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		if(ID == zelus)
@@ -110,6 +111,8 @@ public class GuiHandler implements IGuiHandler{
 			return new GuiAltarCorruption(player.inventory, world, x, y, z);
 		if(ID == dreamLamp)
             return new GuiDreamLamp(player.inventory, (IInventory) entity);
+		if(ID == livestockMerchant)
+			return new GuiLivestockMerchant(new ContainerDivineMerchant(player.inventory, (IMerchant)getEntityByID(x, world), world), (IMerchant)getEntityByID(x, world));
 		return null;
 	}
 

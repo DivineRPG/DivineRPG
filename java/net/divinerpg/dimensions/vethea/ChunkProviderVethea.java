@@ -118,25 +118,21 @@ public class ChunkProviderVethea implements IChunkProvider {
 		
 	}
 
-	public void generateTerrain(int i, int j, Block[] b) {
-		VetheanChunkBuilder builder = new VetheanChunkBuilder();
-		VetheanChunkBuilder.toTerrainArray(builder.buildChunk(i, j), b);
-	}
-
 	@Override
 	public Chunk loadChunk(int par1, int par2) {
 		return this.provideChunk(par1, par2);
 	}
 
 	@Override
-	public Chunk provideChunk(int par1, int par2) {
-		this.rand.setSeed((long)par1 * 341873128712L + (long)par2 * 132897987541L);
-		Block[] block = new Block[65536];
-		byte[] by = new byte[65536];
-		this.generateTerrain(par1, par2, block);
-		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		this.firecrystals.generate(this, this.worldObj, par1, par2, block);
-		Chunk var4 = new Chunk(this.worldObj, block, by, par1, par2);
+	public Chunk provideChunk(int chunkX, int chunkZ) {
+		this.rand.setSeed((long)chunkX * 341873128712L + (long)chunkZ * 132897987541L);
+		Block[] block;
+		VetheanChunkBuilder builder = new VetheanChunkBuilder();
+		builder.rand.setSeed((long)chunkX * 341873128712L + (long)chunkZ * 132897987541L);
+		block = builder.buildChunk(chunkX, chunkZ).getChunkData();
+		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, chunkX * 16, chunkZ * 16, 16, 16);
+		this.firecrystals.generate(this, this.worldObj, chunkX, chunkZ, block);
+		Chunk var4 = new Chunk(this.worldObj, block, new byte[65536], chunkX, chunkZ);
 		byte[] var5 = var4.getBiomeArray();
 		for (int var6 = 0; var6 < var5.length; ++var6) {
 			var5[var6] = (byte)this.biomesForGeneration[var6].biomeID;
@@ -208,10 +204,7 @@ public class ChunkProviderVethea implements IChunkProvider {
 					var12 = var4 + this.rand.nextInt(16) + 8;
 					var13 = 65;
 					var14 = var5 + this.rand.nextInt(16) + 8;
-					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13++;
-					}
-					(pyramids.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, var12, var13, var14);//Add the mobs
+					if(worldObj.getBlock(var12, var13, var14) == Blocks.air)(pyramids.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, var12, var13, var14);//Add the mobs
 				}
 				
 				for (int i = 0; i < 3; i++) {

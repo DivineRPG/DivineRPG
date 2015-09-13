@@ -20,6 +20,10 @@ public class TileEntityAyeracoBeam extends TileEntity {
 		texture = tex;
 	}
     
+    public TileEntityAyeracoBeam() {
+        
+    }
+    
     @SideOnly(Side.CLIENT)
     public float renderBeam() {
     	int var1 = (int)(this.worldObj.getTotalWorldTime() - this.time);
@@ -44,5 +48,17 @@ public class TileEntityAyeracoBeam extends TileEntity {
         NBTTagCompound nbttagcompound = new NBTTagCompound();
         this.writeToNBT(nbttagcompound);
         return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 3, nbttagcompound);
+    }
+    
+    @Override
+    public void writeToNBT(NBTTagCompound tag) {
+        super.writeToNBT(tag);
+        tag.setString("texture", this.texture.toString());
+    }
+    
+    @Override
+    public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+        texture = new ResourceLocation(tag.getString("texture"));
     }
 }

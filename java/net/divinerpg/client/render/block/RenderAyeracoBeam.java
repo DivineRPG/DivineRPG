@@ -15,6 +15,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderAyeracoBeam extends TileEntitySpecialRenderer{
 	
 	public void renderTileEntity(TileEntityAyeracoBeam entity, double x, double y, double z, float f) {
+	    if(entity.texture == null) return;
         float f1 = entity.renderBeam();
         GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
         if (f1 > 0.0F) {

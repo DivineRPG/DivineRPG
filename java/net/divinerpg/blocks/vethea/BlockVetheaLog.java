@@ -18,8 +18,8 @@ public class BlockVetheaLog extends BlockModLog {
     }
     
     @Override
-    public void breakBlock(World w, int x, int y, int z, Block broken, int meta) {
-        super.breakBlock(w, x, y, z, broken, meta);
+    public void onBlockDestroyedByPlayer(World w, int x, int y, int z, int meta) {
+        super.onBlockDestroyedByPlayer(w, x, y, z, meta);
         if(!w.isRemote && this.rand.nextInt(5)==0) {
             EntityEnt e = new EntityEnt(w);
             e.setLocationAndAngles(x, y, z, 0, 0);

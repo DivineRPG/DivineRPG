@@ -39,7 +39,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 
 	@Override
 	public int guiID() {
-		return GuiHandler.merchent;
+		return GuiHandler.merchant;
 	}
 
 	@Override

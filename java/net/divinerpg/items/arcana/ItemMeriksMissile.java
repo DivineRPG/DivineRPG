@@ -29,6 +29,7 @@ public class ItemMeriksMissile extends ItemModBow {
         super(name, uses, damage, DEFAULT_MAX_USE_DURATION, null, null);
         this.arcana = arcana;
         this.setMaxStackSize(1);
+        bowList.remove(this);
     }
 	
 	@Override

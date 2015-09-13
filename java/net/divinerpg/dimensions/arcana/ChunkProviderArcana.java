@@ -181,7 +181,7 @@ public class ChunkProviderArcana implements IChunkProvider {
 		}
 		if ((chunkX & 1) == 1 && (chunkZ & 1) == 1) {
 		    for(int i = 1; i < 4; i++) {
-    			if(this.random.nextInt(50) == 0 || this.random.nextInt(50) == 0 || this.random.nextInt(50) == 0) {
+    			if(this.random.nextInt(30) == 0 || this.random.nextInt(30) == 0 || this.random.nextInt(30) == 0) {
     	            roomToGenerate = rand.nextInt(2);
     				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, z);
     				this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed() * i << 2 | var10);

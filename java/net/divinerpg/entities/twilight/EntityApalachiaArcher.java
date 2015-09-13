@@ -21,7 +21,7 @@ public class EntityApalachiaArcher extends EntityDivineRPGMob implements IRanged
 
     public EntityApalachiaArcher(World var1) {
         super(var1);
-        this.tasks.addTask(7, new EntityAIArrowAttack(this, 0.25F, 15, 10.0F));
+        this.tasks.addTask(7, new EntityAIArrowAttack(this, 1F, 15, 60, 15.0F));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.setSize(2.0F, 3.0F);
     }

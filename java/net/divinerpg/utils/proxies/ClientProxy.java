@@ -3,6 +3,8 @@ package net.divinerpg.utils.proxies;
 import java.awt.Color;
 import java.util.Random;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.divinerpg.client.ArcanaRenderer;
 import net.divinerpg.client.render.BossTickHandler;
 import net.divinerpg.client.render.entity.ArcanaEntityRenderer;
@@ -44,10 +46,9 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.particle.EntityFlameFX;
 import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.item.Item;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
 	
@@ -106,6 +107,8 @@ public class ClientProxy extends CommonProxy {
     
     @Override
     public void spawnParticle(World w, double x, double y, double z, String particle, boolean random, int randFactor) {
+        if(w == null) w = Minecraft.getMinecraft().theWorld;
+        if(!w.getChunkProvider().chunkExists(MathHelper.floor_double(x / 16), MathHelper.floor_double(z / 16))) return;
     	if(random) {
     		x += (rand.nextDouble()-rand.nextDouble())/(4/randFactor);
     		y += (rand.nextDouble()-rand.nextDouble())/(4/randFactor);
@@ -126,6 +129,8 @@ public class ClientProxy extends CommonProxy {
     }
     
     public void spawnParticle(World w, double x, double y, double z, Color c, boolean random) {
+        if(w == null) w = Minecraft.getMinecraft().theWorld;
+        if(!w.getChunkProvider().chunkExists(MathHelper.floor_double(x / 16), MathHelper.floor_double(z / 16))) return;
     	if(random) {
     		x += (rand.nextDouble()-rand.nextDouble())/4;
     		y += (rand.nextDouble()-rand.nextDouble())/4;

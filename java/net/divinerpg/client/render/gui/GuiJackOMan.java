@@ -4,7 +4,7 @@ import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.util.StatCollector;
 
-public class GuiJackOMan extends GuiDivineMerchent{
+public class GuiJackOMan extends GuiDivineMerchant{
 
 	public GuiJackOMan(ContainerDivineMerchant container, IMerchant mer) {
 		super(container, mer, "Jack 'O' Man", "jackOMan");

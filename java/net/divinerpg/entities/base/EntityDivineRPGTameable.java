@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIBeg;
 import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
@@ -57,22 +58,14 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit);
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
-        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, getMoveSpeed()*5, true));
-        this.tasks.addTask(5, new EntityAIFollowOwner(this, getMoveSpeed()*5, 4F, 16F));
-        this.tasks.addTask(6, new EntityAIMate(this, 1.0F));
-        this.tasks.addTask(7, new EntityAIWander(this, 1.0F));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0D, true));
+        this.tasks.addTask(5, new EntityAIOwnerWithoutTeleport(this, 1.0D, 10.0F, 2.0F));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
-	}
-	
-	protected void addAttackingAI(){
-        this.tasks.addTask(5, new EntityAIAttackOnCollide(this, EntityPlayer.class, getMoveSpeed(), false));
-		this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-
 	}
 	
 	@Override
@@ -89,6 +82,16 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 	public boolean getCanSpawnHere() {
 		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && this.worldObj.checkNoEntityCollision(this.boundingBox) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
 	}
+	
+	@Override
+	public boolean attackEntityAsMob(Entity e) {
+		boolean attack = super.attackEntityAsMob(e);
+		if(attack && e instanceof EntityLiving) {
+			((EntityLiving)e).setRevengeTarget(this);
+		}
+		return attack;
+	}
+	
 	
 	public boolean isAngry() {return false;}
 }

@@ -33,12 +33,7 @@ public class RenderFrostedChest extends TileEntitySpecialRenderer {
 			i = entity.getBlockMetadata();
 		}
 
-		if (entity.adjacentChestZNeg == null && entity.adjacentChestXNeg == null) {
-			if (entity.adjacentChestXPos == null && entity.adjacentChestZPos == null) {
-				this.bindTexture(texture);
-			}
-		}
-
+		this.bindTexture(texture);
 		GL11.glPushMatrix();
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -63,34 +58,11 @@ public class RenderFrostedChest extends TileEntitySpecialRenderer {
 			rotation = -90;
 		}
 
-		if (i == 2 && entity.adjacentChestXPos != null) {
-			GL11.glTranslatef(1.0F, 0.0F, 0.0F);
-		}
-
-		if (i == 5 && entity.adjacentChestZPos != null) {
-			GL11.glTranslatef(0.0F, 0.0F, -1.0F);
-		}
-
 		GL11.glRotatef((float)rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 		float f1 = entity.prevLidAngle + (entity.lidAngle - entity.prevLidAngle) * f;
 		float f2;
 
-		if (entity.adjacentChestZNeg != null) {
-			f2 = entity.adjacentChestZNeg.prevLidAngle + (entity.adjacentChestZNeg.lidAngle - entity.adjacentChestZNeg.prevLidAngle) * f;
-
-			if (f2 > f1) {
-				f1 = f2;
-			}
-		}
-
-		if (entity.adjacentChestXNeg != null) {
-			f2 = entity.adjacentChestXNeg.prevLidAngle + (entity.adjacentChestXNeg.lidAngle - entity.adjacentChestXNeg.prevLidAngle) * f;
-
-			if (f2 > f1) {
-				f1 = f2;
-			}
-		}
 
 		f1 = 1.0F - f1;
 		f1 = 1.0F - f1 * f1 * f1;

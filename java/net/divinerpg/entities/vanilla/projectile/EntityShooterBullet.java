@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EntityShooterBullet extends EntityThrowable {
 	
-	private float damage;
+	protected float damage;
 	private short xTile;
 	private short yTile;
 	private short zTile;

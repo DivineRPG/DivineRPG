@@ -67,7 +67,7 @@ public class EntityLorgaFlight extends VetheaMob {
         super.onLivingUpdate();
 
         if (this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
-            this.spawnTick = 120;
+            this.spawnTick = 200;
             EntityLorgaFlight var2 = new EntityLorgaFlight(this.worldObj, false);
             var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
             this.worldObj.spawnEntityInWorld(var2);

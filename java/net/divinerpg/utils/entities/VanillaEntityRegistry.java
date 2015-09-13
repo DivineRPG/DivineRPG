@@ -13,26 +13,38 @@ import net.divinerpg.entities.vanilla.EntityCaveclops;
 import net.divinerpg.entities.vanilla.EntityCrab;
 import net.divinerpg.entities.vanilla.EntityCyclops;
 import net.divinerpg.entities.vanilla.EntityDesertCrawler;
+import net.divinerpg.entities.vanilla.EntityEhu;
 import net.divinerpg.entities.vanilla.EntityEnderSpider;
 import net.divinerpg.entities.vanilla.EntityEnderTriplets;
 import net.divinerpg.entities.vanilla.EntityEnderWatcher;
 import net.divinerpg.entities.vanilla.EntityEnthralledDramcryx;
 import net.divinerpg.entities.vanilla.EntityFrost;
 import net.divinerpg.entities.vanilla.EntityGlacon;
+import net.divinerpg.entities.vanilla.EntityGrizzle;
 import net.divinerpg.entities.vanilla.EntityHellPig;
 import net.divinerpg.entities.vanilla.EntityHellSpider;
+import net.divinerpg.entities.vanilla.EntityHusk;
 import net.divinerpg.entities.vanilla.EntityJackOMan;
 import net.divinerpg.entities.vanilla.EntityJungleBat;
 import net.divinerpg.entities.vanilla.EntityJungleDramcryx;
 import net.divinerpg.entities.vanilla.EntityJungleSpider;
 import net.divinerpg.entities.vanilla.EntityKingCrab;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
+import net.divinerpg.entities.vanilla.EntityKobblin;
+import net.divinerpg.entities.vanilla.EntityLiopleurodon;
+import net.divinerpg.entities.vanilla.EntityLivestockMerchant;
 import net.divinerpg.entities.vanilla.EntityMiner;
+import net.divinerpg.entities.vanilla.EntityPumpkinSpider;
 import net.divinerpg.entities.vanilla.EntityRainbour;
 import net.divinerpg.entities.vanilla.EntityRotatick;
+import net.divinerpg.entities.vanilla.EntitySaguaroWorm;
 import net.divinerpg.entities.vanilla.EntityScorcher;
 import net.divinerpg.entities.vanilla.EntityShark;
+import net.divinerpg.entities.vanilla.EntitySmelter;
+import net.divinerpg.entities.vanilla.EntitySnapper;
+import net.divinerpg.entities.vanilla.EntityStoneGolem;
 import net.divinerpg.entities.vanilla.EntityTheEye;
+import net.divinerpg.entities.vanilla.EntityTheGrue;
 import net.divinerpg.entities.vanilla.EntityTheWatcher;
 import net.divinerpg.entities.vanilla.EntityWhale;
 import net.divinerpg.entities.vanilla.EntityWildfire;
@@ -43,6 +55,7 @@ import net.divinerpg.entities.vanilla.projectile.EntityEnderTripletFireball;
 import net.divinerpg.entities.vanilla.projectile.EntityFrostShot;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersMeteor;
 import net.divinerpg.entities.vanilla.projectile.EntityKingOfScorchersShot;
+import net.divinerpg.entities.vanilla.projectile.EntitySaguaroWormShot;
 import net.divinerpg.entities.vanilla.projectile.EntityScorcherShot;
 import net.divinerpg.entities.vanilla.projectile.EntityShooterBullet;
 import net.divinerpg.entities.vanilla.projectile.EntityVileStorm;
@@ -64,6 +77,7 @@ public class VanillaEntityRegistry {
 		Util.registerProjectile(EntityDivineArrow.class, "DivineArrow");
 		Util.registerProjectile(EntityEnderTripletFireball.class, "TripletFireball");
 		Util.registerProjectile(EntityShooterBullet.class, "Bullet");
+        Util.registerProjectile(EntitySaguaroWormShot.class, "SaguaroWorm");
 
 		Util.registerDivineRPGMob(EntityEnderWatcher.class, "EnderWatcher");		
 		Util.registerDivineRPGMob(EntityCrab.class, "Crab");
@@ -98,8 +112,20 @@ public class VanillaEntityRegistry {
 		Util.registerDivineRPGMob(EntityWildfire.class, "Wildfire");
 		Util.registerDivineRPGMob(EntityGlacon.class, "Glacon");
 		Util.registerDivineRPGMob(EntityJackOMan.class, "JackOMan");
+		Util.registerDivineRPGMob(EntityLivestockMerchant.class, "LivestockMerchant");
 		Util.registerDivineRPGMob(EntityJungleBat.class, "JungleBat");
 		Util.registerDivineRPGMob(EntityHellPig.class, "HellPig");
-
+		Util.registerDivineRPGMob(EntityKobblin.class, "Kobblin");
+		Util.registerDivineRPGMob(EntityTheGrue.class, "TheGrue");
+		Util.registerDivineRPGMob(EntitySaguaroWorm.class, "SaguaroWorm");
+		Util.registerDivineRPGMob(EntityPumpkinSpider.class, "PumpkinSpider");
+		Util.registerDivineRPGMob(EntityLiopleurodon.class, "Liopleurodon");
+		
+		Util.registerEgglessMob(EntityEhu.class, "Ehu");
+        Util.registerEgglessMob(EntityHusk.class, "Husk");
+        Util.registerEgglessMob(EntityStoneGolem.class, "StoneGolem");
+        Util.registerEgglessMob(EntitySmelter.class, "Smelter");
+        Util.registerEgglessMob(EntityGrizzle.class, "Grizzle");
+        Util.registerEgglessMob(EntitySnapper.class, "Snapper");
 	}
 }

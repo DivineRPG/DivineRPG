@@ -64,7 +64,7 @@ public class EntityScorcherShot extends EntityFireball{
 					this.worldObj.setBlock(var2, var3, var4, Blocks.fire);
 				}
 		}else if(pos.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY){
-			pos.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 7.0F);
+			pos.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 4.0F);
 			if(this.rand.nextInt(3) == 0) pos.entityHit.setFire(5);
 		}
 			

@@ -1,18 +1,9 @@
 package net.divinerpg.entities.vethea;
 
-import net.divinerpg.entities.base.EntityDivineRPGMob;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityVhraak extends VetheaMob {
@@ -111,4 +102,16 @@ public class EntityVhraak extends VetheaMob {
 	public String mobName() {
 		return "Vhraak";
 	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+	    super.writeToNBT(tag);
+	    tag.setInteger("LifeTick", lifeTick);
+	}
+	
+	@Override
+    public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+        lifeTick = tag.getInteger("LifeTick");
+    }
 }

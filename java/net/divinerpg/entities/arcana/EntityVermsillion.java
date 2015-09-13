@@ -31,7 +31,6 @@ public class EntityVermsillion extends EntityDivineRPGTameable {
     public EntityVermsillion(World var1) {
         super(var1);
         this.setSize(0.6F, 0.8F);
-        addAttackingAI();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package net.divinerpg.entities.vethea;
 
+import java.util.List;
+
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -38,8 +40,9 @@ public class EntityLorga extends VetheaMob {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote) {
-            this.spawnTick = 120;
+        List<EntityLorga> nearby = this.worldObj.getEntitiesWithinAABB(EntityLorga.class, this.boundingBox.expand(10, 10, 10));
+        if (this.spawnTick == 0 && this.canSpawnMinions && !this.worldObj.isRemote && nearby.size() < 12) {
+            this.spawnTick = 260;
             EntityLorga var2 = new EntityLorga(this.worldObj, false);
             var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
             this.worldObj.spawnEntityInWorld(var2);

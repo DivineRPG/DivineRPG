@@ -1,8 +1,13 @@
 package net.divinerpg.utils;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.block.Block;
@@ -34,10 +39,6 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Util {
 	
@@ -80,7 +81,7 @@ public class Util {
 
     public static void registerDivineRPGMob(Class entityClass, String entityName) {
     	LangRegistry.addMob(entityName);
-        EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 128, 5, true);
+        EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true);
         int id = entityListID++;
         entityName = "DRPG" + entityName;
         EntityList.stringToClassMapping.put(entityName, entityClass);
@@ -90,12 +91,31 @@ public class Util {
         ((Map)ObfuscationReflectionHelper.getPrivateValue(EntityList.class, null, new String[]{"g", "field_75622_f", "stringToIDMapping"})).put(entityName, id);
         EntityList.entityEggs.put(id, new EntityEggInfo(id, 0x000000, 0xFFFFFF));
     }
+    
+    public static void registerEgglessMob(Class entityClass, String entityName) {
+        LangRegistry.addMob(entityName);
+        EntityRegistry.registerModEntity(entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true);
+        int id = entityListID++;
+        entityName = "DRPG" + entityName;
+        EntityList.stringToClassMapping.put(entityName, entityClass);
+        EntityList.classToStringMapping.put(entityClass, entityName);
+        EntityList.idToClassMap.put(id, entityClass);
+        ((Map)ObfuscationReflectionHelper.getPrivateValue(EntityList.class, null, new String[]{"f", "field_75624_e", "classToIDMapping"})).put(entityClass, id);
+        ((Map)ObfuscationReflectionHelper.getPrivateValue(EntityList.class, null, new String[]{"g", "field_75622_f", "stringToIDMapping"})).put(entityName, id);
+    }
 
     public static void registerProjectile(Class entityClass, String entityName) {
         EntityRegistry.registerModEntity(entityClass, entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
         projectileID++;
     }
 
+    public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability, Item repair) {
+        int duraNew = (int) Math.round(durability / 13.75);
+        ArmorMaterial mat = EnumHelper.addEnum(ArmorMaterial.class, name, duraNew, new int[] {0, 0, 0, 0}, enchantability);
+        mat.customCraftingMaterial = repair;
+        return mat;
+    }
+    
     public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability) {
         int duraNew = (int) Math.round(durability / 13.75);
         return EnumHelper.addEnum(ArmorMaterial.class, name, duraNew, new int[] {0, 0, 0, 0}, enchantability);
@@ -135,9 +155,9 @@ public class Util {
     public static void sendMessageToAll(String message, String color) {
     	MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(AQUA + "[" + BLUE + "DivineRPG" + AQUA + "] " + color + message));
     }
-    
-    public static ToolMaterial addMeleeMaterial(int maxUses, float damage, int enchantability) {
-        return EnumHelper.addEnum(ToolMaterial.class, "", 0, maxUses, 0, damage - 5, enchantability);
+
+    public static ToolMaterial addMeleeMaterial(int maxUses, float damage, int enchantability, Item repair) {
+        return EnumHelper.addEnum(ToolMaterial.class, "", 0, maxUses, 0, damage - 5, enchantability).setRepairItem(new ItemStack(repair, 1));
     }
     
     public static ToolMaterial addHammerMaterial(float damage) {
@@ -148,32 +168,32 @@ public class Util {
         return EnumHelper.addEnum(ToolMaterial.class, "", 0, -1, 0, damage - 5, enchantability);
     }
 
-    public static ToolMaterial addAxeMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability) {
-        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 4, enchantability);
+    public static ToolMaterial addAxeMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Item repair) {
+        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 4, enchantability).setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addAxeMaterial(int harvestLevel, float efficiency, float damage, int enchantability) {
         return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, -1, efficiency, damage - 4, enchantability);
     }
 
-    public static ToolMaterial addPickMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability) {
-        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 3, enchantability);
+    public static ToolMaterial addPickMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Item repair) {
+        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 3, enchantability).setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addPickMaterial(int harvestLevel, float efficiency, float damage, int enchantability) {
         return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, -1, efficiency, damage - 3, enchantability);
     }
 
-    public static ToolMaterial addSpadeMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability) {
-        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 2, enchantability);
+    public static ToolMaterial addSpadeMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Item repair) {
+        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 2, enchantability).setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addSpadeMaterial(int harvestLevel, float efficiency, float damage, int enchantability) {
         return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, -1, efficiency, damage - 2, enchantability);
     }
 
-    public static ToolMaterial addShickMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability) {
-        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 1, enchantability);
+    public static ToolMaterial addShickMaterial(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Item repair) {
+        return EnumHelper.addEnum(ToolMaterial.class, "", harvestLevel, maxUses, efficiency, damage - 1, enchantability).setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addShickMaterial(int harvestLevel, float efficiency, float damage, int enchantability) {
@@ -205,6 +225,12 @@ public class Util {
     	String[] spawnChunkNames = new String[] { "c", "field_71077_c", "spawnChunk" };
     	ChunkCoordinates coords = (ChunkCoordinates)ObfuscationReflectionHelper.getPrivateValue(EntityPlayer.class, player, spawnChunkNames);
     	return coords;
+    }
+    
+    public static HashMap<Integer, ChunkCoordinates> getPlayerSpawnChunkMap(EntityPlayer player) {
+        String[] spawnChunkMapNames = new String[] { "spawnChunkMap", "spawnChunkMap", "spawnChunkMap" };
+        HashMap<Integer, ChunkCoordinates> map = (HashMap<Integer, ChunkCoordinates>)ObfuscationReflectionHelper.getPrivateValue(EntityPlayer.class, player, spawnChunkMapNames);
+        return map;
     }
     
     public static Entity findEntityByUUID(String uuid, World world) {
@@ -248,5 +274,11 @@ public class Util {
         }
 
         return false;
+    }
+    
+    public static ChunkCoordinates newChunkCoordinates(int x, int y, int z) {
+        ChunkCoordinates c = new ChunkCoordinates();
+        c.set(x, y, z);
+        return c;
     }
 }

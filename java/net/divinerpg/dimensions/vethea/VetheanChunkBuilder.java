@@ -3,7 +3,6 @@ package net.divinerpg.dimensions.vethea;
 import java.util.Random;
 
 import net.divinerpg.dimensions.vethea.all.Bow;
-import net.divinerpg.dimensions.vethea.all.CeilingTexture;
 import net.divinerpg.dimensions.vethea.all.FloatingTree1;
 import net.divinerpg.dimensions.vethea.all.FloatingTree2;
 import net.divinerpg.dimensions.vethea.all.FloatingTree3;
@@ -27,7 +26,6 @@ import net.divinerpg.dimensions.vethea.layer1.Tree5;
 import net.divinerpg.dimensions.vethea.layer1.Tree6;
 import net.divinerpg.dimensions.vethea.layer2.Tree3;
 import net.divinerpg.utils.blocks.VetheaBlocks;
-import net.minecraft.block.Block;
 
 public class VetheanChunkBuilder {
 	
@@ -49,7 +47,7 @@ public class VetheanChunkBuilder {
 	
 	private static IVetheanStructure floorTexture = new FloorTexture();
 
-	private static Random rand = new Random();
+	public static Random rand = new Random();
 	private int tree1Countl1 = 0;
 	private int tree2Countl1 = 0;
 	private int tree3Countl1 = 0;
@@ -104,30 +102,30 @@ public class VetheanChunkBuilder {
 	private boolean containsl1Tree = false;
 	private boolean containsl2Tree = false;
 
-	public Block[][][] buildChunk(int chunkX, int chunkZ){
+	public VetheaChunk buildChunk(int chunkX, int chunkZ){
 		
-		Block[][][] chunk = new Block[16][256][16];
+		VetheaChunk chunk = new VetheaChunk();
 		
 		for(int x = 0; x < 16; x++){
 			for(int y = 1; y < 17; y++){
 				for(int z = 0; z < 16; z++){
-					chunk[x][y][z] = VetheaBlocks.dreamStone;
-					chunk[x][y+48][z] = VetheaBlocks.dreamStone;
-					chunk[x][y+96][z] = VetheaBlocks.dreamStone;
-					chunk[x][y+144][z] = VetheaBlocks.dreamStone;
+					chunk.setBlock(x, y, z, VetheaBlocks.dreamStone);
+					chunk.setBlock(x, y+48, z, VetheaBlocks.dreamStone);
+					chunk.setBlock(x, y+96, z, VetheaBlocks.dreamStone);
+					chunk.setBlock(x, y+144, z, VetheaBlocks.dreamStone);
 					if(y == 16) {
-						chunk[x][y][z] = VetheaBlocks.dreamGrass;
-						chunk[x][y-1][z] = VetheaBlocks.dreamDirt;
-						if(this.rand.nextInt(2) == 0) chunk[x][y-2][z] = VetheaBlocks.dreamDirt;
-						chunk[x][y+48][z] = VetheaBlocks.dreamGrass;
-						chunk[x][y+47][z] = VetheaBlocks.dreamDirt;
-						if(this.rand.nextInt(2) == 0) chunk[x][y+46][z] = VetheaBlocks.dreamDirt;
-						chunk[x][y+96][z] = VetheaBlocks.dreamGrass;
-						chunk[x][y+95][z] = VetheaBlocks.dreamDirt;
-						if(this.rand.nextInt(2) == 0) chunk[x][y+94][z] = VetheaBlocks.dreamDirt;
-						chunk[x][y+144][z] = VetheaBlocks.dreamGrass;
-						chunk[x][y+143][z] = VetheaBlocks.dreamDirt;
-						if(this.rand.nextInt(2) == 0) chunk[x][y+142][z] = VetheaBlocks.dreamDirt;
+						chunk.setBlock(x, y, z, VetheaBlocks.dreamGrass);
+						chunk.setBlock(x, y-1, z, VetheaBlocks.dreamDirt);
+						if(this.rand.nextInt(2) == 0) chunk.setBlock(x, y-2, z, VetheaBlocks.dreamDirt);
+						chunk.setBlock(x, y+48, z, VetheaBlocks.dreamGrass);
+						chunk.setBlock(x, y+47, z, VetheaBlocks.dreamDirt);
+						if(this.rand.nextInt(2) == 0) chunk.setBlock(x, y+46, z, VetheaBlocks.dreamDirt);
+						chunk.setBlock(x, y+96, z, VetheaBlocks.dreamGrass);
+						chunk.setBlock(x, y+95, z, VetheaBlocks.dreamDirt);
+						if(this.rand.nextInt(2) == 0) chunk.setBlock(x, y+94, z, VetheaBlocks.dreamDirt);
+						chunk.setBlock(x, y+144, z, VetheaBlocks.dreamGrass);
+						chunk.setBlock(x, y+143, z, VetheaBlocks.dreamDirt);
+						if(this.rand.nextInt(2) == 0) chunk.setBlock(x, y+142, z, VetheaBlocks.dreamDirt);
 					}
 				}
 			}
@@ -305,15 +303,4 @@ public class VetheanChunkBuilder {
 		return chunk;
 		
 	}
-	
-	public static void toTerrainArray(Block[][][] chunk, Block[] output) {
-		for(int x = 0; x<16; x++){
-			for(int y = 0; y<256; y++){
-				for(int z = 0; z<16; z++){
-					output[z<<12|x<<8|y] = chunk[x][y][z];
-				}
-			}
-		}
-	}
-
 }

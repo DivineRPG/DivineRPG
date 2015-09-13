@@ -9,43 +9,23 @@ import net.minecraft.item.Item;
 
 public class TwilightItemsTools {
 
-	public static Item edenPickaxe;
-	public static Item wildwoodPickaxe;
-	public static Item apalachiaPickaxe;
-	public static Item skythernPickaxe;
-	public static Item mortumPickaxe;
+	public static Item edenPickaxe = new ItemModPickaxe(ToolMaterialMod.EdenPick, "edenPickaxe");
+	public static Item wildwoodPickaxe = new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwoodPickaxe");
+	public static Item apalachiaPickaxe = new ItemModPickaxe(ToolMaterialMod.ApalachiaPick, "apalachiaPickaxe");
+	public static Item skythernPickaxe = new ItemModPickaxe(ToolMaterialMod.SkythernPick, "skythernPickaxe");
+	public static Item mortumPickaxe = new ItemModPickaxe(ToolMaterialMod.MortumPick, "mortumPickaxe");
 
-	public static Item edenAxe;
-	public static Item wildwoodAxe;
-	public static Item apalachiaAxe;
-	public static Item skythernAxe;
-	public static Item mortumAxe;
+	public static Item edenAxe = new ItemModAxe(ToolMaterialMod.EdenAxe, "edenAxe");
+	public static Item wildwoodAxe = new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildwoodAxe");
+	public static Item apalachiaAxe = new ItemModAxe(ToolMaterialMod.ApalachiaAxe, "apalachiaAxe");
+	public static Item skythernAxe = new ItemModAxe(ToolMaterialMod.SkythernAxe, "skythernAxe");
+	public static Item mortumAxe = new ItemModAxe(ToolMaterialMod.MortumAxe, "mortumAxe");
 
-	public static Item edenShovel;
-	public static Item wildwoodShovel;
-	public static Item apalachiaShovel;
-	public static Item skythernShovel;
-	public static Item mortumShovel;
-	
-	public static void init() {
+	public static Item edenShovel = new ItemModShovel(ToolMaterialMod.EdenSpade, "edenShovel");
+	public static Item wildwoodShovel = new ItemModShovel(ToolMaterialMod.WildwoodSpade, "wildwoodShovel");
+	public static Item apalachiaShovel = new ItemModShovel(ToolMaterialMod.ApalachiaSpade, "apalachiaShovel");
+	public static Item skythernShovel = new ItemModShovel(ToolMaterialMod.SkythernSpade, "skythernShovel");
+	public static Item mortumShovel = new ItemModShovel(ToolMaterialMod.MortumSpade, "mortumShovel");
 
-	    edenPickaxe        = new ItemModPickaxe(ToolMaterialMod.EdenPick, "edenPickaxe");
-	    wildwoodPickaxe    = new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwoodPickaxe");
-	    apalachiaPickaxe   = new ItemModPickaxe(ToolMaterialMod.ApalachiaPick, "apalachiaPickaxe");
-	    skythernPickaxe    = new ItemModPickaxe(ToolMaterialMod.SkythernPick, "skythernPickaxe");
-	    mortumPickaxe      = new ItemModPickaxe(ToolMaterialMod.MortumPick, "mortumPickaxe");
-
-	    edenAxe            = new ItemModAxe(ToolMaterialMod.EdenAxe, "edenAxe");
-	    wildwoodAxe        = new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildwoodAxe");
-	    apalachiaAxe       = new ItemModAxe(ToolMaterialMod.ApalachiaAxe, "apalachiaAxe");
-	    skythernAxe        = new ItemModAxe(ToolMaterialMod.SkythernAxe, "skythernAxe");
-	    mortumAxe          = new ItemModAxe(ToolMaterialMod.MortumAxe, "mortumAxe");
-
-	    edenShovel         = new ItemModShovel(ToolMaterialMod.EdenSpade, "edenShovel");
-	    wildwoodShovel     = new ItemModShovel(ToolMaterialMod.WildwoodSpade, "wildwoodShovel");
-	    apalachiaShovel    = new ItemModShovel(ToolMaterialMod.ApalachiaSpade, "apalachiaShovel");
-	    skythernShovel     = new ItemModShovel(ToolMaterialMod.SkythernSpade, "skythernShovel");
-	    mortumShovel       = new ItemModShovel(ToolMaterialMod.MortumSpade, "mortumShovel");
-	}
-
+	public static void init() {}
 }

@@ -106,8 +106,13 @@ public class EntityShark extends EntityPeacefulUntilAttacked {
     protected void fall(float var1) {}
 
     @Override
+    public boolean isInWater() {
+        return this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ).getMaterial() == Material.water;
+    }
+    
+    @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
+        return this.isInWater();
     }
     
 	@Override
