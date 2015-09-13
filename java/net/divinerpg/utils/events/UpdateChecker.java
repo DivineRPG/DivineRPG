@@ -41,34 +41,32 @@ public class UpdateChecker {
                     for (Iterator<InterfaceAddress> iter = adrs.iterator(); iter.hasNext();) {
                         InterfaceAddress adr = iter.next();
                         InetAddress inadr = adr.getAddress();
-                        if (inadr instanceof Inet4Address){
-                            LogHelper.info("Internet connection found");
+                        if (inadr instanceof Inet4Address) {
+                            LogHelper.debug("Internet connection found");
                             return true;
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            LogHelper.warn("Something is probably wrong in your network configuration. "
-                    + "DivineRPG can continue but joining worlds will be slightly slower!");
+            LogHelper.warn("Something is probably wrong with your network configuration. DivineRPG can continue loading but joining worlds will be slightly slower!");
             try {
                 URL url = new URL("https://github.com");
                 HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
                 Object data = httpConnection.getContent();
             } catch (Exception ex) {
-                LogHelper.info("Internet connection not found");
+                LogHelper.debug("Internet connection not found");
                 return false;
             }
-            LogHelper.info("Internet connection found");
+            LogHelper.debug("Internet connection found");
             return true;
         }
-        LogHelper.info("Internet connection not found");
+        LogHelper.debug("Internet connection not found");
         return false;
     }
 
     public static String getCurrentVersion() throws IOException {
-        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL(
-                "https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
+        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
         String curVersion = versionFile.readLine();
         versionFile.close();
         return curVersion;
