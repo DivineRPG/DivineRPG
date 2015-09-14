@@ -35,7 +35,6 @@ public class EventEnsureVetheaSpawn {
             ChunkCoordinates c = map.get(ConfigurationHelper.vethea);
             if (c != null) {
                 int x = c.posX, y = c.posY, z = c.posZ;
-                System.out.println("MMRP?");
                 if (evt.x == x && (evt.y == y || evt.y == y + 1) && evt.z == z) evt.setCanceled(true);
             }
         }

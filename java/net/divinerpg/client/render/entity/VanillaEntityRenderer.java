@@ -191,11 +191,11 @@ public class VanillaEntityRenderer {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityKingOfScorchers.class, new RenderDivineBoss(new ModelKingScorcher(), 0.0F, x.kingOfScorchers, s.scorcherKingBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTheWatcher.class, new RenderDivineBoss(new ModelWatcher(), 0.0F, 4.5F, x.netherWatcher, s.netherWatcherBossID));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoBlue.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Blue, s.ayeracoBlueBossID));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoGreen.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Green, s.ayeracoGreenBossID));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoPurple.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Purple, s.ayeracoPurpleBossID));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoRed.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Red, s.ayeracoRedBossID));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoYellow.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, x.ayeraco_Yellow, s.ayeracoYellowBossID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoBlue.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, 2, x.ayeraco_Blue, s.ayeracoBlueBossID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoGreen.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, 2, x.ayeraco_Green, s.ayeracoGreenBossID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoPurple.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, 2, x.ayeraco_Purple, s.ayeracoPurpleBossID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoRed.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, 2, x.ayeraco_Red, s.ayeracoRedBossID));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAyeracoYellow.class, new RenderDivineBoss(new ModelAyeraco(), 0.0F, 2, x.ayeraco_Yellow, s.ayeracoYellowBossID));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAncientEntity.class, new RenderDivineBoss(new ModelAncientEntity(), 0.0F, 5.0F, x.ancient, s.ancientEntityBossID));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class, new RenderSpecialProjectile(x.frostShot, 0.75f));

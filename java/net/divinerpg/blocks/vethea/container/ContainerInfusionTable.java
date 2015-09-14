@@ -36,7 +36,6 @@ public class ContainerInfusionTable extends Container {
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(par2);
 
-        System.out.println("HI");
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();

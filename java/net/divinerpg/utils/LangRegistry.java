@@ -156,7 +156,7 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("message.update=A DivineRPG update is avaliable.");
         instance.addToFile("message.version=[New Version: #]");
         instance.addToFile("message.ayeraco.green=The Green Ayeraco has been called upon");
-        instance.addToFile("message.ayeraco.green=The Blue Ayeraco has been called upon");
+        instance.addToFile("message.ayeraco.blue=The Blue Ayeraco has been called upon");
         instance.addToFile("message.ayeraco.red=The Red Ayeraco has been called upon");
         instance.addToFile("message.ayeraco.yellow=The Yellow Ayeraco has been called upon");
         instance.addToFile("message.ayeraco.purple=The Purple Ayeraco has been called upon");

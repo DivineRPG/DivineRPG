@@ -31,7 +31,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     
     public EntityAyeraco(World var1, String par3) {
         super(var1);
-        this.setSize(1.4F, 0.6F);
+        this.setSize(2.8F, 1.2F);
         this.colour = par3;
         this.waitTick = 0;
         this.attacks = false;
