@@ -32,8 +32,8 @@ public class TeleporterVetheaToOverworld extends Teleporter {
 			if(bed == null) {
 				bed = worldServerInstance.getSpawnPoint();
 			}
-			for(int i = 1; i < 255; i++) {
-				if(worldServerInstance.getBlock(bed.posX, i, bed.posZ) == Blocks.air && worldServerInstance.getBlock(bed.posX, i-1, bed.posZ) != Blocks.air) {
+			for(int i = bed.posY; i < 255; i++) {
+				if(worldServerInstance.getBlock(bed.posX, i, bed.posZ) == Blocks.air && (worldServerInstance.getBlock(bed.posX, i-1, bed.posZ) != Blocks.air || i == bed.posY)) {
 					player.setPositionAndUpdate(bed.posX, i, bed.posZ);
 					break;
 				}
