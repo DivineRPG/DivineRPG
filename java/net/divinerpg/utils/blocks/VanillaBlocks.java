@@ -40,6 +40,7 @@ import net.divinerpg.client.render.block.model.ModelSoulStatue;
 import net.divinerpg.client.render.block.model.ModelTwilightStatue;
 import net.divinerpg.client.render.block.model.ModelVamacheronStatue;
 import net.divinerpg.client.render.block.model.ModelWatcherStatue;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.material.EnumBlockType;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
@@ -154,5 +155,7 @@ public class VanillaBlocks {
     public static Block altarOfCorruption = new BlockAltarOfCorruption("altarOfCorruption");
     public static Block boneChest         = new BlockBoneChest("boneChest");
 
-    public static void init() {}
+    public static void init() {
+        Util.registerSlab(divineSlab, divineSlabDouble);
+    }
 }
