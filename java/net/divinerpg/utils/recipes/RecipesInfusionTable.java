@@ -87,16 +87,16 @@ public class RecipesInfusionTable {
 		addRecipe(VetheaItems.heliosisLump, VetheaItems.cannonTemplate, 27, new ItemStack(VetheaItems.heliosisCannon));
 		addRecipe(VetheaItems.arksianeLump, VetheaItems.cannonTemplate, 31, new ItemStack(VetheaItems.arksianeCannon));
 
-		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 8, new ItemStack(VetheaItems.degradedHelmet));
-		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 6, new ItemStack(VetheaItems.degradedHood));
-		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 7, new ItemStack(VetheaItems.degradedMask));
+		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 7, new ItemStack(VetheaItems.degradedHelmet));
+		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 8, new ItemStack(VetheaItems.degradedHood));
+		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 6, new ItemStack(VetheaItems.degradedMask));
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 5, new ItemStack(VetheaItems.degradedBoots));
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 9, new ItemStack(VetheaItems.degradedLegs));
 		addRecipe(VetheaItems.teakerLump, VetheaItems.degradedTemplate, 10, new ItemStack(VetheaItems.degradedBody));
 
-		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 12, new ItemStack(VetheaItems.finishedHelmet));
-		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 9, new ItemStack(VetheaItems.finishedHood));
-		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 13, new ItemStack(VetheaItems.finishedMask));
+		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 10, new ItemStack(VetheaItems.finishedHelmet));
+		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 11, new ItemStack(VetheaItems.finishedHood));
+		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 9, new ItemStack(VetheaItems.finishedMask));
 		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 8, new ItemStack(VetheaItems.finishedBoots));
 		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 12, new ItemStack(VetheaItems.finishedLegs));
 		addRecipe(VetheaItems.amthirmisLump, VetheaItems.finishedTemplate, 14, new ItemStack(VetheaItems.finishedBody));
