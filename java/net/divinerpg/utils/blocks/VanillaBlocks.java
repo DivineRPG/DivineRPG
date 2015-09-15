@@ -3,6 +3,8 @@ package net.divinerpg.utils.blocks;
 import net.divinerpg.blocks.base.BlockMod;
 import net.divinerpg.blocks.base.BlockModLeaves;
 import net.divinerpg.blocks.base.BlockModLog;
+import net.divinerpg.blocks.base.BlockModSlab;
+import net.divinerpg.blocks.base.BlockModStairs;
 import net.divinerpg.blocks.base.BlockModTorch;
 import net.divinerpg.blocks.base.BlockStatue;
 import net.divinerpg.blocks.base.BlockStupidSpawner;
@@ -139,11 +141,15 @@ public class VanillaBlocks {
     public static Block mushroom = new BlockMushroom("mushroomPlant");
 
     public static Block divineWood                = new BlockModLog("divineLog");
-    public static Block divinePlank               = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
     public static Block divineLeaves              = new BlockModLeaves("divineLeaves", 0.3F);
     public static Block divineMossystone          = new BlockMod("divineMossStone", 2.0F).setResistance(10);
     public static Block enthralledDramcryxSpawner = new BlockStupidSpawner("enthralledDramcryxSpawner", "EnthralledDramcryx", "divineSpawner", true);
     public static Block rotatickSpawner           = new BlockStupidSpawner("rotatickSpawner", "Rotatick", "divineSpawner", true);
+
+    public static Block divinePlanks     = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
+    public static Block divineStairs     = new BlockModStairs(divinePlanks, "divineStairs");
+    public static Block divineSlab       = new BlockModSlab((BlockMod) divinePlanks, false, "Planks", null);
+    public static Block divineSlabDouble = new BlockModSlab((BlockMod) divinePlanks, true, "Planks", divineSlab);
 
     public static Block altarOfCorruption = new BlockAltarOfCorruption("altarOfCorruption");
     public static Block boneChest         = new BlockBoneChest("boneChest");

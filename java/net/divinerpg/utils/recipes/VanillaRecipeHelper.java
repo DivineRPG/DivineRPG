@@ -434,7 +434,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(ItemsFood.advMushroomStew, ItemsFood.whiteMushroom, Items.mushroom_stew);
 		addShapelessRecipe(ItemsFood.chickenDinner, ItemsFood.advMushroomStew, Items.cooked_chicken, Items.bread);
 		
-		addShapelessRecipe(new ItemStack(VanillaBlocks.divinePlank, 4), VanillaBlocks.divineWood);
+		addShapelessRecipe(new ItemStack(VanillaBlocks.divinePlanks, 4), VanillaBlocks.divineWood);
 		
 		addRecipe(VanillaBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', VanillaItemsOther.corruptedStone, 'd', VanillaBlocks.darkStone);
 		
@@ -477,7 +477,14 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addShapelessRecipe(new ItemStack(VanillaItemsOther.mushroomSeeds, 4), ItemsFood.whiteMushroom);
         addShapelessRecipe(new ItemStack(VanillaItemsOther.tomatoSeeds, 4), ItemsFood.tomato);
         
+        addStairRecipe(VanillaBlocks.divinePlanks, VanillaBlocks.divineStairs);
+        addSlabRecipe(VanillaBlocks.divinePlanks, VanillaBlocks.divineSlab);
+        
         addShapelessRecipe(new ItemStack(ArcanaBlocks.eucalyptusPlank, 4), ArcanaBlocks.eucalyptusWood);
+        
+        addShapelessRecipe(new ItemStack(IceikaBlocks.frozenPlanks, 4), IceikaBlocks.frozenWood);
+        addStairRecipe(IceikaBlocks.frozenPlanks, IceikaBlocks.frozenStairs);
+        addSlabRecipe(IceikaBlocks.frozenPlanks, IceikaBlocks.frozenSlab);
         
         addRecipe(new ItemStack(VanillaBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 4), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.redVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 1), 'O', Blocks.obsidian);

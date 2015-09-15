@@ -37,5 +37,5 @@ public class IS {
 
 	//Blocks
 	public static ItemStack bedrock = new ItemStack(Blocks.bedrock, 3);
-	public static ItemStack divinePlanks = new ItemStack(VanillaBlocks.divinePlank, 4);
+	public static ItemStack divinePlanks = new ItemStack(VanillaBlocks.divinePlanks, 4);
 }
