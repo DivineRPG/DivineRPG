@@ -29,6 +29,7 @@ public class IceikaBlocks {
 	public static Block frozenGrass = new BlockModGrass((BlockMod) frozenDirt, "frozenGrass", "frozenDirt", 2.5F);
 	public static Block frozenStone = new BlockMod("frozenStone", 6.0F);
 	public static Block frozenWood = new BlockModLog("frozenLog").setHardness(5.0F);
+	public static Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozenPlanks", 6).setResistance(5);
 	public static Block brittleLeaves = new BlockModLeaves("brittleLeaves", 0.1F);
 
 	public static Block winterberryBush = new BlockWinterberryBush(false, "winterberryBush").setHardness(0.2F);

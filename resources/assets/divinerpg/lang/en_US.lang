@@ -142,6 +142,7 @@ tile.frozenDirt.name=Frozen Dirt
 tile.frozenGrass.name=Frozen Grass
 tile.frozenStone.name=Frozen Stone
 tile.frozenLog.name=Frozen Log
+tile.frozenPlanks.name=Frozen Planks
 tile.brittleLeaves.name=Brittle Leaves
 tile.winterberryBush.name=Winterberry Bush
 tile.ripeWinterberryBush.name=Ripe Winterberry Bush
