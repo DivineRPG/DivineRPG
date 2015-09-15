@@ -15,5 +15,6 @@ public class BlockModStairs extends BlockStairs {
 		LangRegistry.addBlock(this);
 		setUnlocalizedName(name);
 		GameRegistry.registerBlock(this, name);
+		this.useNeighborBrightness = true;
 	}
 }

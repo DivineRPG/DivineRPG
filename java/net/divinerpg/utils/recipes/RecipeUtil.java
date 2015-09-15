@@ -34,6 +34,13 @@ public class RecipeUtil {
         GameRegistry.addShapelessRecipe(new ItemStack(b, 1), o);
     }
 	
+	protected static void addStairRecipe(Block mat, Block stair) {
+	    GameRegistry.addRecipe(new ItemStack(stair, 4), "X  ", "XX ", "XXX", 'X', mat);
+	}
+	
+	protected static void addSlabRecipe(Block mat, Block slab) {
+        GameRegistry.addRecipe(new ItemStack(slab, 6), "XXX", 'X', mat);
+    }
 
 	protected static void addSmelting(ItemStack input, ItemStack output, float XP) {
         GameRegistry.addSmelting(input, output, XP);

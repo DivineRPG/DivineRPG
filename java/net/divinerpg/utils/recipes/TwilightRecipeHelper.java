@@ -72,6 +72,18 @@ public class TwilightRecipeHelper extends RecipeUtil {
 		addShapelessRecipe(new ItemStack(TwilightBlocks.skythernPlanks, 4), TwilightBlocks.skythernLogs);
 		addShapelessRecipe(new ItemStack(TwilightBlocks.mortumPlanks, 4), TwilightBlocks.mortumLogs);
 		
+		addStairRecipe(TwilightBlocks.edenPlanks, TwilightBlocks.edenStairs);
+		addStairRecipe(TwilightBlocks.wildwoodPlanks, TwilightBlocks.wildwoodStairs);
+		addStairRecipe(TwilightBlocks.apalachiaPlanks, TwilightBlocks.apalachiaStairs);
+		addStairRecipe(TwilightBlocks.skythernPlanks, TwilightBlocks.skythernStairs);
+		addStairRecipe(TwilightBlocks.mortumPlanks, TwilightBlocks.mortumStairs);
+		
+		addSlabRecipe(TwilightBlocks.edenPlanks, TwilightBlocks.edenSlab);
+        addSlabRecipe(TwilightBlocks.wildwoodPlanks, TwilightBlocks.wildwoodSlab);
+        addSlabRecipe(TwilightBlocks.apalachiaPlanks, TwilightBlocks.apalachiaSlab);
+        addSlabRecipe(TwilightBlocks.skythernPlanks, TwilightBlocks.skythernSlab);
+        addSlabRecipe(TwilightBlocks.mortumPlanks, TwilightBlocks.mortumSlab);
+		
 		/* Armor */
 
 		//Eden (Dravite)

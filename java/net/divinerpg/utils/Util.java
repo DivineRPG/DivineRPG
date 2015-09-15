@@ -9,6 +9,8 @@ import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.divinerpg.DivineRPG;
+import net.divinerpg.blocks.base.BlockModSlab;
+import net.divinerpg.items.base.ItemModSlab;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
@@ -202,6 +204,11 @@ public class Util {
     
     public static Item toItem(Block block){
         return Item.getItemFromBlock(block);
+    }
+    
+    public static void registerSlab(Block single, Block stack) {
+        GameRegistry.registerBlock(single, ItemModSlab.class, ((BlockModSlab)single).NAME, (BlockModSlab)single, (BlockModSlab)stack, false);
+        GameRegistry.registerBlock(stack, ItemModSlab.class, ((BlockModSlab)stack).NAME + "Double", (BlockModSlab)single, (BlockModSlab)stack, true);
     }
     
     //TODO: USE UUIDs!!!!!!!!!!!!!!!!!!!
