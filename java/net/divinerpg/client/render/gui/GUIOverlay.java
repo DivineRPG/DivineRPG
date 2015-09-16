@@ -17,6 +17,7 @@ import org.lwjgl.opengl.GL11;
 public class GUIOverlay {
 	private String text = "";
 	private String text2 = "";
+	private int count = 0;
 	private boolean seen = false;
 	private ScaledResolution res;
 
@@ -47,8 +48,9 @@ public class GUIOverlay {
 		
 		if(Minecraft.getMinecraft().gameSettings.showDebugInfo) {
 			Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(EnumChatFormatting.DARK_BLUE + text, 2, res.getScaledHeight()-10, 4210752);
-		} else if(!Minecraft.getMinecraft().gameSettings.showDebugInfo) {
+		} else if(!Minecraft.getMinecraft().gameSettings.showDebugInfo && count < 500) {
 			Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(text2, 2, 2, 4210752);
+			count++;
 		}
 	}
 	
