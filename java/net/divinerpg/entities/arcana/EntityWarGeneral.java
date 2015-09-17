@@ -13,6 +13,8 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityWarGeneral extends EntityDivineRPGVillager {
+	
+	private static final String[] MESSAGE = {"message.general.weapons", "message.general.1", "message.general.2"};
 
 	public EntityWarGeneral(World w) {
 		super(w);
@@ -25,7 +27,7 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("War General: " + MessageLocalizer.general(this.rand.nextInt(3))));
+		p.addChatMessage(Util.getChatComponent("War General: " + MessageLocalizer.normal(MESSAGE[this.rand.nextInt(3)])));
 	}
 
 	@Override

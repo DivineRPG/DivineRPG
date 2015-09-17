@@ -123,6 +123,12 @@ public class Util {
         return EnumHelper.addEnum(ArmorMaterial.class, name, duraNew, new int[] {0, 0, 0, 0}, enchantability);
     }
 
+    public static ChatComponentTranslation addChatMessage(String str, Object... args) {
+        ChatComponentTranslation ret = new ChatComponentTranslation(str, args);
+        ret.getChatStyle().setColor(EnumChatFormatting.WHITE);
+        return ret;
+    }
+    
     public static ChatComponentTranslation addChatMessage(EnumChatFormatting color, String str, Object... args) {
         ChatComponentTranslation ret = new ChatComponentTranslation(str, args);
         ret.getChatStyle().setColor(color);

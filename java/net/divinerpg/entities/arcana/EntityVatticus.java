@@ -12,6 +12,8 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityVatticus extends EntityDivineRPGVillager {
+	
+	private static final String[] MESSAGE = {"message.vatticus.feel", "message.vatticus.noend", "message.vatticus.strength", "message.vatticus.discover", "message.vatticus.magic"};
 
 	public EntityVatticus(World Util) {
 		super(Util);
@@ -24,7 +26,7 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("Lord Vatticus: " + MessageLocalizer.vatticus(rand.nextInt(5))));
+		p.addChatMessage(Util.getChatComponent("Lord Vatticus: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(5)])));
 	}
 
 	@Override

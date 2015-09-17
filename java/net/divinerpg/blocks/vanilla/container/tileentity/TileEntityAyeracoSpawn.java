@@ -15,8 +15,6 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class TileEntityAyeracoSpawn extends TileEntity {
     
-    private final int GREEN = 0, BLUE = 1, RED = 2, YELLOW = 3, PURPLE = 4;
-    
     public class BeamCoords {
         public int beamX;
         public int beamY;
@@ -66,19 +64,19 @@ public class TileEntityAyeracoSpawn extends TileEntity {
 		        setBeamLocation(yellowBeam, -5, -12);
 		        setBeamLocation(purpleBeam, -8, 8);
 
-			    Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.GREEN, MessageLocalizer.ayeracoAppear(GREEN)));
+			    Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.GREEN, MessageLocalizer.normal("message.ayeraco.green")));
 				this.worldObj.setBlock(greenBeam.beamX, greenBeam.beamY, greenBeam.beamZ, VanillaBlocks.ayeracoBeamGreen);
 		    } else if (this.spawnTick == 430) {
-		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.BLUE, MessageLocalizer.ayeracoAppear(BLUE)));
+		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.BLUE, MessageLocalizer.normal("message.ayeraco.blue")));
 				this.worldObj.setBlock(blueBeam.beamX, blueBeam.beamY, blueBeam.beamZ, VanillaBlocks.ayeracoBeamBlue);
 		    } else if (this.spawnTick == 300) {
-		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.RED, MessageLocalizer.ayeracoAppear(RED)));
+		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.RED, MessageLocalizer.normal("message.ayeraco.red")));
 				this.worldObj.setBlock(redBeam.beamX, redBeam.beamY, redBeam.beamZ, VanillaBlocks.ayeracoBeamRed);
 		    } else if (this.spawnTick == 210) {
-		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.YELLOW, MessageLocalizer.ayeracoAppear(YELLOW)));
+		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.YELLOW, MessageLocalizer.normal("message.ayeraco.yellow")));
 				this.worldObj.setBlock(yellowBeam.beamX, yellowBeam.beamY, yellowBeam.beamZ, VanillaBlocks.ayeracoBeamYellow);
 		    } else if (this.spawnTick == 145) {
-		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.DARK_PURPLE, MessageLocalizer.ayeracoAppear(PURPLE)));
+		    	Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.DARK_PURPLE, MessageLocalizer.normal("message.ayeraco.purple")));
 				this.worldObj.setBlock(purpleBeam.beamX, purpleBeam.beamY, purpleBeam.beamZ, VanillaBlocks.ayeracoBeamPurple);
 		    } else if (this.spawnTick == 0) {
                 EntityAyeracoGreen ayercoGreen = new EntityAyeracoGreen(this.worldObj);
@@ -110,7 +108,7 @@ public class TileEntityAyeracoSpawn extends TileEntity {
 				this.worldObj.spawnEntityInWorld(ayercoRed);
 				this.worldObj.spawnEntityInWorld(ayercoYellow);
 				this.worldObj.spawnEntityInWorld(ayercoPurple);
-				Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.AQUA, MessageLocalizer.ayeracoSpawn()));
+				Util.sendMessageToAll(Util.addChatMessage(EnumChatFormatting.AQUA, MessageLocalizer.normal("message.ayeraco.spawn")));
 		    }
 			if(spawnTick == 0)this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, Blocks.air);
         }

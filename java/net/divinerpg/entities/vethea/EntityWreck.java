@@ -34,7 +34,6 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
     private final int MELEE   = 0, ARCANA = 1, RANGED = 2;
     private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
-    private final int RUN     = 0, SMELL = 1;
     private int       waitTick;
     private int       abilityTimer;
     private int       deathTicks;
@@ -173,38 +172,39 @@ public class EntityWreck extends EntityDivineRPGBoss {
         for (int var1 = 0; var1 < list.size(); ++var1) {
             if (list.get(var1) instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) list.get(var1);
+                
                 switch (this.getAbility()) {
                     case CHARGE:
-                        player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(CHARGE + 1)));
+                        player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.charge")));
                         break;
                     case PULL:
                         this.playSound(Sounds.feelSoulArksiane.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(PULL + 1)));
+                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.pull")));
                         break;
                     case FIRE:
-                        player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(FIRE + 1)));
+                        player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.fire")));
                         break;
                     case FREEZE:
                         this.playSound(Sounds.stopAtOnce.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote) {
-                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(FREEZE)));
+                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.freeze")));
                         }
                         break;
                     case SPEED:
                         this.playSound(Sounds.wreckSpeed.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(SPEED)));
+                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.speed")));
                         break;
                     case EXPLOSIONS:
                         this.playSound(Sounds.explosions.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(EXPLOSIONS)));
+                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.explosion")));
                         break;
                     case STRENGTH:
                         this.playSound(Sounds.wreckStrength.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(STRENGTH)));
+                            player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.strength")));
                         break;
                     default:
                         break;
@@ -220,8 +220,8 @@ public class EntityWreck extends EntityDivineRPGBoss {
         if (!worldObj.isRemote && !loaded) {
             List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(30, 30, 30));
             for (EntityPlayer p : players) {
-                p.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(RUN)));
-                p.addChatMessage(Util.getChatComponent(MessageLocalizer.wreck(SMELL)));
+                p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.run")));
+                p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.wreck.smell")));
                 this.worldObj.playSoundAtEntity(p, Sounds.wreckIntro.getPrefixedName(), 1.0F, 1.0F);
             }
             loaded = true;

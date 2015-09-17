@@ -27,7 +27,6 @@ public class EntityQuadro extends EntityDivineRPGBoss {
 
     public int        ability;
     private final int SLOW = 0, FAST = 1, MSLOW = 2, MFAST = 3;
-    private final int DIE  = 0, ENOUGH = 1, PUNCH = 2, NEXT = 3, MINE = 4, KILL = 5, NO = 6, SIT = 7, DESERVE = 8, TASTE = 9;
 
     private int abilityCoolDown;
 
@@ -68,49 +67,49 @@ public class EntityQuadro extends EntityDivineRPGBoss {
                     case 0:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroDieBefore.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(DIE)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.die")));
                         break;
                     case 1:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroEnough.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(ENOUGH)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.enough")));
                         break;
                     case 2:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroPunch.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(PUNCH)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.punch")));
                         break;
                     case 3:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroIsNext.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(NEXT)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.next")));
                         break;
                     case 4:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroKillMine.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(MINE)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.mine")));
                         break;
                     case 5:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroMyKill.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(KILL)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.kill")));
                         break;
                     case 6:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroNoDie.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(NO)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.no")));
                         break;
                     case 7:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroSitDown.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote) {
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(SIT)));
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(DESERVE)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.sit")));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.deserve")));
                         }
                         break;
                     default:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroTasteFist.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.quadro(TASTE)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.taste")));
                         break;
                 }
             }

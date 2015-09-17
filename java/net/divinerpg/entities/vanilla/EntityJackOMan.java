@@ -20,6 +20,8 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 public class EntityJackOMan extends EntityDivineRPGVillager {
+	
+	private static final String[] MESSAGE = {"message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah", "message.jackoman.seen"};
     
     public EntityJackOMan(World var1) {
 		super(var1);
@@ -46,7 +48,7 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-        p.addChatMessage(Util.getChatComponent("Jack'O Man: " + MessageLocalizer.jackOMan(rand.nextInt(4))));
+        p.addChatMessage(Util.getChatComponent("Jack'O Man: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
 	}
 	
 	@Override

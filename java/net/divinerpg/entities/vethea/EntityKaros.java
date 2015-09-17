@@ -18,10 +18,9 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class EntityKaros extends EntityDivineRPGBoss {
-
+	
     private int       ability;
     private final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;
-    private final int GAME    = 0, BEGIN = 1, EXPLOSIONS = 2, LAUGH = 3, DOOM = 4, CMON = 5, WEAK = 6;
 
     private int                    abilityCooldown;
     private int[][]                cannonList = new int[36][3];
@@ -64,7 +63,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     if (!this.worldObj.isRemote) {
                         List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(30, 30, 30));
                         for (EntityPlayer p : players) {
-                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(EXPLOSIONS)));
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.explosion")));
                         }
                     }
                     break;
@@ -96,8 +95,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
                 List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(30, 30, 30));
                 for (EntityPlayer p : players) {
                     this.worldObj.playSoundAtEntity(p, Sounds.karosIntro.getPrefixedName(), 1.0F, 1.0F);
-                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(GAME)));
-                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(BEGIN)));
+                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.game")));
+                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.begin")));
                 }
             }
             for (int x = -40; x < 40; x++) {
@@ -163,19 +162,19 @@ public class EntityKaros extends EntityDivineRPGBoss {
             switch (s) {
                 case 0:
                     if (!this.worldObj.isRemote)
-                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(LAUGH)));
+                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.laugh")));
                     break;
                 case 1:
                     if (!this.worldObj.isRemote)
-                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(DOOM)));
+                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.doom")));
                     break;
                 case 2:
                     if (!this.worldObj.isRemote)
-                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(CMON)));
+                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.cmon")));
                     break;
                 default:
                     if (!this.worldObj.isRemote)
-                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.karos(WEAK)));
+                        p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.karos.weak")));
                     break;
             }
 

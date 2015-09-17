@@ -8,6 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class EntityTempleGuardian extends EntityGive {
+	
+	private static final String[] MESSAGE = {"message.guardian.up", "message.guardian.places", "message.guardian.doing", "message.guardian.temples", "message.guardian.closer"};
 
 	public EntityTempleGuardian(World par1)  {
 		super(par1, VetheaItems.cermileLump, 10);
@@ -15,7 +17,7 @@ public class EntityTempleGuardian extends EntityGive {
 
 	@Override
 	public void Interact(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("Temple Guardian: " + MessageLocalizer.guardian(rand.nextInt(5))));
+		p.addChatMessage(Util.getChatComponent("Temple Guardian: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(5)])));
 	}
 	
 

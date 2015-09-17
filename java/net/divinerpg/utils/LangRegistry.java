@@ -152,9 +152,10 @@ public class LangRegistry extends RegistryFile {
         instance.addToFile("message.guardian.closer=They are getting closer to killing you.");
         instance.addToFile("message.developer=Welcome DivineRPG developer!");
         instance.addToFile("message.standard=Thank you # for downloading and playing &!");
-        instance.addToFile("message.internet=Unable to check for latest version, you may want to check your internet connection!");
-        instance.addToFile("message.update=A DivineRPG update is avaliable.");
         instance.addToFile("message.version=[New Version: #]");
+        instance.addToFile("message.version.internet=Unable to check for latest version, you may want to check your internet connection!");
+        instance.addToFile("message.version.update=A DivineRPG update is avaliable.");
+        instance.addToFile("message.version.unable=Unable to remotely read version.");
         instance.addToFile("message.ayeraco.green=The Green Ayeraco has been called upon");
         instance.addToFile("message.ayeraco.blue=The Blue Ayeraco has been called upon");
         instance.addToFile("message.ayeraco.red=The Red Ayeraco has been called upon");

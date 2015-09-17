@@ -18,28 +18,23 @@ public class EventClientLogin {
         if (!p.worldObj.isRemote) {
             if (!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay) {
                 if (Util.isDeveloperName(p.getCommandSenderName())) {
-                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.developer()));
+                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.developer")));
                 } else {
-                    p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA,
-                            MessageLocalizer.standard(p.getDisplayName())));
+                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
                 }
-                p.addChatMessage(Util.addChatMessage(EnumChatFormatting.LIGHT_PURPLE, MessageLocalizer.internet()));
+                p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.internet", Util.LIGHT_PURPLE)));
             }
             else if (UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
-                p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA,
-                        MessageLocalizer.standard(p.getDisplayName())));
-                p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED, MessageLocalizer.update()));
+                p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
+                p.addChatMessage(Util.addChatMessage("message.version.update", Util.RED));
                 try {
-                    p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED,
-                            MessageLocalizer.version(UpdateChecker.getCurrentVersion())));
+                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.version(UpdateChecker.getCurrentVersion())));
                 } catch (IOException e) {
-                    p.addChatMessage(Util.addChatMessage(EnumChatFormatting.RED,
-                            MessageLocalizer.version("Unable to remotely read version")));
+                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.unable", Util.RED)));
                 }
             }
             else {
-                p.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA,
-                        MessageLocalizer.standard(p.getDisplayName())));
+                p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
             }
         }
     }
