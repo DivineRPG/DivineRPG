@@ -17,7 +17,7 @@ import org.lwjgl.opengl.GL11;
 public class GUIOverlay {
 	private String text = "";
 	private String text2 = "";
-	public static int guiTick = 1200;
+	public static int guiTick = 600;
 	private boolean seen = false;
 	private ScaledResolution res;
 

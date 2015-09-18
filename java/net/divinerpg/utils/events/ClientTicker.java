@@ -8,17 +8,17 @@ import net.divinerpg.client.render.gui.GUIOverlay;
 import net.minecraft.client.Minecraft;
 
 public class ClientTicker {
-	
-	public static int tick;
-	
-	@SubscribeEvent
-	public void tickClient(ClientTickEvent evt) {
-		if(evt.phase == Phase.END) {
-			tick++;
-			if(ArcanaRenderer.regen && ArcanaRenderer.value < 200 && Minecraft.getMinecraft().currentScreen == null) ArcanaRenderer.value++;
-		}
-		
-		if(GUIOverlay.guiTick > 0) GUIOverlay.guiTick--;
-	}
+
+    public static int tick;
+
+    @SubscribeEvent
+    public void tickClient(ClientTickEvent evt) {
+        if (evt.phase == Phase.END) {
+            tick++;
+            if (GUIOverlay.guiTick > 0) GUIOverlay.guiTick--;
+            if (ArcanaRenderer.regen && ArcanaRenderer.value < 200 && Minecraft.getMinecraft().currentScreen == null) ArcanaRenderer.value++;
+        }
+
+    }
 
 }
