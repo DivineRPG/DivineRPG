@@ -39,9 +39,7 @@ public class EventArmorTick {
     public static final String[] walkSpeed      = new String[] { "g", "field_75097_g", "walkSpeed" };
 
     private World                world;
-    
-    public static int size = 1;
-	
+    	
 	@SubscribeEvent
     public void onTickEvent(PlayerTickEvent evt) {
         world = evt.player.worldObj;
@@ -196,11 +194,6 @@ public class EventArmorTick {
                 speedMultiplier = 2;
             }
         }
-        
-        if (boots == TwilightItemsArmor.haliteBoots && legs == TwilightItemsArmor.haliteLeggings && body == TwilightItemsArmor.haliteChestplate && helmet == TwilightItemsArmor.haliteHelmet)
-            size = 1;
-		else if(size != 0)
-			size = 0;
         
         //Vethean
         
