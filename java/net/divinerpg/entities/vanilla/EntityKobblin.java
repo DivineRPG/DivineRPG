@@ -114,7 +114,7 @@ public class EntityKobblin extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.boundingBox.minY)-1, (int)this.posZ) == Blocks.grass && super.getCanSpawnHere();
+        return this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.boundingBox.minY)-1, (int)this.posZ) == Blocks.grass && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.boundingBox.minY)-2, (int)this.posZ) != Blocks.air && super.getCanSpawnHere();
     }
 
     @Override
