@@ -228,7 +228,7 @@ public class MobSpawning {
 					if (BiomeDictionary.isBiomeOfType(biome, Type.SANDY)) {
 						EntityRegistry.addSpawn(EntityDesertCrawler.class, 50, 1, 4, EnumCreatureType.monster, biome);
 						EntityRegistry.addSpawn(EntityAridWarrior.class, 35, 1, 4, EnumCreatureType.monster, biome);
-						EntityRegistry.addSpawn(EntitySaguaroWorm.class, 7, 1, 4, EnumCreatureType.creature, biome);
+						EntityRegistry.addSpawn(EntitySaguaroWorm.class, 20, 1, 4, EnumCreatureType.monster, biome);
 					}
 					if (biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean) {
 						EntityRegistry.addSpawn(EntityWhale.class, 1, 1, 1, EnumCreatureType.waterCreature, biome);
@@ -251,7 +251,7 @@ public class MobSpawning {
 					    EntityRegistry.addSpawn(EntityCyclops.class, 80, 2, 4, EnumCreatureType.monster, biome);
 					}
 					if(BiomeDictionary.isBiomeOfType(biome, Type.FOREST)) {
-                        EntityRegistry.addSpawn(EntityPumpkinSpider.class, 5, 1, 1, EnumCreatureType.monster, biome);
+                        EntityRegistry.addSpawn(EntityPumpkinSpider.class, 20, 1, 1, EnumCreatureType.monster, biome);
                     }
 					EntityRegistry.addSpawn(EntityMiner.class, 5, 1, 1, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityJackOMan.class, 5, 1, 1, EnumCreatureType.monster, biome);

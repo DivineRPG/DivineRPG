@@ -17,7 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlockMod extends Block{
+public class BlockMod extends Block {
 
     protected String        name;
     protected EnumBlockType blockType;
@@ -40,6 +40,7 @@ public class BlockMod extends Block{
 
     public BlockMod(EnumBlockType blockType, String name, float hardness) {
         this(blockType, name, hardness, DivineRPGTabs.blocks);
+        if (blockType == EnumBlockType.DIRT) setHarvestLevel("shovel", 3);
     }
 
     public BlockMod(String name, boolean breakable, DivineRPGTabs tab) {
@@ -53,8 +54,8 @@ public class BlockMod extends Block{
     public BlockMod(EnumBlockType blockType, String name, boolean breakable, DivineRPGTabs tab) {
         this(blockType, name, tab);
         if (!breakable) {
-        	setBlockUnbreakable();
-        	setResistance(6000000F);
+            setBlockUnbreakable();
+            setResistance(6000000F);
         }
     }
 
@@ -68,10 +69,10 @@ public class BlockMod extends Block{
         setCreativeTab(tab);
         setTextureName(textureName);
         setUnlocalizedName(name);
-        if(!(this instanceof IDivineMetaBlock)){
-        	GameRegistry.registerBlock(this, name);
-        }else{
-        	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
+        if (!(this instanceof IDivineMetaBlock)) {
+            GameRegistry.registerBlock(this, name);
+        } else {
+            GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
         }
         LangRegistry.addBlock(this);
     }
@@ -87,18 +88,18 @@ public class BlockMod extends Block{
         setTextureName(textureName);
         setUnlocalizedName(name);
         setHardness(hardness);
-        if(hardness == -1F) {
-        	setBlockUnbreakable();
-        	setResistance(6000000F);
+        if (hardness == -1F) {
+            setBlockUnbreakable();
+            setResistance(6000000F);
         }
-        if(!(this instanceof IDivineMetaBlock)){
-        	GameRegistry.registerBlock(this, name);
-        }else{
-        	GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
+        if (!(this instanceof IDivineMetaBlock)) {
+            GameRegistry.registerBlock(this, name);
+        } else {
+            GameRegistry.registerBlock(this, DivineMetaItemBlock.class, name);
         }
         LangRegistry.addBlock(this);
     }
-    
+
     public BlockMod(EnumBlockType blockType, String name, float hardness, DivineRPGTabs tab, Class<? extends ItemBlock> item) {
         super(blockType.getMaterial());
         this.blockType = blockType;
@@ -110,9 +111,9 @@ public class BlockMod extends Block{
         setTextureName(textureName);
         setUnlocalizedName(name);
         setHardness(hardness);
-        if(hardness == -1F) {
-        	setBlockUnbreakable();
-        	setResistance(6000000F);
+        if (hardness == -1F) {
+            setBlockUnbreakable();
+            setResistance(6000000F);
         }
         GameRegistry.registerBlock(this, item, name);
         LangRegistry.addBlock(this);
@@ -134,7 +135,7 @@ public class BlockMod extends Block{
         this.twilightOre = twilightOre;
         return this;
     }
-    
+
     public boolean isTwilightOre() {
         return twilightOre;
     }
