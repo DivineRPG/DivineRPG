@@ -26,7 +26,7 @@ public class EntityLadyLunaSparkler extends EntityParticleBullet {
     public EntityLadyLunaSparkler(World world, EntityLivingBase e) {
         super(world, e, 12, EntityResourceLocation.blank.toString(), new Color(139, 103, 255));
         setMoreParticles();
-        setVelocity(0, 0, 0);
+        this.motionX = this.motionY = this.motionZ = 0;
         this.setSize(0.7f, 0.7f);
     }
 
