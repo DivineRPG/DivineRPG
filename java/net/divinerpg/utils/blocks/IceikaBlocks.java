@@ -26,7 +26,7 @@ import net.minecraft.init.Blocks;
 
 public class IceikaBlocks {
 
-    public static Block frozenDirt    = new BlockMod(EnumBlockType.GRASS, "frozenDirt", 2.5F);
+    public static Block frozenDirt    = new BlockMod(EnumBlockType.DIRT, "frozenDirt", 2.5F);
     public static Block frozenGrass   = new BlockModGrass((BlockMod) frozenDirt, "frozenGrass", "frozenDirt", 2.5F);
     public static Block frozenStone   = new BlockMod("frozenStone", 6.0F);
     public static Block frozenWood    = new BlockModLog("frozenLog").setHardness(5.0F);
