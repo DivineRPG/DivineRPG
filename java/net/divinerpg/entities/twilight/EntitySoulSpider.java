@@ -36,7 +36,7 @@ public class EntitySoulSpider extends EntityDivineRPGMob {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if(this.ticksExisted > 600) this.setDead();
+		if(this.ticksExisted > 600 && !this.worldObj.isRemote) this.setDead();
 	}
 
 	@Override

@@ -44,14 +44,10 @@ public abstract class EntityHeatSeekingProjectile extends EntityThrowable {
         }
         
         if(target != null) {
-            Vec3 motion = Vec3.createVectorHelper(this.motionX, this.motionY, this.motionZ).normalize();
-            Vec3 ideal = Vec3.createVectorHelper(target.posX-this.posX, target.posY-this.posY, target.posZ-this.posZ);
-            double dist = ideal.lengthVector()/3;
-            ideal = ideal.normalize();
-            double diffX = motion.dotProduct(ideal)*Math.signum(target.posX-this.posX);
-            double diffZ = Math.sin(Math.acos(diffX))*Math.signum(target.posZ-this.posZ);
-            this.motionX+=(diffX/dist)*(diffX/dist)*(diffX/dist);
-            this.motionZ+=(diffZ/dist)*(diffZ/dist)*(diffZ/dist);
+            Vec3 dir = Vec3.createVectorHelper(target.posX-this.posX, target.posY-this.posY, target.posZ-this.posZ).normalize();
+            this.motionX=dir.xCoord/1.5;
+            this.motionY=dir.yCoord/1.5;
+            this.motionZ=dir.zCoord/1.5;
         }
         
         if(this.ticksExisted>50)this.setDead();
