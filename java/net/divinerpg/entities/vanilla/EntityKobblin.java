@@ -23,7 +23,6 @@ public class EntityKobblin extends EntityDivineRPGMob {
     @Override
     public void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(17, 0);
         this.dataWatcher.addObject(18, 0);
     }
 
@@ -60,22 +59,13 @@ public class EntityKobblin extends EntityDivineRPGMob {
     }
 
     @Override
-    public void setDead() {
-        super.setDead();
-        if(!getProvoked()) this.worldObj.setBlock((int)Math.round(this.posX)-1, MathHelper.floor_double(this.posY), (int)Math.round(this.posZ)-1, Blocks.grass);
-    }
-
-    @Override
     public void onUpdate() {
         super.onUpdate();
         if(!getProvoked()) {
             this.renderYawOffset=0;
-            if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 4) != null) this.setProvoked();
-        }
-        if(!this.worldObj.isRemote && !getGrounded()) {
-            if(this.worldObj.getBlock((int) Math.round(this.posX)-1, MathHelper.floor_double(this.posY) - 1, (int) Math.round(this.posZ)-1) == Blocks.grass) {
-                this.worldObj.setBlock((int) Math.round(this.posX)-1, MathHelper.floor_double(this.posY) - 1, (int) Math.round(this.posZ)-1, Blocks.air);
-                this.setGrounded();
+            if(this.worldObj.getClosestVulnerablePlayerToEntity(this, 4) != null) {
+                this.setProvoked();
+                this.motionY=0.6;
             }
         }
     }
@@ -84,16 +74,8 @@ public class EntityKobblin extends EntityDivineRPGMob {
         return true;
     }
 
-    public boolean getGrounded() {
-        return this.dataWatcher.getWatchableObjectInt(17)==1;
-    }
-
     public boolean getProvoked() {
         return this.dataWatcher.getWatchableObjectInt(18)==1;
-    }
-
-    public void setGrounded() {
-        this.dataWatcher.updateObject(17, 1);
     }
 
     public void setProvoked() {
@@ -125,14 +107,12 @@ public class EntityKobblin extends EntityDivineRPGMob {
     @Override
     public void writeToNBT(NBTTagCompound tag) {
         super.writeToNBT(tag);
-        tag.setBoolean("InGround", this.getGrounded());
         tag.setBoolean("Provoked", this.getProvoked());
     }
 
     @Override
     public void readFromNBT(NBTTagCompound tag) {
         super.readFromNBT(tag);
-        if(tag.getBoolean("InGround"))setGrounded();
         if(tag.getBoolean("Provoked"))setProvoked();
     }
 }

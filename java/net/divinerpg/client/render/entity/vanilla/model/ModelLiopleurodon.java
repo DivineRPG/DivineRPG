@@ -1,5 +1,7 @@
 package net.divinerpg.client.render.entity.vanilla.model;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -185,6 +187,8 @@ public class ModelLiopleurodon extends ModelBase {
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
     super.render(entity, f, f1, f2, f3, f4, f5);
     setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    GL11.glPushMatrix();
+    GL11.glRotatef(180, 0, 1, 0);
     tail3.render(f5);
     tail4.render(f5);
     tooth1.render(f5);
@@ -209,6 +213,7 @@ public class ModelLiopleurodon extends ModelBase {
     fin1B.render(f5);
     fin2B.render(f5);
     fin2A.render(f5);
+    GL11.glPopMatrix();
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z) {

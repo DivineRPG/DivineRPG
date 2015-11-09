@@ -24,7 +24,7 @@ public class EventClientLogin {
                 }
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.internet", Util.LIGHT_PURPLE)));
             }
-            else if (UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
+            else if (UpdateChecker.isOnline() && UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
                 p.addChatMessage(Util.addChatMessage("message.version.update", Util.RED));
                 try {

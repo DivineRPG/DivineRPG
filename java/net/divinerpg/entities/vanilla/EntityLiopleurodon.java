@@ -22,6 +22,7 @@ public class EntityLiopleurodon extends EntityDivineRPGMob {
     public EntityLiopleurodon(World var1) {
         super(var1);
         this.setSize(2F, 1F);
+        addAttackingAI();
     }
 
     @Override
