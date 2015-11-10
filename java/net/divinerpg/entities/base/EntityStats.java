@@ -153,7 +153,7 @@ public class EntityStats {
 	public static double lheviaHealth 			= 85.0D, lheviaDamage = 19.0D, lheviaSpeed = normalSpeed, lheviaFollowRange = follow;
 	public static double lorgaHealth 			= 15.0D, lorgaDamage = 4.0D, lorgaSpeed = normalSpeed, lorgaFollowRange = follow;
 	public static double lorgaFlightHealth 		= 40.0D, lorgaFlightDamage = 7.0D, lorgaFlightSpeed = normalSpeed, lorgaFlightFollowRange = follow;
-	public static double mandragoraHealth 		= 35.0D, mandragoraDamage = 6.0D, mandragoraSpeed = normalSpeed, mandragoraFollowRange = follow;
+	public static double mandragoraHealth 		= 35.0D, mandragoraDamage = 4.0D, mandragoraSpeed = normalSpeed, mandragoraFollowRange = follow;
 	public static double quadroHealth 			= 4000.0D, quadroAttack = 1D, quadroSpeedFast = 0.5D, quadroSpeedSlow = 0.25D, quadroFollowRange = follow;
 	public static double raglokHealth 			= 5000.0D, raglokDamage = 30.0D, raglokSpeed = normalSpeed, raglokFollowRange = follow;
 	public static double shadahierHealth 		= 10.0D, shadahierDamage = 6.0D, shadahierSpeed = normalSpeed, shadahierFollowRange = follow;
