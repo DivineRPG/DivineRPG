@@ -16,7 +16,7 @@ public class EventClientLogin {
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt) {
         EntityPlayer p = evt.player;
         if (!p.worldObj.isRemote) {
-            if (!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay) {
+            if (!ConfigurationHelper.updateCheck && !UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay) {
                 if (Util.isDeveloperName(p.getCommandSenderName())) {
                     p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.developer")));
                 } else {
@@ -24,7 +24,7 @@ public class EventClientLogin {
                 }
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.internet", Util.LIGHT_PURPLE)));
             }
-            else if (UpdateChecker.isOnline() && UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
+            else if (ConfigurationHelper.updateCheck && UpdateChecker.isOnline() && UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
                 p.addChatMessage(Util.addChatMessage("message.version.update", Util.RED));
                 try {
