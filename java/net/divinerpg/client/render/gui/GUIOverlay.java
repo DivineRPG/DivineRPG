@@ -5,6 +5,7 @@ import java.net.SocketException;
 
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.events.EventArmorTick;
 import net.divinerpg.utils.events.UpdateChecker;
 import net.divinerpg.utils.items.TwilightItemsArmor;
@@ -26,9 +27,10 @@ public class GUIOverlay {
 
     public void drawOverlay() {
         res = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
-        if (!seen) {
+        text = Reference.MOD_NAME + " " + Util.GREEN + Reference.MOD_VERSION;
+
+        if (!seen && ConfigurationHelper.updateChecker) {
             try {
-                text = Reference.MOD_NAME + " " + Util.GREEN + Reference.MOD_VERSION;
                 if (!UpdateChecker.isOnline()) {
                     text2 = Util.DARK_PURPLE + "Offline";
                 } else if (UpdateChecker.isUpdateAvailable()) {

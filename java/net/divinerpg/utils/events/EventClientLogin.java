@@ -16,24 +16,22 @@ public class EventClientLogin {
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt) {
         EntityPlayer p = evt.player;
         if (!p.worldObj.isRemote) {
-            if (!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay) {
-                if (Util.isDeveloperName(p.getCommandSenderName())) {
-                    p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.developer")));
-                } else {
-                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
+            if (ConfigurationHelper.updateChecker) {
+                if (!UpdateChecker.isOnline() && !ConfigurationHelper.canShowOverlay) {
+                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.internet", Util.LIGHT_PURPLE)));
+                } else if (UpdateChecker.isOnline() && UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
+                    p.addChatMessage(Util.addChatMessage("message.version.update", Util.RED));
+                    try {
+                        p.addChatMessage(Util.addChatMessage(MessageLocalizer.version(UpdateChecker.getCurrentVersion())));
+                    } catch (IOException e) {
+                        p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.unable", Util.RED)));
+                    }
                 }
-                p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.internet", Util.LIGHT_PURPLE)));
+
             }
-            else if (UpdateChecker.isOnline() && UpdateChecker.isUpdateAvailable() && !ConfigurationHelper.canShowOverlay) {
-                p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
-                p.addChatMessage(Util.addChatMessage("message.version.update", Util.RED));
-                try {
-                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.version(UpdateChecker.getCurrentVersion())));
-                } catch (IOException e) {
-                    p.addChatMessage(Util.addChatMessage(MessageLocalizer.normal("message.version.unable", Util.RED)));
-                }
-            }
-            else {
+            if (Util.isDeveloperName(p.getCommandSenderName())) {
+                p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.developer")));
+            } else {
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
             }
         }
