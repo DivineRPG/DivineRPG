@@ -1488,6 +1488,7 @@ message.standard=Thank you # for downloading and playing &!
 message.internet=Unable to check for latest version, you may want to check your internet connection!
 message.update=A DivineRPG update is avaliable.
 message.version=[New Version: #]
+message.updaterdisabled=DivineRPG Updater is currently disabled.
 message.ayeraco.green=The Green Ayeraco has been called upon
 message.ayeraco.blue=The Blue Ayeraco has been called upon
 message.ayeraco.red=The Red Ayeraco has been called upon

@@ -21,6 +21,7 @@ public class ConfigurationHelper {
 
     public static boolean keepLoadingEden, keepLoadingWildwood, keepLoadingApalachia, keepLoadingSkythern, keepLoadingMortum, keepLoadingVethea, keepLoadingArcana, keepLoadingIceika;
     public static boolean canShowOverlay;
+    public static boolean updateCheck;
 
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
@@ -59,6 +60,7 @@ public class ConfigurationHelper {
         canShowOverlay = cfg.get("GUI", "Can show overlay in top left corner or debug screen", true).getBoolean(true);
         arcanaX = cfg.get("GUI", "Arcana Bar X", 111).getInt();
         arcanaY = cfg.get("GUI", "Arcana Bar Y", 18).getInt();
+        updateCheck = cfg.get("Update", "Check For Update", true).getBoolean(true);
     }
 
     public static int getConfig(String name) {
