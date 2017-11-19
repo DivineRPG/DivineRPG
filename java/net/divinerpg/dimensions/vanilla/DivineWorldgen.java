@@ -4,6 +4,7 @@ import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -55,7 +56,7 @@ public class DivineWorldgen implements IWorldGenerator{
 			int posX = i + random.nextInt(16) + 8;
 			int posY = random.nextInt(150);
 			int posZ = k + random.nextInt(16) + 8;
-			if(random.nextInt(10) == 0 || posY < 60) (new WorldGenLakes(VanillaBlocks.tar)).generate(world, random, posX, posY, posZ);
+			if(ConfigurationHelper.generateTar && (random.nextInt(10) == 0 || posY < 60)) (new WorldGenLakes(VanillaBlocks.tar)).generate(world, random, posX, posY, posZ);
 		}
 
 		for(int c = 0; c < 3; c++) {
@@ -68,11 +69,11 @@ public class DivineWorldgen implements IWorldGenerator{
 			int posX = i + random.nextInt(16);
 			int posZ = k + random.nextInt(16);
 			int posY = world.getHeightValue(posX, posZ);
-			tree.generate(world, random, posX, posY, posZ);
+			if(ConfigurationHelper.generateTrees)tree.generate(world, random, posX, posY, posZ);
 		}
 				
 		if(world.provider.terrainType != WorldType.FLAT && (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SAVANNA))) {
-			if(random.nextInt(6)==0)hut.generate(world, random, i+8, world.getHeightValue(i+8, k+8)-1, k+8);
+			if(random.nextInt(36)==0 && ConfigurationHelper.generateHuts)hut.generate(world, random, i+8, world.getHeightValue(i+8, k+8)-1, k+8);
 		}
 	}
 
