@@ -38,7 +38,6 @@ public class EntityDivineArrow extends EntityArrow {
     protected boolean inGround;
     public int        canBePickedUp;
     public int        arrowShake;
-    public Entity     shootingEntity;
     protected int     ticksInGround;
     protected int     ticksInAir;
     public double     damageMin;
