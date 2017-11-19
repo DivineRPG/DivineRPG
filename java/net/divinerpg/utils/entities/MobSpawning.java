@@ -262,7 +262,7 @@ public class MobSpawning {
 					EntityRegistry.addSpawn(EntityTheGrue.class, 30, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityCaveclops.class, 70, 1, 4, EnumCreatureType.monster, biome);
 					EntityRegistry.addSpawn(EntityEnderSpider.class, 4, 1, 4, EnumCreatureType.monster, biome);
-					EntityRegistry.addSpawn(EntityRainbour.class, 2, 1, 1, EnumCreatureType.ambient, biome);
+					EntityRegistry.addSpawn(EntityRainbour.class, 1, 1, 1, EnumCreatureType.ambient, biome);
 				}
 			}
 		}

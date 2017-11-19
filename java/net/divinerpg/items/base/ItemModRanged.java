@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Sound;
+import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -50,7 +51,7 @@ public class ItemModRanged extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         addAdditionalInformation(stack, player, list, par4);
-        if(getMaxDurability() == -1) list.add(Util.GREEN + "Infinite Uses");
+        if(getMaxDurability() == -1) list.add(TooltipLocalizer.infiniteUses());
     }
     
     protected void addAdditionalInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) { }
