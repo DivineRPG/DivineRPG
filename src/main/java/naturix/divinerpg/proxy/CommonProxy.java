@@ -3,7 +3,6 @@ package naturix.divinerpg.proxy;
 import java.io.File;
 
 import naturix.divinerpg.utils.Config;
-import naturix.divinerpg.utils.blocknitems.ItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;

@@ -1,9 +1,7 @@
 package naturix.divinerpg;
 
-import naturix.divinerpg.utils.blocknitems.BlockBase;
-import naturix.divinerpg.utils.blocknitems.BlockOre;
-import naturix.divinerpg.utils.blocknitems.BlockOreNether;
-import naturix.divinerpg.utils.blocknitems.LampBase;
+import naturix.divinerpg.blocks.*;
+import naturix.divinerpg.blocks.bases.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -31,7 +29,33 @@ public class ModBlocks {
 	public static BlockBase blockBloodGem= new BlockBase(Material.ROCK, "block_bloodgem");
 	public static BlockBase blockNetherite = new BlockBase(Material.ROCK, "block_netherite");
 	public static BlockOre oreArcanium = new BlockOre("ore_arcanium");
-	public static LampBase blockArcaniumLamp = new LampBase(false, "block_arcanium_lamp", false);
+	public static LampBase blockAquaLamp = new LampBase(Material.ICE, "block_aqua_lamp");
+	public static LampBase blockArlemiteLamp = new LampBase(Material.ICE, "block_arlemite_lamp");
+	public static LampBase blockBlazeLamp = new LampBase(Material.ICE, "block_blaze_lamp");
+	public static LampBase blockCellLamp = new LampBase(Material.ICE, "block_cell_lamp");
+	public static LampBase blockDiamondLamp = new LampBase(Material.ICE, "block_diamond_lamp");
+	public static LampBase blockDivineLamp = new LampBase(Material.ICE, "block_divine_lamp");
+	public static LampBase blockDrakenLamp = new LampBase(Material.ICE, "block_draken_lamp");
+	public static LampBase blockDreamLamp = new LampBase(Material.ICE, "block_dream_lamp");
+	public static LampBase blockDungeonLamp = new LampBase(Material.ICE, "block_dungeon_lamp");
+	public static LampBase blockEdenLamp = new LampBase(Material.ICE, "block_eden_lamp");
+	public static LampBase blockEnderLamp = new LampBase(Material.ICE, "block_ender_lamp");
+	public static LampBase blockGoldLamp = new LampBase(Material.ICE, "block_gold_lamp");
+	public static LampBase blockIceLamp = new LampBase(Material.ICE, "block_ice_lamp");
+	public static LampBase blockJungleLamp = new LampBase(Material.ICE, "block_jungle_lamp");
+	public static LampBase blockKrakenLamp = new LampBase(Material.ICE, "block_kraken_lamp");
+	public static LampBase blockLapisLazuliLamp = new LampBase(Material.ICE, "block_lapis_lazuli_lamp");
+	public static LampBase blockLavaLamp = new LampBase(Material.ICE, "block_lava_lamp");
+	public static LampBase blockMilkyLamp = new LampBase(Material.ICE, "block_milky_lamp");
+	public static LampBase blockMoltenLamp = new LampBase(Material.ICE, "block_molten_lamp");
+	public static LampBase blockNetheriteLamp = new LampBase(Material.ICE, "block_netherite_lamp");
+	public static LampBase blockRealmiteLamp = new LampBase(Material.ICE, "block_realmite_lamp");
+	public static LampBase blockRedstoneLamp = new LampBase(Material.ICE, "block_redstone_lamp");
+	public static LampBase blockRupeeLamp = new LampBase(Material.ICE, "block_rupee_lamp");
+	public static LampBase blockSlimeLamp = new LampBase(Material.ICE, "block_slime_lamp");
+	public static LampBase blockTerranLamp = new LampBase(Material.ICE, "block_terran_lamp");
+	public static LampBase blockVillageLamp = new LampBase(Material.ICE, "block_village_lamp");
+	public static LampBase blockWorkshopLamp = new LampBase(Material.ICE, "block_workshop_lamp");
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
@@ -57,7 +81,33 @@ public class ModBlocks {
 				blockBloodGem,
 				blockNetherite,
 				oreArcanium,
-				blockArcaniumLamp
+				blockAquaLamp,
+				blockArlemiteLamp,
+				blockBlazeLamp,
+				blockCellLamp,
+				blockDiamondLamp,
+				blockDivineLamp,
+				blockDrakenLamp,
+				blockDreamLamp,
+				blockDungeonLamp,
+				blockEdenLamp,
+				blockEnderLamp,
+				blockGoldLamp,
+				blockIceLamp,
+				blockJungleLamp,
+				blockKrakenLamp,
+				blockLapisLazuliLamp,
+				blockLavaLamp,
+				blockMilkyLamp,
+				blockMoltenLamp,
+				blockNetheriteLamp,
+				blockRealmiteLamp,
+				blockRedstoneLamp,
+				blockRupeeLamp,
+				blockSlimeLamp,
+				blockTerranLamp,
+				blockVillageLamp,
+				blockWorkshopLamp
 		);
 	}
 	
@@ -84,7 +134,33 @@ public class ModBlocks {
 				blockBloodGem.createItemBlock(),
 				blockNetherite.createItemBlock(),
 				oreArcanium.createItemBlock(),
-				blockArcaniumLamp.createItemBlock()
+				blockAquaLamp.createItemBlock(),
+				blockArlemiteLamp.createItemBlock(),
+				blockBlazeLamp.createItemBlock(),
+				blockCellLamp.createItemBlock(),
+				blockDiamondLamp.createItemBlock(),
+				blockDivineLamp.createItemBlock(),
+				blockDrakenLamp.createItemBlock(),
+				blockDreamLamp.createItemBlock(),
+				blockDungeonLamp.createItemBlock(),
+				blockEdenLamp.createItemBlock(),
+				blockEnderLamp.createItemBlock(),
+				blockGoldLamp.createItemBlock(),
+				blockIceLamp.createItemBlock(),
+				blockJungleLamp.createItemBlock(),
+				blockKrakenLamp.createItemBlock(),
+				blockLapisLazuliLamp.createItemBlock(),
+				blockLavaLamp.createItemBlock(),
+				blockMilkyLamp.createItemBlock(),
+				blockMoltenLamp.createItemBlock(),
+				blockNetheriteLamp.createItemBlock(),
+				blockRealmiteLamp.createItemBlock(),
+				blockRedstoneLamp.createItemBlock(),
+				blockRupeeLamp.createItemBlock(),
+				blockSlimeLamp.createItemBlock(),
+				blockTerranLamp.createItemBlock(),
+				blockVillageLamp.createItemBlock(),
+				blockWorkshopLamp.createItemBlock()
 				);
 	}
 	
@@ -111,7 +187,33 @@ public class ModBlocks {
 		blockBloodGem.registerItemModel(Item.getItemFromBlock(blockBloodGem));
 		blockNetherite.registerItemModel(Item.getItemFromBlock(blockNetherite));
 		oreArcanium.registerItemModel(Item.getItemFromBlock(oreArcanium));	
-		blockArcaniumLamp.registerItemModel(Item.getItemFromBlock(blockArcaniumLamp));
+		blockAquaLamp.registerItemModel(Item.getItemFromBlock(blockAquaLamp));
+		blockArlemiteLamp.registerItemModel(Item.getItemFromBlock(blockArlemiteLamp));
+		blockBlazeLamp.registerItemModel(Item.getItemFromBlock(blockBlazeLamp));
+		blockCellLamp.registerItemModel(Item.getItemFromBlock(blockCellLamp));
+		blockDiamondLamp.registerItemModel(Item.getItemFromBlock(blockDiamondLamp));
+		blockDivineLamp.registerItemModel(Item.getItemFromBlock(blockDivineLamp));
+		blockDrakenLamp.registerItemModel(Item.getItemFromBlock(blockDrakenLamp));
+		blockDreamLamp.registerItemModel(Item.getItemFromBlock(blockDreamLamp));
+		blockDungeonLamp.registerItemModel(Item.getItemFromBlock(blockDungeonLamp));
+		blockEdenLamp.registerItemModel(Item.getItemFromBlock(blockEdenLamp));
+		blockEnderLamp.registerItemModel(Item.getItemFromBlock(blockEnderLamp));
+		blockGoldLamp.registerItemModel(Item.getItemFromBlock(blockGoldLamp));
+		blockIceLamp.registerItemModel(Item.getItemFromBlock(blockIceLamp));
+		blockJungleLamp.registerItemModel(Item.getItemFromBlock(blockJungleLamp));
+		blockKrakenLamp.registerItemModel(Item.getItemFromBlock(blockKrakenLamp));
+		blockLapisLazuliLamp.registerItemModel(Item.getItemFromBlock(blockLapisLazuliLamp));
+		blockLavaLamp.registerItemModel(Item.getItemFromBlock(blockLavaLamp));
+		blockMilkyLamp.registerItemModel(Item.getItemFromBlock(blockMilkyLamp));
+		blockMoltenLamp.registerItemModel(Item.getItemFromBlock(blockMoltenLamp));
+		blockNetheriteLamp.registerItemModel(Item.getItemFromBlock(blockNetheriteLamp));
+		blockRealmiteLamp.registerItemModel(Item.getItemFromBlock(blockRealmiteLamp));
+		blockRedstoneLamp.registerItemModel(Item.getItemFromBlock(blockRedstoneLamp));
+		blockRupeeLamp.registerItemModel(Item.getItemFromBlock(blockRupeeLamp));
+		blockSlimeLamp.registerItemModel(Item.getItemFromBlock(blockSlimeLamp));
+		blockTerranLamp.registerItemModel(Item.getItemFromBlock(blockTerranLamp));
+		blockVillageLamp.registerItemModel(Item.getItemFromBlock(blockVillageLamp));
+		blockWorkshopLamp.registerItemModel(Item.getItemFromBlock(blockWorkshopLamp));
 	}
 
 }
