@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:block_slime_lamp"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "type=overworld": [{}],
+    "type=nether": [{}],
+    "type=end": [{}]
+  }
+}

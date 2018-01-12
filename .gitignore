@@ -28,3 +28,6 @@ forge-1.12.2-14.23.1.2584-changelog.txt
 gradle.properties
 gradlew.bat
 gradlew
+setupEclipse.bat
+setupCleanCache.bat
+setupDecomp.bat
