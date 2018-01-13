@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:items/enderbow",
+	"pull": "divinerpg:items/enderbow_1"
+  }
+}
