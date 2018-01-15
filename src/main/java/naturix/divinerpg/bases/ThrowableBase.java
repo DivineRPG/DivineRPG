@@ -1,4 +1,4 @@
-package naturix.divinerpg.utils.blocknitems;
+package naturix.divinerpg.bases;
 
 import naturix.divinerpg.Divine;
 import net.minecraft.block.Block;

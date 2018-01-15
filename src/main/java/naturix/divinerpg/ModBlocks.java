@@ -1,7 +1,6 @@
 package naturix.divinerpg;
 
-import naturix.divinerpg.blocks.*;
-import naturix.divinerpg.blocks.bases.*;
+import naturix.divinerpg.bases.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -56,7 +55,7 @@ public class ModBlocks {
 	public static LampBase blockTerranLamp = new LampBase(Material.ICE, "block_terran_lamp");
 	public static LampBase blockVillageLamp = new LampBase(Material.ICE, "block_village_lamp");
 	public static LampBase blockWorkshopLamp = new LampBase(Material.ICE, "block_workshop_lamp");
-	
+	public static PortalBaseWalker edenPortal = new PortalBaseWalker(Material.PORTAL, "portal_eden");
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(

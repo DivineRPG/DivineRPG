@@ -2,6 +2,7 @@ package naturix.divinerpg.proxy;
 
 import java.io.File;
 
+import naturix.divinerpg.ModDimensions;
 import naturix.divinerpg.utils.Config;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -22,6 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	File directory = e.getModConfigurationDirectory();
 	        config = new Configuration(new File(directory.getPath(), "naturix/divinerpg.cfg"));
 	        Config.readConfig();
+	        ModDimensions.init();
 	    }
 
 	    public void init(FMLInitializationEvent e) {

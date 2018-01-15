@@ -1,32 +1,24 @@
-package naturix.divinerpg.utils.blocknitems;
+package naturix.divinerpg.bases;
 
 import naturix.divinerpg.Divine;
-import net.minecraft.block.BlockRedstoneLight;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class LampBase extends BlockRedstoneLight {
-	private final boolean isOn;
+public class BlockBase extends Block {
+
 	private static final CreativeTabs tab = Divine.BlocksTab;
 	protected String name;
 
-	public LampBase(boolean material, String name, boolean isOn) {
+	public BlockBase(Material material, String name) {
 		super(material);
-	
 		this.name = name;
-	
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(tab);
-		this.isOn = isOn;
-
-        if (isOn)
-        {
-            this.setLightLevel(1.0F);
-        }
-    }
+	}
 	
 	public void registerItemModel(Item itemBlock) {
 		Divine.proxy.registerItemRenderer(itemBlock, 0, name);
@@ -36,7 +28,7 @@ public class LampBase extends BlockRedstoneLight {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 	
-	public LampBase setCreativeTab() {
+	public BlockBase setCreativeTab() {
 		super.setCreativeTab(tab);
 		return this;
 	}

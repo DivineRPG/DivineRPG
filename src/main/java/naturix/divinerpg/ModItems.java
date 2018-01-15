@@ -1,6 +1,7 @@
 package naturix.divinerpg;
 
-import naturix.divinerpg.blocks.bases.*;
+import naturix.divinerpg.bases.*;
+import naturix.divinerpg.bases.clock.MysteriousClock;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -28,6 +29,7 @@ public class ModItems {
 	public static ItemBase gemEden = new ItemBase("gem_eden");
 	public static ItemBase gemSkythern = new ItemBase("gem_skythern");
 	public static ItemBase gemWildwood = new ItemBase("gem_wildwood");
+	public static MysteriousClock mysteriousClock = new MysteriousClock("clock_mysterious");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -49,7 +51,8 @@ public class ModItems {
 				gemApalachia,
 				gemEden,
 				gemSkythern,
-				gemWildwood
+				gemWildwood,
+				mysteriousClock
 		);
 	}
 
@@ -72,6 +75,7 @@ public class ModItems {
 		gemEden.registerItemModel();
 		gemSkythern.registerItemModel();
 		gemWildwood.registerItemModel();
+		mysteriousClock.registerItemModel();
 		System.out.print("DivineRPG items loaded");
 	}
 }

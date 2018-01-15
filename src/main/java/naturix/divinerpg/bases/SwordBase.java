@@ -1,4 +1,4 @@
-package naturix.divinerpg.blocks.bases;
+package naturix.divinerpg.bases;
 
 import naturix.divinerpg.Divine;
 import net.minecraft.item.Item;
