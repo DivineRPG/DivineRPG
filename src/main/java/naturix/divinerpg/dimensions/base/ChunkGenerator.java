@@ -30,13 +30,13 @@ public class ChunkGenerator implements IChunkGenerator {
     private List<Biome.SpawnListEntry> mobs = Lists.newArrayList(new Biome.SpawnListEntry(EntitySlime.class, 100, 2, 2));
 
     private MapGenBase caveGenerator = new MapGenCaves();
-    private NormalTerrainGenerator terraingen = new NormalTerrainGenerator();
+    private NormalTerrainGenerator terraingen = new NormalTerrainGenerator(null);
+	private World world;
 
     public ChunkGenerator(World worldObj) {
         this.worldObj = worldObj;
         long seed = worldObj.getSeed();
         this.random = new Random((seed + 516) * 314);
-        terraingen.setup(worldObj, random);
     }
 
     @Override
@@ -45,13 +45,12 @@ public class ChunkGenerator implements IChunkGenerator {
 
         // Setup biomes for terraingen
         this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
-        terraingen.setBiomesForGeneration(biomesForGeneration);
-        terraingen.generate(x, z, chunkprimer);
+        terraingen.generate(world, random, z, x, x);
 
         // Setup biomes again for actual biome decoration
         this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
         // This will replace stone with the biome specific stones
-        terraingen.replaceBiomeBlocks(x, z, chunkprimer, this, biomesForGeneration);
+        //terraingen.replaceBiomeBlocks(x, z, chunkprimer, this, biomesForGeneration);
 
         // Generate caves
         this.caveGenerator.generate(this.worldObj, x, z, chunkprimer);

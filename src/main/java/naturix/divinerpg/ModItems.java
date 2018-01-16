@@ -30,6 +30,8 @@ public class ModItems {
 	public static ItemBase gemSkythern = new ItemBase("gem_skythern");
 	public static ItemBase gemWildwood = new ItemBase("gem_wildwood");
 	public static MysteriousClock mysteriousClock = new MysteriousClock("clock_mysterious");
+	public static MysteriousClock moonClock = new MysteriousClock("clock_moon");
+	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -52,8 +54,11 @@ public class ModItems {
 				gemEden,
 				gemSkythern,
 				gemWildwood,
-				mysteriousClock
-		);
+				mysteriousClock,
+				moonClock,
+				twilightClock
+				
+				);
 	}
 
 	public static void registerModels() {
@@ -76,6 +81,8 @@ public class ModItems {
 		gemSkythern.registerItemModel();
 		gemWildwood.registerItemModel();
 		mysteriousClock.registerItemModel();
+		moonClock.registerItemModel();
+		twilightClock.registerItemModel();
 		System.out.print("DivineRPG items loaded");
 	}
 }
