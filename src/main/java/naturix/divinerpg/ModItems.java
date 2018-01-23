@@ -32,7 +32,13 @@ public class ModItems {
 	public static MysteriousClock mysteriousClock = new MysteriousClock("clock_mysterious");
 	public static MysteriousClock moonClock = new MysteriousClock("clock_moon");
 	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
-	
+	public static ItemBase acid = new ItemBase("acid");
+	public static FoodBase advancedMushroomStew = new FoodBase("advanced_mushroom_stew", 7, false);
+	public static ItemBase aquamarine = new ItemBase("aquamarine");
+	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
+	public static ItemBase aquaton = new ItemBase("aquaton");
+	public static ItemBase arcanaSpawnEgg = new ItemBase("spawn_egg_arcana");
+
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -56,8 +62,13 @@ public class ModItems {
 				gemWildwood,
 				mysteriousClock,
 				moonClock,
-				twilightClock
-				
+				twilightClock,
+				acid,
+				advancedMushroomStew,
+				aquamarine,
+				aquaticBlazeRod,
+				aquaton,
+				arcanaSpawnEgg
 				);
 	}
 
@@ -83,6 +94,13 @@ public class ModItems {
 		mysteriousClock.registerItemModel();
 		moonClock.registerItemModel();
 		twilightClock.registerItemModel();
+		acid.registerItemModel();
+		advancedMushroomStew.registerItemModel();
+		aquamarine.registerItemModel();
+		aquamarine.registerItemModel();
+		aquaticBlazeRod.registerItemModel();
+		aquaton.registerItemModel();
+		arcanaSpawnEgg.registerItemModel();
 		System.out.print("DivineRPG items loaded");
 	}
 }
