@@ -12,7 +12,7 @@ public class ModItems {
 	private static EntitySlime EntitySlime;
 	private static final CreativeTabs tab = Divine.ItemsTab;
 	
-	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_arlemite");
+	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static ThrowableBase amthirmisDisk = new ThrowableBase("amthirmisDisk");
 	public static BowBase hunterBow = new BowBase("bow_hunter");
 	public static BowBase shadowBow = new BowBase("bow_shadow");
@@ -39,14 +39,14 @@ public class ModItems {
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton");
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
-	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_amthirmis_back");
-	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_aquatooth");
-	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_arksiane_wrath");
-	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_bedrock");
-	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_black_ender");
-	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_bloodgem");
-	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_blue_divine");
-	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_storm");
+	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
+	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
+	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
+	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
+	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.blackEnderSwordMaterial, "sword_black_ender");
+	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
+	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.blueDivineSwordMaterial, "sword_blue_divine");
+	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -78,7 +78,6 @@ public class ModItems {
 				aquaticBlazeRod,
 				aquaton,
 				arcanaSpawnEgg,
-				amthrimisBackSword,
 				amthrimisBackSword,
 				aquatoothSword,
 				arksianeWrathSword,
