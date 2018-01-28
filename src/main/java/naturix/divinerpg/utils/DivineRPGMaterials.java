@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class DivineRPGMaterials {
+	//second to last number is damage value - 4
 	public static final Item.ToolMaterial arlemiteSwordMaterial = EnumHelper.addToolMaterial("ARLEMITE", 2, 250, 6.0F, 2.0F, 14);
 	public static final Item.ToolMaterial amthrimisSwordMaterial = EnumHelper.addToolMaterial("AMTHRIMIS", 2, 250, 3.0F, 1.0F, 1);
 	public static final Item.ToolMaterial aquatoothSwordMaterial = EnumHelper.addToolMaterial("AQUATOOTH", 2, 250, 10.0F, 6.0F, 10);
