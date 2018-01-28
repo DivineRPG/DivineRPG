@@ -39,7 +39,15 @@ public class ModItems {
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton");
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
-
+	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_amthirmis_back");
+	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_aquatooth");
+	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_arksiane_wrath");
+	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_bedrock");
+	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_black_ender");
+	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_bloodgem");
+	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_blue_divine");
+	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_storm");
+	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -69,7 +77,16 @@ public class ModItems {
 				aquamarine,
 				aquaticBlazeRod,
 				aquaton,
-				arcanaSpawnEgg
+				arcanaSpawnEgg,
+				amthrimisBackSword,
+				amthrimisBackSword,
+				aquatoothSword,
+				arksianeWrathSword,
+				bedrockSword,
+				blackEnderSword,
+				bloodgemSword,
+				blueDivineSword,
+				stormSword
 				);
 	}
 
@@ -102,6 +119,14 @@ public class ModItems {
 		aquaticBlazeRod.registerItemModel();
 		aquaton.registerItemModel();
 		arcanaSpawnEgg.registerItemModel();
+		amthrimisBackSword.registerItemModel(amthrimisBackSword);
+		aquatoothSword.registerItemModel(aquatoothSword);
+		arksianeWrathSword.registerItemModel(arksianeWrathSword);
+		bedrockSword.registerItemModel(bedrockSword);
+		blackEnderSword.registerItemModel(blackEnderSword);
+		bloodgemSword.registerItemModel(bloodgemSword);
+		blueDivineSword.registerItemModel(blueDivineSword);
+		stormSword.registerItemModel(stormSword);
 		System.out.print("DivineRPG items loaded");
 	}
 }
