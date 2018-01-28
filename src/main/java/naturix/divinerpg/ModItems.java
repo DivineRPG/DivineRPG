@@ -1,16 +1,17 @@
 package naturix.divinerpg;
 
 import naturix.divinerpg.bases.*;
-import naturix.divinerpg.bases.clock.MysteriousClock;
+import naturix.divinerpg.bases.clock.*;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
-	
+	private static EntitySlime EntitySlime;
 	private static final CreativeTabs tab = Divine.ItemsTab;
+	
 	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteToolMaterial, "sword_arlemite");
 	public static ThrowableBase amthirmisDisk = new ThrowableBase("amthirmisDisk");
 	public static BowBase hunterBow = new BowBase("bow_hunter");
@@ -37,7 +38,7 @@ public class ModItems {
 	public static ItemBase aquamarine = new ItemBase("aquamarine");
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton");
-	public static ItemBase arcanaSpawnEgg = new ItemBase("spawn_egg_arcana");
+	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
 
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
