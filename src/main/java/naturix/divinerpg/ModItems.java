@@ -47,6 +47,8 @@ public class ModItems {
 	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
 	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.blueDivineSwordMaterial, "sword_blue_divine");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
+	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
+	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -85,7 +87,9 @@ public class ModItems {
 				blackEnderSword,
 				bloodgemSword,
 				blueDivineSword,
-				stormSword
+				stormSword,
+				chickenDinner,
+				corruptedAxe
 				);
 	}
 
@@ -126,6 +130,8 @@ public class ModItems {
 		bloodgemSword.registerItemModel(bloodgemSword);
 		blueDivineSword.registerItemModel(blueDivineSword);
 		stormSword.registerItemModel(stormSword);
+		chickenDinner.registerItemModel();
+		corruptedAxe.registerItemModel(corruptedAxe);
 		System.out.print("DivineRPG items loaded");
 	}
 }
