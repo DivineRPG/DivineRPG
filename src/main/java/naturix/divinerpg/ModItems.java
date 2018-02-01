@@ -92,7 +92,7 @@ public class ModItems {
 				corruptedAxe
 				);
 	}
-
+	
 	public static void registerModels() {
 		arlemiteSword.registerItemModel(arlemiteSword);
 		amthirmisDisk.registerItemModel(amthirmisDisk);
