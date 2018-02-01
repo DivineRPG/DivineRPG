@@ -1,10 +1,19 @@
 package naturix.divinerpg;
 
-import naturix.divinerpg.bases.*;
-import naturix.divinerpg.bases.clock.*;
+import naturix.divinerpg.bases.ArmorBase;
+import naturix.divinerpg.bases.AxeBase;
+import naturix.divinerpg.bases.BowBase;
+import naturix.divinerpg.bases.FoodBase;
+import naturix.divinerpg.bases.ItemBase;
+import naturix.divinerpg.bases.SpawnerBase;
+import naturix.divinerpg.bases.SwordBase;
+import naturix.divinerpg.bases.ThrowableBase;
+import naturix.divinerpg.bases.armor.Angelic;
+import naturix.divinerpg.bases.clock.MysteriousClock;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -49,6 +58,11 @@ public class ModItems {
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
 	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
+	public static Angelic angelicHelmet = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.HEAD, "angelic_helmet");
+	public static Angelic angelicChestplate = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.CHEST, "angelic_chestplate");
+	public static Angelic angelicLeggings = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.LEGS, "angelic_leggings");
+	public static Angelic angelicBoots = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.FEET, "angelic_boots");
+	
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -89,7 +103,11 @@ public class ModItems {
 				blueDivineSword,
 				stormSword,
 				chickenDinner,
-				corruptedAxe
+				corruptedAxe,
+				angelicHelmet,
+				angelicChestplate,
+				angelicLeggings,
+				angelicBoots
 				);
 	}
 	
@@ -132,6 +150,10 @@ public class ModItems {
 		stormSword.registerItemModel(stormSword);
 		chickenDinner.registerItemModel();
 		corruptedAxe.registerItemModel(corruptedAxe);
+		angelicHelmet.registerItemModel(angelicHelmet);
+		angelicChestplate.registerItemModel(angelicChestplate);
+		angelicLeggings.registerItemModel(angelicLeggings);
+		angelicBoots.registerItemModel(angelicBoots);
 		System.out.print("DivineRPG items loaded");
 	}
 }

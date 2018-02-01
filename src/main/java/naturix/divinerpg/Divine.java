@@ -64,8 +64,7 @@ public class Divine {
 			@SubscribeEvent
 			public static void registerItems(ModelRegistryEvent event) {
 				ModItems.registerModels();
-				ModBlocks.registerModels();
-				
+				ModBlocks.registerModels();	
 			}
 	    	@SubscribeEvent
 	    	public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -99,6 +98,16 @@ public class Divine {
 	        public ItemStack getTabIconItem()
 	        {
 	            return new ItemStack(ModItems.arlemiteSword);
+	        }
+			
+	    };
+	    public static final CreativeTabs ArmorTab = new CreativeTabs("Armor")
+	    {
+
+	        @SideOnly(Side.CLIENT)
+	        public ItemStack getTabIconItem()
+	        {
+	            return new ItemStack(ModItems.angelicChestplate);
 	        }
 			
 	    };

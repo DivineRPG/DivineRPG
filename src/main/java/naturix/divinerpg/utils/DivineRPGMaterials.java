@@ -1,6 +1,9 @@
 package naturix.divinerpg.utils;
 
+import naturix.divinerpg.Divine;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class DivineRPGMaterials {
@@ -15,4 +18,7 @@ public class DivineRPGMaterials {
 	public static final Item.ToolMaterial blueDivineSwordMaterial = EnumHelper.addToolMaterial("BLUEDIVINE", 2, 250, 22.0F, 18.0F, 22);
 	public static final Item.ToolMaterial stormSwordMaterial = EnumHelper.addToolMaterial("STORM", 2, 250, 5.0F, 1.0F, 5);
 
+	
+	public static final ItemArmor.ArmorMaterial angelicArmorMaterial = EnumHelper.addArmorMaterial("ANGELIC", Divine.modId + ":angelic", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+	
 }

@@ -1,6 +1,7 @@
 itemGroup.Blocks=DivineRPG: Blocks
 itemGroup.Item=DivineRPG: Items
 itemGroup.Combat=DivineRPG: Combat
+itemGroup.Armor=DivineRPG: Armor
 
 tile.ore_arlemite.name=Arlemite Ore
 tile.ore_apalachia.name=Apalachia Ore
@@ -83,3 +84,9 @@ item.sword_aquatooth.name=Aquatooth Sword
 item.sword_bedrock.name=Bedrock Sword
 item.sword_black_ender.name=Black Ender Sword
 item.winner_winner.name=Chicken Dinner
+item.axe_corrupted.name=Corrupted Axe
+
+item.angelic_helmet.name=Angelic Helmet
+item.angelic_chestplate.name=Angelic Chestplate
+item.angelic_leggings.name=Angelic Leggings
+item.angelic_boots.name=Angelic Boots
