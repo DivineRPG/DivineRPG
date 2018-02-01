@@ -12,7 +12,7 @@ public class AxeBase extends ItemAxe {
 		super(material, damage, speed);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(Divine.ItemsTab);
+		setCreativeTab(Divine.ToolsTab);
 		this.name = name;
 	}
 	

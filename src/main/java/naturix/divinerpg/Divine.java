@@ -111,4 +111,14 @@ public class Divine {
 	        }
 			
 	    };
+	    public static final CreativeTabs ToolsTab = new CreativeTabs("Tools")
+	    {
+
+	        @SideOnly(Side.CLIENT)
+	        public ItemStack getTabIconItem()
+	        {
+	            return new ItemStack(ModItems.corruptedAxe);
+	        }
+			
+	    };
 }
