@@ -40,6 +40,7 @@ public class DivineRPGMaterials {
 	public static final ItemArmor.ArmorMaterial jackomanArmorMaterial = EnumHelper.addArmorMaterial("JACKOMAN", DivineRPG.modId + ":jackoman", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial jungleArmorMaterial = EnumHelper.addArmorMaterial("JUNGLE", DivineRPG.modId + ":jungle", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial kormaArmorMaterial = EnumHelper.addArmorMaterial("KORMA", DivineRPG.modId + ":korma", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+	public static final ItemArmor.ArmorMaterial krakenArmorMaterial = EnumHelper.addArmorMaterial("KORMA", DivineRPG.modId + ":korma", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial mortumArmorMaterial = EnumHelper.addArmorMaterial("MORTUM", DivineRPG.modId + ":mortum", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial netheriteArmorMaterial = EnumHelper.addArmorMaterial("NETHERITE", DivineRPG.modId + ":netherite", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial realmiteArmorMaterial = EnumHelper.addArmorMaterial("REALMITE", DivineRPG.modId + ":realmite", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
