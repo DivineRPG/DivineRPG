@@ -10,12 +10,12 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BeaconBase extends Block {
+public class BeaconBaseBase extends Block {
 	public boolean isBeaconBase = Config.isBeaconBase;
 	private static final CreativeTabs tab = DivineRPG.BlocksTab; 
 	protected String name;
 
-	public BeaconBase(Material material, String name) {
+	public BeaconBaseBase(Material material, String name) {
 		super(material);
 		this.name = name;
 		setUnlocalizedName(name);
@@ -31,11 +31,11 @@ public class BeaconBase extends Block {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 	
-	public BeaconBase setCreativeTab() {
+	public BeaconBaseBase setCreativeTab() {
 		super.setCreativeTab(tab);
 		return this;
 	}
-	public BeaconBase setBeaconBase(boolean b){
+	public BeaconBaseBase setBeaconBase(boolean b){
 		isBeaconBase = b;
 		return this;
 	}
