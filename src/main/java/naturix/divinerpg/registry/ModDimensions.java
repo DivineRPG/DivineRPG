@@ -1,5 +1,6 @@
-package naturix.divinerpg;
+package naturix.divinerpg.registry;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.base.WorldProviderMod;
 import naturix.divinerpg.utils.Config;
 import net.minecraft.world.DimensionType;

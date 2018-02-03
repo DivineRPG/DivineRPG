@@ -2,7 +2,7 @@ package naturix.divinerpg.proxy;
 
 import java.io.File;
 
-import naturix.divinerpg.ModDimensions;
+import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.Config;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

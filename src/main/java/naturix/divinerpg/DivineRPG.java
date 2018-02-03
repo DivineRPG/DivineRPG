@@ -1,7 +1,9 @@
 package naturix.divinerpg;
 
 import naturix.divinerpg.proxy.CommonProxy;
-import naturix.divinerpg.utils.ModRecipes;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.utils.world.*;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;

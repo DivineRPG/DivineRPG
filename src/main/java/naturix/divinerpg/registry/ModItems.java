@@ -1,5 +1,6 @@
-package naturix.divinerpg;
+package naturix.divinerpg.registry;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.ArmorBase;
 import naturix.divinerpg.bases.AxeBase;
 import naturix.divinerpg.bases.BowBase;

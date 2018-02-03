@@ -1,8 +1,9 @@
-package naturix.divinerpg;
+package naturix.divinerpg.registry;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 

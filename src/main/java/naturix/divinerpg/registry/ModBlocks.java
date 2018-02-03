@@ -1,4 +1,4 @@
-package naturix.divinerpg;
+package naturix.divinerpg.registry;
 
 import naturix.divinerpg.bases.*;
 import net.minecraft.block.Block;

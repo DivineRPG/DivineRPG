@@ -3,8 +3,8 @@ package naturix.divinerpg.bases;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.ModBlocks;
-import naturix.divinerpg.ModItems;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.EnumHandler.OreType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

@@ -1,6 +1,6 @@
 package naturix.divinerpg.dimensions.base;
 
-import naturix.divinerpg.ModDimensions;
+import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.gen.IChunkGenerator;

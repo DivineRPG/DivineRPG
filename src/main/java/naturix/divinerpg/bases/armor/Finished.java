@@ -1,8 +1,8 @@
 package naturix.divinerpg.bases.armor;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.ModItems;
 import naturix.divinerpg.bases.ArmorBase;
+import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;

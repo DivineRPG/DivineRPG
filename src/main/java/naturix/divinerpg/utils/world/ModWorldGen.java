@@ -3,7 +3,7 @@ package naturix.divinerpg.utils.world;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.ModBlocks;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.predicate.NetherGenPredicate;
 import naturix.divinerpg.utils.predicate.StonePredicate;
 import net.minecraft.util.math.BlockPos;

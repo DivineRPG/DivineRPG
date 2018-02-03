@@ -1,7 +1,5 @@
-package naturix.divinerpg.utils;
+package naturix.divinerpg.registry;
 
-import naturix.divinerpg.ModBlocks;
-import naturix.divinerpg.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
