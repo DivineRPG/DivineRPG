@@ -19,8 +19,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = Divine.modId, name = Divine.name, version = Divine.version)
-public class Divine {
+@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version)
+public class DivineRPG {
 
 	public static final String modId = "divinerpg";
 	public static final String name = "Divine RPG";
@@ -30,7 +30,7 @@ public class Divine {
 	public static CommonProxy proxy;
 	
 	@Mod.Instance(modId)
-	public static Divine instance;
+	public static DivineRPG instance;
 	public static org.apache.logging.log4j.Logger logger;
 
 	 @Mod.EventHandler

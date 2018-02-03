@@ -19,7 +19,7 @@ private Item item;
 	public static void registerItem(String name, Item item)
 	{
 		item.setRegistryName(name);
-		item.setCreativeTab(Divine.ArmorTab);
+		item.setCreativeTab(DivineRPG.ArmorTab);
 		item.setUnlocalizedName(name);
 
 		ForgeRegistries.ITEMS.register(item);

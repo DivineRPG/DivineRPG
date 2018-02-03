@@ -1,6 +1,6 @@
 package naturix.divinerpg.bases;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
@@ -25,7 +25,7 @@ private Block inTile;
 		setRegistryName(name);
 		setUnlocalizedName(name);
         this.maxStackSize = 16;
-        this.setCreativeTab(Divine.CombatTab);
+        this.setCreativeTab(DivineRPG.CombatTab);
         this.name = name;
         ResourceLocation resourcelocation = Block.REGISTRY.getNameForObject(this.inTile);
     }
@@ -55,6 +55,6 @@ private Block inTile;
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
     }
     public void registerItemModel(Item item) {
-		Divine.proxy.registerItemRenderer(this, 0, name);
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

@@ -1,6 +1,6 @@
 package naturix.divinerpg.bases;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -18,11 +18,11 @@ public class SpawnerBase extends Item {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(Divine.ItemsTab);
+		this.setCreativeTab(DivineRPG.ItemsTab);
 	}
 	
 	public void registerItemModel() {
-		Divine.proxy.registerItemRenderer(this, 0, name);
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 	 
 	//@Override(non-Javadoc)

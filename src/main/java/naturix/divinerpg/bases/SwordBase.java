@@ -1,6 +1,6 @@
 package naturix.divinerpg.bases;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 
@@ -12,12 +12,12 @@ public class SwordBase extends ItemSword {
 		super(material);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(Divine.CombatTab);
+		setCreativeTab(DivineRPG.CombatTab);
 		this.name = name;
 	}
 	
 	public void registerItemModel(Item item) {
-		Divine.proxy.registerItemRenderer(this, 0, name);
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 
 }

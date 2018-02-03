@@ -2,7 +2,7 @@ package naturix.divinerpg.utils;
 
 import org.apache.logging.log4j.Level;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 
@@ -17,7 +17,7 @@ public class Config {
             cfg.load();
             initGeneralConfig(cfg);
         } catch (Exception e1) {
-            Divine.logger.log(Level.ERROR, "Problem loading config file!", e1);
+            DivineRPG.logger.log(Level.ERROR, "Problem loading config file!", e1);
         } finally {
             if (cfg.hasChanged()) {
                 cfg.save();

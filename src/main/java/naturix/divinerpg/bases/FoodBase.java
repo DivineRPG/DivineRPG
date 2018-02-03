@@ -1,7 +1,7 @@
 package naturix.divinerpg.bases;
 
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.item.ItemFood;
 
 public class FoodBase extends ItemFood {
@@ -13,11 +13,11 @@ public class FoodBase extends ItemFood {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(Divine.ItemsTab);
+		this.setCreativeTab(DivineRPG.ItemsTab);
 	}
 	
 	public void registerItemModel() {
-		Divine.proxy.registerItemRenderer(this, 0, name);
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 
 }

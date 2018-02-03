@@ -1,6 +1,6 @@
 package naturix.divinerpg.bases;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.EnumHandler.OreType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -26,7 +26,7 @@ public class BlockOreNether extends BlockBase {
 		super(Material.ROCK, name);
 		setHardness(3f);
 		setResistance(5f);
-		setCreativeTab(Divine.BlocksTab);
+		setCreativeTab(DivineRPG.BlocksTab);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, OreType.NETHER)); // Default state
 	}
 
@@ -88,6 +88,6 @@ public class BlockOreNether extends BlockBase {
 		return OreType.values()[stack.getItemDamage()].getName();
 	}
 	public void registerItemModel(Item itemBlock) {
-		Divine.proxy.registerItemRenderer(itemBlock, 0, name);
+		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 }

@@ -14,7 +14,7 @@ public class ModDimensions {
 	    }
 
 	    private static void registerDimensionTypes() {
-	        edenDimension = DimensionType.register(Divine.modId, "_eden", Config.dimensionId, WorldProviderMod.class, false);
+	        edenDimension = DimensionType.register(DivineRPG.modId, "_eden", Config.dimensionId, WorldProviderMod.class, false);
 	    }
 
 	    private static void registerDimensions() {

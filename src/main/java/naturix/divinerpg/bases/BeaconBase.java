@@ -1,6 +1,6 @@
 package naturix.divinerpg.bases;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BeaconBase extends Block {
 
-	private static final CreativeTabs tab = Divine.BlocksTab;
+	private static final CreativeTabs tab = DivineRPG.BlocksTab;
 	protected String name;
 
 	public BeaconBase(Material material, String name) {
@@ -23,7 +23,7 @@ public class BeaconBase extends Block {
 	}
 	
 	public void registerItemModel(Item itemBlock) {
-		Divine.proxy.registerItemRenderer(itemBlock, 0, name);
+		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 	
 	public Item createItemBlock() {

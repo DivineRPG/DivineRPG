@@ -1,6 +1,6 @@
 package naturix.divinerpg.bases.clock;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.item.Item;
 
 public class MysteriousClock extends Item {
@@ -11,10 +11,10 @@ public class MysteriousClock extends Item {
 				this.name = name;
 				setUnlocalizedName(name);
 				setRegistryName(name);
-				this.setCreativeTab(Divine.ItemsTab);
+				this.setCreativeTab(DivineRPG.ItemsTab);
 			}
 			
 			public void registerItemModel() {
-				Divine.proxy.registerItemRenderer(this, 0, name);
+				DivineRPG.proxy.registerItemRenderer(this, 0, name);
 			}
 }

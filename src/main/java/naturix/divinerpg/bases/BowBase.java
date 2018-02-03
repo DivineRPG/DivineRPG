@@ -2,7 +2,7 @@ package naturix.divinerpg.bases;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,7 +35,7 @@ public class BowBase extends ItemBow {
 		setRegistryName(name);
         this.maxStackSize = 1;
         this.setMaxDamage(384);
-        this.setCreativeTab(Divine.CombatTab);
+        this.setCreativeTab(DivineRPG.CombatTab);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
@@ -240,6 +240,6 @@ public class BowBase extends ItemBow {
         return 1;
     }
 	public void registerItemModel() {
-		Divine.proxy.registerItemRenderer(this, 0, name);
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

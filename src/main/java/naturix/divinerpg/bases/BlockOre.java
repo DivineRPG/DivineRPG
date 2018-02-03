@@ -2,7 +2,7 @@ package naturix.divinerpg.bases;
 
 import java.util.Random;
 
-import naturix.divinerpg.Divine;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.ModBlocks;
 import naturix.divinerpg.ModItems;
 import naturix.divinerpg.utils.EnumHandler.OreType;
@@ -32,7 +32,7 @@ public class BlockOre extends BlockBase {
 		
 		setHardness(3f);
 		setResistance(5f);
-		setCreativeTab(Divine.BlocksTab);
+		setCreativeTab(DivineRPG.BlocksTab);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, OreType.OVERWORLD)); // Default state
 		}
 
@@ -40,7 +40,7 @@ public class BlockOre extends BlockBase {
 		super(Material.ROCK, name);
 		setHardness(3f);
 		setResistance(5f);
-		setCreativeTab(Divine.BlocksTab);
+		setCreativeTab(DivineRPG.BlocksTab);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, OreType.OVERWORLD)); // Default state
 		
 	}
@@ -103,7 +103,7 @@ public class BlockOre extends BlockBase {
 			return OreType.values()[stack.getItemDamage()].getName();
 		}
 		public void registerItemModel(Item itemBlock) {
-			Divine.proxy.registerItemRenderer(itemBlock, 0, name);
+			DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
 		}
 		public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	    {

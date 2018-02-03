@@ -19,7 +19,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
 	private static EntitySlime EntitySlime;
-	private static final CreativeTabs tab = Divine.ItemsTab;
+	private static final CreativeTabs tab = DivineRPG.ItemsTab;
 	
 	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static ThrowableBase amthirmisDisk = new ThrowableBase("amthirmisDisk");
@@ -46,7 +46,7 @@ public class ModItems {
 	public static FoodBase advancedMushroomStew = new FoodBase("advanced_mushroom_stew", 7, false);
 	public static ItemBase aquamarine = new ItemBase("aquamarine");
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
-	public static ItemBase aquaton = new ItemBase("aquaton", Divine.CombatTab);
+	public static ItemBase aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
 	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
 	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
