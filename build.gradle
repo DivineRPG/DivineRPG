@@ -34,7 +34,7 @@ minecraft {
 }
 
 dependencies {
-          //deobfCompile "mezz:jei:jei_1.12:4.8.4.130"
+          //deobfCompile "mezz.jei:jei_1.12.2-4.8.5.147"
 		  //deobfCompile "slimeknights.mantle:Mantle:1.12-1.3.1.22"
 		  //deobfCompile "slimeknights:TConstruct:1.12.2-2.9.0.59"
 
