@@ -1,6 +1,7 @@
 package naturix.divinerpg.bases;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -10,8 +11,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class BeaconBase extends Block {
-
-	private static final CreativeTabs tab = DivineRPG.BlocksTab;
+	public boolean isBeaconBase = Config.isBeaconBase;
+	private static final CreativeTabs tab = DivineRPG.BlocksTab; 
 	protected String name;
 
 	public BeaconBase(Material material, String name) {
@@ -34,8 +35,12 @@ public class BeaconBase extends Block {
 		super.setCreativeTab(tab);
 		return this;
 	}
-	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
-    {
-        return this == this;
-    }
+	public BeaconBase setBeaconBase(boolean b){
+		isBeaconBase = b;
+		return this;
+	}
+	@Override
+	public boolean isBeaconBase(IBlockAccess world, BlockPos pos, BlockPos beacon){
+		return isBeaconBase;
+	}
 }

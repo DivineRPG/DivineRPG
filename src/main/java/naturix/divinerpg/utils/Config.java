@@ -10,6 +10,7 @@ public class Config {
 
     private static final String CATEGORY_GENERAL = "general";
 	public static int dimensionId = 0;
+	public static boolean isBeaconBase = true;
 
     public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -28,6 +29,8 @@ public class Config {
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
         dimensionId = cfg.getInt("edenId", CATEGORY_GENERAL, 2, 2, 4096, "Eden dimension ID");
+        isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
+        
     }
 
 }
