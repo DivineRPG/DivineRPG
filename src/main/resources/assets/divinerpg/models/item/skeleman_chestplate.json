@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/leggings_divine"
+    "layer0": "divinerpg:items/chestplate_skeleman"
   }
 }
