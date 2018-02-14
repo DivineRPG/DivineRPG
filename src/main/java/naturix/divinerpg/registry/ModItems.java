@@ -22,7 +22,6 @@ public class ModItems {
 	private static EntitySlime EntitySlime;
 	private static final CreativeTabs tab = DivineRPG.ItemsTab;
 	
-	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static ThrowableBase amthirmisDisk = new ThrowableBase("amthirmisDisk");
 	public static BowBase hunterBow = new BowBase("bow_hunter");
 	public static BowBase shadowBow = new BowBase("bow_shadow");
@@ -49,14 +48,6 @@ public class ModItems {
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
-	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
-	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
-	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
-	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
-	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.blackEnderSwordMaterial, "sword_black_ender");
-	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
-	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.blueDivineSwordMaterial, "sword_blue_divine");
-	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
 	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
 	public static Angelic angelicHelmet = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.HEAD, "angelic_helmet");
@@ -191,7 +182,15 @@ public class ModItems {
 	public static WitherReaper witherreaperChestplate = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.CHEST, "wither_reaper_chestplate");
 	public static WitherReaper witherreaperLeggings = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.LEGS, "wither_reaper_leggings");
 	public static WitherReaper witherreaperBoots = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.FEET, "wither_reaper_boots");
-	
+	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
+	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
+	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
+	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
+	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.blackEnderSwordMaterial, "sword_black_ender");
+	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
+	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.blueDivineSwordMaterial, "sword_blue_divine");
+	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
+	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
