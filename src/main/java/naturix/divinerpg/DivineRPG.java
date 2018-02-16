@@ -21,12 +21,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version)
+@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version, dependencies = "required-after:baubles@[1.5.2]")
 public class DivineRPG {
 
 	public static final String modId = "divinerpg";
 	public static final String name = "Divine RPG";
 	public static final String version = "1.12.2.0";
+	
 	
 	@SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
 	public static CommonProxy proxy;

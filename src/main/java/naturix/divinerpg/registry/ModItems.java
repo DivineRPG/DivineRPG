@@ -1,14 +1,7 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.ArmorBase;
-import naturix.divinerpg.bases.AxeBase;
-import naturix.divinerpg.bases.BowBase;
-import naturix.divinerpg.bases.FoodBase;
-import naturix.divinerpg.bases.ItemBase;
-import naturix.divinerpg.bases.SpawnerBase;
-import naturix.divinerpg.bases.SwordBase;
-import naturix.divinerpg.bases.ThrowableBase;
+import naturix.divinerpg.bases.*;
 import naturix.divinerpg.bases.armor.*;
 import naturix.divinerpg.bases.clock.MysteriousClock;
 import naturix.divinerpg.utils.DivineRPGMaterials;
@@ -191,6 +184,7 @@ public class ModItems {
 	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.blueDivineSwordMaterial, "sword_blue_divine");
 	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
+	public static ItemBase bandHeivaHunt = new ItemBase("band_heiva_hunt");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -363,7 +357,8 @@ public class ModItems {
 				witherreaperHelmet,
 				witherreaperChestplate,
 				witherreaperLeggings,
-				witherreaperBoots
+				witherreaperBoots,
+				bandHeivaHunt
 				);
 	}
 	
@@ -538,6 +533,7 @@ public class ModItems {
 		witherreaperChestplate.registerItemModel();
 		witherreaperLeggings.registerItemModel();
 		witherreaperBoots.registerItemModel(witherreaperBoots);
+		bandHeivaHunt.registerItemModel();
 		System.out.print("DivineRPG items loaded");
 	}
 }
