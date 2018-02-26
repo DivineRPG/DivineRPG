@@ -51,7 +51,7 @@ dependencies {
     compile "team.chisel.ctm:CTM:MC1.12-${ctm_version}"
     compile "team.chisel:Chisel:MC${chisel_version}:api"
     runtime "team.chisel:Chisel:MC${chisel_version}"
-	deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
+	//deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
 	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.14-7"
 	//deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
 	//compile "cofh:CoFHCore:${minecraft_version}-${cofh_core_version}:deobf"

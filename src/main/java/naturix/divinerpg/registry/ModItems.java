@@ -185,6 +185,7 @@ public class ModItems {
 	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	public static ItemBase bandHeivaHunt = new ItemBase("band_heiva_hunt");
+	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(5F, 0.1F, DivineRPGMaterials.rupeeSwordMaterial, null, "shickaxe_rupee");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -358,7 +359,8 @@ public class ModItems {
 				witherreaperChestplate,
 				witherreaperLeggings,
 				witherreaperBoots,
-				bandHeivaHunt
+				bandHeivaHunt,
+				rupeeShickaxe
 				);
 	}
 	
@@ -534,6 +536,7 @@ public class ModItems {
 		witherreaperLeggings.registerItemModel();
 		witherreaperBoots.registerItemModel(witherreaperBoots);
 		bandHeivaHunt.registerItemModel();
+		rupeeShickaxe.registerItemModel(rupeeShickaxe);
 		System.out.print("DivineRPG items loaded");
 	}
 }

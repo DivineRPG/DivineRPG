@@ -18,7 +18,8 @@ public class DivineRPGMaterials {
 	public static final Item.ToolMaterial bloodgemSwordMaterial = EnumHelper.addToolMaterial("BLOODGEM", 2, 250, 15.0F, 11.0F, 15);
 	public static final Item.ToolMaterial blueDivineSwordMaterial = EnumHelper.addToolMaterial("BLUEDIVINE", 2, 250, 22.0F, 18.0F, 22);
 	public static final Item.ToolMaterial stormSwordMaterial = EnumHelper.addToolMaterial("STORM", 2, 250, 5.0F, 1.0F, 5);
-
+	public static final Item.ToolMaterial rupeeSwordMaterial = EnumHelper.addToolMaterial("RUPEE", 2, 250, 5.0F, 1.0F, 5);
+	
 	//name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
 	public static final ItemArmor.ArmorMaterial angelicArmorMaterial = EnumHelper.addArmorMaterial("ANGELIC", DivineRPG.modId + ":angelic", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial apalachiaArmorMaterial = EnumHelper.addArmorMaterial("APALACHIA", DivineRPG.modId + ":apalachia", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
