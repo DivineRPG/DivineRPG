@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version, dependencies = "required-after:baubles@[1.5.2]")
+@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version)
 public class DivineRPG {
 
 	public static final String modId = "divinerpg";
