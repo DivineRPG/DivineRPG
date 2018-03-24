@@ -23,7 +23,7 @@ private Item item;
 		item.setCreativeTab(DivineRPG.ArmorTab);
 		item.setUnlocalizedName(name);
 
-		ForgeRegistries.ITEMS.register(item);
+		//ForgeRegistries.ITEMS.register(item);
 		
 		DivineItemList.add(item);
 	}
