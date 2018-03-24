@@ -84,7 +84,37 @@ public class ModWorldGen implements IWorldGenerator {
 			this.runGenerator(bloodgem_nether, world, random, chunkX, chunkZ, 30, 1, 255);
 			this.runGenerator(netherite_nether, world, random, chunkX, chunkZ, 30, 1, 255);
 			break;
+		case -11325:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+		case 7:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+		case 20:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+		case 6:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+		case -112:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+		case -127:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+		case -9999:
+			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
+			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
+			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
+			
 		}
+		
 	}
 
 }
