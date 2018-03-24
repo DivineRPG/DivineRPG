@@ -21,13 +21,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version)
+@Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version, updateJSON = DivineRPG.UPDATE_URL)
 public class DivineRPG {
 
 	public static final String modId = "divinerpg";
 	public static final String name = "Divine RPG";
 	public static final String version = "1.12.2.0";
-	
+	public static final String UPDATE_URL = "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/divinerpg_update.json";
 	
 	@SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
 	public static CommonProxy proxy;
