@@ -1,0 +1,10 @@
+{
+	"homepage": "https://github.com/DivineRPG/DivineRPG/releases",
+	"1.12.2": {
+		"1.12.2.0": "Ported to 1.12"
+	},
+	"promos": {
+		"1.12.2-latest": "1.12.2.0",
+		"1.12.2-recommended": "1.12.2.0"
+	}
+}

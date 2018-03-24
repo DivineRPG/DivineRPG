@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/log_top_mortum",
+    "down": "divinerpg:blocks/log_top_mortum",
+    "up": "divinerpg:blocks/log_top_mortum",
+    "east": "divinerpg:blocks/log_side_mortum",
+    "west": "divinerpg:blocks/log_side_mortum",
+    "north": "divinerpg:blocks/log_side_mortum",
+    "south": "divinerpg:blocks/log_side_mortum"
+  }
+}

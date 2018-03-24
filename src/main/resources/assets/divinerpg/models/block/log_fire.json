@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/log_top_fire",
+    "down": "divinerpg:blocks/log_top_fire",
+    "up": "divinerpg:blocks/log_top_fire",
+    "east": "divinerpg:blocks/log_side_fire",
+    "west": "divinerpg:blocks/log_side_fire",
+    "north": "divinerpg:blocks/log_side_fire",
+    "south": "divinerpg:blocks/log_side_fire"
+  }
+}

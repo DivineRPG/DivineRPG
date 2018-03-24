@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/log_top_wildwood",
+    "down": "divinerpg:blocks/log_top_wildwood",
+    "up": "divinerpg:blocks/log_top_wildwood",
+    "east": "divinerpg:blocks/log_side_wildwood",
+    "west": "divinerpg:blocks/log_side_wildwood",
+    "north": "divinerpg:blocks/log_side_wildwood",
+    "south": "divinerpg:blocks/log_side_wildwood"
+  }
+}

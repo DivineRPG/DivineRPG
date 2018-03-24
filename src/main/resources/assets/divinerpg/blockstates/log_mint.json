@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:log_mint"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{divinerpg:log_mint}]
+  }
+}
