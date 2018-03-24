@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:leaves_mortum"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{divinerpg:leaves_mortum}]
+  }
+}

@@ -68,7 +68,7 @@ public class ModBlocks {
 	public static BlockBase mortumLog = new BlockBase(Material.WOOD, "log_mortum");
 	public static BlockBase divineLeaves = new BlockBase(Material.LEAVES, "leaves_divine");
 	public static BlockBase dreamLeaves = new BlockBase(Material.LEAVES, "leaves_dream");
-	public static BlockBase frozenLeaves = new BlockBase(Material.LEAVES, "leaves_frozen");
+	//public static BlockBase frozenLeaves = new BlockBase(Material.LEAVES, "leaves_frozen");
 	public static BlockBase hyreLeaves = new BlockBase(Material.LEAVES, "leaves_hyre");
 	public static BlockBase mintLeaves = new BlockBase(Material.LEAVES, "leaves_mint");
 	public static BlockBase edenLeaves = new BlockBase(Material.LEAVES, "leaves_eden");
@@ -142,7 +142,7 @@ public class ModBlocks {
 				mortumLog,
 				divineLeaves, 
 				dreamLeaves,
-				frozenLeaves,
+				//frozenLeaves,
 				hyreLeaves,
 				mintLeaves,
 				edenLeaves,
@@ -217,7 +217,7 @@ public class ModBlocks {
 				mortumLog.createItemBlock(),
 				divineLeaves.createItemBlock() ,
 				dreamLeaves.createItemBlock(),
-				frozenLeaves.createItemBlock(),
+				//frozenLeaves.createItemBlock(),
 				hyreLeaves.createItemBlock(),
 				mintLeaves.createItemBlock(),
 				edenLeaves.createItemBlock(),
@@ -293,7 +293,7 @@ public class ModBlocks {
 		divineLog.registerItemModel(Item.getItemFromBlock(divineLog));
 		divineLeaves.registerItemModel(Item.getItemFromBlock(divineLeaves)); 
 		dreamLeaves.registerItemModel(Item.getItemFromBlock(dreamLeaves));
-		frozenLeaves.registerItemModel(Item.getItemFromBlock(frozenLeaves));
+		//frozenLeaves.registerItemModel(Item.getItemFromBlock(frozenLeaves));
 		hyreLeaves.registerItemModel(Item.getItemFromBlock(hyreLeaves));
 		mintLeaves.registerItemModel(Item.getItemFromBlock(mintLeaves));
 		edenLeaves.registerItemModel(Item.getItemFromBlock(edenLeaves));

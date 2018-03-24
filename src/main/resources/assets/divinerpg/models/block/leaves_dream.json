@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/leaves_dream",
+    "down": "divinerpg:blocks/leaves_dream",
+    "up": "divinerpg:blocks/leaves_dream",
+    "east": "divinerpg:blocks/leaves_dream",
+    "west": "divinerpg:blocks/leaves_dream",
+    "north": "divinerpg:blocks/leaves_dream",
+    "south": "divinerpg:blocks/leaves_dream"
+  }
+}

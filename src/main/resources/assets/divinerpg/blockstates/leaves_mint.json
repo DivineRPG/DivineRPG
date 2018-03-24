@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:leaves_mint"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{divinerpg:leaves_mint}]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:leaves_eden"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{divinerpg:leaves_eden}]
+  }
+}

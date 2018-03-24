@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/leaves_skythern",
+    "down": "divinerpg:blocks/leaves_skythern",
+    "up": "divinerpg:blocks/leaves_skythern",
+    "east": "divinerpg:blocks/leaves_skythern",
+    "west": "divinerpg:blocks/leaves_skythern",
+    "north": "divinerpg:blocks/leaves_skythern",
+    "south": "divinerpg:blocks/leaves_skythern"
+  }
+}

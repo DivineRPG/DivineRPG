@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/leaves_eden",
+    "down": "divinerpg:blocks/leaves_eden",
+    "up": "divinerpg:blocks/leaves_eden",
+    "east": "divinerpg:blocks/leaves_eden",
+    "west": "divinerpg:blocks/leaves_eden",
+    "north": "divinerpg:blocks/leaves_eden",
+    "south": "divinerpg:blocks/leaves_eden"
+  }
+}
