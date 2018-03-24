@@ -1,4 +1,4 @@
-package naturix.divinerpg.registry;
+package naturix.divinerpg.bases;
 
 
 import naturix.divinerpg.DivineRPG;

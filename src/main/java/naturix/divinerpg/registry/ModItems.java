@@ -185,7 +185,10 @@ public class ModItems {
 	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	public static ItemBase bandHeivaHunt = new ItemBase("band_heiva_hunt");
-	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(5F, 0.1F, DivineRPGMaterials.rupeeSwordMaterial, null, "shickaxe_rupee");
+	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee");
+	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite");
+	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine");
+	
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -360,7 +363,9 @@ public class ModItems {
 				witherreaperLeggings,
 				witherreaperBoots,
 				bandHeivaHunt,
-				rupeeShickaxe
+				rupeeShickaxe,
+				arlemiteShickaxe,
+				divineShickaxe
 				);
 	}
 	
@@ -537,6 +542,8 @@ public class ModItems {
 		witherreaperBoots.registerItemModel(witherreaperBoots);
 		bandHeivaHunt.registerItemModel();
 		rupeeShickaxe.registerItemModel(rupeeShickaxe);
+		arlemiteShickaxe.registerItemModel(arlemiteShickaxe);
+		divineShickaxe.registerItemModel(divineShickaxe);
 		System.out.print("DivineRPG items loaded");
 	}
 }

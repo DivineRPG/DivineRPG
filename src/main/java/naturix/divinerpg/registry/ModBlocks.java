@@ -55,6 +55,29 @@ public class ModBlocks {
 	public static LampBase blockTerranLamp = new LampBase(Material.ICE, "block_terran_lamp");
 	public static LampBase blockVillageLamp = new LampBase(Material.ICE, "block_village_lamp");
 	public static LampBase blockWorkshopLamp = new LampBase(Material.ICE, "block_workshop_lamp");
+	public static BlockBase divineLog = new BlockBase(Material.WOOD, "log_divine");
+	public static BlockBase dreamLog = new BlockBase(Material.WOOD, "log_dream");
+	public static BlockBase frozenLog = new BlockBase(Material.WOOD, "log_frozen");
+	public static BlockBase hyreLog = new BlockBase(Material.WOOD, "log_hyre");
+	public static BlockBase mintLog = new BlockBase(Material.WOOD, "log_mint");
+	public static BlockBase edenLog = new BlockBase(Material.WOOD, "log_eden");
+	public static BlockBase fireLog = new BlockBase(Material.WOOD, "log_fire");
+	public static BlockBase wildwoodLog = new BlockBase(Material.WOOD, "log_wildwood");
+	public static BlockBase apalachiaLog = new BlockBase(Material.WOOD, "log_apalachia");
+	public static BlockBase skythernLog = new BlockBase(Material.WOOD, "log_skythern");
+	public static BlockBase mortumLog = new BlockBase(Material.WOOD, "log_mortum");
+	public static BlockBase divineLeaves = new BlockBase(Material.LEAVES, "leaves_divine");
+	public static BlockBase dreamLeaves = new BlockBase(Material.LEAVES, "leaves_dream");
+	public static BlockBase frozenLeaves = new BlockBase(Material.LEAVES, "leaves_frozen");
+	public static BlockBase hyreLeaves = new BlockBase(Material.LEAVES, "leaves_hyre");
+	public static BlockBase mintLeaves = new BlockBase(Material.LEAVES, "leaves_mint");
+	public static BlockBase edenLeaves = new BlockBase(Material.LEAVES, "leaves_eden");
+	public static BlockBase fireLeaves = new BlockBase(Material.LEAVES, "leaves_fire");
+	public static BlockBase wildwoodLeaves = new BlockBase(Material.LEAVES, "leaves_wildwood");
+	public static BlockBase apalachiaLeaves = new BlockBase(Material.LEAVES, "leaves_apalachia");
+	public static BlockBase skythernLeaves = new BlockBase(Material.LEAVES, "leaves_skythern");
+	public static BlockBase mortumLeaves = new BlockBase(Material.LEAVES, "leaves_mortum");
+	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(
@@ -105,7 +128,29 @@ public class ModBlocks {
 				blockSlimeLamp,
 				blockTerranLamp,
 				blockVillageLamp,
-				blockWorkshopLamp
+				blockWorkshopLamp,
+				divineLog,
+				dreamLog,
+				frozenLog,
+				hyreLog,
+				mintLog,
+				edenLog,
+				fireLog,
+				wildwoodLog,
+				apalachiaLog,
+				skythernLog,
+				mortumLog,
+				divineLeaves, 
+				dreamLeaves,
+				frozenLeaves,
+				hyreLeaves,
+				mintLeaves,
+				edenLeaves,
+				fireLeaves,
+				wildwoodLeaves,
+				apalachiaLeaves,
+				skythernLeaves,
+				mortumLeaves
 		);
 	}
 	
@@ -158,7 +203,29 @@ public class ModBlocks {
 				blockSlimeLamp.createItemBlock(),
 				blockTerranLamp.createItemBlock(),
 				blockVillageLamp.createItemBlock(),
-				blockWorkshopLamp.createItemBlock()
+				blockWorkshopLamp.createItemBlock(),
+				divineLog.createItemBlock(),
+				dreamLog.createItemBlock(),
+				frozenLog.createItemBlock(),
+				hyreLog.createItemBlock(),
+				mintLog.createItemBlock(),
+				edenLog.createItemBlock(),
+				fireLog.createItemBlock(),
+				wildwoodLog.createItemBlock(),
+				apalachiaLog.createItemBlock(),
+				skythernLog.createItemBlock(),
+				mortumLog.createItemBlock(),
+				divineLeaves.createItemBlock() ,
+				dreamLeaves.createItemBlock(),
+				frozenLeaves.createItemBlock(),
+				hyreLeaves.createItemBlock(),
+				mintLeaves.createItemBlock(),
+				edenLeaves.createItemBlock(),
+				fireLeaves.createItemBlock(),
+				wildwoodLeaves.createItemBlock(),
+				apalachiaLeaves.createItemBlock(),
+				skythernLeaves.createItemBlock(),
+				mortumLeaves.createItemBlock()
 				);
 	}
 	
@@ -212,6 +279,29 @@ public class ModBlocks {
 		blockTerranLamp.registerItemModel(Item.getItemFromBlock(blockTerranLamp));
 		blockVillageLamp.registerItemModel(Item.getItemFromBlock(blockVillageLamp));
 		blockWorkshopLamp.registerItemModel(Item.getItemFromBlock(blockWorkshopLamp));
+		divineLog.registerItemModel(Item.getItemFromBlock(divineLog));
+		dreamLog.registerItemModel(Item.getItemFromBlock(dreamLog));
+		frozenLog.registerItemModel(Item.getItemFromBlock(frozenLog));
+		hyreLog.registerItemModel(Item.getItemFromBlock(hyreLog));
+		mintLog.registerItemModel(Item.getItemFromBlock(mintLog));
+		edenLog.registerItemModel(Item.getItemFromBlock(edenLog));
+		fireLog.registerItemModel(Item.getItemFromBlock(fireLog));
+		wildwoodLog.registerItemModel(Item.getItemFromBlock(wildwoodLog));
+		apalachiaLog.registerItemModel(Item.getItemFromBlock(apalachiaLog));
+		skythernLog.registerItemModel(Item.getItemFromBlock(skythernLog));
+		mortumLog.registerItemModel(Item.getItemFromBlock(mortumLog));
+		divineLog.registerItemModel(Item.getItemFromBlock(divineLog));
+		divineLeaves.registerItemModel(Item.getItemFromBlock(divineLeaves)); 
+		dreamLeaves.registerItemModel(Item.getItemFromBlock(dreamLeaves));
+		frozenLeaves.registerItemModel(Item.getItemFromBlock(frozenLeaves));
+		hyreLeaves.registerItemModel(Item.getItemFromBlock(hyreLeaves));
+		mintLeaves.registerItemModel(Item.getItemFromBlock(mintLeaves));
+		edenLeaves.registerItemModel(Item.getItemFromBlock(edenLeaves));
+		fireLeaves.registerItemModel(Item.getItemFromBlock(fireLeaves));
+		wildwoodLeaves.registerItemModel(Item.getItemFromBlock(wildwoodLeaves));
+		apalachiaLeaves.registerItemModel(Item.getItemFromBlock(apalachiaLeaves));
+		skythernLeaves.registerItemModel(Item.getItemFromBlock(skythernLeaves));
+		mortumLeaves.registerItemModel(Item.getItemFromBlock(mortumLeaves));
 	}
 
 }

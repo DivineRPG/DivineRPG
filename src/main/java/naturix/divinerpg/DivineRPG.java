@@ -4,7 +4,7 @@ import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
-import naturix.divinerpg.utils.world.*;
+import naturix.divinerpg.utils.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -42,7 +42,6 @@ public class DivineRPG {
 	        proxy.preInit(event);
 	        logger.info(name + " is now loading");
 	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
-	        
 	    }
 
 	    @Mod.EventHandler

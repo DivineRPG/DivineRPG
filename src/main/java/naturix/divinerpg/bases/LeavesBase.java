@@ -1,24 +1,28 @@
 package naturix.divinerpg.bases;
 
+import java.util.List;
+
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
-public class BlockBase extends Block {
+public class LeavesBase extends BlockBase {
 
 	private static final CreativeTabs tab = DivineRPG.BlocksTab;
 	protected String name;
 
-	public BlockBase(Material material, String name) {
-		super(material);
+	public LeavesBase(Material material, String name) {
+		super(material, name);
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(tab);
-		this.setHardness(2);
 	}
 	
 	public void registerItemModel(Item itemBlock) {
@@ -28,10 +32,9 @@ public class BlockBase extends Block {
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
-	
-	public BlockBase setCreativeTab() {
-		super.setCreativeTab(tab);
-		return this;
-	}
 
+	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
+		return null;
+	}
+	
 }

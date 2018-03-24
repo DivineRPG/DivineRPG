@@ -24,7 +24,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        config = new Configuration(new File(directory.getPath(), "naturix/divinerpg.cfg"));
 	        Config.readConfig();
 	        ModDimensions.init();
-	    }
+	        }
 
 	    public void init(FMLInitializationEvent e) {
 	    }
