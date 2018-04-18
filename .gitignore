@@ -16,26 +16,16 @@ out
 # gradle
 build
 .gradle
-gradle
 
 # other
 eclipse
 run
+*.bat
 CREDITS-fml.txt
-Build Mod.bat
-forge-1.12.2-14.23.1.2584-changelog.txt
-gradle.properties
-gradlew.bat
-gradlew
-setupEclipse.bat
-setupCleanCache.bat
-setupDecomp.bat
 forge-1.12.2-14.23.1.2604-changelog.txt
-LICENSE-new.txt
-README.txt
-Paulscode SoundSystem CodecIBXM License.txt
-Paulscode IBXM Library License.txt
-README.txt
-MinecraftForge-Credits.txt
-README.txt
 forge-1.12.2-14.23.2.2629-changelog.txt
+forge-1.12.2-14.23.3.2669-changelog.txt
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew
+*.txt

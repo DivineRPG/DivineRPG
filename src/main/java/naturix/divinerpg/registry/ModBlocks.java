@@ -3,6 +3,7 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.bases.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -66,17 +67,18 @@ public class ModBlocks {
 	public static BlockBase apalachiaLog = new BlockBase(Material.WOOD, "log_apalachia");
 	public static BlockBase skythernLog = new BlockBase(Material.WOOD, "log_skythern");
 	public static BlockBase mortumLog = new BlockBase(Material.WOOD, "log_mortum");
-	public static BlockBase divineLeaves = new BlockBase(Material.LEAVES, "leaves_divine");
-	public static BlockBase dreamLeaves = new BlockBase(Material.LEAVES, "leaves_dream");
+	public static LeavesBase divineLeaves = new LeavesBase("leaves_divine");
+	public static LeavesBase dreamLeaves = new LeavesBase("leaves_dream");
 	//public static BlockBase frozenLeaves = new BlockBase(Material.LEAVES, "leaves_frozen");
-	public static BlockBase hyreLeaves = new BlockBase(Material.LEAVES, "leaves_hyre");
-	public static BlockBase mintLeaves = new BlockBase(Material.LEAVES, "leaves_mint");
-	public static BlockBase edenLeaves = new BlockBase(Material.LEAVES, "leaves_eden");
-	public static BlockBase fireLeaves = new BlockBase(Material.LEAVES, "leaves_fire");
-	public static BlockBase wildwoodLeaves = new BlockBase(Material.LEAVES, "leaves_wildwood");
-	public static BlockBase apalachiaLeaves = new BlockBase(Material.LEAVES, "leaves_apalachia");
-	public static BlockBase skythernLeaves = new BlockBase(Material.LEAVES, "leaves_skythern");
-	public static BlockBase mortumLeaves = new BlockBase(Material.LEAVES, "leaves_mortum");
+	public static LeavesBase hyreLeaves = new LeavesBase("leaves_hyre");
+	public static LeavesBase mintLeaves = new LeavesBase("leaves_mint");
+	public static LeavesBase edenLeaves = new LeavesBase("leaves_eden");
+	public static LeavesBase fireLeaves = new LeavesBase("leaves_fire");
+	public static LeavesBase wildwoodLeaves = new LeavesBase("leaves_wildwood");
+	public static LeavesBase apalachiaLeaves = new LeavesBase("leaves_apalachia", ModBlocks.apalachiaSapling);
+	public static LeavesBase skythernLeaves = new LeavesBase("leaves_skythern"); 
+	public static LeavesBase mortumLeaves = new LeavesBase("leaves_mortum");
+	public static SaplingBase apalachiaSapling = new SaplingBase("sapling_apalachia");
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
@@ -150,7 +152,8 @@ public class ModBlocks {
 				wildwoodLeaves,
 				apalachiaLeaves,
 				skythernLeaves,
-				mortumLeaves
+				mortumLeaves,
+				apalachiaSapling
 		);
 	}
 	
@@ -225,7 +228,8 @@ public class ModBlocks {
 				wildwoodLeaves.createItemBlock(),
 				apalachiaLeaves.createItemBlock(),
 				skythernLeaves.createItemBlock(),
-				mortumLeaves.createItemBlock()
+				mortumLeaves.createItemBlock(),
+				apalachiaSapling.createItemBlock()
 				);
 	}
 	
@@ -302,6 +306,7 @@ public class ModBlocks {
 		apalachiaLeaves.registerItemModel(Item.getItemFromBlock(apalachiaLeaves));
 		skythernLeaves.registerItemModel(Item.getItemFromBlock(skythernLeaves));
 		mortumLeaves.registerItemModel(Item.getItemFromBlock(mortumLeaves));
+		apalachiaSapling.registerItemModel(Item.getItemFromBlock(apalachiaSapling));
 	}
 
 }

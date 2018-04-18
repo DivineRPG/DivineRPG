@@ -1,4 +1,4 @@
-package naturix.divinerpg.dimensions.base;
+package naturix.divinerpg.bases.dimensions;
 
 import java.util.List;
 import java.util.Random;

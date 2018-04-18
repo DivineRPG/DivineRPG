@@ -1,4 +1,4 @@
-package naturix.divinerpg.dimensions.base;
+package naturix.divinerpg.bases.dimensions;
 
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
