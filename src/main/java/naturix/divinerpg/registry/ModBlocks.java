@@ -79,6 +79,10 @@ public class ModBlocks {
 	public static LeavesBase skythernLeaves = new LeavesBase("leaves_skythern"); 
 	public static LeavesBase mortumLeaves = new LeavesBase("leaves_mortum");
 	public static SaplingBase apalachiaSapling = new SaplingBase("sapling_apalachia");
+	public static TorchBase torchSkeleton = new TorchBase(Material.CIRCUITS, "torch_skeleton");
+	public static TorchBase torchAqua = new TorchBase(Material.CIRCUITS, "torch_aqua");
+	public static TorchBase torchEden = new TorchBase(Material.CIRCUITS, "torch_eden");
+	public static TorchBase torchArcanium= new TorchBase(Material.CIRCUITS, "torch_arcanium");
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
@@ -153,7 +157,11 @@ public class ModBlocks {
 				apalachiaLeaves,
 				skythernLeaves,
 				mortumLeaves,
-				apalachiaSapling
+				apalachiaSapling,
+				torchSkeleton,
+				torchAqua,
+				torchEden,
+				torchArcanium
 		);
 	}
 	
@@ -229,7 +237,11 @@ public class ModBlocks {
 				apalachiaLeaves.createItemBlock(),
 				skythernLeaves.createItemBlock(),
 				mortumLeaves.createItemBlock(),
-				apalachiaSapling.createItemBlock()
+				apalachiaSapling.createItemBlock(),
+				torchSkeleton.createItemBlock(),
+				torchAqua.createItemBlock(),
+				torchEden.createItemBlock(),
+				torchArcanium.createItemBlock()
 				);
 	}
 	
@@ -307,6 +319,10 @@ public class ModBlocks {
 		skythernLeaves.registerItemModel(Item.getItemFromBlock(skythernLeaves));
 		mortumLeaves.registerItemModel(Item.getItemFromBlock(mortumLeaves));
 		apalachiaSapling.registerItemModel(Item.getItemFromBlock(apalachiaSapling));
+		torchSkeleton.registerItemModel(Item.getItemFromBlock(torchSkeleton));
+		torchAqua.registerItemModel(Item.getItemFromBlock(torchAqua));
+		torchEden.registerItemModel(Item.getItemFromBlock(torchEden));
+		torchArcanium.registerItemModel(Item.getItemFromBlock(torchArcanium));
 	}
 
 }
