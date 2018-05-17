@@ -19,9 +19,12 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class LeavesBase extends BlockLeaves
 {
@@ -45,7 +48,16 @@ public class LeavesBase extends BlockLeaves
         this.name = name;
         this.setCreativeTab(DivineRPG.BlocksTab);
     }
-
+	@Override
+	@Deprecated
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+	    @SideOnly(Side.CLIENT)
+	    public BlockRenderLayer getBlockLayer()
+	    {
+	        return BlockRenderLayer.CUTOUT_MIPPED;
+	    }
     @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
