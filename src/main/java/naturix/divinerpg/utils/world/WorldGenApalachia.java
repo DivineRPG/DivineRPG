@@ -15,13 +15,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.IPlantable;
 
-public class WorldGenTrees extends WorldGenerator {
+public class WorldGenApalachia extends WorldGenerator {
+	
 	 private IBlockState blockStateWood = ModBlocks.apalachiaLog.getDefaultState();
-	    private IBlockState blockStateLeaves = ModBlocks.apalachiaLeaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+	 private IBlockState blockStateLeaves = ModBlocks.apalachiaLeaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
 	    /** The minimum height of a generated tree. */
 	    private final int minTreeHeight = 4;
 
-	    public WorldGenTrees(boolean parShouldNotify)
+	    public WorldGenApalachia(boolean parShouldNotify)
 	    {
 	        super(parShouldNotify);
 	    }

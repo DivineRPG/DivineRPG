@@ -2,7 +2,7 @@ package naturix.divinerpg.bases;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.utils.world.WorldGenTrees;
+import naturix.divinerpg.utils.world.WorldGenApalachia;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -60,7 +60,7 @@ public class SaplingBase extends BlockBush implements IGrowable
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = new WorldGenTrees(true);
+        WorldGenerator worldgenerator = new WorldGenApalachia(true);
 
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
  
@@ -79,7 +79,6 @@ public class SaplingBase extends BlockBush implements IGrowable
     @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
-    	DivineRPG.logger.info("bonemealed sapling at " + pos);
         return worldIn.rand.nextFloat() < 0.45D;
     }
 

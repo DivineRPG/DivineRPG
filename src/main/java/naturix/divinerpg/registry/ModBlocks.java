@@ -78,11 +78,11 @@ public class ModBlocks {
 	public static LeavesBase apalachiaLeaves = new LeavesBase("leaves_apalachia", ModBlocks.apalachiaSapling);
 	public static LeavesBase skythernLeaves = new LeavesBase("leaves_skythern"); 
 	public static LeavesBase mortumLeaves = new LeavesBase("leaves_mortum");
-	public static SaplingBase apalachiaSapling = new SaplingBase("sapling_apalachia");
 	public static TorchBase torchSkeleton = new TorchBase(Material.CIRCUITS, "torch_skeleton");
 	public static TorchBase torchAqua = new TorchBase(Material.CIRCUITS, "torch_aqua");
 	public static TorchBase torchEden = new TorchBase(Material.CIRCUITS, "torch_eden");
 	public static TorchBase torchArcanium= new TorchBase(Material.CIRCUITS, "torch_arcanium");
+	public static SaplingBase apalachiaSapling = new SaplingBase("sapling_apalachia");
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");

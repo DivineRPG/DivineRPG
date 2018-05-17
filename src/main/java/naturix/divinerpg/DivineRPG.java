@@ -42,6 +42,7 @@ public class DivineRPG {
 	        proxy.preInit(event);
 	        logger.info(name + " is now loading");
 	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+	        
 	    }
 
 	    @Mod.EventHandler
