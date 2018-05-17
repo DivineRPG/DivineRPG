@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "divinerpg:torch_skeleton" },
+        "facing=east": { "model": "divinerpg:torch_skeleton_wall" },
+        "facing=south": { "model": "divinerpg:torch_skeleton_wall", "y": 90 },
+        "facing=west": { "model": "divinerpg:torch_skeleton_wall", "y": 180 },
+        "facing=north": { "model": "divinerpg:torch_skeleton_wall", "y": 270 },
+        "inventory": { "model": "divinerpg:torch_skeleton"}
+    }
+}

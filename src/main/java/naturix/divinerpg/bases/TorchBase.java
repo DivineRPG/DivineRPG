@@ -45,7 +45,7 @@ public class TorchBase extends Block {
 		setRegistryName(name);
 		setCreativeTab(tab);
 		this.setHardness(2);
-		this.setLightLevel(16);
+		this.setLightLevel(1);
 	}
 	
 	public void registerItemModel(Item itemBlock) {
@@ -366,5 +366,12 @@ public class TorchBase extends Block {
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
     {
         return BlockFaceShape.UNDEFINED;
+    }
+    @Override
+    public Block setLightLevel(float value)
+    {
+    	value = 1f;
+        this.lightValue = (int)(15.0F * value);
+        return this;
     }
 }

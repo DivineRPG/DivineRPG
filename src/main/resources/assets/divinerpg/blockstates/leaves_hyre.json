@@ -5,6 +5,8 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [{divinerpg:leaves_hyre}]
+    "inventory": [{divinerpg:leaves_hyre}],
+	"check_decay=true,decayable=false":[{divinerpg:leaves_hyre}],
+	"check_decay=true,decayable=true":[{divinerpg:leaves_hyre}]
   }
 }

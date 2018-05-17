@@ -5,6 +5,8 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [{divinerpg:leaves_divine}]
+    "inventory": [{divinerpg:leaves_divine}],
+	"check_decay=true,decayable=false":[{divinerpg:leaves_divine}],
+	"check_decay=true,decayable=true":[{divinerpg:leaves_divine}]
   }
 }

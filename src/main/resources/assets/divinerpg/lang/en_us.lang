@@ -77,6 +77,11 @@ tile.leaves_wildwood.name=Wildwood Leaves
 tile.leaves_skythern.name=Skythern Leaves
 tile.leaves_apalachia.name=Apalachia Leaves
 tile.leaves_mortum.name=Mortum Leaves
+tile.sapling_apalachia.name=Apalachia Sapling
+tile.torch_skeleton.name=Skeleton Torch
+tile.torch_aqua.name=Aqua Torch
+tile.torch_arcanium.name=Arcanium Torch
+tile.torch_eden.name=Eden Torch
 
 item.ingot_arlemite.name=Arlemite Ingot
 item.sword_arlemite.name=Arlemite Stabber
