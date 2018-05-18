@@ -1,8 +1,9 @@
-package naturix.divinerpg.bases;
+package naturix.divinerpg.bases.sapling;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.utils.world.WorldGenApalachia;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.world.TreeGen;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -21,13 +22,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class SaplingBase extends BlockBush implements IGrowable
+public class SaplingDivine extends BlockBush implements IGrowable
 {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
 	private String name;
 
-    public SaplingBase(String name)
+    public SaplingDivine(String name)
     {
     	this.setUnlocalizedName(name);
     	this.setRegistryName(name);
@@ -60,7 +61,7 @@ public class SaplingBase extends BlockBush implements IGrowable
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = new WorldGenApalachia(true);
+        WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.divineLog.getDefaultState(), ModBlocks.divineLeaves.getDefaultState());
 
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
  
