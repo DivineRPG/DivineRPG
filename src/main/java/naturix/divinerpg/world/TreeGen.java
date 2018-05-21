@@ -1,4 +1,4 @@
-package naturix.divinerpg.utils.world;
+package naturix.divinerpg.world;
 
 import java.util.Random;
 import net.minecraft.block.Block;

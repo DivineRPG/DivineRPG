@@ -3,7 +3,7 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.utils.world.TreeGen;
+import naturix.divinerpg.world.TreeGen;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -11,7 +11,6 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -22,13 +21,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class SaplingDivine extends BlockBush implements IGrowable
+public class SaplingMortum extends BlockBush implements IGrowable
 {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
 	private String name;
 
-    public SaplingDivine(String name)
+    public SaplingMortum(String name)
     {
     	this.setUnlocalizedName(name);
     	this.setRegistryName(name);
@@ -61,7 +60,7 @@ public class SaplingDivine extends BlockBush implements IGrowable
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.divineLog.getDefaultState(), ModBlocks.divineLeaves.getDefaultState());
+        WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.mortumLog.getDefaultState(), ModBlocks.mortumLeaves.getDefaultState());
 
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
  

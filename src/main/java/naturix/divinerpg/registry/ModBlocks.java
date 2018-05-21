@@ -1,10 +1,19 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.bases.*;
+import naturix.divinerpg.bases.BeaconBaseBase;
+import naturix.divinerpg.bases.BlockBase;
+import naturix.divinerpg.bases.BlockOre;
+import naturix.divinerpg.bases.BlockOreNether;
+import naturix.divinerpg.bases.LampBase;
+import naturix.divinerpg.bases.LeavesBase;
+import naturix.divinerpg.bases.TorchBase;
 import naturix.divinerpg.bases.sapling.SaplingApalachia;
+import naturix.divinerpg.bases.sapling.SaplingEden;
+import naturix.divinerpg.bases.sapling.SaplingMortum;
+import naturix.divinerpg.bases.sapling.SaplingSkythern;
+import naturix.divinerpg.bases.sapling.SaplingWildwood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -84,16 +93,16 @@ public class ModBlocks {
 	public static TorchBase torchEden = new TorchBase(Material.CIRCUITS, "torch_eden");
 	public static TorchBase torchArcanium= new TorchBase(Material.CIRCUITS, "torch_arcanium");
 	public static SaplingApalachia apalachiaSapling = new SaplingApalachia("sapling_apalachia");
-	public static SaplingApalachia divineSapling = new SaplingApalachia("sapling_divine");
-	public static SaplingApalachia dreamSapling = new SaplingApalachia("sapling_dream");
-	public static SaplingApalachia frozenSapling = new SaplingApalachia("sapling_frozen");
-	public static SaplingApalachia hyreSapling = new SaplingApalachia("sapling_hyre");
-	public static SaplingApalachia mintSapling = new SaplingApalachia("sapling_mint");
-	public static SaplingApalachia edenSapling = new SaplingApalachia("sapling_eden");
-	public static SaplingApalachia fireSapling = new SaplingApalachia("sapling_fire");
-	public static SaplingApalachia wildwoodSapling = new SaplingApalachia("sapling_wildwood");
-	public static SaplingApalachia skythernSapling = new SaplingApalachia("sapling_skythern");
-	public static SaplingApalachia mortumSapling = new SaplingApalachia("sapling_mortum");
+	//public static SaplingApalachia divineSapling = new SaplingApalachia("sapling_divine");
+	//public static SaplingApalachia dreamSapling = new SaplingApalachia("sapling_dream");
+	//public static SaplingApalachia frozenSapling = new SaplingApalachia("sapling_frozen");
+	//public static SaplingApalachia hyreSapling = new SaplingApalachia("sapling_hyre");
+	//public static SaplingApalachia mintSapling = new SaplingApalachia("sapling_mint");
+	public static SaplingEden edenSapling = new SaplingEden("sapling_eden");
+	//public static SaplingApalachia fireSapling = new SaplingApalachia("sapling_fire");
+	public static SaplingWildwood wildwoodSapling = new SaplingWildwood("sapling_wildwood");
+	public static SaplingSkythern skythernSapling = new SaplingSkythern("sapling_skythern");
+	public static SaplingMortum mortumSapling = new SaplingMortum("sapling_mortum");
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
@@ -173,13 +182,13 @@ public class ModBlocks {
 				torchEden,
 				torchArcanium,
 				apalachiaSapling,
-				divineSapling,
-				dreamSapling,
-				frozenSapling,
-				hyreSapling,
-				mintSapling,
+				//divineSapling,
+				//dreamSapling,
+				//frozenSapling,
+				//hyreSapling,
+				//mintSapling,
 				edenSapling,
-				fireSapling,
+				//fireSapling,
 				wildwoodSapling,
 				skythernSapling,
 				mortumSapling
@@ -263,13 +272,13 @@ public class ModBlocks {
 				torchEden.createItemBlock(),
 				torchArcanium.createItemBlock(),
 				apalachiaSapling.createItemBlock(),
-				divineSapling.createItemBlock(),
-				dreamSapling.createItemBlock(),
-				frozenSapling.createItemBlock(),
-				hyreSapling.createItemBlock(),
-				mintSapling.createItemBlock(),
+				//divineSapling.createItemBlock(),
+				//dreamSapling.createItemBlock(),
+				//frozenSapling.createItemBlock(),
+				//hyreSapling.createItemBlock(),
+				//mintSapling.createItemBlock(),
 				edenSapling.createItemBlock(),
-				fireSapling.createItemBlock(),
+				//fireSapling.createItemBlock(),
 				wildwoodSapling.createItemBlock(),
 				skythernSapling.createItemBlock(),
 				mortumSapling.createItemBlock()
@@ -354,13 +363,13 @@ public class ModBlocks {
 		torchEden.registerItemModel(Item.getItemFromBlock(torchEden));
 		torchArcanium.registerItemModel(Item.getItemFromBlock(torchArcanium));
 		apalachiaSapling.registerItemModel(Item.getItemFromBlock(apalachiaSapling));
-		divineSapling.registerItemModel(Item.getItemFromBlock(divineSapling));
-		dreamSapling.registerItemModel(Item.getItemFromBlock(dreamSapling));
-		frozenSapling.registerItemModel(Item.getItemFromBlock(frozenSapling));
-		hyreSapling.registerItemModel(Item.getItemFromBlock(hyreSapling));
-		mintSapling.registerItemModel(Item.getItemFromBlock(mintSapling));
+		//divineSapling.registerItemModel(Item.getItemFromBlock(divineSapling));
+		//dreamSapling.registerItemModel(Item.getItemFromBlock(dreamSapling));
+		//frozenSapling.registerItemModel(Item.getItemFromBlock(frozenSapling));
+		//hyreSapling.registerItemModel(Item.getItemFromBlock(hyreSapling));
+		//mintSapling.registerItemModel(Item.getItemFromBlock(mintSapling));
 		edenSapling.registerItemModel(Item.getItemFromBlock(edenSapling));
-		fireSapling.registerItemModel(Item.getItemFromBlock(fireSapling));
+		//fireSapling.registerItemModel(Item.getItemFromBlock(fireSapling));
 		wildwoodSapling.registerItemModel(Item.getItemFromBlock(wildwoodSapling));
 		skythernSapling.registerItemModel(Item.getItemFromBlock(skythernSapling));
 		mortumSapling.registerItemModel(Item.getItemFromBlock(mortumSapling));

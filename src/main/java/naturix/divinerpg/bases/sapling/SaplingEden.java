@@ -21,13 +21,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class SaplingApalachia extends BlockBush implements IGrowable
+public class SaplingEden extends BlockBush implements IGrowable
 {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
 	private String name;
 
-    public SaplingApalachia(String name)
+    public SaplingEden(String name)
     {
     	this.setUnlocalizedName(name);
     	this.setRegistryName(name);
@@ -60,10 +60,10 @@ public class SaplingApalachia extends BlockBush implements IGrowable
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.apalachiaLog.getDefaultState(), ModBlocks.apalachiaLeaves.getDefaultState());
+        WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
 
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-        DivineRPG.logger.info(pos);
+ 
         worldgenerator.generate(worldIn, rand, pos);
     }
 
