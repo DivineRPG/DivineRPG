@@ -3,6 +3,7 @@ package naturix.divinerpg.bases.items;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,6 +14,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -28,15 +30,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BowBase extends ItemBow {
 	protected String name;
-	public BowBase(String name)
+	private Item arrow;
+	public BowBase(String name, Item arrow)
     {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-        this.maxStackSize = 1;
+        this.arrow = arrow;
+		this.maxStackSize = 1;
         this.setMaxDamage(384);
         this.setCreativeTab(DivineRPG.CombatTab);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
+        
         {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
@@ -111,7 +116,7 @@ public class BowBase extends ItemBow {
             {
                 if (itemstack.isEmpty())
                 {
-                    itemstack = new ItemStack(Items.ARROW);
+                    itemstack = new ItemStack(arrow);
                 }
 
                 float f = getArrowVelocity(i);

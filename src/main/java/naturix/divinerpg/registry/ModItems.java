@@ -42,12 +42,15 @@ import naturix.divinerpg.bases.items.armor.Tormented;
 import naturix.divinerpg.bases.items.armor.Vemos;
 import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
+import naturix.divinerpg.bases.items.arrows.InfernoArrow;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArrow;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
@@ -55,11 +58,11 @@ public class ModItems {
 	private static final CreativeTabs tab = DivineRPG.ItemsTab;
 	
 	public static ThrowableBase amthirmisDisk = new ThrowableBase("amthirmisDisk");
-	public static BowBase hunterBow = new BowBase("bow_hunter");
-	public static BowBase shadowBow = new BowBase("bow_shadow");
-	public static BowBase enderBow = new BowBase("bow_ender");
-	public static BowBase bluefireBow = new BowBase("bow_bluefire");
-	public static BowBase infernoBow = new BowBase("bow_inferno");
+	public static BowBase hunterBow = new BowBase("bow_hunter", Items.ARROW);
+	public static BowBase shadowBow = new BowBase("bow_shadow", Items.ARROW);
+	public static BowBase enderBow = new BowBase("bow_ender", Items.ARROW);
+	public static BowBase bluefireBow = new BowBase("bow_bluefire", Items.ARROW);
+	public static BowBase infernoBow = new BowBase("bow_inferno", ModItems.infernoarrow);
 	public static ItemBase arcanium = new ItemBase("arcanium");
 	public static ItemBase ingotArlemite = new ItemBase("ingot_arlemite");
 	public static ItemBase ingotAquatic = new ItemBase("ingot_aquatic");
@@ -227,6 +230,8 @@ public class ModItems {
 	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950);
 	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
 	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine", 1250);
+	public static ItemArrow infernoarrow = new InfernoArrow("infernoarrow");
+
 	
 	
 	public static void register(IForgeRegistry<Item> registry) {
@@ -404,7 +409,8 @@ public class ModItems {
 				bandHeivaHunt,
 				rupeeShickaxe,
 				arlemiteShickaxe,
-				divineShickaxe
+				divineShickaxe,
+				infernoarrow
 				);
 	}
 	
