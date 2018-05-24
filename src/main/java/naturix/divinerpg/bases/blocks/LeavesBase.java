@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -28,24 +29,27 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class LeavesBase extends BlockLeaves
 {
-	
+	public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
+    public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
+    int[] surroundings;
     private String name;
 	private Block sapling;
 	public LeavesBase(String name, Block sapling)
     {
     	this.setUnlocalizedName(name);
     	this.setRegistryName(name);
-        setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
-        this.name = name;
+    	this.name = name;
         this.setCreativeTab(DivineRPG.BlocksTab);
         this.sapling = sapling;
+        this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
+    
     }
 	public LeavesBase(String name)
     {
     	this.setUnlocalizedName(name);
     	this.setRegistryName(name);
-        setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
-        this.name = name;
+    	this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
+    	this.name = name;
         this.setCreativeTab(DivineRPG.BlocksTab);
     }
 	@Override
@@ -76,9 +80,6 @@ public class LeavesBase extends BlockLeaves
         return Item.getItemFromBlock(sapling);
     }
 
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
     @Override
     public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
     {
@@ -95,30 +96,25 @@ public class LeavesBase extends BlockLeaves
      * Convert the given metadata into a BlockState for this Block
      */
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
-    }
-
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
-    @Override
     public int getMetaFromState(IBlockState state)
     {
         int i = 0;
 
-        if (!state.getValue(DECAYABLE).booleanValue())
-        {
+        if (!state.getValue(DECAYABLE)) {
             i |= 4;
         }
 
-        if (state.getValue(CHECK_DECAY).booleanValue())
-        {
+        if (state.getValue(CHECK_DECAY)) {
             i |= 8;
         }
-
         return i;
+    }
+
+    @Deprecated
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY, (meta & 8) > 0);
     }
 
     @Override

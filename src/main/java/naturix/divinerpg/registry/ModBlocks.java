@@ -82,12 +82,12 @@ public class ModBlocks {
 	//public static BlockBase frozenLeaves = new BlockBase(Material.LEAVES, "leaves_frozen");
 	public static LeavesBase hyreLeaves = new LeavesBase("leaves_hyre");
 	public static LeavesBase mintLeaves = new LeavesBase("leaves_mint");
-	public static LeavesBase edenLeaves = new LeavesBase("leaves_eden");
+	public static LeavesBase edenLeaves = new LeavesBase("leaves_eden", ModBlocks.edenSapling);
 	public static LeavesBase fireLeaves = new LeavesBase("leaves_fire");
-	public static LeavesBase wildwoodLeaves = new LeavesBase("leaves_wildwood");
+	public static LeavesBase wildwoodLeaves = new LeavesBase("leaves_wildwood", ModBlocks.wildwoodSapling);
 	public static LeavesBase apalachiaLeaves = new LeavesBase("leaves_apalachia", ModBlocks.apalachiaSapling);
-	public static LeavesBase skythernLeaves = new LeavesBase("leaves_skythern"); 
-	public static LeavesBase mortumLeaves = new LeavesBase("leaves_mortum");
+	public static LeavesBase skythernLeaves = new LeavesBase("leaves_skythern", ModBlocks.skythernSapling); 
+	public static LeavesBase mortumLeaves = new LeavesBase("leaves_mortum", ModBlocks.mortumSapling);
 	public static TorchBase torchSkeleton = new TorchBase(Material.CIRCUITS, "torch_skeleton");
 	public static TorchBase torchAqua = new TorchBase(Material.CIRCUITS, "torch_aqua");
 	public static TorchBase torchEden = new TorchBase(Material.CIRCUITS, "torch_eden");
