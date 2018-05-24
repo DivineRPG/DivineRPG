@@ -5,6 +5,10 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [{divinerpg:log_apalachia}]
+    "inventory": [{divinerpg:log_apalachia}],
+	"axis=none": [{}],
+	"axis=y": [{}],
+	"axis=x": [{}],
+	"axis=z": [{}]
   }
 }

@@ -5,6 +5,10 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [{divinerpg:log_divine}]
+    "inventory": [{divinerpg:log_divine}],
+	"axis=none": [{}],
+	"axis=y": [{}],
+	"axis=x": [{}],
+	"axis=z": [{}]
   }
 }
