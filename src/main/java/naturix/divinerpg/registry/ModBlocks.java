@@ -6,13 +6,13 @@ import naturix.divinerpg.bases.blocks.BlockOreNether;
 import naturix.divinerpg.bases.blocks.LampBase;
 import naturix.divinerpg.bases.blocks.LeavesBase;
 import naturix.divinerpg.bases.blocks.LogBase;
-import naturix.divinerpg.bases.blocks.StatueBase;
 import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
 import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
+import naturix.divinerpg.bases.blocks.statues.WatcherStatue;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -104,7 +104,8 @@ public class ModBlocks {
 	public static SaplingWildwood wildwoodSapling = new SaplingWildwood("sapling_wildwood");
 	public static SaplingSkythern skythernSapling = new SaplingSkythern("sapling_skythern");
 	public static SaplingMortum mortumSapling = new SaplingMortum("sapling_mortum");
-	public static StatueBase watcherStatue = new StatueBase("statue_watcher");
+	public static WatcherStatue watcherStatue = new WatcherStatue();
+	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(

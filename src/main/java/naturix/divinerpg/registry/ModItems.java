@@ -1,8 +1,10 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.bases.CannonAmmo;
 import naturix.divinerpg.bases.items.AxeBase;
 import naturix.divinerpg.bases.items.BowBase;
+import naturix.divinerpg.bases.items.CannonBase;
 import naturix.divinerpg.bases.items.FoodBase;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.bases.items.ShickaxeBase;
@@ -228,8 +230,8 @@ public class ModItems {
 	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950);
 	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
 	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine", 1250);
-
-	
+	public static CannonBase cannonAmthirmis = new CannonBase("cannonAmthirmis");
+	public static CannonAmmo cannonAmmoAmthirmis = new CannonAmmo("ammo_amthirmis_cannon");
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -405,7 +407,9 @@ public class ModItems {
 				bandHeivaHunt,
 				rupeeShickaxe,
 				arlemiteShickaxe,
-				divineShickaxe
+				divineShickaxe,
+				cannonAmthirmis,
+				cannonAmmoAmthirmis
 				);
 	}
 	
@@ -548,7 +552,7 @@ public class ModItems {
 		rupeeChestplate.registerItemModel();
 		rupeeLeggings.registerItemModel();
 		rupeeBoots.registerItemModel();
-		shadowHelmet.registerItemModel();
+		shadowHelmet.registerItemModel(); 
 		shadowChestplate.registerItemModel();
 		shadowLeggings.registerItemModel();
 		shadowBoots.registerItemModel();
@@ -584,6 +588,8 @@ public class ModItems {
 		rupeeShickaxe.registerItemModel(rupeeShickaxe);
 		arlemiteShickaxe.registerItemModel(arlemiteShickaxe);
 		divineShickaxe.registerItemModel(divineShickaxe);
+		cannonAmthirmis.registerItemModel();
+		cannonAmmoAmthirmis.registerItemModel();
 		System.out.print("DivineRPG items loaded");
 	}
 }

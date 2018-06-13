@@ -20,6 +20,14 @@ public class BlockBase extends Block {
 		setCreativeTab(tab);
 		this.setHardness(2);
 	}
+	public BlockBase(Material material, String name, CreativeTabs tab) {
+		super(material);
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		setCreativeTab(tab);
+		this.setHardness(2);
+	}
 	
 	public void registerItemModel(Item itemBlock) {
 		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);

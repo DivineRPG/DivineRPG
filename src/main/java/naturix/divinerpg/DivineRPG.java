@@ -124,4 +124,14 @@ public class DivineRPG {
 	        }
 			
 	    };
+	    public static final CreativeTabs TrophyTab = new CreativeTabs("Trophy")
+	    {
+
+	        @SideOnly(Side.CLIENT)
+	        public ItemStack getTabIconItem()
+	        {
+	            return new ItemStack(ModBlocks.watcherStatue);
+	        }
+			
+	    };
 }

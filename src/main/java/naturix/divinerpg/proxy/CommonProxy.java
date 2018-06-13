@@ -5,6 +5,7 @@ import java.io.File;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.Config;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
@@ -45,6 +46,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    }
 
 		public void registerItemRenderer(Item itemBlock, int i, String name) {
+			
+		}
+		public void registerEntityRenderer(Entity entity, int i, String name) {
 			
 		}
 
