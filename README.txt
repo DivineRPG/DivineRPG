@@ -1,62 +1,90 @@
--------------------------------------------
-Source installation information for modders
--------------------------------------------
-This code follows the Minecraft Forge installation methodology. It will apply
-some small patches to the vanilla MCP source code, giving you and it access 
-to some of the data and functions you need to build a successful mod.
+DivineRPG
+=========
 
-Note also that the patches are built against "unrenamed" MCP source code (aka
-srgnames) - this means that you will not be able to read them directly against
-normal code.
+The official repository for the DivineRPG Minecraft mod
 
-Source pack installation information:
+Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2455655-divinerpg-8-new-dimensions-115-new-mobs-bosses)
 
-Standalone source installation
-==============================
+### What you can and cannot do with DivineRPG
+###### You CAN:
+* Download DivineRPG and use it
+* Make a public Minecraft server with DivineRPG installed
+* Include DivineRPG in a modpack _if you have permission from the development team, if you link back to the mod's forum thread, if you credit the team, and if you agree to remove the mod from the pack at any time if you are told to by the DivineRPG team_
+* Make youtube videos showing DivineRPG gameplay _as long as you link back to the mod's forum thread_
+* Use the source code as a reference for educational purposes
+* Modify and recompile DivineRPG for PERSONAL use
+* Fork DivineRPG on Github and write a pull request
 
-See the Forge Documentation online for more detailed instructions:
-http://mcforge.readthedocs.io/en/latest/gettingstarted/
+###### You CANNOT:
+* Redistribute DivineRPG without permission from the team
+* Claim that you made DivineRPG
+* Redistribute modified versions of DivineRPG
+* Copy ANY of DivineRPG's code and/or assets for use in a different project
+* Put DivineRPG in a modpack without permission
 
-Step 1: Open your command-line and browse to the folder where you extracted the zip file.
+### Credits
+This mod is owned by XolovA, but he is no longer part of the team
+***
+##### Main Team
+* RadioactiveStud (aka SoccerStud) - Developer
+* Eternaldoom - Developer
+* krwminer - Developer
+* BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
+* NicosasurusRex99 - Port Developer
 
-Step 2: Once you have a command window up in the folder that the downloaded material was placed, type:
+##### Special Thanks to
+* Dizzlepop12 - A few models/textures
+* THEVOLCO - German Translations
+* ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
+* TikenTVC - Portuguese Translations
+* Declan (UKDeccy) - A few Models/Textures
+* BlueEyes9 - A few Models/Textures
+* Insanity414all - Wiki admin
+* Laorwick - Some Recipes
 
-Windows: "gradlew setupDecompWorkspace"
-Linux/Mac OS: "./gradlew setupDecompWorkspace"
+##### Other Credits
+* The_SlayerMC - Former Developer
+* Sheenrox82 - Former Developer
+* Mazetar - Former Developer
+* TLHPoE - Former Developer
+* Sactage - Server Owner and maintainer
+* Aginsun - Ex Developer
+* Hologuardian - Ex Developer
+* Vazkii - Ex Developer
+* Majorsir - for the name of the mod.
+* Terraria - for some resources.
+* Vattic - for some block textures, featured in a version of the faithful32 pack
+* Vanilla MC - for some textures.
+* Reika - for ore textures.
+* XL biomes - for tree style.
+* Blued00r - Ex Developer
 
-Step 3: After all that finished, you're left with a choice.
-For eclipse, run "gradlew eclipse" (./gradlew eclipse if you are on Mac/Linux)
+***
+### Contributing
+***
+#### Submitting a Pull Request
+Want to help improve our code? Fix bugs? Add to the mod? Make artistic improvements for us?
 
-If you prefer to use IntelliJ, steps are a little different.
-1. Open IDEA, and import project.
-2. Select your build.gradle file and have it import.
-3. Once it's finished you must close IntelliJ and run the following command:
+1. If you haven't already, create a Github account.
+2. Click the `Fork` icon located at the top-right of this page (below your username).
+3. Make the changes that you want to and commit them.
+	* If you're making changes locally, you'll have to do `git commit -a` and `git push` in your command line.
+4. Click `Pull Request` at the right-hand side of the gray bar directly below your fork's name.
+5. Click `Click to create a pull request for this comparison`, enter your Pull Request's title, and write a detailed description telling us what you changed.
+6. Click `Send pull request`, and be patient, we will review your changes
 
-"gradlew genIntellijRuns" (./gradlew genIntellijRuns if you are on Mac/Linux)
+#### Creating an Issue
+Found a bug in our mod?  Please let us know so we can fix it ASAP!
 
-Step 4: The final step is to open Eclipse and switch your workspace to /eclipse/ (if you use IDEA, it should automatically start on your project)
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can run "gradlew --refresh-dependencies" to refresh the local cache. "gradlew clean" to reset everything {this does not affect your code} and then start the processs again.
-
-Should it still not work, 
-Refer to #ForgeGradle on EsperNet for more information about the gradle environment.
-
-Tip:
-If you do not care about seeing Minecraft's source code you can replace "setupDecompWorkspace" with one of the following:
-"setupDevWorkspace": Will patch, deobfuscate, and gather required assets to run minecraft, but will not generate human readable source code.
-"setupCIWorkspace": Same as Dev but will not download any assets. This is useful in build servers as it is the fastest because it does the least work.
-
-Tip:
-When using Decomp workspace, the Minecraft source code is NOT added to your workspace in a editable way. Minecraft is treated like a normal Library. Sources are there for documentation and research purposes and usually can be accessed under the 'referenced libraries' section of your IDE.
-
-Forge source installation
-=========================
-MinecraftForge ships with this code and installs it as part of the forge
-installation process, no further action is required on your part.
-
-LexManos' Install Video
-=======================
-https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
-
-For more details update more often refer to the Forge Forums:
-http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
+1. Make sure your issue hasn't already been answered or fixed.  Also think about whether your issue is a valid one before submitting it.
+2. Go to [the issues page](http://github.com/DivineRPG/DivineRPG/issues).
+3. Click `New Issue` right below `Star` and `Fork`.
+4. Enter your Issue's title (something that summarizes your issue), and then create a detailed description ("Could you add/change _____?" or "Found an exploit/bug:  stuff").
+	* If you are reporting a bug report from an outdated or unofficial version (you got the mod from someone else, a website other than our forums or wiki, or if its been modified in ANY way) , make sure you include the following:
+		* Version and commit SHA (found in changelog inside of the mod's jar)
+		* ForgeModLoader log
+		* Server log (if applicable)
+		* Crash report (if applicable)
+		* Detailed description of the bug
+	* Please note, if you are not using an official version, the bug may go un-fixed
+5. Click `Submit new issue`, and be patient so we can fix it!
