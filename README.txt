@@ -68,7 +68,7 @@ Want to help improve our code? Fix bugs? Add to the mod? Make artistic improveme
 1. If you haven't already, create a Github account.
 2. Click the `Fork` icon located at the top-right of this page (below your username).
 3. Make the changes that you want to and commit them.
-	* If you're making changes locally, you'll have to do `git commit -a` and `git push` in your command line.
+    * If you're making changes locally, you'll have to do `git commit -a` and `git push` in your command line.
 4. Click `Pull Request` at the right-hand side of the gray bar directly below your fork's name.
 5. Click `Click to create a pull request for this comparison`, enter your Pull Request's title, and write a detailed description telling us what you changed.
 6. Click `Send pull request`, and be patient, we will review your changes
@@ -80,11 +80,11 @@ Found a bug in our mod?  Please let us know so we can fix it ASAP!
 2. Go to [the issues page](http://github.com/DivineRPG/DivineRPG/issues).
 3. Click `New Issue` right below `Star` and `Fork`.
 4. Enter your Issue's title (something that summarizes your issue), and then create a detailed description ("Could you add/change _____?" or "Found an exploit/bug:  stuff").
-	* If you are reporting a bug report from an outdated or unofficial version (you got the mod from someone else, a website other than our forums or wiki, or if its been modified in ANY way) , make sure you include the following:
-		* Version and commit SHA (found in changelog inside of the mod's jar)
-		* ForgeModLoader log
-		* Server log (if applicable)
-		* Crash report (if applicable)
-		* Detailed description of the bug
-	* Please note, if you are not using an official version, the bug may go un-fixed
+    * If you are reporting a bug report from an outdated or unofficial version (you got the mod from someone else, a website other than our forums or wiki, or if its been modified in ANY way) , make sure you include the following:
+        * Version and commit SHA (found in changelog inside of the mod's jar)
+        * ForgeModLoader log
+        * Server log (if applicable)
+        * Crash report (if applicable)
+        * Detailed description of the bug
+    * Please note, if you are not using an official version, the bug may go un-fixed
 5. Click `Submit new issue`, and be patient so we can fix it!
