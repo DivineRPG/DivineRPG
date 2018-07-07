@@ -16,8 +16,8 @@ import net.minecraft.world.World;
 
 public class WatcherStatue extends BaseStatue {
 
-	public WatcherStatue() {
-		super(Material.ROCK, "statue_watcher");
+	public WatcherStatue(String name) {
+		super(Material.ROCK, name);
 	}
 	
 	@Override
