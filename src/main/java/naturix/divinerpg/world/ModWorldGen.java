@@ -2,119 +2,71 @@ package naturix.divinerpg.world;
 
 import java.util.Random;
 
-import naturix.divinerpg.DivineRPG;
+import com.google.common.base.Predicate;
+
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.utils.predicate.NetherGenPredicate;
-import naturix.divinerpg.utils.predicate.StonePredicate;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockMatcher;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class ModWorldGen implements IWorldGenerator {
 
-	// World Generators
-	private WorldGenerator arlemite_overworld;
-	private WorldGenerator bloodgem_nether;
-	private WorldGenerator netherite_nether;
-	private WorldGenerator realmite;
-	private WorldGenerator rupee;
 
-
-	/**
-	 * The constructor initializes our fields
-	 */
-	public ModWorldGen() {
-		arlemite_overworld = new WorldGenMinable(
-				ModBlocks.oreArlemite.getDefaultState(), 3, new StonePredicate());
-		bloodgem_nether = new WorldGenMinable(
-				ModBlocks.orebloodgem.getDefaultState(), 5, new NetherGenPredicate());
-		netherite_nether = new WorldGenMinable(
-				ModBlocks.oreNetherite.getDefaultState(), 3, new NetherGenPredicate());
-		realmite = new WorldGenMinable(
-				ModBlocks.oreRealmite.getDefaultState(), 5, new StonePredicate());
-	rupee = new WorldGenMinable(
-			ModBlocks.oreRupee.getDefaultState(), 3, new StonePredicate());
-	}
-
-	/**
-	 * Will generate our ore using the correct fields on where to generate
-	 * @param generator The actual world generator which holds which block to place
-	 * @param world The world to spawn the block in
-	 * @param rand The random object used for randomisation
-	 * @param chunk_X The chunks X position in the world
-	 * @param chunk_Z The chunks Z position in the world
-	 * @param chancesToSpawn How many times it will spawn per chunk
-	 * @param minHeight The minimum height the ore can spawn
-	 * @param maxHeight The maximum height the ore can spawn
-	 */
-	private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z,
-			int chancesToSpawn, int minHeight, int maxHeight) {
-		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight)
-			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
-
-		int heightDiff = maxHeight - minHeight + 1;
-		for (int i = 0; i < chancesToSpawn; i++) {
-			int x = chunk_X * 16 + rand.nextInt(16);
-			int y = minHeight + rand.nextInt(heightDiff);
-			int z = chunk_Z * 16 + rand.nextInt(16);
-			generator.generate(world, rand, new BlockPos(x, y, z));
-		}
-	}
-
-	/**
-	 * Actually runs the world generator when called
-	 */
+	public static ModWorldGen instance = new ModWorldGen();
+	
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-			IChunkProvider chunkProvider) {
-		switch (world.provider.getDimension()) {
-		case 0: // Overworld
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-			
-			break;
-		case 1: // End
-			break;
-		case -1: // Nether
-			this.runGenerator(bloodgem_nether, world, random, chunkX, chunkZ, 30, 1, 255);
-			this.runGenerator(netherite_nether, world, random, chunkX, chunkZ, 30, 1, 255);
-			break;
-		case -11325:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-		case 7:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-		case 20:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-		case 6:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-		case -112:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-		case -127:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-		case -9999:
-			this.runGenerator(arlemite_overworld, world, random, chunkX, chunkZ, 15, 1, 16);
-			this.runGenerator(realmite, world, random, chunkX, chunkZ, 15, 1, 30);
-			this.runGenerator(rupee, world, random, chunkX, chunkZ, 10, 1, 255);
-			
-		}
-		
-	}
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+        switch (world.provider.getDimension()){
+            case -1:
+                genNether(world, random, chunkX, chunkZ);
+                break;
+            case 0:
+                genSurface(world, random, chunkX, chunkZ);
+                break;
+            case 1:
+            	break;
+        }
+    }
+	 private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn){
+		  int diffMinMaxY = maxY - minY;
+		  for(int x = 0; x < chance; x++){
+		   int posX = blockXPos + random.nextInt(maxX);
+		   int posY = minY + random.nextInt(diffMinMaxY);
+		   if(diffMinMaxY < minY) {diffMinMaxY = maxY;}
+		   int posZ = blockZPos + random.nextInt(maxZ);
 
+		   WorldGenMinable gen = new WorldGenMinable(block, maxVeinSize, blockToSpawnIn);
+			
+			if(minY > maxY || minY < 0 || maxY > 256) throw new IllegalArgumentException("Ore Generated Out of Bounds");
+			int heighDiff = maxY - minY + 1;
+			
+			for(int i = 0; i < chance; i++) {
+				int b = blockXPos * 16 + random.nextInt(16);
+				int y = minY + random.nextInt(heighDiff);
+				int z = blockZPos * 16 + random.nextInt(16);
+				
+				gen.generate(world, random, new BlockPos(b, y, z));
+			}
+		
+		  }
+	 }
+	 //block, world, random, blockXPos, blockZPos, maxX, maxZ, maxVeinSize, chance, minY, maxY, blockToSpawnIn
+	 private void genSurface(World world, Random random, int chunkX, int chunkZ){
+		 addOreSpawn(ModBlocks.oreRealmite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 3, 1, 48, BlockMatcher.forBlock(Blocks.STONE));
+		 addOreSpawn(ModBlocks.oreRupee.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 3, 1, 16, BlockMatcher.forBlock(Blocks.STONE));
+		 addOreSpawn(ModBlocks.oreArlemite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 3, 1, 16, BlockMatcher.forBlock(Blocks.STONE));
+			
+	 }
+	 private void genNether(World world, Random random, int chunkX, int chunkZ){
+		 addOreSpawn(ModBlocks.oreNetherite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 3, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
+		 addOreSpawn(ModBlocks.blockBloodGem.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 3, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
+		 
+	 }
+	 
 }
