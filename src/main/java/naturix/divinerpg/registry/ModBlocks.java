@@ -105,6 +105,16 @@ public class ModBlocks {
 	public static SaplingSkythern skythernSapling = new SaplingSkythern("sapling_skythern");
 	public static SaplingMortum mortumSapling = new SaplingMortum("sapling_mortum");
 	public static WatcherStatue watcherStatue = new WatcherStatue();
+	public static WatcherStatue ancientEntitiyStatue = new WatcherStatue();
+	public static WatcherStatue ayeracoHordeStatue = new WatcherStatue();
+	public static WatcherStatue densosStatue = new WatcherStatue();
+	public static WatcherStatue dexZichileStatue = new WatcherStatue();
+	public static WatcherStatue dramixStatue = new WatcherStatue();
+	public static WatcherStatue kingScorcherStatue = new WatcherStatue();
+	public static WatcherStatue reyvorStatue = new WatcherStatue();
+	public static WatcherStatue soulFiendStatue = new WatcherStatue();
+	public static WatcherStatue twilightDemonStatue = new WatcherStatue();
+	public static WatcherStatue vamacheronStatue = new WatcherStatue();
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
@@ -194,7 +204,16 @@ public class ModBlocks {
 				wildwoodSapling,
 				skythernSapling,
 				mortumSapling,
-				watcherStatue
+				watcherStatue,
+				ayeracoHordeStatue,
+				densosStatue,
+				dexZichileStatue,
+				dramixStatue,
+				kingScorcherStatue,
+				reyvorStatue,
+				soulFiendStatue,
+				twilightDemonStatue,
+				vamacheronStatue
 		);
 	}
 	
@@ -285,7 +304,16 @@ public class ModBlocks {
 				wildwoodSapling.createItemBlock(),
 				skythernSapling.createItemBlock(),
 				mortumSapling.createItemBlock(),
-				watcherStatue.createItemBlock()
+				watcherStatue.createItemBlock(),
+				ayeracoHordeStatue.createItemBlock(),
+				densosStatue.createItemBlock(),
+				dexZichileStatue.createItemBlock(),
+				dramixStatue.createItemBlock(),
+				kingScorcherStatue.createItemBlock(),
+				reyvorStatue.createItemBlock(),
+				soulFiendStatue.createItemBlock(),
+				twilightDemonStatue.createItemBlock(),
+				vamacheronStatue.createItemBlock()
 				);
 	}
 	
@@ -378,6 +406,15 @@ public class ModBlocks {
 		skythernSapling.registerItemModel(Item.getItemFromBlock(skythernSapling));
 		mortumSapling.registerItemModel(Item.getItemFromBlock(mortumSapling));
 		watcherStatue.registerItemModel(Item.getItemFromBlock(watcherStatue));
+		ayeracoHordeStatue.registerItemModel(Item.getItemFromBlock(ayeracoHordeStatue));
+		densosStatue.registerItemModel(Item.getItemFromBlock(densosStatue));
+		dexZichileStatue.registerItemModel(Item.getItemFromBlock(dexZichileStatue));
+		dramixStatue.registerItemModel(Item.getItemFromBlock(dramixStatue));
+		kingScorcherStatue.registerItemModel(Item.getItemFromBlock(kingScorcherStatue));
+		reyvorStatue.registerItemModel(Item.getItemFromBlock(reyvorStatue));
+		soulFiendStatue.registerItemModel(Item.getItemFromBlock(soulFiendStatue));
+		twilightDemonStatue.registerItemModel(Item.getItemFromBlock(twilightDemonStatue));
+		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
 	}
 
 }
