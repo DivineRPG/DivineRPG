@@ -18,6 +18,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import scala.reflect.internal.Trees.This;
 
 public class WatcherStatue extends BaseStatue {
 	
