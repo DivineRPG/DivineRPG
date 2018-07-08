@@ -1,8 +1,8 @@
 {   "parent": "block/orientable",
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "particle": "blocks/watcherStatueSides",
-        "0": "blocks/dramixStatue"
+        "particle": "blocks/statue_dramix",
+        "0": "blocks/statue_dramix"
     },
     "elements": [
         {
