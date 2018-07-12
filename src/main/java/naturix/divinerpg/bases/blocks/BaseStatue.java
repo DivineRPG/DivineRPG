@@ -1,10 +1,6 @@
 package naturix.divinerpg.bases.blocks;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.statues.tiles.TileWatcher;
-import naturix.divinerpg.utils.models.DivineModel;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -12,46 +8,27 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public abstract class BaseStatue<TE extends TileEntity> extends BlockBase {
-	protected DivineModel model;
-    protected ResourceLocation texture;
+public class BaseStatue extends BlockBase {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	
-	public BaseStatue(Material material, String name) {
-		super(material, name);
+	public BaseStatue(String name) {
+		super(Material.ROCK, name);
 		this.setCreativeTab(DivineRPG.TrophyTab);
-		this.texture = new ResourceLocation(DivineRPG.modId+ "textures/model/" + name + ".png");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		
+		this.setHarvestLevel("pickaxe", 1);
+		this.createItemBlock();
 	}
-	public ResourceLocation getTexture(){
-        return texture;
-    }
-    public DivineModel getModel(){
-        return model;
-    }
-	public abstract Class<TileWatcher> getTileEntityClass();
-	
-	public TileEntity getTileEntity(IBlockAccess world, BlockPos pos) {
-		return (TE)world.getTileEntity(pos);
-	}
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
+
 	@Override
 	@Deprecated
 	public boolean isOpaqueCube(IBlockState state) {
@@ -64,11 +41,6 @@ public abstract class BaseStatue<TE extends TileEntity> extends BlockBase {
 		return false;
 	}
 	
-	@Nullable
-	@Override
-	public abstract TileWatcher createTileEntity(World world, IBlockState state);	{
-		
-	}
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
 		if (!worldIn.isRemote) 
@@ -89,7 +61,6 @@ public abstract class BaseStatue<TE extends TileEntity> extends BlockBase {
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		// TODO Auto-generated method stub
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 	
@@ -105,13 +76,11 @@ public abstract class BaseStatue<TE extends TileEntity> extends BlockBase {
 	
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
-		// TODO Auto-generated method stub
 		return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
 	}
 	
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-		// TODO Auto-generated method stub
 		return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
 	}
 	
@@ -129,12 +98,14 @@ public abstract class BaseStatue<TE extends TileEntity> extends BlockBase {
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		// TODO Auto-generated method stub
 		return ((EnumFacing)state.getValue(FACING)).getIndex();
 	}
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		super.breakBlock(worldIn, pos, state);
             worldIn.removeTileEntity(pos);
+	}
+	public void registerItemModel(Item itemBlock) {
+		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 }

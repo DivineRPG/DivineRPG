@@ -3,8 +3,6 @@ package naturix.divinerpg.bases.items;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

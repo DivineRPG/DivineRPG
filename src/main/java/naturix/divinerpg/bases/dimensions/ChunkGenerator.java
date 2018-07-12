@@ -19,7 +19,6 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
-import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkGenerator implements IChunkGenerator {
 

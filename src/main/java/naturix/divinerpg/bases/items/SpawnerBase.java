@@ -2,12 +2,7 @@ package naturix.divinerpg.bases.items;
 
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.world.World;
 
 public class SpawnerBase extends Item {
 

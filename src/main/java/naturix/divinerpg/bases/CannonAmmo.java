@@ -1,7 +1,6 @@
 package naturix.divinerpg.bases;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityTippedArrow;

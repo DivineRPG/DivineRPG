@@ -1,6 +1,7 @@
 package naturix.divinerpg.world;
 
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

@@ -3,16 +3,12 @@ package naturix.divinerpg.bases.blocks;
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumFacing;
 
 public class BlockBase extends Block {
 
-	private static final CreativeTabs tab = DivineRPG.BlocksTab;
 	protected String name;
 	
 	public BlockBase(Material material, String name) {
@@ -20,7 +16,7 @@ public class BlockBase extends Block {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(tab);
+		setCreativeTab(DivineRPG.BlocksTab);
 		this.setHardness(2);
 	}
 	public BlockBase(Material material, String name, CreativeTabs tab) {
@@ -28,7 +24,7 @@ public class BlockBase extends Block {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(tab);
+		setCreativeTab(DivineRPG.BlocksTab);
 		this.setHardness(2);
 	}
 	
@@ -39,12 +35,4 @@ public class BlockBase extends Block {
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
-	
-	public BlockBase setCreativeTab() {
-		super.setCreativeTab(tab);
-		return this;
 	}
-
-
-
-}

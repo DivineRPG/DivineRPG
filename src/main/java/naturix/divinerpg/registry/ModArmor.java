@@ -5,7 +5,6 @@ import java.util.List;
 
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModArmor {
 public static List<Item> DivineItemList = new ArrayList<>(30);

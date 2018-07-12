@@ -1,5 +1,6 @@
 package naturix.divinerpg.registry;
 
+import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
@@ -12,7 +13,6 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
 import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
-import naturix.divinerpg.bases.blocks.statues.WatcherStatue;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -104,19 +104,19 @@ public class ModBlocks {
 	public static SaplingWildwood wildwoodSapling = new SaplingWildwood("sapling_wildwood");
 	public static SaplingSkythern skythernSapling = new SaplingSkythern("sapling_skythern");
 	public static SaplingMortum mortumSapling = new SaplingMortum("sapling_mortum");
-	public static WatcherStatue watcherStatue = new WatcherStatue("statue_watcher");
-	public static WatcherStatue ancientEntitiyStatue = new WatcherStatue("statue_anciententity");
-	public static WatcherStatue ayeracoHordeStatue = new WatcherStatue("statue_ayeracohorde");
-	public static WatcherStatue densosStatue = new WatcherStatue("statue_densos");
-	public static WatcherStatue dexZichileStatue = new WatcherStatue("statue_dexzichile");
-	public static WatcherStatue dramixStatue = new WatcherStatue("statue_dramix");
-	public static WatcherStatue kingScorcherStatue = new WatcherStatue("statue_kingscorcher");
-	public static WatcherStatue reyvorStatue = new WatcherStatue("statue_reyvor");
-	public static WatcherStatue soulFiendStatue = new WatcherStatue("statue_soulfiend");
-	public static WatcherStatue twilightDemonStatue = new WatcherStatue("statue_twilightdemon");
-	public static WatcherStatue vamacheronStatue = new WatcherStatue("statue_vamacheron");
+	public static BaseStatue watcherStatue = new BaseStatue("statue_watcher");
+	public static BaseStatue ancientEntitiyStatue = new BaseStatue("statue_anciententity");
+	public static BaseStatue ayeracoHordeStatue = new BaseStatue("statue_ayeracohorde");
+	public static BaseStatue densosStatue = new BaseStatue("statue_densos");
+	public static BaseStatue dexZichileStatue = new BaseStatue("statue_dexzichile");
+	public static BaseStatue dramixStatue = new BaseStatue("statue_dramix");
+	public static BaseStatue kingScorcherStatue = new BaseStatue("statue_kingscorcher");
+	public static BaseStatue reyvorStatue = new BaseStatue("statue_reyvor");
+	public static BaseStatue soulFiendStatue = new BaseStatue("statue_soulfiend");
+	public static BaseStatue twilightDemonStatue = new BaseStatue("statue_twilightdemon");
+	public static BaseStatue vamacheronStatue = new BaseStatue("statue_vamacheron");
 	
-	public static void register(IForgeRegistry<Block> registry) {
+	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(
 				oreArlemite,
@@ -312,7 +312,7 @@ public class ModBlocks {
 				kingScorcherStatue.createItemBlock(),
 				reyvorStatue.createItemBlock(),
 				soulFiendStatue.createItemBlock(),
-				twilightDemonStatue.createItemBlock(),
+				twilightDemonStatue.createItemBlock(), 
 				vamacheronStatue.createItemBlock()
 				);
 	}

@@ -53,7 +53,7 @@ public class DivineRPG {
 	    @Mod.EventHandler
 	    public void postInit(FMLPostInitializationEvent e) {
 	        proxy.postInit(e);
-	        logger.info(name + " is now loaded");
+	        logger.info(name + " has just finished loading");
 	    }
 	    @Mod.EventBusSubscriber
 		public static class RegistrationHandler {
@@ -74,6 +74,10 @@ public class DivineRPG {
 	    		ModBlocks.register(event.getRegistry());
 	    	}
 	    }
+	    
+	    
+	    
+	    
 	    public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks")
 	    {
 
