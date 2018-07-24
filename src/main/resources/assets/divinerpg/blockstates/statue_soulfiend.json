@@ -5,7 +5,7 @@
 },
   "variants": {
     "normal": [{}],
-    "inventory":{"model": "divinerpg:statue_watcher" , "y" : 180 },
+    "inventory":[{}],
     "facing=north": {"model": "divinerpg:statue_watcher" , "y" : 180 },
     "facing=south": {"model": "divinerpg:statue_watcher"},
     "facing=west": {"model": "divinerpg:statue_watcher", "y": 90 },
