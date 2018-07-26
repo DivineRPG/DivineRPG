@@ -2,6 +2,7 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
+import naturix.divinerpg.bases.blocks.BedBase;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
 import naturix.divinerpg.bases.blocks.LampBase;
@@ -115,6 +116,7 @@ public class ModBlocks {
 	public static BaseStatue soulFiendStatue = new BaseStatue("statue_soulfiend");
 	public static BaseStatue twilightDemonStatue = new BaseStatue("statue_twilightdemon");
 	public static BaseStatue vamacheronStatue = new BaseStatue("statue_vamacheron");
+	public static BedBase nightmarebed = new BedBase("bed_nightmare");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -313,7 +315,8 @@ public class ModBlocks {
 				reyvorStatue.createItemBlock(),
 				soulFiendStatue.createItemBlock(),
 				twilightDemonStatue.createItemBlock(), 
-				vamacheronStatue.createItemBlock()
+				vamacheronStatue.createItemBlock(),
+				nightmarebed.createItemBlock()
 				);
 	}
 	
@@ -415,6 +418,7 @@ public class ModBlocks {
 		soulFiendStatue.registerItemModel(Item.getItemFromBlock(soulFiendStatue));
 		twilightDemonStatue.registerItemModel(Item.getItemFromBlock(twilightDemonStatue));
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
+		nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 	}
 
 }
