@@ -74,6 +74,7 @@ public class ModItems {
 	public static ItemBase gemEden = new ItemBase("gem_eden");
 	public static ItemBase gemSkythern = new ItemBase("gem_skythern");
 	public static ItemBase gemWildwood = new ItemBase("gem_wildwood");
+	public static ItemBase gemMortum = new ItemBase("gem_mortum");
 	public static MysteriousClock mysteriousClock = new MysteriousClock("clock_mysterious");
 	public static MysteriousClock moonClock = new MysteriousClock("clock_moon");
 	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
@@ -242,6 +243,16 @@ public class ModItems {
 	public static ItemBase templateGlistening = new ItemBase("template_glistening");
 	public static ItemBase templateDemonized = new ItemBase("template_demonized");
 	public static ItemBase templateTormented = new ItemBase("template_tormented");
+	public static ItemBase soulEden = new ItemBase("soul_eden");
+	public static ItemBase soulWild = new ItemBase("soul_wildwood");
+	public static ItemBase soulApalachia = new ItemBase("soul_apalachia");
+	public static ItemBase soulSkythern = new ItemBase("soul_skythern");
+	public static ItemBase soulMortum = new ItemBase("soul_mortum");
+	public static ItemBase fragmentApalachia = new ItemBase("fragment_apalachia");
+	public static ItemBase fragmentEden = new ItemBase("fragment_eden");
+	public static ItemBase fragmentSkythern = new ItemBase("fragment_skythern");
+	public static ItemBase fragmentWildwood = new ItemBase("fragment_wildwood");
+	public static ItemBase fragmentMortum = new ItemBase("fragment_mortum");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -263,6 +274,7 @@ public class ModItems {
 				gemApalachia,
 				gemEden,
 				gemSkythern,
+				gemMortum,
 				gemWildwood,
 				mysteriousClock,
 				moonClock,
@@ -430,7 +442,17 @@ public class ModItems {
 				templateFinished,
 				templateGlistening,
 				templateDemonized,
-				templateTormented
+				templateTormented,
+				soulEden,
+				soulWild,
+				soulApalachia,
+				soulSkythern,
+				soulMortum,
+				fragmentApalachia,
+				fragmentEden,
+				fragmentSkythern,
+				fragmentMortum,
+				fragmentWildwood
 				);
 	}
 	
@@ -452,6 +474,7 @@ public class ModItems {
 		gemApalachia.registerItemModel();
 		gemEden.registerItemModel();
 		gemSkythern.registerItemModel();
+		gemMortum.registerItemModel();
 		gemWildwood.registerItemModel();
 		mysteriousClock.registerItemModel();
 		moonClock.registerItemModel();
@@ -621,6 +644,16 @@ public class ModItems {
 		templateGlistening.registerItemModel();
 		templateDemonized.registerItemModel();
 		templateTormented.registerItemModel();
+		soulEden.registerItemModel();
+		soulWild.registerItemModel();
+		soulApalachia.registerItemModel();
+		soulSkythern.registerItemModel();
+		soulMortum.registerItemModel();
+		fragmentApalachia.registerItemModel();
+		fragmentEden.registerItemModel();
+		fragmentSkythern.registerItemModel();
+		fragmentMortum.registerItemModel();
+		fragmentWildwood.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

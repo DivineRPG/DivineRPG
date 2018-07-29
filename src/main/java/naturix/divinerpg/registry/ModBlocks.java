@@ -107,7 +107,7 @@ public class ModBlocks {
 	public static SaplingSkythern skythernSapling = new SaplingSkythern("sapling_skythern");
 	public static SaplingMortum mortumSapling = new SaplingMortum("sapling_mortum");
 	public static BaseStatue watcherStatue = new BaseStatue("statue_watcher");
-	public static BaseStatue ancientEntitiyStatue = new BaseStatue("statue_anciententity");
+	public static BaseStatue ancientEntityStatue = new BaseStatue("statue_anciententity");
 	public static BaseStatue ayeracoHordeStatue = new BaseStatue("statue_ayeracohorde");
 	public static BaseStatue densosStatue = new BaseStatue("statue_densos");
 	public static BaseStatue dexZichileStatue = new BaseStatue("statue_dexzichile");
@@ -208,6 +208,7 @@ public class ModBlocks {
 				skythernSapling,
 				mortumSapling,
 				watcherStatue,
+				ancientEntityStatue,
 				ayeracoHordeStatue,
 				densosStatue,
 				dexZichileStatue,
@@ -308,6 +309,7 @@ public class ModBlocks {
 				skythernSapling.createItemBlock(),
 				mortumSapling.createItemBlock(),
 				watcherStatue.createItemBlock(),
+				ancientEntityStatue.createItemBlock(),
 				ayeracoHordeStatue.createItemBlock(),
 				densosStatue.createItemBlock(),
 				dexZichileStatue.createItemBlock(),
@@ -409,6 +411,7 @@ public class ModBlocks {
 		skythernSapling.registerItemModel(Item.getItemFromBlock(skythernSapling));
 		mortumSapling.registerItemModel(Item.getItemFromBlock(mortumSapling));
 		watcherStatue.registerItemModel(Item.getItemFromBlock(watcherStatue));
+		ancientEntityStatue.registerItemModel(Item.getItemFromBlock(ancientEntityStatue));
 		ayeracoHordeStatue.registerItemModel(Item.getItemFromBlock(ayeracoHordeStatue));
 		densosStatue.registerItemModel(Item.getItemFromBlock(densosStatue));
 		dexZichileStatue.registerItemModel(Item.getItemFromBlock(dexZichileStatue));
