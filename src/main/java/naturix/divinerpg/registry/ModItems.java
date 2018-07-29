@@ -1,7 +1,6 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.CannonAmmo;
 import naturix.divinerpg.bases.items.AxeBase;
 import naturix.divinerpg.bases.items.BowBase;
 import naturix.divinerpg.bases.items.CannonBase;
@@ -45,6 +44,7 @@ import naturix.divinerpg.bases.items.armor.Vemos;
 import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
+import naturix.divinerpg.bases.items.special.Aquamarine;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
@@ -80,7 +80,7 @@ public class ModItems {
 	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
 	public static ItemBase acid = new ItemBase("acid");
 	public static FoodBase advancedMushroomStew = new FoodBase("advanced_mushroom_stew", 7, false);
-	public static ItemBase aquamarine = new ItemBase("aquamarine");
+	public static Aquamarine aquamarine = new Aquamarine("aquamarine");
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
