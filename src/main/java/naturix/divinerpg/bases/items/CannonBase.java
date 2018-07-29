@@ -15,6 +15,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -30,9 +31,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class CannonBase extends ItemBow {
 
 	protected String name;
+	protected static Item ammo;
 	
-	public CannonBase(String name) {
+	public CannonBase(String name, Item ammo) {
 		this.name = name;
+		this.ammo = ammo;
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.setCreativeTab(DivineRPG.CombatTab);
@@ -120,7 +123,7 @@ public class CannonBase extends ItemBow {
 	            {
 	                if (itemstack.isEmpty())
 	                {
-	                    itemstack = new ItemStack(ModItems.cannonAmmoAmthirmis);
+	                    itemstack = new ItemStack(ammo);
 	                }
 
 	                float f = getArrowVelocity(i);
@@ -131,7 +134,7 @@ public class CannonBase extends ItemBow {
 
 	                    if (!worldIn.isRemote)
 	                    {
-	                    	CannonAmmo itemarrow = (CannonAmmo)(itemstack.getItem() instanceof CannonAmmo ? itemstack.getItem() : ModItems.cannonAmmoAmthirmis);
+	                    	CannonAmmo itemarrow = (CannonAmmo)(itemstack.getItem() instanceof CannonAmmo ? itemstack.getItem() : ammo);
 	                        EntityArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
 	                        entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 

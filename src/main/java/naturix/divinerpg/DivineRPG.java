@@ -77,11 +77,7 @@ public class DivineRPG {
 	    	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    		ModBlocks.register(event.getRegistry());
 	    	}
-	    	@SubscribeEvent
-	    	public void onLogin(PlayerLoggedInEvent e) {
-	    		Utils.getChatComponent("Thank you for installing DivineRPG");
-	    	}
-	    	
+
 	    }
 	    
 	    

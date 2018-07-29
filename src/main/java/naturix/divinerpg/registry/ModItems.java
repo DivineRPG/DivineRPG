@@ -230,8 +230,8 @@ public class ModItems {
 	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950);
 	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
 	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine", 1250);
-	public static CannonBase cannonAmthirmis = new CannonBase("cannonAmthirmis");
-	public static CannonAmmo cannonAmmoAmthirmis = new CannonAmmo("ammo_amthirmis_cannon");
+	public static CannonBase cannonAmthirmis = new CannonBase("cannonAmthirmis", ModItems.acid);
+	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -408,8 +408,7 @@ public class ModItems {
 				rupeeShickaxe,
 				arlemiteShickaxe,
 				divineShickaxe,
-				cannonAmthirmis,
-				cannonAmmoAmthirmis
+				cannonAmthirmis
 				);
 	}
 	
@@ -589,7 +588,6 @@ public class ModItems {
 		arlemiteShickaxe.registerItemModel(arlemiteShickaxe);
 		divineShickaxe.registerItemModel(divineShickaxe);
 		cannonAmthirmis.registerItemModel();
-		cannonAmmoAmthirmis.registerItemModel();
 		System.out.print("DivineRPG items loaded");
 	}
 }
