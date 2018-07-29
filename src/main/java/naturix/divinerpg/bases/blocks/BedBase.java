@@ -36,7 +36,8 @@ public class BedBase extends BlockBed {
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return state.getValue(PART) == BlockBed.EnumPartType.FOOT ? Items.AIR : Item.getItemFromBlock(ModBlocks.nightmarebed);
+        //return state.getValue(PART) == BlockBed.EnumPartType.FOOT ? Items.AIR : Item.getItemFromBlock(ModBlocks.nightmarebed);
+    return null;
     }
     public void registerItemModel(Item itemBlock) {
 		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
