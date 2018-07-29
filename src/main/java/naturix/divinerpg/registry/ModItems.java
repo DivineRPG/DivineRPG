@@ -622,6 +622,6 @@ public class ModItems {
 		templateDemonized.registerItemModel();
 		templateTormented.registerItemModel();
 		
-		System.out.print("DivineRPG items loaded");
+		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
 }

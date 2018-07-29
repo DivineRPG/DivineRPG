@@ -1,5 +1,6 @@
 package naturix.divinerpg.registry;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
 import naturix.divinerpg.bases.blocks.BedBase;
@@ -321,7 +322,6 @@ public class ModBlocks {
 	}
 	
 	public static void registerModels() {
-		System.out.print("DivineRPG blocks loaded");
 		oreArlemite.registerItemModel(Item.getItemFromBlock(oreArlemite));
 		oreapalachia.registerItemModel(Item.getItemFromBlock(oreapalachia));
 		orebloodgem.registerItemModel(Item.getItemFromBlock(orebloodgem));
@@ -419,6 +419,8 @@ public class ModBlocks {
 		twilightDemonStatue.registerItemModel(Item.getItemFromBlock(twilightDemonStatue));
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
+		
+		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");
 	}
 
 }
