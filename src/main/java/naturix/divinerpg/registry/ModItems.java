@@ -231,6 +231,17 @@ public class ModItems {
 	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
 	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine", 1250);
 	public static CannonBase cannonAmthirmis = new CannonBase("cannonAmthirmis", ModItems.acid);
+	public static ItemBase templateDisc = new ItemBase("template_disc");
+	public static ItemBase templateCannon = new ItemBase("template_cannon");
+	public static ItemBase templateBacksword = new ItemBase("template_backsword");
+	public static ItemBase templateBow = new ItemBase("template_bow");
+	public static ItemBase templateStaff = new ItemBase("template_staff");
+	public static ItemBase templateClaw = new ItemBase("template_claw");
+	public static ItemBase templateDegraded = new ItemBase("template_degraded");
+	public static ItemBase templateFinished = new ItemBase("template_finished");
+	public static ItemBase templateGlistening = new ItemBase("template_glistening");
+	public static ItemBase templateDemonized = new ItemBase("template_demonized");
+	public static ItemBase templateTormented = new ItemBase("template_tormented");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -408,7 +419,18 @@ public class ModItems {
 				rupeeShickaxe,
 				arlemiteShickaxe,
 				divineShickaxe,
-				cannonAmthirmis
+				cannonAmthirmis,
+				templateDisc,
+				templateCannon,
+				templateBacksword,
+				templateBow,
+				templateStaff,
+				templateClaw,
+				templateDegraded,
+				templateFinished,
+				templateGlistening,
+				templateDemonized,
+				templateTormented
 				);
 	}
 	
@@ -588,6 +610,18 @@ public class ModItems {
 		arlemiteShickaxe.registerItemModel(arlemiteShickaxe);
 		divineShickaxe.registerItemModel(divineShickaxe);
 		cannonAmthirmis.registerItemModel();
+		templateDisc.registerItemModel();
+		templateCannon.registerItemModel();
+		templateBacksword.registerItemModel();
+		templateBow.registerItemModel();
+		templateStaff.registerItemModel();
+		templateClaw.registerItemModel();
+		templateDegraded.registerItemModel();
+		templateFinished.registerItemModel();
+		templateGlistening.registerItemModel();
+		templateDemonized.registerItemModel();
+		templateTormented.registerItemModel();
+		
 		System.out.print("DivineRPG items loaded");
 	}
 }
