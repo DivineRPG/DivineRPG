@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:log_apalachia"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+	"axis=none": [{}],
+	"axis=y": [{}],
+	"axis=x": [{}],
+	"axis=z": [{}]
+  }
+}
