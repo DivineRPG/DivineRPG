@@ -5,8 +5,11 @@ import naturix.divinerpg.bases.items.AxeBase;
 import naturix.divinerpg.bases.items.BowBase;
 import naturix.divinerpg.bases.items.CannonBase;
 import naturix.divinerpg.bases.items.FoodBase;
+import naturix.divinerpg.bases.items.HoeBase;
 import naturix.divinerpg.bases.items.ItemBase;
+import naturix.divinerpg.bases.items.PickaxeBase;
 import naturix.divinerpg.bases.items.ShickaxeBase;
+import naturix.divinerpg.bases.items.ShovelBase;
 import naturix.divinerpg.bases.items.SpawnerBase;
 import naturix.divinerpg.bases.items.SwordBase;
 import naturix.divinerpg.bases.items.ThrowableBase;
@@ -52,6 +55,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class ModItems {
 	private static EntitySlime EntitySlime;
@@ -85,7 +89,6 @@ public class ModItems {
 	public static ItemBase aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
 	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
-	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
 	public static Angelic angelicHelmet = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.HEAD, "angelic_helmet");
 	public static Angelic angelicChestplate = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.CHEST, "angelic_chestplate");
 	public static Angelic angelicLeggings = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.LEGS, "angelic_leggings");
@@ -253,6 +256,9 @@ public class ModItems {
 	public static ItemBase fragmentSkythern = new ItemBase("fragment_skythern");
 	public static ItemBase fragmentWildwood = new ItemBase("fragment_wildwood");
 	public static ItemBase fragmentMortum = new ItemBase("fragment_mortum");
+	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
+	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.stormSwordMaterial, "shovel_corrupted", 18F, 1F);
+	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.stormSwordMaterial, "pickaxe_corrupted", 18F, 1F);
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -294,7 +300,6 @@ public class ModItems {
 				blueDivineSword,
 				stormSword,
 				chickenDinner,
-				corruptedAxe,
 				angelicHelmet,
 				angelicChestplate,
 				angelicLeggings,
@@ -452,7 +457,10 @@ public class ModItems {
 				fragmentEden,
 				fragmentSkythern,
 				fragmentMortum,
-				fragmentWildwood
+				fragmentWildwood,
+				corruptedAxe,
+				corruptedShovel,
+				corruptedPickaxe
 				);
 	}
 	
@@ -495,7 +503,6 @@ public class ModItems {
 		blueDivineSword.registerItemModel(blueDivineSword);
 		stormSword.registerItemModel(stormSword);
 		chickenDinner.registerItemModel();
-		corruptedAxe.registerItemModel(corruptedAxe);
 		angelicHelmet.registerItemModel(angelicHelmet);
 		angelicChestplate.registerItemModel(angelicChestplate);
 		angelicLeggings.registerItemModel(angelicLeggings);
@@ -654,7 +661,11 @@ public class ModItems {
 		fragmentSkythern.registerItemModel();
 		fragmentMortum.registerItemModel();
 		fragmentWildwood.registerItemModel();
+		corruptedAxe.registerItemModel(corruptedAxe);
+		corruptedShovel.registerItemModel(corruptedShovel);
+		corruptedPickaxe.registerItemModel(corruptedPickaxe);
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
+	
 }

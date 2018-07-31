@@ -3,7 +3,6 @@ package naturix.divinerpg.bases.items;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.CannonAmmo;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -16,6 +15,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -101,7 +101,7 @@ public class CannonBase extends ItemBow {
 
 	    protected boolean isArrow(ItemStack stack)
 	    {
-	        return stack.getItem() instanceof CannonAmmo;
+	        return stack.getItem() instanceof ItemArrow;
 	    }
 
 	    /**
@@ -130,11 +130,11 @@ public class CannonBase extends ItemBow {
 
 	                if ((double)f >= 0.1D)
 	                {
-	                    boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof CannonAmmo && ((CannonAmmo) itemstack.getItem()).isInfinite(itemstack, stack, entityplayer));
+	                    boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof ItemArrow && ((ItemArrow) itemstack.getItem()).isInfinite(itemstack, stack, entityplayer));
 
 	                    if (!worldIn.isRemote)
 	                    {
-	                    	CannonAmmo itemarrow = (CannonAmmo)(itemstack.getItem() instanceof CannonAmmo ? itemstack.getItem() : ammo);
+	                    	ItemArrow itemarrow = (ItemArrow)(itemstack.getItem() instanceof ItemArrow? itemstack.getItem() : ammo);
 	                        EntityArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
 	                        entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 
