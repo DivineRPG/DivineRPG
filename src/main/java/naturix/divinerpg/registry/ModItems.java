@@ -259,7 +259,10 @@ public class ModItems {
 	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
 	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.stormSwordMaterial, "shovel_corrupted", 18F, 1F);
 	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.stormSwordMaterial, "pickaxe_corrupted", 18F, 1F);
-	
+	public static ItemBase pearlsDirty = new ItemBase("pearls_dirty");
+	public static ItemBase pearlsClean = new ItemBase("pearls_clean");
+	public static ItemBase pearlsShiny = new ItemBase("pearls_shiny");
+	public static ItemBase pearlsPolished = new ItemBase("pearls_polished");
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -460,7 +463,11 @@ public class ModItems {
 				fragmentWildwood,
 				corruptedAxe,
 				corruptedShovel,
-				corruptedPickaxe
+				corruptedPickaxe,
+				pearlsDirty,
+				pearlsClean,
+				pearlsShiny,
+				pearlsPolished
 				);
 	}
 	
@@ -664,6 +671,10 @@ public class ModItems {
 		corruptedAxe.registerItemModel(corruptedAxe);
 		corruptedShovel.registerItemModel(corruptedShovel);
 		corruptedPickaxe.registerItemModel(corruptedPickaxe);
+		pearlsDirty.registerItemModel();
+		pearlsClean.registerItemModel();
+		pearlsShiny.registerItemModel();
+		pearlsPolished.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
