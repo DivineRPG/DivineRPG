@@ -5,7 +5,6 @@ import naturix.divinerpg.bases.items.AxeBase;
 import naturix.divinerpg.bases.items.BowBase;
 import naturix.divinerpg.bases.items.CannonBase;
 import naturix.divinerpg.bases.items.FoodBase;
-import naturix.divinerpg.bases.items.HoeBase;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.bases.items.PickaxeBase;
 import naturix.divinerpg.bases.items.ShickaxeBase;
@@ -46,6 +45,7 @@ import naturix.divinerpg.bases.items.armor.Tormented;
 import naturix.divinerpg.bases.items.armor.Vemos;
 import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
+import naturix.divinerpg.bases.items.book.BookBase;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
 import naturix.divinerpg.bases.items.special.Aquamarine;
 import naturix.divinerpg.utils.DivineRPGMaterials;
@@ -55,7 +55,6 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class ModItems {
 	private static EntitySlime EntitySlime;
@@ -263,6 +262,8 @@ public class ModItems {
 	public static ItemBase pearlsClean = new ItemBase("pearls_clean");
 	public static ItemBase pearlsShiny = new ItemBase("pearls_shiny");
 	public static ItemBase pearlsPolished = new ItemBase("pearls_polished");
+	public static BookBase bookWizards = new BookBase("book_wizards");
+	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -467,7 +468,8 @@ public class ModItems {
 				pearlsDirty,
 				pearlsClean,
 				pearlsShiny,
-				pearlsPolished
+				pearlsPolished,
+				bookWizards
 				);
 	}
 	
@@ -675,6 +677,7 @@ public class ModItems {
 		pearlsClean.registerItemModel();
 		pearlsShiny.registerItemModel();
 		pearlsPolished.registerItemModel();
+		bookWizards.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

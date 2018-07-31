@@ -3,7 +3,6 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
-import naturix.divinerpg.bases.blocks.BedBase;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
 import naturix.divinerpg.bases.blocks.LampBase;
@@ -15,9 +14,14 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
 import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
+import naturix.divinerpg.bases.blocks.tile.AltarDramix;
+import naturix.divinerpg.bases.blocks.tile.AltarParasecta;
+import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
+import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
@@ -118,6 +122,8 @@ public class ModBlocks {
 	public static BaseStatue twilightDemonStatue = new BaseStatue("statue_twilightdemon");
 	public static BaseStatue vamacheronStatue = new BaseStatue("statue_vamacheron");
 	//public static BedBase nightmarebed = new BedBase("bed_nightmare");
+	public static AltarDramix altarDramix = new AltarDramix("altar_dramix");
+	public static AltarParasecta altarParasecta = new AltarParasecta("altar_parasecta");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -217,8 +223,13 @@ public class ModBlocks {
 				reyvorStatue,
 				soulFiendStatue,
 				twilightDemonStatue,
-				vamacheronStatue
+				vamacheronStatue,
+				altarDramix,
+				altarParasecta
 		);
+		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
+		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
+		
 	}
 	
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
@@ -318,7 +329,9 @@ public class ModBlocks {
 				reyvorStatue.createItemBlock(),
 				soulFiendStatue.createItemBlock(),
 				twilightDemonStatue.createItemBlock(), 
-				vamacheronStatue.createItemBlock()
+				vamacheronStatue.createItemBlock(),
+				altarDramix.createItemBlock(),
+				altarParasecta.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	}
@@ -421,6 +434,8 @@ public class ModBlocks {
 		soulFiendStatue.registerItemModel(Item.getItemFromBlock(soulFiendStatue));
 		twilightDemonStatue.registerItemModel(Item.getItemFromBlock(twilightDemonStatue));
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
+		altarDramix.registerItemModel(Item.getItemFromBlock(altarDramix));
+		altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");
