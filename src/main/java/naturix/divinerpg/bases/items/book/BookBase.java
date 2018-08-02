@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -53,7 +54,9 @@ public class BookBase extends ItemBase {
 				//parasecta.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
 				if(worldIn.getCollisionBoxes(parasecta, parasecta.getCollisionBoundingBox()).isEmpty()) { 
 				    worldIn.spawnEntity(parasecta);
-				    //if(!player.capabilities.isCreativeMode) stack.stackSize--;
+				    if(!player.capabilities.isCreativeMode) {
+				    int item3 = player.inventory.currentItem;
+				    item3--;}
 				}
 				return EnumActionResult.PASS;
 			} 
@@ -62,8 +65,9 @@ public class BookBase extends ItemBase {
 				//dramix.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
 				if(worldIn.getCollisionBoxes(dramix, dramix.getCollisionBoundingBox()).isEmpty()) { 
 				    worldIn.spawnEntity(dramix);
-				    //if(!player.capabilities.isCreativeMode) stack.stackSize--;
-				}
+				    if(!player.capabilities.isCreativeMode) {
+					    int item4 = player.inventory.currentItem;
+					    item4--;}}
 				return EnumActionResult.PASS;
 			}
 		}
