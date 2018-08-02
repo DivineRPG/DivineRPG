@@ -32,7 +32,7 @@ public class BookBase extends ItemBase {
     	if(healAmount != 0){
 			if(playerIn.getHealth() < playerIn.getMaxHealth()){
 				playerIn.heal(healAmount);
-				//playerIn.inventory.consumeInventoryItem(this);
+				playerIn.inventory.currentItem--;
 			}
 		}
     	return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
