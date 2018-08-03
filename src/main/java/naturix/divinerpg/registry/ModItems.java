@@ -263,7 +263,16 @@ public class ModItems {
 	public static ItemBase pearlsShiny = new ItemBase("pearls_shiny");
 	public static ItemBase pearlsPolished = new ItemBase("pearls_polished");
 	public static BookBase bookWizards = new BookBase("book_wizards");
-	
+	public static ItemBase lumpsTeaker = new ItemBase("lumps_teaker");
+	public static ItemBase lumpsAmthirmis = new ItemBase("lumps_amthirmis");
+	public static ItemBase lumpsDarven = new ItemBase("lumps_darven");
+	public static ItemBase lumpsCermile = new ItemBase("lumps_cermile");
+	public static ItemBase lumpsPardimal = new ItemBase("lumps_pardimal");
+	public static ItemBase lumpsQuadrotic = new ItemBase("lumps_quadrotic");
+	public static ItemBase lumpsKaros = new ItemBase("lumps_karos");
+	public static ItemBase lumpsHelios = new ItemBase("lumps_heliosis");
+	public static ItemBase lumpsArksiane = new ItemBase("lumps_arksiane");
+
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -469,7 +478,16 @@ public class ModItems {
 				pearlsClean,
 				pearlsShiny,
 				pearlsPolished,
-				bookWizards
+				bookWizards,
+				lumpsTeaker,
+				lumpsAmthirmis,
+				lumpsDarven,
+				lumpsCermile,
+				lumpsPardimal,
+				lumpsQuadrotic,
+				lumpsKaros,
+				lumpsHelios,
+				lumpsArksiane
 				);
 	}
 	
@@ -678,6 +696,15 @@ public class ModItems {
 		pearlsShiny.registerItemModel();
 		pearlsPolished.registerItemModel();
 		bookWizards.registerItemModel();
+		lumpsTeaker.registerItemModel();
+		lumpsAmthirmis.registerItemModel();
+		lumpsDarven.registerItemModel();
+		lumpsCermile.registerItemModel();
+		lumpsPardimal.registerItemModel();
+		lumpsQuadrotic.registerItemModel();
+		lumpsKaros.registerItemModel();
+		lumpsHelios.registerItemModel();
+		lumpsArksiane.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

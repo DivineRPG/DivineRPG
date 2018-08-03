@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "divinerpg:altar_dramix",
+	    "transform": "forge:default-block"
+    },
+    "variants": {
+        "naromal": [{
+            "textures": {  }
+        }],
+        "inventory": [{
+            "textures": {  }
+        }]
+    }
+}
