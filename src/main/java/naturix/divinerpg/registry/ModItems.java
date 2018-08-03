@@ -47,6 +47,8 @@ import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
 import naturix.divinerpg.bases.items.book.BookBase;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
+import naturix.divinerpg.bases.items.serenade.SerenadeHeal;
+import naturix.divinerpg.bases.items.serenade.SerenadeStrike;
 import naturix.divinerpg.bases.items.special.Aquamarine;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
@@ -272,7 +274,9 @@ public class ModItems {
 	public static ItemBase lumpsKaros = new ItemBase("lumps_karos");
 	public static ItemBase lumpsHelios = new ItemBase("lumps_heliosis");
 	public static ItemBase lumpsArksiane = new ItemBase("lumps_arksiane");
-
+	public static SerenadeStrike serenadeStrike = new SerenadeStrike("serenade_striker");
+	public static SerenadeHeal serenadeHeal = new SerenadeHeal("serenade_heal");
+	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -487,7 +491,9 @@ public class ModItems {
 				lumpsQuadrotic,
 				lumpsKaros,
 				lumpsHelios,
-				lumpsArksiane
+				lumpsArksiane,
+				serenadeStrike,
+				serenadeHeal
 				);
 	}
 	
@@ -705,6 +711,8 @@ public class ModItems {
 		lumpsKaros.registerItemModel();
 		lumpsHelios.registerItemModel();
 		lumpsArksiane.registerItemModel();
+		serenadeStrike.registerItemModel();
+		serenadeHeal.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
