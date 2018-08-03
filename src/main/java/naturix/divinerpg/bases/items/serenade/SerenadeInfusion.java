@@ -44,6 +44,7 @@ public class SerenadeInfusion extends ItemBase {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
+		tooltip.add("Gives the user Regeneration");
 		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
     }
 }
