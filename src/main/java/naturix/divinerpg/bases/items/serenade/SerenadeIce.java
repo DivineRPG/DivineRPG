@@ -1,7 +1,10 @@
 package naturix.divinerpg.bases.items.serenade;
 
+import java.util.List;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
+import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,9 +13,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class SerenadeStrike extends ItemBase{
+public class SerenadeIce extends ItemBase {
 
-	public SerenadeStrike(String name) {
+	public SerenadeIce(String name) {
 		super(name);
 		setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(100);
@@ -24,19 +27,11 @@ public class SerenadeStrike extends ItemBase{
 		float var4 = 1.0F;
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
 		
-		RayTraceResult pos = entity.rayTrace(100, 20);
-
-			double i = pos.getBlockPos().getX();
-			double j = pos.getBlockPos().getY();
-			double k = pos.getBlockPos().getZ();
-
-		if (true) {
-			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
-
-
-			entity.getHeldItem(hand).damageItem(1, entity);
-			}
+		if(!world.isRemote) {
+			world.spawnEntity(new EntitySerenadeOfIce(world, entity));
+			//world.playSoundAtEntity(entity, Sounds.serenade.getPrefixedName(), 1, 1);
 		
-		return ar;
 	}
+		return ar;
+}
 }

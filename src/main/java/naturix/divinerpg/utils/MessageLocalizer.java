@@ -1,6 +1,5 @@
 package naturix.divinerpg.utils;
 
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.translation.I18n;
 
 public class MessageLocalizer {

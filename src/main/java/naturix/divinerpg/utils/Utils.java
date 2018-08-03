@@ -1,10 +1,16 @@
 package naturix.divinerpg.utils;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class Utils {
+	public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
+
 	public static int MINS2TICKS(int mins) {
 		return mins * 1200;
 		}
@@ -48,6 +54,9 @@ public class Utils {
 	        ret.getStyle().setColor(TextFormatting.WHITE);
 	        return ret; 
 		}
-
+		public static void registerProjectile(Class entityClass, String entityName) {
+	        EntityRegistry.registerModEntity(new ModelResourceLocation(DivineRPG.modId + ":serenadeofice"), EntitySerenadeOfIce.class, "serenadeofice", mobID++, DivineRPG.instance, 250, 5, true);
+	        projectileID++;
+	    }
 		
 	    }
