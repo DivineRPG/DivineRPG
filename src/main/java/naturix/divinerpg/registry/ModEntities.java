@@ -1,6 +1,7 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.entities.EntityThrower;
+import naturix.divinerpg.entities.projectile.serenade.EntityDeath;
 import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
 import naturix.divinerpg.entities.render.EntityResourceLocation;
 import naturix.divinerpg.entities.render.RenderSpecialProjectile;
@@ -15,10 +16,12 @@ public class ModEntities {
 
 	public static void init() {
 		Utils.registerProjectile(EntitySerenadeOfIce.class, "Ice"); 
+		Utils.registerProjectile(EntityDeath.class, "Death"); 
 		
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityThrower.class, new RenderThrower(RenderManager, "ball_thrown"));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySerenadeOfIce.class, new RenderSpecialProjectile(EntityResourceLocation.blank));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDeath.class, new RenderSpecialProjectile(EntityResourceLocation.death));
 
 	}
 	

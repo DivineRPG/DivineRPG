@@ -47,8 +47,10 @@ import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
 import naturix.divinerpg.bases.items.book.BookBase;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
+import naturix.divinerpg.bases.items.serenade.SerenadeDeath;
 import naturix.divinerpg.bases.items.serenade.SerenadeHeal;
 import naturix.divinerpg.bases.items.serenade.SerenadeIce;
+import naturix.divinerpg.bases.items.serenade.SerenadeInfusion;
 import naturix.divinerpg.bases.items.serenade.SerenadeStrike;
 import naturix.divinerpg.bases.items.special.Aquamarine;
 import naturix.divinerpg.utils.DivineRPGMaterials;
@@ -278,6 +280,8 @@ public class ModItems {
 	public static SerenadeStrike serenadeStrike = new SerenadeStrike("serenade_striker");
 	public static SerenadeHeal serenadeHeal = new SerenadeHeal("serenade_heal");
 	public static SerenadeIce serenadeIce = new SerenadeIce("serenade_ice");
+	public static SerenadeDeath serenadeDeath = new SerenadeDeath("serenade_death");
+	public static SerenadeInfusion serenadeInfusion = new SerenadeInfusion("serenade_infusion");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -496,7 +500,9 @@ public class ModItems {
 				lumpsArksiane,
 				serenadeStrike,
 				serenadeHeal,
-				serenadeIce
+				serenadeIce,
+				serenadeDeath,
+				serenadeInfusion
 				);
 	}
 	
@@ -717,6 +723,8 @@ public class ModItems {
 		serenadeStrike.registerItemModel();
 		serenadeHeal.registerItemModel();
 		serenadeIce.registerItemModel();
+		serenadeDeath.registerItemModel();
+		serenadeInfusion.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

@@ -7,7 +7,7 @@ itemGroup.Trophy=DivineRPG: Trophy
 
 tile.ore_arlemite.name=Arlemite Ore
 tile.ore_apalachia.name=Apalachia Ore
-tile.ore_bloodgem.name=BloodGem Ore
+tile.ore_bloodgem.name=Bloodgem Ore
 tile.ore_mortum.name=Mortum Ore
 tile.ore_netherite.name=Netherite Ore
 tile.ore_rupee.name=Rupee Ore
@@ -314,3 +314,6 @@ item.lumps_arksiane.name=Arksiane Lump
 item.serenade_striker.name=Serenade Striker
 item.serenade_heal.name=Serenade of Health
 item.serenade_ice.name=Serenade of Ice
+item.serenade_infusion.name=Serenade of Infusion
+item.serenade_death.name=Serenade of Death
+item.wizards_book.name=Wizards Book
