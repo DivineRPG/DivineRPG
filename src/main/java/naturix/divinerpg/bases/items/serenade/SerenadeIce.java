@@ -2,9 +2,12 @@ package naturix.divinerpg.bases.items.serenade;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,4 +38,10 @@ public class SerenadeIce extends ItemBase {
 	}
 		return ar;
 }
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Slows mobs for 5 seconds");
+		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
+    }
 }

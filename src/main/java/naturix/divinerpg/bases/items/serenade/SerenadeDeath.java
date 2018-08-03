@@ -2,10 +2,13 @@ package naturix.divinerpg.bases.items.serenade;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.entities.projectile.serenade.EntityDeath;
 import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -23,6 +26,12 @@ public class SerenadeDeath extends ItemBase {
 		setMaxStackSize(1);
 		showDurabilityBar(getDefaultInstance());
 	}
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Poisons enemies for 2 seconds");
+		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
+    }
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {
 

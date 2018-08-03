@@ -98,6 +98,9 @@ tile.statue_dexzichile.name=Dex and Zichile Statue
 tile.statue_densos.name=Densos Statue
 tile.statue_ayeracohorde.name=Ayerachohorde Statue
 tile.statue_anciententity.name=Ancient Entity Statue
+tile.altar_dramix.name=Dramix Altar
+tile.altar_parasecta.name=Parasecta Altar
+
 item.ingot_arlemite.name=Arlemite Ingot
 item.sword_arlemite.name=Arlemite Stabber
 item.amthirmisDisk.name=Amthrmis Disk
@@ -316,4 +319,4 @@ item.serenade_heal.name=Serenade of Health
 item.serenade_ice.name=Serenade of Ice
 item.serenade_infusion.name=Serenade of Infusion
 item.serenade_death.name=Serenade of Death
-item.wizards_book.name=Wizards Book
+item.book_wizards.name=Wizards Book

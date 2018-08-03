@@ -2,9 +2,13 @@ package naturix.divinerpg.bases.items.serenade;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -34,4 +38,12 @@ public class SerenadeInfusion extends ItemBase {
         entity.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 80, 2, true, false));
 		return ar;
 }
+	private static EntityPlayer player;
+	private static EnumHand hand;
+	
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
+    }
 }

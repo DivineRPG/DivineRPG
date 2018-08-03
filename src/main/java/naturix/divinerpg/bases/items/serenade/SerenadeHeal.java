@@ -1,7 +1,12 @@
 package naturix.divinerpg.bases.items.serenade;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -29,5 +34,10 @@ public class SerenadeHeal extends ItemBase{
 		entity.getHeldItem(hand).damageItem(1, entity);
 		return ar;
 	}
-	
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Heals the user");
+		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
+    }
 }
