@@ -238,7 +238,6 @@ public class ModItems {
 	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950);
 	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
 	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine", 1250);
-	public static CannonBase cannonAmthirmis = new CannonBase("cannonAmthirmis", ModItems.acid);
 	public static ItemBase templateDisc = new ItemBase("template_disc");
 	public static ItemBase templateCannon = new ItemBase("template_cannon");
 	public static ItemBase templateBacksword = new ItemBase("template_backsword");
@@ -275,13 +274,22 @@ public class ModItems {
 	public static ItemBase lumpsPardimal = new ItemBase("lumps_pardimal");
 	public static ItemBase lumpsQuadrotic = new ItemBase("lumps_quadrotic");
 	public static ItemBase lumpsKaros = new ItemBase("lumps_karos");
-	public static ItemBase lumpsHelios = new ItemBase("lumps_heliosis");
+	public static ItemBase lumpsHeliosis = new ItemBase("lumps_heliosis");
 	public static ItemBase lumpsArksiane = new ItemBase("lumps_arksiane");
 	public static SerenadeStrike serenadeStrike = new SerenadeStrike("serenade_striker");
 	public static SerenadeHeal serenadeHeal = new SerenadeHeal("serenade_heal");
 	public static SerenadeIce serenadeIce = new SerenadeIce("serenade_ice");
 	public static SerenadeDeath serenadeDeath = new SerenadeDeath("serenade_death");
 	public static SerenadeInfusion serenadeInfusion = new SerenadeInfusion("serenade_infusion");
+	public static CannonBase cannonTeaker = new CannonBase("cannon_teaker", ModItems.acid);
+	public static CannonBase cannonAmthirmis = new CannonBase("cannon_amthirmis", ModItems.acid);
+	public static CannonBase cannonDarven = new CannonBase("cannon_darven", ModItems.acid);
+	public static CannonBase cannonCermile = new CannonBase("cannon_cermile", ModItems.acid);
+	public static CannonBase cannonPardimal = new CannonBase("cannon_pardimal", ModItems.acid);
+	public static CannonBase cannonQuadrotic = new CannonBase("cannon_quadrotic", ModItems.acid);
+	public static CannonBase cannonKaros = new CannonBase("cannon_karos", ModItems.acid);
+	public static CannonBase cannonHeliosis = new CannonBase("cannon_heliosis", ModItems.acid);
+	public static CannonBase cannonArksiane = new CannonBase("cannon_arksiane", ModItems.acid);
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -496,13 +504,22 @@ public class ModItems {
 				lumpsPardimal,
 				lumpsQuadrotic,
 				lumpsKaros,
-				lumpsHelios,
+				lumpsHeliosis,
 				lumpsArksiane,
 				serenadeStrike,
 				serenadeHeal,
 				serenadeIce,
 				serenadeDeath,
-				serenadeInfusion
+				serenadeInfusion,
+				cannonTeaker,
+				cannonAmthirmis,
+				cannonDarven,
+				cannonCermile,
+				cannonPardimal,
+				cannonQuadrotic,
+				cannonKaros,
+				cannonHeliosis,
+				cannonArksiane
 				);
 	}
 	
@@ -718,13 +735,22 @@ public class ModItems {
 		lumpsPardimal.registerItemModel();
 		lumpsQuadrotic.registerItemModel();
 		lumpsKaros.registerItemModel();
-		lumpsHelios.registerItemModel();
+		lumpsHeliosis.registerItemModel();
 		lumpsArksiane.registerItemModel();
 		serenadeStrike.registerItemModel();
 		serenadeHeal.registerItemModel();
 		serenadeIce.registerItemModel();
 		serenadeDeath.registerItemModel();
 		serenadeInfusion.registerItemModel();
+		cannonTeaker.registerItemModel();
+		cannonAmthirmis.registerItemModel();
+		cannonDarven.registerItemModel();
+		cannonCermile.registerItemModel();
+		cannonPardimal.registerItemModel();
+		cannonQuadrotic.registerItemModel();
+		cannonKaros.registerItemModel();
+		cannonHeliosis.registerItemModel();
+		cannonArksiane.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

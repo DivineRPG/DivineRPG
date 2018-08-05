@@ -38,7 +38,7 @@ public class CannonBase extends ItemBow {
 		this.ammo = ammo;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DivineRPG.CombatTab);
+		//this.setCreativeTab(DivineRPG.CombatTab);
 		this.maxStackSize = 1;
         this.setMaxDamage(384);
         this.setCreativeTab(CreativeTabs.COMBAT);
@@ -66,7 +66,18 @@ public class CannonBase extends ItemBow {
             }
         });
     }
+	private CreativeTabs tabToDisplayOn;
 	
+    @Override
+    protected boolean isInCreativeTab(CreativeTabs targetTab)
+    {
+        for (CreativeTabs tab : this.getCreativeTabs())
+            if (tab == targetTab)
+                return true;
+        CreativeTabs creativetabs = this.getCreativeTab();
+        return creativetabs != null && (targetTab == DivineRPG.CombatTab || targetTab == creativetabs);
+    }
+    
 	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
