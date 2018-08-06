@@ -50,9 +50,7 @@ public class CannonBase extends ItemBase {
 				entityarrow.setIsCritical(false);
 				entityarrow.setDamage(5.0);
 				entityarrow.setKnockbackStrength(5);
-				if (false) {
-					entityarrow.setFire(100);
-				}
+				
 				par1ItemStack.damageItem(1, par3EntityPlayer);
 				int i = (int) par3EntityPlayer.posX;
 				int j = (int) par3EntityPlayer.posY;
