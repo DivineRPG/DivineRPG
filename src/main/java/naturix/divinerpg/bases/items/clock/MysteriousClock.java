@@ -10,7 +10,7 @@ public class MysteriousClock extends Item {
 			public MysteriousClock(String name) {
 				this.name = name;
 				setUnlocalizedName(name);
-				setRegistryName(name);
+				setRegistryName(name); 
 				this.setCreativeTab(DivineRPG.ItemsTab);
 			}
 			

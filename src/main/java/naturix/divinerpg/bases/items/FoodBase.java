@@ -15,13 +15,15 @@ import net.minecraft.world.World;
 
 public class FoodBase extends ItemFood {
 
-	protected static String name;
+	public String name;
 	public FoodBase(String name, int healAmount, boolean alwaysEdible) {
 		super(healAmount, alwaysEdible);
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DivineRPG.ItemsTab);
+		setCreativeTab(DivineRPG.ItemsTab);
+		getHealAmount(getDefaultInstance());
+		
 	}
 	
 	public void registerItemModel() {

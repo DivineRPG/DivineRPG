@@ -10,6 +10,8 @@ import net.minecraft.world.World;
 
 public class ReturnBucket extends FoodBase{
 	
+	private EntityPlayer entityplayer;
+
 	public ReturnBucket(String name, int healAmount, boolean alwaysEdible) {
 		super(name, healAmount, alwaysEdible);
 		this.setMaxStackSize(1);
@@ -20,6 +22,8 @@ public class ReturnBucket extends FoodBase{
     {
         if (entityLiving instanceof EntityPlayer && !((EntityPlayer)entityLiving).capabilities.isCreativeMode)
         {
+
+            entityplayer.getFoodStats().addStats(this, stack);
             stack.shrink(1);
         }
 				

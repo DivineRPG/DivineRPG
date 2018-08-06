@@ -16,6 +16,7 @@ public class ClientProxy extends CommonProxy {
 
     public void registerItemRenderer(Item item, int meta, String id) {
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
+    DivineRPG.logger.info(DivineRPG.modId + ":" + id);
     }
     public void registerEntityRenderer(Entity entity, int meta, String id) {
     	ModEntities.init();

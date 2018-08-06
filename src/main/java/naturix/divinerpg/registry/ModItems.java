@@ -89,7 +89,6 @@ public class ModItems {
 	public static MysteriousClock moonClock = new MysteriousClock("clock_moon");
 	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
 	public static ItemBase acid = new ItemBase("acid");
-	public static FoodBase advancedMushroomStew = new FoodBase("advanced_mushroom_stew", 7, false);
 	public static Aquamarine aquamarine = new Aquamarine("aquamarine");
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
@@ -351,7 +350,6 @@ public class ModItems {
 				moonClock,
 				twilightClock,
 				acid,
-				advancedMushroomStew,
 				aquamarine,
 				aquaticBlazeRod,
 				aquaton,
@@ -613,7 +611,6 @@ public class ModItems {
 		moonClock.registerItemModel();
 		twilightClock.registerItemModel();
 		acid.registerItemModel();
-		advancedMushroomStew.registerItemModel();
 		aquamarine.registerItemModel();
 		aquamarine.registerItemModel();
 		aquaticBlazeRod.registerItemModel();
