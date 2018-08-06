@@ -320,7 +320,7 @@ public class ModItems {
 	public static FoodBase dreamSours = new FoodBase("sour_dream", 1, false);
 	public static FoodBase moonbulb = new FoodBase("moonbulb", 3, false);
 	public static FoodBase glowbonePurple = new FoodBase("glowbone_purple", 5, false);
-	public static FoodBase glowbonePink = new FoodBase("glowbone_pine", 5, false);
+	public static FoodBase glowbonePink = new FoodBase("glowbone_pink", 5, false);
 	public static FoodBase skyflower = new FoodBase("skyflower", 1, false);
 	public static FoodBase hitchak = new FoodBase("hitchak", 3, false);
 	public static FoodBase pinfly = new FoodBase("pinfly", 1, false);
