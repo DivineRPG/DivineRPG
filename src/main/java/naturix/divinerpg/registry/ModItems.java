@@ -47,6 +47,8 @@ import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
 import naturix.divinerpg.bases.items.book.BookBase;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
+import naturix.divinerpg.bases.items.food.ReturnBucket;
+import naturix.divinerpg.bases.items.food.ReturnsBowl;
 import naturix.divinerpg.bases.items.serenade.SerenadeDeath;
 import naturix.divinerpg.bases.items.serenade.SerenadeHeal;
 import naturix.divinerpg.bases.items.serenade.SerenadeIce;
@@ -92,7 +94,6 @@ public class ModItems {
 	public static ItemBase aquaticBlazeRod = new ItemBase("rod_aquatic_blaze");
 	public static ItemBase aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
 	public static SpawnerBase arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
-	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
 	public static Angelic angelicHelmet = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.HEAD, "angelic_helmet");
 	public static Angelic angelicChestplate = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.CHEST, "angelic_chestplate");
 	public static Angelic angelicLeggings = new Angelic(DivineRPGMaterials.angelicArmorMaterial, EntityEquipmentSlot.LEGS, "angelic_leggings");
@@ -290,6 +291,39 @@ public class ModItems {
 	public static CannonBase cannonKaros = new CannonBase("cannon_karos", ModItems.acid);
 	public static CannonBase cannonHeliosis = new CannonBase("cannon_heliosis", ModItems.acid);
 	public static CannonBase cannonArksiane = new CannonBase("cannon_arksiane", ModItems.acid);
+	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
+	public static FoodBase bacon = new FoodBase("bacon", 3, true);
+	public static FoodBase hotPumpkinPie = new FoodBase("pie_pumpkin_hot", 7, true);
+	public static FoodBase boiledEgg = new FoodBase("egg_boiled", 1, false);
+	public static FoodBase cheese = new FoodBase("cheese", 1, false);
+	public static FoodBase mushroomWhite = new FoodBase("mushroom_white", 1, false);
+	public static ReturnsBowl mushroomStewAdvanced = new ReturnsBowl("mushroom_stew", 10, false);
+	public static FoodBase tomato = new FoodBase("tomato", 2, false);
+	public static FoodBase donut = new FoodBase("donut", 18, false);
+	public static FoodBase rawEmpoweredMeat = new FoodBase("meat_empowered_raw", 2, true);
+	public static FoodBase empoweredMeat = new FoodBase("meat_empowered", 4, true);
+	public static FoodBase magicMeat = new FoodBase("meat_magic", 1, true);
+	public static FoodBase enrichedMagicMeat = new FoodBase("meat_magic_enriched", 2, true);
+	public static ReturnBucket eggNog = new ReturnBucket("egg_nog", 5, false);
+	public static FoodBase peppermints = new FoodBase("peppermints", 1, false);
+	public static FoodBase chocolateLog = new FoodBase("chocolate_log", 1, false);
+	public static FoodBase snowCone = new FoodBase("snowcone", 1, false);
+	public static FoodBase fruitCake = new FoodBase("cake_fruit", 2, false);
+	public static FoodBase winterberry = new FoodBase("winterberry", 1, false);
+	public static FoodBase honeySuckle = new FoodBase("honeysuckle", 1, false);
+	public static FoodBase honeyChunk = new FoodBase("honeychunk", 1, false);
+	public static FoodBase dreamCarrot = new FoodBase("carrot_dream", 2, false);
+	public static FoodBase dreamMelon = new FoodBase("melon_dream", 2, false);
+	public static FoodBase dreamPie = new FoodBase("pie_dream", 4, false);
+	public static FoodBase dreamCake = new FoodBase("cake_dream", 8, false);
+	public static FoodBase dreamSweets = new FoodBase("sweets_dream", 1, false);
+	public static FoodBase dreamSours = new FoodBase("sour_dream", 1, false);
+	public static FoodBase moonbulb = new FoodBase("moonbulb", 3, false);
+	public static FoodBase glowbonePurple = new FoodBase("glowbone_purple", 5, false);
+	public static FoodBase glowbonePink = new FoodBase("glowbone_pine", 5, false);
+	public static FoodBase skyflower = new FoodBase("skyflower", 1, false);
+	public static FoodBase hitchak = new FoodBase("hitchak", 3, false);
+	public static FoodBase pinfly = new FoodBase("pinfly", 1, false);
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -519,7 +553,39 @@ public class ModItems {
 				cannonQuadrotic,
 				cannonKaros,
 				cannonHeliosis,
-				cannonArksiane
+				cannonArksiane,
+				bacon,
+				hotPumpkinPie,
+				boiledEgg,
+				cheese,
+				mushroomWhite,
+				mushroomStewAdvanced,
+				tomato,
+				donut,
+				rawEmpoweredMeat,
+				empoweredMeat,
+				magicMeat,
+				enrichedMagicMeat,
+				eggNog,
+				peppermints,
+				chocolateLog,
+				snowCone,
+				fruitCake,
+				winterberry,
+				honeySuckle,
+				honeyChunk,
+				dreamCarrot,
+				dreamMelon,
+				dreamPie,
+				dreamCake,
+				dreamSweets,
+				dreamSours,
+				moonbulb,
+				glowbonePurple,
+				glowbonePink,
+				skyflower,
+				hitchak,
+				pinfly
 				);
 	}
 	
@@ -751,6 +817,38 @@ public class ModItems {
 		cannonKaros.registerItemModel();
 		cannonHeliosis.registerItemModel();
 		cannonArksiane.registerItemModel();
+		bacon.registerItemModel();
+		hotPumpkinPie.registerItemModel();
+		boiledEgg.registerItemModel();
+		cheese.registerItemModel();
+		mushroomWhite.registerItemModel();
+		mushroomStewAdvanced.registerItemModel();
+		tomato.registerItemModel();
+		donut.registerItemModel();
+		rawEmpoweredMeat.registerItemModel();
+		empoweredMeat.registerItemModel();
+		magicMeat.registerItemModel();
+		enrichedMagicMeat.registerItemModel();
+		eggNog.registerItemModel();
+		peppermints.registerItemModel();
+		chocolateLog.registerItemModel();
+		snowCone.registerItemModel();
+		fruitCake.registerItemModel();
+		winterberry.registerItemModel();
+		honeySuckle.registerItemModel();
+		honeyChunk.registerItemModel();
+		dreamCarrot.registerItemModel();
+		dreamMelon.registerItemModel();
+		dreamPie.registerItemModel();
+		dreamCake.registerItemModel();
+		dreamSweets.registerItemModel();
+		dreamSours.registerItemModel();
+		moonbulb.registerItemModel();
+		glowbonePurple.registerItemModel();
+		glowbonePink.registerItemModel();
+		skyflower.registerItemModel();
+		hitchak.registerItemModel();
+		pinfly.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
