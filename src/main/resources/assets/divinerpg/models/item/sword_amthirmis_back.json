@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/sword_amthirmis_back"
+    "layer0": "divinerpg:items/backsword_amthirmis"
   }
 }

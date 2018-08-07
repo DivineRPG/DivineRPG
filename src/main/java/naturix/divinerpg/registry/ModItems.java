@@ -225,9 +225,7 @@ public class ModItems {
 	public static WitherReaper witherreaperChestplate = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.CHEST, "wither_reaper_chestplate");
 	public static WitherReaper witherreaperLeggings = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.LEGS, "wither_reaper_leggings");
 	public static WitherReaper witherreaperBoots = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.FEET, "wither_reaper_boots");
-	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
 	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
-	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
 	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
 	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.blackEnderSwordMaterial, "sword_black_ender");
 	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
@@ -323,6 +321,16 @@ public class ModItems {
 	public static FoodBase skyflower = new FoodBase("skyflower", 1, false);
 	public static FoodBase hitchak = new FoodBase("hitchak", 3, false);
 	public static FoodBase pinfly = new FoodBase("pinfly", 1, false);
+	public static SwordBase captainsparkler = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "captainsparkler");
+	public static SwordBase teakerBackSword = new SwordBase(DivineRPGMaterials.teakerSwordMaterial, "sword_teaker_back");
+	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
+	public static SwordBase darvenBackSword = new SwordBase(DivineRPGMaterials.darvenSwordMaterial, "sword_darven_back");
+	public static SwordBase cermileBackSword = new SwordBase(DivineRPGMaterials.cermileSwordMaterial, "sword_cermile_back");
+	public static SwordBase pardimalBackSword = new SwordBase(DivineRPGMaterials.pardimalSwordMaterial, "sword_pardimal_back");
+	public static SwordBase quadroticBackSword = new SwordBase(DivineRPGMaterials.quadroticSwordMaterial, "sword_quadrotic_back");
+	public static SwordBase karosBackSword = new SwordBase(DivineRPGMaterials.karosSwordMaterial, "sword_karos_back");
+	public static SwordBase heliosisBackSword = new SwordBase(DivineRPGMaterials.heliosisSwordMaterial, "sword_heliosis_back");
+	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -583,12 +591,22 @@ public class ModItems {
 				glowbonePink,
 				skyflower,
 				hitchak,
-				pinfly
+				pinfly,
+				captainsparkler,
+				teakerBackSword,
+				amthrimisBackSword,
+				darvenBackSword,
+				cermileBackSword,
+				pardimalBackSword,
+				quadroticBackSword,
+				karosBackSword,
+				heliosisBackSword,
+				arksianeWrathSword
 				);
 	}
 	
 	public static void registerModels() {
-		arlemiteSword.registerItemModel(arlemiteSword);
+		arlemiteSword.registerItemModel();
 		amthirmisDisk.registerItemModel(amthirmisDisk);
 		hunterBow.registerItemModel(); 
 		shadowBow.registerItemModel();
@@ -616,14 +634,14 @@ public class ModItems {
 		aquaticBlazeRod.registerItemModel();
 		aquaton.registerItemModel();
 		arcanaSpawnEgg.registerItemModel();
-		amthrimisBackSword.registerItemModel(amthrimisBackSword);
-		aquatoothSword.registerItemModel(aquatoothSword);
-		arksianeWrathSword.registerItemModel(arksianeWrathSword);
-		bedrockSword.registerItemModel(bedrockSword);
-		blackEnderSword.registerItemModel(blackEnderSword);
-		bloodgemSword.registerItemModel(bloodgemSword);
-		blueDivineSword.registerItemModel(blueDivineSword);
-		stormSword.registerItemModel(stormSword);
+		amthrimisBackSword.registerItemModel();
+		aquatoothSword.registerItemModel();
+		arksianeWrathSword.registerItemModel();
+		bedrockSword.registerItemModel();
+		blackEnderSword.registerItemModel();
+		bloodgemSword.registerItemModel();
+		blueDivineSword.registerItemModel();
+		stormSword.registerItemModel();
 		chickenDinner.registerItemModel();
 		angelicHelmet.registerItemModel(angelicHelmet);
 		angelicChestplate.registerItemModel(angelicChestplate);
@@ -846,6 +864,16 @@ public class ModItems {
 		skyflower.registerItemModel();
 		hitchak.registerItemModel();
 		pinfly.registerItemModel();
+		captainsparkler.registerItemModel();
+		teakerBackSword.registerItemModel();
+		amthrimisBackSword.registerItemModel();
+		darvenBackSword.registerItemModel();
+		cermileBackSword.registerItemModel();
+		pardimalBackSword.registerItemModel();
+		quadroticBackSword.registerItemModel();
+		karosBackSword.registerItemModel();
+		heliosisBackSword.registerItemModel();
+		arksianeWrathSword.registerItemModel(); 
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
