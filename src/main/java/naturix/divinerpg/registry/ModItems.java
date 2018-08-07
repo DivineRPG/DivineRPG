@@ -225,17 +225,10 @@ public class ModItems {
 	public static WitherReaper witherreaperChestplate = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.CHEST, "wither_reaper_chestplate");
 	public static WitherReaper witherreaperLeggings = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.LEGS, "wither_reaper_leggings");
 	public static WitherReaper witherreaperBoots = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.FEET, "wither_reaper_boots");
-	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
-	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
-	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.blackEnderSwordMaterial, "sword_black_ender");
-	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
-	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.blueDivineSwordMaterial, "sword_blue_divine");
-	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
-	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm"); 
 	public static ItemBase bandHeivaHunt = new ItemBase("band_heiva_hunt");
 	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950);
 	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
-	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.blueDivineSwordMaterial, "shickaxe_divine", 1250);
+	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineSwordMaterial, "shickaxe_divine", 1250);
 	public static ItemBase templateDisc = new ItemBase("template_disc");
 	public static ItemBase templateCannon = new ItemBase("template_cannon");
 	public static ItemBase templateBacksword = new ItemBase("template_backsword");
@@ -331,6 +324,35 @@ public class ModItems {
 	public static SwordBase karosBackSword = new SwordBase(DivineRPGMaterials.karosSwordMaterial, "sword_karos_back");
 	public static SwordBase heliosisBackSword = new SwordBase(DivineRPGMaterials.heliosisSwordMaterial, "sword_heliosis_back");
 	public static SwordBase arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
+	public static SwordBase icineSword = new SwordBase(DivineRPGMaterials.icineSwordMaterial, "sword_icine");
+	public static SwordBase glacierSword = new SwordBase(DivineRPGMaterials.glacierSwordMaterial, "sword_glacier");
+	public static SwordBase frostkingSword = new SwordBase(DivineRPGMaterials.frostKingSwordMaterial, "sword_frostking");
+	public static SwordBase frostSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_realmite");
+	public static SwordBase divineSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine");
+	public static SwordBase divineYSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_yellow");
+	public static SwordBase divineGSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_grey");
+	public static SwordBase divineRSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_red");
+	public static SwordBase divineGRSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_green");
+	public static SwordBase sharkSword = new SwordBase(DivineRPGMaterials.sharkSwordMaterial, "sword_shark");
+	public static SwordBase slimeSword = new SwordBase(DivineRPGMaterials.slimeSwordMaterial, "sword_slime");
+	public static SwordBase infernoSword = new SwordBase(DivineRPGMaterials.infernoSwordMaterial, "sword_inferno");
+	public static SwordBase cyclopsianSword = new SwordBase(DivineRPGMaterials.cyclopsianSwordMaterial, "sword_cyclopsian");
+	public static SwordBase moltenSword = new SwordBase(DivineRPGMaterials.moltenSwordMaterial, "sword_molten");
+	public static SwordBase scorchingSword = new SwordBase(DivineRPGMaterials.scorchingSwordMaterial, "sword_scorching");
+	public static SwordBase bluefireSword = new SwordBase(DivineRPGMaterials.bluefireSwordMaterial, "sword_bluefire");
+	public static SwordBase enderSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender");
+	public static SwordBase enderBSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_blue");
+	public static SwordBase enderYSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_yellow");
+	public static SwordBase enderGSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_green");
+	public static SwordBase enderRSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_red");
+	public static SwordBase aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
+	public static SwordBase bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
+	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_black_ender");
+	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
+	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_blue_divine");
+	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
+	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm"); 
+	public static SwordBase donatorSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_donator"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -601,7 +623,29 @@ public class ModItems {
 				quadroticBackSword,
 				karosBackSword,
 				heliosisBackSword,
-				arksianeWrathSword
+				arksianeWrathSword,
+				icineSword,
+				glacierSword,
+				frostkingSword,
+				frostSword,
+				divineSword,
+				divineYSword,
+				divineGSword,
+				divineRSword,
+				divineGRSword,
+				sharkSword,
+				slimeSword,
+				infernoSword,
+				cyclopsianSword,
+				moltenSword,
+				scorchingSword,
+				bluefireSword,
+				enderSword,
+				enderBSword,
+				enderYSword,
+				enderGSword,
+				enderRSword,
+				donatorSword
 				);
 	}
 	
@@ -873,7 +917,29 @@ public class ModItems {
 		quadroticBackSword.registerItemModel();
 		karosBackSword.registerItemModel();
 		heliosisBackSword.registerItemModel();
-		arksianeWrathSword.registerItemModel(); 
+		arksianeWrathSword.registerItemModel();
+		icineSword.registerItemModel();
+		glacierSword.registerItemModel();
+		frostkingSword.registerItemModel();
+		frostSword.registerItemModel();
+		divineSword.registerItemModel();
+		divineYSword.registerItemModel();
+		divineGSword.registerItemModel();
+		divineRSword.registerItemModel();
+		divineGRSword.registerItemModel();
+		sharkSword.registerItemModel();
+		slimeSword.registerItemModel();
+		infernoSword.registerItemModel();
+		cyclopsianSword.registerItemModel();
+		moltenSword.registerItemModel();
+		scorchingSword.registerItemModel();
+		bluefireSword.registerItemModel();
+		enderSword.registerItemModel();
+		enderBSword.registerItemModel();
+		enderYSword.registerItemModel();
+		enderGSword.registerItemModel();
+		enderRSword.registerItemModel();
+		donatorSword.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

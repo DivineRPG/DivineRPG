@@ -14,9 +14,9 @@ public class DivineRPGMaterials {
 	public static final Item.ToolMaterial aquatoothSwordMaterial = EnumHelper.addToolMaterial("AQUATOOTH", 2, 250, 10.0F, 6.0F, 10);
 	public static final Item.ToolMaterial arksianeSwordMaterial = EnumHelper.addToolMaterial("ARKSIANE", 2, 250, 14.0F, 38.0F, 14);
 	public static final Item.ToolMaterial bedrockSwordMaterial = EnumHelper.addToolMaterial("BEDROCK", 2, 250, 14.0F, 10.0F, 14);
-	public static final Item.ToolMaterial blackEnderSwordMaterial = EnumHelper.addToolMaterial("BLACKENDER", 2, 250, 16.0F, 12.0F, 16);
+	public static final Item.ToolMaterial enderSwordMaterial = EnumHelper.addToolMaterial("ENDER", 2, 250, 16.0F, 12.0F, 16);
 	public static final Item.ToolMaterial bloodgemSwordMaterial = EnumHelper.addToolMaterial("BLOODGEM", 2, 250, 15.0F, 11.0F, 15);
-	public static final Item.ToolMaterial blueDivineSwordMaterial = EnumHelper.addToolMaterial("BLUEDIVINE", 2, 250, 22.0F, 18.0F, 22);
+	public static final Item.ToolMaterial divineSwordMaterial = EnumHelper.addToolMaterial("DIVINE", 2, 250, 22.0F, 18.0F, 22);
 	public static final Item.ToolMaterial stormSwordMaterial = EnumHelper.addToolMaterial("STORM", 2, 250, 5.0F, 1.0F, 5);
 	public static final Item.ToolMaterial rupeeSwordMaterial = EnumHelper.addToolMaterial("RUPEE", 2, 250, 5.0F, 1.0F, 5);
 	public static final Item.ToolMaterial teakerSwordMaterial = EnumHelper.addToolMaterial("TEAKER", 1, 250, 3.0F, 5.0F, 1);
@@ -26,7 +26,17 @@ public class DivineRPGMaterials {
 	public static final Item.ToolMaterial quadroticSwordMaterial = EnumHelper.addToolMaterial("QUADROTIC", 6, 250, 3.0F, 21.0F, 1);
 	public static final Item.ToolMaterial karosSwordMaterial = EnumHelper.addToolMaterial("KAROS", 7, 250, 3.0F, 23.0F, 1);
 	public static final Item.ToolMaterial heliosisSwordMaterial = EnumHelper.addToolMaterial("HELIOSIS", 8, 250, 3.0F, 30.0F, 1);
-	
+	public static final Item.ToolMaterial sharkSwordMaterial = EnumHelper.addToolMaterial("SHARK", 8, 250, 3.0F, 14.0F, 1);
+	public static final Item.ToolMaterial slimeSwordMaterial = EnumHelper.addToolMaterial("SLIME", 8, 250, 3.0F, 11.0F, 1);
+	public static final Item.ToolMaterial infernoSwordMaterial = EnumHelper.addToolMaterial("INFERNO", 8, 250, 3.0F, 12.0F, 1);
+	public static final Item.ToolMaterial moltenSwordMaterial = EnumHelper.addToolMaterial("MOLTEN", 8, 250, 3.0F, 10.0F, 1);
+	public static final Item.ToolMaterial scorchingSwordMaterial = EnumHelper.addToolMaterial("SCORCHING", 8, 250, 3.0F, 20.0F, 1);
+	public static final Item.ToolMaterial bluefireSwordMaterial = EnumHelper.addToolMaterial("BLUEFIRE", 8, 250, 3.0F, 20.0F, 1);
+	public static final Item.ToolMaterial icineSwordMaterial = EnumHelper.addToolMaterial("ICINE", 8, 250, 3.0F, 22.0F, 1);
+	public static final Item.ToolMaterial glacierSwordMaterial = EnumHelper.addToolMaterial("GLACIER", 8, 250, 3.0F, 18.0F, 1);
+	public static final Item.ToolMaterial frostKingSwordMaterial = EnumHelper.addToolMaterial("FROSTKING", 8, 250, 3.0F, 16.0F, 1);
+	public static final Item.ToolMaterial realmiteSwordMaterial = EnumHelper.addToolMaterial("REALMITE", 8, 250, 3.0F, 6.0F, 1);
+	public static final Item.ToolMaterial cyclopsianSwordMaterial = EnumHelper.addToolMaterial("CYCLOPSIAN", 8, 250, 3.0F, 6.0F, 1);
 	
 	
 	//name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
