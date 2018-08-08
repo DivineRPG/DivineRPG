@@ -1,6 +1,7 @@
 package naturix.divinerpg.utils;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.bases.items.PickaxeBase;
 import naturix.divinerpg.bases.items.SwordBase;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -13,7 +14,7 @@ public class DivineRPGMaterials {
 	public static final Item.ToolMaterial amthrimisSwordMaterial = EnumHelper.addToolMaterial("AMTHRIMIS", 2, 250, 3.0F, 7.0F, 1);
 	public static final Item.ToolMaterial aquatoothSwordMaterial = EnumHelper.addToolMaterial("AQUATOOTH", 2, 250, 10.0F, 6.0F, 10);
 	public static final Item.ToolMaterial arksianeSwordMaterial = EnumHelper.addToolMaterial("ARKSIANE", 2, 250, 14.0F, 38.0F, 14);
-	public static final Item.ToolMaterial bedrockSwordMaterial = EnumHelper.addToolMaterial("BEDROCK", 2, 250, 14.0F, 10.0F, 14);
+	public static final Item.ToolMaterial bedrockSwordMaterial = EnumHelper.addToolMaterial("BEDROCK", 2, 999999999, 14.0F, 10.0F, 14);
 	public static final Item.ToolMaterial enderSwordMaterial = EnumHelper.addToolMaterial("ENDER", 2, 250, 16.0F, 12.0F, 16);
 	public static final Item.ToolMaterial bloodgemSwordMaterial = EnumHelper.addToolMaterial("BLOODGEM", 2, 250, 15.0F, 11.0F, 15);
 	public static final Item.ToolMaterial divineSwordMaterial = EnumHelper.addToolMaterial("DIVINE", 2, 250, 22.0F, 18.0F, 22);
@@ -37,8 +38,12 @@ public class DivineRPGMaterials {
 	public static final Item.ToolMaterial frostKingSwordMaterial = EnumHelper.addToolMaterial("FROSTKING", 8, 250, 3.0F, 16.0F, 1);
 	public static final Item.ToolMaterial realmiteSwordMaterial = EnumHelper.addToolMaterial("REALMITE", 8, 250, 3.0F, 6.0F, 1);
 	public static final Item.ToolMaterial cyclopsianSwordMaterial = EnumHelper.addToolMaterial("CYCLOPSIAN", 8, 250, 3.0F, 6.0F, 1);
-	
-	
+	public static final Item.ToolMaterial edenSwordMaterial = EnumHelper.addToolMaterial("EDEN", 100, 250, 3.0F, 6.0F, 1);
+	public static final Item.ToolMaterial wildwoodSwordMaterial = EnumHelper.addToolMaterial("WILDWOOD", 100, 250, 3.0F, 6.0F, 1);
+	public static final Item.ToolMaterial apalachiaSwordMaterial = EnumHelper.addToolMaterial("APALACHIA", 100, 250, 3.0F, 6.0F, 1);
+	public static final Item.ToolMaterial skythernSwordMaterial = EnumHelper.addToolMaterial("SKYTHERN", 100, 250, 3.0F, 6.0F, 1);
+	public static final Item.ToolMaterial mortumSwordMaterial = EnumHelper.addToolMaterial("MORTUM", 100, 250, 3.0F, 6.0F, 1);
+
 	//name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
 	public static final ItemArmor.ArmorMaterial angelicArmorMaterial = EnumHelper.addArmorMaterial("ANGELIC", DivineRPG.modId + ":angelic", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial apalachiaArmorMaterial = EnumHelper.addArmorMaterial("APALACHIA", DivineRPG.modId + ":apalachia", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);

@@ -17,7 +17,7 @@ public class PickaxeBase extends ItemPickaxe {
 		this.name = name;
 	}
 	
-	public void registerItemModel(Item item) {
+	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 

@@ -11,6 +11,7 @@ import naturix.divinerpg.bases.items.ShickaxeBase;
 import naturix.divinerpg.bases.items.ShovelBase;
 import naturix.divinerpg.bases.items.SpawnerBase;
 import naturix.divinerpg.bases.items.SwordBase;
+import naturix.divinerpg.bases.items.*;
 import naturix.divinerpg.bases.items.ThrowableBase;
 import naturix.divinerpg.bases.items.armor.Angelic;
 import naturix.divinerpg.bases.items.armor.Apalachia;
@@ -353,7 +354,17 @@ public class ModItems {
 	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm"); 
 	public static SwordBase donatorSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_donator"); 
-	
+	public static PickaxeBase realmitePickaxe = new PickaxeBase(DivineRPGMaterials.realmiteSwordMaterial, "pickaxe_realmite", 0, 0); 
+	public static PickaxeBase edenPickaxe = new PickaxeBase(DivineRPGMaterials.edenSwordMaterial, "pickaxe_eden", 0, 0); 
+	public static PickaxeBase wildwoodPickaxe = new PickaxeBase(DivineRPGMaterials.wildwoodSwordMaterial, "pickaxe_wildwood", 0, 0); 
+	public static PickaxeBase apalachiaPickaxe = new PickaxeBase(DivineRPGMaterials.apalachiaSwordMaterial, "pickaxe_apalachia", 0, 0); 
+	public static PickaxeBase skythernPickaxe = new PickaxeBase(DivineRPGMaterials.skythernSwordMaterial, "pickaxe_skythern", 0, 0); 
+	public static PickaxeBase mortumPickaxe = new PickaxeBase(DivineRPGMaterials.mortumSwordMaterial, "pickaxe_mortum", 0, 0); 
+	public static PickaxeBase divinePickaxe = new PickaxeBase(DivineRPGMaterials.divineSwordMaterial, "pickaxe_divine", 0, 0); 
+	public static PickaxeBase arlemitePickaxe = new PickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "pickaxe_arlemite", 0, 0); 
+	public static PickaxeBase rupeePickaxe = new PickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "pickaxe_rupee", 0, 0); 
+	public static PickaxeBase bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockSwordMaterial, "pickaxe_bedrock", 0, 0); 
+
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -645,7 +656,17 @@ public class ModItems {
 				enderYSword,
 				enderGSword,
 				enderRSword,
-				donatorSword
+				donatorSword,
+				realmitePickaxe,
+				edenPickaxe,
+				wildwoodPickaxe,
+				apalachiaPickaxe,
+				skythernPickaxe,
+				mortumPickaxe,
+				divinePickaxe,
+				arlemitePickaxe,
+				rupeePickaxe,
+				bedrockPickaxe
 				);
 	}
 	
@@ -847,7 +868,7 @@ public class ModItems {
 		fragmentWildwood.registerItemModel();
 		corruptedAxe.registerItemModel(corruptedAxe);
 		corruptedShovel.registerItemModel(corruptedShovel);
-		corruptedPickaxe.registerItemModel(corruptedPickaxe);
+		corruptedPickaxe.registerItemModel();
 		pearlsDirty.registerItemModel();
 		pearlsClean.registerItemModel();
 		pearlsShiny.registerItemModel();
@@ -940,6 +961,16 @@ public class ModItems {
 		enderGSword.registerItemModel();
 		enderRSword.registerItemModel();
 		donatorSword.registerItemModel();
+		realmitePickaxe.registerItemModel();
+		edenPickaxe.registerItemModel();
+		wildwoodPickaxe.registerItemModel();
+		apalachiaPickaxe.registerItemModel();
+		skythernPickaxe.registerItemModel();
+		mortumPickaxe.registerItemModel();
+		divinePickaxe.registerItemModel();
+		arlemitePickaxe.registerItemModel();
+		rupeePickaxe.registerItemModel();
+		bedrockPickaxe.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
