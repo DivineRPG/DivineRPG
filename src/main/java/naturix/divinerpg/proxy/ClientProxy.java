@@ -1,7 +1,6 @@
 package naturix.divinerpg.proxy;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.compat.JEI;
 import naturix.divinerpg.registry.ModEntities;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;

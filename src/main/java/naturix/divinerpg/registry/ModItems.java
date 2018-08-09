@@ -364,7 +364,31 @@ public class ModItems {
 	public static PickaxeBase arlemitePickaxe = new PickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "pickaxe_arlemite", 0, 0); 
 	public static PickaxeBase rupeePickaxe = new PickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "pickaxe_rupee", 0, 0); 
 	public static PickaxeBase bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockSwordMaterial, "pickaxe_bedrock", 0, 0); 
-
+	public static AxeBase realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteSwordMaterial, "axe_realmite", 0, 0); 
+	public static AxeBase edenAxe = new AxeBase(DivineRPGMaterials.edenSwordMaterial, "axe_eden", 0, 0); 
+	public static AxeBase wildwoodAxe = new AxeBase(DivineRPGMaterials.wildwoodSwordMaterial, "axe_wildwood", 0, 0); 
+	public static AxeBase apalachiaAxe = new AxeBase(DivineRPGMaterials.apalachiaSwordMaterial, "axe_apalachia", 0, 0); 
+	public static AxeBase skythernAxe = new AxeBase(DivineRPGMaterials.skythernSwordMaterial, "axe_skythern", 0, 0); 
+	public static AxeBase mortumAxe = new AxeBase(DivineRPGMaterials.mortumSwordMaterial, "axe_mortum", 0, 0); 
+	public static AxeBase divineAxe = new AxeBase(DivineRPGMaterials.divineSwordMaterial, "axe_divine", 0, 0); 
+	public static AxeBase arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "axe_arlemite", 0, 0); 
+	public static AxeBase rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeSwordMaterial, "axe_rupee", 0, 0); 
+	public static AxeBase bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockSwordMaterial, "axe_bedrock", 0, 0); 
+	public static ShovelBase realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteSwordMaterial, "shovel_realmite", 0, 0); 
+	public static ShovelBase edenShovel = new ShovelBase(DivineRPGMaterials.edenSwordMaterial, "shovel_eden", 0, 0); 
+	public static ShovelBase wildwoodShovel = new ShovelBase(DivineRPGMaterials.wildwoodSwordMaterial, "shovel_wildwood", 0, 0); 
+	public static ShovelBase apalachiaShovel = new ShovelBase(DivineRPGMaterials.apalachiaSwordMaterial, "shovel_apalachia", 0, 0); 
+	public static ShovelBase skythernShovel = new ShovelBase(DivineRPGMaterials.skythernSwordMaterial, "shovel_skythern", 0, 0); 
+	public static ShovelBase mortumShovel = new ShovelBase(DivineRPGMaterials.mortumSwordMaterial, "shovel_mortum", 0, 0); 
+	public static ShovelBase divineShovel = new ShovelBase(DivineRPGMaterials.divineSwordMaterial, "shovel_divine", 0, 0); 
+	public static ShovelBase arlemiteShovel = new ShovelBase(DivineRPGMaterials.arlemiteSwordMaterial, "shovel_arlemite", 0, 0); 
+	public static ShovelBase rupeeShovel = new ShovelBase(DivineRPGMaterials.rupeeSwordMaterial, "shovel_rupee", 0, 0); 
+	public static ShovelBase bedrockShovel = new ShovelBase(DivineRPGMaterials.bedrockSwordMaterial, "shovel_bedrock", 0, 0); 
+	public static HoeBase arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteSwordMaterial, "hoe_arlemite", 0, 0); 
+	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeSwordMaterial, "hoe_rupee", 0, 0); 
+	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteSwordMaterial, "hoe_realmite", 0, 0); 
+	
+	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
@@ -666,7 +690,30 @@ public class ModItems {
 				divinePickaxe,
 				arlemitePickaxe,
 				rupeePickaxe,
-				bedrockPickaxe
+				bedrockPickaxe,
+				realmiteAxe,
+				edenAxe,
+				wildwoodAxe,
+				apalachiaAxe,
+				skythernAxe,
+				mortumAxe,
+				divineAxe,
+				arlemiteAxe,
+				rupeeAxe,
+				bedrockAxe,
+				realmiteShovel,
+				edenShovel,
+				wildwoodShovel,
+				apalachiaShovel,
+				skythernShovel,
+				mortumShovel,
+				divineShovel,
+				arlemiteShovel,
+				rupeeShovel,
+				bedrockShovel,
+				arlemiteHoe,
+				rupeeHoe,
+				realmiteHoe
 				);
 	}
 	
@@ -866,8 +913,8 @@ public class ModItems {
 		fragmentSkythern.registerItemModel();
 		fragmentMortum.registerItemModel();
 		fragmentWildwood.registerItemModel();
-		corruptedAxe.registerItemModel(corruptedAxe);
-		corruptedShovel.registerItemModel(corruptedShovel);
+		corruptedAxe.registerItemModel();
+		corruptedShovel.registerItemModel();
 		corruptedPickaxe.registerItemModel();
 		pearlsDirty.registerItemModel();
 		pearlsClean.registerItemModel();
@@ -971,6 +1018,29 @@ public class ModItems {
 		arlemitePickaxe.registerItemModel();
 		rupeePickaxe.registerItemModel();
 		bedrockPickaxe.registerItemModel();
+		realmiteAxe.registerItemModel();
+		edenAxe.registerItemModel();
+		wildwoodAxe.registerItemModel();
+		apalachiaAxe.registerItemModel();
+		skythernAxe.registerItemModel();
+		mortumAxe.registerItemModel();
+		divineAxe.registerItemModel();
+		arlemiteAxe.registerItemModel();
+		rupeeAxe.registerItemModel();
+		bedrockAxe.registerItemModel();
+		realmiteShovel.registerItemModel();
+		edenShovel.registerItemModel();
+		wildwoodShovel.registerItemModel();
+		apalachiaShovel.registerItemModel();
+		skythernShovel.registerItemModel();
+		mortumShovel.registerItemModel();
+		divineShovel.registerItemModel();
+		arlemiteShovel.registerItemModel();
+		rupeeShovel.registerItemModel();
+		bedrockShovel.registerItemModel();
+		arlemiteHoe.registerItemModel();
+		rupeeHoe.registerItemModel();
+		realmiteHoe.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
