@@ -1,8 +1,7 @@
-package naturix.divinerpg.utils;
+package naturix.divinerpg;
 
 import org.apache.logging.log4j.Level;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 
@@ -13,6 +12,7 @@ public class Config {
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
 	public static boolean canShowOverlay = true;
+	public static boolean debug = false;
     public static void readConfig() {
         Configuration cfg = CommonProxy.config;
         try {
@@ -33,6 +33,7 @@ public class Config {
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
+        debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug, "Set to true to enable");
         
     }
 

@@ -8,12 +8,10 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class SerenadeIce extends ItemBase {

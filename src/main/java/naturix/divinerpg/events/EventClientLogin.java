@@ -2,7 +2,7 @@ package naturix.divinerpg.events;
 
 import java.io.IOException;
 
-import naturix.divinerpg.utils.Config;
+import naturix.divinerpg.Config;
 import naturix.divinerpg.utils.MessageLocalizer;
 import naturix.divinerpg.utils.UpdateChecker;
 import naturix.divinerpg.utils.Utils;

@@ -1,6 +1,5 @@
 package naturix.divinerpg.bases.items.food;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.FoodBase;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.EntityLivingBase;

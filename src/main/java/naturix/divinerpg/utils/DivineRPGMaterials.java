@@ -1,8 +1,6 @@
 package naturix.divinerpg.utils;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.items.PickaxeBase;
-import naturix.divinerpg.bases.items.SwordBase;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;

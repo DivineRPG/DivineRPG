@@ -1,7 +1,6 @@
 package naturix.divinerpg.bases.items;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;
 
 public class ShovelBase extends ItemSpade {

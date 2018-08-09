@@ -2,7 +2,6 @@ package naturix.divinerpg.bases.items;
 
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 
 public class PickaxeBase extends ItemPickaxe {
