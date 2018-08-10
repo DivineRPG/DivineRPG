@@ -41,7 +41,10 @@ public class DivineRPG {
 	    public void preInit(FMLPreInitializationEvent event) {
 	        logger = event.getModLog();
 	        proxy.preInit(event);
-	        logger.info(name + " is now loading");
+	        
+
+	        if(Config.debug == true) {
+	        logger.info(name + " is now loading");}
 	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	        ModSeeds.init();
 	    }
@@ -49,12 +52,19 @@ public class DivineRPG {
 	    @Mod.EventHandler
 	    public void init(FMLInitializationEvent e) {
 	        proxy.init(e);
+
+	        if(Config.debug == true) {
+	        	logger.info(name + " is almost loaded");
+	        }
 	    }
 
 	    @Mod.EventHandler
 	    public void postInit(FMLPostInitializationEvent e) {
 	        proxy.postInit(e);
+	        
+	        if(Config.debug == true) {
 	        logger.info(name + " has just finished loading");
+	    }
 	    }
 	    @Mod.EventBusSubscriber
 		public static class RegistrationHandler {

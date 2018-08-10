@@ -13,6 +13,7 @@ public class ModRecipes {
 		GameRegistry.addSmelting(ModBlocks.oreRupee, new ItemStack(ModItems.ingotRupee), 0.2f);
 		GameRegistry.addSmelting(ModBlocks.oreWildwood, new ItemStack(ModItems.gemWildwood), 0.2f);
 		GameRegistry.addSmelting(ModBlocks.oreSkythern, new ItemStack(ModItems.gemSkythern), 0.2f);
-		}
+
+	}
 
 }
