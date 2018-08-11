@@ -5,6 +5,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
+import naturix.divinerpg.utils.PreInitLog;
 import naturix.divinerpg.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -41,12 +43,11 @@ public class DivineRPG {
 	    public void preInit(FMLPreInitializationEvent event) {
 	        logger = event.getModLog();
 	        proxy.preInit(event);
-	        
-
-	        if(Config.debug == true) {
-	        logger.info(name + " is now loading");}
 	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	        ModSeeds.init();
+
+	        PreInitLog.init();
+	        
 	    }
 
 	    @Mod.EventHandler
