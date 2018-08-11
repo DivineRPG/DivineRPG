@@ -18,6 +18,8 @@ import naturix.divinerpg.bases.blocks.tile.AltarDramix;
 import naturix.divinerpg.bases.blocks.tile.AltarParasecta;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
+import naturix.divinerpg.bases.blocks.tile.furnace.BlockFurnace;
+import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -124,6 +126,7 @@ public class ModBlocks {
 	//public static BedBase nightmarebed = new BedBase("bed_nightmare");
 	public static AltarDramix altarDramix = new AltarDramix("altar_dramix");
 	public static AltarParasecta altarParasecta = new AltarParasecta("altar_parasecta");
+	public static BlockFurnace furnace = new BlockFurnace("furnace_1");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -225,10 +228,12 @@ public class ModBlocks {
 				twilightDemonStatue,
 				vamacheronStatue,
 				altarDramix,
-				altarParasecta
+				altarParasecta,
+				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
+		GameRegistry.registerTileEntity(TileEntityFurnace.class, furnace.getRegistryName().toString());
 		
 	}
 	
@@ -331,7 +336,8 @@ public class ModBlocks {
 				twilightDemonStatue.createItemBlock(), 
 				vamacheronStatue.createItemBlock(),
 				altarDramix.createItemBlock(),
-				altarParasecta.createItemBlock()
+				altarParasecta.createItemBlock(),
+				furnace.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	}
@@ -436,6 +442,7 @@ public class ModBlocks {
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
 		altarDramix.registerItemModel(Item.getItemFromBlock(altarDramix));
 		altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
+		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");
