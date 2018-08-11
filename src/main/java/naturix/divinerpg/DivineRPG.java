@@ -5,6 +5,8 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
+import naturix.divinerpg.utils.log.InitLog;
+import naturix.divinerpg.utils.log.PostInitLog;
 import naturix.divinerpg.utils.log.PreInitLog;
 import naturix.divinerpg.world.ModWorldGen;
 import net.minecraft.block.Block;
@@ -54,18 +56,14 @@ public class DivineRPG {
 	    public void init(FMLInitializationEvent e) {
 	        proxy.init(e);
 
-	        if(Config.debug == true) {
-	        	logger.info(name + " is almost loaded");
-	        }
+	        InitLog.init();
 	    }
 
 	    @Mod.EventHandler
 	    public void postInit(FMLPostInitializationEvent e) {
 	        proxy.postInit(e);
 	        
-	        if(Config.debug == true) {
-	        logger.info(name + " has just finished loading");
-	    }
+	        PostInitLog.init();
 	    }
 	    @Mod.EventBusSubscriber
 		public static class RegistrationHandler {
