@@ -5,7 +5,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
-import naturix.divinerpg.utils.PreInitLog;
+import naturix.divinerpg.utils.log.PreInitLog;
 import naturix.divinerpg.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;

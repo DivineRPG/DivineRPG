@@ -1,4 +1,4 @@
-package naturix.divinerpg.utils;
+package naturix.divinerpg.utils.log;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
