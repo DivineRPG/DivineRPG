@@ -1,11 +1,15 @@
 package naturix.divinerpg.bases.blocks.tile.furnace;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -50,5 +54,9 @@ public class BlockFurnace extends BlockTileEntity<TileEntityFurnace> {
 	public TileEntityFurnace createTileEntity(World world, IBlockState state) {
 		return new TileEntityFurnace();
 	}
-
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Not yet implimented");
+    }
 }

@@ -42,6 +42,6 @@ public class AltarParasecta extends BlockContainer {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-		tooltip.add("not yet implimented");
+		tooltip.add("Not yet implimented");
     }
 }
