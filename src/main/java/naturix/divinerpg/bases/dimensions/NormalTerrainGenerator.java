@@ -2,6 +2,7 @@ package naturix.divinerpg.bases.dimensions;
 
 import java.util.Random;
 
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -26,6 +27,7 @@ public class NormalTerrainGenerator {
             if (w.isAirBlock(pos) && (!w.provider.hasSkyLight() || y < 254) && this.block.canPlaceBlockAt(w, pos)) {
                 w.setBlockState(pos, null);
                 w.setBlockState(pos, null);
+                DivineRPG.logger.info(pos + " is where stuff SHOULD be");
                 generated = true;
             }
         }

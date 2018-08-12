@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
+import naturix.divinerpg.registry.ModBiomes;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.util.math.BlockPos;
@@ -24,8 +25,8 @@ public class ChunkGenerator implements IChunkGenerator {
 
     private final World worldObj;
     private Random random;
-    private Biome[] biomesForGeneration;
-
+    private Biome[] biomesForGeneration = {ModBiomes.Eden};
+    
     private List<Biome.SpawnListEntry> mobs = Lists.newArrayList(new Biome.SpawnListEntry(EntitySlime.class, 100, 2, 2));
 
     private MapGenBase caveGenerator = new MapGenCaves();
