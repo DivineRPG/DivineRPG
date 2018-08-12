@@ -135,7 +135,7 @@ public class DivineRPG {
 	        @SideOnly(Side.CLIENT)
 	        public ItemStack getTabIconItem()
 	        {
-	            return new ItemStack(ModItems.corruptedAxe);
+	            return new ItemStack(ModItems.rupeeShickaxe);
 	        }
 			
 	    };
