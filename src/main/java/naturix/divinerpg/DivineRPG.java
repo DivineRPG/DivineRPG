@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -34,7 +33,7 @@ public class DivineRPG {
 	public static final String version = "1.12.2.0";
 	public static final String UPDATE_URL = "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/divinerpg_update.json";
 	
-	@SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
+	@SidedProxy(serverSide = "naturix.divinerpg.proxy.ServerProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
 	public static CommonProxy proxy;
 	
 	@Mod.Instance(modId)
@@ -83,7 +82,7 @@ public class DivineRPG {
 	    	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    		ModBlocks.register(event.getRegistry());
 	    	}
-
+	    	
 	    }
 	    
 	    

@@ -18,8 +18,8 @@ public class ClientProxy extends CommonProxy {
 
     public void registerItemRenderer(Item item, int meta, String id) {
     	if (Config.debug = true) {
-    	DivineRPG.logger.info(id.toLowerCase() + "'s model has just been registered");
-    	}
+        DivineRPG.logger.info(id.toLowerCase() + "'s model has just been registered");
+        }
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
     }
     public void registerEntityRenderer(Entity entity, int meta, String id) {
