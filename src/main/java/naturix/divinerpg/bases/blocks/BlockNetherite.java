@@ -13,8 +13,6 @@ import net.minecraft.world.World;
 
 public class BlockNetherite extends BlockOreNether {
 
-	private Entity entity;
-
 	public BlockNetherite(String name) {
 		super(name);
 	} 
@@ -25,10 +23,5 @@ public class BlockNetherite extends BlockOreNether {
 		entity.attackEntityFrom(DamageSource.GENERIC, 1);
         entity.setFire(2);
         DivineRPG.logger.info(entity.getName());
-    }
-	public boolean requiresUpdates()
-    {
-        return true;
-    }
-	
+    }	
 	}

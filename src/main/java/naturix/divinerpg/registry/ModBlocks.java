@@ -17,7 +17,6 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
 import naturix.divinerpg.bases.blocks.tile.AltarDramix;
 import naturix.divinerpg.bases.blocks.tile.AltarParasecta;
-import naturix.divinerpg.bases.blocks.tile.TileEntityNetherite;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.tile.furnace.BlockFurnace;
@@ -233,7 +232,6 @@ public class ModBlocks {
 				altarParasecta,
 				furnace
 		);
-		GameRegistry.registerTileEntity(TileEntityNetherite.class, oreNetherite.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityFurnace.class, furnace.getRegistryName().toString());
