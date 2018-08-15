@@ -59,6 +59,7 @@ import naturix.divinerpg.bases.items.special.Aquamarine;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -387,7 +388,21 @@ public class ModItems {
 	public static HoeBase arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteSwordMaterial, "hoe_arlemite", 0, 0); 
 	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeSwordMaterial, "hoe_rupee", 0, 0); 
 	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteSwordMaterial, "hoe_realmite", 0, 0); 
-	
+	public static ItemBase crabClaw = new ItemBase("claw_crab"); 
+	public static CannonBase crabClawCannon = new CannonBase("cannon_claw_crab", Item.getItemFromBlock(Blocks.CACTUS)); 
+	public static SwordBase crabClawDual = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "claw_crab_dual"); 
+	public static CannonBase crabClawAnchor = new CannonBase("anchor_claw_crab", null); 
+	public static SwordBase everlight = new SwordBase(DivineRPGMaterials.everlightSwordMaterial, "everlight");
+	public static SwordBase everbright = new SwordBase(DivineRPGMaterials.everbrightSwordMaterial, "everbright"); 
+	public static SwordBase clawTeaker = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_teaker", true);
+	public static SwordBase clawAmthirmis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_amthirmis", true);
+	public static SwordBase clawDarven = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_darven", true);
+	public static SwordBase clawCermile = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_cermile", true);
+	public static SwordBase clawPardimal = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_pardimal", true);
+	public static SwordBase clawQuadrotic = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_quadrotic", true);
+	public static SwordBase clawKaros = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_karos", true);
+	public static SwordBase clawHeliosis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_heliosis", true);
+	public static SwordBase clawArksiane = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_arksiane", true);
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -713,7 +728,22 @@ public class ModItems {
 				bedrockShovel,
 				arlemiteHoe,
 				rupeeHoe,
-				realmiteHoe
+				realmiteHoe,
+				crabClaw,
+				crabClawCannon,
+				crabClawDual,
+				crabClawAnchor,
+				everlight,
+				everbright,
+				clawTeaker,
+				clawAmthirmis,
+				clawDarven,
+				clawCermile,
+				clawPardimal,
+				clawQuadrotic,
+				clawKaros,
+				clawHeliosis,
+				clawArksiane
 				);
 	}
 	
@@ -1041,6 +1071,21 @@ public class ModItems {
 		arlemiteHoe.registerItemModel();
 		rupeeHoe.registerItemModel();
 		realmiteHoe.registerItemModel();
+		crabClaw.registerItemModel();
+		crabClawCannon.registerItemModel();
+		crabClawDual.registerItemModel();
+		crabClawAnchor.registerItemModel();
+		everlight.registerItemModel();
+		everbright.registerItemModel();
+		clawTeaker.registerItemModel();
+		clawAmthirmis.registerItemModel();
+		clawDarven.registerItemModel();
+		clawCermile.registerItemModel();
+		clawPardimal.registerItemModel();
+		clawQuadrotic.registerItemModel();
+		clawKaros.registerItemModel();
+		clawHeliosis.registerItemModel();
+		clawArksiane.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
