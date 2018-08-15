@@ -3,6 +3,7 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
+import naturix.divinerpg.bases.blocks.BlockNetherite;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
 import naturix.divinerpg.bases.blocks.LampBase;
@@ -16,6 +17,7 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
 import naturix.divinerpg.bases.blocks.tile.AltarDramix;
 import naturix.divinerpg.bases.blocks.tile.AltarParasecta;
+import naturix.divinerpg.bases.blocks.tile.TileEntityNetherite;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.tile.furnace.BlockFurnace;
@@ -31,7 +33,7 @@ public class ModBlocks {
 	public static BlockOre oreapalachia = new BlockOre("ore_apalachia");
 	public static BlockOreNether orebloodgem = new BlockOreNether("ore_bloodgem");
 	public static BlockOre oremortum = new BlockOre("ore_mortum");
-	public static BlockOreNether oreNetherite = new BlockOreNether("ore_netherite");
+	public static BlockNetherite oreNetherite = new BlockNetherite("ore_netherite");
 	public static BlockOre oreRupee = new BlockOre("ore_rupee");
 	public static BlockOre oreSkythern = new BlockOre("ore_skythern");
 	public static BlockOre oreWildwood = new BlockOre("ore_wildwood");
@@ -231,6 +233,7 @@ public class ModBlocks {
 				altarParasecta,
 				furnace
 		);
+		GameRegistry.registerTileEntity(TileEntityNetherite.class, oreNetherite.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityFurnace.class, furnace.getRegistryName().toString());
