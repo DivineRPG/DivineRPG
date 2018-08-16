@@ -403,6 +403,28 @@ public class ModItems {
 	public static SwordBase clawKaros = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_karos", true);
 	public static SwordBase clawHeliosis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_heliosis", true);
 	public static SwordBase clawArksiane = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_arksiane", true);
+	public static SwordBase palavence = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "palavence");
+	public static SwordBase massivence = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "massivence");
+	public static SwordBase arlemiteStabber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "stabber_arlemite");
+	public static SwordBase rupeeRapier = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "rapier_rupee");
+	public static SwordBase aquaticDagger = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "dagger_aquatic");
+	public static SwordBase aquaticTrident = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "trident_aquatic");
+	public static SwordBase oceanKnife = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "knife_ocean");
+	public static SwordBase deathBringer = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "deathbringer");
+	public static SwordBase aquaticMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_aquatic");
+	public static SwordBase crabclawMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_claw_crab");
+	public static SwordBase poisonSaber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "saber_poison");
+	public static SwordBase furyMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_fury");
+	public static SwordBase icicleBane = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "icicle_bane");
+	public static SwordBase corruptedMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_corrupted");
+	public static SwordBase edenBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_eden");
+	public static SwordBase bedrockMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_bedrock");
+	public static SwordBase apalachiaBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_apalachia");
+	public static SwordBase mortumBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_mortum");
+	public static SwordBase haliteBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_halite");
+	public static SwordBase sandslash = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sandslash");
+	public static SwordBase shadowSaber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "saber_shadow");
+	public static SwordBase flamingFury = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "flamingfury");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -743,7 +765,29 @@ public class ModItems {
 				clawQuadrotic,
 				clawKaros,
 				clawHeliosis,
-				clawArksiane
+				clawArksiane,
+				palavence,
+				massivence,
+				arlemiteStabber,
+				rupeeRapier,
+				aquaticDagger,
+				aquaticTrident,
+				oceanKnife,
+				deathBringer,
+				aquaticMaul,
+				crabclawMaul,
+				poisonSaber,
+				furyMaul,
+				icicleBane,
+				corruptedMaul,
+				edenBlade,
+				bedrockMaul,
+				apalachiaBlade,
+				mortumBlade,
+				haliteBlade,
+				sandslash,
+				shadowSaber,
+				flamingFury
 				);
 	}
 	
@@ -1086,6 +1130,28 @@ public class ModItems {
 		clawKaros.registerItemModel();
 		clawHeliosis.registerItemModel();
 		clawArksiane.registerItemModel();
+		palavence.registerItemModel();
+		massivence.registerItemModel();
+		arlemiteStabber.registerItemModel();
+		rupeeRapier.registerItemModel();
+		aquaticDagger.registerItemModel();
+		aquaticTrident.registerItemModel();
+		oceanKnife.registerItemModel();
+		deathBringer.registerItemModel();
+		aquaticMaul.registerItemModel();
+		crabclawMaul.registerItemModel();
+		poisonSaber.registerItemModel();
+		furyMaul.registerItemModel();
+		icicleBane.registerItemModel();
+		corruptedMaul.registerItemModel();
+		edenBlade.registerItemModel();
+		bedrockMaul.registerItemModel();
+		apalachiaBlade.registerItemModel();
+		mortumBlade.registerItemModel();
+		haliteBlade.registerItemModel();
+		sandslash.registerItemModel();
+		shadowSaber.registerItemModel();
+		flamingFury.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
