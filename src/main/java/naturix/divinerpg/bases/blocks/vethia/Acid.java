@@ -64,7 +64,9 @@ public class Acid extends BlockBase {
         for (EntityLivingBase entity : world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB)) {
         	if (entity instanceof EntityLivingBase) {
                 entity.attackEntityFrom(Utils.acidSource, 3);
-                if(poison)((EntityLivingBase)e).addPotionEffect(new PotionEffect(MobEffects.POISON, 150, 1, true, true));
+                if(poison) {
+                	entity.addPotionEffect(new PotionEffect(MobEffects.POISON, 150, 1, true, true));
+                }
             }
         }
     }

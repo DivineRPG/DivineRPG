@@ -23,6 +23,7 @@ import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.tile.furnace.BlockFurnace;
 import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
+import naturix.divinerpg.bases.blocks.vethia.Acid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -134,9 +135,9 @@ public class ModBlocks {
 	public static HeatTrap heatTrapOn = new HeatTrap("heat_trap_on");
 	public static Spike spikeCold = new Spike("spike_cold");
 	public static Spike spikeHot = new Spike("spike_hot");
-	public static Spike acidBacteria = new Spike("acid_bacterial");
-	public static Spike acidBlock = new Spike("acid_block");
-	public static Spike acidLunic = new Spike("acid_lunic");
+	public static Acid acidBacteria = new Acid("acid_bacterial", false, true);
+	public static Acid acidBlock = new Acid("acid_block", true, false);
+	public static Acid acidLunic = new Acid("acid_lunic", true, true);
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
