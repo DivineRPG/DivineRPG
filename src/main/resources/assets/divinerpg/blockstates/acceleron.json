@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:acceleron"
+},
+  "variants": {
+    "normal": [{}],
+    "inventory":{"model": "divinerpg:acceleron" , "y" : 180 },
+    "facing=north": {"model": "divinerpg:acceleron" , "y" : 90 },
+    "facing=south": {"model": "divinerpg:acceleron" , "y": 270},
+    "facing=west": {"model": "divinerpg:acceleron", "y": 0 },
+    "facing=east": {"model": "divinerpg:acceleron" , "y": 180}
+
+    }
+}

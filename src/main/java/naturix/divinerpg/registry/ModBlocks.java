@@ -123,6 +123,7 @@ public class ModBlocks {
 	public static Acid acidBacteria = new Acid("acid_bacterial", false, true);
 	public static Acid acidBlock = new Acid("acid_block", true, false);
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
+	public static Acceleron acceleron = new Acceleron("acceleron");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -232,6 +233,7 @@ public class ModBlocks {
 				acidBacteria,
 				acidBlock,
 				acidLunic,
+				acceleron,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
@@ -346,7 +348,8 @@ public class ModBlocks {
 				spikeHot.createItemBlock(),
 				acidBacteria.createItemBlock(),
 				acidBlock.createItemBlock(),
-				acidLunic.createItemBlock()
+				acidLunic.createItemBlock(),
+				acceleron.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	}
@@ -457,7 +460,7 @@ public class ModBlocks {
 		acidBacteria.registerItemModel(Item.getItemFromBlock(acidBacteria));
 		acidBlock.registerItemModel(Item.getItemFromBlock(acidBlock));
 		acidLunic.registerItemModel(Item.getItemFromBlock(acidLunic));
-		
+		acceleron.registerItemModel(Item.getItemFromBlock(acceleron));
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
