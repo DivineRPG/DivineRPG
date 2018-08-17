@@ -1,9 +1,9 @@
 {   "parent": "block/orientable",
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "particle": "blocks/statue_dramix",
-        "texture": "blocks/statue_dramix",
-        "0": "blocks/statue_dramix"	
+        "particle": "divinerpg:blocks/statue_dramix",
+        "texture": "divinerpg:blocks/statue_dramix",
+        "0": "divinerpg:blocks/statue_dramix"	
     },
     "elements": [
         {

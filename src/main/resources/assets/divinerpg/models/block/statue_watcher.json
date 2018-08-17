@@ -1,9 +1,9 @@
 {   "parent": "block/orientable",
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "particle": "blocks/watcherStatueSides",
-        "0": "blocks/watcherStatueSides",
-        "1": "blocks/watcherStatueFace"
+        "particle": "divinerpg:blocks/watcherStatueSides",
+        "0": "divinerpg:blocks/watcherStatueSides",
+        "1": "divinerpg:blocks/watcherStatueFace"
     },
     "elements": [
         {

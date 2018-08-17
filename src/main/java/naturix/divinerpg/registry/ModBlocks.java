@@ -9,9 +9,9 @@ import naturix.divinerpg.bases.blocks.BlockOreNether;
 import naturix.divinerpg.bases.blocks.LampBase;
 import naturix.divinerpg.bases.blocks.LeavesBase;
 import naturix.divinerpg.bases.blocks.LogBase;
+import naturix.divinerpg.bases.blocks.Spike;
 import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
-import naturix.divinerpg.bases.blocks.arcana.Spike;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
@@ -134,6 +134,9 @@ public class ModBlocks {
 	public static HeatTrap heatTrapOn = new HeatTrap("heat_trap_on");
 	public static Spike spikeCold = new Spike("spike_cold");
 	public static Spike spikeHot = new Spike("spike_hot");
+	public static Spike acidBacteria = new Spike("acid_bacterial");
+	public static Spike acidBlock = new Spike("acid_block");
+	public static Spike acidLunic = new Spike("acid_lunic");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -240,6 +243,9 @@ public class ModBlocks {
 				heatTrapOn,
 				spikeCold,
 				spikeHot,
+				acidBacteria,
+				acidBlock,
+				acidLunic,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
@@ -351,7 +357,10 @@ public class ModBlocks {
 				heatTrap.createItemBlock(),
 				furnace.createItemBlock(),
 				spikeCold.createItemBlock(),
-				spikeHot.createItemBlock()
+				spikeHot.createItemBlock(),
+				acidBacteria.createItemBlock(),
+				acidBlock.createItemBlock(),
+				acidLunic.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	}
@@ -459,6 +468,9 @@ public class ModBlocks {
 		heatTrap.registerItemModel(Item.getItemFromBlock(heatTrap));
 		spikeCold.registerItemModel(Item.getItemFromBlock(spikeCold));
 		spikeHot.registerItemModel(Item.getItemFromBlock(spikeHot));
+		acidBacteria.registerItemModel(Item.getItemFromBlock(acidBacteria));
+		acidBlock.registerItemModel(Item.getItemFromBlock(acidBlock));
+		acidLunic.registerItemModel(Item.getItemFromBlock(acidLunic));
 		
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));

@@ -1,9 +1,8 @@
-package naturix.divinerpg.bases.blocks.arcana;
+package naturix.divinerpg.bases.blocks;
 
 import java.util.List;
 import java.util.Random;
 
-import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.block.material.Material;
