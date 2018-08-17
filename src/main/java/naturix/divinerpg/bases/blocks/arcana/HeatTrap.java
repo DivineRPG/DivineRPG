@@ -6,6 +6,7 @@ import java.util.Random;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.Utils;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -34,8 +35,9 @@ public class HeatTrap extends BlockBase {
         detectInBB(pos, world);
         world.scheduleUpdate(pos, this, 5);
         if (this == ModBlocks.heatTrapOn) {
+        	if(rand.nextInt(15) == 7) {
         	world.setBlockState(pos, ModBlocks.heatTrap.getDefaultState());
-        }
+        }}
     }
  
     @Override
@@ -51,7 +53,7 @@ public class HeatTrap extends BlockBase {
         List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB);
         for (EntityLivingBase entity : world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB)) {
         	if (entity instanceof EntityLivingBase && this == ModBlocks.heatTrapOn) {
-                entity.attackEntityFrom(DamageSource.GENERIC, 1);
+                entity.attackEntityFrom(Utils.trapSource, 16);
                 entity.setFire(15);
             }
         	if(entity instanceof EntityLivingBase && this == ModBlocks.heatTrap) {

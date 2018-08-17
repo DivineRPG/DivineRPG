@@ -460,3 +460,8 @@ item.blade_halite.name=Halite Blade
 item.sandslash.name=Sandslash
 item.saber_shadow.name=Shadow Saber
 item.flamingfury.name=Flaming Fury
+
+death.attack.trap=%1$s fell into a trap
+death.attack.spikes=%1$s walked on spikes
+death.attack.acid=%1$s melted in acid
+death.attack.arcana=%1$s was killed by magic
