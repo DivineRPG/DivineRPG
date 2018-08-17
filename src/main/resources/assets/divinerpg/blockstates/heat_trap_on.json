@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "divinerpg:heat_trap"
+    "model": "divinerpg:heat_trap_on"
   },
   "variants": {
     "normal": [{}],

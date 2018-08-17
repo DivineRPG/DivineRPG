@@ -129,7 +129,8 @@ public class ModBlocks {
 	public static AltarDramix altarDramix = new AltarDramix("altar_dramix");
 	public static AltarParasecta altarParasecta = new AltarParasecta("altar_parasecta");
 	public static BlockFurnace furnace = new BlockFurnace("furnace_1");
-	public static HeatTrap heatTrap = new HeatTrap("heat_trap", 3);
+	public static HeatTrap heatTrap = new HeatTrap("heat_trap");
+	public static HeatTrap heatTrapOn = new HeatTrap("heat_trap_on");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -233,6 +234,7 @@ public class ModBlocks {
 				altarDramix,
 				altarParasecta,
 				heatTrap,
+				heatTrapOn,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
