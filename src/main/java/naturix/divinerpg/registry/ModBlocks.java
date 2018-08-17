@@ -11,6 +11,7 @@ import naturix.divinerpg.bases.blocks.LeavesBase;
 import naturix.divinerpg.bases.blocks.LogBase;
 import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
+import naturix.divinerpg.bases.blocks.arcana.Spike;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
@@ -131,6 +132,8 @@ public class ModBlocks {
 	public static BlockFurnace furnace = new BlockFurnace("furnace_1");
 	public static HeatTrap heatTrap = new HeatTrap("heat_trap");
 	public static HeatTrap heatTrapOn = new HeatTrap("heat_trap_on");
+	public static Spike spikeCold = new Spike("spike_cold");
+	public static Spike spikeHot = new Spike("spike_hot");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -235,6 +238,8 @@ public class ModBlocks {
 				altarParasecta,
 				heatTrap,
 				heatTrapOn,
+				spikeCold,
+				spikeHot,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
@@ -344,7 +349,9 @@ public class ModBlocks {
 				altarDramix.createItemBlock(),
 				altarParasecta.createItemBlock(),
 				heatTrap.createItemBlock(),
-				furnace.createItemBlock()
+				furnace.createItemBlock(),
+				spikeCold.createItemBlock(),
+				spikeHot.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	}
@@ -450,6 +457,9 @@ public class ModBlocks {
 		altarDramix.registerItemModel(Item.getItemFromBlock(altarDramix));
 		altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
 		heatTrap.registerItemModel(Item.getItemFromBlock(heatTrap));
+		spikeCold.registerItemModel(Item.getItemFromBlock(spikeCold));
+		spikeHot.registerItemModel(Item.getItemFromBlock(spikeHot));
+		
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		

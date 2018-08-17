@@ -13,13 +13,9 @@ public class Utils {
 	public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
 
     public static DamageSource trapSource = new DamageSource("trap");
-	public static int MINS2TICKS(int mins) {
-		return mins * 1200;
-		}
-
-		public static int SECS2TICKS(int secs) {
-		return secs * 20;
-		}
+    public static DamageSource acidSource = new DamageSource("acid");
+    public static DamageSource spikeSource = new DamageSource("spike");
+	
 		private static String str;
 		private static Object args;
 		public static ITextComponent getChatComponent(String str) {

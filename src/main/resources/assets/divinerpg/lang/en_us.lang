@@ -19,6 +19,8 @@ tile.ore_arcanium.name=Arcanium Ore
 
 tile.statue_watcher.name=Watcher Statue
 tile.heat_trap.name=Heat Trap
+tile.spike_cold.name=Spike Block
+tile.spike_hot.name=Hot Spikes
 tile.block_arlemite.name=Arlemite Block
 tile.block_apalachia.name=Apalachia Block
 tile.block_bloodgem.name=BloodGem Block
@@ -462,6 +464,6 @@ item.saber_shadow.name=Shadow Saber
 item.flamingfury.name=Flaming Fury
 
 death.attack.trap=%1$s fell into a trap
-death.attack.spikes=%1$s walked on spikes
+death.attack.spike=%1$s walked on spikes
 death.attack.acid=%1$s melted in acid
 death.attack.arcana=%1$s was killed by magic
