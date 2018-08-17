@@ -124,7 +124,7 @@ public class DivineRPG {
 	        @SideOnly(Side.CLIENT)
 	        public ItemStack getTabIconItem()
 	        {
-	            return new ItemStack(ModItems.angelicChestplate);
+	            return new ItemStack(ModItems.realmiteChestplate);
 	        }
 			
 	    };
@@ -134,7 +134,7 @@ public class DivineRPG {
 	        @SideOnly(Side.CLIENT)
 	        public ItemStack getTabIconItem()
 	        {
-	            return new ItemStack(ModItems.rupeeShickaxe);
+	            return new ItemStack(ModItems.arlemiteShickaxe);
 	        }
 			
 	    };
