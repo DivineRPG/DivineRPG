@@ -10,6 +10,7 @@ import naturix.divinerpg.bases.blocks.LampBase;
 import naturix.divinerpg.bases.blocks.LeavesBase;
 import naturix.divinerpg.bases.blocks.LogBase;
 import naturix.divinerpg.bases.blocks.TorchBase;
+import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
@@ -128,6 +129,7 @@ public class ModBlocks {
 	public static AltarDramix altarDramix = new AltarDramix("altar_dramix");
 	public static AltarParasecta altarParasecta = new AltarParasecta("altar_parasecta");
 	public static BlockFurnace furnace = new BlockFurnace("furnace_1");
+	public static HeatTrap heatTrap = new HeatTrap("heat_trap", 3);
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -230,6 +232,7 @@ public class ModBlocks {
 				vamacheronStatue,
 				altarDramix,
 				altarParasecta,
+				heatTrap,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
@@ -338,6 +341,7 @@ public class ModBlocks {
 				vamacheronStatue.createItemBlock(),
 				altarDramix.createItemBlock(),
 				altarParasecta.createItemBlock(),
+				heatTrap.createItemBlock(),
 				furnace.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
@@ -443,6 +447,7 @@ public class ModBlocks {
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
 		altarDramix.registerItemModel(Item.getItemFromBlock(altarDramix));
 		altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
+		heatTrap.registerItemModel(Item.getItemFromBlock(heatTrap));
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		

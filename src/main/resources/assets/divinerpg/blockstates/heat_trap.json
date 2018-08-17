@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:heat_trap"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+	"stage=0": [{divinerpg:heat_trap_1}]
+  }
+}
