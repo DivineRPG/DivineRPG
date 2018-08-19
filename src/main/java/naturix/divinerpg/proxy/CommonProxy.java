@@ -3,10 +3,8 @@ package naturix.divinerpg.proxy;
 import java.io.File;
 
 import naturix.divinerpg.Config;
-import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
-import naturix.divinerpg.registry.ModEvents;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -55,6 +53,5 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 			
 		}
 		public void registerEntityRenderer(Entity entity, int i, String name) {
-			
 		}
 	}

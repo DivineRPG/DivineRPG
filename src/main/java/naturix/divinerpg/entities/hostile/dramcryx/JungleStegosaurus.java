@@ -31,7 +31,7 @@ public class JungleStegosaurus extends EntityMob {
     public JungleStegosaurus(World worldIn) {
 		super(worldIn);
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx.json");
 
 
     protected boolean isMaster() {
@@ -44,12 +44,7 @@ public class JungleStegosaurus extends EntityMob {
         return false;
     }
 
-    @Override
-    protected void entityInit() {
-        super.entityInit();
-        LootTable lootTableFromLocation = world.getLootTableManager().getLootTableFromLocation(LOOT);
-        System.out.println("lootTableFromLocation = " + lootTableFromLocation);
-    }
+    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
@@ -82,19 +77,6 @@ public class JungleStegosaurus extends EntityMob {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
-
-    @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-    }
-
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-       }
 
     @Override
     @Nullable
