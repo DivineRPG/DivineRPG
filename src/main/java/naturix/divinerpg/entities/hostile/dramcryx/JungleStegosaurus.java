@@ -68,13 +68,15 @@ public class JungleStegosaurus extends EntityMob {
         }
     }
 
-    @Override
-    protected void initEntityAI() {
+    protected void initEntityAI()
+    {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 2, true));
+        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
+        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
         this.applyEntityAI();
     }
 
