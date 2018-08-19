@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/dirt_arcana",
+    "down": "divinerpg:blocks/dirt_arcana",
+    "up": "divinerpg:blocks/grass_arcana_top",
+    "east": "divinerpg:blocks/grass_arcana_side",
+    "west": "divinerpg:blocks/grass_arcana_side",
+    "north": "divinerpg:blocks/grass_arcana_side",
+    "south": "divinerpg:blocks/grass_arcana_side"
+  }
+}

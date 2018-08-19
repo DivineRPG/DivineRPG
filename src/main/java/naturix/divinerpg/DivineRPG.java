@@ -1,7 +1,9 @@
 package naturix.divinerpg;
 
+import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModEvents;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
@@ -15,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -46,7 +49,8 @@ public class DivineRPG {
 	        proxy.preInit(event);
 	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	        ModSeeds.init();
-
+	        ModEvents.preInit();
+	        
 	        PreInitLog.init();
 	        
 	    }
@@ -82,6 +86,7 @@ public class DivineRPG {
 	    	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    		ModBlocks.register(event.getRegistry());
 	    	}
+	    	
 	    	
 	    }
 	    

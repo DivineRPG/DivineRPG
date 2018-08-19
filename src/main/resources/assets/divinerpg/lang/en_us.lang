@@ -17,6 +17,7 @@ tile.ore_realmite.name=Realmite Ore
 tile.ore_eden.name=Eden Ore
 tile.ore_arcanium.name=Arcanium Ore
 
+tile.grass_arcana.name=Arcanite Grass
 tile.statue_watcher.name=Watcher Statue
 tile.heat_trap.name=Heat Trap
 tile.spike_cold.name=Spike Block
@@ -466,6 +467,7 @@ item.blade_halite.name=Halite Blade
 item.sandslash.name=Sandslash
 item.saber_shadow.name=Shadow Saber
 item.flamingfury.name=Flaming Fury
+item.seeds_arcana.name=Aquamarine Seeds
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

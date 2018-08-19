@@ -3,7 +3,9 @@ package naturix.divinerpg.proxy;
 import java.io.File;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.registry.ModEvents;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -20,6 +22,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber
 	public class CommonProxy {
 	public static Configuration config;
+	
 	    public void preInit(FMLPreInitializationEvent e) {
 	    	File directory = e.getModConfigurationDirectory();
 	        config = new Configuration(new File(directory.getPath(), "naturix/divinerpg.cfg"));
@@ -28,6 +31,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        }
 
 	    public void init(FMLInitializationEvent e) {
+
 	    }
 
 	    public void postInit(FMLPostInitializationEvent e) {

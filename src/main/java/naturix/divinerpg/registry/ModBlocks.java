@@ -1,14 +1,31 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.*;
-import naturix.divinerpg.bases.blocks.arcana.*;
-import naturix.divinerpg.bases.blocks.sapling.*;
-import naturix.divinerpg.bases.blocks.tile.*;
-import naturix.divinerpg.bases.blocks.tile.entity.*;
-import naturix.divinerpg.bases.blocks.tile.furnace.*;
-import naturix.divinerpg.bases.blocks.tile.furnace.entity.*;
-import naturix.divinerpg.bases.blocks.vethia.*;
+import naturix.divinerpg.bases.blocks.BaseStatue;
+import naturix.divinerpg.bases.blocks.BeaconBaseBase;
+import naturix.divinerpg.bases.blocks.BlockBase;
+import naturix.divinerpg.bases.blocks.BlockNetherite;
+import naturix.divinerpg.bases.blocks.BlockOre;
+import naturix.divinerpg.bases.blocks.BlockOreNether;
+import naturix.divinerpg.bases.blocks.LampBase;
+import naturix.divinerpg.bases.blocks.LeavesBase;
+import naturix.divinerpg.bases.blocks.LogBase;
+import naturix.divinerpg.bases.blocks.Spike;
+import naturix.divinerpg.bases.blocks.TorchBase;
+import naturix.divinerpg.bases.blocks.arcana.Acceleron;
+import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
+import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
+import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
+import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
+import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
+import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
+import naturix.divinerpg.bases.blocks.tile.AltarDramix;
+import naturix.divinerpg.bases.blocks.tile.AltarParasecta;
+import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
+import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
+import naturix.divinerpg.bases.blocks.tile.furnace.BlockFurnace;
+import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
+import naturix.divinerpg.bases.blocks.vethia.Acid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -124,7 +141,8 @@ public class ModBlocks {
 	public static Acid acidBlock = new Acid("acid_block", true, false);
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
 	public static Acceleron acceleron = new Acceleron("acceleron");
-	
+	public static BlockBase grassArcana = new BlockBase("grass_arcana");
+	 
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(
@@ -234,6 +252,7 @@ public class ModBlocks {
 				acidBlock,
 				acidLunic,
 				acceleron,
+				grassArcana,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
@@ -349,10 +368,11 @@ public class ModBlocks {
 				acidBacteria.createItemBlock(),
 				acidBlock.createItemBlock(),
 				acidLunic.createItemBlock(),
-				acceleron.createItemBlock()
+				acceleron.createItemBlock(),
+				grassArcana.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
-	}
+	} 
 	
 	public static void registerModels() {
 		oreArlemite.registerItemModel(Item.getItemFromBlock(oreArlemite));
@@ -461,6 +481,8 @@ public class ModBlocks {
 		acidBlock.registerItemModel(Item.getItemFromBlock(acidBlock));
 		acidLunic.registerItemModel(Item.getItemFromBlock(acidLunic));
 		acceleron.registerItemModel(Item.getItemFromBlock(acceleron));
+		grassArcana.registerItemModel(Item.getItemFromBlock(grassArcana));
+		
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
