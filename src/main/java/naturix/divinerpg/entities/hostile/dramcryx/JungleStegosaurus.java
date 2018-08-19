@@ -17,6 +17,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -30,8 +31,6 @@ public class JungleStegosaurus extends EntityMob {
     public JungleStegosaurus(World worldIn) {
 		super(worldIn);
 	}
-
-	private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(JungleStegosaurus.class, DataSerializers.BOOLEAN);
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx");
 
 
@@ -48,9 +47,8 @@ public class JungleStegosaurus extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
-//        LootTable lootTableFromLocation = worldObj.getLootTableManager().getLootTableFromLocation(LOOT);
-//        System.out.println("lootTableFromLocation = " + lootTableFromLocation);
+        LootTable lootTableFromLocation = world.getLootTableManager().getLootTableFromLocation(LOOT);
+        System.out.println("lootTableFromLocation = " + lootTableFromLocation);
     }
 
     @Override
@@ -88,11 +86,6 @@ public class JungleStegosaurus extends EntityMob {
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        //if (cityCenter != null) {
-        //    compound.setInteger("cityX", cityCenter.getChunkX());
-        //    compound.setInteger("cityZ", cityCenter.getChunkZ());
-        //}
-        //compound.setInteger("behaviour", behaviourType.ordinal());
     }
 
     /**
@@ -101,11 +94,7 @@ public class JungleStegosaurus extends EntityMob {
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        //if (compound.hasKey("cityX")) {
-            //cityCenter = new ChunkCoord(compound.getInteger("cityX"), compound.getInteger("cityZ"));
-        //}
-        //behaviourType = SoldierBehaviourType.values()[compound.getInteger("behaviour")];
-    }
+       }
 
     @Override
     @Nullable
@@ -116,7 +105,6 @@ public class JungleStegosaurus extends EntityMob {
 
     @Override
     protected boolean isValidLightLevel() {
-//        return super.isValidLightLevel();
         return true;
     }
 

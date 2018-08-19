@@ -468,6 +468,7 @@ item.sandslash.name=Sandslash
 item.saber_shadow.name=Shadow Saber
 item.flamingfury.name=Flaming Fury
 item.seeds_arcana.name=Aquamarine Seeds
+item.shard_jungle.name=Jungle Shards
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
