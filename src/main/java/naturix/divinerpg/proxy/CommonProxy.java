@@ -5,6 +5,7 @@ import java.io.File;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModEvents;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -28,6 +29,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        config = new Configuration(new File(directory.getPath(), "naturix/divinerpg.cfg"));
 	        Config.readConfig();
 	        ModDimensions.init();
+	        ModEntities.init();
 	        }
 
 	    public void init(FMLInitializationEvent e) {
