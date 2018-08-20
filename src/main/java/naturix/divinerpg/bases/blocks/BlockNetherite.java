@@ -3,13 +3,9 @@ package naturix.divinerpg.bases.blocks;
 import java.util.List;
 import java.util.Random;
 
-import naturix.divinerpg.Config;
-import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;

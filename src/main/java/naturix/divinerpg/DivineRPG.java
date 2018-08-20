@@ -6,22 +6,30 @@
  *
  */package naturix.divinerpg;
 
+import naturix.divinerpg.entities.entity.LandShark;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEvents;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
+import naturix.divinerpg.registry.ModSpawns;
 import naturix.divinerpg.utils.log.InitLog;
 import naturix.divinerpg.utils.log.PostInitLog;
 import naturix.divinerpg.utils.log.PreInitLog;
 import naturix.divinerpg.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityWaterMob;
+import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -90,7 +98,10 @@ public class DivineRPG {
 	    	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    		ModBlocks.register(event.getRegistry());
 	    	}
-			   	
+			@SubscribeEvent
+			public static void onLivingSpawn(LivingSpawnEvent event) {
+				ModSpawns.init(event);
+			} 	
 	    	
 	    }
 	    

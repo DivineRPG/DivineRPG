@@ -1,4 +1,5 @@
-package naturix.divinerpg.entities.entity.dramcryx;
+package naturix.divinerpg.entities.entity;
+
 
 import javax.annotation.Nullable;
 
@@ -18,19 +19,22 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BossInfo;
+import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class JungleStegosaurus extends EntityMob {
+public class AncientEntity extends EntityMob {
 
-    public JungleStegosaurus(World worldIn) {
+    public AncientEntity(World worldIn) {
 		super(worldIn);
-		this.setSize(1.5F, 2);
-		this.setHealth(40);
+		this.setSize(8F, 10);
+		this.setHealth(800);
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_jungle.json");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ancient_entity.json");
 
 
     protected boolean isMaster() {
@@ -50,7 +54,7 @@ public class JungleStegosaurus extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         } else {
@@ -83,7 +87,7 @@ public class JungleStegosaurus extends EntityMob {
 
     @Override
     public int getMaxSpawnedInChunk() {
-        return 3;
+        return 1;
     }
 
     @Override
@@ -109,5 +113,30 @@ public class JungleStegosaurus extends EntityMob {
 	{
 		return this.LOOT;
 
+	}
+    @Override
+	public boolean isNonBoss() {
+		return false;
+	}
+
+	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
+			BossInfo.Overlay.PROGRESS));
+
+	@Override
+	public void addTrackingPlayer(EntityPlayerMP player) {
+		super.addTrackingPlayer(player);
+		this.bossInfo.addPlayer(player);
+	}
+
+	@Override
+	public void removeTrackingPlayer(EntityPlayerMP player) {
+		super.removeTrackingPlayer(player);
+		this.bossInfo.removePlayer(player);
+	}
+
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 }

@@ -1,6 +1,5 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.events.EventArmorSet;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ModEvents {

@@ -2,7 +2,6 @@ package naturix.divinerpg.utils.log;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.utils.Utils;
 import net.minecraftforge.fml.common.Loader;
 
 public class PreInitLog {

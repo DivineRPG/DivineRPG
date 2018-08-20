@@ -1,6 +1,5 @@
 package naturix.divinerpg.events;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerCapabilities;
