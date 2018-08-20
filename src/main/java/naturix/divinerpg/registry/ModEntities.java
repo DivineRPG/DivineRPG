@@ -1,10 +1,10 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.entities.assets.entity.anciententity.AncientEntity;
-import naturix.divinerpg.entities.assets.entity.dramcryx.JungleStegosaurus;
 import naturix.divinerpg.entities.assets.render.RenderAncientEntity;
 import naturix.divinerpg.entities.assets.render.RenderDramcryx;
+import naturix.divinerpg.entities.entity.anciententity.AncientEntity;
+import naturix.divinerpg.entities.entity.dramcryx.JungleStegosaurus;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;

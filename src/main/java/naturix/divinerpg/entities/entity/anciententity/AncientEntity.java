@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.assets.entity.anciententity;
+package naturix.divinerpg.entities.entity.anciententity;
 
 
 import javax.annotation.Nullable;

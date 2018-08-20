@@ -2,10 +2,10 @@ package naturix.divinerpg.entities.assets.render;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.entities.assets.entity.anciententity.AncientEntity;
-import naturix.divinerpg.entities.assets.entity.dramcryx.JungleStegosaurus;
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelAncientEntity;
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelDramcryx;
+import naturix.divinerpg.entities.entity.anciententity.AncientEntity;
+import naturix.divinerpg.entities.entity.dramcryx.JungleStegosaurus;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

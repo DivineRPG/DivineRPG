@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.assets.entity.dramcryx;
+package naturix.divinerpg.entities.entity.dramcryx;
 
 import javax.annotation.Nullable;
 
