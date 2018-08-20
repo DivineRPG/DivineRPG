@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.hostile.dramcryx;
+package naturix.divinerpg.entities.hostile.entity.dramcryx;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
