@@ -20,10 +20,8 @@ public class RenderDramcryx extends RenderLiving<JungleStegosaurus> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(JungleStegosaurus p_110775_1_)
+	@Override
+    protected ResourceLocation getEntityTexture(JungleStegosaurus entity)
     {
         return texture;
     }
