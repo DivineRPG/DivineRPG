@@ -147,5 +147,5 @@ public class ModelDramcryx extends ModelBase
         this.Leg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
         this.Leg3.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
         this.Leg4.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-    }
+        }
 }

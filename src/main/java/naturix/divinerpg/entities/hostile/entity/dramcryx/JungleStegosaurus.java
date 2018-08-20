@@ -2,11 +2,13 @@ package naturix.divinerpg.entities.hostile.entity.dramcryx;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -15,7 +17,9 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,11 +29,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
 
 public class JungleStegosaurus extends EntityMob {
 
     public JungleStegosaurus(World worldIn) {
 		super(worldIn);
+		this.setSize(1.5F, 2);
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx.json");
 
@@ -38,10 +44,9 @@ public class JungleStegosaurus extends EntityMob {
         return false;
     }
 
-    // Soldiers don't despawn. Spawning and despawning is managed by the cities
     @Override
     protected boolean canDespawn() {
-        return false;
+        return true;
     }
 
     private ResourceLocation deathLootTable = LOOT;
@@ -77,13 +82,6 @@ public class JungleStegosaurus extends EntityMob {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
-
-    @Override
-    @Nullable
-    protected ResourceLocation getLootTable() {
-        return LOOT;
-    }
-
 
     @Override
     protected boolean isValidLightLevel() {

@@ -15,6 +15,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
+        ModEntities.initModels();
     }
     
 
@@ -24,9 +25,5 @@ public class ClientProxy extends CommonProxy {
         }
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
     }
-    @SubscribeEvent
-    public void registerModels(ModelRegistryEvent event) {
-        ModEntities.initModels();
-        
-    }
+    
 }
