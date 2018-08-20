@@ -22,13 +22,13 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "serenade_death"), EntityDeath.class, "death", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "serenade_ice"), EntityDeath.class, "ice", id++, DivineRPG.instance, 64, 3, true);
 		id = 100;
-		EntityRegistry.registerModEntity(DRPGEntityNames.DRAMCRYX_JUNGLE, JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true);
-
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_jungle"), JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true, 0x222222, 0x555555);
+        
 		LootTableList.register(JungleStegosaurus.LOOT);
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
 	}
 	public static void initModels() {
 
-		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryx.FACTORY);
-		}
+
+        RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryx.FACTORY);}
 }

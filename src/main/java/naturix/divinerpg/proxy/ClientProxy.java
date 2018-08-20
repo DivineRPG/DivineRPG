@@ -27,6 +27,6 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public void registerModels(ModelRegistryEvent event) {
         ModEntities.initModels();
+        
     }
-    
 }
