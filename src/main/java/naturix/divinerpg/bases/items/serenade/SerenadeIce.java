@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
-import naturix.divinerpg.entities.projectile.serenade.EntitySerenadeOfIce;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -29,7 +28,7 @@ public class SerenadeIce extends ItemBase {
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
 		
 		if(!world.isRemote) {
-			world.spawnEntity(new EntitySerenadeOfIce(world, entity));
+			//world.spawnEntity(new EntitySerenadeOfIce(world, entity));
 			//world.playSoundAtEntity(entity, Sounds.serenade.getPrefixedName(), 1, 1);
 
 			entity.getHeldItem(hand).damageItem(1, entity);

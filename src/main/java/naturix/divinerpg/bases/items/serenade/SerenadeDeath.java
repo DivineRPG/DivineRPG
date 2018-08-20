@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
-import naturix.divinerpg.entities.projectile.serenade.EntityDeath;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,7 +34,7 @@ public class SerenadeDeath extends ItemBase {
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
 		if(!world.isRemote){
 			//world.playSoundAtEntity(entity, Sounds.serenade.getPrefixedName(), 1, 1);
-			world.spawnEntity(new EntityDeath(world, entity));
+			//world.spawnEntity(new EntityDeath(world, entity));
 
 			entity.getHeldItem(hand).damageItem(1, entity);
 }

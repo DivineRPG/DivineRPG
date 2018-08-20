@@ -1,7 +1,6 @@
 package naturix.divinerpg.bases.items.arrows;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.entities.ECustomArrow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityTippedArrow;
@@ -11,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class InfernoArrow extends ItemArrow {
-    private ECustomArrow arrow;
+    //private ECustomArrow arrow;
     private String name;
 	public InfernoArrow(String name) {
         this.setCreativeTab(DivineRPG.CombatTab);
