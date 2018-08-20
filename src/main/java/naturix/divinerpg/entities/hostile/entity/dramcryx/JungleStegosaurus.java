@@ -1,35 +1,27 @@
 package naturix.divinerpg.entities.hostile.entity.dramcryx;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.MoverType;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTable;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.ModItems;
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIFollow;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class JungleStegosaurus extends EntityMob {
 
@@ -37,7 +29,7 @@ public class JungleStegosaurus extends EntityMob {
 		super(worldIn);
 		this.setSize(1.5F, 2);
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx.json");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_jungle.json");
 
 
     protected boolean isMaster() {
@@ -111,5 +103,10 @@ public class JungleStegosaurus extends EntityMob {
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
     }
+    @Override
+	protected ResourceLocation getLootTable()
+	{
+		return this.LOOT;
 
+	}
 }

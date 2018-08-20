@@ -28,6 +28,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        ModDimensions.init();
 	        ModEntities.init();
+	        
 	        }
 
 	    public void init(FMLInitializationEvent e) {
