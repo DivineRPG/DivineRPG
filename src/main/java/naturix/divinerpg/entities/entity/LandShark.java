@@ -30,7 +30,7 @@ public class LandShark extends EntityWaterMob {
 
     public LandShark(World worldIn) {
 		super(worldIn);
-		this.setSize(0.6F, 2);
+		this.setSize(1.4F, 0.6f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/shark");

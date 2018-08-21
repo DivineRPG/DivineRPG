@@ -27,7 +27,7 @@ public class JungleStegosaurus extends EntityMob {
 
     public JungleStegosaurus(World worldIn) {
 		super(worldIn);
-		this.setSize(1.5F, 2);
+		this.setSize(1.5F, 1.8f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_jungle");

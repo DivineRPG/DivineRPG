@@ -27,7 +27,7 @@ public class DeathHound extends EntityMob {
 
     public DeathHound(World worldIn) {
 		super(worldIn);
-		this.setSize(1.5F, 2);
+		this.setSize(1F, 0.9f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/death_hound");
