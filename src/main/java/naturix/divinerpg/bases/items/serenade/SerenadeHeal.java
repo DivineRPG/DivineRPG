@@ -20,7 +20,6 @@ public class SerenadeHeal extends ItemBase{
 		setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(7);
 		setMaxStackSize(1);
-		showDurabilityBar(getDefaultInstance());
 	}
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {

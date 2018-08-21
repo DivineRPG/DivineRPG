@@ -20,7 +20,6 @@ public class SerenadeDeath extends ItemBase {
 		setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(500);
 		setMaxStackSize(1);
-		showDurabilityBar(getDefaultInstance());
 	}
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
