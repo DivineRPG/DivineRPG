@@ -1,5 +1,6 @@
 package naturix.divinerpg.entities.entity;
 
+
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
@@ -18,19 +19,22 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BossInfo;
+import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class DeathHound extends EntityMob {
+public class Vamecheron extends EntityMob {
 
-    public DeathHound(World worldIn) {
+    public Vamecheron(World worldIn) {
 		super(worldIn);
-		this.setSize(1.5F, 2);
+		this.setSize(1.3F, 1.5f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/death_hound");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/vamacheron_boss");
 
 
     protected boolean isMaster() {
@@ -49,9 +53,9 @@ public class DeathHound extends EntityMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1350.0D);
         if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(25.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         } else {
             this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
@@ -83,7 +87,7 @@ public class DeathHound extends EntityMob {
 
     @Override
     public int getMaxSpawnedInChunk() {
-        return 3;
+        return 1;
     }
 
     @Override
@@ -109,5 +113,30 @@ public class DeathHound extends EntityMob {
 	{
 		return this.LOOT;
 
+	}
+    @Override
+	public boolean isNonBoss() {
+		return false;
+	}
+
+	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
+			BossInfo.Overlay.PROGRESS));
+
+	@Override
+	public void addTrackingPlayer(EntityPlayerMP player) {
+		super.addTrackingPlayer(player);
+		this.bossInfo.addPlayer(player);
+	}
+
+	@Override
+	public void removeTrackingPlayer(EntityPlayerMP player) {
+		super.removeTrackingPlayer(player);
+		this.bossInfo.removePlayer(player);
+	}
+
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 }

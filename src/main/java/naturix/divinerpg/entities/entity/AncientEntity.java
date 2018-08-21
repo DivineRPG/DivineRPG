@@ -32,9 +32,9 @@ public class AncientEntity extends EntityMob {
     public AncientEntity(World worldIn) {
 		super(worldIn);
 		this.setSize(8F, 10);
-		this.setHealth(800);
+		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ancient_entity.json");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ancient_entity");
 
 
     protected boolean isMaster() {
@@ -53,8 +53,8 @@ public class AncientEntity extends EntityMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
         if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         } else {

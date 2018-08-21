@@ -469,6 +469,7 @@ item.saber_shadow.name=Shadow Saber
 item.flamingfury.name=Flaming Fury
 item.seeds_arcana.name=Aquamarine Seeds
 item.shard_jungle.name=Jungle Shards
+item.shark_fin.name=Shark Fin
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
@@ -476,4 +477,7 @@ death.attack.acid=%1$s melted in acid
 death.attack.arcana=%1$s was killed by magic
 
 entity.dramcryx_jungle.name=Jungle Dramcryx
-entity.ancient_entity.name=Ancient Enttity
+entity.ancient_entity.name=Ancient Entity
+entity.shark.name=Shark
+entity.death_hound.name=Death Hound
+entity.vamacheron_boss.name=Vamacheron

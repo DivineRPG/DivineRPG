@@ -1,26 +1,26 @@
 {
   "pools": [
     {
-      "name": "divinerpg:dramcryx_jungle",
+      "name": "divinerpg:vamecheron",
       "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:shard_jungle",
+          "name": "divinerpg:blade_halite",
           "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
                 "min": 1,
-                "max": 3
+                "max": 1
               }
             },
             {
               "function": "looting_enchant",
               "count": {
                 "min": 1,
-                "max": 4
+                "max": 1
               }
             }
           ]
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "name": "divinerpg:dramcryx_jungle",
+      "name": "divinerpg:vamecheron",
       "conditions": [
         {
           "condition": "killed_by_player"
@@ -43,7 +43,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:shard_jungle",
+          "name": "divinerpg:blade_halite",
           "weight": 1
         }
       ]

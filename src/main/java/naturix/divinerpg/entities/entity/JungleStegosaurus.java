@@ -28,9 +28,9 @@ public class JungleStegosaurus extends EntityMob {
     public JungleStegosaurus(World worldIn) {
 		super(worldIn);
 		this.setSize(1.5F, 2);
-		this.setHealth(40);
+		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_jungle.json");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_jungle");
 
 
     protected boolean isMaster() {
@@ -49,14 +49,14 @@ public class JungleStegosaurus extends EntityMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
         if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         } else {
             this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
             this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-        }
+            }
     }
 
     protected void initEntityAI()

@@ -352,7 +352,6 @@ public class ModItems {
 	public static SwordBase blackEnderSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_black_ender");
 	public static SwordBase bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
 	public static SwordBase blueDivineSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_blue_divine");
-	public static SwordBase arlemiteSword = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sword_arlemite");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm"); 
 	public static SwordBase donatorSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_donator"); 
 	public static PickaxeBase realmitePickaxe = new PickaxeBase(DivineRPGMaterials.realmiteSwordMaterial, "pickaxe_realmite", 0, 0); 
@@ -426,11 +425,11 @@ public class ModItems {
 	public static SwordBase shadowSaber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "saber_shadow");
 	public static SwordBase flamingFury = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "flamingfury");
 	public static ItemBase shardJungle = new ItemBase("shard_jungle"); 
+	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(
-				arlemiteSword,
 				amthirmisDisk,
 				hunterBow,
 				shadowBow,
@@ -789,12 +788,12 @@ public class ModItems {
 				sandslash,
 				shadowSaber,
 				flamingFury,
-				shardJungle
+				shardJungle,
+				sharkFin
 				);
 	}
 	
 	public static void registerModels() {
-		arlemiteSword.registerItemModel();
 		amthirmisDisk.registerItemModel(amthirmisDisk);
 		hunterBow.registerItemModel(); 
 		shadowBow.registerItemModel();
@@ -1155,6 +1154,7 @@ public class ModItems {
 		shadowSaber.registerItemModel();
 		flamingFury.registerItemModel();
 		shardJungle.registerItemModel();
+		sharkFin.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

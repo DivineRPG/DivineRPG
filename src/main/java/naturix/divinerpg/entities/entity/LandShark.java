@@ -31,9 +31,9 @@ public class LandShark extends EntityWaterMob {
     public LandShark(World worldIn) {
 		super(worldIn);
 		this.setSize(0.6F, 2);
-		this.setHealth(40);
+		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/shark.json");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/shark");
 
 
     protected boolean isMaster() {
@@ -52,8 +52,8 @@ public class LandShark extends EntityWaterMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
         if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150.0D);
             //this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
             //this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         } else {

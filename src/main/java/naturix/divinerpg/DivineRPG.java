@@ -134,7 +134,7 @@ public class DivineRPG {
 	        @SideOnly(Side.CLIENT)
 	        public ItemStack getTabIconItem()
 	        {
-	            return new ItemStack(ModItems.arlemiteSword);
+	            return new ItemStack(ModItems.arlemiteStabber);
 	        }
 			
 	    };

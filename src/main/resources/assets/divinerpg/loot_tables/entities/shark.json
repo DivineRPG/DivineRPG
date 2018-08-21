@@ -1,12 +1,12 @@
 {
   "pools": [
     {
-      "name": "divinerpg:dramcryx_jungle",
+      "name": "divinerpg:shark",
       "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:shard_jungle",
+          "name": "divinerpg:shark_fin",
           "weight": 1,
           "functions": [
             {
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "name": "divinerpg:dramcryx_jungle",
+      "name": "divinerpg:shark",
       "conditions": [
         {
           "condition": "killed_by_player"
@@ -43,7 +43,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:shard_jungle",
+          "name": "divinerpg:shark_fin",
           "weight": 1
         }
       ]
