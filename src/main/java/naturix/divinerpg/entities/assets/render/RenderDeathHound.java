@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderDeathHound extends RenderLiving<DeathHound> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/dramcryx_jungle.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/death_hound.png");
 	private final ModelDeathHound ModelDeathHound;
     
 	public RenderDeathHound(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
