@@ -30,10 +30,7 @@ public class DeathHound extends EntityMob {
 		this.setSize(1F, 0.9f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/death_hound");
-
-
-    protected boolean isMaster() {
+   protected boolean isMaster() {
         return false;
     }
 
@@ -41,9 +38,6 @@ public class DeathHound extends EntityMob {
     protected boolean canDespawn() {
         return true;
     }
-
-    private ResourceLocation deathLootTable = LOOT;
-
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -104,10 +98,5 @@ public class DeathHound extends EntityMob {
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
 
-	}
 }
