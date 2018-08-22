@@ -7,12 +7,14 @@ import naturix.divinerpg.entities.assets.render.RenderDramcryx;
 import naturix.divinerpg.entities.assets.render.RenderDramix;
 import naturix.divinerpg.entities.assets.render.RenderShark;
 import naturix.divinerpg.entities.assets.render.RenderVamecheron;
+import naturix.divinerpg.entities.assets.render.RenderWildFire;
 import naturix.divinerpg.entities.entity.AncientEntity;
 import naturix.divinerpg.entities.entity.DeathHound;
 import naturix.divinerpg.entities.entity.Dramix;
 import naturix.divinerpg.entities.entity.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.LandShark;
 import naturix.divinerpg.entities.entity.Vamecheron;
+import naturix.divinerpg.entities.entity.WildFire;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
@@ -31,19 +33,22 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "death_hound"), DeathHound.class, "death_hound", id++, DivineRPG.instance, 64, 3, true, 0x996600, 0x00ff00);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "vamacheron_boss"), Vamecheron.class, "vamacheron_boss", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramix_boss"), Dramix.class, "dramix_boss", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "wildfire"), WildFire.class, "wildfire", id++, DivineRPG.instance, 64, 3, true);
 
 
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
 		//Spawn
 		EntityRegistry.addSpawn(JungleStegosaurus.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
+		EntityRegistry.addSpawn(WildFire.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.HELL);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 		
 		//loot
 		LootTableList.register(JungleStegosaurus.LOOT);
 		LootTableList.register(LandShark.LOOT);
+		LootTableList.register(WildFire.LOOT);
+		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
-
 	}
 	public static void initModels() {
 		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryx.FACTORY);
@@ -52,5 +57,6 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(DeathHound.class, RenderDeathHound.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Vamecheron.class, RenderVamecheron.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Dramix.class, RenderDramix.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(WildFire.class, RenderWildFire.FACTORY);
 		}
 }

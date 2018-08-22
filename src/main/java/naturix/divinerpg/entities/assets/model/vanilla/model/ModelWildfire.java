@@ -1,13 +1,19 @@
 package naturix.divinerpg.entities.assets.model.vanilla.model;
 
+import naturix.divinerpg.entities.entity.WildFire;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 
 
 public class ModelWildfire extends ModelBase
 {
+
+    public boolean isHolding;
+    public ItemStack itemStack;
   //fields
     public ModelRenderer P1;
     public ModelRenderer P2;
@@ -215,5 +221,11 @@ public class ModelWildfire extends ModelBase
       this.rightarm.rotateAngleX += MathHelper.sin(var3 * 0.067F) * 0.05F;
       this.leftarm.rotateAngleX -= MathHelper.sin(var3 * 0.067F) * 0.05F;
   }
-
+  @Override
+  public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+      if(entitylivingbaseIn instanceof WildFire) {
+          WildFire mobDarkenedKnight = (WildFire) entitylivingbaseIn;
+          isHolding = mobDarkenedKnight.getHeldItemMainhand() != null || !mobDarkenedKnight.getHeldItemMainhand().isEmpty();
+      }
+  }
 }
