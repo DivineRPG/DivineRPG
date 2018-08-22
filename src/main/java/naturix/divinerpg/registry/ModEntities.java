@@ -47,7 +47,7 @@ public class ModEntities {
 	}
 	public static void initModels() {
 		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryx.FACTORY);
-		//RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(LandShark.class, RenderShark.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(DeathHound.class, RenderDeathHound.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Vamecheron.class, RenderVamecheron.FACTORY);

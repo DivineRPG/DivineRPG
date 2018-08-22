@@ -13,13 +13,13 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderAncientEntity extends RenderLiving<AncientEntity> {
 	
-	//public static final IRenderFactory FACTORY = new Factory();
+	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/anciententity.png");
-	private final ModelAncientEntity modelEntity;
+	private final ModelAncientEntity ModelAncientEntity;
     
 	public RenderAncientEntity(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelAncientEntity(), 8F);
-        modelEntity = (ModelAncientEntity) super.mainModel;
+        ModelAncientEntity = (ModelAncientEntity) super.mainModel;
 
     }
 
