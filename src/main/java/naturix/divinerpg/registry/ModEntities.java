@@ -41,9 +41,7 @@ public class ModEntities {
 		
 		//loot
 		LootTableList.register(JungleStegosaurus.LOOT);
-		LootTableList.register(AncientEntity.LOOT);
 		LootTableList.register(LandShark.LOOT);
-		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 
 	}
