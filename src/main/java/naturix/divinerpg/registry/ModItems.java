@@ -426,6 +426,7 @@ public class ModItems {
 	public static SwordBase flamingFury = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "flamingfury");
 	public static ItemBase shardJungle = new ItemBase("shard_jungle"); 
 	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
+	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -789,7 +790,8 @@ public class ModItems {
 				shadowSaber,
 				flamingFury,
 				shardJungle,
-				sharkFin
+				sharkFin,
+				tokensDungeon
 				);
 	}
 	
@@ -1155,6 +1157,7 @@ public class ModItems {
 		flamingFury.registerItemModel();
 		shardJungle.registerItemModel();
 		sharkFin.registerItemModel();
+		tokensDungeon.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

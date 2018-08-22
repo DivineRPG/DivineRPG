@@ -109,6 +109,7 @@ tile.statue_anciententity.name=Ancient Entity Statue
 tile.altar_dramix.name=Dramix Altar
 tile.altar_parasecta.name=Parasecta Altar
 
+item.tokens_dungeon.name=Dungeon Tokens
 item.ingot_arlemite.name=Arlemite Ingot
 item.amthirmisDisk.name=Amthrmis Disk
 item.amthirmisbow.name=Amthrimis Bow
@@ -481,3 +482,4 @@ entity.ancient_entity.name=Ancient Entity
 entity.shark.name=Shark
 entity.death_hound.name=Death Hound
 entity.vamacheron_boss.name=Vamacheron
+entity.dramix_boss.name=Dramix

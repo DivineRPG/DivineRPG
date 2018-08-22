@@ -4,10 +4,12 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.render.RenderAncientEntity;
 import naturix.divinerpg.entities.assets.render.RenderDeathHound;
 import naturix.divinerpg.entities.assets.render.RenderDramcryx;
+import naturix.divinerpg.entities.assets.render.RenderDramix;
 import naturix.divinerpg.entities.assets.render.RenderShark;
 import naturix.divinerpg.entities.assets.render.RenderVamecheron;
 import naturix.divinerpg.entities.entity.AncientEntity;
 import naturix.divinerpg.entities.entity.DeathHound;
+import naturix.divinerpg.entities.entity.Dramix;
 import naturix.divinerpg.entities.entity.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.LandShark;
 import naturix.divinerpg.entities.entity.Vamecheron;
@@ -28,6 +30,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "shark"), LandShark.class, "shark", id++, DivineRPG.instance, 64, 3, true, 0x996600, 0x00ff00);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "death_hound"), DeathHound.class, "death_hound", id++, DivineRPG.instance, 64, 3, true, 0x996600, 0x00ff00);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "vamacheron_boss"), Vamecheron.class, "vamacheron_boss", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramix_boss"), Dramix.class, "dramix_boss", id++, DivineRPG.instance, 64, 3, true);
 
 
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
@@ -40,16 +43,16 @@ public class ModEntities {
 		LootTableList.register(JungleStegosaurus.LOOT);
 		LootTableList.register(AncientEntity.LOOT);
 		LootTableList.register(LandShark.LOOT);
-		LootTableList.register(Vamecheron.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 
 	}
 	public static void initModels() {
 		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryx.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
+		//RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(LandShark.class, RenderShark.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(DeathHound.class, RenderDeathHound.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Vamecheron.class, RenderVamecheron.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Dramix.class, RenderDramix.FACTORY);
 		}
 }
