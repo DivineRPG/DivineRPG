@@ -1,9 +1,24 @@
 package naturix.divinerpg.utils;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.io.IOUtils;
+
+import naturix.divinerpg.entities.assets.render.RenderHat;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class Utils {
 	public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
@@ -11,7 +26,13 @@ public class Utils {
     public static DamageSource trapSource = new DamageSource("trap");
     public static DamageSource acidSource = new DamageSource("acid");
     public static DamageSource spikeSource = new DamageSource("spike");
-	
+    public static void postForgeEvent(Object o) {
+        MinecraftForge.EVENT_BUS.register(o);
+    }
+
+    public static void postFMLEvent(Object o) {
+        FMLCommonHandler.instance().bus().register(o);
+    }
 		private static String str;
 		private static Object args;
 		public static ITextComponent getChatComponent(String str) {
@@ -43,11 +64,61 @@ public class Utils {
 			return false;
 		}
 
+		public static Map<AbstractClientPlayer, RenderHat.Type> REGISTRY = new LinkedHashMap<>();
+	    public static boolean isContributor(AbstractClientPlayer player) {
+			return player != null && REGISTRY.containsKey(player);
+		}
 		public static ITextComponent addChatMessage(ITextComponent displayName) {
 			TextComponentString ret = new TextComponentString(args + str);
 	        ret.getStyle().setColor(TextFormatting.WHITE);
 	        return ret; 
 		}
 
+		public static RenderHat.Type getWingType(AbstractClientPlayer player) {
+			if (player != null) {
+				if (REGISTRY.containsKey(player)) {
+					return REGISTRY.get(player);
+				}
+			}
+			return null;
+		}
+		private static List<String> PATRON_LIST = new ArrayList<String>();
 		
+		static List<String> getPatronList() {
+			try {
+				List<String> entries = new ArrayList<String>();
+				HttpURLConnection con;
+				con = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/dev.txt").openConnection();
+				con.setConnectTimeout(1000);
+				InputStream in2 = con.getInputStream();
+				entries = IOUtils.readLines(in2);
+				if (!entries.isEmpty()) {
+					con.disconnect();
+					return entries;
+				}
+			}
+			catch (IOException e) {
+			}
+			return null;
+		}
+		public static boolean doesPlayerHaveBlueHat(AbstractClientPlayer player) {
+			for (int i = 0; i < PATRON_LIST.size(); ++i) {
+				String uuid = player.getUniqueID().toString() + "_BHAT";
+				if (!uuid.equals(PATRON_LIST.get(i))) {
+					continue;
+				}
+				return true;
+			}
+			return false;
+		}
+		public static boolean doesPlayerHaveRedHat(AbstractClientPlayer player) {
+			for (int i = 0; i < PATRON_LIST.size(); ++i) {
+				String uuid = player.getUniqueID().toString() + "_RHAT";
+				if (!uuid.equals(PATRON_LIST.get(i))) {
+					continue;
+				}
+				return true;
+			}
+			return false;
+		}
 	    }

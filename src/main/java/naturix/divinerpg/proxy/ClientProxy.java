@@ -4,8 +4,10 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModEntities;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
@@ -13,8 +15,12 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
         ModEntities.initModels();
+
     }
-    
+    @Override
+	public EntityPlayer getPlayer() {
+		return FMLClientHandler.instance().getClientPlayerEntity();
+	}
 
     public void registerItemRenderer(Item item, int meta, String id) {
     	if (Config.debug = true) {
@@ -22,5 +28,6 @@ public class ClientProxy extends CommonProxy {
         }
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
     }
-    
+
+	
 }

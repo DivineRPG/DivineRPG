@@ -6,6 +6,7 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
@@ -29,7 +30,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        ModEntities.init();
 	        
 	        }
-
+	    public EntityPlayer getPlayer() {
+			return null;}
 	    public void init(FMLInitializationEvent e) {
 
 	    }
@@ -50,7 +52,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    }
 
 		public void registerItemRenderer(Item itemBlock, int i, String name) {
-			
+
 		}
 		
 	}

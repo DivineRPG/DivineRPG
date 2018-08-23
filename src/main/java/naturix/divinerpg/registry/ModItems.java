@@ -426,6 +426,8 @@ public class ModItems {
 	public static SwordBase flamingFury = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "flamingfury");
 	public static ItemBase shardJungle = new ItemBase("shard_jungle"); 
 	public static ItemBase shardMolten = new ItemBase("shard_molten"); 
+	public static ItemBase shardCorrupted = new ItemBase("shard_corrupted"); 
+	public static ItemBase shardEnder = new ItemBase("shard_ender"); 
 	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	
@@ -792,6 +794,8 @@ public class ModItems {
 				flamingFury,
 				shardJungle,
 				shardMolten,
+				shardCorrupted,
+				shardEnder,
 				sharkFin,
 				tokensDungeon
 				);
@@ -1159,6 +1163,8 @@ public class ModItems {
 		flamingFury.registerItemModel();
 		shardJungle.registerItemModel();
 		shardMolten.registerItemModel();
+		shardCorrupted.registerItemModel();
+		shardEnder.registerItemModel();
 		sharkFin.registerItemModel();
 		tokensDungeon.registerItemModel();
 		

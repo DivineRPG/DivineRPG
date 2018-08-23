@@ -1,0 +1,10 @@
+{"pools":[{
+"name": "divinerpg:rotatick",
+"rolls":1,
+"entries":[{
+"type":"item",
+"name":"minecraft:diamond",
+"weight":50,
+"functions":[{"function":"set_count","count":{"min":1,"max":3}}]},
+{"type":"item",
+"name":"divinerpg:shard_corrupted","weight":1}]}]}

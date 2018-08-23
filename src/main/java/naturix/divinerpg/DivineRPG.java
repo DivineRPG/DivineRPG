@@ -6,7 +6,6 @@
  *
  */package naturix.divinerpg;
 
-import naturix.divinerpg.entities.entity.LandShark;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEvents;
@@ -20,13 +19,8 @@ import naturix.divinerpg.utils.log.PreInitLog;
 import naturix.divinerpg.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityWaterMob;
-import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
@@ -101,8 +95,8 @@ public class DivineRPG {
 			@SubscribeEvent
 			public static void onLivingSpawn(LivingSpawnEvent event) {
 				ModSpawns.init(event);
-			} 	
-	    	
+			}
+			 
 	    }
 	    
 	    

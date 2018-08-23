@@ -1,0 +1,10 @@
+{"pools":[{
+"name": "divinerpg:ender_triplets",
+"rolls":1,
+"entries":[{
+"type":"item",
+"name":"divinerpg:shard_ender",
+"weight":50,
+"functions":[{"function":"set_count","count":{"min":1,"max":3}}]},
+{"type":"item",
+"name":"end_portal_frame","weight":1}]}]}
