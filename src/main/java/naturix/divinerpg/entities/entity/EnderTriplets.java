@@ -117,16 +117,6 @@ public class EnderTriplets extends EntityMob {
 		return this.LOOT;
 
 	}
-    @SideOnly(Side.CLIENT)
-    public boolean isAttacking()
-    {
-        return ((Boolean)this.dataManager.get(ATTACKING)).booleanValue();
-    }
-
-    public void setAttacking(boolean attacking)
-    {
-        this.dataManager.set(ATTACKING, Boolean.valueOf(attacking));
-    }
 
     public int getFireballStrength()
     {
@@ -158,17 +148,6 @@ public class EnderTriplets extends EntityMob {
             this.attackTimer = 0;
         }
 
-        /**
-         * Reset the task's internal state. Called when this task is interrupted by another one
-         */
-        public void resetTask()
-        {
-            this.parentEntity.setAttacking(false);
-        }
-
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
         public void updateTask()
         {
             EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();
@@ -205,8 +184,6 @@ public class EnderTriplets extends EntityMob {
             {
                 --this.attackTimer;
             }
-
-            this.parentEntity.setAttacking(this.attackTimer > 10);
         }
     }
 

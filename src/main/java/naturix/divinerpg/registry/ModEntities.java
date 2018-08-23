@@ -52,7 +52,7 @@ public class ModEntities {
 		//Spawn
 		EntityRegistry.addSpawn(JungleStegosaurus.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
 		EntityRegistry.addSpawn(WildFire.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.HELL);
-		//EntityRegistry.addSpawn(TheEye.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.);
+		EntityRegistry.addSpawn(TheEye.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.VOID);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 		
