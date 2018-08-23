@@ -51,8 +51,10 @@ public class ModEntities {
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
 		//Spawn
 		EntityRegistry.addSpawn(JungleStegosaurus.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
-		EntityRegistry.addSpawn(WildFire.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.HELL);
-		EntityRegistry.addSpawn(TheEye.class, 250, 1, 10, EnumCreatureType.MONSTER, Biomes.VOID);
+		EntityRegistry.addSpawn(WildFire.class, 250, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
+		EntityRegistry.addSpawn(TheEye.class, 250, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
+		EntityRegistry.addSpawn(TheEye.class, 250, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
+		EntityRegistry.addSpawn(EnderTriplets.class, 250, 1, 1, EnumCreatureType.MONSTER, Biomes.SKY);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 		

@@ -65,7 +65,7 @@ public class ModWorldGen implements IWorldGenerator {
 	 }
 	 private void genNether(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreNetherite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
-		 addOreSpawn(ModBlocks.blockBloodGem.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
+		 addOreSpawn(ModBlocks.orebloodgem.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
 		 
 	 }
 	 
