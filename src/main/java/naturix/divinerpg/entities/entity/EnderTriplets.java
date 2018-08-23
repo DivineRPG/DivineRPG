@@ -135,9 +135,10 @@ public class EnderTriplets extends EntityMob {
         /**
          * Returns whether the EntityAIBase should begin execution.
          */
+        static EntityPlayer player;
         public boolean shouldExecute()
         {
-            return this.parentEntity.getAttackTarget() != null;
+            return this.parentEntity.getAttackTarget() == player;
         }
 
         /**
