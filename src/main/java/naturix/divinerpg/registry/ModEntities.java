@@ -8,9 +8,11 @@ import naturix.divinerpg.entities.assets.render.RenderDramix;
 import naturix.divinerpg.entities.assets.render.RenderDungeonDemon;
 import naturix.divinerpg.entities.assets.render.RenderEnderTriplets;
 import naturix.divinerpg.entities.assets.render.RenderEye;
+import naturix.divinerpg.entities.assets.render.RenderLeorna;
 import naturix.divinerpg.entities.assets.render.RenderRotatick;
 import naturix.divinerpg.entities.assets.render.RenderShark;
 import naturix.divinerpg.entities.assets.render.RenderVamecheron;
+import naturix.divinerpg.entities.assets.render.RenderWatcher;
 import naturix.divinerpg.entities.assets.render.RenderWildFire;
 import naturix.divinerpg.entities.entity.AncientEntity;
 import naturix.divinerpg.entities.entity.DeathHound;
@@ -19,8 +21,10 @@ import naturix.divinerpg.entities.entity.DungeonDemon;
 import naturix.divinerpg.entities.entity.EnderTriplets;
 import naturix.divinerpg.entities.entity.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.LandShark;
+import naturix.divinerpg.entities.entity.Leorna;
 import naturix.divinerpg.entities.entity.Rotatick;
 import naturix.divinerpg.entities.entity.TheEye;
+import naturix.divinerpg.entities.entity.TheWatcher;
 import naturix.divinerpg.entities.entity.Vamecheron;
 import naturix.divinerpg.entities.entity.WildFire;
 import net.minecraft.entity.EnumCreatureType;
@@ -46,6 +50,8 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "rotatick"), Rotatick.class, "rotatick", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "eye"), TheEye.class, "eye", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ender_triplets"), EnderTriplets.class, "ender_triplets", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "watcher"), TheWatcher.class, "watcher", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "leorna"), Leorna.class, "leorna", id++, DivineRPG.instance, 64, 3, true);
 
 
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
@@ -63,6 +69,7 @@ public class ModEntities {
 		LootTableList.register(WildFire.LOOT);
 		LootTableList.register(Rotatick.LOOT);
 		LootTableList.register(EnderTriplets.LOOT);
+		LootTableList.register(Leorna.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
@@ -78,6 +85,8 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Rotatick.class, RenderRotatick.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(TheEye.class, RenderEye.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnderTriplets.class, RenderEnderTriplets.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(TheWatcher.class, RenderWatcher.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
 		
 	}
 }

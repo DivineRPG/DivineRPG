@@ -2,7 +2,7 @@ package naturix.divinerpg.entities.assets.render;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.entities.assets.model.vanilla.model.ModelRotatick;
+import naturix.divinerpg.entities.assets.model.vanilla.model.ModelEye;
 import naturix.divinerpg.entities.entity.Rotatick;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -15,11 +15,11 @@ public class RenderRotatick extends RenderLiving<Rotatick> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rotatick.png");
-	private final ModelRotatick modelEntity;
+	private final ModelEye ModelEye;
     
 	public RenderRotatick(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelRotatick(), 1F);
-        modelEntity = (ModelRotatick) super.mainModel;
+        super(rendermanagerIn, new ModelEye(), 1F);
+        ModelEye = (ModelEye) super.mainModel;
 
     }
 
@@ -34,7 +34,7 @@ public class RenderRotatick extends RenderLiving<Rotatick> {
 
 	        @Override
 	        public Render<? super Rotatick> createRenderFor(RenderManager manager) {
-	            return new RenderRotatick(manager, new ModelRotatick(), 1F);
+	            return new RenderRotatick(manager, new ModelEye(), 0.5F);
 	        }
 	    }
 

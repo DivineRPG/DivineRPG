@@ -1,6 +1,7 @@
 package naturix.divinerpg.bases.blocks;
 import java.util.Random;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
@@ -13,6 +14,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -52,15 +54,16 @@ public class LeavesBase extends BlockLeaves
         this.setCreativeTab(DivineRPG.BlocksTab);
     }
 	@Override
-	@Deprecated
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-	    @SideOnly(Side.CLIENT)
-	    public BlockRenderLayer getBlockLayer()
-	    {
-	        return BlockRenderLayer.CUTOUT_MIPPED;
-	    }
+	  public boolean isOpaqueCube(IBlockState state) {
+	    return Blocks.LEAVES.isOpaqueCube(state);
+	  }
+
+	  @Nonnull
+	  @SideOnly(Side.CLIENT)
+	  @Override
+	  public BlockRenderLayer getBlockLayer() {
+	    return Blocks.LEAVES.getBlockLayer();
+	  }
     @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
