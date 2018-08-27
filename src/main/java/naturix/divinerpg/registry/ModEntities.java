@@ -12,6 +12,7 @@ import naturix.divinerpg.entities.assets.render.RenderEye;
 import naturix.divinerpg.entities.assets.render.RenderLeorna;
 import naturix.divinerpg.entities.assets.render.RenderParasecta;
 import naturix.divinerpg.entities.assets.render.RenderParatiku;
+import naturix.divinerpg.entities.assets.render.RenderProjectile;
 import naturix.divinerpg.entities.assets.render.RenderRotatick;
 import naturix.divinerpg.entities.assets.render.RenderShark;
 import naturix.divinerpg.entities.assets.render.RenderVamecheron;
@@ -22,6 +23,7 @@ import naturix.divinerpg.entities.entity.DeathHound;
 import naturix.divinerpg.entities.entity.Dramix;
 import naturix.divinerpg.entities.entity.DungeonDemon;
 import naturix.divinerpg.entities.entity.EnderTriplets;
+import naturix.divinerpg.entities.entity.EntityTeakerDisc;
 import naturix.divinerpg.entities.entity.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.LandShark;
 import naturix.divinerpg.entities.entity.Leorna;
@@ -42,6 +44,8 @@ public class ModEntities {
 	public static void init() {
 		//register basic mobs
 		int id = 1;
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "teaker_disc"), EntityTeakerDisc.class, "teaker_disc", id++, DivineRPG.instance, 64, 3, true);
+		
 		id = 100;
 		//register advanced mobs
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_jungle"), JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true);
@@ -99,6 +103,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisc.class, new RenderProjectile(new ResourceLocation("divinerpg:textures/items/amthirmisdisk.png"), 1));
 		
 	}
 }

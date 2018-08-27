@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.GUI.GuiHandler;
 import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +21,7 @@ import net.minecraft.world.World;
 
 public class BlockFurnace extends BlockTileEntity<TileEntityFurnace> {
 
-	public BlockFurnace(String name) {
+	public BlockFurnace(String name) { 
 		super(Material.ROCK, name);
 	}
 	
@@ -35,7 +37,7 @@ public class BlockFurnace extends BlockTileEntity<TileEntityFurnace> {
 
 	            if (tileentity instanceof TileEntityFurnace)
 	            {
-	                player.displayGUIChest((TileEntityFurnace)tileentity);
+	                player.openGui(DivineRPG.instance, GuiHandler.GUI_FURNACE, world, pos.getX(), pos.getY(), pos.getZ());
 	                player.addStat(StatList.FURNACE_INTERACTION);
 	            }
 

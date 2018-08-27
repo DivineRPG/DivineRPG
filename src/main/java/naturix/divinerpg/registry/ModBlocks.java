@@ -140,7 +140,7 @@ public class ModBlocks {
 	public static Acid acidBacteria = new Acid("acid_bacterial", false, true);
 	public static Acid acidBlock = new Acid("acid_block", true, false);
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
-	public static Acceleron acceleron = new Acceleron("acceleron");
+	public static Acceleron acceleron = new Acceleron("acceleron"); 
 	public static BlockBase grassArcana = new BlockBase("grass_arcana");
 	 
 	public static void register(IForgeRegistry<Block> registry) { 
