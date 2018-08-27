@@ -9,6 +9,7 @@ public class Config {
 
     private static final String CATEGORY_GENERAL = "general";
 	public static int dimensionId = 0;
+	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
 	public static boolean canShowOverlay = true;
@@ -34,6 +35,7 @@ public class Config {
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
         debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug, "Set to true to enable");
+        mobSpawnMultiplier = cfg.getInt("Mob Spawn Multiplier", CATEGORY_GENERAL, 5, 1, 32, "If you are experiencing lag i would recommend lowering this number");
         
     }
 
