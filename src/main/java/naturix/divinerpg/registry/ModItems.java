@@ -12,6 +12,7 @@ import naturix.divinerpg.bases.items.ShickaxeBase;
 import naturix.divinerpg.bases.items.ShovelBase;
 import naturix.divinerpg.bases.items.SpawnerBase;
 import naturix.divinerpg.bases.items.SwordBase;
+import naturix.divinerpg.bases.items.TeleportStaff;
 import naturix.divinerpg.bases.items.ThrowableBase;
 import naturix.divinerpg.bases.items.armor.Angelic;
 import naturix.divinerpg.bases.items.armor.Apalachia;
@@ -430,6 +431,7 @@ public class ModItems {
 	public static ItemBase shardEnder = new ItemBase("shard_ender"); 
 	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
+	public static TeleportStaff tpStaff = new TeleportStaff("teleportation_crystal");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -797,7 +799,8 @@ public class ModItems {
 				shardCorrupted,
 				shardEnder,
 				sharkFin,
-				tokensDungeon
+				tokensDungeon,
+				tpStaff
 				);
 	}
 	
@@ -1167,6 +1170,7 @@ public class ModItems {
 		shardEnder.registerItemModel();
 		sharkFin.registerItemModel();
 		tokensDungeon.registerItemModel();
+		tpStaff.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

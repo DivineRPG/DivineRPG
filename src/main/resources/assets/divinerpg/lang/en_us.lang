@@ -109,6 +109,7 @@ tile.statue_anciententity.name=Ancient Entity Statue
 tile.altar_dramix.name=Dramix Altar
 tile.altar_parasecta.name=Parasecta Altar
 
+item.teleportation_crystal.name=Teleportation Crystal
 item.tokens_dungeon.name=Dungeon Tokens
 item.ingot_arlemite.name=Arlemite Ingot
 item.amthirmisDisk.name=Amthrmis Disk
