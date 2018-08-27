@@ -9,6 +9,7 @@ import naturix.divinerpg.entities.assets.render.RenderDungeonDemon;
 import naturix.divinerpg.entities.assets.render.RenderEnderTriplets;
 import naturix.divinerpg.entities.assets.render.RenderEye;
 import naturix.divinerpg.entities.assets.render.RenderLeorna;
+import naturix.divinerpg.entities.assets.render.RenderParasecta;
 import naturix.divinerpg.entities.assets.render.RenderRotatick;
 import naturix.divinerpg.entities.assets.render.RenderShark;
 import naturix.divinerpg.entities.assets.render.RenderVamecheron;
@@ -22,6 +23,7 @@ import naturix.divinerpg.entities.entity.EnderTriplets;
 import naturix.divinerpg.entities.entity.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.LandShark;
 import naturix.divinerpg.entities.entity.Leorna;
+import naturix.divinerpg.entities.entity.Parasecta;
 import naturix.divinerpg.entities.entity.Rotatick;
 import naturix.divinerpg.entities.entity.TheEye;
 import naturix.divinerpg.entities.entity.TheWatcher;
@@ -52,6 +54,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ender_triplets"), EnderTriplets.class, "ender_triplets", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "watcher"), TheWatcher.class, "watcher", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "leorna"), Leorna.class, "leorna", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "parasecta"), Parasecta.class, "parasecta", id++, DivineRPG.instance, 64, 3, true);
 
 
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
@@ -70,6 +73,7 @@ public class ModEntities {
 		LootTableList.register(Rotatick.LOOT);
 		LootTableList.register(EnderTriplets.LOOT);
 		LootTableList.register(Leorna.LOOT);
+		LootTableList.register(Parasecta.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
@@ -87,6 +91,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EnderTriplets.class, RenderEnderTriplets.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(TheWatcher.class, RenderWatcher.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
 		
 	}
 }
