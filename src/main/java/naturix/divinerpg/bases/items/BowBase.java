@@ -3,6 +3,8 @@ package naturix.divinerpg.bases.items;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.bases.items.arrows.InfernoArrow;
+import naturix.divinerpg.registry.ModItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -92,7 +94,11 @@ public class BowBase extends ItemBow {
 
     protected boolean isArrow(ItemStack stack)
     {
+    	if(name == "bow_inferno") {
+    		return stack.getItem() instanceof InfernoArrow;
+    	}else {
         return stack.getItem() instanceof ItemArrow;
+    }
     }
 
     /**
@@ -105,7 +111,12 @@ public class BowBase extends ItemBow {
             EntityPlayer entityplayer = (EntityPlayer)entityLiving;
             boolean flag = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemstack = this.findAmmo(entityplayer);
-
+            ItemArrow itemarrow = (ItemArrow)(itemstack.getItem() instanceof ItemArrow ? itemstack.getItem() : Items.ARROW);
+            InfernoArrow itemarrow2 = (InfernoArrow)(itemstack.getItem() instanceof InfernoArrow ? itemstack.getItem() : ModItems.arrowInferno);
+            EntityArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
+            naturix.divinerpg.entities.entity.projectiles.InfernoArrow entityarrow2 = itemarrow2.createArrow(worldIn, itemstack, entityplayer);
+            boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof ItemArrow && ((ItemArrow) itemstack.getItem()).isInfinite(itemstack, stack, entityplayer));
+            
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, entityplayer, i, !itemstack.isEmpty() || flag);
             if (i < 0) return;
@@ -121,24 +132,26 @@ public class BowBase extends ItemBow {
 
                 if ((double)f >= 0.1D)
                 {
-                    boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof ItemArrow && ((ItemArrow) itemstack.getItem()).isInfinite(itemstack, stack, entityplayer));
-
+                	
                     if (!worldIn.isRemote)
                     {
-                        ItemArrow itemarrow = (ItemArrow)(itemstack.getItem() instanceof ItemArrow ? itemstack.getItem() : Items.ARROW);
-                        EntityArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
+                    	if(name=="bow_inferno") {
+                    	entityarrow2.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+                    	
+                    }else {
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
-
+                    }
                         if (f == 1.0F)
                         {
+                        	}else {
                             entityarrow.setIsCritical(true);
-                        }
+                        }}
 
                         int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
 
                         if (j > 0)
                         {
-                            entityarrow.setDamage(entityarrow.getDamage() + (double)j * 0.5D + 0.5D);
+                            entityarrow2.setDamage(entityarrow2.getDamage() + (double)j * 0.5D + 0.5D);
                         }
 
                         int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
@@ -179,7 +192,6 @@ public class BowBase extends ItemBow {
                 }
             }
         }
-    }
 
     /**
      * Gets the velocity of the arrow entity from the bow's charge

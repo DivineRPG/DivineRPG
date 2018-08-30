@@ -47,6 +47,7 @@ import naturix.divinerpg.bases.items.armor.Tormented;
 import naturix.divinerpg.bases.items.armor.Vemos;
 import naturix.divinerpg.bases.items.armor.Wildwood;
 import naturix.divinerpg.bases.items.armor.WitherReaper;
+import naturix.divinerpg.bases.items.arrows.InfernoArrow;
 import naturix.divinerpg.bases.items.book.BookBase;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
 import naturix.divinerpg.bases.items.food.ReturnBucket;
@@ -75,7 +76,7 @@ public class ModItems {
 	public static BowBase shadowBow = new BowBase("bow_shadow", Items.ARROW);
 	public static BowBase enderBow = new BowBase("bow_ender", Items.ARROW);
 	public static BowBase bluefireBow = new BowBase("bow_bluefire", Items.ARROW);
-	public static BowBase infernoBow = new BowBase("bow_inferno", Items.ARROW);
+	public static BowBase infernoBow = new BowBase("bow_inferno", ModItems.arrowInferno);
 	public static ItemBase arcanium = new ItemBase("arcanium");
 	public static ItemBase ingotArlemite = new ItemBase("ingot_arlemite");
 	public static ItemBase ingotAquatic = new ItemBase("ingot_aquatic");
@@ -432,6 +433,7 @@ public class ModItems {
 	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	public static TeleportStaff tpStaff = new TeleportStaff("teleportation_crystal");
+	public static InfernoArrow arrowInferno = new InfernoArrow("arrow_inferno");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -800,7 +802,8 @@ public class ModItems {
 				shardEnder,
 				sharkFin,
 				tokensDungeon,
-				tpStaff
+				tpStaff,
+				arrowInferno
 				);
 	}
 	
@@ -1171,6 +1174,7 @@ public class ModItems {
 		sharkFin.registerItemModel();
 		tokensDungeon.registerItemModel();
 		tpStaff.registerItemModel();
+		arrowInferno.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

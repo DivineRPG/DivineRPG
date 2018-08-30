@@ -9,7 +9,7 @@ import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class InfernoArrow extends ItemArrow {
+public class InfernoArrow extends Item {
     //private ECustomArrow arrow;
     private String name;
 	public InfernoArrow(String name) {
@@ -18,15 +18,13 @@ public class InfernoArrow extends ItemArrow {
         this.setUnlocalizedName(name);
         //RegisterItems.ITEMS.add(this);
         this.name = name;
-        this.registerItemModel(this);
     }
-	public void registerItemModel(Item item) {
+	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
-	public EntityArrow createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter)
+	public naturix.divinerpg.entities.entity.projectiles.InfernoArrow createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter)
     {
-        EntityTippedArrow entitytippedarrow = new EntityTippedArrow(worldIn, shooter);
-        entitytippedarrow.setPotionEffect(stack);
+		naturix.divinerpg.entities.entity.projectiles.InfernoArrow entitytippedarrow = new naturix.divinerpg.entities.entity.projectiles.InfernoArrow(worldIn);
         return entitytippedarrow;
     }
 

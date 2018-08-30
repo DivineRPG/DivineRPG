@@ -14,6 +14,7 @@ import naturix.divinerpg.bases.blocks.Spike;
 import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
+import naturix.divinerpg.bases.blocks.portal.PortalBase;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
@@ -142,7 +143,9 @@ public class ModBlocks {
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
 	public static Acceleron acceleron = new Acceleron("acceleron"); 
 	public static BlockBase grassArcana = new BlockBase("grass_arcana");
-	 
+	public static PortalBase portalEden = new PortalBase("portal_eden");
+	public static BlockBase rockDivine = new BlockBase("rock_divine");
+	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(
@@ -253,6 +256,8 @@ public class ModBlocks {
 				acidLunic,
 				acceleron,
 				grassArcana,
+				portalEden,
+				rockDivine,
 				furnace
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
@@ -369,7 +374,9 @@ public class ModBlocks {
 				acidBlock.createItemBlock(),
 				acidLunic.createItemBlock(),
 				acceleron.createItemBlock(),
-				grassArcana.createItemBlock()
+				grassArcana.createItemBlock(),
+				portalEden.createItemBlock(),
+				rockDivine.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -482,6 +489,8 @@ public class ModBlocks {
 		acidLunic.registerItemModel(Item.getItemFromBlock(acidLunic));
 		acceleron.registerItemModel(Item.getItemFromBlock(acceleron));
 		grassArcana.registerItemModel(Item.getItemFromBlock(grassArcana));
+		portalEden.registerItemModel(Item.getItemFromBlock(portalEden));
+		rockDivine.registerItemModel(Item.getItemFromBlock(rockDivine));
 		
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));

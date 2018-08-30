@@ -34,8 +34,12 @@ import naturix.divinerpg.entities.entity.TheEye;
 import naturix.divinerpg.entities.entity.TheWatcher;
 import naturix.divinerpg.entities.entity.Vamecheron;
 import naturix.divinerpg.entities.entity.WildFire;
+import naturix.divinerpg.entities.entity.projectiles.InfernoArrow;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -63,6 +67,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "leorna"), Leorna.class, "leorna", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "parasecta"), Parasecta.class, "parasecta", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "paratiku"), Paratiku.class, "parattiku", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "arrow_inferno"), InfernoArrow.class, "arrow_inferno", id++, DivineRPG.instance, 64, 3, true);
 
 
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
@@ -104,6 +109,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisc.class, new RenderProjectile(new ResourceLocation("divinerpg:textures/items/amthirmisdisk.png"), 1));
+		RenderingRegistry.registerEntityRenderingHandler(InfernoArrow.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(),new ItemStack(ModItems.arrowInferno).getItem(), Minecraft.getMinecraft().getRenderItem()));
 		
 	}
 }

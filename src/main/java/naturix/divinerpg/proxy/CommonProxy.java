@@ -30,8 +30,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        ModEntities.init();
 	        
 	        }
-	    public EntityPlayer getPlayer() {
-			return null;}
+	    public EntityPlayer getPlayer() { return null; }
 	    public void init(FMLInitializationEvent e) {
 
 	    }
