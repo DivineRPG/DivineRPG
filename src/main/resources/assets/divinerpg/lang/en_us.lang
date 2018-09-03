@@ -17,6 +17,7 @@ tile.ore_realmite.name=Realmite Ore
 tile.ore_eden.name=Eden Ore
 tile.ore_arcanium.name=Arcanium Ore
 
+tile.rock_divine.name=Divine Rock
 tile.grass_arcana.name=Arcanite Grass
 tile.statue_watcher.name=Watcher Statue
 tile.heat_trap.name=Heat Trap

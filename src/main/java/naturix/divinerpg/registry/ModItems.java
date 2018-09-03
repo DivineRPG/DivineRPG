@@ -230,9 +230,9 @@ public class ModItems {
 	public static WitherReaper witherreaperLeggings = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.LEGS, "wither_reaper_leggings");
 	public static WitherReaper witherreaperBoots = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial, EntityEquipmentSlot.FEET, "wither_reaper_boots");
 	public static ItemBase bandHeivaHunt = new ItemBase("band_heiva_hunt");
-	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950);
-	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000);
-	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineSwordMaterial, "shickaxe_divine", 1250);
+	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee", 950, 2);
+	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "shickaxe_arlemite", 1000, 2);
+	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineSwordMaterial, "shickaxe_divine", 1250, 3);
 	public static ItemBase templateDisc = new ItemBase("template_disc");
 	public static ItemBase templateCannon = new ItemBase("template_cannon");
 	public static ItemBase templateBacksword = new ItemBase("template_backsword");

@@ -24,6 +24,7 @@ public class TeleportStaff extends Item {
 		setRegistryName(name);
 		this.setCreativeTab(DivineRPG.ItemsTab);
 		this.setMaxDamage(10);
+		this.setMaxStackSize(1);
 	}
 	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);

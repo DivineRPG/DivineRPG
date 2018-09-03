@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XX "
+  ],
+  "key": {
+    "X": {
+        "item": "minecraft:obsidian"
+    },
+	"Y": {
+		"item": "divinerpg:block_rupee"
+	}
+  },
+  "result": {
+    "item": "minecraft:bedrock",
+	"count": 3
+  }
+}

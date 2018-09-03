@@ -5,6 +5,7 @@ import java.io.File;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
+import naturix.divinerpg.utils.ListAllObjs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -28,7 +29,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        ModDimensions.init();
 	        ModEntities.init();
-	        
+	        ListAllObjs.listobjs();
 	        }
 	    public EntityPlayer getPlayer() { return null; }
 	    public void init(FMLInitializationEvent e) {
