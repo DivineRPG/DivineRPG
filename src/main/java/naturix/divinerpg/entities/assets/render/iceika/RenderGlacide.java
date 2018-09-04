@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderGlacide extends RenderLiving<Glacide> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/glacide.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/glacon.png");
 	private final ModelGlacide modelEntity;
     
 	public RenderGlacide(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
