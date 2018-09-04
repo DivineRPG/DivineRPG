@@ -2,7 +2,7 @@ package naturix.divinerpg.bases.items.book;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
-import naturix.divinerpg.entities.entity.Dramix;
+import naturix.divinerpg.entities.entity.arcana.Dramix;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCreeper;

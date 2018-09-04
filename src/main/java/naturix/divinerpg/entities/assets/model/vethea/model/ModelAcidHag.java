@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class AcidHag extends ModelBase
+public class ModelAcidHag extends ModelBase
 {
     //fields
     ModelRenderer body;
@@ -31,7 +31,7 @@ public class AcidHag extends ModelBase
     ModelRenderer head;
     ModelRenderer horn2;
 
-    public AcidHag()
+    public ModelAcidHag()
     {
         textureWidth = 64;
         textureHeight = 32;

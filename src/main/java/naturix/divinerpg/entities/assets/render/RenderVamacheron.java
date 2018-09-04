@@ -11,15 +11,15 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderVamecheron extends RenderLiving<Vamecheron> {
+public class RenderVamacheron extends RenderLiving<Vamecheron> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/vamacheron.png");
-	private final ModelVamacheron modelEntity;
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/vamecheron.png");
+	private final ModelVamacheron ModelVamacheron;
     
-	public RenderVamecheron(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelVamacheron(), 1.3F);
-        modelEntity = (ModelVamacheron) super.mainModel;
+	public RenderVamacheron(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelVamacheron(), 1F);
+        ModelVamacheron = (ModelVamacheron) super.mainModel;
 
     }
 
@@ -34,7 +34,7 @@ public class RenderVamecheron extends RenderLiving<Vamecheron> {
 
 	        @Override
 	        public Render<? super Vamecheron> createRenderFor(RenderManager manager) {
-	            return new RenderVamecheron(manager, new ModelVamacheron(), 0.5F);
+	            return new RenderVamacheron(manager, new ModelVamacheron(), 0.5F);
 	        }
 	    }
 

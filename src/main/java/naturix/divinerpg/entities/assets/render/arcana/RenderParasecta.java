@@ -1,9 +1,9 @@
-package naturix.divinerpg.entities.assets.render;
+package naturix.divinerpg.entities.assets.render.arcana;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.arcana.model.ModelParasecta;
-import naturix.divinerpg.entities.entity.Parasecta;
+import naturix.divinerpg.entities.entity.arcana.Parasecta;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

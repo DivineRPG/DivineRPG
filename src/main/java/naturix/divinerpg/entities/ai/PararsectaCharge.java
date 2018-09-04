@@ -1,6 +1,6 @@
 package naturix.divinerpg.entities.ai;
 
-import naturix.divinerpg.entities.entity.Parasecta;
+import naturix.divinerpg.entities.entity.arcana.Parasecta;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;

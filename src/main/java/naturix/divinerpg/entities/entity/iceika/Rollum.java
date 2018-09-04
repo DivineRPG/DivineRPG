@@ -1,41 +1,36 @@
-package naturix.divinerpg.entities.entity;
+package naturix.divinerpg.entities.entity.iceika;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIFollow;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Leorna extends EntityMob{
+public class Rollum extends EntityMob {
 
-    public Leorna(World worldIn) {
+    public Rollum(World worldIn) {
 		super(worldIn);
-		this.setSize(0.8F, 2f);
+		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
-
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/leorna");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/rollum");
 
 
     protected boolean isMaster() {
@@ -54,17 +49,24 @@ public class Leorna extends EntityMob{
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
+        if (isMaster()) {
+            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
+        } else {
+            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
+            }
     }
 
     protected void initEntityAI()
     {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
         this.applyEntityAI();
     }
@@ -108,11 +110,4 @@ public class Leorna extends EntityMob{
 		return this.LOOT;
 
 	}
-    private int explosionStrength = 1;
-
-    public int getFireballStrength()
-    {
-        return this.explosionStrength;
-    }
-    
-    }
+}

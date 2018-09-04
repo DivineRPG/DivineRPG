@@ -2,7 +2,7 @@ package naturix.divinerpg.bases.blocks.tile;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
-import naturix.divinerpg.entities.entity.Dramix;
+import naturix.divinerpg.entities.entity.arcana.Dramix;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityZombie;

@@ -1,10 +1,9 @@
-package naturix.divinerpg.entities.assets.render;
+package naturix.divinerpg.entities.assets.render.arcana;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.arcana.model.ModelLeorna;
-import naturix.divinerpg.entities.entity.Dramix;
-import naturix.divinerpg.entities.entity.Leorna;
+import naturix.divinerpg.entities.entity.arcana.Leorna;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

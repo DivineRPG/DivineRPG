@@ -1,13 +1,10 @@
 package naturix.divinerpg.entities.assets.render;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.model.ModelHat;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

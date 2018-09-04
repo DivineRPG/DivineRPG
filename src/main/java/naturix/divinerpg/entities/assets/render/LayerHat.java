@@ -3,16 +3,11 @@ package naturix.divinerpg.entities.assets.render;
 
 import javax.annotation.Nonnull;
 
-import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 
 public class LayerHat implements LayerRenderer<EntityPlayer> {
 

@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.entity;
+package naturix.divinerpg.entities.entity.iceika;
 
 import javax.annotation.Nullable;
 
@@ -23,14 +23,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class DungeonDemon extends EntityMob {
+public class Frosty extends EntityMob {
 
-    public DungeonDemon(World worldIn) {
+    public Frosty(World worldIn) {
 		super(worldIn);
-		this.setSize(1.2F, 1.3f);
+		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dungeon_demon");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/frosty");
 
 
     protected boolean isMaster() {
