@@ -1,9 +1,9 @@
-package naturix.divinerpg.entities.assets.render;
+package naturix.divinerpg.entities.assets.render.twilight;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelVamacheron;
-import naturix.divinerpg.entities.entity.Vamecheron;
+import naturix.divinerpg.entities.entity.twilight.Vamecheron;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
