@@ -26,14 +26,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Cadillion extends EntityMob {
+public class SkythernGolem extends EntityMob {
 
-    public Cadillion(World worldIn) {
+    public SkythernGolem(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cadillion");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/golem_skythern");
 
 
     protected boolean isMaster() {
@@ -58,7 +58,7 @@ public class Cadillion extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Cadillion.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, SkythernGolem.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));

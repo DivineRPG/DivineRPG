@@ -26,14 +26,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Tomo extends EntityMob {
+public class ApalachiaArcher extends EntityMob {
 
-    public Tomo(World worldIn) {
+    public ApalachiaArcher(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/tomo");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/archer_apalachia");
 
 
     protected boolean isMaster() {
@@ -58,7 +58,7 @@ public class Tomo extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Tomo.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, ApalachiaArcher.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));

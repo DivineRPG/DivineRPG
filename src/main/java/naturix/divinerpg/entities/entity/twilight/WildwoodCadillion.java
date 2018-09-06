@@ -26,14 +26,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Cori extends EntityMob {
+public class WildwoodCadillion extends EntityMob {
 
-    public Cori(World worldIn) {
+    public WildwoodCadillion(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cori");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cadillion_wildwood");
 
 
     protected boolean isMaster() {
@@ -58,7 +58,7 @@ public class Cori extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Cori.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, WildwoodCadillion.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
