@@ -7,6 +7,7 @@
  */package naturix.divinerpg;
 
 import naturix.divinerpg.proxy.CommonProxy;
+import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEvents;
 import naturix.divinerpg.registry.ModItems;
@@ -21,6 +22,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
@@ -95,6 +97,9 @@ public class DivineRPG {
 			@SubscribeEvent
 			public static void onLivingSpawn(LivingSpawnEvent event) {
 				ModSpawns.init(event);
+			}@SubscribeEvent
+			public static void registerBiomes(RegistryEvent.Register<Biome> event) {
+				ModBiomes.registerBiomes(event.getRegistry()); 
 			}
 			 
 	    }

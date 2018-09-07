@@ -4,7 +4,6 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.EntityTeakerDisc;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

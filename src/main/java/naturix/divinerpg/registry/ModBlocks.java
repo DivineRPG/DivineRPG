@@ -7,6 +7,8 @@ import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.bases.blocks.BlockNetherite;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
+import naturix.divinerpg.bases.blocks.DirtBase;
+import naturix.divinerpg.bases.blocks.GrassBase;
 import naturix.divinerpg.bases.blocks.LampBase;
 import naturix.divinerpg.bases.blocks.LeavesBase;
 import naturix.divinerpg.bases.blocks.LogBase;
@@ -142,9 +144,11 @@ public class ModBlocks {
 	public static Acid acidBlock = new Acid("acid_block", true, false);
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
 	public static Acceleron acceleron = new Acceleron("acceleron"); 
-	public static BlockBase grassArcana = new BlockBase("grass_arcana");
+	public static GrassBase grassArcana = new GrassBase("grass_arcana");
 	public static PortalBase portalEden = new PortalBase("portal_eden");
 	public static BlockBase rockDivine = new BlockBase("rock_divine");
+	public static BlockBase dirtEden = new BlockBase("dirt_eden");
+	public static GrassBase grassEden = new GrassBase("grass_eden");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
@@ -258,7 +262,9 @@ public class ModBlocks {
 				grassArcana,
 				portalEden,
 				rockDivine,
-				furnace
+				furnace,
+				dirtEden,
+				grassEden
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
@@ -376,7 +382,9 @@ public class ModBlocks {
 				acceleron.createItemBlock(),
 				grassArcana.createItemBlock(),
 				portalEden.createItemBlock(),
-				rockDivine.createItemBlock()
+				rockDivine.createItemBlock(),
+				dirtEden.createItemBlock(),
+				grassEden.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -491,7 +499,8 @@ public class ModBlocks {
 		grassArcana.registerItemModel(Item.getItemFromBlock(grassArcana));
 		portalEden.registerItemModel(Item.getItemFromBlock(portalEden));
 		rockDivine.registerItemModel(Item.getItemFromBlock(rockDivine));
-		
+		dirtEden.registerItemModel(Item.getItemFromBlock(dirtEden));
+		grassEden.registerItemModel(Item.getItemFromBlock(grassEden));
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		

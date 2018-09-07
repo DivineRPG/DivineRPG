@@ -47,13 +47,5 @@ public class BlockBase extends Block {
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
-	@Override
-	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
-	{
-		if(this == ModBlocks.grassArcana)
-	{		return true;
-	}else{
-		return false;
-    }
-	}
+
 }

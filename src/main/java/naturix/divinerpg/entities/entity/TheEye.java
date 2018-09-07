@@ -2,8 +2,6 @@ package naturix.divinerpg.entities.entity;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +22,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -28,7 +28,7 @@ public class TreeGen extends WorldGenAbstractTree {
 		private IBlockState leaves;
 
 		public TreeGen(boolean b, IBlockState iBlockState, IBlockState iBlockState2) {
-			super(false);
+			super(b);
 			this.minTreeHeight = 4;
 			this.metaWood = 0;
 			this.metaLeaves = 0;

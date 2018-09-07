@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelEnchantedArcher;
 import naturix.divinerpg.entities.entity.twilight.MortumArcher;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
@@ -33,7 +32,7 @@ public class RenderMortumArcher extends RenderLiving<MortumArcher> {
 	 public static class Factory implements IRenderFactory<MortumArcher> {
 
 	        @Override
-	        public Render<? super MortumArcher> createRenderFor(RenderManager manager) {
+	        public RenderMortumArcher createRenderFor(RenderManager manager) {
 	            return new RenderMortumArcher(manager, new ModelEnchantedArcher(), 0.5F);
 	        }
 	    }

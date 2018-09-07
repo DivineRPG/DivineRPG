@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelCadillion;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaCadillion;
-import naturix.divinerpg.entities.entity.twilight.EdenCadillion;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
