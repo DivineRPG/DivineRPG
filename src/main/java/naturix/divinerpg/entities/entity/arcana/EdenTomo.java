@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.entity;
+package naturix.divinerpg.entities.entity.arcana;
 
 import javax.annotation.Nullable;
 
@@ -18,14 +18,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Rotatick extends EntityMob {
+public class EdenTomo extends EntityMob {
 
-    public Rotatick(World worldIn) {
+    public EdenTomo(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/rotatick");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/tomo");
 
 
     protected boolean isMaster() {
@@ -50,7 +50,7 @@ public class Rotatick extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Rotatick.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, EdenTomo.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));

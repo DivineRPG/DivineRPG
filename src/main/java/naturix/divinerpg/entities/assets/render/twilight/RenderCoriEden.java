@@ -3,7 +3,7 @@ package naturix.divinerpg.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelCori;
-import naturix.divinerpg.entities.entity.twilight.EdenCori;
+import naturix.divinerpg.entities.entity.arcana.EdenCori;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

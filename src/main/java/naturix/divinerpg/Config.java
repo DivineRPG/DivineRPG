@@ -36,7 +36,5 @@ public class Config {
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
         debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug, "Set to true to enable");
         mobSpawnMultiplier = cfg.getInt("Mob Spawn Multiplier", CATEGORY_GENERAL, 5, 1, 32, "If you are experiencing lag i would recommend lowering this number");
-        
     }
-
 }

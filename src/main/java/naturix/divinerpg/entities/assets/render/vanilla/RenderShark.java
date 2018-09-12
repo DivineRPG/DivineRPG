@@ -1,9 +1,9 @@
-package naturix.divinerpg.entities.assets.render;
+package naturix.divinerpg.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelShark;
-import naturix.divinerpg.entities.entity.LandShark;
+import naturix.divinerpg.entities.entity.vanilla.LandShark;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

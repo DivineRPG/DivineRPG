@@ -1,9 +1,9 @@
-package naturix.divinerpg.entities.assets.render;
+package naturix.divinerpg.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelEye;
-import naturix.divinerpg.entities.entity.TheEye;
+import naturix.divinerpg.entities.entity.vanilla.TheEye;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

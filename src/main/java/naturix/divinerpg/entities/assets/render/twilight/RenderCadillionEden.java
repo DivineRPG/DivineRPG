@@ -3,7 +3,7 @@ package naturix.divinerpg.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelCadillion;
-import naturix.divinerpg.entities.entity.twilight.EdenCadillion;
+import naturix.divinerpg.entities.entity.arcana.EdenCadillion;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

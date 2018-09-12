@@ -1,6 +1,7 @@
 package naturix.divinerpg.entities.assets.render;
 
-import naturix.divinerpg.entities.entity.WildFire;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderWildFire;
+import naturix.divinerpg.entities.entity.vanilla.WildFire;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

@@ -1,6 +1,6 @@
 package naturix.divinerpg.entities.assets.model.vanilla.model;
 
-import naturix.divinerpg.entities.entity.WildFire;
+import naturix.divinerpg.entities.entity.vanilla.WildFire;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

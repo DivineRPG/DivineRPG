@@ -1,9 +1,10 @@
-package naturix.divinerpg.entities.assets.render;
+package naturix.divinerpg.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelWildfire;
-import naturix.divinerpg.entities.entity.WildFire;
+import naturix.divinerpg.entities.assets.render.MainHandLayerRender;
+import naturix.divinerpg.entities.entity.vanilla.WildFire;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
