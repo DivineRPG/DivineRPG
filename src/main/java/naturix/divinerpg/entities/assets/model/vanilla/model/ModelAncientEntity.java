@@ -1,5 +1,7 @@
 package naturix.divinerpg.entities.assets.model.vanilla.model;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -187,33 +189,34 @@ public class ModelAncientEntity extends ModelBase
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
   {
-	  float scale = f5*5;
     super.render(entity, f, f1, f2, f3, f4, f5);
+    GL11.glScaled(8, 8, 8);
+    GL11.glTranslatef(0f, -1.25f, 0f);
     setRotationAngles(f, f1, f2, f3, f4, f5);
-    head.render(scale);
-    legr.render(scale);
-    legl.render(scale);
-    legL2B.render(scale);
-    body2.render(scale);
-    body.render(scale);
-    legR2B.render(scale);
-    legL2T.render(scale);
-    legR2T.render(scale);
-    legR2M.render(scale);
-    legL2M.render(scale);
-    Shape1.render(scale);
-    Shape2.render(scale);
-    Shape3.render(scale);
-    Shape4.render(scale);
-    Shape5.render(scale);
-    Shape6.render(scale);
-    Shape7.render(scale);
-    Shape8.render(scale);
-    Shape9.render(scale);
-    hornbottoml.render(scale);
-    horntopl.render(scale);
-    hornbottomr.render(scale);
-    horntopr.render(scale);
+    head.render(f5);
+    legr.render(f5);
+    legl.render(f5);
+    legL2B.render(f5);
+    body2.render(f5);
+    body.render(f5);
+    legR2B.render(f5);
+    legL2T.render(f5);
+    legR2T.render(f5);
+    legR2M.render(f5);
+    legL2M.render(f5);
+    Shape1.render(f5);
+    Shape2.render(f5);
+    Shape3.render(f5);
+    Shape4.render(f5);
+    Shape5.render(f5);
+    Shape6.render(f5);
+    Shape7.render(f5);
+    Shape8.render(f5);
+    Shape9.render(f5);
+    hornbottoml.render(f5);
+    horntopl.render(f5);
+    hornbottomr.render(f5);
+    horntopr.render(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

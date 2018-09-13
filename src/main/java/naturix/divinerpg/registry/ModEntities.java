@@ -67,17 +67,20 @@ import naturix.divinerpg.entities.assets.render.twilight.RenderTwilightDemon;
 import naturix.divinerpg.entities.assets.render.twilight.RenderVamacheron;
 import naturix.divinerpg.entities.assets.render.twilight.RenderWarriorApalachia;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAncientEntity;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderAridWarrior;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoBlue;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoGreen;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoPurple;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoYellow;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyerecoRed;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderCrab;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderTriplets;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEye;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderKingCrab;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderRotatick;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderShark;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWatcher;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWildFire;
-import naturix.divinerpg.entities.assets.render.vanilla.RendereAyeracoPurple;
 import naturix.divinerpg.entities.entity.AcidHag;
 import naturix.divinerpg.entities.entity.EntityTeakerDisc;
 import naturix.divinerpg.entities.entity.arcana.DeathHound;
@@ -148,12 +151,15 @@ import naturix.divinerpg.entities.entity.twilight.WildwoodCadillion;
 import naturix.divinerpg.entities.entity.twilight.WildwoodGolem;
 import naturix.divinerpg.entities.entity.twilight.WildwoodTomo;
 import naturix.divinerpg.entities.entity.vanilla.AncientEntity;
+import naturix.divinerpg.entities.entity.vanilla.AridWarrior;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoBlue;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoGreen;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoPurple;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
+import naturix.divinerpg.entities.entity.vanilla.Crab;
 import naturix.divinerpg.entities.entity.vanilla.EnderTriplets;
+import naturix.divinerpg.entities.entity.vanilla.KingCrab;
 import naturix.divinerpg.entities.entity.vanilla.LandShark;
 import naturix.divinerpg.entities.entity.vanilla.Rotatick;
 import naturix.divinerpg.entities.entity.vanilla.TheEye;
@@ -261,6 +267,9 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ayeraco_yellow"), AyeracoYellow.class, "ayeraco_yellow", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ayeraco_purple"), AyeracoPurple.class, "ayeraco_purple", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ayeraco_green"), AyeracoGreen.class, "ayeraco_green", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "warrior_arid"), AridWarrior.class, "warrior_arid", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "crab"), Crab.class, "crab", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "crab_king"), KingCrab.class, "crab_king", id++, DivineRPG.instance, 64, 3, true);
 		
 		id = 500;
 		//vethia
@@ -334,6 +343,9 @@ public class ModEntities {
 		LootTableList.register(AyeracoYellow.LOOT);
 		LootTableList.register(AyeracoPurple.LOOT);
 		LootTableList.register(AyeracoGreen.LOOT);
+		LootTableList.register(AridWarrior.LOOT);
+		LootTableList.register(Crab.LOOT);
+		LootTableList.register(KingCrab.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
@@ -419,7 +431,10 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(AyeracoBlue.class, RenderAyeracoBlue.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(AyeracoYellow.class, RenderAyeracoYellow.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(AyeracoGreen.class, RenderAyeracoGreen.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(AyeracoPurple.class, RendereAyeracoPurple.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(AyeracoPurple.class, RenderAyeracoPurple.FACTORY); 
+		RenderingRegistry.registerEntityRenderingHandler(AridWarrior.class, RenderAridWarrior.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Crab.class, RenderCrab.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(KingCrab.class, RenderKingCrab.FACTORY);
 		
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
