@@ -7,7 +7,6 @@ import naturix.divinerpg.entities.assets.render.RenderAcidHag;
 import naturix.divinerpg.entities.assets.render.RenderProjectile;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathcryx;
-import naturix.divinerpg.entities.assets.render.arcana.RenderDramcryx;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDramix;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDungeonDemon;
 import naturix.divinerpg.entities.assets.render.arcana.RenderLeorna;
@@ -74,7 +73,9 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoPurple;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoYellow;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyerecoRed;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderCrab;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderDramcryxJungle;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderTriplets;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderEnthralledDramcryx;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEye;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderKingCrab;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderRotatick;
@@ -90,7 +91,6 @@ import naturix.divinerpg.entities.entity.arcana.DungeonDemon;
 import naturix.divinerpg.entities.entity.arcana.EdenCadillion;
 import naturix.divinerpg.entities.entity.arcana.EdenCori;
 import naturix.divinerpg.entities.entity.arcana.EdenTomo;
-import naturix.divinerpg.entities.entity.arcana.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.arcana.Leorna;
 import naturix.divinerpg.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.entities.entity.arcana.Paratiku;
@@ -159,6 +159,8 @@ import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
 import naturix.divinerpg.entities.entity.vanilla.Crab;
 import naturix.divinerpg.entities.entity.vanilla.EnderTriplets;
+import naturix.divinerpg.entities.entity.vanilla.EnthralledDramcryx;
+import naturix.divinerpg.entities.entity.vanilla.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.vanilla.KingCrab;
 import naturix.divinerpg.entities.entity.vanilla.LandShark;
 import naturix.divinerpg.entities.entity.vanilla.Rotatick;
@@ -189,7 +191,6 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "deathcryx"), Deathcryx.class, "deathcryx", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "death_hound"), DeathHound.class, "death_hound", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramix_boss"), Dramix.class, "dramix_boss", id++, DivineRPG.instance, 64, 3, true);
-		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_jungle"), JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dungeon_demon"), DungeonDemon.class, "dungeon_demon", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "leorna"), Leorna.class, "leorna", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "parasecta"), Parasecta.class, "parasecta", id++, DivineRPG.instance, 64, 3, true);
@@ -270,6 +271,8 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "warrior_arid"), AridWarrior.class, "warrior_arid", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "crab"), Crab.class, "crab", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "crab_king"), KingCrab.class, "crab_king", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_jungle"), JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_enthralled"), EnthralledDramcryx.class, "dramcryx_enthralled", id++, DivineRPG.instance, 64, 3, true);
 		
 		id = 500;
 		//vethia
@@ -283,7 +286,7 @@ public class ModEntities {
 		EntityRegistry.addSpawn(WildFire.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
 		EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
 		EntityRegistry.addSpawn(EnderTriplets.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
-		
+		EntityRegistry.addSpawn(EnthralledDramcryx.class, 150 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
 		DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 		
 		//loot
@@ -346,6 +349,7 @@ public class ModEntities {
 		LootTableList.register(AridWarrior.LOOT);
 		LootTableList.register(Crab.LOOT);
 		LootTableList.register(KingCrab.LOOT);
+		LootTableList.register(EnthralledDramcryx.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
@@ -419,7 +423,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(ApalachiaWarrior.class, RenderWarriorApalachia.FACTORY);
 		
 		//vanilla
-		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryx.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryxJungle.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(LandShark.class, RenderShark.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(WildFire.class, RenderWildFire.FACTORY);
@@ -435,6 +439,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(AridWarrior.class, RenderAridWarrior.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Crab.class, RenderCrab.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(KingCrab.class, RenderKingCrab.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
 		
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);

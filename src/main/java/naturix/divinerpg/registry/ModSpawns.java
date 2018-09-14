@@ -1,5 +1,7 @@
 package naturix.divinerpg.registry;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.entities.entity.vanilla.EnthralledDramcryx;
 import naturix.divinerpg.entities.entity.vanilla.LandShark;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWaterMob;

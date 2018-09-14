@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.entity.arcana;
+package naturix.divinerpg.entities.entity.vanilla;
 
 import javax.annotation.Nullable;
 
