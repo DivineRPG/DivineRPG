@@ -2,7 +2,6 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.entities.assets.model.ModelHat;
 import naturix.divinerpg.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
 import naturix.divinerpg.entities.assets.render.RenderAcidHag;
 import naturix.divinerpg.entities.assets.render.RenderHat;
@@ -61,6 +60,7 @@ import naturix.divinerpg.entities.assets.render.twilight.RenderSoulFiend;
 import naturix.divinerpg.entities.assets.render.twilight.RenderSoulSpider;
 import naturix.divinerpg.entities.assets.render.twilight.RenderSoulStealer;
 import naturix.divinerpg.entities.assets.render.twilight.RenderSunArcher;
+import naturix.divinerpg.entities.assets.render.twilight.RenderTameAngryBunny;
 import naturix.divinerpg.entities.assets.render.twilight.RenderTomoEden;
 import naturix.divinerpg.entities.assets.render.twilight.RenderTomoWildwood;
 import naturix.divinerpg.entities.assets.render.twilight.RenderTwilightArcher;
@@ -145,6 +145,7 @@ import naturix.divinerpg.entities.entity.twilight.SoulFiend;
 import naturix.divinerpg.entities.entity.twilight.SoulSpider;
 import naturix.divinerpg.entities.entity.twilight.SoulStealer;
 import naturix.divinerpg.entities.entity.twilight.SunArcher;
+import naturix.divinerpg.entities.entity.twilight.TameAngryBunny;
 import naturix.divinerpg.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.entities.entity.twilight.TwilightDemon;
 import naturix.divinerpg.entities.entity.twilight.Vamecheron;
@@ -170,8 +171,6 @@ import naturix.divinerpg.entities.entity.vanilla.TheWatcher;
 import naturix.divinerpg.entities.entity.vanilla.WildFire;
 import naturix.divinerpg.entities.entity.vethia.AcidHag;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
@@ -222,6 +221,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "archer_skythern"), SkythernArcher.class, "archer_skythern", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "archer_mortum"), MortumArcher.class, "archer_mortum", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "bunny_angry"), AngryBunny.class, "bunny_angry", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "bunny_angry_tamed"), TameAngryBunny.class, "bunny_angry_tamed", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "basalisk"), Basalisk.class, "basalisk", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "behemoth"), Bohemoth.class, "behemoth", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "bunny"), Bunny.class, "bunny", id++, DivineRPG.instance, 64, 3, true);
@@ -356,6 +356,7 @@ public class ModEntities {
 		LootTableList.register(Crab.LOOT);
 		LootTableList.register(KingCrab.LOOT);
 		LootTableList.register(EnthralledDramcryx.LOOT);
+		LootTableList.register(TameAngryBunny.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
@@ -386,6 +387,7 @@ public class ModEntities {
 		
 		//twilight
 		RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Basalisk.class, RenderBasalisk.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Bohemoth.class, RenderBehemoth.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);

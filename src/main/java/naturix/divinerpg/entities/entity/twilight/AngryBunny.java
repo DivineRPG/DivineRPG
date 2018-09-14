@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +14,8 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -23,7 +26,7 @@ public class AngryBunny extends EntityMob {
     public AngryBunny(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
+		this.setHealth(this.getHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny_angry");
 
@@ -91,4 +94,20 @@ public class AngryBunny extends EntityMob {
 		return this.LOOT;
 
 	}
+
+	@Override
+	public boolean processInteract(EntityPlayer player, EnumHand hand)
+    {
+        ItemStack itemstack = player.getHeldItem(hand);
+        BlockPos spawnmobat = this.getPosition();
+        TameAngryBunny bunny = new TameAngryBunny(this.getEntityWorld());
+        if(itemstack.getItem() == ModItems.edenSparklez) {
+        	bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
+        	if(!world.isRemote) {
+        		world.spawnEntity(bunny);
+        		this.isDead = true;
+        		}
+        }
+        return super.processInteract(player, hand);
+    }
 }

@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFindEntityNearest;
@@ -14,23 +14,24 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Bunny extends EntityMob {
+public class TameAngryBunny extends EntityTameable {
 
-    public Bunny(World worldIn) {
+    public TameAngryBunny(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
+		this.setHealth(this.getHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny_angry_tamed");
 
 
     protected boolean isMaster() {
@@ -50,12 +51,11 @@ public class Bunny extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    }
+       }
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Bunny.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, TameAngryBunny.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
@@ -96,15 +96,27 @@ public class Bunny extends EntityMob {
 		return this.LOOT;
 
 	}
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
+
+	@Override
+	public boolean processInteract(EntityPlayer player, EnumHand hand)
     {
-    		AngryBunny bunny = new AngryBunny(world);
-    		bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
-    		if(!world.isRemote) {
-    		world.spawnEntity(bunny);
-    		this.isDead = true;
-    		}
-    		return super.attackEntityFrom(source, amount);
+        ItemStack itemstack = player.getHeldItem(hand);
+        if(itemstack.getItem() == ModItems.edenSparklez) {
+        	this.heal(this.getMaxHealth());
+        	this.glowing=true;
+        }
+        return super.processInteract(player, hand);
     }
+
+	@Override
+	public EntityAgeable createChild(EntityAgeable ageable) {
+		return null;
+	}
+	@Override
+	public void onLivingUpdate()
+    {
+		if(rand.nextInt(50) == 2) {
+		this.glowing=false;
     }
+}
+}

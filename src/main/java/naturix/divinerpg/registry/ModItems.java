@@ -4,7 +4,6 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.AxeBase;
 import naturix.divinerpg.bases.items.BowBase;
 import naturix.divinerpg.bases.items.CannonBase;
-import naturix.divinerpg.bases.items.FoodBase;
 import naturix.divinerpg.bases.items.HoeBase;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.bases.items.PickaxeBase;
@@ -50,6 +49,7 @@ import naturix.divinerpg.bases.items.armor.WitherReaper;
 import naturix.divinerpg.bases.items.arrows.InfernoArrow;
 import naturix.divinerpg.bases.items.book.BookBase;
 import naturix.divinerpg.bases.items.clock.MysteriousClock;
+import naturix.divinerpg.bases.items.food.FoodBase;
 import naturix.divinerpg.bases.items.food.ReturnBucket;
 import naturix.divinerpg.bases.items.food.ReturnsBowl;
 import naturix.divinerpg.bases.items.serenade.SerenadeDeath;
@@ -434,6 +434,7 @@ public class ModItems {
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	public static TeleportStaff tpStaff = new TeleportStaff("teleportation_crystal");
 	public static InfernoArrow arrowInferno = new InfernoArrow("arrow_inferno");
+	public static ItemBase edenSparklez = new ItemBase("eden_sparklez"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -803,7 +804,8 @@ public class ModItems {
 				sharkFin,
 				tokensDungeon,
 				tpStaff,
-				arrowInferno
+				arrowInferno,
+				edenSparklez
 				);
 	}
 	
@@ -1175,6 +1177,7 @@ public class ModItems {
 		tokensDungeon.registerItemModel();
 		tpStaff.registerItemModel();
 		arrowInferno.registerItemModel();
+		edenSparklez.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

@@ -3,21 +3,21 @@ package naturix.divinerpg.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelAngryBunny;
-import naturix.divinerpg.entities.entity.twilight.AngryBunny;
+import naturix.divinerpg.entities.entity.twilight.TameAngryBunny;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
-
-public class RenderAngryBunny extends RenderLiving<AngryBunny> {
+ 
+public class RenderTameAngryBunny extends RenderLiving<TameAngryBunny> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/bunny_angry.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/bunny_angry_tamed.png");
 	private final ModelAngryBunny ModelAngryBunny;
     
-	public RenderAngryBunny(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderTameAngryBunny(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelAngryBunny(), 1F);
         ModelAngryBunny = (ModelAngryBunny) super.mainModel;
 
@@ -26,15 +26,15 @@ public class RenderAngryBunny extends RenderLiving<AngryBunny> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(AngryBunny entity) {
+    protected ResourceLocation getEntityTexture(TameAngryBunny entity) {
         return texture;
 		}
 
-	 public static class Factory implements IRenderFactory<AngryBunny> {
+	 public static class Factory implements IRenderFactory<TameAngryBunny> {
 
 	        @Override
-	        public Render<? super AngryBunny> createRenderFor(RenderManager manager) {
-	            return new RenderAngryBunny(manager, new ModelAngryBunny(), 0.5F);
+	        public Render<? super TameAngryBunny> createRenderFor(RenderManager manager) {
+	            return new RenderTameAngryBunny(manager, new ModelAngryBunny(), 0.5F);
 	        }
 	    }
 
