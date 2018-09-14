@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.entity;
+package naturix.divinerpg.entities.entity.vethia;
 
 import javax.annotation.Nullable;
 

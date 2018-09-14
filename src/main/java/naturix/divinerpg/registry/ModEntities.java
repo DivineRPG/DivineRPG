@@ -2,8 +2,10 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.entities.assets.model.ModelHat;
 import naturix.divinerpg.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
 import naturix.divinerpg.entities.assets.render.RenderAcidHag;
+import naturix.divinerpg.entities.assets.render.RenderHat;
 import naturix.divinerpg.entities.assets.render.RenderProjectile;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathcryx;
@@ -82,7 +84,6 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderRotatick;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderShark;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWatcher;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWildFire;
-import naturix.divinerpg.entities.entity.AcidHag;
 import naturix.divinerpg.entities.entity.EntityTeakerDisc;
 import naturix.divinerpg.entities.entity.arcana.DeathHound;
 import naturix.divinerpg.entities.entity.arcana.Deathcryx;
@@ -167,9 +168,14 @@ import naturix.divinerpg.entities.entity.vanilla.Rotatick;
 import naturix.divinerpg.entities.entity.vanilla.TheEye;
 import naturix.divinerpg.entities.entity.vanilla.TheWatcher;
 import naturix.divinerpg.entities.entity.vanilla.WildFire;
+import naturix.divinerpg.entities.entity.vethia.AcidHag;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -445,8 +451,10 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
 		
 		//other
+		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisc.class, new RenderProjectile(new ResourceLocation("divinerpg:textures/items/amthirmisdisk.png"), 1));
 		RenderingRegistry.registerEntityRenderingHandler(InfernoArrow.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(),new ItemStack(ModItems.arrowInferno).getItem(), Minecraft.getMinecraft().getRenderItem()));
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
 	}
 }

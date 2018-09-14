@@ -3,7 +3,7 @@ package naturix.divinerpg.entities.assets.render;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vethea.model.ModelAcidHag;
-import naturix.divinerpg.entities.entity.AcidHag;
+import naturix.divinerpg.entities.entity.vethia.AcidHag;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
