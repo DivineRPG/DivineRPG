@@ -13,11 +13,13 @@ import net.minecraft.entity.ai.EntityAIFollow;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -96,15 +98,21 @@ public class Bunny extends EntityMob {
 		return this.LOOT;
 
 	}
+
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
+    protected void onDeathUpdate()
     {
-    		AngryBunny bunny = new AngryBunny(world);
+        ++this.deathTime;
+
+        if (this.deathTime == 20)
+        {
+        	AngryBunny bunny = new AngryBunny(world);
     		bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
     		if(!world.isRemote) {
     		world.spawnEntity(bunny);
     		this.isDead = true;
     		}
-    		return super.attackEntityFrom(source, amount);
+        }
     }
+    
     }

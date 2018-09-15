@@ -110,4 +110,15 @@ public class AngryBunny extends EntityMob {
         }
         return super.processInteract(player, hand);
     }
+	@Override
+	public void onLivingUpdate()
+    {
+		if(rand.nextInt(5000) == 2) {
+			Bunny bunny = new Bunny(this.getEntityWorld());
+			if(!world.isRemote) {
+        		world.spawnEntity(bunny);
+        		this.isDead = true;
+        		}
+    }
+    }
 }
