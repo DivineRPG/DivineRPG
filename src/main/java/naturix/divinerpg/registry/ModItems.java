@@ -430,6 +430,7 @@ public class ModItems {
 	public static ItemBase shardMolten = new ItemBase("shard_molten"); 
 	public static ItemBase shardCorrupted = new ItemBase("shard_corrupted"); 
 	public static ItemBase shardEnder = new ItemBase("shard_ender"); 
+	public static ItemBase shardTerran = new ItemBase("shard_terran"); 
 	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	public static TeleportStaff tpStaff = new TeleportStaff("teleportation_crystal");
@@ -805,7 +806,8 @@ public class ModItems {
 				tokensDungeon,
 				tpStaff,
 				arrowInferno,
-				edenSparklez
+				edenSparklez,
+				shardTerran
 				);
 	}
 	
@@ -1178,6 +1180,7 @@ public class ModItems {
 		tpStaff.registerItemModel();
 		arrowInferno.registerItemModel();
 		edenSparklez.registerItemModel();
+		shardTerran.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}
