@@ -114,7 +114,15 @@ public class TameAngryBunny extends EntityTameable {
 	}
 	@Override
 	public void onLivingUpdate()
+    {this.updateArmSwingProgress();
+    float f = this.getBrightness();
+
+    if (f > 0.5F)
     {
+        this.idleTime += 2;
+    }
+
+    super.onLivingUpdate();
 		if(rand.nextInt(50) == 2) {
 		this.glowing=false;
     }

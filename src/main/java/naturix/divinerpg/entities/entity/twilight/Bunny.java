@@ -102,6 +102,15 @@ public class Bunny extends EntityMob {
     @Override
     protected void onDeathUpdate()
     {
+    	this.updateArmSwingProgress();
+        float f = this.getBrightness();
+
+        if (f > 0.5F)
+        {
+            this.idleTime += 2;
+        }
+
+        super.onLivingUpdate();
         ++this.deathTime;
 
         if (this.deathTime == 20)
