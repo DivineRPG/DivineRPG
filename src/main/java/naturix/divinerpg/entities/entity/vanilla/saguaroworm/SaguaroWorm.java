@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.entity.vanilla;
+package naturix.divinerpg.entities.entity.vanilla.saguaroworm;
 
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.EntityLivingBase;
@@ -65,12 +65,13 @@ public class SaguaroWorm extends EntityMob {
         for(double h = -1.5; h<1.5; h+=0.3) {
             for (double r = 0; r < 1.5 - Math.abs(h); r += 0.3) {
                 for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 8) {
-//                    EntitySaguaroWormShot shot = new EntitySaguaroWormShot(this.world, this);
-//                    shot.posX = this.posX + r * Math.cos(theta);
-//                    shot.posY = this.posY + 5 + h;
-//                    shot.posZ = this.posZ + r * Math.sin(theta);
-//                    shot.setThrowableHeading(tx, ty, tz, 0.9f, 5);
-//                    world.spawnEntityInWorld(shot);
+                    SaguaroWormShot shot = new SaguaroWormShot(this.world, this);
+                    shot.posX = this.posX + r * Math.cos(theta);
+                    shot.posY = this.posY + 5 + h;
+                    shot.posZ = this.posZ + r * Math.sin(theta);
+                    shot.setPositionAndUpdate(tx, ty, tz);
+                    shot.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
+                    world.spawnEntity(shot);
                 }
             }
         }
