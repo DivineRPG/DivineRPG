@@ -476,6 +476,8 @@ item.shard_molten.name=Molten Shards
 item.shard_ender.name=Ender Shards
 item.shard_corrupted.name=Corrupted Shards
 item.shark_fin.name=Shark Fin
+item.shard_terran.name=Terran Shards
+item.eden_sparklez.name=Eden Sparkles
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

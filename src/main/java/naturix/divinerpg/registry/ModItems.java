@@ -285,8 +285,8 @@ public class ModItems {
 	public static CannonBase cannonKaros = new CannonBase("cannon_karos", ModItems.acid);
 	public static CannonBase cannonHeliosis = new CannonBase("cannon_heliosis", ModItems.acid);
 	public static CannonBase cannonArksiane = new CannonBase("cannon_arksiane", ModItems.acid);
-	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false);
-	public static FoodBase bacon = new FoodBase("bacon", 3, true);
+	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false, true);
+	public static FoodBase bacon = new FoodBase("bacon", 3, true, true);
 	public static FoodBase hotPumpkinPie = new FoodBase("pie_pumpkin_hot", 7, true);
 	public static FoodBase boiledEgg = new FoodBase("egg_boiled", 1, false);
 	public static FoodBase cheese = new FoodBase("cheese", 1, false);
@@ -294,10 +294,10 @@ public class ModItems {
 	public static ReturnsBowl mushroomStewAdvanced = new ReturnsBowl("mushroom_stew", 10, false);
 	public static FoodBase tomato = new FoodBase("tomato", 2, false);
 	public static FoodBase donut = new FoodBase("donut", 18, false);
-	public static FoodBase rawEmpoweredMeat = new FoodBase("meat_empowered_raw", 2, true);
-	public static FoodBase empoweredMeat = new FoodBase("meat_empowered", 4, true);
-	public static FoodBase magicMeat = new FoodBase("meat_magic", 1, true);
-	public static FoodBase enrichedMagicMeat = new FoodBase("meat_magic_enriched", 2, true);
+	public static FoodBase rawEmpoweredMeat = new FoodBase("meat_empowered_raw", 2, true, true);
+	public static FoodBase empoweredMeat = new FoodBase("meat_empowered", 4, true, true);
+	public static FoodBase magicMeat = new FoodBase("meat_magic", 1, true, true);
+	public static FoodBase enrichedMagicMeat = new FoodBase("meat_magic_enriched", 2, true, true);
 	public static ReturnBucket eggNog = new ReturnBucket("egg_nog", 5, false);
 	public static FoodBase peppermints = new FoodBase("peppermints", 1, false);
 	public static FoodBase chocolateLog = new FoodBase("chocolate_log", 1, false);
