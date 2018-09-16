@@ -4,7 +4,8 @@
 /**
  * @author NicosaurusRex99
  *
- */package naturix.divinerpg;
+ */
+package naturix.divinerpg;
 
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBiomes;
