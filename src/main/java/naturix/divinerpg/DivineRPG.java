@@ -98,7 +98,8 @@ public class DivineRPG {
 			@SubscribeEvent
 			public static void onLivingSpawn(LivingSpawnEvent event) {
 				ModSpawns.init(event);
-			}@SubscribeEvent
+			}
+			@SubscribeEvent
 			public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 				ModBiomes.registerBiomes(event.getRegistry()); 
 			}
