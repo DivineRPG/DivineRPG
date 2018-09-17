@@ -76,6 +76,7 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoYellow;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyerecoRed;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderCrab;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderDramcryxJungle;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderEhu;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderTriplets;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnthralledDramcryx;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEye;
@@ -160,6 +161,7 @@ import naturix.divinerpg.entities.entity.vanilla.AyeracoPurple;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
 import naturix.divinerpg.entities.entity.vanilla.Crab;
+import naturix.divinerpg.entities.entity.vanilla.Ehu;
 import naturix.divinerpg.entities.entity.vanilla.EnderTriplets;
 import naturix.divinerpg.entities.entity.vanilla.EnthralledDramcryx;
 import naturix.divinerpg.entities.entity.vanilla.JungleStegosaurus;
@@ -279,6 +281,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "crab_king"), KingCrab.class, "crab_king", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_jungle"), JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_enthralled"), EnthralledDramcryx.class, "dramcryx_enthralled", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ehu"), Ehu.class, "ehu", id++, DivineRPG.instance, 64, 3, true);
 		
 		id = 500;
 		//vethia
@@ -357,6 +360,7 @@ public class ModEntities {
 		LootTableList.register(KingCrab.LOOT);
 		LootTableList.register(EnthralledDramcryx.LOOT);
 		LootTableList.register(TameAngryBunny.LOOT);
+		LootTableList.register(Ehu.LOOT);
 		
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
@@ -448,6 +452,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Crab.class, RenderCrab.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(KingCrab.class, RenderKingCrab.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Ehu.class, RenderEhu.FACTORY);
 		
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
