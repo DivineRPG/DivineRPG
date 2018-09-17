@@ -84,6 +84,7 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderEye;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderFrost;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderGlacon;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderGrizzle;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderGrizzleWhite;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderGrue;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderHellSpider;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderHusk;
@@ -188,6 +189,7 @@ import naturix.divinerpg.entities.entity.vanilla.EnthralledDramcryx;
 import naturix.divinerpg.entities.entity.vanilla.Frost;
 import naturix.divinerpg.entities.entity.vanilla.Glacon;
 import naturix.divinerpg.entities.entity.vanilla.Grizzle;
+import naturix.divinerpg.entities.entity.vanilla.GrizzleWhite;
 import naturix.divinerpg.entities.entity.vanilla.Grue;
 import naturix.divinerpg.entities.entity.vanilla.HellSpider;
 import naturix.divinerpg.entities.entity.vanilla.Husk;
@@ -343,6 +345,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "snapper"), Snapper.class, "snapper", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "golem_stone"), StoneGolem.class, "golem_stone", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "whale"), Whale.class, "whale", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "grizzle_white"), GrizzleWhite.class, "grizzle_white", id++, DivineRPG.instance, 64, 3, true);
 		
 		id = 500;
 		//vethia
@@ -444,6 +447,7 @@ public class ModEntities {
 		LootTableList.register(Snapper.LOOT);
 		LootTableList.register(StoneGolem.LOOT);
 		LootTableList.register(Whale.LOOT);
+		LootTableList.register(GrizzleWhite.LOOT);
 		
 		if(Config.debug) {	
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
@@ -542,6 +546,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Crawler.class, RenderCrawler.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Glacon.class, RenderGlacon.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Grizzle.class, RenderGrizzle.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(GrizzleWhite.class, RenderGrizzleWhite.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Grue.class, RenderGrue.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(HellSpider.class, RenderHellSpider.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Husk.class, RenderHusk.FACTORY);
