@@ -285,21 +285,24 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_enthralled"), EnthralledDramcryx.class, "dramcryx_enthralled", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ehu"), Ehu.class, "ehu", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "frost"), Frost.class, "frost", id++, DivineRPG.instance, 64, 3, true);
+		
 		id = 500;
 		//vethia
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "acid_hag"), AcidHag.class, "acid_hag", id++, DivineRPG.instance, 64, 3, true);
 
-
+		if(Config.debug) {
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
-		
+		}
 		//Spawn
 		EntityRegistry.addSpawn(JungleStegosaurus.class, 50 * Config.mobSpawnMultiplier, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
 		EntityRegistry.addSpawn(WildFire.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
 		EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
 		EntityRegistry.addSpawn(EnderTriplets.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
 		EntityRegistry.addSpawn(EnthralledDramcryx.class, 150 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
-		DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 		
+		if(Config.debug) {
+			DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
+		}
 		//loot
 		LootTableList.register(JungleStegosaurus.LOOT);
 		LootTableList.register(LandShark.LOOT);
@@ -364,7 +367,10 @@ public class ModEntities {
 		LootTableList.register(TameAngryBunny.LOOT);
 		LootTableList.register(Ehu.LOOT);
 		LootTableList.register(Frost.LOOT);
+		
+		if(Config.debug) {	
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
+		}
 	}
 	public static void initModels() {
 		//arcana 
