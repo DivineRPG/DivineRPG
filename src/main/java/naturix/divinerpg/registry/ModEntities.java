@@ -80,6 +80,7 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderEhu;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderTriplets;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnthralledDramcryx;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEye;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderFrost;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderKingCrab;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderRotatick;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderShark;
@@ -164,6 +165,7 @@ import naturix.divinerpg.entities.entity.vanilla.Crab;
 import naturix.divinerpg.entities.entity.vanilla.Ehu;
 import naturix.divinerpg.entities.entity.vanilla.EnderTriplets;
 import naturix.divinerpg.entities.entity.vanilla.EnthralledDramcryx;
+import naturix.divinerpg.entities.entity.vanilla.Frost;
 import naturix.divinerpg.entities.entity.vanilla.JungleStegosaurus;
 import naturix.divinerpg.entities.entity.vanilla.KingCrab;
 import naturix.divinerpg.entities.entity.vanilla.LandShark;
@@ -282,7 +284,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_jungle"), JungleStegosaurus.class, "dramcryx_jungle", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dramcryx_enthralled"), EnthralledDramcryx.class, "dramcryx_enthralled", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ehu"), Ehu.class, "ehu", id++, DivineRPG.instance, 64, 3, true);
-		
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "frost"), Frost.class, "frost", id++, DivineRPG.instance, 64, 3, true);
 		id = 500;
 		//vethia
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "acid_hag"), AcidHag.class, "acid_hag", id++, DivineRPG.instance, 64, 3, true);
@@ -361,7 +363,7 @@ public class ModEntities {
 		LootTableList.register(EnthralledDramcryx.LOOT);
 		LootTableList.register(TameAngryBunny.LOOT);
 		LootTableList.register(Ehu.LOOT);
-		
+		LootTableList.register(Frost.LOOT);
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 	}
 	public static void initModels() {
@@ -453,7 +455,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(KingCrab.class, RenderKingCrab.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Ehu.class, RenderEhu.FACTORY);
-		
+		RenderingRegistry.registerEntityRenderingHandler(Frost.class, RenderFrost.FACTORY);
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
 		
