@@ -11,14 +11,18 @@ import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.render.RenderHat;
+import naturix.divinerpg.entities.entity.twilight.Basalisk;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class Utils {
 	public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;
@@ -39,6 +43,7 @@ public class Utils {
 	        TextComponentString ret = new TextComponentString(str);
 	        return ret;
 	    }
+		
 		public static TextComponentString addChatMessage(String str, Object... args) {
 	        TextComponentString ret = new TextComponentString(args + str);
 	        ret.getStyle().setColor(TextFormatting.WHITE);
@@ -121,4 +126,5 @@ public class Utils {
 			}
 			return false;
 		}
+		
 	    }

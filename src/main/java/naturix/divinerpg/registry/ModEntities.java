@@ -3,9 +3,7 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
-import naturix.divinerpg.entities.assets.render.RenderAcidHag;
 import naturix.divinerpg.entities.assets.render.RenderHat;
-import naturix.divinerpg.entities.assets.render.RenderProjectile;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathcryx;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDramix;
@@ -106,6 +104,7 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderStoneGolem;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWatcher;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWhale;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderWildFire;
+import naturix.divinerpg.entities.assets.render.vethia.RenderAcidHag;
 import naturix.divinerpg.entities.entity.EntityTeakerDisc;
 import naturix.divinerpg.entities.entity.arcana.DeathHound;
 import naturix.divinerpg.entities.entity.arcana.Deathcryx;
@@ -214,13 +213,42 @@ import naturix.divinerpg.entities.entity.vanilla.TheWatcher;
 import naturix.divinerpg.entities.entity.vanilla.Whale;
 import naturix.divinerpg.entities.entity.vanilla.WildFire;
 import naturix.divinerpg.entities.entity.vethia.AcidHag;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RenderSnowball;
+import naturix.divinerpg.entities.entity.vethia.Bohemite;
+import naturix.divinerpg.entities.entity.vethia.CryptKeeper;
+import naturix.divinerpg.entities.entity.vethia.Cymesoid;
+import naturix.divinerpg.entities.entity.vethia.Dissiment;
+import naturix.divinerpg.entities.entity.vethia.Dreamwrecker;
+import naturix.divinerpg.entities.entity.vethia.Duo;
+import naturix.divinerpg.entities.entity.vethia.Ent;
+import naturix.divinerpg.entities.entity.vethia.Galroid;
+import naturix.divinerpg.entities.entity.vethia.Gorgosion;
+import naturix.divinerpg.entities.entity.vethia.Helio;
+import naturix.divinerpg.entities.entity.vethia.Herbomancer;
+import naturix.divinerpg.entities.entity.vethia.HiveQueen;
+import naturix.divinerpg.entities.entity.vethia.HiveSoldier;
+import naturix.divinerpg.entities.entity.vethia.HoverStinger;
+import naturix.divinerpg.entities.entity.vethia.Karos;
+import naturix.divinerpg.entities.entity.vethia.Kazrotic;
+import naturix.divinerpg.entities.entity.vethia.LadyLuna;
+import naturix.divinerpg.entities.entity.vethia.Lheiva;
+import naturix.divinerpg.entities.entity.vethia.Lorga;
+import naturix.divinerpg.entities.entity.vethia.Lorgaflight;
+import naturix.divinerpg.entities.entity.vethia.Mandragora;
+import naturix.divinerpg.entities.entity.vethia.MysteriousMan;
+import naturix.divinerpg.entities.entity.vethia.Quadro;
+import naturix.divinerpg.entities.entity.vethia.RaglokGogdure;
+import naturix.divinerpg.entities.entity.vethia.Shadahier;
+import naturix.divinerpg.entities.entity.vethia.Spinarus;
+import naturix.divinerpg.entities.entity.vethia.Tocaxin;
+import naturix.divinerpg.entities.entity.vethia.Twins;
+import naturix.divinerpg.entities.entity.vethia.Vermenous;
+import naturix.divinerpg.entities.entity.vethia.Vhraak;
+import naturix.divinerpg.entities.entity.vethia.WreckForm;
+import naturix.divinerpg.entities.entity.vethia.Zone;
+import naturix.divinerpg.entities.entity.vethia.Zoragon;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -350,7 +378,42 @@ public class ModEntities {
 		id = 500;
 		//vethia
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "acid_hag"), AcidHag.class, "acid_hag", id++, DivineRPG.instance, 64, 3, true);
-
+		//HERE
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "basalisk"), Basalisk.class, "basalisk", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "bohemite"), Bohemite.class, "bohemite", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "crypy_keeper"), CryptKeeper.class, "crypt_keeper", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "cymesoid"), Cymesoid.class, "cymesoid", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dissiment"), Dissiment.class, "dissiment", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "dreamwrecker"), Dreamwrecker.class, "dreamwrecker", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "duo"), Duo.class, "duo", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ent"), Ent.class, "ent", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "galroid"), Galroid.class, "galroid", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "gorgosion"), Gorgosion.class, "gorgosion", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "helio"), Helio.class, "helio", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "herbomancer"), Herbomancer.class, "herbomancer", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "hive_queen"), HiveQueen.class, "hive_queen", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "hive_soldier"), HiveSoldier.class, "hive_soldier", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "hover_stinger"), HoverStinger.class, "hover_stinger", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "karos"), Karos.class, "karos", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "kazrotic"), Kazrotic.class, "kazrotic", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "lady_luna"), LadyLuna.class, "lady_luna", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "lheiva"), Lheiva.class, "lheiva", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "lorga"), Lorga.class, "lorga", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "lorga_flight"), Lorgaflight.class, "lorga_flight", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "mandragora"), Mandragora.class, "mandragora", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "mysterious_man"), MysteriousMan.class, "mysterious_man", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "quadro"), Quadro.class, "quadro", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "raglok_gogdure"), RaglokGogdure.class, "raglok_gogdure", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "shadahier"), Shadahier.class, "shadahier", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "spinarus"), Spinarus.class, "spinarus", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "tocaxin"), Tocaxin.class, "tocaxin", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "twins"), Twins.class, "twins", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "vermenous"), Vermenous.class, "vermenous", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "vhraak"), Vhraak.class, "vhraak", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "wreck_form"), WreckForm.class, "wreck_form", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "zone"), Zone.class, "zone", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "zoragon"), Zoragon.class, "zoragon", id++, DivineRPG.instance, 64, 3, true);
+		
 		if(Config.debug) {
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
 		}
@@ -567,12 +630,9 @@ public class ModEntities {
 		
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Basalisk.class, RenderBasalisk.FACTORY);
 		
 		//other
-		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityTeakerDisc.class, new RenderProjectile(new ResourceLocation("divinerpg:textures/items/amthirmisdisk.png"), 1));
-		RenderingRegistry.registerEntityRenderingHandler(InfernoArrow.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(),new ItemStack(ModItems.arrowInferno).getItem(), Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
 	}
 }
