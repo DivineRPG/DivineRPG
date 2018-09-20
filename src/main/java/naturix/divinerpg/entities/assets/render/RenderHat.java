@@ -8,6 +8,7 @@ import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -28,7 +29,7 @@ public class RenderHat implements LayerRenderer<AbstractClientPlayer> {
 	        }
 	    }
 	private final ModelHat ModelHat = new ModelHat();
-	public RenderHat(RenderManager manager) {
+	public RenderHat(RenderPlayer render) {
 	}
 
 

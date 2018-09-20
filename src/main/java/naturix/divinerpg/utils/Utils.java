@@ -1,16 +1,22 @@
 package naturix.divinerpg.utils;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.render.RenderHat;
 import naturix.divinerpg.entities.entity.twilight.Basalisk;
@@ -22,6 +28,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class Utils {
@@ -127,4 +134,107 @@ public class Utils {
 			return false;
 		}
 		
+		public static Map<String, ResourceLocation> capeMap = new HashMap<>();
+		public static void setupCapes()
+	    {
+	        try
+	        {
+	            Utils.updateCapeList();
+	        }
+	        catch (Exception e)
+	        {
+	            FMLLog.severe("Error while setting up DivineRPG dev hats");
+	            e.printStackTrace();
+	        }
+
+	    }
+		public static void updateCapeList()
+	    {
+	        int timeout = 10000;
+	        URL capeListUrl;
+
+	        try
+	        {
+	            capeListUrl = new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/dev.txt");
+	        }
+	        catch (IOException e)
+	        {
+	            FMLLog.severe("Error getting capes list URL");
+	            if (Config.debug) e.printStackTrace();
+	            return;
+	        }
+
+	        URLConnection connection;
+
+	        try
+	        {
+	            connection = capeListUrl.openConnection();
+	        }
+	        catch (IOException e)
+	        {
+	            if (Config.debug) e.printStackTrace();
+	            return;
+	        }
+
+	        connection.setConnectTimeout(timeout);
+	        connection.setReadTimeout(timeout);
+	        InputStream stream;
+
+	        try
+	        {
+	            stream = connection.getInputStream();
+	        }
+	        catch (IOException e)
+	        {
+	            if (Config.debug) e.printStackTrace();
+	            return;
+	        }
+
+	        InputStreamReader streamReader = new InputStreamReader(stream);
+	        BufferedReader reader = new BufferedReader(streamReader);
+
+	        String line;
+	        try
+	        {
+	            while ((line = reader.readLine()) != null)
+	            {
+	                if (line.contains(":"))
+	                {
+	                    int splitLocation = line.indexOf(":");
+	                    String username = line.substring(0, splitLocation);
+	                    Utils.capeMap.put(username, new ResourceLocation(DivineRPG.modId, "textures/models/devhats/" + convertCapeString(line.substring(splitLocation + 1)) + ".png"));
+	                }
+	            }
+	        }
+	        catch (IOException e)
+	        {
+	            if (Config.debug) e.printStackTrace();
+	        }
+	        finally
+	        {
+	            try
+	            {
+	                reader.close();
+	            }
+	            catch (IOException e)
+	            {
+	                if (Config.debug) e.printStackTrace();
+	            }
+	        }
+	    }
+	    private static String convertCapeString(String capeName)
+	    {
+	        StringBuilder underscoreCase = new StringBuilder();
+	        for (int i = 0; i < capeName.length(); ++i)
+	        {
+	            char c = capeName.charAt(i);
+	            if (!Character.isLowerCase(c))
+	            {
+	                underscoreCase.append("_");
+	                c = Character.toLowerCase(c);
+	            }
+	            underscoreCase.append(c);
+	        }
+	        return underscoreCase.toString();
+	    }
 	    }
