@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderRaglokGogdure extends RenderLiving<RaglokGogdure> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/raglock_gogdure.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/raglok_gogdure.png");
 	private final ModelRaglokGogdure modelEntity;
     
 	public RenderRaglokGogdure(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
