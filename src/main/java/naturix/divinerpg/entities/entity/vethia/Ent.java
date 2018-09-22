@@ -32,7 +32,7 @@ public class Ent extends EntityMob {
 
     public Ent(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(2F, 4.4f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ent");

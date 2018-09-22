@@ -32,7 +32,7 @@ public class Dreamwrecker extends EntityMob {
 
     public Dreamwrecker(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 4.4f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dreamwreaker");
