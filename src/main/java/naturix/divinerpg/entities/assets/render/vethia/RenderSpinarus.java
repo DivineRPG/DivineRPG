@@ -3,6 +3,8 @@ package naturix.divinerpg.entities.assets.render.vethia;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vethea.model.ModelSpinarusBody;
+import naturix.divinerpg.entities.assets.model.vethea.model.ModelSpinarusHead;
+import naturix.divinerpg.entities.assets.model.vethea.model.ModelSpinarusTail;
 import naturix.divinerpg.entities.entity.vethia.Spinarus;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,6 +18,8 @@ public class RenderSpinarus extends RenderLiving<Spinarus> {
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/spinarus.png");
 	private final ModelSpinarusBody modelEntity;
+//	private final ModelSpinarusHead modelEntity2;
+//	private final ModelSpinarusTail modelEntity3;
     
 	public RenderSpinarus(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelSpinarusBody(), 1F);

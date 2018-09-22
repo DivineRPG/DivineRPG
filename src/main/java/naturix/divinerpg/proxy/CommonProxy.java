@@ -54,5 +54,5 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		public void registerItemRenderer(Item itemBlock, int i, String name) {
 
 		}
-		
+
 	}

@@ -7,7 +7,6 @@ import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.bases.blocks.BlockNetherite;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
-import naturix.divinerpg.bases.blocks.DirtBase;
 import naturix.divinerpg.bases.blocks.GrassBase;
 import naturix.divinerpg.bases.blocks.LampBase;
 import naturix.divinerpg.bases.blocks.LeavesBase;
@@ -126,7 +125,7 @@ public class ModBlocks {
 	public static BaseStatue ayeracoHordeStatue = new BaseStatue("statue_ayeracohorde");
 	public static BaseStatue densosStatue = new BaseStatue("statue_densos");
 	public static BaseStatue dexZichileStatue = new BaseStatue("statue_dexzichile");
-	public static BaseStatue dramixStatue = new BaseStatue("statue_dramix");
+	public static BaseStatue dramixStatue = new BaseStatue("statue_dramix"); 
 	public static BaseStatue kingScorcherStatue = new BaseStatue("statue_kingscorcher");
 	public static BaseStatue reyvorStatue = new BaseStatue("statue_reyvor");
 	public static BaseStatue soulFiendStatue = new BaseStatue("statue_soulfiend");
@@ -150,6 +149,8 @@ public class ModBlocks {
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
 	
+	
+
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(

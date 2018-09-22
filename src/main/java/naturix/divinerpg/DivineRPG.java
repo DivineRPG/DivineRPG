@@ -59,7 +59,6 @@ public class DivineRPG {
 	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	        ModSeeds.init();
 	        ModEvents.preInit();
-	        
 	        PreInitLog.init();
 	        
 	    }
