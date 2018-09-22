@@ -28,14 +28,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Crawler extends EntityMob {
+public class CaveCrawler extends EntityMob {
 
-    public Crawler(World worldIn) {
+    public CaveCrawler(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crawler");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crawler_cave");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
