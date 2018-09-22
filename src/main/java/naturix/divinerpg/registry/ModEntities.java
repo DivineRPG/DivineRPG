@@ -409,7 +409,7 @@ public class ModEntities {
 		LootTableList.register(Husk.LOOT);
 		LootTableList.register(IceMan.LOOT);
 		LootTableList.register(JackOMan.LOOT);
-		//LootTableList.register(JungleBat.LOOT);
+		LootTableList.register(JungleBat.LOOT);
 		LootTableList.register(JungleSpider.LOOT);
 		LootTableList.register(Kobblin.LOOT);
 		LootTableList.register(Liopleurodon.LOOT);

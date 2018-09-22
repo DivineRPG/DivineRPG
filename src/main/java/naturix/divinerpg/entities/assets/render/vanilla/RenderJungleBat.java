@@ -21,7 +21,7 @@ public class RenderJungleBat extends RenderLiving<JungleBat> {
 	private final ModelJungleBat ModelAyereco;
     
 	public RenderJungleBat(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelJungleBat(), 1F);
+        super(rendermanagerIn, new ModelJungleBat(), 0.125F);
         ModelAyereco = (ModelJungleBat) super.mainModel;
     } 
 
@@ -35,7 +35,7 @@ public class RenderJungleBat extends RenderLiving<JungleBat> {
 
 	        @Override
 	        public Render<? super JungleBat> createRenderFor(RenderManager manager) {
-	            return new RenderJungleBat(manager, new ModelJungleBat(), 0.5F);
+	            return new RenderJungleBat(manager, new ModelJungleBat(), 0.125F);
 	        }
 	    }
 

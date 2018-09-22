@@ -1,5 +1,7 @@
 package naturix.divinerpg.entities.assets.model.vanilla.model;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -55,7 +57,8 @@ public class ModelJungleBat extends ModelBase {
     	//EntityJungleBat entitybat = (EntityJungleBat)par1Entity;
     	EntityBat entitybat = (EntityBat)par1Entity;
         float f6;
-
+        GL11.glScaled(0.5, 0.5, 0.5);
+        GL11.glTranslatef(0f, 1f, 0f);
         if (entitybat.getIsBatHanging()) {
             f6 = (180F / (float)Math.PI);
             this.batHead.rotateAngleX = par6 / (180F / (float)Math.PI);
