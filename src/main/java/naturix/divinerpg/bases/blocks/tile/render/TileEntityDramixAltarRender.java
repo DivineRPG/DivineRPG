@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.blocks.tile.entity.render;
+package naturix.divinerpg.bases.blocks.tile.render;
 
 import org.lwjgl.opengl.GL11;
 

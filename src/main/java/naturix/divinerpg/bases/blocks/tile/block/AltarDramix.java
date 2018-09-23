@@ -1,8 +1,7 @@
-package naturix.divinerpg.bases.blocks.tile;
+package naturix.divinerpg.bases.blocks.tile.block;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
-import naturix.divinerpg.bases.blocks.tile.entity.render.TileEntityDramixAltarRender;
 import naturix.divinerpg.entities.entity.arcana.Dramix;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

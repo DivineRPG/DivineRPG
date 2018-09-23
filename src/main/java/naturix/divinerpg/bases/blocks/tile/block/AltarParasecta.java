@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.blocks.tile;
+package naturix.divinerpg.bases.blocks.tile.block;
 
 import java.util.List;
 

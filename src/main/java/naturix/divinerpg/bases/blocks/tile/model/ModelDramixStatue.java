@@ -1,22 +1,22 @@
-package naturix.divinerpg.bases.blocks.statue;
+package naturix.divinerpg.bases.blocks.tile.model;
 
-import net.minecraft.client.model.ModelBase;
+import naturix.divinerpg.utils.models.DivineModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 
-public class DramixStatueModel extends ModelBase
+public class ModelDramixStatue extends DivineModel
 {
-	ModelRenderer Leg_Right;
+    //fields
+    ModelRenderer Leg_Right;
     ModelRenderer Leg_Left;
     ModelRenderer Arm_Right;
     ModelRenderer Arm_Left;
     ModelRenderer Head;
     ModelRenderer Chest;
 
-    public DramixStatueModel()
+    public ModelDramixStatue()
     {
-        this.textureWidth = 64;
-        this.textureHeight = 64;
+        super("statueDramix", 64, 64);
+
         Leg_Right = new ModelRenderer(this, 0, 22);
         Leg_Right.addBox(-2F, -2F, -3F, 5, 15, 6);
         Leg_Right.setRotationPoint(-4F, 11F, 1F);
@@ -56,26 +56,4 @@ public class DramixStatueModel extends ModelBase
         setRotation(Chest, 0F, 0F, 0F);
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
-    {
-        super.render(var1, var2, var3, var4, var5, var6, var7);
-        Leg_Right.render(var7);
-        Leg_Left.render(var7);
-        Arm_Right.render(var7);
-        Arm_Left.render(var7);
-        Head.render(var7);
-        Chest.render(var7);
-        
-    }
-
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4)
-    {
-        var1.rotateAngleX = var2;
-        var1.rotateAngleY = var3;
-        var1.rotateAngleZ = var4;
-    }
 }
-

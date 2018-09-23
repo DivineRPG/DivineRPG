@@ -4,9 +4,6 @@ package naturix.divinerpg.bases.blocks.tile.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraftforge.client.ForgeHooksClient;
-
-import org.lwjgl.opengl.GL11;
 
 
 public class DramixAltarModel extends ModelBase {

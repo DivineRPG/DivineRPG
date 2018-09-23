@@ -1,9 +1,9 @@
-package naturix.divinerpg.bases.blocks.tile.render;
+package naturix.divinerpg.bases.blocks.tile;
 
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
-import naturix.divinerpg.bases.blocks.tile.entity.render.TileEntityDramixAltarRender;
-import naturix.divinerpg.bases.blocks.tile.entity.render.TileEntityParasectaAltarRender;
+import naturix.divinerpg.bases.blocks.tile.render.TileEntityDramixAltarRender;
+import naturix.divinerpg.bases.blocks.tile.render.TileEntityParasectaAltarRender;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class RenderTiles {

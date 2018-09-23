@@ -21,25 +21,17 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
 import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
-import naturix.divinerpg.bases.blocks.tile.AltarDramix;
-import naturix.divinerpg.bases.blocks.tile.AltarParasecta;
+import naturix.divinerpg.bases.blocks.tile.block.AltarDramix;
+import naturix.divinerpg.bases.blocks.tile.block.AltarParasecta;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
-import naturix.divinerpg.bases.blocks.tile.furnace.BlockFurnace;
-import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
@@ -142,7 +134,6 @@ public class ModBlocks {
 	//public static BedBase nightmarebed = new BedBase("bed_nightmare");
 	public static AltarDramix altarDramix = new AltarDramix("altar_dramix");
 	public static AltarParasecta altarParasecta = new AltarParasecta("altar_parasecta");
-	public static BlockFurnace furnace = new BlockFurnace("furnace_1");
 	public static HeatTrap heatTrap = new HeatTrap("heat_trap");
 	public static HeatTrap heatTrapOn = new HeatTrap("heat_trap_on");
 	public static Spike spikeCold = new Spike("spike_cold");
@@ -271,13 +262,11 @@ public class ModBlocks {
 				grassArcana,
 				portalEden,
 				rockDivine,
-				furnace,
 				dirtEden,
 				grassEden
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
-		GameRegistry.registerTileEntity(TileEntityFurnace.class, furnace.getRegistryName().toString());
 		
 	}
 	
@@ -382,7 +371,6 @@ public class ModBlocks {
 				altarDramix.createItemBlock(),
 				altarParasecta.createItemBlock(),
 				heatTrap.createItemBlock(),
-				furnace.createItemBlock(),
 				spikeCold.createItemBlock(),
 				spikeHot.createItemBlock(),
 				acidBacteria.createItemBlock(),
@@ -510,7 +498,6 @@ public class ModBlocks {
 		rockDivine.registerItemModel(Item.getItemFromBlock(rockDivine));
 		dirtEden.registerItemModel(Item.getItemFromBlock(dirtEden));
 		grassEden.registerItemModel(Item.getItemFromBlock(grassEden));
-		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		
