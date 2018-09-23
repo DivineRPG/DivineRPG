@@ -2,6 +2,7 @@ package naturix.divinerpg.proxy;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.bases.blocks.tile.render.RenderTiles;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -24,6 +25,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
+        RenderTiles.init();
         Utils.setupCapes();
         Utils.updateCapeList();
     }

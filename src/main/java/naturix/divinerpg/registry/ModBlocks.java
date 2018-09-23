@@ -30,8 +30,16 @@ import naturix.divinerpg.bases.blocks.tile.furnace.entity.TileEntityFurnace;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
@@ -488,8 +496,8 @@ public class ModBlocks {
 		soulFiendStatue.registerItemModel(Item.getItemFromBlock(soulFiendStatue));
 		twilightDemonStatue.registerItemModel(Item.getItemFromBlock(twilightDemonStatue));
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
-		altarDramix.registerItemModel(Item.getItemFromBlock(altarDramix));
-		altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
+
+		//altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
 		heatTrap.registerItemModel(Item.getItemFromBlock(heatTrap));
 		spikeCold.registerItemModel(Item.getItemFromBlock(spikeCold));
 		spikeHot.registerItemModel(Item.getItemFromBlock(spikeHot));
@@ -505,7 +513,7 @@ public class ModBlocks {
 		furnace.registerItemModel(Item.getItemFromBlock(furnace));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
+		
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");
 	}
-
 }

@@ -1,15 +1,10 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "model": "divinerpg:altar_parasecta",
-	    "transform": "forge:default-block"
-    },
-    "variants": {
-        "naromal": [{
-            "textures": {  }
-        }],
-        "inventory": [{
-            "textures": {  }
-        }]
-    }
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:defaultmodel"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
 }
