@@ -2,6 +2,7 @@ package naturix.divinerpg.entities.assets.model.vanilla.model;
 
 import org.lwjgl.opengl.GL11;
 
+import naturix.divinerpg.entities.entity.vanilla.JungleBat;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -54,13 +55,14 @@ public class ModelJungleBat extends ModelBase {
     }
 
     public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7) {
-    	//EntityJungleBat entitybat = (EntityJungleBat)par1Entity;
-    	EntityBat entitybat = (EntityBat)par1Entity;
+    	JungleBat entitybat = (JungleBat)par1Entity;
+    	//EntityBat entitybat = (EntityBat)par1Entity;
         float f6;
-        GL11.glScaled(0.5, 0.5, 0.5);
-        GL11.glTranslatef(0f, 1f, 0f);
+        
         if (entitybat.getIsBatHanging()) {
             f6 = (180F / (float)Math.PI);
+            GL11.glScaled(0.5, 0.5, 0.5);
+            GL11.glTranslatef(0f, 2.5f, 0f);
             this.batHead.rotateAngleX = par6 / (180F / (float)Math.PI);
             this.batHead.rotateAngleY = (float)Math.PI - par5 / (180F / (float)Math.PI);
             this.batHead.rotateAngleZ = (float)Math.PI;
@@ -76,6 +78,8 @@ public class ModelJungleBat extends ModelBase {
             this.batOuterLeftWing.rotateAngleY = -this.batOuterRightWing.rotateAngleY;
         } else {
             f6 = (180F / (float)Math.PI);
+            GL11.glScaled(0.5, 0.5, 0.5);
+            GL11.glTranslatef(0f, 1.75f, 0f);
             this.batHead.rotateAngleX = par6 / (180F / (float)Math.PI);
             this.batHead.rotateAngleY = par5 / (180F / (float)Math.PI);
             this.batHead.rotateAngleZ = 0.0F;
