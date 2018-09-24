@@ -3,15 +3,18 @@ package naturix.divinerpg.proxy;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.RenderTiles;
+import naturix.divinerpg.bases.blocks.tile.render.itemstack.ItemStackParasectaAltarRender;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
@@ -29,6 +32,12 @@ public class ClientProxy extends CommonProxy {
         Utils.setupCapes();
         Utils.updateCapeList();
     }
+	@Override
+    public void postInit(FMLPostInitializationEvent e) {
+        super.postInit(e);
+        ItemStackParasectaAltarRender.instance = new TileEntityItemStackRenderer();
+    	
+       }
 	
     @Override
 	public EntityPlayer getPlayer() {
