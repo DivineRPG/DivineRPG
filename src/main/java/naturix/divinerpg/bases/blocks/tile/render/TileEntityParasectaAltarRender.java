@@ -23,6 +23,7 @@ public class TileEntityParasectaAltarRender extends TileEntitySpecialRenderer<Ti
 	private final RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 	
 	public TileEntityParasectaAltarRender() {
+		
 		model = new ParasectaAltarModel();
 	}
 

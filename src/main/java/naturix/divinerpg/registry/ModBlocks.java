@@ -485,7 +485,8 @@ public class ModBlocks {
 		twilightDemonStatue.registerItemModel(Item.getItemFromBlock(twilightDemonStatue));
 		vamacheronStatue.registerItemModel(Item.getItemFromBlock(vamacheronStatue));
 
-		//altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
+		altarDramix.registerItemModel(Item.getItemFromBlock(altarDramix));
+		altarParasecta.registerItemModel(Item.getItemFromBlock(altarParasecta));
 		heatTrap.registerItemModel(Item.getItemFromBlock(heatTrap));
 		spikeCold.registerItemModel(Item.getItemFromBlock(spikeCold));
 		spikeHot.registerItemModel(Item.getItemFromBlock(spikeHot));
