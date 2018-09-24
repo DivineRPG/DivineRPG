@@ -17,8 +17,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ItemStackParasectaAltarRender extends TileEntityItemStackRenderer {
     public final TileEntityItemStackRenderer PARENT;
-    private final ParasectaAltarModel MODEL_SHIELD = new ParasectaAltarModel();
-    private final ResourceLocation SHIELD_PARTS_TEXTURE = new ResourceLocation(DivineRPG.modId + ":textures/model/altar_parasecta.png");
+    private final ParasectaAltarModel MODEL_ALTAR = new ParasectaAltarModel();
+    private final ResourceLocation ALTAR_PARTS_TEXTURE = new ResourceLocation(DivineRPG.modId + ":textures/model/altar_parasecta.png");
 
     public ItemStackParasectaAltarRender(TileEntityItemStackRenderer previous) {
     	PARENT = previous;
@@ -33,10 +33,10 @@ public class ItemStackParasectaAltarRender extends TileEntityItemStackRenderer {
 	public void renderByItem(ItemStack stack, float partialTicks) {
         if ((!stack.isEmpty())) {
             ItemStack item = new ItemStack(ModBlocks.altarParasecta);
-            Minecraft.getMinecraft().getTextureManager().bindTexture(SHIELD_PARTS_TEXTURE);
+            Minecraft.getMinecraft().getTextureManager().bindTexture(ALTAR_PARTS_TEXTURE);
             GlStateManager.pushMatrix();
             GlStateManager.scale(1.0, -1.0, -1.0);
-            MODEL_SHIELD.render(1);
+            MODEL_ALTAR.render(1);
             GlStateManager.popMatrix();
 
             GlStateManager.pushMatrix();
