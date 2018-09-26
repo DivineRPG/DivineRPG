@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import com.google.common.cache.LoadingCache;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.dimensions.EdenTeleporter;
+import naturix.divinerpg.dimensions.ModTeleporter;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.Block;
@@ -440,7 +440,7 @@ public class PortalBase extends Block {
 
                 int i = entityIn.dimension == DimensionType.OVERWORLD.getId() ? ModDimensions.edenDimension.getId() : DimensionType.OVERWORLD.getId();
 
-                EdenTeleporter teleporter = new EdenTeleporter(server.getWorld(i));
+                ModTeleporter teleporter = new ModTeleporter(server.getWorld(i));
 
                 entityIn.timeUntilPortal = entityIn.getPortalCooldown() * 2;
 
@@ -886,7 +886,7 @@ public class PortalBase extends Block {
                     DimensionType.OVERWORLD.getId();
 
 
-            Teleporter teleporter = new EdenTeleporter(server.getWorld(i));
+            Teleporter teleporter = new ModTeleporter(server.getWorld(i));
 
 
 

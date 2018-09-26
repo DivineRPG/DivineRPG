@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.dimensions;
+package naturix.divinerpg.dimensions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

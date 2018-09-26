@@ -2,7 +2,7 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.dimensions.WorldProviderEden;
+import naturix.divinerpg.dimensions.WorldProviderEden;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 

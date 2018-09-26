@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.dimensions;
+package naturix.divinerpg.dimensions;
 
 import java.util.List;
 import java.util.Random;
@@ -21,7 +21,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 
-public class ChunkGenerator implements IChunkGenerator {
+public class ChunkGeneratorEden implements IChunkGenerator {
 
     private final World worldObj;
     private Random random;
@@ -33,7 +33,7 @@ public class ChunkGenerator implements IChunkGenerator {
     private NormalTerrainGenerator terraingen = new NormalTerrainGenerator(null);
 	private World world;
 
-    public ChunkGenerator(World worldObj) {
+    public ChunkGeneratorEden(World worldObj) {
         this.worldObj = worldObj;
         long seed = worldObj.getSeed();
         this.random = new Random((seed + 516) * 314);
@@ -89,13 +89,13 @@ public class ChunkGenerator implements IChunkGenerator {
     public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
         // If you want normal creatures appropriate for this biome then uncomment the
         // following two lines:
-//        Biome biome = this.worldObj.getBiome(pos);
-//        return biome.getSpawnableList(creatureType);
+        Biome biome = this.worldObj.getBiome(pos);
+        return biome.getSpawnableList(creatureType);
 
-        if (creatureType == EnumCreatureType.MONSTER){
-            return mobs;
-        }
-        return ImmutableList.of();
+//        if (creatureType == EnumCreatureType.MONSTER){
+//            return mobs;
+//        }
+//        return ImmutableList.of();
 
     }
 

@@ -9,8 +9,10 @@ import naturix.divinerpg.utils.ListAllObjs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -33,7 +35,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        }
 	    public EntityPlayer getPlayer() { return null; }
 	    public void init(FMLInitializationEvent e) {
-
 	    }
 
 	    public void postInit(FMLPostInitializationEvent e) {
@@ -54,5 +55,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		public void registerItemRenderer(Item itemBlock, int i, String name) {
 
 		}
-
+		@SuppressWarnings("deprecation")
+		public static void registerEvent(Object event)
+		{
+			FMLCommonHandler.instance().bus().register(event);
+			MinecraftForge.EVENT_BUS.register(event);
+		}
 	}

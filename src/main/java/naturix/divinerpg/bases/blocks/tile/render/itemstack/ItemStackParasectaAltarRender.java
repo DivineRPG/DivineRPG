@@ -3,6 +3,7 @@ package naturix.divinerpg.bases.blocks.tile.render.itemstack;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.model.ParasectaAltarModel;
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -36,7 +37,7 @@ public class ItemStackParasectaAltarRender extends TileEntityItemStackRenderer {
             GlStateManager.scale(1.0, -1.0, -1.0);
             MODEL_ALTAR.render(1);
             GlStateManager.popMatrix();
-            renderItem(Item.getItemFromBlock(ModBlocks.altarParasecta));
+            renderItem(ModBlocks.altarParasecta);
             GlStateManager.pushMatrix();
             GlStateManager.scale(1.25, 1.25, 1.25);
             GlStateManager.translate(0, 0, 0.08125);
@@ -48,8 +49,7 @@ public class ItemStackParasectaAltarRender extends TileEntityItemStackRenderer {
             PARENT.renderByItem(stack);
     }
 
-    private void renderItem(Item blockIn){
-        ItemStack stack = new ItemStack(blockIn);
-        stack.getItem().getTileEntityItemStackRenderer().renderByItem(stack);
+    private void renderItem(Block blockIn){
+    	Item.getItemFromBlock(blockIn).getTileEntityItemStackRenderer().renderByItem(new ItemStack(blockIn));
     }
 }

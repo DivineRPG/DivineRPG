@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.dimensions;
+package naturix.divinerpg.dimensions;
 
 import javax.annotation.Nullable;
 
