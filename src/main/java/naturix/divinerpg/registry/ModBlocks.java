@@ -15,7 +15,7 @@ import naturix.divinerpg.bases.blocks.Spike;
 import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
-import naturix.divinerpg.bases.blocks.portal.PortalBase;
+import naturix.divinerpg.bases.blocks.portal.EdenBlock;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
@@ -27,10 +27,8 @@ import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -143,7 +141,7 @@ public class ModBlocks {
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
 	public static Acceleron acceleron = new Acceleron("acceleron"); 
 	public static GrassBase grassArcana = new GrassBase("grass_arcana");
-	public static PortalBase portalEden = new PortalBase("portal_eden");
+	public static EdenBlock portalEden = new EdenBlock("portal_eden");
 	public static BlockBase rockDivine = new BlockBase("rock_divine");
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
