@@ -4,6 +4,7 @@ import java.util.Random;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.ModTeleporter;
+import naturix.divinerpg.particle.EntityEdenPortalFX;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -98,8 +99,7 @@ public class EdenBlock extends BlockBreakable {
 		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
 			EntityPlayerMP thePlayer = (EntityPlayerMP)entity;
 			WorldServer worldserver = thePlayer.mcServer.getWorld(thePlayer.dimension);
-			//thePlayer.triggerAchievement(JourneyAchievements.achievementCloudia);
-			int dimensionID = Config.dimensionId;
+			int dimensionID = Config.edenDimensionId;
 			Block blockFrame = ModBlocks.rockDivine;
 			if(thePlayer.timeUntilPortal > 0) 
 				thePlayer.timeUntilPortal = 10;
@@ -145,8 +145,8 @@ public class EdenBlock extends BlockBreakable {
 				d2 = (double)pos.getZ() + 0.5D + 0.25D * j;
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
-//			EntityCloudiaPortalFX var20 = new EntityCloudiaPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
-//			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			EntityEdenPortalFX var20 = new EntityEdenPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
+			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
 

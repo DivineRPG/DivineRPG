@@ -8,7 +8,7 @@ import net.minecraftforge.common.config.Configuration;
 public class Config {
 
     private static final String CATEGORY_GENERAL = "general";
-	public static int dimensionId = 0;
+	public static int edenDimensionId = 2;
 	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
@@ -30,7 +30,7 @@ public class Config {
 
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
-        dimensionId = cfg.getInt("edenId", CATEGORY_GENERAL, 2, 2, 4096, "Eden dimension ID");
+        edenDimensionId = cfg.getInt("edenId", CATEGORY_GENERAL, 2, 2, 4096, "Eden dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
