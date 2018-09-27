@@ -7,20 +7,23 @@ import java.util.Random;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.dimensions.ModTeleporter.PortalPosition;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 public class ModTeleporter extends Teleporter {
 
-	protected final WorldServer worldServerInstance;
+	protected final WorldServer myWorld;
 	protected final Random random;
     protected final Long2ObjectMap<ModTeleporter.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap<ModTeleporter.PortalPosition>(4096);
 	protected final List destinationCoordinateKeys = new ArrayList();
@@ -29,7 +32,7 @@ public class ModTeleporter extends Teleporter {
 
 	public ModTeleporter(WorldServer worldServer, int dimensionID, Block portal, Block frameBlock) {
 		super(worldServer);
-		this.worldServerInstance = worldServer;
+		this.myWorld = worldServer;
 		this.dimensionID = dimensionID;
 		this.portal = portal;
 		this.frameBlock = frameBlock;
@@ -57,10 +60,10 @@ public class ModTeleporter extends Teleporter {
 
 		if (this.destinationCoordinateCache.containsKey(k))
 		{
-			Teleporter.PortalPosition portalposition = this.destinationCoordinateCache.get(k);
+			PortalPosition portalposition = this.destinationCoordinateCache.get(k);
 			d0 = 0.0D;
 			object = portalposition;
-			portalposition.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
+			portalposition.lastUpdateTime = this.myWorld.getTotalWorldTime();
 			flag1 = false;
 		}
 		else
@@ -73,13 +76,13 @@ public class ModTeleporter extends Teleporter {
 
 				for (int i1 = -128; i1 <= 128; ++i1)
 				{
-					for (BlockPos blockpos = blockpos4.add(l, this.worldServerInstance.getActualHeight() - 1 - blockpos4.getY(), i1); blockpos.getY() >= 0; blockpos = blockpos1)
+					for (BlockPos blockpos = blockpos4.add(l, this.myWorld.getActualHeight() - 1 - blockpos4.getY(), i1); blockpos.getY() >= 0; blockpos = blockpos1)
 					{
 						blockpos1 = blockpos.down();
 
-						if (this.worldServerInstance.getBlockState(blockpos).getBlock() == portal)
+						if (this.myWorld.getBlockState(blockpos).getBlock() == portal)
 						{
-							while (this.worldServerInstance.getBlockState(blockpos1 = blockpos.down()).getBlock() == portal)
+							while (this.myWorld.getBlockState(blockpos1 = blockpos.down()).getBlock() == portal)
 							{
 								blockpos = blockpos1;
 							}
@@ -109,22 +112,22 @@ public class ModTeleporter extends Teleporter {
 			double d6 = object.getZ() + 0.5D;
 			EnumFacing enumfacing = null;
 
-			if (this.worldServerInstance.getBlockState(object.west()).getBlock() == portal)
+			if (this.myWorld.getBlockState(object.west()).getBlock() == portal)
 			{
 				enumfacing = EnumFacing.NORTH;
 			}
 
-			if (this.worldServerInstance.getBlockState(object.east()).getBlock() == portal)
+			if (this.myWorld.getBlockState(object.east()).getBlock() == portal)
 			{
 				enumfacing = EnumFacing.SOUTH;
 			}
 
-			if (this.worldServerInstance.getBlockState(object.north()).getBlock() == portal)
+			if (this.myWorld.getBlockState(object.north()).getBlock() == portal)
 			{
 				enumfacing = EnumFacing.EAST;
 			}
 
-			if (this.worldServerInstance.getBlockState(object.south()).getBlock() == portal)
+			if (this.myWorld.getBlockState(object.south()).getBlock() == portal)
 			{
 				enumfacing = EnumFacing.WEST;
 			}
@@ -220,7 +223,7 @@ public class ModTeleporter extends Teleporter {
 
 	private boolean func_180265_a(BlockPos p_180265_1_)
 	{
-		return !this.worldServerInstance.isAirBlock(p_180265_1_) || !this.worldServerInstance.isAirBlock(p_180265_1_.up());
+		return !this.myWorld.isAirBlock(p_180265_1_) || !this.myWorld.isAirBlock(p_180265_1_.up());
 	}
 
 	@Override
@@ -258,9 +261,9 @@ public class ModTeleporter extends Teleporter {
 				d2 = k2 + 0.5D - entity.posZ;
 				label274:
 
-					for (i3 = this.worldServerInstance.getActualHeight() - 1; i3 >= 0; --i3) {
-						if (this.worldServerInstance.isAirBlock(new BlockPos(i2, i3, k2))) {
-							while (i3 > 0 && this.worldServerInstance.isAirBlock(new BlockPos(i2, i3 - 1, k2)))
+					for (i3 = this.myWorld.getActualHeight() - 1; i3 >= 0; --i3) {
+						if (this.myWorld.isAirBlock(new BlockPos(i2, i3, k2))) {
+							while (i3 > 0 && this.myWorld.isAirBlock(new BlockPos(i2, i3 - 1, k2)))
 								--i3;
 
 							for (j3 = l1; j3 < l1 + 4; ++j3) {
@@ -279,7 +282,7 @@ public class ModTeleporter extends Teleporter {
 											i5 = i3 + k4;
 											int j5 = k2 + (j4 - 1) * l3 - i4 * k3;
 
-											if (k4 < 0 && !this.worldServerInstance.getBlockState(new BlockPos(l4, i5, j5)).getMaterial().isSolid() || k4 >= 0 && !this.worldServerInstance.isAirBlock(new BlockPos(l4, i5, j5)))
+											if (k4 < 0 && !this.myWorld.getBlockState(new BlockPos(l4, i5, j5)).getMaterial().isSolid() || k4 >= 0 && !this.myWorld.isAirBlock(new BlockPos(l4, i5, j5)))
 												continue label274;
 										}
 									}
@@ -309,9 +312,9 @@ public class ModTeleporter extends Teleporter {
 					d2 = k2 + 0.5D - entity.posZ;
 					label222:
 
-						for (i3 = this.worldServerInstance.getActualHeight() - 1; i3 >= 0; --i3) {
-							if (this.worldServerInstance.isAirBlock(new BlockPos(i2, i3, k2))) {
-								while (i3 > 0 && this.worldServerInstance.isAirBlock(new BlockPos(i2, i3 - 1, k2)))
+						for (i3 = this.myWorld.getActualHeight() - 1; i3 >= 0; --i3) {
+							if (this.myWorld.isAirBlock(new BlockPos(i2, i3, k2))) {
+								while (i3 > 0 && this.myWorld.isAirBlock(new BlockPos(i2, i3 - 1, k2)))
 									--i3;
 
 								for (j3 = l1; j3 < l1 + 2; ++j3) {
@@ -324,7 +327,7 @@ public class ModTeleporter extends Teleporter {
 											l4 = i3 + j4;
 											i5 = k2 + (i4 - 1) * l3;
 
-											if (j4 < 0 && !this.worldServerInstance.getBlockState(new BlockPos(k4, l4, i5)).getMaterial().isSolid() || j4 >= 0 && !this.worldServerInstance.isAirBlock(new BlockPos(k4, l4, i5)))
+											if (j4 < 0 && !this.myWorld.getBlockState(new BlockPos(k4, l4, i5)).getMaterial().isSolid() || j4 >= 0 && !this.myWorld.isAirBlock(new BlockPos(k4, l4, i5)))
 												continue label222;
 										}
 									}
@@ -363,8 +366,8 @@ public class ModTeleporter extends Teleporter {
 			if (i1 < 70)
 				i1 = 70;
 
-			if (i1 > this.worldServerInstance.getActualHeight() - 10)
-				i1 = this.worldServerInstance.getActualHeight() - 10;
+			if (i1 > this.myWorld.getActualHeight() - 10)
+				i1 = this.myWorld.getActualHeight() - 10;
 
 			j2 = i1;
 
@@ -375,7 +378,7 @@ public class ModTeleporter extends Teleporter {
 						i4 = j2 + k3;
 						j4 = k2 + (j3 - 1) * l2 - i3 * l5;
 						flag = k3 < 0;
-						this.worldServerInstance.setBlockState(new BlockPos(l3, i4, j4), flag ? frameBlock.getDefaultState() : Blocks.AIR.getDefaultState());
+						this.myWorld.setBlockState(new BlockPos(l3, i4, j4), flag ? frameBlock.getDefaultState() : Blocks.AIR.getDefaultState());
 					}
 				}
 			}
@@ -388,7 +391,7 @@ public class ModTeleporter extends Teleporter {
 					i4 = j2 + k3;
 					j4 = k2 + (j3 - 1) * l2;
 					flag = j3 == 0 || j3 == 3 || k3 == -1 || k3 == 3;
-					this.worldServerInstance.setBlockState(new BlockPos(l3, i4, j4), (flag ? frameBlock.getDefaultState() : portal.getDefaultState()), 2);
+					this.myWorld.setBlockState(new BlockPos(l3, i4, j4), (flag ? frameBlock.getDefaultState() : portal.getDefaultState()), 2);
 				}
 			}
 
@@ -398,10 +401,31 @@ public class ModTeleporter extends Teleporter {
 					i4 = j2 + k3;
 					j4 = k2 + (j3 - 1) * l2;
 					BlockPos pos = new BlockPos(l3, i4, j4);
-					this.worldServerInstance.notifyNeighborsOfStateChange(pos, this.worldServerInstance.getBlockState(pos).getBlock(), false);
+					this.myWorld.notifyNeighborsOfStateChange(pos, this.myWorld.getBlockState(pos).getBlock(), false);
 				}
 			}
 		}
 		return true;
 	}
+	
+	public class PortalPosition extends BlockPos
+    {
+        /** The worldtime at which this PortalPosition was last verified */
+        public long lastUpdateTime;
+
+        public PortalPosition(BlockPos pos, long lastUpdate)
+        {
+            super(pos.getX(), pos.getY(), pos.getZ());
+            this.lastUpdateTime = lastUpdate;
+        }
+    }
+
+    @Override
+    public void placeEntity(World world, Entity entity, float yaw)
+    {
+        if (entity instanceof EntityPlayerMP)
+            placeInPortal(entity, yaw);
+        else
+            placeInExistingPortal(entity, yaw);
+    }
 }

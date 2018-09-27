@@ -55,7 +55,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		public void registerItemRenderer(Item itemBlock, int i, String name) {
 
 		}
-		@SuppressWarnings("deprecation")
+		
 		public static void registerEvent(Object event)
 		{
 			FMLCommonHandler.instance().bus().register(event);

@@ -98,9 +98,12 @@ public class EdenBlock extends BlockBreakable {
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
 		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
 			EntityPlayerMP thePlayer = (EntityPlayerMP)entity;
+			thePlayer.heal(0);
+			thePlayer.addExperience(0);
 			WorldServer worldserver = thePlayer.mcServer.getWorld(thePlayer.dimension);
 			int dimensionID = Config.edenDimensionId;
 			Block blockFrame = ModBlocks.rockDivine;
+			
 			if(thePlayer.timeUntilPortal > 0) 
 				thePlayer.timeUntilPortal = 10;
 			else if(thePlayer.dimension != dimensionID) {
