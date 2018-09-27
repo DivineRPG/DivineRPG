@@ -138,7 +138,7 @@ public class Vamecheron extends EntityMob {
 		super.removeTrackingPlayer(player);
 		this.bossInfo.removePlayer(player);
 	}
-
+ 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();

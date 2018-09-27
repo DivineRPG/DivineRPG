@@ -11,13 +11,13 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
-import net.minecraft.world.gen.ChunkGeneratorEnd;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderEden extends WorldProvider
 {
+
     /**
      * Creates a new {@link BiomeProvider} for the WorldProvider, and also sets the values of {@link #hasSkylight} and
      * {@link #hasNoSky} appropriately.
@@ -26,13 +26,15 @@ public class WorldProviderEden extends WorldProvider
      */
     public void init()
     {
+    	
+		hasSkyLight = true;
         this.biomeProvider = new BiomeProviderSingle(ModBiomes.Eden);
         NBTTagCompound nbttagcompound = this.world.getWorldInfo().getDimensionData(this.world.provider.getDimension());
         }
 
     public IChunkGenerator createChunkGenerator()
-    {
-        return new ChunkGeneratorEnd(this.world, this.world.getWorldInfo().isMapFeaturesEnabled(), this.world.getSeed(), this.getSpawnCoordinate());
+    { 
+        return new ChunkGeneratorEden(this.world, this.getSeed());
     }
 
     /**

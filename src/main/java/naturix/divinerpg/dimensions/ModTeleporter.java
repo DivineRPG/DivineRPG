@@ -6,9 +6,10 @@ import java.util.Random;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
-import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -47,6 +48,7 @@ public class ModTeleporter extends Teleporter {
 	public boolean placeInExistingPortal(Entity e, float par2) {
 		boolean flag = true;
 		double d0 = -1.0D;
+		
 		int i = MathHelper.floor(e.posX);
 		int j = MathHelper.floor(e.posZ);
 		boolean flag1 = true;
@@ -212,6 +214,8 @@ public class ModTeleporter extends Teleporter {
 		{
 			return false;
 		}
+		
+
 	}
 
 	private boolean func_180265_a(BlockPos p_180265_1_)

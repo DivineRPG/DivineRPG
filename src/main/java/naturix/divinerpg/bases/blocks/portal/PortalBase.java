@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.cache.LoadingCache;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.ModTeleporter;
 import naturix.divinerpg.registry.ModBlocks;
@@ -440,11 +441,11 @@ public class PortalBase extends Block {
 
                 int i = entityIn.dimension == DimensionType.OVERWORLD.getId() ? ModDimensions.edenDimension.getId() : DimensionType.OVERWORLD.getId();
 
-                ModTeleporter teleporter = new ModTeleporter(server.getWorld(i));
+                ModTeleporter teleporter = new ModTeleporter(server.getWorld(i), Config.edenDimensionId, ModBlocks.rockDivine, ModBlocks.portalEden);
 
                 entityIn.timeUntilPortal = entityIn.getPortalCooldown() * 2;
 
-                teleporter.setFrostRealmPortal(entityIn, pos);
+                teleporter.placeInPortal(entityIn,1);
 
                 if (entityIn instanceof EntityPlayerMP) {
 
@@ -886,7 +887,7 @@ public class PortalBase extends Block {
                     DimensionType.OVERWORLD.getId();
 
 
-            Teleporter teleporter = new ModTeleporter(server.getWorld(i));
+            Teleporter teleporter = new ModTeleporter(server.getWorld(i), Config.edenDimensionId, ModBlocks.rockDivine, ModBlocks.portalEden);
 
 
 

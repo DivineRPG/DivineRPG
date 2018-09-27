@@ -80,7 +80,7 @@ public class TheWatcher extends EntityBlaze {
     @Override
     public int getMaxSpawnedInChunk() {
         return 1;
-    }
+    } 
 
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {

@@ -33,7 +33,7 @@ public class BiomeEden extends Biome {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getSkyColorByTemp(float par1) {
-    return Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB();
+        return Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB();
 }
 	@Override
     public WorldGenAbstractTree getRandomTreeFeature(Random random) {
