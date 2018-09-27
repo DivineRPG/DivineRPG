@@ -3,6 +3,7 @@ import java.util.Random;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.bases.blocks.FireBase;
 import naturix.divinerpg.dimensions.ModTeleporter;
 import naturix.divinerpg.particle.EntityEdenPortalFX;
 import naturix.divinerpg.registry.ModBlocks;
@@ -43,8 +44,8 @@ public class EdenBlock extends BlockBreakable {
 	protected static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
 	protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
 	protected static final AxisAlignedBB Y_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
-
-	public EdenBlock(String name) {
+	protected Block fireBlock;
+	public EdenBlock(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
 		this.name = name;
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
@@ -53,6 +54,7 @@ public class EdenBlock extends BlockBreakable {
 		this.setTickRandomly(true);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
+		((FireBase) fireBlock).addPortal(this);
 		
 	}
 	
@@ -384,4 +386,41 @@ public class EdenBlock extends BlockBreakable {
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
+	Block blockFrame = ModBlocks.rockDivine;
+	public boolean tryCreatePortal(World world, int x, int y, int z) {
+        DivineRPG.logger.debug("Trying to create portal");
+        byte size1 = 0;
+        byte size2 = 0;
+        
+        if (world.getBlockState(x - 1, y, z) == blockFrame || world.getBlockState(x + 1, y, z) == blockFrame) size1 = 1;
+        if (world.getBlockState(x, y, z - 1) == blockFrame || world.getBlockState(x, y, z + 1) == blockFrame) size2 = 1;
+        if (size1 == size2) return false;
+        if (world.isAirBlock(x - size1, y, z - size2)) {
+            x -= size1;
+            z -= size2;
+        }
+
+        for (int i = -1; i <= 2; i++) {
+            for (int j = -1; j <= 3; j++) {
+                boolean flag = i == -1 || i == 2 || j == -1 || j == 3;
+                if (i != -1 && i != 2 || j != -1 && j != 3) {
+                    Block b1 = world.getBlockState(x + size1 * i, y + j, z + size2 * i);
+                    boolean isAir = world.isAirBlock(x + size1 * i, y + j, z + size2 * i);
+                    if (flag) {
+                        if (b1 != blockFrame) return false;
+                    } else if (!isAir && b1 != fireBlock) return false;
+                }
+            }
+        }
+
+        DivineRPG.logger.debug("Creating Portal");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                world.setBlockState(x + size1 * i, y + j, z + size2 * i, this, 0, 2);
+            }
+        }
+
+        return true;
+
+    }
 }

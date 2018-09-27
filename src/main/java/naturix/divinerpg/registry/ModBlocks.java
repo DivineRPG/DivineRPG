@@ -7,6 +7,7 @@ import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.bases.blocks.BlockNetherite;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
+import naturix.divinerpg.bases.blocks.FireBase;
 import naturix.divinerpg.bases.blocks.GrassBase;
 import naturix.divinerpg.bases.blocks.LampBase;
 import naturix.divinerpg.bases.blocks.LeavesBase;
@@ -141,7 +142,8 @@ public class ModBlocks {
 	public static Acid acidLunic = new Acid("acid_lunic", true, true);
 	public static Acceleron acceleron = new Acceleron("acceleron"); 
 	public static GrassBase grassArcana = new GrassBase("grass_arcana");
-	public static EdenBlock portalEden = new EdenBlock("portal_eden");
+	public static EdenBlock portalEden = new EdenBlock("portal_eden", ModBlocks.blueFire);
+	public static FireBase blueFire = new FireBase("fire_blue");
 	public static BlockBase rockDivine = new BlockBase("rock_divine");
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
@@ -261,7 +263,8 @@ public class ModBlocks {
 				portalEden,
 				rockDivine,
 				dirtEden,
-				grassEden
+				grassEden,
+				blueFire
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
@@ -379,7 +382,8 @@ public class ModBlocks {
 				portalEden.createItemBlock(),
 				rockDivine.createItemBlock(),
 				dirtEden.createItemBlock(),
-				grassEden.createItemBlock()
+				grassEden.createItemBlock(),
+				blueFire.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -497,6 +501,7 @@ public class ModBlocks {
 		rockDivine.registerItemModel(Item.getItemFromBlock(rockDivine));
 		dirtEden.registerItemModel(Item.getItemFromBlock(dirtEden));
 		grassEden.registerItemModel(Item.getItemFromBlock(grassEden));
+		blueFire.registerItemModel(Item.getItemFromBlock(blueFire));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		
