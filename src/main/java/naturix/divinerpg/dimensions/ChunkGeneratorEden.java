@@ -1,8 +1,8 @@
 package naturix.divinerpg.dimensions;
-
 import java.util.List;
 import java.util.Random;
 
+import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.TreeGen;
 import net.minecraft.block.BlockFalling;
@@ -19,13 +19,13 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorSimplex;
-import net.minecraft.world.gen.feature.WorldGenEndIsland;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class ChunkGeneratorEden implements IChunkGenerator
+public class ChunkGeneratorEden  implements IChunkGenerator
 {
     /** RNG. */
     private final Random rand;
-    protected static final IBlockState END_STONE = ModBlocks.rockDivine.getDefaultState();
+    protected static final IBlockState END_STONE = ModBlocks.rockTwilight.getDefaultState();
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
     private NoiseGeneratorOctaves lperlinNoise1;
     private NoiseGeneratorOctaves lperlinNoise2;
@@ -42,15 +42,14 @@ public class ChunkGeneratorEden implements IChunkGenerator
     private NoiseGeneratorSimplex islandNoise;
     private double[] buffer;
     /** The biomes that are used to generate the chunk */
-    private Biome[] biomesForGeneration;
+    private Biome[] biomesForGeneration = {ModBiomes.Eden};
     double[] pnr;
     double[] ar;
     double[] br;
     // temporary variables used during event handling
     private int chunkX = 0;
     private int chunkZ = 0;
-    public TreeGen trees= new TreeGen(true, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
-
+    
     public ChunkGeneratorEden(World p_i47241_1_, long p_i47241_3_)
     {
         this.world = p_i47241_1_;
@@ -85,7 +84,7 @@ public class ChunkGeneratorEden implements IChunkGenerator
         int k = 33;
         int l = 3;
         this.buffer = this.getHeights(this.buffer, x * 2, 0, z * 2, 3, 33, 3);
-
+        
         for (int i1 = 0; i1 < 2; ++i1)
         {
             for (int j1 = 0; j1 < 2; ++j1)
@@ -350,13 +349,13 @@ public class ChunkGeneratorEden implements IChunkGenerator
     /**
      * Generate initial structures in this chunk, e.g. mineshafts, temples, lakes, and dungeons
      */
+
+	private static WorldGenerator tree = new TreeGen(true, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
     public void populate(int x, int z)
     {
         BlockFalling.fallInstantly = true;
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
         BlockPos blockpos = new BlockPos(x * 16, 0, z * 16);
-
-
 
         this.world.getBiome(blockpos.add(16, 0, 16)).decorate(this.world, this.world.rand, blockpos);
         long i = (long)x * (long)x + (long)z * (long)z;
@@ -378,13 +377,14 @@ public class ChunkGeneratorEden implements IChunkGenerator
                 }
 
             }
-            
-            if(rand.nextInt(100) == 4) {
-            	trees.generate(world, rand, blockpos);
-            }
-            
+                        
         }
-
+        if (this.rand.nextInt(2) == 0) {
+			x = x + this.rand.nextInt(16) + 8;
+			z = z + this.rand.nextInt(16) + 8;
+			int yCoord = rand.nextInt(20) + 64;
+			if(world.isAirBlock(new BlockPos(x, yCoord, z)))tree.generate(world, rand, new BlockPos(x, yCoord, z));
+		}
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, false);
         BlockFalling.fallInstantly = false;
     }

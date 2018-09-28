@@ -38,6 +38,7 @@ public class FireBase extends BlockFire {
             if (!portal.tryCreatePortal(world, pos))
                 DivineRPG.logger.debug("Eden portal did not light");
         }
+        portals.add(ModBlocks.portalEden);
     }
 
     @Override

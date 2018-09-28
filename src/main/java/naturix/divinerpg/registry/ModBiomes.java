@@ -16,13 +16,13 @@ public class ModBiomes {
     public static void registerBiomes(IForgeRegistry<Biome> iForgeRegistry) {
         IForgeRegistry<Biome> registry = iForgeRegistry;
         registry.registerAll(
-        		//Eden
+        		Eden
         		);
 
-        //BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);
+        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);
 
 
-        //BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(Eden, 100));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(Eden, 100));
         
         //BiomeManager.addSpawnBiome(Eden);
 

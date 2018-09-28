@@ -54,7 +54,7 @@ public class EdenBlock extends BlockBreakable {
 		this.setTickRandomly(true);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
-		((FireBase) fireBlock).addPortal(this);
+
 		
 	}
 	
@@ -386,17 +386,20 @@ public class EdenBlock extends BlockBreakable {
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
-	Block blockFrame = ModBlocks.rockDivine;
-	public boolean tryCreatePortal(World world, int x, int y, int z) {
-        DivineRPG.logger.debug("Trying to create portal");
+	Block blockFrame = ModBlocks.rockTwilight;
+	
+	public boolean tryCreatePortal(World world, BlockPos pos) {
+		DivineRPG.logger.debug("Trying to create portal");
         byte size1 = 0;
         byte size2 = 0;
         
-        if (world.getBlockState(x - 1, y, z) == blockFrame || world.getBlockState(x + 1, y, z) == blockFrame) size1 = 1;
-        if (world.getBlockState(x, y, z - 1) == blockFrame || world.getBlockState(x, y, z + 1) == blockFrame) size2 = 1;
+        if (world.getBlockState(pos) == blockFrame || world.getBlockState(pos) == blockFrame) size1 = 1;
+        if (world.getBlockState(pos) == blockFrame || world.getBlockState(pos) == blockFrame) size2 = 1;
         if (size1 == size2) return false;
-        if (world.isAirBlock(x - size1, y, z - size2)) {
-            x -= size1;
+        if (world.isAirBlock(pos)) {
+            int x = pos.getX();
+            int z = pos.getZ();
+        	x -= size1;
             z -= size2;
         }
 
@@ -404,8 +407,8 @@ public class EdenBlock extends BlockBreakable {
             for (int j = -1; j <= 3; j++) {
                 boolean flag = i == -1 || i == 2 || j == -1 || j == 3;
                 if (i != -1 && i != 2 || j != -1 && j != 3) {
-                    Block b1 = world.getBlockState(x + size1 * i, y + j, z + size2 * i);
-                    boolean isAir = world.isAirBlock(x + size1 * i, y + j, z + size2 * i);
+                    IBlockState b1 = world.getBlockState(pos);
+                    boolean isAir = world.isAirBlock(pos);
                     if (flag) {
                         if (b1 != blockFrame) return false;
                     } else if (!isAir && b1 != fireBlock) return false;
@@ -416,7 +419,7 @@ public class EdenBlock extends BlockBreakable {
         DivineRPG.logger.debug("Creating Portal");
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
-                world.setBlockState(x + size1 * i, y + j, z + size2 * i, this, 0, 2);
+                world.setBlockState(pos, ModBlocks.portalEden.getDefaultState(), 2);
             }
         }
 

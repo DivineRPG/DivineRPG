@@ -26,7 +26,9 @@ public class BiomeEden extends Biome {
     this.setRegistryName(name);
     this.addDefaultFlowers();
     TREE_FEATURE.setDecorationDefaults();
+    
     this.decorator.treesPerChunk = 6;
+    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     //this.waterColorMultiplier = 2368548;
 }
 

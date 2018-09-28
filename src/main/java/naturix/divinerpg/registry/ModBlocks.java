@@ -145,6 +145,7 @@ public class ModBlocks {
 	public static EdenBlock portalEden = new EdenBlock("portal_eden", ModBlocks.blueFire);
 	public static FireBase blueFire = new FireBase("fire_blue");
 	public static BlockBase rockDivine = new BlockBase("rock_divine");
+	public static BlockBase rockTwilight = new BlockBase("rock_twilight");
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
 	
@@ -264,7 +265,8 @@ public class ModBlocks {
 				rockDivine,
 				dirtEden,
 				grassEden,
-				blueFire
+				blueFire,
+				rockTwilight
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
@@ -383,7 +385,8 @@ public class ModBlocks {
 				rockDivine.createItemBlock(),
 				dirtEden.createItemBlock(),
 				grassEden.createItemBlock(),
-				blueFire.createItemBlock()
+				blueFire.createItemBlock(),
+				rockTwilight.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -502,6 +505,7 @@ public class ModBlocks {
 		dirtEden.registerItemModel(Item.getItemFromBlock(dirtEden));
 		grassEden.registerItemModel(Item.getItemFromBlock(grassEden));
 		blueFire.registerItemModel(Item.getItemFromBlock(blueFire));
+		rockTwilight.registerItemModel(Item.getItemFromBlock(rockTwilight));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		

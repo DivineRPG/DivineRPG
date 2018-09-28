@@ -4,6 +4,8 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
+import io.netty.handler.codec.http.cors.CorsConfigBuilder;
+import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -19,7 +21,7 @@ public class ModWorldGen implements IWorldGenerator {
 
 
 	public static ModWorldGen instance = new ModWorldGen();
-	
+	int jeff = Config.edenDimensionId;
 	@Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()){
@@ -28,6 +30,9 @@ public class ModWorldGen implements IWorldGenerator {
                 break;
             case 0:
                 genSurface(world, random, chunkX, chunkZ);
+                break;
+            case 2:
+                genEden(world, random, chunkX, chunkZ);
                 break;
             case 1:
             	break;
@@ -66,6 +71,10 @@ public class ModWorldGen implements IWorldGenerator {
 	 private void genNether(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreNetherite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
 		 addOreSpawn(ModBlocks.orebloodgem.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
+		 
+	 }
+	 private void genEden(World world, Random random, int chunkX, int chunkZ){
+		 addOreSpawn(ModBlocks.oreEden.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(ModBlocks.rockTwilight));
 		 
 	 }
 	 

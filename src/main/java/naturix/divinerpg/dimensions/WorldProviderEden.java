@@ -34,7 +34,7 @@ public class WorldProviderEden extends WorldProvider
 
     public IChunkGenerator createChunkGenerator()
     { 
-        return new ChunkGeneratorEden(this.world, this.getSeed());
+        return new ChunkGeneratorEden(this.world, this.getSeed()); 
     }
 
     /**
