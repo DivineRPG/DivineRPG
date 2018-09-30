@@ -7,6 +7,7 @@ import com.google.common.base.Predicate;
 import io.netty.handler.codec.http.cors.CorsConfigBuilder;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -21,7 +22,7 @@ public class ModWorldGen implements IWorldGenerator {
 
 
 	public static ModWorldGen instance = new ModWorldGen();
-	int jeff = Config.edenDimensionId;
+	int jeff = ModDimensions.edenDimension.getId();
 	@Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()){

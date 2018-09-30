@@ -3,6 +3,8 @@ package naturix.divinerpg.proxy;
 import java.io.File;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.ListAllObjs;
@@ -32,6 +34,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        ModDimensions.init();
 	        ModEntities.init();
 	        ListAllObjs.listobjs();
+	        DivineRPG.registerEvent(new EventArmorSet());
 	        }
 	    public EntityPlayer getPlayer() { return null; }
 	    public void init(FMLInitializationEvent e) {
