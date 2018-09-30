@@ -1,9 +1,12 @@
 package naturix.divinerpg.events;
 
 import naturix.divinerpg.registry.ModItems;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -42,6 +45,26 @@ public class EventArmorSet{
 			event.player.capabilities.isFlying = false;
 			event.player.capabilities.allowFlying = false;
 		}
+		if(helmet == 
+				ModItems.aquastriveHelmet && body == 
+				ModItems.aquastriveChestplate && legs ==
+				ModItems.aquastriveLeggings && boots == 
+				ModItems.aquastriveBoots) 
+		{
+
+       	 event.player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("water_breathing"), 2, 5));
+		}
+		if(helmet == 
+				ModItems.krakenHelmet && body == 
+				ModItems.krakenChestplate && legs ==
+				ModItems.krakenLeggings && boots == 
+				ModItems.krakenBoots) 
+		{
+
+       	 event.player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("water_breathing"), 2, 5));
+		}
+		
+		
 		}
 
 		@SubscribeEvent
