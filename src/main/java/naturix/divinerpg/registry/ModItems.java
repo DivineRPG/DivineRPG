@@ -18,6 +18,8 @@ import naturix.divinerpg.bases.items.armor.Apalachia;
 import naturix.divinerpg.bases.items.armor.Aquastrive;
 import naturix.divinerpg.bases.items.armor.Aquatic;
 import naturix.divinerpg.bases.items.armor.Bedrock;
+import naturix.divinerpg.bases.items.armor.BootsBase;
+import naturix.divinerpg.bases.items.armor.ChestplateBase;
 import naturix.divinerpg.bases.items.armor.Corrupted;
 import naturix.divinerpg.bases.items.armor.Degraded;
 import naturix.divinerpg.bases.items.armor.Demonized;
@@ -29,11 +31,13 @@ import naturix.divinerpg.bases.items.armor.Finished;
 import naturix.divinerpg.bases.items.armor.Frozen;
 import naturix.divinerpg.bases.items.armor.Glistening;
 import naturix.divinerpg.bases.items.armor.Halite;
+import naturix.divinerpg.bases.items.armor.HelmetBase;
 import naturix.divinerpg.bases.items.armor.Inferno;
 import naturix.divinerpg.bases.items.armor.JackOMan;
 import naturix.divinerpg.bases.items.armor.Jungle;
 import naturix.divinerpg.bases.items.armor.Korma;
 import naturix.divinerpg.bases.items.armor.Kraken;
+import naturix.divinerpg.bases.items.armor.LeggingsBase;
 import naturix.divinerpg.bases.items.armor.Mortum;
 import naturix.divinerpg.bases.items.armor.Netherite;
 import naturix.divinerpg.bases.items.armor.Realmite;
@@ -141,6 +145,10 @@ public class ModItems {
 	public static Eden edenChestplate = new Eden(DivineRPGMaterials.edenArmorMaterial, EntityEquipmentSlot.CHEST, "eden_chestplate");
 	public static Eden edenLeggings = new Eden(DivineRPGMaterials.edenArmorMaterial, EntityEquipmentSlot.LEGS, "eden_leggings");
 	public static Eden edenBoots = new Eden(DivineRPGMaterials.edenArmorMaterial, EntityEquipmentSlot.FEET, "eden_boots");
+	public static HelmetBase eliteRealmiteHelmet = new HelmetBase("realmite_helmet_elite", DivineRPGMaterials.realmiteArmorMaterial, "realmite_elite1");
+	public static ChestplateBase eliteRealmiteChestplate = new ChestplateBase("realmite_chestplate_elite", DivineRPGMaterials.realmiteArmorMaterial, "realmite_elite1");
+	public static LeggingsBase eliteRealmiteLeggings = new LeggingsBase("realmite_leggings_elite", DivineRPGMaterials.realmiteArmorMaterial, "realmite_elite2");
+	public static BootsBase eliteRealmiteBoots = new BootsBase("realmite_boots_elite",DivineRPGMaterials.realmiteArmorMaterial, "realmite_elite3");
 	public static Ender enderHelmet = new Ender(DivineRPGMaterials.enderArmorMaterial, EntityEquipmentSlot.HEAD, "ender_helmet");
 	public static Ender enderChestplate = new Ender(DivineRPGMaterials.enderArmorMaterial, EntityEquipmentSlot.CHEST, "ender_chestplate");
 	public static Ender enderLeggings = new Ender(DivineRPGMaterials.enderArmorMaterial, EntityEquipmentSlot.LEGS, "ender_leggings");
@@ -807,7 +815,11 @@ public class ModItems {
 				tpStaff,
 				arrowInferno,
 				edenSparklez,
-				shardTerran
+				shardTerran,
+				eliteRealmiteHelmet,
+				eliteRealmiteChestplate,
+				eliteRealmiteLeggings,
+				eliteRealmiteBoots
 				);
 	}
 	
@@ -1181,6 +1193,10 @@ public class ModItems {
 		arrowInferno.registerItemModel();
 		edenSparklez.registerItemModel();
 		shardTerran.registerItemModel();
+		eliteRealmiteHelmet.registerItemModel();
+		eliteRealmiteChestplate.registerItemModel();
+		eliteRealmiteLeggings.registerItemModel();
+		eliteRealmiteBoots.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

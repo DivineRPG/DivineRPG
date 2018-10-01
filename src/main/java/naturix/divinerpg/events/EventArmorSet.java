@@ -63,6 +63,15 @@ public class EventArmorSet{
 
        	 event.player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("water_breathing"), 2, 5));
 		}
+		if(helmet == 
+				ModItems.eliteRealmiteHelmet && body == 
+				ModItems.eliteRealmiteChestplate && legs ==
+				ModItems.eliteRealmiteLeggings && boots == 
+				ModItems.eliteRealmiteBoots) 
+		{
+
+       	 event.player.fallDistance = -0.5F;
+       	 }
 		
 		
 		}
