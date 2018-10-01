@@ -42,8 +42,10 @@ public class EventArmorSet{
 		event.player.fallDistance = 0;
 		event.player.capabilities.allowFlying = true;
 		}else {
+			if(event.player.isCreative() != true) {
 			event.player.capabilities.isFlying = false;
 			event.player.capabilities.allowFlying = false;
+		}
 		}
 		if(helmet == 
 				ModItems.aquastriveHelmet && body == 

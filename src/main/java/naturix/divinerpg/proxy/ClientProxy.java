@@ -3,12 +3,11 @@ package naturix.divinerpg.proxy;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.RenderTiles;
-import naturix.divinerpg.bases.blocks.tile.render.itemstack.ItemStackParasectaAltarRender;
+import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModRenders;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -36,7 +35,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
-        
+        DivineRPG.registerEvent(new EventDevHat());
         ModRenders.init();
         
        }
