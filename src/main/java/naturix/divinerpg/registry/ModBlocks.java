@@ -33,7 +33,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
-public class ModBlocks {
+public class ModBlocks { 
 	public static BlockOre oreArlemite = new BlockOre("ore_arlemite");
 	public static BlockOre oreapalachia = new BlockOre("ore_apalachia");
 	public static BlockOreNether orebloodgem = new BlockOreNether("ore_bloodgem");
@@ -150,7 +150,7 @@ public class ModBlocks {
 	public static GrassBase grassEden = new GrassBase("grass_eden");
 	
 	
-
+ 
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(

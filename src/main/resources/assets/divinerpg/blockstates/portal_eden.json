@@ -6,7 +6,7 @@
   "variants": {
     "normal": [{}],
     "inventory": [{"model": "divinerpg:portal_eden_ew", "y": 90 }],
-	"axis=z": { "model": "divinerpg:portal_eden_ew" },
+	"axis=z": [{"model": "divinerpg:portal_eden_ew", "y": 180 }],
     "axis=x": { "model": "divinerpg:portal_eden_ns" }
   }
 }

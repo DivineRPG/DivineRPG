@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.FireBase;
 import naturix.divinerpg.dimensions.ModTeleporter;
 import naturix.divinerpg.particle.EntityEdenPortalFX;
 import naturix.divinerpg.registry.ModBlocks;
@@ -61,7 +60,17 @@ public class EdenBlock extends BlockBreakable {
 
 		
 	}
-	
+	public void registerItemModel(Item itemBlock) {
+		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
+	}
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Needs rotation support, Will teleport player to eden dimension. Eden dimension needs lots of work. Portal cannot be made in survival yet!");
+    }
+	public Item createItemBlock() {
+		return new ItemBlock(this).setRegistryName(getRegistryName());
+	}
 	@Override
 	protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, new IProperty[] {AXIS});
@@ -93,7 +102,7 @@ public class EdenBlock extends BlockBreakable {
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
-	}
+	} 
 
 	@Override
 	public int quantityDropped(Random p_149745_1_) {
@@ -133,6 +142,7 @@ public class EdenBlock extends BlockBreakable {
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
@@ -154,6 +164,7 @@ public class EdenBlock extends BlockBreakable {
 				d2 = (double)pos.getZ() + 0.5D + 0.25D * j;
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
+			
 			EntityEdenPortalFX var20 = new EntityEdenPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
@@ -209,7 +220,6 @@ public class EdenBlock extends BlockBreakable {
 			}
 		}
 	}
-
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		return new ItemStack(this);
@@ -242,7 +252,29 @@ public class EdenBlock extends BlockBreakable {
 			return state;
 		}
 	}
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        EnumFacing.Axis enumfacing$axis = (EnumFacing.Axis)state.getValue(AXIS);
 
+        if (enumfacing$axis == EnumFacing.Axis.X)
+        {
+            EdenBlock.Size EdenBlock$size = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.X);
+
+            if (!EdenBlock$size.isValid() || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height)
+            {
+                worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+            }
+        }
+        else if (enumfacing$axis == EnumFacing.Axis.Z)
+        {
+            EdenBlock.Size EdenBlock$size1 = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.Z);
+
+            if (!EdenBlock$size1.isValid() || EdenBlock$size1.portalBlockCount < EdenBlock$size1.width * EdenBlock$size1.height)
+            {
+                worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+            }
+        }
+    }
 	@Override
 	public BlockFaceShape getBlockFaceShape(IBlockAccess i, IBlockState i2, BlockPos p, EnumFacing f) {
 		return BlockFaceShape.UNDEFINED;
@@ -365,7 +397,7 @@ public class EdenBlock extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == Blocks.FIRE || blockIn == ModBlocks.portalEden;
+			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalEden;
 		}
 
 		public boolean isValid() {
@@ -382,57 +414,4 @@ public class EdenBlock extends BlockBreakable {
 			}
 		}
 	}
-
-	public void registerItemModel(Item itemBlock) {
-		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
-	}
-	
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
-	}
-	Block blockFrame = ModBlocks.rockTwilight;
-	
-	public boolean tryCreatePortal(World world, BlockPos pos) {
-		DivineRPG.logger.debug("Trying to create portal");
-        byte size1 = 0;
-        byte size2 = 0;
-        
-        if (world.getBlockState(pos) == blockFrame || world.getBlockState(pos) == blockFrame) size1 = 1;
-        if (world.getBlockState(pos) == blockFrame || world.getBlockState(pos) == blockFrame) size2 = 1;
-        if (size1 == size2) return false;
-        if (world.isAirBlock(pos)) {
-            int x = pos.getX();
-            int z = pos.getZ();
-        	x -= size1;
-            z -= size2;
-        }
-
-        for (int i = -1; i <= 2; i++) {
-            for (int j = -1; j <= 3; j++) {
-                boolean flag = i == -1 || i == 2 || j == -1 || j == 3;
-                if (i != -1 && i != 2 || j != -1 && j != 3) {
-                    IBlockState b1 = world.getBlockState(pos);
-                    boolean isAir = world.isAirBlock(pos);
-                    if (flag) {
-                        if (b1 != blockFrame) return false;
-                    } else if (!isAir && b1 != fireBlock) return false;
-                }
-            }
-        }
-
-        DivineRPG.logger.debug("Creating Portal");
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 3; j++) {
-                world.setBlockState(pos, ModBlocks.portalEden.getDefaultState(), 2);
-            }
-        }
-
-        return true;
-
-    }
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-    {
-		tooltip.add("Needs rotation support, Will teleport player to eden dimension. Eden dimension needs lots of work. Portal cannot be made in survival yet!");
-    }
 }

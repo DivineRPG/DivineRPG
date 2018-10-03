@@ -1,0 +1,6 @@
+{
+	"parent": "block/cross",
+	"textures": {
+		"cross": "divinerpg:blocks/fire_blue1"
+	}
+}

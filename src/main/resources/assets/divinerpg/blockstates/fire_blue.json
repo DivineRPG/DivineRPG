@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:fire_blue"
+  },
+  "variants": {
+	"normal": { "model": "divinerpg:fire_blue"},
+    "inventory": [{"model": "divinerpg:fire_blue"}],
+    "age=0": [{"model": "divinerpg:fire_blue"}],
+    "age=1": [{"model": "divinerpg:fire_blue"}],
+    "age=2": [{"model": "divinerpg:fire_blue"}],
+    "age=3": [{"model": "divinerpg:fire_blue"}],
+    "age=4": [{"model": "divinerpg:fire_blue"}],
+    "age=5": [{"model": "divinerpg:fire_blue"}],
+    "age=6": [{"model": "divinerpg:fire_blue"}],
+    "age=7": [{"model": "divinerpg:fire_blue"}],
+    "age=8": [{"model": "divinerpg:fire_blue"}],
+    "age=9": [{"model": "divinerpg:fire_blue"}],
+    "age=10": [{"model": "divinerpg:fire_blue"}],
+    "age=11": [{"model": "divinerpg:fire_blue"}],
+    "age=12": [{"model": "divinerpg:fire_blue"}],
+    "age=13": [{"model": "divinerpg:fire_blue"}],
+    "age=14": [{"model": "divinerpg:fire_blue"}],
+	"age=15": [{"model": "divinerpg:fire_blue"}]
+  }
+}
