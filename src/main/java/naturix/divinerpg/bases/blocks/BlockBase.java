@@ -22,6 +22,7 @@ public class BlockBase extends Block {
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
 		this.setHardness(2);
+		
 	}
 	public BlockBase(Material material, String name) {
 		super(material);

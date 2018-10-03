@@ -1,5 +1,8 @@
 package naturix.divinerpg.bases.blocks.portal;
+import java.util.List;
 import java.util.Random;
+
+import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
@@ -15,6 +18,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -425,5 +429,10 @@ public class EdenBlock extends BlockBreakable {
 
         return true;
 
+    }
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Needs rotation support, Will teleport player to eden dimension. Eden dimension needs lots of work. Portal cannot be made in survival yet!");
     }
 }
