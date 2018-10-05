@@ -56,6 +56,7 @@ public class ModTeleporter extends Teleporter {
 		int j = MathHelper.floor(e.posZ);
 		boolean flag1 = true;
 		BlockPos object = BlockPos.ORIGIN;
+		
 		long k = ChunkPos.asLong(i, j);
 
 		if (this.destinationCoordinateCache.containsKey(k))
@@ -76,9 +77,8 @@ public class ModTeleporter extends Teleporter {
 
 				for (int i1 = -128; i1 <= 128; ++i1)
 				{
-					for (BlockPos blockpos = blockpos4.add(l, this.myWorld.getActualHeight() - 1 - blockpos4.getY(), i1); blockpos.getY() >= 0; blockpos = blockpos1)
-					{
-						blockpos1 = blockpos.down();
+					for (BlockPos blockpos = blockpos4.add(l, this.myWorld.getActualHeight() - 1 - blockpos4.getY(), i1); blockpos.getY() >= 0; blockpos = blockpos1){
+						{blockpos1 = blockpos.down();
 
 						if (this.myWorld.getBlockState(blockpos).getBlock() == portal)
 						{
@@ -96,7 +96,7 @@ public class ModTeleporter extends Teleporter {
 							}
 						}
 					}
-				}
+				}}
 			}
 		}
 
@@ -412,15 +412,13 @@ public class ModTeleporter extends Teleporter {
     {
         /** The worldtime at which this PortalPosition was last verified */
         public long lastUpdateTime;
-
-        public PortalPosition(BlockPos pos, long lastUpdate)
+         public PortalPosition(BlockPos pos, long lastUpdate)
         {
             super(pos.getX(), pos.getY(), pos.getZ());
             this.lastUpdateTime = lastUpdate;
         }
     }
-
-    @Override
+     @Override
     public void placeEntity(World world, Entity entity, float yaw)
     {
         if (entity instanceof EntityPlayerMP)

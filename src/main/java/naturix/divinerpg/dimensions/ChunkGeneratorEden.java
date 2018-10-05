@@ -2,6 +2,7 @@ package naturix.divinerpg.dimensions;
 import java.util.List;
 import java.util.Random;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.TreeGen;
@@ -355,7 +356,7 @@ public class ChunkGeneratorEden  implements IChunkGenerator
     {
         BlockFalling.fallInstantly = true;
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
-        BlockPos blockpos = new BlockPos(x * 16, 0, z * 16);
+        BlockPos blockpos = new BlockPos(rand.nextInt(16),	rand.nextInt(world.getHeight()), rand.nextInt(16));
 
         this.world.getBiome(blockpos.add(16, 0, 16)).decorate(this.world, this.world.rand, blockpos);
         long i = (long)x * (long)x + (long)z * (long)z;
@@ -379,14 +380,13 @@ public class ChunkGeneratorEden  implements IChunkGenerator
             }
                         
         }
-        if (this.rand.nextInt(2) == 0) {
-			x = x + this.rand.nextInt(16) + 8;
-			z = z + this.rand.nextInt(16) + 8;
-			int yCoord = rand.nextInt(20) + 64;
-			if(world.isAirBlock(new BlockPos(x, yCoord, z)))tree.generate(world, rand, new BlockPos(x, yCoord, z));
-		}
+
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, false);
         BlockFalling.fallInstantly = false;
+    
+        TreeGen var17 = new TreeGen(true, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
+        var17.generate(world, rand, blockpos);
+    
     }
 
     /**
