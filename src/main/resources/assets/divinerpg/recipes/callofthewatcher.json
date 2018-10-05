@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "ZYZ",
+    " Z "
+  ],
+  "key": {
+    "X": {
+        "item": "divinerpg:ingot_hellstone"
+    },
+	"Y": {
+		"item": "divinerpg:watchingeye"
+	},
+	"Z": {
+		"item": "divinerpg:stone_molten"
+	}
+  },
+  "result": {
+    "item": "divinerpg:callofthewatcher"
+  }
+}

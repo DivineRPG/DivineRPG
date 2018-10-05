@@ -62,6 +62,7 @@ import naturix.divinerpg.bases.items.serenade.SerenadeIce;
 import naturix.divinerpg.bases.items.serenade.SerenadeInfusion;
 import naturix.divinerpg.bases.items.serenade.SerenadeStrike;
 import naturix.divinerpg.bases.items.special.Aquamarine;
+import naturix.divinerpg.bases.items.special.CallOfTheWatcher;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
@@ -439,11 +440,15 @@ public class ModItems {
 	public static ItemBase shardCorrupted = new ItemBase("shard_corrupted"); 
 	public static ItemBase shardEnder = new ItemBase("shard_ender"); 
 	public static ItemBase shardTerran = new ItemBase("shard_terran"); 
+	public static ItemBase shardDivine = new ItemBase("shard_divine"); 
 	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	public static TeleportStaff tpStaff = new TeleportStaff("teleportation_crystal");
 	public static InfernoArrow arrowInferno = new InfernoArrow("arrow_inferno");
 	public static ItemBase edenSparklez = new ItemBase("eden_sparklez"); 
+	public static CallOfTheWatcher callWatcher = new CallOfTheWatcher("callofthewatcher"); 
+	public static ItemBase eyeWatch = new ItemBase("watchingeye"); 
+	public static ItemBase stoneMolten = new ItemBase("stone_molten"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -816,10 +821,14 @@ public class ModItems {
 				arrowInferno,
 				edenSparklez,
 				shardTerran,
+				shardDivine,
 				eliteRealmiteHelmet,
 				eliteRealmiteChestplate,
 				eliteRealmiteLeggings,
-				eliteRealmiteBoots
+				eliteRealmiteBoots,
+				callWatcher,
+				eyeWatch,
+				stoneMolten
 				);
 	}
 	
@@ -1197,6 +1206,10 @@ public class ModItems {
 		eliteRealmiteChestplate.registerItemModel();
 		eliteRealmiteLeggings.registerItemModel();
 		eliteRealmiteBoots.registerItemModel();
+		shardDivine.registerItemModel();
+		callWatcher.registerItemModel();
+		eyeWatch.registerItemModel();
+		stoneMolten.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

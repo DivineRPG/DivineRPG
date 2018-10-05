@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,7 +16,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -27,7 +28,7 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class TheWatcher extends EntityBlaze {
+public class TheWatcher extends EntityMob {
 
     public TheWatcher(World worldIn) {
 		super(worldIn);
@@ -135,6 +136,37 @@ public class TheWatcher extends EntityBlaze {
 	protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
     {
 		this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, Item.getItemFromBlock(ModBlocks.watcherStatue).getDefaultInstance()));
-    }
-	
+		
+		
+		switch(this.rand.nextInt(3)) {
+        case 0 :
+        	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+        	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+        	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+    		
+           break; case 1 :
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           case 2 :
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+              break;
+              case 3 :
+            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
+              break;
+
+        default :
+     }
+  } 
 }
+	
