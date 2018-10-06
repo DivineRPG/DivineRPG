@@ -7,9 +7,11 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Maps;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFire;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -397,9 +399,20 @@ public class FireBase extends Block
     /**
      * Called after the block is set in the Chunk data, but before the Tile Entity is set
      */
+    @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
     {
-        if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalEden.makePortal(worldIn, pos))
+    	if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalEden.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }if (worldIn.provider.getDimensionType().getId() > Config.edenDimensionId || !ModBlocks.portalEden.makePortal(worldIn, pos))
         {
             if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
             {

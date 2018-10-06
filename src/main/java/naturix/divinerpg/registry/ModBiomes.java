@@ -17,10 +17,10 @@ public class ModBiomes {
         		Eden
         		);
 
-        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);
+//        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);
 
 
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(Eden, 100));
+//        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(Eden, 100));
         
         //BiomeManager.addSpawnBiome(Eden);
 
