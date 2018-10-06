@@ -3,8 +3,6 @@ package naturix.divinerpg.entities.assets.render.vethia;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vethea.model.ModelSpinarusBody;
-import naturix.divinerpg.entities.assets.model.vethea.model.ModelSpinarusHead;
-import naturix.divinerpg.entities.assets.model.vethea.model.ModelSpinarusTail;
 import naturix.divinerpg.entities.entity.vethia.Spinarus;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

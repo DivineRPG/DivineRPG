@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import org.apache.commons.io.IOUtils;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.render.RenderHat;
-import naturix.divinerpg.entities.entity.twilight.Basalisk;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -29,7 +27,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLLog;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class Utils {
 	public static int      mobID                  = 500, projectileID = 0, entityListID = 2500;

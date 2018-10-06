@@ -3,11 +3,8 @@ package naturix.divinerpg.bases.blocks.tile.render;
 import org.lwjgl.opengl.GL11;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.model.DramixAltarModel;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

@@ -4,8 +4,6 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import io.netty.handler.codec.http.cors.CorsConfigBuilder;
-import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;

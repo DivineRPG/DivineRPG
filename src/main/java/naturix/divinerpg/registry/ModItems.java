@@ -449,6 +449,8 @@ public class ModItems {
 	public static CallOfTheWatcher callWatcher = new CallOfTheWatcher("callofthewatcher"); 
 	public static ItemBase eyeWatch = new ItemBase("watchingeye"); 
 	public static ItemBase stoneMolten = new ItemBase("stone_molten"); 
+	public static ItemBase shadowBar = new ItemBase("ingot_shadow"); 
+	public static ItemBase chunkNetherite = new ItemBase("chunk_netherite"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -828,7 +830,9 @@ public class ModItems {
 				eliteRealmiteBoots,
 				callWatcher,
 				eyeWatch,
-				stoneMolten
+				stoneMolten,
+				shadowBar,
+				chunkNetherite
 				);
 	}
 	
@@ -1210,6 +1214,8 @@ public class ModItems {
 		callWatcher.registerItemModel();
 		eyeWatch.registerItemModel();
 		stoneMolten.registerItemModel();
+		shadowBar.registerItemModel();
+		chunkNetherite.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

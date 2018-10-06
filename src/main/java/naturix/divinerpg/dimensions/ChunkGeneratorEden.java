@@ -2,7 +2,6 @@ package naturix.divinerpg.dimensions;
 import java.util.List;
 import java.util.Random;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.TreeGen;

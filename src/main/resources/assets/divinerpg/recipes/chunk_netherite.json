@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XXX",
+    " X "
+  ],
+  "key": {
+    "X": {
+        "item": "divinerpg:ingot_netherite"
+    }
+  },
+  "result": {
+    "item": "divinerpg:chunk_netherite"
+  }
+}

@@ -1,12 +1,10 @@
 package naturix.divinerpg.bases.items.armor;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.items.ItemBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 
 public class BootsBase extends ItemArmor 

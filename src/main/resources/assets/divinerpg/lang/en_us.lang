@@ -109,6 +109,11 @@ tile.statue_ayeracohorde.name=Ayerachohorde Statue
 tile.statue_anciententity.name=Ancient Entity Statue
 tile.altar_dramix.name=Dramix Altar
 tile.altar_parasecta.name=Parasecta Altar
+tile.fire_blue.name=Blue Fire
+tile.rock_twilight.name=Twilight Rock
+tile.grass_eden.name=Eden Grass
+tile.dirt_eden.name=Eden Dirt
+tile.portal_eden.name=Eden Portal
 
 item.teleportation_crystal.name=Teleportation Crystal
 item.tokens_dungeon.name=Dungeon Tokens
@@ -478,6 +483,18 @@ item.shard_corrupted.name=Corrupted Shards
 item.shark_fin.name=Shark Fin
 item.shard_terran.name=Terran Shards
 item.eden_sparklez.name=Eden Sparkles
+item.realmite_helmet_elite.name=Elite Realmite Helmet
+item.realmite_chestplate_elite.name=Elite Realmite Chestplate
+item.realmite_leggings_elite.name=Elite Realmite Leggings
+item.realmite_boots_elite.name=Elite Realmite Boots
+item.shard_divine.name=Divine Shards
+item.arrow_inferno.name=Inferno Arrow
+item.watchingeye.name=Watching Eye
+item.stone_molten.name=Molten Stone
+item.callofthewatcher.name=Call Of The Watcher
+item.chunk_netherite.name=Netherite Chunk
+item.ingot_shadow.name=Shadow Bar
+
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
@@ -497,3 +514,4 @@ entity.eye.name=The Eye
 entity.ender_triplets.name=Ender Triplets
 entity.parasecta.name=Parasecta
 entity.acid_hag.name=Acid Hag
+entity.watcher.name=The Watcher

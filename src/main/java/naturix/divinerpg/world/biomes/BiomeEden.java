@@ -7,7 +7,6 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.TreeGen;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

@@ -2,15 +2,12 @@ package naturix.divinerpg.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import org.lwjgl.opengl.GL11;
-
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelEhu;
 import naturix.divinerpg.entities.entity.vanilla.Ehu;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 

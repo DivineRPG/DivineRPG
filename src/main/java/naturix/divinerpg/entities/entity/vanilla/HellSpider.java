@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,7 +21,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -35,9 +35,7 @@ public class HellSpider extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/spider_hell");
 
-    private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
         return false;
     }
@@ -48,18 +46,12 @@ public class HellSpider extends EntityMob {
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
-    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(23.0D);
 
     }
 
@@ -79,7 +71,15 @@ public class HellSpider extends EntityMob {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/spider_hell");
 
+    private ResourceLocation deathLootTable = LOOT;
+    @Override
+   	protected ResourceLocation getLootTable()
+   	{
+   		return this.LOOT;
+
+   	}
     @Override
     protected boolean isValidLightLevel() {
         return true;
@@ -108,4 +108,5 @@ public class HellSpider extends EntityMob {
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
     }
+
 }

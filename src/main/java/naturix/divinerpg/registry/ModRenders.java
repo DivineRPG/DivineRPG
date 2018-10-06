@@ -1,10 +1,7 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.bases.blocks.tile.render.itemstack.ItemStackParasectaAltarRender;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ModRenders {
 
