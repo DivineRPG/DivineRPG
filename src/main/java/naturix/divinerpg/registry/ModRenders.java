@@ -1,20 +1,28 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.bases.blocks.tile.render.itemstack.ItemStackParasectaAltarRender;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModRenders {
 
-	public static void init() {
-	
-		
-		
-		//ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.altarParasecta), 0, new ModelResourceLocation(ModBlocks.altarParasecta.getRegistryName(), "inventory"));
-		
-		
-		ItemStackParasectaAltarRender.instance = new TileEntityItemStackRenderer();
-    	
-		
+	@SideOnly(Side.CLIENT)
+	public static void renderItem(ItemStack stack, double x, double y, double z, float scale) {
+		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+		if(stack != null) {
+			GL11.glTranslated(x, y, z);
+			scale(scale);
+			//renderItem.renderItemModelForEntity(stack, null, null);
+		}
 	}
-
+	public static void scale(float scale) {
+		GL11.glScalef(scale, scale, scale);
+	}
 }

@@ -9,8 +9,11 @@ import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -33,7 +36,7 @@ public class TileEntityParasectaAltarRender extends TileEntitySpecialRenderer<Ti
 		if(te == null || !te.hasWorld()) {
 			//renderTileAsItem(x, y, z);
 			ItemStack stack = new ItemStack(ModBlocks.altarParasecta);
-			//this.renderItem.renderItem(stack, TransformType.FIXED);
+			this.renderItem.renderItem(stack, TransformType.FIXED);
 			return;
 		}
 		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(DivineRPG.modId + ":textures/model/altar_parasecta.png"));
@@ -41,6 +44,10 @@ public class TileEntityParasectaAltarRender extends TileEntitySpecialRenderer<Ti
 		GL11.glTranslatef((float)x + 0.5F, (float)y - 0.6F, (float)z + 0.5F);
 		model.render(0.0625F);
 		
+		
+		Item toRender = Item.getItemFromBlock(ModBlocks.altarParasecta);
+		GL11.glPushMatrix();
+		this.renderItem.renderItem(new ItemStack(toRender), ItemCameraTransforms.TransformType.GROUND);
 		GL11.glPopMatrix();
 	}
 	
