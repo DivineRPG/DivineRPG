@@ -3,16 +3,12 @@ package naturix.divinerpg.world.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.eden.WorldGenEdenTree;
+import naturix.divinerpg.dimensions.eden.EdenAbstractTree;
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.world.TreeGen;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,5 +39,14 @@ public class BiomeEden extends Biome {
 	public int getSkyColorByTemp(float par1) {
         return Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB();
 }
-
+	@Override
+    public WorldGenAbstractTree getRandomTreeFeature(Random random) {
+        if (random.nextInt(5) == 0) {
+            return new EdenAbstractTree(false, 5);
+        } else {
+            return new EdenAbstractTree(true);
+        }
+    }
+	
+	
 }

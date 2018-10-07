@@ -4,7 +4,6 @@ package naturix.divinerpg.dimensions;
 import java.util.List;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.eden.WorldGenEdenTree;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -316,13 +315,8 @@ public class ChunkGeneratorEden implements  IChunkGenerator
         long k = this.rand.nextLong() / 2L * 2L + 1L;
         long l = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long)x * k + (long)z * l ^ this.worldObj.getSeed());
-
-
-		//biome.decorate(this.worldObj, this.rand, pos);
-
-//		if(rand.nextInt(15)==0) {
-//			TREE_FEATURE.generate(worldObj, rand, pos);
-//		}
+		biome.decorate(this.worldObj, this.rand, pos);
+		
 		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
 	}
 
