@@ -7,6 +7,7 @@
  */
 package naturix.divinerpg;
 
+import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModBlocks;
@@ -29,6 +30,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -75,7 +77,7 @@ public class DivineRPG {
 	    @Mod.EventHandler
 	    public void postInit(FMLPostInitializationEvent e) {
 	        proxy.postInit(e);
-	        
+	        if(Loader.isModLoaded("projecte")) {ProjectECompat.init();}
 	        PostInitLog.init();
 	    }
 	    @Mod.EventBusSubscriber
