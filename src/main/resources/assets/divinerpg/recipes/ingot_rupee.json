@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:ingot_rupee",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:block_rupee"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}
