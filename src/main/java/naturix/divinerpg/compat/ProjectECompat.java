@@ -3,6 +3,7 @@ package naturix.divinerpg.compat;
 import moze_intel.projecte.api.ProjectEAPI;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class ProjectECompat {
@@ -22,8 +23,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.shardTerran, 1, 0), (int) 64);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eyeWatch, 1, 0), (int) 4096);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.rockTwilight, 1, 0), (int) 1);
-		
-		
+
 	}
 
 }

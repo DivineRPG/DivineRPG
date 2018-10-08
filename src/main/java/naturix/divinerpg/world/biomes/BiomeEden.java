@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Random;
 
 import naturix.divinerpg.dimensions.eden.EdenAbstractTree;
+import naturix.divinerpg.dimensions.eden.LargeEdenAbstractTree;
 import naturix.divinerpg.entities.entity.arcana.EdenCadillion;
 import naturix.divinerpg.entities.entity.arcana.EdenCori;
 import naturix.divinerpg.entities.entity.arcana.EdenTomo;
@@ -34,7 +35,6 @@ public class BiomeEden extends Biome {
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
     this.setRegistryName(name);
-    this.addDefaultFlowers();
 
     this.spawnableMonsterList.add(new SpawnListEntry(EdenCadillion.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(EdenTomo.class, 1, 1, 1));
@@ -60,11 +60,12 @@ public class BiomeEden extends Biome {
 }
 	@Override
     public WorldGenAbstractTree getRandomTreeFeature(Random random) {
-        if (random.nextInt(5) == 0) {
+		if (random.nextInt(5) == 0) {
             return new EdenAbstractTree(false, 5);
         } else {
-            return new EdenAbstractTree(true);
+            return new LargeEdenAbstractTree(true, 5, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
         }
+
     }
 	
 	
