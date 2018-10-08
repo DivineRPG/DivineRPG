@@ -73,7 +73,7 @@ public class ModWorldGen implements IWorldGenerator {
 		 
 	 }
 	 private void genEden(World world, Random random, int chunkX, int chunkZ){
-		 addOreSpawn(ModBlocks.oreEden.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 4, world.getHeight(), BlockMatcher.forBlock(ModBlocks.rockTwilight));
+		 addOreSpawn(ModBlocks.oreEden.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.rockTwilight));
 		 
 	 }
 	 
