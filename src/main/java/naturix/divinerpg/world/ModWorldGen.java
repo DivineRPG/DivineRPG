@@ -30,11 +30,12 @@ public class ModWorldGen implements IWorldGenerator {
             case 0:
                 genSurface(world, random, chunkX, chunkZ);
                 break;
-            case 2:
-                genEden(world, random, chunkX, chunkZ);
-                break;
             case 1:
             	break;
+        }
+        
+        if(world.provider.getDimension() == ModDimensions.edenDimension.getId()) {
+        	genEden(world, random, chunkX, chunkZ);
         }
     }
 	 private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn){

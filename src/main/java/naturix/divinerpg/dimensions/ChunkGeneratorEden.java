@@ -7,6 +7,7 @@ import java.util.Random;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -19,6 +20,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class ChunkGeneratorEden implements  IChunkGenerator
 {
@@ -40,7 +42,7 @@ public class ChunkGeneratorEden implements  IChunkGenerator
 		this.worldObj = world;
 
 		this.rand = new Random(seed);
-
+		
 		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
 		this.perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
 	}
@@ -318,6 +320,7 @@ public class ChunkGeneratorEden implements  IChunkGenerator
 		biome.decorate(this.worldObj, this.rand, pos);
 		
 		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
+
 	}
 
 }

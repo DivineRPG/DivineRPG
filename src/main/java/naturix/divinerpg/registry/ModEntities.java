@@ -470,19 +470,7 @@ public class ModEntities {
 		EntityRegistry.addSpawn(EnthralledDramcryx.class, 150 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
 	
 		
-		EntityRegistry.addSpawn(EdenTomo.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		EntityRegistry.addSpawn(EdenCadillion.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		EntityRegistry.addSpawn(Bunny.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		EntityRegistry.addSpawn(EdenTomo.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-		EntityRegistry.addSpawn(EdenCadillion.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-		EntityRegistry.addSpawn(Bunny.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-		EntityRegistry.addSpawn(EdenCori.class, 1* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-		EntityRegistry.addSpawn(EdenCori.class, 1* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		EntityRegistry.addSpawn(Greenfeet.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		EntityRegistry.addSpawn(Madivel.class, 20* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		EntityRegistry.addSpawn(SunArcher.class, 6* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-		EntityRegistry.addSpawn(SunArcher.class, 6* Config.mobSpawnMultiplier, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-		
+
 		
 		
 		if(Config.debug) {

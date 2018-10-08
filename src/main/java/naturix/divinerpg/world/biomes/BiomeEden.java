@@ -4,6 +4,13 @@ import java.awt.Color;
 import java.util.Random;
 
 import naturix.divinerpg.dimensions.eden.EdenAbstractTree;
+import naturix.divinerpg.entities.entity.arcana.EdenCadillion;
+import naturix.divinerpg.entities.entity.arcana.EdenCori;
+import naturix.divinerpg.entities.entity.arcana.EdenTomo;
+import naturix.divinerpg.entities.entity.twilight.Bunny;
+import naturix.divinerpg.entities.entity.twilight.Greenfeet;
+import naturix.divinerpg.entities.entity.twilight.Madivel;
+import naturix.divinerpg.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -28,7 +35,19 @@ public class BiomeEden extends Biome {
     this.spawnableWaterCreatureList.clear();
     this.setRegistryName(name);
     this.addDefaultFlowers();
+
+    this.spawnableMonsterList.add(new SpawnListEntry(EdenCadillion.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(EdenTomo.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(Bunny.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(EdenCori.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(Greenfeet.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));
     
+	
+	
+	
+	
 //    this.decorator.treesPerChunk = 6;
     this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     //this.waterColorMultiplier = 2368548;
