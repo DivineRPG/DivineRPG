@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "divinerpg:pellets_aquatic"
+    }
+  },
+  "result": {
+    "item": "divinerpg:pellets_aquatic_pure"
+  }
+}

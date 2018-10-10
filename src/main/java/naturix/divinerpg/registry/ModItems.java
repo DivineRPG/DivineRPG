@@ -451,6 +451,8 @@ public class ModItems {
 	public static ItemBase stoneMolten = new ItemBase("stone_molten"); 
 	public static ItemBase shadowBar = new ItemBase("ingot_shadow"); 
 	public static ItemBase chunkNetherite = new ItemBase("chunk_netherite"); 
+	public static ItemBase pelletsAquatic = new ItemBase("pellets_aquatic"); 
+	public static ItemBase pelletsAquaticPure = new ItemBase("pellets_aquatic_pure"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -832,7 +834,9 @@ public class ModItems {
 				eyeWatch,
 				stoneMolten,
 				shadowBar,
-				chunkNetherite
+				chunkNetherite,
+				pelletsAquatic,
+				pelletsAquaticPure
 				);
 	}
 	
@@ -1216,6 +1220,8 @@ public class ModItems {
 		stoneMolten.registerItemModel();
 		shadowBar.registerItemModel();
 		chunkNetherite.registerItemModel();
+		pelletsAquatic.registerItemModel();
+		pelletsAquaticPure.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

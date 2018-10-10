@@ -37,7 +37,7 @@ public class ModBlocks {
 	public static BlockOre oreArlemite = new BlockOre("ore_arlemite");
 	public static BlockOre oreapalachia = new BlockOre("ore_apalachia");
 	public static BlockOreNether orebloodgem = new BlockOreNether("ore_bloodgem");
-	public static BlockOre oremortum = new BlockOre("ore_mortum");
+	public static BlockOre oreMortum = new BlockOre("ore_mortum");
 	public static BlockNetherite oreNetherite = new BlockNetherite("ore_netherite");
 	public static BlockOre oreRupee = new BlockOre("ore_rupee");
 	public static BlockOre oreSkythern = new BlockOre("ore_skythern");
@@ -157,7 +157,7 @@ public class ModBlocks {
 				oreArlemite,
 				oreapalachia,
 				orebloodgem,
-				oremortum,
+				oreMortum,
 				oreNetherite,
 				oreRupee,
 				oreSkythern,
@@ -278,7 +278,7 @@ public class ModBlocks {
 				oreArlemite.createItemBlock(),
 				oreapalachia.createItemBlock(),
 				orebloodgem.createItemBlock(),
-				oremortum.createItemBlock(),
+				oreMortum.createItemBlock(),
 				oreNetherite.createItemBlock(),
 				oreRupee.createItemBlock(),
 				oreSkythern.createItemBlock(),
@@ -395,7 +395,7 @@ public class ModBlocks {
 		oreArlemite.registerItemModel(Item.getItemFromBlock(oreArlemite));
 		oreapalachia.registerItemModel(Item.getItemFromBlock(oreapalachia));
 		orebloodgem.registerItemModel(Item.getItemFromBlock(orebloodgem));
-		oremortum.registerItemModel(Item.getItemFromBlock(oremortum));
+		oreMortum.registerItemModel(Item.getItemFromBlock(oreMortum));
 		oreNetherite.registerItemModel(Item.getItemFromBlock(oreNetherite));
 		oreRupee.registerItemModel(Item.getItemFromBlock(oreRupee));
 		oreSkythern.registerItemModel(Item.getItemFromBlock(oreSkythern));
