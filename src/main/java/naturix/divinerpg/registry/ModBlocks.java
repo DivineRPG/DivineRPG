@@ -3,6 +3,7 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
+import naturix.divinerpg.bases.blocks.BedBase;
 import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.bases.blocks.BlockNetherite;
 import naturix.divinerpg.bases.blocks.BlockOre;
@@ -24,11 +25,13 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
 import naturix.divinerpg.bases.blocks.tile.block.AltarDramix;
 import naturix.divinerpg.bases.blocks.tile.block.AltarParasecta;
+import naturix.divinerpg.bases.blocks.tile.block.TEBed;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -148,6 +151,7 @@ public class ModBlocks {
 	public static BlockBase rockTwilight = new BlockBase("rock_twilight");
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
+	public static BedBase bedDream = new BedBase("bed_dream");
 	
 	
  
@@ -266,10 +270,12 @@ public class ModBlocks {
 				dirtEden,
 				grassEden,
 				blueFire,
-				rockTwilight
+				rockTwilight,
+				bedDream
 		);
-		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, altarDramix.getRegistryName().toString());
-		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, altarParasecta.getRegistryName().toString());
+		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
+		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
+		GameRegistry.registerTileEntity(TEBed.class, new ModelResourceLocation(DivineRPG.modId + ":" + bedDream.getUnlocalizedName(), "inventory"));
 		
 	}
 	
@@ -386,7 +392,8 @@ public class ModBlocks {
 				dirtEden.createItemBlock(),
 				grassEden.createItemBlock(),
 				blueFire.createItemBlock(),
-				rockTwilight.createItemBlock()
+				rockTwilight.createItemBlock(),
+				bedDream.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -506,6 +513,7 @@ public class ModBlocks {
 		grassEden.registerItemModel(Item.getItemFromBlock(grassEden));
 		blueFire.registerItemModel(Item.getItemFromBlock(blueFire));
 		rockTwilight.registerItemModel(Item.getItemFromBlock(rockTwilight));
+		bedDream.registerItemModel(Item.getItemFromBlock(bedDream));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		
