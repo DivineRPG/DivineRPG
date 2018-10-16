@@ -94,6 +94,7 @@ public class ModItems {
 	public static ItemBase gemSkythern = new ItemBase("gem_skythern");
 	public static ItemBase gemWildwood = new ItemBase("gem_wildwood");
 	public static ItemBase gemMortum = new ItemBase("gem_mortum");
+	public static ItemBase gemBlood = new ItemBase("gem_blood");
 	public static MysteriousClock mysteriousClock = new MysteriousClock("clock_mysterious");
 	public static MysteriousClock moonClock = new MysteriousClock("clock_moon");
 	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
@@ -838,7 +839,8 @@ public class ModItems {
 				chunkNetherite,
 				pelletsAquatic,
 				pelletsAquaticPure,
-				shardIce
+				shardIce,
+				gemBlood
 				);
 	}
 	
@@ -1225,6 +1227,7 @@ public class ModItems {
 		pelletsAquatic.registerItemModel();
 		pelletsAquaticPure.registerItemModel();
 		shardIce.registerItemModel();
+		gemBlood.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

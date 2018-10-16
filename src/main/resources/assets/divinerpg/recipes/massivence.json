@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "###",
+    " # "
+  ],
+  "key": {
+    "X": {
+        "item": "divinerpg:gem_blood"
+    },
+    "#": {
+      "item": "divinerpg:ingot_netherite"
+    }
+  },
+  "result": {
+    "item": "divinerpg:massivence"
+  }
+}

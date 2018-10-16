@@ -28,6 +28,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentApalachia, 1, 0), (int) 2048);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentSkythern, 1, 0), (int) 4096);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentMortum, 1, 0), (int) 8192);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.gemBlood, 1, 0), (int) 380);
 
 
 	}
