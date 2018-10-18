@@ -4,6 +4,7 @@ package naturix.divinerpg.dimensions.wildwood;
 import java.util.List;
 import java.util.Random;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -20,6 +21,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenEndIsland;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class ChunkGeneratorWildWood implements  IChunkGenerator
@@ -35,6 +37,7 @@ public class ChunkGeneratorWildWood implements  IChunkGenerator
 
 	double pnr[], ar[], br[];
 
+    private final WorldGenWildWoodWater water = new WorldGenWildWoodWater();
 
 	public ChunkGeneratorWildWood(World world, long seed)
 	{
@@ -319,7 +322,8 @@ public class ChunkGeneratorWildWood implements  IChunkGenerator
 		biome.decorate(this.worldObj, this.rand, pos);
 		
 		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
-
+		
+		
 	}
 
 }
