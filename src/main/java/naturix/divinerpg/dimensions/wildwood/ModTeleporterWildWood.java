@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -69,6 +70,7 @@ public class ModTeleporterWildWood extends Teleporter {
 			entityIn.setLocationAndAngles((double) i, (double) j, (double) k, entityIn.rotationYaw, 0.0F);
 			entityIn.motionX = entityIn.motionY = entityIn.motionZ = 0.0D;
 		}
+//	This is where i was going to add an easter egg for Techno Kitty but they teased Evancaw so they lost that easter egg!
 	}
 
 	@Override
