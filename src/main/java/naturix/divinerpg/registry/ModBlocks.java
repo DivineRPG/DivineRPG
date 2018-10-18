@@ -18,6 +18,7 @@ import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.portal.EdenBlock;
+import naturix.divinerpg.bases.blocks.portal.WildWoodPortal;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
 import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
@@ -151,7 +152,10 @@ public class ModBlocks {
 	public static BlockBase rockTwilight = new BlockBase("rock_twilight");
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
+	public static GrassBase grassWild = new GrassBase("grass_wildwood");
 	public static BedBase bedDream = new BedBase("bed_dream");
+	public static BlockBase dirtWild = new BlockBase("dirt_wild");
+	public static WildWoodPortal portalWild = new WildWoodPortal("portal_wild", ModBlocks.blueFire);
 	
 	
  
@@ -271,7 +275,10 @@ public class ModBlocks {
 				grassEden,
 				blueFire,
 				rockTwilight,
-				bedDream
+				bedDream,
+				grassWild,
+				dirtWild,
+				portalWild
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
@@ -393,7 +400,10 @@ public class ModBlocks {
 				grassEden.createItemBlock(),
 				blueFire.createItemBlock(),
 				rockTwilight.createItemBlock(),
-				bedDream.createItemBlock()
+				bedDream.createItemBlock(),
+				grassWild.createItemBlock(),
+				dirtWild.createItemBlock(),
+				portalWild.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -514,6 +524,9 @@ public class ModBlocks {
 		blueFire.registerItemModel(Item.getItemFromBlock(blueFire));
 		rockTwilight.registerItemModel(Item.getItemFromBlock(rockTwilight));
 		bedDream.registerItemModel(Item.getItemFromBlock(bedDream));
+		grassWild.registerItemModel(Item.getItemFromBlock(grassWild));
+		dirtWild.registerItemModel(Item.getItemFromBlock(dirtWild));
+		portalWild.registerItemModel(Item.getItemFromBlock(portalWild));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		

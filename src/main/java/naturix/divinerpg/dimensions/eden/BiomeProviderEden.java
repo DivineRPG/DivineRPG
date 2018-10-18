@@ -1,4 +1,4 @@
-package naturix.divinerpg.dimensions;
+package naturix.divinerpg.dimensions.eden;
 
 import naturix.divinerpg.registry.ModBiomes;
 import net.minecraft.world.biome.BiomeProviderSingle;

@@ -38,8 +38,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class FireBase extends Block
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
-    private final Map<Block, Integer> encouragements = Maps.<Block, Integer>newIdentityHashMap();
-    private final Map<Block, Integer> flammabilities = Maps.<Block, Integer>newIdentityHashMap();
 
     /**
      * Get the actual Block state of this Block at the given position. This applies properties not visible in the
@@ -71,53 +69,6 @@ public class FireBase extends Block
 	    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 	        return BLOCK_AABB;
 	    }
-    public static void init()
-    {
-        ModBlocks.blueFire.setFireInfo(Blocks.PLANKS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.DOUBLE_WOODEN_SLAB, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.WOODEN_SLAB, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.OAK_FENCE_GATE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.SPRUCE_FENCE_GATE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.BIRCH_FENCE_GATE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.JUNGLE_FENCE_GATE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.DARK_OAK_FENCE_GATE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.ACACIA_FENCE_GATE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.OAK_FENCE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.SPRUCE_FENCE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.BIRCH_FENCE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.JUNGLE_FENCE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.DARK_OAK_FENCE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.ACACIA_FENCE, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.OAK_STAIRS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.BIRCH_STAIRS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.SPRUCE_STAIRS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.JUNGLE_STAIRS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.ACACIA_STAIRS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.DARK_OAK_STAIRS, 5, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.LOG, 5, 5);
-        ModBlocks.blueFire.setFireInfo(Blocks.LOG2, 5, 5);
-        ModBlocks.blueFire.setFireInfo(Blocks.LEAVES, 30, 60);
-        ModBlocks.blueFire.setFireInfo(Blocks.LEAVES2, 30, 60);
-        ModBlocks.blueFire.setFireInfo(Blocks.BOOKSHELF, 30, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.TNT, 15, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.TALLGRASS, 60, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.DOUBLE_PLANT, 60, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.YELLOW_FLOWER, 60, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.RED_FLOWER, 60, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.DEADBUSH, 60, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.WOOL, 30, 60);
-        ModBlocks.blueFire.setFireInfo(Blocks.VINE, 15, 100);
-        ModBlocks.blueFire.setFireInfo(Blocks.COAL_BLOCK, 5, 5);
-        ModBlocks.blueFire.setFireInfo(Blocks.HAY_BLOCK, 60, 20);
-        ModBlocks.blueFire.setFireInfo(Blocks.CARPET, 60, 20);
-    }
-
-    public void setFireInfo(Block blockIn, int encouragement, int flammability)
-    {
-        if (blockIn == Blocks.AIR) throw new IllegalArgumentException("Tried to set air on fire... This is bad.");
-        this.encouragements.put(blockIn, Integer.valueOf(encouragement));
-        this.flammabilities.put(blockIn, Integer.valueOf(flammability));
-    }
 
     @Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
@@ -274,20 +225,6 @@ public class FireBase extends Block
         return false;
     }
 
-    @Deprecated // Use Block.getFlammability
-    public int getFlammability(Block blockIn)
-    {
-        Integer integer = this.flammabilities.get(blockIn);
-        return integer == null ? 0 : integer.intValue();
-    }
-
-    @Deprecated // Use Block.getFireSpreadSpeed
-    public int getEncouragement(Block blockIn)
-    {
-        Integer integer = this.encouragements.get(blockIn);
-        return integer == null ? 0 : integer.intValue();
-    }
-
     @Deprecated // Use tryCatchFire with face below
     private void catchOnFire(World worldIn, BlockPos pos, int chance, Random random, int age)
     {
@@ -402,7 +339,7 @@ public class FireBase extends Block
     @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
     {
-    	if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalEden.makePortal(worldIn, pos))
+    	if (worldIn.provider.getDimensionType().getId() > 0 || ModBlocks.portalEden.makePortal(worldIn, pos))
         {
             if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
             {
@@ -413,6 +350,29 @@ public class FireBase extends Block
                 worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
             }
         }if (worldIn.provider.getDimensionType().getId() > Config.edenDimensionId || !ModBlocks.portalEden.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }
+        
+        
+        if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalWild.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }if (worldIn.provider.getDimensionType().getId() > Config.wildWoodDimensionId || !ModBlocks.portalWild.makePortal(worldIn, pos))
         {
             if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
             {

@@ -1,10 +1,17 @@
 package naturix.divinerpg.events;
 
+import naturix.divinerpg.entities.entity.arcana.Parasecta;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -85,4 +92,5 @@ public class EventArmorSet{
 		public void onLivingHurtEvent(LivingHurtEvent e) {
 
 		}
+
 }

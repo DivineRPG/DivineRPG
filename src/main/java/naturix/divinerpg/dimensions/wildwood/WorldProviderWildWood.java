@@ -1,9 +1,7 @@
-package naturix.divinerpg.dimensions;
+package naturix.divinerpg.dimensions.wildwood;
 
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
-import naturix.divinerpg.world.biomes.BiomeEden;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
@@ -12,23 +10,23 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderEden extends WorldProvider {
+public class WorldProviderWildWood extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(ModBiomes.Eden);
+		this.biomeProvider = new BiomeProviderSingle(ModBiomes.WildWood);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorEden(this.world, this.world.getSeed()); 
+		return new ChunkGeneratorWildWood(this.world, this.world.getSeed()); 
 	}
 	
 	@Override
     public BiomeProvider getBiomeProvider() {
-		return this.biomeProvider = new BiomeProviderEden();
+		return this.biomeProvider = new BiomeProviderWildWood();
 	}
 	
     @Override
@@ -65,6 +63,6 @@ public class WorldProviderEden extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ModDimensions.edenDimension;
+		return ModDimensions.wildWoodDimension;
 	}
 }

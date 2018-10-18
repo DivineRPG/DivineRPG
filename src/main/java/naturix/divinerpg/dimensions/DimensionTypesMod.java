@@ -3,6 +3,7 @@ package naturix.divinerpg.dimensions;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import naturix.divinerpg.dimensions.eden.WorldProviderEden;
 import net.minecraft.world.WorldProvider;
 
 public enum DimensionTypesMod

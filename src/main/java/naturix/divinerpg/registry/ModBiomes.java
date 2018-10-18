@@ -1,6 +1,6 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.world.biomes.BiomeEden;
+import naturix.divinerpg.dimensions.eden.BiomeEden;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
@@ -9,12 +9,14 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBiomes {
 	public static final Biome Eden = new BiomeEden("biome_eden");
+	public static final Biome WildWood = new BiomeEden("biome_wildwood");
 
     @SubscribeEvent
     public static void registerBiomes(IForgeRegistry<Biome> iForgeRegistry) {
         IForgeRegistry<Biome> registry = iForgeRegistry;
         registry.registerAll(
-        		Eden
+        		Eden,
+        		WildWood
         		);
 
 //        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);

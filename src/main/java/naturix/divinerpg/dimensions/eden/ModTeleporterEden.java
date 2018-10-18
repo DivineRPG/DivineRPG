@@ -1,4 +1,4 @@
-package naturix.divinerpg.dimensions;
+package naturix.divinerpg.dimensions.eden;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,16 +21,16 @@ import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-public class ModTeleporter extends Teleporter {
+public class ModTeleporterEden extends Teleporter {
 
 	protected final WorldServer myWorld;
 	protected final Random random;
-    protected final Long2ObjectMap<ModTeleporter.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap<ModTeleporter.PortalPosition>(4096);
+    protected final Long2ObjectMap<ModTeleporterEden.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap<ModTeleporterEden.PortalPosition>(4096);
 	protected final List destinationCoordinateKeys = new ArrayList();
 	protected int dimensionID;
 	protected Block portal, frameBlock;
 
-	public ModTeleporter(WorldServer worldServer, int dimensionID, Block portal, Block frameBlock) {
+	public ModTeleporterEden(WorldServer worldServer, int dimensionID, Block portal, Block frameBlock) {
 		super(worldServer);
 		this.myWorld = worldServer;
 		this.dimensionID = dimensionID;
@@ -82,7 +82,7 @@ public class ModTeleporter extends Teleporter {
 		long k = ChunkPos.asLong(i, j);
 
 		if (this.destinationCoordinateCache.containsKey(k)) {
-			ModTeleporter.PortalPosition portalposition = (ModTeleporter.PortalPosition) this.destinationCoordinateCache.get(k);
+			ModTeleporterEden.PortalPosition portalposition = (ModTeleporterEden.PortalPosition) this.destinationCoordinateCache.get(k);
 			d0 = 0.0D;
 			object = portalposition;
 			portalposition.lastUpdateTime = this.myWorld.getTotalWorldTime();
@@ -117,7 +117,7 @@ public class ModTeleporter extends Teleporter {
 
 		if (d0 >= 0.0D) {
 			if (flag1) {
-				this.destinationCoordinateCache.put(k, new ModTeleporter.PortalPosition(object, this.myWorld.getTotalWorldTime()));
+				this.destinationCoordinateCache.put(k, new ModTeleporterEden.PortalPosition(object, this.myWorld.getTotalWorldTime()));
 			}
 
 			double d4 = (double) ((BlockPos) object).getX() + 0.5D;

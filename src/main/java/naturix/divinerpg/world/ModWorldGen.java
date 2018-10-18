@@ -37,6 +37,8 @@ public class ModWorldGen implements IWorldGenerator {
         
         if(world.provider.getDimension() == ModDimensions.edenDimension.getId()) {
         	genEden(world, random, chunkX, chunkZ);
+        }if(world.provider.getDimension() == ModDimensions.wildWoodDimension.getId()) {
+        	genWild(world, random, chunkX, chunkZ);
         }
     }
 	 private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn){
@@ -76,6 +78,10 @@ public class ModWorldGen implements IWorldGenerator {
 	 }
 	 private void genEden(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreEden.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.rockTwilight));
+		 
+	 }
+	 private void genWild(World world, Random random, int chunkX, int chunkZ){
+		 addOreSpawn(ModBlocks.oreWildwood.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.rockTwilight));
 		 
 	 }
 	 

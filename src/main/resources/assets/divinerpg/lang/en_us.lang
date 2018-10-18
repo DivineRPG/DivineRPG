@@ -19,6 +19,9 @@ tile.ore_arcanium.name=Arcanium Ore
 
 tile.rock_divine.name=Divine Rock
 tile.grass_arcana.name=Arcanite Grass
+tile.grass_wildwood.name=WildWood Grass
+tile.dirt_wild.name=WildWood Dirt
+tile.portal_wild.name=WildWood Portal
 tile.statue_watcher.name=Watcher Statue
 tile.heat_trap.name=Heat Trap
 tile.spike_cold.name=Spike Block

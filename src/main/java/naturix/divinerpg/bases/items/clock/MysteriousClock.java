@@ -1,5 +1,6 @@
 package naturix.divinerpg.bases.items.clock;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.registry.ModBlocks;
@@ -37,7 +38,9 @@ import net.minecraft.world.World;
 			            {
 			                worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
 			                worldIn.setBlockState(pos, ModBlocks.blueFire.getDefaultState(), 11);
+			                if(Config.debug==true) {
 			                DivineRPG.logger.info("portal spawned at " + pos);
+			            }
 			            }
 
 			            if (player instanceof EntityPlayerMP)

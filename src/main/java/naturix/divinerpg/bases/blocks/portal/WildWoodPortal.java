@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.dimensions.eden.ModTeleporterEden;
+import naturix.divinerpg.dimensions.wildwood.ModTeleporterWildWood;
 import naturix.divinerpg.particle.EntityEdenPortalFX;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
@@ -40,7 +40,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EdenBlock extends BlockBreakable {
+public class WildWoodPortal extends BlockBreakable {
 
 	public String name;
     public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis", EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
@@ -48,7 +48,7 @@ public class EdenBlock extends BlockBreakable {
 	protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
 	protected static final AxisAlignedBB Y_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
 	protected Block fireBlock;
-	public EdenBlock(String name, Block fireBlock) {
+	public WildWoodPortal(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
 		this.name = name;
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
@@ -116,17 +116,17 @@ public class EdenBlock extends BlockBreakable {
 			thePlayer.heal(0);
 			thePlayer.addExperience(0);
 			WorldServer worldserver = thePlayer.mcServer.getWorld(thePlayer.dimension);
-			int dimensionID = Config.edenDimensionId;
-			Block blockFrame = ModBlocks.rockDivine;
+			int dimensionID = Config.wildWoodDimensionId;
+			Block blockFrame = ModBlocks.blockEden;
 			
 			if(thePlayer.timeUntilPortal > 0) 
 				thePlayer.timeUntilPortal = 10;
 			else if(thePlayer.dimension != dimensionID) {
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID, new ModTeleporterEden(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this, blockFrame));
+				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID, new ModTeleporterWildWood(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this));
 			} else {
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new ModTeleporterEden(thePlayer.mcServer.getWorld(0), 0, this, blockFrame));
+				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new ModTeleporterWildWood(thePlayer.mcServer.getWorld(0), 0, this));
 			}
 		}
 	}
@@ -201,7 +201,7 @@ public class EdenBlock extends BlockBreakable {
 
 	public boolean makePortal(World worldIn, BlockPos p) {
 		EntityLightningBolt bolt = new EntityLightningBolt(worldIn, p.getX(), p.getY(), p.getZ(), false);
-		EdenBlock.Size size = new EdenBlock.Size(worldIn, p, EnumFacing.Axis.X);
+		WildWoodPortal.Size size = new WildWoodPortal.Size(worldIn, p, EnumFacing.Axis.X);
 		if(size.isValid() && size.portalBlockCount == 0) {
 			size.placePortalBlocks();
 			worldIn.addWeatherEffect(bolt);
@@ -209,7 +209,7 @@ public class EdenBlock extends BlockBreakable {
 			return true;
 		} else {
 			EntityLightningBolt bolt1 = new EntityLightningBolt(worldIn, p.getX(), p.getY(), p.getZ(), false);
-			EdenBlock.Size size1 = new EdenBlock.Size(worldIn, p, EnumFacing.Axis.Z);
+			WildWoodPortal.Size size1 = new WildWoodPortal.Size(worldIn, p, EnumFacing.Axis.Z);
 			if(size1.isValid() && size1.portalBlockCount == 0) {
 				size1.placePortalBlocks();
 				worldIn.addWeatherEffect(bolt1);
@@ -258,18 +258,18 @@ public class EdenBlock extends BlockBreakable {
 
         if (enumfacing$axis == EnumFacing.Axis.X)
         {
-            EdenBlock.Size EdenBlock$size = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.X);
+            WildWoodPortal.Size WildWoodPortal$size = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
-            if (!EdenBlock$size.isValid() || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height)
+            if (!WildWoodPortal$size.isValid() || WildWoodPortal$size.portalBlockCount < WildWoodPortal$size.width * WildWoodPortal$size.height)
             {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         }
         else if (enumfacing$axis == EnumFacing.Axis.Z)
         {
-            EdenBlock.Size EdenBlock$size1 = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.Z);
+            WildWoodPortal.Size WildWoodPortal$size1 = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-            if (!EdenBlock$size1.isValid() || EdenBlock$size1.portalBlockCount < EdenBlock$size1.width * EdenBlock$size1.height)
+            if (!WildWoodPortal$size1.isValid() || WildWoodPortal$size1.portalBlockCount < WildWoodPortal$size1.width * WildWoodPortal$size1.height)
             {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
@@ -329,13 +329,13 @@ public class EdenBlock extends BlockBreakable {
 			for(i = 0; i < 22; ++i) {
 				BlockPos blockpos = pos.offset(facing, i);
 
-				if(!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.rockDivine) {
+				if(!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.blockEden) {
 					break;
 				}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			return block == ModBlocks.rockDivine ? i : 0;
+			return block == ModBlocks.blockEden ? i : 0;
 		}
 
 		public int getHeight() {
@@ -358,21 +358,21 @@ public class EdenBlock extends BlockBreakable {
 							break label56;
 						}
 
-						if(block == ModBlocks.portalEden) {
+						if(block == ModBlocks.portalWild) {
 							++this.portalBlockCount;
 						}
 
 						if(i == 0) {
 							block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
-							if(block != ModBlocks.rockDivine) {
+							if(block != ModBlocks.blockEden) {
 								break label56;
 							}
 						}
 						else if(i == this.width - 1) {
 							block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
 
-							if(block != ModBlocks.rockDivine) {
+							if(block != ModBlocks.blockEden) {
 								break label56;
 							}
 						}
@@ -380,7 +380,7 @@ public class EdenBlock extends BlockBreakable {
 				}
 
 		for(int j = 0; j < this.width; ++j) {
-			if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != ModBlocks.rockDivine) {
+			if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != ModBlocks.blockEden) {
 				this.height = 0;
 				break;
 			}
@@ -397,7 +397,7 @@ public class EdenBlock extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalEden;
+			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalWild;
 		}
 
 		public boolean isValid() {
@@ -409,7 +409,7 @@ public class EdenBlock extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for(int j = 0; j < this.height; ++j) {
-					this.world.setBlockState(blockpos.up(j), ModBlocks.portalEden.getDefaultState().withProperty(EdenBlock.AXIS, this.axis), 2);
+					this.world.setBlockState(blockpos.up(j), ModBlocks.portalWild.getDefaultState().withProperty(WildWoodPortal.AXIS, this.axis), 2);
 				}
 			}
 		}
