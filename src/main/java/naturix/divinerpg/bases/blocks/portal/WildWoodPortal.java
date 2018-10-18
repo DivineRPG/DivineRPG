@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.wildwood.ModTeleporterWildWood;
-import naturix.divinerpg.particle.EntityEdenPortalFX;
+import naturix.divinerpg.particle.EntityWildWoodPortalFX;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -165,7 +165,7 @@ public class WildWoodPortal extends BlockBreakable {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 			
-			EntityEdenPortalFX var20 = new EntityEdenPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
+			EntityWildWoodPortalFX var20 = new EntityWildWoodPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}

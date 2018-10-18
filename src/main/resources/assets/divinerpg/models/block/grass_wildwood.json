@@ -1,8 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "particle": "divinerpg:blocks/dirt_wildwood",
-    "down": "divinerpg:blocks/dirt_wildwood",
+    "particle": "divinerpg:blocks/dirt_wild",
+    "down": "divinerpg:blocks/dirt_wild",
     "up": "divinerpg:blocks/grass_wildwood_top",
     "east": "divinerpg:blocks/grass_wildwood_side",
     "west": "divinerpg:blocks/grass_wildwood_side",
