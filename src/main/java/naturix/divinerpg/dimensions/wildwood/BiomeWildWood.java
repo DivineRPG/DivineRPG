@@ -32,7 +32,10 @@ public class BiomeWildWood extends Biome {
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
     this.setRegistryName(name);
-
+    this.flowers.clear();
+    this.decorator.flowersPerChunk = 0;	
+    this.decorator.grassPerChunk = 0;
+    
     this.spawnableMonsterList.add(new SpawnListEntry(WildwoodCadillion.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(WildwoodTomo.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(Bunny.class, 1, 1, 1));
