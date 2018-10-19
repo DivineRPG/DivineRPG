@@ -64,6 +64,7 @@ import naturix.divinerpg.entities.assets.render.twilight.RenderTomoWildwood;
 import naturix.divinerpg.entities.assets.render.twilight.RenderTwilightArcher;
 import naturix.divinerpg.entities.assets.render.twilight.RenderTwilightDemon;
 import naturix.divinerpg.entities.assets.render.twilight.RenderVamacheron;
+import naturix.divinerpg.entities.assets.render.twilight.RenderVerek;
 import naturix.divinerpg.entities.assets.render.twilight.RenderWarriorApalachia;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAncientEntity;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAridWarrior;
@@ -206,6 +207,7 @@ import naturix.divinerpg.entities.entity.twilight.TameAngryBunny;
 import naturix.divinerpg.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.entities.entity.twilight.TwilightDemon;
 import naturix.divinerpg.entities.entity.twilight.Vamecheron;
+import naturix.divinerpg.entities.entity.twilight.Verek;
 import naturix.divinerpg.entities.entity.twilight.WildwoodCadillion;
 import naturix.divinerpg.entities.entity.twilight.WildwoodGolem;
 import naturix.divinerpg.entities.entity.twilight.WildwoodTomo;
@@ -372,6 +374,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "warrior_apalachia"), ApalachiaWarrior.class, "warrior_apalachia", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "golem_wildwood"), WildwoodGolem.class, "golem_wildwood", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "vamacheron_boss"), Vamecheron.class, "vamacheron_boss", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "varek"), Verek.class, "varek", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		id = 400;
 		//vanilla
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "ancient_entity"), AncientEntity.class, "ancient_entity", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
@@ -562,6 +565,7 @@ public class ModEntities {
 		LootTableList.register(Whale.LOOT);
 		LootTableList.register(GrizzleWhite.LOOT);
 		LootTableList.register(EnderWatcher.LOOT);
+		LootTableList.register(Verek.LOOT);
 		
 		if(Config.debug) {	
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
@@ -636,6 +640,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(ApalachiaTomo.class, RenderTomoApalachia.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(WildwoodTomo.class, RenderTomoWildwood.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(ApalachiaWarrior.class, RenderWarriorApalachia.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
 		
 		//vanilla
 		RenderingRegistry.registerEntityRenderingHandler(JungleStegosaurus.class, RenderDramcryxJungle.FACTORY);
