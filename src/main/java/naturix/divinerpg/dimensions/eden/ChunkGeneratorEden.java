@@ -25,7 +25,6 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class ChunkGeneratorEden implements  IChunkGenerator
 {
 
-//    protected static final WorldGenEdenTree TREE_FEATURE = new WorldGenEdenTree();
 	private Random rand;
 
 	private World worldObj;

@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.wildwood;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
@@ -65,4 +67,10 @@ public class WorldProviderWildWood extends WorldProvider {
 	public DimensionType getDimensionType() {
 		return ModDimensions.wildWoodDimension;
 	}
+	@Nullable
+    @Override
+	public String getSaveFolder()
+    {
+        return "WildWood";
+    }
 }

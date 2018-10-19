@@ -49,13 +49,8 @@ public class BiomeEden extends Biome {
     this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));
     
-	
-	
-	
-	
-//    this.decorator.treesPerChunk = 6;
+
     this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
-    //this.waterColorMultiplier = 2368548;
 }
 
 	@Override

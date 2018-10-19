@@ -1,5 +1,8 @@
 package naturix.divinerpg.dimensions.eden;
 
+import javax.annotation.Nullable;
+
+import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.util.math.Vec3d;
@@ -66,4 +69,10 @@ public class WorldProviderEden extends WorldProvider {
 	public DimensionType getDimensionType() {
 		return ModDimensions.edenDimension;
 	}
+	@Nullable
+    @Override
+	public String getSaveFolder()
+    {
+        return "Eden";
+    }
 }
