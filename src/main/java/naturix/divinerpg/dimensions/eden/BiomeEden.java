@@ -11,9 +11,13 @@ import naturix.divinerpg.entities.entity.twilight.Greenfeet;
 import naturix.divinerpg.entities.entity.twilight.Madivel;
 import naturix.divinerpg.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.FlowerEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,7 +37,10 @@ public class BiomeEden extends Biome {
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
     this.setRegistryName(name);
-
+    this.flowers.clear();
+    this.decorator.flowersPerChunk = 0;	
+    this.decorator.grassPerChunk = 0;
+    
     this.spawnableMonsterList.add(new SpawnListEntry(EdenCadillion.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(EdenTomo.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(Bunny.class, 1, 1, 1));
@@ -66,5 +73,6 @@ public class BiomeEden extends Biome {
 
     }
 	
+
 	
 }
