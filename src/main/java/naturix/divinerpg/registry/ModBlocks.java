@@ -15,6 +15,7 @@ import naturix.divinerpg.bases.blocks.LeavesBase;
 import naturix.divinerpg.bases.blocks.LogBase;
 import naturix.divinerpg.bases.blocks.Spike;
 import naturix.divinerpg.bases.blocks.TorchBase;
+import naturix.divinerpg.bases.blocks.VineBase;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.portal.EdenBlock;
@@ -156,6 +157,7 @@ public class ModBlocks {
 	public static BedBase bedDream = new BedBase("bed_dream");
 	public static BlockBase dirtWild = new BlockBase("dirt_wild");
 	public static WildWoodPortal portalWild = new WildWoodPortal("portal_wild", ModBlocks.blueFire);
+	public static VineBase vineWild = new VineBase("vine_wildwood");
 	
 	
  
@@ -278,7 +280,8 @@ public class ModBlocks {
 				bedDream,
 				grassWild,
 				dirtWild,
-				portalWild
+				portalWild,
+				vineWild
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
@@ -403,7 +406,8 @@ public class ModBlocks {
 				bedDream.createItemBlock(),
 				grassWild.createItemBlock(),
 				dirtWild.createItemBlock(),
-				portalWild.createItemBlock()
+				portalWild.createItemBlock(),
+				vineWild.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -527,6 +531,7 @@ public class ModBlocks {
 		grassWild.registerItemModel(Item.getItemFromBlock(grassWild));
 		dirtWild.registerItemModel(Item.getItemFromBlock(dirtWild));
 		portalWild.registerItemModel(Item.getItemFromBlock(portalWild));
+		vineWild.registerItemModel(Item.getItemFromBlock(vineWild));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		
