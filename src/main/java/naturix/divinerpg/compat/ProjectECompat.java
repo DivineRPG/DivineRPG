@@ -24,7 +24,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eyeWatch, 1, 0), (int) 4096);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.rockTwilight, 1, 0), (int) 1);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentEden, 1, 0), (int) 512);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentApalachia, 1, 0), (int) 1024);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentWildwood, 1, 0), (int) 1024);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentApalachia, 1, 0), (int) 2048);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentSkythern, 1, 0), (int) 4096);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentMortum, 1, 0), (int) 8192);
