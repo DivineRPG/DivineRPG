@@ -3,7 +3,9 @@ package naturix.divinerpg.dimensions.wildwood;
 import java.util.Random;
 
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -34,7 +36,76 @@ public class WildWoodTree extends WorldGenAbstractTree {
         }
         
         buildTrunk(worldIn, position, treeHeight);
+        int i = rand.nextInt(treeHeight);
+        for (int i2 = 0; i2 < i; ++i2)
+        {
+            BlockPos blockpos = position.up(i2);
+
+            if (this.isAirLeaves(worldIn,blockpos))
+            {
+                this.setBlockAndNotifyAdequately(worldIn, blockpos, this.log);
+
+                if (i2 > 0)
+                {
+                    this.placeVine(worldIn, rand, blockpos.west(), BlockVine.EAST);
+                    this.placeVine(worldIn, rand, blockpos.north(), BlockVine.SOUTH);
+                }
+            }
+
+            if (i2 < i - 1)
+            {
+                BlockPos blockpos1 = blockpos.east();
+
+                if (this.isAirLeaves(worldIn,blockpos1))
+                {
+                    this.setBlockAndNotifyAdequately(worldIn, blockpos1, this.log);
+
+                    if (i2 > 0)
+                    {
+                        this.placeVine(worldIn, rand, blockpos1.east(), BlockVine.WEST);
+                        this.placeVine(worldIn, rand, blockpos1.north(), BlockVine.SOUTH);
+                    }
+                }
+
+                BlockPos blockpos2 = blockpos.south().east();
+
+                if (this.isAirLeaves(worldIn,blockpos2))
+                {
+                    this.setBlockAndNotifyAdequately(worldIn, blockpos2, this.log);
+
+                    if (i2 > 0)
+                    {
+                        this.placeVine(worldIn, rand, blockpos2.east(), BlockVine.WEST);
+                        this.placeVine(worldIn, rand, blockpos2.south(), BlockVine.NORTH);
+                    }
+                }
+
+                BlockPos blockpos3 = blockpos.south();
+
+                if (this.isAirLeaves(worldIn,blockpos3))
+                {
+                    this.setBlockAndNotifyAdequately(worldIn, blockpos3, this.log);
+
+                    if (i2 > 0)
+                    {
+                        this.placeVine(worldIn, rand, blockpos3.west(), BlockVine.EAST);
+                        this.placeVine(worldIn, rand, blockpos3.south(), BlockVine.NORTH);
+                    }
+                }
+            }
+        }
         return true;
+    }
+    private void placeVine(World p_181632_1_, Random p_181632_2_, BlockPos p_181632_3_, PropertyBool p_181632_4_)
+    {
+        if (p_181632_2_.nextInt(3) > 0 && p_181632_1_.isAirBlock(p_181632_3_))
+        {
+            this.setBlockAndNotifyAdequately(p_181632_1_, p_181632_3_, ModBlocks.vineWild.getDefaultState().withProperty(p_181632_4_, Boolean.valueOf(true)));
+        }
+    }private boolean isAirLeaves(World world, BlockPos pos)
+    {
+        IBlockState state = world.getBlockState(pos);
+        return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos);
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {

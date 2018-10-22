@@ -4,8 +4,11 @@ package naturix.divinerpg.dimensions.wildwood;
 import java.util.Random;
 
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -17,6 +20,7 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
     protected IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
     protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
+    protected IBlockState vines = ModBlocks.vineWild.getDefaultState();
 
     public LargeWildWoodTree(boolean notify, int minTrunkHeight) {
         super(notify);
@@ -51,9 +55,79 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
         buildBranchBase(world, blockPos, trunkHeight + 4);
         buildBranches2(world, blockPos, trunkHeight + 6);
         setTreeHeight(world, blockPos, treeHeight);
+        
+        
+        int i = random.nextInt(treeHeight);
+        for (int i2 = 0; i2 < i; ++i2)
+        {
+            BlockPos blockpos = blockPos.up(i2);
+
+            if (this.isAirLeaves(world,blockpos))
+            {
+                this.setBlockAndNotifyAdequately(world, blockpos, this.log);
+
+                if (i2 > 0)
+                {
+                    this.placeVine(world, random, blockpos.west(), BlockVine.EAST);
+                    this.placeVine(world, random, blockpos.north(), BlockVine.SOUTH);
+                }
+            }
+
+            if (i2 < i - 1)
+            {
+                BlockPos blockpos1 = blockpos.east();
+
+                if (this.isAirLeaves(world,blockpos1))
+                {
+                    this.setBlockAndNotifyAdequately(world, blockpos1, this.log);
+
+                    if (i2 > 0)
+                    {
+                        this.placeVine(world, random, blockpos1.east(), BlockVine.WEST);
+                        this.placeVine(world, random, blockpos1.north(), BlockVine.SOUTH);
+                    }
+                }
+
+                BlockPos blockpos2 = blockpos.south().east();
+
+                if (this.isAirLeaves(world,blockpos2))
+                {
+                    this.setBlockAndNotifyAdequately(world, blockpos2, this.log);
+
+                    if (i2 > 0)
+                    {
+                        this.placeVine(world, random, blockpos2.east(), BlockVine.WEST);
+                        this.placeVine(world, random, blockpos2.south(), BlockVine.NORTH);
+                    }
+                }
+
+                BlockPos blockpos3 = blockpos.south();
+
+                if (this.isAirLeaves(world,blockpos3))
+                {
+                    this.setBlockAndNotifyAdequately(world, blockpos3, this.log);
+
+                    if (i2 > 0)
+                    {
+                        this.placeVine(world, random, blockpos3.west(), BlockVine.EAST);
+                        this.placeVine(world, random, blockpos3.south(), BlockVine.NORTH);
+                    }
+                }
+            }
+        }
         return true;
     }
-
+    private void placeVine(World p_181632_1_, Random p_181632_2_, BlockPos p_181632_3_, PropertyBool p_181632_4_)
+    {
+        if (p_181632_2_.nextInt(3) > 0 && p_181632_1_.isAirBlock(p_181632_3_))
+        {
+            this.setBlockAndNotifyAdequately(p_181632_1_, p_181632_3_, ModBlocks.vineWild.getDefaultState().withProperty(p_181632_4_, Boolean.valueOf(true)));
+        }
+    }private boolean isAirLeaves(World world, BlockPos pos)
+    {
+        IBlockState state = world.getBlockState(pos);
+        return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos);
+    }
     private void buildLeaves6(World world, BlockPos blockPos, int height) {
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 1), leaves);
@@ -206,7 +280,8 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
             this.setBlockAndNotifyAdequately(world, blockPos.add(0, dy, 0), log);
         }
     }
-
+    
+    
     private int setTreeHeight(World world, BlockPos pos, int treeHeight){
         return treeHeight;
     }
@@ -214,4 +289,5 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
     public int getTreeHeight(World world, BlockPos pos, int treeHeight){
         return this.setTreeHeight(world, pos, treeHeight);
     }
+    
 }
