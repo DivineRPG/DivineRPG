@@ -82,7 +82,10 @@ public class DivineRPG {
 	    }
 	    @Mod.EventBusSubscriber
 		public static class RegistrationHandler {
-		
+	    	@SubscribeEvent
+			public static void onLivingSpawn(LivingSpawnEvent event) {
+				ModSpawns.init(event);
+			}
 			@SubscribeEvent
 			public static void registerItems(RegistryEvent.Register<Item> event) {
 				ModItems.register(event.getRegistry());
@@ -98,10 +101,6 @@ public class DivineRPG {
 	    	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    		ModBlocks.register(event.getRegistry());
 	    	}
-			@SubscribeEvent
-			public static void onLivingSpawn(LivingSpawnEvent event) {
-				ModSpawns.init(event);
-			}
 			@SubscribeEvent
 			public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 				ModBiomes.registerBiomes(event.getRegistry()); 

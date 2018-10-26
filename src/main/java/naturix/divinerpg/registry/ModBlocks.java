@@ -18,6 +18,7 @@ import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.VineBase;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
+import naturix.divinerpg.bases.blocks.portal.ApalachiaPortal;
 import naturix.divinerpg.bases.blocks.portal.EdenBlock;
 import naturix.divinerpg.bases.blocks.portal.WildWoodPortal;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
@@ -153,11 +154,14 @@ public class ModBlocks {
 	public static BlockBase rockTwilight = new BlockBase("rock_twilight");
 	public static BlockBase dirtEden = new BlockBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
-	public static GrassBase grassWild = new GrassBase("grass_wildwood");
 	public static BedBase bedDream = new BedBase("bed_dream");
+	public static GrassBase grassWild = new GrassBase("grass_wildwood");
 	public static BlockBase dirtWild = new BlockBase("dirt_wild");
 	public static WildWoodPortal portalWild = new WildWoodPortal("portal_wild", ModBlocks.blueFire);
 	public static VineBase vineWild = new VineBase("vine_wildwood");
+	public static GrassBase grassApalachia = new GrassBase("grass_apalachia");
+	public static BlockBase dirtApalachia = new BlockBase("dirt_apalachia");
+	public static ApalachiaPortal portalApalachia = new ApalachiaPortal("portal_apalachia", ModBlocks.blueFire);
 	
 	
  
@@ -281,7 +285,10 @@ public class ModBlocks {
 				grassWild,
 				dirtWild,
 				portalWild,
-				vineWild
+				vineWild,
+				grassApalachia,
+				dirtApalachia,
+				portalApalachia
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
@@ -407,7 +414,10 @@ public class ModBlocks {
 				grassWild.createItemBlock(),
 				dirtWild.createItemBlock(),
 				portalWild.createItemBlock(),
-				vineWild.createItemBlock()
+				vineWild.createItemBlock(),
+				grassApalachia.createItemBlock(),
+				dirtApalachia.createItemBlock(),
+				portalApalachia.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -532,6 +542,9 @@ public class ModBlocks {
 		dirtWild.registerItemModel(Item.getItemFromBlock(dirtWild));
 		portalWild.registerItemModel(Item.getItemFromBlock(portalWild));
 		vineWild.registerItemModel(Item.getItemFromBlock(vineWild));
+		grassApalachia.registerItemModel(Item.getItemFromBlock(grassApalachia));
+		dirtApalachia.registerItemModel(Item.getItemFromBlock(dirtApalachia));
+		portalApalachia.registerItemModel(Item.getItemFromBlock(portalApalachia));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		

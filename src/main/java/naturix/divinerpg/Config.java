@@ -10,6 +10,7 @@ public class Config {
     private static final String CATEGORY_GENERAL = "general";
 	public static int edenDimensionId = 2;
 	public static int wildWoodDimensionId = 3;
+	public static int apalachiaDimensionId = 4;
 	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
@@ -51,6 +52,7 @@ public class Config {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
         edenDimensionId = cfg.getInt("edenId", CATEGORY_GENERAL, 2, 2, 4096, "Eden dimension ID");
         wildWoodDimensionId = cfg.getInt("wildWoodId", CATEGORY_GENERAL, 3, 2, 4096, "Wild Wood dimension ID");
+        apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_GENERAL, 4, 2, 4096, "Apalachia dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
