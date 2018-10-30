@@ -20,6 +20,7 @@ import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.portal.ApalachiaPortal;
 import naturix.divinerpg.bases.blocks.portal.EdenBlock;
+import naturix.divinerpg.bases.blocks.portal.MortumPortal;
 import naturix.divinerpg.bases.blocks.portal.SkythernPortal;
 import naturix.divinerpg.bases.blocks.portal.WildWoodPortal;
 import naturix.divinerpg.bases.blocks.sapling.SaplingApalachia;
@@ -166,6 +167,9 @@ public class ModBlocks {
 	public static GrassBase grassSkythern = new GrassBase("grass_skythern");
 	public static BlockBase dirtSkythern = new BlockBase("dirt_skythern");
 	public static SkythernPortal portalSkythern = new SkythernPortal("portal_skythern", ModBlocks.blueFire);
+	public static GrassBase grassMortum = new GrassBase("grass_mortum");
+	public static BlockBase dirtMortum = new BlockBase("dirt_mortum");
+	public static MortumPortal portalMortum = new MortumPortal("portal_mortum", ModBlocks.blueFire);
 	
  
 	public static void register(IForgeRegistry<Block> registry) { 
@@ -294,7 +298,10 @@ public class ModBlocks {
 				portalApalachia,
 				grassSkythern,
 				dirtSkythern,
-				portalSkythern
+				portalSkythern,
+				grassMortum,
+				dirtMortum,
+				portalMortum
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
@@ -426,7 +433,10 @@ public class ModBlocks {
 				portalApalachia.createItemBlock(),
 				grassSkythern.createItemBlock(),
 				dirtSkythern.createItemBlock(),
-				portalSkythern.createItemBlock()
+				portalSkythern.createItemBlock(),
+				grassMortum.createItemBlock(),
+				dirtMortum.createItemBlock(),
+				portalMortum.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -557,6 +567,9 @@ public class ModBlocks {
 		grassSkythern.registerItemModel(Item.getItemFromBlock(grassSkythern));
 		dirtSkythern.registerItemModel(Item.getItemFromBlock(dirtSkythern));
 		portalSkythern.registerItemModel(Item.getItemFromBlock(portalSkythern));
+		grassMortum.registerItemModel(Item.getItemFromBlock(grassMortum));
+		dirtMortum.registerItemModel(Item.getItemFromBlock(dirtMortum));
+		portalMortum.registerItemModel(Item.getItemFromBlock(portalMortum));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		

@@ -1,17 +1,13 @@
 package naturix.divinerpg.bases.blocks;
 
-import java.util.Map;
 import java.util.Random;
 
 import javax.annotation.Nullable;
-
-import com.google.common.collect.Maps;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFire;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -420,6 +416,30 @@ public class FireBase extends Block
                 worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
             }
         }if (worldIn.provider.getDimensionType().getId() > Config.skythernDimensionId || !ModBlocks.portalSkythern.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }
+        
+
+
+        if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalMortum.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }if (worldIn.provider.getDimensionType().getId() > Config.mortumDimensionId || !ModBlocks.portalMortum.makePortal(worldIn, pos))
         {
             if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
             {

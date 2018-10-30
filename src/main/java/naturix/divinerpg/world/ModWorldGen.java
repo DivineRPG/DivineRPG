@@ -47,6 +47,9 @@ public class ModWorldGen implements IWorldGenerator {
         if(world.provider.getDimension() == ModDimensions.skythernDimension.getId()) {
         	genSkythern(world, random, chunkX, chunkZ);
         }
+        if(world.provider.getDimension() == ModDimensions.mortumDimension.getId()) {
+        	genMortum(world, random, chunkX, chunkZ);
+        }
     }
 	 private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn){
 		  int diffMinMaxY = maxY - minY;
@@ -95,6 +98,9 @@ public class ModWorldGen implements IWorldGenerator {
 	 }
 	 private void genSkythern(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreSkythern.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.rockTwilight));
+	 }
+	 private void genMortum(World world, Random random, int chunkX, int chunkZ){
+		 addOreSpawn(ModBlocks.oreMortum.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.rockTwilight));
 	 }
 	 
 }
