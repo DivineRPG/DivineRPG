@@ -2,10 +2,9 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.dimensions.apalachia.BiomeApalachia;
 import naturix.divinerpg.dimensions.eden.BiomeEden;
+import naturix.divinerpg.dimensions.skythern.BiomeSkythern;
 import naturix.divinerpg.dimensions.wildwood.BiomeWildWood;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -13,6 +12,7 @@ public class ModBiomes {
 	public static final Biome Eden = new BiomeEden("biome_eden");
 	public static final Biome WildWood = new BiomeWildWood("biome_wildwood");
 	public static final Biome Apalachia = new BiomeApalachia("biome_apalachia");
+	public static final Biome Skythern= new BiomeSkythern("biome_skythern");
 	
     @SubscribeEvent
     public static void registerBiomes(IForgeRegistry<Biome> iForgeRegistry) {
@@ -20,7 +20,8 @@ public class ModBiomes {
         registry.registerAll(
         		Eden,
         		WildWood,
-        		Apalachia
+        		Apalachia,
+        		Skythern
         		);
 
 //        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);

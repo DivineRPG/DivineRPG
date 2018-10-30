@@ -11,6 +11,7 @@ public class Config {
 	public static int edenDimensionId = 2;
 	public static int wildWoodDimensionId = 3;
 	public static int apalachiaDimensionId = 4;
+	public static int skythernDimensionId = 5;
 	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
@@ -20,6 +21,7 @@ public class Config {
 	
 
     private static final String CATEGORY_ORE = "Ore Gen";
+    private static final String CATEGORY_DIMENSION = "Dimension";
 	public static int realmiteMin = 1;
 	public static int realmiteMax = 48;
 	public static int realmiteVein = 4;
@@ -49,10 +51,12 @@ public class Config {
     }
 
     private static void initGeneralConfig(Configuration cfg) {
-        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
-        edenDimensionId = cfg.getInt("edenId", CATEGORY_GENERAL, 2, 2, 4096, "Eden dimension ID");
-        wildWoodDimensionId = cfg.getInt("wildWoodId", CATEGORY_GENERAL, 3, 2, 4096, "Wild Wood dimension ID");
-        apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_GENERAL, 4, 2, 4096, "Apalachia dimension ID");
+    	cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
+    	cfg.addCustomCategoryComment(CATEGORY_DIMENSION, "Dimension related configuration");
+        edenDimensionId = cfg.getInt("edenId", CATEGORY_DIMENSION, 2, 2, 4096, "Eden dimension ID");
+        wildWoodDimensionId = cfg.getInt("wildWoodId", CATEGORY_DIMENSION, 3, 2, 4096, "Wild Wood dimension ID");
+        apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_DIMENSION, 4, 2, 4096, "Apalachia dimension ID");
+        skythernDimensionId = cfg.getInt("skythernId", CATEGORY_DIMENSION, 5, 2, 4096, "Skythern dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
