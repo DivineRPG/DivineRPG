@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.dimensions.apalachia.EntityPortalFX;
 import naturix.divinerpg.dimensions.apalachia.ModTeleporterApalachia;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
@@ -47,6 +48,7 @@ public class ApalachiaPortal extends BlockBreakable {
 	protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
 	protected static final AxisAlignedBB Y_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
 	protected Block fireBlock;
+	
 	public ApalachiaPortal(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
 		this.name = name;
@@ -164,8 +166,8 @@ public class ApalachiaPortal extends BlockBreakable {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 			
-//			EntityApalachiaPortalFX var20 = new EntityApalachiaPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
-//			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			EntityPortalFX var20 = new EntityPortalFX(worldIn, d0, d1, d2, d3, d4, d5);
+			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
 
@@ -257,18 +259,18 @@ public class ApalachiaPortal extends BlockBreakable {
 
         if (enumfacing$axis == EnumFacing.Axis.X)
         {
-            ApalachiaPortal.Size ApalachiaPortal$size = new ApalachiaPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+            ApalachiaPortal.Size EdenBlock$size = new ApalachiaPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
-            if (!ApalachiaPortal$size.isValid() || ApalachiaPortal$size.portalBlockCount < ApalachiaPortal$size.width * ApalachiaPortal$size.height)
+            if (!EdenBlock$size.isValid() || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height)
             {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         }
         else if (enumfacing$axis == EnumFacing.Axis.Z)
         {
-            ApalachiaPortal.Size ApalachiaPortal$size1 = new ApalachiaPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+            ApalachiaPortal.Size EdenBlock$size1 = new ApalachiaPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-            if (!ApalachiaPortal$size1.isValid() || ApalachiaPortal$size1.portalBlockCount < ApalachiaPortal$size1.width * ApalachiaPortal$size1.height)
+            if (!EdenBlock$size1.isValid() || EdenBlock$size1.portalBlockCount < EdenBlock$size1.width * EdenBlock$size1.height)
             {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
             }

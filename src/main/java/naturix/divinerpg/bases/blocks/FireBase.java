@@ -360,7 +360,7 @@ public class FireBase extends Block
                 worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
             }
         }
-        
+
         
         if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalWild.makePortal(worldIn, pos))
         {
@@ -373,6 +373,30 @@ public class FireBase extends Block
                 worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
             }
         }if (worldIn.provider.getDimensionType().getId() > Config.wildWoodDimensionId || !ModBlocks.portalWild.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }
+        
+
+        
+        if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalApalachia.makePortal(worldIn, pos))
+        {
+            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+            {
+                worldIn.setBlockToAir(pos);
+            }
+            else
+            {
+                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+            }
+        }if (worldIn.provider.getDimensionType().getId() > Config.apalachiaDimensionId || !ModBlocks.portalApalachia.makePortal(worldIn, pos))
         {
             if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
             {

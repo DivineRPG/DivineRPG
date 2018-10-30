@@ -371,7 +371,7 @@ public class ModTeleporterApalachia extends Teleporter {
 						j4 = k2 + (j3 - 1) * l2 - i3 * l5;
 						boolean flag = k3 < 0;
 						this.myWorld.setBlockState(new BlockPos(l3, i4, j4),
-								flag ? ModBlocks.rockDivine.getDefaultState() : Blocks.AIR.getDefaultState());
+								flag ? ModBlocks.blockWildWood.getDefaultState() : Blocks.AIR.getDefaultState());
 					}
 				}
 			}
@@ -386,7 +386,7 @@ public class ModTeleporterApalachia extends Teleporter {
 					j4 = j2 + l3;
 					k4 = k2 + (k3 - 1) * l2;
 					boolean flag1 = k3 == 0 || k3 == 3 || l3 == -1 || l3 == 3;
-					this.myWorld.setBlockState(new BlockPos(i4, j4, k4), flag1 ? ModBlocks.rockDivine.getDefaultState() : iblockstate,
+					this.myWorld.setBlockState(new BlockPos(i4, j4, k4), flag1 ? ModBlocks.blockWildWood.getDefaultState() : iblockstate,
 							2);
 				}
 			}

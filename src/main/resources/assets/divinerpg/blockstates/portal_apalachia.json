@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:portal_apalachia_ew"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{"model": "divinerpg:portal_apalachia_ew", "y": 90 }],
+	"axis=z": [{"model": "divinerpg:portal_apalachia_ew", "y": 180 }],
+    "axis=x": { "model": "divinerpg:portal_apalachia_ns" }
+  }
+}

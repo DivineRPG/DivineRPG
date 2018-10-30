@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+        "item": "divinerpg:fragment_apalachia"
+    }
+  },
+  "result": {
+    "item": "divinerpg:block_apalachia",
+	"count": 1
+  }
+}

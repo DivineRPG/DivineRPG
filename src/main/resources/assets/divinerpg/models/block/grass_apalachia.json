@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/dirt_apalachia",
+    "down": "divinerpg:blocks/dirt_apalachia",
+    "up": "divinerpg:blocks/grass_apalachia_top",
+    "east": "divinerpg:blocks/grass_apalachia_side",
+    "west": "divinerpg:blocks/grass_apalachia_side",
+    "north": "divinerpg:blocks/grass_apalachia_side",
+    "south": "divinerpg:blocks/grass_apalachia_side"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:grass_apalachia"
+},
+    "variants": {
+	"normal": { "model": "divinerpg:grass_apalachia" },
+	"inventory": { "model": "divinerpg:grass_apalachia" },
+        "snowy=false": [
+            { "model": "divinerpg:grass_apalachia" },
+            { "model": "divinerpg:grass_apalachia", "y": 90 },
+            { "model": "divinerpg:grass_apalachia", "y": 180 },
+            { "model": "divinerpg:grass_apalachia", "y": 270 }
+        ],
+        "snowy=true":  { "model": "divinerpg:grass_apalachia" }
+    }
+}
