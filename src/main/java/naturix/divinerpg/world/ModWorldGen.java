@@ -5,6 +5,7 @@ import java.util.Random;
 import com.google.common.base.Predicate;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.dimensions.eden.EdenAbstractTree;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;
@@ -68,18 +69,20 @@ public class ModWorldGen implements IWorldGenerator {
 				int b = blockXPos * 16 + random.nextInt(16);
 				int y = minY + random.nextInt(heighDiff);
 				int z = blockZPos * 16 + random.nextInt(16);
-				
-				gen.generate(world, random, new BlockPos(b, y, z));
+				BlockPos pos2 = new BlockPos(b, y, z);
+				gen.generate(world, random, pos2);
 			}
 		
 		  }
 	 }
+	 
 	 //block, world, random, blockXPos, blockZPos, maxX, maxZ, maxVeinSize, chance, minY, maxY, blockToSpawnIn
 	 private void genSurface(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreRealmite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.realmiteVein, Config.realmiteTries, Config.realmiteMin, Config.realmiteMax, BlockMatcher.forBlock(Blocks.STONE));
 		 addOreSpawn(ModBlocks.oreRupee.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.rupeeVein, Config.rupeeTries, Config.rupeeMin, Config.rupeeMax, BlockMatcher.forBlock(Blocks.STONE));
 		 addOreSpawn(ModBlocks.oreArlemite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.arlemiteVein, Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax, BlockMatcher.forBlock(Blocks.STONE));
-		 
+
+	 
 	 }
 	 private void genNether(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreNetherite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
