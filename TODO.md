@@ -1,18 +1,18 @@
-Make Vethia
-Make Iceika
-Make Arcana
-Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
-Make Arcana Bar
-Make Divine Accumilator
-Make Advancmenets
-Make tile entities
-Finish Entities
-Add Sounds
-Make Projectiles
-Make Custom Trades
-Fix Statues and Altars
-Rotate Weapons in hand
-Tweak Foods
-Fix Shickaxe
-Remove Eden Dirt from Wild Wood
-Make Recipes
+- Make Vethia
+- Make Iceika
+- Make Arcana
+- Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
+- Make Arcana Bar
+- Make Divine Accumilator
+- Make Advancmenets
+- Make tile entities
+- Finish Entities
+- Add Sounds
+- Make Projectiles
+- Make Custom Trades
+- Fix Statues and Altars
+- Rotate Weapons in hand
+- Tweak Foods
+- Fix Shickaxe
+- Remove Eden Dirt from Wild Wood
+- Make Recipes
