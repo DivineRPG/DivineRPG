@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:ingot_rupee"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.name"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.mine_rupee.desc"
+    },
+    "background": "divinerpg:textures/blocks/rock_divine.png",
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "mine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:ingot_rupee"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mine_ingot"
+    ]
+  ]
+}

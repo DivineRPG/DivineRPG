@@ -531,3 +531,8 @@ entity.ender_triplets.name=Ender Triplets
 entity.parasecta.name=Parasecta
 entity.acid_hag.name=Acid Hag
 entity.watcher.name=The Watcher
+
+advancement.divinerpg.name=DivineRPG
+advancement.divinerpg.mine_rupee.desc=Smelt 1 rupee ingot
+advancement.divinerpg.enter_eden=Possibilities
+advancement.divinerpg.enter_eden.desc=Enter the Eden dimension

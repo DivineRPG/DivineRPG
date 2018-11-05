@@ -28,7 +28,8 @@ public class ModDimensions {
 	    	apalachiaDimension = DimensionType.register(DivineRPG.modId + ":apalachia", "_apalachia", Config.apalachiaDimensionId, WorldProviderApalachia.class, false);
 	    	skythernDimension = DimensionType.register(DivineRPG.modId + ":skythern", "_skythern", Config.skythernDimensionId, WorldProviderSkythern.class, false);
 	    	mortumDimension = DimensionType.register(DivineRPG.modId + ":mortum", "_mortum", Config.mortumDimensionId, WorldProviderMortum.class, false);
-		    }
+	    	DivineRPG.logger.info("potato " + DimensionType.values().toString());
+	    }
 
 	    private static void registerDimensions() {
 	        DimensionManager.registerDimension(Config.edenDimensionId, edenDimension);
