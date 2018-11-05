@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:block_skythern"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.enter_skythern"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.enter_skythern.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:apalachia",
+  "criteria": {
+    "in_skythern": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "dimension": "divinerpg:skythern"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_skythern"
+    ]
+  ]
+}
