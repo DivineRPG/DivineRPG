@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:callofthewatcher"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divineintervention"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.divineintervention.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:root",
+  "criteria": {
+    "cotw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:callofthewatcher"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cotw"
+    ]
+  ]
+}
