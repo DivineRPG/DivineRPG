@@ -13,6 +13,7 @@ public class Config {
 	public static int apalachiaDimensionId = 4;
 	public static int skythernDimensionId = 5;
 	public static int mortumDimensionId = 6;
+	public static int iceikaDimensionId = 7;
 	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
@@ -59,6 +60,7 @@ public class Config {
         apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_DIMENSION, 4, 2, 4096, "Apalachia dimension ID");
         skythernDimensionId = cfg.getInt("skythernId", CATEGORY_DIMENSION, 5, 2, 4096, "Skythern dimension ID");
         mortumDimensionId = cfg.getInt("mortumId", CATEGORY_DIMENSION, 6, 2, 4096, "Mortum dimension ID");
+        iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 7, 2, 4096, "Iceika dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");

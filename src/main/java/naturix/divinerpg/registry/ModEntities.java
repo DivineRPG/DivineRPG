@@ -19,6 +19,7 @@ import naturix.divinerpg.entities.assets.render.arcana.RenderTomoApalachia;
 import naturix.divinerpg.entities.assets.render.arcana.RenderWraith;
 import naturix.divinerpg.entities.assets.render.iceika.RenderAlicanto;
 import naturix.divinerpg.entities.assets.render.iceika.RenderFractite;
+import naturix.divinerpg.entities.assets.render.iceika.RenderFrostArcher;
 import naturix.divinerpg.entities.assets.render.iceika.RenderFrosty;
 import naturix.divinerpg.entities.assets.render.iceika.RenderGlacide;
 import naturix.divinerpg.entities.assets.render.iceika.RenderHastreus;
@@ -36,6 +37,7 @@ import naturix.divinerpg.entities.assets.render.twilight.RenderCadillionMortum;
 import naturix.divinerpg.entities.assets.render.twilight.RenderCadillionWildwood;
 import naturix.divinerpg.entities.assets.render.twilight.RenderCoriEden;
 import naturix.divinerpg.entities.assets.render.twilight.RenderCoriSkythern;
+import naturix.divinerpg.entities.assets.render.twilight.RenderDemonMortum;
 import naturix.divinerpg.entities.assets.render.twilight.RenderDenseDemon;
 import naturix.divinerpg.entities.assets.render.twilight.RenderDensos;
 import naturix.divinerpg.entities.assets.render.twilight.RenderEpiphite;
@@ -160,6 +162,7 @@ import naturix.divinerpg.entities.entity.arcana.Seimer;
 import naturix.divinerpg.entities.entity.arcana.Wraith;
 import naturix.divinerpg.entities.entity.iceika.Alicanto;
 import naturix.divinerpg.entities.entity.iceika.Fractite;
+import naturix.divinerpg.entities.entity.iceika.FrostArcher;
 import naturix.divinerpg.entities.entity.iceika.Frosty;
 import naturix.divinerpg.entities.entity.iceika.Glacide;
 import naturix.divinerpg.entities.entity.iceika.Hastreus;
@@ -192,7 +195,6 @@ import naturix.divinerpg.entities.entity.twilight.MortumArcher;
 import naturix.divinerpg.entities.entity.twilight.MortumCadillion;
 import naturix.divinerpg.entities.entity.twilight.MortumDemon;
 import naturix.divinerpg.entities.entity.twilight.Mystic;
-import naturix.divinerpg.entities.entity.twilight.RenderDemonMortum;
 import naturix.divinerpg.entities.entity.twilight.Samek;
 import naturix.divinerpg.entities.entity.twilight.SkythernArcher;
 import naturix.divinerpg.entities.entity.twilight.SkythernCori;
@@ -291,7 +293,6 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -329,6 +330,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "rollum"), Rollum.class, "rollum", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "workshop_merchant"), WorkshopMerchant.class, "workshop_merchant", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "workshop_tinkerer"), WorkshopTinkerer.class, "workshop_tinkerer", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "archer_frost"), FrostArcher.class, "archer_frost", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		id = 300;
 		//twilight
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "archer_apalachia"), ApalachiaArcher.class, "archer_apalachia", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
@@ -588,6 +590,7 @@ public class ModEntities {
 		
 		//iceika
 		RenderingRegistry.registerEntityRenderingHandler(Alicanto.class, RenderAlicanto.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(FrostArcher.class, RenderFrostArcher.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Fractite.class, RenderFractite.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Frosty.class, RenderFrosty.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Glacide.class, RenderGlacide.FACTORY);

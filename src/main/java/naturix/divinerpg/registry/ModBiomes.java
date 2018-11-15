@@ -2,6 +2,7 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.dimensions.apalachia.BiomeApalachia;
 import naturix.divinerpg.dimensions.eden.BiomeEden;
+import naturix.divinerpg.dimensions.iceika.BiomeIceika;
 import naturix.divinerpg.dimensions.mortum.BiomeMortum;
 import naturix.divinerpg.dimensions.skythern.BiomeSkythern;
 import naturix.divinerpg.dimensions.wildwood.BiomeWildWood;
@@ -15,6 +16,7 @@ public class ModBiomes {
 	public static final Biome Apalachia = new BiomeApalachia("biome_apalachia");
 	public static final Biome Skythern = new BiomeSkythern("biome_skythern");
 	public static final Biome Mortum = new BiomeMortum("biome_mortum");
+	public static final Biome Iceika = new BiomeIceika("biome_iceika");
 	
     @SubscribeEvent
     public static void registerBiomes(IForgeRegistry<Biome> iForgeRegistry) {
@@ -24,7 +26,8 @@ public class ModBiomes {
         		WildWood,
         		Apalachia,
         		Skythern,
-        		Mortum
+        		Mortum,
+        		Iceika
         		);
 
 //        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);

@@ -102,6 +102,7 @@ public class AngryBunny extends EntityMob {
         BlockPos spawnmobat = this.getPosition();
         TameAngryBunny bunny = new TameAngryBunny(this.getEntityWorld());
         if(itemstack.getItem() == ModItems.edenSparklez) {
+        	bunny.setLocationAndAngles(getPosition().getX(), getPosition().getY(), getPosition().getZ(), this.prevRotationYaw, this.rotationPitch);
         	bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
         	if(!world.isRemote) {
         		world.spawnEntity(bunny);
@@ -124,6 +125,8 @@ public class AngryBunny extends EntityMob {
         super.onLivingUpdate();
 		if(rand.nextInt(5000) == 2) {
 			Bunny bunny = new Bunny(this.getEntityWorld());
+			bunny.setLocationAndAngles(getPosition().getX(), getPosition().getY(), getPosition().getZ(), this.prevRotationYaw, this.rotationPitch);
+        	
 			if(!world.isRemote) {
         		world.spawnEntity(bunny);
         		this.isDead = true;

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/dirt_iceika",
+    "down": "divinerpg:blocks/dirt_iceika",
+    "up": "divinerpg:blocks/grass_iceika_top",
+    "east": "divinerpg:blocks/grass_iceika_side",
+    "west": "divinerpg:blocks/grass_iceika_side",
+    "north": "divinerpg:blocks/grass_iceika_side",
+    "south": "divinerpg:blocks/grass_iceika_side"
+  }
+}

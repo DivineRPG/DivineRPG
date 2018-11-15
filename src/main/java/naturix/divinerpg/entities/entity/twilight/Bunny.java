@@ -113,6 +113,8 @@ public class Bunny extends EntityMob {
         if (this.deathTime == 20)
         {
         	AngryBunny bunny = new AngryBunny(world);
+        	bunny.setLocationAndAngles(getPosition().getX(), getPosition().getY(), getPosition().getZ(), this.prevRotationYaw, this.rotationPitch);
+        	
     		bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
     		if(!world.isRemote) {
     		world.spawnEntity(bunny);

@@ -5,6 +5,7 @@ import naturix.divinerpg.bases.blocks.BaseStatue;
 import naturix.divinerpg.bases.blocks.BeaconBaseBase;
 import naturix.divinerpg.bases.blocks.BedBase;
 import naturix.divinerpg.bases.blocks.BlockBase;
+import naturix.divinerpg.bases.blocks.BlockModSpawner;
 import naturix.divinerpg.bases.blocks.BlockNetherite;
 import naturix.divinerpg.bases.blocks.BlockOre;
 import naturix.divinerpg.bases.blocks.BlockOreNether;
@@ -20,6 +21,7 @@ import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.portal.ApalachiaPortal;
 import naturix.divinerpg.bases.blocks.portal.EdenBlock;
+import naturix.divinerpg.bases.blocks.portal.IceikaPortal;
 import naturix.divinerpg.bases.blocks.portal.MortumPortal;
 import naturix.divinerpg.bases.blocks.portal.SkythernPortal;
 import naturix.divinerpg.bases.blocks.portal.WildWoodPortal;
@@ -170,8 +172,14 @@ public class ModBlocks {
 	public static GrassBase grassMortum = new GrassBase("grass_mortum");
 	public static BlockBase dirtMortum = new BlockBase("dirt_mortum");
 	public static MortumPortal portalMortum = new MortumPortal("portal_mortum", ModBlocks.blueFire);
-	
- 
+	public static GrassBase grassIceika = new GrassBase("grass_iceika");
+	public static BlockBase dirtIceika = new BlockBase("dirt_iceika");
+	public static IceikaPortal portalIceika = new IceikaPortal("portal_iceika", ModBlocks.blueFire);
+	public static BlockBase stoneFrozen = new BlockBase("stone_frozen");
+	public static BlockBase stoneIcy = new BlockBase("stone_icy");
+	public static BlockBase bricksIceika = new BlockBase("bricks_iceika");
+	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "divinerpg:archer_frost");
+	 
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(
@@ -301,7 +309,14 @@ public class ModBlocks {
 				portalSkythern,
 				grassMortum,
 				dirtMortum,
-				portalMortum
+				portalMortum,
+				grassIceika,
+				dirtIceika,
+				portalIceika,
+				stoneFrozen,
+				stoneIcy,
+				bricksIceika,
+				spawnerArcher
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
@@ -436,7 +451,14 @@ public class ModBlocks {
 				portalSkythern.createItemBlock(),
 				grassMortum.createItemBlock(),
 				dirtMortum.createItemBlock(),
-				portalMortum.createItemBlock()
+				portalMortum.createItemBlock(),
+				grassIceika.createItemBlock(),
+				dirtIceika.createItemBlock(),
+				portalIceika.createItemBlock(),
+				stoneFrozen.createItemBlock(),
+				stoneIcy.createItemBlock(),
+				bricksIceika.createItemBlock(),
+				spawnerArcher.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -570,6 +592,13 @@ public class ModBlocks {
 		grassMortum.registerItemModel(Item.getItemFromBlock(grassMortum));
 		dirtMortum.registerItemModel(Item.getItemFromBlock(dirtMortum));
 		portalMortum.registerItemModel(Item.getItemFromBlock(portalMortum));
+		grassIceika.registerItemModel(Item.getItemFromBlock(grassIceika));
+		dirtIceika.registerItemModel(Item.getItemFromBlock(dirtIceika));
+		portalIceika.registerItemModel(Item.getItemFromBlock(portalIceika));
+		stoneFrozen.registerItemModel(Item.getItemFromBlock(stoneFrozen));
+		stoneIcy.registerItemModel(Item.getItemFromBlock(stoneIcy));
+		bricksIceika.registerItemModel(Item.getItemFromBlock(bricksIceika));
+		spawnerArcher.registerItemModel(Item.getItemFromBlock(spawnerArcher));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		

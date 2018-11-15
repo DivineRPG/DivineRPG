@@ -74,9 +74,33 @@ public class GrassBase extends BlockGrass {
             }
         }
     }
+	
+	Item returns;
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(ModBlocks.dirtEden);
+		
+		if (this.getBlockState() == ModBlocks.grassEden.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtEden);
+		}
+		if (this.getBlockState() == ModBlocks.grassArcana.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtEden);
+		}
+		if (this.getBlockState() == ModBlocks.grassWild.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtWild);
+		}
+		if (this.getBlockState() == ModBlocks.grassApalachia.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtApalachia);
+		}
+		if (this.getBlockState() == ModBlocks.grassSkythern.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtSkythern);
+		}
+		if (this.getBlockState() == ModBlocks.grassMortum.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtMortum);
+		}
+		if (this.getBlockState() == ModBlocks.grassIceika.getDefaultState()) {
+			returns = Item.getItemFromBlock(ModBlocks.dirtIceika);
+		}
+        return returns;
     }
 }
