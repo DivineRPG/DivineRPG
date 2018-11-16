@@ -324,7 +324,6 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
 
 		if(rand.nextInt(5) == 0) { 
-			DivineRPG.logger.info("Archer dungeon spawned at " + pos);
 			dungeonArcher.generate(worldObj, this.rand, pos.add(this.rand.nextInt(16) + 8, this.rand.nextInt(128), this.rand.nextInt(16) + 8));
         }
 		

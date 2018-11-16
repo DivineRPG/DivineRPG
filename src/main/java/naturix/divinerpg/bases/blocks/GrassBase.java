@@ -22,7 +22,8 @@ public class GrassBase extends BlockGrass {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
-		this.setHardness(2);
+		this.setHardness(1);
+		this.setHarvestLevel("shovel", 0);
 	}
 
 	public void registerItemModel(Item itemBlock) {
@@ -80,27 +81,28 @@ public class GrassBase extends BlockGrass {
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
 		
-		if (this.getBlockState() == ModBlocks.grassEden.getDefaultState()) {
+		if (state == ModBlocks.grassEden.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtEden);
 		}
-		if (this.getBlockState() == ModBlocks.grassArcana.getDefaultState()) {
+		if (state == ModBlocks.grassArcana.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtEden);
 		}
-		if (this.getBlockState() == ModBlocks.grassWild.getDefaultState()) {
+		if (state == ModBlocks.grassWild.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtWild);
 		}
-		if (this.getBlockState() == ModBlocks.grassApalachia.getDefaultState()) {
+		if (state == ModBlocks.grassApalachia.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtApalachia);
 		}
-		if (this.getBlockState() == ModBlocks.grassSkythern.getDefaultState()) {
+		if (state == ModBlocks.grassSkythern.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtSkythern);
 		}
-		if (this.getBlockState() == ModBlocks.grassMortum.getDefaultState()) {
+		if (state == ModBlocks.grassMortum.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtMortum);
 		}
-		if (this.getBlockState() == ModBlocks.grassIceika.getDefaultState()) {
+		if (state == ModBlocks.grassIceika.getDefaultState()) {
 			returns = Item.getItemFromBlock(ModBlocks.dirtIceika);
 		}
+		DivineRPG.logger.info(state.getBlock().getLocalizedName() + " drops " + returns.getUnlocalizedName());
         return returns;
     }
 }
