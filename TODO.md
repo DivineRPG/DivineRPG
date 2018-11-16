@@ -1,5 +1,5 @@
 - Make Vethia
-- Make Iceika
+- Make Iceika Better
 - Make Arcana
 - Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
 - Make Arcana Bar
@@ -16,3 +16,4 @@
 - Fix Shickaxe
 - Remove Eden Dirt from Wild Wood
 - Make Recipes
+- Fix Spawners
