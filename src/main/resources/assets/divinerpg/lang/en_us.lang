@@ -128,11 +128,11 @@ tile.grass_eden.name=Eden Grass
 tile.dirt_eden.name=Eden Dirt
 tile.portal_eden.name=Eden Portal
 tile.grass_iceika.name=Icy Grass
-tile.dirt_iceika.name-Icy Grass
+tile.dirt_iceika.name=Icy Grass
 tile.portal_iceika.name=Iceika Portal
 tile.stone_frozen.name=Frozen Stone
 tile.stone_icy.name=Icy Stone
-tile.bricks_icy.name=Icy Bricks
+tile.bricks_iceika.name=Icy Bricks
 tile.spawner_archer.name=Frozen Archer Spawner
 
 item.teleportation_crystal.name=Teleportation Crystal
