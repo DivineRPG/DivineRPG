@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/leaves_brittle",
+    "down": "divinerpg:blocks/leaves_brittle",
+    "up": "divinerpg:blocks/leaves_brittle",
+    "east": "divinerpg:blocks/leaves_brittle",
+    "west": "divinerpg:blocks/leaves_brittle",
+    "north": "divinerpg:blocks/leaves_brittle",
+    "south": "divinerpg:blocks/leaves_brittle"
+  }
+}

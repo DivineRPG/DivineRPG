@@ -32,7 +32,9 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
 import naturix.divinerpg.bases.blocks.tile.block.AltarDramix;
 import naturix.divinerpg.bases.blocks.tile.block.AltarParasecta;
+import naturix.divinerpg.bases.blocks.tile.block.IceikaChest;
 import naturix.divinerpg.bases.blocks.tile.block.TEBed;
+import naturix.divinerpg.bases.blocks.tile.entity.TileEntityChestIceika;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
@@ -179,7 +181,9 @@ public class ModBlocks {
 	public static BlockBase stoneIcy = new BlockBase("stone_icy");
 	public static BlockBase bricksIceika = new BlockBase("bricks_iceika");
 	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "divinerpg:archer_frost");
-	 
+	public static LeavesBase brittleLeaves = new LeavesBase("leaves_brittle");
+	//public static IceikaChest chestIceika = new IceikaChest("chest_iceika");
+	
 	public static void register(IForgeRegistry<Block> registry) { 
 		System.out.print("DivineRPG blocks loading");
 		registry.registerAll(
@@ -316,11 +320,14 @@ public class ModBlocks {
 				stoneFrozen,
 				stoneIcy,
 				bricksIceika,
-				spawnerArcher
+				spawnerArcher,
+				brittleLeaves
+				//chestIceika
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TEBed.class, new ModelResourceLocation(DivineRPG.modId + ":" + bedDream.getUnlocalizedName(), "inventory"));
+		//GameRegistry.registerTileEntity(TileEntityChestIceika.class, new ModelResourceLocation(DivineRPG.modId + ":" + chestIceika.getUnlocalizedName(), "inventory"));
 		
 	}
 	
@@ -458,7 +465,9 @@ public class ModBlocks {
 				stoneFrozen.createItemBlock(),
 				stoneIcy.createItemBlock(),
 				bricksIceika.createItemBlock(),
-				spawnerArcher.createItemBlock()
+				spawnerArcher.createItemBlock(),
+				brittleLeaves.createItemBlock()
+//				chestIceika.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -599,6 +608,8 @@ public class ModBlocks {
 		stoneIcy.registerItemModel(Item.getItemFromBlock(stoneIcy));
 		bricksIceika.registerItemModel(Item.getItemFromBlock(bricksIceika));
 		spawnerArcher.registerItemModel(Item.getItemFromBlock(spawnerArcher));
+		brittleLeaves.registerItemModel(Item.getItemFromBlock(brittleLeaves));
+//		chestIceika.registerItemModel(Item.getItemFromBlock(chestIceika));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
 		

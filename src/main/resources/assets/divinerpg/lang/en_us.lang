@@ -38,6 +38,7 @@ tile.spike_cold.name=Spike Block
 tile.spike_hot.name=Hot Spikes
 tile.acid_lunic.name=Lunic Acid
 tile.acid_block.name=Acid Block
+tile.leaves_brittle.name=Brittle Leaves
 tile.acid_bacterial.name=Bacterial Acid
 tile.acceleron.name=Acceleron
 tile.block_arlemite.name=Arlemite Block

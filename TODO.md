@@ -17,3 +17,5 @@
 - Remove Eden Dirt from Wild Wood
 - Make Recipes
 - Fix Spawners
+- Make world gen in dimensions better
+- Fix flight

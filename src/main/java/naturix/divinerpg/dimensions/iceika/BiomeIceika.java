@@ -3,10 +3,12 @@ package naturix.divinerpg.dimensions.iceika;
 import java.awt.Color;
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.iceika.world.LargeFrozenTree;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,6 +45,11 @@ public class BiomeIceika extends Biome {
         return Color.getHSBColor(0F, 25F, 111F).getRGB();
 }
 
+	@Override
+    public WorldGenAbstractTree getRandomTreeFeature(Random random) {
+            return new LargeFrozenTree(false, 5);
+        
 
+    }
 	
 }
