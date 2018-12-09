@@ -66,8 +66,6 @@ import naturix.divinerpg.bases.items.special.CallOfTheWatcher;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -76,12 +74,12 @@ public class ModItems {
 	private static EntitySlime EntitySlime;
 	private static final CreativeTabs tab = DivineRPG.ItemsTab;
 	
-	public static ThrowableBase amthirmisDisk = new ThrowableBase("amthirmisDisk");
-	public static BowBase hunterBow = new BowBase("bow_hunter", Items.ARROW);
-	public static BowBase shadowBow = new BowBase("bow_shadow", Items.ARROW);
-	public static BowBase enderBow = new BowBase("bow_ender", Items.ARROW);
-	public static BowBase bluefireBow = new BowBase("bow_bluefire", Items.ARROW);
-	public static BowBase infernoBow = new BowBase("bow_inferno", ModItems.arrowInferno);
+	public static ThrowableBase amthirmisDisk = new ThrowableBase("disk_amthirmis");
+	public static BowBase hunterBow = new BowBase("bow_hunter");
+	public static BowBase shadowBow = new BowBase("bow_shadow");
+	public static BowBase enderBow = new BowBase("bow_ender");
+	public static BowBase bluefireBow = new BowBase("bow_bluefire");
+	public static BowBase infernoBow = new BowBase("bow_inferno");
 	public static ItemBase arcanium = new ItemBase("arcanium");
 	public static ItemBase ingotArlemite = new ItemBase("ingot_arlemite");
 	public static ItemBase ingotAquatic = new ItemBase("ingot_aquatic");
@@ -286,15 +284,15 @@ public class ModItems {
 	public static SerenadeIce serenadeIce = new SerenadeIce("serenade_ice");
 	public static SerenadeDeath serenadeDeath = new SerenadeDeath("serenade_death");
 	public static SerenadeInfusion serenadeInfusion = new SerenadeInfusion("serenade_infusion");
-	public static CannonBase cannonTeaker = new CannonBase("cannon_teaker", ModItems.acid);
-	public static CannonBase cannonAmthirmis = new CannonBase("cannon_amthirmis", ModItems.acid);
-	public static CannonBase cannonDarven = new CannonBase("cannon_darven", ModItems.acid);
-	public static CannonBase cannonCermile = new CannonBase("cannon_cermile", ModItems.acid);
-	public static CannonBase cannonPardimal = new CannonBase("cannon_pardimal", ModItems.acid);
-	public static CannonBase cannonQuadrotic = new CannonBase("cannon_quadrotic", ModItems.acid);
-	public static CannonBase cannonKaros = new CannonBase("cannon_karos", ModItems.acid);
-	public static CannonBase cannonHeliosis = new CannonBase("cannon_heliosis", ModItems.acid);
-	public static CannonBase cannonArksiane = new CannonBase("cannon_arksiane", ModItems.acid);
+	public static CannonBase cannonTeaker = new CannonBase("cannon_teaker");
+	public static CannonBase cannonAmthirmis = new CannonBase("cannon_amthirmis");
+	public static CannonBase cannonDarven = new CannonBase("cannon_darven");
+	public static CannonBase cannonCermile = new CannonBase("cannon_cermile");
+	public static CannonBase cannonPardimal = new CannonBase("cannon_pardimal");
+	public static CannonBase cannonQuadrotic = new CannonBase("cannon_quadrotic");
+	public static CannonBase cannonKaros = new CannonBase("cannon_karos");
+	public static CannonBase cannonHeliosis = new CannonBase("cannon_heliosis");
+	public static CannonBase cannonArksiane = new CannonBase("cannon_arksiane");
 	public static FoodBase chickenDinner = new FoodBase("winner_winner", 18, false, true);
 	public static FoodBase bacon = new FoodBase("bacon", 3, true, true);
 	public static FoodBase hotPumpkinPie = new FoodBase("pie_pumpkin_hot", 7, true);
@@ -400,9 +398,9 @@ public class ModItems {
 	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeSwordMaterial, "hoe_rupee", 0, 0); 
 	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteSwordMaterial, "hoe_realmite", 0, 0); 
 	public static ItemBase crabClaw = new ItemBase("claw_crab"); 
-	public static CannonBase crabClawCannon = new CannonBase("cannon_claw_crab", Item.getItemFromBlock(Blocks.CACTUS)); 
+	public static CannonBase crabClawCannon = new CannonBase("cannon_claw_crab"); 
 	public static SwordBase crabClawDual = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "claw_crab_dual"); 
-	public static CannonBase crabClawAnchor = new CannonBase("anchor_claw_crab", null); 
+	public static CannonBase crabClawAnchor = new CannonBase("anchor_claw_crab"); 
 	public static SwordBase everlight = new SwordBase(DivineRPGMaterials.everlightSwordMaterial, "everlight");
 	public static SwordBase everbright = new SwordBase(DivineRPGMaterials.everbrightSwordMaterial, "everbright"); 
 	public static SwordBase clawTeaker = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_teaker", true);
@@ -455,6 +453,7 @@ public class ModItems {
 	public static ItemBase pelletsAquatic = new ItemBase("pellets_aquatic"); 
 	public static ItemBase pelletsAquaticPure = new ItemBase("pellets_aquatic_pure"); 
 	public static ItemBase shardIce = new ItemBase("shard_ice");
+	public static ItemBase seedsGlowbonePurple = new ItemBase("seeds_glowbone_purple");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -840,7 +839,8 @@ public class ModItems {
 				pelletsAquatic,
 				pelletsAquaticPure,
 				shardIce,
-				gemBlood
+				gemBlood,
+				seedsGlowbonePurple
 				);
 	}
 	
@@ -1228,6 +1228,7 @@ public class ModItems {
 		pelletsAquaticPure.registerItemModel();
 		shardIce.registerItemModel();
 		gemBlood.registerItemModel();
+		seedsGlowbonePurple.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

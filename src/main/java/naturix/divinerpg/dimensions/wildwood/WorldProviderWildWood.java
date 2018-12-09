@@ -23,7 +23,7 @@ public class WorldProviderWildWood extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorWildWood(this.world, this.world.getSeed()); 
+		return new ChunkGeneratorWildWood(this.world, this.world.getSeed() + this.getDimension()); 
 	}
 	
 	@Override

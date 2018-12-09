@@ -3,7 +3,6 @@ package naturix.divinerpg.compat;
 import moze_intel.projecte.api.ProjectEAPI;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class ProjectECompat {

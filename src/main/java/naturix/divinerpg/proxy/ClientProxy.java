@@ -5,7 +5,6 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.RenderTiles;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
-import naturix.divinerpg.registry.ModRenders;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -47,8 +46,10 @@ public class ClientProxy extends CommonProxy {
     public void registerItemRenderer(Item item, int meta, String id) {
     	if (Config.debug = true) {
         DivineRPG.logger.info(id.toLowerCase() + "'s model has just been registered");
+        
         }
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
+    	
     }
 
  

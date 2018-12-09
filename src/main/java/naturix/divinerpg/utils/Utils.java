@@ -18,6 +18,7 @@ import org.apache.commons.io.IOUtils;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.render.RenderHat;
+import net.minecraft.block.Block;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -234,4 +235,13 @@ public class Utils {
 	        }
 	        return underscoreCase.toString();
 	    }
+	    public static boolean isBlockInList(Block block1, Block...blocks) {
+	        for (Block b : blocks) {
+	            if (block1 == b) {
+	                return true;
+	            }
+	        }
+	        return false;
+	    }
+	    
 	    }

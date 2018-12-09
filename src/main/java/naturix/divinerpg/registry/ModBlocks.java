@@ -32,9 +32,7 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
 import naturix.divinerpg.bases.blocks.tile.block.AltarDramix;
 import naturix.divinerpg.bases.blocks.tile.block.AltarParasecta;
-import naturix.divinerpg.bases.blocks.tile.block.IceikaChest;
 import naturix.divinerpg.bases.blocks.tile.block.TEBed;
-import naturix.divinerpg.bases.blocks.tile.entity.TileEntityChestIceika;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
@@ -180,8 +178,9 @@ public class ModBlocks {
 	public static BlockBase stoneFrozen = new BlockBase("stone_frozen");
 	public static BlockBase stoneIcy = new BlockBase("stone_icy");
 	public static BlockBase bricksIceika = new BlockBase("bricks_iceika");
-	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "divinerpg:archer_frost");
 	public static LeavesBase brittleLeaves = new LeavesBase("leaves_brittle");
+	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "divinerpg:archer_frost");
+	public static BlockModSpawner spawnerRollum = new BlockModSpawner("spawner_rollum", "divinerpg:rollum");
 	//public static IceikaChest chestIceika = new IceikaChest("chest_iceika");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
@@ -321,6 +320,7 @@ public class ModBlocks {
 				stoneIcy,
 				bricksIceika,
 				spawnerArcher,
+				spawnerRollum,
 				brittleLeaves
 				//chestIceika
 		);
@@ -466,7 +466,8 @@ public class ModBlocks {
 				stoneIcy.createItemBlock(),
 				bricksIceika.createItemBlock(),
 				spawnerArcher.createItemBlock(),
-				brittleLeaves.createItemBlock()
+				brittleLeaves.createItemBlock(),
+				spawnerRollum.createItemBlock()
 //				chestIceika.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
@@ -609,6 +610,7 @@ public class ModBlocks {
 		bricksIceika.registerItemModel(Item.getItemFromBlock(bricksIceika));
 		spawnerArcher.registerItemModel(Item.getItemFromBlock(spawnerArcher));
 		brittleLeaves.registerItemModel(Item.getItemFromBlock(brittleLeaves));
+		spawnerRollum.registerItemModel(Item.getItemFromBlock(spawnerRollum));
 //		chestIceika.registerItemModel(Item.getItemFromBlock(chestIceika));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		

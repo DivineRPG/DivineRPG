@@ -1,10 +1,7 @@
 package naturix.divinerpg.bases.blocks;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 

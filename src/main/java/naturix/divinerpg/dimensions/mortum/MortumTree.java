@@ -3,7 +3,6 @@ package naturix.divinerpg.dimensions.mortum;
 import java.util.Random;
 
 import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.BlockLog;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;

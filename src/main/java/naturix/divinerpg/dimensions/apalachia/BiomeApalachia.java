@@ -2,7 +2,7 @@ package naturix.divinerpg.dimensions.apalachia;
 
 import java.awt.Color;
 import java.util.Random;
- 
+
 import naturix.divinerpg.entities.entity.twilight.ApalachiaArcher;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaGolem;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaWarrior;

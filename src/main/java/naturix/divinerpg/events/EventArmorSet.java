@@ -1,17 +1,10 @@
 package naturix.divinerpg.events;
 
-import naturix.divinerpg.entities.entity.arcana.Parasecta;
-import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -22,7 +15,7 @@ public class EventArmorSet{
 
 	private ModItems item = new ModItems();
 	private Item boots = null, body = null, legs = null, helmet = null;
-
+//	boolean isDone = true;
 	@SubscribeEvent
 	public void playerTick(PlayerTickEvent event) {
 		ItemStack stackBoots = event.player.inventory.armorItemInSlot(0);
@@ -38,20 +31,17 @@ public class EventArmorSet{
 		if(stackHelmet != null) helmet = stackHelmet.getItem();
 		else helmet = null;
 
-		if(helmet == 
-				ModItems.angelicHelmet && body == 
-				ModItems.angelicChestplate && legs ==
-				ModItems.angelicLeggings && boots == 
-				ModItems.angelicBoots) 
-		{
-		event.player.fallDistance = 0;
-		event.player.capabilities.allowFlying = true;
-		}else {
-			if(event.player.isCreative() != true) {
-			event.player.capabilities.isFlying = false;
-			event.player.capabilities.allowFlying = false;
-		}
-		}
+//		if(isDone == true && helmet == ModItems.angelicHelmet && body == ModItems.angelicChestplate && legs == ModItems.angelicLeggings && boots == ModItems.angelicBoots) 
+//		{
+//		event.player.fallDistance = 0;
+//		event.player.capabilities.allowFlying = true;
+//		isDone=false;
+//		}
+//		else {
+//			event.player.capabilities.isFlying = false;
+//			event.player.capabilities.allowFlying = false;
+//			isDone=true;
+//		}
 		if(helmet == 
 				ModItems.aquastriveHelmet && body == 
 				ModItems.aquastriveChestplate && legs ==

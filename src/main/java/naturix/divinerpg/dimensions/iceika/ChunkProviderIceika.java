@@ -1,12 +1,11 @@
 package naturix.divinerpg.dimensions.iceika;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.iceika.world.WorldGenArcherDungeon;
+import naturix.divinerpg.dimensions.iceika.world.WorldGenRollumDungeon;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -28,7 +27,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 {
 
 	private Random rand;
-	private final WorldGenerator dungeonArcher;
+	private final WorldGenerator dungeonArcher, dungeonRollum;
 	private World worldObj;
 
 	private NoiseGeneratorOctaves noiseGen1, perlinNoise1;
@@ -44,7 +43,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		this.rand = new Random(seed);
 
         dungeonArcher = new WorldGenArcherDungeon();
-
+        dungeonRollum = new WorldGenRollumDungeon();
 		
 		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
 		this.perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
@@ -326,6 +325,9 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		if(rand.nextInt(5) == 0) { 
 			dungeonArcher.generate(worldObj, this.rand, pos.add(this.rand.nextInt(16) + 8, this.rand.nextInt(128), this.rand.nextInt(16) + 8));
         }
+		if(rand.nextInt(5) == 0) {
+			dungeonRollum.generate(worldObj, rand, pos.add(this.rand.nextInt(16)+8, this.rand.nextInt(128), this.rand.nextInt(16)+8));
+		}
 		
 		
 	}

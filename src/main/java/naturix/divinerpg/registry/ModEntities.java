@@ -4,6 +4,7 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
 import naturix.divinerpg.entities.assets.render.RenderHat;
+import naturix.divinerpg.entities.assets.render.RenderInfernoArrow;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDeathcryx;
 import naturix.divinerpg.entities.assets.render.arcana.RenderDramix;
@@ -144,6 +145,7 @@ import naturix.divinerpg.entities.assets.render.vethia.RenderVhraak;
 import naturix.divinerpg.entities.assets.render.vethia.RenderWreckForm;
 import naturix.divinerpg.entities.assets.render.vethia.RenderZone;
 import naturix.divinerpg.entities.assets.render.vethia.RenderZoragon;
+import naturix.divinerpg.entities.entity.EntityEMP;
 import naturix.divinerpg.entities.entity.EntityTeakerDisc;
 import naturix.divinerpg.entities.entity.arcana.DeathHound;
 import naturix.divinerpg.entities.entity.arcana.Deathcryx;
@@ -169,7 +171,7 @@ import naturix.divinerpg.entities.entity.iceika.Hastreus;
 import naturix.divinerpg.entities.entity.iceika.Rollum;
 import naturix.divinerpg.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.entities.entity.iceika.WorkshopTinkerer;
-import naturix.divinerpg.entities.entity.projectiles.InfernoArrow;
+import naturix.divinerpg.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.entities.entity.twilight.AngryBunny;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaArcher;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaCadillion;
@@ -289,6 +291,8 @@ import naturix.divinerpg.entities.entity.vethia.Vhraak;
 import naturix.divinerpg.entities.entity.vethia.WreckForm;
 import naturix.divinerpg.entities.entity.vethia.Zone;
 import naturix.divinerpg.entities.entity.vethia.Zoragon;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
@@ -302,7 +306,8 @@ public class ModEntities {
 		//register basic mobs
 		int id = 1;
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "teaker_disc"), EntityTeakerDisc.class, "teaker_disc", id++, DivineRPG.instance, 64, 3, true);
-		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "arrow_inferno"), InfernoArrow.class, "arrow_inferno", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "arrow_inferno"), EntityInfernoArrow.class, "arrow_inferno", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "arrow_acid"), EntityEMP.class, "arrow_acid", id++, DivineRPG.instance, 64, 3, true);
 		
 		
 		//register advanced mobs
@@ -727,6 +732,13 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
 		//other
-		RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY); 
+		
+		
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.acid , Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.amthirmisDisk , Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityInfernoArrow.class, manager -> new RenderInfernoArrow(manager));
+		
 	}
 }

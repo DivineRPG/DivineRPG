@@ -5,6 +5,7 @@ import java.util.Random;
 
 import naturix.divinerpg.dimensions.iceika.world.LargeFrozenTree;
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -51,5 +52,17 @@ public class BiomeIceika extends Biome {
         
 
     }
-	
+
+	protected IBlockState sandBlock = ModBlocks.stoneIcy.getDefaultState();
+
+	public IBlockState getStateForLayer(int yStart, int layer) {
+	    if (yStart < 63 + 3) {
+	        return sandBlock;
+	    }
+	    if (layer == 0) {
+	        return topBlock;
+	    } else {
+	        return fillerBlock;
+	    }
+	}
 }

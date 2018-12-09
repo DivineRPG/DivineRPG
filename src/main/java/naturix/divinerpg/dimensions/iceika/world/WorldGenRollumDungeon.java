@@ -1,4 +1,5 @@
 package naturix.divinerpg.dimensions.iceika.world;
+
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
@@ -9,14 +10,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenArcherDungeon extends WorldGenerator {
+public class WorldGenRollumDungeon extends WorldGenerator {
 
 	public boolean locationIsValidSpawn(World w, int x, int y, int z){
-		
 		for(int i = 0; i < 10; i++) {
 			for(int l = 0; l < 10; l++) {
-				BlockPos pos = new BlockPos(x + i, y, z+l);
-				if(w.getBlockState(pos) != ModBlocks.stoneFrozen.getDefaultState()) {
+				if(w.getBlockState(new BlockPos(x + i, y, z + l)) != ModBlocks.stoneFrozen.getDefaultState()) {
 					return false;
 				}
 			}
@@ -25,7 +24,7 @@ public class WorldGenArcherDungeon extends WorldGenerator {
 	}
 	
 	@Override
-	public boolean generate(World w, Random rand, BlockPos pos) {
+    public boolean generate(World w, Random rand, BlockPos pos) {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
@@ -52,12 +51,12 @@ public class WorldGenArcherDungeon extends WorldGenerator {
 		WorldGenAPI.addRectangle(6, 6, 1, w, x + 19, y, z - 4, ModBlocks.stoneIcy);
 		WorldGenAPI.addRectangle(2, 4, 3, w, x + 21, y + 1, z + 2, Blocks.AIR);
 		WorldGenAPI.addRectangle(2, 4, 1, w, x + 21, y, z + 2, ModBlocks.stoneIcy);
-		WorldGenAPI.addBlock(w, x + 20, y, z - 1, ModBlocks.spawnerArcher);
-		WorldGenAPI.addBlock(w, x + 23, y, z - 1, ModBlocks.spawnerArcher);
-		WorldGenAPI.addBlock(w, x + 8, y, z + 1, ModBlocks.spawnerArcher);
-//		w.setBlock(x + 24, y + 1, z - 4, ModBlocks.frostedChest, 1, 2);
-//		w.setBlock(x + 19, y + 1, z - 4, ModBlocks.frostedChest, 1, 2);
+		WorldGenAPI.addBlock(w, x + 20, y, z - 1, ModBlocks.spawnerRollum);
+		WorldGenAPI.addBlock(w, x + 23, y, z - 1, ModBlocks.spawnerRollum);
+		WorldGenAPI.addBlock(w, x + 8, y, z + 1, ModBlocks.spawnerRollum);
+//		w.setBlockState(x + 24, y + 1, z - 4, ModBlocks.frostedChest, 1, 2);
+//		w.setBlockState(x + 19, y + 1, z - 4, ModBlocks.frostedChest, 1, 2);
 		WorldGenAPI.addRectangle(10, 2, 3, w, x - 5, y + 1, z + 1, Blocks.AIR);
         return true;
-	}
+    }
 }

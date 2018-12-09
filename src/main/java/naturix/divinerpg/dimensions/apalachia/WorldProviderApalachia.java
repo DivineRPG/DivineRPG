@@ -23,7 +23,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderApalachia(this.world, this.world.getSeed()); 
+		return new ChunkProviderApalachia(this.world, this.world.getSeed() + this.getDimension()); 
 	}
 	
 	@Override

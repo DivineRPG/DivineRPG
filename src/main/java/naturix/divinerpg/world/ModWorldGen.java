@@ -5,7 +5,6 @@ import java.util.Random;
 import com.google.common.base.Predicate;
 
 import naturix.divinerpg.Config;
-import naturix.divinerpg.dimensions.eden.EdenAbstractTree;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;

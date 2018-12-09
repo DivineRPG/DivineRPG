@@ -2,10 +2,8 @@ package naturix.divinerpg.dimensions.skythern;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
@@ -25,7 +23,7 @@ public class WorldProviderSkythern extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorSkythern(this.world, this.world.getSeed()); 
+		return new ChunkGeneratorSkythern(this.world, this.world.getSeed() + this.getDimension()); 
 	}
 	
 	@Override

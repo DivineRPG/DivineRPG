@@ -38,6 +38,7 @@ public class BlockModSpawner extends BlockMobSpawner {
 		compound2.setString("id",mobName);
 		compound.setTag("SpawnData", compound2);
 		spawner.readFromNBT(compound);
+		spawner.readFromNBT(compound2);
 		
         return spawner;
     }

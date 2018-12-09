@@ -1,11 +1,7 @@
 package naturix.divinerpg.bases.blocks;
 
-import java.util.Random;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
-import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.EnumHandler.OreType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -103,12 +99,5 @@ public class BlockOre extends BlockBase {
 		public void registerItemModel(Item itemBlock) {
 			DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
 		}
-		public Item getItemDropped(IBlockState state, Random rand, int fortune)
-	    {
-			if (this == ModBlocks.oreArcanium)
-	        {
-	            return ModItems.arcanium;
-	        }
-			return null;
-	}
+
 }
