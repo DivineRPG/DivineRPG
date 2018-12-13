@@ -1,16 +1,17 @@
 [
-{
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "divinerpg",
+    "name": "DivineRPG",
+    "description": "Adds a magic system ♦ Pets ♦ 8 new dimensions ♦ Over 100 new mobs ♦ New bosses ♦ Hundreds of new Weapons, Armor/costumes, Tools, and Materials in all sorts of different styles.",
+    "version": "1.12.2.0",
+    "mcversion": "${mcversion}",
+    "url": "http://wiki.divinerpg.net/wiki/DivineRPG_Wiki",
+    "updateUrl": "",
+    "authors": ["Eternaldoom", "RadioactiveStud", "XolovA"],
+    "credits": "XolovA, RadioactiveStud, Eternaldoom, BossLetsPlays, sheenrox82, Declan, Insanity414all, The_SlayerMC, Mazetar, TLHPoE, Laorwick, BlueEyes9, Sactage, Wufflez and NicosaurusRex99",
+    "logoFile": "logo.png",
+    "screenshots": [],
+    "parent":"",
+    "dependencies": []
+  }
 ]
