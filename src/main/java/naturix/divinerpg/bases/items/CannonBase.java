@@ -1,8 +1,13 @@
 package naturix.divinerpg.bases.items;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.EntityEMP;
 import naturix.divinerpg.registry.ModItems;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,4 +50,9 @@ public class CannonBase extends Item
     public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
+    @Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Not yet finished");
+    }
 }

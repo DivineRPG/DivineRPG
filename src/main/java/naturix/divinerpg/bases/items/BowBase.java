@@ -1,11 +1,15 @@
 package naturix.divinerpg.bases.items;
 
+import java.util.List;
+
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.arrows.InfernoArrow;
 import naturix.divinerpg.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.registry.ModItems;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +33,7 @@ public class BowBase extends ItemBow
     	this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DivineRPG.ItemsTab);
+		setCreativeTab(DivineRPG.CombatTab);
     }
     private ItemStack getAmmo(EntityPlayer player) {
 		if(isArrow(player.getHeldItem(EnumHand.OFF_HAND)))
@@ -108,4 +112,9 @@ public class BowBase extends ItemBow
 	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Not yet finished");
+    }
 }

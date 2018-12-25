@@ -48,5 +48,6 @@ public class BlockTar extends BlockFluidClassic {
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
+    	
     }
 }

@@ -1,12 +1,19 @@
 package naturix.divinerpg.bases.items;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.portal.IceikaPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -19,6 +26,11 @@ public class SnowGlobe extends ItemBase{
 		super(name);
 		setMaxStackSize(1);
 	}
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+		tooltip.add("Not yet finished, this will spawn the iceika portal");
+    }
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos p, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
@@ -45,7 +57,9 @@ public class SnowGlobe extends ItemBase{
 //	            }
 //	        }
 		SnowGlobe.Size size = new SnowGlobe.Size(worldIn, p, EnumFacing.Axis.X);
+		if(Config.debug) {
 		DivineRPG.logger.info(". Portal block count? "+ size.portalBlockCount+". Did the portal spawn? " + size.isValid());
+		}
 		if(size.isValid() && size.portalBlockCount == 0) {
 			size.placePortalBlocks();
 		

@@ -561,3 +561,8 @@ advancement.divinerpg.sword_divine=Divine Plan
 advancement.divinerpg.sword_divine.desc=Craft a divine sword
 
 fluid.tar=Tar
+
+message.version.internet=Unable to check for latest version, you may want to check your internet connection!
+message.version.update=A DivineRPG update is avaliable.
+message.version=[New Version: #]
+message.developer=Welcome DivineRPG developer!

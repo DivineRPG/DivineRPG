@@ -3,9 +3,12 @@ package naturix.divinerpg.events;
 import java.io.IOException;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.MessageLocalizer;
 import naturix.divinerpg.utils.Utils;
+import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
@@ -17,22 +20,28 @@ public class EventClientLogin {
         if (!p.world.isRemote) {
             if (Config.UpdateChecker) {
                 if (!UpdateChecker.isOnline() && !Config.canShowOverlay) {
-                    p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.version.internet", Utils.LIGHT_PURPLE)));
+                	Logging.message(p, TextFormatting.LIGHT_PURPLE + MessageLocalizer.normal("message.version.internet"));
+                			
                 } else if (UpdateChecker.isOnline() && UpdateChecker.isUpdateAvailable() && !Config.canShowOverlay) {
-                    p.sendMessage(Utils.getChatComponent("message.version.update", Utils.RED));
+                	Logging.message(p, TextFormatting.RED + MessageLocalizer.normal("message.version.update"));
                     try {
-                        p.sendMessage(Utils.getChatComponent(MessageLocalizer.version(UpdateChecker.getCurrentVersion())));
+                    Logging.message(p, TextFormatting.WHITE + MessageLocalizer.version(UpdateChecker.getCurrentVersion()));
                     } catch (IOException e) {
-                        p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.version.unable", Utils.RED)));
-                    }
+                    Logging.message(p, TextFormatting.LIGHT_PURPLE + MessageLocalizer.normal("message.version.internet"));
+                    	}
                 }
-
-            }
+            }else {Logging.message(p, TextFormatting.AQUA + p.getDisplayName().getFormattedText() + " has the most recent version of DivineRPG installed!");}
             if (Utils.isDeveloperName(p.getCommandSenderEntity().getDisplayName())) {
-                p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.developer")));
+            	Logging.message(p, TextFormatting.WHITE +	MessageLocalizer.normal("message.developer" + " is on the DivineRPG dev team"));
+                Logging.message(p, "Welcome " + p.getDisplayName().getFormattedText());
             } else {
-                p.sendMessage(Utils.addChatMessage(p.getDisplayName()));
+                Logging.message(p, "Welcome " + p.getDisplayName().getFormattedText());
             }
         }
-    }  
+        DivineRPG.logger.info("Current Version : " + DivineRPG.version);
+		DivineRPG.logger.info("Is Online : " + UpdateChecker.isOnline());
+		if(UpdateChecker.isOnline()) {
+		DivineRPG.logger.info("Update Available : " + UpdateChecker.isUpdateAvailable());
+		}
+    }  		
 }
