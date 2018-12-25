@@ -20,6 +20,10 @@ public class Config {
 	public static boolean canShowOverlay = true;
 	public static boolean debug = false;
 	
+
+    private static final String CATEGORY_GUI = "GUI";
+	public static int arcanaX, arcanaY;
+
 	
 
     private static final String CATEGORY_ORE = "Ore Gen";
@@ -79,6 +83,10 @@ public class Config {
         arlemiteMax  = cfg.getInt("arlemiteMax", CATEGORY_ORE, 16, 1, 255, "Choose a number between 1 and 255 to choose the max ore height");
         arlemiteVein  = cfg.getInt("arlemiteTries", CATEGORY_ORE, 3, 1, 255, "Choose a number between 1 and 255 to tweak the vein size");
         arlemiteTries  = cfg.getInt("arlemiteTries", CATEGORY_ORE, 2, 1, 255, "Choose a number between 1 and 255 to choose the amount of times the ore tries to spawn");
+        cfg.addCustomCategoryComment(CATEGORY_GUI, "GUI Config options");
+        arcanaX  = cfg.getInt("arcanaX", CATEGORY_GUI, 111, 1, 255, "Arcana gui width");
+        arcanaY  = cfg.getInt("arcanaY", CATEGORY_GUI, 18, 1, 255, "Arcana gui height");
+        
         
     
     

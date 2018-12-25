@@ -29,6 +29,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -37,6 +38,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -55,7 +57,12 @@ public class DivineRPG {
 	@Mod.Instance(modId)
 	public static DivineRPG instance;
 	public static org.apache.logging.log4j.Logger logger;
-
+	public static SimpleNetworkWrapper network;
+	
+	public DivineRPG() {
+		FluidRegistry.enableUniversalBucket();
+	}
+	
 	 @Mod.EventHandler
 	    public void preInit(FMLPreInitializationEvent event) {
 	        logger = event.getModLog();

@@ -5,8 +5,11 @@ import java.io.File;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.EventArmorSet;
+import naturix.divinerpg.events.EventClientLogin;
+import naturix.divinerpg.events.EventLightning;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
+import naturix.divinerpg.registry.ModLiquids;
 import naturix.divinerpg.utils.ListAllObjs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,8 +36,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        ModDimensions.init();
 	        ModEntities.init();
+	        ModLiquids.init();
 	        ListAllObjs.listobjs();
 	        DivineRPG.registerEvent(new EventArmorSet());
+	        DivineRPG.registerEvent(new EventClientLogin());
+	        DivineRPG.registerEvent(new EventLightning());
 	        }
 	    public EntityPlayer getPlayer() { return null; }
 	    public void init(FMLInitializationEvent e) {
@@ -64,4 +70,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 			FMLCommonHandler.instance().bus().register(event);
 			MinecraftForge.EVENT_BUS.register(event);
 		}
+
+		public void updateClientArcana(float amount) {}
 	}

@@ -1,5 +1,4 @@
-package naturix.divinerpg.utils;
-
+package naturix.divinerpg.events;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,13 +7,16 @@ import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
+import java.net.MalformedURLException;
 import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
 import naturix.divinerpg.DivineRPG;
+
 
 public class UpdateChecker {
 
@@ -64,7 +66,7 @@ public class UpdateChecker {
     }
 
     public static String getCurrentVersion() throws IOException {
-        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL(DivineRPG.UPDATE_URL).openStream()));
+        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/version.txt").openStream()));
         String curVersion = versionFile.readLine();
         versionFile.close();
         return curVersion;

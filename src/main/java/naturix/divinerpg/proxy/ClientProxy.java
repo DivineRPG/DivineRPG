@@ -3,9 +3,13 @@ package naturix.divinerpg.proxy;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.RenderTiles;
+import naturix.divinerpg.client.ArcanaHelper;
+import naturix.divinerpg.client.ArcanaRenderer;
+import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -35,6 +39,9 @@ public class ClientProxy extends CommonProxy {
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
         DivineRPG.registerEvent(new EventDevHat());
+
+        Utils.postFMLEvent(new ArcanaRenderer());
+        Utils.postFMLEvent(new ClientTicker());
         
        }
 	
@@ -51,6 +58,9 @@ public class ClientProxy extends CommonProxy {
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
     	
     }
-
+    ArcanaHelper ah;
+    public void updateClientArcana(float amount) {
+//        ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount); 
+    }
  
 }

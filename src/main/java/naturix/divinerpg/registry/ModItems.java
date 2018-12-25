@@ -9,6 +9,7 @@ import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.bases.items.PickaxeBase;
 import naturix.divinerpg.bases.items.ShickaxeBase;
 import naturix.divinerpg.bases.items.ShovelBase;
+import naturix.divinerpg.bases.items.SnowGlobe;
 import naturix.divinerpg.bases.items.SpawnerBase;
 import naturix.divinerpg.bases.items.SwordBase;
 import naturix.divinerpg.bases.items.TeleportStaff;
@@ -454,6 +455,7 @@ public class ModItems {
 	public static ItemBase pelletsAquaticPure = new ItemBase("pellets_aquatic_pure"); 
 	public static ItemBase shardIce = new ItemBase("shard_ice");
 	public static ItemBase seedsGlowbonePurple = new ItemBase("seeds_glowbone_purple");
+	public static SnowGlobe snowGlobe = new SnowGlobe("snowglobe");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -840,7 +842,8 @@ public class ModItems {
 				pelletsAquaticPure,
 				shardIce,
 				gemBlood,
-				seedsGlowbonePurple
+				seedsGlowbonePurple,
+				snowGlobe
 				);
 	}
 	
@@ -1229,6 +1232,7 @@ public class ModItems {
 		shardIce.registerItemModel();
 		gemBlood.registerItemModel();
 		seedsGlowbonePurple.registerItemModel();
+		snowGlobe.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

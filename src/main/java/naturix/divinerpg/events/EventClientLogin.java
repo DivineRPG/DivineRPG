@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.utils.MessageLocalizer;
-import naturix.divinerpg.utils.UpdateChecker;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

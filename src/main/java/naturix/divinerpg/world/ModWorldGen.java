@@ -12,14 +12,18 @@ import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class ModWorldGen implements IWorldGenerator {
 
 
+	private static WorldGenHut hut = new WorldGenHut();
 	public static ModWorldGen instance = new ModWorldGen();
 	int jeff = ModDimensions.edenDimension.getId();
 	@Override
@@ -50,6 +54,7 @@ public class ModWorldGen implements IWorldGenerator {
         if(world.provider.getDimension() == ModDimensions.mortumDimension.getId()) {
         	genMortum(world, random, chunkX, chunkZ);
         }
+        
     }
 	 private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn){
 		  int diffMinMaxY = maxY - minY;
@@ -70,6 +75,7 @@ public class ModWorldGen implements IWorldGenerator {
 				int z = blockZPos * 16 + random.nextInt(16);
 				BlockPos pos2 = new BlockPos(b, y, z);
 				gen.generate(world, random, pos2);
+				
 			}
 		
 		  }
@@ -80,7 +86,10 @@ public class ModWorldGen implements IWorldGenerator {
 		 addOreSpawn(ModBlocks.oreRealmite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.realmiteVein, Config.realmiteTries, Config.realmiteMin, Config.realmiteMax, BlockMatcher.forBlock(Blocks.STONE));
 		 addOreSpawn(ModBlocks.oreRupee.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.rupeeVein, Config.rupeeTries, Config.rupeeMin, Config.rupeeMax, BlockMatcher.forBlock(Blocks.STONE));
 		 addOreSpawn(ModBlocks.oreArlemite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.arlemiteVein, Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax, BlockMatcher.forBlock(Blocks.STONE));
-
+         
+		 if(world.provider.getDimension() == 0) {
+			 hut.generate(world, random, new BlockPos(chunkX, random.nextInt(world.getHeight()), chunkZ));
+		}
 	 
 	 }
 	 private void genNether(World world, Random random, int chunkX, int chunkZ){

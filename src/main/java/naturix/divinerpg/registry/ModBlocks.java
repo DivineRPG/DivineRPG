@@ -19,6 +19,7 @@ import naturix.divinerpg.bases.blocks.TorchBase;
 import naturix.divinerpg.bases.blocks.VineBase;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
+import naturix.divinerpg.bases.blocks.fluid.BlockTar;
 import naturix.divinerpg.bases.blocks.portal.ApalachiaPortal;
 import naturix.divinerpg.bases.blocks.portal.EdenBlock;
 import naturix.divinerpg.bases.blocks.portal.IceikaPortal;
@@ -181,6 +182,7 @@ public class ModBlocks {
 	public static LeavesBase brittleLeaves = new LeavesBase("leaves_brittle");
 	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "divinerpg:archer_frost");
 	public static BlockModSpawner spawnerRollum = new BlockModSpawner("spawner_rollum", "divinerpg:rollum");
+	public static BlockTar tar = new BlockTar();
 	//public static IceikaChest chestIceika = new IceikaChest("chest_iceika");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
@@ -321,7 +323,8 @@ public class ModBlocks {
 				bricksIceika,
 				spawnerArcher,
 				spawnerRollum,
-				brittleLeaves
+				brittleLeaves,
+				tar
 				//chestIceika
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
@@ -611,6 +614,7 @@ public class ModBlocks {
 		spawnerArcher.registerItemModel(Item.getItemFromBlock(spawnerArcher));
 		brittleLeaves.registerItemModel(Item.getItemFromBlock(brittleLeaves));
 		spawnerRollum.registerItemModel(Item.getItemFromBlock(spawnerRollum));
+		tar.initModel();
 //		chestIceika.registerItemModel(Item.getItemFromBlock(chestIceika));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		
