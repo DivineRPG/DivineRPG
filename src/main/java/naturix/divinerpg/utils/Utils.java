@@ -65,7 +65,7 @@ public class Utils {
 	    public static String WHITE       = "\u00a7f";
 
 	    public static final String[] devs = { "RadioactiveStud", "Eternaldoom1", "BossLetsPlays", "Xolova", "sheenrox82", "The_SlayerMC", "insanity414all", "deathman12e3", "Fire_Sight", "krwminer", "NicosaurusRex99", "LiteWolf101" };
-
+	    
 	    @SuppressWarnings("unlikely-arg-type")
 		public static boolean isDeveloperName(ITextComponent iTextComponent) {
 			for(int i = 0; i < devs.length; i++){
