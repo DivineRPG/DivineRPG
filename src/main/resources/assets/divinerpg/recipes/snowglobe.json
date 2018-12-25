@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "#S#",
+        "DGD"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:glass"
+        },
+        "S": {
+            "item": "minecraft:snow"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "G": {
+            "item": "divinerpg:ingot_shadow"
+        }
+    },
+    "result": {
+        "item": "divinerpg:snowglobe",
+        "count": 1
+    }
+}
