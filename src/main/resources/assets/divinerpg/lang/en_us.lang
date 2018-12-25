@@ -521,7 +521,7 @@ item.pellets_aquatic.name=Aquatic Pellets
 item.pellets_aquatic_pure.name=Pure Aquatic Pellets
 item.shard_ice.name=Ice Shards
 item.gem_blood.name=Blood Gem
-item.snowglove.name=Snow Globe
+item.snowglobe.name=Snow Globe
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
