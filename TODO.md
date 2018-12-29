@@ -18,3 +18,4 @@
 - Make Recipes
 - Make world gen in dimensions better
 - Fix flight
+- Fix arcana bar in f1 mode
