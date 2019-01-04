@@ -300,6 +300,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModEntities {
 
 	public static void init() {
@@ -578,6 +580,7 @@ public class ModEntities {
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
 		}
 	}
+	@SideOnly(Side.CLIENT)
 	public static void initModels() {
 		//arcana 
 		RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);

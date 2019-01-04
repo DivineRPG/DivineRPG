@@ -32,7 +32,7 @@ public class BiomeMortum extends Biome {
     
     
 
-    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
+//    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
 }
 
 	@Override

@@ -37,7 +37,7 @@ public class BiomeIceika extends Biome {
     
     
 
-    this.getSkyColorByTemp(Color.getHSBColor(0F, 25F, 111F).getRGB());
+//    this.getSkyColorByTemp(Color.getHSBColor(0F, 25F, 111F).getRGB());
 }
 
 	@Override

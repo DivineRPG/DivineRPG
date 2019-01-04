@@ -54,7 +54,7 @@ public class BiomeWildWood extends Biome {
 	
 	
     this.decorator.treesPerChunk = 6;
-    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
+//    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     
 }
 

@@ -31,7 +31,7 @@ public class BiomeSkythern extends Biome {
     this.decorator.grassPerChunk = 0;
 
 
-    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
+//    this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
 }
 
 	@Override

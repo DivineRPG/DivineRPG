@@ -18,10 +18,10 @@ public class EventArmorSet{
 //	boolean isDone = true;
 	@SubscribeEvent
 	public void playerTick(PlayerTickEvent event) {
-		ItemStack stackBoots = event.player.inventory.armorItemInSlot(0);
-		ItemStack stackLegs = event.player.inventory.armorItemInSlot(1);
-		ItemStack stackBody = event.player.inventory.armorItemInSlot(2);
-		ItemStack stackHelmet = event.player.inventory.armorItemInSlot(3);
+		ItemStack stackBoots = event.player.inventory.armorInventory.get(0);
+		ItemStack stackLegs = event.player.inventory.armorInventory.get(1);
+		ItemStack stackBody = event.player.inventory.armorInventory.get(2);
+		ItemStack stackHelmet = event.player.inventory.armorInventory.get(3);
 		if(stackBoots != null) boots = stackBoots.getItem();
 		else boots = null;
 		if(stackBody != null) body = stackBody.getItem();
