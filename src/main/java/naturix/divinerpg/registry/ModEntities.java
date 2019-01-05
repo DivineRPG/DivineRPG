@@ -126,6 +126,7 @@ import naturix.divinerpg.entities.assets.render.vethia.RenderHerbomancer;
 import naturix.divinerpg.entities.assets.render.vethia.RenderHiveQueen;
 import naturix.divinerpg.entities.assets.render.vethia.RenderHiveSoldier;
 import naturix.divinerpg.entities.assets.render.vethia.RenderHoverStinger;
+import naturix.divinerpg.entities.assets.render.vethia.RenderHungerHungry;
 import naturix.divinerpg.entities.assets.render.vethia.RenderKaros;
 import naturix.divinerpg.entities.assets.render.vethia.RenderKazrotic;
 import naturix.divinerpg.entities.assets.render.vethia.RenderLadyLuna;
@@ -272,6 +273,7 @@ import naturix.divinerpg.entities.entity.vethia.Herbomancer;
 import naturix.divinerpg.entities.entity.vethia.HiveQueen;
 import naturix.divinerpg.entities.entity.vethia.HiveSoldier;
 import naturix.divinerpg.entities.entity.vethia.HoverStinger;
+import naturix.divinerpg.entities.entity.vethia.HungerHungry;
 import naturix.divinerpg.entities.entity.vethia.Karos;
 import naturix.divinerpg.entities.entity.vethia.Kazrotic;
 import naturix.divinerpg.entities.entity.vethia.LadyLuna;
@@ -468,6 +470,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "wreck_form"), WreckForm.class, "wreck_form", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "zone"), Zone.class, "zone", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "zoragon"), Zoragon.class, "zoragon", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "hungerhungry"), HungerHungry.class, "hungerhungry", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		
 		if(Config.debug) {
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
@@ -734,6 +737,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(WreckForm.class, RenderWreckForm.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(HungerHungry.class, RenderHungerHungry.FACTORY);
 		//other
 		RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY); 
 		
