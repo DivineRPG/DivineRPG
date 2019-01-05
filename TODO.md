@@ -17,3 +17,4 @@
 - Make Recipes
 - Make world gen in dimensions better
 - Fix flight
+- Fix hitboxes for twilight and vanilla mobs
