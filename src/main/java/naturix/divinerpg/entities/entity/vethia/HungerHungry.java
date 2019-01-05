@@ -27,7 +27,7 @@ public class HungerHungry extends EntityMob {
 
     public HungerHungry(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.8F, 1.9f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hungerhungry");

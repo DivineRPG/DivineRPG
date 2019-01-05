@@ -27,7 +27,7 @@ public class Cymesoid extends EntityMob {
 
     public Cymesoid(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cymesoid");

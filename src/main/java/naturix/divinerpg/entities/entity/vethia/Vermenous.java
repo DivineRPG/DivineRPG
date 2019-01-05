@@ -27,7 +27,7 @@ public class Vermenous extends EntityMob {
 
     public Vermenous(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/vermenous");

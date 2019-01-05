@@ -27,7 +27,7 @@ public class Tocaxin extends EntityMob {
 
     public Tocaxin(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 3.3f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/tocaxin");

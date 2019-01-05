@@ -27,7 +27,7 @@ public class LadyLuna extends EntityMob {
 
     public LadyLuna(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 3.5f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ladyluna");

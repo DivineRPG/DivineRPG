@@ -27,7 +27,7 @@ public class Herbomancer extends EntityMob {
 
     public Herbomancer(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 2.5f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/herbomancer");

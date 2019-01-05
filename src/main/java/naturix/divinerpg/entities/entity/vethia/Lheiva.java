@@ -27,7 +27,7 @@ public class Lheiva extends EntityMob {
 
     public Lheiva(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 1.4f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/lheiva");

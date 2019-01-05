@@ -27,7 +27,7 @@ public class Shadahier extends EntityMob {
 
     public Shadahier(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.8F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/shadahier");

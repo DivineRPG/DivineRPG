@@ -27,7 +27,7 @@ public class CryptKeeper extends EntityMob {
 
     public CryptKeeper(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cryptkeeper");

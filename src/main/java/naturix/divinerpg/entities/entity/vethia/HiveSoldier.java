@@ -27,7 +27,7 @@ public class HiveSoldier extends EntityMob {
 
     public HiveSoldier(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.6F, 1.8f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hivesoldier");

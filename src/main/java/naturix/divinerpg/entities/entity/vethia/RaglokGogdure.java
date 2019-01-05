@@ -27,7 +27,7 @@ public class RaglokGogdure extends EntityMob {
 
     public RaglokGogdure(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(3F, 5f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/raglok_gogdure");

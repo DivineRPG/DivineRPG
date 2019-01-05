@@ -27,7 +27,7 @@ public class Mandragora extends EntityMob {
 
     public Mandragora(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.5F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/mandragora");
