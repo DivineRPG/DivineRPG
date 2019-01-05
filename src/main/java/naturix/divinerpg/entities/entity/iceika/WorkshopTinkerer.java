@@ -27,7 +27,7 @@ public class WorkshopTinkerer extends EntityMob {
 
     public WorkshopTinkerer(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 2.4f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/workshop");

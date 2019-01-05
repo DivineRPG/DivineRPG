@@ -27,7 +27,7 @@ public class Hastreus extends EntityMob {
 
     public Hastreus(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(2F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hastreus");

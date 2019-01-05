@@ -27,7 +27,7 @@ public class Alicanto extends EntityMob {
 
     public Alicanto(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1.2F, 1.2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/alicanto");
