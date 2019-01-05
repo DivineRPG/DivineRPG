@@ -25,7 +25,7 @@ public class DeathHound extends EntityMob {
 
     public DeathHound(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 0.9f);
+		this.setSize(0.6F, 0.9f);
 		this.setHealth(this.getMaxHealth());
 	}
    protected boolean isMaster() {
