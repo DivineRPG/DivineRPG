@@ -2,7 +2,6 @@
 - Make Iceika Better
 - Make Arcana
 - Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
-- Make Arcana Bar
 - Make Divine Accumilator
 - Make Advancmenets
 - Make tile entities
@@ -18,4 +17,3 @@
 - Make Recipes
 - Make world gen in dimensions better
 - Fix flight
-- Fix arcana bar in f1 mode
