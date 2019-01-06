@@ -22,7 +22,7 @@ public class SoulStealer extends EntityMob {
 
     public SoulStealer(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/stealer_soul");

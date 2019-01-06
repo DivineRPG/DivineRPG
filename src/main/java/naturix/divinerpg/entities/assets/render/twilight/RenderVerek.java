@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderVerek extends RenderLiving<Verek> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/verek.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/varek.png");
 	private final ModelSamek ModelSamek;
     
 	public RenderVerek(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

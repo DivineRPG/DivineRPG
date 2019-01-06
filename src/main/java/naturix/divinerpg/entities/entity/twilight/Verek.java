@@ -22,10 +22,10 @@ public class Verek extends EntityMob {
 
     public Verek(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.6F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/verek");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/varek");
 
 
     protected boolean isMaster() {

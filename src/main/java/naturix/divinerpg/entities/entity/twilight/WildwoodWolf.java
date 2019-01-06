@@ -22,7 +22,7 @@ public class WildwoodWolf extends EntityMob {
 
     public WildwoodWolf(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 0.8f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/wolf_wildwood");

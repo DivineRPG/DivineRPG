@@ -22,7 +22,7 @@ public class Bohemoth extends EntityMob {
 
     public Bohemoth(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1.4F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bohemoth");

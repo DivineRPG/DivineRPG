@@ -26,7 +26,7 @@ public class TameAngryBunny extends EntityTameable {
 
     public TameAngryBunny(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.6F, 1f);
 		this.setHealth(this.getHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny_angry_tamed");

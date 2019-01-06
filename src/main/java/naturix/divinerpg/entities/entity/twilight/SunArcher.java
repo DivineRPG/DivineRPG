@@ -25,7 +25,7 @@ public class SunArcher extends EntityMob {
 
     public SunArcher(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1F, 2.2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/sunarcher");

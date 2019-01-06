@@ -25,7 +25,7 @@ public class AngryBunny extends EntityMob {
 
     public AngryBunny(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.6F, 0.7f);
 		this.setHealth(this.getHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny_angry");

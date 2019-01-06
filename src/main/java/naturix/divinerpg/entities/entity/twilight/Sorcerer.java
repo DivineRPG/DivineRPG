@@ -22,7 +22,7 @@ public class Sorcerer extends EntityMob {
 
     public Sorcerer(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.8F, 2.3f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/sorcerer");
