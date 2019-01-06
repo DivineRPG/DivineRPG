@@ -27,7 +27,7 @@ public class Ehu extends EntityMob {
 
     public Ehu(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(0.875F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ehu");

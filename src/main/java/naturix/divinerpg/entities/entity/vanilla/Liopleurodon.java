@@ -27,7 +27,7 @@ public class Liopleurodon extends EntityMob {
 
     public Liopleurodon(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(6F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/liopleurodon");
