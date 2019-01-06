@@ -20,3 +20,4 @@
 - Fix hitboxes for twilight and vanilla mobs
 - More organized creative tabs
 - Add chickens support
+- Fix whatever this is https://imgur.com/a/qtbQLfv
