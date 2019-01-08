@@ -256,7 +256,7 @@ public class WorldGenHut extends WorldGenerator {
 			world.spawnEntity(e);
 		return true;
 		}
-		DivineRPG.logger.info("hut was called but failed to load at "+ new BlockPos(i, j, k));
+//		DivineRPG.logger.info("hut was called but failed to load at "+ new BlockPos(i, j, k));
 		return false;
 		}
 	}
