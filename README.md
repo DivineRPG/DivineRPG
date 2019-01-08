@@ -5,8 +5,8 @@ The official repository for the DivineRPG Minecraft mod
 
 Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2455655-divinerpg-8-new-dimensions-115-new-mobs-bosses)
 
-###What you can and cannot do with DivineRPG
-######You CAN:
+### What you can and cannot do with DivineRPG
+###### You CAN:
 * Download DivineRPG and use it
 * Make a public Minecraft server with DivineRPG installed
 * Include DivineRPG in a modpack _if you have permission from the development team, if you link back to the mod's forum thread, if you credit the team, and if you agree to remove the mod from the pack at any time if you are told to by the DivineRPG team_
@@ -15,23 +15,23 @@ Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping
 * Modify and recompile DivineRPG for PERSONAL use
 * Fork DivineRPG on Github and write a pull request
 
-######You CANNOT:
+###### You CANNOT:
 * Redistribute DivineRPG without permission from the team
 * Claim that you made DivineRPG
 * Redistribute modified versions of DivineRPG
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
 * Put DivineRPG in a modpack without permission
 
-###Credits
+### Credits
 This mod is owned by XolovA, but he is no longer part of the team
 ***
-#####Main Team
+##### Main Team
 * RadioactiveStud (aka SoccerStud) - Developer
 * Eternaldoom - Developer
 * krwminer - Developer
 * BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
 
-#####Special Thanks to
+##### Special Thanks to
 * Dizzlepop12 - A few models/textures
 * THEVOLCO - German Translations
 * ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
@@ -41,7 +41,7 @@ This mod is owned by XolovA, but he is no longer part of the team
 * Insanity414all - Wiki admin
 * Laorwick - Some Recipes
 
-#####Other Credits
+##### Other Credits
 * The_SlayerMC - Former Developer
 * Sheenrox82 - Former Developer
 * Mazetar - Former Developer
@@ -59,9 +59,9 @@ This mod is owned by XolovA, but he is no longer part of the team
 * Blued00r - Ex Developer
 
 ***
-###Contributing
+### Contributing
 ***
-####Submitting a Pull Request
+#### Submitting a Pull Request
 Want to help improve our code? Fix bugs? Add to the mod? Make artistic improvements for us?
 
 1. If you haven't already, create a Github account.
@@ -72,7 +72,7 @@ Want to help improve our code? Fix bugs? Add to the mod? Make artistic improveme
 5. Click `Click to create a pull request for this comparison`, enter your Pull Request's title, and write a detailed description telling us what you changed.
 6. Click `Send pull request`, and be patient, we will review your changes
 
-####Creating an Issue
+#### Creating an Issue
 Found a bug in our mod?  Please let us know so we can fix it ASAP!
 
 1. Make sure your issue hasn't already been answered or fixed.  Also think about whether your issue is a valid one before submitting it.
