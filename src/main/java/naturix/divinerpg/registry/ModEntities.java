@@ -579,6 +579,7 @@ public class ModEntities {
 		LootTableList.register(EnderWatcher.LOOT);
 		LootTableList.register(Verek.LOOT);
 		LootTableList.register(TheEye.LOOT);
+		LootTableList.register(TheWatcher.LOOT);
 		
 		if(Config.debug) {	
 		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");

@@ -38,7 +38,7 @@ public class TheWatcher extends EntityMob {
 		this.setHealth(this.getMaxHealth());
 		
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crab");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/watcher");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
@@ -124,40 +124,4 @@ public class TheWatcher extends EntityMob {
         return super.getAmbientSound();
     }
 
-    @Override
-	protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
-    {
-		this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, Item.getItemFromBlock(ModBlocks.watcherStatue).getDefaultInstance()));
-		
-		
-		switch(this.rand.nextInt(3)) {
-        case 0 :
-        	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-        	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-        	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-    		
-           break; case 1 :
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           case 2 :
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-           	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-              break;
-              case 3 :
-            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-            this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.shardDivine.getDefaultInstance()));
-              break;
-
-        default :
-     }
-  } 
 }
