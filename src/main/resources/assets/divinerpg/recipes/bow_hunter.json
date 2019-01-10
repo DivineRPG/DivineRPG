@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#E ",
+        "# E",
+        "#E "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:string"
+        },
+        "E": {
+            "item": "divinerpg:stone_jungle"
+        }
+    },
+    "result": {
+        "item": "divinerpg:bow_hunter",
+        "count": 1
+    }
+}
