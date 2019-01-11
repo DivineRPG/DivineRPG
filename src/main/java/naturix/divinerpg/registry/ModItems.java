@@ -458,6 +458,9 @@ public class ModItems {
 	public static ItemBase shardIce = new ItemBase("shard_ice");
 	public static ItemBase seedsGlowbonePurple = new ItemBase("seeds_glowbone_purple");
 	public static SnowGlobe snowGlobe = new SnowGlobe("snowglobe");
+	public static ItemBase blazePurple = new ItemBase("blaze_purple");
+	public static ItemBase furyFire = new ItemBase("fury_fire");
+	public static ItemBase stoneBluefire = new ItemBase("stone_bluefire");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -847,7 +850,10 @@ public class ModItems {
 				seedsGlowbonePurple,
 				snowGlobe,
 				stoneJungle,
-				stoneIce
+				stoneIce,
+				blazePurple,
+				furyFire,
+				stoneBluefire
 				);
 	}
 	
@@ -1239,6 +1245,9 @@ public class ModItems {
 		snowGlobe.registerItemModel();
 		stoneJungle.registerItemModel();
 		stoneIce.registerItemModel();
+		blazePurple.registerItemModel();
+		stoneBluefire.registerItemModel();
+		furyFire.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

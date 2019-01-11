@@ -524,6 +524,9 @@ item.gem_blood.name=Blood Gem
 item.snowglobe.name=Snow Globe
 item.stone_jungle.name=Jungle Stone
 item.stone_ice.name=Ice Stone
+item.blaze_purple.name=Purple Blaze
+item.stone_bluefire.name=Bluefire Stone
+item.fury_fire.name=Fury Fire
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
