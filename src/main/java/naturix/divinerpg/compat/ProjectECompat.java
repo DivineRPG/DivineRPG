@@ -20,6 +20,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.shardJungle, 1, 0), (int) 64);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.shardMolten, 1, 0), (int) 64);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.shardTerran, 1, 0), (int) 64);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.shardIce, 1, 0), (int) 64);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eyeWatch, 1, 0), (int) 4096);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.rockTwilight, 1, 0), (int) 1);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.fragmentEden, 1, 0), (int) 512);

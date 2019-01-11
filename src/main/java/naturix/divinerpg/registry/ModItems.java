@@ -95,6 +95,7 @@ public class ModItems {
 	public static ItemBase gemMortum = new ItemBase("gem_mortum");
 	public static ItemBase gemBlood = new ItemBase("gem_blood");
 	public static ItemBase stoneJungle = new ItemBase("stone_jungle");
+	public static ItemBase stoneIce = new ItemBase("stone_ice");
 	public static MysteriousClock mysteriousClock = new MysteriousClock("clock_mysterious");
 	public static MysteriousClock moonClock = new MysteriousClock("clock_moon");
 	public static MysteriousClock twilightClock = new MysteriousClock("clock_twilight");
@@ -845,7 +846,8 @@ public class ModItems {
 				gemBlood,
 				seedsGlowbonePurple,
 				snowGlobe,
-				stoneJungle
+				stoneJungle,
+				stoneIce
 				);
 	}
 	
@@ -1236,6 +1238,7 @@ public class ModItems {
 		seedsGlowbonePurple.registerItemModel();
 		snowGlobe.registerItemModel();
 		stoneJungle.registerItemModel();
+		stoneIce.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

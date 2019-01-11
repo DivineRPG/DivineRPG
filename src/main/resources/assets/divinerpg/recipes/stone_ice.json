@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "divinerpg:shard_ice"
+        }
+    },
+    "result": {
+        "item": "divinerpg:stone_ice",
+        "count": 1
+    }
+}

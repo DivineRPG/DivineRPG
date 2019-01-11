@@ -523,6 +523,7 @@ item.shard_ice.name=Ice Shards
 item.gem_blood.name=Blood Gem
 item.snowglobe.name=Snow Globe
 item.stone_jungle.name=Jungle Stone
+item.stone_ice.name=Ice Stone
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

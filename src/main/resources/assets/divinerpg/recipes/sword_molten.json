@@ -11,10 +11,10 @@
 			"ore": "stickWood"
 		},
 		"S": {
-			"item": "divinerpg:ingot_rupee"
+			"item": "divinerpg:stone_molten"
 		}
 	},
 	"result": {
-		"item": "divinerpg:rapier_rupee"
+		"item": "divinerpg:sword_molten"
 	}
 }
