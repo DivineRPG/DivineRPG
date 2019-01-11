@@ -21,4 +21,4 @@
 - More organized creative tabs
 - Add chickens support
 - Fix whatever this is https://imgur.com/a/qtbQLfv
-- Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.mdithub.com/DivineRPG/DivineRPG/blob/6f0efbd477174c9bf752f8d0cc0fa8ecbe02dbd8/java/net/divinerpg/utils/recipes/TwilightRecipeHelper.java
+- Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.md
