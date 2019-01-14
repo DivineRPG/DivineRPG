@@ -1,8 +1,3 @@
-		addRecipe(VanillaItemsWeapons.enderSword, " L ", " L ", " S ", 'L', VanillaItemsOther.legendaryEnderEye, 'S', VanillaItemsOther.shadowBar);
-		addOredictRecipe(VanillaItemsWeapons.arlemiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.arlemiteIngot, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.rupeeSword, " I ", " I ", " S ", 'I', VanillaItemsOther.rupeeIngot, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.realmiteSword, " I ", " I ", " S ", 'I', VanillaItemsOther.realmiteIngot, 'S', "stickWood");
-		addRecipe(VanillaItemsWeapons.slimeSword, "SDS", "SDS", "SDS", 'D', Items.diamond_sword, 'S', Items.slime_ball);
 		addOredictRecipe(VanillaItemsWeapons.oceanKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.aquaticDagger, "   ", " I ", " S ", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.aquaticMaul, "III", "III", "ISI", 'I', VanillaItemsOther.aquaticIngot, 'S', "stickWood");
