@@ -18,7 +18,7 @@ public class ArcanaRenderer {
 	public static boolean regen;
 	
 	@SubscribeEvent
-	public void onRender(RenderGameOverlayEvent.Pre event){
+	public void onRender(RenderGameOverlayEvent.Text event){
 		onTickRender();
 	}
 
