@@ -451,6 +451,7 @@ public class ModItems {
 	public static CallOfTheWatcher callWatcher = new CallOfTheWatcher("callofthewatcher"); 
 	public static ItemBase eyeWatch = new ItemBase("watchingeye"); 
 	public static ItemBase stoneMolten = new ItemBase("stone_molten"); 
+	public static ItemBase stoneEnder = new ItemBase("stone_ender"); 
 	public static ItemBase shadowBar = new ItemBase("ingot_shadow"); 
 	public static ItemBase chunkNetherite = new ItemBase("chunk_netherite"); 
 	public static ItemBase pelletsAquatic = new ItemBase("pellets_aquatic"); 
@@ -461,6 +462,7 @@ public class ModItems {
 	public static ItemBase blazePurple = new ItemBase("blaze_purple");
 	public static ItemBase furyFire = new ItemBase("fury_fire");
 	public static ItemBase stoneBluefire = new ItemBase("stone_bluefire");
+	public static ItemBase eyeEnderLegendary = new ItemBase("eye_ender_legendary");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -853,7 +855,9 @@ public class ModItems {
 				stoneIce,
 				blazePurple,
 				furyFire,
-				stoneBluefire
+				stoneBluefire,
+				eyeEnderLegendary,
+				stoneEnder
 				);
 	}
 	
@@ -1248,6 +1252,8 @@ public class ModItems {
 		blazePurple.registerItemModel();
 		stoneBluefire.registerItemModel();
 		furyFire.registerItemModel();
+		eyeEnderLegendary.registerItemModel();
+		stoneEnder.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

@@ -1,0 +1,19 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"B",
+		"B",
+		"S"
+	],
+	"key": {
+		"B": {
+			"item": "divinerpg:eye_ender_legendary"
+		},
+		"S": {
+			"item": "divinerpg:ingot_shadow"
+		}
+	},
+	"result": {
+		"item": "divinerpg:sword_ender"
+	}
+}

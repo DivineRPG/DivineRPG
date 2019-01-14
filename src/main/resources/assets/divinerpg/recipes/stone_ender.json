@@ -1,0 +1,16 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"BBB",
+		"BBB",
+		"BBB"
+	],
+	"key": {
+		"B": {
+			"item": "divinerpg:shard_ender"
+		}
+	},
+	"result": {
+		"item": "divinerpg:stone_ender"
+	}
+}

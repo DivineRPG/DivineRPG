@@ -1,20 +1,20 @@
 {
 	"type": "forge:ore_shaped",
 	"pattern": [
-		" I ",
-		"III",
-		" S "
+		"B",
+		"B",
+		"S"
 	],
 	"key": {
-	"I": {
-			"item": "divinerpg:ingot_rupee"
-		},
 		"S": {
 			"type": "forge:ore_dict",
 			"ore": "stickWood"
+		},
+		"B": {
+			"item": "divinerpg:ingot_arlemite"
 		}
 	},
 	"result": {
-		"item": "divinerpg:sword_rupee"
+		"item": "divinerpg:stabber_arlemite"
 	}
 }

@@ -20,5 +20,5 @@
 - Fix hitboxes for twilight and vanilla mobs
 - More organized creative tabs
 - Add chickens support
-- Fix whatever this is https://imgur.com/a/qtbQLfv
 - Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.md
+- Fix weapon damage values
