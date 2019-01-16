@@ -72,8 +72,8 @@ public class DivineRPG {
 	        ModEvents.preInit();
 	        PreInitLog.init();
 	        
-	    }
-
+	        }
+	 
 	    @Mod.EventHandler
 	    public void init(FMLInitializationEvent e) {
 	        proxy.init(e);
@@ -112,11 +112,10 @@ public class DivineRPG {
 			public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 				ModBiomes.registerBiomes(event.getRegistry()); 
 			}
-			 
+			
 	    }
-	    
-	    
-	    
+
+			    
 	    
 	    public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks")
 	    {
@@ -182,4 +181,7 @@ public class DivineRPG {
 			MinecraftForge.EVENT_BUS.register(o);
 			FMLCommonHandler.instance().bus().register(o);
 		}
+	    
+	    
+	    
 }
