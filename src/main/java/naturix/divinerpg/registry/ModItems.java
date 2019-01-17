@@ -466,6 +466,7 @@ public class ModItems {
 	public static ItemBase stoneBluefire = new ItemBase("stone_bluefire");
 	public static ItemBase eyeEnderLegendary = new ItemBase("eye_ender_legendary");
 	public static SwordBase knifeJungle = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "knife_jungle");
+	public static ItemBase eyeCyclops = new ItemBase("eye_cyclops"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -862,7 +863,8 @@ public class ModItems {
 				stoneBluefire,
 				eyeEnderLegendary,
 				stoneEnder,
-				knifeJungle
+				knifeJungle,
+				eyeCyclops
 				);
 	}
 	
@@ -1261,7 +1263,7 @@ public class ModItems {
 		stoneEnder.registerItemModel();
 		stoneCorrupted.registerItemModel();
 		knifeJungle.registerItemModel();
-		
+		eyeCyclops.registerItemModel();
 		
 		
 		

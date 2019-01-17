@@ -531,6 +531,7 @@ item.eye_ender_legendary.name=Legendary Ender Eye
 item.stone_ender.name=Ender Stone
 item.stone_corrupted.name=Corrupted Stone
 item.knife_jungle.name=Jungle Knife
+item.eye_cyclops.name=Cyclops Eye
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
