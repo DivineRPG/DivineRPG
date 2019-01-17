@@ -19,6 +19,7 @@
 - Fix flight
 - Fix hitboxes for twilight and vanilla mobs
 - More organized creative tabs
-- Add chickens support
+- Add chickens/Mystical Crops/Magic crops support
 - Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.md
 - Fix weapon damage values
+- Final balancing
