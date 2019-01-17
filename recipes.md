@@ -1,4 +1,3 @@
-		addOredictRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
 		addRecipe(new ItemStack(VanillaItemsWeapons.dualClaw), " C ", "AAA", " C ", 'C', VanillaItemsOther.crabClaw, 'A', VanillaItemsOther.aquaticIngot);

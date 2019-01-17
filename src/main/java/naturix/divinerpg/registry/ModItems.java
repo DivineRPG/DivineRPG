@@ -1,5 +1,6 @@
 package naturix.divinerpg.registry;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.AxeBase;
 import naturix.divinerpg.bases.items.BowBase;
@@ -464,6 +465,7 @@ public class ModItems {
 	public static ItemBase furyFire = new ItemBase("fury_fire");
 	public static ItemBase stoneBluefire = new ItemBase("stone_bluefire");
 	public static ItemBase eyeEnderLegendary = new ItemBase("eye_ender_legendary");
+	public static SwordBase knifeJungle = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "knife_jungle");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -859,7 +861,8 @@ public class ModItems {
 				furyFire,
 				stoneBluefire,
 				eyeEnderLegendary,
-				stoneEnder
+				stoneEnder,
+				knifeJungle
 				);
 	}
 	
@@ -1257,8 +1260,12 @@ public class ModItems {
 		eyeEnderLegendary.registerItemModel();
 		stoneEnder.registerItemModel();
 		stoneCorrupted.registerItemModel();
+		knifeJungle.registerItemModel();
 		
-		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
+		
+		
+		
+		if(Config.debug) {DivineRPG.logger.info(DivineRPG.name + " items are loaded");}
 	}
 	
 }
