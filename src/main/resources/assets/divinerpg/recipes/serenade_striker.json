@@ -1,0 +1,14 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"I  ", "III", "  I"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:diamond"
+		}
+	},
+	"result": {
+		"item": "divinerpg:serenade_striker"
+	}
+}

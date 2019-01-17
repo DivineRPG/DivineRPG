@@ -452,6 +452,7 @@ public class ModItems {
 	public static ItemBase eyeWatch = new ItemBase("watchingeye"); 
 	public static ItemBase stoneMolten = new ItemBase("stone_molten"); 
 	public static ItemBase stoneEnder = new ItemBase("stone_ender"); 
+	public static ItemBase stoneCorrupted = new ItemBase("stone_corrupted"); 
 	public static ItemBase shadowBar = new ItemBase("ingot_shadow"); 
 	public static ItemBase chunkNetherite = new ItemBase("chunk_netherite"); 
 	public static ItemBase pelletsAquatic = new ItemBase("pellets_aquatic"); 
@@ -853,6 +854,7 @@ public class ModItems {
 				snowGlobe,
 				stoneJungle,
 				stoneIce,
+				stoneCorrupted,
 				blazePurple,
 				furyFire,
 				stoneBluefire,
@@ -1254,6 +1256,7 @@ public class ModItems {
 		furyFire.registerItemModel();
 		eyeEnderLegendary.registerItemModel();
 		stoneEnder.registerItemModel();
+		stoneCorrupted.registerItemModel();
 		
 		DivineRPG.logger.info(DivineRPG.name + " items are loaded");
 	}

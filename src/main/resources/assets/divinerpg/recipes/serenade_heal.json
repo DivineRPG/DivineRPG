@@ -1,0 +1,14 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"I  ", "III", "  I"
+	],
+	"key": {
+		"I": {
+			"item": "divinerpg:chunk_netherite"
+		}
+	},
+	"result": {
+		"item": "divinerpg:serenade_heal"
+	}
+}

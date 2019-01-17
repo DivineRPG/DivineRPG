@@ -33,6 +33,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.stoneBluefire, 1, 0), (int) 796);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.furyFire, 1, 0), (int) 2048);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.sharkFin, 1, 0), (int) 980);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.crabClaw, 1, 0), (int) 150);
 
 
 	}

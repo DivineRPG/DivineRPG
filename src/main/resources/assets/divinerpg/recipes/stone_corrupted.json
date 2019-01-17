@@ -1,0 +1,16 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"III",
+		"III",
+		"III"
+	],
+	"key": {
+		"I": {
+			"item": "divinerpg:shard_corrupted"
+		}
+	},
+	"result": {
+		"item": "divinerpg:stone_corrupted"
+	}
+}

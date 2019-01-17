@@ -2,19 +2,19 @@
 	"type": "forge:ore_shaped",
 	"pattern": [
 		" I ",
-		"III",
+		"ISI",
 		" S "
 	],
 	"key": {
-	"I": {
-			"item": "divinerpg:ingot_rupee"
-		},
 		"S": {
 			"type": "forge:ore_dict",
 			"ore": "stickWood"
+		},
+		"I": {
+			"item": "divinerpg:stone_corrupted"
 		}
 	},
 	"result": {
-		"item": "divinerpg:rapier_rupee"
+		"item": "divinerpg:deathbringer"
 	}
 }

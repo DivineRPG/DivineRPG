@@ -529,6 +529,7 @@ item.stone_bluefire.name=Bluefire Stone
 item.fury_fire.name=Fury Fire
 item.eye_ender_legendary.name=Legendary Ender Eye
 item.stone_ender.name=Ender Stone
+item.stone_corrupted.name=Corrupted Stone
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

@@ -1,10 +1,3 @@
-		addOredictRecipe(VanillaItemsWeapons.crabclawMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.crabClaw, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.bedrockSword, " B ", " B ", " S ", 'B', Blocks.bedrock, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.divineSword, " I ", "III", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
-		addRecipe(VanillaItemsWeapons.furyMaul, "OBO", "BBB", "OBO", 'B', Blocks.bedrock, 'O', Blocks.diamond_ore);
-		addOredictRecipe(VanillaItemsWeapons.deathBringer, " I ", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.corruptedMaul, "III", "ISI", " S ", 'I', VanillaItemsOther.corruptedStone, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.bedrockMaul, " B ", "BBB", " I ", 'B', Blocks.bedrock, 'I', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.jungleKnife, " I ", " I ", " S ", 'I', VanillaItemsOther.jungleStone, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
@@ -58,9 +51,6 @@
 		addOredictRecipe(VanillaItemsTools.divineShovel, " I ", " S ", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
 		addOredictRecipe(VanillaItemsTools.divineAxe, "II ", "IS ", " S ", 'I', VanillaItemsOther.divineStone, 'S', "stickWood");
 		addShapelessRecipe(VanillaItemsTools.divineShickaxe, VanillaItemsTools.divinePickaxe, VanillaItemsTools.divineShovel, VanillaItemsTools.divineAxe);
-		addRecipe(VanillaItemsWeapons.serenadeStriker, "I  ", "III", "  I", 'I', Items.diamond);
-		addRecipe(VanillaItemsWeapons.serenadeOfHealth, "I  ", "III", "  I", 'I', VanillaItemsOther.netheriteChunk);
-		addRecipe(VanillaItemsWeapons.serenadeOfDeath, "I  ", "III", "  I", 'I', VanillaItemsOther.shadowBar);
 		addRecipe(VanillaItemsArmor.realmiteHelmet, "III", "I I",  'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaItemsArmor.realmiteBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
 		addRecipe(VanillaItemsArmor.realmiteLegs, "III", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
@@ -184,7 +174,6 @@
 		addShapelessRecipe(VanillaItemsWeapons.greenEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.greenDiamondChunk);
 		addShapelessRecipe(VanillaItemsWeapons.blueEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.blueDiamondChunk);
 		addShapelessRecipe(VanillaItemsWeapons.grayEnderSword, VanillaItemsWeapons.enderSword, VanillaItemsOther.grayDiamondChunk);
-		addRecipe(VanillaItemsOther.netheriteChunk, " I ", "III", " I ", 'I', VanillaItemsOther.netheriteIngot);
 		addShapelessRecipe(IS.eyeShards, VanillaItemsOther.cyclopsEye);
 		addShapelessRecipe(new ItemStack(VanillaItemsOther.corruptedBullet, 16), VanillaItemsOther.corruptedShards);
 		addRecipe(VanillaBlocks.arlemiteBlock, "III", "III", "III", 'I', VanillaItemsOther.arlemiteIngot);
