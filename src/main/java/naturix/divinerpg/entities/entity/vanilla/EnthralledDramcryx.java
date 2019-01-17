@@ -105,6 +105,6 @@ public class EnthralledDramcryx extends EntityMob {
 	}
     @Override
     public boolean getCanSpawnHere() {
-    	return super.getCanSpawnHere() && !this.world.canBlockSeeSky(this.getPosition()) && this.getPosition().getY() < 14;
+    	return super.getCanSpawnHere() && !this.world.canBlockSeeSky(this.getPosition()) && this.getPosition().getY() < 16;
     }
 }

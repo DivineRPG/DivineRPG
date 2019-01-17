@@ -117,4 +117,8 @@ public class TheEye extends EntityMob {
 		return this.LOOT;
 
 	}
+    @Override
+    public boolean getCanSpawnHere() {
+    	return super.getCanSpawnHere() && !this.world.canBlockSeeSky(this.getPosition()) && this.getPosition().getY() < 16;
+    }
 }
