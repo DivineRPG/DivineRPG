@@ -225,6 +225,7 @@ import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
 import naturix.divinerpg.entities.entity.vanilla.CaveCrawler;
 import naturix.divinerpg.entities.entity.vanilla.Crab;
+import naturix.divinerpg.entities.entity.vanilla.Cyclops;
 import naturix.divinerpg.entities.entity.vanilla.DesertCrawler;
 import naturix.divinerpg.entities.entity.vanilla.Ehu;
 import naturix.divinerpg.entities.entity.vanilla.EnderTriplets;
@@ -430,6 +431,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "whale"), Whale.class, "whale", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "grizzle_white"), GrizzleWhite.class, "grizzle_white", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "watcher_end"), EnderWatcher.class, "watcher_end", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, "cyclops"), Cyclops.class, "cyclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		
 		id = 500;
 		//vethia

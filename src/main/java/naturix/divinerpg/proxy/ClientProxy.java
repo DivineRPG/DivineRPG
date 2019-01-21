@@ -6,6 +6,7 @@ import naturix.divinerpg.bases.blocks.tile.RenderTiles;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
+import naturix.divinerpg.entities.assets.render.vanilla.DodgyRenders;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
@@ -34,6 +35,7 @@ public class ClientProxy extends CommonProxy {
         RenderTiles.init();
         Utils.setupCapes();
         Utils.updateCapeList();
+        DodgyRenders.replaceRenderers();
     }
 	@Override
     public void postInit(FMLPostInitializationEvent e) {
