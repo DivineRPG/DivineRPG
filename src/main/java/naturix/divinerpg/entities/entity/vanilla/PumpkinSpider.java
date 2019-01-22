@@ -30,7 +30,7 @@ public class PumpkinSpider extends EntityMob {
 		this.setSize(1.2F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/spider_pumpkin");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/pumpkin_spider");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

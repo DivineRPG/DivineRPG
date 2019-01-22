@@ -30,7 +30,7 @@ public class JungleSpider extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/spider_jungle");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jungle_spider");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

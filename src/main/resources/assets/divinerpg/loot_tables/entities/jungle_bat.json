@@ -1,12 +1,12 @@
 {
    "pools":[
       {
-         "name":"divinerpg:rotatick",
+         "name":"divinerpg:jungle_bat",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"minecraft:diamond",
+               "name":"divinerpg:shard_jungle",
                "weight":1,
                "functions":[
                   {
@@ -15,6 +15,13 @@
                         "min":0,
                         "max":2
                      }
+                  },
+                  {
+                     "function":"looting_enchant",
+                     "count":{
+                        "min":0,
+                        "max":1
+                     }
                   }
                ]
             }
@@ -22,4 +29,3 @@
       }
    ]
 }
-

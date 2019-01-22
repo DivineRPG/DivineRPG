@@ -30,7 +30,7 @@ public class KingScorcher extends EntityMob {
 		this.setSize(1.4F, 1.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/scorcher_king");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_scorcher");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

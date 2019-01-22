@@ -1,12 +1,12 @@
 {
   "pools": [
     {
-      "name": "divinerpg:shark",
+      "name": "divinerpg:whale",
       "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:fin_shark",
+          "name": "divinerpg:fin_whale",
           "weight": 1,
           "functions": [
             {

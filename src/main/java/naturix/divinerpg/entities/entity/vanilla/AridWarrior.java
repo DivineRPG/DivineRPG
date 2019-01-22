@@ -30,7 +30,7 @@ public class AridWarrior extends EntityMob {
 		this.setSize(1.6F, 1.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/warrior_arid");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/arid_warrior");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

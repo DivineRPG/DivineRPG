@@ -23,16 +23,16 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class JungleStegosaurus extends EntityMob {
+public class Miner extends EntityMob {
 
-    public JungleStegosaurus(World worldIn) {
+    public Miner(World worldIn) {
 		super(worldIn);
-		this.setSize(1.2F, 1.3f);
+		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_jungle");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/miner");
 
-
+    private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
         return false;
     }
@@ -42,21 +42,20 @@ public class JungleStegosaurus extends EntityMob {
         return true;
     }
 
-    private ResourceLocation deathLootTable = LOOT;
+    @Override
+	protected ResourceLocation getLootTable()
+	{
+		return this.LOOT;
 
+	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
-        } else {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-            }
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+
     }
 
     protected void initEntityAI()
@@ -104,10 +103,4 @@ public class JungleStegosaurus extends EntityMob {
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
 }

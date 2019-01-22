@@ -30,7 +30,7 @@ public class StoneGolem extends EntityMob {
 		this.setSize(1.6F, 1.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/golem_stone");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/stone_golem");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

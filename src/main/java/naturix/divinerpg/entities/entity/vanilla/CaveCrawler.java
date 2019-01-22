@@ -30,7 +30,7 @@ public class CaveCrawler extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crawler_cave");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cave_crawler");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
