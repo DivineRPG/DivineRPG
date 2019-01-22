@@ -34,6 +34,10 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.furyFire, 1, 0), (int) 2048);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.finShark, 1, 0), (int) 980);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.crabClaw, 1, 0), (int) 150);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.finWhale, 1, 0), (int) 1508);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonSkull, 1, 0), (int) 13945);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonTeeth, 1, 0), (int) 300);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eyeCyclops, 1, 0), (int) 415);
 
 
 	}
