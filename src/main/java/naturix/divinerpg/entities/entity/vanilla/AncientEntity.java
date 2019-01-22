@@ -143,9 +143,4 @@ public class AncientEntity extends EntityMob {
 		super.onUpdate();
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
-	@Override
-	protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
-    {
-		this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, Item.getItemFromBlock(ModBlocks.ancientEntityStatue).getDefaultInstance()));
-    }
 }

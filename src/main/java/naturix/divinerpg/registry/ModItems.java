@@ -444,7 +444,8 @@ public class ModItems {
 	public static ItemBase shardEnder = new ItemBase("shard_ender"); 
 	public static ItemBase shardTerran = new ItemBase("shard_terran"); 
 	public static ItemBase shardDivine = new ItemBase("shard_divine"); 
-	public static ItemBase sharkFin = new ItemBase("shark_fin"); 
+	public static ItemBase finShark = new ItemBase("fin_shark"); 
+	public static ItemBase finWhale = new ItemBase("fin_whale"); 
 	public static ItemBase tokensDungeon = new ItemBase("tokens_dungeon"); 
 	public static TeleportStaff tpStaff = new TeleportStaff("teleportation_crystal");
 	public static InfernoArrow arrowInferno = new InfernoArrow("arrow_inferno");
@@ -466,7 +467,11 @@ public class ModItems {
 	public static ItemBase stoneBluefire = new ItemBase("stone_bluefire");
 	public static ItemBase eyeEnderLegendary = new ItemBase("eye_ender_legendary");
 	public static SwordBase knifeJungle = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "knife_jungle");
-	public static ItemBase eyeCyclops = new ItemBase("eye_cyclops"); 
+	public static ItemBase eyeCyclops = new ItemBase("eye_cyclops");
+	public static CannonBase liopleurodonAnchor = new CannonBase("liopleurodon_anchor"); 
+	public static ItemBase liopleurodonSkull = new ItemBase("liopleurodon_skull");
+	public static ItemBase liopleurodonTeeth = new ItemBase("liopleurodon_teeth");
+	public static ItemBase stoneHealing = new ItemBase("stone_healing");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -582,6 +587,9 @@ public class ModItems {
 				jungleChestplate,
 				jungleLeggings,
 				jungleBoots,
+				liopleurodonAnchor,
+				liopleurodonSkull,
+				liopleurodonTeeth,
 				kormaHelmet,
 				kormaChestplate,
 				kormaLeggings,
@@ -833,7 +841,8 @@ public class ModItems {
 				shardMolten,
 				shardCorrupted,
 				shardEnder,
-				sharkFin,
+				finShark,
+				finWhale,
 				tokensDungeon,
 				tpStaff,
 				arrowInferno,
@@ -864,7 +873,11 @@ public class ModItems {
 				eyeEnderLegendary,
 				stoneEnder,
 				knifeJungle,
-				eyeCyclops
+				eyeCyclops,
+				liopleurodonAnchor,
+				liopleurodonSkull,
+				liopleurodonTeeth,
+				stoneHealing
 				);
 	}
 	
@@ -1232,7 +1245,8 @@ public class ModItems {
 		shardMolten.registerItemModel();
 		shardCorrupted.registerItemModel();
 		shardEnder.registerItemModel();
-		sharkFin.registerItemModel();
+		finShark.registerItemModel();
+		finWhale.registerItemModel();
 		tokensDungeon.registerItemModel();
 		tpStaff.registerItemModel();
 		arrowInferno.registerItemModel();
@@ -1264,8 +1278,10 @@ public class ModItems {
 		stoneCorrupted.registerItemModel();
 		knifeJungle.registerItemModel();
 		eyeCyclops.registerItemModel();
-		
-		
+		liopleurodonAnchor.registerItemModel();
+		liopleurodonSkull.registerItemModel();
+		liopleurodonTeeth.registerItemModel();
+		stoneHealing.registerItemModel();
 		
 		if(Config.debug) {DivineRPG.logger.info(DivineRPG.name + " items are loaded");}
 	}

@@ -108,7 +108,7 @@ public class TheEye extends EntityMob {
         return super.getAmbientSound();
     }
 
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/eye");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_eye");
 
     private ResourceLocation deathLootTable = LOOT;
     @Override

@@ -30,7 +30,7 @@ public class EnthralledDramcryx extends EntityMob {
 		this.setSize(1.4F, 1.5f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramcryx_enthralled");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/enthralled_dramcryx");
 
 
     protected boolean isMaster() {

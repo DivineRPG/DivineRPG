@@ -38,7 +38,7 @@ public class TheWatcher extends EntityMob {
 		this.setHealth(this.getMaxHealth());
 		
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/watcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_watcher");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

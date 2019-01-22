@@ -66,7 +66,7 @@ public class HellSpider extends EntityMob {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/spider_hell");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hell_spider");
 
     private ResourceLocation deathLootTable = LOOT;
     @Override

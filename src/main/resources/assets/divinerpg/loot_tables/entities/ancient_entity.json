@@ -1,26 +1,19 @@
 {
    "pools":[
       {
-         "name":"divinerpg:ender_triplets",
+         "name":"divinerpg:ancient_entity",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_ender",
+               "name":"divinerpg:shard_divine",
                "weight":1,
                "functions":[
                   {
                      "function":"set_count",
                      "count":{
-                        "min":0,
+                        "min":3,
                         "max":6
-                     }
-                  },
-                  {
-                     "function":"looting_enchant",
-                     "count":{
-                        "min":0,
-                        "max":3
                      }
                   }
                ]
@@ -28,24 +21,37 @@
          ]
       },
       {
-         "name":"divinerpg:ender_triplets",
+         "name":"divinerpg:ancient_entity",
          "conditions":[
             {
                "condition":"killed_by_player"
-            },
-            {
-               "condition":"random_chance",
-               "chance":0.05
             }
          ],
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"minecraft:end_portal_frame",
+               "name":"divinerpg:sandslash",
+               "weight":1
+            }
+         ]
+      },
+      {
+         "name":"divinerpg:ancient_entity",
+         "conditions":[
+            {
+               "condition":"killed_by_player"
+            }
+         ],
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:statue_anciententity",
                "weight":1
             }
          ]
       }
    ]
 }
+

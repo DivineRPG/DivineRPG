@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEye extends RenderLiving<TheEye> {
+public class RenderTheEye extends RenderLiving<TheEye> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_eye.png");
 	private final ModelEye ModelEye;
     
-	public RenderEye(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderTheEye(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelEye(), 1F);
         ModelEye = (ModelEye) super.mainModel;
 
@@ -34,7 +34,7 @@ public class RenderEye extends RenderLiving<TheEye> {
 
 	        @Override
 	        public Render<? super TheEye> createRenderFor(RenderManager manager) {
-	            return new RenderEye(manager, new ModelEye(), 0.5F);
+	            return new RenderTheEye(manager, new ModelEye(), 0.5F);
 	        }
 	    }
 

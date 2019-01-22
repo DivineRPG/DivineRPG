@@ -1,6 +1,6 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.entities.entity.vanilla.LandShark;
+import naturix.divinerpg.entities.entity.vanilla.Shark;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.init.Biomes;
@@ -15,7 +15,7 @@ public class ModSpawns {
 		if(entity instanceof EntityWaterMob) {
 			if(entity.world.getBiome(new BlockPos(entity)) == Biomes.OCEAN && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL && !entity.world.isRemote) {
 				if(entity.getRNG().nextInt(500) == 1) {
-					LandShark squid = new LandShark(entity.world);
+					Shark squid = new Shark(entity.world);
 					squid.copyLocationAndAnglesFrom(entity);
 					entity.world.spawnEntity(squid);
 					entity.setDead();
