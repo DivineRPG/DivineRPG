@@ -22,7 +22,7 @@ public class Whale extends EntityWaterMob {
 
     public Whale(World worldIn) {
 		super(worldIn);
-		this.setSize(1.4F, 0.6f);
+		this.setSize(4F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/whale");
@@ -97,4 +97,9 @@ public class Whale extends EntityWaterMob {
 		return this.LOOT;
 
 	}
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.posY > 45.0D && this.posY < (double)this.world.getSeaLevel() && super.getCanSpawnHere();
+    }
 }

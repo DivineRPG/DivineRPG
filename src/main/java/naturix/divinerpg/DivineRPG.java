@@ -93,7 +93,7 @@ public class DivineRPG {
 			public static void onLivingSpawn(LivingSpawnEvent event) {
 				ModSpawns.init(event);
 			}
-			@SubscribeEvent
+	    	@SubscribeEvent
 			public static void registerItems(RegistryEvent.Register<Item> event) {
 				ModItems.register(event.getRegistry());
 				ModBlocks.registerItemBlocks(event.getRegistry());

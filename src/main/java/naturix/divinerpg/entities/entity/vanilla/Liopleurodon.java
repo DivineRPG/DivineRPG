@@ -103,4 +103,9 @@ public class Liopleurodon extends EntityMob {
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
     }
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.posY > 45.0D && this.posY < (double)this.world.getSeaLevel() && super.getCanSpawnHere();
+    }
 }

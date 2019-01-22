@@ -1,5 +1,7 @@
 package naturix.divinerpg.entities.assets.model.vanilla.model;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -54,6 +56,8 @@ public class ModelWhale extends ModelBase
      */
     public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
     {
+    	GL11.glScaled(5, 5, 5);
+        GL11.glTranslatef(0f, -1f, 0f);
         super.render(var1, var2, var3, var4, var5, var6, var7);
         this.body.render(var7);
         this.flipperL.render(var7);

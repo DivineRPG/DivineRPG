@@ -27,7 +27,7 @@ public class Miner extends EntityMob {
 
     public Miner(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1.9F, 0.6f);
 		this.setHealth(this.getMaxHealth());
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/miner");
