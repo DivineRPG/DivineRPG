@@ -476,115 +476,120 @@ public class ModEntities {
 		if(Config.debug) {
 		DivineRPG.logger.info(DivineRPG.modId +" entities have been loaded");
 		}
-		//Spawn
-		EntityRegistry.addSpawn(JungleDramcryx.class, 50 * Config.mobSpawnMultiplier, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
-		EntityRegistry.addSpawn(WildFire.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
-		EntityRegistry.addSpawn(HellSpider.class, 100 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
-		EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
-		EntityRegistry.addSpawn(EnderTriplets.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
-		EntityRegistry.addSpawn(EnderWatcher.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
-		EntityRegistry.addSpawn(EnthralledDramcryx.class, 75 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
-	
 		
+		
+	}
+	public static void initSpawns() {
+				EntityRegistry.addSpawn(JungleDramcryx.class, 50 * Config.mobSpawnMultiplier, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
+				EntityRegistry.addSpawn(WildFire.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
+				EntityRegistry.addSpawn(HellSpider.class, 100 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
+				EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
+				EntityRegistry.addSpawn(EnderTriplets.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
+				EntityRegistry.addSpawn(EnderWatcher.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
+				EntityRegistry.addSpawn(EnthralledDramcryx.class, 75 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
+			
+				
 
-		
-		
-		if(Config.debug) {
-			DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
-		}
+				
+				
+				if(Config.debug) {
+					DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
+				}
+	}
+	public static void initLoot() {
 		//loot
-		LootTableList.register(JungleDramcryx.LOOT);
-		LootTableList.register(Shark.LOOT);
-		LootTableList.register(WildFire.LOOT);
-		LootTableList.register(Rotatick.LOOT);
-		LootTableList.register(EnderTriplets.LOOT);
-		LootTableList.register(Leorna.LOOT);
-		LootTableList.register(Parasecta.LOOT);
-		LootTableList.register(Paratiku.LOOT);
-		LootTableList.register(AcidHag.LOOT);
-		LootTableList.register(Razorback.LOOT);
-		LootTableList.register(RejuvGolem.LOOT);
-		LootTableList.register(Roamer.LOOT);
-		LootTableList.register(Seimer.LOOT);
-		LootTableList.register(Wraith.LOOT);
-		LootTableList.register(HellSpider.LOOT);
-		LootTableList.register(Alicanto.LOOT);
-		LootTableList.register(Fractite.LOOT);
-		LootTableList.register(Frosty.LOOT);
-		LootTableList.register(Glacide.LOOT);
-		LootTableList.register(Hastreus.LOOT);
-		LootTableList.register(Rollum.LOOT);
-		LootTableList.register(WorkshopTinkerer.LOOT);
-		LootTableList.register(AngryBunny.LOOT);
-		LootTableList.register(Basalisk.LOOT);
-		LootTableList.register(Bohemoth.LOOT);
-		LootTableList.register(Bunny.LOOT);
-		LootTableList.register(EdenCadillion.LOOT);
-		LootTableList.register(EdenCori.LOOT);
-		LootTableList.register(DenseDemon.LOOT);
-		LootTableList.register(Densos.LOOT);
-		LootTableList.register(EnchantedArcher.LOOT);
-		LootTableList.register(EnchantedWarrior.LOOT);
-		LootTableList.register(Epiphite.LOOT);
-		LootTableList.register(EternalArcher.LOOT);
-		LootTableList.register(Greenfeet.LOOT);
-		LootTableList.register(Karot.LOOT);
-		LootTableList.register(Madivel.LOOT);
-		LootTableList.register(Mage.LOOT);
-		LootTableList.register(Megalith.LOOT);
-		LootTableList.register(MoonWolf.LOOT);
-		LootTableList.register(Mystic.LOOT);
-		LootTableList.register(Samek.LOOT);
-		LootTableList.register(SkythernFiend.LOOT);
-		LootTableList.register(Sorcerer.LOOT);
-		LootTableList.register(SoulFiend.LOOT);
-		LootTableList.register(SoulSpider.LOOT);
-		LootTableList.register(SoulStealer.LOOT);
-		LootTableList.register(SunArcher.LOOT);
-		LootTableList.register(EdenTomo.LOOT);
-		LootTableList.register(TwilightArcher.LOOT);
-		LootTableList.register(TwilightDemon.LOOT);
-		LootTableList.register(ApalachiaGolem.LOOT);
-		LootTableList.register(AyeracoRed.LOOT);
-		LootTableList.register(AyeracoBlue.LOOT);
-		LootTableList.register(AyeracoYellow.LOOT);
-		LootTableList.register(AyeracoPurple.LOOT);
-		LootTableList.register(AyeracoGreen.LOOT);
-		LootTableList.register(AridWarrior.LOOT);
-		LootTableList.register(Crab.LOOT);
-		LootTableList.register(KingCrab.LOOT);
-		LootTableList.register(EnthralledDramcryx.LOOT);
-		LootTableList.register(TameAngryBunny.LOOT);
-		LootTableList.register(Ehu.LOOT);
-		LootTableList.register(Frost.LOOT);
-		LootTableList.register(CaveCrawler.LOOT);
-		LootTableList.register(DesertCrawler.LOOT);
-		LootTableList.register(Glacon.LOOT);
-		LootTableList.register(Grizzle.LOOT);
-		LootTableList.register(TheGrue.LOOT);
-		LootTableList.register(Husk.LOOT);
-		LootTableList.register(Miner.LOOT);
-		LootTableList.register(JackOMan.LOOT);
-		LootTableList.register(JungleBat.LOOT);
-		LootTableList.register(JungleSpider.LOOT);
-		LootTableList.register(Kobblin.LOOT);
-		LootTableList.register(Liopleurodon.LOOT);
-		LootTableList.register(LivestockMerchant.LOOT);
-		LootTableList.register(PumpkinSpider.LOOT);
-		LootTableList.register(Rainbour.LOOT);
-		LootTableList.register(Scorcher.LOOT);
-		LootTableList.register(Snapper.LOOT);
-		LootTableList.register(StoneGolem.LOOT);
-		LootTableList.register(Whale.LOOT);
-		LootTableList.register(GrizzleWhite.LOOT);
-		LootTableList.register(EnderWatcher.LOOT);
-		LootTableList.register(Verek.LOOT);
-		LootTableList.register(TheEye.LOOT);
-		LootTableList.register(TheWatcher.LOOT);
-		
-		if(Config.debug) {	
-		DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
-		}
+				LootTableList.register(JungleDramcryx.LOOT);
+				LootTableList.register(Shark.LOOT);
+				LootTableList.register(WildFire.LOOT);
+				LootTableList.register(Rotatick.LOOT);
+				LootTableList.register(EnderTriplets.LOOT);
+				LootTableList.register(Leorna.LOOT);
+				LootTableList.register(Parasecta.LOOT);
+				LootTableList.register(Paratiku.LOOT);
+				LootTableList.register(AcidHag.LOOT);
+				LootTableList.register(Razorback.LOOT);
+				LootTableList.register(RejuvGolem.LOOT);
+				LootTableList.register(Roamer.LOOT);
+				LootTableList.register(Seimer.LOOT);
+				LootTableList.register(Wraith.LOOT);
+				LootTableList.register(HellSpider.LOOT);
+				LootTableList.register(Alicanto.LOOT);
+				LootTableList.register(Fractite.LOOT);
+				LootTableList.register(Frosty.LOOT);
+				LootTableList.register(Glacide.LOOT);
+				LootTableList.register(Hastreus.LOOT);
+				LootTableList.register(Rollum.LOOT);
+				LootTableList.register(WorkshopTinkerer.LOOT);
+				LootTableList.register(AngryBunny.LOOT);
+				LootTableList.register(Basalisk.LOOT);
+				LootTableList.register(Bohemoth.LOOT);
+				LootTableList.register(Bunny.LOOT);
+				LootTableList.register(EdenCadillion.LOOT);
+				LootTableList.register(EdenCori.LOOT);
+				LootTableList.register(DenseDemon.LOOT);
+				LootTableList.register(Densos.LOOT);
+				LootTableList.register(EnchantedArcher.LOOT);
+				LootTableList.register(EnchantedWarrior.LOOT);
+				LootTableList.register(Epiphite.LOOT);
+				LootTableList.register(EternalArcher.LOOT);
+				LootTableList.register(Greenfeet.LOOT);
+				LootTableList.register(Karot.LOOT);
+				LootTableList.register(Madivel.LOOT);
+				LootTableList.register(Mage.LOOT);
+				LootTableList.register(Megalith.LOOT);
+				LootTableList.register(MoonWolf.LOOT);
+				LootTableList.register(Mystic.LOOT);
+				LootTableList.register(Samek.LOOT);
+				LootTableList.register(SkythernFiend.LOOT);
+				LootTableList.register(Sorcerer.LOOT);
+				LootTableList.register(SoulFiend.LOOT);
+				LootTableList.register(SoulSpider.LOOT);
+				LootTableList.register(SoulStealer.LOOT);
+				LootTableList.register(SunArcher.LOOT);
+				LootTableList.register(EdenTomo.LOOT);
+				LootTableList.register(TwilightArcher.LOOT);
+				LootTableList.register(TwilightDemon.LOOT);
+				LootTableList.register(ApalachiaGolem.LOOT);
+				LootTableList.register(AyeracoRed.LOOT);
+				LootTableList.register(AyeracoBlue.LOOT);
+				LootTableList.register(AyeracoYellow.LOOT);
+				LootTableList.register(AyeracoPurple.LOOT);
+				LootTableList.register(AyeracoGreen.LOOT);
+				LootTableList.register(AridWarrior.LOOT);
+				LootTableList.register(Crab.LOOT);
+				LootTableList.register(KingCrab.LOOT);
+				LootTableList.register(EnthralledDramcryx.LOOT);
+				LootTableList.register(TameAngryBunny.LOOT);
+				LootTableList.register(Ehu.LOOT);
+				LootTableList.register(Frost.LOOT);
+				LootTableList.register(CaveCrawler.LOOT);
+				LootTableList.register(DesertCrawler.LOOT);
+				LootTableList.register(Glacon.LOOT);
+				LootTableList.register(Grizzle.LOOT);
+				LootTableList.register(TheGrue.LOOT);
+				LootTableList.register(Husk.LOOT);
+				LootTableList.register(Miner.LOOT);
+				LootTableList.register(JackOMan.LOOT);
+				LootTableList.register(JungleBat.LOOT);
+				LootTableList.register(JungleSpider.LOOT);
+				LootTableList.register(Kobblin.LOOT);
+				LootTableList.register(Liopleurodon.LOOT);
+				LootTableList.register(LivestockMerchant.LOOT);
+				LootTableList.register(PumpkinSpider.LOOT);
+				LootTableList.register(Rainbour.LOOT);
+				LootTableList.register(Scorcher.LOOT);
+				LootTableList.register(Snapper.LOOT);
+				LootTableList.register(StoneGolem.LOOT);
+				LootTableList.register(Whale.LOOT);
+				LootTableList.register(GrizzleWhite.LOOT);
+				LootTableList.register(EnderWatcher.LOOT);
+				LootTableList.register(Verek.LOOT);
+				LootTableList.register(TheEye.LOOT);
+				LootTableList.register(TheWatcher.LOOT);
+				
+				if(Config.debug) {	
+				DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
+				}
 	}
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {

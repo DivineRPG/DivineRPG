@@ -36,6 +36,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        ModDimensions.init();
 	        ModEntities.init();
+	        ModEntities.initSpawns();
+	        ModEntities.initLoot();
 	        ModLiquids.init();
 	        ListAllObjs.listobjs();
 	        DivineRPG.registerEvent(new EventArmorSet());
