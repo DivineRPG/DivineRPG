@@ -39,7 +39,7 @@ public class ShickaxeBase extends ItemTool {
         this.harvest=harvest;
         this.setMaxDamage(maxDamageIn);
     }
-    public void registerItemModel(Item item) {
+    public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
     protected boolean isEfficient(Block block) {

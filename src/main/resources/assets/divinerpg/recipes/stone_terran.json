@@ -1,0 +1,16 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"SSS",
+		"SSS",
+		"SSS"
+	],
+	"key": {
+		"S": {
+			"item": "divinerpg:shard_terran"
+		}
+	},
+	"result": {
+		"item": "divinerpg:stone_terran"
+	}
+}

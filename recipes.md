@@ -1,13 +1,3 @@
-		addOredictRecipe(VanillaItemsWeapons.cyclopsianSword, " E ", " E ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.cyclopsianStaff, " E ", " S ", " S ", 'E', VanillaItemsOther.cyclopsEye, 'S', "stickWood");
-		addRecipe(new ItemStack(VanillaItemsWeapons.dualClaw), " C ", "AAA", " C ", 'C', VanillaItemsOther.crabClaw, 'A', VanillaItemsOther.aquaticIngot);
-		addOredictRecipe(VanillaItemsWeapons.terranDagger, " T ", " S ", 'T', VanillaItemsOther.terranStone, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.terranKnife, " T ", " T ", " S ", 'T', VanillaItemsOther.terranStone, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.terranMaul, "TTT", " T ", " S ", 'T', VanillaItemsOther.terranStone, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.aquatoothSword, " T ", "TKT", " S ", 'T', VanillaItemsOther.liopleurodonTeeth, 'K', VanillaItemsOther.liopleurodonSkull, 'S', "stickWood");
-		addOredictRecipe(VanillaItemsWeapons.aquatoothMaul, "TKT", "TKT", "KSK", 'T', VanillaItemsOther.liopleurodonTeeth, 'K', VanillaItemsOther.liopleurodonSkull, 'S', "stickWood");
-		addRecipe(new ItemStack(VanillaItemsWeapons.jungleRapier), "S S", "SBS", " B ", 'S', VanillaItemsOther.jungleStone, 'B', VanillaItemsOther.shadowBar);
-		addRecipe(IS.shuriken, " I ", "III", " I ", 'I', Items.iron_ingot);
 		addRecipe(new ItemStack(VanillaItemsWeapons.vileStorm, 8), "SSS", "SJS", "SSS", 'J', VanillaItemsOther.jungleShards, 'S', VanillaItemsWeapons.shuriken);
 		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
 		addRecipe(VanillaItemsWeapons.maelstrom, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);

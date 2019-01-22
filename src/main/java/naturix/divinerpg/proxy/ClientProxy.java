@@ -6,20 +6,22 @@ import naturix.divinerpg.bases.blocks.tile.RenderTiles;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
+import naturix.divinerpg.client.TEISRRender;
 import naturix.divinerpg.entities.assets.render.vanilla.DodgyRenders;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ClientProxy extends CommonProxy {
 	@Override
@@ -64,5 +66,8 @@ public class ClientProxy extends CommonProxy {
     public void updateClientArcana(float amount) {
 //        ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount); 
     }
- 
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event) {
+    	TEISRRender.init();
+    }
 }

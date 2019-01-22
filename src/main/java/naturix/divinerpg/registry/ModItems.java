@@ -438,6 +438,10 @@ public class ModItems {
 	public static SwordBase sandslash = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sandslash");
 	public static SwordBase shadowSaber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "saber_shadow");
 	public static SwordBase flamingFury = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "flamingfury");
+	public static SwordBase daggerTerran = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "dagger_terran");
+	public static SwordBase knifeTerran = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "knife_terran");
+	public static SwordBase maulTerran = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_terran");
+	public static SwordBase maulAquatooth = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_aquatooth");
 	public static ItemBase shardJungle = new ItemBase("shard_jungle"); 
 	public static ItemBase shardMolten = new ItemBase("shard_molten"); 
 	public static ItemBase shardCorrupted = new ItemBase("shard_corrupted"); 
@@ -472,6 +476,9 @@ public class ModItems {
 	public static ItemBase liopleurodonSkull = new ItemBase("liopleurodon_skull");
 	public static ItemBase liopleurodonTeeth = new ItemBase("liopleurodon_teeth");
 	public static ItemBase stoneHealing = new ItemBase("stone_healing");
+	public static ItemBase stoneTerran = new ItemBase("stone_terran");
+	public static SwordBase rapierJungle = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "rapier_jungle");
+	public static ThrowableBase shuriken = new ThrowableBase("shuriken");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -877,12 +884,19 @@ public class ModItems {
 				liopleurodonAnchor,
 				liopleurodonSkull,
 				liopleurodonTeeth,
-				stoneHealing
+				stoneHealing,
+				daggerTerran,
+				knifeTerran,
+				maulTerran,
+				stoneTerran,
+				maulAquatooth,
+				rapierJungle,
+				shuriken
 				);
 	}
 	
 	public static void registerModels() {
-		amthirmisDisk.registerItemModel(amthirmisDisk);
+		amthirmisDisk.registerItemModel();
 		hunterBow.registerItemModel(); 
 		shadowBow.registerItemModel();
 		enderBow.registerItemModel();
@@ -1051,9 +1065,9 @@ public class ModItems {
 		witherreaperLeggings.registerItemModel();
 		witherreaperBoots.registerItemModel(witherreaperBoots);
 		bandHeivaHunt.registerItemModel();
-		rupeeShickaxe.registerItemModel(rupeeShickaxe);
-		arlemiteShickaxe.registerItemModel(arlemiteShickaxe);
-		divineShickaxe.registerItemModel(divineShickaxe);
+		rupeeShickaxe.registerItemModel();
+		arlemiteShickaxe.registerItemModel();
+		divineShickaxe.registerItemModel();
 		cannonAmthirmis.registerItemModel();
 		templateDisc.registerItemModel();
 		templateCannon.registerItemModel();
@@ -1282,6 +1296,13 @@ public class ModItems {
 		liopleurodonSkull.registerItemModel();
 		liopleurodonTeeth.registerItemModel();
 		stoneHealing.registerItemModel();
+		daggerTerran.registerItemModel();
+		knifeTerran.registerItemModel();
+		maulTerran.registerItemModel();
+		stoneTerran.registerItemModel();
+		maulAquatooth.registerItemModel();
+		rapierJungle.registerItemModel();
+		shuriken.registerItemModel();
 		
 		if(Config.debug) {DivineRPG.logger.info(DivineRPG.name + " items are loaded");}
 	}

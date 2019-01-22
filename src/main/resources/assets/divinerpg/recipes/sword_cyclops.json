@@ -1,0 +1,20 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"S",
+		"S",
+		"I"
+	],
+	"key": {
+		"I": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		},
+		"S": {
+			"item": "divinerpg:eye_cyclops"
+		}
+	},
+	"result": {
+		"item": "divinerpg:sword_cyclopsian"
+	}
+}

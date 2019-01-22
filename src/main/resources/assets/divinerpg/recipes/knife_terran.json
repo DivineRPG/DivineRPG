@@ -1,0 +1,20 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"S",
+		"S",
+		"I"
+	],
+	"key": {
+		"I": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		},
+		"S": {
+			"item": "divinerpg:stone_terran"
+		}
+	},
+	"result": {
+		"item": "divinerpg:knife_terran"
+	}
+}
