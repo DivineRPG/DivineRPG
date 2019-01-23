@@ -50,7 +50,7 @@ public class ApalachiaTreeLarge extends WorldGenAbstractTree {
         buildBranches(world, blockPos, trunkHeight + 2);
         buildBranchBase(world, blockPos, trunkHeight + 4);
         buildBranches2(world, blockPos, trunkHeight + 6);
-        setTreeHeight(world, blockPos, treeHeight);
+        //setTreeHeight(world, blockPos, treeHeight); Why is this here?
         return true;
     }
 
