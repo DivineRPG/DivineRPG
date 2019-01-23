@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderDreamwrecker extends RenderLiving<Dreamwrecker> {
+public class RenderDreamWrecker extends RenderLiving<Dreamwrecker> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/dreamwrecker.png");
 	private final ModelDreamwrecker modelEntity;
     
-	public RenderDreamwrecker(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderDreamWrecker(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelDreamwrecker(), 1F);
         modelEntity = (ModelDreamwrecker) super.mainModel;
 
@@ -34,7 +34,7 @@ public class RenderDreamwrecker extends RenderLiving<Dreamwrecker> {
 
 	        @Override
 	        public Render<? super Dreamwrecker> createRenderFor(RenderManager manager) {
-	            return new RenderDreamwrecker(manager, new ModelDreamwrecker(), 1F);
+	            return new RenderDreamWrecker(manager, new ModelDreamwrecker(), 1F);
 	        }
 	    }
 

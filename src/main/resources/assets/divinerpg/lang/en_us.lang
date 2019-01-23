@@ -569,6 +569,7 @@ entity.parasecta.name=Parasecta
 entity.acid_hag.name=Acid Hag
 entity.watcher.name=The Watcher
 entity.liopleurodon.name=Liopleurodon
+entity.divinerpg.cyclops.name=Cyclops
 
 advancement.divinerpg.name=DivineRPG
 advancement.divinerpg.mine_rupee.desc=Smelt 1 rupee ingot
