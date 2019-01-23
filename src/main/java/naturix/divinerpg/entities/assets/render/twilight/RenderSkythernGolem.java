@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderGolemSkythern extends RenderLiving<SkythernGolem> {
+public class RenderSkythernGolem extends RenderLiving<SkythernGolem> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_skythern.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/skythern_golem.png");
 	private final ModelTwilightGolem ModelTwilightGolem;
     
-	public RenderGolemSkythern(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderSkythernGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelTwilightGolem(), 1F);
         ModelTwilightGolem = (ModelTwilightGolem) super.mainModel;
 
@@ -34,7 +34,7 @@ public class RenderGolemSkythern extends RenderLiving<SkythernGolem> {
 
 	        @Override
 	        public Render<? super SkythernGolem> createRenderFor(RenderManager manager) {
-	            return new RenderGolemSkythern(manager, new ModelTwilightGolem(), 0.5F);
+	            return new RenderSkythernGolem(manager, new ModelTwilightGolem(), 0.5F);
 	        }
 	    }
 

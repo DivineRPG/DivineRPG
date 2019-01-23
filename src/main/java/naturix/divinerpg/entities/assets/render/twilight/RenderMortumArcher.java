@@ -13,7 +13,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderMortumArcher extends RenderLiving<MortumArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_mortum.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/mortum_archer.png");
 	private final ModelEnchantedArcher ModelEnchantedArcher;
     
 	public RenderMortumArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

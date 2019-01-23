@@ -13,7 +13,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSaguaroWorm extends RenderLiving<naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/worm_saguaro.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/saguaro_worm.png");
 	private final ModelSaguaroWorm ModelAyereco;
     
 	public RenderSaguaroWorm(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

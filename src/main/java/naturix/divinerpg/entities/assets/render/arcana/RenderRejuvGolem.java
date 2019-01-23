@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderRejuvGolem extends RenderLiving<RejuvGolem> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_rejuv.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rejuv_golem.png");
 	private final ModelRejuvGolem ModelRejuvGolem;
     
 	public RenderRejuvGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

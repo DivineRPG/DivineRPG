@@ -10,13 +10,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderCoriEden extends RenderLiving<naturix.divinerpg.entities.entity.arcana.EdenCori> {
+public class RenderEdenCori extends RenderLiving<naturix.divinerpg.entities.entity.arcana.EdenCori> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cori_eden.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eden_cori.png");
 	private final ModelCori ModelCori;
     
-	public RenderCoriEden(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderEdenCori(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCori(), 1F);
         ModelCori = (ModelCori) super.mainModel;
 
@@ -33,7 +33,7 @@ public class RenderCoriEden extends RenderLiving<naturix.divinerpg.entities.enti
 
 	        @Override
 	        public Render<? super naturix.divinerpg.entities.entity.arcana.EdenCori> createRenderFor(RenderManager manager) {
-	            return new RenderCoriEden(manager, new ModelCori(), 0.5F);
+	            return new RenderEdenCori(manager, new ModelCori(), 0.5F);
 	        }
 	    }
 

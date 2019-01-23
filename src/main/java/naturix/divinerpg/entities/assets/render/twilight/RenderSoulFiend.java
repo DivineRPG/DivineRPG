@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSoulFiend extends RenderLiving<SoulFiend> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/fiend_soul.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_fiend.png");
 	private final ModelSoulFiend ModelSoulFiend;
     
 	public RenderSoulFiend(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

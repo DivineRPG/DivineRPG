@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderTomoApalachia extends RenderLiving<ApalachiaTomo> {
+public class RenderApalachiaTomo extends RenderLiving<ApalachiaTomo> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/tomo_apalachia.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/apalachia_tomo.png");
 	private final ModelTomo ModelTomoApalachia;
     
-	public RenderTomoApalachia(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderApalachiaTomo(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelTomo(), 1F);
         ModelTomoApalachia = (ModelTomo) super.mainModel;
 
@@ -34,7 +34,7 @@ public class RenderTomoApalachia extends RenderLiving<ApalachiaTomo> {
 
 	        @Override
 	        public Render<? super ApalachiaTomo> createRenderFor(RenderManager manager) {
-	            return new RenderTomoApalachia(manager, new ModelTomo(), 0.5F);
+	            return new RenderApalachiaTomo(manager, new ModelTomo(), 0.5F);
 	        }
 	    }
 

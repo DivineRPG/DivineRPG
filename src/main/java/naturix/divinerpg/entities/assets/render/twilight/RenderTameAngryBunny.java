@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderTameAngryBunny extends RenderLiving<TameAngryBunny> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/bunny_angry_tamed.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/tamed_angry_bunny.png");
 	private final ModelAngryBunny ModelAngryBunny;
     
 	public RenderTameAngryBunny(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

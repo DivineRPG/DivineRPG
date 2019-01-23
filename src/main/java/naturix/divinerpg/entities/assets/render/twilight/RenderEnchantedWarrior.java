@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderEnchantedWarrior extends RenderLiving<EnchantedWarrior> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/warrior_enchanted.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_warrior.png");
 	private final ModelEnchantedWarrior ModelEnchantedWarrior;
     
 	public RenderEnchantedWarrior(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

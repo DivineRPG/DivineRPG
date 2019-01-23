@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderFrostArcher extends RenderLiving<FrostArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_frost.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frost_archer.png");
 	private final ModelBiped modelEntity;
     
 	public RenderFrostArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

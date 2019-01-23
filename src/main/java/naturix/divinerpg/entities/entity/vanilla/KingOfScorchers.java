@@ -1,4 +1,4 @@
-package naturix.divinerpg.entities.entity.vethia;
+package naturix.divinerpg.entities.entity.vanilla;
 
 import javax.annotation.Nullable;
 
@@ -23,14 +23,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class HungerHungry extends EntityMob {
+public class KingOfScorchers extends EntityMob {
 
-    public HungerHungry(World worldIn) {
+    public KingOfScorchers(World worldIn) {
 		super(worldIn);
-		this.setSize(0.8F, 1.9f);
+		this.setSize(1.4F, 1.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hungerhungry");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_of_scorchers");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
@@ -51,10 +51,10 @@ public class HungerHungry extends EntityMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1100.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(22.0D);
 
     }
 

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderDenseDemon extends RenderLiving<DenseDemon> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/demon_dense.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/dense_demon.png");
 	private final ModelDenseDemon ModelDenseDemon;
     
 	public RenderDenseDemon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

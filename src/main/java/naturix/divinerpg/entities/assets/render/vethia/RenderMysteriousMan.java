@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderMysteriousMan extends RenderLiving<MysteriousMan> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/mysteriousman.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/mysterious_man.png");
 	private final ModelMysteriousMan modelEntity;
     
 	public RenderMysteriousMan(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

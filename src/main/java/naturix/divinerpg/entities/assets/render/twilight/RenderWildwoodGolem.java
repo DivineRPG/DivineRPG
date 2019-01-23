@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderGolemWildwood extends RenderLiving<WildwoodGolem> {
+public class RenderWildwoodGolem extends RenderLiving<WildwoodGolem> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_wildwood.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildwood_golem.png");
 	private final ModelTwilightGolem ModelTwilightGolem;
     
-	public RenderGolemWildwood(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderWildwoodGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelTwilightGolem(), 1F);
         ModelTwilightGolem = (ModelTwilightGolem) super.mainModel;
 
@@ -34,7 +34,7 @@ public class RenderGolemWildwood extends RenderLiving<WildwoodGolem> {
 
 	        @Override
 	        public Render<? super WildwoodGolem> createRenderFor(RenderManager manager) {
-	            return new RenderGolemWildwood(manager, new ModelTwilightGolem(), 0.5F);
+	            return new RenderWildwoodGolem(manager, new ModelTwilightGolem(), 0.5F);
 	        }
 	    }
 

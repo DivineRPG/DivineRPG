@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderJungleBat extends RenderLiving<JungleBat> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/bat_jungle.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_bat.png");
 	private final ModelJungleBat ModelAyereco;
     
 	public RenderJungleBat(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

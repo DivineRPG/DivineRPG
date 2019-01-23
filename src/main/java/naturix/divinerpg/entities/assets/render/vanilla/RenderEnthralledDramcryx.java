@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderEnthralledDramcryx extends RenderLiving<EnthralledDramcryx> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/dramcryx_enthralled.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enthralled_dramcryx.png");
 	private final ModelEnthralledDramcryx ModelEnthralledDramcryx;
     
 	public RenderEnthralledDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

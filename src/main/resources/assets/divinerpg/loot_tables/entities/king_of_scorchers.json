@@ -1,7 +1,7 @@
 {
    "pools":[
       {
-         "name":"divinerpg:king_scorcher",
+         "name":"divinerpg:king_of_scorchers",
          "conditions":[
             {
                "condition":"killed_by_player"
@@ -17,7 +17,7 @@
          ]
       },
       {
-         "name":"divinerpg:king_scorcher",
+         "name":"divinerpg:king_of_scorchers",
          "conditions":[
             {
                "condition":"killed_by_player"
@@ -39,7 +39,7 @@
          ]
       },
       {
-         "name":"divinerpg:king_scorcher",
+         "name":"divinerpg:king_of_scorchers",
          "conditions":[
             {
                "condition":"killed_by_player"

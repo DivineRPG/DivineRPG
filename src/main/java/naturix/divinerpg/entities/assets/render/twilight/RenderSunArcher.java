@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSunArcher extends RenderLiving<SunArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_sun.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/sun_archer.png");
 	private final ModelSunArcher ModelSunArcher;
     
 	public RenderSunArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

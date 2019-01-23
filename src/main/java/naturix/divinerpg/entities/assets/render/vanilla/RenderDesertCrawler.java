@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderDesertCrawler extends RenderLiving<DesertCrawler> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/crawler_desert.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/desert_crawler.png");
 	private final ModelCrawler ModelAyereco;
     
 	public RenderDesertCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

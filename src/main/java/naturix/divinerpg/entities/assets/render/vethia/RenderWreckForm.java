@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderWreckForm extends RenderLiving<WreckForm> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wreckform1.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wreck_form_1.png");
 	private final ModelWreckForm1 modelEntity;
     
 	public RenderWreckForm(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

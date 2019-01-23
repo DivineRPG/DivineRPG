@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderEnchantedArcher extends RenderLiving<EnchantedArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_enchanted.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_archer.png");
 	private final ModelEnchantedArcher ModelEnchantedArcher;
     
 	public RenderEnchantedArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

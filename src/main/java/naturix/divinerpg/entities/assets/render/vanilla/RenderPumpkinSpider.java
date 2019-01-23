@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderPumpkinSpider extends RenderLiving<PumpkinSpider> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/spider_pumpkin.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/pumpkin_spider.png");
 	private final ModelPumpkinSpider ModelAyereco;
     
 	public RenderPumpkinSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

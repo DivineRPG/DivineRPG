@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderTwilightDemon extends RenderLiving<TwilightDemon> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/demon_twilight.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/twilight_demon.png");
 	private final ModelTwilightDemon ModelTwilightDemon;
     
 	public RenderTwilightDemon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

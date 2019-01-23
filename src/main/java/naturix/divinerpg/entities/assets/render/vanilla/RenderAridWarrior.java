@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderAridWarrior extends RenderLiving<AridWarrior> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/warrior_arid.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/arid_warrior.png");
 	private final ModelAridWarrior ModelAridWarrior;
     
 	public RenderAridWarrior(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

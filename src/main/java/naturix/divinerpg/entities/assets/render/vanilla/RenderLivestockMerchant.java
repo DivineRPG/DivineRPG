@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderLivestockMerchant extends RenderLiving<LivestockMerchant> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/merchant_livestock.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/livestock_merchant.png");
 	private final ModelLivestockMerchant ModelAyereco;
     
 	public RenderLivestockMerchant(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSoulSpider extends RenderLiving<SoulSpider> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/spider_soul.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_spider.png");
 	private final ModelSoulSpider ModelSoulSpider;
     
 	public RenderSoulSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

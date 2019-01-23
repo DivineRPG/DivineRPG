@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderEternalArcher extends RenderLiving<EternalArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_eternal.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eternal_archer.png");
 	private final ModelEternalArcher ModelEternalArcher;
     
 	public RenderEternalArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

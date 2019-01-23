@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderMoonWolf extends RenderLiving<MoonWolf> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wolf_moon.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/moon_wolf.png");
 	private final ModelMoonWolf ModelMoonWolf;
     
 	public RenderMoonWolf(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

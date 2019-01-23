@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSkythernFiend extends RenderLiving<SkythernFiend> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/fiend_skythern.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/skythern_fiend.png");
 	private final ModelSkythernFiend ModelSkythernFiend;
     
 	public RenderSkythernFiend(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

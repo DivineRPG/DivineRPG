@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderApalachiaGolem extends RenderLiving<ApalachiaGolem> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_apalachia.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/apalachia_golem.png");
 	private final ModelTwilightGolem ModelTwilightGolem;
     
 	public RenderApalachiaGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

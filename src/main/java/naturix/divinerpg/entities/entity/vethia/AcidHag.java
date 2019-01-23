@@ -30,7 +30,7 @@ public class AcidHag extends EntityMob {
 		this.setSize(0.8F, 1.7f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hag_acid");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/acid_hag");
 
 
     protected boolean isMaster() {

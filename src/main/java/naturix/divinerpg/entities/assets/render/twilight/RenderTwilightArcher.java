@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderTwilightArcher extends RenderLiving<TwilightArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_twilight.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/twilight_archer.png");
 	private final ModelTwilightArcher ModelTwilightArcher;
     
 	public RenderTwilightArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

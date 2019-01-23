@@ -3,9 +3,9 @@ package naturix.divinerpg.dimensions.apalachia;
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.entities.entity.twilight.ApalachiaArcher;
+import naturix.divinerpg.entities.entity.twilight.EnchantedArcher;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaGolem;
-import naturix.divinerpg.entities.entity.twilight.ApalachiaWarrior;
+import naturix.divinerpg.entities.entity.twilight.EnchantedWarrior;
 import naturix.divinerpg.entities.entity.twilight.Bunny;
 import naturix.divinerpg.entities.entity.twilight.Greenfeet;
 import naturix.divinerpg.entities.entity.twilight.Madivel;
@@ -37,10 +37,10 @@ public class BiomeApalachia extends Biome {
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;
     
-    this.spawnableMonsterList.add(new SpawnListEntry(ApalachiaWarrior.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(EnchantedWarrior.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(ApalachiaGolem.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(Bunny.class, 1, 1, 1));
-    this.spawnableMonsterList.add(new SpawnListEntry(ApalachiaArcher.class, 1, 1, 1));
+    this.spawnableMonsterList.add(new SpawnListEntry(EnchantedArcher.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(Greenfeet.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
     this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));

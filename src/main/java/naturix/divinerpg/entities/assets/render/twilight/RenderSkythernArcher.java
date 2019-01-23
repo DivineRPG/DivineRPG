@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSkythernArcher extends RenderLiving<SkythernArcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/archer_skythern.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/skythern_archer.png");
 	private final ModelEnchantedArcher ModelEnchantedArcher;
     
 	public RenderSkythernArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

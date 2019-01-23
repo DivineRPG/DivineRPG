@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderStoneGolem extends RenderLiving<StoneGolem> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_stone.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/stone_golem.png");
 	private final ModelStoneGolem ModelAyereco;
     
 	public RenderStoneGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderTheGrue extends RenderLiving<TheGrue> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/grue.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_grue.png");
 	private final ModelGrue ModelAyereco;
     
 	public RenderTheGrue(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

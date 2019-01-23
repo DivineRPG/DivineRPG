@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderSoulStealer extends RenderLiving<SoulStealer> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/stealer_soul.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_stealer.png");
 	private final ModelSoulStealer ModelSoulStealer;
     
 	public RenderSoulStealer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

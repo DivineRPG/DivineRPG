@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderJungleDramcryx extends RenderLiving<JungleDramcryx> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/dramcryx_jungle.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_dramcryx.png");
 	private final ModelDramcryx modelDramcryx;
     
 	public RenderJungleDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {

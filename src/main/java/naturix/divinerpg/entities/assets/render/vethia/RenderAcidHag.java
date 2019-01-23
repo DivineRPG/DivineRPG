@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderAcidHag extends RenderLiving<AcidHag> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/hag_acid.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/acid_hag.png");
 	private final ModelAcidHag modelEntity;
     
 	public RenderAcidHag(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
