@@ -7,6 +7,7 @@ import java.util.UUID;
 import com.google.common.collect.Multimap;
 
 import naturix.divinerpg.DivineRPG;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -65,4 +66,12 @@ public class SwordBase extends ItemSword {
 			modifiers.add(new AttributeModifier(modifier.getID(), modifier.getName(), modifier.getAmount() * multiplier, modifier.getOperation())); // Add the new modifier
 		}
 	}
+	
+	@Override
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
+    {
+        stack.damageItem(1, attacker);
+     if(this.getUnlocalizedName() == "palavence") {attacker.heal(1f);}
+        return true;
+    }
 }
