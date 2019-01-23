@@ -1,0 +1,19 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"SSS",
+		"SIS",
+		"SSS"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:string"
+		},
+		"S": {
+			"item": "divinerpg:blaze_purple"
+		}
+	},
+	"result": {
+		"item": "divinerpg:sound_of_music"
+	}
+}

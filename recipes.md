@@ -1,6 +1,3 @@
-		addRecipe(new ItemStack(VanillaItemsWeapons.vileStorm, 8), "SSS", "SJS", "SSS", 'J', VanillaItemsOther.jungleShards, 'S', VanillaItemsWeapons.shuriken);
-		addRecipe(IceikaItems.soundOfMusic, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.string);
-		addRecipe(VanillaItemsWeapons.maelstrom, "III", "IXI", "III", 'I', VanillaItemsOther.purpleBlaze, 'X', Items.book);
 		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
 		addRecipe(VanillaItemsWeapons.liopleurodonAnchor, "SIS", "IXI", " X ", 'I', VanillaItemsOther.liopleurodonTeeth, 'X', VanillaItemsOther.aquaticIngot, 'S', VanillaItemsOther.liopleurodonSkull);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);

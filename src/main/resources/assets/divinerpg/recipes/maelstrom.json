@@ -1,0 +1,19 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"SSS",
+		"SIS",
+		"SSS"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:book"
+		},
+		"S": {
+			"item": "divinerpg:blaze_purple"
+		}
+	},
+	"result": {
+		"item": "divinerpg:maelstrom"
+	}
+}

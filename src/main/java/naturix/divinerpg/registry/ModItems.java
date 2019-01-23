@@ -479,6 +479,9 @@ public class ModItems {
 	public static ItemBase stoneTerran = new ItemBase("stone_terran");
 	public static SwordBase rapierJungle = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "rapier_jungle");
 	public static ThrowableBase shuriken = new ThrowableBase("shuriken");
+	public static ThrowableBase vileStorm = new ThrowableBase("vilestorm");
+	public static ItemBase soundMusic = new ItemBase("sound_of_music");
+	public static ItemBase maelstrom = new ItemBase("maelstrom");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -891,7 +894,10 @@ public class ModItems {
 				stoneTerran,
 				maulAquatooth,
 				rapierJungle,
-				shuriken
+				shuriken,
+				vileStorm,
+				soundMusic,
+				maelstrom
 				);
 	}
 	
@@ -1303,6 +1309,9 @@ public class ModItems {
 		maulAquatooth.registerItemModel();
 		rapierJungle.registerItemModel();
 		shuriken.registerItemModel();
+		vileStorm.registerItemModel();
+		soundMusic.registerItemModel();
+		maelstrom.registerItemModel();
 		
 		if(Config.debug) {DivineRPG.logger.info(DivineRPG.name + " items are loaded");}
 	}

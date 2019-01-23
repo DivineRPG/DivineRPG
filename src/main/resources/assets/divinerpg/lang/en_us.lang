@@ -544,6 +544,9 @@ item.stone_terran.name=Terran Stone
 item.maul_aquatooth.name=Aquatooth Maul
 item.rapier_jungle.name=Jungle Rapier
 item.shuriken.name=Shuriken
+item.vilestorm.name=Vile Storm
+item.sound_of_music.name=Sound of Music
+item.maelstrom.name=Maelstrom
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
