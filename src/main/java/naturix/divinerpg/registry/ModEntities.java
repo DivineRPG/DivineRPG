@@ -117,7 +117,7 @@ import naturix.divinerpg.entities.assets.render.vethia.RenderBohemite;
 import naturix.divinerpg.entities.assets.render.vethia.RenderCryptKeeper;
 import naturix.divinerpg.entities.assets.render.vethia.RenderCymesoid;
 import naturix.divinerpg.entities.assets.render.vethia.RenderDissiment;
-import naturix.divinerpg.entities.assets.render.vethia.RenderDreamWrecker;
+import naturix.divinerpg.entities.assets.render.vethia.RenderDreamwrecker;
 import naturix.divinerpg.entities.assets.render.vethia.RenderDuo;
 import naturix.divinerpg.entities.assets.render.vethia.RenderEnt;
 import naturix.divinerpg.entities.assets.render.vethia.RenderGalroid;
@@ -719,7 +719,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(CryptKeeper.class, RenderCryptKeeper.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Cymesoid.class, RenderCymesoid.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Dissiment.class, RenderDissiment.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Dreamwrecker.class, RenderDreamWrecker.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Duo.class, RenderDuo.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Ent.class, RenderEnt.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Galroid.class, RenderGalroid.FACTORY);
