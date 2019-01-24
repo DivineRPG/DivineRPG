@@ -18,9 +18,12 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BossInfo;
+import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
 public class KingOfScorchers extends EntityMob {
@@ -33,9 +36,6 @@ public class KingOfScorchers extends EntityMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_of_scorchers");
 
     private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
     protected boolean canDespawn() {
@@ -82,7 +82,7 @@ public class KingOfScorchers extends EntityMob {
 
     @Override
     public int getMaxSpawnedInChunk() {
-        return 3;
+        return 1;
     }
 
     @Override
@@ -103,4 +103,30 @@ public class KingOfScorchers extends EntityMob {
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
     }
+
+    @Override
+	public boolean isNonBoss() {
+		return false;
+	}
+
+	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
+			BossInfo.Overlay.PROGRESS));
+
+	@Override
+	public void addTrackingPlayer(EntityPlayerMP player) {
+		super.addTrackingPlayer(player);
+		this.bossInfo.addPlayer(player);
+	}
+
+	@Override
+	public void removeTrackingPlayer(EntityPlayerMP player) {
+		super.removeTrackingPlayer(player);
+		this.bossInfo.removePlayer(player);
+	}
+
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+	}
 }
