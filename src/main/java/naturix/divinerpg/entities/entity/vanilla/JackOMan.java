@@ -33,9 +33,6 @@ public class JackOMan extends EntityMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jackoman");
 
     private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
     protected boolean canDespawn() {

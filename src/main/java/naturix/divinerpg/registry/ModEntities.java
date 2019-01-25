@@ -596,6 +596,7 @@ public class ModEntities {
 				LootTableList.register(Verek.LOOT);
 				LootTableList.register(TheEye.LOOT);
 				LootTableList.register(TheWatcher.LOOT);
+				LootTableList.register(Cyclops.LOOT);
 				LootTableList.register(Caveclops.LOOT);
 				
 				if(Config.debug) {	
