@@ -68,7 +68,7 @@ public class Config {
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase, "Set to false to make DivineRPG blocks non-beacon bases");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker, "Set to false to disable the update checker");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay, "Set to false to disable the overlay");
-        debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug, "Set to true to enable");
+        debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug, "Dont enable this unless instructed by a developer");
         mobSpawnMultiplier = cfg.getInt("Mob Spawn Multiplier", CATEGORY_GENERAL, 5, 1, 32, "If you are experiencing lag i would recommend lowering this number");
         cfg.addCustomCategoryComment(CATEGORY_ORE, "World gen variables");
         realmiteMin  = cfg.getInt("realmiteMin", CATEGORY_ORE, 1, 1, 255, "Choose a number between 1 and 255 to choose the min ore height");
