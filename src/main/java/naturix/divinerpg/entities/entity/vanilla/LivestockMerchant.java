@@ -33,9 +33,6 @@ public class LivestockMerchant extends EntityMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/merchant_livestock");
 
     private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
     protected boolean canDespawn() {

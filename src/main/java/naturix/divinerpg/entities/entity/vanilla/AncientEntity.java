@@ -54,7 +54,6 @@ public class AncientEntity extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
     }
 
     protected void initEntityAI()
