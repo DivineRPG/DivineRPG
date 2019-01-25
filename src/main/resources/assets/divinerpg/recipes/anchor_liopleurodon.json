@@ -1,0 +1,22 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"SIS",
+		"IXI",
+		" X "
+	],
+	"key": {
+		"X": {
+			"item": "divinerpg:ingot_aquatic"
+		},
+		"S": {
+			"item": "divinerpg:liopleurodon_skull"
+		},
+		"I": {
+			"item": "divinerpg:liopleurodon_teeth"
+		}
+	},
+	"result": {
+		"item": "divinerpg:liopleurodon_anchor"
+	}
+}
