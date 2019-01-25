@@ -77,7 +77,9 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoPurple;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyeracoYellow;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAyerecoRed;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderCaveCrawler;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderCaveclops;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderCrab;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderCyclops;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderDesertCrawler;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEhu;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderTriplets;
@@ -223,6 +225,7 @@ import naturix.divinerpg.entities.entity.vanilla.AyeracoPurple;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
 import naturix.divinerpg.entities.entity.vanilla.CaveCrawler;
+import naturix.divinerpg.entities.entity.vanilla.Caveclops;
 import naturix.divinerpg.entities.entity.vanilla.Crab;
 import naturix.divinerpg.entities.entity.vanilla.Cyclops;
 import naturix.divinerpg.entities.entity.vanilla.DesertCrawler;
@@ -300,9 +303,11 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModEntities {
@@ -433,6 +438,8 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".grizzle_white"), GrizzleWhite.class, DivineRPG.modId +".grizzle_white", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".ender_watcher"), EnderWatcher.class, DivineRPG.modId +".ender_watcher", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".cyclops"), Cyclops.class, DivineRPG.modId +".cyclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".caveclops"), Caveclops.class, DivineRPG.modId +".caveclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
+		
 		id = 500;
 		//vethia
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".acid_hag"), AcidHag.class, DivineRPG.modId +".acid_hag", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
@@ -481,14 +488,15 @@ public class ModEntities {
 		
 	}
 	public static void initSpawns() {
-				EntityRegistry.addSpawn(JungleDramcryx.class, 50 * Config.mobSpawnMultiplier, 1, 10, EnumCreatureType.MONSTER, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
+		for(Biome biome : ForgeRegistries.BIOMES.getValues()) {
+				EntityRegistry.addSpawn(JungleDramcryx.class, 50 * Config.mobSpawnMultiplier, 1, 10, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(WildFire.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
 				EntityRegistry.addSpawn(HellSpider.class, 100 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
-				EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
+				EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(EnderTriplets.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
 				EntityRegistry.addSpawn(EnderWatcher.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
-				EntityRegistry.addSpawn(EnthralledDramcryx.class, 75 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.EXTREME_HILLS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMPLAND, Biomes.RIVER, Biomes.HELL, Biomes.SKY, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.FOREST_HILLS, Biomes.TAIGA_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_BEACH, Biomes.COLD_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.ROOFED_FOREST, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.REDWOOD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_ROCK, Biomes.MESA_CLEAR_ROCK, Biomes.VOID, Biomes.MUTATED_PLAINS, Biomes.MUTATED_DESERT, Biomes.MUTATED_EXTREME_HILLS, Biomes.MUTATED_FOREST, Biomes.MUTATED_TAIGA, Biomes.MUTATED_SWAMPLAND, Biomes.MUTATED_ICE_FLATS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE, Biomes.MUTATED_BIRCH_FOREST, Biomes.MUTATED_BIRCH_FOREST_HILLS, Biomes.MUTATED_ROOFED_FOREST, Biomes.MUTATED_TAIGA_COLD, Biomes.MUTATED_REDWOOD_TAIGA, Biomes.MUTATED_REDWOOD_TAIGA_HILLS, Biomes.MUTATED_EXTREME_HILLS_WITH_TREES, Biomes.MUTATED_SAVANNA, Biomes.MUTATED_SAVANNA_ROCK, Biomes.MUTATED_MESA, Biomes.MUTATED_MESA_ROCK, Biomes.MUTATED_MESA_CLEAR_ROCK);
-				
+				EntityRegistry.addSpawn(EnthralledDramcryx.class, 75 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(Caveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
 				
 
 				
@@ -496,7 +504,7 @@ public class ModEntities {
 				if(Config.debug) {
 					DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 				}
-	}
+	}}
 	public static void initLoot() {
 		//loot
 				LootTableList.register(JungleDramcryx.LOOT);
@@ -588,6 +596,7 @@ public class ModEntities {
 				LootTableList.register(Verek.LOOT);
 				LootTableList.register(TheEye.LOOT);
 				LootTableList.register(TheWatcher.LOOT);
+				LootTableList.register(Caveclops.LOOT);
 				
 				if(Config.debug) {	
 				DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
@@ -709,6 +718,8 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(StoneGolem.class, RenderStoneGolem.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Whale.class, RenderWhale.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnderWatcher.class, RenderEnderWatcher.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Cyclops.class, RenderCyclops.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Caveclops.class, RenderCaveclops.FACTORY);
 		
 		
 		//vethia

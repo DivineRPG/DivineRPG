@@ -3,7 +3,7 @@ package naturix.divinerpg.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelCyclops;
-import naturix.divinerpg.entities.entity.vanilla.Cyclops;
+import naturix.divinerpg.entities.entity.vanilla.Caveclops;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,28 +11,28 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderCyclops extends RenderLiving<Cyclops> {
+public class RenderCaveclops extends RenderLiving<Caveclops> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cyclops.png");
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/caveclops.png");
 	private final ModelCyclops ModelAyereco;
     
-	public RenderCyclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderCaveclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCyclops(), 1F);
         ModelAyereco = (ModelCyclops) super.mainModel;
     } 
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Cyclops entity) {
+    protected ResourceLocation getEntityTexture(Caveclops entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Cyclops> {
+	 public static class Factory implements IRenderFactory<Caveclops> {
 
 	        @Override
-	        public Render<? super Cyclops> createRenderFor(RenderManager manager) {
-	            return new RenderCyclops(manager, new ModelCyclops(), 0.5F);
+	        public Render<? super Caveclops> createRenderFor(RenderManager manager) {
+	            return new RenderCaveclops(manager, new ModelCyclops(), 0.5F);
 	        }
 	    }
 
