@@ -1,5 +1,7 @@
 package naturix.divinerpg.registry;
 
+import com.google.common.graph.ElementOrder.Type;
+
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
@@ -305,6 +307,8 @@ import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -489,19 +493,88 @@ public class ModEntities {
 	}
 	public static void initSpawns() {
 		for(Biome biome : ForgeRegistries.BIOMES.getValues()) {
-				EntityRegistry.addSpawn(JungleDramcryx.class, 50 * Config.mobSpawnMultiplier, 1, 10, EnumCreatureType.MONSTER, biome);
-				EntityRegistry.addSpawn(WildFire.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
-				EntityRegistry.addSpawn(HellSpider.class, 100 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.HELL);
-				EntityRegistry.addSpawn(TheEye.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, biome);
-				EntityRegistry.addSpawn(EnderTriplets.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
-				EntityRegistry.addSpawn(EnderWatcher.class, 50 * Config.mobSpawnMultiplier, 1, 3, EnumCreatureType.MONSTER, Biomes.SKY);
-				EntityRegistry.addSpawn(EnthralledDramcryx.class, 75 * Config.mobSpawnMultiplier, 1, 5, EnumCreatureType.MONSTER, biome);
-				EntityRegistry.addSpawn(Caveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
+			Biome edenBiome = Biome.getBiome(ModBiomes.Eden.getIdForBiome(ModBiomes.Eden));
+			Biome iceikaBiome = ModBiomes.Iceika;
+			Biome wildwoodBiome = ModBiomes.WildWood;
+			Biome apalachiaBiome = ModBiomes.Apalachia;
+			Biome skythernBiome = ModBiomes.Skythern;
+			Biome mortumBiome = ModBiomes.Mortum;
+			
+				EntityRegistry.addSpawn(Alicanto.class, 2, 1, 10, EnumCreatureType.MONSTER,  iceikaBiome);
+		        EntityRegistry.addSpawn(Fractite.class, 2, 1, 10, EnumCreatureType.MONSTER,  iceikaBiome);
+		        EntityRegistry.addSpawn(Glacide.class, 2, 1, 10, EnumCreatureType.MONSTER, iceikaBiome);
+		        EntityRegistry.addSpawn(Hastreus.class, 2, 1, 10, EnumCreatureType.MONSTER, iceikaBiome);
+		        EntityRegistry.addSpawn(FrostArcher.class, 2, 1, 10, EnumCreatureType.MONSTER, iceikaBiome);
+		        EntityRegistry.addSpawn(Frosty.class, 2, 1, 10, EnumCreatureType.MONSTER, iceikaBiome);
+		        EntityRegistry.addSpawn(Rollum.class, 2, 1, 10, EnumCreatureType.MONSTER, iceikaBiome);
+		        
+		        EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.MONSTER, edenBiome);
+				EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.MONSTER, edenBiome);
+				EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.MONSTER, edenBiome);
+				EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.CREATURE, edenBiome);
+				EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.CREATURE, edenBiome);
+				EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.CREATURE, edenBiome);
+				EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.CREATURE, edenBiome);
+				EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.MONSTER, edenBiome);
+				EntityRegistry.addSpawn(Greenfeet.class, 20, 4, 4, EnumCreatureType.MONSTER, edenBiome);
+				EntityRegistry.addSpawn(Madivel.class, 20, 4, 4, EnumCreatureType.MONSTER, edenBiome);
+				EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.CREATURE, edenBiome);
+				EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.MONSTER, edenBiome);
 				
+				EntityRegistry.addSpawn(WildwoodCadillion.class, 4, 4, 4, EnumCreatureType.MONSTER, wildwoodBiome);
+				EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.MONSTER, wildwoodBiome);
+				EntityRegistry.addSpawn(WildwoodCadillion.class, 4, 4, 4, EnumCreatureType.CREATURE, wildwoodBiome);
+				EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.CREATURE, wildwoodBiome);
+				EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.MONSTER, wildwoodBiome);
+				EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.CREATURE, wildwoodBiome);
+		        EntityRegistry.addSpawn(Bohemoth.class, 1, 1, 1, EnumCreatureType.MONSTER, wildwoodBiome);
+		        EntityRegistry.addSpawn(Bohemoth.class, 1, 1, 1, EnumCreatureType.CREATURE, wildwoodBiome);
+		        EntityRegistry.addSpawn(WildwoodGolem.class, 3, 4, 4, EnumCreatureType.MONSTER, wildwoodBiome);
+				EntityRegistry.addSpawn(Verek.class, 4, 4, 4, EnumCreatureType.MONSTER, wildwoodBiome);
+				EntityRegistry.addSpawn(Mage.class, 2, 4, 4, EnumCreatureType.MONSTER, wildwoodBiome);
+				EntityRegistry.addSpawn(MoonWolf.class, 4, 4, 4, EnumCreatureType.CREATURE, wildwoodBiome);
+				
+				EntityRegistry.addSpawn(ApalachiaCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, apalachiaBiome);
+				EntityRegistry.addSpawn(ApalachiaGolem.class, 2, 4, 4, EnumCreatureType.MONSTER, apalachiaBiome);
+				EntityRegistry.addSpawn(ApalachiaTomo.class, 2, 4, 4, EnumCreatureType.MONSTER, apalachiaBiome);
+//				EntityRegistry.addSpawn(ApalachiaWarrior.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+//				EntityRegistry.addSpawn(ApalachiaArcher.class, 2, 4, 4, EnumCreatureType.monster, apalachiaBiome);
+//				EntityRegistry.addSpawn(Spellbinder.class, 1, 4, 4, EnumCreatureType.MONSTER, apalachiaBiome);
 
+				EntityRegistry.addSpawn(SkythernFiend.class, 4, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+				EntityRegistry.addSpawn(SkythernGolem.class, 4, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+				EntityRegistry.addSpawn(SkythernArcher.class, 4, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+				EntityRegistry.addSpawn(Samek.class, 4, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+				EntityRegistry.addSpawn(SkythernCori.class, 1, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+				EntityRegistry.addSpawn(Mystic.class, 2, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+				EntityRegistry.addSpawn(Megalith.class, 1, 4, 4, EnumCreatureType.MONSTER, skythernBiome);
+
+				EntityRegistry.addSpawn(MortumDemon.class, 2, 4, 4, EnumCreatureType.MONSTER, mortumBiome);
+				EntityRegistry.addSpawn(Basalisk.class, 2, 4, 4, EnumCreatureType.MONSTER, mortumBiome);
+				EntityRegistry.addSpawn(SoulStealer.class, 2, 4, 4, EnumCreatureType.MONSTER, mortumBiome);
+				EntityRegistry.addSpawn(MortumCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, mortumBiome);
+				EntityRegistry.addSpawn(TwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, mortumBiome);
+				EntityRegistry.addSpawn(Sorcerer.class, 1, 4, 4, EnumCreatureType.MONSTER, mortumBiome);
 				
 				
-				if(Config.debug) {
+				//all biomes
+				EntityRegistry.addSpawn(Miner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(JackOMan.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(CaveCrawler.class, 70, 2, 3, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(Rotatick.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(TheEye.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(TheGrue.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(Caveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
+//				EntityRegistry.addSpawn(EnderSpider.class, 4, 1, 4, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(Rainbour.class, 1, 1, 1, EnumCreatureType.AMBIENT, biome);
+				
+				//Beach Mobs
+				EntityRegistry.addSpawn(Crab.class, 100, 4, 4, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(KingCrab.class, 40, 4, 4, EnumCreatureType.MONSTER, biome);
+				
+					
+					if(Config.debug) {
 					DivineRPG.logger.info(DivineRPG.modId +" spawns have been loaded");
 				}
 	}}
