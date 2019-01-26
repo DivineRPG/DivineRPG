@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -78,7 +79,7 @@ public class Whale extends EntityWaterMob {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.WHALE;
     }
     @Override
 	protected ResourceLocation getLootTable()
