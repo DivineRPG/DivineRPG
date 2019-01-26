@@ -15,15 +15,10 @@ public class RenderKingCrab extends RenderLiving<KingCrab> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/crab.png");
-	private final ModelKingCrab ModelAyereco;
     
 	public RenderKingCrab(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelKingCrab(), 1F);
-        ModelAyereco = (ModelKingCrab) super.mainModel;
-        
-
     } 
-
 
 	@Nullable
     @Override

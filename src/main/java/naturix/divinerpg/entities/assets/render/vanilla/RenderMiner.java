@@ -15,11 +15,9 @@ public class RenderMiner extends RenderLiving<Miner> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/miner.png");
-	private final ModelZombie ModelZombie;
     
 	public RenderMiner(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelZombie(), 1F);
-        ModelZombie = (ModelZombie) super.mainModel;
     } 
 
 	@Nullable

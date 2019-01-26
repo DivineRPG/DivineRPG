@@ -15,11 +15,9 @@ public class RenderKobblin extends RenderLiving<Kobblin> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/kobblin.png");
-	private final ModelKobblin ModelAyereco;
     
 	public RenderKobblin(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelKobblin(), 1F);
-        ModelAyereco = (ModelKobblin) super.mainModel;
     } 
 
 	@Nullable

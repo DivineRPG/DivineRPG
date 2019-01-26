@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,6 +19,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -32,11 +34,6 @@ public class EnthralledDramcryx extends EntityMob {
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/enthralled_dramcryx");
 
-
-    protected boolean isMaster() {
-        return false;
-    }
-
     @Override
     protected boolean canDespawn() {
         return true;
@@ -47,10 +44,11 @@ public class EnthralledDramcryx extends EntityMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80.0D);
-        }
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
+    }
 
     protected void initEntityAI()
     {
@@ -88,15 +86,20 @@ public class EnthralledDramcryx extends EntityMob {
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    protected SoundEvent getAmbientSound() {
+		return ModSounds.DRAMCRYX;
+    }
+    
+    @Override
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return ModSounds.DRAMCRYX_HURT;
+	}
+
+    @Override
+	protected SoundEvent getDeathSound() {
+		return ModSounds.DRAMCRYX_HURT;
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
     @Override
 	protected ResourceLocation getLootTable()
 	{

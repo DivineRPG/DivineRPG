@@ -7,7 +7,6 @@ import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.TEISRRender;
-import naturix.divinerpg.entities.assets.render.vanilla.DodgyRenders;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
@@ -37,7 +36,6 @@ public class ClientProxy extends CommonProxy {
         RenderTiles.init();
         Utils.setupCapes();
         Utils.updateCapeList();
-        DodgyRenders.replaceRenderers();
     }
 	@Override
     public void postInit(FMLPostInitializationEvent e) {
@@ -55,10 +53,6 @@ public class ClientProxy extends CommonProxy {
 	}
 
     public void registerItemRenderer(Item item, int meta, String id) {
-    	if (Config.debug = true) {
-        DivineRPG.logger.info(id.toLowerCase() + "'s model has just been registered");
-        
-        }
     	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
     	
     }

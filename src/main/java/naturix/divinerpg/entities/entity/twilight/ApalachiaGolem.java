@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class ApalachiaGolem extends EntityMob {
@@ -31,7 +33,11 @@ public class ApalachiaGolem extends EntityMob {
     protected boolean isMaster() {
         return false;
     }
-
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.apalachiaDimension.getId();
+    }
     @Override
     protected boolean canDespawn() {
         return true;

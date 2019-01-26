@@ -482,6 +482,8 @@ public class ModItems {
 	public static ThrowableBase vileStorm = new ThrowableBase("vilestorm");
 	public static ItemBase soundMusic = new ItemBase("sound_of_music");
 	public static ItemBase maelstrom = new ItemBase("maelstrom");
+	public static ItemBase chunkMortum = new ItemBase("chunk_mortum");
+	public static CannonBase cannonGhast = new CannonBase("cannon_ghast"); 
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -897,7 +899,9 @@ public class ModItems {
 				shuriken,
 				vileStorm,
 				soundMusic,
-				maelstrom
+				maelstrom,
+				chunkMortum,
+				cannonGhast
 				);
 	}
 	
@@ -1312,6 +1316,8 @@ public class ModItems {
 		vileStorm.registerItemModel();
 		soundMusic.registerItemModel();
 		maelstrom.registerItemModel();
+		chunkMortum.registerItemModel();
+		cannonGhast.registerItemModel();
 		
 		if(Config.debug) {DivineRPG.logger.info(DivineRPG.name + " items are loaded");}
 	}

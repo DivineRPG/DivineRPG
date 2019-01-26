@@ -15,14 +15,10 @@ public class RenderAncientEntity extends RenderLiving<AncientEntity> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ancient_entity.png");
-	private final ModelAncientEntity ModelAncientEntity;
     
 	public RenderAncientEntity(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelAncientEntity(), 8F);
-        ModelAncientEntity = (ModelAncientEntity) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

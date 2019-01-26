@@ -15,14 +15,10 @@ public class RenderTheWatcher extends RenderLiving<TheWatcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_watcher.png");
-	private final ModelWatcher modelEntity;
     
 	public RenderTheWatcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelWatcher(), 1F);
-        modelEntity = (ModelWatcher) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

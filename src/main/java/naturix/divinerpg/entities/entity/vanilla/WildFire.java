@@ -44,9 +44,6 @@ public class WildFire extends EntityMob implements IRangedAttackMob{
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-   protected boolean isMaster() {
-        return false;
-    }
 
     @Override
     protected boolean canDespawn() {
@@ -61,16 +58,10 @@ public class WildFire extends EntityMob implements IRangedAttackMob{
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
-        if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(22.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
-        } else {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(23.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-        }
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
     }
 
     protected void initEntityAI()

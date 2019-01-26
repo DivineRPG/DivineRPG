@@ -15,14 +15,10 @@ public class RenderTheEye extends RenderLiving<TheEye> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_eye.png");
-	private final ModelEye ModelEye;
     
 	public RenderTheEye(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelEye(), 1F);
-        ModelEye = (ModelEye) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

@@ -15,11 +15,9 @@ public class RenderGlacon extends RenderLiving<Glacon> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/glacon.png");
-	private final ModelGlacon ModelAyereco;
     
 	public RenderGlacon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelGlacon(), 1F);
-        ModelAyereco = (ModelGlacon) super.mainModel;
     } 
 
 	@Nullable

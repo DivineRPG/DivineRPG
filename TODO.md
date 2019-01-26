@@ -6,7 +6,6 @@
 - Make Advancmenets
 - Make tile entities
 - Finish Entities
-- Add Sounds
 - Make Projectiles
 - Make Custom Trades
 - Fix Statues and Altars

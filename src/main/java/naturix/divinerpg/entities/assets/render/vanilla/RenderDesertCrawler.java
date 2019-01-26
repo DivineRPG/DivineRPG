@@ -15,11 +15,9 @@ public class RenderDesertCrawler extends RenderLiving<DesertCrawler> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/desert_crawler.png");
-	private final ModelCrawler ModelAyereco;
     
 	public RenderDesertCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCrawler(), 1F);
-        ModelAyereco = (ModelCrawler) super.mainModel;
     } 
 
 	@Nullable

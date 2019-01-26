@@ -15,11 +15,9 @@ public class RenderCrab extends RenderLiving<Crab> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/crab.png");
-	private final ModelCrab ModelAyereco;
     
 	public RenderCrab(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCrab(), 1F);
-        ModelAyereco = (ModelCrab) super.mainModel;
     } 
 
 	@Nullable

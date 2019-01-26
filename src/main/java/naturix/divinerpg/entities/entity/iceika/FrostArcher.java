@@ -2,6 +2,7 @@ package naturix.divinerpg.entities.entity.iceika;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -16,6 +17,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
@@ -97,5 +99,11 @@ public class FrostArcher extends AbstractSkeleton
 
             return entityarrow;
         }
+    }
+
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.iceikaDimension.getId();
     }
 }

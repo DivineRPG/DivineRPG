@@ -29,14 +29,14 @@ public class ModSpawns {
 					whale.copyLocationAndAnglesFrom(entity);
 					liopleurodon.copyLocationAndAnglesFrom(entity);
 					
-					if(entity.getRNG().nextInt(100) == 1) {
+					if(entity.getRNG().nextInt(250) == 1) {
 					entity.world.spawnEntity(shark);
 					entity.setDead();
 					
 					if(Config.debug == true) {
 						DivineRPG.logger.info(shark.getName() + " just spawned at "+ entity.getPosition());
 					}}
-					if(entity.getRNG().nextInt(250) == 1) {
+					if(entity.getRNG().nextInt(500) == 1) {
 					entity.world.spawnEntity(whale);
 					entity.setDead();
 					

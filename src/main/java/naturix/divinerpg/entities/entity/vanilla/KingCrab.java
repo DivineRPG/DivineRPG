@@ -18,10 +18,13 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeBeach;
 
 public class KingCrab extends EntityMob {
 
@@ -33,9 +36,6 @@ public class KingCrab extends EntityMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_crab");
 
     private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
     protected boolean canDespawn() {
@@ -51,11 +51,10 @@ public class KingCrab extends EntityMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(9.0D);
     }
 
     protected void initEntityAI()
@@ -102,5 +101,9 @@ public class KingCrab extends EntityMob {
     @Override
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
+    }
+    @Override
+    public boolean getCanSpawnHere() {
+    	return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.world.getBiome(getPosition()) == Biomes.BEACH || this.world.getBiome(getPosition()) == Biomes.COLD_BEACH || this.world.getBiome(getPosition()) == Biomes.STONE_BEACH;
     }
 }

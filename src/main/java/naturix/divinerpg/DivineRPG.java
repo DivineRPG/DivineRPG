@@ -17,6 +17,7 @@ import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
 import naturix.divinerpg.registry.ModSpawns;
 import naturix.divinerpg.utils.log.InitLog;
+import naturix.divinerpg.utils.log.IntenseDebug;
 import naturix.divinerpg.utils.log.PostInitLog;
 import naturix.divinerpg.utils.log.PreInitLog;
 import naturix.divinerpg.world.ModWorldGen;
@@ -86,6 +87,8 @@ public class DivineRPG {
 	        proxy.postInit(e);
 	        if(Loader.isModLoaded("projecte")) {ProjectECompat.init();}
 	        PostInitLog.init();
+	        
+	        if(Config.debug) {IntenseDebug.init();}
 	    }
 	    @Mod.EventBusSubscriber
 		public static class RegistrationHandler {

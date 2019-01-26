@@ -14,11 +14,9 @@ public class RenderSaguaroWorm extends RenderLiving<naturix.divinerpg.entities.e
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/saguaro_worm.png");
-	private final ModelSaguaroWorm ModelAyereco;
     
 	public RenderSaguaroWorm(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelSaguaroWorm(), 1F);
-        ModelAyereco = (ModelSaguaroWorm) super.mainModel;
     } 
 
 	@Nullable

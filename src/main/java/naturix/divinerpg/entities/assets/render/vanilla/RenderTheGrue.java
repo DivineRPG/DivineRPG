@@ -15,11 +15,9 @@ public class RenderTheGrue extends RenderLiving<TheGrue> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_grue.png");
-	private final ModelGrue ModelAyereco;
     
 	public RenderTheGrue(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelGrue(), 1F);
-        ModelAyereco = (ModelGrue) super.mainModel;
     } 
 
 	@Nullable

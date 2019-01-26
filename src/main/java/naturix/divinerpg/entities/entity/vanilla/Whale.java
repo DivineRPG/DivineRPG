@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +14,8 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -27,11 +30,6 @@ public class Whale extends EntityWaterMob {
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/whale");
 
-
-    protected boolean isMaster() {
-        return false;
-    }
-
     @Override
     protected boolean canDespawn() {
         return true;
@@ -42,16 +40,10 @@ public class Whale extends EntityWaterMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
-        if (isMaster()) {
-            //this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-            //this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
-        } else {
-            //this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-        }
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
+        //this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
     }
 
     protected void initEntityAI()
@@ -86,11 +78,21 @@ public class Whale extends EntityWaterMob {
         super.playStepSound(pos, blockIn);
     }
 
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.WHALE;
     }
+    
+    @Override
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return ModSounds.WHALE_HURT;
+	}
+
+    @Override
+	protected SoundEvent getDeathSound() {
+		return ModSounds.WHALE_HURT;
+    }
+
     @Override
 	protected ResourceLocation getLootTable()
 	{

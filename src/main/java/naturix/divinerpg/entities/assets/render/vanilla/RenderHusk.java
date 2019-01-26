@@ -15,11 +15,9 @@ public class RenderHusk extends RenderLiving<Husk> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/husk.png");
-	private final ModelHusk ModelAyereco;
     
 	public RenderHusk(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelHusk(), 1F);
-        ModelAyereco = (ModelHusk) super.mainModel;
     } 
 
 	@Nullable

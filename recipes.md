@@ -1,5 +1,3 @@
-		addRecipe(VanillaItemsWeapons.ghastCannon, "I I", "I I", "XXX", 'I', VanillaItemsOther.shadowBar, 'X', VanillaItemsOther.hellstoneIngot);
-		addRecipe(VanillaItemsWeapons.liopleurodonAnchor, "SIS", "IXI", " X ", 'I', VanillaItemsOther.liopleurodonTeeth, 'X', VanillaItemsOther.aquaticIngot, 'S', VanillaItemsOther.liopleurodonSkull);
 		addRecipe(VanillaItemsWeapons.bowheadAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.whaleFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.sharkAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.sharkFin, 'X', VanillaItemsOther.aquaticIngot);
 		addRecipe(VanillaItemsWeapons.crabAnchor, "III", "IXI", " X ", 'I', VanillaItemsOther.crabClaw, 'X', VanillaItemsOther.aquaticIngot);
@@ -397,7 +395,6 @@
 		addOredictRecipe(TwilightItemsWeapons.skythernPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.skythernChunk, 'S', "stickWood");
 		addRecipe(TwilightItemsWeapons.skythernBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.skythernChunk);
 		addShapelessRecipe(new ItemStack(TwilightItemsWeapons.skythernSlicer, 20), TwilightItemsOther.skythernGem);
-		addOredictRecipe(TwilightItemsWeapons.mortumBlade, " I ", " I ", " S ", 'I', TwilightItemsOther.mortumChunk, 'S', "stickWood");
 		addRecipe(TwilightItemsWeapons.mortumBow, " IX", "I X", " IX", 'I', TwilightItemsOther.mortumChunk, 'X', Items.string);
 		addOredictRecipe(TwilightItemsWeapons.mortumPhaser, " X ", "XXX", " S ", 'X', TwilightItemsOther.mortumChunk, 'S', "stickWood");
 		addRecipe(TwilightItemsWeapons.mortumBlitz, "X X", "X X", "XXX", 'X', TwilightItemsOther.mortumChunk);

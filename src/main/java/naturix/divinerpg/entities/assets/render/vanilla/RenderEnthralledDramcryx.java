@@ -15,14 +15,10 @@ public class RenderEnthralledDramcryx extends RenderLiving<EnthralledDramcryx> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enthralled_dramcryx.png");
-	private final ModelEnthralledDramcryx ModelEnthralledDramcryx;
     
 	public RenderEnthralledDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelEnthralledDramcryx(), 1F);
-        ModelEnthralledDramcryx = (ModelEnthralledDramcryx) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

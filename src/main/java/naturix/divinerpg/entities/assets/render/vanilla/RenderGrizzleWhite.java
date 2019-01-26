@@ -15,11 +15,9 @@ public class RenderGrizzleWhite extends RenderLiving<GrizzleWhite> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/grizzle_white.png");
-	private final ModelGrizzle ModelAyereco;
     
 	public RenderGrizzleWhite(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelGrizzle(), 1F);
-        ModelAyereco = (ModelGrizzle) super.mainModel;
     } 
 
 	@Nullable

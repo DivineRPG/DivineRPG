@@ -36,7 +36,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        ModDimensions.init();
 	        ModEntities.init();
-	        ModEntities.initSpawns();
 	        ModEntities.initLoot();
 	        ModLiquids.init();
 	        ListAllObjs.listobjs();
@@ -52,6 +51,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	if (config.hasChanged()) {
 	            config.save();
 	        }
+
+	        ModEntities.initSpawns();
 	    }
 
 	    @SubscribeEvent

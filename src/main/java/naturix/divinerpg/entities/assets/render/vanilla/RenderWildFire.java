@@ -35,6 +35,7 @@ public class RenderWildFire extends RenderLiving<WildFire> {
         }
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
+
 	@Nullable
     @Override
     protected ResourceLocation getEntityTexture(WildFire entity) {

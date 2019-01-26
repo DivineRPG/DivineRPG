@@ -15,14 +15,10 @@ public class RenderShark extends RenderLiving<Shark> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/shark.png");
-	private final ModelShark ModelShark;
     
 	public RenderShark(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelShark(), 1F);
-        ModelShark = (ModelShark) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override
