@@ -15,11 +15,9 @@ public class RenderCyclops extends RenderLiving<Cyclops> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cyclops.png");
-	private final ModelCyclops ModelAyereco;
     
 	public RenderCyclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCyclops(), 1F);
-        ModelAyereco = (ModelCyclops) super.mainModel;
     } 
 
 	@Nullable

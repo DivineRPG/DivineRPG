@@ -15,11 +15,9 @@ public class RenderJackOMan extends RenderLiving<JackOMan> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jackoman.png");
-	private final ModelJackOMan ModelAyereco;
     
 	public RenderJackOMan(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelJackOMan(), 1F);
-        ModelAyereco = (ModelJackOMan) super.mainModel;
     } 
 
 	@Nullable

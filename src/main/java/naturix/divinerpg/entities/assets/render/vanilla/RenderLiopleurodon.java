@@ -15,11 +15,9 @@ public class RenderLiopleurodon extends RenderLiving<Liopleurodon> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/liopleurodon.png");
-	private final ModelLiopleurodon ModelAyereco;
     
 	public RenderLiopleurodon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelLiopleurodon(), 1F);
-        ModelAyereco = (ModelLiopleurodon) super.mainModel;
     } 
 
 	@Nullable

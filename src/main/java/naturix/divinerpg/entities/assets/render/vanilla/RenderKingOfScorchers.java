@@ -15,11 +15,9 @@ public class RenderKingOfScorchers extends RenderLiving<KingOfScorchers> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/king_of_scorchers.png");
-	private final ModelKingScorcher ModelAyereco;
     
 	public RenderKingOfScorchers(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelKingScorcher(), 1F);
-        ModelAyereco = (ModelKingScorcher) super.mainModel;
     } 
 
 	@Nullable

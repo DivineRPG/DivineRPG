@@ -15,11 +15,9 @@ public class RenderStoneGolem extends RenderLiving<StoneGolem> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/stone_golem.png");
-	private final ModelStoneGolem ModelAyereco;
     
 	public RenderStoneGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelStoneGolem(), 1F);
-        ModelAyereco = (ModelStoneGolem) super.mainModel;
     } 
 
 	@Nullable

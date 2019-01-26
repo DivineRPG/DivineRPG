@@ -15,11 +15,9 @@ public class RenderJungleBat extends RenderLiving<JungleBat> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_bat.png");
-	private final ModelJungleBat ModelAyereco;
     
 	public RenderJungleBat(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelJungleBat(), 0.125F);
-        ModelAyereco = (ModelJungleBat) super.mainModel;
     } 
 
 	@Nullable

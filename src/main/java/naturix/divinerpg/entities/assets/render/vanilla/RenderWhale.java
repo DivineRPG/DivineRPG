@@ -15,11 +15,9 @@ public class RenderWhale extends RenderLiving<Whale> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/whale.png");
-	private final ModelWhale ModelAyereco;
     
 	public RenderWhale(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelWhale(), 1F);
-        ModelAyereco = (ModelWhale) super.mainModel;
     } 
 
 	@Nullable

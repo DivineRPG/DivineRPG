@@ -18,6 +18,8 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -90,13 +92,13 @@ public class Frost extends EntityMob {
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return SoundEvents.ENTITY_BLAZE_HURT;
+	}
+
+    @Override
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.ENTITY_BLAZE_DEATH;
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
 }

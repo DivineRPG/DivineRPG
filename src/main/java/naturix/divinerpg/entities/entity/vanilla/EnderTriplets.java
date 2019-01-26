@@ -21,9 +21,11 @@ import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.entity.projectile.EntitySmallFireball;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -90,15 +92,15 @@ public class EnderTriplets extends EntityMob implements IRangedAttackMob {
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return SoundEvents.ENTITY_GHAST_SCREAM;
+	}
+
+    @Override
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.ENTITY_GHAST_DEATH;
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
     @Override
 	protected ResourceLocation getLootTable()
 	{

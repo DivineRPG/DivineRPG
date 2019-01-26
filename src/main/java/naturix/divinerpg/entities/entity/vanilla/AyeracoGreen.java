@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,6 +19,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -33,9 +35,6 @@ public class AyeracoGreen extends EntityMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_green");
 
     private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
     protected boolean canDespawn() {
@@ -93,13 +92,17 @@ public class AyeracoGreen extends EntityMob {
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
-    @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+		return ModSounds.AYERACO;
+    }
+    
+    @Override
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return ModSounds.AYERACO_HURT;
+	}
+
+    @Override
+	protected SoundEvent getDeathSound() {
+		return ModSounds.AYERACO_HURT;
     }
 }

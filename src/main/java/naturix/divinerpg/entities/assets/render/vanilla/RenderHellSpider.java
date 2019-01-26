@@ -15,11 +15,9 @@ public class RenderHellSpider extends RenderLiving<HellSpider> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/hell_spider.png");
-	private final ModelHellSpider ModelAyereco;
     
 	public RenderHellSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelHellSpider(), 1F);
-        ModelAyereco = (ModelHellSpider) super.mainModel;
     } 
 
 	@Nullable

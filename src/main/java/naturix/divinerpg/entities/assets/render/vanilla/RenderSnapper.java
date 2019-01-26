@@ -15,11 +15,9 @@ public class RenderSnapper extends RenderLiving<Snapper> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/snapper.png");
-	private final ModelSnapper ModelAyereco;
     
 	public RenderSnapper(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelSnapper(), 1F);
-        ModelAyereco = (ModelSnapper) super.mainModel;
     } 
 
 	@Nullable

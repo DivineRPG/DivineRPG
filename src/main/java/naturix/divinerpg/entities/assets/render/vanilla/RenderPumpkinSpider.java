@@ -15,11 +15,9 @@ public class RenderPumpkinSpider extends RenderLiving<PumpkinSpider> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/pumpkin_spider.png");
-	private final ModelPumpkinSpider ModelAyereco;
     
 	public RenderPumpkinSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelPumpkinSpider(), 1F);
-        ModelAyereco = (ModelPumpkinSpider) super.mainModel;
     } 
 
 	@Nullable

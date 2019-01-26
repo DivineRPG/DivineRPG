@@ -14,6 +14,8 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -76,11 +78,21 @@ public class Whale extends EntityWaterMob {
         super.playStepSound(pos, blockIn);
     }
 
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
         return ModSounds.WHALE;
     }
+    
+    @Override
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return ModSounds.WHALE_HURT;
+	}
+
+    @Override
+	protected SoundEvent getDeathSound() {
+		return ModSounds.WHALE_HURT;
+    }
+
     @Override
 	protected ResourceLocation getLootTable()
 	{

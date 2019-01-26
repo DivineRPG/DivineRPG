@@ -15,14 +15,10 @@ public class RenderEnderWatcher extends RenderLiving<EnderWatcher> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ender_watcher.png");
-	private final ModelWatcherEnd ModelWatcherEnd;
     
 	public RenderEnderWatcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelWatcherEnd(), 1F);
-        ModelWatcherEnd = (ModelWatcherEnd) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

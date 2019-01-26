@@ -15,14 +15,10 @@ public class RenderAyeracoGreen extends RenderLiving<AyeracoGreen> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ayeraco_green.png");
-	private final ModelAyeraco ModelAyereco;
     
 	public RenderAyeracoGreen(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelAyeraco(), 1F);
-        ModelAyereco = (ModelAyeraco) super.mainModel;
-
     } 
-
 
 	@Nullable
     @Override

@@ -15,11 +15,9 @@ public class RenderCaveCrawler extends RenderLiving<CaveCrawler> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cave_crawler.png");
-	private final ModelCrawler ModelAyereco;
     
 	public RenderCaveCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCrawler(), 1F);
-        ModelAyereco = (ModelCrawler) super.mainModel;
     } 
 
 	@Nullable

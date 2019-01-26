@@ -15,11 +15,9 @@ public class RenderFrost extends RenderLiving<Frost> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frost.png");
-	private final ModelFrost ModelAyereco;
     
 	public RenderFrost(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelFrost(), 1F);
-        ModelAyereco = (ModelFrost) super.mainModel;
     } 
 
 	@Nullable

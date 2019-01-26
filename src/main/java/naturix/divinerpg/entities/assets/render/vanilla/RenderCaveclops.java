@@ -15,11 +15,9 @@ public class RenderCaveclops extends RenderLiving<Caveclops> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/caveclops.png");
-	private final ModelCyclops ModelAyereco;
     
 	public RenderCaveclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCyclops(), 1F);
-        ModelAyereco = (ModelCyclops) super.mainModel;
     } 
 
 	@Nullable

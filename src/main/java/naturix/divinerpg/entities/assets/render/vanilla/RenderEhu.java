@@ -15,11 +15,9 @@ public class RenderEhu extends RenderLiving<Ehu> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ehu.png");
-	private final ModelEhu ModelAyereco;
     
 	public RenderEhu(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelEhu(), 1F);
-        ModelAyereco = (ModelEhu) super.mainModel;
     } 
 
 	@Nullable

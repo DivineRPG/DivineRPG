@@ -15,14 +15,10 @@ public class RenderEnderTriplets extends RenderLiving<EnderTriplets> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ender_triplets.png");
-	private final ModelEnderTriplets ModelEnderTriplets;
     
 	public RenderEnderTriplets(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelEnderTriplets(), 1F);
-        ModelEnderTriplets = (ModelEnderTriplets) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

@@ -84,6 +84,7 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderCrab;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderCyclops;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderDesertCrawler;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEhu;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderSpider;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderTriplets;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnderWatcher;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderEnthralledDramcryx;
@@ -232,6 +233,7 @@ import naturix.divinerpg.entities.entity.vanilla.Crab;
 import naturix.divinerpg.entities.entity.vanilla.Cyclops;
 import naturix.divinerpg.entities.entity.vanilla.DesertCrawler;
 import naturix.divinerpg.entities.entity.vanilla.Ehu;
+import naturix.divinerpg.entities.entity.vanilla.EnderSpider;
 import naturix.divinerpg.entities.entity.vanilla.EnderTriplets;
 import naturix.divinerpg.entities.entity.vanilla.EnderWatcher;
 import naturix.divinerpg.entities.entity.vanilla.EnthralledDramcryx;
@@ -443,6 +445,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".ender_watcher"), EnderWatcher.class, DivineRPG.modId +".ender_watcher", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".cyclops"), Cyclops.class, DivineRPG.modId +".cyclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".caveclops"), Caveclops.class, DivineRPG.modId +".caveclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".ender_spider"), EnderSpider.class, DivineRPG.modId +".ender_spider", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
 		
 		id = 500;
 		//vethia
@@ -671,6 +674,7 @@ public class ModEntities {
 				LootTableList.register(TheWatcher.LOOT);
 				LootTableList.register(Cyclops.LOOT);
 				LootTableList.register(Caveclops.LOOT);
+				LootTableList.register(EnderSpider.LOOT);
 				
 				if(Config.debug) {	
 				DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
@@ -794,7 +798,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EnderWatcher.class, RenderEnderWatcher.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Cyclops.class, RenderCyclops.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Caveclops.class, RenderCaveclops.FACTORY);
-		
+		RenderingRegistry.registerEntityRenderingHandler(EnderSpider.class, RenderEnderSpider.FACTORY);		
 		
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);

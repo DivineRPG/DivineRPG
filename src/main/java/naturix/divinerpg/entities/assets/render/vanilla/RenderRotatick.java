@@ -15,14 +15,10 @@ public class RenderRotatick extends RenderLiving<Rotatick> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rotatick.png");
-	private final ModelRotatick ModelRotatick;
     
 	public RenderRotatick(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelRotatick(), 1F);
-        ModelRotatick = (ModelRotatick) super.mainModel;
-
     }
-
 
 	@Nullable
     @Override

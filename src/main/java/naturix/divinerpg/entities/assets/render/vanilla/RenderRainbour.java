@@ -15,11 +15,9 @@ public class RenderRainbour extends RenderLiving<Rainbour> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rainbour.png");
-	private final ModelRainbour ModelAyereco;
     
 	public RenderRainbour(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelRainbour(), 1F);
-        ModelAyereco = (ModelRainbour) super.mainModel;
     } 
 
 	@Nullable
