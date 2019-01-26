@@ -1,13 +1,13 @@
 package naturix.divinerpg.dimensions.iceika.world;
-import java.util.Random;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.WorldGenAPI;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class WorldGenArcherDungeon extends WorldGenerator {
 

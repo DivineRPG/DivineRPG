@@ -4,12 +4,15 @@ package naturix.divinerpg.dimensions.iceika;
 import java.util.List;
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.iceika.world.IceikaCaves;
+import naturix.divinerpg.dimensions.iceika.world.IceikaTerrainGenerator;
 import naturix.divinerpg.dimensions.iceika.world.WorldGenArcherDungeon;
 import naturix.divinerpg.dimensions.iceika.world.WorldGenRollumDungeon;
 import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -19,257 +22,101 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.*;
+import net.minecraft.world.gen.feature.WorldGenDungeons;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.ChunkGeneratorEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraftforge.fml.common.eventhandler.Event;
+
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 
 public class ChunkProviderIceika implements  IChunkGenerator
 {
 
-	private Random rand;
-	private final WorldGenerator dungeonArcher, dungeonRollum;
-	private World worldObj;
+    private final World worldObj;
+    private Random rand;
+    private Biome[] biomesForGeneration;
+    private final WorldGenerator dungeonArcher, dungeonRollum;
 
-	private NoiseGeneratorOctaves noiseGen1, perlinNoise1;
+	private final MapGenBase caveGenerator;
+    private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
 
-	private double buffer[];
 
-	double pnr[], ar[], br[];
+
+
 
 	public ChunkProviderIceika(World world, long seed)
 	{
-		this.worldObj = world;
-
-		this.rand = new Random(seed);
+        this.worldObj = world;
+        this.rand = new Random((seed + 516) * 314);
+        terraingen.setup(worldObj, rand);
+		caveGenerator = new IceikaCaves();
 
         dungeonArcher = new WorldGenArcherDungeon();
         dungeonRollum = new WorldGenRollumDungeon();
-		
-		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
+
 	}
 
-	public void setBlocksInChunk(int x, int z, ChunkPrimer chunkPrimer)
-    {
-        this.buffer = this.setupNoiseGenerators(this.buffer, x * 2, z * 2);
 
-        for(int i1 = 0; i1 < 2; i1++)
-        {
-            for(int j1 = 0; j1 < 2; j1++)
-            {
-                for(int k1 = 0; k1 < 32; k1++)
-                {
-                    double d1 = this.buffer[(i1 * 3 + j1) * 33 + k1];
-                    double d2 = this.buffer[(i1 * 3 + (j1 + 1)) * 33 + k1];
-                    double d3 = this.buffer[((i1 + 1) * 3 + j1) * 33 + k1];
-                    double d4 = this.buffer[((i1 + 1) * 3 + (j1 + 1)) * 33 + k1];
+	public void generateTerrain(int x, int z, ChunkPrimer chunkPrimer) {
+		int i = 4;
+		int k = i + 1;
+		int l = 17;
+		int i1 = i + 1;
+		int j = worldObj.getSeaLevel(); //sea level
 
-                    double d5 = (this.buffer[(i1 * 3 + j1) * 33 + (k1 + 1)] - d1) * 0.25D;
-                    double d6 = (this.buffer[(i1 * 3 + (j1 + 1)) * 33 + (k1 + 1)] - d2) * 0.25D;
-                    double d7 = (this.buffer[((i1 + 1) * 3 + j1) * 33 + (k1 + 1)] - d3) * 0.25D;
-                    double d8 = (this.buffer[((i1 + 1) * 3 + (j1 + 1)) * 33 + (k1 + 1)] - d4) * 0.25D;
+		for (int j1 = 0; j1 < i; ++j1)
+			for (int k1 = 0; k1 < i; ++k1)
+				for (int l1 = 0; l1 < 16; ++l1) {
+					for (int i2 = 0; i2 < 8; ++i2) {
+						for (int j2 = 0; j2 < 4; ++j2) {
+							for (int k2 = 0; k2 < 4; ++k2) {
+								IBlockState iblockstate = null;
+								if (l1 * 8 + i2 < j)
+								{
+									iblockstate = Blocks.WATER.getDefaultState();
+								}
 
-                    for(int l1 = 0; l1 < 4; l1++)
-                    {
-                        double d10 = d1;
-                        double d11 = d2;
-                        double d12 = (d3 - d1) * 0.125D;
-                        double d13 = (d4 - d2) * 0.125D;
-
-                        for(int i2 = 0; i2 < 8; i2++)
-                        {
-                            double d15 = d10;
-                            double d16 = (d11 - d10) * 0.125D;
-
-                            for(int k2 = 0; k2 < 8; k2++)
-                            {
-                            	int x1 = i2 + i1 * 8;
-                            	int y = l1 + k1 * 4;
-                            	int z1 = k2 + j1 * 8;
-
-                                IBlockState filler = Blocks.AIR.getDefaultState();
-
-                            	if (d15 < -38D)
-                            	{
-                         	}
-
-                                if (d15 < -39D && d15 > -43D)
-                                {
-                                	if (d15 < -41D)
-                                	{
-                          	}
-
-                          }
-
-                                if (d15 < -44D && d15 > -46D)
-                                {
-                                	if (d15 < -44.25D)
-                                	{
-                 	}
-}
-
-                                if(d15 > 0.0D)
-                                {
-                                	filler = ModBlocks.stoneFrozen.getDefaultState();
-                                }
-
-                                chunkPrimer.setBlockState(x1, y, z1, filler);
-
-                                d15 += d16;
-                            }
-
-                            d10 += d12;
-                            d11 += d13;
-                        }
-
-                        d1 += d5;
-                        d2 += d6;
-                        d3 += d7;
-                        d4 += d8;
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
-
-	public void buildSurfaces(int i, int j, ChunkPrimer chunkPrimer)
-    {
-        for(int k = 0; k < 16; k++)
-        {
-            for(int l = 0; l < 16; l++)
-            {
-                int j1 = -1;
-                int i1 = (int)(3.0D + this.rand.nextDouble() * 0.25D);
-
-        		IBlockState top = ModBlocks.grassIceika.getDefaultState();
-        		IBlockState filler = ModBlocks.dirtIceika.getDefaultState();
-
-                for (int k1 = 127; k1 >= 0; k1--)
-				{
-					Block block = chunkPrimer.getBlockState(k, k1, l).getBlock();
-
-					if (block == Blocks.AIR)
-					{
-						j1 = -1;
-					}
-					else if (block == ModBlocks.stoneFrozen)
-					{
-						if (j1 == -1)
-						{
-							if (i1 <= 0)
-							{
-								top = Blocks.AIR.getDefaultState();
+								int l2 = j2 + j1 * 4;
+								int i3 = i2 + l1 * 8;
+								int j3 = k2 + k1 * 4;
+								chunkPrimer.setBlockState(l2, i3, j3, iblockstate);
 							}
-
-							j1 = i1;
-
-							if (k1 >= 0)
-							{
-								chunkPrimer.setBlockState(k, k1, l, top);
-							}
-							else
-							{
-								chunkPrimer.setBlockState(k, k1, l, filler);
-							}
-						}
-						else if (j1 > 0)
-						{
-							--j1;
-							chunkPrimer.setBlockState(k, k1, l, filler);
 						}
 					}
 				}
-            }
-        }
-    }
-
-    private double[] setupNoiseGenerators(double buffer[], int x, int z)
-    {
-        if(buffer == null)
-        {
-        	buffer = new double[3366];
-        }
-
-        double d = 1368.824D;
-        double d1 = 684.41200000000003D;
-
-        this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, x, 0, z, 3, 33, 3, d / 80D, d1 / 160D, d / 80D);
-        this.ar = this.noiseGen1.generateNoiseOctaves(this.ar, x, 0, z, 3, 33, 3, d, d1, d);
-        this.br = this.noiseGen1.generateNoiseOctaves(this.br, x, 0, z, 3, 33, 3, d, d1, d);
-
-        int id = 0;
-
-        for(int j2 = 0; j2 < 3; j2++)
-        {
-            for(int l2 = 0; l2 < 3; l2++)
-            {
-                for(int j3 = 0; j3 < 33; j3++)
-                {
-                	double d8;
-
-                    double d10 = this.ar[id] / 512D;
-                    double d11 = this.br[id] / 512D;
-                    double d12 = (this.pnr[id] / 10D + 1.0D) / 2D;
-
-                    if(d12 < 0.0D)
-                    {
-                        d8 = d10;
-                    } 
-                    else if(d12 > 1.0D)
-                    {
-                        d8 = d11;
-                    }
-                    else
-                    {
-                        d8 = d10 + (d11 - d10) * d12;
-                    }
-
-                    d8 -= 8D;
-
-                    if(j3 > 33 - 32)
-                    {
-                        double d13 = (float)(j3 - (33 - 32)) / ((float)32 - 1.0F);
-                        d8 = d8 * (1.0D - d13) + -30D * d13;
-                    }
-
-                    if(j3 < 8)
-                    {
-                        double d14 = (float)(8 - j3) / ((float)8 - 1.0F);
-                        d8 = d8 * (1.0D - d14) + -30D * d14;
-                    }
-
-                    buffer[id] = d8;
-
-                    id++;
-                }
-
-            }
-
-        }
-
-        return buffer;
-    }
-
-	@Override
-	public Chunk generateChunk(int x, int z) 
-	{
-        this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
-		ChunkPrimer chunkPrimer = new ChunkPrimer();
-
-        this.setBlocksInChunk(x, z, chunkPrimer);
-        this.buildSurfaces(x, z, chunkPrimer);
-
-
-
-        Chunk chunk = new Chunk(this.worldObj, chunkPrimer, x, z);
-        chunk.generateSkylightMap();
-
-		return chunk;
 	}
+
+    @Override
+    public Chunk generateChunk(int x, int z) {
+        ChunkPrimer chunkprimer = new ChunkPrimer();
+
+        // Setup biomes for terraingen
+        this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
+        generateTerrain(x, z, chunkprimer);
+        terraingen.setBiomesForGeneration(biomesForGeneration);
+        terraingen.generate(x, z, chunkprimer);
+
+		// Setup biomes again for actual biome decoration
+		this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
+		// This will replace stone with the biome specific stones
+		terraingen.replaceBiomeBlocks(x, z, chunkprimer, this, biomesForGeneration);
+
+		caveGenerator.generate(worldObj, x, z, chunkprimer);
+
+        Chunk chunk = new Chunk(this.worldObj, chunkprimer, x, z);
+
+        byte[] biomeArray = chunk.getBiomeArray();
+        for (int i = 0; i < biomeArray.length; ++i) {
+            biomeArray[i] = (byte)Biome.getIdForBiome(this.biomesForGeneration[i]);
+        }
+
+        chunk.generateSkylightMap();
+        return chunk;
+    }
 
 	@Override
 	public List<SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) 
@@ -282,7 +129,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 	@Override
 	public boolean generateStructures(Chunk chunkIn, int chunkX, int chunkZ) 
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -292,13 +139,13 @@ public class ChunkProviderIceika implements  IChunkGenerator
 	}
 
 	@Override
-	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) 
+	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos)
 	{
 		return false;
 	}
 
 	@Override
-	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored) 
+	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored)
 	{
 		return null;
 	}
@@ -310,7 +157,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		int z = chunkZ * 16;
 
 		BlockPos pos = new BlockPos(x, 0, z);
-        ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
+        ChunkPos chunkpos = new ChunkPos(x, z);
 
 		Biome biome = this.worldObj.getBiome(pos.add(16, 0, 16));
 
@@ -322,14 +169,44 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		
 		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
 
-		if(rand.nextInt(5) == 0) { 
-			dungeonArcher.generate(worldObj, this.rand, pos.add(this.rand.nextInt(16) + 8, this.rand.nextInt(128), this.rand.nextInt(16) + 8));
-        }
-		if(rand.nextInt(5) == 0) {
-			dungeonRollum.generate(worldObj, rand, pos.add(this.rand.nextInt(16)+8, this.rand.nextInt(128), this.rand.nextInt(16)+8));
-		}
-		
-		
+
+		boolean flag = false;
+
+		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.worldObj, this.rand, x, z, flag);
+
+
+		if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && !flag)
+			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.worldObj, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
+			{
+				int i1 = this.rand.nextInt(16) + 8;
+				int j1 = this.rand.nextInt(256);
+				int k1 = this.rand.nextInt(16) + 8;
+				(new WorldGenLakes(Blocks.WATER)).generate(this.worldObj, this.rand, pos.add(i1, j1, k1));
+			}
+		pos = pos.add(8, 0, 8);
+
+		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.worldObj, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE))
+		{
+			for (int k2 = 0; k2 < 16; ++k2)
+			{
+				for (int j3 = 0; j3 < 16; ++j3)
+				{
+					BlockPos blockpos1 = this.worldObj.getPrecipitationHeight(pos.add(k2, 0, j3));
+					BlockPos blockpos2 = blockpos1.down();
+
+					if (this.worldObj.canBlockFreezeWater(blockpos2))
+					{
+						this.worldObj.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 2);
+					}
+
+					if (this.worldObj.canSnowAt(blockpos1, true))
+					{
+						this.worldObj.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 2);
+					}
+				}
+			}
+		}//Forge: End ICE
+
 	}
 
 }

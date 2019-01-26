@@ -1,22 +1,7 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.BaseStatue;
-import naturix.divinerpg.bases.blocks.BeaconBaseBase;
-import naturix.divinerpg.bases.blocks.BedBase;
-import naturix.divinerpg.bases.blocks.BlockBase;
-import naturix.divinerpg.bases.blocks.BlockModSpawner;
-import naturix.divinerpg.bases.blocks.BlockNetherite;
-import naturix.divinerpg.bases.blocks.BlockOre;
-import naturix.divinerpg.bases.blocks.BlockOreNether;
-import naturix.divinerpg.bases.blocks.FireBase;
-import naturix.divinerpg.bases.blocks.GrassBase;
-import naturix.divinerpg.bases.blocks.LampBase;
-import naturix.divinerpg.bases.blocks.LeavesBase;
-import naturix.divinerpg.bases.blocks.LogBase;
-import naturix.divinerpg.bases.blocks.Spike;
-import naturix.divinerpg.bases.blocks.TorchBase;
-import naturix.divinerpg.bases.blocks.VineBase;
+import naturix.divinerpg.bases.blocks.*;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.fluid.BlockTar;
@@ -165,7 +150,7 @@ public class ModBlocks {
 	public static WildWoodPortal portalWild = new WildWoodPortal("portal_wild", ModBlocks.blueFire);
 	public static VineBase vineWild = new VineBase("vine_wildwood");
 	public static GrassBase grassApalachia = new GrassBase("grass_apalachia");
-	public static BlockBase dirtApalachia = new BlockBase("dirt_apalachia");
+	public static BlockBase dirtApalachia = new BlockBase( Material.GROUND, "dirt_apalachia");
 	public static ApalachiaPortal portalApalachia = new ApalachiaPortal("portal_apalachia", ModBlocks.blueFire);
 	public static GrassBase grassSkythern = new GrassBase("grass_skythern");
 	public static BlockBase dirtSkythern = new BlockBase("dirt_skythern");
@@ -174,9 +159,9 @@ public class ModBlocks {
 	public static BlockBase dirtMortum = new BlockBase("dirt_mortum");
 	public static MortumPortal portalMortum = new MortumPortal("portal_mortum", ModBlocks.blueFire);
 	public static GrassBase grassIceika = new GrassBase("grass_iceika");
-	public static BlockBase dirtIceika = new BlockBase("dirt_iceika");
+	public static DirtBase dirtIceika = new DirtBase("dirt_iceika", Material.GROUND);
 	public static IceikaPortal portalIceika = new IceikaPortal("portal_iceika", ModBlocks.blueFire);
-	public static BlockBase stoneFrozen = new BlockBase("stone_frozen");
+	public static BlockBase stoneFrozen = new BlockBase(Material.ROCK, "stone_frozen");
 	public static BlockBase stoneIcy = new BlockBase("stone_icy");
 	public static BlockBase bricksIceika = new BlockBase("bricks_iceika");
 	public static LeavesBase brittleLeaves = new LeavesBase("leaves_brittle");

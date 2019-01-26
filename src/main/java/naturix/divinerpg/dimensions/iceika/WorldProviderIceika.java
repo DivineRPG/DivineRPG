@@ -1,16 +1,17 @@
 package naturix.divinerpg.dimensions.iceika;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class WorldProviderIceika extends WorldProvider {
 	
@@ -30,13 +31,27 @@ public class WorldProviderIceika extends WorldProvider {
     public BiomeProvider getBiomeProvider() {
 		return this.biomeProvider = new BiomeProviderIceika();
 	}
-	
-    @Override
-	public int getMoonPhase(long s) {
-        return (int)(s / 24000L % 8L + 8L) % 8;
+
+    @Nullable
+    @SideOnly(Side.CLIENT)
+    public float[] calcSunriseSunsetColors(float celestialAngle, float partialTicks)
+    {
+        return null;
     }
-    
-	@Override
+
+    @Override
+    public boolean isSkyColored() {
+        return false;
+    }
+
+    public float calculateCelestialAngle(long worldTime, float partialTicks)
+    {
+        return 0.5f;
+    }
+
+
+
+    @Override
     public boolean canRespawnHere() {
         return false;
     }
@@ -54,7 +69,7 @@ public class WorldProviderIceika extends WorldProvider {
 
 	@Override
     public int getAverageGroundLevel() {
-        return 70;
+        return 72;
     }
 
 	@Override

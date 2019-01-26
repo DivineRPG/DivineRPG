@@ -27,7 +27,7 @@ public class ApalachiaTreeLarge extends WorldGenAbstractTree {
     @Override
     public boolean generate(World world, Random random, BlockPos blockPos) {
         int trunkHeight = random.nextInt(4) + minTrunkHeight;
-        int treeHeight = 10 + trunkHeight; //This is the tree height! woof
+        int treeHeight = 10 + trunkHeight;
         Material materialBelow = world.getBlockState(blockPos.down()).getMaterial();
 
         //return false if these conditions are met

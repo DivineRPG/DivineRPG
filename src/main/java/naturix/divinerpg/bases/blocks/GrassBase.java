@@ -5,6 +5,7 @@ import java.util.Random;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockGrass;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -22,6 +23,7 @@ public class GrassBase extends BlockGrass {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
+		setSoundType(SoundType.PLANT);
 		this.setHardness(1);
 		this.setHarvestLevel("shovel", 0);
 	}

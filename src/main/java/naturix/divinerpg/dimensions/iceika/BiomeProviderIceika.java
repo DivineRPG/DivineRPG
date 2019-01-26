@@ -6,4 +6,5 @@ import net.minecraft.world.biome.BiomeProviderSingle;
 public class BiomeProviderIceika extends BiomeProviderSingle {
 	public BiomeProviderIceika() {
 		super(ModBiomes.Iceika);
-	}}
+	}
+}

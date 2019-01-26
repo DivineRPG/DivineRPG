@@ -7,6 +7,7 @@ import naturix.divinerpg.dimensions.mortum.BiomeMortum;
 import naturix.divinerpg.dimensions.skythern.BiomeSkythern;
 import naturix.divinerpg.dimensions.wildwood.BiomeWildWood;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -29,6 +30,8 @@ public class ModBiomes {
         		Mortum,
         		Iceika
         		);
+
+		BiomeDictionary.addTypes(Iceika, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DRY, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.FOREST);
 
 //        BiomeDictionary.addTypes(Eden, BiomeDictionary.Type.MAGICAL);
 
