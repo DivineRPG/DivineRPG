@@ -679,7 +679,6 @@ public class ModEntities {
 				LootTableList.register(KingOfScorchers.LOOT);
 				LootTableList.register(EnthralledDramcryx.LOOT);
 				LootTableList.register(TameAngryBunny.LOOT);
-				LootTableList.register(Ehu.LOOT);
 				LootTableList.register(Frost.LOOT);
 				LootTableList.register(CaveCrawler.LOOT);
 				LootTableList.register(DesertCrawler.LOOT);

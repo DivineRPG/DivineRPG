@@ -58,31 +58,8 @@ public abstract class EntityDivineRPGFlying extends EntityFlying implements IMob
         this.rotationYaw += f1;
 	}
 	
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-
-    @Nullable
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-        return super.getHurtSound(source);
-	}
-    
-    @Nullable
-    @Override
-	protected SoundEvent getDeathSound() {
-        return super.getDeathSound();
-    }
-
 	@Override
     public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)  {
         this.attackEntityAsMob(par1EntityPlayer);
     }
-	
-	@Override
-	public boolean getCanSpawnHere() {
-		return super.getCanSpawnHere();
-	}
 }

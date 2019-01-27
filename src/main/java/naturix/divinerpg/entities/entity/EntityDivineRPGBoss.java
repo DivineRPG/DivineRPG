@@ -10,10 +10,22 @@ import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
 public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob {
+	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
+			BossInfo.Overlay.PROGRESS));
 
 	public EntityDivineRPGBoss(World par1World) {
 		super(par1World);
 	}
+
+    @Override
+    protected boolean isValidLightLevel() {
+        return true;
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
 
 	@Override
 	public boolean canDespawn() {
@@ -24,9 +36,6 @@ public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob {
 	public boolean isNonBoss() {
 		return false;
 	}
-
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
-			BossInfo.Overlay.PROGRESS));
 
 	@Override
 	public void addTrackingPlayer(EntityPlayerMP player) {

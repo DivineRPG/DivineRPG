@@ -62,24 +62,6 @@ public abstract class EntityDivineRPGMob extends EntityMob {
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 	}
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-
-    @Nullable
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-        return super.getHurtSound(source);
-	}
-    
-    @Nullable
-    @Override
-	protected SoundEvent getDeathSound() {
-        return super.getDeathSound();
-    }
-
 	@Override
 	public boolean getCanSpawnHere() {
 		return (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) && this.isValidLightLevel();

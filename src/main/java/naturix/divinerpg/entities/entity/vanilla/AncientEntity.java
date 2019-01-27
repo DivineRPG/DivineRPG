@@ -4,6 +4,7 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
@@ -33,64 +34,20 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class AncientEntity extends EntityMob {
+public class AncientEntity extends EntityDivineRPGBoss {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ancient_entity");
 
     public AncientEntity(World worldIn) {
 		super(worldIn);
 		this.setSize(8F, 20);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ancient_entity");
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 1;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
     }
 
     @Override
@@ -107,31 +64,5 @@ public class AncientEntity extends EntityMob {
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
-
-	}
-    @Override
-	public boolean isNonBoss() {
-		return false;
-	}
-
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
-			BossInfo.Overlay.PROGRESS));
-
-	@Override
-	public void addTrackingPlayer(EntityPlayerMP player) {
-		super.addTrackingPlayer(player);
-		this.bossInfo.addPlayer(player);
-	}
-
-	@Override
-	public void removeTrackingPlayer(EntityPlayerMP player) {
-		super.removeTrackingPlayer(player);
-		this.bossInfo.removePlayer(player);
-	}
-
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 }

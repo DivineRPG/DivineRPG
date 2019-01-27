@@ -84,24 +84,6 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
         return false;
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-
-    @Nullable
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-        return super.getHurtSound(source);
-	}
-    
-    @Nullable
-    @Override
-	protected SoundEvent getDeathSound() {
-        return super.getDeathSound();
-    }
-
     @Override
     public void setProfession(int i) {
         super.setProfession(12345);

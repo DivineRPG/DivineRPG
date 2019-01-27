@@ -55,24 +55,6 @@ public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacke
         return 0.4F;
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-
-    @Nullable
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-        return super.getHurtSound(source);
-	}
-    
-    @Nullable
-    @Override
-	protected SoundEvent getDeathSound() {
-        return super.getDeathSound();
-    }
-
     @Override
 	public void onEntityUpdate() {
 		int i = this.getAir();
@@ -101,13 +83,14 @@ public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacke
     @Override
     public void fall(float distance, float damageMultiplier) {}
 
-    @Override
-    public boolean isInWater() {
+   @Override
+   public boolean isInWater() {
         return this.world.getBlockState(new BlockPos((int)this.posX, MathHelper.floor(this.posY), (int)this.posZ)).getMaterial() == Material.WATER;
-    }
+   }
     
     @Override
-    public boolean getCanSpawnHere() {
-        return this.isInWater();
+    public boolean getCanSpawnHere()
+    {
+        return this.posY > 45.0D && this.posY < (double)this.world.getSeaLevel() && isInWater() && super.getCanSpawnHere();
     }
 }

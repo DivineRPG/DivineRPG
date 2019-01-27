@@ -29,34 +29,15 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public abstract class EntityDivineRPGTameable extends EntityTameable {
-    
-	public EntityDivineRPGTameable(World w) {
-		super(w);
-		addBasicAI();
+	public EntityDivineRPGTameable(World world) {
+		super(world);
 		setTamed(false);
 	}
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-
-    @Nullable
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-        return super.getHurtSound(source);
-	}
-    
-    @Nullable
-    @Override
-	protected SoundEvent getDeathSound() {
-        return super.getDeathSound();
-    }
 	
-	protected void addBasicAI(){
+	@Override
+	protected void initEntityAI() {
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, this.aiSit);
+        //this.tasks.addTask(2, this.aiSit);
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
 		this.tasks.addTask(4, new EntityAIAttackMelee(this, 1, true));
         this.tasks.addTask(5, new EntityAIOwnerWithoutTeleport(this, 1.0D, 10.0F, 2.0F));
@@ -68,14 +49,16 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
 	}
 	
-	@Override
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+    }
+
+    @Override
 	public EntityLivingBase getAttackTarget() {
 		return this.isTamed() || this.isAngry() ? super.getAttackTarget() : null;
-	}
-	
-	@Override
-	public boolean getCanSpawnHere() {
-		return (this.world.getDifficulty() != EnumDifficulty.PEACEFUL);
 	}
 	
 	@Override
@@ -87,6 +70,12 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
 		return attack;
 	}
 	
-	
-	public boolean isAngry() {return false;}
+	public boolean isAngry() {
+		return false;
+	}
+
+	@Override
+	public boolean getCanSpawnHere() {
+		return (this.world.getDifficulty() != EnumDifficulty.PEACEFUL);
+	}
 }
