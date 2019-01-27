@@ -3,6 +3,8 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,70 +30,30 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeBeach;
 
-public class Crab extends EntityMob {
+public class Crab extends EntityPeacefulUntilAttacked {
 
     public Crab(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 0.8f);
+		this.setSize(1F, 1F);
 		this.setHealth(this.getMaxHealth());
+		this.experienceValue = 40;
 	}
+
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crab");
 
     private ResourceLocation deathLootTable = LOOT;
 
     @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    @Override
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
-
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(45.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
     }
 
     @Override

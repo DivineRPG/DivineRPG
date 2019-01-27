@@ -70,6 +70,7 @@ public class DivineRPGMaterials {
 	public static final ItemArmor.ArmorMaterial netheriteArmorMaterial = EnumHelper.addArmorMaterial("NETHERITE", DivineRPG.modId + ":netherite", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial realmiteArmorMaterial = EnumHelper.addArmorMaterial("REALMITE", DivineRPG.modId + ":realmite", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial rupeeArmorMaterial = EnumHelper.addArmorMaterial("RUPEE", DivineRPG.modId + ":rupee", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+	public static final ItemArmor.ArmorMaterial santaArmorMaterial = EnumHelper.addArmorMaterial("SANTA", DivineRPG.modId + ":santa", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 	public static final ItemArmor.ArmorMaterial shadowArmorMaterial = EnumHelper.addArmorMaterial("SHADOW", DivineRPG.modId + ":shadow", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial skelemanArmorMaterial = EnumHelper.addArmorMaterial("SKELEMAN", DivineRPG.modId + ":skeleman", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 	public static final ItemArmor.ArmorMaterial skythernArmorMaterial = EnumHelper.addArmorMaterial("SKYTHERN", DivineRPG.modId + ":skythern", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);

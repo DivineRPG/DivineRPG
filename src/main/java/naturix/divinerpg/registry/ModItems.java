@@ -44,6 +44,7 @@ import naturix.divinerpg.bases.items.armor.Mortum;
 import naturix.divinerpg.bases.items.armor.Netherite;
 import naturix.divinerpg.bases.items.armor.Realmite;
 import naturix.divinerpg.bases.items.armor.Rupee;
+import naturix.divinerpg.bases.items.armor.Santa;
 import naturix.divinerpg.bases.items.armor.Shadow;
 import naturix.divinerpg.bases.items.armor.Skeleman;
 import naturix.divinerpg.bases.items.armor.Skythern;
@@ -209,6 +210,10 @@ public class ModItems {
 	public static Rupee rupeeChestplate = new Rupee(DivineRPGMaterials.rupeeArmorMaterial, EntityEquipmentSlot.CHEST, "rupee_chestplate");
 	public static Rupee rupeeLeggings = new Rupee(DivineRPGMaterials.rupeeArmorMaterial, EntityEquipmentSlot.LEGS, "rupee_leggings");
 	public static Rupee rupeeBoots = new Rupee(DivineRPGMaterials.rupeeArmorMaterial, EntityEquipmentSlot.FEET, "rupee_boots");
+	public static Santa santaCap = new Santa(DivineRPGMaterials.santaArmorMaterial, EntityEquipmentSlot.HEAD, "santa_cap");
+	public static Santa santaTunic = new Santa(DivineRPGMaterials.santaArmorMaterial, EntityEquipmentSlot.CHEST, "santa_tunic");
+	public static Santa santaPants = new Santa(DivineRPGMaterials.santaArmorMaterial, EntityEquipmentSlot.LEGS, "santa_pants");
+	public static Santa santaBoots = new Santa(DivineRPGMaterials.santaArmorMaterial, EntityEquipmentSlot.FEET, "santa_boots");
 	public static Shadow shadowHelmet = new Shadow(DivineRPGMaterials.shadowArmorMaterial, EntityEquipmentSlot.HEAD, "shadow_helmet");
 	public static Shadow shadowChestplate = new Shadow(DivineRPGMaterials.shadowArmorMaterial, EntityEquipmentSlot.CHEST, "shadow_chestplate");
 	public static Shadow shadowLeggings = new Shadow(DivineRPGMaterials.shadowArmorMaterial, EntityEquipmentSlot.LEGS, "shadow_leggings");
@@ -483,7 +488,8 @@ public class ModItems {
 	public static ItemBase soundMusic = new ItemBase("sound_of_music");
 	public static ItemBase maelstrom = new ItemBase("maelstrom");
 	public static ItemBase chunkMortum = new ItemBase("chunk_mortum");
-	public static CannonBase cannonGhast = new CannonBase("cannon_ghast"); 
+	public static CannonBase cannonGhast = new CannonBase("cannon_ghast");
+	public static ItemBase snowflake = new ItemBase("snowflake");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -626,6 +632,10 @@ public class ModItems {
 				rupeeChestplate,
 				rupeeLeggings,
 				rupeeBoots,
+				santaCap,
+				santaTunic,
+				santaPants,
+				santaBoots,
 				shadowHelmet,
 				shadowChestplate,
 				shadowLeggings,
@@ -901,7 +911,8 @@ public class ModItems {
 				soundMusic,
 				maelstrom,
 				chunkMortum,
-				cannonGhast
+				cannonGhast,
+				snowflake
 				);
 	}
 	

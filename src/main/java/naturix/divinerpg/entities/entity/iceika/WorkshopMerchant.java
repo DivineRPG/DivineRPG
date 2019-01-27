@@ -3,111 +3,70 @@ package naturix.divinerpg.entities.entity.iceika;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.entities.entity.EntityDivineRPGVillager;
+import naturix.divinerpg.entities.entity.InfiniteTrade;
+import naturix.divinerpg.utils.MessageLocalizer;
+import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
+import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class WorkshopMerchant extends EntityMob {
+public class WorkshopMerchant extends EntityDivineRPGVillager {
 
-    public WorkshopMerchant(World worldIn) {
+private static final String[] MESSAGE = {"message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr"};
+
+	public WorkshopMerchant(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 2.4f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/workshop");
-
-
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
-        } else {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-            }
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
+	
+	@Override
+	public void extraInteract(EntityPlayer player) {
+		player.sendMessage(Utils.getChatComponent("Merchant: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+	}
+	
+	@Override
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+		if(!this.world.isRemote) {
+			extraInteract(player);
+			player.openGui(DivineRPG.instance, guiID(), this.world, getEntityId(), 0, 0);
+			//player.triggerAchievement(DivineRPGAchievements.lilGift);
+			return true;
+		} else {
+			return super.processInteract(player, hand);
+		}
+	}
+	
+	@Override
+	public int guiID() {
+		//return GuiHandler.merchant;
+		return 0;
+	}
+	
+	@Override
+	public void addRecipies(MerchantRecipeList list) {
+		list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaCap, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaTunic, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaPants, 1, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaBoots, 1, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.eggNog, 2, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.chocolateLog, 5, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.peppermints, 15, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.fruitCake, 3, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 20), new ItemStack(IceikaItems.icicleBane, 1, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.greenXmasLights, 16, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.redXmasLights, 16, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.blueXmasLights, 16, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.yellowXmasLights, 16, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.purpleXmasLights, 16, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 3), new ItemStack(IceikaBlocks.presentBox, 1)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 0)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 1)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 2)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 3)));
+		//list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 4)));
 	}
 }
+

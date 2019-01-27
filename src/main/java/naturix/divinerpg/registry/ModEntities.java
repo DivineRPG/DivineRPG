@@ -638,7 +638,6 @@ public class ModEntities {
 				LootTableList.register(Glacide.LOOT);
 				LootTableList.register(Hastreus.LOOT);
 				LootTableList.register(Rollum.LOOT);
-				LootTableList.register(WorkshopTinkerer.LOOT);
 				LootTableList.register(AngryBunny.LOOT);
 				LootTableList.register(Basalisk.LOOT);
 				LootTableList.register(Bohemoth.LOOT);
