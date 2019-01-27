@@ -6,10 +6,7 @@ import java.util.Random;
 
 import naturix.divinerpg.dimensions.iceika.world.IceikaCaves;
 import naturix.divinerpg.dimensions.iceika.world.IceikaTerrainGenerator;
-import naturix.divinerpg.dimensions.iceika.world.WorldGenArcherDungeon;
 import naturix.divinerpg.dimensions.iceika.world.WorldGenRollumDungeon;
-import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -22,16 +19,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
+import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.ChunkGeneratorEvent;
-import net.minecraftforge.event.terraingen.TerrainGen;
-import net.minecraftforge.fml.common.eventhandler.Event;
-
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 
 public class ChunkProviderIceika implements  IChunkGenerator
 {
@@ -39,7 +30,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
     private final World worldObj;
     private Random rand;
     private Biome[] biomesForGeneration;
-    private final WorldGenerator dungeonArcher, dungeonRollum;
+    private final WorldGenerator dungeonRollum;
 
 	private final MapGenBase caveGenerator;
     private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
@@ -55,7 +46,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
         terraingen.setup(worldObj, rand);
 		caveGenerator = new IceikaCaves();
 
-        dungeonArcher = new WorldGenArcherDungeon();
+//        dungeonArcher = new WorldGenArcherDungeon();
         dungeonRollum = new WorldGenRollumDungeon();
 
 	}
