@@ -10,6 +10,7 @@ import naturix.divinerpg.client.TEISRRender;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.Utils;
+import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ClientProxy extends CommonProxy {
 	@Override
@@ -63,5 +65,10 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
     	TEISRRender.init();
+    }
+
+    @Override
+    public void registerCustomStructures() {
+        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
     }
 }

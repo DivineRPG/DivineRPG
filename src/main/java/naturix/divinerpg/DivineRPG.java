@@ -72,6 +72,7 @@ public class DivineRPG {
 	        ModSeeds.init();
 	        ModEvents.preInit();
 	        PreInitLog.init();
+		 	proxy.registerCustomStructures();
 	        
 	        }
 	 

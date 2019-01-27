@@ -75,4 +75,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		}
 
 		public void updateClientArcana(float amount) {}
+
+		public void registerCustomStructures(){}
 	}
