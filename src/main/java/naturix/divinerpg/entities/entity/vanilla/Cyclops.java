@@ -24,6 +24,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
@@ -42,7 +43,7 @@ public class Cyclops extends EntityMob {
     protected boolean canDespawn() {
         return true;
     }
-
+    
     @Override
 	protected ResourceLocation getLootTable()
 	{
@@ -110,6 +111,6 @@ public class Cyclops extends EntityMob {
 
     @Override
     public boolean getCanSpawnHere() {
-    	return super.getCanSpawnHere() && this.getPosition().getY() > world.getSeaLevel();
+    	return this.getPosition().getY() > world.getSeaLevel();
     }
 }
