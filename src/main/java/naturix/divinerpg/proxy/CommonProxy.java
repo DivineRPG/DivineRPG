@@ -11,6 +11,8 @@ import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModLiquids;
 import naturix.divinerpg.utils.ListAllObjs;
+import naturix.divinerpg.world.ModWorldGen;
+import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -23,6 +25,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
 
@@ -42,6 +45,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        DivineRPG.registerEvent(new EventArmorSet());
 	        DivineRPG.registerEvent(new EventClientLogin());
 	        DivineRPG.registerEvent(new EventLightning());
+
+	        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	        }
 	    public EntityPlayer getPlayer() { return null; }
 	    public void init(FMLInitializationEvent e) {

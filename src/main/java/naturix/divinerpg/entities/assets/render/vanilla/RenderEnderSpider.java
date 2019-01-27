@@ -2,11 +2,9 @@ package naturix.divinerpg.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.client.model.ModelZombie;
+import naturix.divinerpg.entities.assets.model.vanilla.model.ModelEnderSpider;
 import naturix.divinerpg.entities.entity.vanilla.EnderSpider;
-import naturix.divinerpg.entities.entity.vanilla.Miner;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelSpider;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -19,7 +17,7 @@ public class RenderEnderSpider extends RenderLiving<EnderSpider> {
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ender_spider.png");
     
 	public RenderEnderSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSpider(), 1F);
+        super(rendermanagerIn, new ModelEnderSpider(), 1F);
     } 
 
 	@Nullable
@@ -32,7 +30,7 @@ public class RenderEnderSpider extends RenderLiving<EnderSpider> {
 
 	        @Override
 	        public Render<? super EnderSpider> createRenderFor(RenderManager manager) {
-	            return new RenderEnderSpider(manager, new ModelSpider(), 0.5F);
+	            return new RenderEnderSpider(manager, new ModelEnderSpider(), 0.5F);
 	        }
 	    }
 

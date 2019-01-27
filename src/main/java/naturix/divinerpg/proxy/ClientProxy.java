@@ -24,6 +24,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+
+
 public class ClientProxy extends CommonProxy {
 	@Override
     public void preInit(FMLPreInitializationEvent e) {
@@ -67,8 +69,4 @@ public class ClientProxy extends CommonProxy {
     	TEISRRender.init();
     }
 
-    @Override
-    public void registerCustomStructures() {
-        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
-    }
 }

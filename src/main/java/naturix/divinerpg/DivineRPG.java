@@ -20,7 +20,6 @@ import naturix.divinerpg.utils.log.InitLog;
 import naturix.divinerpg.utils.log.IntenseDebug;
 import naturix.divinerpg.utils.log.PostInitLog;
 import naturix.divinerpg.utils.log.PreInitLog;
-import naturix.divinerpg.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -40,7 +39,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -68,7 +66,6 @@ public class DivineRPG {
 	    public void preInit(FMLPreInitializationEvent event) {
 	        logger = event.getModLog();
 	        proxy.preInit(event);
-	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	        ModSeeds.init();
 	        ModEvents.preInit();
 	        PreInitLog.init();
