@@ -21,6 +21,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class HellSpider extends EntityMob {
@@ -35,7 +36,11 @@ public class HellSpider extends EntityMob {
     protected boolean canDespawn() {
         return true;
     }
-
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == -1;
+    }
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();

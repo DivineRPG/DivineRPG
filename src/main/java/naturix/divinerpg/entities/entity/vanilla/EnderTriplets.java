@@ -30,6 +30,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderTriplets extends EntityMob implements IRangedAttackMob {
@@ -41,7 +42,11 @@ public class EnderTriplets extends EntityMob implements IRangedAttackMob {
 
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_triplets");
-
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == 1;
+    }
     @Override
     protected boolean canDespawn() {
         return true;

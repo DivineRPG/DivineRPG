@@ -21,6 +21,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Scorcher extends EntityMob {
@@ -33,7 +34,11 @@ public class Scorcher extends EntityMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/scorcher");
 
     private ResourceLocation deathLootTable = LOOT;
-
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == -1;
+    }
     @Override
     protected boolean canDespawn() {
         return true;

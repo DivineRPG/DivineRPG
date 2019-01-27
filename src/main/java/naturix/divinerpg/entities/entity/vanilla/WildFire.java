@@ -44,7 +44,11 @@ public class WildFire extends EntityMob implements IRangedAttackMob{
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == -1;
+    }
     @Override
     protected boolean canDespawn() {
         return true;
