@@ -81,6 +81,4 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 		}
 
 		public void updateClientArcana(float amount) {}
-
-		public void registerCustomStructures(){}
 	}
