@@ -168,6 +168,7 @@ public class ModBlocks {
 	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "divinerpg:archer_frost");
 	public static BlockModSpawner spawnerRollum = new BlockModSpawner("spawner_rollum", "divinerpg:rollum");
 	public static BlockTar tar = new BlockTar();
+	public static BlockBase coalStone = new BlockBase("coalstone");
 	//public static IceikaChest chestIceika = new IceikaChest("chest_iceika");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
@@ -309,7 +310,8 @@ public class ModBlocks {
 				spawnerArcher,
 				spawnerRollum,
 				brittleLeaves,
-				tar
+				tar,
+				coalStone
 				//chestIceika
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
@@ -455,8 +457,9 @@ public class ModBlocks {
 				bricksIceika.createItemBlock(),
 				spawnerArcher.createItemBlock(),
 				brittleLeaves.createItemBlock(),
-				spawnerRollum.createItemBlock()
-//				chestIceika.createItemBlock()
+				spawnerRollum.createItemBlock(),
+				coalStone.createItemBlock()
+				//chestIceika.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
 	} 
@@ -600,6 +603,7 @@ public class ModBlocks {
 		brittleLeaves.registerItemModel(Item.getItemFromBlock(brittleLeaves));
 		spawnerRollum.registerItemModel(Item.getItemFromBlock(spawnerRollum));
 		tar.initModel();
+		coalStone.registerItemModel(Item.getItemFromBlock(coalStone));
 //		chestIceika.registerItemModel(Item.getItemFromBlock(chestIceika));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		

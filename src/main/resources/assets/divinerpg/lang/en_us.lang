@@ -136,6 +136,7 @@ tile.stone_icy.name=Icy Stone
 tile.bricks_iceika.name=Icy Bricks
 tile.spawner_archer.name=Frozen Archer Spawner
 tile.spawner_rollum.name=Rollum Spawner
+tile.coalstone.name=Coalstone
 
 item.teleportation_crystal.name=Teleportation Crystal
 item.tokens_dungeon.name=Dungeon Tokens
