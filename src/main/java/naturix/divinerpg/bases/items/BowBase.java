@@ -1,8 +1,6 @@
 package naturix.divinerpg.bases.items;
-
 import java.util.List;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
@@ -10,105 +8,233 @@ import naturix.divinerpg.bases.items.arrows.InfernoArrow;
 import naturix.divinerpg.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BowBase extends ItemBow
-{
-	String name;
-    public BowBase(String name)
-    {
-    	this.name = name;
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setCreativeTab(DivineRPG.CombatTab);
-    }
-    private ItemStack getAmmo(EntityPlayer player) {
-		if(isArrow(player.getHeldItem(EnumHand.OFF_HAND)))
-			return player.getHeldItem(EnumHand.OFF_HAND);
-		else if(isArrow(player.getHeldItem(EnumHand.MAIN_HAND)))
-			return player.getHeldItem(EnumHand.MAIN_HAND);
-		else for(int i = 0; i < player.inventory.getSizeInventory(); ++i) {
-			ItemStack itemstack = player.inventory.getStackInSlot(i);
+public class BowBase extends ItemBow  {
 
-			if (isArrow(itemstack))
-				return itemstack;
-		}
+	protected String repairIngot = "";
+	public String name;
+	protected ToolMaterial toolMaterial;
 
-		return ItemStack.EMPTY;
+	protected float arrowDamageMultiplier = 0.0F;
+	protected float arrowSpeedMultiplier = 0.0F;
+	protected float zoomMultiplier = 0.15F;
+
+	protected boolean showInCreative = true;
+
+	public BowBase(String name) {
+
+		this.name = name;
+		setMaxStackSize(1);
+//		setMaxDamage(toolMaterial.getMaxUses() + 325);
+		this.setUnlocalizedName(name);
+		this.setRegistryName(name);
+		addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
+			@SideOnly (Side.CLIENT)
+			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+
+				if (entityIn == null) {
+					return 0.0F;
+				} else {
+					ItemStack itemstack = entityIn.getActiveItemStack();
+					return !itemstack.isEmpty() && itemstack.getItem() instanceof BowBase ? (float) (stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F : 0.0F;
+				}
+			}
+		});
+		addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter() {
+			@SideOnly (Side.CLIENT)
+			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+
+				return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+			}
+		});
 	}
-    @Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(@Nonnull World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		ItemStack stack = player.getHeldItem(hand);
-		// Copy from superclass with our own check
-		ActionResult<ItemStack> ret = ForgeEventFactory.onArrowNock(stack, world, player, hand, true);
-		if (ret != null) return ret;
 
-		if (!player.capabilities.isCreativeMode)
-		{
-			return new ActionResult<>(EnumActionResult.FAIL, stack);
+	public BowBase setRepairIngot(String repairIngot) {
+
+		this.repairIngot = repairIngot;
+		return this;
+	}
+
+	public BowBase setArrowDamage(float multiplier) {
+
+		arrowDamageMultiplier = multiplier;
+		return this;
+	}
+
+	public BowBase setArrowSpeed(float multiplier) {
+
+		this.arrowSpeedMultiplier = multiplier;
+		return this;
+	}
+
+	public BowBase setZoomMultiplier(float multiplier) {
+
+		this.zoomMultiplier = multiplier;
+		return this;
+	}
+
+	public BowBase setShowInCreative(boolean showInCreative) {
+
+		this.showInCreative = showInCreative;
+		return this;
+	}
+
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+
+		if (isInCreativeTab(tab) && showInCreative) {
+			items.add(new ItemStack(this, 1, 0));
 		}
-		else
-		{
+	}
+
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+
+		return true;
+	}
+
+	@Override
+	public int getItemEnchantability(ItemStack stack) {
+
+		return toolMaterial.getEnchantability();
+	}
+
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+
+		ItemStack stack = player.getHeldItem(hand);
+		boolean flag = !this.findAmmo(player).isEmpty();
+
+		ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(stack, world, player, hand, flag);
+		if (ret != null) {
+			return ret;
+		}
+		if (!player.capabilities.isCreativeMode && !flag) {
+			return !flag ? new ActionResult<>(EnumActionResult.FAIL, stack) : new ActionResult<>(EnumActionResult.PASS, stack);
+		} else {
 			player.setActiveHand(hand);
 			return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 		}
 	}
 
 	@Override
-    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase shooter, int useTicks) {
-		EntityPlayer player = (EntityPlayer) shooter;
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase livingBase, int timeLeft) {
 
-		ItemStack itemstack = getAmmo(player);
+		if (livingBase instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) livingBase;
+			ItemStack arrowStack = this.findAmmo(player);
+			boolean flag = player.capabilities.isCreativeMode || (arrowStack.getItem() instanceof ItemArrow && ((ItemArrow) arrowStack.getItem()).isInfinite(arrowStack, stack, player));
 
-		int i = (int) ((getMaxItemUseDuration(stack) - useTicks) );
-		i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, player, i, !itemstack.isEmpty());
-		if (i < 0) return;
-
-		if (!itemstack.isEmpty())
-		{
-			if (itemstack.isEmpty())
-			{
-				itemstack = new ItemStack(ModItems.arrowInferno);
+			int charge = this.getMaxItemUseDuration(stack) - timeLeft;
+			charge = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer) livingBase, charge, !arrowStack.isEmpty() || flag);
+			if (charge < 0) {
+				return;
 			}
-		}
-			float f = getArrowVelocity(i);
+			if (!arrowStack.isEmpty() || flag) {
+				if (arrowStack.isEmpty()) {
+					arrowStack = new ItemStack(Items.ARROW);
+				}
+				float f = getArrowVelocity(charge);
+				float speedMod = 1.0F + arrowSpeedMultiplier;
 
+				if ((double) f >= 0.1D) {
+					if (!world.isRemote) {
+						int encPunch = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
+						int encPower = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+						boolean encFlame = EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0;
 
-				if (!world.isRemote)
-				{
-					InfernoArrow itemarrow = (InfernoArrow) (itemstack.getItem() instanceof InfernoArrow ? itemstack.getItem() : ModItems.arrowInferno);
-					EntityInfernoArrow entityarrow = itemarrow.createArrow(world, itemstack, shooter);
-					
-					entityarrow.shoot(shooter, shooter.rotationPitch, shooter.rotationYaw, 0.0F, f * 3.0F, 1.0F);
-					   
-					if (f == 1.0F)
-					{
-						entityarrow.setIsCritical(true);
+						InfernoArrow arrowItem = (InfernoArrow) (arrowStack.getItem() instanceof InfernoArrow ? arrowStack.getItem() : ModItems.arrowInferno);
+
+						
+							EntityInfernoArrow arrow = arrowItem.createArrow(world, arrowStack, player);
+							arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F * speedMod, 1.0F + (1.5F - f));
+							arrow.setDamage(arrow.getDamage() * (1 + arrowDamageMultiplier));
+
+							if (f >= 1.0F) {
+								arrow.setIsCritical(true);
+							}
+							if (encPower > 0) {
+								arrow.setDamage(arrow.getDamage() + (double) encPower * 0.5D + 0.5D);
+							}
+							if (encPunch > 0) {
+								arrow.setKnockbackStrength(encPunch);
+							}
+							if (encFlame) {
+								arrow.setFire(100);
+							}
+							
+							world.spawnEntity(arrow);
+						}
+						stack.damageItem(1, player);
 					}
+					world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-					world.spawnEntity(entityarrow);
-					DivineRPG.logger.info(shooter.getName() + " just shot an arrow with the pitch "+shooter.rotationPitch+" and the yaw of "+shooter.rotationYaw);
+					if (!flag) {
+						arrowStack.shrink(1);
 
-				world.playSound(null, shooter.posX, shooter.posY, shooter.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-
-				player.addStat(StatList.getObjectUseStats(this));
+						if (arrowStack.getCount() == 0) {
+							player.inventory.deleteStack(arrowStack);
+						}
+					}
+					player.addStat(StatList.getObjectUseStats(this));
+				}
 			}
 		}
-	
+	private ItemStack findAmmo(EntityPlayer player)
+    {
+        if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND)))
+        {
+            return player.getHeldItem(EnumHand.OFF_HAND);
+        }
+        else if (this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND)))
+        {
+            return player.getHeldItem(EnumHand.MAIN_HAND);
+        }
+        else
+        {
+            for (int i = 0; i < player.inventory.getSizeInventory(); ++i)
+            {
+                ItemStack itemstack = player.inventory.getStackInSlot(i);
+
+                if (this.isArrow(itemstack))
+                {
+                    return itemstack;
+                }
+            }
+
+            return ItemStack.EMPTY;
+        }
+    }
+	protected boolean isArrow(ItemStack stack)
+    {
+		boolean isInfernal = false;
+			if(this==ModItems.infernoBow) {
+				isInfernal=true;
+			}
+
+        return isInfernal;
+    }
 	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}

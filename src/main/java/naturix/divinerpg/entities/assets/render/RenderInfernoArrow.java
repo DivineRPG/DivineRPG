@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderInfernoArrow extends RenderArrow<EntityInfernoArrow>
 {
-    public static final ResourceLocation RES_SPECTRAL_ARROW = new ResourceLocation(DivineRPG.modId + "textures/items/arrow_inferno.png");
+    public static final ResourceLocation RES_SPECTRAL_ARROW = new ResourceLocation(DivineRPG.modId, "textures/entity/projectiles/arrow_inferno.png");
 
     public RenderInfernoArrow(RenderManager manager)
     {

@@ -1,7 +1,5 @@
 package naturix.divinerpg.registry;
 
-import com.google.common.graph.ElementOrder.Type;
-
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
@@ -302,15 +300,14 @@ import naturix.divinerpg.entities.entity.vethia.WreckForm;
 import naturix.divinerpg.entities.entity.vethia.Zone;
 import naturix.divinerpg.entities.entity.vethia.Zoragon;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -318,6 +315,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModEntities {
 
+	private static RenderManager manager;
 	public static void init() {
 		//register basic mobs
 		int id = 1;
@@ -878,6 +876,6 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.acid , Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.amthirmisDisk , Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityInfernoArrow.class, manager -> new RenderInfernoArrow(manager));
-		
+
 	}
 }
