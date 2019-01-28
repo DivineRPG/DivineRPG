@@ -6,7 +6,6 @@ import java.util.Random;
 
 import naturix.divinerpg.dimensions.iceika.world.IceikaCaves;
 import naturix.divinerpg.dimensions.iceika.world.IceikaTerrainGenerator;
-import naturix.divinerpg.dimensions.iceika.world.WorldGenRollumDungeon;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -30,7 +29,6 @@ public class ChunkProviderIceika implements  IChunkGenerator
     private final World worldObj;
     private Random rand;
     private Biome[] biomesForGeneration;
-    private final WorldGenerator dungeonRollum;
 
 	private final MapGenBase caveGenerator;
     private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
@@ -45,10 +43,6 @@ public class ChunkProviderIceika implements  IChunkGenerator
         this.rand = new Random((seed + 516) * 314);
         terraingen.setup(worldObj, rand);
 		caveGenerator = new IceikaCaves();
-
-//        dungeonArcher = new WorldGenArcherDungeon();
-        dungeonRollum = new WorldGenRollumDungeon();
-
 	}
 
 

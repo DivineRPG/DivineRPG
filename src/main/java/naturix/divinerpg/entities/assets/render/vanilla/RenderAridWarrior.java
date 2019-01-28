@@ -3,6 +3,7 @@ package naturix.divinerpg.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelAridWarrior;
+import naturix.divinerpg.entities.assets.render.MainHandLayerRenderAridWarrior;
 import naturix.divinerpg.entities.entity.vanilla.AridWarrior;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -18,6 +19,7 @@ public class RenderAridWarrior extends RenderLiving<AridWarrior> {
     
 	public RenderAridWarrior(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelAridWarrior(), 1F);
+		addLayer(new MainHandLayerRenderAridWarrior(this));
     }
 
 	@Nullable
