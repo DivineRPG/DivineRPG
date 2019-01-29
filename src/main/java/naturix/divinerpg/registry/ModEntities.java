@@ -176,6 +176,7 @@ import naturix.divinerpg.entities.entity.iceika.Hastreus;
 import naturix.divinerpg.entities.entity.iceika.Rollum;
 import naturix.divinerpg.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.entities.entity.iceika.WorkshopTinkerer;
+import naturix.divinerpg.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.entities.entity.twilight.AngryBunny;
 import naturix.divinerpg.entities.entity.twilight.ApalachiaCadillion;
@@ -304,6 +305,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
@@ -322,6 +325,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".teaker_disc"), EntityTeakerDisc.class, DivineRPG.modId +".teaker_disc", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".arrow_inferno"), EntityInfernoArrow.class, DivineRPG.modId +".arrow_inferno", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".arrow_acid"), EntityEMP.class, DivineRPG.modId +".arrow_acid", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".rock_cave"), EntityCaveRock.class, DivineRPG.modId +".rock_cave", id++, DivineRPG.instance, 64, 3, true);
 		
 		
 		//register advanced mobs
@@ -875,6 +879,9 @@ public class ModEntities {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.acid , Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.amthirmisDisk , Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, manager -> new RenderSnowball<>(manager, Item.getItemFromBlock(Blocks.STONE) , Minecraft.getMinecraft().getRenderItem()));
+																															//^^ Change this to what it should be @KrwMiner
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityInfernoArrow.class, manager -> new RenderInfernoArrow(manager));
 
 	}
