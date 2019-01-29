@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:workshop_bookcase"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+	"type=overworld": [{}],
+	"type=nether": [{}],
+	"type=end": [{}]
+  }
+}

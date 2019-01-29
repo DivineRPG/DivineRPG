@@ -231,6 +231,8 @@ public final class ModSounds {
 	public static final SoundEvent ZORAGON = createEvent("zoragon");
 	public static final SoundEvent ZORAGON_HURT = createEvent("zoragon_hurt");
 
+	public static final SoundEvent ICEIKA_MUSIC = createEvent("iceika_music");
+
 	private static SoundEvent createEvent(String sound) {
 		ResourceLocation name = new ResourceLocation(DivineRPG.modId, sound);
 		return new SoundEvent(name).setRegistryName(name);
@@ -455,6 +457,7 @@ public final class ModSounds {
 		evt.getRegistry().register(ZONE_HURT);
 		evt.getRegistry().register(ZORAGON);
 		evt.getRegistry().register(ZORAGON_HURT);
+		evt.getRegistry().register(ICEIKA_MUSIC);
 	}
 
 	private ModSounds() {

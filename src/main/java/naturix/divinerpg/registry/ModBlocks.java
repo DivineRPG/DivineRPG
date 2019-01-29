@@ -169,6 +169,10 @@ public class ModBlocks {
 	public static BlockModSpawner spawnerRollum = new BlockModSpawner("spawner_rollum", "divinerpg:rollum");
 	public static BlockTar tar = new BlockTar();
 	public static BlockBase coalStone = new BlockBase("coalstone");
+	public static BlockBase snowBricks = new BlockBase("snow_bricks");
+	public static BlockBase workshopBookcase = new BlockBase("workshop_bookcase");
+	public static FrostedGlass frostedGlass = new FrostedGlass("frosted_glass");
+	public static WorkshopCarpet workshopCarpet = new WorkshopCarpet("workshop_carpet");
 	//public static IceikaChest chestIceika = new IceikaChest("chest_iceika");
 	
 	public static void register(IForgeRegistry<Block> registry) { 
@@ -311,7 +315,11 @@ public class ModBlocks {
 				spawnerRollum,
 				brittleLeaves,
 				tar,
-				coalStone
+				coalStone,
+				snowBricks,
+				workshopBookcase,
+				frostedGlass,
+				workshopCarpet
 				//chestIceika
 		);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
@@ -458,7 +466,11 @@ public class ModBlocks {
 				spawnerArcher.createItemBlock(),
 				brittleLeaves.createItemBlock(),
 				spawnerRollum.createItemBlock(),
-				coalStone.createItemBlock()
+				coalStone.createItemBlock(),
+				snowBricks.createItemBlock(),
+				workshopBookcase.createItemBlock(),
+				frostedGlass.createItemBlock(),
+				workshopCarpet.createItemBlock()
 				//chestIceika.createItemBlock()
 				//nightmarebed.createItemBlock()
 				);
@@ -604,6 +616,10 @@ public class ModBlocks {
 		spawnerRollum.registerItemModel(Item.getItemFromBlock(spawnerRollum));
 		tar.initModel();
 		coalStone.registerItemModel(Item.getItemFromBlock(coalStone));
+		snowBricks.registerItemModel(Item.getItemFromBlock(snowBricks));
+		workshopBookcase.registerItemModel(Item.getItemFromBlock(workshopBookcase));
+		frostedGlass.registerItemModel(Item.getItemFromBlock(frostedGlass));
+		workshopCarpet.registerItemModel(Item.getItemFromBlock(workshopCarpet));
 //		chestIceika.registerItemModel(Item.getItemFromBlock(chestIceika));
 		//nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 		

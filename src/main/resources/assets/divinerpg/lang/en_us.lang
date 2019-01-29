@@ -137,6 +137,10 @@ tile.bricks_iceika.name=Icy Bricks
 tile.spawner_archer.name=Frozen Archer Spawner
 tile.spawner_rollum.name=Rollum Spawner
 tile.coalstone.name=Coalstone
+tile.snow_bricks.name=Snow Bricks
+tile.workshop_carpet.name=Workshop Carpet
+tile.workshop_bookcase.name=Workshop Bookcase
+tile.frosted_bricks.name=Frosted Bricks
 
 item.teleportation_crystal.name=Teleportation Crystal
 item.tokens_dungeon.name=Dungeon Tokens

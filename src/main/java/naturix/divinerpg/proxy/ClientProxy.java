@@ -9,11 +9,14 @@ import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.TEISRRender;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Utils;
 import naturix.divinerpg.world.structures.WorldGenCustomStructures;
+import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
@@ -27,6 +30,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
 public class ClientProxy extends CommonProxy {
+    public static MusicTicker.MusicType Music_Iceika;
+
 	@Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
@@ -40,6 +45,8 @@ public class ClientProxy extends CommonProxy {
         RenderTiles.init();
         Utils.setupCapes();
         Utils.updateCapeList();
+
+        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }
 	@Override
     public void postInit(FMLPostInitializationEvent e) {

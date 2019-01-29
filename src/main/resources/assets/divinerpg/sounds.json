@@ -1290,5 +1290,11 @@
       "sounds":[
          "divinerpg:vethea_bow"
       ]
+   },
+   "iceika_music":{
+      "category":"music",
+      "sounds":[
+         "divinerpg:iceika_music"
+      ]
    }
 }

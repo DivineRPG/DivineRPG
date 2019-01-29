@@ -1,7 +1,10 @@
 package naturix.divinerpg.dimensions.iceika;
 
+import naturix.divinerpg.proxy.ClientProxy;
+import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
+import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
@@ -49,7 +52,11 @@ public class WorldProviderIceika extends WorldProvider {
         return 0.5f;
     }
 
-
+    @Nullable
+    @Override
+    public MusicTicker.MusicType getMusicType() {
+        return ClientProxy.Music_Iceika;
+    }
 
     @Override
     public boolean canRespawnHere() {
