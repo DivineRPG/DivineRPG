@@ -12,7 +12,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.modId)
-@SideOnly(Side.CLIENT)
 public final class ModSounds {
 	public static final SoundEvent ACID_HAG = createEvent("acid_hag");
 	public static final SoundEvent ACID_HAG_HURT = createEvent("acid_hag_hurt");
