@@ -879,7 +879,7 @@ public class ModEntities {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.acid , Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.amthirmisDisk , Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, manager -> new RenderSnowball<>(manager, Item.getItemFromBlock(Blocks.STONE) , Minecraft.getMinecraft().getRenderItem()));
+//		RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class, manager -> new RenderSnsowball<>(manager, Item.getItemFromBlock(Blocks.STONE) , Minecraft.getMinecraft().getRenderItem()));
 																															//^^ Change this to what it should be @KrwMiner
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityInfernoArrow.class, manager -> new RenderInfernoArrow(manager));
