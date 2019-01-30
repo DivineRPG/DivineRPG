@@ -16,4 +16,5 @@
 - Add chickens/Mystical Crops/Magic crops support
 - Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.md
 - Fix weapon damage values
+- Double check entity hitboxes
 - Final balancing
