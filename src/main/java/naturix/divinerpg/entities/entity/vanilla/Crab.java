@@ -31,22 +31,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeBeach;
 
 public class Crab extends EntityPeacefulUntilAttacked {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crab");
 
     public Crab(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1F);
 		this.setHealth(this.getMaxHealth());
 		this.experienceValue = 40;
-	}
-
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/crab");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
 	}
 
     @Override
@@ -70,6 +61,12 @@ public class Crab extends EntityPeacefulUntilAttacked {
 	protected SoundEvent getDeathSound() {
 		return ModSounds.CRAB_HURT;
     }
+
+    @Override
+	protected ResourceLocation getLootTable()
+	{
+		return this.LOOT;
+	}
 
     @Override
     public boolean getCanSpawnHere() {

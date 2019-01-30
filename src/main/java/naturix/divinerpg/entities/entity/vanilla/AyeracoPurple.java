@@ -23,37 +23,41 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 public class AyeracoPurple extends EntityDivineRPGBoss {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_purple");
 
     public AyeracoPurple(World worldIn) {
 		super(worldIn);
-		this.setSize(1.6F, 1.6f);
+		this.setSize(2.8F, 1.2F);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_purple");
 
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(600.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+    }
+
+    @Override
+    protected void initEntityAI()
+    {
+    	super.initEntityAI();
+    	addAttackingAI();
     }
 
     @Override
     public int getMaxSpawnedInChunk() {
         return 1;
     }
+
+    @Override
+	public Color getBarColor()
+	{
+		return Color.PURPLE;
+	}
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -69,4 +73,10 @@ public class AyeracoPurple extends EntityDivineRPGBoss {
 	protected SoundEvent getDeathSound() {
 		return ModSounds.AYERACO_HURT;
     }
+
+    @Override
+	protected ResourceLocation getLootTable()
+	{
+		return this.LOOT;
+	}
 }

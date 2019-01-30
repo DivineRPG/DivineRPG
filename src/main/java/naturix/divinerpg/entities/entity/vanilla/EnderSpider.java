@@ -27,26 +27,15 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderSpider extends EntityEnderman  {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_spider");
 
     public EnderSpider(World worldIn) {
 		super(worldIn);
-		this.setSize(0.5F, 0.6F);
+		this.setSize(0.9F, 0.9F);
 		this.setHealth(this.getMaxHealth());
+		this.experienceValue = 20;
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_spider");
 
-    private ResourceLocation deathLootTable = LOOT;
-    @Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == 1;
-    }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -57,20 +46,19 @@ public class EnderSpider extends EntityEnderman  {
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
 		return ModSounds.HELL_SPIDER;
+    }
+
+    @Override
+	protected ResourceLocation getLootTable()
+	{
+		return this.LOOT;
+	}
+
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == 1;
     }
 }

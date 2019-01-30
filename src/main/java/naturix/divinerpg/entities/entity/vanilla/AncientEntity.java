@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIFollow;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -39,9 +40,16 @@ public class AncientEntity extends EntityDivineRPGBoss {
 
     public AncientEntity(World worldIn) {
 		super(worldIn);
-		this.setSize(8F, 20);
+		this.setSize(4.0F, 6.5F);
 		this.setHealth(this.getMaxHealth());
 	}
+
+    @Override
+    protected void initEntityAI()
+    {
+    	super.initEntityAI();
+    	addAttackingAI();
+    }
 
     @Override
     protected void applyEntityAttributes() {

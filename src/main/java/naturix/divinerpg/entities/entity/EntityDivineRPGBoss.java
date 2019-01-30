@@ -7,16 +7,17 @@ import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
 import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.BossInfo;
+import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
 public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob {
-	
+	private BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS));
 
 	public EntityDivineRPGBoss(World par1World) {
 		super(par1World);
 	}
-	private BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS));
+
     @Override
     protected boolean isValidLightLevel() {
         return true;
@@ -36,26 +37,16 @@ public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob {
 	public boolean isNonBoss() {
 		return false;
 	}
+	
+	public Color getBarColor()
+	{
+		return Color.BLUE;
+	}
 
 	@Override
 	public void addTrackingPlayer(EntityPlayerMP player) {
 		super.addTrackingPlayer(player);
-		if(this instanceof AyeracoBlue) {
-			bossInfo.setColor(BossInfo.Color.BLUE);
-			}
-		if(this instanceof AyeracoGreen) {
-			bossInfo.setColor(BossInfo.Color.GREEN);
-			}
-		if(this instanceof AyeracoPurple) {
-			bossInfo.setColor(BossInfo.Color.PURPLE);
-			}
-		if(this instanceof AyeracoRed) {
-			bossInfo.setColor(BossInfo.Color.RED);
-			}
-		if(this instanceof AyeracoYellow) {
-			bossInfo.setColor(BossInfo.Color.YELLOW);
-			}
-		
+		bossInfo.setColor(getBarColor());
 		this.bossInfo.addPlayer(player);
 	}
 

@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
@@ -32,7 +33,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class AridWarrior extends EntityDivineRPGMob {
+public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/arid_warrior");
 
     public AridWarrior(World worldIn) {
@@ -48,31 +49,34 @@ public class AridWarrior extends EntityDivineRPGMob {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
     }
 
-    @Nullable
     @Override
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-        IEntityLivingData ientitylivingdata = super.onInitialSpawn(difficulty, livingdata);
-        this.setEquipmentBasedOnDifficulty(difficulty);
-        this.setEnchantmentBasedOnDifficulty(difficulty);
-        return ientitylivingdata;
-    }
-
-    @Override
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.shadowBow));
-    }
-
     protected void initEntityAI()
     {
     	super.initEntityAI();
     	addAttackingAI();
-    	this.tasks.addTask(0, new ArrowAttack(this));
+        this.tasks.addTask(0, new EntityAIAttackRanged(this, 0.27F, 18, 16.0F));
     }
 
     @Override
     protected boolean isValidLightLevel() {
         return true;
     }
+
+    @Override
+    public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+    	EntityTippedArrow arrow = new EntityTippedArrow(this.world, this);
+    	arrow.setDamage(1.5);
+        double d0 = target.posX - this.posX;
+        double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 3.0F) - arrow.posY;
+        double d2 = target.posZ - this.posZ;
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 4.5F);
+        this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+        this.world.spawnEntity(arrow);
+    }
+
+    @Override
+	public void setSwingingArms(boolean swingingArms) { }
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -94,49 +98,5 @@ public class AridWarrior extends EntityDivineRPGMob {
 	{
 		return this.LOOT;
 	}
-
-    //AI
-    private class ArrowAttack extends EntityAIBase {
-        private AridWarrior aridWarrior;
-        private int tickCooldown;
-
-        public ArrowAttack(AridWarrior aridWarrior) {
-            this.aridWarrior = aridWarrior;
-        }
-
-        @Override
-        public boolean shouldExecute() {
-            EntityLivingBase entitylivingbase = this.aridWarrior.getAttackTarget();
-            return entitylivingbase != null && entitylivingbase.isEntityAlive();
-        }
-
-        @Override
-        public void updateTask() {
-            tickCooldown++;
-            if (tickCooldown % (120/this.aridWarrior.world.getDifficulty().getDifficultyId()) == 0) {
-                shootArrow();
-            }
-        }
-
-        private void shootArrow() {
-            EntityLivingBase target = this.aridWarrior.getAttackTarget();
-            EntityArrow entityarrow = this.getArrow(16);
-            double d0 = target.posX - this.aridWarrior.posX;
-            double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 3.0F) - entityarrow.posY;
-            double d2 = target.posZ - this.aridWarrior.posZ;
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            entityarrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.aridWarrior.world.getDifficulty().getDifficultyId() * 4));
-            this.aridWarrior.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.aridWarrior.getRNG().nextFloat() * 0.4F + 0.8F));
-            this.aridWarrior.world.spawnEntity(entityarrow);
-        }
-
-        protected EntityArrow getArrow(float p_190726_1_)
-        {
-            EntityTippedArrow entitytippedarrow = new EntityTippedArrow(this.aridWarrior.world, aridWarrior);
-            entitytippedarrow.setEnchantmentEffectsFromEntity(this.aridWarrior, p_190726_1_);
-            return entitytippedarrow;
-        }
-
-    }
 }
 

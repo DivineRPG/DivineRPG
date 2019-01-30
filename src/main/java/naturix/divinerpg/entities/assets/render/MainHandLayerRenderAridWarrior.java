@@ -21,10 +21,9 @@ public class MainHandLayerRenderAridWarrior implements LayerRenderer<AridWarrior
 
     @Override
     public void doRenderLayer(AridWarrior entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        ItemStack stack = entitylivingbaseIn.getHeldItemMainhand();
+        ItemStack stack = new ItemStack(ModItems.shadowBow);
 
         if(stack != null) {
-            if(stack.getItem() == ModItems.shadowBow)
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             GlStateManager.translate(-0.8f, 0.4f, 0);

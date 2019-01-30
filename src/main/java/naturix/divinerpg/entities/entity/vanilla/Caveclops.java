@@ -50,7 +50,7 @@ public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
     {
     	super.initEntityAI();
     	addAttackingAI();
-        this.tasks.addTask(0, new EntityAIAttackRanged(this, 0.25F, 30, 10.0F));
+        this.tasks.addTask(0, new EntityAIAttackRanged(this, 0.27F, 30, 10.0F));
     }
 
     @Override

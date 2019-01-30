@@ -3,6 +3,8 @@ package naturix.divinerpg.entities.entity.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,70 +27,32 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CaveCrawler extends EntityMob {
+public class CaveCrawler extends EntityDivineRPGMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cave_crawler");
 
     public CaveCrawler(World worldIn) {
 		super(worldIn);
-		this.setSize(1F, 1f);
+		this.setSize(1.5F, 2.0F);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cave_crawler");
 
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
     }
 
+    @Override
     protected void initEntityAI()
     {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    	super.initEntityAI();
+    	addAttackingAI();
     }
 
     @Override
     protected boolean isValidLightLevel() {
         return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
     }
 
     @Override
@@ -104,5 +68,16 @@ public class CaveCrawler extends EntityMob {
     @Override
 	protected SoundEvent getDeathSound() {
 		return ModSounds.CRAWLER_HURT;
+    }
+
+    @Override
+	protected ResourceLocation getLootTable()
+	{
+		return this.LOOT;
+	}
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return this.posY < 35.0D && super.getCanSpawnHere();
     }
 }
