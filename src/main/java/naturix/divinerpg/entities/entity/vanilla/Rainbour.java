@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
 
 public class Rainbour extends EntityMob {
 
@@ -82,7 +83,7 @@ public class Rainbour extends EntityMob {
 
     @Override
     public int getMaxSpawnedInChunk() {
-        return 3;
+        return 1;
     }
 
     @Override
@@ -106,25 +107,7 @@ public class Rainbour extends EntityMob {
 
     @Override
 	public boolean getCanSpawnHere() {
-		int var1 = MathHelper.floor(this.posY);
 		
-		if(var1 >= 40) {
-			return false;
-		} else {
-			int var2 = MathHelper.floor(this.posX);
-			int var3 = MathHelper.floor(this.posZ);
-			int var4 = this.world.getLight(new BlockPos(var2, var1, var3));
-			byte var5 = 4;
-			Calendar var6 = this.world.getCurrentDate();
-
-			if((var6.get(2) + 1 != 10 || var6.get(5) < 20) && (var6.get(2) + 1 != 11 || var6.get(5) > 3)) {
-				if(this.rand.nextBoolean()) {
-					return false;
-				}
-			} else {
-				var5 = 7;
-			}
-			return var4 > this.rand.nextInt(var5) && this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.loadedEntityList.size() > 40;
+			return  this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.loadedEntityList.size() > 20 && world.getWorldType()!=WorldType.FLAT;
 		}
 	}
-}
