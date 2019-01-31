@@ -5,6 +5,7 @@ import java.util.Calendar;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -29,27 +30,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 
 public class Rainbour extends EntityMob {
-
-    public Rainbour(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/rainbour");
 
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+    public Rainbour(World worldIn) {
+        super(worldIn);
+        this.setSize(1F, 1f);
+        this.setHealth(this.getMaxHealth());
     }
 
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -87,27 +75,27 @@ public class Rainbour extends EntityMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
-    @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.RAINBOUR;
+    }
+    
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.RAINBOUR_HURT;
     }
 
     @Override
-	public boolean getCanSpawnHere() {
-		
-			return  this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.loadedEntityList.size() > 20 && world.getWorldType()!=WorldType.FLAT;
-		}
-	}
+    protected SoundEvent getDeathSound() {
+        return ModSounds.RAINBOUR_HURT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return  this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.posY < 40.0D && world.loadedEntityList.size() > 20 && world.getWorldType()!=WorldType.FLAT;
+    }
+}
