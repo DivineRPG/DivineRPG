@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderJungleSpider extends RenderLiving<JungleSpider> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_spider.png");
-    
-	public RenderJungleSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelJungleSpider(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_spider.png");
 
-	@Nullable
+    public RenderJungleSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelJungleSpider(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(JungleSpider entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<JungleSpider> {
-
-	        @Override
-	        public Render<? super JungleSpider> createRenderFor(RenderManager manager) {
-	            return new RenderJungleSpider(manager, new ModelJungleSpider(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<JungleSpider> {
+        @Override
+        public Render<? super JungleSpider> createRenderFor(RenderManager manager) {
+            return new RenderJungleSpider(manager, new ModelJungleSpider(), 0F);
+        }
+    }
+}

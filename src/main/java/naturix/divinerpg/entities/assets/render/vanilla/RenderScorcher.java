@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderScorcher extends RenderLiving<Scorcher> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/scorcher.png");
-    
-	public RenderScorcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelScorcher(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/scorcher.png");
 
-	@Nullable
+    public RenderScorcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelScorcher(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Scorcher entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Scorcher> {
-
-	        @Override
-	        public Render<? super Scorcher> createRenderFor(RenderManager manager) {
-	            return new RenderScorcher(manager, new ModelScorcher(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Scorcher> {
+        @Override
+        public Render<? super Scorcher> createRenderFor(RenderManager manager) {
+            return new RenderScorcher(manager, new ModelScorcher(), 0F);
+        }
+    }
+}

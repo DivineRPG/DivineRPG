@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderJackOMan extends RenderLiving<JackOMan> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jackoman.png");
-    
-	public RenderJackOMan(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelJackOMan(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jackoman.png");
 
-	@Nullable
+    public RenderJackOMan(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelJackOMan(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(JackOMan entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<JackOMan> {
-
-	        @Override
-	        public Render<? super JackOMan> createRenderFor(RenderManager manager) {
-	            return new RenderJackOMan(manager, new ModelJackOMan(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<JackOMan> {
+        @Override
+        public Render<? super JackOMan> createRenderFor(RenderManager manager) {
+            return new RenderJackOMan(manager, new ModelJackOMan(), 0.5F);
+        }
+    }
+}

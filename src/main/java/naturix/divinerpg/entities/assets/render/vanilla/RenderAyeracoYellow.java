@@ -12,26 +12,24 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderAyeracoYellow extends RenderLiving<AyeracoYellow> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ayeraco_yellow.png");
-    
-	public RenderAyeracoYellow(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelAyeraco(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ayeraco_yellow.png");
 
-	@Nullable
+    public RenderAyeracoYellow(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelAyeraco(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(AyeracoYellow entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<AyeracoYellow> {
+    public static class Factory implements IRenderFactory<AyeracoYellow> {
 
-	        @Override
-	        public Render<? super AyeracoYellow> createRenderFor(RenderManager manager) {
-	            return new RenderAyeracoYellow(manager, new ModelAyeraco(), 0.5F);
-	        }
-	    }
-
-	}
+        @Override
+        public Render<? super AyeracoYellow> createRenderFor(RenderManager manager) {
+            return new RenderAyeracoYellow(manager, new ModelAyeraco(), 0F);
+        }
+    }
+}

@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderPumpkinSpider extends RenderLiving<PumpkinSpider> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/pumpkin_spider.png");
-    
-	public RenderPumpkinSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelPumpkinSpider(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/pumpkin_spider.png");
 
-	@Nullable
+    public RenderPumpkinSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelPumpkinSpider(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(PumpkinSpider entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<PumpkinSpider> {
-
-	        @Override
-	        public Render<? super PumpkinSpider> createRenderFor(RenderManager manager) {
-	            return new RenderPumpkinSpider(manager, new ModelPumpkinSpider(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<PumpkinSpider> {
+        @Override
+        public Render<? super PumpkinSpider> createRenderFor(RenderManager manager) {
+            return new RenderPumpkinSpider(manager, new ModelPumpkinSpider(), 0F);
+        }
+    }
+}

@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderLiopleurodon extends RenderLiving<Liopleurodon> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/liopleurodon.png");
-    
-	public RenderLiopleurodon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelLiopleurodon(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/liopleurodon.png");
 
-	@Nullable
+    public RenderLiopleurodon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelLiopleurodon(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Liopleurodon entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Liopleurodon> {
-
-	        @Override
-	        public Render<? super Liopleurodon> createRenderFor(RenderManager manager) {
-	            return new RenderLiopleurodon(manager, new ModelLiopleurodon(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Liopleurodon> {
+        @Override
+        public Render<? super Liopleurodon> createRenderFor(RenderManager manager) {
+            return new RenderLiopleurodon(manager, new ModelLiopleurodon(), 0F);
+        }
+    }
+}

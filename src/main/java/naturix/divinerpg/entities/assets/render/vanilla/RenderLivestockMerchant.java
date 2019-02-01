@@ -12,26 +12,24 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderLivestockMerchant extends RenderLiving<LivestockMerchant> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/livestock_merchant.png");
-    
-	public RenderLivestockMerchant(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelLivestockMerchant(), 1F);
-    } 
 
-	@Nullable
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/livestock_merchant.png");
+
+    public RenderLivestockMerchant(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelLivestockMerchant(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(LivestockMerchant entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<LivestockMerchant> {
-
-	        @Override
-	        public Render<? super LivestockMerchant> createRenderFor(RenderManager manager) {
-	            return new RenderLivestockMerchant(manager, new ModelLivestockMerchant(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<LivestockMerchant> {
+        @Override
+        public Render<? super LivestockMerchant> createRenderFor(RenderManager manager) {
+            return new RenderLivestockMerchant(manager, new ModelLivestockMerchant(), 0.5F);
+        }
+    }
+}

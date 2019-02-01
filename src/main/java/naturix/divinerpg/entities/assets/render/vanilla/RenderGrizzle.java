@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderGrizzle extends RenderLiving<Grizzle> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/grizzle.png");
-    
-	public RenderGrizzle(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelGrizzle(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/grizzle.png");
 
-	@Nullable
+    public RenderGrizzle(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelGrizzle(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Grizzle entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Grizzle> {
-
-	        @Override
-	        public Render<? super Grizzle> createRenderFor(RenderManager manager) {
-	            return new RenderGrizzle(manager, new ModelGrizzle(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Grizzle> {
+        @Override
+        public Render<? super Grizzle> createRenderFor(RenderManager manager) {
+            return new RenderGrizzle(manager, new ModelGrizzle(), 0F);
+        }
+    }
+}

@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderSnapper extends RenderLiving<Snapper> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/snapper.png");
-    
-	public RenderSnapper(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSnapper(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/snapper.png");
 
-	@Nullable
+    public RenderSnapper(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelSnapper(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Snapper entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Snapper> {
-
-	        @Override
-	        public Render<? super Snapper> createRenderFor(RenderManager manager) {
-	            return new RenderSnapper(manager, new ModelSnapper(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Snapper> {
+        @Override
+        public Render<? super Snapper> createRenderFor(RenderManager manager) {
+            return new RenderSnapper(manager, new ModelSnapper(), 0F);
+        }
+    }
+}

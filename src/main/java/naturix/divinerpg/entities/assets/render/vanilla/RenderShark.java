@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderShark extends RenderLiving<Shark> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/shark.png");
-    
-	public RenderShark(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelShark(), 1F);
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/shark.png");
+
+    public RenderShark(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelShark(), shadowsizeIn);
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Shark entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Shark> {
-
-	        @Override
-	        public Render<? super Shark> createRenderFor(RenderManager manager) {
-	            return new RenderShark(manager, new ModelShark(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Shark> {
+        @Override
+        public Render<? super Shark> createRenderFor(RenderManager manager) {
+            return new RenderShark(manager, new ModelShark(), 0F);
+        }
+    }
+}

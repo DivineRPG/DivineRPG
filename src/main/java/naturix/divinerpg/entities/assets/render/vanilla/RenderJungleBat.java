@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderJungleBat extends RenderLiving<JungleBat> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_bat.png");
-    
-	public RenderJungleBat(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelJungleBat(), 0.125F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_bat.png");
 
-	@Nullable
+    public RenderJungleBat(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelJungleBat(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(JungleBat entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<JungleBat> {
-
-	        @Override
-	        public Render<? super JungleBat> createRenderFor(RenderManager manager) {
-	            return new RenderJungleBat(manager, new ModelJungleBat(), 0.125F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<JungleBat> {
+        @Override
+        public Render<? super JungleBat> createRenderFor(RenderManager manager) {
+            return new RenderJungleBat(manager, new ModelJungleBat(), 0F);
+        }
+    }
+}

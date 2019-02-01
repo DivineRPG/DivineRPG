@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderCaveCrawler extends RenderLiving<CaveCrawler> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cave_crawler.png");
-    
-	public RenderCaveCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelCrawler(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cave_crawler.png");
 
-	@Nullable
+    public RenderCaveCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelCrawler(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(CaveCrawler entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<CaveCrawler> {
-
-	        @Override
-	        public Render<? super CaveCrawler> createRenderFor(RenderManager manager) {
-	            return new RenderCaveCrawler(manager, new ModelCrawler(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<CaveCrawler> {
+        @Override
+        public Render<? super CaveCrawler> createRenderFor(RenderManager manager) {
+            return new RenderCaveCrawler(manager, new ModelCrawler(), 0F);
+        }
+    }
+}

@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderGlacon extends RenderLiving<Glacon> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/glacon.png");
-    
-	public RenderGlacon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelGlacon(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/glacon.png");
 
-	@Nullable
+    public RenderGlacon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelGlacon(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Glacon entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Glacon> {
-
-	        @Override
-	        public Render<? super Glacon> createRenderFor(RenderManager manager) {
-	            return new RenderGlacon(manager, new ModelGlacon(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Glacon> {
+        @Override
+        public Render<? super Glacon> createRenderFor(RenderManager manager) {
+            return new RenderGlacon(manager, new ModelGlacon(), 0F);
+        }
+    }
+}

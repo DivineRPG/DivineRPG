@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderKingCrab extends RenderLiving<KingCrab> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/crab.png");
-    
-	public RenderKingCrab(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelKingCrab(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/crab.png");
 
-	@Nullable
+    public RenderKingCrab(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelKingCrab(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(KingCrab entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<KingCrab> {
-
-	        @Override
-	        public Render<? super KingCrab> createRenderFor(RenderManager manager) {
-	            return new RenderKingCrab(manager, new ModelKingCrab(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<KingCrab> {
+        @Override
+        public Render<? super KingCrab> createRenderFor(RenderManager manager) {
+            return new RenderKingCrab(manager, new ModelKingCrab(), 0F);
+        }
+    }
+}

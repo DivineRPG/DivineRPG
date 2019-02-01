@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderFrost extends RenderLiving<Frost> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frost.png");
-    
-	public RenderFrost(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelFrost(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frost.png");
 
-	@Nullable
+    public RenderFrost(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelFrost(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Frost entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Frost> {
-
-	        @Override
-	        public Render<? super Frost> createRenderFor(RenderManager manager) {
-	            return new RenderFrost(manager, new ModelFrost(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Frost> {
+        @Override
+        public Render<? super Frost> createRenderFor(RenderManager manager) {
+            return new RenderFrost(manager, new ModelFrost(), 0F);
+        }
+    }
+}

@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderKobblin extends RenderLiving<Kobblin> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/kobblin.png");
-    
-	public RenderKobblin(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelKobblin(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/kobblin.png");
 
-	@Nullable
+    public RenderKobblin(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelKobblin(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Kobblin entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Kobblin> {
-
-	        @Override
-	        public Render<? super Kobblin> createRenderFor(RenderManager manager) {
-	            return new RenderKobblin(manager, new ModelKobblin(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Kobblin> {
+        @Override
+        public Render<? super Kobblin> createRenderFor(RenderManager manager) {
+            return new RenderKobblin(manager, new ModelKobblin(), 0F);
+        }
+    }
+}

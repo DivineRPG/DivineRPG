@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHusk extends RenderLiving<Husk> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/husk.png");
-    
-	public RenderHusk(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelHusk(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/husk.png");
 
-	@Nullable
+    public RenderHusk(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelHusk(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Husk entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Husk> {
-
-	        @Override
-	        public Render<? super Husk> createRenderFor(RenderManager manager) {
-	            return new RenderHusk(manager, new ModelHusk(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Husk> {
+        @Override
+        public Render<? super Husk> createRenderFor(RenderManager manager) {
+            return new RenderHusk(manager, new ModelHusk(), 0F);
+        }
+    }
+}

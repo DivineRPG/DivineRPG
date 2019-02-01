@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderTheEye extends RenderLiving<TheEye> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_eye.png");
-    
-	public RenderTheEye(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelEye(), 1F);
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_eye.png");
+
+    public RenderTheEye(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelEye(), shadowsizeIn);
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(TheEye entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<TheEye> {
-
-	        @Override
-	        public Render<? super TheEye> createRenderFor(RenderManager manager) {
-	            return new RenderTheEye(manager, new ModelEye(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<TheEye> {
+        @Override
+        public Render<? super TheEye> createRenderFor(RenderManager manager) {
+            return new RenderTheEye(manager, new ModelEye(), 0F);
+        }
+    }
+}

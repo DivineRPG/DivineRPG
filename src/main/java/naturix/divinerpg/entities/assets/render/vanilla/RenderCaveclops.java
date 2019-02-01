@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderCaveclops extends RenderLiving<Caveclops> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/caveclops.png");
-    
-	public RenderCaveclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelCyclops(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/caveclops.png");
 
-	@Nullable
+    public RenderCaveclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelCyclops(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Caveclops entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Caveclops> {
-
-	        @Override
-	        public Render<? super Caveclops> createRenderFor(RenderManager manager) {
-	            return new RenderCaveclops(manager, new ModelCyclops(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Caveclops> {
+        @Override
+        public Render<? super Caveclops> createRenderFor(RenderManager manager) {
+            return new RenderCaveclops(manager, new ModelCyclops(), 0F);
+        }
+    }
+}

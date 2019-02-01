@@ -11,26 +11,26 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderSaguaroWorm extends RenderLiving<naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/saguaro_worm.png");
-    
-	public RenderSaguaroWorm(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSaguaroWorm(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/saguaro_worm.png");
 
-	@Nullable
+    public RenderSaguaroWorm(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelSaguaroWorm(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm entity) {
+    protected ResourceLocation getEntityTexture(
+            naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm> {
-
-	        @Override
-	        public Render<? super naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm> createRenderFor(RenderManager manager) {
-	            return new RenderSaguaroWorm(manager, new ModelSaguaroWorm(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory
+            implements IRenderFactory<naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm> {
+        @Override
+        public Render<? super naturix.divinerpg.entities.entity.vanilla.saguaroworm.SaguaroWorm> createRenderFor(
+                RenderManager manager) {
+            return new RenderSaguaroWorm(manager, new ModelSaguaroWorm(), 0F);
+        }
+    }
+}

@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderAncientEntity extends RenderLiving<AncientEntity> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ancient_entity.png");
-    
-	public RenderAncientEntity(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelAncientEntity(), 8F);
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ancient_entity.png");
+
+    public RenderAncientEntity(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelAncientEntity(), shadowsizeIn);
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(AncientEntity entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<AncientEntity> {
-
-	        @Override
-	        public Render<? super AncientEntity> createRenderFor(RenderManager manager) {
-	            return new RenderAncientEntity(manager, new ModelAncientEntity(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<AncientEntity> {
+        @Override
+        public Render<? super AncientEntity> createRenderFor(RenderManager manager) {
+            return new RenderAncientEntity(manager, new ModelAncientEntity(), 0F);
+        }
+    }
+}

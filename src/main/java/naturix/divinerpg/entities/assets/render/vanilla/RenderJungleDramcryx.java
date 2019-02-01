@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderJungleDramcryx extends RenderLiving<JungleDramcryx> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_dramcryx.png");
-    
-	public RenderJungleDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelDramcryx(), 1F);
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_dramcryx.png");
+
+    public RenderJungleDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelDramcryx(), shadowsizeIn);
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(JungleDramcryx entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<JungleDramcryx> {
-
-	        @Override
-	        public Render<? super JungleDramcryx> createRenderFor(RenderManager manager) {
-	            return new RenderJungleDramcryx(manager, new ModelDramcryx(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<JungleDramcryx> {
+        @Override
+        public Render<? super JungleDramcryx> createRenderFor(RenderManager manager) {
+            return new RenderJungleDramcryx(manager, new ModelDramcryx(), 0F);
+        }
+    }
+}

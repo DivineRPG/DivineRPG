@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderRainbour extends RenderLiving<Rainbour> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rainbour.png");
-    
-	public RenderRainbour(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelRainbour(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rainbour.png");
 
-	@Nullable
+    public RenderRainbour(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelRainbour(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Rainbour entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Rainbour> {
-
-	        @Override
-	        public Render<? super Rainbour> createRenderFor(RenderManager manager) {
-	            return new RenderRainbour(manager, new ModelRainbour(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Rainbour> {
+        @Override
+        public Render<? super Rainbour> createRenderFor(RenderManager manager) {
+            return new RenderRainbour(manager, new ModelRainbour(), 0F);
+        }
+    }
+}

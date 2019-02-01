@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHellSpider extends RenderLiving<HellSpider> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/hell_spider.png");
-    
-	public RenderHellSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelHellSpider(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/hell_spider.png");
 
-	@Nullable
+    public RenderHellSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelHellSpider(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(HellSpider entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<HellSpider> {
-
-	        @Override
-	        public Render<? super HellSpider> createRenderFor(RenderManager manager) {
-	            return new RenderHellSpider(manager, new ModelHellSpider(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<HellSpider> {
+        @Override
+        public Render<? super HellSpider> createRenderFor(RenderManager manager) {
+            return new RenderHellSpider(manager, new ModelHellSpider(), 0.5F);
+        }
+    }
+}

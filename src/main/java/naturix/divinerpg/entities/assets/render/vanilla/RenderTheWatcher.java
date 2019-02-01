@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderTheWatcher extends RenderLiving<TheWatcher> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_watcher.png");
-    
-	public RenderTheWatcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWatcher(), 1F);
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_watcher.png");
+
+    public RenderTheWatcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelWatcher(), shadowsizeIn);
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(TheWatcher entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<TheWatcher> {
-
-	        @Override
-	        public Render<? super TheWatcher> createRenderFor(RenderManager manager) {
-	            return new RenderTheWatcher(manager, new ModelWatcher(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<TheWatcher> {
+        @Override
+        public Render<? super TheWatcher> createRenderFor(RenderManager manager) {
+            return new RenderTheWatcher(manager, new ModelWatcher(), 0F);
+        }
+    }
+}

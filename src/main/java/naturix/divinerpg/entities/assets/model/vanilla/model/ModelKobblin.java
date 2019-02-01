@@ -2,14 +2,14 @@ package naturix.divinerpg.entities.assets.model.vanilla.model;
 
 import org.lwjgl.opengl.GL11;
 
+import naturix.divinerpg.entities.entity.vanilla.Kobblin;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelKobblin extends ModelBase
-{
-    //fields
+public class ModelKobblin extends ModelBase {
+    // fields
     ModelRenderer Pad;
     ModelRenderer RArm1;
     ModelRenderer Neck;
@@ -22,8 +22,7 @@ public class ModelKobblin extends ModelBase
     ModelRenderer LArm1;
     ModelRenderer LLeg;
 
-    public ModelKobblin()
-    {
+    public ModelKobblin() {
         textureWidth = 64;
         textureHeight = 32;
 
@@ -101,7 +100,8 @@ public class ModelKobblin extends ModelBase
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GL11.glPushMatrix();
-        //if(entity instanceof EntityKobblin && !((EntityKobblin)entity).getProvoked())GL11.glTranslatef(0, 1.125f, 0);
+        if (entity instanceof Kobblin && !((Kobblin) entity).getProvoked())
+            GL11.glTranslatef(0, 1.125f, 0);
         Pad.render(f5);
         RArm1.render(f5);
         Neck.render(f5);
@@ -127,11 +127,10 @@ public class ModelKobblin extends ModelBase
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         this.RArm1.rotateAngleX = -0.7853982F + (MathHelper.cos(f * 0.6662F) * 0.8F * f1);
         this.RArm2.rotateAngleX = -1.570796F + (MathHelper.cos(f * 0.6662F) * 0.8F * f1);
-        this.LArm1.rotateAngleX = -0.7853982F + (MathHelper.cos(f * 0.6662F + (float)Math.PI) * 0.8F * f1);
-        this.LArm2.rotateAngleX = -1.570796F + (MathHelper.cos(f * 0.6662F + (float)Math.PI) * 0.8F * f1);
+        this.LArm1.rotateAngleX = -0.7853982F + (MathHelper.cos(f * 0.6662F + (float) Math.PI) * 0.8F * f1);
+        this.LArm2.rotateAngleX = -1.570796F + (MathHelper.cos(f * 0.6662F + (float) Math.PI) * 0.8F * f1);
 
         this.RLeg.rotateAngleX = (MathHelper.cos(f * 0.6662F) * f1);
-        this.LLeg.rotateAngleX = (MathHelper.cos(f * 0.6662F + (float)Math.PI) * f1);
+        this.LLeg.rotateAngleX = (MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1);
     }
-
 }

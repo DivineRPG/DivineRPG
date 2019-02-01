@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderEnthralledDramcryx extends RenderLiving<EnthralledDramcryx> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enthralled_dramcryx.png");
-    
-	public RenderEnthralledDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelEnthralledDramcryx(), 1F);
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enthralled_dramcryx.png");
+
+    public RenderEnthralledDramcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelEnthralledDramcryx(), shadowsizeIn);
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EnthralledDramcryx entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<EnthralledDramcryx> {
-
-	        @Override
-	        public Render<? super EnthralledDramcryx> createRenderFor(RenderManager manager) {
-	            return new RenderEnthralledDramcryx(manager, new ModelEnthralledDramcryx(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<EnthralledDramcryx> {
+        @Override
+        public Render<? super EnthralledDramcryx> createRenderFor(RenderManager manager) {
+            return new RenderEnthralledDramcryx(manager, new ModelEnthralledDramcryx(), 0F);
+        }
+    }
+}

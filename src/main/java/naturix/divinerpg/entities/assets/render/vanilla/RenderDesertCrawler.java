@@ -12,26 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderDesertCrawler extends RenderLiving<DesertCrawler> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/desert_crawler.png");
-    
-	public RenderDesertCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelCrawler(), 1F);
-    } 
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/desert_crawler.png");
 
-	@Nullable
+    public RenderDesertCrawler(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelCrawler(), shadowsizeIn);
+    }
+
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(DesertCrawler entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<DesertCrawler> {
-
-	        @Override
-	        public Render<? super DesertCrawler> createRenderFor(RenderManager manager) {
-	            return new RenderDesertCrawler(manager, new ModelCrawler(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<DesertCrawler> {
+        @Override
+        public Render<? super DesertCrawler> createRenderFor(RenderManager manager) {
+            return new RenderDesertCrawler(manager, new ModelCrawler(), 0F);
+        }
+    }
+}

@@ -13,27 +13,24 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderAridWarrior extends RenderLiving<AridWarrior> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/arid_warrior.png");
-    
-	public RenderAridWarrior(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelAridWarrior(), 1F);
-		addLayer(new MainHandLayerRenderAridWarrior(this));
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/arid_warrior.png");
+
+    public RenderAridWarrior(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelAridWarrior(), shadowsizeIn);
+        addLayer(new MainHandLayerRenderAridWarrior(this));
     }
 
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(AridWarrior entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<AridWarrior> {
-
-	        @Override
-	        public Render<? super AridWarrior> createRenderFor(RenderManager manager) {
-	            return new RenderAridWarrior(manager, new ModelAridWarrior(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<AridWarrior> {
+        @Override
+        public Render<? super AridWarrior> createRenderFor(RenderManager manager) {
+            return new RenderAridWarrior(manager, new ModelAridWarrior(), 0F);
+        }
+    }
+}
