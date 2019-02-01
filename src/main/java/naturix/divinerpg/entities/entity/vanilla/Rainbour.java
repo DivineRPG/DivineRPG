@@ -55,6 +55,8 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
     @Override
     public boolean getCanSpawnHere() {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.posY < 40.0D
-                && world.loadedEntityList.size() > 20 && world.getWorldType() != WorldType.FLAT;
+                && world.loadedEntityList.size() > 20 && world.getWorldType() != WorldType.FLAT	&& world.provider.getDimension() != 1	&& world.provider.getDimension() != -1;
+                
+                
     }
 }

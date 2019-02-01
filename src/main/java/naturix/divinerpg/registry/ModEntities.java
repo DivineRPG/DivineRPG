@@ -90,6 +90,7 @@ import naturix.divinerpg.entities.assets.render.vanilla.RenderFrost;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderGlacon;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderGrizzle;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderGrizzleWhite;
+import naturix.divinerpg.entities.assets.render.vanilla.RenderHellPig;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderHellSpider;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderHusk;
 import naturix.divinerpg.entities.assets.render.vanilla.RenderJackOMan;
@@ -240,6 +241,7 @@ import naturix.divinerpg.entities.entity.vanilla.Frost;
 import naturix.divinerpg.entities.entity.vanilla.Glacon;
 import naturix.divinerpg.entities.entity.vanilla.Grizzle;
 import naturix.divinerpg.entities.entity.vanilla.GrizzleWhite;
+import naturix.divinerpg.entities.entity.vanilla.HellPig;
 import naturix.divinerpg.entities.entity.vanilla.HellSpider;
 import naturix.divinerpg.entities.entity.vanilla.Husk;
 import naturix.divinerpg.entities.entity.vanilla.JackOMan;
@@ -305,8 +307,6 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
@@ -448,6 +448,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".cyclops"), Cyclops.class, DivineRPG.modId +".cyclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".caveclops"), Caveclops.class, DivineRPG.modId +".caveclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".ender_spider"), EnderSpider.class, DivineRPG.modId +".ender_spider", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId +".hell_pig"), HellPig.class, DivineRPG.modId +".hell_pig", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);	
 		
 		id = 500;
 		//vethia
@@ -581,12 +582,14 @@ public class ModEntities {
 				EntityRegistry.addSpawn(EnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(EnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(EnderWatcher.class, 10, 4, 4, EnumCreatureType.MONSTER, biome);
-				
-				//EntityRegistry.addSpawn(EntityHellBat.class, 50, 1, 1, EnumCreatureType.monster, biome);
-//				EntityRegistry.addSpawn(HellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
+
+				if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.NETHER)) {		
+//				EntityRegistry.addSpawn(HellBat.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(HellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
 				EntityRegistry.addSpawn(HellSpider.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(Scorcher.class, 7, 4, 4, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(WildFire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+		}
 				
 				if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.SNOWY)) {
 					EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.MONSTER, biome);
@@ -709,6 +712,8 @@ public class ModEntities {
 				LootTableList.register(Cyclops.LOOT);
 				LootTableList.register(Caveclops.LOOT);
 				LootTableList.register(EnderSpider.LOOT);
+				LootTableList.register(HellPig.LOOT);
+				
 				
 				if(Config.debug) {	
 				DivineRPG.logger.info(DivineRPG.modId +" loot has been loaded");
@@ -833,6 +838,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(Cyclops.class, RenderCyclops.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Caveclops.class, RenderCaveclops.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnderSpider.class, RenderEnderSpider.FACTORY);		
+		RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);		
 		
 		//vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
