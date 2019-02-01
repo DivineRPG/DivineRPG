@@ -2,6 +2,7 @@ package naturix.divinerpg.entities.assets.model.vanilla.model;
 
 import org.lwjgl.opengl.GL11;
 
+import naturix.divinerpg.entities.entity.vanilla.PumpkinSpider;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -97,9 +98,10 @@ public class ModelPumpkinSpider extends ModelBase {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GL11.glPushMatrix();
-        //if(((EntityPumpkinSpider)entity).getProvoked()) GL11.glTranslatef(0, -0.1875f, 0);
+        if (((PumpkinSpider) entity).getProvoked())
+            GL11.glTranslatef(0, -0.1875f, 0);
         RearEnd.render(f5);
-        //if(((EntityPumpkinSpider)entity).getProvoked()) {
+        if (((PumpkinSpider) entity).getProvoked()) {
             Head.render(f5);
             Body.render(f5);
             Leg8.render(f5);
@@ -110,7 +112,7 @@ public class ModelPumpkinSpider extends ModelBase {
             Leg5.render(f5);
             Leg3.render(f5);
             Leg1.render(f5);
-        //}
+        }
         GL11.glPopMatrix();
     }
 
@@ -124,7 +126,7 @@ public class ModelPumpkinSpider extends ModelBase {
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 
-        float var8 = ((float)Math.PI / 4F);
+        float var8 = ((float) Math.PI / 4F);
         this.Leg1.rotateAngleZ = -var8;
         this.Leg2.rotateAngleZ = var8;
         this.Leg3.rotateAngleZ = -var8 * 0.74F;
@@ -144,13 +146,13 @@ public class ModelPumpkinSpider extends ModelBase {
         this.Leg7.rotateAngleY = -var10 * 2.0F + var9;
         this.Leg8.rotateAngleY = var10 * 2.0F - var9;
         float var11 = -(MathHelper.cos(f * 0.6662F * 2.0F + 0.0F) * 0.4F) * f1;
-        float var12 = -(MathHelper.cos(f * 0.6662F * 2.0F + (float)Math.PI) * 0.4F) * f1;
-        float var13 = -(MathHelper.cos(f * 0.6662F * 2.0F + ((float)Math.PI / 2F)) * 0.4F) * f1;
-        float var14 = -(MathHelper.cos(f * 0.6662F * 2.0F + ((float)Math.PI * 3F / 2F)) * 0.4F) * f1;
+        float var12 = -(MathHelper.cos(f * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * f1;
+        float var13 = -(MathHelper.cos(f * 0.6662F * 2.0F + ((float) Math.PI / 2F)) * 0.4F) * f1;
+        float var14 = -(MathHelper.cos(f * 0.6662F * 2.0F + ((float) Math.PI * 3F / 2F)) * 0.4F) * f1;
         float var15 = Math.abs(MathHelper.sin(f * 0.6662F + 0.0F) * 0.4F) * f1;
-        float var16 = Math.abs(MathHelper.sin(f * 0.6662F + (float)Math.PI) * 0.4F) * f1;
-        float var17 = Math.abs(MathHelper.sin(f * 0.6662F + ((float)Math.PI / 2F)) * 0.4F) * f1;
-        float var18 = Math.abs(MathHelper.sin(f * 0.6662F + ((float)Math.PI * 3F / 2F)) * 0.4F) * f1;
+        float var16 = Math.abs(MathHelper.sin(f * 0.6662F + (float) Math.PI) * 0.4F) * f1;
+        float var17 = Math.abs(MathHelper.sin(f * 0.6662F + ((float) Math.PI / 2F)) * 0.4F) * f1;
+        float var18 = Math.abs(MathHelper.sin(f * 0.6662F + ((float) Math.PI * 3F / 2F)) * 0.4F) * f1;
         this.Leg1.rotateAngleY += var11;
         this.Leg2.rotateAngleY += -var11;
         this.Leg3.rotateAngleY += var12;
@@ -168,5 +170,4 @@ public class ModelPumpkinSpider extends ModelBase {
         this.Leg7.rotateAngleZ += var18;
         this.Leg8.rotateAngleZ += -var18;
     }
-
 }

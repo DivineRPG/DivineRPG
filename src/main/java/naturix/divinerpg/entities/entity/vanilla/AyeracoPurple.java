@@ -1,38 +1,23 @@
 package naturix.divinerpg.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.registry.ModSounds;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
+import net.minecraft.world.World;
 
 public class AyeracoPurple extends EntityDivineRPGBoss {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_purple");
 
     public AyeracoPurple(World worldIn) {
-		super(worldIn);
-		this.setSize(2.8F, 1.2F);
-		this.setHealth(this.getMaxHealth());
-	}
+        super(worldIn);
+        this.setSize(2.8F, 1.2F);
+        this.setHealth(this.getMaxHealth());
+    }
 
     @Override
     protected void applyEntityAttributes() {
@@ -42,10 +27,9 @@ public class AyeracoPurple extends EntityDivineRPGBoss {
     }
 
     @Override
-    protected void initEntityAI()
-    {
-    	super.initEntityAI();
-    	addAttackingAI();
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
     }
 
     @Override
@@ -54,29 +38,27 @@ public class AyeracoPurple extends EntityDivineRPGBoss {
     }
 
     @Override
-	public Color getBarColor()
-	{
-		return Color.PURPLE;
-	}
+    public Color getBarColor() {
+        return Color.PURPLE;
+    }
 
     @Override
     protected SoundEvent getAmbientSound() {
-		return ModSounds.AYERACO;
-    }
-    
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return ModSounds.AYERACO_HURT;
-	}
-
-    @Override
-	protected SoundEvent getDeathSound() {
-		return ModSounds.AYERACO_HURT;
+        return ModSounds.AYERACO;
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-	}
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.AYERACO_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.AYERACO_HURT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }

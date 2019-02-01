@@ -7,19 +7,17 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
-import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
+import net.minecraft.world.World;
 
 public class AyeracoYellow extends EntityDivineRPGBoss {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_yellow");
 
     public AyeracoYellow(World worldIn) {
-		super(worldIn);
-		this.setSize(2.8F, 1.2F);
-		this.setHealth(this.getMaxHealth());
-	}
+        super(worldIn);
+        this.setSize(2.8F, 1.2F);
+        this.setHealth(this.getMaxHealth());
+    }
 
     @Override
     protected void applyEntityAttributes() {
@@ -29,10 +27,9 @@ public class AyeracoYellow extends EntityDivineRPGBoss {
     }
 
     @Override
-    protected void initEntityAI()
-    {
-    	super.initEntityAI();
-    	addAttackingAI();
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
     }
 
     @Override
@@ -41,29 +38,27 @@ public class AyeracoYellow extends EntityDivineRPGBoss {
     }
 
     @Override
-	public Color getBarColor()
-	{
-		return Color.YELLOW;
-	}
+    public Color getBarColor() {
+        return Color.YELLOW;
+    }
 
     @Override
     protected SoundEvent getAmbientSound() {
-		return ModSounds.AYERACO;
-    }
-    
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return ModSounds.AYERACO_HURT;
-	}
-
-    @Override
-	protected SoundEvent getDeathSound() {
-		return ModSounds.AYERACO_HURT;
+        return ModSounds.AYERACO;
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-	}
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.AYERACO_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.AYERACO_HURT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }

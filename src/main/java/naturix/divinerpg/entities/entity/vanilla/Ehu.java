@@ -1,51 +1,33 @@
 package naturix.divinerpg.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.EntityDivineRPGTameable;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Ehu extends EntityDivineRPGTameable  {
+public class Ehu extends EntityDivineRPGTameable {
 
     public Ehu(World worldIn, EntityPlayer player) {
         this(worldIn);
         setTamed(true);
         setOwnerId(player.getUniqueID());
     }
-    
+
     public Ehu(World worldIn) {
-		super(worldIn);
-		this.setSize(0.6f, 0.8f);
-		this.setHealth(this.getMaxHealth());
-	}
+        super(worldIn);
+        this.setSize(0.6f, 0.8f);
+        this.setHealth(this.getMaxHealth());
+    }
 
     @Override
     protected void applyEntityAttributes() {
@@ -60,17 +42,18 @@ public class Ehu extends EntityDivineRPGTameable  {
         if (this.isTamed()) {
             if (stack != null) {
                 if (stack.getItem() instanceof ItemFood) {
-                    ItemFood food = (ItemFood)stack.getItem();
+                    ItemFood food = (ItemFood) stack.getItem();
 
-                    if (food == Items.CARROT || food == Items.APPLE || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
+                    if (food == Items.CARROT || food == Items.APPLE
+                            || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
                         if (!player.capabilities.isCreativeMode) {
-                            stack.setCount(stack.getCount()-1);
+                            stack.setCount(stack.getCount() - 1);
                         }
 
                         this.heal(food.getHealAmount(stack));
 
                         if (stack.getCount() <= 0) {
-                            player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
+                            player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
                         }
 
                         return true;
@@ -84,29 +67,29 @@ public class Ehu extends EntityDivineRPGTameable  {
 
         return super.processInteract(player, hand);
     }
-    
+
     @Override
     public boolean attackEntityAsMob(Entity entity) {
-    	return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 6.0F);
+        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 6.0F);
     }
 
-	@Override
-	public EntityAgeable createChild(EntityAgeable var1) {
-		return null;
+    @Override
+    public EntityAgeable createChild(EntityAgeable var1) {
+        return null;
     }
 
-	@Override
+    @Override
     protected SoundEvent getAmbientSound() {
-		return ModSounds.EHU;
+        return ModSounds.EHU;
     }
-    
-    @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return ModSounds.EHU_HURT;
-	}
 
     @Override
-	protected SoundEvent getDeathSound() {
-		return ModSounds.EHU_HURT;
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.EHU_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.EHU_HURT;
     }
 }
