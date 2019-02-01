@@ -1,77 +1,58 @@
 package naturix.divinerpg.entities.entity.vanilla;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import naturix.divinerpg.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootTable;
 
-public class TheEye extends EntityMob {
+public class TheEye extends EntityDivineRPGMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_eye");
+    private boolean hasPotion = false;
 
     public TheEye(World worldIn) {
-		super(worldIn);
-		this.setSize(1.6F, 1.6f);
-		this.setHealth(this.getMaxHealth());
-	}
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+        super(worldIn);
+        this.setSize(1.6F, 1.6f);
+        this.setHealth(this.getMaxHealth());
     }
 
-  
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
     }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
     }
 
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        EntityPlayer player = this.world.getNearestAttackablePlayer(this, 64.0D, 64.0D);
+        if (player != null) {
+            Vec3d lookVec = player.getLook(1.0F).normalize();
+            Vec3d lookAtMeVec = new Vec3d(this.posX - player.posX,
+                    this.getEntityBoundingBox().minY + this.height - (player.posY + player.getEyeHeight()),
+                    this.posZ - player.posZ);
+            double distMagnitude = lookAtMeVec.lengthVector();
+            lookAtMeVec = lookAtMeVec.normalize();
+            double var7 = lookVec.dotProduct(lookAtMeVec);
+            if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
+                player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 0, false, true));
+                // player.triggerAchievement(DivineRPGAchievements.eyeOfEvil);
+            }
+        }
     }
 
     @Override
@@ -80,40 +61,27 @@ public class TheEye extends EntityMob {
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
-    @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.THE_EYE;
     }
 
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_eye");
-
-    private ResourceLocation deathLootTable = LOOT;
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.THE_EYE_HURT;
+    }
 
-	}
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.THE_EYE_HURT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
+
     @Override
     public boolean getCanSpawnHere() {
-    	return super.getCanSpawnHere() && !this.world.canBlockSeeSky(this.getPosition()) && this.getPosition().getY() < 16;
+        return this.posY <= 16.0D && super.getCanSpawnHere();
     }
 }
