@@ -37,7 +37,7 @@ public class HordeHorn extends ItemBase {
 
 			if (world.provider.getDimension() == 1) {
 				if (world.getBlockState(pos) != Blocks.AIR.getDefaultState()) {
-					return EnumActionResult.FAIL;
+					return EnumActionResult.PASS;
 				}
 				world.playSound(player, pos, ModSounds.AYERACO_SPAWN, SoundCategory.NEUTRAL, 20.0F, 1.0F);
 				// world.setBlockState(pos, VanillaBlocks.ayeracoSpawn.getDefaultState());
