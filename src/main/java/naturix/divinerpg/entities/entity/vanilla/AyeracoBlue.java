@@ -1,80 +1,123 @@
 package naturix.divinerpg.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.entities.entity.EntityDivineRPGBoss;
-import naturix.divinerpg.registry.ModSounds;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
-import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
+import net.minecraft.world.World;
 
-public class AyeracoBlue extends EntityDivineRPGBoss {
-	public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_blue");
+public class AyeracoBlue extends Ayeraco {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_blue");
+    private Ayeraco aGreen;
+    private Ayeraco aRed;
+    private Ayeraco aYellow;
+    private Ayeraco aPurple;
+    private String greenUUID;
+    private String redUUID;
+    private String yellowUUID;
+    private String purpleUUID;
 
-	public AyeracoBlue(World worldIn) {
-		super(worldIn);
-		this.setSize(2.8F, 1.2F);
-		this.setHealth(this.getMaxHealth());
-	}
+    public AyeracoBlue(World worldIn) {
+        super(worldIn);
+    }
 
-	@Override
-	protected void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(600.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
-	}
+    public void initOthers(Ayeraco aGreen, Ayeraco aRed, Ayeraco aYellow, Ayeraco aPurple) {
+        this.aGreen = aGreen;
+        this.aRed = aRed;
+        this.aYellow = aYellow;
+        this.aPurple = aPurple;
+    }
 
-	@Override
-	protected void initEntityAI() {
-		super.initEntityAI();
-		addAttackingAI();
-	}
+    @Override
+    public void onDeath(DamageSource par1DamageSource) {
+        super.onDeath(par1DamageSource);
+        world.setBlockState(beamLocation, Blocks.AIR.getDefaultState());
+    }
 
-	@Override
-	public int getMaxSpawnedInChunk() {
-		return 1;
-	}
+    @Override
+    protected boolean canBlockProjectiles() {
+        if (this.aGreen != null && this.aGreen.abilityActive()) {
+            return true;
+        }
+        return false;
+    }
 
-	@Override
-	public Color getBarColor() {
-		return Color.BLUE;
-	}
+    @Override
+    protected void tickAbility() {
+        this.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1, 2));
+        if (this.aGreen != null && !this.aGreen.isDead) {
+            aGreen.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1, 2));
+        }
+        if (this.aYellow != null && !this.aYellow.isDead) {
+            aYellow.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1, 2));
+        }
+        if (this.aRed != null && !this.aRed.isDead) {
+            aRed.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1, 2));
+        }
+        if (this.aPurple != null && !this.aPurple.isDead) {
+            aPurple.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1, 2));
+        }
+    }
 
-	@Override
-	protected SoundEvent getAmbientSound() {
-		return ModSounds.AYERACO;
-	}
+    @Override
+    protected boolean canTeleport() {
+        if (this.aPurple != null && this.aPurple.abilityActive())
+            return true;
+        return false;
+    }
 
-	@Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return ModSounds.AYERACO_HURT;
-	}
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (!this.world.isRemote) {
+            if (aGreen == null && greenUUID != null) {
+                aGreen = (Ayeraco) findEntityByUUID(greenUUID);
+                greenUUID = null;
+            }
+            if (aRed == null && redUUID != null) {
+                aRed = (Ayeraco) findEntityByUUID(redUUID);
+                redUUID = null;
+            }
+            if (aYellow == null && yellowUUID != null) {
+                aYellow = (Ayeraco) findEntityByUUID(yellowUUID);
+                yellowUUID = null;
+            }
+            if (aPurple == null && purpleUUID != null) {
+                aPurple = (Ayeraco) findEntityByUUID(purpleUUID);
+                purpleUUID = null;
+            }
+        }
+    }
 
-	@Override
-	protected SoundEvent getDeathSound() {
-		return ModSounds.AYERACO_HURT;
-	}
+    @Override
+    public void readEntityFromNBT(NBTTagCompound tag) {
+        super.readEntityFromNBT(tag);
+        greenUUID = tag.getString("greenUUID");
+        redUUID = tag.getString("redUUID");
+        yellowUUID = tag.getString("yellowUUID");
+        purpleUUID = tag.getString("purpleUUID");
+    }
 
-	@Override
-	protected ResourceLocation getLootTable() {
-		return this.LOOT;
-	}
+    @Override
+    public void writeEntityToNBT(NBTTagCompound tag) {
+        super.writeEntityToNBT(tag);
+        tag.setString("greenUUID", aGreen.getPersistentID().toString());
+        tag.setString("redUUID", aRed.getPersistentID().toString());
+        tag.setString("yellowUUID", aYellow.getPersistentID().toString());
+        tag.setString("purpleUUID", aPurple.getPersistentID().toString());
+    }
+
+    @Override
+    public Color getBarColor() {
+        return Color.BLUE;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }
