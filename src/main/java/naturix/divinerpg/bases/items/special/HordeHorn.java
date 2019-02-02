@@ -40,7 +40,7 @@ public class HordeHorn extends ItemBase {
 					return EnumActionResult.FAIL;
 				}
 				world.playSound(player, pos, ModSounds.AYERACO_SPAWN, SoundCategory.NEUTRAL, 20.0F, 1.0F);
-				// world.setBlock(x, y, z, VanillaBlocks.ayeracoSpawn);
+				// world.setBlockState(pos, VanillaBlocks.ayeracoSpawn.getDefaultState());
 				if (!player.capabilities.isCreativeMode) {
 					player.inventory.getCurrentItem().shrink(1);
 				}
