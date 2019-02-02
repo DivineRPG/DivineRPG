@@ -1,70 +1,53 @@
 package naturix.divinerpg.bases.items.special;
 
-import java.util.Random;
-
 import naturix.divinerpg.bases.items.ItemBase;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoBlue;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoGreen;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoPurple;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
+import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.ActionResult;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class HordeHorn extends ItemBase {
 
-	
 	public HordeHorn(String name) {
 		super(name);
 		this.setMaxDamage(1);
 		this.setMaxStackSize(1);
-		
+
 	}
-	
-	
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-    {
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        BlockPos pos = new BlockPos(playerIn);
-        Random rand = new Random();
-        if (!playerIn.capabilities.isCreativeMode)
-        {
-            itemstack.shrink(1);
-        }
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
+	        float hitX, float hitY, float hitZ) {
+		pos.getX();
+		pos.getY();
+		pos.getZ();
+		if (world.isRemote) {
+			return EnumActionResult.PASS;
+		} else {
+			facing.getFrontOffsetX();
+			facing.getFrontOffsetY();
+			facing.getFrontOffsetZ();
 
-        if (!worldIn.isRemote && worldIn.provider.getDimension() == 1)
-        {
-        	AyeracoBlue ayeracoBlue = new AyeracoBlue(worldIn);
-        	AyeracoGreen ayeracoGreen = new AyeracoGreen(worldIn);
-        	AyeracoPurple ayeracoPurple = new AyeracoPurple(worldIn);
-        	AyeracoRed ayeracoRed = new AyeracoRed(worldIn);
-        	AyeracoYellow ayeracoYellow = new AyeracoYellow(worldIn);
-            
-        	ayeracoBlue.setPositionAndRotation((double)pos.getX() + rand.nextDouble(), (double)pos.getY() +1, (double)pos.getZ(), playerIn.rotationYaw, playerIn.rotationPitch);
-        	ayeracoGreen.setPositionAndRotation((double)pos.getX() + rand.nextDouble(), (double)pos.getY() +1, (double)pos.getZ(), playerIn.rotationYaw, playerIn.rotationPitch);
-        	ayeracoPurple.setPositionAndRotation((double)pos.getX() + rand.nextDouble(), (double)pos.getY() +1, (double)pos.getZ(), playerIn.rotationYaw, playerIn.rotationPitch);
-        	ayeracoRed.setPositionAndRotation((double)pos.getX() + rand.nextDouble(), (double)pos.getY() +1, (double)pos.getZ(), playerIn.rotationYaw, playerIn.rotationPitch);
-        	ayeracoYellow.setPositionAndRotation((double)pos.getX() + rand.nextDouble(), (double)pos.getY() +1, (double)pos.getZ(), playerIn.rotationYaw, playerIn.rotationPitch);
-            
-            
-            
-        	worldIn.spawnEntity(ayeracoBlue);
-        	worldIn.spawnEntity(ayeracoGreen);
-        	worldIn.spawnEntity(ayeracoPurple);
-        	worldIn.spawnEntity(ayeracoRed);
-        	worldIn.spawnEntity(ayeracoYellow);
-        	
-        }
-
-        playerIn.addStat(StatList.getObjectUseStats(this));
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-    }
-
+			if (world.provider.getDimension() == 1) {
+				if (world.getBlockState(pos) != Blocks.AIR.getDefaultState()) {
+					return EnumActionResult.FAIL;
+				}
+				world.playSound(player, pos, ModSounds.AYERACO_SPAWN, SoundCategory.NEUTRAL, 20.0F, 1.0F);
+				// world.setBlock(x, y, z, VanillaBlocks.ayeracoSpawn);
+				if (!player.capabilities.isCreativeMode) {
+					player.inventory.getCurrentItem().shrink(1);
+				}
+			} else {
+				Logging.message(player, TextFormatting.AQUA + "The Ayeraco Horde can only be spawned in The End");
+			}
+			return EnumActionResult.FAIL;
+		}
+	}
 }
