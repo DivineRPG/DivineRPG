@@ -749,3 +749,5 @@ message.version.internet=Unable to check for latest version, you may want to che
 message.version.update=A DivineRPG update is available.
 message.version=[New Version: #]
 message.developer=Welcome DivineRPG developer!
+
+tooltip.damage.ranged=# Ranged Damage
