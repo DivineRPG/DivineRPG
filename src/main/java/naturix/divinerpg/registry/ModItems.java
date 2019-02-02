@@ -66,6 +66,7 @@ import naturix.divinerpg.bases.items.serenade.SerenadeInfusion;
 import naturix.divinerpg.bases.items.serenade.SerenadeStrike;
 import naturix.divinerpg.bases.items.special.Aquamarine;
 import naturix.divinerpg.bases.items.special.CallOfTheWatcher;
+import naturix.divinerpg.bases.items.special.HordeHorn;
 import naturix.divinerpg.utils.DivineRPGMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntitySlime;
@@ -407,7 +408,6 @@ public class ModItems {
 	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeSwordMaterial, "hoe_rupee", 0, 0); 
 	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteSwordMaterial, "hoe_realmite", 0, 0); 
 	public static ItemBase crabClaw = new ItemBase("claw_crab"); 
-	public static CannonBase crabClawCannon = new CannonBase("cannon_claw_crab"); 
 	public static SwordBase crabClawDual = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "claw_crab_dual"); 
 	public static CannonBase crabClawAnchor = new CannonBase("anchor_claw_crab"); 
 	public static SwordBase everlight = new SwordBase(DivineRPGMaterials.everlightSwordMaterial, "everlight");
@@ -490,6 +490,14 @@ public class ModItems {
 	public static ItemBase chunkMortum = new ItemBase("chunk_mortum");
 	public static CannonBase cannonGhast = new CannonBase("cannon_ghast");
 	public static ItemBase snowflake = new ItemBase("snowflake");
+	public static CannonBase bowheadAnchor = new CannonBase("anchor_bowhead"); 
+	public static CannonBase sharkAnchor = new CannonBase("anchor_shark"); 
+	public static CannonBase cannonFrost = new CannonBase("cannon_frost");
+	public static CannonBase cannonBowhead = new CannonBase("cannon_bowhead");
+	public static CannonBase cannonCrab = new CannonBase("cannon_crab");
+	public static CannonBase cannonCorrupted = new CannonBase("cannon_corrupted");
+	public static CannonBase furyGold = new CannonBase("fury_golden");
+	public static HordeHorn hordeHorn = new HordeHorn("horde_horn");
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -823,7 +831,6 @@ public class ModItems {
 				rupeeHoe,
 				realmiteHoe,
 				crabClaw,
-				crabClawCannon,
 				crabClawDual,
 				crabClawAnchor,
 				everlight,
@@ -912,7 +919,15 @@ public class ModItems {
 				maelstrom,
 				chunkMortum,
 				cannonGhast,
-				snowflake
+				snowflake,
+				bowheadAnchor,
+				sharkAnchor,
+				cannonFrost,
+				cannonBowhead,
+				cannonCrab,
+				cannonCorrupted,
+				furyGold,
+				hordeHorn
 				);
 	}
 	
@@ -1240,7 +1255,6 @@ public class ModItems {
 		rupeeHoe.registerItemModel();
 		realmiteHoe.registerItemModel();
 		crabClaw.registerItemModel();
-		crabClawCannon.registerItemModel();
 		crabClawDual.registerItemModel();
 		crabClawAnchor.registerItemModel();
 		everlight.registerItemModel();
@@ -1329,6 +1343,14 @@ public class ModItems {
 		maelstrom.registerItemModel();
 		chunkMortum.registerItemModel();
 		cannonGhast.registerItemModel();
+		bowheadAnchor.registerItemModel();
+		sharkAnchor.registerItemModel();
+		cannonFrost.registerItemModel();
+		cannonBowhead.registerItemModel();
+		cannonCrab.registerItemModel();
+		cannonCorrupted.registerItemModel();
+		furyGold.registerItemModel();
+		hordeHorn.registerItemModel();
 		
 		if(Config.debug) {DivineRPG.logger.info(DivineRPG.name + " items are loaded");}
 	}

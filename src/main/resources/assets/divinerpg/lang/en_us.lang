@@ -554,6 +554,13 @@ item.sound_of_music.name=Sound of Music
 item.maelstrom.name=Maelstrom
 item.chunk_mortum.name=Mortum Chunk
 item.cannon_ghast.name=Ghast Cannon
+item.anchor_shark.name=Shark Anchor
+item.anchor_bowhead.name=Bowhead Anchor
+item.cannon_frost.name=Frost Cannon
+item.cannon_bowhead.name=Bowhead Cannon
+item.cannon_crab.name=Crab Cannon
+item.cannon_corrupted.name=Corrupted Cannon
+item.horde_horn.name=Horde Horn
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

@@ -1,0 +1,23 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		" H ",
+		"SES",
+		" S "
+	],
+	"key": {
+	"H": {
+			"item": "divinerpg:ingot_hellstone"
+	},
+	"E": {
+		"item": "minecraft:ender_eye"
+	},
+	"S": {
+		"item": "divinerpg:stone_ender"
+	}
+
+	},
+	"result": {
+		"item": "divinerpg:horde_horn"
+	}
+}
