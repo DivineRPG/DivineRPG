@@ -561,6 +561,8 @@ item.cannon_bowhead.name=Bowhead Cannon
 item.cannon_crab.name=Crab Cannon
 item.cannon_corrupted.name=Corrupted Cannon
 item.horde_horn.name=Horde Horn
+item.snowflake.name=Snowflake
+item.fury_golden.name=Golden Fury
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

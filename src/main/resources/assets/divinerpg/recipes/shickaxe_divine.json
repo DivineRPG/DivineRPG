@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "divinerpg:pickaxe_rupee"
+        },
+        {
+            "item": "divinerpg:shovel_rupee"
+        },
+        {
+            "item": "divinerpg:axe_rupee"
+        }
+    ],
+    "result": {
+        "item": "divinerpg:shickaxe_divine",
+        "count": 1
+    }
+}

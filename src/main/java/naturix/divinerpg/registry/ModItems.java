@@ -1349,6 +1349,7 @@ public class ModItems {
 		cannonBowhead.registerItemModel();
 		cannonCrab.registerItemModel();
 		cannonCorrupted.registerItemModel();
+		snowflake.registerItemModel();
 		furyGold.registerItemModel();
 		hordeHorn.registerItemModel();
 		

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#E ",
+        "# E",
+        "#E "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:string"
+        },
+        "E": {
+            "item": "divinerpg:rod_aquatic_blaze"
+        }
+    },
+    "result": {
+        "item": "divinerpg:bow_bluefire",
+        "count": 1
+    }
+}

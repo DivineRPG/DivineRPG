@@ -2,19 +2,19 @@
   "type": "forge:ore_shaped",
   "pattern": [
     "XX",
-    "X#",
+    " #",
     " #"
   ],
   "key": {
     "X": {
-        "item": "divinerpg:ingot_realmite"
+      "item": "divinerpg:ingot_arlemite"
     },
     "#": {
-			"type": "forge:ore_dict",
+      "type": "forge:ore_dict",
 			"ore": "stickWood"
 		}
   },
   "result": {
-    "item": "divinerpg:axe_realmite"
+    "item": "divinerpg:hoe_arlemite"
   }
 }

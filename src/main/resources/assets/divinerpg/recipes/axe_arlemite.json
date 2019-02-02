@@ -1,0 +1,20 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"II",
+		"IS",
+		" S"
+	],
+	"key": {
+	"I": {
+			"item": "divinerpg:ingot_arlemite"
+		},
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		}
+	},
+	"result": {
+		"item": "divinerpg:axe_arlemite"
+	}
+}

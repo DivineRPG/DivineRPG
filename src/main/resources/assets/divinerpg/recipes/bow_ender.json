@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IX",
+		"E X",
+		" IX"
+    ],
+    "key": {
+        "X": {
+            "item": "minecraft:string"
+        },
+        "E": {
+            "item": "divinerpg:watchingeye"
+        },
+        "I": {
+            "item": "divinerpg:stone_ender"
+        }
+    },
+    "result": {
+        "item": "divinerpg:bow_ender",
+        "count": 1
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "I",
+		"I",
+		"X"
+    ],
+    "key": {
+        "X": {
+            "item": "divinerpg:claw_crab"
+        },
+        "I": {
+            "item": "divinerpg:ingot_aquatic"
+        }
+    },
+    "result": {
+        "item": "divinerpg:cannon_crab",
+        "count": 1
+    }
+}

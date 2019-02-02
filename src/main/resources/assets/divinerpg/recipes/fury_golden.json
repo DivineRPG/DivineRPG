@@ -1,0 +1,19 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"GGG",
+		"GFG",
+		"FFF"
+	],
+	"key": {
+	"H": {
+			"item": "divinerpg:fury_fire"
+	},
+	"E": {
+		"item": "minecraft:gold_block"
+	}
+	},
+	"result": {
+		"item": "divinerpg:fury_golden"
+	}
+}

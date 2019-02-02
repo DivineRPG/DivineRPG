@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shaped",
   "pattern": [
     "XX",
     " #",
@@ -10,8 +10,9 @@
       "item": "divinerpg:ingot_rupee"
     },
     "#": {
-      "item": "minecraft:stick"
-    }
+      "type": "forge:ore_dict",
+			"ore": "stickWood"
+		}
   },
   "result": {
     "item": "divinerpg:hoe_rupee"

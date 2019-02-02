@@ -1,0 +1,19 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"III",
+		"IXI",
+		" X "
+	],
+	"key": {
+		"X": {
+			"item": "divinerpg:ingot_aquatic"
+		},
+		"I": {
+			"item": "divinerpg:claw_crab"
+		}
+	},
+	"result": {
+		"item": "divinerpg:anchor_claw_crab"
+	}
+}
