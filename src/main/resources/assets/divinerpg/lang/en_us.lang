@@ -749,5 +749,11 @@ message.version.internet=Unable to check for latest version, you may want to che
 message.version.update=A DivineRPG update is available.
 message.version=[New Version: #]
 message.developer=Welcome DivineRPG developer!
+message.ayeraco.green=The Green Ayeraco has been called upon
+message.ayeraco.blue=The Blue Ayeraco has been called upon
+message.ayeraco.red=The Red Ayeraco has been called upon
+message.ayeraco.yellow=The Yellow Ayeraco has been called upon
+message.ayeraco.purple=The Purple Ayeraco has been called upon
+message.ayeraco.spawn=The Ayeraco Horde has arrived!
 
 tooltip.damage.ranged=# Ranged Damage

@@ -1,16 +1,19 @@
 package naturix.divinerpg.utils.log;
 
-
 import javax.annotation.Nonnull;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentBase;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class Logging {
     private static Logging instance = null;
@@ -71,7 +74,21 @@ public class Logging {
         player.sendStatusMessage(new TextComponentString(message), false);
     }
 
+    public static void message(@Nonnull EntityPlayer player, TextComponentBase base) {
+        player.sendStatusMessage(base, false);
+    }
+
+    public static void broadcast(String message) {
+        FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList()
+                .sendMessage(new TextComponentString(message), false);
+    }
+
+    public static void broadcast(TextComponentBase base) {
+        FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().sendMessage(base, false);
+    }
+
     public static void warn(@Nonnull EntityPlayer player, String message) {
-        player.sendStatusMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.RED)), false);
+        player.sendStatusMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.RED)),
+                false);
     }
 }

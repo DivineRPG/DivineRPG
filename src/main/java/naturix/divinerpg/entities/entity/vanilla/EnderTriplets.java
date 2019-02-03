@@ -1,58 +1,39 @@
 package naturix.divinerpg.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IRangedAttackMob;
+import naturix.divinerpg.entities.entity.EntityDivineRPGFlying;
+import naturix.divinerpg.entities.entity.projectiles.EntityEnderTripletFireball;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EnderTriplets extends EntityMob implements IRangedAttackMob {
+public class EnderTriplets extends EntityDivineRPGFlying {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_triplets");
+    public int courseChangeCooldown;
+    public double waypointX;
+    public double waypointY;
+    public double waypointZ;
+    private Entity targetedEntity;
+    private int aggroCooldown;
+    public int prevAttackCounter;
+    public int attackCounter;
 
     public EnderTriplets(World worldIn) {
-		super(worldIn);
-		this.setSize(1.4F, 2f);
-		this.setHealth(this.getMaxHealth());
-
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_triplets");
-    @Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == 1;
+        super(worldIn);
+        this.setSize(2.0F, 2.0F);
+        this.setHealth(this.getMaxHealth());
+        this.isImmuneToFire = true;
+        this.experienceValue = 5;
     }
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
@@ -62,220 +43,150 @@ public class EnderTriplets extends EntityMob implements IRangedAttackMob {
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
     }
 
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(2, new EnderTriplets.AIFireballAttack(this));
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    @Override
+    public boolean attackEntityFrom(DamageSource damageSource, float par2) {
+        if (this.isEntityInvulnerable(damageSource)) {
+            return false;
+        } else if ("fireball".equals(damageSource.getDamageType())
+                && damageSource.getTrueSource() instanceof EntityPlayer) {
+            super.attackEntityFrom(damageSource, 1000.0F);
+            // EntityPlayer player = (EntityPlayer)damageSource.getTrueSource();
+            // player.triggerAchievement(DivineRPGAchievements.tripleDanger);
+            return true;
+        } else {
+            return super.attackEntityFrom(damageSource, par2);
+        }
     }
 
     @Override
-    protected boolean isValidLightLevel() {
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
+            this.setDead();
+        }
+
+        this.despawnEntity();
+        this.prevAttackCounter = this.attackCounter;
+        double d0 = this.waypointX - this.posX;
+        double d1 = this.waypointY - this.posY;
+        double d2 = this.waypointZ - this.posZ;
+        double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+
+        if (d3 < 1.0D || d3 > 3600.0D) {
+            this.waypointX = this.posX + (double) ((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.waypointY = this.posY + (double) ((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.waypointZ = this.posZ + (double) ((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+        }
+
+        if (this.targetedEntity != null && this.targetedEntity.posY + 13 > this.posY)
+            this.waypointY += 4;
+
+        if (this.courseChangeCooldown-- <= 0) {
+            this.courseChangeCooldown += this.rand.nextInt(5) + 2;
+            d3 = (double) MathHelper.sqrt(d3);
+
+            if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
+                this.motionX += d0 / d3 * 0.1D;
+                this.motionY += d1 / d3 * 0.1D;
+                this.motionZ += d2 / d3 * 0.1D;
+            } else {
+                this.waypointX = this.posX;
+                this.waypointY = this.posY;
+                this.waypointZ = this.posZ;
+            }
+        }
+
+        if (this.targetedEntity != null && this.targetedEntity.isDead) {
+            this.targetedEntity = null;
+        }
+
+        if (this.targetedEntity == null || this.aggroCooldown-- <= 0) {
+            this.targetedEntity = this.world.getNearestAttackablePlayer(this, 100.0D, 100.0D);
+
+            if (this.targetedEntity != null) {
+                this.aggroCooldown = 20;
+            }
+        }
+
+        double d4 = 64.0D;
+
+        if (this.targetedEntity != null && this.targetedEntity.getDistanceSq(this) < d4 * d4) {
+            double d5 = this.targetedEntity.posX - this.posX;
+            double d6 = this.targetedEntity.getEntityBoundingBox().minY + (double) (this.targetedEntity.height / 2.0F)
+                    - (this.posY + (double) (this.height / 2.0F)) - 5;
+            double d7 = this.targetedEntity.posZ - this.posZ;
+            this.renderYawOffset = this.rotationYaw = -((float) Math.atan2(d5, d7)) * 180.0F / (float) Math.PI;
+
+            if (this.canEntityBeSeen(this.targetedEntity)) {
+                if (this.attackCounter == 10) {
+                    this.world.playEvent(1007, this.getPosition(), 0);
+                }
+
+                ++this.attackCounter;
+
+                if (this.attackCounter == 20 && !this.world.isRemote) {
+                    this.world.playEvent(1008, this.getPosition(), 0);
+                    EntityEnderTripletFireball entitylargefireball = new EntityEnderTripletFireball(this.world, this,
+                            d5, d6, d7);
+                    double d8 = 4.0D;
+                    Vec3d vec = this.getLook(1.0F);
+                    entitylargefireball.posX = this.posX + vec.x * d8;
+                    entitylargefireball.posY = this.posY + (double) (this.height / 2.0F) + 0.5D;
+                    entitylargefireball.posZ = this.posZ + vec.z * d8;
+                    this.world.spawnEntity(entitylargefireball);
+                    this.attackCounter = -40;
+                }
+            } else if (this.attackCounter > 0) {
+                --this.attackCounter;
+            }
+        } else {
+            this.renderYawOffset = this.rotationYaw = -((float) Math.atan2(this.motionX, this.motionZ)) * 180.0F
+                    / (float) Math.PI;
+
+            if (this.attackCounter > 0) {
+                --this.attackCounter;
+            }
+        }
+    }
+
+    private boolean isCourseTraversable(double par1, double par3, double par5, double par7) {
+        double d4 = (this.waypointX - this.posX) / par7;
+        double d5 = (this.waypointY - this.posY) / par7;
+        double d6 = (this.waypointZ - this.posZ) / par7;
+        AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
+
+        for (int i = 1; (double) i < par7; ++i) {
+            axisalignedbb.offset(d4, d5, d6);
+
+            if (!this.world.getCollisionBoxes(this, axisalignedbb).isEmpty()) {
+                return false;
+            }
+        }
         return true;
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+    protected float getSoundVolume() {
+        return 10.0F;
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_GHAST_SCREAM;
     }
 
     @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return SoundEvents.ENTITY_GHAST_SCREAM;
-	}
-
-    @Override
-	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_GHAST_DEATH;
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_GHAST_DEATH;
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
-    private int explosionStrength = 1;
-
-    public int getFireballStrength()
-    {
-        return this.explosionStrength;
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
     }
-    static EnderTriplets parentEntity;
-    static EntityPlayer player;
 
-    public double accelerationX;
-    public double accelerationY;
-    public double accelerationZ;
-    	@Override
-    	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor)
-        {
-    		if(target instanceof EntityPlayer) {
-    			BlockPos targPos = target.getPosition();
-//    			BlockPos parPos = parentEntity.getPosition();
-    			EntityLargeFireball EntityLargeFireball = new EntityLargeFireball(world);
-				world.spawnEntity(EntityLargeFireball);
-		        this.setSize(1.0F, 1.0F);
-		        this.setLocationAndAngles(target.posX, target.posY, target.posZ, target.rotationYaw, target.rotationPitch);
-		        this.setPosition(this.posX, this.posY, this.posZ);
-		        this.motionX = 0.0D;
-		        this.motionY = 0.0D;
-		        this.motionZ = 0.0D;
-		        double accelX = targPos.getX();
-		        double accelY = targPos.getY();
-		        double accelZ = targPos.getZ();
-		        accelX = accelX + this.rand.nextGaussian() * 0.4D;
-		        accelY = accelY + this.rand.nextGaussian() * 0.4D;
-		        accelZ = accelZ + this.rand.nextGaussian() * 0.4D;
-		        double d0 = (double)MathHelper.sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ);
-		        this.accelerationX = accelX / d0 * 0.1D;
-		        this.accelerationY = accelY / d0 * 0.1D;
-		        this.accelerationZ = accelZ / d0 * 0.1D;
-		    }
-        }
-
-		@Override
-		public void setSwingingArms(boolean swingingArms) {
-
-		}
-		static class AIFireballAttack extends EntityAIBase
-	    {
-	        private final EnderTriplets blaze;
-	        private int attackStep;
-	        private int attackTime;
-
-	        public AIFireballAttack(EnderTriplets blazeIn)
-	        {
-	            this.blaze = blazeIn;
-	            this.setMutexBits(3);
-	        }
-
-	        /**
-	         * Returns whether the EntityAIBase should begin execution.
-	         */
-	        public boolean shouldExecute()
-	        {
-	            EntityLivingBase entitylivingbase = this.blaze.getAttackTarget();
-	            return entitylivingbase != null && entitylivingbase.isEntityAlive();
-	        }
-
-	        /**
-	         * Execute a one shot task or start executing a continuous task
-	         */
-	        public void startExecuting()
-	        {
-	            this.attackStep = 0;
-	        }
-
-	        /**
-	         * Reset the task's internal state. Called when this task is interrupted by another one
-	         */
-	        public void resetTask()
-	        {
-	            this.blaze.setOnFire(false);
-	        }
-
-	        /**
-	         * Keep ticking a continuous task that has already been started
-	         */
-	        public void updateTask()
-	        {
-	            --this.attackTime;
-	            EntityLivingBase entitylivingbase = this.blaze.getAttackTarget();
-	            double d0 = this.blaze.getDistanceSq(entitylivingbase);
-
-	            if (d0 < 4.0D)
-	            {
-	                if (this.attackTime <= 0)
-	                {
-	                    this.attackTime = 20;
-	                    this.blaze.attackEntityAsMob(entitylivingbase);
-	                }
-
-	                this.blaze.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-	            }
-	            else if (d0 < this.getFollowDistance() * this.getFollowDistance())
-	            {
-	                double d1 = entitylivingbase.posX - this.blaze.posX;
-	                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double)(entitylivingbase.height / 2.0F) - (this.blaze.posY + (double)(this.blaze.height / 2.0F));
-	                double d3 = entitylivingbase.posZ - this.blaze.posZ;
-
-	                if (this.attackTime <= 0)
-	                {
-	                    ++this.attackStep;
-
-	                    if (this.attackStep == 1)
-	                    {
-	                        this.attackTime = 60;
-	                        this.blaze.setOnFire(true);
-	                    }
-	                    else if (this.attackStep <= 4)
-	                    {
-	                        this.attackTime = 6;
-	                    }
-	                    else
-	                    {
-	                        this.attackTime = 100;
-	                        this.attackStep = 0;
-	                        this.blaze.setOnFire(false);
-	                    }
-
-	                    if (this.attackStep > 1)
-	                    {
-	                        float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-	                        this.blaze.world.playEvent((EntityPlayer)null, 1018, new BlockPos((int)this.blaze.posX, (int)this.blaze.posY, (int)this.blaze.posZ), 0);
-
-	                        for (int i = 0; i < 1; ++i)
-	                        {
-	                            EntitySmallFireball entitysmallfireball = new EntitySmallFireball(this.blaze.world, this.blaze, d1 + this.blaze.getRNG().nextGaussian() * (double)f, d2, d3 + this.blaze.getRNG().nextGaussian() * (double)f);
-	                            entitysmallfireball.posY = this.blaze.posY + (double)(this.blaze.height / 2.0F) + 0.5D;
-	                            this.blaze.world.spawnEntity(entitysmallfireball);
-	                        }
-	                    }
-	                }
-
-	                this.blaze.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
-	            }
-	            else
-	            {
-	                this.blaze.getNavigator().clearPath();
-	                this.blaze.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-	            }
-
-	            super.updateTask();
-	        }
-
-	        private double getFollowDistance()
-	        {
-	            IAttributeInstance iattributeinstance = this.blaze.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
-	            return iattributeinstance == null ? 32.0D : iattributeinstance.getAttributeValue();
-	        }
-	    }
-		private static final DataParameter<Byte> ON_FIRE = EntityDataManager.<Byte>createKey(EnderTriplets.class, DataSerializers.BYTE);
-
-		public void setOnFire(boolean onFire)
-	    {
-			if(player instanceof EntityPlayer) {
-				onFire = true;
-			}else {
-				onFire = false;
-	    }
+    @Override
+    public boolean getCanSpawnHere() {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == 1;
     }
 }
