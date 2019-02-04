@@ -28,6 +28,7 @@ public class Ayeraco extends EntityDivineRPGBoss {
         this.setSize(2.8F, 1.2F);
         this.waitTick = 0;
         this.attacks = false;
+        this.halfHp = false;
         this.moveX = this.rand.nextGaussian() * 0.25 - 0.125;
         this.moveZ = this.rand.nextGaussian() * 0.25 - 0.125;
         this.setHealth(this.getMaxHealth());
@@ -58,8 +59,9 @@ public class Ayeraco extends EntityDivineRPGBoss {
 
         if (getHealth() * 2 < getMaxHealth()) {
             this.tickAbility();
-            if (this.halfHp = false) {
+            if (this.halfHp == false) {
                 this.playSound(ModSounds.AYERACO_HALF_HEALTH, 20.0F, 0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
+                this.halfHp = true;
             }
         }
 

@@ -24,13 +24,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Miner extends EntityMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/miner");
 
     public Miner(World worldIn) {
-		super(worldIn);
-		this.setSize(0.6F, 1.9f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/miner");
+        super(worldIn);
+        this.setSize(0.6F, 1.9f);
+        this.setHealth(this.getMaxHealth());
+    }
 
     private ResourceLocation deathLootTable = LOOT;
 
@@ -40,11 +40,11 @@ public class Miner extends EntityMob {
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
 
-	}
+    }
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -54,8 +54,7 @@ public class Miner extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
 
-    protected void initEntityAI()
-    {
+    protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
@@ -67,7 +66,7 @@ public class Miner extends EntityMob {
     }
 
     private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] { EntityPigZombie.class }));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
@@ -85,7 +84,7 @@ public class Miner extends EntityMob {
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
         if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+
         }
     }
 

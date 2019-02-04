@@ -34,13 +34,12 @@ public class HordeHorn extends ItemBase {
                 if (world.getBlockState(pos) != Blocks.AIR.getDefaultState()) {
                     return EnumActionResult.PASS;
                 }
-                world.playSound(player, pos, ModSounds.AYERACO_SPAWN, SoundCategory.NEUTRAL, 20.0F, 1.0F);
+                world.playSound(null, pos, ModSounds.AYERACO_SPAWN, SoundCategory.MASTER, 20.0F, 1.0F);
                 world.setBlockState(pos, ModBlocks.ayeracoSpawn.getDefaultState());
                 if (!player.capabilities.isCreativeMode) {
                     player.inventory.getCurrentItem().shrink(1);
                 }
             } else {
-                world.playSound(player, pos, ModSounds.AYERACO_SPAWN, SoundCategory.MUSIC, 20.0F, 1.0F);
                 Logging.message(player, TextFormatting.AQUA + "The Ayeraco Horde can only be spawned in The End");
             }
             return EnumActionResult.FAIL;
