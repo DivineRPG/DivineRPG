@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/coalstone_furnace_front_on",
+    "down": "divinerpg:blocks/coalstone",
+    "up": "divinerpg:blocks/coalstone",
+    "east": "divinerpg:blocks/coalstone",
+    "west": "divinerpg:blocks/coalstone",
+    "north": "divinerpg:blocks/coalstone_furnace_front_on",
+    "south": "divinerpg:blocks/coalstone"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "facing=north,burning=false": {"model": "divinerpg:block/coalstone_furnace"},
+    "facing=east,burning=false": {"model": "divinerpg:block/coalstone_furnace", "y": 90},
+    "facing=south,burning=false": {"model": "divinerpg:block/coalstone_furnace", "y": 180},
+    "facing=west,burning=false": {"model": "divinerpg:block/coalstone_furnace", "y": 270},
+    "facing=north,burning=true": {"model": "divinerpg:block/coalstone_furnace_lit"},
+    "facing=east,burning=true": {"model": "divinerpg:block/coalstone_furnace_lit", "y": 90},
+    "facing=south,burning=true": {"model": "divinerpg:block/coalstone_furnace_lit", "y": 180},
+    "facing=west,burning=true": {"model": "divinerpg:block/coalstone_furnace_lit", "y": 270}
+
+  }
+}

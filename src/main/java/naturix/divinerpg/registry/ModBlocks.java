@@ -1,25 +1,7 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.BaseStatue;
-import naturix.divinerpg.bases.blocks.BeaconBaseBase;
-import naturix.divinerpg.bases.blocks.BedBase;
-import naturix.divinerpg.bases.blocks.BlockBase;
-import naturix.divinerpg.bases.blocks.BlockModSpawner;
-import naturix.divinerpg.bases.blocks.BlockNetherite;
-import naturix.divinerpg.bases.blocks.BlockOre;
-import naturix.divinerpg.bases.blocks.BlockOreNether;
-import naturix.divinerpg.bases.blocks.DirtBase;
-import naturix.divinerpg.bases.blocks.FireBase;
-import naturix.divinerpg.bases.blocks.FrostedGlass;
-import naturix.divinerpg.bases.blocks.GrassBase;
-import naturix.divinerpg.bases.blocks.LampBase;
-import naturix.divinerpg.bases.blocks.LeavesBase;
-import naturix.divinerpg.bases.blocks.LogBase;
-import naturix.divinerpg.bases.blocks.Spike;
-import naturix.divinerpg.bases.blocks.TorchBase;
-import naturix.divinerpg.bases.blocks.VineBase;
-import naturix.divinerpg.bases.blocks.WorkshopCarpet;
+import naturix.divinerpg.bases.blocks.*;
 import naturix.divinerpg.bases.blocks.arcana.Acceleron;
 import naturix.divinerpg.bases.blocks.arcana.HeatTrap;
 import naturix.divinerpg.bases.blocks.fluid.BlockTar;
@@ -34,11 +16,7 @@ import naturix.divinerpg.bases.blocks.sapling.SaplingEden;
 import naturix.divinerpg.bases.blocks.sapling.SaplingMortum;
 import naturix.divinerpg.bases.blocks.sapling.SaplingSkythern;
 import naturix.divinerpg.bases.blocks.sapling.SaplingWildwood;
-import naturix.divinerpg.bases.blocks.tile.block.AltarDramix;
-import naturix.divinerpg.bases.blocks.tile.block.AltarParasecta;
-import naturix.divinerpg.bases.blocks.tile.block.BlockAyeracoBeam;
-import naturix.divinerpg.bases.blocks.tile.block.BlockAyeracoSpawn;
-import naturix.divinerpg.bases.blocks.tile.block.TEBed;
+import naturix.divinerpg.bases.blocks.tile.block.*;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.vethia.Acid;
@@ -200,7 +178,11 @@ public class ModBlocks {
     public static BlockBase workshopBookcase = new BlockBase("workshop_bookcase");
     public static FrostedGlass frostedGlass = new FrostedGlass("frosted_glass");
     public static WorkshopCarpet workshopCarpet = new WorkshopCarpet("workshop_carpet");
-    // public static IceikaChest chestIceika = new IceikaChest("chest_iceika");
+    public static CoalstoneFurnace coalstoneFurnace = new CoalstoneFurnace("coalstone_furnace");
+    public static final IceikaChest iceikaChest = new IceikaChest("iceika_chest");
+
+    //Has a unique class because i dont have a method for universal itemblocks for doors - LiteWolf101
+    public static SteelDoor steelDoor = new SteelDoor("steel_door", Material.ANVIL);
 
     public static Block ayeracoBeamBlue = new BlockAyeracoBeam("ayeracoBeamBlue", "blue");
     public static Block ayeracoBeamGreen = new BlockAyeracoBeam("ayeracoBeamGreen", "green");
@@ -238,8 +220,8 @@ public class ModBlocks {
                 grassEden, blueFire, rockTwilight, bedDream, grassWild, dirtWild, portalWild, vineWild, grassApalachia,
                 dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern, grassMortum, dirtMortum,
                 portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy, bricksIceika, spawnerArcher,
-                spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase, frostedGlass, workshopCarpet
-        // chestIceika
+                spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase, frostedGlass, workshopCarpet,
+                steelDoor, coalstoneFurnace, iceikaChest
         );
         GameRegistry.registerTileEntity(TileEntityDramixAltar.class,
                 new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
@@ -247,9 +229,8 @@ public class ModBlocks {
                 new ModelResourceLocation(DivineRPG.modId + ":" + altarParasecta.getUnlocalizedName(), "inventory"));
         GameRegistry.registerTileEntity(TEBed.class,
                 new ModelResourceLocation(DivineRPG.modId + ":" + bedDream.getUnlocalizedName(), "inventory"));
-        // GameRegistry.registerTileEntity(TileEntityChestIceika.class, new
-        // ModelResourceLocation(DivineRPG.modId + ":" +
-        // chestIceika.getUnlocalizedName(), "inventory"));
+        GameRegistry.registerTileEntity(TileEntityCoalstoneFurnace.class, DivineRPG.modId + ":te_coalstone_furnace");
+        GameRegistry.registerTileEntity(TileEntityIceikaChest.class, DivineRPG.modId + ":te_iceika_chest");
 
     }
 
@@ -309,8 +290,8 @@ public class ModBlocks {
                 stoneFrozen.createItemBlock(), stoneIcy.createItemBlock(), bricksIceika.createItemBlock(),
                 spawnerArcher.createItemBlock(), brittleLeaves.createItemBlock(), spawnerRollum.createItemBlock(),
                 coalStone.createItemBlock(), snowBricks.createItemBlock(), workshopBookcase.createItemBlock(),
-                frostedGlass.createItemBlock(), workshopCarpet.createItemBlock()
-        // chestIceika.createItemBlock()
+                frostedGlass.createItemBlock(), workshopCarpet.createItemBlock(), coalstoneFurnace.createItemBlock(),
+                iceikaChest.createItemBlock()
         // nightmarebed.createItemBlock()
         );
     }
@@ -459,7 +440,8 @@ public class ModBlocks {
         workshopBookcase.registerItemModel(Item.getItemFromBlock(workshopBookcase));
         frostedGlass.registerItemModel(Item.getItemFromBlock(frostedGlass));
         workshopCarpet.registerItemModel(Item.getItemFromBlock(workshopCarpet));
-        // chestIceika.registerItemModel(Item.getItemFromBlock(chestIceika));
+        coalstoneFurnace.registerItemModel(Item.getItemFromBlock(coalstoneFurnace));
+        iceikaChest.registerItemModel(Item.getItemFromBlock(iceikaChest));
         // nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 
         DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");

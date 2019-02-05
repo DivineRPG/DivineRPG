@@ -1,5 +1,6 @@
 package naturix.divinerpg.proxy;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.RenderTiles;
 import naturix.divinerpg.client.ArcanaHelper;
@@ -10,6 +11,7 @@ import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Utils;
+import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,60 +25,55 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+
 
 public class ClientProxy extends CommonProxy {
-	public static MusicTicker.MusicType Music_Iceika;
-
-	@SubscribeEvent
-	public static void registerModels(ModelRegistryEvent event) {
-		TEISRRender.init();
-	}
-
-	ArcanaHelper ah;
+    public static MusicTicker.MusicType Music_Iceika;
 
 	@Override
+    public void preInit(FMLPreInitializationEvent e) {
+        super.preInit(e);
+        ModEntities.initModels();
+        OBJLoader.INSTANCE.addDomain(DivineRPG.modId);
+
+    }
+	@Override
+    public void init(FMLInitializationEvent e) {
+        super.init(e);
+        RenderTiles.init();
+        Utils.setupCapes();
+        Utils.updateCapeList();
+
+        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
+    }
+	@Override
+    public void postInit(FMLPostInitializationEvent e) {
+        super.postInit(e);
+        DivineRPG.registerEvent(new EventDevHat());
+
+        Utils.postFMLEvent(new ArcanaRenderer());
+        Utils.postFMLEvent(new ClientTicker());
+
+       }
+
+    @Override
 	public EntityPlayer getPlayer() {
 		return FMLClientHandler.instance().getClientPlayerEntity();
 	}
 
-	@Override
-	public void init(FMLInitializationEvent e) {
-		super.init(e);
-		RenderTiles.init();
-		Utils.setupCapes();
-		Utils.updateCapeList();
+    public void registerItemRenderer(Item item, int meta, String id) {
+    	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
 
-		Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
-	}
-
-	@Override
-	public void postInit(FMLPostInitializationEvent e) {
-		super.postInit(e);
-		DivineRPG.registerEvent(new EventDevHat());
-
-		Utils.postFMLEvent(new ArcanaRenderer());
-		Utils.postFMLEvent(new ClientTicker());
-
-	}
-
-	@Override
-	public void preInit(FMLPreInitializationEvent e) {
-		super.preInit(e);
-		ModEntities.initModels();
-		OBJLoader.INSTANCE.addDomain(DivineRPG.modId);
-
-	}
-
-	@Override
-	public void registerItemRenderer(Item item, int meta, String id) {
-		ModelLoader.setCustomModelResourceLocation(item, meta,
-		        new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
-
-	}
-
-	@Override
-	public void updateClientArcana(float amount) {
-		// ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount);
-	}
+    }
+    ArcanaHelper ah;
+    public void updateClientArcana(float amount) {
+//        ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount);
+    }
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event) {
+    	TEISRRender.init();
+    }
 
 }
