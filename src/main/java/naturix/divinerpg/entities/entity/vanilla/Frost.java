@@ -1,109 +1,185 @@
 package naturix.divinerpg.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
+import naturix.divinerpg.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.entities.entity.projectiles.EntityFrostShot;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumDifficulty;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Frost extends EntityMob {
+public class Frost extends EntityDivineRPGMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/frost");
+    private float heightOffset = 0.5F;
+    private int heightOffsetUpdateTime;
 
     public Frost(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/frost");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }@Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
+        super(worldIn);
+        this.setSize(1F, 1f);
+        this.experienceValue = 20;
+        this.setHealth(this.getMaxHealth());
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
-    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
     }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
+    @Override
+    protected void initEntityAI() {
+        this.tasks.addTask(4, new Frost.AIFrostShotAttack(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D, 0.0F));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
+    public void onLivingUpdate() {
+        if (!this.onGround && this.motionY < 0.0D) {
+            this.motionY *= 0.6D;
+        }
+        super.onLivingUpdate();
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+    protected void updateAITasks() {
+        if (this.isWet()) {
+            this.attackEntityFrom(DamageSource.DROWN, 1.0F);
+        }
+
+        --this.heightOffsetUpdateTime;
+
+        if (this.heightOffsetUpdateTime <= 0) {
+            this.heightOffsetUpdateTime = 100;
+            this.heightOffset = 0.5F + (float) this.rand.nextGaussian() * 3.0F;
+        }
+
+        EntityLivingBase entitylivingbase = this.getAttackTarget();
+
+        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY
+                + (double) this.getEyeHeight() + (double) this.heightOffset) {
+            this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
+            this.isAirBorne = true;
+        }
+
+        super.updateAITasks();
     }
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+    static class AIFrostShotAttack extends EntityAIBase {
+        private Frost frost;
+        private int attackStep;
+        private int attackTime;
+
+        public AIFrostShotAttack(Frost frostIn) {
+            this.frost = frostIn;
+            this.setMutexBits(3);
+        }
+
+        public boolean shouldExecute() {
+            EntityLivingBase entitylivingbase = this.frost.getAttackTarget();
+            return entitylivingbase != null && entitylivingbase.isEntityAlive();
+        }
+
+        public void startExecuting() {
+            this.attackStep = 0;
+        }
+
+        public void updateTask() {
+            --this.attackTime;
+            EntityLivingBase entitylivingbase = this.frost.getAttackTarget();
+            double d0 = this.frost.getDistanceSq(entitylivingbase);
+
+            if (d0 < 4.0D) {
+                if (this.attackTime <= 0) {
+                    this.attackTime = 20;
+                    this.frost.attackEntityAsMob(entitylivingbase);
+                }
+
+                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
+                        entitylivingbase.posZ, 1.0D);
+            } else if (d0 < this.getFollowDistance() * this.getFollowDistance()) {
+                double d1 = entitylivingbase.posX - this.frost.posX;
+                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F)
+                        - (this.frost.posY + (double) (this.frost.height / 2.0F));
+                double d3 = entitylivingbase.posZ - this.frost.posZ;
+
+                if (this.attackTime <= 0) {
+                    ++this.attackStep;
+
+                    this.attackTime = 10;
+                    if (this.attackStep == 3) {
+                        this.attackTime = 40;
+                        this.attackStep = 0;
+                    }
+
+                    float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
+                    this.frost.world.playEvent((EntityPlayer) null, 1018,
+                            new BlockPos((int) this.frost.posX, (int) this.frost.posY, (int) this.frost.posZ), 0);
+
+                    EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost,
+                            d1 + this.frost.getRNG().nextGaussian() * (double) f, d2,
+                            d3 + this.frost.getRNG().nextGaussian() * (double) f);
+                    entityShot.posY = this.frost.posY + (double) (this.frost.height / 2.0F) + 0.5D;
+                    this.frost.world.spawnEntity(entityShot);
+                }
+
+                this.frost.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+            } else {
+                this.frost.getNavigator().clearPath();
+                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
+                        entitylivingbase.posZ, 1.0D);
+            }
+
+            super.updateTask();
+        }
+
+        private double getFollowDistance() {
+            IAttributeInstance iattributeinstance = this.frost.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
+            return iattributeinstance == null ? 16.0D : iattributeinstance.getAttributeValue();
         }
     }
 
     @Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return SoundEvents.ENTITY_BLAZE_HURT;
-	}
-
-    @Override
-	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_BLAZE_DEATH;
+    public void fall(float distance, float damageMultiplier) {
     }
 
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.FROST;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_BLAZE_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_BLAZE_DEATH;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }
