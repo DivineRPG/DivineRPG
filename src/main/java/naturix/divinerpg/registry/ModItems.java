@@ -16,6 +16,7 @@ import naturix.divinerpg.bases.items.SnowGlobe;
 import naturix.divinerpg.bases.items.SpawnerBase;
 import naturix.divinerpg.bases.items.SwordBase;
 import naturix.divinerpg.bases.items.TeleportStaff;
+import naturix.divinerpg.bases.items.*;
 import naturix.divinerpg.bases.items.armor.Angelic;
 import naturix.divinerpg.bases.items.armor.Apalachia;
 import naturix.divinerpg.bases.items.armor.Aquastrive;
@@ -678,6 +679,7 @@ public class ModItems {
 	public static CannonBase cannonCorrupted = new CannonBase("cannon_corrupted");
 	public static CannonBase furyGold = new CannonBase("fury_golden");
 	public static HordeHorn hordeHorn = new HordeHorn("horde_horn");
+	public static ItemBlockSteelDoor steelDoor = new ItemBlockSteelDoor("steel_door", ModBlocks.steelDoor);
 
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -745,7 +747,7 @@ public class ModItems {
 		        liopleurodonSkull, liopleurodonTeeth, stoneHealing, daggerTerran, knifeTerran, maulTerran, stoneTerran,
 		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkMortum, cannonGhast,
 		        snowflake, bowheadAnchor, sharkAnchor, cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted,
-		        furyGold, hordeHorn);
+		        furyGold, hordeHorn, steelDoor);
 	}
 
 	public static void registerModels() {
@@ -1169,6 +1171,7 @@ public class ModItems {
 		snowflake.registerItemModel();
 		furyGold.registerItemModel();
 		hordeHorn.registerItemModel();
+		steelDoor.registerItemModel();
 
 		if (Config.debug) {
 			DivineRPG.logger.info(DivineRPG.name + " items are loaded");
