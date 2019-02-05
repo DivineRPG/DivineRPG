@@ -2,9 +2,7 @@ package naturix.divinerpg.bases.items;
 
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemHoe;
-import net.minecraft.item.ItemStack;
 
 public class HoeBase extends ItemHoe {
 

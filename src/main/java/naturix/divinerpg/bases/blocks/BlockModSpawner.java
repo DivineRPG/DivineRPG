@@ -1,7 +1,5 @@
 package naturix.divinerpg.bases.blocks;
 
-import java.util.Random;
-
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.block.state.IBlockState;
@@ -13,6 +11,8 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class BlockModSpawner extends BlockMobSpawner {
 

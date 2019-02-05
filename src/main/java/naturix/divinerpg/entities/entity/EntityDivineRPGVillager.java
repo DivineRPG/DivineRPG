@@ -1,25 +1,11 @@
 package naturix.divinerpg.entities.entity;
 
-import java.util.Iterator;
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.entities.entity.vethia.TheHunger;
-import net.minecraft.entity.IMerchant;
-import net.minecraft.entity.INpc;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
-import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAITradePlayer;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,17 +14,17 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.village.Village;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.UUID;
 
 public abstract class EntityDivineRPGVillager extends EntityVillager {
 

@@ -1,7 +1,6 @@
 package naturix.divinerpg.dimensions.iceika;
 
 import naturix.divinerpg.proxy.ClientProxy;
-import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.client.audio.MusicTicker;
@@ -9,7 +8,6 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.blocks.tile.render;
 
-import java.util.Objects;
-
-import javax.annotation.Nonnull;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.block.AltarParasecta;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
@@ -14,6 +10,9 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
+import java.util.Objects;
 
 @SideOnly(Side.CLIENT)
 public class RenderParasectaAltar extends TileEntitySpecialRenderer<TileEntityParasectaAltar> {

@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.items.serenade;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.registry.ModSounds;
@@ -16,6 +12,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class SerenadeInfusion extends ItemBase {
 

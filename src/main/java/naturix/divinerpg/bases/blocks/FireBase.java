@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.blocks;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
@@ -30,6 +26,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class FireBase extends Block
 {

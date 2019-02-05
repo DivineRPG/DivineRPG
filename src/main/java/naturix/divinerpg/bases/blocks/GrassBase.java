@@ -1,7 +1,5 @@
 package naturix.divinerpg.bases.blocks;
 
-import java.util.Random;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockGrass;
@@ -13,6 +11,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GrassBase extends BlockGrass {
 

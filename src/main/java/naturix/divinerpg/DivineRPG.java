@@ -9,13 +9,7 @@ package naturix.divinerpg;
 
 import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.proxy.CommonProxy;
-import naturix.divinerpg.registry.ModBiomes;
-import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.registry.ModEvents;
-import naturix.divinerpg.registry.ModItems;
-import naturix.divinerpg.registry.ModRecipes;
-import naturix.divinerpg.registry.ModSeeds;
-import naturix.divinerpg.registry.ModSpawns;
+import naturix.divinerpg.registry.*;
 import naturix.divinerpg.utils.log.InitLog;
 import naturix.divinerpg.utils.log.IntenseDebug;
 import naturix.divinerpg.utils.log.PostInitLog;
@@ -57,8 +51,8 @@ public class DivineRPG {
 	public static DivineRPG instance;
 	public static org.apache.logging.log4j.Logger logger;
 	public static SimpleNetworkWrapper network;
-	
-	public DivineRPG() {
+
+    public DivineRPG() {
 		FluidRegistry.enableUniversalBucket();
 	}
 	
@@ -111,7 +105,6 @@ public class DivineRPG {
 			public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 				ModBiomes.registerBiomes(event.getRegistry()); 
 			}
-			
 	    }
 
 			    

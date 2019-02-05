@@ -1,16 +1,13 @@
 package naturix.divinerpg.entities.assets.render;
 
 import naturix.divinerpg.entities.assets.render.vanilla.RenderAridWarrior;
-import naturix.divinerpg.entities.assets.render.vanilla.RenderWildFire;
 import naturix.divinerpg.entities.entity.vanilla.AridWarrior;
-import naturix.divinerpg.entities.entity.vanilla.WildFire;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
 
 public class MainHandLayerRenderAridWarrior implements LayerRenderer<AridWarrior> {
     private final RenderAridWarrior RenderAridWarrior;

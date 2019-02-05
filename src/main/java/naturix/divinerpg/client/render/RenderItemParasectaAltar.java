@@ -1,21 +1,17 @@
 package naturix.divinerpg.client.render;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-
-import javax.annotation.Nonnull;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.model.ParasectaAltarModel;
 import naturix.divinerpg.bases.blocks.tile.render.ItemBakedBase;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.relauncher.Side;
+
+import javax.annotation.Nonnull;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.modId, value = Side.CLIENT)
 public class RenderItemParasectaAltar extends TileEntityItemStackRenderer {

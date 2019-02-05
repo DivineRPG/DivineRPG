@@ -1,8 +1,5 @@
 package naturix.divinerpg.bases.blocks.arcana;
 
-import java.util.List;
-import java.util.Random;
-
 import naturix.divinerpg.bases.blocks.BlockBase;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.Utils;
@@ -12,6 +9,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class HeatTrap extends BlockBase {
 	public HeatTrap(String name) {

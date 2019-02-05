@@ -1,7 +1,5 @@
 package naturix.divinerpg.entities.entity.iceika;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.AbstractSkeleton;
@@ -20,6 +18,8 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+
+import javax.annotation.Nullable;
 
 public class FrostArcher extends AbstractSkeleton
 {

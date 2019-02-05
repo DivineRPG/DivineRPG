@@ -1,5 +1,4 @@
 package naturix.divinerpg.bases.blocks.sapling;
-import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
@@ -20,6 +19,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
+import java.util.Random;
 
 public class SaplingMortum extends BlockBush implements IGrowable
 {

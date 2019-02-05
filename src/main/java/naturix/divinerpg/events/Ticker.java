@@ -1,6 +1,5 @@
 package naturix.divinerpg.events;
 
-import naturix.divinerpg.DivineRPG;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;

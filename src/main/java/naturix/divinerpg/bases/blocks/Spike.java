@@ -1,8 +1,5 @@
 package naturix.divinerpg.bases.blocks;
 
-import java.util.List;
-import java.util.Random;
-
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.block.material.Material;
@@ -11,6 +8,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class Spike extends BlockBase {
 	public Spike(String name) {

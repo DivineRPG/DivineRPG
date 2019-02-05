@@ -1,7 +1,5 @@
 package naturix.divinerpg.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelKingCrab;
 import naturix.divinerpg.entities.entity.vanilla.KingCrab;
 import net.minecraft.client.model.ModelBase;
@@ -10,6 +8,8 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderKingCrab extends RenderLiving<KingCrab> {
     public static final IRenderFactory FACTORY = new Factory();

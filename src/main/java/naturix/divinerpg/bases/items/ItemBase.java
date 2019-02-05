@@ -1,10 +1,10 @@
 package naturix.divinerpg.bases.items;
 
-import java.util.ArrayList;
-
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+
+import java.util.ArrayList;
 
 public class ItemBase extends Item {
 

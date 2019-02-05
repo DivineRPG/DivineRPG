@@ -1,9 +1,6 @@
 package naturix.divinerpg.dimensions.iceika;
 
 
-import java.util.List;
-import java.util.Random;
-
 import naturix.divinerpg.dimensions.iceika.world.IceikaCaves;
 import naturix.divinerpg.dimensions.iceika.world.IceikaTerrainGenerator;
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +18,9 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.List;
+import java.util.Random;
 
 public class ChunkProviderIceika implements  IChunkGenerator
 {

@@ -1,20 +1,9 @@
 package naturix.divinerpg.bases.items;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.Config;
-import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.portal.IceikaPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;

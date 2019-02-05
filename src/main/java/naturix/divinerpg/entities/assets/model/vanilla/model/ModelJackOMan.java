@@ -1,10 +1,9 @@
 package naturix.divinerpg.entities.assets.model.vanilla.model;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public class ModelJackOMan extends ModelBiped{
 

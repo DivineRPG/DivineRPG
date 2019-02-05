@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.items;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.EntityEMP;
 import naturix.divinerpg.registry.ModItems;
@@ -15,6 +11,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class CannonBase extends Item
 {

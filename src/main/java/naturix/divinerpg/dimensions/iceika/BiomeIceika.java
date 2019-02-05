@@ -1,7 +1,5 @@
 package naturix.divinerpg.dimensions.iceika;
 
-import java.util.Random;
-
 import naturix.divinerpg.dimensions.iceika.world.worldgentrees.LargeExtraThiccIceTree;
 import naturix.divinerpg.dimensions.iceika.world.worldgentrees.LargeThiccIceTree;
 import naturix.divinerpg.dimensions.iceika.world.worldgentrees.LargeThinIceTree;
@@ -15,11 +13,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BiomeIceika extends Biome {
 

@@ -1,7 +1,5 @@
 package naturix.divinerpg.bases.blocks.tile.render;
 
-import org.lwjgl.opengl.GL11;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.bases.blocks.tile.model.ParasectaAltarModel;
@@ -16,6 +14,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class TileEntityParasectaAltarRender extends TileEntitySpecialRenderer<TileEntityParasectaAltar> {
 

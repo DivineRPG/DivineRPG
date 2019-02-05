@@ -1,8 +1,4 @@
 package naturix.divinerpg.bases.blocks;
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
@@ -27,6 +23,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class LeavesBase extends BlockLeaves
 {

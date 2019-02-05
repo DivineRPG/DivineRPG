@@ -1,16 +1,8 @@
 package naturix.divinerpg.entities.entity.vethia;
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.entities.entity.EntityDivineRPGVillager;
-import naturix.divinerpg.entities.entity.InfiniteTrade;
-import naturix.divinerpg.utils.MessageLocalizer;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 

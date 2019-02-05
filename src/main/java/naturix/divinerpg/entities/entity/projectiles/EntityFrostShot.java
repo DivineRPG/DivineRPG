@@ -2,6 +2,7 @@ package naturix.divinerpg.entities.entity.projectiles;
 
 import java.util.List;
 
+import naturix.divinerpg.particle.ParticleFrost;
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
@@ -11,6 +12,8 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -24,6 +27,14 @@ public class EntityFrostShot extends EntityFireball {
     public EntityFrostShot(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
         super(worldIn, x, y, z, accelX, accelY, accelZ);
         this.setSize(1.0F, 1.0F);
+    }
+
+    @Override
+    public void onEntityUpdate() {
+        if (this.world.isRemote)
+        {
+            
+        }
     }
 
     public EntityFrostShot(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ) {
@@ -45,6 +56,7 @@ public class EntityFrostShot extends EntityFireball {
                         this.getEntityBoundingBox().grow(4.0D, 2.0D, 4.0D));
                 EntityAreaEffectCloud entityareaeffectcloud = new EntityAreaEffectCloud(this.world, this.posX,
                         this.posY, this.posZ);
+
                 entityareaeffectcloud.setOwner(this.shootingEntity);
                 entityareaeffectcloud.setParticle(EnumParticleTypes.SNOWBALL);
                 entityareaeffectcloud.setWaitTime(0);
@@ -80,10 +92,6 @@ public class EntityFrostShot extends EntityFireball {
 
     public boolean attackEntityFrom(DamageSource source, float amount) {
         return false;
-    }
-
-    protected EnumParticleTypes getParticleType() {
-        return EnumParticleTypes.DRIP_WATER;
     }
 
     protected boolean isFireballFiery() {

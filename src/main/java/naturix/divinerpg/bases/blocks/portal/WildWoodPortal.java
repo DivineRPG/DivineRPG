@@ -1,8 +1,4 @@
 package naturix.divinerpg.bases.blocks.portal;
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
@@ -39,6 +35,10 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class WildWoodPortal extends BlockBreakable {
 

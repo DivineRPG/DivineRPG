@@ -1,7 +1,5 @@
 package naturix.divinerpg.entities.assets.render.twilight;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.entities.assets.model.twilight.model.ModelTomo;
 import naturix.divinerpg.entities.entity.twilight.WildwoodTomo;
 import net.minecraft.client.model.ModelBase;
@@ -10,6 +8,8 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderWildwoodTomo extends RenderLiving<WildwoodTomo> {
 	

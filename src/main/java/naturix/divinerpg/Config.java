@@ -1,9 +1,8 @@
 package naturix.divinerpg;
 
-import org.apache.logging.log4j.Level;
-
 import naturix.divinerpg.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
+import org.apache.logging.log4j.Level;
 
 public class Config {
 

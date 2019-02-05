@@ -1,8 +1,5 @@
 package naturix.divinerpg.dimensions.eden;
 
-import java.awt.Color;
-import java.util.Random;
-
 import naturix.divinerpg.entities.entity.arcana.EdenCadillion;
 import naturix.divinerpg.entities.entity.arcana.EdenCori;
 import naturix.divinerpg.entities.entity.arcana.EdenTomo;
@@ -17,6 +14,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.awt.*;
+import java.util.Random;
 
 public class BiomeEden extends Biome {
 

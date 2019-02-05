@@ -1,9 +1,5 @@
 package naturix.divinerpg.dimensions.mortum;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import naturix.divinerpg.registry.ModBlocks;
@@ -20,6 +16,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class ModTeleporterMortum extends Teleporter {
 

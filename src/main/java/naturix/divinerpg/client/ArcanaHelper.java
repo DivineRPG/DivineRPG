@@ -2,12 +2,10 @@ package naturix.divinerpg.client;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.networking.message.MessageArcanaBar;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 

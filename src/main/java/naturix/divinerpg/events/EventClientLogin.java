@@ -1,7 +1,5 @@
 package naturix.divinerpg.events;
 
-import java.io.IOException;
-
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.MessageLocalizer;
@@ -11,6 +9,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+
+import java.io.IOException;
 
 public class EventClientLogin {
 

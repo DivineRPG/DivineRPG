@@ -1,21 +1,14 @@
 package naturix.divinerpg.events;
 
+import naturix.divinerpg.DivineRPG;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.InterfaceAddress;
-import java.net.MalformedURLException;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.URL;
+import java.net.*;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
-
-import naturix.divinerpg.DivineRPG;
 
 
 public class UpdateChecker {

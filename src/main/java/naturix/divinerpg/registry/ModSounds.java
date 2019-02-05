@@ -1,15 +1,11 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.entity.passive.EntityParrot;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.modId)
 public final class ModSounds {

@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.blocks.tile.block;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.blocks.tile.entity.TileEntityParasectaAltar;
 import net.minecraft.block.BlockContainer;
@@ -19,6 +15,9 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class AltarParasecta extends BlockContainer {
 	private static String name;

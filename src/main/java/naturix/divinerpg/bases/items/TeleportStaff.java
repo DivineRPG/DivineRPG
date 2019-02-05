@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.items;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +9,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class TeleportStaff extends Item {
 

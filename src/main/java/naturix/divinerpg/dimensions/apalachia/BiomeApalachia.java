@@ -1,15 +1,6 @@
 package naturix.divinerpg.dimensions.apalachia;
 
-import java.awt.Color;
-import java.util.Random;
-
-import naturix.divinerpg.entities.entity.twilight.EnchantedArcher;
-import naturix.divinerpg.entities.entity.twilight.ApalachiaGolem;
-import naturix.divinerpg.entities.entity.twilight.EnchantedWarrior;
-import naturix.divinerpg.entities.entity.twilight.Bunny;
-import naturix.divinerpg.entities.entity.twilight.Greenfeet;
-import naturix.divinerpg.entities.entity.twilight.Madivel;
-import naturix.divinerpg.entities.entity.twilight.SunArcher;
+import naturix.divinerpg.entities.entity.twilight.*;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -17,6 +8,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.awt.*;
+import java.util.Random;
 
 public class BiomeApalachia extends Biome {
 

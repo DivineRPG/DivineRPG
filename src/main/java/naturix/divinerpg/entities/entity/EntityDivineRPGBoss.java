@@ -1,10 +1,5 @@
 package naturix.divinerpg.entities.entity;
 
-import naturix.divinerpg.entities.entity.vanilla.AyeracoBlue;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoGreen;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoPurple;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoRed;
-import naturix.divinerpg.entities.entity.vanilla.AyeracoYellow;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfo.Color;

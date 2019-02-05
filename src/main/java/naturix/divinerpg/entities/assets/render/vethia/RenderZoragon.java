@@ -1,7 +1,5 @@
 package naturix.divinerpg.entities.assets.render.vethia;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.entities.assets.model.vethea.model.ModelZoragon;
 import naturix.divinerpg.entities.entity.vethia.Zoragon;
 import net.minecraft.client.model.ModelBase;
@@ -10,6 +8,8 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderZoragon extends RenderLiving<Zoragon> {
 	

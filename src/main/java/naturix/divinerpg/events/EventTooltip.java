@@ -1,10 +1,6 @@
 package naturix.divinerpg.events;
 
 
-import net.minecraft.item.ItemSword;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
 public class EventTooltip {
 //	
 //	@SubscribeEvent

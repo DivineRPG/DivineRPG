@@ -1,9 +1,5 @@
 package naturix.divinerpg.bases.items.serenade;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.bases.items.ItemBase;
 import net.minecraft.client.util.ITooltipFlag;
@@ -15,9 +11,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class SerenadeStrike extends ItemBase {
+import javax.annotation.Nullable;
+import java.util.List;
 
-	RayTraceResult rtr;
+public class SerenadeStrike extends ItemBase{
 
 	public SerenadeStrike(String name) {
 		super(name);

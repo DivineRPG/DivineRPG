@@ -2,7 +2,6 @@ package naturix.divinerpg.utils.log;
 
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;

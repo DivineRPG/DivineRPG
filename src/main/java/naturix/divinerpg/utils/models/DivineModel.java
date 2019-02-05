@@ -1,10 +1,10 @@
 package naturix.divinerpg.utils.models;
 
-import java.util.ArrayList;
-
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+
+import java.util.ArrayList;
 
 public abstract class DivineModel extends ModelBase {
 

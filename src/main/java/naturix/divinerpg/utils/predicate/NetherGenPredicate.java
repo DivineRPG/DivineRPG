@@ -1,7 +1,6 @@
 package naturix.divinerpg.utils.predicate;
 
 import com.google.common.base.Predicate;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 

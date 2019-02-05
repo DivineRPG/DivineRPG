@@ -1,13 +1,13 @@
 package naturix.divinerpg.world;
 
-import java.util.Random;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.entities.entity.vanilla.LivestockMerchant;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class WorldGenHut extends WorldGenerator {
 

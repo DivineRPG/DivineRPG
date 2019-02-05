@@ -1,7 +1,5 @@
 package naturix.divinerpg.bases.blocks.tile.block;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -10,6 +8,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public abstract class TileBase<TE extends TileEntity> extends BlockContainer {
 

@@ -1,11 +1,6 @@
 package naturix.divinerpg.bases.items;
 
-import java.util.Collection;
-import java.util.Optional;
-import java.util.UUID;
-
 import com.google.common.collect.Multimap;
-
 import naturix.divinerpg.DivineRPG;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,6 +9,10 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+
+import java.util.Collection;
+import java.util.Optional;
+import java.util.UUID;
 
 public class SwordBase extends ItemSword {
 

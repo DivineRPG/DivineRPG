@@ -1,7 +1,5 @@
 package naturix.divinerpg.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.entities.assets.model.vanilla.model.ModelWildfire;
 import naturix.divinerpg.entities.assets.render.MainHandLayerRender;
 import naturix.divinerpg.entities.entity.vanilla.WildFire;
@@ -12,6 +10,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderWildFire extends RenderLiving<WildFire> {
     public static final IRenderFactory FACTORY = new Factory();
