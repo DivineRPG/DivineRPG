@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.items.special;
+package naturix.divinerpg.bases.items;
 
 import java.util.Random;
 

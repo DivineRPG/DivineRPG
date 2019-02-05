@@ -15,38 +15,39 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class SerenadeStrike extends ItemBase{
+public class SerenadeStrike extends ItemBase {
+
+	RayTraceResult rtr;
 
 	public SerenadeStrike(String name) {
 		super(name);
 		setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(100);
 		setMaxStackSize(1);
-		}
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {
-		float var4 = 1.0F;
-		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
-		
-		RayTraceResult pos = entity.rayTrace(100, 20);
-
-			double i = pos.getBlockPos().getX();
-			double j = pos.getBlockPos().getY();
-			double k = pos.getBlockPos().getZ();
-
-		if (true) {
-			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
-
-
-			entity.getHeldItem(hand).damageItem(1, entity);
-			}
-		
-		return ar;
 	}
+
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-    {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		tooltip.add("Shoots lightning");
 		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
-    }
+	}
+
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {
+		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
+
+		RayTraceResult pos = entity.rayTrace(300, 20);
+
+		double i = pos.getBlockPos().getX();
+		double j = pos.getBlockPos().getY();
+		double k = pos.getBlockPos().getZ();
+
+		if (world.getBlockState(pos.getBlockPos()) != null) {
+			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
+			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
+			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
+		}
+
+		return ar;
+	}
 }

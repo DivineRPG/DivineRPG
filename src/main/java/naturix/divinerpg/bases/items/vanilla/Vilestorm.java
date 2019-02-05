@@ -1,14 +1,16 @@
-package naturix.divinerpg.bases.items.special;
+package naturix.divinerpg.bases.items.vanilla;
 
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.bases.items.ItemBase;
+import naturix.divinerpg.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -42,8 +44,9 @@ public class Vilestorm extends ItemBase {
 		BlockPos pos = new BlockPos(player.getPosition());
 		if (!world.isRemote) {
 			world.playSound(player, pos, SoundEvents.ENTITY_ARROW_HIT_PLAYER, SoundCategory.MASTER, 1f, 1f);
-			// EntityThrowable bullet = new EntityVileStorm(world, player);
-			// world.spawnEntity(bullet);
+			EntityThrowable bullet = new EntityVileStorm(world, player);
+			bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+			world.spawnEntity(bullet);
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 	}

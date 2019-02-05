@@ -1,4 +1,4 @@
-package naturix.divinerpg.bases.items.special;
+package naturix.divinerpg.bases.items.vanilla;
 
 import naturix.divinerpg.bases.items.ItemBase;
 import naturix.divinerpg.entities.entity.vanilla.TheWatcher;
