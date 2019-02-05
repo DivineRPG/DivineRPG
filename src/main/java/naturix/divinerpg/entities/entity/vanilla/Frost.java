@@ -139,7 +139,7 @@ public class Frost extends EntityDivineRPGMob {
                     EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost,
                             d1 + this.frost.getRNG().nextGaussian() * (double) f, d2,
                             d3 + this.frost.getRNG().nextGaussian() * (double) f);
-                    entityShot.posY = this.frost.posY + (double) (this.frost.height / 2.0F) + 0.5D;
+                    entityShot.posY = this.frost.posY + (double) (this.frost.height / 2.0F);
                     this.frost.world.spawnEntity(entityShot);
                 }
 
