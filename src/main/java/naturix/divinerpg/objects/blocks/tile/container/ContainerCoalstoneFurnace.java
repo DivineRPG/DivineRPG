@@ -80,22 +80,22 @@ public class ContainerCoalstoneFurnace extends Container {
     {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.inventorySlots.get(index);
-
+        /**
         if (slot != null && slot.getHasStack())
         {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (index == 2)
+            if (index == 1)
             {
-                if (!this.mergeItemStack(itemstack1, 3, 39, true))
+                if (!this.mergeItemStack(itemstack1, 2, 38, true))
                 {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onSlotChange(itemstack1, itemstack);
             }
-            else if (index != 1 && index != 0)
+            else if (index != 1)
             {
                 if (!FurnaceRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
                 {
@@ -104,26 +104,19 @@ public class ContainerCoalstoneFurnace extends Container {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (TileEntityFurnace.isItemFuel(itemstack1))
+                else if (index >= 1 && index < 28)
                 {
-                    if (!this.mergeItemStack(itemstack1, 1, 2, false))
+                    if (!this.mergeItemStack(itemstack1, 28, 37, false))
                     {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (index >= 3 && index < 30)
-                {
-                    if (!this.mergeItemStack(itemstack1, 30, 39, false))
-                    {
-                        return ItemStack.EMPTY;
-                    }
-                }
-                else if (index >= 30 && index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+                else if (index >= 28 && index < 37 && !this.mergeItemStack(itemstack1, 1, 28, false))
                 {
                     return ItemStack.EMPTY;
                 }
             }
-            else if (!this.mergeItemStack(itemstack1, 3, 39, false))
+            else if (!this.mergeItemStack(itemstack1, 1, 37, false))
             {
                 return ItemStack.EMPTY;
             }
@@ -143,7 +136,7 @@ public class ContainerCoalstoneFurnace extends Container {
             }
 
             slot.onTake(playerIn, itemstack1);
-        }
+        }*/
 
         return itemstack;
     }

@@ -21,7 +21,7 @@ public class CoalstoneFurnaceRecipes {
     }
 
     private CoalstoneFurnaceRecipes(){
-        addCoalstoneFurnaceRecipe(new ItemStack(Blocks.COBBLESTONE),new ItemStack(Blocks.STONE), 7.8F);
+        addCoalstoneFurnaceRecipe(new ItemStack(Blocks.COBBLESTONE),new ItemStack(Blocks.STONE), 2.8F);
     }
 
     public void addCoalstoneFurnaceRecipe(ItemStack input, ItemStack output, float exp){
@@ -33,19 +33,20 @@ public class CoalstoneFurnaceRecipes {
     }
 
     public ItemStack getResult(ItemStack stack) {
-        for (Entry<ItemStack, ItemStack> entry : this.smeltingList.entrySet()) {
+        for (Entry<ItemStack, ItemStack> entry : this.smeltingList.entrySet())
+        {
             if (this.compareItemStacks(stack, entry.getKey()))
             {
                 return entry.getValue();
             }
         }
+
         return ItemStack.EMPTY;
     }
 
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
     {
-        return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());
-    }
+        return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());    }
 
     public Map<ItemStack, ItemStack> getSmeltingList()
     {
@@ -64,6 +65,7 @@ public class CoalstoneFurnaceRecipes {
                 return ((Float)entry.getValue()).floatValue();
             }
         }
+
         return 0.0F;
     }
 }

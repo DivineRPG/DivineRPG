@@ -3,6 +3,8 @@ package naturix.divinerpg.objects.blocks;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.GUIHandler;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -16,6 +18,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
@@ -31,17 +34,18 @@ import java.util.Random;
  * Created by LiteWolf101 on Jan
  * /29/2019
  */
-public class CoalstoneFurnace extends BlockBase implements ITileEntityProvider {
+public class CoalstoneFurnace extends Block implements ITileEntityProvider {
     protected String name;
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     public static final PropertyBool BURNING = PropertyBool.create("burning");
 
     public CoalstoneFurnace(String name) {
-        super(Material.ROCK, name);
+        super(Material.ROCK);
         this.name = name;
         setUnlocalizedName(name);
-        //setRegistryName(name);
+        setRegistryName(name);
         setCreativeTab(DivineRPG.BlocksTab);
+        setHardness(2f);
         setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 
     }
@@ -60,9 +64,9 @@ public class CoalstoneFurnace extends BlockBase implements ITileEntityProvider {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (worldIn.isRemote)
+        if (!worldIn.isRemote)
         {
-            //playerIn.openGui(DivineRPG.instance, GUIHandler.COALSTONE_FURNACE_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+            playerIn.openGui(DivineRPG.instance, GUIHandler.COALSTONE_FURNACE_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }
@@ -193,6 +197,14 @@ public class CoalstoneFurnace extends BlockBase implements ITileEntityProvider {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-        tooltip.add(TextFormatting.RED + "WARNING: " + TextFormatting.DARK_RED + "Do not use this block. It is currently a WIP");
+        //tooltip.add(TextFormatting.RED + "WARNING: " + TextFormatting.DARK_RED + "Do not use this block. It is currently a WIP");
+    }
+
+    public void registerItemModel(Item itemBlock) {
+        DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
+    }
+
+    public Item createItemBlock() {
+        return new ItemBlock(this).setRegistryName(getRegistryName());
     }
 }

@@ -33,9 +33,8 @@ public class CoalstoneFurnaceGUI extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String tileName = this.tileEntity.getDisplayName().getUnformattedComponentText();
-        //this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName)/2) + 0, 2, 16777215);
-        this.fontRenderer.drawString("DO NOT USE THIS BLOCK!!!", (this.xSize / 2), 2, 16777215);
-        this.fontRenderer.drawString(this.player.getDisplayName().getFormattedText(), 122, this.ySize - 96 + 2, 16777215);
+        this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName)/2) + 0, 6, 16777215);
+        this.fontRenderer.drawString(this.player.getDisplayName().getFormattedText(), 8, this.ySize - 96 + 2, 16777215);
 
     }
 
@@ -47,6 +46,10 @@ public class CoalstoneFurnaceGUI extends GuiContainer {
 
         int l = this.getCookProgressScaled(24);
         this.drawTexturedModalRect(this.guiLeft + 79, this.guiTop + 34, 176, 14, l + 1, 16);
+
+        if (l > 0) {
+            this.drawTexturedModalRect(this.guiLeft + 56, this.guiTop + 36, 176, 0, 15, 15);
+        }
     }
 
     private int getCookProgressScaled (int pixels) {

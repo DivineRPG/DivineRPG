@@ -1,12 +1,17 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
+import naturix.divinerpg.objects.blocks.CoalstoneFurnace;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.block.CoalstoneFurnaceRecipes;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.MathHelper;
@@ -15,6 +20,9 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 
 import javax.annotation.Nullable;
+
+import static naturix.divinerpg.objects.blocks.CoalstoneFurnace.BURNING;
+import static naturix.divinerpg.objects.blocks.CoalstoneFurnace.FACING;
 
 /**
  * Created by LiteWolf101 on Jan
@@ -32,7 +40,7 @@ public class TileEntityCoalstoneFurnace extends TileEntity implements IInventory
 
     @Override
     public String getName() {
-        return this.hasCustomName()? this.customName : "container.coalstone_furnace";
+        return this.hasCustomName()? this.customName : "Coalstone Furnace";
     }
 
     @Override
@@ -145,7 +153,7 @@ public class TileEntityCoalstoneFurnace extends TileEntity implements IInventory
                     return true;
                 }
                 if (output.isItemEqual(result)) {
-                    return false;
+                    return true;
                 }
                 int res = output.getCount() + result.getCount();
                 return res <= getInventoryStackLimit() && res <= output.getMaxStackSize();
@@ -232,22 +240,27 @@ public class TileEntityCoalstoneFurnace extends TileEntity implements IInventory
     @Override
     public void update() {
         boolean flag1 = false;
-        if (this.canSmelt()) {
-            ++cookTime;
-            if (cookTime == totalCookTime) {
+        if (!this.world.isRemote) {
+            if (this.canSmelt()) {
+                ++cookTime;
+                if (cookTime < totalCookTime) {
+                    flag1 = true;
+                }
+                if (cookTime == totalCookTime) {
+                    this.cookTime = 0;
+                    this.totalCookTime = this.getCookTime((ItemStack)this.inventory.get(0));
+                    this.smeltItem();
+                }
+            } else {
                 this.cookTime = 0;
-                this.totalCookTime = this.getCookTime((ItemStack)this.inventory.get(0));
-                this.smeltItem();
-                flag1 = true;
             }
-        } else {
-            this.cookTime = 0;
-        }
-        if (this.cookTime < 0) {
-            this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
-        }
-        if (flag1) {
-            this.markDirty();
+            if (this.cookTime < 0) {
+                this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
+            }
+            if (flag1 == this.canSmelt()) {
+                ModBlocks.coalstoneFurnace.setState(this.canSmelt(), world, pos);
+                this.markDirty();
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ import naturix.divinerpg.client.TEISRRender;
 import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 
 public class ClientProxy extends CommonProxy {
@@ -33,6 +35,7 @@ public class ClientProxy extends CommonProxy {
         super.preInit(e);
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(DivineRPG.modId);
+        NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
 
     }
 	@Override
