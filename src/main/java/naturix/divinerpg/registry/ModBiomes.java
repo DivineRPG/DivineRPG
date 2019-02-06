@@ -1,11 +1,11 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.dimensions.apalachia.BiomeApalachia;
-import naturix.divinerpg.dimensions.eden.BiomeEden;
-import naturix.divinerpg.dimensions.iceika.BiomeIceika;
-import naturix.divinerpg.dimensions.mortum.BiomeMortum;
-import naturix.divinerpg.dimensions.skythern.BiomeSkythern;
-import naturix.divinerpg.dimensions.wildwood.BiomeWildWood;
+import naturix.divinerpg.world.biomes.BiomeApalachia;
+import naturix.divinerpg.world.biomes.BiomeEden;
+import naturix.divinerpg.world.biomes.BiomeIceika;
+import naturix.divinerpg.world.biomes.BiomeMortum;
+import naturix.divinerpg.world.biomes.BiomeSkythern;
+import naturix.divinerpg.world.biomes.BiomeWildWood;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

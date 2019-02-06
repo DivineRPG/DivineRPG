@@ -1,0 +1,23 @@
+package naturix.divinerpg.dimensions.wildwood.worldgen.features;
+
+import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
+
+public class WorldGenWildWoodWater extends WorldGenerator {
+
+
+	@Override
+	public boolean generate(World world, Random rand, BlockPos pos) {
+		BlockPos pos2 = new BlockPos(pos.getX(), pos.getY()-1, pos.getZ());
+    	if (world.getBlockState(pos) != ModBlocks.grassWild || world.getBlockState(pos2).getMaterial() != Material.AIR) return false;
+      
+    	world.setBlockState(pos, Blocks.FLOWING_WATER.getDefaultState(), 0);
+    	return true;
+	}
+}

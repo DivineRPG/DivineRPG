@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.wildwood;
 
+import naturix.divinerpg.dimensions.wildwood.biome.BiomeProviderWildWood;
+import naturix.divinerpg.dimensions.wildwood.chunk.ChunkGeneratorWildWood;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
@@ -23,7 +25,7 @@ public class WorldProviderWildWood extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorWildWood(this.world, this.world.getSeed() + this.getDimension()); 
+		return new ChunkGeneratorWildWood(this.world, this.world.getSeed() + this.getDimension());
 	}
 	
 	@Override

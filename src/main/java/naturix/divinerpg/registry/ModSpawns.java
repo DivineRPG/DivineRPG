@@ -2,9 +2,9 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.entities.entity.vanilla.Liopleurodon;
-import naturix.divinerpg.entities.entity.vanilla.Shark;
-import naturix.divinerpg.entities.entity.vanilla.Whale;
+import naturix.divinerpg.objects.entities.entity.vanilla.Liopleurodon;
+import naturix.divinerpg.objects.entities.entity.vanilla.Shark;
+import naturix.divinerpg.objects.entities.entity.vanilla.Whale;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.init.Biomes;

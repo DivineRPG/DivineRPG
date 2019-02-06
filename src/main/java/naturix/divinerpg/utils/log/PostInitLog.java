@@ -7,7 +7,6 @@ public class PostInitLog {
 	public static void init() {
 		if(Config.debug == true) {
 	        DivineRPG.logger.info(DivineRPG.name + " has just finished loading");
-	        
-	        	    }
+		}
 	}
 }

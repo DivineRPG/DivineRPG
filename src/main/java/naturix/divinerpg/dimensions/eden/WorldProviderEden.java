@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.eden;
 
+import naturix.divinerpg.dimensions.eden.biome.BiomeProviderEden;
+import naturix.divinerpg.dimensions.eden.chunk.ChunkGeneratorEden;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
@@ -23,7 +25,7 @@ public class WorldProviderEden extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorEden(this.world, this.world.getSeed() + this.getDimension()); 
+		return new ChunkGeneratorEden(this.world, this.world.getSeed() + this.getDimension());
 	}
 	
 	@Override

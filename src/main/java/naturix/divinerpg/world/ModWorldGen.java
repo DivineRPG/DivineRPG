@@ -77,7 +77,7 @@ public class ModWorldGen implements IWorldGenerator {
 		  }
 	 }
 	 
-	 //block, world, random, blockXPos, blockZPos, maxX, maxZ, maxVeinSize, chance, minY, maxY, blockToSpawnIn
+	 //block, worldgen, random, blockXPos, blockZPos, maxX, maxZ, maxVeinSize, chance, minY, maxY, blockToSpawnIn
 	 private void genSurface(World world, Random random, int chunkX, int chunkZ){
 		 addOreSpawn(ModBlocks.oreRealmite.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.realmiteVein, Config.realmiteTries, Config.realmiteMin, Config.realmiteMax, BlockMatcher.forBlock(Blocks.STONE));
 		 addOreSpawn(ModBlocks.oreRupee.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.rupeeVein, Config.rupeeTries, Config.rupeeMin, Config.rupeeMax, BlockMatcher.forBlock(Blocks.STONE));

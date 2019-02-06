@@ -1,8 +1,8 @@
 package naturix.divinerpg.client.render;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.tile.model.ParasectaAltarModel;
-import naturix.divinerpg.bases.blocks.tile.render.ItemBakedBase;
+import naturix.divinerpg.objects.blocks.tile.model.ParasectaAltarModel;
+import naturix.divinerpg.objects.blocks.tile.render.ItemBakedBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;

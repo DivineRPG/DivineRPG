@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.mortum;
 
+import naturix.divinerpg.dimensions.mortum.biome.BiomeProviderMortum;
+import naturix.divinerpg.dimensions.mortum.chunk.ChunkGeneratorMortum;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
@@ -23,7 +25,7 @@ public class WorldProviderMortum extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorMortum(this.world, this.world.getSeed() + this.getDimension()); 
+		return new ChunkGeneratorMortum(this.world, this.world.getSeed() + this.getDimension());
 	}
 	
 	@Override

@@ -1,11 +1,11 @@
 package naturix.divinerpg.utils;
 
-import naturix.divinerpg.bases.blocks.tile.block.TileEntityCoalstoneFurnace;
-import naturix.divinerpg.bases.blocks.tile.block.TileEntityIceikaChest;
-import naturix.divinerpg.bases.blocks.tile.container.ContainerCoalstoneFurnace;
-import naturix.divinerpg.bases.blocks.tile.container.ContainerIceikaChest;
-import naturix.divinerpg.bases.blocks.tile.container.gui.CoalstoneFurnaceGUI;
-import naturix.divinerpg.bases.blocks.tile.container.gui.IceikaChestGUI;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerCoalstoneFurnace;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerIceikaChest;
+import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.IceikaChestGUI;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

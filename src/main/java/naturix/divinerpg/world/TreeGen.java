@@ -11,16 +11,16 @@ import java.util.Random;
 
 public class TreeGen extends WorldGenAbstractTree {
 
-		/** The minimum height of a generated tree. */
+		/** The minimum height of a generated trees. */
 		private final int minTreeHeight;
 
-		/** True if this tree should grow Vines. */
+		/** True if this trees should grow Vines. */
 		private final boolean vinesGrow;
 
-		/** The metadata value of the wood to use in tree generation. */
+		/** The metadata value of the wood to use in trees generation. */
 		private final int metaWood;
 
-		/** The metadata value of the leaves to use in tree generation. */
+		/** The metadata value of the leaves to use in trees generation. */
 		private final int metaLeaves;
 
 		private IBlockState log;

@@ -1,6 +1,6 @@
 package naturix.divinerpg.events;
 
-import naturix.divinerpg.entities.assets.model.ModelHat;
+import naturix.divinerpg.objects.entities.assets.model.ModelHat;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;

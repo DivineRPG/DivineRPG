@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.apalachia;
 
+import naturix.divinerpg.dimensions.apalachia.biome.BiomeProviderApalachia;
+import naturix.divinerpg.dimensions.apalachia.chunk.ChunkProviderApalachia;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
@@ -23,7 +25,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderApalachia(this.world, this.world.getSeed() + this.getDimension()); 
+		return new ChunkProviderApalachia(this.world, this.world.getSeed() + this.getDimension());
 	}
 	
 	@Override

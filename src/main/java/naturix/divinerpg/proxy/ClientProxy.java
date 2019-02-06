@@ -1,8 +1,7 @@
 package naturix.divinerpg.proxy;
 
-import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.bases.blocks.tile.RenderTiles;
+import naturix.divinerpg.objects.blocks.tile.RenderTiles;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
@@ -11,7 +10,6 @@ import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Utils;
-import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,8 +23,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 
 
 public class ClientProxy extends CommonProxy {

@@ -2,7 +2,7 @@ package naturix.divinerpg.utils;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.entities.assets.render.RenderHat;
+import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.util.DamageSource;

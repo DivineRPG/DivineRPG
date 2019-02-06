@@ -1,6 +1,6 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.bases.liquid.LiquidTar;
+import naturix.divinerpg.objects.liquid.LiquidTar;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;

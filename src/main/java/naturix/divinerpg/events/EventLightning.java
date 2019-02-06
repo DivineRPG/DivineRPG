@@ -1,6 +1,6 @@
 package naturix.divinerpg.events;
 
-import naturix.divinerpg.entities.entity.twilight.Epiphite;
+import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

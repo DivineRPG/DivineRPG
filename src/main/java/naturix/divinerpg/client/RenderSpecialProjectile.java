@@ -3,7 +3,7 @@ package naturix.divinerpg.client;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import naturix.divinerpg.entities.entity.projectiles.EntityDeath;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDeath;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

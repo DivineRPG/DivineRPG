@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.iceika;
 
+import naturix.divinerpg.dimensions.iceika.biome.BiomeProviderIceika;
+import naturix.divinerpg.dimensions.iceika.chunk.ChunkProviderIceika;
 import naturix.divinerpg.proxy.ClientProxy;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
@@ -25,7 +27,7 @@ public class WorldProviderIceika extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderIceika(this.world, this.world.getSeed() + this.getDimension()); 
+		return new ChunkProviderIceika(this.world, this.world.getSeed() + this.getDimension());
 	}
 	
 	@Override
