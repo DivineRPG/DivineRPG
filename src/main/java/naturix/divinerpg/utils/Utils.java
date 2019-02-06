@@ -1,5 +1,20 @@
 package naturix.divinerpg.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.io.IOUtils;
+
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
@@ -14,16 +29,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import org.apache.commons.io.IOUtils;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.*;
 
 public class Utils {
 	public static int mobID = 500, projectileID = 0, entityListID = 2500;
@@ -166,8 +171,9 @@ public class Utils {
 	}
 
 	public static void registerProjectile(Class entityClass, String entityName) {
-		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId + "." + entityName), entityClass,
-		        DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + "." + entityName),
+		        entityClass, DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
+		        true);
 		projectileID++;
 	}
 
