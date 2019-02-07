@@ -1,5 +1,7 @@
 package naturix.divinerpg.proxy;
 
+import java.io.File;
+
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.EventArmorSet;
@@ -25,60 +27,60 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import java.io.File;
-
-
-
 @Mod.EventBusSubscriber
-	public class CommonProxy {
+public class CommonProxy {
 	public static Configuration config;
-	
-	    public void preInit(FMLPreInitializationEvent e) {
-	    	File directory = e.getModConfigurationDirectory();
-	        config = new Configuration(new File(directory.getPath(), "naturix/divinerpg.cfg"));
-	        Config.readConfig();
-	        ModDimensions.init();
-	        ModEntities.init();
-	        ModEntities.initLoot();
-	        ModLiquids.init();
-	        ListAllObjs.listobjs();
-	        DivineRPG.registerEvent(new EventArmorSet());
-	        DivineRPG.registerEvent(new EventClientLogin());
-	        DivineRPG.registerEvent(new EventLightning());
 
-	        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
-	        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
-	        }
-	    public EntityPlayer getPlayer() { return null; }
-	    public void init(FMLInitializationEvent e) {
-	    }
+	@SubscribeEvent
+	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
-	    public void postInit(FMLPostInitializationEvent e) {
-	    	if (config.hasChanged()) {
-	            config.save();
-	        }
-
-	        ModEntities.initSpawns();
-	    }
-
-	    @SubscribeEvent
-	    public static void registerBlocks(RegistryEvent.Register<Block> event) {
-	    	
-	    }
-
-	    @SubscribeEvent
-	    public static void registerItems(RegistryEvent.Register<Item> event) {
-	    }
-
-		public void registerItemRenderer(Item itemBlock, int i, String name) {
-
-		}
-		
-		public static void registerEvent(Object event)
-		{
-			FMLCommonHandler.instance().bus().register(event);
-			MinecraftForge.EVENT_BUS.register(event);
-		}
-
-		public void updateClientArcana(float amount) {}
 	}
+
+	public static void registerEvent(Object event) {
+		FMLCommonHandler.instance().bus().register(event);
+		MinecraftForge.EVENT_BUS.register(event);
+	}
+
+	@SubscribeEvent
+	public static void registerItems(RegistryEvent.Register<Item> event) {
+	}
+
+	public EntityPlayer getPlayer() {
+		return null;
+	}
+
+	public void init(FMLInitializationEvent e) {
+	}
+
+	public void postInit(FMLPostInitializationEvent e) {
+		if (config.hasChanged()) {
+			config.save();
+		}
+
+		ModEntities.initSpawns();
+	}
+
+	public void preInit(FMLPreInitializationEvent e) {
+		File directory = e.getModConfigurationDirectory();
+		config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
+		Config.readConfig();
+		ModDimensions.init();
+		ModEntities.init();
+		ModEntities.initLoot();
+		ModLiquids.init();
+		ListAllObjs.listobjs();
+		DivineRPG.registerEvent(new EventArmorSet());
+		DivineRPG.registerEvent(new EventClientLogin());
+		DivineRPG.registerEvent(new EventLightning());
+
+		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+	}
+
+	public void registerItemRenderer(Item itemBlock, int i, String name) {
+
+	}
+
+	public void updateClientArcana(float amount) {
+	}
+}
