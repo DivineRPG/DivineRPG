@@ -179,6 +179,7 @@ import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDeath;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
@@ -331,11 +332,14 @@ public class ModEntities {
 		        EntityEMP.class, DivineRPG.modId + ".arrow_acid", id++, DivineRPG.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rock_cave"),
 		        EntityCaveRock.class, DivineRPG.modId + ".rock_cave", id++, DivineRPG.instance, 64, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_cloud"),
+		        EntityFrostShot.class, DivineRPG.modId + ".frost_cloud", id++, DivineRPG.instance, 64, 3, true);
 
 		Utils.registerProjectile(EntityVileStorm.class, "vilestorm");
 		Utils.registerProjectile(EntityShuriken.class, "shuriken");
 		Utils.registerProjectile(EntityDeath.class, "death");
 		Utils.registerProjectile(EntityDisk.class, "disk_amthrimis");
+		Utils.registerProjectile(EntityFrostShot.class, "frostshot");
 		// register advanced mobs
 		id = 100;
 		// arcana
