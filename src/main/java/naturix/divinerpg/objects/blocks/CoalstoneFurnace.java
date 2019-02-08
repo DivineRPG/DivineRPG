@@ -16,6 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -25,6 +26,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -105,6 +108,45 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
             }
 
             worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SuppressWarnings("incomplete-switch")
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    {
+        if (worldIn.getBlockState(pos).getValue(BURNING) == true)
+        {
+            EnumFacing enumfacing = (EnumFacing)stateIn.getValue(FACING);
+            double d0 = (double)pos.getX() + 0.5D;
+            double d1 = (double)pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
+            double d2 = (double)pos.getZ() + 0.5D;
+            double d3 = 0.52D;
+            double d4 = rand.nextDouble() * 0.6D - 0.3D;
+
+            if (rand.nextDouble() < 0.1D)
+            {
+                worldIn.playSound((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+            }
+
+            switch (enumfacing)
+            {
+                case WEST:
+                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    break;
+                case EAST:
+                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    break;
+                case NORTH:
+                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
+                    break;
+                case SOUTH:
+                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
+            }
         }
     }
 
