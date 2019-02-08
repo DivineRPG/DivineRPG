@@ -108,7 +108,7 @@ public class EntityFrostCloud extends Entity {
             }
         } else {
             if (this.ticksExisted >= this.duration) {
-                this.setDead();
+                //this.setDead();
                 return;
             }
 
@@ -116,7 +116,7 @@ public class EntityFrostCloud extends Entity {
                 f += this.radiusPerTick;
 
                 if (f < 0.5F) {
-                    this.setDead();
+                    //this.setDead();
                     return;
                 }
 

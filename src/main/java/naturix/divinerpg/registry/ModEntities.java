@@ -1025,6 +1025,7 @@ public class ModEntities {
 		EntityVileStorm.renderMe();
 		EntityShuriken.renderMe();
 		RenderSpecialProjectile.renderMe();
+		EntityFrostShot.renderMe();
 		// AmthirmisDisk
 		RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class, manager -> new RenderSnowball<>(manager,
 		        ModItems.amthirmisDisk, Minecraft.getMinecraft().getRenderItem()));

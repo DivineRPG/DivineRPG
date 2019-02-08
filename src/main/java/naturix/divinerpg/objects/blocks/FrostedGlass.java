@@ -24,6 +24,7 @@ public class FrostedGlass extends Block {
         setRegistryName(name);
         setCreativeTab(DivineRPG.BlocksTab);
         this.setHardness(1);
+        this.lightOpacity = 0;
     }
 
     public void registerItemModel(Item itemBlock) {
@@ -40,13 +41,21 @@ public class FrostedGlass extends Block {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public EnumBlockRenderType getRenderType(IBlockState state)
     {
         return EnumBlockRenderType.MODEL;
     }
 
+    @SuppressWarnings("deprecation")
     public boolean isFullCube(IBlockState state)
     {
+        return false;
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 }
