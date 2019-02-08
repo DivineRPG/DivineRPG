@@ -7,6 +7,7 @@ import java.util.List;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderFrostShot;
 import naturix.divinerpg.objects.entities.entity.EntityFrostCloud;
+import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;
@@ -70,8 +71,7 @@ public class EntityFrostShot extends EntityFireball {
             if (!this.world.isRemote) {
                 List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class,
                         this.getEntityBoundingBox().grow(4.0D, 2.0D, 4.0D));
-                // EntityAreaEffectCloud frostCloud = new EntityAreaEffectCloud(this.world,
-                // this.posX, this.posY, this.posZ);
+
                 EntityFrostCloud frostCloud = new EntityFrostCloud(this.world, this.posX, this.posY, this.posZ);
 
                 frostCloud.setParticle(EnumParticleTypes.SNOWBALL);

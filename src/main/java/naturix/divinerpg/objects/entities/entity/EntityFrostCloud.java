@@ -11,6 +11,11 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.entities.assets.render.RenderFrostShot;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrostCloud;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,6 +33,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFrostCloud extends Entity {
     private static final DataParameter<Float> RADIUS = EntityDataManager.<Float>createKey(EntityFrostCloud.class,
@@ -66,6 +74,12 @@ public class EntityFrostCloud extends Entity {
         this.noClip = true;
         this.isImmuneToFire = true;
         this.setRadius(3.0F);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityFrostCloud.class,
+                manager -> new RenderFrostCloud(manager));
     }
 
     public EntityFrostCloud(World worldIn, double x, double y, double z) {
@@ -183,77 +197,22 @@ public class EntityFrostCloud extends Entity {
     /**
      * Called to update the entity's position/logic.
      */
+
     public void onUpdate() {
         super.onUpdate();
         boolean flag = this.shouldIgnoreRadius();
         float f = this.getRadius();
 
         if (this.world.isRemote) {
-            EnumParticleTypes enumparticletypes = this.getParticle();
-            int[] aint = new int[enumparticletypes.getArgumentCount()];
+            float f5 = (float) Math.PI * f * f;
 
-            if (aint.length > 0) {
-                aint[0] = this.getParticleParam1();
-            }
+            for (int k1 = 0; (float) k1 < f5; ++k1) {
+                float f6 = this.rand.nextFloat() * ((float) Math.PI * 2F);
+                float f7 = MathHelper.sqrt(this.rand.nextFloat()) * f;
+                float f8 = MathHelper.cos(f6) * f7;
+                float f9 = MathHelper.sin(f6) * f7;
 
-            if (aint.length > 1) {
-                aint[1] = this.getParticleParam2();
-            }
-
-            if (flag) {
-                if (this.rand.nextBoolean()) {
-                    for (int i = 0; i < 2; ++i) {
-                        float f1 = this.rand.nextFloat() * ((float) Math.PI * 2F);
-                        float f2 = MathHelper.sqrt(this.rand.nextFloat()) * 0.2F;
-                        float f3 = MathHelper.cos(f1) * f2;
-                        float f4 = MathHelper.sin(f1) * f2;
-
-                        if (enumparticletypes == EnumParticleTypes.SPELL_MOB) {
-                            int j = this.rand.nextBoolean() ? 16777215 : this.getColor();
-                            int k = j >> 16 & 255;
-                            int l = j >> 8 & 255;
-                            int i1 = j & 255;
-                            this.world.spawnAlwaysVisibleParticle(EnumParticleTypes.SPELL_MOB.getParticleID(),
-                                    this.posX + (double) f3, this.posY, this.posZ + (double) f4,
-                                    (double) ((float) k / 255.0F), (double) ((float) l / 255.0F),
-                                    (double) ((float) i1 / 255.0F));
-                        } else {
-                            this.world.spawnAlwaysVisibleParticle(enumparticletypes.getParticleID(),
-                                    this.posX + (double) f3, this.posY, this.posZ + (double) f4, 0.0D, 0.0D, 0.0D,
-                                    aint);
-                        }
-                    }
-                }
-            } else {
-                float f5 = (float) Math.PI * f * f;
-
-                for (int k1 = 0; (float) k1 < f5; ++k1) {
-                    float f6 = this.rand.nextFloat() * ((float) Math.PI * 2F);
-                    float f7 = MathHelper.sqrt(this.rand.nextFloat()) * f;
-                    float f8 = MathHelper.cos(f6) * f7;
-                    float f9 = MathHelper.sin(f6) * f7;
-
-                    if (enumparticletypes == EnumParticleTypes.SPELL_MOB) {
-                        int l1 = this.getColor();
-                        int i2 = l1 >> 16 & 255;
-                        int j2 = l1 >> 8 & 255;
-                        int j1 = l1 & 255;
-                        this.world.spawnAlwaysVisibleParticle(EnumParticleTypes.SPELL_MOB.getParticleID(),
-                                this.posX + (double) f8, this.posY, this.posZ + (double) f9,
-                                (double) ((float) i2 / 255.0F), (double) ((float) j2 / 255.0F),
-                                (double) ((float) j1 / 255.0F));
-                    } else {
-                        // DivineRPG.proxy.spawnParticle(world, DRPGParticleTypes.FROST, this.posX + f8,
-                        // this.posY,
-                        // this.posZ + f9, (0.5D - this.rand.nextDouble()) * 0.15D,
-                        // 0.009999999776482582D,
-                        // (0.5D - this.rand.nextDouble()) * 0.15D);
-                        this.world.spawnAlwaysVisibleParticle(enumparticletypes.getParticleID(),
-                                this.posX + (double) f8, this.posY, this.posZ + (double) f9,
-                                (0.5D - this.rand.nextDouble()) * 0.15D, 0.009999999776482582D,
-                                (0.5D - this.rand.nextDouble()) * 0.15D, aint);
-                    }
-                }
+                DivineRPG.proxy.spawnParticle(world, DRPGParticleTypes.FROST, this.posX + f8, this.posY + 0.75, this.posZ + f9, (0.5D - this.rand.nextDouble()) * 0.15D, 0.009999999776482582D, (0.5D - this.rand.nextDouble()) * 0.15D);
             }
         } else {
             if (this.ticksExisted >= this.waitTime + this.duration) {

@@ -30,7 +30,7 @@ public class ParticleFrost extends Particle {
         this.particleScale *= 0.9F;
         this.oSize = this.particleScale;
         this.particleMaxAge = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
-        this.particleMaxAge = (int)((float)this.particleMaxAge * 0.9F);
+        this.particleMaxAge = (int)((float)this.particleMaxAge * 0.5F);
         float f = (float)Math.random() * 0.4F + 0.6F;
         this.particleRed = ((float)(Math.random() * 0.20000000298023224D) + 0.8F) * f;
         this.rotSpeed = ((float)Math.random() - 0.9F) * 0.1F;
@@ -54,14 +54,16 @@ public class ParticleFrost extends Particle {
         this.prevPosX = this.posX;
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
+        this.particleAlpha = ((float)this.particleMaxAge - (float)this.particleAge) / 50;
 
         if (this.particleAge++ >= this.particleMaxAge)
         {
+            this.particleAlpha = 0;
             this.setExpired();
         }
 
         this.prevParticleAngle = this.particleAngle;
-        this.particleAngle += (float)Math.PI * this.rotSpeed * 2.0F;
+        this.particleAngle += (float)Math.PI * this.rotSpeed * 1.0F;
 
 
         if (this.onGround)
@@ -70,7 +72,7 @@ public class ParticleFrost extends Particle {
         }
 
         this.move(this.motionX, this.motionY, this.motionZ);
-        this.motionY -= 0.003000000026077032D;
-        this.motionY = Math.max(this.motionY, -0.14000000059604645D);
+        this.motionY -= 0.000300000026077032D;
+        this.motionY = Math.max(this.motionY, -0.04000000059604645D);
     }
 }

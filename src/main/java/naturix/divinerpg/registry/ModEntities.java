@@ -18,14 +18,7 @@ import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRejuvGolem;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRoamer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderSeimer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWraith;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderAlicanto;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFractite;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrostArcher;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrosty;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderGlacide;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderHastreus;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderRollum;
-import naturix.divinerpg.objects.entities.assets.render.iceika.RenderWorkshopMerchant;
+import naturix.divinerpg.objects.entities.assets.render.iceika.*;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaGolem;
@@ -153,6 +146,7 @@ import naturix.divinerpg.objects.entities.assets.render.vethia.RenderZone;
 import naturix.divinerpg.objects.entities.assets.render.vethia.RenderZoragon;
 import naturix.divinerpg.objects.entities.entity.EntityDisk;
 import naturix.divinerpg.objects.entities.entity.EntityEMP;
+import naturix.divinerpg.objects.entities.entity.EntityFrostCloud;
 import naturix.divinerpg.objects.entities.entity.arcana.DeathHound;
 import naturix.divinerpg.objects.entities.entity.arcana.Deathcryx;
 import naturix.divinerpg.objects.entities.entity.arcana.Dramix;
@@ -332,8 +326,10 @@ public class ModEntities {
                 EntityEMP.class, DivineRPG.modId + ".arrow_acid", id++, DivineRPG.instance, 64, 3, true);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rock_cave"),
                 EntityCaveRock.class, DivineRPG.modId + ".rock_cave", id++, DivineRPG.instance, 64, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frostshot"),
+                EntityFrostShot.class, DivineRPG.modId + ".frostshot", id++, DivineRPG.instance, 64, 3, true);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_cloud"),
-                EntityFrostShot.class, DivineRPG.modId + ".frost_cloud", id++, DivineRPG.instance, 64, 3, true);
+                EntityFrostCloud.class, DivineRPG.modId + ".frost_cloud", id++, DivineRPG.instance, 64, 3, true);
 
         Utils.registerProjectile(EntityVileStorm.class, "vilestorm");
         Utils.registerProjectile(EntityShuriken.class, "shuriken");
@@ -1027,6 +1023,7 @@ public class ModEntities {
         RenderSpecialProjectile.renderMe();
         EntityCaveRock.renderMe();
         EntityFrostShot.renderMe();
+        EntityFrostCloud.renderMe();
         // AmthirmisDisk
         RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class, manager -> new RenderSnowball<>(manager,
                 ModItems.amthirmisDisk, Minecraft.getMinecraft().getRenderItem()));
