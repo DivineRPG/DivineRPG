@@ -1,14 +1,24 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
+import naturix.divinerpg.objects.entities.assets.render.RenderCaveRock;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityCaveRock extends EntityThrowable {
 
-	public EntityCaveRock(World var1) {
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class,
+                manager -> new RenderCaveRock(manager, 1f));
+    }
+
+    public EntityCaveRock(World var1) {
         super(var1);
     }
 
@@ -23,7 +33,7 @@ public class EntityCaveRock extends EntityThrowable {
     @Override
     public void onImpact(RayTraceResult result) {
         if (result.entityHit != null) {
-        	result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 6.0F);
+            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 6.0F);
         }
 
         if (!this.world.isRemote) {
