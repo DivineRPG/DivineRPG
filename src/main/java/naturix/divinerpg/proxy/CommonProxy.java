@@ -10,12 +10,14 @@ import naturix.divinerpg.events.EventLightning;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModLiquids;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.ListAllObjs;
 import naturix.divinerpg.world.ModWorldGen;
 import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
@@ -82,5 +84,8 @@ public class CommonProxy {
 	}
 
 	public void updateClientArcana(float amount) {
+	}
+
+	public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX, double velY, double velZ) {
 	}
 }

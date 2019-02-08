@@ -7,14 +7,20 @@ import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.TEISRRender;
 import naturix.divinerpg.events.EventDevHat;
+import naturix.divinerpg.particle.ParticleFrost;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.Utils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -73,6 +79,38 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
     	TEISRRender.init();
+    }
+
+    @Override
+    public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX, double velY, double velZ) {
+        Minecraft mc = Minecraft.getMinecraft();
+        Entity entity = mc.getRenderViewEntity();
+
+        if (entity != null && mc.effectRenderer != null) {
+            int i = mc.gameSettings.particleSetting;
+
+            if (i == 1 && world.rand.nextInt(3) == 0) {
+                i = 2;
+            }
+
+            double d0 = entity.posX - x;
+            double d1 = entity.posY - y;
+            double d2 = entity.posZ - z;
+
+            if (d0 * d0 + d1 * d1 + d2 * d2 <= 1024D && i <= 1) {
+                Particle particle = null;
+
+                switch (particletype) {
+                    case FROST:
+                        particle = new ParticleFrost(world, x, y, z, velX, velY, velZ);
+                        break;
+                }
+
+                if (particle != null) {
+                    mc.effectRenderer.addEffect(particle);
+                }
+            }
+        }
     }
 
 }

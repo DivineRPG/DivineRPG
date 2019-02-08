@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
 import naturix.divinerpg.particle.ParticleFrost;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -137,8 +138,7 @@ public class IceikaChest extends BlockContainer {
 			if (d1 < pos.getX() || d1 > pos.getX() + 1 || d2 < 0.0D || d2 > pos.getY() + 1 || d3 < pos.getZ()
 			        || d3 > pos.getZ() + 1) {
 				if (rand.nextInt(10) <= 5) {
-					ParticleFrost var20 = new ParticleFrost(worldIn, d1, d2, d3, 0.0D, 0.5D, 0.0D);
-					FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+					DivineRPG.proxy.spawnParticle(worldIn, DRPGParticleTypes.FROST, d1, d2, d3, 0.0D, 0.5D, 0.0D);
 				}
 			}
 		}

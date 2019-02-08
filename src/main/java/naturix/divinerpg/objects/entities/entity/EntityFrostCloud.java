@@ -11,6 +11,8 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Maps;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.particle.ParticleFrost;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
@@ -107,7 +109,7 @@ public class EntityFrostCloud extends Entity {
 				        "FrostCloud spawned particle at " + new BlockPos(this.posX + f8, this.posY, this.posZ + f9));
 				Logging.message(player,
 				        "FrostCloud spawned particle at " + new BlockPos(this.posX + f8, this.posY, this.posZ + f9));
-				this.world.spawnAlwaysVisibleParticle(EnumParticleTypes.SNOWBALL.getParticleID(), this.posX + f8,
+				DivineRPG.proxy.spawnParticle(world, DRPGParticleTypes.FROST, this.posX + f8,
 				        this.posY, this.posZ + f9, (0.5D - this.rand.nextDouble()) * 0.15D, 0.009999999776482582D,
 				        (0.5D - this.rand.nextDouble()) * 0.15D);
 			}

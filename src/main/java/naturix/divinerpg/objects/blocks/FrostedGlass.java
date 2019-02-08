@@ -14,7 +14,7 @@ import net.minecraft.util.EnumBlockRenderType;
  * Created by LiteWolf101 on Jan
  * /28/2019
  */
-public class FrostedGlass extends Block{
+public class FrostedGlass extends Block {
     protected String name;
     public FrostedGlass(String name) {
         super(Material.GLASS);
@@ -43,5 +43,10 @@ public class FrostedGlass extends Block{
     public EnumBlockRenderType getRenderType(IBlockState state)
     {
         return EnumBlockRenderType.MODEL;
+    }
+
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
     }
 }
