@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
+import static naturix.divinerpg.utils.DRPGParticleTypes.FROST;
+
 import java.util.List;
 
 import naturix.divinerpg.DivineRPG;
@@ -17,88 +19,91 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static naturix.divinerpg.utils.DRPGParticleTypes.FROST;
-
 public class EntityFrostShot extends EntityFireball {
-	public static void registerFixesDragonFireball(DataFixer fixer) {
-		EntityFireball.registerFixesFireball(fixer, "FrostShot");
-	}
+    public static void registerFixesDragonFireball(DataFixer fixer) {
+        EntityFireball.registerFixesFireball(fixer, "FrostShot");
+    }
 
-	@SideOnly(Side.CLIENT)
-	public static void renderMe() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class,
-				manager -> new RenderFrostShot(manager,1f));
-	}public EntityFrostShot(World worldIn) {
-		super(worldIn);
-		this.setSize(1.0F, 1.0F);
-	}
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class,
+                manager -> new RenderFrostShot(manager, 1f));
+    }
 
-	@SideOnly(Side.CLIENT)
-	public EntityFrostShot(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
-		super(worldIn, x, y, z, accelX, accelY, accelZ);
-		this.setSize(1.0F, 1.0F);
-	}
+    public EntityFrostShot(World worldIn) {
+        super(worldIn);
+        this.setSize(1.0F, 1.0F);
+    }
 
-	public EntityFrostShot(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ) {
-		super(worldIn, shooter, accelX, accelY, accelZ);
-		this.setSize(1.0F, 1.0F);
-	}
+    @SideOnly(Side.CLIENT)
+    public EntityFrostShot(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
+        super(worldIn, x, y, z, accelX, accelY, accelZ);
+        this.setSize(1.0F, 1.0F);
+    }
 
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
-		return false;
-	}
+    public EntityFrostShot(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ) {
+        super(worldIn, shooter, accelX, accelY, accelZ);
+        this.setSize(1.0F, 1.0F);
+    }
 
-	@Override
-	public boolean canBeCollidedWith() {
-		return false;
-	}
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        return false;
+    }
 
-	@Override
-	protected boolean isFireballFiery() {
-		return false;
-	}
+    @Override
+    public boolean canBeCollidedWith() {
+        return false;
+    }
 
-	/**
-	 * Called when this EntityFireball hits a block or entity.
-	 */
-	@Override
-	protected void onImpact(RayTraceResult result) {
-		if (result.entityHit == null || !result.entityHit.isEntityEqual(this.shootingEntity)) {
-			if (!this.world.isRemote) {
-				List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class,
-				        this.getEntityBoundingBox().grow(4.0D, 2.0D, 4.0D));
-				EntityFrostCloud frostCloud = new EntityFrostCloud(this.world, this.posX, this.posY, this.posZ);
+    @Override
+    protected boolean isFireballFiery() {
+        return false;
+    }
 
-				// frostCloud.setParticle(EnumParticleTypes.SNOWBALL);
-				// frostCloud.setWaitTime(0);
+    /**
+     * Called when this EntityFireball hits a block or entity.
+     */
+    @Override
+    protected void onImpact(RayTraceResult result) {
+        if (result.entityHit == null || !result.entityHit.isEntityEqual(this.shootingEntity)) {
+            if (!this.world.isRemote) {
+                List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class,
+                        this.getEntityBoundingBox().grow(4.0D, 2.0D, 4.0D));
+                // EntityAreaEffectCloud frostCloud = new EntityAreaEffectCloud(this.world,
+                // this.posX, this.posY, this.posZ);
+                EntityFrostCloud frostCloud = new EntityFrostCloud(this.world, this.posX, this.posY, this.posZ);
+
+                frostCloud.setParticle(EnumParticleTypes.SNOWBALL);
+                frostCloud.setWaitTime(0);
 
                 frostCloud.setOwner(this.shootingEntity);
                 frostCloud.setRadius(3.0F);
                 frostCloud.setDuration(50);
                 frostCloud.setRadiusPerTick((0.0F - frostCloud.getRadius()) / frostCloud.getDuration());
 
-				if (!list.isEmpty()) {
-					for (EntityLivingBase entitylivingbase : list) {
-						double d0 = this.getDistanceSq(entitylivingbase);
+                if (!list.isEmpty()) {
+                    for (EntityLivingBase entitylivingbase : list) {
+                        double d0 = this.getDistanceSq(entitylivingbase);
 
-						if (d0 < 16.0D) {
-							frostCloud.setPosition(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ);
-							break;
-						}
-					}
-				}
+                        if (d0 < 16.0D) {
+                            frostCloud.setPosition(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ);
+                            break;
+                        }
+                    }
+                }
 
-				this.world.playEvent(2006, new BlockPos(this.posX, this.posY, this.posZ), 0);
-				this.world.spawnEntity(frostCloud);
-				this.setDead();
-			}
-		}
-	}
+                this.world.playEvent(2006, new BlockPos(this.posX, this.posY, this.posZ), 0);
+                this.world.spawnEntity(frostCloud);
+                this.setDead();
+            }
+        }
+    }
 
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		DivineRPG.proxy.spawnParticle(world, FROST, this.posX + (rand.nextFloat()*2), this.posY + (rand.nextFloat()*2), this.posZ + (rand.nextFloat()*2), 0, 1, 0);
-	}
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        DivineRPG.proxy.spawnParticle(world, FROST, this.posX + (rand.nextFloat() * 2),
+                this.posY + (rand.nextFloat() * 2), this.posZ + (rand.nextFloat() * 2), 0, 1, 0);
+    }
 }
