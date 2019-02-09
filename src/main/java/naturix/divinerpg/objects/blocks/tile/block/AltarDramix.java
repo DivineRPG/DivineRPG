@@ -43,7 +43,7 @@ public class AltarDramix extends AltarParasecta {
 	@Override
 	public EnumBlockRenderType getRenderType(IBlockState state)
     {
-        return EnumBlockRenderType.MODEL;
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
 }

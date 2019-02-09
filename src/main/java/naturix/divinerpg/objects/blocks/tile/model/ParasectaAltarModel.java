@@ -19,7 +19,7 @@ public class ParasectaAltarModel extends ModelBase
 
     public ParasectaAltarModel() {
         textureWidth = 64;
-        textureHeight = 32;
+        textureHeight = 64;
         Base = new ModelRenderer(this, 0, 15);
         Base.addBox(0F, 0F, 0F, 16, 1, 16);
         Base.setRotationPoint(-8F, 10F, -8F);

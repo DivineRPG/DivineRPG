@@ -48,7 +48,7 @@ public class WorldGenAPI {
 		for(int x1 = 0; x1 < east; x1++){
 			for(int z1 = 0; z1 < south; z1++){
 				for(int y1 = 0; y1 < height; y1++){
-					w.setBlockState(new BlockPos(x + x1, y + y1, z + z1), b.getDefaultState(), 0);
+					w.setBlockState(new BlockPos(x + x1, y + y1, z + z1), b.getDefaultState(), 2);
 				}
 			}
 		}
