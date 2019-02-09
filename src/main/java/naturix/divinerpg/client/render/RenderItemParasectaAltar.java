@@ -1,34 +1,17 @@
 package naturix.divinerpg.client.render;
 
-import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.tile.model.ParasectaAltarModel;
-import naturix.divinerpg.objects.blocks.tile.render.ItemBakedBase;
-import net.minecraft.client.Minecraft;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
-
-@Mod.EventBusSubscriber(modid = DivineRPG.modId, value = Side.CLIENT)
-public class RenderItemParasectaAltar extends TileEntityItemStackRenderer {
-    private final ParasectaAltarModel modelShield = new ParasectaAltarModel();
-    private static ItemBakedBase bakedBase;
-    private static String textureName;
-
-    public RenderItemParasectaAltar(String textureName) {
-        RenderItemParasectaAltar.textureName = textureName;
-    }
-
-    @Override
-    public void renderByItem(@Nonnull ItemStack stack, float partialTicks) {
-        GlStateManager.pushMatrix();
-        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(DivineRPG.modId + ":textures/model/"+textureName+".png"));
-        this.modelShield.render(1);
-        GlStateManager.popMatrix();
-    }
-
+@SideOnly(Side.CLIENT)
+public class RenderItemParasectaAltar {
+	public void renderChestBrightness(Block blockIn, float color) {
+		GlStateManager.color(color, color, color, 1.0F);
+		GlStateManager.rotate(90.0F, 0.0F, 1.0F, 0.0F);
+		ItemStack stack = new ItemStack(blockIn);
+		stack.getItem().getTileEntityItemStackRenderer().renderByItem(stack);
+	}
 }
