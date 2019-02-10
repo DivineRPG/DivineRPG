@@ -1,7 +1,6 @@
 Vanilla Mobs for Alpha Release:
 + Ayeracos - (Needs TileEntityAyeracoBeam)
 + KingOfScorchers - (Needs small AI port and add EntityKingOfScorchersMeteor)
-+ Miner - (Tiny AI update)
 + Scorcher - (Needs AI port and EntityScorcherShot)
 + The Watcher - (Needs a big AI port)
 + Wildfire - (Like AridWarrior)
