@@ -2,7 +2,9 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -99,6 +101,15 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     }
 
     @Override
+    public void setInWeb() {
+    }
+
+    @Override
+    public EnumCreatureAttribute getCreatureAttribute() {
+        return EnumCreatureAttribute.ARTHROPOD;
+    }
+
+    @Override
     protected boolean canTriggerWalking() {
         return false;
     }
@@ -124,6 +135,7 @@ public class PumpkinSpider extends EntityDivineRPGMob {
         dataManager.set(PROVOKED, (byte) 1);
         addBasicAI();
         addAttackingAI();
+        this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
     }
 
     @Override

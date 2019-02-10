@@ -1,94 +1,151 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.registry.ModSounds;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.pathfinding.PathNavigate;
+import net.minecraft.pathfinding.PathNavigateClimber;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
-public class JungleSpider extends EntityMob {
+public class JungleSpider extends EntityDivineRPGMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jungle_spider");
+    private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(JungleSpider.class,
+            DataSerializers.BYTE);
 
     public JungleSpider(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jungle_spider");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+        super(worldIn);
+        this.setSize(1.4F, 0.9F);
+        this.setHealth(this.getMaxHealth());
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    public void entityInit() {
+        super.entityInit();
+        dataManager.register(CLIMBING, (byte) 0);
+    }
 
-	}
+    @Override
+    protected PathNavigate createNavigator(World worldIn) {
+        return new PathNavigateClimber(this, worldIn);
+    }
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(45.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
     }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+        this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
+    public boolean attackEntityAsMob(Entity entityIn) {
+        if (super.attackEntityAsMob(entityIn)) {
+            if (entityIn instanceof EntityLivingBase) {
+                int i = 0;
 
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
+                if (this.world.getDifficulty() == EnumDifficulty.NORMAL) {
+                    i = 7;
+                } else if (this.world.getDifficulty() == EnumDifficulty.HARD) {
+                    i = 15;
+                }
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+                if (i > 0) {
+                    ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.POISON, i * 20, 0));
+                }
+            }
+
+            return true;
+        } else {
+            return false;
         }
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public void onUpdate() {
+        super.onUpdate();
+        if (!this.world.isRemote) {
+            this.setBesideClimbableBlock(this.collidedHorizontally);
+        }
     }
 
-    @Nullable
+    public void setBesideClimbableBlock(boolean climbing) {
+        byte b0 = ((Byte) this.dataManager.get(CLIMBING)).byteValue();
+
+        if (climbing) {
+            b0 = (byte) (b0 | 1);
+        } else {
+            b0 = (byte) (b0 & -2);
+        }
+
+        this.dataManager.set(CLIMBING, Byte.valueOf(b0));
+    }
+
+    public boolean isBesideClimbableBlock() {
+        return (((Byte) this.dataManager.get(CLIMBING)).byteValue() & 1) != 0;
+    }
+
+    @Override
+    public boolean isOnLadder() {
+        return this.isBesideClimbableBlock();
+    }
+
+    @Override
+    public void setInWeb() {
+    }
+
+    @Override
+    public EnumCreatureAttribute getCreatureAttribute() {
+        return EnumCreatureAttribute.ARTHROPOD;
+    }
+
+    @Override
+    public double getMountedYOffset() {
+        return (double) this.height * 0.75D - 0.5D;
+    }
+
+    @Override
+    protected boolean canTriggerWalking() {
+        return false;
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.JUNGLE_SPIDER;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_SPIDER_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_SPIDER_DEATH;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
     }
 }
