@@ -1,7 +1,5 @@
 Vanilla Mobs for Alpha Release:
 + Ayeracos - (Needs TileEntityAyeracoBeam)
-+ EnderTriplets - (Needs the Particle registered correctly like the Frost Particle)
-+ HellSpider - (Needs port of AI - Use Pumpkin Spider as base)
 + JungleBat - (Needs port of AI)
 + KingOfScorchers - (Needs small AI port and add EntityKingOfScorchersMeteor)
 + Miner - (Tiny AI update)

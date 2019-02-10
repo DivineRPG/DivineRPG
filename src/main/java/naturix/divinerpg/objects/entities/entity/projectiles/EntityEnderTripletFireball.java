@@ -1,5 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
+import naturix.divinerpg.particle.ParticleEnderTriplet;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;
@@ -34,7 +35,7 @@ public class EntityEnderTripletFireball extends EntityFireball {
     @SideOnly(Side.CLIENT)
     public void onUpdate() {
         super.onUpdate();
-        EntityTripletFX fx = new EntityTripletFX(this.world,
+        ParticleEnderTriplet fx = new ParticleEnderTriplet(this.world,
                 this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 6,
                 this.posY + 0.5D + (this.rand.nextDouble() - this.rand.nextDouble()) / 6,
                 this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 6, 0.0D, 0.0D, 0.0D);

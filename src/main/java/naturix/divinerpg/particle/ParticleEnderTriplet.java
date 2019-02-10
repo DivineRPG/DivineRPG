@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.entities.entity.projectiles;
+package naturix.divinerpg.particle;
 
 import net.minecraft.client.particle.Particle;
 import net.minecraft.world.World;
@@ -6,11 +6,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class EntityTripletFX extends Particle {
+public class ParticleEnderTriplet extends Particle {
 
     public float portalParticleScale;
 
-    public EntityTripletFX(World par1World, double par2, double par4, double par6, double par8, double par10,
+    public ParticleEnderTriplet(World par1World, double par2, double par4, double par6, double par8, double par10,
             double par12) {
         super(par1World, par2, par4, par6, par8, par10, par12);
         this.motionX = par8 + (float) (Math.random() * 2.0D - 1.0D) * 0.05F;
