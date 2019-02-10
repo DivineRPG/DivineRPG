@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "divinerpg:model/iceika_chest",
-		"particle": "divinerpg:model/iiceika_chest"
+		"particle": "divinerpg:model/iceika_chest"
 	},
 	"elements": [
 		{
