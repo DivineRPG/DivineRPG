@@ -1,6 +1,5 @@
 Vanilla Mobs for Alpha Release:
 + Ayeracos - (Needs TileEntityAyeracoBeam)
-+ JungleBat - (Needs port of AI)
 + KingOfScorchers - (Needs small AI port and add EntityKingOfScorchersMeteor)
 + Miner - (Tiny AI update)
 + Scorcher - (Needs AI port and EntityScorcherShot)
@@ -16,7 +15,7 @@ Vanilla Mob (Pets) not needed in Alpha, but might be easy to do them all at once
 + Stone Golem  - (Follow example of Ehu)
 
 Vanilla Mobs not in Alpha Release:
-+ HellBat - This was not in the 1.7.10 release, let not try to get it in Alpha
++ HellBat - This was not in the 1.4.7 or 1.7.10 release
 + JackOMan - (Requires port of Trading)
 + LivestockMerchant - (Requires port of Trading)
 + Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
