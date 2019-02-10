@@ -10,6 +10,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.pathfinding.PathNavigate;
+import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -18,127 +20,136 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class PumpkinSpider extends EntityDivineRPGMob {
-	public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/pumpkin_spider");
-	private static final DataParameter<Byte> CAN_CLIMB = EntityDataManager.<Byte>createKey(PumpkinSpider.class,
-			DataSerializers.BYTE);
-	private static final DataParameter<Byte> PROVOKED = EntityDataManager.<Byte>createKey(PumpkinSpider.class,
-			DataSerializers.BYTE);
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/pumpkin_spider");
+    private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(PumpkinSpider.class,
+            DataSerializers.BYTE);
+    private static final DataParameter<Byte> PROVOKED = EntityDataManager.<Byte>createKey(PumpkinSpider.class,
+            DataSerializers.BYTE);
 
-	public PumpkinSpider(World worldIn) {
-		super(worldIn);
-		this.setSize(1.25F, 1F);
-		this.setHealth(this.getMaxHealth());
-	}
+    public PumpkinSpider(World worldIn) {
+        super(worldIn);
+        this.setSize(1.25F, 1F);
+        this.setHealth(this.getMaxHealth());
+    }
 
-	@Override
-	public void entityInit() {
-		super.entityInit();
-		dataManager.register(CAN_CLIMB, (byte) 0);
-		dataManager.register(PROVOKED, (byte) 0);
-	}
+    @Override
+    public void entityInit() {
+        super.entityInit();
+        dataManager.register(CLIMBING, (byte) 0);
+        dataManager.register(PROVOKED, (byte) 0);
+    }
 
-	@Override
-	protected void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
-	}
+    @Override
+    protected PathNavigate createNavigator(World worldIn) {
+        return new PathNavigateClimber(this, worldIn);
+    }
 
-	public boolean needsSpecialAI() {
-		return true;
-	}
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
+    }
 
-	@Override
-	public void addVelocity(double x, double y, double z) {
-		if (this.getProvoked())
-			super.addVelocity(x, y, z);
-	}
+    @Override
+    public boolean needsSpecialAI() {
+        return true;
+    }
 
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		if (!getProvoked()) {
-			EntityPlayer player = this.world.getNearestAttackablePlayer(this, 6.0D, 6.0D);
-			this.renderYawOffset = 0;
-			if (player != null)
-				this.setProvoked();
-		} else {
-			if (!this.world.isRemote) {
-				this.setBesideClimbableBlock(this.collidedHorizontally);
-			}
-		}
-	}
+    @Override
+    public void addVelocity(double x, double y, double z) {
+        if (this.getProvoked())
+            super.addVelocity(x, y, z);
+    }
 
-	public void setBesideClimbableBlock(boolean canClimb) {
-		if (canClimb) {
-			dataManager.set(CAN_CLIMB, (byte) 1);
-		} else {
-			dataManager.set(CAN_CLIMB, (byte) 0);
-		}
-	}
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (!getProvoked()) {
+            EntityPlayer player = this.world.getNearestAttackablePlayer(this, 6.0D, 6.0D);
+            this.renderYawOffset = 0;
+            if (player != null)
+                this.setProvoked();
+        } else {
+            if (!this.world.isRemote) {
+                this.setBesideClimbableBlock(this.collidedHorizontally);
+            }
+        }
+    }
 
-	public boolean isBesideClimbableBlock() {
-		return dataManager.get(CAN_CLIMB) == 1;
-	}
+    public void setBesideClimbableBlock(boolean climbing) {
+        byte b0 = ((Byte) this.dataManager.get(CLIMBING)).byteValue();
 
-	@Override
-	public boolean isOnLadder() {
-		return this.getProvoked() && this.isBesideClimbableBlock();
-	}
+        if (climbing) {
+            b0 = (byte) (b0 | 1);
+        } else {
+            b0 = (byte) (b0 & -2);
+        }
 
-	@Override
-	protected boolean canTriggerWalking() {
-		return false;
-	}
+        this.dataManager.set(CLIMBING, Byte.valueOf(b0));
+    }
 
-	@Override
-	public void writeEntityToNBT(NBTTagCompound tag) {
-		super.writeEntityToNBT(tag);
-		tag.setBoolean("Provoked", this.getProvoked());
-	}
+    public boolean isBesideClimbableBlock() {
+        return (((Byte) this.dataManager.get(CLIMBING)).byteValue() & 1) != 0;
+    }
 
-	@Override
-	public void readEntityFromNBT(NBTTagCompound tag) {
-		super.readEntityFromNBT(tag);
-		if (tag.getBoolean("Provoked"))
-			setProvoked();
-	}
+    @Override
+    public boolean isOnLadder() {
+        return this.getProvoked() && this.isBesideClimbableBlock();
+    }
 
-	public boolean getProvoked() {
-		return dataManager.get(PROVOKED) == 1;
-	}
+    @Override
+    protected boolean canTriggerWalking() {
+        return false;
+    }
 
-	public void setProvoked() {
-		DivineRPG.logger.info(DivineRPG.modId + " Pumpkin Spider Attack!");
-		dataManager.set(PROVOKED, (byte) 1);
-		addBasicAI();
-		addAttackingAI();
-	}
+    @Override
+    public void writeEntityToNBT(NBTTagCompound tag) {
+        super.writeEntityToNBT(tag);
+        tag.setBoolean("Provoked", this.getProvoked());
+    }
 
-	@Override
-	protected boolean isValidLightLevel() {
-		return true;
-	}
+    @Override
+    public void readEntityFromNBT(NBTTagCompound tag) {
+        super.readEntityFromNBT(tag);
+        if (tag.getBoolean("Provoked"))
+            setProvoked();
+    }
 
-	@Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return SoundEvents.ENTITY_SPIDER_HURT;
-	}
+    public boolean getProvoked() {
+        return dataManager.get(PROVOKED) == 1;
+    }
 
-	@Override
-	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_SPIDER_DEATH;
-	}
+    public void setProvoked() {
+        dataManager.set(PROVOKED, (byte) 1);
+        addBasicAI();
+        addAttackingAI();
+    }
 
-	@Override
-	protected ResourceLocation getLootTable() {
-		return this.LOOT;
-	}
+    @Override
+    protected boolean isValidLightLevel() {
+        return true;
+    }
 
-	@Override
-	public boolean getCanSpawnHere() {
-		BlockPos blockPos = new BlockPos((int) this.posX, MathHelper.floor(this.getEntityBoundingBox().minY) - 1,
-				(int) this.posZ);
-		return this.world.getBlockState(blockPos).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
-	}
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_SPIDER_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_SPIDER_DEATH;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        BlockPos blockPos = new BlockPos((int) this.posX, MathHelper.floor(this.getEntityBoundingBox().minY) - 1,
+                (int) this.posZ);
+        return this.world.getBlockState(blockPos).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
+    }
 }
