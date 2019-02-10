@@ -4,111 +4,125 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.ai.EntityAIBreakDoor;
+import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class Miner extends EntityDivineRPGMob {
-	public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/miner");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/miner");
 
-	public Miner(World worldIn) {
-		super(worldIn);
-		this.setSize(0.6F, 1.9f);
-		this.setHealth(this.getMaxHealth());
-	}
+    public Miner(World worldIn) {
+        super(worldIn);
+        this.setSize(0.6F, 1.9F);
+        this.setHealth(this.getMaxHealth());
+    }
 
-	private void applyEntityAI() {
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] { EntityPigZombie.class }));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-	}
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+        this.tasks.addTask(1, new EntityAIBreakDoor(this));
+    }
 
-	@Override
-	protected void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
-	}
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+    }
 
-	@Override
-	protected boolean canDespawn() {
-		return true;
-	}
+    @Override
+    public int getTotalArmorValue() {
+        return 10;
+    }
 
-	@Nullable
-	@Override
-	protected SoundEvent getAmbientSound() {
-		return super.getAmbientSound();
-	}
+    @Nullable
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
+        livingdata = super.onInitialSpawn(difficulty, livingdata);
+        this.setEquipmentBasedOnDifficulty(difficulty);
+        this.setEnchantmentBasedOnDifficulty(difficulty);
+        return livingdata;
+    }
 
-	@Override
-	protected ResourceLocation getLootTable() {
-		return this.LOOT;
+    @Override
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+        super.setEquipmentBasedOnDifficulty(difficulty);
 
-	}
+        if (this.rand.nextInt(7) == 0) {
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_PICKAXE));
+        } else if (this.rand.nextInt(5) == 0) {
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_PICKAXE));
+        } else if (this.rand.nextInt(3) == 0) {
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.STONE_PICKAXE));
+        } else {
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_PICKAXE));
+        }
+    }
 
-	@Override
-	public int getMaxSpawnedInChunk() {
-		return 3;
-	}
+    @Override
+    public EnumCreatureAttribute getCreatureAttribute() {
+        return EnumCreatureAttribute.UNDEAD;
+    }
 
-	@Override
-	protected void initEntityAI() {
-		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-		this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-		this.applyEntityAI();
-	}
+    @Override
+    public void onLivingUpdate() {
+        if (this.world.isDaytime() && !this.world.isRemote) {
+            float var1 = this.getBrightness();
 
-	@Override
-	protected boolean isValidLightLevel() {
-		return true;
-	}
+            if (var1 > 0.5F && this.world.canSeeSky(
+                    new BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ)))
+                    && this.rand.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
+                this.setFire(8);
+            }
+        }
+        super.onLivingUpdate();
+    }
 
-	@Override
-	public void onLivingUpdate() {
-		if (this.world.isDaytime() && !this.world.isRemote) {
-			float var1 = this.getBrightness();
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn) {
+        boolean flag = super.attackEntityAsMob(entityIn);
 
-			if (var1 > 0.5F && this.world.canSeeSky(
-			        new BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ)))
-			        && this.rand.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
-				this.setFire(8);
-			}
-		}
-	}
+        if (flag) {
+            float f = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
 
-	@Override
-	protected void playStepSound(BlockPos pos, Block blockIn) {
-		super.playStepSound(pos, blockIn);
-	}
+            if (this.isBurning() && this.rand.nextFloat() < f * 0.3F) {
+                entityIn.setFire(2 * (int) f);
+            }
+        }
 
-	@Override
-	public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-		super.setAttackTarget(entitylivingbaseIn);
-		if (entitylivingbaseIn instanceof EntityPlayer) {
+        return flag;
+    }
 
-		}
-	}
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundEvents.ENTITY_ZOMBIE_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_ZOMBIE_DEATH;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }
