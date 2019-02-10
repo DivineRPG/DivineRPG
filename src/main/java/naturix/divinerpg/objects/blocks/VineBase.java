@@ -8,6 +8,7 @@ import net.minecraft.item.ItemBlock;
 public class VineBase extends BlockVine {
 
 	protected String name;
+
 	public VineBase(String name) {
 		super();
 		this.name = name;
@@ -15,16 +16,18 @@ public class VineBase extends BlockVine {
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
 		this.setHardness(2);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)));
-        this.setTickRandomly(true);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false))
+		        .withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false))
+		        .withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)));
+		this.setTickRandomly(true);
 	}
-		
-	public void registerItemModel(Item itemBlock) {
-		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
-	}
-	
+
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
+	}
+
+	public void registerItemModel() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 
 }

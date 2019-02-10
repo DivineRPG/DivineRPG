@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 
 public class BlockOreNether extends BlockBase {
 	public static final PropertyEnum TYPE = PropertyEnum.create("type", OreType.class);
+
 	public BlockOreNether(String name) {
 		super(Material.ROCK, name);
 		setHardness(3f);
@@ -27,12 +28,11 @@ public class BlockOreNether extends BlockBase {
 	}
 
 	/**
-	 * All the different item variants for the block
+	 * Adds the properties to the block
 	 */
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int i = 0; i < OreType.values().length; i++) {
-			list.add(new ItemStack(itemIn, 1, i));
-		}
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { TYPE });
 	}
 
 	/**
@@ -41,23 +41,6 @@ public class BlockOreNether extends BlockBase {
 	@Override
 	public int damageDropped(IBlockState state) {
 		return getMetaFromState(state);
-	}
-
-	/**
-	 * Makes sure when you pick block it will work correctly
-	 */
-	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
-			EntityPlayer player) {
-		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
-	}
-
-	/**
-	 * Adds the properties to the block
-	 */
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
 	}
 
 	/**
@@ -70,11 +53,12 @@ public class BlockOreNether extends BlockBase {
 	}
 
 	/**
-	 * Gets the correct {@link IBlockState} from the meta data
+	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(TYPE, OreType.values()[meta]);
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
+	        EntityPlayer player) {
+		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
 	/**
@@ -83,7 +67,21 @@ public class BlockOreNether extends BlockBase {
 	public String getSpecialName(ItemStack stack) {
 		return OreType.values()[stack.getItemDamage()].getName();
 	}
-	public void registerItemModel(Item itemBlock) {
-		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
+
+	/**
+	 * Gets the correct {@link IBlockState} from the meta data
+	 */
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(TYPE, OreType.values()[meta]);
+	}
+
+	/**
+	 * All the different item variants for the block
+	 */
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
+		for (int i = 0; i < OreType.values().length; i++) {
+			list.add(new ItemStack(itemIn, 1, i));
+		}
 	}
 }

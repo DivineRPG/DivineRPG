@@ -145,7 +145,7 @@ public class IceikaChest extends BlockContainer {
 		}
 	}
 
-	public void registerItemModel(Item itemBlock) {
-		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
+	public void registerItemModel() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 }

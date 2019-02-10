@@ -16,34 +16,38 @@ import net.minecraft.world.World;
 
 public class AltarDramix extends AltarParasecta {
 	private static String name;
+
 	public AltarDramix(String name) {
 		super(name);
 		this.name = name;
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new TileEntityDramixAltar();
-	}
-	@Override
-	public void registerItemModel(Item itemBlock) {
-		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
-	}
-	@Override
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
+
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
+	public TileEntity createNewTileEntity(World var1, int var2) {
+		return new TileEntityDramixAltar();
+	}
+
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+	        EnumFacing facing, float hitX, float hitY, float hitZ) {
 		Dramix dramix = new Dramix(worldIn);
-		worldIn.spawnEntity(dramix);	
+		worldIn.spawnEntity(dramix);
 		return false;
-    }
+	}
+
 	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-    {
-        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
-    }
+	public void registerItemModel() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+	}
 
 }
