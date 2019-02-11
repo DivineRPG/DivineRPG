@@ -4,8 +4,6 @@ Vanilla Mobs for Alpha Release:
 + Scorcher - (Needs AI port and EntityScorcherShot)
 + The Watcher - (Needs a big AI port)
 + Wildfire - (Like AridWarrior)
-
-Vanilla Mob (Pets) not needed in Alpha, but might be easy to do them all at once:
 + Grizzle / Grizzle White - (Follow example of Ehu)
 + HellPig - (Follow example of Ehu)
 + Husk - (Follow example of Ehu)
