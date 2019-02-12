@@ -15,13 +15,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Kobblin extends EntityDivineRPGMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/kobblin");
-    private static final DataParameter<Byte> PROVOKED = EntityDataManager.<Byte>createKey(Kobblin.class,
-            DataSerializers.BYTE);
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(Kobblin.class,
+            DataSerializers.BOOLEAN);
 
     public Kobblin(World worldIn) {
         super(worldIn);
@@ -32,7 +31,7 @@ public class Kobblin extends EntityDivineRPGMob {
     @Override
     public void entityInit() {
         super.entityInit();
-        dataManager.register(PROVOKED, (byte) 0);
+        dataManager.register(PROVOKED, Boolean.valueOf(false));
     }
 
     @Override
@@ -79,11 +78,11 @@ public class Kobblin extends EntityDivineRPGMob {
     }
 
     public boolean getProvoked() {
-        return dataManager.get(PROVOKED) == 1;
+        return dataManager.get(PROVOKED).booleanValue();
     }
 
     public void setProvoked() {
-        dataManager.set(PROVOKED, (byte) 1);
+        dataManager.set(PROVOKED, Boolean.valueOf(true));
         addBasicAI();
         addAttackingAI();
     }
@@ -114,11 +113,7 @@ public class Kobblin extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        BlockPos blockPosUnder = new BlockPos((int) this.posX, MathHelper.floor(this.getEntityBoundingBox().minY) - 1,
-                (int) this.posZ);
-        BlockPos blockPosOneUnder = new BlockPos((int) this.posX,
-                MathHelper.floor(this.getEntityBoundingBox().minY) - 2, (int) this.posZ);
-        return this.world.getBlockState(blockPosUnder).getBlock() == Blocks.GRASS
-                && this.world.getBlockState(blockPosOneUnder).getBlock() != Blocks.AIR && super.getCanSpawnHere();
+        return this.world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS
+                && this.world.getBlockState(getPosition().down(2)).getBlock() != Blocks.AIR && super.getCanSpawnHere();
     }
 }

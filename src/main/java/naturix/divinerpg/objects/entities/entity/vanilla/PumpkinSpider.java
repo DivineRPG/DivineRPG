@@ -17,16 +17,14 @@ import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class PumpkinSpider extends EntityDivineRPGMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/pumpkin_spider");
-    private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(PumpkinSpider.class,
-            DataSerializers.BYTE);
-    private static final DataParameter<Byte> PROVOKED = EntityDataManager.<Byte>createKey(PumpkinSpider.class,
-            DataSerializers.BYTE);
+    private static final DataParameter<Boolean> CLIMBING = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
+            DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
+            DataSerializers.BOOLEAN);
 
     public PumpkinSpider(World worldIn) {
         super(worldIn);
@@ -37,8 +35,8 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     @Override
     public void entityInit() {
         super.entityInit();
-        dataManager.register(CLIMBING, (byte) 0);
-        dataManager.register(PROVOKED, (byte) 0);
+        dataManager.register(CLIMBING, Boolean.valueOf(false));
+        dataManager.register(PROVOKED, Boolean.valueOf(false));
     }
 
     @Override
@@ -80,19 +78,11 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     }
 
     public void setBesideClimbableBlock(boolean climbing) {
-        byte b0 = ((Byte) this.dataManager.get(CLIMBING)).byteValue();
-
-        if (climbing) {
-            b0 = (byte) (b0 | 1);
-        } else {
-            b0 = (byte) (b0 & -2);
-        }
-
-        this.dataManager.set(CLIMBING, Byte.valueOf(b0));
+        this.dataManager.set(CLIMBING, Boolean.valueOf(climbing));
     }
 
     public boolean isBesideClimbableBlock() {
-        return (((Byte) this.dataManager.get(CLIMBING)).byteValue() & 1) != 0;
+        return ((Boolean) this.dataManager.get(CLIMBING)).booleanValue();
     }
 
     @Override
@@ -128,11 +118,11 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     }
 
     public boolean getProvoked() {
-        return dataManager.get(PROVOKED) == 1;
+        return ((Boolean) this.dataManager.get(PROVOKED)).booleanValue();
     }
 
     public void setProvoked() {
-        dataManager.set(PROVOKED, (byte) 1);
+        dataManager.set(PROVOKED, Boolean.valueOf(true));
         addBasicAI();
         addAttackingAI();
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
@@ -160,8 +150,6 @@ public class PumpkinSpider extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        BlockPos blockPos = new BlockPos((int) this.posX, MathHelper.floor(this.getEntityBoundingBox().minY) - 1,
-                (int) this.posZ);
-        return this.world.getBlockState(blockPos).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
+        return this.world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
     }
 }

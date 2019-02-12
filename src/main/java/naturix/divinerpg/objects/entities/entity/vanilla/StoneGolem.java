@@ -42,14 +42,14 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
     @Override
     protected void entityInit() {
         super.entityInit();
-        dataManager.register(ATTACK_TIMER, new Integer(0));
+        dataManager.register(ATTACK_TIMER, Integer.valueOf(0));
     }
 
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (getRevengeTimer() > 0) {
-            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(getRevengeTimer() - 1));
+        if (getAttackTimer() > 0) {
+            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(getAttackTimer() - 1));
         }
     }
 
@@ -60,24 +60,18 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        ItemStack stack = player.inventory.getCurrentItem();
+        ItemStack itemstack = player.getHeldItem(hand);
 
         if (this.isTamed()) {
-            if (stack != null) {
-                if ((stack.getItem() == Item.getItemFromBlock(Blocks.STONE)
-                        || stack.getItem() == Item.getItemFromBlock(Blocks.COBBLESTONE)) && this.getHealth() < 20.0D) {
-                    if (!player.capabilities.isCreativeMode) {
-                        stack.setCount(stack.getCount() - 1);
-                    }
-
-                    this.heal(4.0F);
-
-                    if (stack.getCount() <= 0) {
-                        player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
-                    }
-
-                    return true;
+            if (!itemstack.isEmpty()
+                    && (itemstack.getItem() == Item.getItemFromBlock(Blocks.STONE)
+                            || itemstack.getItem() == Item.getItemFromBlock(Blocks.COBBLESTONE))
+                    && this.getHealth() < 20.0D) {
+                if (!player.capabilities.isCreativeMode) {
+                    itemstack.shrink(1);
                 }
+                this.heal(4.0F);
+                return true;
             }
         } else {
             this.setTamed(true);
@@ -93,7 +87,7 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
         if (attack) {
             entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F), 0.1D,
                     MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F));
-            this.dataManager.set(ATTACK_TIMER, new Integer(10));
+            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(10));
         }
         return attack;
     }

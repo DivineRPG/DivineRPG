@@ -36,24 +36,17 @@ public class Grizzle extends EntityDivineRPGTameable {
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        ItemStack stack = player.inventory.getCurrentItem();
+        ItemStack itemstack = player.getHeldItem(hand);
 
         if (this.isTamed()) {
-            if (stack != null) {
-                if (stack.getItem() instanceof ItemFood) {
-                    ItemFood food = (ItemFood) stack.getItem();
-
+            if (!itemstack.isEmpty()) {
+                if (itemstack.getItem() instanceof ItemFood) {
+                    ItemFood food = (ItemFood) itemstack.getItem();
                     if (food.isWolfsFavoriteMeat() && this.getHealth() < this.getMaxHealth()) {
                         if (!player.capabilities.isCreativeMode) {
-                            stack.setCount(stack.getCount() - 1);
+                            itemstack.shrink(1);
                         }
-
-                        this.heal(food.getHealAmount(stack));
-
-                        if (stack.getCount() <= 0) {
-                            player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
-                        }
-
+                        this.heal(food.getHealAmount(itemstack));
                         return true;
                     }
                 }
