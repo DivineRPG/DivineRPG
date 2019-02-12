@@ -1,94 +1,105 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import naturix.divinerpg.objects.entities.entity.IAttackTimer;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
+public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer {
+    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.<Integer>createKey(StoneGolem.class,
+            DataSerializers.VARINT);
 
-public class StoneGolem extends EntityMob {
-
-    public StoneGolem(World worldIn) {
-		super(worldIn);
-		this.setSize(1.6F, 1.6f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/stone_golem");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+    public StoneGolem(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamed(true);
+        setOwnerId(player.getUniqueID());
     }
 
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    public StoneGolem(World worldIn) {
+        super(worldIn);
+        this.setSize(1.3F, 2.5F);
+        this.setHealth(this.getMaxHealth());
+    }
 
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
+    protected void entityInit() {
+        super.entityInit();
+        dataManager.register(ATTACK_TIMER, new Integer(0));
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+    public void onUpdate() {
+        super.onUpdate();
+        if (getRevengeTimer() > 0) {
+            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(getRevengeTimer() - 1));
         }
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getAttackTimer() {
+        return this.dataManager.get(ATTACK_TIMER).intValue();
     }
 
-    @Nullable
     @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.inventory.getCurrentItem();
+
+        if (this.isTamed()) {
+            if (stack != null) {
+                if ((stack.getItem() == Item.getItemFromBlock(Blocks.STONE)
+                        || stack.getItem() == Item.getItemFromBlock(Blocks.COBBLESTONE)) && this.getHealth() < 20.0D) {
+                    if (!player.capabilities.isCreativeMode) {
+                        stack.setCount(stack.getCount() - 1);
+                    }
+
+                    this.heal(4.0F);
+
+                    if (stack.getCount() <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
+                    }
+
+                    return true;
+                }
+            }
+        } else {
+            this.setTamed(true);
+            this.setOwnerId(player.getUniqueID());
+        }
+
+        return super.processInteract(player, hand);
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        boolean attack = entity.attackEntityFrom(DamageSource.causeMobDamage(this), 5.0F);
+        if (attack) {
+            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F), 0.1D,
+                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F));
+            this.dataManager.set(ATTACK_TIMER, new Integer(10));
+        }
+        return attack;
+    }
+
+    @Override
+    public EntityAgeable createChild(EntityAgeable var1) {
+        return null;
     }
 }

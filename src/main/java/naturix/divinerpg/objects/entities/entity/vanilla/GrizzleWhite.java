@@ -1,94 +1,93 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import naturix.divinerpg.registry.ModSounds;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
+public class GrizzleWhite extends EntityDivineRPGTameable {
 
-public class GrizzleWhite extends EntityMob {
-
-    public GrizzleWhite(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1.2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/grizzle_white");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+    public GrizzleWhite(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamed(true);
+        setOwnerId(player.getUniqueID());
     }
 
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    public GrizzleWhite(World worldIn) {
+        super(worldIn);
+        this.setSize(0.8F, 1.2F);
+        this.setHealth(this.getMaxHealth());
+    }
 
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D * 1.3D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(9.0D);
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.inventory.getCurrentItem();
 
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
+        if (this.isTamed()) {
+            if (stack != null) {
+                if (stack.getItem() instanceof ItemFood) {
+                    ItemFood food = (ItemFood) stack.getItem();
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+                    if (food.isWolfsFavoriteMeat() && this.getHealth() < this.getMaxHealth()) {
+                        if (!player.capabilities.isCreativeMode) {
+                            stack.setCount(stack.getCount() - 1);
+                        }
+
+                        this.heal(food.getHealAmount(stack));
+
+                        if (stack.getCount() <= 0) {
+                            player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
+                        }
+
+                        return true;
+                    }
+                }
+            }
+        } else {
+            this.setTamed(true);
+            this.setOwnerId(player.getUniqueID());
         }
+
+        return super.processInteract(player, hand);
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public boolean attackEntityAsMob(Entity entity) {
+        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 9.0F);
     }
 
-    @Nullable
+    @Override
+    public EntityAgeable createChild(EntityAgeable var1) {
+        return null;
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.GRIZZLE;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.GRIZZLE_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.GRIZZLE_HURT;
     }
 }

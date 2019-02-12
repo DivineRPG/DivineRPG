@@ -18,7 +18,14 @@ import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRejuvGolem;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRoamer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderSeimer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWraith;
-import naturix.divinerpg.objects.entities.assets.render.iceika.*;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderAlicanto;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFractite;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrostArcher;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrosty;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderGlacide;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderHastreus;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderRollum;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderWorkshopMerchant;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaGolem;
@@ -101,6 +108,7 @@ import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderRainbour;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderRotatick;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderScorcher;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderShark;
+import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderSmelter;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderSnapper;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderStoneGolem;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderTheEye;
@@ -257,6 +265,7 @@ import naturix.divinerpg.objects.entities.entity.vanilla.Rainbour;
 import naturix.divinerpg.objects.entities.entity.vanilla.Rotatick;
 import naturix.divinerpg.objects.entities.entity.vanilla.Scorcher;
 import naturix.divinerpg.objects.entities.entity.vanilla.Shark;
+import naturix.divinerpg.objects.entities.entity.vanilla.Smelter;
 import naturix.divinerpg.objects.entities.entity.vanilla.Snapper;
 import naturix.divinerpg.objects.entities.entity.vanilla.StoneGolem;
 import naturix.divinerpg.objects.entities.entity.vanilla.TheEye;
@@ -627,6 +636,8 @@ public class ModEntities {
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".scorcher"),
                 Scorcher.class, DivineRPG.modId + ".scorcher", id++, DivineRPG.instance, 64, 3, true, 0x00000,
                 0xff0000);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".smelter"),
+                Smelter.class, DivineRPG.modId + ".smelter", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".snapper"),
                 Snapper.class, DivineRPG.modId + ".snapper", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".stone_golem"),
@@ -823,9 +834,7 @@ public class ModEntities {
         LootTableList.register(CaveCrawler.LOOT);
         LootTableList.register(DesertCrawler.LOOT);
         LootTableList.register(Glacon.LOOT);
-        LootTableList.register(Grizzle.LOOT);
         LootTableList.register(TheGrue.LOOT);
-        LootTableList.register(Husk.LOOT);
         LootTableList.register(Miner.LOOT);
         LootTableList.register(JackOMan.LOOT);
         LootTableList.register(JungleBat.LOOT);
@@ -836,10 +845,7 @@ public class ModEntities {
         LootTableList.register(PumpkinSpider.LOOT);
         LootTableList.register(Rainbour.LOOT);
         LootTableList.register(Scorcher.LOOT);
-        LootTableList.register(Snapper.LOOT);
-        LootTableList.register(StoneGolem.LOOT);
         LootTableList.register(Whale.LOOT);
-        LootTableList.register(GrizzleWhite.LOOT);
         LootTableList.register(EnderWatcher.LOOT);
         LootTableList.register(Verek.LOOT);
         LootTableList.register(TheEye.LOOT);
@@ -847,7 +853,6 @@ public class ModEntities {
         LootTableList.register(Cyclops.LOOT);
         LootTableList.register(Caveclops.LOOT);
         LootTableList.register(EnderSpider.LOOT);
-        LootTableList.register(HellPig.LOOT);
 
         if (Config.debug) {
             DivineRPG.logger.info(DivineRPG.modId + " loot has been loaded");
@@ -967,6 +972,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Rainbour.class, RenderRainbour.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Scorcher.class, RenderScorcher.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Snapper.class, RenderSnapper.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(Smelter.class, RenderSmelter.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(StoneGolem.class, RenderStoneGolem.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Whale.class, RenderWhale.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EnderWatcher.class, RenderEnderWatcher.FACTORY);

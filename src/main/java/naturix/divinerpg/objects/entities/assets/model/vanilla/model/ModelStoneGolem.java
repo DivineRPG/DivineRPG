@@ -1,5 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.model.vanilla.model;
 
+import naturix.divinerpg.objects.entities.entity.IAttackTimer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -7,7 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelStoneGolem extends ModelBase {
-    //fields
+    // fields
     ModelRenderer LShoulder;
     ModelRenderer crystal;
     ModelRenderer Ring3;
@@ -286,17 +287,19 @@ public class ModelStoneGolem extends ModelBase {
     @Override
     public void setLivingAnimations(EntityLivingBase e, float par2, float par3, float par4) {
         double r = 0;
-        float armR = MathHelper.cos(par2 * 0.6662F + (float)Math.PI) * par3 * 0.5F;
+        float armR = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * par3 * 0.5F;
         float armL = MathHelper.cos(par2 * 0.6662F) * par3 * 0.5F;
-        //if(((IAttackTimer)e).getAttackTimer() > 0) {
-        //    r = this.getSwingAngle((float)((IAttackTimer)e).getAttackTimer() - par4, 10) - 1;
-        //}
-        this.RArm1.rotateAngleX = this.RArm2.rotateAngleX = this.RArm3.rotateAngleX = this.RFinger1.rotateAngleX = this.RFinger2.rotateAngleX = this.RFinger3.rotateAngleX = this.RFinger4.rotateAngleX = (float)r + armR;
-        this.LArm1.rotateAngleX = this.LArm2.rotateAngleX = this.LArm3.rotateAngleX = this.LFinger1.rotateAngleX = this.LFinger2.rotateAngleX = this.LFinger3.rotateAngleX = this.LFinger4.rotateAngleX = (float)r + armL;
+        if (((IAttackTimer) e).getAttackTimer() > 0) {
+            r = this.getSwingAngle((float) ((IAttackTimer) e).getAttackTimer() - par4, 10) - 1;
+        }
+        this.RArm1.rotateAngleX = this.RArm2.rotateAngleX = this.RArm3.rotateAngleX = this.RFinger1.rotateAngleX = this.RFinger2.rotateAngleX = this.RFinger3.rotateAngleX = this.RFinger4.rotateAngleX = (float) r
+                + armR;
+        this.LArm1.rotateAngleX = this.LArm2.rotateAngleX = this.LArm3.rotateAngleX = this.LFinger1.rotateAngleX = this.LFinger2.rotateAngleX = this.LFinger3.rotateAngleX = this.LFinger4.rotateAngleX = (float) r
+                + armL;
     }
 
     private float getSwingAngle(float timer, float maxTimer) {
-        return (Math.abs(timer - maxTimer/2) - maxTimer * 0.25F) / (maxTimer * 0.25F);
+        return (Math.abs(timer - maxTimer / 2) - maxTimer * 0.25F) / (maxTimer * 0.25F);
     }
 
 }

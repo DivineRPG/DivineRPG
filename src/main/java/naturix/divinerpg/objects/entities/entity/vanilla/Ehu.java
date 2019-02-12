@@ -25,7 +25,7 @@ public class Ehu extends EntityDivineRPGTameable {
 
     public Ehu(World worldIn) {
         super(worldIn);
-        this.setSize(0.6f, 0.8f);
+        this.setSize(0.6F, 0.8F);
         this.setHealth(this.getMaxHealth());
     }
 
