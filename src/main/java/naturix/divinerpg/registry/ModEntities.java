@@ -106,6 +106,7 @@ import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderMiner;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderPumpkinSpider;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderRainbour;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderRotatick;
+import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderSaguaroWorm;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderScorcher;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderShark;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderSmelter;
@@ -185,6 +186,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
+import naturix.divinerpg.objects.entities.entity.projectiles.SaguaroWormShot;
 import naturix.divinerpg.objects.entities.entity.twilight.AngryBunny;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaCadillion;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaGolem;
@@ -263,6 +265,7 @@ import naturix.divinerpg.objects.entities.entity.vanilla.Miner;
 import naturix.divinerpg.objects.entities.entity.vanilla.PumpkinSpider;
 import naturix.divinerpg.objects.entities.entity.vanilla.Rainbour;
 import naturix.divinerpg.objects.entities.entity.vanilla.Rotatick;
+import naturix.divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
 import naturix.divinerpg.objects.entities.entity.vanilla.Scorcher;
 import naturix.divinerpg.objects.entities.entity.vanilla.Shark;
 import naturix.divinerpg.objects.entities.entity.vanilla.Smelter;
@@ -335,16 +338,17 @@ public class ModEntities {
                 EntityEMP.class, DivineRPG.modId + ".arrow_acid", id++, DivineRPG.instance, 64, 3, true);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rock_cave"),
                 EntityCaveRock.class, DivineRPG.modId + ".rock_cave", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frostshot"),
-                EntityFrostShot.class, DivineRPG.modId + ".frostshot", id++, DivineRPG.instance, 64, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_shot"),
+                EntityFrostShot.class, DivineRPG.modId + ".frost_shot", id++, DivineRPG.instance, 64, 3, true);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_cloud"),
                 EntityFrostCloud.class, DivineRPG.modId + ".frost_cloud", id++, DivineRPG.instance, 64, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".saguaro_worm_shot"),
+                SaguaroWormShot.class, DivineRPG.modId + ".saguaro_worm_shot", id++, DivineRPG.instance, 64, 3, true);
 
         Utils.registerProjectile(EntityVileStorm.class, "vilestorm");
         Utils.registerProjectile(EntityShuriken.class, "shuriken");
         Utils.registerProjectile(EntityDeath.class, "death");
         Utils.registerProjectile(EntityDisk.class, "disk_amthrimis");
-        Utils.registerProjectile(EntityFrostShot.class, "frostshot");
         // register advanced mobs
         id = 100;
         // arcana
@@ -661,6 +665,9 @@ public class ModEntities {
                 0xff0000);
         EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hell_pig"),
                 HellPig.class, DivineRPG.modId + ".hell_pig", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".saguaro_worm"),
+                SaguaroWorm.class, DivineRPG.modId + ".saguaro_worm", id++, DivineRPG.instance, 64, 3, true, 0x00000,
+                0xff0000);
 
         id = 500;
         // vethia
@@ -980,6 +987,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Caveclops.class, RenderCaveclops.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EnderSpider.class, RenderEnderSpider.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
 
         // vethia
         RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
@@ -1030,6 +1038,7 @@ public class ModEntities {
         EntityCaveRock.renderMe();
         EntityFrostShot.renderMe();
         EntityFrostCloud.renderMe();
+        SaguaroWormShot.renderMe();
         // AmthirmisDisk
         RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class, manager -> new RenderSnowball<>(manager,
                 ModItems.amthirmisDisk, Minecraft.getMinecraft().getRenderItem()));

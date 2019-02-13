@@ -10,4 +10,4 @@ Vanilla Mobs not in Alpha Release:
 + JackOMan - (Requires port of Trading)
 + LivestockMerchant - (Requires port of Trading)
 + Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
-+ SaguaroWorm (Needs port / Complicated)
+
