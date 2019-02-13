@@ -415,10 +415,10 @@ public class ModItems {
 	public static ItemBase fragmentSkythern = new ItemBase("fragment_skythern");
 	public static ItemBase fragmentWildwood = new ItemBase("fragment_wildwood");
 	public static ItemBase fragmentMortum = new ItemBase("fragment_mortum");
-	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.stormSwordMaterial, "axe_corrupted", 18F, 1F);
-	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.stormSwordMaterial, "shovel_corrupted",
+	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedMaterial, "axe_corrupted", 18F, 1F);
+	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedMaterial, "shovel_corrupted",
 	        18F, 1F);
-	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.stormSwordMaterial,
+	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedMaterial,
 	        "pickaxe_corrupted", 18F, 1F);
 	public static ItemBase pearlsDirty = new ItemBase("pearls_dirty");
 	public static ItemBase pearlsClean = new ItemBase("pearls_clean");
