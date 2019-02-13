@@ -11,3 +11,6 @@ Vanilla Mobs not in Alpha Release:
 + LivestockMerchant - (Requires port of Trading)
 + Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
 
+Other:
++ Crafting for weapons
++ Tool/Armor custom materials
