@@ -10,13 +10,13 @@
 - Double check entity hitboxes
 - Fix Statues and Altars
 - Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.md### Dimensions
-#### Vanilla
-##### Items
+### Vanilla
+#### Items
 - Fix Shickaxe
 - List Items left to do
-##### Blocks
+#### Blocks
 - List Blocks left to do
-##### Entities
+#### Entities
  - Ayeracos - (Needs TileEntityAyeracoBeam)
  - KingOfScorchers - (Needs small AI port and add EntityKingOfScorchersMeteor)
  - Scorcher - (Needs AI port and EntityScorcherShot)
@@ -25,37 +25,38 @@
  - JackOMan - (Requires port of Trading)
  - LivestockMerchant - (Requires port of Trading)
  - Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
-#### Iceika
-##### Items
+### Iceika
+#### Items
 - List Items left to do
-##### Blocks
+#### Blocks
 - List Blocks left to do
-##### Entities
+#### Entities
 - List Entities left to do
-#### Twilight
-##### Items
+### Twilight
+#### Items
 - List Items left to do
-##### Blocks
+#### Blocks
 - List Blocks left to do
-##### Entities
+#### Entities
 - List Entities left to do
 - Traders
-#### Arcana
-##### Items
+### Arcana
+#### Items
 - Divine Accumulator
 - List Items left to do
-##### Blocks
+#### Blocks
 - List Blocks left to do
-##### Entities
+#### Entities
 - List Entities left to do
-#### Vethea
-##### Items
+### Vethea
+#### Items
 - Divine Accumulator
 - List Items left to do
-##### Blocks
+#### Blocks
 - List Blocks left to do
-##### Entities
+#### Entities
 - List Entities left to do
+
 ## Enhancements over DivineRPG 1.7.10
 - More organized creative tabs
 - Rotate Weapons in hand
