@@ -16,22 +16,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySparkler extends EntityThrowable {
 
-	@SideOnly(Side.CLIENT)
-	public static void renderMe() {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(
-		        new ResourceLocation(DivineRPG.modId + "textures/projectiles/sparkler.png")));
-	}
-
 	public EntitySparkler(World var1) {
 		super(var1);
+		renderMe();
 	}
 
 	public EntitySparkler(World var1, double var2, double var4, double var6) {
 		super(var1, var2, var4, var6);
+		renderMe();
 	}
 
 	public EntitySparkler(World var1, EntityPlayer var2) {
 		super(var1, var2);
+		renderMe();
 	}
 
 	@Override
@@ -54,5 +51,11 @@ public class EntitySparkler extends EntityThrowable {
 			        0.25 * this.rand.nextGaussian(), 0.25 * this.rand.nextGaussian(), 0.25 * this.rand.nextGaussian());
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void renderMe() {
+		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(
+		        new ResourceLocation(DivineRPG.modId + "textures/entity/projectiles/sparkler.png")));
 	}
 }

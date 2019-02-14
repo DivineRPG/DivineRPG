@@ -3,29 +3,16 @@ package naturix.divinerpg.client;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityDeath;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RenderSpecialProjectile extends Render {
 	public static RenderManager manager;
 
 	public static ResourceLocation text;
-
-	@SideOnly(Side.CLIENT)
-	public static void renderMe() {
-		// Death
-		if (text == EntityResourceLocation.death) {
-			RenderingRegistry.registerEntityRenderingHandler(EntityDeath.class,
-			        new RenderSpecialProjectile(EntityResourceLocation.death));
-		}
-	}
 
 	public ResourceLocation texture;
 	private float scale;

@@ -5,7 +5,7 @@ import static naturix.divinerpg.utils.DRPGParticleTypes.FROST;
 import java.util.List;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.assets.render.RenderFrostShot;
+import naturix.divinerpg.objects.entities.assets.render.projectile.RenderFrostShot;
 import naturix.divinerpg.objects.entities.entity.EntityFrostCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;

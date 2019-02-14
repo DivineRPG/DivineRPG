@@ -5,12 +5,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.items.ItemBase;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
+import naturix.divinerpg.objects.items.ItemBase;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -45,10 +44,10 @@ public class Shuriken extends ItemBase {
 		if (!world.isRemote) {
 			world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_HIT_PLAYER, SoundCategory.MASTER, 1f,
 			        1f);
-			EntityThrowable shuriken = new EntityShuriken(world, player);
+			EntityShuriken shuriken = new EntityShuriken(world, player);
 			shuriken.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 			world.spawnEntity(shuriken);
 		}
-		return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+		return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(hand));
 	}
 }

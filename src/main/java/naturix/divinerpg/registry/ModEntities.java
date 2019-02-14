@@ -2,9 +2,9 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.client.RenderSpecialProjectile;
 import naturix.divinerpg.objects.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
+import naturix.divinerpg.objects.entities.assets.render.RenderProjectile;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderApalachiaTomo;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathcryx;
@@ -314,8 +314,6 @@ import naturix.divinerpg.objects.entities.entity.vethia.WreckForm;
 import naturix.divinerpg.objects.entities.entity.vethia.Zone;
 import naturix.divinerpg.objects.entities.entity.vethia.Zoragon;
 import naturix.divinerpg.utils.Utils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -1033,22 +1031,15 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
 
 		// Projectiles
-		EntityInfernoArrow.renderMe();
 		EntityVileStorm.renderMe();
-		EntityShuriken.renderMe();
-		RenderSpecialProjectile.renderMe();
 		EntityCaveRock.renderMe();
 		EntityFrostShot.renderMe();
 		EntityFrostCloud.renderMe();
 		SaguaroWormShot.renderMe();
-		EntitySparkler.renderMe();
-		// AmthirmisDisk
-		RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class, manager -> new RenderSnowball<>(manager,
-		        ModItems.amthirmisDisk, Minecraft.getMinecraft().getRenderItem()));
-		// EMP
-		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class,
-		        manager -> new RenderSnowball<>(manager, ModItems.acid, Minecraft.getMinecraft().getRenderItem()));
+		EntityEMP.renderMe();
 
+		RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
+		        manager -> new RenderProjectile(ModItems.shuriken));
 	}
 
 	public static void initSpawns() {

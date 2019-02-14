@@ -1,8 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import naturix.divinerpg.registry.ModItems;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderSnowball;
+import naturix.divinerpg.objects.entities.assets.render.projectile.RenderVileStorm;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -18,9 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class EntityVileStorm extends EntityThrowable {
 	@SideOnly(Side.CLIENT)
 	public static void renderMe() {
-		// Vilestorm
 		RenderingRegistry.registerEntityRenderingHandler(EntityVileStorm.class,
-		        manager -> new RenderSnowball<>(manager, ModItems.vileStorm, Minecraft.getMinecraft().getRenderItem()));
+		        manager -> new RenderVileStorm(manager, 1f));
 	}
 
 	public EntityVileStorm(World var1) {

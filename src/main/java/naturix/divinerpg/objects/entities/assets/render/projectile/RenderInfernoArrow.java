@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.entities.assets.render;
+package naturix.divinerpg.objects.entities.assets.render.projectile;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;

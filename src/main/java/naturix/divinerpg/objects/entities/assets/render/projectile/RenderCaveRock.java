@@ -1,7 +1,7 @@
-package naturix.divinerpg.objects.entities.assets.render;
+package naturix.divinerpg.objects.entities.assets.render.projectile;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,15 +12,11 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
-/**
- * Created by LiteWolf101 on Feb
- * /08/2019
- */
-public class RenderFrostShot extends Render<EntityFrostShot> {
-    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/projectiles/frost_shot.png");
+public class RenderCaveRock extends Render<EntityCaveRock> {
+    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/projectiles/cave_rock.png");
     private final float scale;
 
-    public RenderFrostShot(RenderManager manager, float scaleIn)
+    public RenderCaveRock(RenderManager manager, float scaleIn)
     {
         super(manager);
         this.bindTexture(TEXTURE);
@@ -30,7 +26,7 @@ public class RenderFrostShot extends Render<EntityFrostShot> {
     /**
      * Renders the desired {@code T} type Entity.
      */
-    public void doRender(EntityFrostShot entity, double x, double y, double z, float entityYaw, float partialTicks)
+    public void doRender(EntityCaveRock entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
@@ -72,7 +68,7 @@ public class RenderFrostShot extends Render<EntityFrostShot> {
     /**
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
-    protected ResourceLocation getEntityTexture(EntityFrostShot entity)
+    protected ResourceLocation getEntityTexture(EntityCaveRock entity)
     {
         return TEXTURE;
     }

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import naturix.divinerpg.objects.entities.assets.render.RenderCaveRock;
+import naturix.divinerpg.objects.entities.assets.render.projectile.RenderCaveRock;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;

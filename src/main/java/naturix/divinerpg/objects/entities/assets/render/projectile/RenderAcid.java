@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.entities.assets.render;
+package naturix.divinerpg.objects.entities.assets.render.projectile;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
