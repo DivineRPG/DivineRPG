@@ -1,12 +1,12 @@
 package naturix.divinerpg.proxy;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.tile.RenderTiles;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.TEISRRender;
 import naturix.divinerpg.events.EventDevHat;
+import naturix.divinerpg.objects.blocks.tile.RenderTiles;
 import naturix.divinerpg.particle.ParticleFrost;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
@@ -32,85 +32,93 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
-
 public class ClientProxy extends CommonProxy {
-    public static MusicTicker.MusicType Music_Iceika;
+	public static MusicTicker.MusicType Music_Iceika;
+
+	@SubscribeEvent
+	public static void registerModels(ModelRegistryEvent event) {
+		TEISRRender.init();
+	}
+
+	ArcanaHelper ah;
 
 	@Override
-    public void preInit(FMLPreInitializationEvent e) {
-        super.preInit(e);
-        ModEntities.initModels();
-        OBJLoader.INSTANCE.addDomain(DivineRPG.modId);
-        NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
-
-    }
-	@Override
-    public void init(FMLInitializationEvent e) {
-        super.init(e);
-        RenderTiles.init();
-        Utils.setupCapes();
-        Utils.updateCapeList();
-
-        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
-    }
-	@Override
-    public void postInit(FMLPostInitializationEvent e) {
-        super.postInit(e);
-        DivineRPG.registerEvent(new EventDevHat());
-
-        Utils.postFMLEvent(new ArcanaRenderer());
-        Utils.postFMLEvent(new ClientTicker());
-
-       }
-
-    @Override
 	public EntityPlayer getPlayer() {
 		return FMLClientHandler.instance().getClientPlayerEntity();
 	}
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-    	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
+	@Override
+	public void init(FMLInitializationEvent e) {
+		super.init(e);
+		RenderTiles.init();
+		Utils.setupCapes();
+		Utils.updateCapeList();
 
-    }
-    ArcanaHelper ah;
-    public void updateClientArcana(float amount) {
-//        ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount);
-    }
-    @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event) {
-    	TEISRRender.init();
-    }
+		Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
+	}
 
-    @Override
-    public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX, double velY, double velZ) {
-        Minecraft mc = Minecraft.getMinecraft();
-        Entity entity = mc.getRenderViewEntity();
+	@Override
+	public void postInit(FMLPostInitializationEvent e) {
+		super.postInit(e);
+		DivineRPG.registerEvent(new EventDevHat());
 
-        if (entity != null && mc.effectRenderer != null) {
-            int i = mc.gameSettings.particleSetting;
+		Utils.postFMLEvent(new ArcanaRenderer());
+		Utils.postFMLEvent(new ClientTicker());
 
-            if (i == 1 && world.rand.nextInt(3) == 0) {
-                i = 2;
-            }
+	}
 
-            double d0 = entity.posX - x;
-            double d1 = entity.posY - y;
-            double d2 = entity.posZ - z;
+	@Override
+	public void preInit(FMLPreInitializationEvent e) {
+		super.preInit(e);
+		ModEntities.initModels();
+		OBJLoader.INSTANCE.addDomain(DivineRPG.modId);
+		NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
 
-            if (d0 * d0 + d1 * d1 + d2 * d2 <= 1024D && i <= 1) {
-                Particle particle = null;
+	}
 
-                switch (particletype) {
-                    case FROST:
-                        particle = new ParticleFrost(world, x, y, z, velX, velY, velZ);
-                        break;
-                }
+	@Override
+	public void registerItemRenderer(Item item, int meta, String id) {
+		ModelLoader.setCustomModelResourceLocation(item, meta,
+		        new ModelResourceLocation(DivineRPG.modId + ":" + id, "inventory"));
 
-                if (particle != null) {
-                    mc.effectRenderer.addEffect(particle);
-                }
-            }
-        }
-    }
+	}
+
+	@Override
+	public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX,
+	        double velY, double velZ) {
+		Minecraft mc = Minecraft.getMinecraft();
+		Entity entity = mc.getRenderViewEntity();
+
+		if (entity != null && mc.effectRenderer != null) {
+			int i = mc.gameSettings.particleSetting;
+
+			if (i == 1 && world.rand.nextInt(3) == 0) {
+				i = 2;
+			}
+
+			double d0 = entity.posX - x;
+			double d1 = entity.posY - y;
+			double d2 = entity.posZ - z;
+
+			if (d0 * d0 + d1 * d1 + d2 * d2 <= 1024D && i <= 1) {
+				Particle particle = null;
+
+				switch (particletype) {
+				case FROST:
+					particle = new ParticleFrost(world, x, y, z, velX, velY, velZ);
+					break;
+				}
+
+				if (particle != null) {
+					mc.effectRenderer.addEffect(particle);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void updateClientArcana(float amount) {
+		// ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount);
+	}
 
 }

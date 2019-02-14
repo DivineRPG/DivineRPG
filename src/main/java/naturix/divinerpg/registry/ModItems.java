@@ -66,6 +66,7 @@ import naturix.divinerpg.objects.items.serenade.SerenadeHeal;
 import naturix.divinerpg.objects.items.serenade.SerenadeIce;
 import naturix.divinerpg.objects.items.serenade.SerenadeInfusion;
 import naturix.divinerpg.objects.items.serenade.SerenadeStrike;
+import naturix.divinerpg.objects.items.special.ItemCaptainsSparkler;
 import naturix.divinerpg.objects.items.vanilla.CallOfTheWatcher;
 import naturix.divinerpg.objects.items.vanilla.HordeHorn;
 import naturix.divinerpg.objects.items.vanilla.Shuriken;
@@ -481,7 +482,7 @@ public class ModItems {
 	public static FoodBase skyflower = new FoodBase("skyflower", 1, false);
 	public static FoodBase hitchak = new FoodBase("hitchak", 3, false);
 	public static FoodBase pinfly = new FoodBase("pinfly", 1, false);
-	public static SwordBase captainsparkler = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "captainsparkler");
+	public static ItemCaptainsSparkler captainsparkler = new ItemCaptainsSparkler("captainsparkler");
 	public static SwordBase teakerBackSword = new SwordBase(DivineRPGMaterials.teakerSwordMaterial,
 	        "sword_teaker_back");
 	public static SwordBase amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial,
