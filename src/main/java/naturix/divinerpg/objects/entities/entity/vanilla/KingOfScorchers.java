@@ -1,70 +1,43 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import naturix.divinerpg.registry.ModSounds;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
-public class KingOfScorchers extends EntityMob {
+public class KingOfScorchers extends EntityDivineRPGBoss {
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_of_scorchers");
+    private int special;
 
     public KingOfScorchers(World worldIn) {
-		super(worldIn);
-		this.setSize(1.4F, 1.6f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_of_scorchers");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+        super(worldIn);
+        this.setSize(2.0F, 3.9F);
+        this.special = 0;
+        this.isImmuneToFire = true;
+        this.setHealth(this.getMaxHealth());
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
-    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1100.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(22.0D);
     }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
+    /*
+     * @Override protected void entityInit() { super.entityInit();
+     * this.dataWatcher.addObject(16, new Integer(100));
+     * this.dataWatcher.addObject(13, new Byte((byte) 0)); }
+     */
 
     @Override
     protected boolean isValidLightLevel() {
@@ -72,52 +45,67 @@ public class KingOfScorchers extends EntityMob {
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 1;
-    }
+    protected void updateAITasks() {
+        if (this.ticksExisted % 250 == 0 && this.special == 0) {
+            this.special = 15;
+        }
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+        EntityLivingBase attackTarget = this.getAttackTarget();
+        if (this.special > 0 && attackTarget != null) {
+            this.special--;
+            if (this.special % 5 == 0) {
+                for (int i = 0; i < 4; i++) {
+                    EntityKingOfScorchersMeteor meteor = new EntityKingOfScorchersMeteor(this.world,
+                            attackTarget.posX + (rand.nextDouble() - rand.nextDouble()) * 2, attackTarget.posY + 10,
+                            attackTarget.posZ + (rand.nextDouble() - rand.nextDouble()) * 2);
+                    meteor.motionX = (rand.nextDouble() - rand.nextDouble()) / 5;
+                    meteor.motionY = -0.7;
+                    meteor.motionZ = (rand.nextDouble() - rand.nextDouble()) / 5;
+                    world.spawnEntity(meteor);
+                }
+            }
+        }
+        super.updateAITasks();
+        EntityPlayer player = this.world.getNearestAttackablePlayer(this, 40.0D, 40.0D);
+        this.setAttackTarget(player);
+        if (player != null && !this.world.isRemote && this.ticksExisted % 15 == 0) {
+            this.attackEntityWithRangedAttack(player);
         }
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getTotalArmorValue() {
+        return 10;
     }
 
-    @Nullable
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float par2) {
+        if (source.isExplosion())
+            return false;
+        return super.attackEntityFrom(source, par2);
+    }
+
+    public void attackEntityWithRangedAttack(Entity entity) {
+        double tx = entity.posX - this.posX;
+        double ty = entity.getEntityBoundingBox().minY - this.posY - 2;
+        double tz = entity.posZ - this.posZ;
+        EntityKingOfScorchersShot shot = new EntityKingOfScorchersShot(this.world, this);
+        shot.shoot(tx, ty, tz, 1.3f, 1);
+        world.spawnEntity(shot);
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.KING_OF_SCORCHERS;
     }
 
     @Override
-	public boolean isNonBoss() {
-		return false;
-	}
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.KING_OF_SCORCHERS_HURT;
+    }
 
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
-			BossInfo.Overlay.PROGRESS));
-
-	@Override
-	public void addTrackingPlayer(EntityPlayerMP player) {
-		super.addTrackingPlayer(player);
-		this.bossInfo.addPlayer(player);
-	}
-
-	@Override
-	public void removeTrackingPlayer(EntityPlayerMP player) {
-		super.removeTrackingPlayer(player);
-		this.bossInfo.removePlayer(player);
-	}
-
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
-	}
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }
