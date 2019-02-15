@@ -533,24 +533,24 @@ public class ModItems {
 	        "sword_blue_divine");
 	public static SwordBase stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
 	public static SwordBase donatorSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_donator");
-	public static PickaxeBase realmitePickaxe = new PickaxeBase(DivineRPGMaterials.realmiteSwordMaterial,
+	public static PickaxeBase realmitePickaxe = new PickaxeBase(DivineRPGMaterials.realmitePickMaterial,
 	        "pickaxe_realmite", 0, 0);
-	public static PickaxeBase edenPickaxe = new PickaxeBase(DivineRPGMaterials.edenSwordMaterial, "pickaxe_eden", 0, 0);
-	public static PickaxeBase wildwoodPickaxe = new PickaxeBase(DivineRPGMaterials.wildwoodSwordMaterial,
-	        "pickaxe_wildwood", 0, 0);
-	public static PickaxeBase apalachiaPickaxe = new PickaxeBase(DivineRPGMaterials.apalachiaSwordMaterial,
+	public static PickaxeBase edenPickaxe = new PickaxeBase(DivineRPGMaterials.edenPickMaterial, "pickaxe_eden", 0, 0);
+	public static PickaxeBase wildwoodPickaxe = new PickaxeBase(DivineRPGMaterials.wildPickMaterial, "pickaxe_wildwood",
+	        0, 0);
+	public static PickaxeBase apalachiaPickaxe = new PickaxeBase(DivineRPGMaterials.apalachiaPickMaterial,
 	        "pickaxe_apalachia", 0, 0);
-	public static PickaxeBase skythernPickaxe = new PickaxeBase(DivineRPGMaterials.skythernSwordMaterial,
+	public static PickaxeBase skythernPickaxe = new PickaxeBase(DivineRPGMaterials.skythernPickMaterial,
 	        "pickaxe_skythern", 0, 0);
-	public static PickaxeBase mortumPickaxe = new PickaxeBase(DivineRPGMaterials.mortumSwordMaterial, "pickaxe_mortum",
+	public static PickaxeBase mortumPickaxe = new PickaxeBase(DivineRPGMaterials.mortumPickMaterial, "pickaxe_mortum",
 	        0, 0);
-	public static PickaxeBase divinePickaxe = new PickaxeBase(DivineRPGMaterials.divineSwordMaterial, "pickaxe_divine",
+	public static PickaxeBase divinePickaxe = new PickaxeBase(DivineRPGMaterials.divinePickMaterial, "pickaxe_divine",
 	        0, 0);
-	public static PickaxeBase arlemitePickaxe = new PickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial,
+	public static PickaxeBase arlemitePickaxe = new PickaxeBase(DivineRPGMaterials.arlemitePickMaterial,
 	        "pickaxe_arlemite", 0, 0);
-	public static PickaxeBase rupeePickaxe = new PickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "pickaxe_rupee", 0,
+	public static PickaxeBase rupeePickaxe = new PickaxeBase(DivineRPGMaterials.rupeePickMaterial, "pickaxe_rupee", 0,
 	        0);
-	public static PickaxeBase bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockSwordMaterial,
+	public static PickaxeBase bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockPickMaterial,
 	        "pickaxe_bedrock", 0, 0);
 	public static AxeBase realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteSwordMaterial, "axe_realmite", 0, 0);
 	public static AxeBase edenAxe = new AxeBase(DivineRPGMaterials.edenSwordMaterial, "axe_eden", 0, 0);
@@ -669,6 +669,10 @@ public class ModItems {
 	public static Vilestorm vileStorm = new Vilestorm("vilestorm");
 	public static ItemBase soundMusic = new ItemBase("sound_of_music");
 	public static ItemBase maelstrom = new ItemBase("maelstrom");
+	public static ItemBase chunkEden = new ItemBase("chunk_eden");
+	public static ItemBase chunkWildwood = new ItemBase("chunk_wildwood");
+	public static ItemBase chunkApalachia = new ItemBase("chunk_apalachia");
+	public static ItemBase chunkSkythern = new ItemBase("chunk_skythern");
 	public static ItemBase chunkMortum = new ItemBase("chunk_mortum");
 	public static CannonBase cannonGhast = new CannonBase("cannon_ghast");
 	public static ItemBase snowflake = new ItemBase("snowflake");
@@ -746,9 +750,9 @@ public class ModItems {
 		        gemBlood, seedsGlowbonePurple, snowGlobe, stoneJungle, stoneIce, stoneCorrupted, blazePurple, furyFire,
 		        stoneBluefire, eyeEnderLegendary, stoneEnder, knifeJungle, eyeCyclops, liopleurodonAnchor,
 		        liopleurodonSkull, liopleurodonTeeth, stoneHealing, daggerTerran, knifeTerran, maulTerran, stoneTerran,
-		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkMortum, cannonGhast,
-		        snowflake, bowheadAnchor, sharkAnchor, cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted,
-		        furyGold, hordeHorn, steelDoor);
+		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkEden, chunkWildwood,
+		        chunkApalachia, chunkSkythern, chunkMortum, cannonGhast, snowflake, bowheadAnchor, sharkAnchor,
+		        cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted, furyGold, hordeHorn, steelDoor);
 	}
 
 	public static void registerModels() {
@@ -1161,6 +1165,10 @@ public class ModItems {
 		vileStorm.registerItemModel();
 		soundMusic.registerItemModel();
 		maelstrom.registerItemModel();
+		chunkEden.registerItemModel();
+		chunkWildwood.registerItemModel();
+		chunkApalachia.registerItemModel();
+		chunkSkythern.registerItemModel();
 		chunkMortum.registerItemModel();
 		cannonGhast.registerItemModel();
 		bowheadAnchor.registerItemModel();

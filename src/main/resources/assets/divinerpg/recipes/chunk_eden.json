@@ -1,0 +1,16 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"III",
+		"I I",
+		"I I"
+	],
+	"key": {
+	"I": {
+			"item": "divinerpg:gem_eden"
+		}
+	},
+	"result": {
+		"item": "divinerpg:chunk_eden"
+	}
+}

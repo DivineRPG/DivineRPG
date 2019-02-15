@@ -81,6 +81,26 @@ public class DivineRPGMaterials {
 
 	public static final Item.ToolMaterial corruptedMaterial = EnumHelper.addToolMaterial("CORRUPTED", 6, 6000, 16.0F,
 	        6.0F, 1);
+	public static final Item.ToolMaterial edenPickMaterial = EnumHelper.addToolMaterial("pick_eden", 6, 6000, 20.0F,
+	        4.0F, 1);
+	public static final Item.ToolMaterial wildPickMaterial = EnumHelper.addToolMaterial("pick_wild", 6, 6000, 28.0F,
+	        5.0F, 1);
+	public static final Item.ToolMaterial apalachiaPickMaterial = EnumHelper.addToolMaterial("pick_apalachia", 6, 6000,
+	        40.0F, 6.0F, 1);
+	public static final Item.ToolMaterial skythernPickMaterial = EnumHelper.addToolMaterial("pick_skythern", 6, 6000,
+	        48.0F, 7.0F, 1);
+	public static final Item.ToolMaterial mortumPickMaterial = EnumHelper.addToolMaterial("pick_mortum", 6, 6000, 55.0F,
+	        8.0F, 1);
+	public static final Item.ToolMaterial divinePickMaterial = EnumHelper.addToolMaterial("pick_divine", 6, 35000,
+	        20.0F, 5.0F, 1);
+	public static final Item.ToolMaterial rupeePickMaterial = EnumHelper.addToolMaterial("pick_rupee", 5, 2500, 16.0F,
+	        4.0F, 1);
+	public static final Item.ToolMaterial arlemitePickMaterial = EnumHelper.addToolMaterial("pick_arlemite", 5, 2000,
+	        13.0F, 4.0F, 1);
+	public static final Item.ToolMaterial realmitePickMaterial = EnumHelper.addToolMaterial("pick_realmite", 5, 4000,
+	        12.0F, 3.0F, 1);
+	public static final Item.ToolMaterial bedrockPickMaterial = EnumHelper.addToolMaterial("pick_bedrock", 5, 0, 9.0F,
+	        3.0F, 1);
 
 	// name, textureName, durability, reductionAmounts, enchantability,
 	// soundOnEquip, toughness);

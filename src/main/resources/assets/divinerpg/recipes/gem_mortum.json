@@ -1,0 +1,14 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"III"
+	],
+	"key": {
+	"I": {
+			"item": "divinerpg:fragment_mortum"
+		}
+	},
+	"result": {
+		"item": "divinerpg:gem_mortum"
+	}
+}
