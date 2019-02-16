@@ -126,27 +126,27 @@ public class DivineRPGMaterials {
 	        5.0F, 1);
 
 	public static final Item.ToolMaterial corruptedShovelMaterial = EnumHelper.addToolMaterial("shovel_corrupted", 2,
-	        6000, 16.0F, 6.0F, 1);
+	        6000, 16.0F, 4.0F - 2.5F, 1);
 	public static final Item.ToolMaterial edenShovelMaterial = EnumHelper.addToolMaterial("shovel_eden", 2, 6000, 20.0F,
-	        6.0F, 1);
+	        4.0F - 2.5F, 1);
 	public static final Item.ToolMaterial wildShovelMaterial = EnumHelper.addToolMaterial("shovel_wild", 2, 6000, 28.0F,
-	        7.0F, 1);
+	        5.0F - 2.5F, 1);
 	public static final Item.ToolMaterial apalachiaShovelMaterial = EnumHelper.addToolMaterial("shovel_apalachia", 2,
-	        6000, 40.0F, 8.0F, 1);
+	        6000, 40.0F, 6.0F - 2.5F, 1);
 	public static final Item.ToolMaterial skythernShovelMaterial = EnumHelper.addToolMaterial("shovel_skythern", 2,
-	        6000, 48.0F, 9.0F, 1);
+	        6000, 48.0F, 7.0F - 2.5F, 1);
 	public static final Item.ToolMaterial mortumShovelMaterial = EnumHelper.addToolMaterial("shovel_mortum", 2, 6000,
-	        55.0F, 10.0F, 1);
+	        55.0F, 8.0F - 2.5F, 1);
 	public static final Item.ToolMaterial divineShovelMaterial = EnumHelper.addToolMaterial("shovel_divine", 2, 35000,
-	        20.0F, 7.0F, 1);
+	        20.0F, 5.0F - 2.5F, 1);
 	public static final Item.ToolMaterial rupeeShovelMaterial = EnumHelper.addToolMaterial("shovel_rupee", 1, 2500,
-	        16.0F, 6.0F, 1);
+	        16.0F, 4.0F - 2.5F, 1);
 	public static final Item.ToolMaterial arlemiteShovelMaterial = EnumHelper.addToolMaterial("shovel_arlemite", 1,
-	        2000, 13.0F, 6.0F, 1);
+	        2000, 13.0F, 4.0F - 2.5F, 1);
 	public static final Item.ToolMaterial realmiteShovelMaterial = EnumHelper.addToolMaterial("shovel_realmite", 1,
-	        4000, 12.0F, 5.0F, 1);
+	        4000, 12.0F, 3.0F - 2.5F, 1);
 	public static final Item.ToolMaterial bedrockShovelMaterial = EnumHelper.addToolMaterial("shovel_bedrock", 1, 0,
-	        9.0F, 5.0F, 1);
+	        9.0F, 3.0F - 2.5F, 1);
 
 	// name, textureName, durability, reductionAmounts, enchantability,
 	// soundOnEquip, toughness);

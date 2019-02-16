@@ -417,8 +417,8 @@ public class ModItems {
 	public static ItemBase fragmentWildwood = new ItemBase("fragment_wildwood");
 	public static ItemBase fragmentMortum = new ItemBase("fragment_mortum");
 	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedAxeMaterial, "axe_corrupted");
-	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedPickMaterial,
-	        "shovel_corrupted", 18F, 1F);
+	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedShovelMaterial,
+	        "shovel_corrupted");
 	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedPickMaterial,
 	        "pickaxe_corrupted", 18F, 1F);
 	public static ItemBase pearlsDirty = new ItemBase("pearls_dirty");
@@ -562,24 +562,21 @@ public class ModItems {
 	public static AxeBase arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteAxeMaterial, "axe_arlemite");
 	public static AxeBase rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeAxeMaterial, "axe_rupee");
 	public static AxeBase bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockAxeMaterial, "axe_bedrock");
-	public static ShovelBase realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteSwordMaterial,
-	        "shovel_realmite", 0, 0);
-	public static ShovelBase edenShovel = new ShovelBase(DivineRPGMaterials.edenSwordMaterial, "shovel_eden", 0, 0);
-	public static ShovelBase wildwoodShovel = new ShovelBase(DivineRPGMaterials.wildwoodSwordMaterial,
-	        "shovel_wildwood", 0, 0);
-	public static ShovelBase apalachiaShovel = new ShovelBase(DivineRPGMaterials.apalachiaSwordMaterial,
-	        "shovel_apalachia", 0, 0);
-	public static ShovelBase skythernShovel = new ShovelBase(DivineRPGMaterials.skythernSwordMaterial,
-	        "shovel_skythern", 0, 0);
-	public static ShovelBase mortumShovel = new ShovelBase(DivineRPGMaterials.mortumSwordMaterial, "shovel_mortum", 0,
-	        0);
-	public static ShovelBase divineShovel = new ShovelBase(DivineRPGMaterials.divineSwordMaterial, "shovel_divine", 0,
-	        0);
-	public static ShovelBase arlemiteShovel = new ShovelBase(DivineRPGMaterials.arlemiteSwordMaterial,
-	        "shovel_arlemite", 0, 0);
-	public static ShovelBase rupeeShovel = new ShovelBase(DivineRPGMaterials.rupeeSwordMaterial, "shovel_rupee", 0, 0);
-	public static ShovelBase bedrockShovel = new ShovelBase(DivineRPGMaterials.bedrockSwordMaterial, "shovel_bedrock",
-	        0, 0);
+	public static ShovelBase realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteShovelMaterial,
+	        "shovel_realmite");
+	public static ShovelBase edenShovel = new ShovelBase(DivineRPGMaterials.edenShovelMaterial, "shovel_eden");
+	public static ShovelBase wildwoodShovel = new ShovelBase(DivineRPGMaterials.wildShovelMaterial, "shovel_wildwood");
+	public static ShovelBase apalachiaShovel = new ShovelBase(DivineRPGMaterials.apalachiaShovelMaterial,
+	        "shovel_apalachia");
+	public static ShovelBase skythernShovel = new ShovelBase(DivineRPGMaterials.skythernShovelMaterial,
+	        "shovel_skythern");
+	public static ShovelBase mortumShovel = new ShovelBase(DivineRPGMaterials.mortumShovelMaterial, "shovel_mortum");
+	public static ShovelBase divineShovel = new ShovelBase(DivineRPGMaterials.divineShovelMaterial, "shovel_divine");
+	public static ShovelBase arlemiteShovel = new ShovelBase(DivineRPGMaterials.arlemiteShovelMaterial,
+	        "shovel_arlemite");
+	public static ShovelBase rupeeShovel = new ShovelBase(DivineRPGMaterials.rupeeShovelMaterial, "shovel_rupee");
+	public static ShovelBase bedrockShovel = new ShovelBase(DivineRPGMaterials.bedrockShovelMaterial, "shovel_bedrock");
+
 	public static HoeBase arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteSwordMaterial, "hoe_arlemite", 0, 0);
 	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeSwordMaterial, "hoe_rupee", 0, 0);
 	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteSwordMaterial, "hoe_realmite", 0, 0);
