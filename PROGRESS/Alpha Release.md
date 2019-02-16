@@ -11,5 +11,5 @@ Vanilla Mobs not in Alpha Release:
 + Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
 
 Other:
-+ Crafting for weapons
-+ Tool/Armor custom materials
++ Crafting for armor
++ Armor custom materials
