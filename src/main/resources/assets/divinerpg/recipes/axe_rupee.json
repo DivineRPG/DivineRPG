@@ -1,19 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XX",
-    "X#",
-    " #"
-  ],
-  "key": {
-    "X": {
-        "item": "divinerpg:ingot_rupee"
-    },
-    "#": {
-      "item": "minecraft:stick"
-    }
-  },
-  "result": {
-    "item": "divinerpg:axe_rupee"
-  }
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"II",
+		"IS",
+		" S"
+	],
+	"key": {
+	"I": {
+			"item": "divinerpg:ingot_rupee"
+		},
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		}
+	},
+	"result": {
+		"item": "divinerpg:axe_rupee"
+	}
 }

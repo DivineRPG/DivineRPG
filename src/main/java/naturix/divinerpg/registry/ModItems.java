@@ -416,7 +416,7 @@ public class ModItems {
 	public static ItemBase fragmentSkythern = new ItemBase("fragment_skythern");
 	public static ItemBase fragmentWildwood = new ItemBase("fragment_wildwood");
 	public static ItemBase fragmentMortum = new ItemBase("fragment_mortum");
-	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedAxeMaterial, "axe_corrupted", 18F, 1F);
+	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedAxeMaterial, "axe_corrupted");
 	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedPickMaterial,
 	        "shovel_corrupted", 18F, 1F);
 	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedPickMaterial,
@@ -552,16 +552,16 @@ public class ModItems {
 	        0);
 	public static PickaxeBase bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockPickMaterial,
 	        "pickaxe_bedrock", 0, 0);
-	public static AxeBase realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteAxeMaterial, "axe_realmite", 0, 0);
-	public static AxeBase edenAxe = new AxeBase(DivineRPGMaterials.edenAxeMaterial, "axe_eden", 0, 0);
-	public static AxeBase wildwoodAxe = new AxeBase(DivineRPGMaterials.wildAxeMaterial, "axe_wildwood", 0, 0);
-	public static AxeBase apalachiaAxe = new AxeBase(DivineRPGMaterials.apalachiaAxeMaterial, "axe_apalachia", 0, 0);
-	public static AxeBase skythernAxe = new AxeBase(DivineRPGMaterials.skythernAxeMaterial, "axe_skythern", 0, 0);
-	public static AxeBase mortumAxe = new AxeBase(DivineRPGMaterials.mortumAxeMaterial, "axe_mortum", 0, 0);
-	public static AxeBase divineAxe = new AxeBase(DivineRPGMaterials.divineAxeMaterial, "axe_divine", 0, 0);
-	public static AxeBase arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteAxeMaterial, "axe_arlemite", 0, 0);
-	public static AxeBase rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeAxeMaterial, "axe_rupee", 0, 0);
-	public static AxeBase bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockAxeMaterial, "axe_bedrock", 0, 0);
+	public static AxeBase realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteAxeMaterial, "axe_realmite");
+	public static AxeBase edenAxe = new AxeBase(DivineRPGMaterials.edenAxeMaterial, "axe_eden");
+	public static AxeBase wildwoodAxe = new AxeBase(DivineRPGMaterials.wildAxeMaterial, "axe_wildwood");
+	public static AxeBase apalachiaAxe = new AxeBase(DivineRPGMaterials.apalachiaAxeMaterial, "axe_apalachia");
+	public static AxeBase skythernAxe = new AxeBase(DivineRPGMaterials.skythernAxeMaterial, "axe_skythern");
+	public static AxeBase mortumAxe = new AxeBase(DivineRPGMaterials.mortumAxeMaterial, "axe_mortum");
+	public static AxeBase divineAxe = new AxeBase(DivineRPGMaterials.divineAxeMaterial, "axe_divine");
+	public static AxeBase arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteAxeMaterial, "axe_arlemite");
+	public static AxeBase rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeAxeMaterial, "axe_rupee");
+	public static AxeBase bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockAxeMaterial, "axe_bedrock");
 	public static ShovelBase realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteSwordMaterial,
 	        "shovel_realmite", 0, 0);
 	public static ShovelBase edenShovel = new ShovelBase(DivineRPGMaterials.edenSwordMaterial, "shovel_eden", 0, 0);

@@ -1,20 +1,20 @@
 {
-  "type": "forge:ore_shaped",
-  "pattern": [
-    "XX",
-    "X#",
-    " #"
-  ],
-  "key": {
-    "X": {
-        "item": "divinerpg:ingot_realmite"
-    },
-    "#": {
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"II",
+		"IS",
+		" S"
+	],
+	"key": {
+	"I": {
+			"item": "divinerpg:ingot_realmite"
+		},
+		"S": {
 			"type": "forge:ore_dict",
 			"ore": "stickWood"
 		}
-  },
-  "result": {
-    "item": "divinerpg:axe_realmite"
-  }
+	},
+	"result": {
+		"item": "divinerpg:axe_realmite"
+	}
 }

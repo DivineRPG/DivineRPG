@@ -1,5 +1,8 @@
 package naturix.divinerpg.world;
 
+import java.util.Random;
+
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.vanilla.LivestockMerchant;
 import net.minecraft.init.Blocks;
@@ -7,17 +10,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import java.util.Random;
-
 public class WorldGenHut extends WorldGenerator {
 
 	@Override
 	public boolean generate(World world, Random rand, BlockPos position) {
-		
+
 		int i = position.getX();
 		int j = position.getY();
 		int k = position.getZ();
-		if (world.getBlockState(new BlockPos(i + 5, j, k + 5)) == Blocks.GRASS.getDefaultState() && world.getBlockState(new BlockPos(i + 5, j + 1, k + 5)) == Blocks.AIR.getDefaultState() && world.getBlockState(new BlockPos(i+3, j, k+3)) == Blocks.GRASS.getDefaultState() && world.getBlockState(new BlockPos(i+3, j + 1, k+3)) == Blocks.AIR.getDefaultState() && world.getBlockState(new BlockPos(i + 7, j, k + 7)) == Blocks.GRASS.getDefaultState() && world.getBlockState(new BlockPos(i + 7, j + 1, k + 7)) == Blocks.AIR.getDefaultState()) {
+		if (world.getBlockState(new BlockPos(i + 5, j, k + 5)) == Blocks.GRASS.getDefaultState()
+		        && world.getBlockState(new BlockPos(i + 5, j + 1, k + 5)) == Blocks.AIR.getDefaultState()
+		        && world.getBlockState(new BlockPos(i + 3, j, k + 3)) == Blocks.GRASS.getDefaultState()
+		        && world.getBlockState(new BlockPos(i + 3, j + 1, k + 3)) == Blocks.AIR.getDefaultState()
+		        && world.getBlockState(new BlockPos(i + 7, j, k + 7)) == Blocks.GRASS.getDefaultState()
+		        && world.getBlockState(new BlockPos(i + 7, j + 1, k + 7)) == Blocks.AIR.getDefaultState()) {
 			world.setBlockState(new BlockPos(i + 0, j + 1, k + 0), Blocks.OAK_FENCE.getDefaultState());
 			world.setBlockState(new BlockPos(i + 0, j + 1, k + 1), Blocks.OAK_FENCE.getDefaultState());
 			world.setBlockState(new BlockPos(i + 0, j + 1, k + 2), Blocks.OAK_FENCE.getDefaultState());
@@ -250,13 +256,16 @@ public class WorldGenHut extends WorldGenerator {
 			world.setBlockState(new BlockPos(i + 10, j + 1, k + 10), Blocks.OAK_FENCE.getDefaultState());
 			world.setBlockState(new BlockPos(i + 7, j + 1, k + 5), Blocks.WOODEN_BUTTON.getDefaultState(), 2);
 			world.setBlockState(new BlockPos(i + 7, j + 2, k + 5), Blocks.WOODEN_BUTTON.getDefaultState(), 8);
-			DivineRPG.logger.info(new BlockPos(i+7, j+2, k+5) + " hut");
+			if (Config.debug) {
+				DivineRPG.logger.info(new BlockPos(i + 7, j + 2, k + 5) + " hut");
+			}
 			LivestockMerchant e = new LivestockMerchant(world);
-			e.setLocationAndAngles(i+5, j+1, k+5, 0, 0);
+			e.setLocationAndAngles(i + 5, j + 1, k + 5, 0, 0);
 			world.spawnEntity(e);
-		return true;
+			return true;
 		}
-//		DivineRPG.logger.info("hut was called but failed to load at "+ new BlockPos(i, j, k));
+		// DivineRPG.logger.info("hut was called but failed to load at "+ new
+		// BlockPos(i, j, k));
 		return false;
-		}
 	}
+}

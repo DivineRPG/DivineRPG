@@ -7,7 +7,7 @@
 	],
 	"key": {
 	"I": {
-			"item": "divinerpg:rock_divine"
+			"item": "divinerpg:stone_divine"
 		},
 		"S": {
 			"type": "forge:ore_dict",
