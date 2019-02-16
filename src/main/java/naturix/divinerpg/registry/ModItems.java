@@ -416,10 +416,10 @@ public class ModItems {
 	public static ItemBase fragmentSkythern = new ItemBase("fragment_skythern");
 	public static ItemBase fragmentWildwood = new ItemBase("fragment_wildwood");
 	public static ItemBase fragmentMortum = new ItemBase("fragment_mortum");
-	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedMaterial, "axe_corrupted", 18F, 1F);
-	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedMaterial, "shovel_corrupted",
-	        18F, 1F);
-	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedMaterial,
+	public static AxeBase corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedAxeMaterial, "axe_corrupted", 18F, 1F);
+	public static ShovelBase corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedPickMaterial,
+	        "shovel_corrupted", 18F, 1F);
+	public static PickaxeBase corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedPickMaterial,
 	        "pickaxe_corrupted", 18F, 1F);
 	public static ItemBase pearlsDirty = new ItemBase("pearls_dirty");
 	public static ItemBase pearlsClean = new ItemBase("pearls_clean");
@@ -552,16 +552,16 @@ public class ModItems {
 	        0);
 	public static PickaxeBase bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockPickMaterial,
 	        "pickaxe_bedrock", 0, 0);
-	public static AxeBase realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteSwordMaterial, "axe_realmite", 0, 0);
-	public static AxeBase edenAxe = new AxeBase(DivineRPGMaterials.edenSwordMaterial, "axe_eden", 0, 0);
-	public static AxeBase wildwoodAxe = new AxeBase(DivineRPGMaterials.wildwoodSwordMaterial, "axe_wildwood", 0, 0);
-	public static AxeBase apalachiaAxe = new AxeBase(DivineRPGMaterials.apalachiaSwordMaterial, "axe_apalachia", 0, 0);
-	public static AxeBase skythernAxe = new AxeBase(DivineRPGMaterials.skythernSwordMaterial, "axe_skythern", 0, 0);
-	public static AxeBase mortumAxe = new AxeBase(DivineRPGMaterials.mortumSwordMaterial, "axe_mortum", 0, 0);
-	public static AxeBase divineAxe = new AxeBase(DivineRPGMaterials.divineSwordMaterial, "axe_divine", 0, 0);
-	public static AxeBase arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteSwordMaterial, "axe_arlemite", 0, 0);
-	public static AxeBase rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeSwordMaterial, "axe_rupee", 0, 0);
-	public static AxeBase bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockSwordMaterial, "axe_bedrock", 0, 0);
+	public static AxeBase realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteAxeMaterial, "axe_realmite", 0, 0);
+	public static AxeBase edenAxe = new AxeBase(DivineRPGMaterials.edenAxeMaterial, "axe_eden", 0, 0);
+	public static AxeBase wildwoodAxe = new AxeBase(DivineRPGMaterials.wildAxeMaterial, "axe_wildwood", 0, 0);
+	public static AxeBase apalachiaAxe = new AxeBase(DivineRPGMaterials.apalachiaAxeMaterial, "axe_apalachia", 0, 0);
+	public static AxeBase skythernAxe = new AxeBase(DivineRPGMaterials.skythernAxeMaterial, "axe_skythern", 0, 0);
+	public static AxeBase mortumAxe = new AxeBase(DivineRPGMaterials.mortumAxeMaterial, "axe_mortum", 0, 0);
+	public static AxeBase divineAxe = new AxeBase(DivineRPGMaterials.divineAxeMaterial, "axe_divine", 0, 0);
+	public static AxeBase arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteAxeMaterial, "axe_arlemite", 0, 0);
+	public static AxeBase rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeAxeMaterial, "axe_rupee", 0, 0);
+	public static AxeBase bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockAxeMaterial, "axe_bedrock", 0, 0);
 	public static ShovelBase realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteSwordMaterial,
 	        "shovel_realmite", 0, 0);
 	public static ShovelBase edenShovel = new ShovelBase(DivineRPGMaterials.edenSwordMaterial, "shovel_eden", 0, 0);
@@ -644,6 +644,7 @@ public class ModItems {
 	public static CallOfTheWatcher callWatcher = new CallOfTheWatcher("callofthewatcher");
 	public static ItemBase eyeWatch = new ItemBase("watchingeye");
 	public static ItemBase stoneMolten = new ItemBase("stone_molten");
+	public static ItemBase stoneDivine = new ItemBase("stone_divine");
 	public static ItemBase stoneEnder = new ItemBase("stone_ender");
 	public static ItemBase stoneCorrupted = new ItemBase("stone_corrupted");
 	public static ItemBase shadowBar = new ItemBase("ingot_shadow");
@@ -746,9 +747,9 @@ public class ModItems {
 		        sandslash, shadowSaber, flamingFury, shardJungle, shardMolten, shardCorrupted, shardEnder, finShark,
 		        finWhale, tokensDungeon, tpStaff, arrowInferno, edenSparklez, shardTerran, shardDivine,
 		        eliteRealmiteHelmet, eliteRealmiteChestplate, eliteRealmiteLeggings, eliteRealmiteBoots, callWatcher,
-		        eyeWatch, stoneMolten, shadowBar, chunkNetherite, pelletsAquatic, pelletsAquaticPure, shardIce,
-		        gemBlood, seedsGlowbonePurple, snowGlobe, stoneJungle, stoneIce, stoneCorrupted, blazePurple, furyFire,
-		        stoneBluefire, eyeEnderLegendary, stoneEnder, knifeJungle, eyeCyclops, liopleurodonAnchor,
+		        eyeWatch, stoneDivine, stoneMolten, shadowBar, chunkNetherite, pelletsAquatic, pelletsAquaticPure,
+		        shardIce, gemBlood, seedsGlowbonePurple, snowGlobe, stoneJungle, stoneIce, stoneCorrupted, blazePurple,
+		        furyFire, stoneBluefire, eyeEnderLegendary, stoneEnder, knifeJungle, eyeCyclops, liopleurodonAnchor,
 		        liopleurodonSkull, liopleurodonTeeth, stoneHealing, daggerTerran, knifeTerran, maulTerran, stoneTerran,
 		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkEden, chunkWildwood,
 		        chunkApalachia, chunkSkythern, chunkMortum, cannonGhast, snowflake, bowheadAnchor, sharkAnchor,
@@ -1132,6 +1133,7 @@ public class ModItems {
 		shardDivine.registerItemModel();
 		callWatcher.registerItemModel();
 		eyeWatch.registerItemModel();
+		stoneDivine.registerItemModel();
 		stoneMolten.registerItemModel();
 		shadowBar.registerItemModel();
 		chunkNetherite.registerItemModel();

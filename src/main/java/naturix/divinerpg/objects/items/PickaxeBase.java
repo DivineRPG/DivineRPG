@@ -29,8 +29,8 @@ public class PickaxeBase extends ItemPickaxe {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
 		infoList.add(TooltipLocalizer.efficiency(toolMaterial.getEfficiency()));
-		if (stack.getMaxDamage() != -1) {
-			infoList.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+		if (stack.getMaxDamage() != 0) {
+			infoList.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
 		} else {
 			infoList.add(TooltipLocalizer.infiniteUses());
 		}

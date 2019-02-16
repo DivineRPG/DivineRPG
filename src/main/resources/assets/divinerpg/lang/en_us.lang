@@ -573,6 +573,7 @@ item.cannon_corrupted.name=Corrupted Cannon
 item.horde_horn.name=Horde Horn
 item.snowflake.name=Snowflake
 item.fury_golden.name=Golden Fury
+item.stone_divine.name=Divine Stone
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
