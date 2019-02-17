@@ -1,11 +1,3 @@
-		addRecipe(VanillaItemsArmor.realmiteHelmet, "III", "I I",  'I', VanillaItemsOther.realmiteIngot);
-		addRecipe(VanillaItemsArmor.realmiteBody, "I I", "III", "III", 'I', VanillaItemsOther.realmiteIngot);
-		addRecipe(VanillaItemsArmor.realmiteLegs, "III", "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
-		addRecipe(VanillaItemsArmor.realmiteBoots,  "I I", "I I", 'I', VanillaItemsOther.realmiteIngot);
-		addRecipe(VanillaItemsArmor.eliteRealmiteHelmet, "III", "I I", 'I', VanillaBlocks.realmiteBlock);
-		addRecipe(VanillaItemsArmor.eliteRealmiteBody, "I I", "III", "III", 'I', VanillaBlocks.realmiteBlock);
-		addRecipe(VanillaItemsArmor.eliteRealmiteLegs, "III", "I I", "I I", 'I', VanillaBlocks.realmiteBlock);
-		addRecipe(VanillaItemsArmor.eliteRealmiteBoots,  "I I", "I I", 'I', VanillaBlocks.realmiteBlock);
 		addRecipe(VanillaItemsArmor.bedrockHelmet, "III", "I I", 'I', Blocks.bedrock);
 		addRecipe(VanillaItemsArmor.bedrockBody, "I I", "III", "III", 'I', Blocks.bedrock);
 		addRecipe(VanillaItemsArmor.bedrockLegs, "III", "I I", "I I", 'I', Blocks.bedrock);
