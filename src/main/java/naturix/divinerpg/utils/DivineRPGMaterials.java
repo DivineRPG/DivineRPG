@@ -18,8 +18,8 @@ public class DivineRPGMaterials {
 	        10.0F, 6.0F, 10);
 	public static final Item.ToolMaterial arksianeSwordMaterial = EnumHelper.addToolMaterial("ARKSIANE", 2, 250, 14.0F,
 	        38.0F, 14);
-	public static final Item.ToolMaterial bedrockSwordMaterial = EnumHelper.addToolMaterial("BEDROCK", 2, 999999999,
-	        14.0F, 10.0F, 14);
+	public static final Item.ToolMaterial bedrockSwordMaterial = EnumHelper.addToolMaterial("BEDROCK", 2, 0, 14.0F,
+	        10.0F, 14);
 	public static final Item.ToolMaterial enderSwordMaterial = EnumHelper.addToolMaterial("ENDER", 2, 250, 16.0F, 12.0F,
 	        16);
 	public static final Item.ToolMaterial bloodgemSwordMaterial = EnumHelper.addToolMaterial("BLOODGEM", 2, 250, 15.0F,
