@@ -10,12 +10,12 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -32,6 +32,7 @@ public class Frost extends EntityDivineRPGMob {
         super(worldIn);
         this.setSize(1F, 1f);
         this.experienceValue = 20;
+        this.setPathPriority(PathNodeType.WATER, -1.0F);
         this.setHealth(this.getMaxHealth());
     }
 
@@ -50,13 +51,15 @@ public class Frost extends EntityDivineRPGMob {
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
     public void onLivingUpdate() {
         if (!this.onGround && this.motionY < 0.0D) {
             this.motionY *= 0.6D;
+        }
+        if (!this.world.isRemote) {
+            this.setAttackTarget(this.world.getNearestAttackablePlayer(this, 22.0D, 22.0D));
         }
         super.onLivingUpdate();
     }
@@ -76,8 +79,7 @@ public class Frost extends EntityDivineRPGMob {
 
         EntityLivingBase entitylivingbase = this.getAttackTarget();
 
-        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY
-                + (double) this.getEyeHeight() + (double) this.heightOffset) {
+        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY + (double) this.getEyeHeight() + (double) this.heightOffset) {
             this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
             this.isAirBorne = true;
         }
@@ -115,12 +117,10 @@ public class Frost extends EntityDivineRPGMob {
                     this.frost.attackEntityAsMob(entitylivingbase);
                 }
 
-                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
-                        entitylivingbase.posZ, 1.0D);
+                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
             } else if (d0 < this.getFollowDistance() * this.getFollowDistance()) {
                 double d1 = entitylivingbase.posX - this.frost.posX;
-                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F)
-                        - (this.frost.posY + (double) (this.frost.height / 2.0F));
+                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F) - (this.frost.posY + (double) (this.frost.height / 2.0F));
                 double d3 = entitylivingbase.posZ - this.frost.posZ;
 
                 if (this.attackTime <= 0) {
@@ -133,12 +133,9 @@ public class Frost extends EntityDivineRPGMob {
                     }
 
                     float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-                    this.frost.world.playEvent((EntityPlayer) null, 1018,
-                            new BlockPos((int) this.frost.posX, (int) this.frost.posY, (int) this.frost.posZ), 0);
+                    this.frost.world.playEvent((EntityPlayer) null, 1018, new BlockPos((int) this.frost.posX, (int) this.frost.posY, (int) this.frost.posZ), 0);
 
-                    EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost,
-                            d1 + this.frost.getRNG().nextGaussian() * (double) f, d2,
-                            d3 + this.frost.getRNG().nextGaussian() * (double) f);
+                    EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost, d1 + this.frost.getRNG().nextGaussian() * (double) f, d2, d3 + this.frost.getRNG().nextGaussian() * (double) f);
                     entityShot.posY = this.frost.posY + (double) (this.frost.height / 2.0F);
                     this.frost.world.spawnEntity(entityShot);
                 }
@@ -146,8 +143,7 @@ public class Frost extends EntityDivineRPGMob {
                 this.frost.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
             } else {
                 this.frost.getNavigator().clearPath();
-                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
-                        entitylivingbase.posZ, 1.0D);
+                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
             }
 
             super.updateTask();

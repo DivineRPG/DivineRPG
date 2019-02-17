@@ -186,6 +186,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
@@ -315,7 +316,6 @@ import naturix.divinerpg.objects.entities.entity.vethia.Vhraak;
 import naturix.divinerpg.objects.entities.entity.vethia.WreckForm;
 import naturix.divinerpg.objects.entities.entity.vethia.Zone;
 import naturix.divinerpg.objects.entities.entity.vethia.Zoragon;
-import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -329,545 +329,280 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModEntities {
+    public static int projectileID = 0;
+    public static int mobID = 500;
 
     public static void init() {
-        // register basic mobs
-        int id = 1;
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".arrow_inferno"),
-                EntityInfernoArrow.class, DivineRPG.modId + ".arrow_inferno", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".arrow_acid"),
-                EntityEMP.class, DivineRPG.modId + ".arrow_acid", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rock_cave"),
-                EntityCaveRock.class, DivineRPG.modId + ".rock_cave", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_shot"),
-                EntityFrostShot.class, DivineRPG.modId + ".frost_shot", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_cloud"),
-                EntityFrostCloud.class, DivineRPG.modId + ".frost_cloud", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".saguaro_worm_shot"),
-                SaguaroWormShot.class, DivineRPG.modId + ".saguaro_worm_shot", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".saguaro_worm_shot"),
-                EntityKingOfScorchersMeteor.class, DivineRPG.modId + ".king_of_scorchers_meteor", id++,
-                DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".saguaro_worm_shot"),
-                EntityKingOfScorchersShot.class, DivineRPG.modId + ".king_of_scorchers_shot", id++, DivineRPG.instance,
-                64, 3, true);
+        // Projectiles
+        registerProjectile(EntityCaveRock.class, "cave_rock");
+        registerProjectile(EntityDeath.class, "death");
+        registerProjectile(EntityDisk.class, "disk_amthrimis");
+        registerProjectile(EntityEMP.class, "acid_arrow");
+        registerProjectile(EntityFrostCloud.class, "frost_cloud");
+        registerProjectile(EntityFrostShot.class, "frost_shot");
+        registerProjectile(EntityInfernoArrow.class, "inferno_arrow");
+        registerProjectile(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor");
+        registerProjectile(EntityKingOfScorchersShot.class, "king_of_scorchers_shot");
+        registerProjectile(EntityScorcherShot.class, "scorcher_shot");
+        registerProjectile(EntityShuriken.class, "shuriken");
+        registerProjectile(EntitySparkler.class, "sparkler");
+        registerProjectile(EntityVileStorm.class, "vilestorm");
+        registerProjectile(SaguaroWormShot.class, "saguaro_worm_shot");
 
-        Utils.registerProjectile(EntityVileStorm.class, "vilestorm");
-        Utils.registerProjectile(EntityShuriken.class, "shuriken");
-        Utils.registerProjectile(EntityDeath.class, "death");
-        Utils.registerProjectile(EntityDisk.class, "disk_amthrimis");
-        Utils.registerProjectile(EntitySparkler.class, "sparkler");
-        // register advanced mobs
-        id = 100;
-        // arcana
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".deathcryx"),
-                Deathcryx.class, DivineRPG.modId + ".deathcryx", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".death_hound"),
-                DeathHound.class, DivineRPG.modId + ".death_hound", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".dramix"),
-                Dramix.class, DivineRPG.modId + ".dramix", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".dungeon_demon"),
-                DungeonDemon.class, DivineRPG.modId + ".dungeon_demon", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".leorna"),
-                Leorna.class, DivineRPG.modId + ".leorna", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".parasecta"),
-                Parasecta.class, DivineRPG.modId + ".parasecta", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".paratiku"),
-                Paratiku.class, DivineRPG.modId + ".paratiku", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".razorback"),
-                Razorback.class, DivineRPG.modId + ".razorback", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rejuv_golem"),
-                RejuvGolem.class, DivineRPG.modId + ".rejuv_golem", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".roamer"),
-                Roamer.class, DivineRPG.modId + ".roamer", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".seimer"),
-                Seimer.class, DivineRPG.modId + ".seimer", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".wraith"),
-                Wraith.class, DivineRPG.modId + ".wraith", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        id = 200;
-        // iceika
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".alicanto"),
-                Alicanto.class, DivineRPG.modId + ".allicanto", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".fractite"),
-                Fractite.class, DivineRPG.modId + ".fractite", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frosty"),
-                Frosty.class, DivineRPG.modId + ".frosty", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".glacide"),
-                Glacide.class, DivineRPG.modId + ".glacide", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hastreus"),
-                Hastreus.class, DivineRPG.modId + ".hastreus", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rollum"),
-                Rollum.class, DivineRPG.modId + ".rollum", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".workshop_merchant"),
-                WorkshopMerchant.class, DivineRPG.modId + ".workshop_merchant", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".workshop_tinkerer"),
-                WorkshopTinkerer.class, DivineRPG.modId + ".workshop_tinkerer", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost_archer"),
-                FrostArcher.class, DivineRPG.modId + ".frost_archer", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        id = 300;
-        // twilight
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".enchanted_archer"),
-                EnchantedArcher.class, DivineRPG.modId + ".enchanted_archer", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".skythern_archer"),
-                SkythernArcher.class, DivineRPG.modId + ".skythern_archer", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mortum_archer"),
-                MortumArcher.class, DivineRPG.modId + ".mortum_archer", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".angry_bunny"),
-                AngryBunny.class, DivineRPG.modId + ".angry_bunny", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".tamed_angry_bunny"),
-                TameAngryBunny.class, DivineRPG.modId + ".tamed_angry_bunny", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".basalisk"),
-                Basalisk.class, DivineRPG.modId + ".basalisk", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".behemoth"),
-                Bohemoth.class, DivineRPG.modId + ".behemoth", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".bunny"), Bunny.class,
-                DivineRPG.modId + ".bunny", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".eden_cadillion"),
-                EdenCadillion.class, DivineRPG.modId + ".eden_cadillion", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(
-                new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".apalachia_cadillion"),
-                ApalachiaCadillion.class, DivineRPG.modId + ".apalachia_cadillion", id++, DivineRPG.instance, 64, 3,
-                true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mortum_cadillion"),
-                MortumCadillion.class, DivineRPG.modId + ".mortum_cadillion", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".wildwood_cadillion"),
-                WildwoodCadillion.class, DivineRPG.modId + ".wildwood_cadillion", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".eden_cori"),
-                EdenCori.class, DivineRPG.modId + ".eden_cori", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".skythern_cori"),
-                SkythernCori.class, DivineRPG.modId + ".skythern_cori", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".dense_demon"),
-                DenseDemon.class, DivineRPG.modId + ".dense_demon", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".densos"),
-                Densos.class, DivineRPG.modId + ".densos", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".epiphite"),
-                Epiphite.class, DivineRPG.modId + ".epiphite", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".eternal_archer"),
-                EternalArcher.class, DivineRPG.modId + ".eternal_archer", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".greenfeet"),
-                Greenfeet.class, DivineRPG.modId + ".greenfeet", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".karot"), Karot.class,
-                DivineRPG.modId + ".karot", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".madivel"),
-                Madivel.class, DivineRPG.modId + ".madivel", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mage"), Mage.class,
-                DivineRPG.modId + ".mage", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".megalith"),
-                Megalith.class, DivineRPG.modId + ".megalith", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".moon_wolf"),
-                MoonWolf.class, DivineRPG.modId + ".moon_wolf", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mystic"),
-                Mystic.class, DivineRPG.modId + ".mystic", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".samek"), Samek.class,
-                DivineRPG.modId + ".samek", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".skythern_fiend"),
-                SkythernFiend.class, DivineRPG.modId + ".skythern_fiend", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".sorcerer"),
-                Sorcerer.class, DivineRPG.modId + ".sorcerer", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".soul_fiend"),
-                SoulFiend.class, DivineRPG.modId + ".soul_fiend", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".soul_spider"),
-                SoulSpider.class, DivineRPG.modId + ".soul_spider", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".soul_stealer"),
-                SoulStealer.class, DivineRPG.modId + ".soul_stealer", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".sun_archer"),
-                SunArcher.class, DivineRPG.modId + ".sun_archer", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".eden_tomo"),
-                EdenTomo.class, DivineRPG.modId + ".eden_tomo", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".wildwood_tomo"),
-                WildwoodTomo.class, DivineRPG.modId + ".wildwood_tomo", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".apalachia_tomo"),
-                ApalachiaTomo.class, DivineRPG.modId + ".apalachia_tomo", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".twilight_archer"),
-                TwilightArcher.class, DivineRPG.modId + ".twilight_archer", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".twilight_demon"),
-                TwilightDemon.class, DivineRPG.modId + ".twilight_demon", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mortum_demon"),
-                MortumDemon.class, DivineRPG.modId + ".mortum_demon", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".apalachia_golem"),
-                ApalachiaGolem.class, DivineRPG.modId + ".apalachia_golem", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".skythern_golem"),
-                SkythernGolem.class, DivineRPG.modId + ".skythern_golem", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".enchanted_warrior"),
-                EnchantedWarrior.class, DivineRPG.modId + ".enchanted_warrior", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".wildwood_golem"),
-                WildwoodGolem.class, DivineRPG.modId + ".wildwood_golem", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".vamacheron"),
-                Vamecheron.class, DivineRPG.modId + ".vamacheron", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".varek"), Verek.class,
-                DivineRPG.modId + ".varek", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        id = 400;
-        // vanilla
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ancient_entity"),
-                AncientEntity.class, DivineRPG.modId + ".ancient_entity", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".shark"), Shark.class,
-                DivineRPG.modId + ".shark", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".wildfire"),
-                WildFire.class, DivineRPG.modId + ".wildfire", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rotatick"),
-                Rotatick.class, DivineRPG.modId + ".rotatick", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".the_eye"),
-                TheEye.class, DivineRPG.modId + ".the_eye", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ender_triplets"),
-                EnderTriplets.class, DivineRPG.modId + ".ender_triplets", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".the_watcher"),
-                TheWatcher.class, DivineRPG.modId + ".the_watcher", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ayeraco_red"),
-                AyeracoRed.class, DivineRPG.modId + ".ayeraco_red", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ayeraco_blue"),
-                AyeracoBlue.class, DivineRPG.modId + ".ayeraco_blue", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ayeraco_yellow"),
-                AyeracoYellow.class, DivineRPG.modId + ".ayeraco_yellow", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ayeraco_purple"),
-                AyeracoPurple.class, DivineRPG.modId + ".ayeraco_purple", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ayeraco_green"),
-                AyeracoGreen.class, DivineRPG.modId + ".ayeraco_green", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".arid_warrior"),
-                AridWarrior.class, DivineRPG.modId + ".arid_warrior", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".crab"), Crab.class,
-                DivineRPG.modId + ".crab", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".king_crab"),
-                KingCrab.class, DivineRPG.modId + ".king_crab", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".king_of_scorchers"),
-                KingOfScorchers.class, DivineRPG.modId + ".king_of_scorchers", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".jungle_dramcryx"),
-                JungleDramcryx.class, DivineRPG.modId + ".jungle_dramcryx", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(
-                new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".enthralled_dramcryx"),
-                EnthralledDramcryx.class, DivineRPG.modId + ".enthralled_dramcryx", id++, DivineRPG.instance, 64, 3,
-                true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ehu"), Ehu.class,
-                DivineRPG.modId + ".ehu", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        // HERE
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".frost"), Frost.class,
-                DivineRPG.modId + ".frost", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".cave_crawler"),
-                CaveCrawler.class, DivineRPG.modId + ".cave_crawler", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".desert_crawler"),
-                DesertCrawler.class, DivineRPG.modId + ".desert_crawler", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".glacon"),
-                Glacon.class, DivineRPG.modId + ".glacon", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".grizzle"),
-                Grizzle.class, DivineRPG.modId + ".grizzle", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".the_grue"),
-                TheGrue.class, DivineRPG.modId + ".the_grue", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hell_spider"),
-                HellSpider.class, DivineRPG.modId + ".hell_spider", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".husk"), Husk.class,
-                DivineRPG.modId + ".husk", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".miner"), Miner.class,
-                DivineRPG.modId + ".miner", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".jackoman"),
-                JackOMan.class, DivineRPG.modId + ".jackoman", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".jungle_bat"),
-                JungleBat.class, DivineRPG.modId + ".jungle_bat", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".jungle_spider"),
-                JungleSpider.class, DivineRPG.modId + ".jungle_spider", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".kobblin"),
-                Kobblin.class, DivineRPG.modId + ".kobblin", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".liopleurodon"),
-                Liopleurodon.class, DivineRPG.modId + ".liopleurodon", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".livestock_merchant"),
-                LivestockMerchant.class, DivineRPG.modId + ".livestock_merchant", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".pumpkin_spider"),
-                PumpkinSpider.class, DivineRPG.modId + ".pumpkin_spider", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".rainbour"),
-                Rainbour.class, DivineRPG.modId + ".rainbour", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".scorcher"),
-                Scorcher.class, DivineRPG.modId + ".scorcher", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".smelter"),
-                Smelter.class, DivineRPG.modId + ".smelter", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".snapper"),
-                Snapper.class, DivineRPG.modId + ".snapper", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".stone_golem"),
-                StoneGolem.class, DivineRPG.modId + ".stone_golem", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".whale"), Whale.class,
-                DivineRPG.modId + ".whale", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".grizzle_white"),
-                GrizzleWhite.class, DivineRPG.modId + ".grizzle_white", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ender_watcher"),
-                EnderWatcher.class, DivineRPG.modId + ".ender_watcher", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".cyclops"),
-                Cyclops.class, DivineRPG.modId + ".cyclops", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".caveclops"),
-                Caveclops.class, DivineRPG.modId + ".caveclops", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ender_spider"),
-                EnderSpider.class, DivineRPG.modId + ".ender_spider", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hell_pig"),
-                HellPig.class, DivineRPG.modId + ".hell_pig", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".saguaro_worm"),
-                SaguaroWorm.class, DivineRPG.modId + ".saguaro_worm", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
+        // Arcana
+        // registerMobWithEgg(CaptianMerik.class, "captian_merik");
+        // registerMobWithEgg(Constructor.class, "constructor");
+        // registerMobWithEgg(Datticon.class, "datticon");
+        registerMobWithEgg(Deathcryx.class, "deathcryx");
+        registerMobWithEgg(DeathHound.class, "death_hound");
+        registerMobWithEgg(Dramix.class, "dramix");
+        registerMobWithEgg(DungeonDemon.class, "dungeon_demon");
+        // registerMobWithEgg(DungeonPrisoner.class, "dungeon_prisoner");
+        registerMobWithEgg(Leorna.class, "leorna");
+        registerMobWithEgg(Parasecta.class, "parasecta");
+        registerMobWithEgg(Paratiku.class, "paratiku");
+        registerMobWithEgg(Razorback.class, "razorback");
+        registerMobWithEgg(RejuvGolem.class, "rejuv_golem");
+        registerMobWithEgg(Roamer.class, "roamer");
+        registerMobWithEgg(Seimer.class, "seimer");
+        registerMobWithEgg(Wraith.class, "wraith");
 
-        id = 500;
-        // vethia
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".acid_hag"),
-                AcidHag.class, DivineRPG.modId + ".acid_hag", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        // HERE
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".basalisk"),
-                Basalisk.class, DivineRPG.modId + ".basalisk", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".biphron"),
-                Biphron.class, DivineRPG.modId + ".biphron", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".bohemite"),
-                Bohemite.class, DivineRPG.modId + ".bohemite", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".crypt_keeper"),
-                CryptKeeper.class, DivineRPG.modId + ".crypt_keeper", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".cymesoid"),
-                Cymesoid.class, DivineRPG.modId + ".cymesoid", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".dissiment"),
-                Dissiment.class, DivineRPG.modId + ".dissiment", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".dreamwrecker"),
-                Dreamwrecker.class, DivineRPG.modId + ".dreamwrecker", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".duo"), Duo.class,
-                DivineRPG.modId + ".duo", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".ent"), Ent.class,
-                DivineRPG.modId + ".ent", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".galroid"),
-                Galroid.class, DivineRPG.modId + ".galroid", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".gorgosion"),
-                Gorgosion.class, DivineRPG.modId + ".gorgosion", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".helio"), Helio.class,
-                DivineRPG.modId + ".helio", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".herbomancer"),
-                Herbomancer.class, DivineRPG.modId + ".herbomancer", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hive_queen"),
-                HiveQueen.class, DivineRPG.modId + ".hive_queen", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hive_soldier"),
-                HiveSoldier.class, DivineRPG.modId + ".hive_soldier", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".hover_stinger"),
-                HoverStinger.class, DivineRPG.modId + ".hover_stinger", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".karos"), Karos.class,
-                DivineRPG.modId + ".karos", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".kazrotic"),
-                Kazrotic.class, DivineRPG.modId + ".kazrotic", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".lady_luna"),
-                LadyLuna.class, DivineRPG.modId + ".lady_luna", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".lheiva"),
-                Lheiva.class, DivineRPG.modId + ".lheiva", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".lorga"), Lorga.class,
-                DivineRPG.modId + ".lorga", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".lorga_flight"),
-                Lorgaflight.class, DivineRPG.modId + ".lorga_flight", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mandragora"),
-                Mandragora.class, DivineRPG.modId + ".mandragora", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".mysterious_man"),
-                MysteriousMan.class, DivineRPG.modId + ".mysterious_man", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".quadro"),
-                Quadro.class, DivineRPG.modId + ".quadro", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".raglok_gogdure"),
-                RaglokGogdure.class, DivineRPG.modId + ".raglok_gogdure", id++, DivineRPG.instance, 64, 3, true,
-                0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".shadahier"),
-                Shadahier.class, DivineRPG.modId + ".shadahier", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".spinarus"),
-                Spinarus.class, DivineRPG.modId + ".spinarus", id++, DivineRPG.instance, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".tocaxin"),
-                Tocaxin.class, DivineRPG.modId + ".tocaxin", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".twins"), Twins.class,
-                DivineRPG.modId + ".twins", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".vermenous"),
-                Vermenous.class, DivineRPG.modId + ".vermenous", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".vhraak"),
-                Vhraak.class, DivineRPG.modId + ".vhraak", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".wreck_form"),
-                WreckForm.class, DivineRPG.modId + ".wreck_form", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".zone"), Zone.class,
-                DivineRPG.modId + ".zone", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".zoragon"),
-                Zoragon.class, DivineRPG.modId + ".zoragon", id++, DivineRPG.instance, 64, 3, true, 0x00000, 0xff0000);
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + ".the_hunger"),
-                TheHunger.class, DivineRPG.modId + ".the_hunger", id++, DivineRPG.instance, 64, 3, true, 0x00000,
-                0xff0000);
+        // Iceika
+        registerMobWithEgg(Alicanto.class, "alicanto");
+        registerMobWithEgg(Fractite.class, "fractite");
+        registerMobWithEgg(FrostArcher.class, "frost_archer");
+        registerMobWithEgg(Frosty.class, "frosty");
+        registerMobWithEgg(Glacide.class, "glacide");
+        registerMobWithEgg(Hastreus.class, "hastreus");
+        registerMobWithEgg(Rollum.class, "rollum");
+        registerMobWithEgg(WorkshopMerchant.class, "workshop_merchant");
+        registerMobWithEgg(WorkshopTinkerer.class, "workshop_tinkerer");
+
+        // Twilight
+        registerMobWithEgg(AngryBunny.class, "angry_bunny");
+        registerMobWithEgg(ApalachiaCadillion.class, "apalachia_cadillion");
+        registerMobWithEgg(ApalachiaGolem.class, "apalachia_golem");
+        registerMobWithEgg(ApalachiaTomo.class, "apalachia_tomo");
+        registerMobWithEgg(Basalisk.class, "basalisk");
+        registerMobWithEgg(Bohemoth.class, "behemoth");
+        registerMobWithEgg(Bunny.class, "bunny");
+        registerMobWithEgg(DenseDemon.class, "dense_demon");
+        registerMobWithEgg(Densos.class, "densos");
+        registerMobWithEgg(EdenCadillion.class, "eden_cadillion");
+        registerMobWithEgg(EdenCori.class, "eden_cori");
+        registerMobWithEgg(EdenTomo.class, "eden_tomo");
+        registerMobWithEgg(EnchantedArcher.class, "enchanted_archer");
+        registerMobWithEgg(EnchantedWarrior.class, "enchanted_warrior");
+        registerMobWithEgg(Epiphite.class, "epiphite");
+        registerMobWithEgg(EternalArcher.class, "eternal_archer");
+        registerMobWithEgg(Greenfeet.class, "greenfeet");
+        registerMobWithEgg(Karot.class, "karot");
+        registerMobWithEgg(Madivel.class, "madivel");
+        registerMobWithEgg(Mage.class, "mage");
+        registerMobWithEgg(Megalith.class, "megalith");
+        registerMobWithEgg(MoonWolf.class, "moon_wolf");
+        registerMobWithEgg(MortumArcher.class, "mortum_archer");
+        registerMobWithEgg(MortumCadillion.class, "mortum_cadillion");
+        registerMobWithEgg(MortumDemon.class, "mortum_demon");
+        registerMobWithEgg(Mystic.class, "mystic");
+        registerMobWithEgg(Samek.class, "samek");
+        registerMobWithEgg(SkythernArcher.class, "skythern_archer");
+        registerMobWithEgg(SkythernCori.class, "skythern_cori");
+        registerMobWithEgg(SkythernFiend.class, "skythern_fiend");
+        registerMobWithEgg(SkythernGolem.class, "skythern_golem");
+        registerMobWithEgg(Sorcerer.class, "sorcerer");
+        registerMobWithEgg(SoulFiend.class, "soul_fiend");
+        registerMobWithEgg(SoulSpider.class, "soul_spider");
+        registerMobWithEgg(SoulStealer.class, "soul_stealer");
+        registerMobWithEgg(SunArcher.class, "sun_archer");
+        registerMobWithEgg(TameAngryBunny.class, "tamed_angry_bunny");
+        registerMobWithEgg(TwilightArcher.class, "twilight_archer");
+        registerMobWithEgg(TwilightDemon.class, "twilight_demon");
+        registerMobWithEgg(Vamecheron.class, "vamacheron");
+        registerMobWithEgg(Verek.class, "varek");
+        registerMobWithEgg(WildwoodCadillion.class, "wildwood_cadillion");
+        registerMobWithEgg(WildwoodGolem.class, "wildwood_golem");
+        registerMobWithEgg(WildwoodTomo.class, "wildwood_tomo");
+
+        // Vanilla
+        registerMobWithEgg(AncientEntity.class, "ancient_entity");
+        registerMobWithEgg(AridWarrior.class, "arid_warrior");
+        registerMobWithEgg(AyeracoBlue.class, "ayeraco_blue");
+        registerMobWithEgg(AyeracoGreen.class, "ayeraco_green");
+        registerMobWithEgg(AyeracoPurple.class, "ayeraco_purple");
+        registerMobWithEgg(AyeracoRed.class, "ayeraco_red");
+        registerMobWithEgg(AyeracoYellow.class, "ayeraco_yellow");
+        registerMobWithEgg(CaveCrawler.class, "cave_crawler");
+        registerMobWithEgg(Caveclops.class, "caveclops");
+        registerMobWithEgg(Crab.class, "crab");
+        registerMobWithEgg(Cyclops.class, "cyclops");
+        registerMobWithEgg(DesertCrawler.class, "desert_crawler");
+        registerMobWithEgg(Ehu.class, "ehu");
+        registerMobWithEgg(EnderSpider.class, "ender_spider");
+        registerMobWithEgg(EnderTriplets.class, "ender_triplets");
+        registerMobWithEgg(EnderWatcher.class, "ender_watcher");
+        registerMobWithEgg(EnthralledDramcryx.class, "enthralled_dramcryx");
+        registerMobWithEgg(Frost.class, "frost");
+        registerMobWithEgg(Glacon.class, "glacon");
+        registerMobWithEgg(Grizzle.class, "grizzle");
+        registerMobWithEgg(GrizzleWhite.class, "grizzle_white");
+        registerMobWithEgg(HellPig.class, "hell_pig");
+        registerMobWithEgg(HellSpider.class, "hell_spider");
+        registerMobWithEgg(Husk.class, "husk");
+        registerMobWithEgg(JackOMan.class, "jackoman");
+        registerMobWithEgg(JungleBat.class, "jungle_bat");
+        registerMobWithEgg(JungleDramcryx.class, "jungle_dramcryx");
+        registerMobWithEgg(JungleSpider.class, "jungle_spider");
+        registerMobWithEgg(KingCrab.class, "king_crab");
+        registerMobWithEgg(KingOfScorchers.class, "king_of_scorchers");
+        registerMobWithEgg(Kobblin.class, "kobblin");
+        registerMobWithEgg(Liopleurodon.class, "liopleurodon");
+        registerMobWithEgg(LivestockMerchant.class, "livestock_merchant");
+        registerMobWithEgg(Miner.class, "miner");
+        registerMobWithEgg(PumpkinSpider.class, "pumpkin_spider");
+        registerMobWithEgg(Rainbour.class, "rainbour");
+        registerMobWithEgg(Rotatick.class, "rotatick");
+        registerMobWithEgg(SaguaroWorm.class, "saguaro_worm");
+        registerMobWithEgg(Scorcher.class, "scorcher");
+        registerMobWithEgg(Shark.class, "shark");
+        registerMobWithEgg(Smelter.class, "smelter");
+        registerMobWithEgg(Snapper.class, "snapper");
+        registerMobWithEgg(StoneGolem.class, "stone_golem");
+        registerMobWithEgg(TheEye.class, "the_eye");
+        registerMobWithEgg(TheGrue.class, "the_grue");
+        registerMobWithEgg(TheWatcher.class, "the_watcher");
+        registerMobWithEgg(Whale.class, "whale");
+        registerMobWithEgg(WildFire.class, "wildfire");
+
+        // Vethia
+        registerMobWithEgg(AcidHag.class, "acid_hag");
+        registerMobWithEgg(Biphron.class, "biphron");
+        registerMobWithEgg(Bohemite.class, "bohemite");
+        registerMobWithEgg(CryptKeeper.class, "crypt_keeper");
+        registerMobWithEgg(Cymesoid.class, "cymesoid");
+        registerMobWithEgg(Dissiment.class, "dissiment");
+        registerMobWithEgg(Dreamwrecker.class, "dreamwrecker");
+        registerMobWithEgg(Duo.class, "duo");
+        registerMobWithEgg(Ent.class, "ent");
+        registerMobWithEgg(Galroid.class, "galroid");
+        registerMobWithEgg(Gorgosion.class, "gorgosion");
+        registerMobWithEgg(Helio.class, "helio");
+        registerMobWithEgg(Herbomancer.class, "herbomancer");
+        registerMobWithEgg(HiveQueen.class, "hive_queen");
+        registerMobWithEgg(HiveSoldier.class, "hive_soldier");
+        registerMobWithEgg(HoverStinger.class, "hover_stinger");
+        registerMobWithEgg(Karos.class, "karos");
+        registerMobWithEgg(Kazrotic.class, "kazrotic");
+        registerMobWithEgg(LadyLuna.class, "lady_luna");
+        registerMobWithEgg(Lheiva.class, "lheiva");
+        registerMobWithEgg(Lorga.class, "lorga");
+        registerMobWithEgg(Lorgaflight.class, "lorga_flight");
+        registerMobWithEgg(Mandragora.class, "mandragora");
+        registerMobWithEgg(MysteriousMan.class, "mysterious_man");
+        registerMobWithEgg(Quadro.class, "quadro");
+        registerMobWithEgg(RaglokGogdure.class, "raglok_gogdure");
+        registerMobWithEgg(Shadahier.class, "shadahier");
+        registerMobWithEgg(Spinarus.class, "spinarus");
+        registerMobWithEgg(TheHunger.class, "the_hunger");
+        registerMobWithEgg(Tocaxin.class, "tocaxin");
+        registerMobWithEgg(Twins.class, "twins");
+        registerMobWithEgg(Vermenous.class, "vermenous");
+        registerMobWithEgg(Vhraak.class, "vhraak");
+        registerMobWithEgg(WreckForm.class, "wreck_form");
+        registerMobWithEgg(Zone.class, "zone");
+        registerMobWithEgg(Zoragon.class, "zoragon");
 
         if (Config.debug) {
             DivineRPG.logger.info(DivineRPG.modId + " entities have been loaded");
         }
-
     }
 
     public static void initLoot() {
-        // loot
-        LootTableList.register(JungleDramcryx.LOOT);
-        LootTableList.register(Shark.LOOT);
-        LootTableList.register(WildFire.LOOT);
-        LootTableList.register(Rotatick.LOOT);
-        LootTableList.register(EnderTriplets.LOOT);
-        LootTableList.register(Leorna.LOOT);
-        LootTableList.register(Parasecta.LOOT);
-        LootTableList.register(Paratiku.LOOT);
         LootTableList.register(AcidHag.LOOT);
-        LootTableList.register(Razorback.LOOT);
-        LootTableList.register(RejuvGolem.LOOT);
-        LootTableList.register(Roamer.LOOT);
-        LootTableList.register(Seimer.LOOT);
-        LootTableList.register(Wraith.LOOT);
-        LootTableList.register(HellSpider.LOOT);
         LootTableList.register(Alicanto.LOOT);
-        LootTableList.register(Fractite.LOOT);
-        LootTableList.register(Frosty.LOOT);
-        LootTableList.register(Glacide.LOOT);
-        LootTableList.register(Hastreus.LOOT);
-        LootTableList.register(Rollum.LOOT);
         LootTableList.register(AngryBunny.LOOT);
+        LootTableList.register(ApalachiaGolem.LOOT);
+        LootTableList.register(AridWarrior.LOOT);
+        LootTableList.register(AyeracoBlue.LOOT);
+        LootTableList.register(AyeracoGreen.LOOT);
+        LootTableList.register(AyeracoPurple.LOOT);
+        LootTableList.register(AyeracoRed.LOOT);
+        LootTableList.register(AyeracoYellow.LOOT);
         LootTableList.register(Basalisk.LOOT);
         LootTableList.register(Bohemoth.LOOT);
         LootTableList.register(Bunny.LOOT);
-        LootTableList.register(EdenCadillion.LOOT);
-        LootTableList.register(EdenCori.LOOT);
+        LootTableList.register(CaveCrawler.LOOT);
+        LootTableList.register(Caveclops.LOOT);
+        LootTableList.register(Crab.LOOT);
+        LootTableList.register(Cyclops.LOOT);
         LootTableList.register(DenseDemon.LOOT);
         LootTableList.register(Densos.LOOT);
+        LootTableList.register(DesertCrawler.LOOT);
+        LootTableList.register(EdenCadillion.LOOT);
+        LootTableList.register(EdenCori.LOOT);
+        LootTableList.register(EdenTomo.LOOT);
         LootTableList.register(EnchantedArcher.LOOT);
         LootTableList.register(EnchantedWarrior.LOOT);
+        LootTableList.register(EnderSpider.LOOT);
+        LootTableList.register(EnderTriplets.LOOT);
+        LootTableList.register(EnderWatcher.LOOT);
+        LootTableList.register(EnthralledDramcryx.LOOT);
         LootTableList.register(Epiphite.LOOT);
         LootTableList.register(EternalArcher.LOOT);
+        LootTableList.register(Fractite.LOOT);
+        LootTableList.register(Frost.LOOT);
+        LootTableList.register(Frosty.LOOT);
+        LootTableList.register(Glacide.LOOT);
+        LootTableList.register(Glacon.LOOT);
         LootTableList.register(Greenfeet.LOOT);
+        LootTableList.register(Hastreus.LOOT);
+        LootTableList.register(HellSpider.LOOT);
+        LootTableList.register(JackOMan.LOOT);
+        LootTableList.register(JungleBat.LOOT);
+        LootTableList.register(JungleDramcryx.LOOT);
+        LootTableList.register(JungleSpider.LOOT);
         LootTableList.register(Karot.LOOT);
+        LootTableList.register(KingCrab.LOOT);
+        LootTableList.register(KingOfScorchers.LOOT);
+        LootTableList.register(Kobblin.LOOT);
+        LootTableList.register(Leorna.LOOT);
+        LootTableList.register(Liopleurodon.LOOT);
+        LootTableList.register(LivestockMerchant.LOOT);
         LootTableList.register(Madivel.LOOT);
         LootTableList.register(Mage.LOOT);
         LootTableList.register(Megalith.LOOT);
+        LootTableList.register(Miner.LOOT);
         LootTableList.register(MoonWolf.LOOT);
         LootTableList.register(Mystic.LOOT);
+        LootTableList.register(Parasecta.LOOT);
+        LootTableList.register(Paratiku.LOOT);
+        LootTableList.register(PumpkinSpider.LOOT);
+        LootTableList.register(Rainbour.LOOT);
+        LootTableList.register(Razorback.LOOT);
+        LootTableList.register(RejuvGolem.LOOT);
+        LootTableList.register(Roamer.LOOT);
+        LootTableList.register(Rollum.LOOT);
+        LootTableList.register(Rotatick.LOOT);
         LootTableList.register(Samek.LOOT);
+        LootTableList.register(Scorcher.LOOT);
+        LootTableList.register(Seimer.LOOT);
+        LootTableList.register(Shark.LOOT);
         LootTableList.register(SkythernFiend.LOOT);
         LootTableList.register(Sorcerer.LOOT);
         LootTableList.register(SoulFiend.LOOT);
         LootTableList.register(SoulSpider.LOOT);
         LootTableList.register(SoulStealer.LOOT);
         LootTableList.register(SunArcher.LOOT);
-        LootTableList.register(EdenTomo.LOOT);
+        LootTableList.register(TameAngryBunny.LOOT);
+        LootTableList.register(TheEye.LOOT);
+        LootTableList.register(TheGrue.LOOT);
+        LootTableList.register(TheWatcher.LOOT);
         LootTableList.register(TwilightArcher.LOOT);
         LootTableList.register(TwilightDemon.LOOT);
-        LootTableList.register(ApalachiaGolem.LOOT);
-        LootTableList.register(AyeracoRed.LOOT);
-        LootTableList.register(AyeracoBlue.LOOT);
-        LootTableList.register(AyeracoYellow.LOOT);
-        LootTableList.register(AyeracoPurple.LOOT);
-        LootTableList.register(AyeracoGreen.LOOT);
-        LootTableList.register(AridWarrior.LOOT);
-        LootTableList.register(Crab.LOOT);
-        LootTableList.register(KingCrab.LOOT);
-        LootTableList.register(KingOfScorchers.LOOT);
-        LootTableList.register(EnthralledDramcryx.LOOT);
-        LootTableList.register(TameAngryBunny.LOOT);
-        LootTableList.register(Frost.LOOT);
-        LootTableList.register(CaveCrawler.LOOT);
-        LootTableList.register(DesertCrawler.LOOT);
-        LootTableList.register(Glacon.LOOT);
-        LootTableList.register(TheGrue.LOOT);
-        LootTableList.register(Miner.LOOT);
-        LootTableList.register(JackOMan.LOOT);
-        LootTableList.register(JungleBat.LOOT);
-        LootTableList.register(JungleSpider.LOOT);
-        LootTableList.register(Kobblin.LOOT);
-        LootTableList.register(Liopleurodon.LOOT);
-        LootTableList.register(LivestockMerchant.LOOT);
-        LootTableList.register(PumpkinSpider.LOOT);
-        LootTableList.register(Rainbour.LOOT);
-        LootTableList.register(Scorcher.LOOT);
-        LootTableList.register(Whale.LOOT);
-        LootTableList.register(EnderWatcher.LOOT);
         LootTableList.register(Verek.LOOT);
-        LootTableList.register(TheEye.LOOT);
-        LootTableList.register(TheWatcher.LOOT);
-        LootTableList.register(Cyclops.LOOT);
-        LootTableList.register(Caveclops.LOOT);
-        LootTableList.register(EnderSpider.LOOT);
+        LootTableList.register(Whale.LOOT);
+        LootTableList.register(WildFire.LOOT);
+        LootTableList.register(Wraith.LOOT);
 
         if (Config.debug) {
             DivineRPG.logger.info(DivineRPG.modId + " loot has been loaded");
@@ -876,7 +611,19 @@ public class ModEntities {
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
-        // arcana
+        // Projectiles
+        EntityVileStorm.renderMe();
+        EntityCaveRock.renderMe();
+        EntityFrostShot.renderMe();
+        EntityFrostCloud.renderMe();
+        SaguaroWormShot.renderMe();
+        EntityKingOfScorchersMeteor.renderMe();
+        EntityKingOfScorchersShot.renderMe();
+        EntityScorcherShot.renderMe();
+        EntityEMP.renderMe();
+        RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class, manager -> new RenderProjectile(ModItems.shuriken));
+
+        // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(DeathHound.class, RenderDeathHound.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(DungeonDemon.class, RenderDungeonDemon.FACTORY);
@@ -890,7 +637,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
 
-        // iceika
+        // Iceika
         RenderingRegistry.registerEntityRenderingHandler(Alicanto.class, RenderAlicanto.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(FrostArcher.class, RenderFrostArcher.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Fractite.class, RenderFractite.FACTORY);
@@ -901,7 +648,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(WorkshopTinkerer.class, RenderWorkshopTinkerer.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(WorkshopMerchant.class, RenderWorkshopMerchant.FACTORY);
 
-        // twilight
+        // Twilight
         RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Basalisk.class, RenderBasalisk.FACTORY);
@@ -947,7 +694,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
 
-        // vanilla
+        // Vanilla
         RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Shark.class, RenderShark.FACTORY);
@@ -997,7 +744,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
 
-        // vethia
+        // Vethia
         RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Basalisk.class, RenderBasalisk.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Biphron.class, RenderBiphron.FACTORY);
@@ -1035,21 +782,10 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TheHunger.class, RenderTheHunger.FACTORY);
-        // other
+
+        // Other
         RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
 
-        // Projectiles
-        EntityVileStorm.renderMe();
-        EntityCaveRock.renderMe();
-        EntityFrostShot.renderMe();
-        EntityFrostCloud.renderMe();
-        SaguaroWormShot.renderMe();
-        EntityKingOfScorchersMeteor.renderMe();
-        EntityKingOfScorchersShot.renderMe();
-        EntityEMP.renderMe();
-
-        RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
-                manager -> new RenderProjectile(ModItems.shuriken));
     }
 
     public static void initSpawns() {
@@ -1168,8 +904,7 @@ public class ModEntities {
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)) {
                 EntityRegistry.addSpawn(Kobblin.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
             }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)
-                    || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
+            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS) || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
                 EntityRegistry.addSpawn(Cyclops.class, 80, 2, 4, EnumCreatureType.MONSTER, biome);
             }
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.FOREST)) {
@@ -1180,5 +915,20 @@ public class ModEntities {
                 DivineRPG.logger.info(DivineRPG.modId + " spawns have been loaded");
             }
         }
+    }
+
+    public static void registerMobWithEgg(Class entityClass, String entityName) {
+        entityName = DivineRPG.modId + "." + entityName;
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
+    }
+
+    public void registerEgglessMob(Class entityClass, String entityName) {
+        entityName = DivineRPG.modId + "." + entityName;
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true);
+    }
+
+    public static void registerProjectile(Class entityClass, String entityName) {
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + "." + entityName), entityClass, DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
+        projectileID++;
     }
 }

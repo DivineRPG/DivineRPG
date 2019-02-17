@@ -26,7 +26,7 @@ public class EntityFrostShot extends EntityFireball {
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
         RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class,
-                manager -> new RenderFrostShot(manager, 1f));
+                manager -> new RenderFrostShot(manager, 0.75f));
     }
 
     public EntityFrostShot(World worldIn) {
