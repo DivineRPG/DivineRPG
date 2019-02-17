@@ -389,12 +389,6 @@ public class ModItems {
 	public static WitherReaper witherreaperBoots = new WitherReaper(DivineRPGMaterials.witherreaperArmorMaterial,
 	        EntityEquipmentSlot.FEET, "wither_reaper_boots");
 	public static ItemBase bandHeivaHunt = new ItemBase("band_heiva_hunt");
-	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeSwordMaterial, "shickaxe_rupee",
-	        950, 2);
-	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteSwordMaterial,
-	        "shickaxe_arlemite", 1000, 2);
-	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineSwordMaterial,
-	        "shickaxe_divine", 1250, 3);
 	public static ItemBase templateDisc = new ItemBase("template_disc");
 	public static ItemBase templateCannon = new ItemBase("template_cannon");
 	public static ItemBase templateBacksword = new ItemBase("template_backsword");
@@ -580,6 +574,12 @@ public class ModItems {
 	public static HoeBase arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteHoeMaterial, "hoe_arlemite");
 	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeHoeMaterial, "hoe_rupee");
 	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteHoeMaterial, "hoe_realmite");
+	public static ShickaxeBase rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeShickaxeMaterial,
+	        "shickaxe_rupee");
+	public static ShickaxeBase arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteShickaxeMaterial,
+	        "shickaxe_arlemite");
+	public static ShickaxeBase divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineShickaxeMaterial,
+	        "shickaxe_divine");
 	public static ItemBase crabClaw = new ItemBase("claw_crab");
 	public static SwordBase crabClawDual = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "claw_crab_dual");
 	public static CannonBase crabClawAnchor = new CannonBase("anchor_claw_crab");

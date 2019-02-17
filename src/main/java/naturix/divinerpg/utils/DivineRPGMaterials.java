@@ -1,9 +1,11 @@
 package naturix.divinerpg.utils;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class DivineRPGMaterials {
@@ -153,6 +155,13 @@ public class DivineRPGMaterials {
 	        4.0F, 3.0F, 1);
 	public static final Item.ToolMaterial realmiteHoeMaterial = EnumHelper.addToolMaterial("hoe_realmite", 1, 4000,
 	        5.0F, 4.0F, 1);
+	public static final Item.ToolMaterial rupeeShickaxeMaterial = EnumHelper.addToolMaterial("shickaxe_rupee", 6, 0,
+	        16.0F, 8.0F, 15);
+	public static final Item.ToolMaterial arlemiteShickaxeMaterial = EnumHelper
+	        .addToolMaterial("shickaxe_arlemite", 6, 12000, 13.0F, 8.0F, 15)
+	        .setRepairItem(new ItemStack(ModItems.ingotArlemite));
+	public static final Item.ToolMaterial divineShickaxeMaterial = EnumHelper.addToolMaterial("shickaxe_divine", 8, 0,
+	        20.0F, 9.0F, 10);
 
 	// name, textureName, durability, reductionAmounts, enchantability,
 	// soundOnEquip, toughness);
