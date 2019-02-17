@@ -768,6 +768,7 @@ message.ayeraco.purple=The Purple Ayeraco has been called upon
 message.ayeraco.spawn=The Ayeraco Horde has arrived!
 
 tooltip.uses=# Uses Remaining
+tooltip.harvest=Harvest Level: +
 tooltip.uses.infinite=Infinite Uses
 tooltip.arcana=Consumes # Arcana
 tooltip.arcana.regen=Replenishes # Arcana

@@ -577,9 +577,9 @@ public class ModItems {
 	public static ShovelBase rupeeShovel = new ShovelBase(DivineRPGMaterials.rupeeShovelMaterial, "shovel_rupee");
 	public static ShovelBase bedrockShovel = new ShovelBase(DivineRPGMaterials.bedrockShovelMaterial, "shovel_bedrock");
 
-	public static HoeBase arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteSwordMaterial, "hoe_arlemite", 0, 0);
-	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeSwordMaterial, "hoe_rupee", 0, 0);
-	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteSwordMaterial, "hoe_realmite", 0, 0);
+	public static HoeBase arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteHoeMaterial, "hoe_arlemite");
+	public static HoeBase rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeHoeMaterial, "hoe_rupee");
+	public static HoeBase realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteHoeMaterial, "hoe_realmite");
 	public static ItemBase crabClaw = new ItemBase("claw_crab");
 	public static SwordBase crabClawDual = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "claw_crab_dual");
 	public static CannonBase crabClawAnchor = new CannonBase("anchor_claw_crab");
