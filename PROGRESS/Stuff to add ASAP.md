@@ -1,4 +1,4 @@
-Blocks:
+#Blocks:
 + Fyracryx Spawner
 + Siemer spawner
 + Paratiku spawner
@@ -21,8 +21,7 @@ Blocks:
 + dream dirt
 + smooth glass
 + firelight
-
-Items:
+#Items:
 + Shadow coin
 + overworldegg
 + grizzle egg
