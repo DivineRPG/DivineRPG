@@ -2,8 +2,10 @@ package naturix.divinerpg.dimensions.eden.worldgen.trees;
 
 
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -29,30 +31,31 @@ public class LargeEdenAbstractTree extends WorldGenAbstractTree {
     public boolean generate(World world, Random random, BlockPos blockPos) {
         int trunkHeight = random.nextInt(4) + minTrunkHeight;
         int treeHeight = 10 + trunkHeight;
-        Material materialBelow = world.getBlockState(blockPos.down()).getMaterial();
+        BlockPos pos = new BlockPos(blockPos.getX(), blockPos.getY() - 1, blockPos.getZ());
 
-        //return false if these conditions are met
-        if (blockPos.getY() <= 13 && blockPos.getY() + treeHeight + 1 >= world.getHeight() || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
+        if (blockPos.getY() < 1 || blockPos.getY() + treeHeight + 1 > 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassEden || blockPos.getY() >= 256 - treeHeight - 1) {
             return false;
+        } else {
+            buildLeaves1(world, blockPos, trunkHeight + 2);
+            buildLeaves2(world, blockPos, trunkHeight + 3);
+            buildLeaves3(world, blockPos, trunkHeight + 4);
+            buildLeaves4(world, blockPos, trunkHeight + 5);
+            buildLeaves5(world, blockPos, trunkHeight + 6);
+            buildLeaves4(world, blockPos, trunkHeight + 7);
+            buildLeaves6(world, blockPos, trunkHeight + 8);
+            buildLeaves6(world, blockPos, treeHeight);
+            buildTrunk(world, blockPos, treeHeight);
+            buildBranchBase(world, blockPos, trunkHeight);
+            buildBranches(world, blockPos, trunkHeight + 2);
+            buildBranchBase(world, blockPos, trunkHeight + 4);
+            buildBranches2(world, blockPos, trunkHeight + 6);
+            setTreeHeight(world, blockPos, treeHeight);
+            return true;
         }
 
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
-        buildLeaves1(world, blockPos, trunkHeight + 2);
-        buildLeaves2(world, blockPos, trunkHeight + 3);
-        buildLeaves3(world, blockPos, trunkHeight + 4);
-        buildLeaves4(world, blockPos, trunkHeight + 5);
-        buildLeaves5(world, blockPos, trunkHeight + 6);
-        buildLeaves4(world, blockPos, trunkHeight + 7);
-        buildLeaves6(world, blockPos, trunkHeight + 8);
-        buildLeaves6(world, blockPos, treeHeight);
-        buildTrunk(world, blockPos, treeHeight);
-        buildBranchBase(world, blockPos, trunkHeight);
-        buildBranches(world, blockPos, trunkHeight + 2);
-        buildBranchBase(world, blockPos, trunkHeight + 4);
-        buildBranches2(world, blockPos, trunkHeight + 6);
-        setTreeHeight(world, blockPos, treeHeight);
-        return true;
+
     }
 
     private void buildLeaves6(World world, BlockPos blockPos, int height) {

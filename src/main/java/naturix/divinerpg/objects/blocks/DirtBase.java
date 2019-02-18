@@ -11,7 +11,7 @@ import net.minecraft.util.NonNullList;
 
 public class DirtBase extends BlockBase {
 
-	public DirtBase(String name, Material material) {
+	public DirtBase(String name) {
 		super(Material.GROUND, name);
 		setCreativeTab(DivineRPG.BlocksTab);
 		this.setHardness(1f);

@@ -31,7 +31,7 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         int randBranchNum = 0;
         Material materialBelow = worldIn.getBlockState(position.down()).getMaterial();
 
-        if (position.getY() <= 13 && position.getY() + treeHeight + 1 >= worldIn.getHeight() || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
+        if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256 || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.grassEden || position.getY() >= 256 - treeHeight - 1) {
             return false;
         }
         
@@ -43,11 +43,6 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
-        this.setBlockAndNotifyAdequately(world, pos.add(1, 1, 0), log);
-        this.setBlockAndNotifyAdequately(world, pos.add(0, 1, 1), log);
-        this.setBlockAndNotifyAdequately(world, pos.add(-1, 1, 0), log);
-        this.setBlockAndNotifyAdequately(world, pos.add(0, 1, -1), log);
-        drawLeafCircle(world, pos.add(0, 0, 0), 2, log);
         drawLeafCircle(world, pos.add(0, extraHeight - 1, 0), 1, leaves);
         drawLeafCircle(world, pos.add(0, extraHeight, 0), 2, leaves);
         drawLeafCircle(world, pos.add(0, extraHeight + 1, 0), 1, leaves);
@@ -65,7 +60,6 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
                     dist = 6;
                 }
                 if (dx == 0) {
-                    // two!
                     if (dz < rad) {
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), baseState);
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), baseState);
@@ -74,7 +68,6 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), leaves);
                     }
                 } else if (dz == 0) {
-                    // two!
                     if (dx < rad) {
                         setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), baseState);
                         setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), baseState);
@@ -83,13 +76,11 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
                         setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), leaves);
                     }
                 } else if (dist < rad) {
-                    // do four at a time for easiness!
                     setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), baseState);
                     setBlockAndNotifyAdequately(world, pos.add(dx, 0, -dz), baseState);
                     setBlockAndNotifyAdequately(world, pos.add(-dx, 0, dz), baseState);
                     setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), baseState);
                 } else if (dist == rad) {
-                    // do four at a time for easiness!
                     setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), leaves);
                     setBlockAndNotifyAdequately(world, pos.add(dx, 0, -dz), leaves);
                     setBlockAndNotifyAdequately(world, pos.add(-dx, 0, dz), leaves);

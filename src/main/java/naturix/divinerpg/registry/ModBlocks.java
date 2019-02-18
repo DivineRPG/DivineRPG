@@ -160,7 +160,7 @@ public class ModBlocks {
 	public static FireBase blueFire = new FireBase("fire_blue");
 	public static BlockBase rockDivine = new BlockBase("rock_divine");
 	public static BlockBase rockTwilight = new BlockBase("rock_twilight");
-	public static BlockBase dirtEden = new BlockBase("dirt_eden");
+	public static DirtBase dirtEden = new DirtBase("dirt_eden");
 	public static GrassBase grassEden = new GrassBase("grass_eden");
 	public static BedBase bedDream = new BedBase("bed_dream");
 	public static GrassBase grassWild = new GrassBase("grass_wildwood");
@@ -177,7 +177,7 @@ public class ModBlocks {
 	public static BlockBase dirtMortum = new BlockBase("dirt_mortum");
 	public static MortumPortal portalMortum = new MortumPortal("portal_mortum", ModBlocks.blueFire);
 	public static GrassBase grassIceika = new GrassBase("grass_iceika");
-	public static DirtBase dirtIceika = new DirtBase("dirt_iceika", Material.GROUND);
+	public static DirtBase dirtIceika = new DirtBase("dirt_iceika");
 	public static IceikaPortal portalIceika = new IceikaPortal("portal_iceika", ModBlocks.blueFire);
 	public static BlockBase stoneFrozen = new BlockBase(Material.ROCK, "stone_frozen");
 	public static BlockBase stoneIcy = new BlockBase("stone_icy");
