@@ -76,68 +76,36 @@ public class ContainerCoalstoneFurnace extends Container {
     }
 
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
-    {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.inventorySlots.get(index);
-        /**
-        if (slot != null && slot.getHasStack())
-        {
-            ItemStack itemstack1 = slot.getStack();
-            itemstack = itemstack1.copy();
+    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+        //TODO Fix non coalstone furnace recipe items from entering the input slot
+        ItemStack previous = ItemStack.EMPTY;
+        Slot slot = (Slot) this.inventorySlots.get(index);
 
-            if (index == 1)
-            {
-                if (!this.mergeItemStack(itemstack1, 2, 38, true))
-                {
+        if (slot != null && slot.getHasStack()) {
+            ItemStack current = slot.getStack();
+            previous = current.copy();
+            int inventorySize = tileEntity.getSizeInventory();
+
+            if (index < inventorySize) {
+                // From container inventory to player's inventory
+                if (!this.mergeItemStack(current, inventorySize, inventorySize + 36, true)) {
                     return ItemStack.EMPTY;
                 }
-
-                slot.onSlotChange(itemstack1, itemstack);
-            }
-            else if (index != 1)
-            {
-                if (!FurnaceRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
-                {
-                    if (!this.mergeItemStack(itemstack1, 0, 1, false))
-                    {
-                        return ItemStack.EMPTY;
-                    }
-                }
-                else if (index >= 1 && index < 28)
-                {
-                    if (!this.mergeItemStack(itemstack1, 28, 37, false))
-                    {
-                        return ItemStack.EMPTY;
-                    }
-                }
-                else if (index >= 28 && index < 37 && !this.mergeItemStack(itemstack1, 1, 28, false))
-                {
+            } else {
+                // From the player's inventory to container
+                if (!this.mergeItemStack(current, 0, 1, false))
                     return ItemStack.EMPTY;
-                }
-            }
-            else if (!this.mergeItemStack(itemstack1, 1, 37, false))
-            {
-                return ItemStack.EMPTY;
-            }
 
-            if (itemstack1.isEmpty())
-            {
-                slot.putStack(ItemStack.EMPTY);
-            }
-            else
-            {
-                slot.onSlotChanged();
-            }
+                if (current.getCount() == 0)
+                    slot.putStack(ItemStack.EMPTY);
+                else
+                    slot.onSlotChanged();
 
-            if (itemstack1.getCount() == itemstack.getCount())
-            {
-                return ItemStack.EMPTY;
+                if (current.getCount() == previous.getCount())
+                    return null;
+                slot.onTake(playerIn, current);
             }
-
-            slot.onTake(playerIn, itemstack1);
-        }*/
-
-        return itemstack;
+        }
+        return previous;
     }
 }
