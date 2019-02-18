@@ -1,8 +1,6 @@
 package naturix.divinerpg.world.biomes;
 
-import naturix.divinerpg.dimensions.iceika.worldgen.trees.LargeExtraThiccIceTree;
-import naturix.divinerpg.dimensions.iceika.worldgen.trees.LargeThiccIceTree;
-import naturix.divinerpg.dimensions.iceika.worldgen.trees.LargeThinIceTree;
+import naturix.divinerpg.dimensions.iceika.worldgen.trees.WorldGenIceTree;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
@@ -68,14 +66,6 @@ public class BiomeIceika extends Biome {
 		return TempCategory.COLD;
 	}
 
-	/**@Override
-    public WorldGenAbstractTree getRandomTreeFeature(Random random) {
-			if (random.nextInt(3) == 1) {
-				return new LargeFrozenTree(false, 5);
-			}
-			return new LargeThinIceTree(false, LargeThinIceTree.getDefaultMinTrunkHeight());
-    }*/
-
 	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
 		this.generateIceikaTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
@@ -83,33 +73,16 @@ public class BiomeIceika extends Biome {
 
 	@Override
 	public void decorate(World worldIn, Random rand, BlockPos pos) {
-
-		LargeThinIceTree genThinIceTree = new LargeThinIceTree(true, LargeThinIceTree.getDefaultMinTrunkHeight());
-		LargeThiccIceTree genLargeThiccIceTree = new LargeThiccIceTree(true, LargeThiccIceTree.getDefaultMinTrunkHeight());
-		LargeExtraThiccIceTree genLargeExtraThiccIceTree = new LargeExtraThiccIceTree(true, LargeExtraThiccIceTree.getDefaultMinTrunkHeight());
 		WorldGenTallGrass tallGrass = new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
+		WorldGenIceTree genIceTree = new WorldGenIceTree();
 
 		BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 40; i++) {
 			int rx = pos.getX() + rand.nextInt(16) + 8;
 			int ry = worldIn.getSeaLevel() + rand.nextInt(60);
 			int rz = pos.getZ() + rand.nextInt(16) + 8;
 			mutPos.setPos(rx, ry, rz);
-			genLargeExtraThiccIceTree.generate(worldIn, rand, mutPos);
-		}
-		for (int i = 0; i < 7; i++) {
-			int rx = pos.getX() + rand.nextInt(16) + 8;
-			int ry = worldIn.getSeaLevel() + rand.nextInt(60);
-			int rz = pos.getZ() + rand.nextInt(16) + 8;
-			mutPos.setPos(rx, ry, rz);
-			genThinIceTree.generate(worldIn, rand, mutPos);
-		}
-		for (int i = 0; i < 10; i++) {
-			int rx = pos.getX() + rand.nextInt(16) + 8;
-			int ry = worldIn.getSeaLevel() + rand.nextInt(60);
-			int rz = pos.getZ() + rand.nextInt(16) + 8;
-			mutPos.setPos(rx, ry, rz);
-			genLargeThiccIceTree.generate(worldIn, rand, mutPos);
+			genIceTree.generate(worldIn, rand, mutPos);
 		}
 		for (int i = 0; i < 1; i++) {
 			int rx = pos.getX() + rand.nextInt(16) + 8;
