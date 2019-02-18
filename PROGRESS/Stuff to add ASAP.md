@@ -1,6 +1,5 @@
 # Blocks:
 + Fyracryx Spawner
-+ Siemer spawner
 + Paratiku spawner
 + Golem Spawner (1)
 + Arcana Dirt

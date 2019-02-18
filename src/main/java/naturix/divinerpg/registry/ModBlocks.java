@@ -194,7 +194,7 @@ public class ModBlocks {
 	public static WorkshopCarpet workshopCarpet = new WorkshopCarpet("workshop_carpet");
 	public static CoalstoneFurnace coalstoneFurnace = new CoalstoneFurnace("coalstone_furnace");
 	public static final IceikaChest iceikaChest = new IceikaChest("iceika_chest");
-
+	public static BlockModSpawner spawnerSeimer = new BlockModSpawner("spawner_seimer", DivineRPG.modId + ".seimer");
 	// Has a unique class because i dont have a method for universal itemblocks for
 	// doors - LiteWolf101
 	public static SteelDoor steelDoor = new SteelDoor("steel_door", Material.ANVIL);
@@ -236,7 +236,7 @@ public class ModBlocks {
 		        dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern, grassMortum, dirtMortum,
 		        portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy, bricksIceika, spawnerArcher,
 		        spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase, frostedGlass,
-		        workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest);
+		        workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, spawnerSeimer);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class,
 		        new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class,
@@ -305,7 +305,7 @@ public class ModBlocks {
 		        spawnerArcher.createItemBlock(), brittleLeaves.createItemBlock(), spawnerRollum.createItemBlock(),
 		        coalStone.createItemBlock(), snowBricks.createItemBlock(), workshopBookcase.createItemBlock(),
 		        frostedGlass.createItemBlock(), workshopCarpet.createItemBlock(), coalstoneFurnace.createItemBlock(),
-		        iceikaChest.createItemBlock()
+		        iceikaChest.createItemBlock(), spawnerSeimer.createItemBlock()
 		// nightmarebed.createItemBlock()
 		);
 	}
@@ -449,6 +449,7 @@ public class ModBlocks {
 		workshopCarpet.registerItemModel();
 		coalstoneFurnace.registerItemModel();
 		iceikaChest.registerItemModel();
+		spawnerSeimer.registerItemModel();
 		// nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");

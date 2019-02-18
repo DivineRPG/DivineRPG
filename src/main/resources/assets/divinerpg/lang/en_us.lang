@@ -136,6 +136,7 @@ tile.stone_icy.name=Icy Stone
 tile.bricks_iceika.name=Icy Bricks
 tile.spawner_archer.name=Frozen Archer Spawner
 tile.spawner_rollum.name=Rollum Spawner
+tile.spawner_seimer.name=Seimer Spawner
 tile.coalstone.name=Coalstone
 tile.snow_bricks.name=Snow Bricks
 tile.workshop_carpet.name=Workshop Carpet
