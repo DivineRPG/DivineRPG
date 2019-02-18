@@ -341,3 +341,167 @@
 		addRecipe(TwilightBlocks.edenChest, "bbb", "b b", "bbb", 'b', TwilightItemsOther.edenFragments);
 		addRecipe(VetheaItems.nightmareBed, "MMM", "WWW", 'M', TwilightBlocks.mortumBlock, 'W', TwilightBlocks.mortumLogs);
 		addRecipe(new ItemStack(TwilightBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', TwilightItemsOther.apalachiaFragments);
+		
+		
+		
+		//Livestock merchant
+		list.add(new MerchantRecipe(new ItemStack(Blocks.log, 32, 0), new ItemStack(VanillaItemsOther.shadowCoins, 4), new ItemStack(VanillaItemsOther.overworldEgg, 2, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Blocks.log, 64, 0), new ItemStack(VanillaItemsOther.shadowCoins, 7), new ItemStack(VanillaItemsOther.overworldEgg, 2, 1)));
+		list.add(new MerchantRecipe(new ItemStack(Blocks.stone, 64), new ItemStack(VanillaItemsOther.shadowCoins, 3), new ItemStack(VanillaItemsOther.overworldEgg, 1, 2)));
+		list.add(new MerchantRecipe(new ItemStack(Blocks.nether_brick, 32), new ItemStack(VanillaItemsOther.shadowCoins, 5), new ItemStack(VanillaItemsOther.overworldEgg, 1, 3)));
+		list.add(new MerchantRecipe(new ItemStack(VanillaItemsOther.jungleStone, 2), new ItemStack(VanillaItemsOther.shadowCoins, 4), new ItemStack(VanillaItemsOther.overworldEgg, 3, 4)));
+		list.add(new MerchantRecipe(new ItemStack(Items.leather, 10), new ItemStack(VanillaItemsOther.shadowCoins, 8), new ItemStack(VanillaItemsOther.grizzleEgg, 2, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.leather, 10), new ItemStack(VanillaItemsOther.shadowCoins, 8), new ItemStack(VanillaItemsOther.grizzleEgg, 2, 1)));
+		//War General
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6), new ItemStack(ArcanaItems.divineAccumulator)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 17), new ItemStack(ArcanaItems.meteorMash)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 18), new ItemStack(ArcanaItems.arcaniteBlaster)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 30), new ItemStack(ArcanaItems.arcaniteBlade)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 18), new ItemStack(ArcanaItems.generalsStaff)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7), new ItemStack(ArcanaItems.reflector, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7), new ItemStack(ArcanaItems.attractor, 1, 0)));
+		//Zelus
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 1), new ItemStack(ArcanaItems.fyracryxSpawner, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 1), new ItemStack(ArcanaItems.seimerSpawner, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 1), new ItemStack(ArcanaItems.paratikuSpawner, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 1), new ItemStack(ArcanaItems.golemSpawner, 1, 0)));
+		//Leorna
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 1, 1), new ItemStack(ArcanaItems.eucalyptusSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 1), new ItemStack(ArcanaItems.marsineSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 1), new ItemStack(ArcanaItems.firestockSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 1), new ItemStack(ArcanaItems.pinflySeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 4, 1), new ItemStack(ArcanaItems.aquamarineSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 1), new ItemStack(ArcanaItems.hitchakSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7, 1), new ItemStack(ArcanaItems.veiloSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 9, 1), new ItemStack(ArcanaItems.lamonaSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 1), new ItemStack(ArcanaBlocks.arcanaDirt, 9, 0)));
+		//CaptainMerik
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 1), new ItemStack(ArcanaItems.stormSword, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 12, 1), new ItemStack(ArcanaItems.enderScepter, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 20, 1), new ItemStack(ArcanaItems.wraithbane, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 1), new ItemStack(ArcanaItems.shadowSword, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 4, 1), new ItemStack(ArcanaItems.starlight, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 1), new ItemStack(ArcanaItems.arcaniumSaber, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 20, 1), new ItemStack(ArcanaItems.captainsSparkler, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 12, 1), new ItemStack(ArcanaItems.firefly, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 20, 1), new ItemStack(ArcanaItems.staffStarlight, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 15, 1), new ItemStack(ArcanaItems.meriksMissile, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.dungeonTokens, 30, 1), new ItemStack(ArcanaItems.liviciaSword, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 6, 1), new ItemStack(ArcanaItems.laVekor, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 1, 1), new ItemStack(ArcanaItems.grenade, 10, 0)));
+		//Datticon
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 0), new ItemStack(ArcanaBlocks.arcaniteRails, 8, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaBlocks.starBridge, 16, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 0), new ItemStack(ArcanaBlocks.arcanitetubes, 16, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaBlocks.moltenFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 0), new ItemStack(ArcanaBlocks.greenlightFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 4, 0), new ItemStack(ArcanaBlocks.oceanfireFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 5, 0), new ItemStack(ArcanaBlocks.moonlightFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 7, 0), new ItemStack(ArcanaBlocks.whitefireFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 9, 0), new ItemStack(ArcanaBlocks.demonFurnace, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 0), new ItemStack(ArcanaBlocks.elevantium, 9, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 3, 0), new ItemStack(ArcanaBlocks.acceleron, 3, 0)));
+		//Workshop Merchant 
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 4), new ItemStack(IceikaItems.santaCap, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 4), new ItemStack(IceikaItems.santaTunic, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 4), new ItemStack(IceikaItems.santaPants, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 4), new ItemStack(IceikaItems.santaBoots, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.eggNog, 2, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.chocolateLog, 5, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.peppermints, 15, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaItems.fruitCake, 3, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 20), new ItemStack(IceikaItems.icicleBane, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.greenXmasLights, 16, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.redXmasLights, 16, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.blueXmasLights, 16, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.yellowXmasLights, 16, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.purpleXmasLights, 16, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 3), new ItemStack(IceikaBlocks.presentBox, 1)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 1)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 2)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 3)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(IceikaBlocks.candyCane, 4, 4)));
+		//Workshop Tinkerer
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 1), new ItemStack(VanillaItemsWeapons.shuriken, 16, 0), new ItemStack(IceikaItems.snowflakeShuriken, 16, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 4), new ItemStack(VanillaItemsWeapons.serenadeStriker, 1, 0), new ItemStack(IceikaItems.serenadeOfIce, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 7), new ItemStack(VanillaItemsWeapons.slimeSword, 1, 0), new ItemStack(IceikaItems.glacierSword, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 12), new ItemStack(VanillaItemsWeapons.shadowBow, 1, 0),new ItemStack(IceikaItems.icicleBow, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 6), new ItemStack(VanillaItemsWeapons.massivence, 1, 0),new ItemStack(IceikaItems.frossivence, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 12), new ItemStack(VanillaItemsWeapons.crabclawCannon, 1, 0),new ItemStack(IceikaItems.frostclawCannon, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 12), new ItemStack(VanillaItemsWeapons.frostCannon, 1, 0),new ItemStack(IceikaItems.fractiteCannon, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 15), new ItemStack(VanillaItemsWeapons.frostSword, 1, 0), new ItemStack(IceikaItems.frostkingSword, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 18), new ItemStack(IceikaItems.soundOfMusic, 1, 0), new ItemStack(IceikaItems.soundOfCarols, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 25), new ItemStack(VanillaItemsWeapons.enderSword, 1, 0), new ItemStack(IceikaItems.enderice, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 30), new ItemStack(VanillaItemsWeapons.bluefireBow, 1, 0), new ItemStack(IceikaItems.snowstormBow, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 45), new ItemStack(VanillaItemsWeapons.bedrockMaul, 1, 0), new ItemStack(IceikaItems.frozenMaul, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 40), new ItemStack(VanillaItemsWeapons.divineSword, 1, 0), new ItemStack(IceikaItems.icineSword, 1, 0)));
+		list.add(new InfiniteTrade(new ItemStack(IceikaItems.snowflake, 15), new ItemStack(VanillaItemsWeapons.sandslash, 1, 0), new ItemStack(IceikaItems.snowSlash, 1, 0)));
+		//Vatticus
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.collector, 16, 0), new ItemStack(ArcanaItems.chargedCollector, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaHelmet, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaBody, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaLegs, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 8, 0), new ItemStack(ArcanaItems.kormaBoots, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosHelmet, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosBody, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosLegs, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 10, 0), new ItemStack(ArcanaItems.vemosBoots, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaItems.staffOfEnrichment, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaItems.wizardBook, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 1, 0), new ItemStack(ArcanaItems.weakArcanaPotion, 4, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 2, 0), new ItemStack(ArcanaItems.strongArcanaPotion, 4, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ArcanaItems.arcanium, 20, 0), new ItemStack(ArcanaItems.orbOfLight, 1, 0)));
+		//JackOMan
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 60), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanHelmet, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 60), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanBody, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 60), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanLegs, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Items.bone, 40), new ItemStack(Items.spider_eye, 60), new ItemStack(VanillaItemsArmor.skelemanBoots, 1, 0)));
+		list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManBody)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManLegs)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.pumpkin, 50), new ItemStack(Items.ender_eye, 10), new ItemStack(VanillaItemsArmor.jackOManBoots)));
+        list.add(new MerchantRecipe(new ItemStack(Items.skull, 3, 1), new ItemStack(VanillaItemsArmor.witherReaperHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(Items.skull, 5, 1), new ItemStack(VanillaItemsArmor.witherReaperBody)));
+        list.add(new MerchantRecipe(new ItemStack(Items.skull, 4, 1), new ItemStack(VanillaItemsArmor.witherReaperLegs)));
+        list.add(new MerchantRecipe(new ItemStack(Items.skull, 2, 1), new ItemStack(VanillaItemsArmor.witherReaperBoots)));
+        list.add(new MerchantRecipe(new ItemStack(Items.skull, 6, 1), new ItemStack(Items.ender_eye, 60), new ItemStack(VanillaItemsWeapons.scythe)));
+		//The Hunger
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaItems.dreamCarrot, 2, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.dreamMelon, 4, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.dreamPie, 5, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 10, 0), new ItemStack(VetheaItems.dreamCake, 8, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.barredDoor, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.diskTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.cannonTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.backswordTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.hammerTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.bowTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.staffTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 3, 0), new ItemStack(VetheaItems.clawTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 5, 0), new ItemStack(VetheaItems.degradedTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.lightDreamBricks, 16, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.darkDreamBricks, 16, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.redDreamBricks, 16, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 2, 0), new ItemStack(VetheaBlocks.dreamDirt, 64, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 1, 0), new ItemStack(VetheaBlocks.smoothGlass, 16, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(VetheaBlocks.firelight, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 4, 0), new ItemStack(Blocks.chest, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.dirtyPearls, 2, 0), new ItemStack(VetheaItems.teakerArrow, 32, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.cleanPearls, 1, 0), new ItemStack(VetheaItems.dreamSweets, 4, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.cleanPearls, 5, 0), new ItemStack(VetheaItems.finishedTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.cleanPearls, 2, 0), new ItemStack(VetheaItems.darvenArrow, 32, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.cleanPearls, 4, 0), new ItemStack(VetheaItems.pardimalArrow, 32, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.cleanPearls, 6, 0), new ItemStack(VetheaItems.karosArrow, 32, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.cleanPearls, 15, 0), new ItemStack(VetheaItems.minersAmulet, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.polishedPearls, 20, 0), new ItemStack(VetheaItems.dreamFlint, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.polishedPearls, 5, 0), new ItemStack(VetheaItems.glisteningTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.polishedPearls, 5, 0), new ItemStack(VetheaItems.demonizedTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.shinyPearls, 40, 0), new ItemStack(VetheaItems.moonClock, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.shinyPearls, 25, 0), new ItemStack(VetheaItems.heivaBelt, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.shinyPearls, 1, 0), new ItemStack(VetheaItems.dreamSours, 4, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.shinyPearls, 5, 0), new ItemStack(VetheaItems.tormentedTemplate, 1, 0)));
+		recipes.add(new InfiniteTrade(new ItemStack(VetheaItems.rockChunks, 25, 0), new ItemStack(VetheaItems.karosRockmaul, 1, 0)));
+	
+	
+	}
