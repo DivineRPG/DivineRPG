@@ -20,7 +20,6 @@ import naturix.divinerpg.objects.items.TeleportStaff;
 import naturix.divinerpg.objects.items.armor.Angelic;
 import naturix.divinerpg.objects.items.armor.Apalachia;
 import naturix.divinerpg.objects.items.armor.Aquastrive;
-import naturix.divinerpg.objects.items.armor.Aquatic;
 import naturix.divinerpg.objects.items.armor.Bedrock;
 import naturix.divinerpg.objects.items.armor.BootsBase;
 import naturix.divinerpg.objects.items.armor.ChestplateBase;
@@ -132,14 +131,18 @@ public class ModItems {
 	        EntityEquipmentSlot.LEGS, "aquastrive_leggings");
 	public static Aquastrive aquastriveBoots = new Aquastrive(DivineRPGMaterials.aquastriveArmorMaterial,
 	        EntityEquipmentSlot.FEET, "aquastrive_boots");
-	public static Aquatic aquaticHelmet = new Aquatic(DivineRPGMaterials.aquaticArmorMaterial, EntityEquipmentSlot.HEAD,
-	        "aquatic_helmet");
-	public static Aquatic aquaticChestplate = new Aquatic(DivineRPGMaterials.aquaticArmorMaterial,
-	        EntityEquipmentSlot.CHEST, "aquatic_chestplate");
-	public static Aquatic aquaticLeggings = new Aquatic(DivineRPGMaterials.aquaticArmorMaterial,
-	        EntityEquipmentSlot.LEGS, "aquatic_leggings");
-	public static Aquatic aquaticBoots = new Aquatic(DivineRPGMaterials.aquaticArmorMaterial, EntityEquipmentSlot.FEET,
-	        "aquatic_boots");
+	// public static Aquatic aquaticHelmet = new
+	// Aquatic(DivineRPGMaterials.aquaticArmorMaterial, EntityEquipmentSlot.HEAD,
+	// "aquatic_helmet");
+	// public static Aquatic aquaticChestplate = new
+	// Aquatic(DivineRPGMaterials.aquaticArmorMaterial,
+	// EntityEquipmentSlot.CHEST, "aquatic_chestplate");
+	// public static Aquatic aquaticLeggings = new
+	// Aquatic(DivineRPGMaterials.aquaticArmorMaterial,
+	// EntityEquipmentSlot.LEGS, "aquatic_leggings");
+	// public static Aquatic aquaticBoots = new
+	// Aquatic(DivineRPGMaterials.aquaticArmorMaterial, EntityEquipmentSlot.FEET,
+	// "aquatic_boots");
 	public static Bedrock bedrockHelmet = new Bedrock(DivineRPGMaterials.bedrockArmorMaterial, EntityEquipmentSlot.HEAD,
 	        "bedrock_helmet");
 	public static Bedrock bedrockChestplate = new Bedrock(DivineRPGMaterials.bedrockArmorMaterial,
@@ -683,6 +686,8 @@ public class ModItems {
 	public static CannonBase furyGold = new CannonBase("fury_golden");
 	public static HordeHorn hordeHorn = new HordeHorn("horde_horn");
 	public static ItemBlockSteelDoor steelDoor = new ItemBlockSteelDoor("steel_door", ModBlocks.steelDoor);
+	public static ItemBase krakenSkin = new ItemBase("kraken_skin");
+	public static ItemBase krakenScale = new ItemBase("kraken_scale");
 
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -693,35 +698,35 @@ public class ModItems {
 		        arksianeWrathSword, bedrockSword, blackEnderSword, bloodgemSword, blueDivineSword, stormSword,
 		        chickenDinner, angelicHelmet, angelicChestplate, angelicLeggings, angelicBoots, apalachiaHelmet,
 		        apalachiaChestplate, apalachiaLeggings, apalachiaBoots, aquastriveHelmet, aquastriveChestplate,
-		        aquastriveLeggings, aquastriveBoots, aquaticHelmet, aquaticChestplate, aquaticLeggings, aquaticBoots,
-		        bedrockHelmet, bedrockChestplate, bedrockLeggings, bedrockBoots, corruptedHelmet, corruptedChestplate,
-		        corruptedLeggings, corruptedBoots, degradedHelmet, degradedChestplate, degradedLeggings, degradedBoots,
-		        demonizedHelmet, demonizedChestplate, demonizedLeggings, demonizedBoots, divineHelmet, divineChestplate,
-		        divineLeggings, divineBoots, donatorHelmet, donatorChestplate, donatorLeggings, donatorBoots,
-		        edenHelmet, edenChestplate, edenLeggings, edenBoots, enderHelmet, enderChestplate, enderLeggings,
-		        enderBoots, finishedHelmet, finishedChestplate, finishedLeggings, finishedBoots, frozenHelmet,
-		        frozenChestplate, frozenLeggings, frozenBoots, glisteningHelmet, glisteningChestplate,
-		        glisteningLeggings, glisteningBoots, haliteHelmet, haliteChestplate, haliteLeggings, haliteBoots,
-		        infernoHelmet, infernoChestplate, infernoLeggings, infernoBoots, jackomanHelmet, jackomanChestplate,
-		        jackomanLeggings, jackomanBoots, jungleHelmet, jungleChestplate, jungleLeggings, jungleBoots,
-		        liopleurodonAnchor, liopleurodonSkull, liopleurodonTeeth, kormaHelmet, kormaChestplate, kormaLeggings,
-		        kormaBoots, krakenHelmet, krakenChestplate, krakenLeggings, krakenBoots, mortumHelmet, mortumChestplate,
-		        mortumLeggings, mortumBoots, netheriteHelmet, netheriteChestplate, netheriteLeggings, netheriteBoots,
-		        realmiteHelmet, realmiteChestplate, realmiteLeggings, realmiteBoots, rupeeHelmet, rupeeChestplate,
-		        rupeeLeggings, rupeeBoots, santaCap, santaTunic, santaPants, santaBoots, shadowHelmet, shadowChestplate,
-		        shadowLeggings, shadowBoots, skelemanHelmet, skelemanChestplate, skelemanLeggings, skelemanBoots,
-		        skythernHelmet, skythernChestplate, skythernLeggings, skythernBoots, terranHelmet, terranChestplate,
-		        terranLeggings, terranBoots, tormentedHelmet, tormentedChestplate, tormentedLeggings, tormentedBoots,
-		        vemosHelmet, vemosChestplate, vemosLeggings, vemosBoots, wildwoodHelmet, wildwoodChestplate,
-		        wildwoodLeggings, wildwoodBoots, witherreaperHelmet, witherreaperChestplate, witherreaperLeggings,
-		        witherreaperBoots, bandHeivaHunt, rupeeShickaxe, arlemiteShickaxe, divineShickaxe, cannonAmthirmis,
-		        templateDisc, templateCannon, templateBacksword, templateBow, templateStaff, templateClaw,
-		        templateDegraded, templateFinished, templateGlistening, templateDemonized, templateTormented, soulEden,
-		        soulWild, soulApalachia, soulSkythern, soulMortum, fragmentApalachia, fragmentEden, fragmentSkythern,
-		        fragmentMortum, fragmentWildwood, corruptedAxe, corruptedShovel, corruptedPickaxe, pearlsDirty,
-		        pearlsClean, pearlsShiny, pearlsPolished, bookWizards, lumpsTeaker, lumpsAmthirmis, lumpsDarven,
-		        lumpsCermile, lumpsPardimal, lumpsQuadrotic, lumpsKaros, lumpsHeliosis, lumpsArksiane, serenadeStrike,
-		        serenadeHeal, serenadeIce, serenadeDeath, serenadeInfusion, cannonTeaker, cannonAmthirmis, cannonDarven,
+		        aquastriveLeggings, aquastriveBoots, bedrockHelmet, bedrockChestplate, bedrockLeggings, bedrockBoots,
+		        corruptedHelmet, corruptedChestplate, corruptedLeggings, corruptedBoots, degradedHelmet,
+		        degradedChestplate, degradedLeggings, degradedBoots, demonizedHelmet, demonizedChestplate,
+		        demonizedLeggings, demonizedBoots, divineHelmet, divineChestplate, divineLeggings, divineBoots,
+		        donatorHelmet, donatorChestplate, donatorLeggings, donatorBoots, edenHelmet, edenChestplate,
+		        edenLeggings, edenBoots, enderHelmet, enderChestplate, enderLeggings, enderBoots, finishedHelmet,
+		        finishedChestplate, finishedLeggings, finishedBoots, frozenHelmet, frozenChestplate, frozenLeggings,
+		        frozenBoots, glisteningHelmet, glisteningChestplate, glisteningLeggings, glisteningBoots, haliteHelmet,
+		        haliteChestplate, haliteLeggings, haliteBoots, infernoHelmet, infernoChestplate, infernoLeggings,
+		        infernoBoots, jackomanHelmet, jackomanChestplate, jackomanLeggings, jackomanBoots, jungleHelmet,
+		        jungleChestplate, jungleLeggings, jungleBoots, liopleurodonAnchor, liopleurodonSkull, liopleurodonTeeth,
+		        kormaHelmet, kormaChestplate, kormaLeggings, kormaBoots, krakenHelmet, krakenChestplate, krakenLeggings,
+		        krakenBoots, mortumHelmet, mortumChestplate, mortumLeggings, mortumBoots, netheriteHelmet,
+		        netheriteChestplate, netheriteLeggings, netheriteBoots, realmiteHelmet, realmiteChestplate,
+		        realmiteLeggings, realmiteBoots, rupeeHelmet, rupeeChestplate, rupeeLeggings, rupeeBoots, santaCap,
+		        santaTunic, santaPants, santaBoots, shadowHelmet, shadowChestplate, shadowLeggings, shadowBoots,
+		        skelemanHelmet, skelemanChestplate, skelemanLeggings, skelemanBoots, skythernHelmet, skythernChestplate,
+		        skythernLeggings, skythernBoots, terranHelmet, terranChestplate, terranLeggings, terranBoots,
+		        tormentedHelmet, tormentedChestplate, tormentedLeggings, tormentedBoots, vemosHelmet, vemosChestplate,
+		        vemosLeggings, vemosBoots, wildwoodHelmet, wildwoodChestplate, wildwoodLeggings, wildwoodBoots,
+		        witherreaperHelmet, witherreaperChestplate, witherreaperLeggings, witherreaperBoots, bandHeivaHunt,
+		        rupeeShickaxe, arlemiteShickaxe, divineShickaxe, cannonAmthirmis, templateDisc, templateCannon,
+		        templateBacksword, templateBow, templateStaff, templateClaw, templateDegraded, templateFinished,
+		        templateGlistening, templateDemonized, templateTormented, soulEden, soulWild, soulApalachia,
+		        soulSkythern, soulMortum, fragmentApalachia, fragmentEden, fragmentSkythern, fragmentMortum,
+		        fragmentWildwood, corruptedAxe, corruptedShovel, corruptedPickaxe, pearlsDirty, pearlsClean,
+		        pearlsShiny, pearlsPolished, bookWizards, lumpsTeaker, lumpsAmthirmis, lumpsDarven, lumpsCermile,
+		        lumpsPardimal, lumpsQuadrotic, lumpsKaros, lumpsHeliosis, lumpsArksiane, serenadeStrike, serenadeHeal,
+		        serenadeIce, serenadeDeath, serenadeInfusion, cannonTeaker, cannonAmthirmis, cannonDarven,
 		        cannonCermile, cannonPardimal, cannonQuadrotic, cannonKaros, cannonHeliosis, cannonArksiane, bacon,
 		        hotPumpkinPie, boiledEgg, cheese, mushroomWhite, mushroomStewAdvanced, tomato, donut, rawEmpoweredMeat,
 		        empoweredMeat, magicMeat, enrichedMagicMeat, eggNog, peppermints, chocolateLog, snowCone, fruitCake,
@@ -750,7 +755,8 @@ public class ModItems {
 		        liopleurodonSkull, liopleurodonTeeth, stoneHealing, daggerTerran, knifeTerran, maulTerran, stoneTerran,
 		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkEden, chunkWildwood,
 		        chunkApalachia, chunkSkythern, chunkMortum, cannonGhast, snowflake, bowheadAnchor, sharkAnchor,
-		        cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted, furyGold, hordeHorn, steelDoor);
+		        cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted, furyGold, hordeHorn, steelDoor, krakenSkin,
+		        krakenScale);
 	}
 
 	public static void registerModels() {
@@ -802,10 +808,10 @@ public class ModItems {
 		aquastriveChestplate.registerItemModel();
 		aquastriveLeggings.registerItemModel();
 		aquastriveBoots.registerItemModel();
-		aquaticHelmet.registerItemModel();
-		aquaticChestplate.registerItemModel();
-		aquaticLeggings.registerItemModel();
-		aquaticBoots.registerItemModel();
+		// aquaticHelmet.registerItemModel();
+		// aquaticChestplate.registerItemModel();
+		// aquaticLeggings.registerItemModel();
+		// aquaticBoots.registerItemModel();
 		bedrockHelmet.registerItemModel();
 		bedrockChestplate.registerItemModel();
 		bedrockLeggings.registerItemModel();
@@ -1180,6 +1186,8 @@ public class ModItems {
 		furyGold.registerItemModel();
 		hordeHorn.registerItemModel();
 		steelDoor.registerItemModel();
+		krakenSkin.registerItemModel();
+		krakenScale.registerItemModel();
 
 		if (Config.debug) {
 			DivineRPG.logger.info(DivineRPG.name + " items are loaded");

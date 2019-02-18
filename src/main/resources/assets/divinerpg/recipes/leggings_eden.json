@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "divinerpg:chunk_eden"
+    }
+  },
+  "result": {
+    "item": "divinerpg:eden_leggings"
+  }
+}

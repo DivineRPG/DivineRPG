@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ZZZ",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "divinerpg:stone_ice"
+    },
+	"Z": {
+      "item": "divinerpg:stone_bluefire"
+    }
+  },
+  "result": {
+    "item": "divinerpg:angelic_leggings"
+  }
+}

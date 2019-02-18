@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+   "X": {
+      "item": "divinerpg:stone_ice"
+    }
+  },
+  "result": {
+    "item": "divinerpg:frozen_helmet"
+  }
+}

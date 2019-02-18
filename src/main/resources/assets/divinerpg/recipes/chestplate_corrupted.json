@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "divinerpg:stone_corrupted"
+    }
+  },
+  "result": {
+    "item": "divinerpg:corrupted_chestplate"
+  }
+}

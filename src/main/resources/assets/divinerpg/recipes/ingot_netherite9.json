@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "divinerpg:block_netherite"
+        }
+    ],
+    "result": {
+        "item": "divinerpg:ingot_netherite",
+        "count": 9
+    }
+}

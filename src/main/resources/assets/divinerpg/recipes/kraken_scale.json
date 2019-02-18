@@ -1,0 +1,17 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"I I",
+		"I I",
+		"III"
+	],
+	"key": {
+		"I": {
+			"type": "forge:ore_dict",
+			"ore": "dyeBlack"
+		}
+	},
+	"result": {
+		"item": "divinerpg:kraken_scale"
+	}
+}
