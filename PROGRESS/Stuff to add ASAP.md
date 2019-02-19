@@ -29,7 +29,6 @@
 + la vektor
 + grenade
 + star bridge (do this how i did Heat trap)
-+ xmas stuff (someone else can do this idk much about it)
 + snowslash
 + collector
 + charged collector
@@ -45,3 +44,5 @@
 + miners amulet
 + dream flint
 + karos rockmaul
+
++ xmas stuff (someone else can do this idk much about it)
