@@ -216,6 +216,7 @@ public class ModBlocks {
 	public static BlockBase dirtDream = new BlockBase("dirt_dream");
 	public static BlockBase glassSmooth = new BlockBase("glass_smooth");
 	public static BlockBase firelight = new BlockBase("firelight");
+	public static BlockBase starBridge = new BlockBase("star_bridge");
 
 	// Has a unique class because i dont have a method for universal itemblocks for
 	// doors - LiteWolf101
@@ -253,7 +254,7 @@ public class ModBlocks {
 		        spawnerParatiku, spawnerRejuvGolem, dirtArcana, railsArcana, tubesArcana, furnaceMolten,
 		        furnaceGreenLight, furnaceOceanFire, furnaceMoonlight, furnaceWhitefire, furnaceDemon, elevantium,
 		        divineMossStone, barredDoor, bricksDreamLight, bricksDreamDark, bricksDreamRed, dirtDream, glassSmooth,
-		        firelight);
+		        firelight, starBridge);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class,
 		        new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class,
@@ -327,7 +328,8 @@ public class ModBlocks {
 		        furnaceMoonlight.createItemBlock(), furnaceWhitefire.createItemBlock(), furnaceDemon.createItemBlock(),
 		        elevantium.createItemBlock(), divineMossStone.createItemBlock(), barredDoor.createItemBlock(),
 		        bricksDreamLight.createItemBlock(), bricksDreamDark.createItemBlock(), bricksDreamRed.createItemBlock(),
-		        dirtDream.createItemBlock(), glassSmooth.createItemBlock(), firelight.createItemBlock()
+		        dirtDream.createItemBlock(), glassSmooth.createItemBlock(), firelight.createItemBlock(),
+		        starBridge.createItemBlock()
 		// nightmarebed.createItemBlock()
 		// fireSapling.createItemBlock(),
 		// divineSapling.createItemBlock(),
@@ -500,6 +502,7 @@ public class ModBlocks {
 		dirtDream.registerItemModel();
 		glassSmooth.registerItemModel();
 		firelight.registerItemModel();
+		starBridge.registerItemModel();
 		// nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");

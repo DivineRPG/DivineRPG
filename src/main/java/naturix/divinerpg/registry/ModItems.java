@@ -688,8 +688,49 @@ public class ModItems {
 	public static ItemBlockSteelDoor steelDoor = new ItemBlockSteelDoor("steel_door", ModBlocks.steelDoor);
 	public static ItemBase krakenSkin = new ItemBase("kraken_skin");
 	public static ItemBase krakenScale = new ItemBase("kraken_scale");
+	public static ItemBase coinShadow = new ItemBase("coin_shadow");
+	public static ItemBase eggOverworld = new ItemBase("egg_overworld");
+	public static ItemBase eggGrizzle = new ItemBase("egg_grizzle");
+	public static ItemBase divineAccumulator = new ItemBase("divine_accumulator");
+	public static ItemBase meteorMash = new ItemBase("meteor_mash");
+	public static ItemBase blasterArcanite = new ItemBase("blaster_arcanite");
+	public static ItemBase bladeArcanite = new ItemBase("blade_arcana");
+	public static ItemBase staffGenerals = new ItemBase("staff_generals");
+	public static ItemBase arcaniumReflector = new ItemBase("arcanium_reflector");
+	public static ItemBase arcaniumAttractor = new ItemBase("arcanium_attractor");
+	public static ItemBase seedsEucalyptus = new ItemBase("seeds_eucalyptus");
+	public static ItemBase seedsMarsine = new ItemBase("seeds_marsine");
+	public static ItemBase seedsFirestock = new ItemBase("seeds_firestock");
+	public static ItemBase seedsPinfly = new ItemBase("seeds_pinfly");
+	public static ItemBase seedsAquamarine = new ItemBase("seeds_aquamarine");
+	public static ItemBase seedsHitchak = new ItemBase("seeds_hitchak");
+	public static ItemBase seedsVelio = new ItemBase("seeds_velio");
+	public static ItemBase seedsLamona = new ItemBase("seeds_lamona");
+	public static ItemBase enderSceptor = new ItemBase("sceptor_ender");
+	public static ItemBase wraithbane = new ItemBase("wraithbane");
+	public static ItemBase saberArcanium = new ItemBase("saber_arcanium");
+	public static ItemBase firefly = new ItemBase("firefly");
+	public static ItemBase staffStarlight = new ItemBase("staff_starlight");
+	public static ItemBase meriksMissile = new ItemBase("missile_meriks");
+	public static ItemBase swordLivicia = new ItemBase("sword_livicia");
+	public static ItemBase laVektor = new ItemBase("lavektor");
+	public static ItemBase grenade = new ItemBase("grenade");
+	public static ItemBase snowslash = new ItemBase("snowslash");
+	public static ItemBase collector = new ItemBase("collector_charged");
+	public static ItemBase staffEnrichment = new ItemBase("staff_enrichment");
+	public static ItemBase potionArcanaWeak = new ItemBase("potion_arcana_weak");
+	public static ItemBase potionArcanaStrong = new ItemBase("potion_arcana_strong");
+	public static ItemBase orbLight = new ItemBase("orb_light");
+	public static ItemBase scythe = new ItemBase("scythe");
+	public static ItemBase flintDream = new ItemBase("flint_dream");
+	public static ItemBase maulKaros = new ItemBase("maul_karos_rock");
+	public static ItemBase amuletMiners = new ItemBase("amulet_miners");
+	public static ItemBase arrowTeaker = new ItemBase("arrow_teaker");
+	public static ItemBase arrowDarven = new ItemBase("arrow_darven");
+	public static ItemBase arrowPardimal = new ItemBase("arrow_pardimal");
+	public static ItemBase arrowKaros = new ItemBase("arrow_karos");
 
-	public static void register(IForgeRegistry<Item> registry) {
+	static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(amthirmisDisk, hunterBow, shadowBow, enderBow, bluefireBow, infernoBow, arcanium,
 		        ingotArlemite, ingotAquatic, ingotHellstone, ingotNetherite, ingotRealmite, ingotRupee, gemApalachia,
@@ -756,7 +797,12 @@ public class ModItems {
 		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkEden, chunkWildwood,
 		        chunkApalachia, chunkSkythern, chunkMortum, cannonGhast, snowflake, bowheadAnchor, sharkAnchor,
 		        cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted, furyGold, hordeHorn, steelDoor, krakenSkin,
-		        krakenScale);
+		        krakenScale, coinShadow, eggOverworld, eggGrizzle, divineAccumulator, meteorMash, blasterArcanite,
+		        bladeArcanite, staffGenerals, arcaniumReflector, arcaniumAttractor, seedsEucalyptus, seedsMarsine,
+		        seedsFirestock, seedsPinfly, seedsAquamarine, seedsHitchak, seedsVelio, seedsLamona, enderSceptor,
+		        wraithbane, saberArcanium, firefly, staffStarlight, meriksMissile, swordLivicia, laVektor, grenade,
+		        snowslash, collector, staffEnrichment, potionArcanaWeak, potionArcanaStrong, orbLight, scythe,
+		        flintDream, maulKaros, amuletMiners, arrowTeaker, arrowDarven, arrowPardimal, arrowKaros);
 	}
 
 	public static void registerModels() {
@@ -1188,6 +1234,47 @@ public class ModItems {
 		steelDoor.registerItemModel();
 		krakenSkin.registerItemModel();
 		krakenScale.registerItemModel();
+		coinShadow.registerItemModel();
+		eggOverworld.registerItemModel();
+		eggGrizzle.registerItemModel();
+		divineAccumulator.registerItemModel();
+		meteorMash.registerItemModel();
+		blasterArcanite.registerItemModel();
+		bladeArcanite.registerItemModel();
+		staffGenerals.registerItemModel();
+		arcaniumReflector.registerItemModel();
+		arcaniumAttractor.registerItemModel();
+		seedsEucalyptus.registerItemModel();
+		seedsMarsine.registerItemModel();
+		seedsFirestock.registerItemModel();
+		seedsPinfly.registerItemModel();
+		seedsAquamarine.registerItemModel();
+		seedsHitchak.registerItemModel();
+		seedsVelio.registerItemModel();
+		seedsLamona.registerItemModel();
+		enderSceptor.registerItemModel();
+		wraithbane.registerItemModel();
+		saberArcanium.registerItemModel();
+		firefly.registerItemModel();
+		staffStarlight.registerItemModel();
+		meriksMissile.registerItemModel();
+		swordLivicia.registerItemModel();
+		laVektor.registerItemModel();
+		grenade.registerItemModel();
+		snowslash.registerItemModel();
+		collector.registerItemModel();
+		staffEnrichment.registerItemModel();
+		potionArcanaWeak.registerItemModel();
+		potionArcanaStrong.registerItemModel();
+		orbLight.registerItemModel();
+		scythe.registerItemModel();
+		flintDream.registerItemModel();
+		maulKaros.registerItemModel();
+		amuletMiners.registerItemModel();
+		arrowTeaker.registerItemModel();
+		arrowDarven.registerItemModel();
+		arrowPardimal.registerItemModel();
+		arrowKaros.registerItemModel();
 
 		if (Config.debug) {
 			DivineRPG.logger.info(DivineRPG.name + " items are loaded");
