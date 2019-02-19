@@ -557,7 +557,6 @@ public class ModEntities {
         LootTableList.register(Greenfeet.LOOT);
         LootTableList.register(Hastreus.LOOT);
         LootTableList.register(HellSpider.LOOT);
-        LootTableList.register(JackOMan.LOOT);
         LootTableList.register(JungleBat.LOOT);
         LootTableList.register(JungleDramcryx.LOOT);
         LootTableList.register(JungleSpider.LOOT);
@@ -567,7 +566,6 @@ public class ModEntities {
         LootTableList.register(Kobblin.LOOT);
         LootTableList.register(Leorna.LOOT);
         LootTableList.register(Liopleurodon.LOOT);
-        LootTableList.register(LivestockMerchant.LOOT);
         LootTableList.register(Madivel.LOOT);
         LootTableList.register(Mage.LOOT);
         LootTableList.register(Megalith.LOOT);
@@ -621,7 +619,8 @@ public class ModEntities {
         EntityKingOfScorchersShot.renderMe();
         EntityScorcherShot.renderMe();
         EntityEMP.renderMe();
-        RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class, manager -> new RenderProjectile(ModItems.shuriken));
+        RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
+                manager -> new RenderProjectile(ModItems.shuriken));
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
@@ -788,6 +787,14 @@ public class ModEntities {
 
     }
 
+    public static void registerVillagers() {
+        JackOMan.registerVillager();
+        LivestockMerchant.registerVillager();
+        WorkshopMerchant.registerVillager();
+        WorkshopTinkerer.registerVillager();
+        TheHunger.registerVillager();
+    }
+
     public static void initSpawns() {
         for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
             Biome edenBiome = Biome.getBiome(ModBiomes.Eden.getIdForBiome(ModBiomes.Eden));
@@ -904,7 +911,8 @@ public class ModEntities {
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)) {
                 EntityRegistry.addSpawn(Kobblin.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
             }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS) || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
+            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)
+                    || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
                 EntityRegistry.addSpawn(Cyclops.class, 80, 2, 4, EnumCreatureType.MONSTER, biome);
             }
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.FOREST)) {
@@ -919,16 +927,20 @@ public class ModEntities {
 
     public static void registerMobWithEgg(Class entityClass, String entityName) {
         entityName = DivineRPG.modId + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName,
+                mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
     }
 
     public void registerEgglessMob(Class entityClass, String entityName) {
         entityName = DivineRPG.modId + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName,
+                mobID++, DivineRPG.instance, 128, 3, true);
     }
 
     public static void registerProjectile(Class entityClass, String entityName) {
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + "." + entityName), entityClass, DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + "." + entityName),
+                entityClass, DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
+                true);
         projectileID++;
     }
 }

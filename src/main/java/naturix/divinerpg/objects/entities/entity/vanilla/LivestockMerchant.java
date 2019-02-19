@@ -1,95 +1,89 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.MessageLocalizer;
+import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
-import javax.annotation.Nullable;
+public class LivestockMerchant extends EntityDivineRPGVillager {
+    private static final String[] MESSAGE = { "message.livestock.travel", "message.livestock.sell",
+            "message.livestock.hi", "message.livestock.snapper" };
+    private static final String PROFESSION_NAME = DivineRPG.modId + ".livestock_merchant";
+    private static VillagerRegistry.VillagerProfession livestockmerchantProfession;
+    private static VillagerRegistry.VillagerCareer livestockmerchantCareer;
 
-public class LivestockMerchant extends EntityMob {
+    public static void registerVillager() {
+        livestockmerchantProfession = new VillagerRegistry.VillagerProfession(PROFESSION_NAME, "", "");
+        IForgeRegistry<VillagerRegistry.VillagerProfession> villagerProfessions = ForgeRegistries.VILLAGER_PROFESSIONS;
+        villagerProfessions.register(livestockmerchantProfession);
+        livestockmerchantCareer = new VillagerRegistry.VillagerCareer(livestockmerchantProfession, PROFESSION_NAME);
+    }
 
     public LivestockMerchant(World worldIn) {
-		super(worldIn);
-		this.setSize(0.8F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/merchant_livestock");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+        super(worldIn);
+        this.setSize(0.8F, 2f);
+        this.setHealth(this.getMaxHealth());
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    public void setProfession(net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession prof) {
+        super.setProfession(livestockmerchantProfession);
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
+    public void extraInteract(EntityPlayer player) {
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.livestock_merchant.name")
+                + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+    public void addRecipies(MerchantRecipeList list) {
+        /*
+         * list.add(new MerchantRecipe(new ItemStack(Blocks.log, 32, 0), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 4), new
+         * ItemStack(VanillaItemsOther.overworldEgg, 2, 0))); list.add(new
+         * MerchantRecipe(new ItemStack(Blocks.log, 64, 0), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 7), new
+         * ItemStack(VanillaItemsOther.overworldEgg, 2, 1))); list.add(new
+         * MerchantRecipe(new ItemStack(Blocks.stone, 64), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 3), new
+         * ItemStack(VanillaItemsOther.overworldEgg, 1, 2))); list.add(new
+         * MerchantRecipe(new ItemStack(Blocks.nether_brick, 32), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 5), new
+         * ItemStack(VanillaItemsOther.overworldEgg, 1, 3))); list.add(new
+         * MerchantRecipe(new ItemStack(VanillaItemsOther.jungleStone, 2), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 4), new
+         * ItemStack(VanillaItemsOther.overworldEgg, 3, 4))); list.add(new
+         * MerchantRecipe(new ItemStack(Items.leather, 10), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 8), new
+         * ItemStack(VanillaItemsOther.grizzleEgg, 2, 0))); list.add(new
+         * MerchantRecipe(new ItemStack(Items.leather, 10), new
+         * ItemStack(VanillaItemsOther.shadowCoins, 8), new
+         * ItemStack(VanillaItemsOther.grizzleEgg, 2, 1)));
+         */
     }
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.LIVESTOCK_MERCHANT;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.LIVESTOCK_MERCHANT_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.LIVESTOCK_MERCHANT_HURT;
     }
 }

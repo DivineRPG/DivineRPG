@@ -652,7 +652,7 @@ entity.divinerpg.hive_queen.name=Hive Queen
 entity.divinerpg.hive_soldier.name=Hive Soldier
 entity.divinerpg.hover_stinger.name=Hover Stinger
 entity.divinerpg.husk.name=Husk
-entity.divinerpg.jackoman.name=Jackoman
+entity.divinerpg.jackoman.name=Jack 'O' Man
 entity.divinerpg.jungle_bat.name=Jungle Bat
 entity.divinerpg.jungle_dramcryx.name=Jungle Dramcryx
 entity.divinerpg.jungle_spider.name=Jungle Spider
@@ -740,6 +740,12 @@ entity.divinerpg.zelus.name=Zelus
 entity.divinerpg.zone.name=Zone
 entity.divinerpg.zoragon.name=Zoragon
 
+entity.Villager.divinerpg.jackoman=Jack 'O' Man
+entity.Villager.divinerpg.livestock_merchant=Livestock Merchant
+entity.Villager.divinerpg.workshop_merchant=Workshop Merchant
+entity.Villager.divinerpg.workshop_tinkerer=Workshop Tinkerer
+entity.Villager.divinerpg.the_hunger=The Hunger
+
 advancement.divinerpg.name=DivineRPG
 advancement.divinerpg.mine_rupee.desc=Smelt 1 rupee ingot
 advancement.divinerpg.enter_eden=Possibilities
@@ -759,6 +765,22 @@ advancement.divinerpg.sword_divine.desc=Craft a divine sword
 
 fluid.tar=Tar
 
+message.jackoman.boo=BOO!
+message.jackoman.lost=I seem to have lost my head.
+message.jackoman.hurah=HURAH!
+message.jackoman.seen=Have you seen my head?
+message.livestock.travel=When traveling, I met a merchant named Zelus, who sold me the eggs that grew into the pets I breed now.
+message.livestock.sell=I sell only the healthiest pets!
+message.livestock.hi=Tell Zelus I said Hi!
+message.livestock.snapper=I'd be afraid to feed a Snapper with my bare hands...
+message.merchant.ho=Hohoho.
+message.merchant.out=It's cold outside.
+message.merchant.in=It's cold inside.
+message.merchant.burr=Burr!
+message.hunger.hungry=Mmm. I'm hungry.
+message.hunger.closer=Can you come a little closer?
+message.hunger.fatten=You need to fatten yourself up.
+message.hunger.dinner=Let's go out to dinner. You'll be cooking.
 message.version.internet=Unable to check for latest version, you may want to check your internet connection!
 message.version.update=A DivineRPG update is available.
 message.version=[New Version: #]

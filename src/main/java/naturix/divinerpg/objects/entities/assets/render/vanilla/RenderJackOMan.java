@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelJackOMan;
 import naturix.divinerpg.objects.entities.entity.vanilla.JackOMan;
 import net.minecraft.client.model.ModelBase;
@@ -9,11 +11,9 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-import javax.annotation.Nullable;
-
 public class RenderJackOMan extends RenderLiving<JackOMan> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jackoman.png");
+    public static ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/jackoman.png");
 
     public RenderJackOMan(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelJackOMan(), shadowsizeIn);
@@ -22,7 +22,7 @@ public class RenderJackOMan extends RenderLiving<JackOMan> {
     @Nullable
     @Override
     protected ResourceLocation getEntityTexture(JackOMan entity) {
-        return texture;
+        return TEXTURE;
     }
 
     public static class Factory implements IRenderFactory<JackOMan> {

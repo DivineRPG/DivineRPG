@@ -1,95 +1,93 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.MessageLocalizer;
+import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.village.MerchantRecipe;
+import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
-import javax.annotation.Nullable;
+public class JackOMan extends EntityDivineRPGVillager {
+    private static final String[] MESSAGE = { "message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah",
+            "message.jackoman.seen" };
+    private static final String PROFESSION_NAME = DivineRPG.modId + ".jackoman";
+    private static VillagerRegistry.VillagerProfession jackomanProfession;
+    private static VillagerRegistry.VillagerCareer jackomanCareer;
 
-public class JackOMan extends EntityMob {
+    public static void registerVillager() {
+        jackomanProfession = new VillagerRegistry.VillagerProfession(PROFESSION_NAME, "", "");
+        IForgeRegistry<VillagerRegistry.VillagerProfession> villagerProfessions = ForgeRegistries.VILLAGER_PROFESSIONS;
+        villagerProfessions.register(jackomanProfession);
+        jackomanCareer = new VillagerRegistry.VillagerCareer(jackomanProfession, PROFESSION_NAME);
+    }
 
     public JackOMan(World worldIn) {
-		super(worldIn);
-		this.setSize(0.8F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jackoman");
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+        super(worldIn);
+        this.setSize(0.8F, 2f);
+        this.setHealth(this.getMaxHealth());
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    public void setProfession(net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession prof) {
+        super.setProfession(jackomanProfession);
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
+    public void extraInteract(EntityPlayer player) {
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.jackoman.name") + ": "
+                + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+    public void addRecipies(MerchantRecipeList list) {
+        list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
+                new ItemStack(ModItems.skelemanHelmet, 1, 0)));
+        list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
+                new ItemStack(ModItems.skelemanChestplate, 1, 0)));
+        list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
+                new ItemStack(ModItems.skelemanLeggings, 1, 0)));
+        list.add(new MerchantRecipe(new ItemStack(Items.BONE, 40), new ItemStack(Items.SPIDER_EYE, 60),
+                new ItemStack(ModItems.skelemanBoots, 1, 0)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
+                new ItemStack(ModItems.jackomanHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
+                new ItemStack(ModItems.jackomanChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
+                new ItemStack(ModItems.jackomanLeggings)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
+                new ItemStack(ModItems.jackomanBoots)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 3, 1), new ItemStack(ModItems.witherreaperHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 5, 1), new ItemStack(ModItems.witherreaperChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 4, 1), new ItemStack(ModItems.witherreaperLeggings)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ModItems.witherreaperBoots)));
+        // list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new
+        // ItemStack(Items.ENDER_EYE, 60), new ItemStack(ModItems.scythe)));
     }
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.JACKOMAN;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.JACKOMAN;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.JACKOMAN;
     }
 }
