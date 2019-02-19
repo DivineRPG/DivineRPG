@@ -72,8 +72,8 @@ public class JackOMan extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 5, 1), new ItemStack(ModItems.witherreaperChestplate)));
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 4, 1), new ItemStack(ModItems.witherreaperLeggings)));
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ModItems.witherreaperBoots)));
-        // list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new
-        // ItemStack(Items.ENDER_EYE, 60), new ItemStack(ModItems.scythe)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new ItemStack(Items.ENDER_EYE, 60),
+                new ItemStack(ModItems.scythe)));
     }
 
     @Override
