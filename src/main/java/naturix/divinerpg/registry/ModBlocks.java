@@ -209,6 +209,13 @@ public class ModBlocks {
 	public static BlockBase furnaceDemon = new BlockBase("demon_furnace");
 	public static BlockElevantium elevantium = new BlockElevantium("elevantium");
 	public static BlockBase divineMossStone = new BlockBase("divine_moss_stone");
+	public static BlockBase barredDoor = new BlockBase("barred_door");
+	public static BlockBase bricksDreamLight = new BlockBase("bricks_dream_light");
+	public static BlockBase bricksDreamDark = new BlockBase("bricks_dream_dark");
+	public static BlockBase bricksDreamRed = new BlockBase("bricks_dream_red");
+	public static BlockBase dirtDream = new BlockBase("dirt_dream");
+	public static BlockBase glassSmooth = new BlockBase("glass_smooth");
+	public static BlockBase firelight = new BlockBase("firelight");
 
 	// Has a unique class because i dont have a method for universal itemblocks for
 	// doors - LiteWolf101
@@ -245,7 +252,8 @@ public class ModBlocks {
 		        frostedGlass, workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, spawnerSeimer, spawnerFyracryx,
 		        spawnerParatiku, spawnerRejuvGolem, dirtArcana, railsArcana, tubesArcana, furnaceMolten,
 		        furnaceGreenLight, furnaceOceanFire, furnaceMoonlight, furnaceWhitefire, furnaceDemon, elevantium,
-		        divineMossStone);
+		        divineMossStone, barredDoor, bricksDreamLight, bricksDreamDark, bricksDreamRed, dirtDream, glassSmooth,
+		        firelight);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class,
 		        new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class,
@@ -317,7 +325,9 @@ public class ModBlocks {
 		        railsArcana.createItemBlock(), tubesArcana.createItemBlock(), furnaceMolten.createItemBlock(),
 		        furnaceGreenLight.createItemBlock(), furnaceOceanFire.createItemBlock(),
 		        furnaceMoonlight.createItemBlock(), furnaceWhitefire.createItemBlock(), furnaceDemon.createItemBlock(),
-		        elevantium.createItemBlock(), divineMossStone.createItemBlock()
+		        elevantium.createItemBlock(), divineMossStone.createItemBlock(), barredDoor.createItemBlock(),
+		        bricksDreamLight.createItemBlock(), bricksDreamDark.createItemBlock(), bricksDreamRed.createItemBlock(),
+		        dirtDream.createItemBlock(), glassSmooth.createItemBlock(), firelight.createItemBlock()
 		// nightmarebed.createItemBlock()
 		// fireSapling.createItemBlock(),
 		// divineSapling.createItemBlock(),
@@ -483,6 +493,13 @@ public class ModBlocks {
 		furnaceDemon.registerItemModel();
 		elevantium.registerItemModel();
 		divineMossStone.registerItemModel();
+		barredDoor.registerItemModel();
+		bricksDreamLight.registerItemModel();
+		bricksDreamDark.registerItemModel();
+		bricksDreamRed.registerItemModel();
+		dirtDream.registerItemModel();
+		glassSmooth.registerItemModel();
+		firelight.registerItemModel();
 		// nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");

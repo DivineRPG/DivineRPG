@@ -1,12 +1,5 @@
 # Blocks:
 + XMas stuff (idk much about this pls someone else do it)
-+ Barred door
-+ light dream bricks
-+ dark dream bricks
-+ red dream bricks
-+ dream dirt
-+ smooth glass
-+ firelight
 # Items:
 + Shadow coin
 + overworldegg
