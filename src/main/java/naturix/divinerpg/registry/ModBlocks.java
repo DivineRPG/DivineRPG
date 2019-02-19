@@ -183,9 +183,8 @@ public class ModBlocks {
 	public static BlockBase stoneIcy = new BlockBase("stone_icy");
 	public static BlockBase bricksIceika = new BlockBase("bricks_iceika");
 	public static LeavesBase brittleLeaves = new LeavesBase("leaves_brittle");
-	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer",
-	        DivineRPG.modId + ".frost_archer");
-	public static BlockModSpawner spawnerRollum = new BlockModSpawner("spawner_rollum", DivineRPG.modId + ".rollum");
+	public static BlockModSpawner spawnerArcher = new BlockModSpawner("spawner_archer", "frost_archer");
+	public static BlockModSpawner spawnerRollum = new BlockModSpawner("spawner_rollum", "rollum");
 	public static BlockTar tar = new BlockTar();
 	public static BlockBase coalStone = new BlockBase("coalstone");
 	public static BlockBase snowBricks = new BlockBase("snow_bricks");
@@ -194,7 +193,10 @@ public class ModBlocks {
 	public static WorkshopCarpet workshopCarpet = new WorkshopCarpet("workshop_carpet");
 	public static CoalstoneFurnace coalstoneFurnace = new CoalstoneFurnace("coalstone_furnace");
 	public static final IceikaChest iceikaChest = new IceikaChest("iceika_chest");
-	public static BlockModSpawner spawnerSeimer = new BlockModSpawner("spawner_seimer", DivineRPG.modId + ".seimer");
+	public static BlockModSpawner spawnerSeimer = new BlockModSpawner("spawner_seimer", "seimer");
+	public static BlockModSpawner spawnerFyracryx = new BlockModSpawner("spawner_fyracryx", "fyracryx");
+	public static BlockModSpawner spawnerParatiku = new BlockModSpawner("spawner_paratiku", "paratiku");
+	public static BlockModSpawner spawnerRejuvGolem = new BlockModSpawner("spawner_rejuv", "rejuv_golem");
 	// Has a unique class because i dont have a method for universal itemblocks for
 	// doors - LiteWolf101
 	public static SteelDoor steelDoor = new SteelDoor("steel_door", Material.ANVIL);
@@ -217,26 +219,18 @@ public class ModBlocks {
 		        blockMoltenLamp, blockNetheriteLamp, blockRealmiteLamp, blockRedstoneLamp, blockRupeeLamp,
 		        blockSlimeLamp, blockTerranLamp, blockVillageLamp, blockWorkshopLamp, divineLog, dreamLog, frozenLog,
 		        hyreLog, mintLog, edenLog, fireLog, wildwoodLog, apalachiaLog, skythernLog, mortumLog, divineLeaves,
-		        dreamLeaves,
-		        // frozenLeaves,
-		        hyreLeaves, mintLeaves, edenLeaves, fireLeaves, wildwoodLeaves, apalachiaLeaves, skythernLeaves,
-		        mortumLeaves, torchSkeleton, torchAqua, torchEden, torchArcanium, apalachiaSapling,
-		        // divineSapling,
-		        // dreamSapling,
-		        // frozenSapling,
-		        // hyreSapling,
-		        // mintSapling,
-		        edenSapling,
-		        // fireSapling,
-		        wildwoodSapling, skythernSapling, mortumSapling, watcherStatue, ancientEntityStatue, ayeracoHordeStatue,
-		        densosStatue, dexZichileStatue, dramixStatue, kingScorcherStatue, reyvorStatue, soulFiendStatue,
-		        twilightDemonStatue, vamacheronStatue, altarDramix, altarParasecta, heatTrap, heatTrapOn, spikeCold,
-		        spikeHot, acidBacteria, acidBlock, acidLunic, acceleron, grassArcana, portalEden, rockDivine, dirtEden,
-		        grassEden, blueFire, rockTwilight, bedDream, grassWild, dirtWild, portalWild, vineWild, grassApalachia,
-		        dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern, grassMortum, dirtMortum,
-		        portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy, bricksIceika, spawnerArcher,
-		        spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase, frostedGlass,
-		        workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, spawnerSeimer);
+		        dreamLeaves, hyreLeaves, mintLeaves, edenLeaves, fireLeaves, wildwoodLeaves, apalachiaLeaves,
+		        skythernLeaves, mortumLeaves, torchSkeleton, torchAqua, torchEden, torchArcanium, apalachiaSapling,
+		        edenSapling, wildwoodSapling, skythernSapling, mortumSapling, watcherStatue, ancientEntityStatue,
+		        ayeracoHordeStatue, densosStatue, dexZichileStatue, dramixStatue, kingScorcherStatue, reyvorStatue,
+		        soulFiendStatue, twilightDemonStatue, vamacheronStatue, altarDramix, altarParasecta, heatTrap,
+		        heatTrapOn, spikeCold, spikeHot, acidBacteria, acidBlock, acidLunic, acceleron, grassArcana, portalEden,
+		        rockDivine, dirtEden, grassEden, blueFire, rockTwilight, bedDream, grassWild, dirtWild, portalWild,
+		        vineWild, grassApalachia, dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern,
+		        grassMortum, dirtMortum, portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy,
+		        bricksIceika, spawnerArcher, spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase,
+		        frostedGlass, workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, spawnerSeimer, spawnerFyracryx,
+		        spawnerParatiku, spawnerRejuvGolem);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class,
 		        new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class,
@@ -246,6 +240,13 @@ public class ModBlocks {
 		GameRegistry.registerTileEntity(TileEntityCoalstoneFurnace.class, DivineRPG.modId + ":te_coalstone_furnace");
 		GameRegistry.registerTileEntity(TileEntityIceikaChest.class, DivineRPG.modId + ":te_iceika_chest");
 
+		// frozenLeaves,
+		// divineSapling,
+		// dreamSapling,
+		// frozenSapling,
+		// hyreSapling,
+		// mintSapling,
+		// fireSapling,
 	}
 
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
@@ -270,22 +271,13 @@ public class ModBlocks {
 		        frozenLog.createItemBlock(), hyreLog.createItemBlock(), mintLog.createItemBlock(),
 		        edenLog.createItemBlock(), fireLog.createItemBlock(), wildwoodLog.createItemBlock(),
 		        apalachiaLog.createItemBlock(), skythernLog.createItemBlock(), mortumLog.createItemBlock(),
-		        divineLeaves.createItemBlock(), dreamLeaves.createItemBlock(),
-		        // frozenLeaves.createItemBlock(),
-		        hyreLeaves.createItemBlock(), mintLeaves.createItemBlock(), edenLeaves.createItemBlock(),
-		        fireLeaves.createItemBlock(), wildwoodLeaves.createItemBlock(), apalachiaLeaves.createItemBlock(),
-		        skythernLeaves.createItemBlock(), mortumLeaves.createItemBlock(), torchSkeleton.createItemBlock(),
-		        torchAqua.createItemBlock(), torchEden.createItemBlock(), torchArcanium.createItemBlock(),
-		        apalachiaSapling.createItemBlock(),
-		        // divineSapling.createItemBlock(),
-		        // dreamSapling.createItemBlock(),
-		        // frozenSapling.createItemBlock(),
-		        // hyreSapling.createItemBlock(),
-		        // mintSapling.createItemBlock(),
-		        edenSapling.createItemBlock(),
-		        // fireSapling.createItemBlock(),
-		        wildwoodSapling.createItemBlock(), skythernSapling.createItemBlock(), mortumSapling.createItemBlock(),
-		        watcherStatue.createItemBlock(), ancientEntityStatue.createItemBlock(),
+		        divineLeaves.createItemBlock(), dreamLeaves.createItemBlock(), hyreLeaves.createItemBlock(),
+		        mintLeaves.createItemBlock(), edenLeaves.createItemBlock(), fireLeaves.createItemBlock(),
+		        wildwoodLeaves.createItemBlock(), apalachiaLeaves.createItemBlock(), skythernLeaves.createItemBlock(),
+		        mortumLeaves.createItemBlock(), torchSkeleton.createItemBlock(), torchAqua.createItemBlock(),
+		        torchEden.createItemBlock(), torchArcanium.createItemBlock(), apalachiaSapling.createItemBlock(),
+		        edenSapling.createItemBlock(), wildwoodSapling.createItemBlock(), skythernSapling.createItemBlock(),
+		        mortumSapling.createItemBlock(), watcherStatue.createItemBlock(), ancientEntityStatue.createItemBlock(),
 		        ayeracoHordeStatue.createItemBlock(), densosStatue.createItemBlock(),
 		        dexZichileStatue.createItemBlock(), dramixStatue.createItemBlock(),
 		        kingScorcherStatue.createItemBlock(), reyvorStatue.createItemBlock(), soulFiendStatue.createItemBlock(),
@@ -305,8 +297,16 @@ public class ModBlocks {
 		        spawnerArcher.createItemBlock(), brittleLeaves.createItemBlock(), spawnerRollum.createItemBlock(),
 		        coalStone.createItemBlock(), snowBricks.createItemBlock(), workshopBookcase.createItemBlock(),
 		        frostedGlass.createItemBlock(), workshopCarpet.createItemBlock(), coalstoneFurnace.createItemBlock(),
-		        iceikaChest.createItemBlock(), spawnerSeimer.createItemBlock()
+		        iceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(), spawnerFyracryx.createItemBlock(),
+		        spawnerParatiku.createItemBlock(), spawnerRejuvGolem.createItemBlock()
 		// nightmarebed.createItemBlock()
+		// fireSapling.createItemBlock(),
+		// divineSapling.createItemBlock(),
+		// dreamSapling.createItemBlock(),
+		// frozenSapling.createItemBlock(),
+		// hyreSapling.createItemBlock(),
+		// frozenLeaves.createItemBlock(),
+		// mintSapling.createItemBlock(),
 		);
 	}
 
@@ -450,6 +450,9 @@ public class ModBlocks {
 		coalstoneFurnace.registerItemModel();
 		iceikaChest.registerItemModel();
 		spawnerSeimer.registerItemModel();
+		spawnerFyracryx.registerItemModel();
+		spawnerParatiku.registerItemModel();
+		spawnerRejuvGolem.registerItemModel();
 		// nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");

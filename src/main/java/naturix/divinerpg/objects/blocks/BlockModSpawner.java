@@ -21,7 +21,7 @@ public class BlockModSpawner extends BlockMobSpawner {
 
 	public BlockModSpawner(String name, String mobName) {
 		this.name = name;
-		this.mobName = mobName;
+		this.mobName = DivineRPG.modId + "." + mobName;
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);

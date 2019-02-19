@@ -1,7 +1,4 @@
 # Blocks:
-+ Fyracryx Spawner
-+ Paratiku spawner
-+ Golem Spawner (1)
 + Arcana Dirt
 + Arcanite rails
 + Arcanite tubes
