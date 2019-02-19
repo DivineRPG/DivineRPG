@@ -37,16 +37,20 @@ public class ArmorBase extends net.minecraft.item.ItemArmor {
 	public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
 		double roundPH = Math.round(damageReduction * 1000);
 		double roundedDamage = roundPH / 10;
+		damageReduction = this.getArmorMaterial().getDamageReductionAmount(getEquipmentSlot());
 		list.add(damageReduction == 0.0 ? TooltipLocalizer.noProtection()
 		        : TooltipLocalizer.damageReduction(roundedDamage, fullReduction));
-		list.add(!unbreakable ? TooltipLocalizer.usesRemaining((item.getMaxDamage() - item.getMetadata()))
-		        : TooltipLocalizer.infiniteUses());
+		if (item.getMaxDamage() != 0) {
+			list.add(TooltipLocalizer.usesRemaining((item.getMaxDamage() - item.getItemDamage())));
+		} else {
+			list.add(TooltipLocalizer.infiniteUses());
+		}
+		// String perks = "";
 		// for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++) {
 		// if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) {
 		// perks += "In " + armorInfo[0].toString() + ": ";
 		// }
 		// }
-
 		// perks += infoBuilder.toString();
 		// for (int c = 0; c < ChatFormats.DIMENSIONS_LIST.length; c++) {
 		// perks = perks.replace(ChatFormats.DIMENSIONS_LIST[c] + ", ", "");

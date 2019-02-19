@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 /**
  * @author NicosaurusRex99
@@ -46,135 +46,146 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod(modid = DivineRPG.modId, name = DivineRPG.name, version = DivineRPG.version, updateJSON = DivineRPG.UPDATE_URL)
 public class DivineRPG {
 
-    public static final String modId = "divinerpg";
-    public static final String name = "Divine RPG";
-    public static final String version = "1.12.2.0";
-    public static final String UPDATE_URL = "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/divinerpg_update.json";
+	@Mod.EventBusSubscriber
+	public static class RegistrationHandler {
+		@SubscribeEvent
+		public static void onLivingSpawn(LivingSpawnEvent event) {
+			ModSpawns.init(event);
+		}
 
-    @SidedProxy(serverSide = "naturix.divinerpg.proxy.ServerProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
-    public static CommonProxy proxy;
+		@SubscribeEvent
+		public static void registerBiomes(RegistryEvent.Register<Biome> event) {
+			ModBiomes.registerBiomes(event.getRegistry());
+		}
 
-    @Mod.Instance(modId)
-    public static DivineRPG instance;
-    public static org.apache.logging.log4j.Logger logger;
-    public static SimpleNetworkWrapper network;
+		@SubscribeEvent
+		public static void registerBlocks(RegistryEvent.Register<Block> event) {
+			ModBlocks.register(event.getRegistry());
+		}
 
-    public DivineRPG() {
-        FluidRegistry.enableUniversalBucket();
-    }
+		@SubscribeEvent
+		public static void registerItems(ModelRegistryEvent event) {
+			ModItems.registerModels();
+			ModBlocks.registerModels();
+		}
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
-        proxy.preInit(event);
-        ModSeeds.init();
-        ModEvents.preInit();
-        PreInitLog.init();
-    }
+		@SubscribeEvent
+		public static void registerItems(RegistryEvent.Register<Item> event) {
+			ModItems.register(event.getRegistry());
+			ModBlocks.registerItemBlocks(event.getRegistry());
+			ModRecipes.init();
+		}
+	}
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent e) {
-        proxy.init(e);
+	public static final String modId = "divinerpg";
+	public static final String name = "Divine RPG";
+	public static final String version = "1.12.2.0";
 
-        InitLog.init();
-    }
+	public static final String UPDATE_URL = "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/divinerpg_update.json";
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-        proxy.postInit(e);
-        if (Loader.isModLoaded("projecte")) {
-            ProjectECompat.init();
-        }
-        PostInitLog.init();
+	@SidedProxy(serverSide = "naturix.divinerpg.proxy.ServerProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
+	public static CommonProxy proxy;
+	@Mod.Instance(modId)
+	public static DivineRPG instance;
+	public static org.apache.logging.log4j.Logger logger;
 
-        if (Config.debug) {
-            IntenseDebug.init();
-        }
-        ModEntities.registerVillagers();
-    }
+	public static SimpleNetworkWrapper network;
 
-    @Mod.EventBusSubscriber
-    public static class RegistrationHandler {
-        @SubscribeEvent
-        public static void onLivingSpawn(LivingSpawnEvent event) {
-            ModSpawns.init(event);
-        }
+	public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks") {
 
-        @SubscribeEvent
-        public static void registerItems(RegistryEvent.Register<Item> event) {
-            ModItems.register(event.getRegistry());
-            ModBlocks.registerItemBlocks(event.getRegistry());
-            ModRecipes.init();
-        }
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModBlocks.oreArlemite);
+		}
 
-        @SubscribeEvent
-        public static void registerItems(ModelRegistryEvent event) {
-            ModItems.registerModels();
-            ModBlocks.registerModels();
-        }
+	};
 
-        @SubscribeEvent
-        public static void registerBlocks(RegistryEvent.Register<Block> event) {
-            ModBlocks.register(event.getRegistry());
-        }
+	public static final CreativeTabs ItemsTab = new CreativeTabs("Item") {
 
-        @SubscribeEvent
-        public static void registerBiomes(RegistryEvent.Register<Biome> event) {
-            ModBiomes.registerBiomes(event.getRegistry());
-        }
-    }
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.ingotArlemite);
+		}
 
-    public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks") {
+	};
 
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.oreArlemite);
-        }
+	public static final CreativeTabs CombatTab = new CreativeTabs("Combat") {
 
-    };
-    public static final CreativeTabs ItemsTab = new CreativeTabs("Item") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.arlemiteStabber);
+		}
 
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.ingotArlemite);
-        }
+	};
 
-    };
-    public static final CreativeTabs CombatTab = new CreativeTabs("Combat") {
+	public static final CreativeTabs ArmorTab = new CreativeTabs("Armor") {
 
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.arlemiteStabber);
-        }
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.divineHelmet);
+		}
 
-    };
-    public static final CreativeTabs ArmorTab = new CreativeTabs("Armor") {
+	};
 
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.realmiteChestplate);
-        }
+	public static final CreativeTabs ToolsTab = new CreativeTabs("Tools") {
 
-    };
-    public static final CreativeTabs ToolsTab = new CreativeTabs("Tools") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.arlemiteShickaxe);
+		}
 
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.arlemiteShickaxe);
-        }
+	};
+	public static final CreativeTabs TrophyTab = new CreativeTabs("Trophy") {
 
-    };
-    public static final CreativeTabs TrophyTab = new CreativeTabs("Trophy") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModBlocks.watcherStatue);
+		}
 
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.watcherStatue);
-        }
+	};
 
-    };
+	public static void registerEvent(Object o) {
+		MinecraftForge.EVENT_BUS.register(o);
+		FMLCommonHandler.instance().bus().register(o);
+	}
 
-    public static void registerEvent(Object o) {
-        MinecraftForge.EVENT_BUS.register(o);
-        FMLCommonHandler.instance().bus().register(o);
-    }
+	public DivineRPG() {
+		FluidRegistry.enableUniversalBucket();
+	}
+
+	@Mod.EventHandler
+	public void init(FMLInitializationEvent e) {
+		proxy.init(e);
+
+		InitLog.init();
+	}
+
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		proxy.postInit(e);
+		if (Loader.isModLoaded("projecte")) {
+			ProjectECompat.init();
+		}
+		PostInitLog.init();
+
+		if (Config.debug) {
+			IntenseDebug.init();
+		}
+		ModEntities.registerVillagers();
+	}
+
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
+		proxy.preInit(event);
+		ModSeeds.init();
+		ModEvents.preInit();
+		PreInitLog.init();
+	}
 }
