@@ -193,7 +193,8 @@ public class ModBlocks {
 	public static FrostedGlass frostedGlass = new FrostedGlass("frosted_glass");
 	public static WorkshopCarpet workshopCarpet = new WorkshopCarpet("workshop_carpet");
 	public static CoalstoneFurnace coalstoneFurnace = new CoalstoneFurnace("coalstone_furnace");
-	public static final IceikaChest iceikaChest = new IceikaChest("iceika_chest");
+	public static final IceikaChest iceikaChest = new IceikaChest("iceika_chest", true);
+	public static final IceikaChest decorativeIceikaChest = new IceikaChest("decorative_iceika_chest", false);
 	public static BlockModSpawner spawnerSeimer = new BlockModSpawner("spawner_seimer", "seimer");
 	public static BlockModSpawner spawnerFyracryx = new BlockModSpawner("spawner_fyracryx", "fyracryx");
 	public static BlockModSpawner spawnerParatiku = new BlockModSpawner("spawner_paratiku", "paratiku");
@@ -250,7 +251,7 @@ public class ModBlocks {
 		        vineWild, grassApalachia, dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern,
 		        grassMortum, dirtMortum, portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy,
 		        bricksIceika, spawnerArcher, spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase,
-		        frostedGlass, workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, spawnerSeimer, spawnerFyracryx,
+		        frostedGlass, workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, decorativeIceikaChest, spawnerSeimer, spawnerFyracryx,
 		        spawnerParatiku, spawnerRejuvGolem, dirtArcana, railsArcana, tubesArcana, furnaceMolten,
 		        furnaceGreenLight, furnaceOceanFire, furnaceMoonlight, furnaceWhitefire, furnaceDemon, elevantium,
 		        divineMossStone, barredDoor, bricksDreamLight, bricksDreamDark, bricksDreamRed, dirtDream, glassSmooth,
@@ -321,7 +322,7 @@ public class ModBlocks {
 		        spawnerArcher.createItemBlock(), brittleLeaves.createItemBlock(), spawnerRollum.createItemBlock(),
 		        coalStone.createItemBlock(), snowBricks.createItemBlock(), workshopBookcase.createItemBlock(),
 		        frostedGlass.createItemBlock(), workshopCarpet.createItemBlock(), coalstoneFurnace.createItemBlock(),
-		        iceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(), spawnerFyracryx.createItemBlock(),
+		        iceikaChest.createItemBlock(), decorativeIceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(), spawnerFyracryx.createItemBlock(),
 		        spawnerParatiku.createItemBlock(), spawnerRejuvGolem.createItemBlock(), dirtArcana.createItemBlock(),
 		        railsArcana.createItemBlock(), tubesArcana.createItemBlock(), furnaceMolten.createItemBlock(),
 		        furnaceGreenLight.createItemBlock(), furnaceOceanFire.createItemBlock(),
@@ -480,6 +481,7 @@ public class ModBlocks {
 		workshopCarpet.registerItemModel();
 		coalstoneFurnace.registerItemModel();
 		iceikaChest.registerItemModel();
+		decorativeIceikaChest.registerItemModel();
 		spawnerSeimer.registerItemModel();
 		spawnerFyracryx.registerItemModel();
 		spawnerParatiku.registerItemModel();

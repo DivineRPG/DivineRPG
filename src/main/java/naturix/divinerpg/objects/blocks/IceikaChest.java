@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
@@ -23,7 +24,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,14 +36,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class IceikaChest extends BlockContainer {
 	public String name;
+	private boolean dropsSnowflake;
 
-	public IceikaChest(String name) {
+	public IceikaChest(String name, boolean dropsSnowFlake) {
 		super(Material.WOOD);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setSoundType(SoundType.GLASS);
 		this.name = name;
+		this.dropsSnowflake = dropsSnowFlake;
 	}
 
 	@Override
@@ -96,12 +101,15 @@ public class IceikaChest extends BlockContainer {
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		if(rand.nextInt(20)==0) {
-			return Item.getItemFromBlock(this);
-		} else {
-			return ModItems.snowflake;
-		}
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		Random rand = new Random();
+		if(this.dropsSnowflake) {
+			if(rand.nextInt(20) == 0) {
+				drops.add(new ItemStack(ModBlocks.decorativeIceikaChest, 1, 0));
+			} else {
+				drops.add(new ItemStack(ModItems.snowflake, 1, 0));
+			}
+		} else drops.add(new ItemStack(ModBlocks.decorativeIceikaChest, 1, 0));
 	}
 
 	@Override
