@@ -149,6 +149,7 @@ tile.coalstone_furnace.name=Coalstone Furnace
 tile.iceika_chest.name=Frosted Chest
 tile.frosted_glass.name=Frosted Glass
 tile.steel_door.name=Steel Door
+tile.elevantium.name=Elevantium
 
 container.iceika_chest=Iceika Chest
 

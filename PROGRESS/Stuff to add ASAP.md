@@ -1,14 +1,4 @@
 # Blocks:
-+ Arcana Dirt
-+ Arcanite rails
-+ Arcanite tubes
-+ molten furnace
-+ greenlight furnace
-+ oceanfire furnace
-+ moonlight furnace
-+ whitefire furnace
-+ demon furnace
-+ Elevantium (ez pz)
 + XMas stuff (idk much about this pls someone else do it)
 + Barred door
 + light dream bricks
