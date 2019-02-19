@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:divine_moss_stone"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

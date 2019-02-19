@@ -4,6 +4,7 @@ import naturix.divinerpg.dimensions.eden.biome.BiomeProviderEden;
 import naturix.divinerpg.dimensions.eden.chunk.ChunkGeneratorEden;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
@@ -32,13 +33,13 @@ public class WorldProviderEden extends WorldProvider {
     public BiomeProvider getBiomeProvider() {
 		return this.biomeProvider = new BiomeProviderEden();
 	}
-	
+
     @Override
-	public int getMoonPhase(long s) {
-        return (int)(s / 24000L % 8L + 8L) % 8;
+    public float calculateCelestialAngle(long worldTime, float partialTicks) {
+        return 0.1f;
     }
-    
-	@Override
+
+    @Override
     public boolean canRespawnHere() {
         return false;
     }
@@ -59,10 +60,10 @@ public class WorldProviderEden extends WorldProvider {
         return 70;
     }
 
-	@Override
     @SideOnly(Side.CLIENT)
-    public boolean doesXZShowFog(int x, int z) {
-        return false;
+    @Override
+    public Vec3d getFogColor(float f, float f1){
+        return new Vec3d(0.1361F, 0.95F, 1.0F);
     }
 
 	@Override

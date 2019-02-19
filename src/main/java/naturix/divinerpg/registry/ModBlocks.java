@@ -207,6 +207,7 @@ public class ModBlocks {
 	public static Block ayeracoBeamYellow = new BlockAyeracoBeam("ayeracoBeamYellow", "yellow");
 	public static Block ayeracoBeamPurple = new BlockAyeracoBeam("ayeracoBeamPurple", "purple");
 	public static Block ayeracoSpawn = new BlockAyeracoSpawn();
+	public static BlockBase divineMossStone = new BlockBase("divine_moss_stone");
 
 	public static void register(IForgeRegistry<Block> registry) {
 		System.out.print("DivineRPG blocks loading");
@@ -219,6 +220,26 @@ public class ModBlocks {
 		        blockMoltenLamp, blockNetheriteLamp, blockRealmiteLamp, blockRedstoneLamp, blockRupeeLamp,
 		        blockSlimeLamp, blockTerranLamp, blockVillageLamp, blockWorkshopLamp, divineLog, dreamLog, frozenLog,
 		        hyreLog, mintLog, edenLog, fireLog, wildwoodLog, apalachiaLog, skythernLog, mortumLog, divineLeaves,
+		        dreamLeaves,
+		        // frozenLeaves,
+		        hyreLeaves, mintLeaves, edenLeaves, fireLeaves, wildwoodLeaves, apalachiaLeaves, skythernLeaves,
+		        mortumLeaves, torchSkeleton, torchAqua, torchEden, torchArcanium, apalachiaSapling,
+		        // divineSapling,
+		        // dreamSapling,
+		        // frozenSapling,
+		        // hyreSapling,
+		        // mintSapling,
+		        edenSapling,
+		        // fireSapling,
+		        wildwoodSapling, skythernSapling, mortumSapling, watcherStatue, ancientEntityStatue, ayeracoHordeStatue,
+		        densosStatue, dexZichileStatue, dramixStatue, kingScorcherStatue, reyvorStatue, soulFiendStatue,
+		        twilightDemonStatue, vamacheronStatue, altarDramix, altarParasecta, heatTrap, heatTrapOn, spikeCold,
+		        spikeHot, acidBacteria, acidBlock, acidLunic, acceleron, grassArcana, portalEden, rockDivine, dirtEden,
+		        grassEden, blueFire, rockTwilight, bedDream, grassWild, dirtWild, portalWild, vineWild, grassApalachia,
+		        dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern, grassMortum, dirtMortum,
+		        portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy, bricksIceika, spawnerArcher,
+		        spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase, frostedGlass,
+		        workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, spawnerSeimer, divineMossStone,
 		        dreamLeaves, hyreLeaves, mintLeaves, edenLeaves, fireLeaves, wildwoodLeaves, apalachiaLeaves,
 		        skythernLeaves, mortumLeaves, torchSkeleton, torchAqua, torchEden, torchArcanium, apalachiaSapling,
 		        edenSapling, wildwoodSapling, skythernSapling, mortumSapling, watcherStatue, ancientEntityStatue,
@@ -297,8 +318,9 @@ public class ModBlocks {
 		        spawnerArcher.createItemBlock(), brittleLeaves.createItemBlock(), spawnerRollum.createItemBlock(),
 		        coalStone.createItemBlock(), snowBricks.createItemBlock(), workshopBookcase.createItemBlock(),
 		        frostedGlass.createItemBlock(), workshopCarpet.createItemBlock(), coalstoneFurnace.createItemBlock(),
+		        iceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(), divineMossStone.createItemBlock(),
 		        iceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(), spawnerFyracryx.createItemBlock(),
-		        spawnerParatiku.createItemBlock(), spawnerRejuvGolem.createItemBlock()
+		        spawnerParatiku.createItemBlock(), spawnerRejuvGolem.createItemBlock());
 		// nightmarebed.createItemBlock()
 		// fireSapling.createItemBlock(),
 		// divineSapling.createItemBlock(),
@@ -307,7 +329,7 @@ public class ModBlocks {
 		// hyreSapling.createItemBlock(),
 		// frozenLeaves.createItemBlock(),
 		// mintSapling.createItemBlock(),
-		);
+
 	}
 
 	public static void registerModels() {
@@ -450,6 +472,7 @@ public class ModBlocks {
 		coalstoneFurnace.registerItemModel();
 		iceikaChest.registerItemModel();
 		spawnerSeimer.registerItemModel();
+		divineMossStone.registerItemModel();
 		spawnerFyracryx.registerItemModel();
 		spawnerParatiku.registerItemModel();
 		spawnerRejuvGolem.registerItemModel();

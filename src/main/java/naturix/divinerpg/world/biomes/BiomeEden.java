@@ -1,5 +1,6 @@
 package naturix.divinerpg.world.biomes;
 
+import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenAbstractTree;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenAbstractTree;
 import naturix.divinerpg.dimensions.iceika.worldgen.trees.WorldGenIceTree;
@@ -64,6 +65,7 @@ public class BiomeEden extends Biome {
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         EdenAbstractTree genTree = new EdenAbstractTree(false, 3);
         LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
+        WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
         for (int i = 0; i < 10; i++) {
@@ -79,6 +81,15 @@ public class BiomeEden extends Biome {
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             genTree.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 1; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 55 + rand.nextInt(20);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            if (rand.nextInt(10) == 1) {
+                genConeUp.generate(worldIn, rand, mutPos);
+            }
         }
     }
 	
