@@ -730,7 +730,7 @@ public class ModItems {
 	public static ItemBase arrowPardimal = new ItemBase("arrow_pardimal");
 	public static ItemBase arrowKaros = new ItemBase("arrow_karos");
 
-	static void register(IForgeRegistry<Item> registry) {
+	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
 		registry.registerAll(amthirmisDisk, hunterBow, shadowBow, enderBow, bluefireBow, infernoBow, arcanium,
 		        ingotArlemite, ingotAquatic, ingotHellstone, ingotNetherite, ingotRealmite, ingotRupee, gemApalachia,
