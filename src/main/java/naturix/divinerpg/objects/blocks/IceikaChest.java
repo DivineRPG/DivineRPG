@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
+import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.BlockContainer;
@@ -60,6 +61,7 @@ public class IceikaChest extends BlockContainer {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public EnumBlockRenderType getRenderType(IBlockState state) {
 		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
 	}
@@ -78,6 +80,7 @@ public class IceikaChest extends BlockContainer {
 
 	@Override
 	@SuppressWarnings("deprecation")
+	@SideOnly(Side.CLIENT)
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
@@ -90,6 +93,15 @@ public class IceikaChest extends BlockContainer {
 			        pos.getZ());
 		}
 		return true;
+	}
+
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		if(rand.nextInt(20)==0) {
+			return Item.getItemFromBlock(this);
+		} else {
+			return ModItems.snowflake;
+		}
 	}
 
 	@Override
