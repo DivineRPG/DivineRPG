@@ -13,6 +13,6 @@ public class DRPGLootTables extends LootTableList {
 
 
     private static ResourceLocation register(String id) {
-        return register(new ResourceLocation(DivineRPG.modId, id));
+        return register(new ResourceLocation("divinerpg", id));
     }
 }

@@ -6,6 +6,7 @@ import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.DRPGLootTables;
 import naturix.divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
@@ -32,8 +33,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
-            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
-            generateStructure(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
+            generateIceikaDungeon(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
+            generateIceikaRollumDungeon(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
             generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
             generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
             generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
@@ -62,7 +63,38 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    private void generateIceikaLootChest(World world, BlockPos pos, Random random) {
+    /**Generates an Iceika Dungeon with the specified loot*/
+    private void generateIceikaDungeon(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
+        int x = chunkX * 16;
+        int z = chunkZ * 16;
+        int y = random.nextInt(43) + 13;
+        BlockPos pos = new BlockPos(x, y, z);
+        if (random.nextInt(chance) == 0) {
+            generator.generate(world, random, pos);
+            generateIceikaLoot(world, pos.add(18, 1, 1), random);
+            generateIceikaLoot(world, pos.add(23, 1, 1), random);
+        }
+    }
+
+    /**Generates an Iceika Rollum Dungeon with the specified loot*/
+    private void generateIceikaRollumDungeon(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
+        int x = chunkX * 16;
+        int z = chunkZ * 16;
+        int y = random.nextInt(43) + 13;
+        BlockPos pos = new BlockPos(x, y, z);
+        if (random.nextInt(chance) == 0) {
+            generator.generate(world, random, pos);
+            generateIceikaLoot(world, pos.add(1, 1, 9), random);
+            generateIceikaLoot(world, pos.add(23, 1, 10), random);
+            generateIceikaLoot(world, pos.add(24, 1, 10), random);
+            generateIceikaLoot(world, pos.add(28, 1, 11), random);
+            generateIceikaLoot(world, pos.add(29, 1, 11), random);
+            generateIceikaLoot(world, pos.add(26, 1, 17), random);
+            generateIceikaLoot(world, pos.add(26, 1, 18), random);
+        }
+    }
+
+    private void generateIceikaLoot(World world, BlockPos pos, Random random) {
         TileEntity tileEntity = world.getTileEntity(pos);
 
         if (tileEntity instanceof TileEntityIceikaChest) {
@@ -79,5 +111,4 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
         return y;
     }
-    //TODO Make structures spawn loot chests -LiteWolf101
 }
