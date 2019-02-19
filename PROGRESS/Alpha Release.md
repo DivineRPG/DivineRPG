@@ -2,7 +2,6 @@ Vanilla Mobs for Alpha Release:
 + Ayeracos - (Needs TileEntityAyeracoBeam)
 + JackOMan - (Needs better Gui)
 + LivestockMerchant - (Needs better Gui)
-+ Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
 + The Watcher - (Needs a big AI port)
 + Wildfire - (Like AridWarrior)
 + Fyracryx = (Needs port)

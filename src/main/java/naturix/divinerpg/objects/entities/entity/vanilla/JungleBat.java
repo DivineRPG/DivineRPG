@@ -21,8 +21,8 @@ import net.minecraft.world.World;
 
 public class JungleBat extends EntityDivineRPGMob {
     public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jungle_bat");
-    private static final DataParameter<Byte> HANGING = EntityDataManager.<Byte>createKey(EntityBat.class,
-            DataSerializers.BYTE);
+    private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
+            DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;
 
     public JungleBat(World worldIn) {
@@ -33,7 +33,7 @@ public class JungleBat extends EntityDivineRPGMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(HANGING, Byte.valueOf((byte) 0));
+        this.dataManager.register(HANGING, Boolean.valueOf(false));
     }
 
     @Override
@@ -88,17 +88,11 @@ public class JungleBat extends EntityDivineRPGMob {
     }
 
     public boolean getIsBatHanging() {
-        return (((Byte) this.dataManager.get(HANGING)).byteValue() & 1) != 0;
+        return ((Boolean) this.dataManager.get(HANGING)).booleanValue();
     }
 
     public void setIsBatHanging(boolean isHanging) {
-        byte b0 = ((Byte) this.dataManager.get(HANGING)).byteValue();
-
-        if (isHanging) {
-            this.dataManager.set(HANGING, Byte.valueOf((byte) (b0 | 1)));
-        } else {
-            this.dataManager.set(HANGING, Byte.valueOf((byte) (b0 & -2)));
-        }
+        this.dataManager.set(HANGING, Boolean.valueOf(isHanging));
     }
 
     @Override
@@ -200,13 +194,13 @@ public class JungleBat extends EntityDivineRPGMob {
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        this.dataManager.set(HANGING, Byte.valueOf(compound.getByte("BatFlags")));
+        this.dataManager.set(HANGING, Boolean.valueOf(compound.getBoolean("Hanging")));
     }
 
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setByte("BatFlags", ((Byte) this.dataManager.get(HANGING)).byteValue());
+        compound.setBoolean("Hanging", ((Boolean) this.dataManager.get(HANGING)).booleanValue());
     }
 
     @Override
