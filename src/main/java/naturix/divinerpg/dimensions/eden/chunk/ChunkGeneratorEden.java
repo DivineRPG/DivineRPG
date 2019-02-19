@@ -30,272 +30,32 @@ import java.util.List;
 import java.util.Random;
 
 public class ChunkGeneratorEden implements  IChunkGenerator {
-    /*
-	private Random rand;
-
-	private World worldObj;
-
-	private NoiseGeneratorOctaves noiseGen1, perlinNoise1;
-
-	private double buffer[];
-
-	double pnr[], ar[], br[];
-
-
-	public ChunkGeneratorEden(World world, long seed)
-	{
-		this.worldObj = world;
-
-		this.rand = new Random(seed);
-		
-		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
-	}
-
-	public void setBlocksInChunk(int x, int z, ChunkPrimer chunkPrimer)
-    {
-        this.buffer = this.setupNoiseGenerators(this.buffer, x * 2, z * 2);
-
-        for(int i1 = 0; i1 < 2; i1++)
-        {
-            for(int j1 = 0; j1 < 2; j1++)
-            {
-                for(int k1 = 0; k1 < 32; k1++)
-                {
-                    double d1 = this.buffer[(i1 * 3 + j1) * 33 + k1];
-                    double d2 = this.buffer[(i1 * 3 + (j1 + 1)) * 33 + k1];
-                    double d3 = this.buffer[((i1 + 1) * 3 + j1) * 33 + k1];
-                    double d4 = this.buffer[((i1 + 1) * 3 + (j1 + 1)) * 33 + k1];
-
-                    double d5 = (this.buffer[(i1 * 3 + j1) * 33 + (k1 + 1)] - d1) * 0.25D;
-                    double d6 = (this.buffer[(i1 * 3 + (j1 + 1)) * 33 + (k1 + 1)] - d2) * 0.25D;
-                    double d7 = (this.buffer[((i1 + 1) * 3 + j1) * 33 + (k1 + 1)] - d3) * 0.25D;
-                    double d8 = (this.buffer[((i1 + 1) * 3 + (j1 + 1)) * 33 + (k1 + 1)] - d4) * 0.25D;
-
-                    for(int l1 = 0; l1 < 4; l1++)
-                    {
-                        double d10 = d1;
-                        double d11 = d2;
-                        double d12 = (d3 - d1) * 0.125D;
-                        double d13 = (d4 - d2) * 0.125D;
-
-                        for(int i2 = 0; i2 < 8; i2++)
-                        {
-                            double d15 = d10;
-                            double d16 = (d11 - d10) * 0.125D;
-
-                            for(int k2 = 0; k2 < 8; k2++)
-                            {
-                            	int x1 = i2 + i1 * 8;
-                            	int y = l1 + k1 * 4;
-                            	int z1 = k2 + j1 * 8;
-
-                                IBlockState filler = Blocks.AIR.getDefaultState();
-
-                            	if (d15 < -38D)
-                            	{
-                         	}
-
-                                if (d15 < -39D && d15 > -43D)
-                                {
-                                	if (d15 < -41D)
-                                	{
-                          	}
-
-                          }
-
-                                if (d15 < -44D && d15 > -46D)
-                                {
-                                	if (d15 < -44.25D)
-                                	{
-                 	}
-}
-
-                                if(d15 > 0.0D)
-                                {
-                                	filler = ModBlocks.rockTwilight.getDefaultState();
-                                }
-
-                                chunkPrimer.setBlockState(x1, y, z1, filler);
-
-                                d15 += d16;
-                            }
-
-                            d10 += d12;
-                            d11 += d13;
-                        }
-
-                        d1 += d5;
-                        d2 += d6;
-                        d3 += d7;
-                        d4 += d8;
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
-
-	public void buildSurfaces(int i, int j, ChunkPrimer chunkPrimer)
-    {
-        for(int k = 0; k < 16; k++)
-        {
-            for(int l = 0; l < 16; l++)
-            {
-                int j1 = -1;
-                int i1 = (int)(3.0D + this.rand.nextDouble() * 0.25D);
-
-        		IBlockState top = ModBlocks.grassEden.getDefaultState();
-        		IBlockState filler = ModBlocks.dirtEden.getDefaultState();
-
-                for (int k1 = 127; k1 >= 0; k1--)
-				{
-					Block block = chunkPrimer.getBlockState(k, k1, l).getBlock();
-
-					if (block == Blocks.AIR)
-					{
-						j1 = -1;
-					}
-					else if (block == ModBlocks.rockTwilight)
-					{
-						if (j1 == -1)
-						{
-							if (i1 <= 0)
-							{
-								top = Blocks.AIR.getDefaultState();
-								filler = ModBlocks.rockTwilight.getDefaultState();
-							}
-
-							j1 = i1;
-
-							if (k1 >= 0)
-							{
-								chunkPrimer.setBlockState(k, k1, l, top);
-							}
-							else
-							{
-								chunkPrimer.setBlockState(k, k1, l, filler);
-							}
-						}
-						else if (j1 > 0)
-						{
-							--j1;
-							chunkPrimer.setBlockState(k, k1, l, filler);
-						}
-					}
-				}
-            }
-        }
-    }
-
-    private double[] setupNoiseGenerators(double buffer[], int x, int z)
-    {
-        if(buffer == null)
-        {
-        	buffer = new double[3366];
-        }
-
-        double d = 1368.824D;
-        double d1 = 684.41200000000003D;
-
-        this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, x, 0, z, 3, 33, 3, d / 80D, d1 / 160D, d / 80D);
-        this.ar = this.noiseGen1.generateNoiseOctaves(this.ar, x, 0, z, 3, 33, 3, d, d1, d);
-        this.br = this.noiseGen1.generateNoiseOctaves(this.br, x, 0, z, 3, 33, 3, d, d1, d);
-
-        int id = 0;
-
-        for(int j2 = 0; j2 < 3; j2++)
-        {
-            for(int l2 = 0; l2 < 3; l2++)
-            {
-                for(int j3 = 0; j3 < 33; j3++)
-                {
-                	double d8;
-
-                    double d10 = this.ar[id] / 512D;
-                    double d11 = this.br[id] / 512D;
-                    double d12 = (this.pnr[id] / 10D + 1.0D) / 2D;
-
-                    if(d12 < 0.0D)
-                    {
-                        d8 = d10;
-                    } 
-                    else if(d12 > 1.0D)
-                    {
-                        d8 = d11;
-                    }
-                    else
-                    {
-                        d8 = d10 + (d11 - d10) * d12;
-                    }
-
-                    d8 -= 8D;
-
-                    if(j3 > 33 - 32)
-                    {
-                        double d13 = (float)(j3 - (33 - 32)) / ((float)32 - 1.0F);
-                        d8 = d8 * (1.0D - d13) + -30D * d13;
-                    }
-
-                    if(j3 < 8)
-                    {
-                        double d14 = (float)(8 - j3) / ((float)8 - 1.0F);
-                        d8 = d8 * (1.0D - d14) + -30D * d14;
-                    }
-
-                    buffer[id] = d8;
-
-                    id++;
-                }
-
-            }
-
-        }
-
-        return buffer;
-    }
-
-	@Override
-	public Chunk generateChunk(int x, int z) 
-	{
-        this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
-		ChunkPrimer chunkPrimer = new ChunkPrimer();
-
-        this.setBlocksInChunk(x, z, chunkPrimer);
-        this.buildSurfaces(x, z, chunkPrimer);
-
-
-
-        Chunk chunk = new Chunk(this.worldObj, chunkPrimer, x, z);
-        chunk.generateSkylightMap();
-
-		return chunk;
-	}*/
-
     /** RNG. */
     private final Random rand;
-    protected static final IBlockState END_STONE = Blocks.END_STONE.getDefaultState();
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
     private NoiseGeneratorOctaves lperlinNoise1;
     private NoiseGeneratorOctaves lperlinNoise2;
     private NoiseGeneratorOctaves perlinNoise1;
-    /** A NoiseGeneratorOctaves used in generating terrain */
-    public NoiseGeneratorOctaves noiseGen5;
-    /** A NoiseGeneratorOctaves used in generating terrain */
-    public NoiseGeneratorOctaves noiseGen6;
     /** Reference to the World object. */
     private final World world;
     private NoiseGeneratorSimplex islandNoise;
     private double[] buffer;
     /** The biomes that are used to generate the chunk */
     private Biome[] biomesForGeneration;
-    double[] pnr;
-    double[] ar;
-    double[] br;
-    private final WorldGenEndIsland endIslands = new WorldGenEndIsland();
+
+    double[] noise3;
+    double[] noise1;
+    double[] noise2;
+    double[] noise5;
+    double[] noise6;
+
+    private NoiseGeneratorOctaves noiseGen1;
+    private NoiseGeneratorOctaves noiseGen2;
+    private NoiseGeneratorOctaves noiseGen3;
+    private NoiseGeneratorOctaves noiseGen4;
+    public NoiseGeneratorOctaves noiseGen5;
+    public NoiseGeneratorOctaves noiseGen6;
+
     // temporary variables used during event handling
     private int chunkX = 0;
     private int chunkZ = 0;
@@ -307,8 +67,15 @@ public class ChunkGeneratorEden implements  IChunkGenerator {
         this.lperlinNoise1 = new NoiseGeneratorOctaves(this.rand, 16);
         this.lperlinNoise2 = new NoiseGeneratorOctaves(this.rand, 16);
         this.perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
+
+        this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
+        this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
+        this.noiseGen3 = new NoiseGeneratorOctaves(this.rand, 8);
+        this.noiseGen4 = new NoiseGeneratorOctaves(this.rand, 4);
         this.noiseGen5 = new NoiseGeneratorOctaves(this.rand, 10);
         this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
+
+
         this.islandNoise = new NoiseGeneratorSimplex(this.rand);
 
         net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextEnd ctx =
@@ -317,8 +84,6 @@ public class ChunkGeneratorEden implements  IChunkGenerator {
         this.lperlinNoise1 = ctx.getLPerlin1();
         this.lperlinNoise2 = ctx.getLPerlin2();
         this.perlinNoise1 = ctx.getPerlin();
-        this.noiseGen5 = ctx.getDepth();
-        this.noiseGen6 = ctx.getScale();
         this.islandNoise = ctx.getIsland();
     }
 
@@ -519,79 +284,98 @@ public class ChunkGeneratorEden implements  IChunkGenerator {
         return (long)p_185961_1_ * (long)p_185961_1_ + (long)p_185961_2_ * (long)p_185961_2_ > 4096L && this.getIslandHeightValue(p_185961_1_, p_185961_2_, 1, 1) >= 0.0F;
     }
 
-    private double[] getHeights(double[] p_185963_1_, int p_185963_2_, int p_185963_3_, int p_185963_4_, int p_185963_5_, int p_185963_6_, int p_185963_7_)
+    private double[] getHeights(double[] var1, int var2, int var3, int var4, int var5, int var6, int var7)
     {
-        net.minecraftforge.event.terraingen.ChunkGeneratorEvent.InitNoiseField event = new net.minecraftforge.event.terraingen.ChunkGeneratorEvent.InitNoiseField(this, p_185963_1_, p_185963_2_, p_185963_3_, p_185963_4_, p_185963_5_, p_185963_6_, p_185963_7_);
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
-        if (event.getResult() == net.minecraftforge.fml.common.eventhandler.Event.Result.DENY) return event.getNoisefield();
-
-        if (p_185963_1_ == null)
-        {
-            p_185963_1_ = new double[p_185963_5_ * p_185963_6_ * p_185963_7_];
+        if (var1 == null) {
+            var1 = new double[var5 * var6 * var7];
         }
 
-        double d0 = 684.412D;
-        double d1 = 684.412D;
-        d0 = d0 * 2.0D;
-        this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, p_185963_2_, p_185963_3_, p_185963_4_, p_185963_5_, p_185963_6_, p_185963_7_, d0 / 80.0D, 4.277575000000001D, d0 / 80.0D);
-        this.ar = this.lperlinNoise1.generateNoiseOctaves(this.ar, p_185963_2_, p_185963_3_, p_185963_4_, p_185963_5_, p_185963_6_, p_185963_7_, d0, 684.412D, d0);
-        this.br = this.lperlinNoise2.generateNoiseOctaves(this.br, p_185963_2_, p_185963_3_, p_185963_4_, p_185963_5_, p_185963_6_, p_185963_7_, d0, 684.412D, d0);
-        int i = p_185963_2_ / 2;
-        int j = p_185963_4_ / 2;
-        int k = 0;
+        double var8 = 684.412D;
+        double var10 = 684.412D;
+        this.noise5 = this.noiseGen5.generateNoiseOctaves(this.noise5, var2, var4, var5, var7, 1.121D, 1.121D, 0.5D);
+        this.noise6 = this.noiseGen6.generateNoiseOctaves(this.noise6, var2, var4, var5, var7, 200.0D, 200.0D, 0.5D);
+        var8 *= 2.0D;
+        this.noise3 = this.noiseGen3.generateNoiseOctaves(this.noise3, var2, var3, var4, var5, var6, var7, var8 / 80.0D, var8 / 160.0D, var8 / 80.0D);
+        this.noise1 = this.noiseGen1.generateNoiseOctaves(this.noise1, var2, var3, var4, var5, var6, var7, var8, var10, var8);
+        this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, var2, var3, var4, var5, var6, var7, var8, var10, var8);
+        int var12 = 0;
+        int var13 = 0;
+        int var14 = 16 / var5;
 
-        for (int l = 0; l < p_185963_5_; ++l)
-        {
-            for (int i1 = 0; i1 < p_185963_7_; ++i1)
-            {
-                float f = this.getIslandHeightValue(i, j, l, i1);
+        for (int var15 = 0; var15 < var5; ++var15) {
+            int var16 = var15 * var14 + var14 / 2;
 
-                for (int j1 = 0; j1 < p_185963_6_; ++j1)
-                {
-                    double d2 = this.ar[k] / 512.0D;
-                    double d3 = this.br[k] / 512.0D;
-                    double d5 = (this.pnr[k] / 10.0D + 1.0D) / 2.0D;
-                    double d4;
+            for (int var17 = 0; var17 < var7; ++var17) {
+                int var18 = var17 * var14 + var14 / 2;
+                double var19 = (this.noise5[var13] + 256.0D) / 512.0D;
+                double var21 = this.noise6[var13] / 8000.0D;
 
-                    if (d5 < 0.0D)
-                    {
-                        d4 = d2;
-                    }
-                    else if (d5 > 1.0D)
-                    {
-                        d4 = d3;
-                    }
-                    else
-                    {
-                        d4 = d2 + (d3 - d2) * d5;
-                    }
+                if (var21 < 0.0D) {
+                    var21 = -var21 * 0.3D;
+                }
 
-                    d4 = d4 - 8.0D;
-                    d4 = d4 + (double)f;
-                    int k1 = 2;
+                var21 = var21 * 3.0D - 2.0D;
 
-                    if (j1 > p_185963_6_ / 2 - k1)
-                    {
-                        double d6 = (double)((float)(j1 - (p_185963_6_ / 2 - k1)) / 64.0F);
-                        d6 = MathHelper.clamp(d6, 0.0D, 1.0D);
-                        d4 = d4 * (1.0D - d6) + -3000.0D * d6;
-                    }
+                if (var21 > 1.0D) {
+                    var21 = 1.0D;
+                }
 
-                    k1 = 8;
+                var21 /= 8.0D;
+                var21 = 0.0D;
 
-                    if (j1 < k1)
-                    {
-                        double d7 = (double)((float)(k1 - j1) / ((float)k1 - 1.0F));
-                        d4 = d4 * (1.0D - d7) + -30.0D * d7;
+                if (var19 < 0.0D) {
+                    var19 = 0.0D;
+                }
+
+                var19 += 0.5D;
+                var21 = var21 * var6 / 16.0D;
+                ++var13;
+                double var23 = var6 / 2.0D;
+
+                for (int var25 = 0; var25 < var6; ++var25) {
+                    double var26 = 0.0D;
+                    double var28 = (var25 - var23) * 8.0D / var19;
+
+                    if (var28 < 0.0D) {
+                        var28 *= -1.0D;
                     }
 
-                    p_185963_1_[k] = d4;
-                    ++k;
+                    double var30 = this.noise1[var12] / 512.0D;
+                    double var32 = this.noise2[var12] / 512.0D;
+                    double var34 = (this.noise3[var12] / 10.0D + 1.0D) / 2.0D;
+
+                    if (var34 < 0.0D) {
+                        var26 = var30;
+                    }
+                    else if (var34 > 1.0D) {
+                        var26 = var32;
+                    } else {
+                        var26 = var30 + (var32 - var30) * var34;
+                    }
+
+                    var26 -= 8.0D;
+                    byte var36 = 32;
+                    double var37;
+
+                    if (var25 > var6 - var36) {
+                        var37 = (var25 - (var6 - var36)) / (var36 - 1.0F);
+                        var26 = var26 * (1.0D - var37) + -30.0D * var37;
+                    }
+
+                    var36 = 8;
+
+                    if (var25 < var36) {
+                        var37 = (var36 - var25) / (var36 - 1.0F);
+                        var26 = var26 * (1.0D - var37) + -30.0D * var37;
+                    }
+
+                    var1[var12] = var26;
+                    ++var12;
                 }
             }
         }
 
-        return p_185963_1_;
+        return var1;
     }
 
     /**

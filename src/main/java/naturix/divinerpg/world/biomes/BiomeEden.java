@@ -13,10 +13,12 @@ import naturix.divinerpg.objects.entities.entity.twilight.Madivel;
 import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -66,11 +68,12 @@ public class BiomeEden extends Biome {
         EdenAbstractTree genTree = new EdenAbstractTree(false, 3);
         LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
+        WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 40; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
+            int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             genLargeTree.generate(worldIn, rand, mutPos);
@@ -82,6 +85,14 @@ public class BiomeEden extends Biome {
             mutPos.setPos(rx, ry, rz);
             genTree.generate(worldIn, rand, mutPos);
         }
+        for (int i = 0; i < 1; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 55 + rand.nextInt(20);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genLakes.generate(worldIn, rand, mutPos);
+        }
+
         for (int i = 0; i < 1; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 55 + rand.nextInt(20);

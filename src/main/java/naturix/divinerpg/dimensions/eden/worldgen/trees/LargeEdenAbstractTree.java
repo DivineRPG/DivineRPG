@@ -29,33 +29,52 @@ public class LargeEdenAbstractTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World world, Random random, BlockPos blockPos) {
-        int trunkHeight = random.nextInt(4) + minTrunkHeight;
-        int treeHeight = 10 + trunkHeight;
+
+
         BlockPos pos = new BlockPos(blockPos.getX(), blockPos.getY() - 1, blockPos.getZ());
 
-        if (blockPos.getY() < 1 || blockPos.getY() + treeHeight + 1 > 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassEden || blockPos.getY() >= 256 - treeHeight - 1) {
+        if (blockPos.getY() <= 13 && blockPos.getY() + minTrunkHeight + 1 >= 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassEden) {
             return false;
         } else {
-            buildLeaves1(world, blockPos, trunkHeight + 2);
-            buildLeaves2(world, blockPos, trunkHeight + 3);
-            buildLeaves3(world, blockPos, trunkHeight + 4);
-            buildLeaves4(world, blockPos, trunkHeight + 5);
-            buildLeaves5(world, blockPos, trunkHeight + 6);
-            buildLeaves4(world, blockPos, trunkHeight + 7);
-            buildLeaves6(world, blockPos, trunkHeight + 8);
-            buildLeaves6(world, blockPos, treeHeight);
-            buildTrunk(world, blockPos, treeHeight);
-            buildBranchBase(world, blockPos, trunkHeight);
-            buildBranches(world, blockPos, trunkHeight + 2);
-            buildBranchBase(world, blockPos, trunkHeight + 4);
-            buildBranches2(world, blockPos, trunkHeight + 6);
-            setTreeHeight(world, blockPos, treeHeight);
-            return true;
+            checkIsAirAndBuild(world, blockPos, random);
         }
+        return true;
 
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
 
+    }
+
+    public void checkIsAirAndBuild(World world, BlockPos position, Random rand){
+        int trunkHeight = rand.nextInt(4) + minTrunkHeight;
+        int treeHeight = 10 + trunkHeight;
+        int check = 0;
+        for (int x = -5; x <= 11; x++){
+            for (int y = trunkHeight - 1; y <= treeHeight; y++){
+                for (int z = -5; z <= 11; z++){
+                    BlockPos checkingpos = new BlockPos(position.getX() + x, position.getY() + y, position.getZ() + z);
+                    if (world.getBlockState(checkingpos).getMaterial() == Material.GROUND || world.getBlockState(checkingpos).getMaterial() == Material.ROCK) {
+                        check++;
+                    }
+                }
+            }
+        }
+        if (check == 0) {
+            buildLeaves1(world, position, trunkHeight + 2);
+            buildLeaves2(world, position, trunkHeight + 3);
+            buildLeaves3(world, position, trunkHeight + 4);
+            buildLeaves4(world, position, trunkHeight + 5);
+            buildLeaves5(world, position, trunkHeight + 6);
+            buildLeaves4(world, position, trunkHeight + 7);
+            buildLeaves6(world, position, trunkHeight + 8);
+            buildLeaves6(world, position, treeHeight);
+            buildTrunk(world, position, treeHeight);
+            buildBranchBase(world, position, trunkHeight);
+            buildBranches(world, position, trunkHeight + 2);
+            buildBranchBase(world, position, trunkHeight + 4);
+            buildBranches2(world, position, trunkHeight + 6);
+            setTreeHeight(world, position, treeHeight);
+        }
     }
 
     private void buildLeaves6(World world, BlockPos blockPos, int height) {
