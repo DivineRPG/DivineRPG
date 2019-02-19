@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "Z Z"
+  ],
+  "key": {
+    "Z": {
+      "item": "divinerpg:ingot_shadow"
+    },
+	"X": {
+      "item": "divinerpg:block_netherite"
+    }
+  },
+  "result": {
+    "item": "divinerpg:netherite_helmet"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ZZZ",
+    "Z Z"
+  ],
+  "key": {
+    "Z": {
+      "item": "divinerpg:stone_terran"
+    }
+  },
+  "result": {
+    "item": "divinerpg:terran_helmet"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ZZZ",
+    "Z Z",
+    "Z Z"
+  ],
+  "key": {
+    	"Z": {
+      "item": "divinerpg:chunk_wildwood"
+    }
+  },
+  "result": {
+    "item": "divinerpg:wildwood_leggings"
+  }
+}

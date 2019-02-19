@@ -150,6 +150,7 @@ tile.iceika_chest.name=Frosted Chest
 tile.frosted_glass.name=Frosted Glass
 tile.steel_door.name=Steel Door
 tile.elevantium.name=Elevantium
+tile.divine_stone_moss.name-Divine Mossy Stone
 
 container.iceika_chest=Iceika Chest
 
@@ -581,6 +582,7 @@ item.fury_golden.name=Golden Fury
 item.stone_divine.name=Divine Stone
 item.kraken_scale.name=Kraken Scale
 item.kraken_skin.name=Kraken Skin
+item.stone_shadow.name=Shadow Stone
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
