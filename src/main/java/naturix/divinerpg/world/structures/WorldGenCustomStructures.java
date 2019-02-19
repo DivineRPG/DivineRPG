@@ -1,14 +1,19 @@
 package naturix.divinerpg.world.structures;
 
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.DRPGLootTables;
 import naturix.divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
@@ -54,6 +59,14 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         BlockPos pos = new BlockPos(x,y,z);
         if(random.nextInt(chance) == 0){
             generator.generate(world, random, pos);
+        }
+    }
+
+    private void generateIceikaLootChest(World world, BlockPos pos, Random random) {
+        TileEntity tileEntity = world.getTileEntity(pos);
+
+        if (tileEntity instanceof TileEntityIceikaChest) {
+            ((TileEntityIceikaChest)tileEntity).setLootTable(DRPGLootTables.ICEIKA_CHEST, random.nextLong());
         }
     }
 
