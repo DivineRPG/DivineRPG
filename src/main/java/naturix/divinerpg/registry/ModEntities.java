@@ -182,6 +182,7 @@ import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDeath;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
@@ -340,6 +341,7 @@ public class ModEntities {
         registerProjectile(EntityCaveRock.class, "cave_rock");
         registerProjectile(EntityDeath.class, "death");
         registerProjectile(EntityDisk.class, "disk_amthrimis");
+        registerProjectile(EntityDivineArrow.class, "divine_arrow");
         registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
         registerProjectile(EntityFrostShot.class, "frost_shot");
         registerProjectile(EntityFrostCloud.class, "frost_cloud");
@@ -615,6 +617,7 @@ public class ModEntities {
     public static void initModels() {
         // Projectiles
         EntityCaveRock.renderMe();
+        EntityDivineArrow.renderMe();
         EntityEnderTripletsFireball.renderMe();
         EntityFrostShot.renderMe();
         EntityFrostCloud.renderMe();

@@ -15,7 +15,6 @@ public class RenderInfernoArrow extends RenderArrow<EntityInfernoArrow> {
 
     public RenderInfernoArrow(RenderManager manager) {
         super(manager);
-        this.bindTexture(ARROW);
     }
 
     protected ResourceLocation getEntityTexture(EntityInfernoArrow entity) {
