@@ -693,7 +693,8 @@ public class ModItems {
 	public static ItemBase lavekor = new ItemBase("lavekor");
 	public static ItemBase grenade = new ItemBase("grenade");
 	public static ItemBase snowslash = new ItemBase("snowslash");
-	public static ItemBase collector = new ItemBase("collector_charged");
+	public static ItemBase collector = new ItemBase("collector");
+	public static ItemBase collectorCharged = new ItemBase("collector_charged");
 	public static ItemBase staffEnrichment = new ItemBase("staff_enrichment");
 	public static ItemBase potionArcanaWeak = new ItemBase("potion_arcana_weak");
 	public static ItemBase potionArcanaStrong = new ItemBase("potion_arcana_strong");
@@ -712,6 +713,7 @@ public class ModItems {
 	public static ItemBase maulFrozen = new ItemBase("maul_frozen");
 	public static CannonBase cannonFractite = new CannonBase("cannon_fractite");
 	public static SwordBase iceEnder = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "ice_ender");
+	public static ItemBase eggOverworld = new ItemBase("egg_overworld");
 
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -786,7 +788,8 @@ public class ModItems {
 		        saberArcanium, firefly, staffStarlight, meriksMissile, swordLivicia, lavekor, grenade, snowslash,
 		        collector, staffEnrichment, potionArcanaWeak, potionArcanaStrong, orbLight, scythe, flintDream,
 		        maulKaros, amuletMiners, arrowTeaker, arrowDarven, arrowPardimal, arrowKaros, stoneShadow, shurikenSnow,
-		        icicleBow, snowBow, frossivence, soundCarol, maulFrozen, cannonFractite, iceEnder, eggGrizzleWhite);
+		        icicleBow, snowBow, frossivence, soundCarol, maulFrozen, cannonFractite, iceEnder, eggGrizzleWhite,
+		        collectorCharged, eggOverworld);
 	}
 
 	public static void registerModels() {
@@ -1272,6 +1275,8 @@ public class ModItems {
 		cannonFractite.registerItemModel();
 		iceEnder.registerItemModel();
 		eggGrizzleWhite.registerItemModel();
+		collectorCharged.registerItemModel();
+		eggOverworld.registerItemModel();
 
 		if (Config.debug) {
 			DivineRPG.logger.info(DivineRPG.name + " items are loaded");
