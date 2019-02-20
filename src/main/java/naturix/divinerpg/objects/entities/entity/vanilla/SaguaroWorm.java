@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.objects.entities.entity.projectiles.SaguaroWormShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -102,7 +102,7 @@ public class SaguaroWorm extends EntityDivineRPGMob {
         for (double h = -1.5; h < 1.5; h += 0.3) {
             for (double r = 0; r < 1.5 - Math.abs(h); r += 0.3) {
                 for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 8) {
-                    SaguaroWormShot shot = new SaguaroWormShot(this.world, this);
+                    EntitySaguaroWormShot shot = new EntitySaguaroWormShot(this.world, this);
                     shot.posX = this.posX + r * Math.cos(theta);
                     shot.posY = this.posY + 5 + h;
                     shot.posZ = this.posZ + r * Math.sin(theta);
