@@ -17,6 +17,7 @@ import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.registry.ModSeeds;
 import naturix.divinerpg.registry.ModSpawns;
+import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.log.InitLog;
 import naturix.divinerpg.utils.log.IntenseDebug;
 import naturix.divinerpg.utils.log.PostInitLog;
@@ -163,6 +164,7 @@ public class DivineRPG {
 	public void init(FMLInitializationEvent e) {
 		proxy.init(e);
 
+		ModTriggers.registerTriggers();
 		InitLog.init();
 	}
 

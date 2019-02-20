@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "divinerpg:egg_grizzle"
+        },
+        "title": {
+            "translate": "advancement.divinerpg.spawnpet"
+        },
+        "description": {
+            "translate": "advancement.divinerpg.spawnpet.description"
+        }
+    },
+
+    "parent": "divinerpg:root",
+    "criteria": {
+        "spawn_pet": {
+            "trigger": "spawn_pet"
+        }
+    }
+}
