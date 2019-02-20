@@ -10,6 +10,7 @@ import naturix.divinerpg.objects.items.HoeBase;
 import naturix.divinerpg.objects.items.ItemBase;
 import naturix.divinerpg.objects.items.ItemBlockSteelDoor;
 import naturix.divinerpg.objects.items.ItemDisk;
+import naturix.divinerpg.objects.items.ItemSpawnEgg;
 import naturix.divinerpg.objects.items.PickaxeBase;
 import naturix.divinerpg.objects.items.ShickaxeBase;
 import naturix.divinerpg.objects.items.ShovelBase;
@@ -85,6 +86,8 @@ public class ModItems {
 	public static BowBase enderBow = new BowBase("bow_ender");
 	public static BowBase bluefireBow = new BowBase("bow_bluefire");
 	public static BowBase infernoBow = new BowBase("bow_inferno");
+	public static BowBase icicleBow = new BowBase("bow_icicle");
+	public static BowBase snowBow = new BowBase("bow_snowstorm");
 	public static ItemBase arcanium = new ItemBase("arcanium");
 	public static ItemBase ingotArlemite = new ItemBase("ingot_arlemite");
 	public static ItemBase ingotAquatic = new ItemBase("ingot_aquatic");
@@ -639,6 +642,7 @@ public class ModItems {
 	public static ItemBase stoneTerran = new ItemBase("stone_terran");
 	public static SwordBase rapierJungle = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "rapier_jungle");
 	public static Shuriken shuriken = new Shuriken("shuriken", 4);
+	public static Shuriken shurikenSnow = new Shuriken("shuriken_snow", 4);
 	public static Vilestorm vileStorm = new Vilestorm("vilestorm");
 	public static ItemBase soundMusic = new ItemBase("sound_of_music");
 	public static ItemBase maelstrom = new ItemBase("maelstrom");
@@ -661,8 +665,9 @@ public class ModItems {
 	public static ItemBase krakenSkin = new ItemBase("kraken_skin");
 	public static ItemBase krakenScale = new ItemBase("kraken_scale");
 	public static ItemBase coinShadow = new ItemBase("coin_shadow");
-	public static ItemBase eggOverworld = new ItemBase("egg_overworld");
-	public static ItemBase eggGrizzle = new ItemBase("egg_grizzle");
+	// public static ItemBase eggOverworld = new ItemBase("egg_overworld");
+	public static ItemSpawnEgg eggGrizzle = new ItemSpawnEgg("egg_grizzle");
+	public static ItemSpawnEgg eggGrizzleWhite = new ItemSpawnEgg("egg_grizzle_white");
 	public static ItemBase divineAccumulator = new ItemBase("divine_accumulator");
 	public static ItemBase meteorMash = new ItemBase("meteor_mash");
 	public static ItemBase blasterArcanite = new ItemBase("blaster_arcanite");
@@ -702,6 +707,11 @@ public class ModItems {
 	public static ItemBase arrowPardimal = new ItemBase("arrow_pardimal");
 	public static ItemBase arrowKaros = new ItemBase("arrow_karos");
 	public static ItemBase stoneShadow = new ItemBase("stone_shadow");
+	public static ItemBase frossivence = new ItemBase("frossivence");
+	public static ItemBase soundCarol = new ItemBase("sound_of_carols");
+	public static ItemBase maulFrozen = new ItemBase("maul_frozen");
+	public static CannonBase cannonFractite = new CannonBase("cannon_fractite");
+	public static SwordBase iceEnder = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "ice_ender");
 
 	public static void register(IForgeRegistry<Item> registry) {
 		System.out.print("DivineRPG items loading");
@@ -770,12 +780,13 @@ public class ModItems {
 		        maulAquatooth, rapierJungle, shuriken, vileStorm, soundMusic, maelstrom, chunkEden, chunkWildwood,
 		        chunkApalachia, chunkSkythern, chunkMortum, cannonGhast, snowflake, bowheadAnchor, sharkAnchor,
 		        cannonFrost, cannonBowhead, cannonCrab, cannonCorrupted, furyGold, hordeHorn, steelDoor, krakenSkin,
-		        krakenScale, coinShadow, eggOverworld, eggGrizzle, divineAccumulator, meteorMash, blasterArcanite,
-		        bladeArcanite, staffGenerals, arcaniumReflector, arcaniumAttractor, seedsEucalyptus, seedsMarsine,
-		        seedsFirestock, seedsPinfly, seedsAquamarine, seedsHitchak, seedsVelio, seedsLamona, enderSceptor,
-		        wraithbane, saberArcanium, firefly, staffStarlight, meriksMissile, swordLivicia, lavekor, grenade,
-		        snowslash, collector, staffEnrichment, potionArcanaWeak, potionArcanaStrong, orbLight, scythe,
-		        flintDream, maulKaros, amuletMiners, arrowTeaker, arrowDarven, arrowPardimal, arrowKaros, stoneShadow);
+		        krakenScale, coinShadow, eggGrizzle, divineAccumulator, meteorMash, blasterArcanite, bladeArcanite,
+		        staffGenerals, arcaniumReflector, arcaniumAttractor, seedsEucalyptus, seedsMarsine, seedsFirestock,
+		        seedsPinfly, seedsAquamarine, seedsHitchak, seedsVelio, seedsLamona, enderSceptor, wraithbane,
+		        saberArcanium, firefly, staffStarlight, meriksMissile, swordLivicia, lavekor, grenade, snowslash,
+		        collector, staffEnrichment, potionArcanaWeak, potionArcanaStrong, orbLight, scythe, flintDream,
+		        maulKaros, amuletMiners, arrowTeaker, arrowDarven, arrowPardimal, arrowKaros, stoneShadow, shurikenSnow,
+		        icicleBow, snowBow, frossivence, soundCarol, maulFrozen, cannonFractite, iceEnder, eggGrizzleWhite);
 	}
 
 	public static void registerModels() {
@@ -1212,7 +1223,6 @@ public class ModItems {
 		krakenSkin.registerItemModel();
 		krakenScale.registerItemModel();
 		coinShadow.registerItemModel();
-		eggOverworld.registerItemModel();
 		eggGrizzle.registerItemModel();
 		divineAccumulator.registerItemModel();
 		meteorMash.registerItemModel();
@@ -1253,6 +1263,15 @@ public class ModItems {
 		arrowPardimal.registerItemModel();
 		arrowKaros.registerItemModel();
 		stoneShadow.registerItemModel();
+		shurikenSnow.registerItemModel();
+		icicleBow.registerItemModel();
+		snowBow.registerItemModel();
+		frossivence.registerItemModel();
+		soundCarol.registerItemModel();
+		maulFrozen.registerItemModel();
+		cannonFractite.registerItemModel();
+		iceEnder.registerItemModel();
+		eggGrizzleWhite.registerItemModel();
 
 		if (Config.debug) {
 			DivineRPG.logger.info(DivineRPG.name + " items are loaded");

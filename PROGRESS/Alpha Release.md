@@ -12,7 +12,7 @@
 # Other in Alpha:
 + Armor custom materials
 + New blocks need rendering
-+ Last items from "Stuff to add ASAP.md"
 
 # Other non essential to alpha:
 + name localizations for items and blocks
++ Last items from "Stuff to add ASAP.md"

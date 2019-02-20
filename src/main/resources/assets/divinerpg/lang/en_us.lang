@@ -772,6 +772,8 @@ advancement.divinerpg.divineintervention=Divine Intervention
 advancement.divinerpg.divineintervention.desc=Craft a call of the watcher
 advancement.divinerpg.sword_divine=Divine Plan
 advancement.divinerpg.sword_divine.desc=Craft a divine sword
+advancement.divinerpg.spawnpet=Pet Collector
+advancement.divinerpg.spawnpet.description=Spawn any pet mob
 
 fluid.tar=Tar
 
