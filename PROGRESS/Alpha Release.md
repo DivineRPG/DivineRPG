@@ -2,8 +2,6 @@
 + Ayeracos - (Needs TileEntityAyeracoBeam)
 + JackOMan - (Needs better Gui)
 + LivestockMerchant - (Needs better Gui)
-+ The Watcher - (Needs a big AI port)
-+ Wildfire - (Like AridWarrior)
 + Fyracryx = (Needs port)
 
 # Vanilla Mobs not in Alpha Release:
