@@ -4,6 +4,7 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import naturix.divinerpg.objects.entities.entity.InfiniteTrade;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -50,6 +51,7 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
+            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_MERCHANT, this.world, getEntityId(), 0, 0);
             // player.triggerAchievement(DivineRPGAchievements.lilGift);
         }
         return super.processInteract(player, hand);

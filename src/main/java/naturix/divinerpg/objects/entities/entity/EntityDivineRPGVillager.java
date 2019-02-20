@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.entity;
 import java.util.Iterator;
 import java.util.UUID;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.vethia.TheHunger;
@@ -139,8 +140,8 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
             if (!this.world.isRemote) {
                 extraInteract(player);
                 this.setCustomer(player);
-                player.displayVillagerTradeGui(this);
-                // player.openGui(DivineRPG.instance, guiID(), this.world, getEntityId(), 0, 0);
+                //player.displayVillagerTradeGui(this);
+                //player.openGui(DivineRPG.instance, guiID(), this.world, getEntityId(), 0, 0);
             }
             return true;
         } else {
@@ -150,7 +151,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
 
     public abstract void extraInteract(EntityPlayer p);
 
-    // public abstract int guiID();
+    //public abstract int guiID();
 
     public abstract void addRecipies(MerchantRecipeList list);
 
