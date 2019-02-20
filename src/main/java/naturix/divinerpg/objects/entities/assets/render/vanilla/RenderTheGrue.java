@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelGrue;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelTheGrue;
 import naturix.divinerpg.objects.entities.entity.vanilla.TheGrue;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,7 +16,7 @@ public class RenderTheGrue extends RenderLiving<TheGrue> {
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_grue.png");
 
     public RenderTheGrue(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelGrue(), shadowsizeIn);
+        super(rendermanagerIn, new ModelTheGrue(), shadowsizeIn);
     }
 
     @Nullable
@@ -28,7 +28,7 @@ public class RenderTheGrue extends RenderLiving<TheGrue> {
     public static class Factory implements IRenderFactory<TheGrue> {
         @Override
         public Render<? super TheGrue> createRenderFor(RenderManager manager) {
-            return new RenderTheGrue(manager, new ModelGrue(), 0F);
+            return new RenderTheGrue(manager, new ModelTheGrue(), 0F);
         }
     }
 }

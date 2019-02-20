@@ -1,13 +1,13 @@
-package naturix.divinerpg.objects.entities.assets.render.vanilla;
+package naturix.divinerpg.objects.entities.assets.render.projectile;
 
 import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelSaguaroWormShot;
-import naturix.divinerpg.objects.entities.entity.projectiles.SaguaroWormShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderSaguaroWormShot extends Render<SaguaroWormShot> {
+public class RenderSaguaroWormShot extends Render<EntitySaguaroWormShot> {
     private ResourceLocation TEXTURE = new ResourceLocation(
             "divinerpg:textures/entity/projectiles/saguaro_worm_shot.png");
     private ModelSaguaroWormShot model = new ModelSaguaroWormShot();
@@ -17,7 +17,7 @@ public class RenderSaguaroWormShot extends Render<SaguaroWormShot> {
         this.bindTexture(TEXTURE);
     }
 
-    public void doRender(SaguaroWormShot entity, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(EntitySaguaroWormShot entity, double x, double y, double z, float entityYaw, float partialTicks) {
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
         GlStateManager.translate((float) x, (float) y, (float) z);
@@ -26,7 +26,7 @@ public class RenderSaguaroWormShot extends Render<SaguaroWormShot> {
         GlStateManager.popMatrix();
     }
 
-    protected ResourceLocation getEntityTexture(SaguaroWormShot entity) {
+    protected ResourceLocation getEntityTexture(EntitySaguaroWormShot entity) {
         return TEXTURE;
     }
 }

@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletFireball;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -126,7 +126,7 @@ public class EnderTriplets extends EntityDivineRPGFlying {
 
                 if (this.attackCounter == 20 && !this.world.isRemote) {
                     this.world.playEvent(1008, this.getPosition(), 0);
-                    EntityEnderTripletFireball entitylargefireball = new EntityEnderTripletFireball(this.world, this,
+                    EntityEnderTripletsFireball entitylargefireball = new EntityEnderTripletsFireball(this.world, this,
                             d5, d6, d7);
                     double d8 = 4.0D;
                     Vec3d vec = this.getLook(1.0F);

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelWatcher;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelTheWatcher;
 import naturix.divinerpg.objects.entities.entity.vanilla.TheWatcher;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,7 +16,7 @@ public class RenderTheWatcher extends RenderLiving<TheWatcher> {
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_watcher.png");
 
     public RenderTheWatcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWatcher(), shadowsizeIn);
+        super(rendermanagerIn, new ModelTheWatcher(), shadowsizeIn);
     }
 
     @Nullable
@@ -28,7 +28,7 @@ public class RenderTheWatcher extends RenderLiving<TheWatcher> {
     public static class Factory implements IRenderFactory<TheWatcher> {
         @Override
         public Render<? super TheWatcher> createRenderFor(RenderManager manager) {
-            return new RenderTheWatcher(manager, new ModelWatcher(), 0F);
+            return new RenderTheWatcher(manager, new ModelTheWatcher(), 0F);
         }
     }
 }

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelWatcherEnd;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelEnderWatcher;
 import naturix.divinerpg.objects.entities.entity.vanilla.EnderWatcher;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,7 +16,7 @@ public class RenderEnderWatcher extends RenderLiving<EnderWatcher> {
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ender_watcher.png");
 
     public RenderEnderWatcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWatcherEnd(), shadowsizeIn);
+        super(rendermanagerIn, new ModelEnderWatcher(), shadowsizeIn);
     }
 
     @Nullable
@@ -28,7 +28,7 @@ public class RenderEnderWatcher extends RenderLiving<EnderWatcher> {
     public static class Factory implements IRenderFactory<EnderWatcher> {
         @Override
         public Render<? super EnderWatcher> createRenderFor(RenderManager manager) {
-            return new RenderEnderWatcher(manager, new ModelWatcherEnd(), 0F);
+            return new RenderEnderWatcher(manager, new ModelEnderWatcher(), 0F);
         }
     }
 }

@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.opengl.GL11;
 
-public class ModelGrue extends ModelBase {
+public class ModelTheGrue extends ModelBase {
     ModelRenderer toeRightOut;
     ModelRenderer toeLeftOut;
     ModelRenderer toeRightIn;
@@ -24,7 +24,7 @@ public class ModelGrue extends ModelBase {
     ModelRenderer mouth;
     ModelRenderer head;
 
-    public ModelGrue() {
+    public ModelTheGrue() {
         textureWidth = 64;
         textureHeight = 27;
 

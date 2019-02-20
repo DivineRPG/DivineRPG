@@ -19,7 +19,8 @@ public class EntityScorcherShot extends EntityFireball {
 
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityScorcherShot.class, manager -> new RenderScorcherShot(manager, 0.5f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityScorcherShot.class,
+                manager -> new RenderScorcherShot(manager, 0.5f));
     }
 
     public EntityScorcherShot(World w) {
@@ -49,7 +50,8 @@ public class EntityScorcherShot extends EntityFireball {
                 }
             } else if (result.entityHit != null) {
                 if (!result.entityHit.isImmuneToFire()) {
-                    boolean flag = result.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 4.0F);
+                    boolean flag = result.entityHit
+                            .attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 4.0F);
 
                     if (flag && this.rand.nextInt(3) == 0) {
                         result.entityHit.setFire(5);
@@ -77,7 +79,10 @@ public class EntityScorcherShot extends EntityFireball {
         super.onUpdate();
         if (this.world.isRemote) {
             for (int i = 0; i < 3; i++) {
-                ParticleEntityPortal particle = new ParticleEntityPortal(this.world, this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 5, this.posY + 0.5D + (this.rand.nextDouble() - this.rand.nextDouble()) / 5, this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 5, 0.0D, 0.0D, 0.0D);
+                ParticleEntityPortal particle = new ParticleEntityPortal(this.world,
+                        this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 5,
+                        this.posY + 0.5D + (this.rand.nextDouble() - this.rand.nextDouble()) / 5,
+                        this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 5, 0.0D, 0.0D, 0.0D);
                 FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle);
             }
         }

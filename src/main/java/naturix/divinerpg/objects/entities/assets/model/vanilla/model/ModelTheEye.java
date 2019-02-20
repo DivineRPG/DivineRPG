@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelEye extends ModelBase
+public class ModelTheEye extends ModelBase
 {
   //fields
     ModelRenderer ear1;
@@ -39,7 +39,7 @@ public class ModelEye extends ModelBase
     ModelRenderer ear3;
     ModelRenderer ear4;
   
-  public ModelEye()
+  public ModelTheEye()
   {
     textureWidth = 64;
     textureHeight = 32;

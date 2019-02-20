@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderSaguaroWormShot;
+import naturix.divinerpg.objects.entities.assets.render.projectile.RenderSaguaroWormShot;
 import naturix.divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -11,23 +11,23 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SaguaroWormShot extends EntityThrowable {
+public class EntitySaguaroWormShot extends EntityThrowable {
 
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(SaguaroWormShot.class,
+        RenderingRegistry.registerEntityRenderingHandler(EntitySaguaroWormShot.class,
                 manager -> new RenderSaguaroWormShot(manager));
     }
 
-    public SaguaroWormShot(World var1) {
+    public EntitySaguaroWormShot(World var1) {
         super(var1);
     }
 
-    public SaguaroWormShot(World var1, EntityLivingBase var2) {
+    public EntitySaguaroWormShot(World var1, EntityLivingBase var2) {
         super(var1, var2);
     }
 
-    public SaguaroWormShot(World var1, double var2, double var4, double var6) {
+    public EntitySaguaroWormShot(World var1, double var2, double var4, double var6) {
         super(var1, var2, var4, var6);
     }
 

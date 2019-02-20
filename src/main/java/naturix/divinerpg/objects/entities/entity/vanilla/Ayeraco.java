@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletFireball;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -128,7 +128,7 @@ public class Ayeraco extends EntityDivineRPGBoss {
     public boolean attackEntityFrom(DamageSource damageSource, float par2) {
         if (this.isEntityInvulnerable(damageSource))
             return false;
-        else if (damageSource.getImmediateSource() instanceof EntityEnderTripletFireball)
+        else if (damageSource.getImmediateSource() instanceof EntityEnderTripletsFireball)
             return false;
         else if (damageSource.isProjectile() && this.canBlockProjectiles())
             return false;

@@ -1,5 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
+import naturix.divinerpg.objects.entities.assets.render.projectile.RenderEnderTripletsFireball;
 import naturix.divinerpg.particle.ParticleEnderTriplet;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
@@ -7,16 +8,23 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityEnderTripletFireball extends EntityFireball {
+public class EntityEnderTripletsFireball extends EntityFireball {
 
-    public EntityEnderTripletFireball(World world, EntityLivingBase entity, double i, double j, double k) {
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityEnderTripletsFireball.class,
+                manager -> new RenderEnderTripletsFireball(manager, 1f));
+    }
+
+    public EntityEnderTripletsFireball(World world, EntityLivingBase entity, double i, double j, double k) {
         super(world, entity, i, j, k);
     }
 
-    public EntityEnderTripletFireball(World world) {
+    public EntityEnderTripletsFireball(World world) {
         super(world);
     }
 

@@ -182,15 +182,17 @@ import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDeath;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
-import naturix.divinerpg.objects.entities.entity.projectiles.SaguaroWormShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
 import naturix.divinerpg.objects.entities.entity.twilight.AngryBunny;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaCadillion;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaGolem;
@@ -334,20 +336,22 @@ public class ModEntities {
 
     public static void init() {
         // Projectiles
+        registerProjectile(EntityEMP.class, "acid_arrow");
         registerProjectile(EntityCaveRock.class, "cave_rock");
         registerProjectile(EntityDeath.class, "death");
         registerProjectile(EntityDisk.class, "disk_amthrimis");
-        registerProjectile(EntityEMP.class, "acid_arrow");
-        registerProjectile(EntityFrostCloud.class, "frost_cloud");
+        registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
         registerProjectile(EntityFrostShot.class, "frost_shot");
+        registerProjectile(EntityFrostCloud.class, "frost_cloud");
         registerProjectile(EntityInfernoArrow.class, "inferno_arrow");
         registerProjectile(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor");
         registerProjectile(EntityKingOfScorchersShot.class, "king_of_scorchers_shot");
+        registerProjectile(EntitySaguaroWormShot.class, "saguaro_worm_shot");
         registerProjectile(EntityScorcherShot.class, "scorcher_shot");
         registerProjectile(EntityShuriken.class, "shuriken");
         registerProjectile(EntitySparkler.class, "sparkler");
+        registerProjectile(EntityWatcherShot.class, "watcher_shot");
         registerProjectile(EntityVileStorm.class, "vilestorm");
-        registerProjectile(SaguaroWormShot.class, "saguaro_worm_shot");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -610,15 +614,17 @@ public class ModEntities {
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         // Projectiles
-        EntityVileStorm.renderMe();
         EntityCaveRock.renderMe();
+        EntityEnderTripletsFireball.renderMe();
         EntityFrostShot.renderMe();
         EntityFrostCloud.renderMe();
-        SaguaroWormShot.renderMe();
         EntityKingOfScorchersMeteor.renderMe();
         EntityKingOfScorchersShot.renderMe();
+        EntitySaguaroWormShot.renderMe();
         EntityScorcherShot.renderMe();
         EntityEMP.renderMe();
+        EntityVileStorm.renderMe();
+        EntityWatcherShot.renderMe();
         RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
                 manager -> new RenderProjectile(ModItems.shuriken));
 

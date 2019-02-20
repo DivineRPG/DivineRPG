@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelEye;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelTheEye;
 import naturix.divinerpg.objects.entities.entity.vanilla.TheEye;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,7 +16,7 @@ public class RenderTheEye extends RenderLiving<TheEye> {
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_eye.png");
 
     public RenderTheEye(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelEye(), shadowsizeIn);
+        super(rendermanagerIn, new ModelTheEye(), shadowsizeIn);
     }
 
     @Nullable
@@ -28,7 +28,7 @@ public class RenderTheEye extends RenderLiving<TheEye> {
     public static class Factory implements IRenderFactory<TheEye> {
         @Override
         public Render<? super TheEye> createRenderFor(RenderManager manager) {
-            return new RenderTheEye(manager, new ModelEye(), 0F);
+            return new RenderTheEye(manager, new ModelTheEye(), 0F);
         }
     }
 }
