@@ -618,6 +618,7 @@ public class ModEntities {
         EntityEnderTripletsFireball.renderMe();
         EntityFrostShot.renderMe();
         EntityFrostCloud.renderMe();
+        EntityInfernoArrow.renderMe();
         EntityKingOfScorchersMeteor.renderMe();
         EntityKingOfScorchersShot.renderMe();
         EntitySaguaroWormShot.renderMe();
