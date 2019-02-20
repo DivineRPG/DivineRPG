@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:glass_smooth"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+    }
+}

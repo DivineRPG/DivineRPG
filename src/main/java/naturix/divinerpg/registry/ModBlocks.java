@@ -26,6 +26,8 @@ import naturix.divinerpg.objects.blocks.WorkshopCarpet;
 import naturix.divinerpg.objects.blocks.arcana.Acceleron;
 import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.HeatTrap;
+import naturix.divinerpg.objects.blocks.arcana.StarBridge;
+import naturix.divinerpg.objects.blocks.arcana.StarBridgeOn;
 import naturix.divinerpg.objects.blocks.fluid.BlockTar;
 import naturix.divinerpg.objects.blocks.portal.ApalachiaPortal;
 import naturix.divinerpg.objects.blocks.portal.EdenBlock;
@@ -215,9 +217,10 @@ public class ModBlocks {
 	public static BlockBase bricksDreamDark = new BlockBase("bricks_dream_dark");
 	public static BlockBase bricksDreamRed = new BlockBase("bricks_dream_red");
 	public static BlockBase dirtDream = new BlockBase("dirt_dream");
-	public static BlockBase glassSmooth = new BlockBase("glass_smooth");
+	public static FrostedGlass glassSmooth = new FrostedGlass("glass_smooth");
 	public static BlockBase firelight = new BlockBase("firelight");
-	public static BlockBase starBridge = new BlockBase("star_bridge");
+	public static StarBridge starBridge = new StarBridge("star_bridge");
+	public static StarBridgeOn starBridgeOn = new StarBridgeOn("star_bridge_on");
 
 	// Has a unique class because i dont have a method for universal itemblocks for
 	// doors - LiteWolf101
@@ -251,11 +254,11 @@ public class ModBlocks {
 		        vineWild, grassApalachia, dirtApalachia, portalApalachia, grassSkythern, dirtSkythern, portalSkythern,
 		        grassMortum, dirtMortum, portalMortum, grassIceika, dirtIceika, portalIceika, stoneFrozen, stoneIcy,
 		        bricksIceika, spawnerArcher, spawnerRollum, brittleLeaves, tar, coalStone, snowBricks, workshopBookcase,
-		        frostedGlass, workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, decorativeIceikaChest, spawnerSeimer, spawnerFyracryx,
-		        spawnerParatiku, spawnerRejuvGolem, dirtArcana, railsArcana, tubesArcana, furnaceMolten,
-		        furnaceGreenLight, furnaceOceanFire, furnaceMoonlight, furnaceWhitefire, furnaceDemon, elevantium,
-		        divineMossStone, barredDoor, bricksDreamLight, bricksDreamDark, bricksDreamRed, dirtDream, glassSmooth,
-		        firelight, starBridge);
+		        frostedGlass, workshopCarpet, steelDoor, coalstoneFurnace, iceikaChest, decorativeIceikaChest,
+		        spawnerSeimer, spawnerFyracryx, spawnerParatiku, spawnerRejuvGolem, dirtArcana, railsArcana,
+		        tubesArcana, furnaceMolten, furnaceGreenLight, furnaceOceanFire, furnaceMoonlight, furnaceWhitefire,
+		        furnaceDemon, elevantium, divineMossStone, barredDoor, bricksDreamLight, bricksDreamDark,
+		        bricksDreamRed, dirtDream, glassSmooth, firelight, starBridge, starBridgeOn);
 		GameRegistry.registerTileEntity(TileEntityDramixAltar.class,
 		        new ModelResourceLocation(DivineRPG.modId + ":" + altarDramix.getUnlocalizedName(), "inventory"));
 		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class,
@@ -322,15 +325,16 @@ public class ModBlocks {
 		        spawnerArcher.createItemBlock(), brittleLeaves.createItemBlock(), spawnerRollum.createItemBlock(),
 		        coalStone.createItemBlock(), snowBricks.createItemBlock(), workshopBookcase.createItemBlock(),
 		        frostedGlass.createItemBlock(), workshopCarpet.createItemBlock(), coalstoneFurnace.createItemBlock(),
-		        iceikaChest.createItemBlock(), decorativeIceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(), spawnerFyracryx.createItemBlock(),
-		        spawnerParatiku.createItemBlock(), spawnerRejuvGolem.createItemBlock(), dirtArcana.createItemBlock(),
-		        railsArcana.createItemBlock(), tubesArcana.createItemBlock(), furnaceMolten.createItemBlock(),
-		        furnaceGreenLight.createItemBlock(), furnaceOceanFire.createItemBlock(),
-		        furnaceMoonlight.createItemBlock(), furnaceWhitefire.createItemBlock(), furnaceDemon.createItemBlock(),
-		        elevantium.createItemBlock(), divineMossStone.createItemBlock(), barredDoor.createItemBlock(),
-		        bricksDreamLight.createItemBlock(), bricksDreamDark.createItemBlock(), bricksDreamRed.createItemBlock(),
-		        dirtDream.createItemBlock(), glassSmooth.createItemBlock(), firelight.createItemBlock(),
-		        starBridge.createItemBlock()
+		        iceikaChest.createItemBlock(), decorativeIceikaChest.createItemBlock(), spawnerSeimer.createItemBlock(),
+		        spawnerFyracryx.createItemBlock(), spawnerParatiku.createItemBlock(),
+		        spawnerRejuvGolem.createItemBlock(), dirtArcana.createItemBlock(), railsArcana.createItemBlock(),
+		        tubesArcana.createItemBlock(), furnaceMolten.createItemBlock(), furnaceGreenLight.createItemBlock(),
+		        furnaceOceanFire.createItemBlock(), furnaceMoonlight.createItemBlock(),
+		        furnaceWhitefire.createItemBlock(), furnaceDemon.createItemBlock(), elevantium.createItemBlock(),
+		        divineMossStone.createItemBlock(), barredDoor.createItemBlock(), bricksDreamLight.createItemBlock(),
+		        bricksDreamDark.createItemBlock(), bricksDreamRed.createItemBlock(), dirtDream.createItemBlock(),
+		        glassSmooth.createItemBlock(), firelight.createItemBlock(), starBridge.createItemBlock(),
+		        starBridgeOn.createItemBlock()
 		// nightmarebed.createItemBlock()
 		// fireSapling.createItemBlock(),
 		// divineSapling.createItemBlock(),
@@ -505,6 +509,7 @@ public class ModBlocks {
 		glassSmooth.registerItemModel();
 		firelight.registerItemModel();
 		starBridge.registerItemModel();
+		starBridgeOn.registerItemModel();
 		// nightmarebed.registerItemModel(Item.getItemFromBlock(nightmarebed));
 
 		DivineRPG.logger.info(DivineRPG.name + " blocks are loaded");

@@ -151,6 +151,27 @@ tile.frosted_glass.name=Frosted Glass
 tile.steel_door.name=Steel Door
 tile.elevantium.name=Elevantium
 tile.divine_stone_moss.name-Divine Mossy Stone
+tile.bed_dream.name=Nightmare Bed
+tile.decorative_iceika_chest.name=Decorative Frosted Chest
+tile.dirt_arcana.name=Arcana Dirt
+tile.rails_arcana.name=Arcana Rails
+tile.tube_arcana.name=Arcana Tubes
+tile.molten_furnace.name=Molten Furnace
+tile.greenlight_furnace.name=Greenlight Furnace
+tile.oceanfire_furnace.name=Oceanfire Furnace
+tile.moonlight_furnace.name=Moonlight Furnace
+tile.whitefire_furnace.name=Whitefire Furnace
+tile.demon_furnace.name=Demonic Furnace
+tile.divine_moss_stone.name=Divine Mossy Stone
+tile.barred_door.name=Barred Door
+tile.bricks_dream_light.name=Light Dream Bricks
+tile.bricks_dream_dark.name=Dark Dream Bricks
+tile.bricks_dream_red.name=Red Dream Bricks
+tile.dirt_dream.name=Dream Dirt
+tile.glass_smooth.name=Smooth Glass
+tile.firelight.name=Firelight
+tile.star_bridge.name=Star Bridge
+tile.star_bridge_on.name=Star Bridge
 
 container.iceika_chest=Iceika Chest
 
