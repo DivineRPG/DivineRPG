@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.render.projectile;
 
-import naturix.divinerpg.objects.entities.entity.iceika.EntitySnowShuriken;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySnowShuriken;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 

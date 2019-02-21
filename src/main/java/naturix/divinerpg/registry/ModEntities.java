@@ -172,7 +172,6 @@ import naturix.divinerpg.objects.entities.entity.arcana.Roamer;
 import naturix.divinerpg.objects.entities.entity.arcana.Seimer;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
 import naturix.divinerpg.objects.entities.entity.iceika.Alicanto;
-import naturix.divinerpg.objects.entities.entity.iceika.EntitySnowShuriken;
 import naturix.divinerpg.objects.entities.entity.iceika.Fractite;
 import naturix.divinerpg.objects.entities.entity.iceika.FrostArcher;
 import naturix.divinerpg.objects.entities.entity.iceika.Frosty;
@@ -193,6 +192,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorche
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySnowShuriken;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;

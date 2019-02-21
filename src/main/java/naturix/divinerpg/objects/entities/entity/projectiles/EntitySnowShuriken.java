@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.entities.entity.iceika;
+package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderSnowShuriken;
 import net.minecraft.entity.EntityLivingBase;
