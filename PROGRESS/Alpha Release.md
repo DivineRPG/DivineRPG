@@ -9,7 +9,6 @@
 
 # Other in Alpha:
 + Armor custom materials
-+ Name localizations for items
 + Fix snow shuriken
 
 # Other
