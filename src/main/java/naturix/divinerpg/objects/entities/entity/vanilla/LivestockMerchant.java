@@ -82,4 +82,9 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     protected SoundEvent getDeathSound() {
         return ModSounds.LIVESTOCK_MERCHANT_HURT;
     }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
+    }
 }
