@@ -6,12 +6,20 @@ import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Alicanto extends EntityDivineRPGMob {
@@ -21,8 +29,20 @@ public class Alicanto extends EntityDivineRPGMob {
 
     public Alicanto(World worldIn) {
         super(worldIn);
-        this.setHealth(this.getMaxHealth());
         this.flyTimer = 0;
+        this.setPathPriority(PathNodeType.WATER, -1.0F);
+        this.setHealth(this.getMaxHealth());
+    }
+
+    @Override
+    protected void initEntityAI() {
+        this.tasks.addTask(1, new EntityAISwimming(this));
+        this.tasks.addTask(5, new EntityAIAttackMelee(this, 1, true));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 32.0F));
+        this.tasks.addTask(9, new EntityAILookIdle(this));
+        this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 0.27F));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
     }
 
     @Override
@@ -30,12 +50,6 @@ public class Alicanto extends EntityDivineRPGMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(75.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
-    }
-
-    @Override
-    protected void initEntityAI() {
-        super.initEntityAI();
-        addAttackingAI();
     }
 
     public void onUpdate() {
@@ -117,7 +131,6 @@ public class Alicanto extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL
-                && world.provider.getDimension() == ModDimensions.iceikaDimension.getId();
+        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
     }
 }
