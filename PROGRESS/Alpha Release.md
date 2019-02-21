@@ -9,8 +9,9 @@
 
 # Other in Alpha:
 + Armor custom materials
-+ New blocks need rendering
++ Name localizations for items
++ Fix snow shuriken
 
-# Other non essential to alpha:
-+ name localizations for items and blocks
-+ Last items from "Stuff to add ASAP.md"
+# Other
++ Render remaining blocks
++ Add remaining blocks/items
