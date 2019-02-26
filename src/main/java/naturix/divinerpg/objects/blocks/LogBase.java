@@ -92,10 +92,7 @@ public class LogBase extends BlockLog implements IHasModel, IMetaName{
 
 	@Override
 	public void registerModels() {
-		for(int i = 0; i < EnumFacing.Axis.values().length; i++)
-		{
-			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumFacing.Axis.values()[i].getName(), "inventory");
-		}
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 	}
 
 	@Override

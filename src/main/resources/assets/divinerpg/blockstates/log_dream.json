@@ -3,12 +3,12 @@
   "defaults": {
     "model": "divinerpg:log_dream"
   },
-  "variants": {
-    "normal": [{}],
-    "inventory": [{divinerpg:log_dream}],
-	"axis=none": [{}],
-	"axis=y": [{}],
-	"axis=x": [{}],
-	"axis=z": [{}]
-  }
+    "variants": {
+        "normal": [{}],
+        "inventory": [{"model": "divinerpg:log_dream"}],
+        "axis=none": [{}],
+        "axis=y": [{"model": "divinerpg:log_dream"}],
+        "axis=x": [{"model": "divinerpg:log_dream", "x": 90, "y": 90}],
+        "axis=z": [{"model": "divinerpg:log_dream", "x": 90}]
+    }
 }

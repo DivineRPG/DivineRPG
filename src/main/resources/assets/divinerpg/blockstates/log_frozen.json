@@ -3,12 +3,12 @@
   "defaults": {
     "model": "divinerpg:log_frozen"
   },
-  "variants": {
-    "normal": [{}],
-    "inventory": [{divinerpg:log_frozen}],
-	"axis=none": [{}],
-	"axis=y": [{}],
-	"axis=x": [{}],
-	"axis=z": [{}]
-  }
+    "variants": {
+        "normal": [{}],
+        "inventory": [{"model": "divinerpg:log_frozen"}],
+        "axis=none": [{}],
+        "axis=y": [{"model": "divinerpg:log_frozen"}],
+        "axis=x": [{"model": "divinerpg:log_frozen", "x": 90, "y": 90}],
+        "axis=z": [{"model": "divinerpg:log_frozen", "x": 90}]
+    }
 }

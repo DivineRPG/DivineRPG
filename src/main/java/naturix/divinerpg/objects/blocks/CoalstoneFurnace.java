@@ -6,9 +6,14 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
+import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.GUIHandler;
+import naturix.divinerpg.utils.IHasModel;
+import naturix.divinerpg.utils.handlers.EnumHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -42,7 +47,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by LiteWolf101 on Jan /29/2019
  */
-public class CoalstoneFurnace extends Block implements ITileEntityProvider {
+public class CoalstoneFurnace extends Block implements ITileEntityProvider, IHasModel, IMetaName {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
 
@@ -51,9 +56,9 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 
 		if (active) {
-			//worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, true), 3);
+			worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, true), 3);
 		} else {
-			//worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, false), 3);
+			worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, false), 3);
 		}
 
 		if (tileentity != null) {
@@ -71,15 +76,11 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setHardness(2f);
-		setDefaultState(
-		        this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 
-	}
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-		// tooltip.add(TextFormatting.RED + "WARNING: " + TextFormatting.DARK_RED + "Do
-		// not use this block. It is currently a WIP");
 	}
 
 	@Override
@@ -92,10 +93,6 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { FACING, BURNING });
-	}
-
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 
 	@Override
@@ -173,8 +170,7 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 			double d4 = rand.nextDouble() * 0.6D - 0.3D;
 
 			if (rand.nextDouble() < 0.1D) {
-				worldIn.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D,
-				        SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+				worldIn.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
 			}
 
 			switch (enumfacing) {
@@ -195,10 +191,6 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 				worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
 			}
 		}
-	}
-
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 
 	private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
@@ -231,5 +223,15 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+	}
+
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		return EnumFacing.values()[stack.getItemDamage()].getName();
 	}
 }

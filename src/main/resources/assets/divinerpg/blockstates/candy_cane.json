@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "color=red": { "model": "divinerpg:red_candy_cane" },
+        "color=yellow": { "model": "divinerpg:yellow_candy_cane" },
+        "color=green": { "model": "divinerpg:green_candy_cane" },
+        "color=blue": { "model": "divinerpg:blue_candy_cane" },
+        "color=pink": { "model": "divinerpg:pink_candy_cane" }
+    }
+}

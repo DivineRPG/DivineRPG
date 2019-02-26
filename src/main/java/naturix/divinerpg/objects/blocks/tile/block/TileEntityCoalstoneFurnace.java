@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
 
 import static naturix.divinerpg.objects.blocks.CoalstoneFurnace.BURNING;
 import static naturix.divinerpg.objects.blocks.CoalstoneFurnace.FACING;
+import static naturix.divinerpg.objects.blocks.CoalstoneFurnace.setState;
 
 /**
  * Created by LiteWolf101 on Jan
@@ -258,7 +259,7 @@ public class TileEntityCoalstoneFurnace extends TileEntity implements IInventory
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
             }
             if (flag1 == this.canSmelt()) {
-                //ModBlocks.coalstoneFurnace.setState(this.canSmelt(), world, pos);
+                setState(this.canSmelt(), world, pos);
                 this.markDirty();
             }
         }

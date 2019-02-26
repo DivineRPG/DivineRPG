@@ -104,11 +104,11 @@ public class BlockPurpleGlowBone extends BlockBase implements IPlantable, IHasMo
 //		return drops;
 //    }
 
-	/**@Override
-	@SideOnly(Side.CLIENT)
+	@Override
+	@SuppressWarnings("deprecation")
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		return new ItemStack(ModItems.seedsGlowbonePurple);
-	}*/
+	}
 
 	@Override
 	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
