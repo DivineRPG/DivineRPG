@@ -13,7 +13,7 @@ public class Angelic extends ArmorBase {
 	private String textureName;
 	public Angelic(ArmorMaterial material, EntityEquipmentSlot slot, String name) {
 		super(material, slot, name);
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 	public void onArmorTickUpdate(World world, EntityPlayer player, ItemStack stack)

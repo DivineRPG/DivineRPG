@@ -26,7 +26,7 @@ public class ItemBlockSteelDoor extends ItemBlock {
         this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
-        this.setCreativeTab(DivineRPG.ItemsTab);
+        //this.setCreativeTab(DivineRPG.ItemsTab);
     }
 
     @Override

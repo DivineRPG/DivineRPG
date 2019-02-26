@@ -4,6 +4,7 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.AltarParasecta;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.objects.blocks.tile.model.ParasectaAltarModel;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -43,7 +44,7 @@ public class RenderParasectaAltar extends TileEntitySpecialRenderer<TileEntityPa
             GlStateManager.translate(0.0625F, 0.0625F, 0.0625F);
             GlStateManager.matrixMode(5888);
         } else {
-            this.bindTexture(new ResourceLocation(DivineRPG.modId, "textures/blocks/" + Objects.requireNonNull(te.getBlockType().getRegistryName()).getResourcePath() + ".png"));
+            this.bindTexture(new ResourceLocation(Reference.MODID, "textures/blocks/" + Objects.requireNonNull(te.getBlockType().getRegistryName()).getResourcePath() + ".png"));
         }
 
         GlStateManager.pushMatrix();

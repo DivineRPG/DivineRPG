@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.blocks.fluid;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModLiquids;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockTar extends BlockFluidClassic {
 
-    public static final ResourceLocation tar = new ResourceLocation(DivineRPG.modId, "tar");
+    public static final ResourceLocation tar = new ResourceLocation(Reference.MODID, "tar");
     public BlockTar() {
         super(ModLiquids.tar, Material.WATER);
         setCreativeTab(DivineRPG.BlocksTab);

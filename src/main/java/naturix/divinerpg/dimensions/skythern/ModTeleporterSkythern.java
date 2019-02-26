@@ -59,8 +59,7 @@ public class ModTeleporterSkythern extends Teleporter {
 						int l1 = j + j1;
 						int i2 = k + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
-						this.myWorld.setBlockState(new BlockPos(k1, l1, i2),
-								flag ? ModBlocks.portalSkythern.getDefaultState() : Blocks.AIR.getDefaultState());
+						//this.myWorld.setBlockState(new BlockPos(k1, l1, i2), flag ? ModBlocks.portalSkythern.getDefaultState() : Blocks.AIR.getDefaultState());
 					}
 				}
 			}
@@ -370,8 +369,7 @@ public class ModTeleporterSkythern extends Teleporter {
 						i4 = j2 + k3;
 						j4 = k2 + (j3 - 1) * l2 - i3 * l5;
 						boolean flag = k3 < 0;
-						this.myWorld.setBlockState(new BlockPos(l3, i4, j4),
-								flag ? ModBlocks.blockApalachia.getDefaultState() : Blocks.AIR.getDefaultState());
+						//this.myWorld.setBlockState(new BlockPos(l3, i4, j4), flag ? ModBlocks.blockApalachia.getDefaultState() : Blocks.AIR.getDefaultState());
 					}
 				}
 			}
@@ -386,8 +384,7 @@ public class ModTeleporterSkythern extends Teleporter {
 					j4 = j2 + l3;
 					k4 = k2 + (k3 - 1) * l2;
 					boolean flag1 = k3 == 0 || k3 == 3 || l3 == -1 || l3 == 3;
-					this.myWorld.setBlockState(new BlockPos(i4, j4, k4), flag1 ? ModBlocks.blockApalachia.getDefaultState() : iblockstate,
-							2);
+					//this.myWorld.setBlockState(new BlockPos(i4, j4, k4), flag1 ? ModBlocks.blockApalachia.getDefaultState() : iblockstate, 2);
 				}
 			}
 

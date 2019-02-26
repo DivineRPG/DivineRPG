@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,7 +22,7 @@ public class MortumArcher extends EntityMob {
 		this.setSize(2F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/archer_mortum");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/archer_mortum");
 
 
     protected boolean isMaster() {

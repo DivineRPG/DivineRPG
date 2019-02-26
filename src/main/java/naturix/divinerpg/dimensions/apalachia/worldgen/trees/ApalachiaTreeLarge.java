@@ -15,8 +15,8 @@ import java.util.Random;
  */
 public class ApalachiaTreeLarge extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
+   // protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
 
     public ApalachiaTreeLarge(boolean notify, int minTrunkHeight) {
         super(notify);
@@ -37,50 +37,50 @@ public class ApalachiaTreeLarge extends WorldGenAbstractTree {
 
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
-        buildLeaves1(world, blockPos, trunkHeight + 2);
-        buildLeaves2(world, blockPos, trunkHeight + 3);
-        buildLeaves3(world, blockPos, trunkHeight + 4);
-        buildLeaves4(world, blockPos, trunkHeight + 5);
-        buildLeaves5(world, blockPos, trunkHeight + 6);
-        buildLeaves4(world, blockPos, trunkHeight + 7);
-        buildLeaves6(world, blockPos, trunkHeight + 8);
-        buildLeaves6(world, blockPos, treeHeight);
-        buildTrunk(world, blockPos, treeHeight);
-        buildBranchBase(world, blockPos, trunkHeight);
-        buildBranches(world, blockPos, trunkHeight + 2);
-        buildBranchBase(world, blockPos, trunkHeight + 4);
-        buildBranches2(world, blockPos, trunkHeight + 6);
+        //buildLeaves1(world, blockPos, trunkHeight + 2);
+        //buildLeaves2(world, blockPos, trunkHeight + 3);
+        //buildLeaves3(world, blockPos, trunkHeight + 4);
+        //buildLeaves4(world, blockPos, trunkHeight + 5);
+        //buildLeaves5(world, blockPos, trunkHeight + 6);
+        //buildLeaves4(world, blockPos, trunkHeight + 7);
+        //buildLeaves6(world, blockPos, trunkHeight + 8);
+        //buildLeaves6(world, blockPos, treeHeight);
+        //buildTrunk(world, blockPos, treeHeight);
+        //buildBranchBase(world, blockPos, trunkHeight);
+        //buildBranches(world, blockPos, trunkHeight + 2);
+        //buildBranchBase(world, blockPos, trunkHeight + 4);
+        //buildBranches2(world, blockPos, trunkHeight + 6);
         //setTreeHeight(worldgen, blockPos, treeHeight); Why is this here?
         return true;
     }
 
     private void buildLeaves6(World world, BlockPos blockPos, int height) {
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 1), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, 0), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(1, height, 0), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height + 1, 0), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 1), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, 0), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(1, height, 0), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(0, height + 1, 0), leaves);
     }
 
     private void buildLeaves5(World world, BlockPos blockPos, int height) {
-        for (int x = 0; x < 3; x++){
-            for (int z = 0; z < 5; z++){
-                this.setBlockAndNotifyAdequately(world, blockPos.add(x - 1, height, z -2), leaves);
-            }
-        }
-        for (int x = 0; x < 5; x++){
-            for (int z = 0; z < 3; z++){
-                this.setBlockAndNotifyAdequately(world, blockPos.add(x - 2, height, z -1), leaves);
-            }
-        }
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -3), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 3), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(-3, height, 0), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(3, height, 0), leaves);
+        //for (int x = 0; x < 3; x++){
+        //    for (int z = 0; z < 5; z++){
+        //        this.setBlockAndNotifyAdequately(world, blockPos.add(x - 1, height, z -2), leaves);
+        //    }
+        //}
+        //for (int x = 0; x < 5; x++){
+        //    for (int z = 0; z < 3; z++){
+        //        this.setBlockAndNotifyAdequately(world, blockPos.add(x - 2, height, z -1), leaves);
+        //    }
+        //}
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -3), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 3), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(-3, height, 0), leaves);
+        //this.setBlockAndNotifyAdequately(world, blockPos.add(3, height, 0), leaves);
     }
 
     private void buildLeaves4(World world, BlockPos blockPos, int height) {
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
+        /**this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, 0), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(1, height, 0), leaves);
@@ -91,11 +91,11 @@ public class ApalachiaTreeLarge extends WorldGenAbstractTree {
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 2), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, 1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(-2, height, 0), leaves);
-        this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, -1), leaves);
+        this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, -1), leaves);*/
     }
 
     private void buildLeaves3(World world, BlockPos blockPos, int height) {
-        for (int x = 0; x <= 4; x++){
+        /**for (int x = 0; x <= 4; x++){
             for (int z = 0; z <= 4; z++){
                 this.setBlockAndNotifyAdequately(world, blockPos.add(x - 2, height, z - 2), leaves);
             }
@@ -212,6 +212,6 @@ public class ApalachiaTreeLarge extends WorldGenAbstractTree {
     }
 
     public int getTreeHeight(World world, BlockPos pos, int treeHeight){
-        return this.setTreeHeight(world, pos, treeHeight);
+        return this.setTreeHeight(world, pos, treeHeight);*/
     }
 }

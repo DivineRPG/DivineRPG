@@ -98,11 +98,11 @@ public class EdenBlock extends BlockBreakable {
 						break label56;
 					}
 
-					if (block == ModBlocks.portalEden) {
-						++this.portalBlockCount;
-					}
+					//if (block == ModBlocks.portalEden) {
+					//	++this.portalBlockCount;
+					//}
 
-					if (i == 0) {
+					/**if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
 						if (block != ModBlocks.rockDivine) {
@@ -114,16 +114,15 @@ public class EdenBlock extends BlockBreakable {
 						if (block != ModBlocks.rockDivine) {
 							break label56;
 						}
-					}
+					}*/
 				}
 			}
 
 			for (int j = 0; j < this.width; ++j) {
-				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-				        .getBlock() != ModBlocks.rockDivine) {
+				/**if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != ModBlocks.rockDivine) {
 					this.height = 0;
 					break;
-				}
+				}*/
 			}
 
 			if (this.height <= 21 && this.height >= 3) {
@@ -142,14 +141,14 @@ public class EdenBlock extends BlockBreakable {
 			for (i = 0; i < 22; ++i) {
 				BlockPos blockpos = pos.offset(facing, i);
 
-				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.rockDivine) {
-					break;
-				}
+				//if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.rockDivine) {
+				//	break;
+				//}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			return block == ModBlocks.rockDivine ? i : 0;
+			//return block == ModBlocks.rockDivine ? i : 0;
+			return 0;
 		}
 
 		public int getHeight() {
@@ -161,8 +160,8 @@ public class EdenBlock extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
-			        || blockIn == ModBlocks.portalEden;
+			//return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalEden;
+			return false;
 		}
 
 		public boolean isValid() {
@@ -175,8 +174,7 @@ public class EdenBlock extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for (int j = 0; j < this.height; ++j) {
-					this.world.setBlockState(blockpos.up(j),
-					        ModBlocks.portalEden.getDefaultState().withProperty(EdenBlock.AXIS, this.axis), 2);
+					//this.world.setBlockState(blockpos.up(j), ModBlocks.portalEden.getDefaultState().withProperty(EdenBlock.AXIS, this.axis), 2);
 				}
 			}
 		}
@@ -326,7 +324,8 @@ public class EdenBlock extends BlockBreakable {
 			thePlayer.addExperience(0);
 			thePlayer.mcServer.getWorld(thePlayer.dimension);
 			int dimensionID = Config.edenDimensionId;
-			Block blockFrame = ModBlocks.rockDivine;
+			//Block blockFrame = ModBlocks.rockDivine;
+			Block blockFrame = Blocks.ACACIA_DOOR;
 
 			if (thePlayer.timeUntilPortal > 0) {
 				thePlayer.timeUntilPortal = 10;

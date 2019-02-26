@@ -63,12 +63,11 @@ public class SaplingMortum extends BlockBush implements IGrowable {
 		if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) {
 			return;
 		}
-		WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.mortumLog.getDefaultState(),
-		        ModBlocks.mortumLeaves.getDefaultState());
+		//WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.mortumLog.getDefaultState(), ModBlocks.mortumLeaves.getDefaultState());
 
 		worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
 
-		worldgenerator.generate(worldIn, rand, pos);
+		//worldgenerator.generate(worldIn, rand, pos);
 	}
 
 	@Override

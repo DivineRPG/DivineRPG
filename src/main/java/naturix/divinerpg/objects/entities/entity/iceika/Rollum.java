@@ -2,8 +2,9 @@ package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.registry.ModDimensions;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -12,7 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Rollum extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/rollum");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/rollum");
 
     public Rollum(World worldIn) {
         super(worldIn);
@@ -43,17 +44,17 @@ public class Rollum extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ROLLUM;
+        return DRPGSoundHandler.ROLLUM;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ROLLUM_HURT;
+        return DRPGSoundHandler.ROLLUM_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ROLLUM_HURT;
+        return DRPGSoundHandler.ROLLUM_HURT;
     }
 
     @Override
@@ -61,8 +62,8 @@ public class Rollum extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }
+    }*/
 }

@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class EdenAbstractTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    protected IBlockState log = ModBlocks.edenLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.edenLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
 
     public EdenAbstractTree(boolean notify) {
         this(notify, 13);
@@ -21,8 +21,8 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
     public EdenAbstractTree(boolean notify, int minTreeHeightIn) {
         super(notify);
         this.minTreeHeight = minTreeHeightIn;
-        log = ModBlocks.edenLog.getDefaultState();
-        leaves = ModBlocks.edenLeaves.getDefaultState();
+        //log = ModBlocks.edenLog.getDefaultState();
+        //leaves = ModBlocks.edenLeaves.getDefaultState();
     }
 
     @Override
@@ -31,16 +31,16 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         int randBranchNum = 0;
         Material materialBelow = worldIn.getBlockState(position.down()).getMaterial();
 
-        if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256 || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.grassEden || position.getY() >= 256 - treeHeight - 1) {
-            return false;
-        }
+        //if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256 || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.grassEden || position.getY() >= 256 - treeHeight - 1) {
+        //    return false;
+        //}
         
-        buildTrunk(worldIn, position, treeHeight);
+        //buildTrunk(worldIn, position, treeHeight);
         return true;
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        Random random = new Random();
+        /**Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
         drawLeafCircle(world, pos.add(0, extraHeight - 1, 0), 1, leaves);
@@ -87,7 +87,7 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
                     setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), leaves);
                 }
             }
-        }
+        }*/
     }
 
 }

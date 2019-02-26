@@ -3,7 +3,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/arid_warrior");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arid_warrior");
 
     public AridWarrior(World worldIn) {
         super(worldIn);
@@ -62,17 +63,17 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ARID_WARRIOR;
+        return DRPGSoundHandler.ARID_WARRIOR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ARID_WARRIOR_HURT;
+        return DRPGSoundHandler.ARID_WARRIOR_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ARID_WARRIOR_HURT;
+        return DRPGSoundHandler.ARID_WARRIOR_HURT;
     }
 
     @Override

@@ -1,7 +1,8 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderSpider extends EntityEnderman {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ender_spider");
 
     public EnderSpider(World worldIn) {
         super(worldIn);
@@ -30,7 +31,7 @@ public class EnderSpider extends EntityEnderman {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.HELL_SPIDER;
+        return DRPGSoundHandler.HELL_SPIDER;
     }
 
     @Override

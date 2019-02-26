@@ -258,7 +258,7 @@ public class TileEntityCoalstoneFurnace extends TileEntity implements IInventory
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
             }
             if (flag1 == this.canSmelt()) {
-                ModBlocks.coalstoneFurnace.setState(this.canSmelt(), world, pos);
+                //ModBlocks.coalstoneFurnace.setState(this.canSmelt(), world, pos);
                 this.markDirty();
             }
         }

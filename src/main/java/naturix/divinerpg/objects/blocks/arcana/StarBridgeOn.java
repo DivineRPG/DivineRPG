@@ -41,7 +41,7 @@ public class StarBridgeOn extends BlockBase {
 		return NULL_AABB;
 	}
 
-	@Override
+	/**@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Item.getItemFromBlock(ModBlocks.starBridge);
 	}
@@ -50,7 +50,7 @@ public class StarBridgeOn extends BlockBase {
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
 	        EntityPlayer player) {
 		return new ItemStack(ModBlocks.starBridge);
-	}
+	}*/
 
 	@Override
 	public int getStrongPower(IBlockState state, IBlockAccess baccess, BlockPos pos, EnumFacing side) {
@@ -76,10 +76,10 @@ public class StarBridgeOn extends BlockBase {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridgeOn.getDefaultState(), 3);
+				//world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridgeOn.getDefaultState(), 3);
 			}
 		} else {
-			world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridge.getDefaultState(), 3);
+			//world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridge.getDefaultState(), 3);
 		}
 	}
 

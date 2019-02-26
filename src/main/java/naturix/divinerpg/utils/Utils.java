@@ -171,9 +171,8 @@ public class Utils {
 	}
 
 	public static void registerProjectile(Class entityClass, String entityName) {
-		EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + "." + entityName),
-		        entityClass, DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
-		        true);
+		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, Reference.MODID + "." + entityName),
+		        entityClass, Reference.MODID + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
 		projectileID++;
 	}
 
@@ -234,7 +233,7 @@ public class Utils {
 				if (line.contains(":")) {
 					int splitLocation = line.indexOf(":");
 					String username = line.substring(0, splitLocation);
-					Utils.capeMap.put(username, new ResourceLocation(DivineRPG.modId, "textures/models/devhats/"
+					Utils.capeMap.put(username, new ResourceLocation(Reference.MODID, "textures/models/devhats/"
 					        + convertCapeString(line.substring(splitLocation + 1)) + ".png"));
 				}
 			}

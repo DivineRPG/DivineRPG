@@ -5,7 +5,8 @@ import java.util.Calendar;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.particle.ParticleSparkler;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -27,7 +28,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Rainbour extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/rainbour");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/rainbour");
     private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
             DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;
@@ -200,17 +201,17 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.RAINBOUR;
+        return DRPGSoundHandler.RAINBOUR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.RAINBOUR_HURT;
+        return DRPGSoundHandler.RAINBOUR_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.RAINBOUR_HURT;
+        return DRPGSoundHandler.RAINBOUR_HURT;
     }
 
     @Override

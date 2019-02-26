@@ -8,6 +8,7 @@ import naturix.divinerpg.dimensions.iceika.WorldProviderIceika;
 import naturix.divinerpg.dimensions.mortum.WorldProviderMortum;
 import naturix.divinerpg.dimensions.skythern.WorldProviderSkythern;
 import naturix.divinerpg.dimensions.wildwood.WorldProviderWildWood;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
@@ -25,12 +26,12 @@ public class ModDimensions {
 	    }
 
 	    private static void registerDimensionTypes() {
-	    	edenDimension = DimensionType.register(DivineRPG.modId + ":eden", "_eden", Config.edenDimensionId, WorldProviderEden.class, false);
-	    	wildWoodDimension = DimensionType.register(DivineRPG.modId + ":wildwood", "_wildwood", Config.wildWoodDimensionId, WorldProviderWildWood.class, false);
-	    	apalachiaDimension = DimensionType.register(DivineRPG.modId + ":apalachia", "_apalachia", Config.apalachiaDimensionId, WorldProviderApalachia.class, false);
-	    	skythernDimension = DimensionType.register(DivineRPG.modId + ":skythern", "_skythern", Config.skythernDimensionId, WorldProviderSkythern.class, false);
-	    	mortumDimension = DimensionType.register(DivineRPG.modId + ":mortum", "_mortum", Config.mortumDimensionId, WorldProviderMortum.class, false);
-	    	iceikaDimension = DimensionType.register(DivineRPG.modId + ":iceika", "_iceika", Config.iceikaDimensionId, WorldProviderIceika.class, false);
+	    	edenDimension = DimensionType.register(Reference.MODID + ":eden", "_eden", Config.edenDimensionId, WorldProviderEden.class, false);
+	    	wildWoodDimension = DimensionType.register(Reference.MODID + ":wildwood", "_wildwood", Config.wildWoodDimensionId, WorldProviderWildWood.class, false);
+	    	apalachiaDimension = DimensionType.register(Reference.MODID + ":apalachia", "_apalachia", Config.apalachiaDimensionId, WorldProviderApalachia.class, false);
+	    	skythernDimension = DimensionType.register(Reference.MODID + ":skythern", "_skythern", Config.skythernDimensionId, WorldProviderSkythern.class, false);
+	    	mortumDimension = DimensionType.register(Reference.MODID + ":mortum", "_mortum", Config.mortumDimensionId, WorldProviderMortum.class, false);
+	    	iceikaDimension = DimensionType.register(Reference.MODID + ":iceika", "_iceika", Config.iceikaDimensionId, WorldProviderIceika.class, false);
 	 	   
 	    
 	    }

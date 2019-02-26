@@ -15,8 +15,8 @@ import java.util.Random;
  */
 public class MortumTreeLarge extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.mortumLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.mortumLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
 
     public MortumTreeLarge(boolean notify, int minTrunkHeight) {
         super(notify);
@@ -37,25 +37,26 @@ public class MortumTreeLarge extends WorldGenAbstractTree {
 
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
-        buildLeaves1(world, blockPos, trunkHeight + 2);
-        buildLeaves2(world, blockPos, trunkHeight + 3);
-        buildLeaves3(world, blockPos, trunkHeight + 4);
-        buildLeaves4(world, blockPos, trunkHeight + 5);
-        buildLeaves5(world, blockPos, trunkHeight + 6);
-        buildLeaves4(world, blockPos, trunkHeight + 7);
-        buildLeaves6(world, blockPos, trunkHeight + 8);
-        buildLeaves6(world, blockPos, treeHeight);
-        buildTrunk(world, blockPos, treeHeight);
-        buildBranchBase(world, blockPos, trunkHeight);
-        buildBranches(world, blockPos, trunkHeight + 2);
-        buildBranchBase(world, blockPos, trunkHeight + 4);
-        buildBranches2(world, blockPos, trunkHeight + 6);
-        setTreeHeight(world, blockPos, treeHeight);
+
+        //buildLeaves1(world, blockPos, trunkHeight + 2);
+        //buildLeaves2(world, blockPos, trunkHeight + 3);
+        //buildLeaves3(world, blockPos, trunkHeight + 4);
+        //buildLeaves4(world, blockPos, trunkHeight + 5);
+        //buildLeaves5(world, blockPos, trunkHeight + 6);
+        //buildLeaves4(world, blockPos, trunkHeight + 7);
+        //buildLeaves6(world, blockPos, trunkHeight + 8);
+        //buildLeaves6(world, blockPos, treeHeight);
+        //buildTrunk(world, blockPos, treeHeight);
+        //buildBranchBase(world, blockPos, trunkHeight);
+        //buildBranches(world, blockPos, trunkHeight + 2);
+        //buildBranchBase(world, blockPos, trunkHeight + 4);
+        //buildBranches2(world, blockPos, trunkHeight + 6);
+        //setTreeHeight(world, blockPos, treeHeight);
         return true;
     }
 
     private void buildLeaves6(World world, BlockPos blockPos, int height) {
-        this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
+        /**this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, 0), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(1, height, 0), leaves);
@@ -212,6 +213,6 @@ public class MortumTreeLarge extends WorldGenAbstractTree {
     }
 
     public int getTreeHeight(World world, BlockPos pos, int treeHeight){
-        return this.setTreeHeight(world, pos, treeHeight);
+        return this.setTreeHeight(world, pos, treeHeight);*/
     }
 }

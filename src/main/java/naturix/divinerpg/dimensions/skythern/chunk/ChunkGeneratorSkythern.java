@@ -46,7 +46,7 @@ public class ChunkGeneratorSkythern implements  IChunkGenerator
 
 	public void setBlocksInChunk(int x, int z, ChunkPrimer chunkPrimer)
     {
-        this.buffer = this.setupNoiseGenerators(this.buffer, x * 2, z * 2);
+        /**this.buffer = this.setupNoiseGenerators(this.buffer, x * 2, z * 2);
 
         for(int i1 = 0; i1 < 2; i1++)
         {
@@ -127,13 +127,13 @@ public class ChunkGeneratorSkythern implements  IChunkGenerator
 
             }
 
-        }
+        }*/
 
     }
 
 	public void buildSurfaces(int i, int j, ChunkPrimer chunkPrimer)
     {
-        for(int k = 0; k < 16; k++)
+        /**for(int k = 0; k < 16; k++)
         {
             for(int l = 0; l < 16; l++)
             {
@@ -180,7 +180,7 @@ public class ChunkGeneratorSkythern implements  IChunkGenerator
 					}
 				}
             }
-        }
+        }*/
     }
 
     private double[] setupNoiseGenerators(double buffer[], int x, int z)

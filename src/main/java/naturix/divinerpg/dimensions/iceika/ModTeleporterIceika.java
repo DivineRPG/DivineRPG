@@ -60,8 +60,7 @@ public class ModTeleporterIceika extends Teleporter {
 						int l1 = j + j1;
 						int i2 = k + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
-						this.myWorld.setBlockState(new BlockPos(k1, l1, i2),
-								flag ? ModBlocks.portalIceika.getDefaultState() : Blocks.AIR.getDefaultState());
+						//this.myWorld.setBlockState(new BlockPos(k1, l1, i2), flag ? ModBlocks.portalIceika.getDefaultState() : Blocks.AIR.getDefaultState());
 					}
 				}
 			}

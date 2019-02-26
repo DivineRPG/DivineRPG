@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,7 +24,7 @@ public class Leorna extends EntityMob{
 		this.setHealth(this.getMaxHealth());
 
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/leorna");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/leorna");
 
 
     protected boolean isMaster() {

@@ -4,6 +4,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -31,7 +32,7 @@ public class Vamecheron extends EntityMob {
 		this.setSize(1.3F, 1.5f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/vamacheron_boss");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vamacheron_boss");
 
 
     protected boolean isMaster() {
@@ -139,8 +140,8 @@ public class Vamecheron extends EntityMob {
 	@Override
 	protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
     {
-		this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, Item.getItemFromBlock(ModBlocks.vamacheronStatue).getDefaultInstance()));
-		this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.haliteBlade.getDefaultInstance()));
+		//this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, Item.getItemFromBlock(ModBlocks.vamacheronStatue).getDefaultInstance()));
+		//this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.haliteBlade.getDefaultInstance()));
     }
 
 }

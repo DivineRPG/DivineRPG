@@ -1,14 +1,27 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
+import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 
-public class LogBase extends BlockLog {
+public class LogBase extends BlockLog implements IHasModel, IMetaName{
 	protected String name;
 
 	public LogBase(String name) {
@@ -20,15 +33,14 @@ public class LogBase extends BlockLog {
 		this.setHardness(2);
 		this.setSoundType(SoundType.WOOD);
 		this.setDefaultState(this.getDefaultState().withProperty(LOG_AXIS, EnumAxis.Y));
+
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 	}
 
 	@Override
 	public BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, LOG_AXIS);
-	}
-
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 
 	@Override
@@ -71,7 +83,24 @@ public class LogBase extends BlockLog {
 		return iblockstate;
 	}
 
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
+		/*for(EnumHandler.OreType oreType$enumtype : EnumHandler.OreType.values()) {
+			list.add(new ItemStack(this, 1, oreType$enumtype.getMeta()));  //Just in case if you wish to have these in here
+		}*/
+		list.add(new ItemStack(this, 1, 0));
 	}
+
+	@Override
+	public void registerModels() {
+		for(int i = 0; i < EnumFacing.Axis.values().length; i++)
+		{
+			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumFacing.Axis.values()[i].getName(), "inventory");
+		}
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		return EnumFacing.Axis.values()[stack.getItemDamage()].getName();
+	}
+
 }

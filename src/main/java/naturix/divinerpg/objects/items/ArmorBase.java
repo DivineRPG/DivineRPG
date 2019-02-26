@@ -29,7 +29,7 @@ public class ArmorBase extends net.minecraft.item.ItemArmor {
 		setRegistryName(name);
 		setUnlocalizedName(name);
 		this.name = name;
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 	@Override

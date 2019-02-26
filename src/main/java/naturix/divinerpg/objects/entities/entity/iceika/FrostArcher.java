@@ -4,6 +4,7 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
@@ -24,7 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/frost_archer");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/frost_archer");
 
     public FrostArcher(World worldIn) {
         super(worldIn);
@@ -90,8 +91,8 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
         return this.LOOT;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }
+    }*/
 }

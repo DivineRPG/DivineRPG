@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +25,7 @@ public class SunArcher extends EntityMob {
 		this.setSize(1F, 2.2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/sunarcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/sunarcher");
 
 
     protected boolean isMaster() {
@@ -90,11 +91,11 @@ public class SunArcher extends EntityMob {
 		return this.LOOT;
 
 	}
-    protected Block spawnableBlock = ModBlocks.grassEden;
+    /**protected Block spawnableBlock = ModBlocks.grassEden;
 
     @Override
     public boolean getCanSpawnHere()
     {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.edenDimension.getId();
-    }
+    }*/
 }

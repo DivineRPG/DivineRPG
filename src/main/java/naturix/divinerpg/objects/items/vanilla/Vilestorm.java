@@ -37,9 +37,9 @@ public class Vilestorm extends ItemBase {
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-		ItemStack stack = new ItemStack(ModItems.vileStorm);
+		//ItemStack stack = new ItemStack(ModItems.vileStorm);
 		if (!player.capabilities.isCreativeMode) {
-			stack.shrink(1);
+			//stack.shrink(1);
 		}
 		BlockPos pos = new BlockPos(player.getPosition());
 		if (!world.isRemote) {

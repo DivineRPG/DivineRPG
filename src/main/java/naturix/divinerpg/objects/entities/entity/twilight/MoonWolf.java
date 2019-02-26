@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,7 +24,7 @@ public class MoonWolf extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/moonwolf");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/moonwolf");
 
 
     protected boolean isMaster() {
@@ -89,9 +90,9 @@ public class MoonWolf extends EntityMob {
 		return this.LOOT;
 
 	}
-    @Override
+    /**@Override
     public boolean getCanSpawnHere()
     {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.wildWoodDimension.getId();
-    }
+    }*/
 }

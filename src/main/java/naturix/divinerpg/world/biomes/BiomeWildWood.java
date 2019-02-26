@@ -21,15 +21,14 @@ public class BiomeWildWood extends Biome {
 	private Random rand;
 	private BlockPos pos;
 	
-	public BiomeWildWood(String name) {
+	public BiomeWildWood() {
 	super(properties);
-	this.topBlock = ModBlocks.grassWild.getDefaultState();
-	this.fillerBlock = ModBlocks.dirtWild.getDefaultState();
+	//this.topBlock = ModBlocks.grassWild.getDefaultState();
+	//this.fillerBlock = ModBlocks.dirtWild.getDefaultState();
     this.spawnableCreatureList.clear();
     this.spawnableMonsterList.clear();
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
-    this.setRegistryName(name);
     this.flowers.clear();
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;

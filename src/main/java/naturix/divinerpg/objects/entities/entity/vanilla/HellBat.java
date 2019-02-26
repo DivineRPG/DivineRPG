@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.util.ResourceLocation;
@@ -13,7 +14,7 @@ public class HellBat extends EntityBat
 		super(worldIn);
 		this.setHealth(this.getMaxHealth());
 	}
-	public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hell_bat");
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/hell_bat");
 	private ResourceLocation deathLootTable = LOOT;
 	@Override
 	protected ResourceLocation getLootTable()

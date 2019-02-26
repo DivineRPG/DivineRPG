@@ -98,7 +98,7 @@ public class ApalachiaPortal extends BlockBreakable {
 						break label56;
 					}
 
-					if (block == ModBlocks.portalApalachia) {
+					/**if (block == ModBlocks.portalApalachia) {
 						++this.portalBlockCount;
 					}
 
@@ -114,16 +114,15 @@ public class ApalachiaPortal extends BlockBreakable {
 						if (block != ModBlocks.blockWildWood) {
 							break label56;
 						}
-					}
+					}*/
 				}
 			}
 
 			for (int j = 0; j < this.width; ++j) {
-				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-				        .getBlock() != ModBlocks.blockWildWood) {
-					this.height = 0;
-					break;
-				}
+				//if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != ModBlocks.blockWildWood) {
+				//	this.height = 0;
+				//	break;
+				//}
 			}
 
 			if (this.height <= 21 && this.height >= 3) {
@@ -142,14 +141,14 @@ public class ApalachiaPortal extends BlockBreakable {
 			for (i = 0; i < 22; ++i) {
 				BlockPos blockpos = pos.offset(facing, i);
 
-				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.blockWildWood) {
-					break;
-				}
+				//if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.blockWildWood) {
+				//	break;
+				//}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			return block == ModBlocks.blockWildWood ? i : 0;
+			//return block == ModBlocks.blockWildWood ? i : 0;
+			return 0;
 		}
 
 		public int getHeight() {
@@ -161,8 +160,8 @@ public class ApalachiaPortal extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
-			        || blockIn == ModBlocks.portalApalachia;
+			//return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalApalachia;
+			return false;
 		}
 
 		public boolean isValid() {
@@ -175,9 +174,7 @@ public class ApalachiaPortal extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for (int j = 0; j < this.height; ++j) {
-					this.world.setBlockState(blockpos.up(j),
-					        ModBlocks.portalApalachia.getDefaultState().withProperty(ApalachiaPortal.AXIS, this.axis),
-					        2);
+					//this.world.setBlockState(blockpos.up(j), ModBlocks.portalApalachia.getDefaultState().withProperty(ApalachiaPortal.AXIS, this.axis), 2);
 				}
 			}
 		}

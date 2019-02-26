@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Liopleurodon extends EntityDivineRPGSwimming {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/liopleurodon");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/liopleurodon");
 
     public Liopleurodon(World worldIn) {
         super(worldIn);
@@ -32,17 +33,17 @@ public class Liopleurodon extends EntityDivineRPGSwimming {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.LIOPLEURODON;
+        return DRPGSoundHandler.LIOPLEURODON;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.LIOPLEURODON_HURT;
+        return DRPGSoundHandler.LIOPLEURODON_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.LIOPLEURODON_HURT;
+        return DRPGSoundHandler.LIOPLEURODON_HURT;
     }
 
     @Override

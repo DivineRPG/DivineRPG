@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.entity;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.client.RenderSpecialProjectile;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.ResourceLocation;
@@ -30,7 +31,6 @@ public class EntityDisk extends EntityThrowable {
 
 	@SideOnly(Side.CLIENT)
 	public void renderMe() {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(
-		        new ResourceLocation(DivineRPG.modId + "textures/items/disk_amthrimis.png")));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(new ResourceLocation(Reference.MODID + "textures/items/disk_amthrimis.png")));
 	}
 }

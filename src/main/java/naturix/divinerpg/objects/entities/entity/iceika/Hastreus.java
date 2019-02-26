@@ -5,7 +5,8 @@ import java.util.List;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModDimensions;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Hastreus extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/hastreus");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/hastreus");
 
     public Hastreus(World worldIn) {
         super(worldIn);
@@ -56,17 +57,17 @@ public class Hastreus extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.HASTREUS;
+        return DRPGSoundHandler.HASTREUS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.HASTREUS_HURT;
+        return DRPGSoundHandler.HASTREUS_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.HASTREUS_HURT;
+        return DRPGSoundHandler.HASTREUS_HURT;
     }
 
     @Override
@@ -74,8 +75,8 @@ public class Hastreus extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }
+    }*/
 }

@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.util.DamageSource;
@@ -11,7 +12,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class TheGrue extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_grue");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/the_grue");
 
     public TheGrue(World worldIn) {
         super(worldIn);
@@ -41,17 +42,17 @@ public class TheGrue extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEATHCRYX;
+        return DRPGSoundHandler.DEATHCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DEATHCRYX_HURT;
+        return DRPGSoundHandler.DEATHCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DEATHCRYX_HURT;
+        return DRPGSoundHandler.DEATHCRYX_HURT;
     }
 
     @Override

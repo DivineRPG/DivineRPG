@@ -20,15 +20,14 @@ public class BiomeApalachia extends Biome {
 	private World world;
 	private Random rand;
 	private BlockPos pos; 
-	public BiomeApalachia(String name) {
+	public BiomeApalachia() {
 	super(properties);
-	this.topBlock = ModBlocks.grassApalachia.getDefaultState();
-	this.fillerBlock = ModBlocks.dirtApalachia.getDefaultState();
+	//this.topBlock = ModBlocks.grassApalachia.getDefaultState();
+	//this.fillerBlock = ModBlocks.dirtApalachia.getDefaultState();
     this.spawnableCreatureList.clear();
     this.spawnableMonsterList.clear();
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
-    this.setRegistryName(name);
     this.flowers.clear();
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;

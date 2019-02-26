@@ -14,11 +14,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * /04/2019
  */
 @SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(modid = DivineRPG.modId, value = Side.CLIENT)
+@Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 public class CustomTextureStitchHandler {
     @SubscribeEvent
     public static void pre (TextureStitchEvent.Pre event){
         TextureMap map = event.getMap();
-        map.registerSprite(new ResourceLocation(DivineRPG.modId, "particle/frost"));
+        map.registerSprite(new ResourceLocation(Reference.MODID, "particle/frost"));
     }
 }

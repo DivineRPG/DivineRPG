@@ -13,8 +13,8 @@ import java.util.Random;
 
 public class WildWoodTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    protected IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
 
     public WildWoodTree(boolean notify) {
         this(notify, 13);
@@ -34,8 +34,9 @@ public class WildWoodTree extends WorldGenAbstractTree {
         if (position.getY() <= 13 && position.getY() + treeHeight + 1 >= worldIn.getHeight() || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
             return false;
         }
+        return true;
         
-        buildTrunk(worldIn, position, treeHeight);
+        /**buildTrunk(worldIn, position, treeHeight);
         int i = rand.nextInt(treeHeight);
         for (int i2 = 0; i2 < i; ++i2)
         {
@@ -165,7 +166,7 @@ public class WildWoodTree extends WorldGenAbstractTree {
                     setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), leaves);
                 }
             }
-        }
+        }*/
     }
 
 }

@@ -7,4 +7,5 @@ public class BiomeProviderMortum extends BiomeProviderSingle {
 
 	public BiomeProviderMortum() {
 		super(ModBiomes.Mortum);
-	}}
+	}
+}

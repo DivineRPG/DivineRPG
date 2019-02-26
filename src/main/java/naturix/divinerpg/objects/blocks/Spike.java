@@ -43,13 +43,13 @@ public class Spike extends BlockBase {
         AxisAlignedBB extendBB = new AxisAlignedBB(x -0.1, y -0.1, z -0.1, x + 1.1,y +  1.1,z +  1.1);
         List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB);
         for (EntityLivingBase entity : world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB)) {
-        	if (entity instanceof EntityLivingBase && this == ModBlocks.spikeHot) {
+        	/**if (entity instanceof EntityLivingBase && this == ModBlocks.spikeHot) {
                 entity.attackEntityFrom(Utils.spikeSource, 8);
                 entity.setFire(15);
             }
         	if(entity instanceof EntityLivingBase && this == ModBlocks.spikeCold) {
         		entity.attackEntityFrom(Utils.spikeSource, 5);  
-            }
+            }*/
         }
     }
 }

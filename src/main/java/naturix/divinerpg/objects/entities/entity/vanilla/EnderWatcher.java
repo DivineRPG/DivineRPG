@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.ResourceLocation;
@@ -8,7 +9,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderWatcher extends EntityEnderman {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_watcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ender_watcher");
 
     public EnderWatcher(World worldIn) {
         super(worldIn);

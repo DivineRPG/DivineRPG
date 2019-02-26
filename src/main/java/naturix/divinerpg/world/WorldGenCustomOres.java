@@ -16,12 +16,12 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-public class ModWorldGen implements IWorldGenerator {
+public class WorldGenCustomOres implements IWorldGenerator {
 
 
 	private static WorldGenHut hut = new WorldGenHut();
-	public static ModWorldGen instance = new ModWorldGen();
-	int jeff = ModDimensions.edenDimension.getId();
+	public static WorldGenCustomOres instance = new WorldGenCustomOres();
+	//int jeff = ModDimensions.edenDimension.getId();
 	@Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()){

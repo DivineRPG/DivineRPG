@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.items.serenade;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.items.ItemBase;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -20,7 +20,7 @@ public class SerenadeInfusion extends ItemBase {
 
 	public SerenadeInfusion(String name) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(15);
 		setMaxStackSize(1);
 	}
@@ -37,7 +37,7 @@ public class SerenadeInfusion extends ItemBase {
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
 
 		entity.getHeldItem(hand).damageItem(1, entity);
-		world.playSound(entity, entity.getPosition(), ModSounds.HEAL, SoundCategory.MASTER, 1, 1);
+		world.playSound(entity, entity.getPosition(), DRPGSoundHandler.HEAL, SoundCategory.MASTER, 1, 1);
 		entity.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 80, 2, true, false));
 		return ar;
 	}

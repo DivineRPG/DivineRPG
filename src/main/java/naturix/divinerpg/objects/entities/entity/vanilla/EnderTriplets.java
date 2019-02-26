@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderTriplets extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ender_triplets");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ender_triplets");
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;

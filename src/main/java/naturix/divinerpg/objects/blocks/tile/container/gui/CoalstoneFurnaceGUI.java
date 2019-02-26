@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.blocks.tile.container.gui;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerCoalstoneFurnace;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
  * /31/2019
  */
 public class CoalstoneFurnaceGUI extends GuiContainer {
-    private static final ResourceLocation TEXTURES = new ResourceLocation(DivineRPG.modId + ":textures/gui/coalstone_furnace.png");
+    private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/gui/coalstone_furnace.png");
     private final InventoryPlayer player;
     private final TileEntityCoalstoneFurnace tileEntity;
 

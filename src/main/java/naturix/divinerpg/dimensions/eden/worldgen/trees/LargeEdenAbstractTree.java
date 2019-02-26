@@ -17,14 +17,14 @@ import java.util.Random;
  */
 public class LargeEdenAbstractTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.edenLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.edenLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
 
     public LargeEdenAbstractTree(boolean notify, int minTrunkHeight, IBlockState log, IBlockState leaves) {
         super(notify);
         this.minTrunkHeight = minTrunkHeight;
-        this.log = log;
-        this.leaves = leaves;
+        //this.log = log;
+        //this.leaves = leaves;
     }
 
     @Override
@@ -33,11 +33,11 @@ public class LargeEdenAbstractTree extends WorldGenAbstractTree {
 
         BlockPos pos = new BlockPos(blockPos.getX(), blockPos.getY() - 1, blockPos.getZ());
 
-        if (blockPos.getY() <= 13 && blockPos.getY() + minTrunkHeight + 1 >= 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassEden) {
-            return false;
-        } else {
-            checkIsAirAndBuild(world, blockPos, random);
-        }
+        //if (blockPos.getY() <= 13 && blockPos.getY() + minTrunkHeight + 1 >= 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassEden) {
+        //    return false;
+        //} else {
+        //    checkIsAirAndBuild(world, blockPos, random);
+        //}
         return true;
 
         //Build-a-trees!
@@ -46,7 +46,7 @@ public class LargeEdenAbstractTree extends WorldGenAbstractTree {
     }
 
     public void checkIsAirAndBuild(World world, BlockPos position, Random rand){
-        int trunkHeight = rand.nextInt(4) + minTrunkHeight;
+        /**int trunkHeight = rand.nextInt(4) + minTrunkHeight;
         int treeHeight = 10 + trunkHeight;
         int check = 0;
         for (int x = -5; x <= 11; x++){
@@ -235,6 +235,6 @@ public class LargeEdenAbstractTree extends WorldGenAbstractTree {
     }
 
     public int getTreeHeight(World world, BlockPos pos, int treeHeight){
-        return this.setTreeHeight(world, pos, treeHeight);
+        return this.setTreeHeight(world, pos, treeHeight);*/
     }
 }

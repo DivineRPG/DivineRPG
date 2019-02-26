@@ -7,4 +7,5 @@ public class BiomeProviderWildWood extends BiomeProviderSingle {
 
 	public BiomeProviderWildWood() {
 		super(ModBiomes.WildWood);
-	}}
+	}
+}

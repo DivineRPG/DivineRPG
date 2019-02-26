@@ -1,13 +1,14 @@
 package naturix.divinerpg.client;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.util.ResourceLocation;
 
 public class EntityResourceLocation {
 
-	public static final String PREFIX = DivineRPG.modId + "textures/mobs/";
-	public static final String PREFIX_PROJECTILE = DivineRPG.modId + "textures/projectiles/";
-	public static final String modelPrefix = DivineRPG.modId + "textures/model/";
+	public static final String PREFIX = Reference.MODID + "textures/mobs/";
+	public static final String PREFIX_PROJECTILE = Reference.MODID + "textures/projectiles/";
+	public static final String modelPrefix = Reference.MODID + "textures/model/";
 
 	public static ResourceLocation enderWatcher = addMob("enderWatcher");
 	public static ResourceLocation crab = addMob("crab");

@@ -21,15 +21,14 @@ public class BiomeIceika extends Biome {
 
     private static BiomeProperties properties = new BiomeProperties("Iceika").setTemperature(0.0f).setRainfall(0.5f).setSnowEnabled().setHeightVariation(0.5F);
 
-	public BiomeIceika(String name) {
+	public BiomeIceika() {
 	super(properties);
-	this.topBlock = ModBlocks.grassIceika.getDefaultState();
-	this.fillerBlock = ModBlocks.dirtIceika.getDefaultState();
+	//this.topBlock = ModBlocks.grassIceika.getDefaultState();
+	//this.fillerBlock = ModBlocks.dirtIceika.getDefaultState();
     this.spawnableCreatureList.clear();
     this.spawnableMonsterList.clear();
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
-    this.setRegistryName(name);
     this.flowers.clear();
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;
@@ -110,14 +109,14 @@ public class BiomeIceika extends Biome {
 
 				if (iblockstate2.getMaterial() == Material.AIR) {
 					j = -1;
-				} else if (iblockstate2.getBlock() == ModBlocks.stoneFrozen) {
+				} else if (iblockstate2.getBlock() == STONE/*ModBlocks.stoneFrozen*/) {
 					if (j == -1) {
 						if (k <= 0) {
 							topBlock = AIR;
 							fillerBlock = STONE;
 						} else if (currentY >= seaLevel - 4 && currentY <= seaLevel + 1) {
-							topBlock = ModBlocks.grassIceika.getDefaultState();
-							fillerBlock = ModBlocks.dirtIceika.getDefaultState();
+							//topBlock = ModBlocks.grassIceika.getDefaultState();
+							//fillerBlock = ModBlocks.dirtIceika.getDefaultState();
 						}
 
 						if (currentY < seaLevel && (topBlock == null || topBlock.getMaterial() == Material.AIR)) {
@@ -134,7 +133,7 @@ public class BiomeIceika extends Biome {
 							chunkPrimerIn.setBlockState(chunkZ, currentY, chunkX, topBlock);
 						} else if (currentY < seaLevel - 7 - k) {
 							topBlock = AIR;
-							fillerBlock = ModBlocks.stoneFrozen.getDefaultState();
+							//fillerBlock = ModBlocks.stoneFrozen.getDefaultState();
 						} else {
 							chunkPrimerIn.setBlockState(chunkZ, currentY, chunkX, fillerBlock);
 						}

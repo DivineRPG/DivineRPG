@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vethia;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,7 +23,7 @@ public class Mandragora extends EntityMob {
 		this.setSize(0.5F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/mandragora");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/mandragora");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

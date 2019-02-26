@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Glacon extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/glacon");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/glacon");
 
     public Glacon(World worldIn) {
         super(worldIn);
@@ -34,17 +35,17 @@ public class Glacon extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.GLACIDE;
+        return DRPGSoundHandler.GLACIDE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GLACIDE_HURT;
+        return DRPGSoundHandler.GLACIDE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.GLACIDE_HURT;
+        return DRPGSoundHandler.GLACIDE_HURT;
     }
 
     @Override

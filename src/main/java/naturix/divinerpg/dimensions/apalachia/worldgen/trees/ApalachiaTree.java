@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class ApalachiaTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    protected IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
 
     public ApalachiaTree(boolean notify) {
         this(notify, 13);
@@ -21,8 +21,8 @@ public class ApalachiaTree extends WorldGenAbstractTree {
     public ApalachiaTree(boolean notify, int minTreeHeightIn) {
         super(notify);
         this.minTreeHeight = minTreeHeightIn;
-        log = ModBlocks.apalachiaLog.getDefaultState();
-        leaves = ModBlocks.apalachiaLeaves.getDefaultState();
+        //log = ModBlocks.apalachiaLog.getDefaultState();
+        //leaves = ModBlocks.apalachiaLeaves.getDefaultState();
     }
 
     @Override
@@ -35,11 +35,11 @@ public class ApalachiaTree extends WorldGenAbstractTree {
             return false;
         }
         
-        buildTrunk(worldIn, position, treeHeight);
+        //buildTrunk(worldIn, position, treeHeight);
         return true;
     }
 
-    private void buildTrunk(World world, BlockPos pos, int treeHeight) {
+    /**private void buildTrunk(World world, BlockPos pos, int treeHeight) {
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
@@ -97,6 +97,6 @@ public class ApalachiaTree extends WorldGenAbstractTree {
                 }
             }
         }
-    }
+    }*/
 
 }

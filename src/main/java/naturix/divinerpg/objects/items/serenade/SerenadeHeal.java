@@ -16,7 +16,7 @@ public class SerenadeHeal extends ItemBase{
 
 	public SerenadeHeal(String name) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(7);
 		setMaxStackSize(1);
 	}

@@ -4,6 +4,7 @@ import io.netty.buffer.Unpooled;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.container.ContainerWorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMerchant;
@@ -34,7 +35,7 @@ import java.io.IOException;
  * /19/2019
  */
 public class GuiWorkshopMerchant extends GuiContainer {
-    private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(DivineRPG.modId, "textures/gui/workshop_worker.png");
+    private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/workshop_worker.png");
     private final IMerchant merchant;
     private GuiWorkshopMerchant.MerchantButton nextButton;
     private GuiWorkshopMerchant.MerchantButton previousButton;

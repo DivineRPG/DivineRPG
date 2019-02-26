@@ -3,7 +3,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
@@ -17,7 +18,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class TheWatcher extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_watcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/the_watcher");
     public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;
@@ -107,7 +108,7 @@ public class TheWatcher extends EntityDivineRPGBoss {
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
                 if (this.attackCounter == 20) {
-                    this.playSound(ModSounds.ROAR, 10.0F, 0.9F);
+                    this.playSound(DRPGSoundHandler.ROAR, 10.0F, 0.9F);
                 }
 
                 ++this.attackCounter;
@@ -228,12 +229,12 @@ public class TheWatcher extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ROAR;
+        return DRPGSoundHandler.ROAR;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ROAR;
+        return DRPGSoundHandler.ROAR;
     }
 
     @Override

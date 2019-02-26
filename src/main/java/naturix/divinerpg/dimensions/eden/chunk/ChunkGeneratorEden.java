@@ -92,7 +92,7 @@ public class ChunkGeneratorEden implements  IChunkGenerator {
      */
     public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
     {
-        int i = 2;
+        /**int i = 2;
         int j = 3;
         int k = 33;
         int l = 3;
@@ -155,12 +155,12 @@ public class ChunkGeneratorEden implements  IChunkGenerator {
                     }
                 }
             }
-        }
+        }*/
     }
 
     public void buildSurfaces(ChunkPrimer primer)
     {
-        if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, this.chunkX, this.chunkZ, primer, this.world)) return;
+        /**if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, this.chunkX, this.chunkZ, primer, this.world)) return;
         for (int i = 0; i < 16; ++i)
         {
             for (int j = 0; j < 16; ++j)
@@ -201,7 +201,7 @@ public class ChunkGeneratorEden implements  IChunkGenerator {
                     }
                 }
             }
-        }
+        }*/
     }
 
     /**

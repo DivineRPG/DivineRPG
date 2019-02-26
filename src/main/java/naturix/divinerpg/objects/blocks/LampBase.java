@@ -11,5 +11,4 @@ public class LampBase extends BlockBase {
 		this.setCreativeTab(DivineRPG.BlocksTab);
 		this.setHardness(0.5F);
 	}
-
 }

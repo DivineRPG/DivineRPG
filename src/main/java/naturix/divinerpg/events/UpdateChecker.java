@@ -1,6 +1,7 @@
 package naturix.divinerpg.events;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class UpdateChecker {
 
     public static boolean isUpdateAvailable() {
         try {
-            if (!getCurrentVersion().contains(DivineRPG.version))
+            if (!getCurrentVersion().contains(Reference.VERSION))
                 return true;
         } catch (IOException e) {
             e.printStackTrace();

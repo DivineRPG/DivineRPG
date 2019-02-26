@@ -25,7 +25,7 @@ public class ItemModRanged extends ItemBase {
 	protected Class<? extends EntityThrowable> clazz;
 
 	public ItemModRanged(String name, int maxDamage, SoundEvent sound, Class<? extends EntityThrowable> clazz) {
-		super(name, DivineRPG.CombatTab);
+		super(name);
 		this.clazz = clazz;
 		setMaxStackSize(1);
 		setMaxDamage(maxDamage);

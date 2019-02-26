@@ -10,7 +10,7 @@ public class Apalachia extends ArmorBase {
 	private String textureName;
 	public Apalachia(ArmorMaterial material, EntityEquipmentSlot slot, String name) {
 		super(material, slot, name);
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 }

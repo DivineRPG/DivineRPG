@@ -10,7 +10,7 @@ public class Terran extends ArmorBase {
 	private String textureName;
 	public Terran(ArmorMaterial material, EntityEquipmentSlot slot, String name) {
 		super(material, slot, name);
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 }

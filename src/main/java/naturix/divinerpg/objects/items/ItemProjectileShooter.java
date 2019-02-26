@@ -32,7 +32,7 @@ public class ItemProjectileShooter extends ItemBase {
 
 	public ItemProjectileShooter(String name, float damage, Item ammo, int uses, int counter) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		setMaxStackSize(1);
 		this.damage = damage;
 		this.ammo = ammo;
@@ -50,7 +50,7 @@ public class ItemProjectileShooter extends ItemBase {
 
 	public ItemProjectileShooter(String name, float damage, Item ammo, String projectileTex, int uses, int counter) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		setMaxStackSize(1);
 		this.damage = damage;
 		this.ammo = ammo;
@@ -68,7 +68,7 @@ public class ItemProjectileShooter extends ItemBase {
 
 	public ItemProjectileShooter(String name, float damage, String projectileTex, int uses, int counter) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		setMaxStackSize(1);
 		this.damage = damage;
 		this.uses = uses;

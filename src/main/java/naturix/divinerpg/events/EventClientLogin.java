@@ -3,15 +3,19 @@ package naturix.divinerpg.events;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.MessageLocalizer;
+import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.io.IOException;
 
+@Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 public class EventClientLogin {
 
     @SubscribeEvent
@@ -38,7 +42,7 @@ public class EventClientLogin {
                 Logging.message(p, "Welcome " + p.getDisplayName().getFormattedText());
             }
         }
-        DivineRPG.logger.info("Current Version : " + DivineRPG.version);
+        DivineRPG.logger.info("Current Version : " + Reference.VERSION);
 		DivineRPG.logger.info("Is Online : " + UpdateChecker.isOnline());
 		if(UpdateChecker.isOnline()) {
 		DivineRPG.logger.info("Update Available : " + UpdateChecker.isUpdateAvailable());

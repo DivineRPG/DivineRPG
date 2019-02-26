@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,7 +26,7 @@ public class TameAngryBunny extends EntityTameable {
 		this.setSize(0.6F, 1f);
 		this.setHealth(this.getHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny_angry_tamed");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/bunny_angry_tamed");
 
 
     protected boolean isMaster() {
@@ -95,10 +96,10 @@ public class TameAngryBunny extends EntityTameable {
 	public boolean processInteract(EntityPlayer player, EnumHand hand)
     {
         ItemStack itemstack = player.getHeldItem(hand);
-        if(itemstack.getItem() == ModItems.edenSparklez) {
-        	this.heal(this.getMaxHealth());
-        	this.glowing=true;
-        }
+        //if(itemstack.getItem() == ModItems.edenSparklez) {
+        //	this.heal(this.getMaxHealth());
+        //	this.glowing=true;
+        //}
         return super.processInteract(player, hand);
     }
 

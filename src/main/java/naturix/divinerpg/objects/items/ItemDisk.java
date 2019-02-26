@@ -16,9 +16,9 @@ public class ItemDisk extends ItemVethianDisk {
 		// if (var1.getItem() == VetheaItems.teakerDisk) {
 		// var2.spawnEntityInWorld(new EntityTeakerDisk(var2, var3, dam, this));
 		// }
-		if (var1.getItem() == ModItems.amthirmisDisk) {
+		//if (var1.getItem() == ModItems.amthirmisDisk) {
 			// var2.spawnEntityInWorld(new EntityAmthirmisDisk(var2, var3, dam, this));
-		}
+		//}
 		// if (var1.getItem() == VetheaItems.darvenDisk) {
 		// var2.spawnEntityInWorld(new EntityDarvenDisk(var2, var3, dam, this));
 		// }

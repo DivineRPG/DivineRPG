@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -23,7 +24,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class JungleSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jungle_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/jungle_spider");
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(JungleSpider.class,
             DataSerializers.BYTE);
 
@@ -131,7 +132,7 @@ public class JungleSpider extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.JUNGLE_SPIDER;
+        return DRPGSoundHandler.JUNGLE_SPIDER;
     }
 
     @Override

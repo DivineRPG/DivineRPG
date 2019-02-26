@@ -63,8 +63,8 @@ public class TEBed  extends TileEntity
         return BlockBed.isHeadPiece(this.getBlockMetadata());
     }
 
-    public ItemStack getItemStack()
-    {
-        return new ItemStack(ModBlocks.bedDream, 1, this.color.getMetadata());
-    }
+    //public ItemStack getItemStack()
+    //{
+    //    return new ItemStack(ModBlocks.bedDream, 1, this.color.getMetadata());
+    //}
 }

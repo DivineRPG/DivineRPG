@@ -50,7 +50,7 @@ public class BowBase extends ItemBow {
 		// setMaxDamage(toolMaterial.getMaxUses() + 325);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(DivineRPG.CombatTab);
+		//this.setCreativeTab(DivineRPG.CombatTab);
 		addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
@@ -117,9 +117,9 @@ public class BowBase extends ItemBow {
 	@Override
 	protected boolean isArrow(ItemStack stack) {
 		boolean isInfernal = false;
-		if (this == ModItems.infernoBow) {
-			isInfernal = true;
-		}
+		//if (this == ModItems.infernoBow) {
+		//	isInfernal = true;
+		//}
 
 		return isInfernal;
 	}
@@ -178,9 +178,7 @@ public class BowBase extends ItemBow {
 						int encPower = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
 						boolean encFlame = EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0;
 
-						InfernoArrow arrowItem = (InfernoArrow) (arrowStack.getItem() instanceof InfernoArrow
-						        ? arrowStack.getItem()
-						        : ModItems.arrowInferno);
+						/**InfernoArrow arrowItem = (InfernoArrow) (arrowStack.getItem() instanceof InfernoArrow ? arrowStack.getItem() : ModItems.arrowInferno);
 
 						EntityInfernoArrow arrow = arrowItem.createArrow(world, arrowStack, player);
 						arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F * speedMod,
@@ -200,7 +198,7 @@ public class BowBase extends ItemBow {
 							arrow.setFire(100);
 						}
 
-						world.spawnEntity(arrow);
+						world.spawnEntity(arrow);*/
 					}
 					stack.damageItem(1, player);
 				}

@@ -38,19 +38,19 @@ public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
                 purpleBeam = getBeamLocation(-8, 8);
 
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.green", TextFormatting.GREEN));
-                this.world.setBlockState(greenBeam, ModBlocks.ayeracoBeamGreen.getDefaultState());
+                //this.world.setBlockState(greenBeam, ModBlocks.ayeracoBeamGreen.getDefaultState());
             } else if (this.spawnTick == 430) {
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.blue", TextFormatting.BLUE));
-                this.world.setBlockState(blueBeam, ModBlocks.ayeracoBeamBlue.getDefaultState());
+                //this.world.setBlockState(blueBeam, ModBlocks.ayeracoBeamBlue.getDefaultState());
             } else if (this.spawnTick == 300) {
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.red", TextFormatting.RED));
-                this.world.setBlockState(redBeam, ModBlocks.ayeracoBeamRed.getDefaultState());
+                //this.world.setBlockState(redBeam, ModBlocks.ayeracoBeamRed.getDefaultState());
             } else if (this.spawnTick == 210) {
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.yellow", TextFormatting.YELLOW));
-                this.world.setBlockState(yellowBeam, ModBlocks.ayeracoBeamYellow.getDefaultState());
+                //this.world.setBlockState(yellowBeam, ModBlocks.ayeracoBeamYellow.getDefaultState());
             } else if (this.spawnTick == 145) {
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.purple", TextFormatting.DARK_PURPLE));
-                this.world.setBlockState(purpleBeam, ModBlocks.ayeracoBeamPurple.getDefaultState());
+                //this.world.setBlockState(purpleBeam, ModBlocks.ayeracoBeamPurple.getDefaultState());
             } else if (this.spawnTick == 0) {
                 AyeracoGreen ayercoGreen = new AyeracoGreen(this.world);
                 AyeracoBlue ayercoBlue = new AyeracoBlue(this.world);

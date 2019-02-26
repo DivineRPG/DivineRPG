@@ -4,7 +4,8 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,7 +16,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class KingOfScorchers extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/king_of_scorchers");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/king_of_scorchers");
     private int special;
 
     public KingOfScorchers(World worldIn) {
@@ -96,12 +97,12 @@ public class KingOfScorchers extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.KING_OF_SCORCHERS;
+        return DRPGSoundHandler.KING_OF_SCORCHERS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.KING_OF_SCORCHERS_HURT;
+        return DRPGSoundHandler.KING_OF_SCORCHERS_HURT;
     }
 
     @Override

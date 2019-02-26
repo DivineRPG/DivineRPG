@@ -24,7 +24,7 @@ public class SnowShuriken extends ItemBase {
 
 	public SnowShuriken(String name, float damage) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		this.damage = damage;
 	}
 

@@ -3,7 +3,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -26,7 +27,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Scorcher extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/scorcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/scorcher");
     private float heightOffset = 0.5F;
     private int heightOffsetUpdateTime;
     private int anger;
@@ -194,7 +195,7 @@ public class Scorcher extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.SCORCHER;
+        return DRPGSoundHandler.SCORCHER;
     }
 
     @Override

@@ -35,7 +35,7 @@ public class Aquamarine extends ItemBucket{
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DivineRPG.ItemsTab);
+		//this.setCreativeTab(DivineRPG.ItemsTab);
 		
 	}
 	public void registerItemModel() {
@@ -161,7 +161,7 @@ public class Aquamarine extends ItemBucket{
                     }
 
                     playerIn.addStat(StatList.getObjectUseStats(this));
-                    return !playerIn.capabilities.isCreativeMode ? new ActionResult(EnumActionResult.SUCCESS, new ItemStack(ModItems.aquamarine)) : new ActionResult(EnumActionResult.SUCCESS, itemstack);
+                    return !playerIn.capabilities.isCreativeMode ? new ActionResult(EnumActionResult.SUCCESS, new ItemStack(/**ModItems.aquamarine*/Blocks.EMERALD_BLOCK)) : new ActionResult(EnumActionResult.SUCCESS, itemstack);
                 }
                 else
                 {

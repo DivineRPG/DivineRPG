@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class Deathcryx extends EntityMob {
-	public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/wraith");
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/wraith");
 	private ResourceLocation deathLootTable = LOOT;
 
     public Deathcryx(World worldIn) {

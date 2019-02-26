@@ -103,13 +103,13 @@ public class IceikaChest extends BlockContainer {
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		Random rand = new Random();
-		if(this.dropsSnowflake) {
+		/**if(this.dropsSnowflake) {
 			if(rand.nextInt(20) == 0) {
 				drops.add(new ItemStack(ModBlocks.decorativeIceikaChest, 1, 0));
 			} else {
 				drops.add(new ItemStack(ModItems.snowflake, 1, 0));
 			}
-		} else drops.add(new ItemStack(ModBlocks.decorativeIceikaChest, 1, 0));
+		} else drops.add(new ItemStack(ModBlocks.decorativeIceikaChest, 1, 0));*/
 	}
 
 	@Override

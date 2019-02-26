@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.liquid;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
@@ -8,8 +9,8 @@ public class LiquidTar extends Fluid {
 
     public LiquidTar() {
         super("tar",
-                new ResourceLocation(DivineRPG.modId, "blocks/tar_still"),
-                new ResourceLocation(DivineRPG.modId, "blocks/tar_flow"));
+                new ResourceLocation(Reference.MODID, "blocks/tar_still"),
+                new ResourceLocation(Reference.MODID, "blocks/tar_flow"));
     }
 
 }

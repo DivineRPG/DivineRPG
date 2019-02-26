@@ -28,7 +28,8 @@ public class ModTeleporterWildWood extends Teleporter {
     protected final Long2ObjectMap<ModTeleporterWildWood.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap<ModTeleporterWildWood.PortalPosition>(4096);
 	protected final List destinationCoordinateKeys = new ArrayList();
 	protected int dimensionID;
-	protected Block portal = ModBlocks.portalWild;
+	//protected Block portal = ModBlocks.portalWild;
+	protected Block portal = Blocks.ACACIA_DOOR;
 	protected Block frameBlock;
 
 	public ModTeleporterWildWood(WorldServer worldServer, int dimensionID, Block frameBlock) {
@@ -60,8 +61,7 @@ public class ModTeleporterWildWood extends Teleporter {
 						int l1 = j + j1;
 						int i2 = k + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
-						this.myWorld.setBlockState(new BlockPos(k1, l1, i2),
-								flag ? ModBlocks.portalWild.getDefaultState() : Blocks.AIR.getDefaultState());
+						//this.myWorld.setBlockState(new BlockPos(k1, l1, i2), flag ? ModBlocks.portalWild.getDefaultState() : Blocks.AIR.getDefaultState());
 					}
 				}
 			}
@@ -361,7 +361,7 @@ public class ModTeleporterWildWood extends Teleporter {
 			l2 = -l2;
 		}
 
-		if (d0 < 0.0D) {
+		/**if (d0 < 0.0D) {
 			i1 = MathHelper.clamp(i1, 70, this.myWorld.getActualHeight() - 10);
 			j2 = i1;
 
@@ -377,11 +377,11 @@ public class ModTeleporterWildWood extends Teleporter {
 					}
 				}
 			}
-		}
+		}*/
 
 		IBlockState iblockstate = portal.getDefaultState().withProperty(BlockPortal.AXIS, l5 == 0 ? EnumFacing.Axis.Z : EnumFacing.Axis.X);
 
-		for (j3 = 0; j3 < 4; ++j3) {
+		/**for (j3 = 0; j3 < 4; ++j3) {
 			for (k3 = 0; k3 < 4; ++k3) {
 				for (l3 = -1; l3 < 4; ++l3) {
 					i4 = k5 + (k3 - 1) * l5;
@@ -402,14 +402,14 @@ public class ModTeleporterWildWood extends Teleporter {
 							this.myWorld.getBlockState(new BlockPos(i4, j4, k4)).getBlock(), true);
 				}
 			}
-		}
+		}*/
 
 		return true;
 	}
 	
-	public class PortalPosition extends BlockPos
+	/**public class PortalPosition extends BlockPos
     {
-        /** The worldtime at which this PortalPosition was last verified */
+
         public long lastUpdateTime;
          public PortalPosition(BlockPos pos, long lastUpdate)
         {
@@ -424,5 +424,5 @@ public class ModTeleporterWildWood extends Teleporter {
             placeInPortal(entity, yaw);
         else
             placeInExistingPortal(entity, yaw);
-    }
+    }*/
 }

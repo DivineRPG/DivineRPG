@@ -3,6 +3,10 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -14,19 +18,22 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockModSpawner extends BlockMobSpawner {
+public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
 
 	protected String name;
 	protected String mobName;
 
 	public BlockModSpawner(String name, String mobName) {
 		this.name = name;
-		this.mobName = DivineRPG.modId + "." + mobName;
+		this.mobName = Reference.MODID + "." + mobName;
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setHardness(5.0F);
 		this.setTickRandomly(true);
+
+        ModBlocks.BLOCKS.add(this);
+        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	public Item createItemBlock() {
@@ -39,7 +46,7 @@ public class BlockModSpawner extends BlockMobSpawner {
 		NBTTagCompound compound = new NBTTagCompound();
 		NBTTagCompound compound2 = new NBTTagCompound();
 		spawner.writeToNBT(compound);
-		compound2.setString("id", DivineRPG.modId + ":" + mobName);
+		compound2.setString("id", Reference.MODID + ":" + mobName);
 		compound.setTag("SpawnData", compound2);
 		spawner.readFromNBT(compound);
 		spawner.readFromNBT(compound2);
@@ -64,7 +71,8 @@ public class BlockModSpawner extends BlockMobSpawner {
 		return 0;
 	}
 
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 	}
 }

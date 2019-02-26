@@ -40,7 +40,7 @@ public class ModTeleporterApalachia extends Teleporter {
 
 	@Override
 	public void placeInPortal(Entity entityIn, float rotationYaw) {
-		if (this.myWorld.provider.getDimension() != 1) {
+		/**if (this.myWorld.provider.getDimension() != 1) {
 			if (!this.placeInExistingPortal(entityIn, rotationYaw)) {
 				this.makePortal(entityIn);
 				this.placeInExistingPortal(entityIn, rotationYaw);
@@ -67,7 +67,7 @@ public class ModTeleporterApalachia extends Teleporter {
 
 			entityIn.setLocationAndAngles((double) i, (double) j, (double) k, entityIn.rotationYaw, 0.0F);
 			entityIn.motionX = entityIn.motionY = entityIn.motionZ = 0.0D;
-		}
+		}*/
 	}
 
 	@Override
@@ -360,7 +360,7 @@ public class ModTeleporterApalachia extends Teleporter {
 		}
 
 		if (d0 < 0.0D) {
-			i1 = MathHelper.clamp(i1, 70, this.myWorld.getActualHeight() - 10);
+			/**i1 = MathHelper.clamp(i1, 70, this.myWorld.getActualHeight() - 10);
 			j2 = i1;
 
 			for (i3 = -1; i3 <= 1; ++i3) {
@@ -399,7 +399,7 @@ public class ModTeleporterApalachia extends Teleporter {
 					this.myWorld.notifyNeighborsOfStateChange(new BlockPos(i4, j4, k4),
 							this.myWorld.getBlockState(new BlockPos(i4, j4, k4)).getBlock(), true);
 				}
-			}
+			}*/
 		}
 
 		return true;

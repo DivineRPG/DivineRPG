@@ -6,6 +6,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
+import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
@@ -23,13 +28,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class LeavesBase extends BlockLeaves {
+public class LeavesBase extends BlockLeaves implements IHasModel{
 	public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
 	public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
 	int[] surroundings;
@@ -42,6 +48,9 @@ public class LeavesBase extends BlockLeaves {
 		this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
 		this.name = name;
 		this.setCreativeTab(DivineRPG.BlocksTab);
+
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	public LeavesBase(String name, Block sapling) {
@@ -52,15 +61,13 @@ public class LeavesBase extends BlockLeaves {
 		this.sapling = sapling;
 		this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
 
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { CHECK_DECAY, DECAYABLE });
-	}
-
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 
 	/**
@@ -160,7 +167,8 @@ public class LeavesBase extends BlockLeaves {
 		return NonNullList.withSize(1, new ItemStack(this));
 	}
 
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 	}
 }

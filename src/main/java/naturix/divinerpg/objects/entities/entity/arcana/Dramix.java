@@ -4,6 +4,7 @@ package naturix.divinerpg.objects.entities.entity.arcana;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -31,7 +32,7 @@ public class Dramix extends EntityMob {
 		this.setSize(0.8F, 2.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dramix");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/dramix");
 
 
     protected boolean isMaster() {
@@ -140,7 +141,7 @@ public class Dramix extends EntityMob {
 	@Override
 	protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
     {
-		int amount=rand.nextInt(3);
+		/**int amount=rand.nextInt(3);
 		if (amount > 1) {amount=1;}
         this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, Item.getItemFromBlock(ModBlocks.dramixStatue).getDefaultInstance()));
         switch(amount) {
@@ -159,7 +160,6 @@ public class Dramix extends EntityMob {
          
         default : // Optional
         	this.world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, ModItems.tokensDungeon.getDefaultInstance()));
-     }
+     }*/
     }
-
-    }
+}

@@ -4,7 +4,8 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import naturix.divinerpg.registry.ModDimensions;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
@@ -25,7 +26,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Fractite extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/fractite");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/fractite");
     public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;
@@ -123,7 +124,7 @@ public class Fractite extends EntityDivineRPGFlying {
 
                 if (this.attackCounter == 20) {
                     if (!this.world.isRemote)
-                        this.playSound(ModSounds.FRACTITE_ATTACK, 1.0F, 1.0F);
+                        this.playSound(DRPGSoundHandler.FRACTITE_ATTACK, 1.0F, 1.0F);
                     EntityFractiteShot shot = new EntityFractiteShot(this.world, this, var11, var13, var15);
                     double var18 = 4.0D;
                     Vec3d var20 = this.getLook(1.0F);
@@ -217,17 +218,17 @@ public class Fractite extends EntityDivineRPGFlying {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.FRACTITE;
+        return DRPGSoundHandler.FRACTITE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.FRACTITE_HURT;
+        return DRPGSoundHandler.FRACTITE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.FRACTITE_HURT;
+        return DRPGSoundHandler.FRACTITE_HURT;
     }
 
     @Override
@@ -235,8 +236,8 @@ public class Fractite extends EntityDivineRPGFlying {
         return this.LOOT;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }
+    }*/
 }

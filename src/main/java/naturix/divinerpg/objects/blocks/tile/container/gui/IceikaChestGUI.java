@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.blocks.tile.container.gui;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerIceikaChest;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
  * /01/2019
  */
 public class IceikaChestGUI extends GuiContainer {
-    private static final ResourceLocation GUI_ICEIKA_CHEST = new ResourceLocation(DivineRPG.modId + ":textures/gui/iceika_chest_gui.png");
+    private static final ResourceLocation GUI_ICEIKA_CHEST = new ResourceLocation(Reference.MODID + ":textures/gui/iceika_chest_gui.png");
     private final InventoryPlayer playerInventory;
     private final TileEntityIceikaChest te;
 

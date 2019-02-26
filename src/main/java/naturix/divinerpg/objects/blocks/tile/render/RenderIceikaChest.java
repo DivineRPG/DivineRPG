@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.blocks.tile.render;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
 import naturix.divinerpg.objects.blocks.tile.model.ModelIceikaChest;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -12,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
  * /08/2019
  */
 public class RenderIceikaChest extends TileEntitySpecialRenderer<TileEntityIceikaChest> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.modId + ":textures/model/iceika_chest.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID + ":textures/model/iceika_chest.png");
     private final ModelIceikaChest MODEL = new ModelIceikaChest();
 
     @Override

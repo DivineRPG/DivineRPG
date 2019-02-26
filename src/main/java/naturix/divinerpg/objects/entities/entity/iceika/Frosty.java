@@ -2,8 +2,9 @@ package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
+import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.registry.ModDimensions;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Frosty extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/frosty");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/frosty");
 
     public Frosty(World worldIn) {
         super(worldIn);
@@ -45,17 +46,17 @@ public class Frosty extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.FROSTY;
+        return DRPGSoundHandler.FROSTY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.FROSTY_HURT;
+        return DRPGSoundHandler.FROSTY_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.FROSTY_HURT;
+        return DRPGSoundHandler.FROSTY_HURT;
     }
 
     @Override
@@ -68,8 +69,8 @@ public class Frosty extends EntityPeacefulUntilAttacked {
         return this.LOOT;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }
+    }*/
 }

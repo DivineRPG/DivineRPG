@@ -15,8 +15,8 @@ import java.util.Random;
  */
 public class SkythernTreeLarge extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.skythernLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.skythernLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
 
     public SkythernTreeLarge(boolean notify, int minTrunkHeight) {
         super(notify);
@@ -37,7 +37,7 @@ public class SkythernTreeLarge extends WorldGenAbstractTree {
 
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
-        buildLeaves1(world, blockPos, trunkHeight + 2);
+        /**buildLeaves1(world, blockPos, trunkHeight + 2);
         buildLeaves2(world, blockPos, trunkHeight + 3);
         buildLeaves3(world, blockPos, trunkHeight + 4);
         buildLeaves4(world, blockPos, trunkHeight + 5);
@@ -50,11 +50,11 @@ public class SkythernTreeLarge extends WorldGenAbstractTree {
         buildBranches(world, blockPos, trunkHeight + 2);
         buildBranchBase(world, blockPos, trunkHeight + 4);
         buildBranches2(world, blockPos, trunkHeight + 6);
-        setTreeHeight(world, blockPos, treeHeight);
+        setTreeHeight(world, blockPos, treeHeight);*/
         return true;
     }
 
-    private void buildLeaves6(World world, BlockPos blockPos, int height) {
+    /**private void buildLeaves6(World world, BlockPos blockPos, int height) {
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, -1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(0, height, 1), leaves);
         this.setBlockAndNotifyAdequately(world, blockPos.add(-1, height, 0), leaves);
@@ -213,5 +213,5 @@ public class SkythernTreeLarge extends WorldGenAbstractTree {
 
     public int getTreeHeight(World world, BlockPos pos, int treeHeight){
         return this.setTreeHeight(world, pos, treeHeight);
-    }
+    }*/
 }

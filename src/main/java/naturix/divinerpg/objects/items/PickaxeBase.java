@@ -24,7 +24,7 @@ public class PickaxeBase extends ItemPickaxe {
 		super(material);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(DivineRPG.ToolsTab);
+		//setCreativeTab(DivineRPG.ToolsTab);
 		this.name = name;
 	}
 

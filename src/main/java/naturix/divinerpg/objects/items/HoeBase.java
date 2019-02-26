@@ -21,7 +21,7 @@ public class HoeBase extends ItemHoe {
 		super(material);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(DivineRPG.ToolsTab);
+		//setCreativeTab(DivineRPG.ToolsTab);
 		this.name = name;
 	}
 

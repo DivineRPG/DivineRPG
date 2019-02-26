@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.arcana;
 
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -32,7 +33,7 @@ public class Parasecta extends EntityMob {
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/parasecta");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/parasecta");
 
 
     protected boolean isMaster() {

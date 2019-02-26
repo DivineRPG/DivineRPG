@@ -15,7 +15,7 @@ public class WorldGenWildWoodWater extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) {
 		BlockPos pos2 = new BlockPos(pos.getX(), pos.getY()-1, pos.getZ());
-    	if (world.getBlockState(pos) != ModBlocks.grassWild || world.getBlockState(pos2).getMaterial() != Material.AIR) return false;
+    	//if (world.getBlockState(pos) != ModBlocks.grassWild || world.getBlockState(pos2).getMaterial() != Material.AIR) return false;
       
     	world.setBlockState(pos, Blocks.FLOWING_WATER.getDefaultState(), 0);
     	return true;

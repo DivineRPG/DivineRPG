@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class MortumTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    protected IBlockState log = ModBlocks.mortumLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
+    //protected IBlockState log = ModBlocks.mortumLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
 
     public MortumTree(boolean notify) {
         this(notify, 13);
@@ -38,7 +38,7 @@ public class MortumTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        Random random = new Random();
+        /**Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
         this.setBlockAndNotifyAdequately(world, pos.add(1, 1, 0), log);
@@ -94,7 +94,7 @@ public class MortumTree extends WorldGenAbstractTree {
                     setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), leaves);
                 }
             }
-        }
+        }*/
     }
 
 }

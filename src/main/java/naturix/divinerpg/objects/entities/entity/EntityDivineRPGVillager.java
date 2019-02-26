@@ -140,8 +140,6 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
             if (!this.world.isRemote) {
                 extraInteract(player);
                 this.setCustomer(player);
-                //player.displayVillagerTradeGui(this);
-                //player.openGui(DivineRPG.instance, guiID(), this.world, getEntityId(), 0, 0);
             }
             return true;
         } else {

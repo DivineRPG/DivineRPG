@@ -21,7 +21,7 @@ public class TeleportStaff extends Item {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DivineRPG.ItemsTab);
+		//this.setCreativeTab(DivineRPG.ItemsTab);
 		this.setMaxDamage(10);
 		this.setMaxStackSize(1);
 	}

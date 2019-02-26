@@ -20,11 +20,6 @@ public class DirtBase extends BlockBase {
 	}
 
 	@Override
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
-	}
-
-	@Override
 	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
 	}
 }

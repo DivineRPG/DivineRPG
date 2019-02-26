@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerIceikaChest;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.SoundEvents;
@@ -82,7 +83,7 @@ public class TileEntityIceikaChest extends TileEntityLockableLoot implements ITi
 
     @Override
     public String getGuiID() {
-        return DivineRPG.modId + ":iceika_chest";
+        return Reference.MODID + ":iceika_chest";
     }
 
     @Override

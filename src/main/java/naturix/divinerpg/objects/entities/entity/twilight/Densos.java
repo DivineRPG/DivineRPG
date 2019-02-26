@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,7 +22,7 @@ public class Densos extends EntityMob {
 		this.setSize(1F, 2.4f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/densos");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/densos");
 
 
     protected boolean isMaster() {

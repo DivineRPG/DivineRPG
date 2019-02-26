@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Whale extends EntityDivineRPGSwimming {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/whale");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/whale");
 
     public Whale(World worldIn) {
         super(worldIn);
@@ -27,17 +28,17 @@ public class Whale extends EntityDivineRPGSwimming {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.WHALE;
+        return DRPGSoundHandler.WHALE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.WHALE_HURT;
+        return DRPGSoundHandler.WHALE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.WHALE_HURT;
+        return DRPGSoundHandler.WHALE_HURT;
     }
 
     @Override

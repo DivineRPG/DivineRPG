@@ -5,6 +5,11 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
+import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.BlockHorizontal;
@@ -43,7 +48,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BedBase extends BlockHorizontal implements ITileEntityProvider {
+public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHasModel, IMetaName {
 	public static enum EnumPartType implements IStringSerializable {
 		HEAD("head"), FOOT("foot");
 
@@ -64,8 +69,7 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider {
 		}
 	}
 
-	public static final PropertyEnum<BlockBed.EnumPartType> PART = PropertyEnum.<BlockBed.EnumPartType>create("part",
-	        BlockBed.EnumPartType.class);
+	public static final PropertyEnum<BlockBed.EnumPartType> PART = PropertyEnum.<BlockBed.EnumPartType>create("part", BlockBed.EnumPartType.class);
 	public static final PropertyBool OCCUPIED = PropertyBool.create("occupied");
 	protected static final AxisAlignedBB BED_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5625D, 1.0D);
 
@@ -113,17 +117,16 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider {
 		return (metadata & 8) != 0;
 	}
 
-	public String name;
-
 	public BedBase(String name) {
 		super(Material.CLOTH);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockBed.EnumPartType.FOOT)
-		        .withProperty(OCCUPIED, Boolean.valueOf(false)));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockBed.EnumPartType.FOOT).withProperty(OCCUPIED, Boolean.valueOf(false)));
 		this.hasTileEntity = true;
-		this.name = name;
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(DivineRPG.BlocksTab);
+
+		//ModBlocks.BLOCKS.add(this);
+		//ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 	}
 
 	/**
@@ -478,10 +481,6 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider {
 		}
 	}
 
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
-	}
-
 	/**
 	 * Returns the blockstate with the given mirror of the passed blockstate. If
 	 * inapplicable, returns the passed blockstate.
@@ -498,5 +497,20 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider {
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+	}
+
+	//TODO fix
+	@Override
+	public void registerModels() {
+		/**for(int i = 0; i < EnumFacing.values().length; i++)
+		{
+			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.getRegistryName() + "_" + EnumFacing.values()[i].getName(), "inventory");
+		}*/
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		//return EnumFacing.values()[stack.getItemDamage()].getName();
+		return this.getUnlocalizedName();
 	}
 }

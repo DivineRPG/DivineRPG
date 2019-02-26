@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
@@ -20,7 +21,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class PumpkinSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/pumpkin_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/pumpkin_spider");
     private static final DataParameter<Boolean> CLIMBING = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
             DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,

@@ -1,6 +1,12 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
+import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -18,15 +24,21 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BaseStatue extends BlockBase {
+public class BaseStatue extends Block implements IHasModel, IMetaName {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
+	String name;
 
 	public BaseStatue(String name) {
-		super(Material.ROCK, name);
-		this.setCreativeTab(DivineRPG.TrophyTab);
+		super(Material.ROCK);
+		//this.setCreativeTab(DivineRPG.TrophyTab);
+		setRegistryName(name);
+		setUnlocalizedName(name);
+		this.name = name;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 		this.setHarvestLevel("pickaxe", 1);
-		this.createItemBlock();
+
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 	}
 
 	@Override
@@ -102,13 +114,7 @@ public class BaseStatue extends BlockBase {
 	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
 	        ItemStack stack) {
-		worldIn.setBlockState(pos,
-		        this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()));
-	}
-
-	@Override
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+		worldIn.setBlockState(pos, this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()));
 	}
 
 	@Override
@@ -120,4 +126,17 @@ public class BaseStatue extends BlockBase {
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
 	}
+
+    @Override
+    public void registerModels() {
+        for(int i = 0; i < EnumFacing.values().length; i++)
+        {
+            DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumFacing.values()[i].getName(), "inventory");
+        }
+    }
+
+    @Override
+    public String getSpecialName(ItemStack stack) {
+        return EnumFacing.values()[stack.getItemDamage()].getName();
+    }
 }

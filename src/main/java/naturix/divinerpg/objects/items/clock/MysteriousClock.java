@@ -37,7 +37,7 @@ import net.minecraft.world.World;
 			            if (worldIn.isAirBlock(pos))
 			            {
 			                worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-			                worldIn.setBlockState(pos, ModBlocks.blueFire.getDefaultState(), 11);
+			                //worldIn.setBlockState(pos, ModBlocks.blueFire.getDefaultState(), 11);
 			                if(Config.debug==true) {
 			                DivineRPG.logger.info("portal spawned at " + pos);
 			            }

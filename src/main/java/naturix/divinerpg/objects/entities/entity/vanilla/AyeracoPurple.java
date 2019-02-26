@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -9,7 +10,7 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class AyeracoPurple extends Ayeraco {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ayeraco_purple");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ayeraco_purple");
     private Ayeraco aGreen;
     private Ayeraco aBlue;
     private Ayeraco aRed;

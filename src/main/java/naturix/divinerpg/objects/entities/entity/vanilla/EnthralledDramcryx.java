@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EnthralledDramcryx extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/enthralled_dramcryx");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/enthralled_dramcryx");
 
     public EnthralledDramcryx(World worldIn) {
         super(worldIn);
@@ -38,17 +39,17 @@ public class EnthralledDramcryx extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DRAMCRYX;
+        return DRPGSoundHandler.DRAMCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DRAMCRYX_HURT;
+        return DRPGSoundHandler.DRAMCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DRAMCRYX_HURT;
+        return DRPGSoundHandler.DRAMCRYX_HURT;
     }
 
     @Override

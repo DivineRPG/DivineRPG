@@ -50,7 +50,7 @@ public class ShickaxeBase extends ItemTool {
 
 	public ShickaxeBase(ToolMaterial toolMaterial, String name) {
 		super(toolMaterial, EFFECTIVE_ON);
-		setCreativeTab(DivineRPG.ToolsTab);
+		//setCreativeTab(DivineRPG.ToolsTab);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.name = name;

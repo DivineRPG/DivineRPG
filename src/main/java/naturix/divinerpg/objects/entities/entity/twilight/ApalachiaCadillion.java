@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,17 +24,17 @@ public class ApalachiaCadillion extends EntityMob {
 		this.setSize(1F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/cadillion_apalachia");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/cadillion_apalachia");
 
 
     protected boolean isMaster() {
         return false;
     }
-    @Override
+    /**@Override
     public boolean getCanSpawnHere()
     {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.apalachiaDimension.getId();
-    }
+    }*/
 
     @Override
     protected boolean canDespawn() {

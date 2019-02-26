@@ -7,4 +7,5 @@ public class BiomeProviderEden extends BiomeProviderSingle {
 
 	public BiomeProviderEden() {
 		super(ModBiomes.Eden);
-	}}
+	}
+}

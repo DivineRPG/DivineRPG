@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.items.special;
 
 import naturix.divinerpg.objects.items.ItemBase;
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -34,8 +34,8 @@ public class HordeHorn extends ItemBase {
                 if (world.getBlockState(pos) != Blocks.AIR.getDefaultState()) {
                     return EnumActionResult.PASS;
                 }
-                world.playSound(null, pos, ModSounds.AYERACO_SPAWN, SoundCategory.MASTER, 20.0F, 1.0F);
-                world.setBlockState(pos, ModBlocks.ayeracoSpawn.getDefaultState());
+                world.playSound(null, pos, DRPGSoundHandler.AYERACO_SPAWN, SoundCategory.MASTER, 20.0F, 1.0F);
+                //world.setBlockState(pos, ModBlocks.ayeracoSpawn.getDefaultState());
                 if (!player.capabilities.isCreativeMode) {
                     player.inventory.getCurrentItem().shrink(1);
                 }

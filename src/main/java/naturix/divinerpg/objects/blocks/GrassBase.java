@@ -41,7 +41,7 @@ public class GrassBase extends BlockGrass {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 
-	@Override
+	/**@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 
 		if (state == ModBlocks.grassEden.getDefaultState()) {
@@ -70,7 +70,7 @@ public class GrassBase extends BlockGrass {
 			DivineRPG.logger.info(state.getBlock().getLocalizedName() + " drops " + returns.getUnlocalizedName());
 		}
 		return returns;
-	}
+	}*/
 
 	public void registerItemModel() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
@@ -78,7 +78,7 @@ public class GrassBase extends BlockGrass {
 
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (!worldIn.isRemote) {
+		/**if (!worldIn.isRemote) {
 			if (!worldIn.isAreaLoaded(pos, 3)) {
 				return; // Forge: prevent loading unloaded chunks when checking neighbor's light and
 				        // spreading
@@ -108,6 +108,6 @@ public class GrassBase extends BlockGrass {
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

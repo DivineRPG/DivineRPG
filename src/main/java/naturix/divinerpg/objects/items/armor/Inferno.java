@@ -10,7 +10,7 @@ public class Inferno extends ArmorBase {
 	private String textureName;
 	public Inferno(ArmorMaterial material, EntityEquipmentSlot slot, String name) {
 		super(material, slot, name);
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 }

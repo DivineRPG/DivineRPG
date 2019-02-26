@@ -7,4 +7,5 @@ public class BiomeProviderApalachia extends BiomeProviderSingle {
 
 	public BiomeProviderApalachia() {
 		super(ModBiomes.Apalachia);
-	}}
+	}
+}

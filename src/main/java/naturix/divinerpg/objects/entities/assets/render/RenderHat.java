@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.model.ModelHat;
+import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -42,7 +43,7 @@ public class RenderHat implements LayerRenderer<AbstractClientPlayer> {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 
 		GlStateManager.disableBlend();
-		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(DivineRPG.modId, getTexture(Utils.getWingType(player))));
+		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(Reference.MODID, getTexture(Utils.getWingType(player))));
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.0F, 0.0 - 0.025F, 0.075F);

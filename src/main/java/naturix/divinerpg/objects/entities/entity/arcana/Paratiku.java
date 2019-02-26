@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -26,7 +27,7 @@ public class Paratiku extends EntityTameable {
 		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-	public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/paratiku");
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/paratiku");
 
 
     protected boolean isMaster() {

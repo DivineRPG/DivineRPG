@@ -10,6 +10,8 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SwordBase extends ItemSword {
+public class SwordBase extends ItemSword implements IHasModel {
 
 	private String name;
 	private boolean isClaw;
@@ -36,6 +38,8 @@ public class SwordBase extends ItemSword {
 		setCreativeTab(DivineRPG.CombatTab);
 		this.name = name;
 		this.material = material;
+
+		ModItems.ITEMS.add(this);
 	}
 
 	public SwordBase(ToolMaterial material, String name, boolean isClaw) {
@@ -48,6 +52,8 @@ public class SwordBase extends ItemSword {
 		isClaw = true;
 		this.isClaw = true;
 		this.material = material;
+
+		ModItems.ITEMS.add(this);
 	}
 
 	@Override
@@ -84,10 +90,6 @@ public class SwordBase extends ItemSword {
 		return true;
 	}
 
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(this, 0, name);
-	}
-
 	private void replaceModifier(Multimap<String, AttributeModifier> modifierMultimap, IAttribute attribute, UUID id,
 	        double multiplier) {
 		// Get the modifiers for the specified attribute
@@ -103,5 +105,10 @@ public class SwordBase extends ItemSword {
 			modifiers.add(new AttributeModifier(modifier.getID(), modifier.getName(), modifier.getAmount() * multiplier,
 			        modifier.getOperation())); // Add the new modifier
 		}
+	}
+
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

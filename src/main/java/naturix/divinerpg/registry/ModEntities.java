@@ -321,6 +321,7 @@ import naturix.divinerpg.objects.entities.entity.vethia.Vhraak;
 import naturix.divinerpg.objects.entities.entity.vethia.WreckForm;
 import naturix.divinerpg.objects.entities.entity.vethia.Zone;
 import naturix.divinerpg.objects.entities.entity.vethia.Zoragon;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -523,97 +524,7 @@ public class ModEntities {
         registerMobWithEgg(Zoragon.class, "zoragon");
 
         if (Config.debug) {
-            DivineRPG.logger.info(DivineRPG.modId + " entities have been loaded");
-        }
-    }
-
-    public static void initLoot() {
-        LootTableList.register(AcidHag.LOOT);
-        LootTableList.register(Alicanto.LOOT);
-        LootTableList.register(AngryBunny.LOOT);
-        LootTableList.register(ApalachiaGolem.LOOT);
-        LootTableList.register(AridWarrior.LOOT);
-        LootTableList.register(AyeracoBlue.LOOT);
-        LootTableList.register(AyeracoGreen.LOOT);
-        LootTableList.register(AyeracoPurple.LOOT);
-        LootTableList.register(AyeracoRed.LOOT);
-        LootTableList.register(AyeracoYellow.LOOT);
-        LootTableList.register(Basalisk.LOOT);
-        LootTableList.register(Bohemoth.LOOT);
-        LootTableList.register(Bunny.LOOT);
-        LootTableList.register(CaveCrawler.LOOT);
-        LootTableList.register(Caveclops.LOOT);
-        LootTableList.register(Crab.LOOT);
-        LootTableList.register(Cyclops.LOOT);
-        LootTableList.register(DenseDemon.LOOT);
-        LootTableList.register(Densos.LOOT);
-        LootTableList.register(DesertCrawler.LOOT);
-        LootTableList.register(EdenCadillion.LOOT);
-        LootTableList.register(EdenCori.LOOT);
-        LootTableList.register(EdenTomo.LOOT);
-        LootTableList.register(EnchantedArcher.LOOT);
-        LootTableList.register(EnchantedWarrior.LOOT);
-        LootTableList.register(EnderSpider.LOOT);
-        LootTableList.register(EnderTriplets.LOOT);
-        LootTableList.register(EnderWatcher.LOOT);
-        LootTableList.register(EnthralledDramcryx.LOOT);
-        LootTableList.register(Epiphite.LOOT);
-        LootTableList.register(EternalArcher.LOOT);
-        LootTableList.register(Fractite.LOOT);
-        LootTableList.register(Frost.LOOT);
-        LootTableList.register(Frosty.LOOT);
-        LootTableList.register(Glacide.LOOT);
-        LootTableList.register(Glacon.LOOT);
-        LootTableList.register(Greenfeet.LOOT);
-        LootTableList.register(Hastreus.LOOT);
-        LootTableList.register(HellSpider.LOOT);
-        LootTableList.register(JungleBat.LOOT);
-        LootTableList.register(JungleDramcryx.LOOT);
-        LootTableList.register(JungleSpider.LOOT);
-        LootTableList.register(Karot.LOOT);
-        LootTableList.register(KingCrab.LOOT);
-        LootTableList.register(KingOfScorchers.LOOT);
-        LootTableList.register(Kobblin.LOOT);
-        LootTableList.register(Leorna.LOOT);
-        LootTableList.register(Liopleurodon.LOOT);
-        LootTableList.register(Madivel.LOOT);
-        LootTableList.register(Mage.LOOT);
-        LootTableList.register(Megalith.LOOT);
-        LootTableList.register(Miner.LOOT);
-        LootTableList.register(MoonWolf.LOOT);
-        LootTableList.register(Mystic.LOOT);
-        LootTableList.register(Parasecta.LOOT);
-        LootTableList.register(Paratiku.LOOT);
-        LootTableList.register(PumpkinSpider.LOOT);
-        LootTableList.register(Rainbour.LOOT);
-        LootTableList.register(Razorback.LOOT);
-        LootTableList.register(RejuvGolem.LOOT);
-        LootTableList.register(Roamer.LOOT);
-        LootTableList.register(Rollum.LOOT);
-        LootTableList.register(Rotatick.LOOT);
-        LootTableList.register(Samek.LOOT);
-        LootTableList.register(Scorcher.LOOT);
-        LootTableList.register(Seimer.LOOT);
-        LootTableList.register(Shark.LOOT);
-        LootTableList.register(SkythernFiend.LOOT);
-        LootTableList.register(Sorcerer.LOOT);
-        LootTableList.register(SoulFiend.LOOT);
-        LootTableList.register(SoulSpider.LOOT);
-        LootTableList.register(SoulStealer.LOOT);
-        LootTableList.register(SunArcher.LOOT);
-        LootTableList.register(TameAngryBunny.LOOT);
-        LootTableList.register(TheEye.LOOT);
-        LootTableList.register(TheGrue.LOOT);
-        LootTableList.register(TheWatcher.LOOT);
-        LootTableList.register(TwilightArcher.LOOT);
-        LootTableList.register(TwilightDemon.LOOT);
-        LootTableList.register(Verek.LOOT);
-        LootTableList.register(Whale.LOOT);
-        LootTableList.register(WildFire.LOOT);
-        LootTableList.register(Wraith.LOOT);
-
-        if (Config.debug) {
-            DivineRPG.logger.info(DivineRPG.modId + " loot has been loaded");
+            DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
         }
     }
 
@@ -636,8 +547,7 @@ public class ModEntities {
         EntityWatcherShot.renderMe();
         EntitySnowShuriken.renderMe();
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
-                manager -> new RenderProjectile(ModItems.shuriken));
+        //RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class, manager -> new RenderProjectile(ModItems.shuriken));
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
@@ -804,6 +714,96 @@ public class ModEntities {
 
     }
 
+    public static void initLoot() {
+        LootTableList.register(AcidHag.LOOT);
+        LootTableList.register(Alicanto.LOOT);
+        LootTableList.register(AngryBunny.LOOT);
+        LootTableList.register(ApalachiaGolem.LOOT);
+        LootTableList.register(AridWarrior.LOOT);
+        LootTableList.register(AyeracoBlue.LOOT);
+        LootTableList.register(AyeracoGreen.LOOT);
+        LootTableList.register(AyeracoPurple.LOOT);
+        LootTableList.register(AyeracoRed.LOOT);
+        LootTableList.register(AyeracoYellow.LOOT);
+        LootTableList.register(Basalisk.LOOT);
+        LootTableList.register(Bohemoth.LOOT);
+        LootTableList.register(Bunny.LOOT);
+        LootTableList.register(CaveCrawler.LOOT);
+        LootTableList.register(Caveclops.LOOT);
+        LootTableList.register(Crab.LOOT);
+        LootTableList.register(Cyclops.LOOT);
+        LootTableList.register(DenseDemon.LOOT);
+        LootTableList.register(Densos.LOOT);
+        LootTableList.register(DesertCrawler.LOOT);
+        LootTableList.register(EdenCadillion.LOOT);
+        LootTableList.register(EdenCori.LOOT);
+        LootTableList.register(EdenTomo.LOOT);
+        LootTableList.register(EnchantedArcher.LOOT);
+        LootTableList.register(EnchantedWarrior.LOOT);
+        LootTableList.register(EnderSpider.LOOT);
+        LootTableList.register(EnderTriplets.LOOT);
+        LootTableList.register(EnderWatcher.LOOT);
+        LootTableList.register(EnthralledDramcryx.LOOT);
+        LootTableList.register(Epiphite.LOOT);
+        LootTableList.register(EternalArcher.LOOT);
+        LootTableList.register(Fractite.LOOT);
+        LootTableList.register(Frost.LOOT);
+        LootTableList.register(Frosty.LOOT);
+        LootTableList.register(Glacide.LOOT);
+        LootTableList.register(Glacon.LOOT);
+        LootTableList.register(Greenfeet.LOOT);
+        LootTableList.register(Hastreus.LOOT);
+        LootTableList.register(HellSpider.LOOT);
+        LootTableList.register(JungleBat.LOOT);
+        LootTableList.register(JungleDramcryx.LOOT);
+        LootTableList.register(JungleSpider.LOOT);
+        LootTableList.register(Karot.LOOT);
+        LootTableList.register(KingCrab.LOOT);
+        LootTableList.register(KingOfScorchers.LOOT);
+        LootTableList.register(Kobblin.LOOT);
+        LootTableList.register(Leorna.LOOT);
+        LootTableList.register(Liopleurodon.LOOT);
+        LootTableList.register(Madivel.LOOT);
+        LootTableList.register(Mage.LOOT);
+        LootTableList.register(Megalith.LOOT);
+        LootTableList.register(Miner.LOOT);
+        LootTableList.register(MoonWolf.LOOT);
+        LootTableList.register(Mystic.LOOT);
+        LootTableList.register(Parasecta.LOOT);
+        LootTableList.register(Paratiku.LOOT);
+        LootTableList.register(PumpkinSpider.LOOT);
+        LootTableList.register(Rainbour.LOOT);
+        LootTableList.register(Razorback.LOOT);
+        LootTableList.register(RejuvGolem.LOOT);
+        LootTableList.register(Roamer.LOOT);
+        LootTableList.register(Rollum.LOOT);
+        LootTableList.register(Rotatick.LOOT);
+        LootTableList.register(Samek.LOOT);
+        LootTableList.register(Scorcher.LOOT);
+        LootTableList.register(Seimer.LOOT);
+        LootTableList.register(Shark.LOOT);
+        LootTableList.register(SkythernFiend.LOOT);
+        LootTableList.register(Sorcerer.LOOT);
+        LootTableList.register(SoulFiend.LOOT);
+        LootTableList.register(SoulSpider.LOOT);
+        LootTableList.register(SoulStealer.LOOT);
+        LootTableList.register(SunArcher.LOOT);
+        LootTableList.register(TameAngryBunny.LOOT);
+        LootTableList.register(TheEye.LOOT);
+        LootTableList.register(TheGrue.LOOT);
+        LootTableList.register(TheWatcher.LOOT);
+        LootTableList.register(TwilightArcher.LOOT);
+        LootTableList.register(TwilightDemon.LOOT);
+        LootTableList.register(Verek.LOOT);
+        LootTableList.register(Whale.LOOT);
+        LootTableList.register(WildFire.LOOT);
+        LootTableList.register(Wraith.LOOT);
+
+        if (Config.debug) {
+            DivineRPG.logger.info(Reference.MODID + " loot has been loaded");
+        }
+    }
+
     public static void initSpawns() {
         for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
             Biome edenBiome = Biome.getBiome(ModBiomes.Eden.getIdForBiome(ModBiomes.Eden));
@@ -929,21 +929,18 @@ public class ModEntities {
             }
 
             if (Config.debug) {
-                DivineRPG.logger.info(DivineRPG.modId + " spawns have been loaded");
+                DivineRPG.logger.info(Reference.MODID + " spawns have been loaded");
             }
         }
     }
 
     public static void registerMobWithEgg(Class entityClass, String entityName) {
-        entityName = DivineRPG.modId + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
+        entityName = Reference.MODID + "." + entityName;
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
     }
 
     public static void registerProjectile(Class entityClass, String entityName) {
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, DivineRPG.modId + "." + entityName),
-                entityClass, DivineRPG.modId + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
-                true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, Reference.MODID + "." + entityName), entityClass, Reference.MODID + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
         projectileID++;
     }
 
@@ -956,8 +953,7 @@ public class ModEntities {
     }
 
     public void registerEgglessMob(Class entityClass, String entityName) {
-        entityName = DivineRPG.modId + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(DivineRPG.modId, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true);
+        entityName = Reference.MODID + "." + entityName;
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName, mobID++, DivineRPG.instance, 128, 3, true);
     }
 }

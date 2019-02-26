@@ -18,7 +18,7 @@ import static naturix.divinerpg.objects.blocks.LeavesBase.DECAYABLE;
  * /18/2019
  */
 public class WorldGenIceTree extends WorldGenerator {
-    IBlockState leaves = ModBlocks.brittleLeaves.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
+    //IBlockState leaves = ModBlocks.brittleLeaves.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
 
 
     @Override
@@ -38,7 +38,7 @@ public class WorldGenIceTree extends WorldGenerator {
         int l = 2 + rand.nextInt(9);
         BlockPos pos = new BlockPos(i, j - 1, k);
 
-        if (j < 1 || j + height + 1 > 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassIceika || j >= 256 - height - 1) return false;
+        //if (j < 1 || j + height + 1 > 256 || world.getBlockState(pos).getBlock() != ModBlocks.grassIceika || j >= 256 - height - 1) return false;
 
         for (int y = j; y <= j + 1 + height; y++) {
 
@@ -62,10 +62,10 @@ public class WorldGenIceTree extends WorldGenerator {
                 }
             }
         }
-        setBlockAndNotifyAdequately(world, new BlockPos(i, j - 1, k), ModBlocks.grassIceika.getDefaultState());
-        setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j - 1, k), ModBlocks.grassIceika.getDefaultState());
-        setBlockAndNotifyAdequately(world, new BlockPos(i, j - 1, k - 1), ModBlocks.grassIceika.getDefaultState());
-        setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j - 1, k - 1), ModBlocks.grassIceika.getDefaultState());
+        //setBlockAndNotifyAdequately(world, new BlockPos(i, j - 1, k), ModBlocks.grassIceika.getDefaultState());
+        //setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j - 1, k), ModBlocks.grassIceika.getDefaultState());
+        //setBlockAndNotifyAdequately(world, new BlockPos(i, j - 1, k - 1), ModBlocks.grassIceika.getDefaultState());
+        //setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j - 1, k - 1), ModBlocks.grassIceika.getDefaultState());
         int l1 = rand.nextInt(2);
         int j2 = 1;
         boolean flag1 = false;
@@ -82,10 +82,10 @@ public class WorldGenIceTree extends WorldGenerator {
 
                     if ((Math.abs(k4) != l1 || Math.abs(i5) != l1 || l1 <= 0)
                             && (world.getBlockState(new BlockPos(i4, k3, l4)).getBlock() == Blocks.AIR || world.getBlockState(new BlockPos(i4, k3, l4)).getBlock().canBeReplacedByLeaves(world.getBlockState(new BlockPos(i4, k3, l4)),world, new BlockPos(i4, k3, l4)))) {
-                        setBlockAndNotifyAdequately(world, new BlockPos(i4, k3, l4), leaves);
-                        setBlockAndNotifyAdequately(world, new BlockPos(i4 - 1, k3, l4), leaves);
-                        setBlockAndNotifyAdequately(world, new BlockPos(i4, k3, l4 - 1), leaves);
-                        setBlockAndNotifyAdequately(world, new BlockPos(i4 - 1, k3, l4 - 1), leaves);
+                        //setBlockAndNotifyAdequately(world, new BlockPos(i4, k3, l4), leaves);
+                        //setBlockAndNotifyAdequately(world, new BlockPos(i4 - 1, k3, l4), leaves);
+                        //setBlockAndNotifyAdequately(world, new BlockPos(i4, k3, l4 - 1), leaves);
+                        //setBlockAndNotifyAdequately(world, new BlockPos(i4 - 1, k3, l4 - 1), leaves);
                     }
                 }
             }
@@ -101,12 +101,12 @@ public class WorldGenIceTree extends WorldGenerator {
         int j3 = rand.nextInt(3);
 
         for (int l3 = 0; l3 < height - j3; l3++) {
-            if (world.getBlockState(new BlockPos(i, j + l3, k)).getBlock() == Blocks.AIR || world.getBlockState(new BlockPos(i, j + l3, k)).getBlock().isLeaves(world.getBlockState(new BlockPos( i, j + l3, k)),world, new BlockPos( i, j + l3, k))) {
-                setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k), ModBlocks.frozenLog.getDefaultState());
-                setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j + l3, k), ModBlocks.frozenLog.getDefaultState());
-                setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k - 1), ModBlocks.frozenLog.getDefaultState());
-                setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j + l3, k - 1), ModBlocks.frozenLog.getDefaultState());
-            }
+            //if (world.getBlockState(new BlockPos(i, j + l3, k)).getBlock() == Blocks.AIR || world.getBlockState(new BlockPos(i, j + l3, k)).getBlock().isLeaves(world.getBlockState(new BlockPos( i, j + l3, k)),world, new BlockPos( i, j + l3, k))) {
+            //    setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k), ModBlocks.frozenLog.getDefaultState());
+            //    setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j + l3, k), ModBlocks.frozenLog.getDefaultState());
+            //    setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k - 1), ModBlocks.frozenLog.getDefaultState());
+            //    setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j + l3, k - 1), ModBlocks.frozenLog.getDefaultState());
+            //}
         }
         return true;
     }

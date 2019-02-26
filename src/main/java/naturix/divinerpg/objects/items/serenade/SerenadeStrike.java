@@ -18,7 +18,7 @@ public class SerenadeStrike extends ItemBase{
 
 	public SerenadeStrike(String name) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		//setCreativeTab(DivineRPG.CombatTab);
 		setMaxDamage(100);
 		setMaxStackSize(1);
 	}

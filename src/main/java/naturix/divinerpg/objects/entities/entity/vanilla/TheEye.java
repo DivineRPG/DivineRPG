@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -14,7 +15,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class TheEye extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/the_eye");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/the_eye");
     private boolean hasPotion = false;
 
     public TheEye(World worldIn) {
@@ -62,17 +63,17 @@ public class TheEye extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.THE_EYE;
+        return DRPGSoundHandler.THE_EYE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.THE_EYE_HURT;
+        return DRPGSoundHandler.THE_EYE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.THE_EYE_HURT;
+        return DRPGSoundHandler.THE_EYE_HURT;
     }
 
     @Override

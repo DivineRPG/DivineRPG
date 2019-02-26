@@ -24,7 +24,7 @@ public class ThrowableBase extends Item {
         setRegistryName(name);
         setUnlocalizedName(name);
         this.maxStackSize = 16;
-        this.setCreativeTab(DivineRPG.CombatTab);
+        //this.setCreativeTab(DivineRPG.CombatTab);
         this.name = name;
         ResourceLocation resourcelocation = Block.REGISTRY.getNameForObject(this.inTile);
     }

@@ -15,7 +15,7 @@ public class WorldGenHut extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random rand, BlockPos position) {
 
-		int i = position.getX();
+		/**int i = position.getX();
 		int j = position.getY();
 		int k = position.getZ();
 		if (world.getBlockState(new BlockPos(i + 5, j, k + 5)) == Blocks.GRASS.getDefaultState()
@@ -258,12 +258,12 @@ public class WorldGenHut extends WorldGenerator {
 			world.setBlockState(new BlockPos(i + 7, j + 2, k + 5), Blocks.WOODEN_BUTTON.getDefaultState(), 8);
 			if (Config.debug) {
 				DivineRPG.logger.info(new BlockPos(i + 7, j + 2, k + 5) + " hut");
-			}
-			LivestockMerchant e = new LivestockMerchant(world);
-			e.setLocationAndAngles(i + 5, j + 1, k + 5, 0, 0);
-			world.spawnEntity(e);
-			return true;
-		}
+			}*/
+			//LivestockMerchant e = new LivestockMerchant(world);
+			//e.setLocationAndAngles(i + 5, j + 1, k + 5, 0, 0);
+			//world.spawnEntity(e);
+			//return true;
+		//}
 		// DivineRPG.logger.info("hut was called but failed to load at "+ new
 		// BlockPos(i, j, k));
 		return false;

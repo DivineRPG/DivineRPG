@@ -55,7 +55,6 @@ public class EntitySparkler extends EntityThrowable {
 
 	@SideOnly(Side.CLIENT)
 	public void renderMe() {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(
-		        new ResourceLocation(DivineRPG.modId + "textures/entity/projectiles/sparkler.png")));
+		//RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, new RenderSpecialProjectile(new ResourceLocation(DivineRPG.modId + "textures/entity/projectiles/sparkler.png")));
 	}
 }

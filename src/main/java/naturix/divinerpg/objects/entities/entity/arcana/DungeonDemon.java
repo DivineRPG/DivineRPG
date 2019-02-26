@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,7 +23,7 @@ public class DungeonDemon extends EntityMob {
 		this.setSize(1.2F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/dungeon_demon");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/dungeon_demon");
 
 
     protected boolean isMaster() {

@@ -10,7 +10,7 @@ public class Shadow extends ArmorBase {
 	private String textureName;
 	public Shadow(ArmorMaterial material, EntityEquipmentSlot slot, String name) {
 		super(material, slot, name);
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 }

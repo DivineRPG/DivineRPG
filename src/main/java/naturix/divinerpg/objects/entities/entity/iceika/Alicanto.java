@@ -3,7 +3,8 @@ package naturix.divinerpg.objects.entities.entity.iceika;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModDimensions;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -23,7 +24,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Alicanto extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/alicanto");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/alicanto");
     private BlockPos currentFlightTarget;
     private int flyTimer;
 
@@ -111,17 +112,17 @@ public class Alicanto extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : ModSounds.ALICANTO;
+        return this.rand.nextInt(4) != 0 ? null : DRPGSoundHandler.ALICANTO;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ALICANTO_HURT;
+        return DRPGSoundHandler.ALICANTO_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ALICANTO_HURT;
+        return DRPGSoundHandler.ALICANTO_HURT;
     }
 
     @Override
@@ -129,8 +130,8 @@ public class Alicanto extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }
+    }*/
 }

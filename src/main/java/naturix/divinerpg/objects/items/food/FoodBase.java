@@ -14,7 +14,7 @@ public class FoodBase extends ItemFood {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.ItemsTab);
+		//setCreativeTab(DivineRPG.ItemsTab);
 		this.healAmount=healAmount;
 	}
 	public FoodBase(String name, int healAmount, boolean alwaysEdible, boolean isWolfsFavoriteMeat) {
@@ -22,7 +22,7 @@ public class FoodBase extends ItemFood {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.ItemsTab);
+		//setCreativeTab(DivineRPG.ItemsTab);
 		this.healAmount=healAmount;
 		this.isWolfsFavoriteMeat=isWolfsFavoriteMeat;
 	}

@@ -20,10 +20,8 @@ private Item item;
 	{
 		item.setRegistryName(name.toLowerCase());
 		item.setUnlocalizedName(name.toLowerCase());
-		item.setCreativeTab(DivineRPG.ArmorTab);
+		//item.setCreativeTab(DivineRPG.ArmorTab);
 
-		//ForgeRegistries.ITEMS.register(item);
-		
 		DivineItemList.add(item);
 	}
 }

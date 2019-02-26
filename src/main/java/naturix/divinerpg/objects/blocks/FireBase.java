@@ -233,7 +233,7 @@ public class FireBase extends Block {
 	 */
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		if (worldIn.provider.getDimensionType().getId() > 0 || ModBlocks.portalEden.makePortal(worldIn, pos)) {
+		/**if (worldIn.provider.getDimensionType().getId() > 0 || ModBlocks.portalEden.makePortal(worldIn, pos)) {
 			if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos)) {
 				worldIn.setBlockToAir(pos);
 			} else {
@@ -327,7 +327,7 @@ public class FireBase extends Block {
 			} else {
 				worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
 			}
-		}
+		}*/
 
 	}
 
@@ -342,7 +342,7 @@ public class FireBase extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if (rand.nextInt(24) == 0) {
+		/**if (rand.nextInt(24) == 0) {
 			worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_FIRE_AMBIENT,
 			        SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
 		}
@@ -400,7 +400,7 @@ public class FireBase extends Block {
 				double d2 = pos.getZ() + rand.nextDouble();
 				worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 			}
-		}
+		}*/
 	}
 
 	public void registerItemModel() {

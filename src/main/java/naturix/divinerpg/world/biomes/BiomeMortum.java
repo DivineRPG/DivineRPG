@@ -19,15 +19,14 @@ public class BiomeMortum extends Biome {
 	private World world;
 	private Random rand;
 	private BlockPos pos; 
-	public BiomeMortum(String name) {
+	public BiomeMortum() {
 	super(properties);
-	this.topBlock = ModBlocks.grassMortum.getDefaultState();
-	this.fillerBlock = ModBlocks.dirtMortum.getDefaultState();
+	//this.topBlock = ModBlocks.grassMortum.getDefaultState();
+	//this.fillerBlock = ModBlocks.dirtMortum.getDefaultState();
     this.spawnableCreatureList.clear();
     this.spawnableMonsterList.clear();
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
-    this.setRegistryName(name);
     this.flowers.clear();
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;

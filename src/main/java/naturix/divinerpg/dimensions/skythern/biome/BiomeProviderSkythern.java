@@ -7,4 +7,5 @@ public class BiomeProviderSkythern extends BiomeProviderSingle {
 
 	public BiomeProviderSkythern() {
 		super(ModBiomes.Skythern);
-	}}
+	}
+}

@@ -27,7 +27,7 @@ public class ItemVethianDisk extends ItemBase {
 		super(name);
 		this.maxStackSize = 1;
 		this.damage = par1;
-		this.setCreativeTab(DivineRPG.CombatTab);
+		//this.setCreativeTab(DivineRPG.CombatTab);
 	}
 
 	@Override

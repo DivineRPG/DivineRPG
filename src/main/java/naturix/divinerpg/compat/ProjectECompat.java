@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class ProjectECompat {
 
 	public static void init() {
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.ingotAquatic, 1, 0), (int) 396);
+		/**ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.ingotAquatic, 1, 0), (int) 396);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.ingotArlemite, 1, 0), (int) 396);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.ingotHellstone, 1, 0), (int) 756);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.ingotNetherite, 1, 0), (int) 512);
@@ -37,7 +37,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.finWhale, 1, 0), (int) 1508);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonSkull, 1, 0), (int) 13945);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonTeeth, 1, 0), (int) 300);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eyeCyclops, 1, 0), (int) 415);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eyeCyclops, 1, 0), (int) 415);*/
 
 
 	}

@@ -29,10 +29,10 @@ public class HeatTrap extends BlockBase {
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         detectInBB(pos, world);
         world.scheduleUpdate(pos, this, 5);
-        if (this == ModBlocks.heatTrapOn) {
+        /**if (this == ModBlocks.heatTrapOn) {
         	if(rand.nextInt(15) == 7) {
         	world.setBlockState(pos, ModBlocks.heatTrap.getDefaultState());
-        }}
+        }}*/
     }
  
     @Override
@@ -47,13 +47,13 @@ public class HeatTrap extends BlockBase {
         AxisAlignedBB extendBB = new AxisAlignedBB(x -0.1, y -0.1, z -0.1, x + 1.1,y +  1.1,z +  1.1);
         List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB);
         for (EntityLivingBase entity : world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB)) {
-        	if (entity instanceof EntityLivingBase && this == ModBlocks.heatTrapOn) {
+        	/**if (entity instanceof EntityLivingBase && this == ModBlocks.heatTrapOn) {
                 entity.attackEntityFrom(Utils.trapSource, 16);
                 entity.setFire(15);
             }
         	if(entity instanceof EntityLivingBase && this == ModBlocks.heatTrap) {
                 world.setBlockState(pos, ModBlocks.heatTrapOn.getDefaultState());
-            }
+            }*/
         }
     }
 }

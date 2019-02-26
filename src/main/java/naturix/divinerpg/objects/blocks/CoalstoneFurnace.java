@@ -51,11 +51,9 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 
 		if (active) {
-			worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState()
-			        .withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, true), 3);
+			//worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, true), 3);
 		} else {
-			worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState()
-			        .withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, false), 3);
+			//worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, false), 3);
 		}
 
 		if (tileentity != null) {
@@ -105,7 +103,7 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 		return new TileEntityCoalstoneFurnace();
 	}
 
-	@Override
+	/**@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		return new ItemStack(ModBlocks.coalstoneFurnace);
 	}
@@ -113,7 +111,7 @@ public class CoalstoneFurnace extends Block implements ITileEntityProvider {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Item.getItemFromBlock(ModBlocks.coalstoneFurnace);
-	}
+	}*/
 
 	@Override
 	public int getMetaFromState(IBlockState state) {

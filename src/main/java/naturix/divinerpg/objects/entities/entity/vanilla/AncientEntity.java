@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
@@ -10,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class AncientEntity extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/ancient_entity");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ancient_entity");
 
     public AncientEntity(World worldIn) {
         super(worldIn);

@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +25,7 @@ public class AngryBunny extends EntityMob {
 		this.setSize(0.6F, 0.7f);
 		this.setHealth(this.getHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny_angry");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/bunny_angry");
 
 
     protected boolean isMaster() {
@@ -97,14 +98,14 @@ public class AngryBunny extends EntityMob {
         ItemStack itemstack = player.getHeldItem(hand);
         BlockPos spawnmobat = this.getPosition();
         TameAngryBunny bunny = new TameAngryBunny(this.getEntityWorld());
-        if(itemstack.getItem() == ModItems.edenSparklez) {
+        /**if(itemstack.getItem() == ModItems.edenSparklez) {
         	bunny.setLocationAndAngles(getPosition().getX(), getPosition().getY(), getPosition().getZ(), this.prevRotationYaw, this.rotationPitch);
         	bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
         	if(!world.isRemote) {
         		world.spawnEntity(bunny);
         		this.isDead = true;
         		}
-        }
+        }*/
         return super.processInteract(player, hand);
     }
 	@Override

@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vethia;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,7 +23,7 @@ public class Twins extends EntityMob {
 		this.setSize(1.1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/twins");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twins");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

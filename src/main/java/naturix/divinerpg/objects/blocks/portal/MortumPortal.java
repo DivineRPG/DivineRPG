@@ -42,7 +42,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MortumPortal extends BlockBreakable {
 
-	public static class Size {
+	/**public static class Size {
 		private final World world;
 		private final EnumFacing.Axis axis;
 		private final EnumFacing rightDir;
@@ -193,12 +193,11 @@ public class MortumPortal extends BlockBreakable {
 	}
 
 	public String name;
-	protected Block fireBlock;
+	protected Block fireBlock;*/
 
 	public MortumPortal(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
-		this.name = name;
-		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
+		//this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setTickRandomly(true);
@@ -207,7 +206,7 @@ public class MortumPortal extends BlockBreakable {
 
 	}
 
-	@Override
+	/**@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		tooltip.add("Dimensions are all WIP");
 	}
@@ -438,5 +437,5 @@ public class MortumPortal extends BlockBreakable {
 		default:
 			return state;
 		}
-	}
+	}*/
 }

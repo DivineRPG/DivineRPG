@@ -1,8 +1,8 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.registry.ModItems;
-import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -43,14 +43,13 @@ public class Husk extends EntityDivineRPGTameable {
             if (!itemstack.isEmpty()) {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood food = (ItemFood) itemstack.getItem();
-                    if (food == Items.CARROT || food == Items.APPLE
-                            || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
+                    /**if (food == Items.CARROT || food == Items.APPLE || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
                         if (!player.capabilities.isCreativeMode) {
                             itemstack.shrink(1);
                         }
                         this.heal(food.getHealAmount(itemstack));
                         return true;
-                    }
+                    }*/
                 }
             }
         } else {
@@ -73,16 +72,16 @@ public class Husk extends EntityDivineRPGTameable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.EHU;
+        return DRPGSoundHandler.EHU;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.EHU_HURT;
+        return DRPGSoundHandler.EHU_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.EHU_HURT;
+        return DRPGSoundHandler.EHU_HURT;
     }
 }

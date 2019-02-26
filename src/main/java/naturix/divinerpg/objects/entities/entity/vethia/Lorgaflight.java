@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vethia;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,7 +26,7 @@ public class Lorgaflight extends EntityFlying {
 		this.setHealth(this.getMaxHealth());
 		
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/lorga_flight");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/lorga_flight");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

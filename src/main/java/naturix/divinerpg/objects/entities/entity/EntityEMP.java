@@ -21,8 +21,7 @@ public class EntityEMP extends EntityThrowable {
 
 	@SideOnly(Side.CLIENT)
 	public static void renderMe() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class,
-		        manager -> new RenderSnowball<>(manager, ModItems.acid, Minecraft.getMinecraft().getRenderItem()));
+		//RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, manager -> new RenderSnowball<>(manager, ModItems.acid, Minecraft.getMinecraft().getRenderItem()));
 	}
 
 	public EntityEMP(World world) {

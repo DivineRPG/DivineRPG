@@ -32,15 +32,14 @@ public class BiomeEden extends Biome {
 	private World world;
 	private Random rand;
 	private BlockPos pos;
-	public BiomeEden(String name) {
+	public BiomeEden() {
 	super(properties);
-	this.topBlock = ModBlocks.grassEden.getDefaultState();
-	this.fillerBlock = ModBlocks.dirtEden.getDefaultState();
+	//this.topBlock = ModBlocks.grassEden.getDefaultState();
+	//this.fillerBlock = ModBlocks.dirtEden.getDefaultState();
     this.spawnableCreatureList.clear();
     this.spawnableMonsterList.clear();
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
-    this.setRegistryName(name);
     this.flowers.clear();
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;
@@ -66,8 +65,8 @@ public class BiomeEden extends Biome {
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         EdenAbstractTree genTree = new EdenAbstractTree(false, 3);
-        LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
-        WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
+        //LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLog.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
+        //WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
@@ -76,7 +75,7 @@ public class BiomeEden extends Biome {
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            genLargeTree.generate(worldIn, rand, mutPos);
+            //genLargeTree.generate(worldIn, rand, mutPos);
         }
         for (int i = 0; i < 10; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
@@ -99,7 +98,7 @@ public class BiomeEden extends Biome {
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             if (rand.nextInt(10) == 1) {
-                genConeUp.generate(worldIn, rand, mutPos);
+                //genConeUp.generate(worldIn, rand, mutPos);
             }
         }
     }

@@ -2,7 +2,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Kobblin extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/kobblin");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/kobblin");
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(Kobblin.class,
             DataSerializers.BOOLEAN);
 
@@ -98,12 +99,12 @@ public class Kobblin extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.KOBBLIN;
+        return DRPGSoundHandler.KOBBLIN;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.KOBBLIN;
+        return DRPGSoundHandler.KOBBLIN;
     }
 
     @Override

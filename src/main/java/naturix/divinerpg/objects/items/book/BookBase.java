@@ -16,7 +16,7 @@ public class BookBase extends ItemBase {
 
 	protected int healAmount = 0;
 	public BookBase(String name) {
-		super(name, DivineRPG.ItemsTab);
+		super(name);
 		setMaxStackSize(1);
 	}
 	public ItemBase setHealAmount(int healAmount){
@@ -37,9 +37,10 @@ public class BookBase extends ItemBase {
 		if (true) {
 			
 			
-			if(world.getBlockState(pos2) == ModBlocks.altarParasecta.getDefaultState()) {
-				world.spawnEntity(new Parasecta(world));
-		}}
+			//if(world.getBlockState(pos2) == ModBlocks.altarParasecta.getDefaultState()) {
+			//	world.spawnEntity(new Parasecta(world));
+			//}
+		}
 
 		return ar;
 	}

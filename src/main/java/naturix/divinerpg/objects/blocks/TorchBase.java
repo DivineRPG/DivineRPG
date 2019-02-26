@@ -7,6 +7,11 @@ import javax.annotation.Nullable;
 import com.google.common.base.Predicate;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
+import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -18,6 +23,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
@@ -30,7 +36,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TorchBase extends Block {
+public class TorchBase extends Block implements IHasModel, IMetaName{
 
 	private static final CreativeTabs tab = DivineRPG.BlocksTab;
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", new Predicate<EnumFacing>() {
@@ -64,6 +70,9 @@ public class TorchBase extends Block {
 		setCreativeTab(tab);
 		this.setHardness(2);
 		this.setLightLevel(1);
+
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 	}
 
 	private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
@@ -116,10 +125,6 @@ public class TorchBase extends Block {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { FACING });
-	}
-
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 
 	/**
@@ -323,10 +328,6 @@ public class TorchBase extends Block {
 		}
 	}
 
-	public void registerItemModel() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
-	}
-
 	@Override
 	public Block setLightLevel(float value) {
 		value = 1f;
@@ -350,5 +351,18 @@ public class TorchBase extends Block {
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+	}
+
+	@Override
+	public void registerModels() {
+		for(int i = 0; i < EnumFacing.values().length; i++)
+		{
+			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumFacing.values()[i].getName(), "inventory");
+		}
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		return EnumFacing.values()[stack.getItemDamage()].getName();
 	}
 }

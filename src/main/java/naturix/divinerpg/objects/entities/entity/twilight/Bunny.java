@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +25,7 @@ public class Bunny extends EntityMob {
 		this.setSize(0.6F, 0.7f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/bunny");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/bunny");
 
 
     protected boolean isMaster() {
@@ -117,11 +118,11 @@ public class Bunny extends EntityMob {
     		}
         }
     }
-    protected Block spawnableBlock = ModBlocks.grassEden;
+    /**protected Block spawnableBlock = ModBlocks.grassEden;
 
     @Override
     public boolean getCanSpawnHere()
     {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.edenDimension.getId();
-    }
+    }*/
     }

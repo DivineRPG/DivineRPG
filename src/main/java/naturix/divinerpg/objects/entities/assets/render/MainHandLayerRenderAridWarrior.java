@@ -18,9 +18,9 @@ public class MainHandLayerRenderAridWarrior implements LayerRenderer<AridWarrior
 
     @Override
     public void doRenderLayer(AridWarrior entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        ItemStack stack = new ItemStack(ModItems.shadowBow);
+        //ItemStack stack = new ItemStack(ModItems.shadowBow);
 
-        if(stack != null) {
+        /**if(stack != null) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             GlStateManager.translate(-0.8f, 0.4f, 0);
@@ -30,7 +30,7 @@ public class MainHandLayerRenderAridWarrior implements LayerRenderer<AridWarrior
             Minecraft.getMinecraft().getItemRenderer().renderItem(entitylivingbaseIn, new ItemStack(ModItems.shadowBow), ItemCameraTransforms.TransformType.NONE);
             GlStateManager.popMatrix();
             GlStateManager.disableRescaleNormal();
-        }
+        }*/
     }
 
     @Override

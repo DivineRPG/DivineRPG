@@ -35,6 +35,7 @@ public class EntityInfernoArrow extends EntityArrow {
     }
 
     protected ItemStack getArrowStack() {
-        return new ItemStack(ModItems.arrowInferno);
+        //return new ItemStack(ModItems.arrowInferno);
+        return null;
     }
 }

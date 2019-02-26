@@ -22,14 +22,14 @@ public class MainHandLayerRender implements LayerRenderer<WildFire> {
         ItemStack stack = entitylivingbaseIn.getHeldItemMainhand();
 
         if(stack != null) {
-            if(stack.getItem() == ModItems.infernoBow)
+            //if(stack.getItem() == ModItems.infernoBow)
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             GlStateManager.translate(-0.48F, 0.45F, -0.05F);
             GlStateManager.rotate(90.0F, 0.0F, 1.0F, 0.0F);
             GlStateManager.rotate(-45.0F, 0.0F, 0.0F, 1.0F);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getMinecraft().getItemRenderer().renderItem(entitylivingbaseIn, new ItemStack(ModItems.infernoBow), ItemCameraTransforms.TransformType.NONE);
+            //Minecraft.getMinecraft().getItemRenderer().renderItem(entitylivingbaseIn, new ItemStack(ModItems.infernoBow), ItemCameraTransforms.TransformType.NONE);
             GlStateManager.popMatrix();
             GlStateManager.disableRescaleNormal();
         }

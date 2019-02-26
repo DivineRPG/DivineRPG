@@ -32,7 +32,7 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     public void generateStructure(World world, BlockPos pos){
         MinecraftServer mcServer = world.getMinecraftServer();
         TemplateManager manager = worldServer.getStructureTemplateManager();
-        ResourceLocation location = new ResourceLocation(DivineRPG.modId, structureName);
+        ResourceLocation location = new ResourceLocation(Reference.MODID, structureName);
         Template template = manager.get(mcServer, location);
         if (template != null){
             IBlockState state = world.getBlockState(pos);

@@ -10,7 +10,7 @@ public class Demonized extends ArmorBase {
 	private String textureName;
 	public Demonized(ArmorMaterial material, EntityEquipmentSlot slot, String name) {
 		super(material, slot, name);
-		this.setCreativeTab(DivineRPG.ArmorTab);
+		//this.setCreativeTab(DivineRPG.ArmorTab);
 	}
 
 }

@@ -12,7 +12,7 @@ public class InfernoArrow extends Item {
     private String name;
     
 	public InfernoArrow(String name) {
-        this.setCreativeTab(DivineRPG.CombatTab);
+        //this.setCreativeTab(DivineRPG.CombatTab);
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
         //RegisterItems.ITEMS.add(this);

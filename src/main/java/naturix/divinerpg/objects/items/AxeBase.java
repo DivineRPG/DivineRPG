@@ -22,7 +22,7 @@ public class AxeBase extends ItemAxe {
 		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(DivineRPG.ToolsTab);
+		//setCreativeTab(DivineRPG.ToolsTab);
 		this.name = name;
 	}
 

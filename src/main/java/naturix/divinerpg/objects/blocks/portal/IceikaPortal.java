@@ -96,9 +96,9 @@ public class IceikaPortal extends BlockBreakable {
 						break label56;
 					}
 
-					if (block == ModBlocks.portalIceika) {
-						++this.portalBlockCount;
-					}
+					//if (block == ModBlocks.portalIceika) {
+					//	++this.portalBlockCount;
+					//}
 
 					if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
@@ -159,13 +159,12 @@ public class IceikaPortal extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
-			        || blockIn == ModBlocks.portalIceika;
+			//return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalIceika;
+			return false;
 		}
 
 		public boolean isValid() {
-			return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3
-			        && this.height <= 21;
+			return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
 		}
 
 		public void placePortalBlocks() {
@@ -173,8 +172,7 @@ public class IceikaPortal extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for (int j = 0; j < this.height; ++j) {
-					this.world.setBlockState(blockpos.up(j),
-					        ModBlocks.portalIceika.getDefaultState().withProperty(IceikaPortal.AXIS, this.axis), 2);
+					//this.world.setBlockState(blockpos.up(j), ModBlocks.portalIceika.getDefaultState().withProperty(IceikaPortal.AXIS, this.axis), 2);
 				}
 			}
 		}

@@ -19,15 +19,14 @@ public class BiomeSkythern extends Biome {
 	private World world;
 	private Random rand;
 	private BlockPos pos;
-	public BiomeSkythern(String name) {
+	public BiomeSkythern() {
 	super(properties);
-	this.topBlock = ModBlocks.grassSkythern.getDefaultState();
-	this.fillerBlock = ModBlocks.dirtSkythern.getDefaultState();
+	//this.topBlock = ModBlocks.grassSkythern.getDefaultState();
+	//this.fillerBlock = ModBlocks.dirtSkythern.getDefaultState();
     this.spawnableCreatureList.clear();
     this.spawnableMonsterList.clear();
     this.spawnableCaveCreatureList.clear();
     this.spawnableWaterCreatureList.clear();
-    this.setRegistryName(name);
     this.flowers.clear();
     this.decorator.flowersPerChunk = 0;	
     this.decorator.grassPerChunk = 0;

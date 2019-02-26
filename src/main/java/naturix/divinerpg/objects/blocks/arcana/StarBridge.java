@@ -49,10 +49,10 @@ public class StarBridge extends BlockBase {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridgeOn.getDefaultState(), 3);
+				//world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridgeOn.getDefaultState(), 3);
 			}
 		} else {
-			world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridge.getDefaultState(), 3);
+			//world.setBlockState(new BlockPos(x, y, z), ModBlocks.starBridge.getDefaultState(), 3);
 		}
 	}
 

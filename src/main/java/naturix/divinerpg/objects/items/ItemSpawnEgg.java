@@ -29,9 +29,9 @@ public class ItemSpawnEgg extends ItemBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
-		if (this == ModItems.eggGrizzle || this == ModItems.eggGrizzleWhite) {
-			infoList.add("Spawns a pet grizzle");
-		}
+		//if (this == ModItems.eggGrizzle || this == ModItems.eggGrizzleWhite) {
+		//	infoList.add("Spawns a pet grizzle");
+		//}
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ItemSpawnEgg extends ItemBase {
 		double j = rtr.getBlockPos().getY();
 		double k = rtr.getBlockPos().getZ();
 		ItemStack stack = new ItemStack(this);
-		if (!world.isRemote) {
+		/**if (!world.isRemote) {
 			if (this == ModItems.eggGrizzle) {
 				Grizzle e = new Grizzle(world, player);
 				e.setLocationAndAngles(i, j + 1, k, 0.0F, 0.0F);
@@ -57,7 +57,7 @@ public class ItemSpawnEgg extends ItemBase {
 			// player.triggerAchievement(DivineRPGAchievements.petCollector);
 			stack.shrink(1);
 			return EnumActionResult.PASS;
-		}
+		}*/
 		return EnumActionResult.FAIL;
 	}
 }

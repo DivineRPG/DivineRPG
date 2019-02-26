@@ -3,7 +3,8 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/caveclops");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/caveclops");
 
     public Caveclops(World worldIn) {
         super(worldIn);
@@ -60,17 +61,17 @@ public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.CYCLOPS;
+        return DRPGSoundHandler.CYCLOPS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.CYCLOPS_HURT;
+        return DRPGSoundHandler.CYCLOPS_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.CYCLOPS_HURT;
+        return DRPGSoundHandler.CYCLOPS_HURT;
     }
 
     @Override

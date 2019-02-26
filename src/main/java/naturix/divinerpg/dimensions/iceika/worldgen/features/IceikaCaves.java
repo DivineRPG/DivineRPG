@@ -138,8 +138,8 @@ public class IceikaCaves extends MapGenBase
 
                                         if (yDiff > -0.7D && xDiff * xDiff + yDiff * yDiff + zDiff * zDiff < 1D) {
                                             IBlockState state = primer.getBlockState(px, py, pz);
-                                            if (state.getBlock() == ModBlocks.stoneFrozen || state.getBlock() == ModBlocks.dirtIceika || state.getBlock() == ModBlocks.grassIceika)
-                                                primer.setBlockState(px, py, pz, BLOCK_AIR);
+                                            //if (state.getBlock() == ModBlocks.stoneFrozen || state.getBlock() == ModBlocks.dirtIceika || state.getBlock() == ModBlocks.grassIceika)
+                                            //    primer.setBlockState(px, py, pz, BLOCK_AIR);
                                         }
                                     }
                             }

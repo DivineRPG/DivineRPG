@@ -63,12 +63,11 @@ public class SaplingSkythern extends BlockBush implements IGrowable {
 		if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) {
 			return;
 		}
-		WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.skythernLog.getDefaultState(),
-		        ModBlocks.skythernLeaves.getDefaultState());
+		//WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.skythernLog.getDefaultState(), ModBlocks.skythernLeaves.getDefaultState());
 
 		worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
 
-		worldgenerator.generate(worldIn, rand, pos);
+		//worldgenerator.generate(worldIn, rand, pos);
 	}
 
 	@Override

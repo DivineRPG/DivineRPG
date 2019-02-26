@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,7 +21,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class JungleBat extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/jungle_bat");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/jungle_bat");
     private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
             DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;

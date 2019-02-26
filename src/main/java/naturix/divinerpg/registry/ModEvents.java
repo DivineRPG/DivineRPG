@@ -6,7 +6,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.objects.items.ItemSpawnEgg;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,7 +17,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@EventBusSubscriber(modid = DivineRPG.modId)
+@EventBusSubscriber(modid = Reference.MODID)
 public class ModEvents {
 	public static final ExecutorService THREAD_POOL = new ThreadPoolExecutor(0, 2, 1, TimeUnit.MINUTES,
 	        new LinkedBlockingQueue<Runnable>());
@@ -27,7 +29,7 @@ public class ModEvents {
 			EntityPlayerMP thePlayerMP = (EntityPlayerMP) thePlayer;
 
 			// DEBUG
-			System.out.println("Right clicking block with " + thePlayer.getHeldItem(event.getHand()));
+			//System.out.println("Right clicking block with " + thePlayer.getHeldItem(event.getHand()));
 
 			if (thePlayer.getHeldItem(event.getHand()).getItem() instanceof ItemSpawnEgg) {
 				ModTriggers.SPAWN_PET.trigger(thePlayerMP);
@@ -40,6 +42,6 @@ public class ModEvents {
 	}
 
 	public static void preInit() {
-		// postForgeEvent(new EventArmorSet());
+		postForgeEvent(new EventArmorSet());
 	}
 }

@@ -32,13 +32,13 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
+        /**if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
             generateIceikaDungeon(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
             generateIceikaRollumDungeon(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
             generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
             generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
             generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
-        }
+        }*/
     }
 
     /**Generates a structure between y=13 and y=56 */

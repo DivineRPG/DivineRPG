@@ -1,12 +1,14 @@
 package naturix.divinerpg.objects.items;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
 
-public class ItemBase extends Item {
+public class ItemBase extends Item implements IHasModel {
 
 	protected String name;
 	public ArrayList arraylistOne = new ArrayList();
@@ -16,8 +18,8 @@ public class ItemBase extends Item {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.setCreativeTab(DivineRPG.ItemsTab);
-		arraylistOne.add(name);
 
+		ModItems.ITEMS.add(this);
 	}
 
 	public ItemBase(String name, CreativeTabs tab) {
@@ -25,9 +27,12 @@ public class ItemBase extends Item {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.setCreativeTab(tab);
+
+		ModItems.ITEMS.add(this);
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

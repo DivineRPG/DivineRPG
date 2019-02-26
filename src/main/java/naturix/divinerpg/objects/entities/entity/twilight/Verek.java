@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModDimensions;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,18 +24,18 @@ public class Verek extends EntityMob {
 		this.setSize(0.6F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.modId, "entities/varek");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/varek");
 
 
     protected boolean isMaster() {
         return false;
     }
 
-    @Override
+    /**@Override
     public boolean getCanSpawnHere()
     {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.wildWoodDimension.getId();
-    }
+    }*/
     @Override
     protected boolean canDespawn() {
         return true;

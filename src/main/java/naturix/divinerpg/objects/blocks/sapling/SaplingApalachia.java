@@ -35,6 +35,8 @@ public class SaplingApalachia extends BlockBush implements IGrowable {
 		setHardness(0.0F);
 		setSoundType(SoundType.PLANT);
 		this.name = name;
+
+
 	}
 
 	/**
@@ -63,12 +65,11 @@ public class SaplingApalachia extends BlockBush implements IGrowable {
 		if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) {
 			return;
 		}
-		WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.apalachiaLog.getDefaultState(),
-		        ModBlocks.apalachiaLeaves.getDefaultState());
+		//WorldGenerator worldgenerator = new TreeGen(true, ModBlocks.apalachiaLog.getDefaultState(), ModBlocks.apalachiaLeaves.getDefaultState());
 
 		worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
 		DivineRPG.logger.info(pos);
-		worldgenerator.generate(worldIn, rand, pos);
+		//worldgenerator.generate(worldIn, rand, pos);
 	}
 
 	@Override

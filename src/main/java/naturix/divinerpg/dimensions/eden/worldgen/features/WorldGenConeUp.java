@@ -26,9 +26,9 @@ public class WorldGenConeUp extends WorldGenerator {
         int y = pos.getY();
         int z = pos.getZ();
         int var2 = rand.nextInt(4) + height;
-        if (world.getBlockState(pos.down()).getBlock() != ModBlocks.grassEden) {
-            return false;
-        }
+        //if (world.getBlockState(pos.down()).getBlock() != ModBlocks.grassEden) {
+        //    return false;
+        //}
         for (int i = 0; i < var2; i++) {
             this.placeBlockCircle(world, rand, x, y+i, z, var2-i);
         }

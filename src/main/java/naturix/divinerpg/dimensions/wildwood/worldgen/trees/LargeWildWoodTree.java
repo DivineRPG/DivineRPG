@@ -17,9 +17,9 @@ import java.util.Random;
  */
 public class LargeWildWoodTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
-    protected IBlockState vines = ModBlocks.vineWild.getDefaultState();
+    //protected IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
+    //protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
+    //protected IBlockState vines = ModBlocks.vineWild.getDefaultState();
 
     public LargeWildWoodTree(boolean notify, int minTrunkHeight) {
         super(notify);
@@ -40,7 +40,7 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
 
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
-        buildLeaves1(world, blockPos, trunkHeight + 2);
+        /**buildLeaves1(world, blockPos, trunkHeight + 2);
         buildLeaves2(world, blockPos, trunkHeight + 3);
         buildLeaves3(world, blockPos, trunkHeight + 4);
         buildLeaves4(world, blockPos, trunkHeight + 5);
@@ -113,10 +113,10 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
                     }
                 }
             }
-        }
+        }*/
         return true;
     }
-    private void placeVine(World p_181632_1_, Random p_181632_2_, BlockPos p_181632_3_, PropertyBool p_181632_4_)
+    /**private void placeVine(World p_181632_1_, Random p_181632_2_, BlockPos p_181632_3_, PropertyBool p_181632_4_)
     {
         if (p_181632_2_.nextInt(3) > 0 && p_181632_1_.isAirBlock(p_181632_3_))
         {
@@ -287,6 +287,6 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
 
     public int getTreeHeight(World world, BlockPos pos, int treeHeight){
         return this.setTreeHeight(world, pos, treeHeight);
-    }
+    }*/
     
 }

@@ -34,7 +34,7 @@ public class SnowGlobe extends ItemBase{
             if (worldIn.isAirBlock(pos))
             {
                 worldIn.playSound(player, pos, SoundEvents.BLOCK_SNOW_STEP, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-                worldIn.setBlockState(pos, ModBlocks.blueFire.getDefaultState(), 11);
+                //worldIn.setBlockState(pos, ModBlocks.blueFire.getDefaultState(), 11);
             }
 
             if (player instanceof EntityPlayerMP)

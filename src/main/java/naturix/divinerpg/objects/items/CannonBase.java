@@ -20,14 +20,14 @@ public class CannonBase extends Item
 	public String name;
     public CannonBase(String name)
     {
-        setCreativeTab(DivineRPG.CombatTab);
+        //setCreativeTab(DivineRPG.CombatTab);
         setMaxStackSize(1);
         setMaxDamage(0);
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
         this.name=name;
     }
-    ItemStack stack= new ItemStack(ModItems.acid);
+    /**ItemStack stack= new ItemStack(ModItems.acid);
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn)
     {
@@ -43,7 +43,7 @@ public class CannonBase extends Item
         	DivineRPG.logger.info(stack.getDisplayName()); 
      
         return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(handIn));
-    }
+    }*/
 
 
     public void registerItemModel() {

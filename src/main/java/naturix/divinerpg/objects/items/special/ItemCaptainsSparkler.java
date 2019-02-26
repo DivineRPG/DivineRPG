@@ -4,7 +4,7 @@ import java.util.List;
 
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.items.ItemModRanged;
-import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class ItemCaptainsSparkler extends ItemModRanged {
 
 	public ItemCaptainsSparkler(String name) {
-		super(name, -1, ModSounds.SPARKLER, EntitySparkler.class);
+		super(name, -1, DRPGSoundHandler.SPARKLER, EntitySparkler.class);
 		this.setFull3D();
 	}
 

@@ -1,29 +1,29 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:block_wildwood"
+      "item": "divinerpg:block_eden"
     },
     "title": {
-      "translate": "advancement.divinerpg.enter_wildwood"
+      "translate": "advancement.divinerpg.enter_eden"
     },
     "frame": "challenge",
     "description": {
-      "translate": "advancement.divinerpg.enter_wildwood.desc"
+      "translate": "advancement.divinerpg.enter_eden.desc"
     },
     "announce_to_chat": true
   },
-  "parent": "divinerpg:eden",
+  "parent": "divinerpg:root",
   "criteria": {
-    "in_wildwood": {
+    "in_eden": {
       "trigger": "minecraft:location",
       "conditions": {
-        "dimension": "divinerpg:wildwood"
+        "dimension": "divinerpg:eden"
       }
     }
   },
   "requirements": [
     [
-      "in_wildwood"
+      "in_eden"
     ]
   ]
 }
