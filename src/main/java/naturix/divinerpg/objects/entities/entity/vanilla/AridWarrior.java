@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.registry.DRPGSoundHandler;
@@ -40,11 +39,6 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
     public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
         EntityDivineArrow arrow = new EntityDivineArrow(this.world, this);
         arrow.setDamage(1.5);
@@ -79,5 +73,10 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
 }

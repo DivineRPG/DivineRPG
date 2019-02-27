@@ -4,35 +4,23 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
-import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.VillagerRegistry;
-import net.minecraftforge.registries.IForgeRegistry;
 
 public class LivestockMerchant extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.livestock.travel", "message.livestock.sell",
             "message.livestock.hi", "message.livestock.snapper" };
-    private static final String PROFESSION_NAME = Reference.MODID + ".livestock_merchant";
-    private static VillagerRegistry.VillagerProfession livestockmerchantProfession;
-    private static VillagerRegistry.VillagerCareer livestockmerchantCareer;
-
-    public static void registerVillager() {
-        livestockmerchantProfession = new VillagerRegistry.VillagerProfession(PROFESSION_NAME, "", "");
-        IForgeRegistry<VillagerRegistry.VillagerProfession> villagerProfessions = ForgeRegistries.VILLAGER_PROFESSIONS;
-        villagerProfessions.register(livestockmerchantProfession);
-        livestockmerchantCareer = new VillagerRegistry.VillagerCareer(livestockmerchantProfession, PROFESSION_NAME);
-    }
 
     public LivestockMerchant(World worldIn) {
         super(worldIn);
@@ -41,8 +29,11 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     }
 
     @Override
-    public void setProfession(net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession prof) {
-        super.setProfession(livestockmerchantProfession);
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        if (!this.world.isRemote) {
+            player.openGui(DivineRPG.instance, GUIHandler.LIVESTOCK_MERCHANT, this.world, getEntityId(), 0, 0);
+        }
+        return super.processInteract(player, hand);
     }
 
     @Override
@@ -53,13 +44,20 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
-        /**list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.coinShadow, 4), new ItemStack(ModItems.eggOverworld, 2, 0)));
-        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ModItems.coinShadow, 7), new ItemStack(ModItems.eggOverworld, 2, 1)));
-        list.add(new MerchantRecipe(new ItemStack(Blocks.STONE, 64), new ItemStack(ModItems.coinShadow, 3), new ItemStack(ModItems.eggOverworld, 1, 2)));
-        list.add(new MerchantRecipe(new ItemStack(Blocks.NETHER_BRICK, 32), new ItemStack(ModItems.coinShadow, 5), new ItemStack(ModItems.eggOverworld, 1, 3)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.stoneJungle, 2), new ItemStack(ModItems.coinShadow, 4), new ItemStack(ModItems.eggOverworld, 3, 4)));
-        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.coinShadow, 8), new ItemStack(ModItems.eggGrizzle, 2, 0)));
-        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.coinShadow, 8), new ItemStack(ModItems.eggGrizzle, 2, 1)));*/
+        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.coinShadow, 4),
+                new ItemStack(ModItems.eggOverworld, 2, 0)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ModItems.coinShadow, 7),
+                new ItemStack(ModItems.eggOverworld, 2, 1)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.STONE, 64), new ItemStack(ModItems.coinShadow, 3),
+                new ItemStack(ModItems.eggOverworld, 1, 2)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.NETHER_BRICK, 32), new ItemStack(ModItems.coinShadow, 5),
+                new ItemStack(ModItems.eggOverworld, 1, 3)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.stoneJungle, 2), new ItemStack(ModItems.coinShadow, 4),
+                new ItemStack(ModItems.eggOverworld, 3, 4)));
+        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.coinShadow, 8),
+                new ItemStack(ModItems.eggGrizzle, 2, 0)));
+        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.coinShadow, 8),
+                new ItemStack(ModItems.eggGrizzle, 2, 1)));
     }
 
     @Override

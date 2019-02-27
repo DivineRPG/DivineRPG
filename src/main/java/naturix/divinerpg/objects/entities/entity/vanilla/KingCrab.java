@@ -1,11 +1,9 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -50,8 +48,6 @@ public class KingCrab extends EntityPeacefulUntilAttacked {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getBiome(getPosition()) == Biomes.BEACH
-                || this.world.getBiome(getPosition()) == Biomes.COLD_BEACH
-                || this.world.getBiome(getPosition()) == Biomes.STONE_BEACH && super.getCanSpawnHere();
+        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
 }

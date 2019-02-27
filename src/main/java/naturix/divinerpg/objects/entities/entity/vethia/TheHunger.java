@@ -2,51 +2,37 @@ package naturix.divinerpg.objects.entities.entity.vethia;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
-import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.VillagerRegistry;
-import net.minecraftforge.registries.IForgeRegistry;
 
 public class TheHunger extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.hunger.hungry", "message.hunger.closer", "message.hunger.fatten",
             "message.hunger.dinner" };
-    private static final String PROFESSION_NAME = Reference.MODID + ".the_hunger";
-    private static VillagerRegistry.VillagerProfession thehungerProfession;
-    private static VillagerRegistry.VillagerCareer thehungerCareer;
-
-    public static void registerVillager() {
-        thehungerProfession = new VillagerRegistry.VillagerProfession(PROFESSION_NAME, "", "");
-        IForgeRegistry<VillagerRegistry.VillagerProfession> villagerProfessions = ForgeRegistries.VILLAGER_PROFESSIONS;
-        villagerProfessions.register(thehungerProfession);
-        thehungerCareer = new VillagerRegistry.VillagerCareer(thehungerProfession, PROFESSION_NAME);
-    }
 
     public TheHunger(World worldIn) {
         super(worldIn);
     }
 
     @Override
-    public void setProfession(net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession prof) {
-        super.setProfession(thehungerProfession);
+    public void extraInteract(EntityPlayer player) {
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.the_hunger.name") + ": "
+                + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.the_hunger.name") + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        if (!this.world.isRemote) {
+            player.openGui(DivineRPG.instance, GUIHandler.THE_HUNGER, this.world, getEntityId(), 0, 0);
+        }
+        return super.processInteract(player, hand);
     }
-
-    // @Override
-    // public int guiID() {
-    // return GuiHandler.hunger;
-    // return 2;
-    // }
 
     @Override
     public void addRecipies(MerchantRecipeList recipes) {

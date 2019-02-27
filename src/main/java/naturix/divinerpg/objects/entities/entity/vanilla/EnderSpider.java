@@ -1,13 +1,11 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderSpider extends EntityEnderman {
@@ -41,6 +39,6 @@ public class EnderSpider extends EntityEnderman {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == 1;
+        return (world.provider.getDimension() == 0 || world.provider.getDimension() == 1) && super.getCanSpawnHere();
     }
 }

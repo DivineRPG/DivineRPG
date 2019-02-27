@@ -1,10 +1,12 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityBeacon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -40,8 +42,7 @@ public class BlockAyeracoBeam extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World var1, int var2) {
-        // return new TileEntityAyeracoBeam(new
-        // ResourceLocation("divinerpg:textures/blocks/beam_" + tex + ".png"));
-        return new TileEntityBeacon();
+        return new TileEntityAyeracoBeam(
+                new ResourceLocation(Reference.MODID + ":textures/blocks/beam_" + tex + ".png"));
     }
 }

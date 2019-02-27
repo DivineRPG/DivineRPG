@@ -3,7 +3,6 @@ package naturix.divinerpg.objects.entities.entity;
 import java.util.Iterator;
 import java.util.UUID;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.vethia.TheHunger;
@@ -128,6 +127,11 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
     }
 
     @Override
+    public void setProfession(int professionId) {
+        super.setProfession(5);
+    }
+
+    @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
         boolean flag = itemstack.getItem() == Items.NAME_TAG;
@@ -148,8 +152,6 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
     }
 
     public abstract void extraInteract(EntityPlayer p);
-
-    //public abstract int guiID();
 
     public abstract void addRecipies(MerchantRecipeList list);
 

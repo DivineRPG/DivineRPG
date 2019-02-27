@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -151,6 +150,7 @@ public class PumpkinSpider extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
+        return world.provider.getDimension() == 0
+                && this.world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
     }
 }

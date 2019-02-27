@@ -39,11 +39,6 @@ public class WildFire extends EntityDivineRPGMob implements IRangedAttackMob {
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
     public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
         EntityInfernoArrow arrow = new EntityInfernoArrow(this.world, this);
         arrow.setFire(100);

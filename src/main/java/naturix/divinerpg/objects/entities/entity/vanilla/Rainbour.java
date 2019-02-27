@@ -2,7 +2,6 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import java.util.Calendar;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.particle.ParticleSparkler;
 import naturix.divinerpg.registry.DRPGSoundHandler;
@@ -22,7 +21,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -223,24 +221,26 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
     public boolean getCanSpawnHere() {
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
+        // Only spawn below sea level
         if (blockpos.getY() >= this.world.getSeaLevel()) {
             return false;
         } else {
-            int i = this.world.getLightFromNeighbors(blockpos);
-            int j = 4;
+            int lightLevel = this.world.getLightFromNeighbors(blockpos);
+            int minLightLevel = 4;
             Calendar calendar = this.world.getCurrentDate();
 
-            if ((calendar.get(2) + 1 != 10 || calendar.get(5) < 20)
-                    && (calendar.get(2) + 1 != 11 || calendar.get(5) > 3)) {
+            // Unless around Halloween (Oct 20 - Nov 3) there is a 50% chance not to spawn
+            if ((calendar.get(Calendar.MONTH) != Calendar.OCTOBER || calendar.get(Calendar.DATE) < 20)
+                    && (calendar.get(Calendar.MONTH) != Calendar.NOVEMBER || calendar.get(Calendar.DATE) > 3)) {
                 if (this.rand.nextBoolean()) {
                     return false;
                 }
             } else {
-                j = 7;
+                minLightLevel = 7;
             }
 
-            return world.provider.getDimension() == 0 && world.loadedEntityList.size() > 20
-                    && world.getWorldType() != WorldType.FLAT && i > this.rand.nextInt(j) && super.getCanSpawnHere();
+            return world.provider.getDimension() == 0 && lightLevel <= this.rand.nextInt(minLightLevel)
+                    && super.getCanSpawnHere();
         }
     }
 }

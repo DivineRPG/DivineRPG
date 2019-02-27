@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
@@ -8,6 +7,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 public class Cyclops extends EntityPeacefulUntilAttacked {
@@ -29,7 +30,22 @@ public class Cyclops extends EntityPeacefulUntilAttacked {
 
     @Override
     public boolean isValidLightLevel() {
-        return world.canSeeSky(getPosition());
+        BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+
+        if (this.world.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32)) {
+            return false;
+        } else {
+            int i = this.world.getLightFromNeighbors(blockpos);
+
+            if (this.world.isThundering()) {
+                int j = this.world.getSkylightSubtracted();
+                this.world.setSkylightSubtracted(10);
+                i = this.world.getLightFromNeighbors(blockpos);
+                this.world.setSkylightSubtracted(j);
+            }
+
+            return i <= this.rand.nextInt(8);
+        }
     }
 
     @Override
@@ -54,6 +70,6 @@ public class Cyclops extends EntityPeacefulUntilAttacked {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.getPosition().getY() > world.getSeaLevel();
+        return world.provider.getDimension() == 0 && this.getPosition().getY() > world.getSeaLevel();
     }
 }

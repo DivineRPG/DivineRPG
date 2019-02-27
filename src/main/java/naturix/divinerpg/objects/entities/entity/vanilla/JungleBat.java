@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -216,14 +215,14 @@ public class JungleBat extends EntityDivineRPGMob {
         if (blockpos.getY() >= this.world.getSeaLevel()) {
             return false;
         } else {
-            int i = this.world.getLightFromNeighbors(blockpos);
-            int j = 4;
+            int lightLevel = this.world.getLightFromNeighbors(blockpos);
+            int minLightLevel = 4;
 
             if (this.rand.nextBoolean()) {
                 return false;
             }
 
-            return i > this.rand.nextInt(j);
+            return world.provider.getDimension() == 0 && lightLevel > this.rand.nextInt(minLightLevel);
         }
     }
 }

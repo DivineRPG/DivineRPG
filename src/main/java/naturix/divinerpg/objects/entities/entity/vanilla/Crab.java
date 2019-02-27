@@ -1,15 +1,12 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Crab extends EntityPeacefulUntilAttacked {
@@ -51,9 +48,6 @@ public class Crab extends EntityPeacefulUntilAttacked {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL
-                && this.world.getBiome(getPosition()) == Biomes.BEACH
-                || this.world.getBiome(getPosition()) == Biomes.COLD_BEACH
-                || this.world.getBiome(getPosition()) == Biomes.STONE_BEACH;
+        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
 }

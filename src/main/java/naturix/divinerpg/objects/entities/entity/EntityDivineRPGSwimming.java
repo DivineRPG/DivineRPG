@@ -6,24 +6,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacked  {
+public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacked {
 
-	public EntityDivineRPGSwimming(World par1World) {
-		super(par1World);
-	}
+    public EntityDivineRPGSwimming(World par1World) {
+        super(par1World);
+    }
 
     @Override
-   	public int getMaxSpawnedInChunk() {
-   		return 1;
-   	}
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
 
     @Override
     public boolean canBreatheUnderwater() {
         return true;
     }
-    
+
     @Override
-	protected boolean canTriggerWalking() {
+    protected boolean canTriggerWalking() {
         return false;
     }
 
@@ -33,12 +33,12 @@ public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacke
     }
 
     @Override
-	public void onEntityUpdate() {
-		int i = this.getAir();
+    public void onEntityUpdate() {
+        int i = this.getAir();
         super.onEntityUpdate();
 
         if (this.isEntityAlive() && !this.isInWater()) {
-        	if (!this.world.isRemote) {
+            if (!this.world.isRemote) {
                 this.motionX = 0.0D;
                 this.motionY -= 0.08D;
                 this.motionY *= 0.9800000190734863D;
@@ -51,23 +51,29 @@ public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacke
                 this.setAir(0);
                 this.attackEntityFrom(DamageSource.DROWN, 2.0F);
             }
-        }
-        else {
+        } else {
             this.setAir(300);
-        }	
-	}
- 
-    @Override
-    public void fall(float distance, float damageMultiplier) {}
+        }
+    }
 
-   @Override
-   public boolean isInWater() {
-        return this.world.getBlockState(new BlockPos((int)this.posX, MathHelper.floor(this.posY), (int)this.posZ)).getMaterial() == Material.WATER;
-   }
-    
     @Override
-    public boolean getCanSpawnHere()
-    {
-        return this.posY > 45.0D && this.posY < (double)this.world.getSeaLevel() && isInWater() && super.getCanSpawnHere();
+    public void fall(float distance, float damageMultiplier) {
+    }
+
+    @Override
+    public boolean isInWater() {
+        return this.world.getBlockState(new BlockPos((int) this.posX, MathHelper.floor(this.posY), (int) this.posZ))
+                .getMaterial() == Material.WATER;
+    }
+
+    @Override
+    public boolean isValidLightLevel() {
+        return true;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return this.posY > 45.0D && this.posY < (double) this.world.getSeaLevel() && isInWater()
+                && super.getCanSpawnHere();
     }
 }

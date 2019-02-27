@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.registry.DRPGSoundHandler;
@@ -80,7 +79,8 @@ public class Frost extends EntityDivineRPGMob {
 
         EntityLivingBase entitylivingbase = this.getAttackTarget();
 
-        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY + (double) this.getEyeHeight() + (double) this.heightOffset) {
+        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY
+                + (double) this.getEyeHeight() + (double) this.heightOffset) {
             this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
             this.isAirBorne = true;
         }
@@ -118,10 +118,12 @@ public class Frost extends EntityDivineRPGMob {
                     this.frost.attackEntityAsMob(entitylivingbase);
                 }
 
-                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
+                        entitylivingbase.posZ, 1.0D);
             } else if (d0 < this.getFollowDistance() * this.getFollowDistance()) {
                 double d1 = entitylivingbase.posX - this.frost.posX;
-                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F) - (this.frost.posY + (double) (this.frost.height / 2.0F));
+                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F)
+                        - (this.frost.posY + (double) (this.frost.height / 2.0F));
                 double d3 = entitylivingbase.posZ - this.frost.posZ;
 
                 if (this.attackTime <= 0) {
@@ -134,9 +136,12 @@ public class Frost extends EntityDivineRPGMob {
                     }
 
                     float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-                    this.frost.world.playEvent((EntityPlayer) null, 1018, new BlockPos((int) this.frost.posX, (int) this.frost.posY, (int) this.frost.posZ), 0);
+                    this.frost.world.playEvent((EntityPlayer) null, 1018,
+                            new BlockPos((int) this.frost.posX, (int) this.frost.posY, (int) this.frost.posZ), 0);
 
-                    EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost, d1 + this.frost.getRNG().nextGaussian() * (double) f, d2, d3 + this.frost.getRNG().nextGaussian() * (double) f);
+                    EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost,
+                            d1 + this.frost.getRNG().nextGaussian() * (double) f, d2,
+                            d3 + this.frost.getRNG().nextGaussian() * (double) f);
                     entityShot.posY = this.frost.posY + (double) (this.frost.height / 2.0F);
                     this.frost.world.spawnEntity(entityShot);
                 }
@@ -144,7 +149,8 @@ public class Frost extends EntityDivineRPGMob {
                 this.frost.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
             } else {
                 this.frost.getNavigator().clearPath();
-                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+                this.frost.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
+                        entitylivingbase.posZ, 1.0D);
             }
 
             super.updateTask();
@@ -178,5 +184,10 @@ public class Frost extends EntityDivineRPGMob {
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
 }

@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
@@ -62,6 +61,6 @@ public class TheGrue extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY <= 16.0D && super.getCanSpawnHere();
+        return world.provider.getDimension() == 0 && this.posY <= 16.0D && super.getCanSpawnHere();
     }
 }

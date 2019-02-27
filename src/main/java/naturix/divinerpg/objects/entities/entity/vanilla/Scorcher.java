@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
 import naturix.divinerpg.registry.DRPGSoundHandler;
@@ -65,11 +64,16 @@ public class Scorcher extends EntityDivineRPGMob {
 
         if (this.world.isRemote) {
             if (this.rand.nextInt(24) == 0 && !this.isSilent()) {
-                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, SoundEvents.ENTITY_BLAZE_BURN, this.getSoundCategory(), 1.0F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+                this.world.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D,
+                        SoundEvents.ENTITY_BLAZE_BURN, this.getSoundCategory(), 1.0F + this.rand.nextFloat(),
+                        this.rand.nextFloat() * 0.7F + 0.3F, false);
             }
 
             for (int i = 0; i < 2; ++i) {
-                this.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+                this.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE,
+                        this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width,
+                        this.posY + this.rand.nextDouble() * (double) this.height,
+                        this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
             }
         } else {
             this.setAttackTarget(this.world.getNearestAttackablePlayer(this, 22.0D, 22.0D));
@@ -92,7 +96,8 @@ public class Scorcher extends EntityDivineRPGMob {
 
         EntityLivingBase entitylivingbase = this.getAttackTarget();
 
-        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY + (double) this.getEyeHeight() + (double) this.heightOffset) {
+        if (entitylivingbase != null && entitylivingbase.posY + (double) entitylivingbase.getEyeHeight() > this.posY
+                + (double) this.getEyeHeight() + (double) this.heightOffset) {
             this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
             this.isAirBorne = true;
         }
@@ -130,10 +135,12 @@ public class Scorcher extends EntityDivineRPGMob {
                     this.scorcher.attackEntityAsMob(entitylivingbase);
                 }
 
-                this.scorcher.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+                this.scorcher.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
+                        entitylivingbase.posZ, 1.0D);
             } else if (d0 < this.getFollowDistance() * this.getFollowDistance()) {
                 double d1 = entitylivingbase.posX - this.scorcher.posX;
-                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F) - (this.scorcher.posY + (double) (this.scorcher.height / 2.0F));
+                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F)
+                        - (this.scorcher.posY + (double) (this.scorcher.height / 2.0F));
                 double d3 = entitylivingbase.posZ - this.scorcher.posZ;
 
                 if (this.attackTime <= 0) {
@@ -150,10 +157,13 @@ public class Scorcher extends EntityDivineRPGMob {
 
                     if (this.attackStep > 1) {
                         float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-                        this.scorcher.world.playEvent((EntityPlayer) null, 1018, new BlockPos((int) this.scorcher.posX, (int) this.scorcher.posY, (int) this.scorcher.posZ), 0);
+                        this.scorcher.world.playEvent((EntityPlayer) null, 1018, new BlockPos((int) this.scorcher.posX,
+                                (int) this.scorcher.posY, (int) this.scorcher.posZ), 0);
 
                         for (int i = 0; i < 1; ++i) {
-                            EntityScorcherShot scorcherShot = new EntityScorcherShot(this.scorcher.world, this.scorcher, d1 + this.scorcher.getRNG().nextGaussian() * (double) f, d2, d3 + this.scorcher.getRNG().nextGaussian() * (double) f);
+                            EntityScorcherShot scorcherShot = new EntityScorcherShot(this.scorcher.world, this.scorcher,
+                                    d1 + this.scorcher.getRNG().nextGaussian() * (double) f, d2,
+                                    d3 + this.scorcher.getRNG().nextGaussian() * (double) f);
                             scorcherShot.posY = this.scorcher.posY + (double) (this.scorcher.height / 2.0F) + 0.5D;
                             this.scorcher.world.spawnEntity(scorcherShot);
                         }
@@ -163,14 +173,16 @@ public class Scorcher extends EntityDivineRPGMob {
                 this.scorcher.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
             } else {
                 this.scorcher.getNavigator().clearPath();
-                this.scorcher.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+                this.scorcher.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY,
+                        entitylivingbase.posZ, 1.0D);
             }
 
             super.updateTask();
         }
 
         private double getFollowDistance() {
-            IAttributeInstance iattributeinstance = this.scorcher.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
+            IAttributeInstance iattributeinstance = this.scorcher
+                    .getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
             return iattributeinstance == null ? 16.0D : iattributeinstance.getAttributeValue();
         }
     }
@@ -186,11 +198,6 @@ public class Scorcher extends EntityDivineRPGMob {
     @Override
     public float getBrightness() {
         return 1.0F;
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
     }
 
     @Override

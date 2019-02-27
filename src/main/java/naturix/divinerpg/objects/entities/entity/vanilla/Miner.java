@@ -2,7 +2,6 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
@@ -125,5 +124,10 @@ public class Miner extends EntityDivineRPGMob {
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
 }

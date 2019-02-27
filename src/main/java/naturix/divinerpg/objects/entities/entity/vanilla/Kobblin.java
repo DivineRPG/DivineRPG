@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
@@ -44,6 +43,11 @@ public class Kobblin extends EntityDivineRPGMob {
 
     public boolean needsSpecialAI() {
         return true;
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk() {
+        return 1;
     }
 
     @Override
@@ -114,7 +118,8 @@ public class Kobblin extends EntityDivineRPGMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS
+        return world.provider.getDimension() == 0
+                && this.world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS
                 && this.world.getBlockState(getPosition().down(2)).getBlock() != Blocks.AIR && super.getCanSpawnHere();
     }
 }

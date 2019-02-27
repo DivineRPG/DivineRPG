@@ -6,11 +6,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class GuiWorkshopMerchant extends GuiDivineMerchant {
+public class GuiJackOMan extends GuiDivineMerchant {
     private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
-            "textures/gui/workshop_worker.png");
+            "textures/gui/jack_o_man.png");
 
-    public GuiWorkshopMerchant(InventoryPlayer playerInventory, IMerchant merchant, World world) {
+    public GuiJackOMan(InventoryPlayer playerInventory, IMerchant merchant, World world) {
         super(playerInventory, merchant, world);
     }
 
@@ -19,10 +19,10 @@ public class GuiWorkshopMerchant extends GuiDivineMerchant {
     }
 
     protected String getMerchantName() {
-        return "Workshop Merchant";
+        return "Jack O Man";
     }
 
     protected int getTextColor() {
-        return 0x404040;
+        return 0xFFED00;
     }
 }

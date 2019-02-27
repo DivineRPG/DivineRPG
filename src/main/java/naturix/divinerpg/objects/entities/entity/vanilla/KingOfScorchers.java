@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
@@ -39,11 +38,6 @@ public class KingOfScorchers extends EntityDivineRPGBoss {
      * this.dataWatcher.addObject(16, new Integer(100));
      * this.dataWatcher.addObject(13, new Byte((byte) 0)); }
      */
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
 
     @Override
     protected void updateAITasks() {
