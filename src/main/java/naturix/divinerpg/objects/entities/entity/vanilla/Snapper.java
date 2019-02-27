@@ -25,7 +25,6 @@ public class Snapper extends EntityDivineRPGTameable {
     public Snapper(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 0.5F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

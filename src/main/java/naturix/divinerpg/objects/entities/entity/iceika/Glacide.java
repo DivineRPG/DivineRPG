@@ -1,8 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -17,7 +15,6 @@ public class Glacide extends EntityDivineRPGMob {
     public Glacide(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 1.8F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -53,8 +50,9 @@ public class Glacide extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    /**@Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }*/
+    /**
+     * @Override public boolean getCanSpawnHere() { return
+     *           world.provider.getDimension() ==
+     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
+     */
 }

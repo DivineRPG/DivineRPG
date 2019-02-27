@@ -23,7 +23,6 @@ public class KingOfScorchers extends EntityDivineRPGBoss {
         this.setSize(2.0F, 3.9F);
         this.special = 0;
         this.isImmuneToFire = true;
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

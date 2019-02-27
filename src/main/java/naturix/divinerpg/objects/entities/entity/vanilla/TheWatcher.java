@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
 import naturix.divinerpg.registry.DRPGSoundHandler;
@@ -34,7 +33,6 @@ public class TheWatcher extends EntityDivineRPGBoss {
         this.setSize(4.0F, 4.0F);
         this.isImmuneToFire = true;
         this.experienceValue = 5000;
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

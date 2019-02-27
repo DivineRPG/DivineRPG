@@ -33,7 +33,6 @@ public class Frost extends EntityDivineRPGMob {
         this.setSize(1F, 1f);
         this.experienceValue = 20;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

@@ -22,7 +22,6 @@ public class WildFire extends EntityDivineRPGMob implements IRangedAttackMob {
     public WildFire(World worldIn) {
         super(worldIn);
         this.isImmuneToFire = true;
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

@@ -15,7 +15,6 @@ public class Shark extends EntityDivineRPGSwimming {
     public Shark(World worldIn) {
         super(worldIn);
         this.setSize(1.4F, 0.6f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

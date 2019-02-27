@@ -30,7 +30,6 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
     public StoneGolem(World worldIn) {
         super(worldIn);
         this.setSize(1.3F, 2.5F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

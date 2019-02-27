@@ -25,7 +25,6 @@ public class Kobblin extends EntityDivineRPGMob {
     public Kobblin(World worldIn) {
         super(worldIn);
         this.setSize(0.75F, 1F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

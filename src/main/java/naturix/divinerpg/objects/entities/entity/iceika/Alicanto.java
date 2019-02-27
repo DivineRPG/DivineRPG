@@ -1,8 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -32,7 +30,6 @@ public class Alicanto extends EntityDivineRPGMob {
         super(worldIn);
         this.flyTimer = 0;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -130,8 +127,9 @@ public class Alicanto extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    /**@Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }*/
+    /**
+     * @Override public boolean getCanSpawnHere() { return
+     *           world.provider.getDimension() ==
+     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
+     */
 }

@@ -20,7 +20,6 @@ public class TheEye extends EntityDivineRPGMob {
     public TheEye(World worldIn) {
         super(worldIn);
         this.setSize(1.6F, 1.6f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

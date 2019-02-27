@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +15,6 @@ public class AncientEntity extends EntityDivineRPGBoss {
     public AncientEntity(World worldIn) {
         super(worldIn);
         this.setSize(4.0F, 6.5F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

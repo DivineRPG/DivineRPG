@@ -25,7 +25,6 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     public LivestockMerchant(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 2f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

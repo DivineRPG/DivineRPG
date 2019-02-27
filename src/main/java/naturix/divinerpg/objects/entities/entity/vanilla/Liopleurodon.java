@@ -15,7 +15,6 @@ public class Liopleurodon extends EntityDivineRPGSwimming {
     public Liopleurodon(World worldIn) {
         super(worldIn);
         this.setSize(6F, 1f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

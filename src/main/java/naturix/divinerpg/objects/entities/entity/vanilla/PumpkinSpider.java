@@ -29,7 +29,6 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     public PumpkinSpider(World worldIn) {
         super(worldIn);
         this.setSize(1.25F, 1F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

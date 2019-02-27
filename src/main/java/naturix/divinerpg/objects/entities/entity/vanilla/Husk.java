@@ -2,12 +2,10 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import naturix.divinerpg.registry.DRPGSoundHandler;
-import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -26,7 +24,6 @@ public class Husk extends EntityDivineRPGTameable {
     public Husk(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 1.4F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -43,13 +40,12 @@ public class Husk extends EntityDivineRPGTameable {
             if (!itemstack.isEmpty()) {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood food = (ItemFood) itemstack.getItem();
-                    /**if (food == Items.CARROT || food == Items.APPLE || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
-                        if (!player.capabilities.isCreativeMode) {
-                            itemstack.shrink(1);
-                        }
-                        this.heal(food.getHealAmount(itemstack));
-                        return true;
-                    }*/
+                    /**
+                     * if (food == Items.CARROT || food == Items.APPLE || food == ModItems.moonbulb
+                     * && this.getHealth() < this.getMaxHealth()) { if
+                     * (!player.capabilities.isCreativeMode) { itemstack.shrink(1); }
+                     * this.heal(food.getHealAmount(itemstack)); return true; }
+                     */
                 }
             }
         } else {

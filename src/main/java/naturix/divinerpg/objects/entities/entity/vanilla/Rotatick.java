@@ -15,7 +15,6 @@ public class Rotatick extends EntityDivineRPGMob {
     public Rotatick(World worldIn) {
         super(worldIn);
         this.setSize(1.15F, 1F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

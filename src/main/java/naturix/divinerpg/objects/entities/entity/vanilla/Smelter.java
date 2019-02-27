@@ -30,7 +30,6 @@ public class Smelter extends EntityDivineRPGTameable implements IAttackTimer {
         super(worldIn);
         this.setSize(1.3F, 2.5F);
         this.isImmuneToFire = true;
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

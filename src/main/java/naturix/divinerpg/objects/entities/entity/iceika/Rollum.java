@@ -1,9 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.DRPGSoundHandler;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,7 +16,6 @@ public class Rollum extends EntityDivineRPGMob {
     public Rollum(World worldIn) {
         super(worldIn);
         setSize(1.3F, 2.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -62,8 +59,9 @@ public class Rollum extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    /**@Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }*/
+    /**
+     * @Override public boolean getCanSpawnHere() { return
+     *           world.provider.getDimension() ==
+     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
+     */
 }

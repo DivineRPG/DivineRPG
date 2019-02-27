@@ -30,7 +30,6 @@ public class JungleSpider extends EntityDivineRPGMob {
     public JungleSpider(World worldIn) {
         super(worldIn);
         this.setSize(1.4F, 0.9F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

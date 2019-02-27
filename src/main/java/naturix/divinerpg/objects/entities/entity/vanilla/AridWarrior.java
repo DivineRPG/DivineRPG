@@ -21,7 +21,6 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
     public AridWarrior(World worldIn) {
         super(worldIn);
         this.setSize(1.6F, 1.6f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

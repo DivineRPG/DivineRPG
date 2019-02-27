@@ -1,9 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import naturix.divinerpg.registry.DRPGSoundHandler;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,7 +20,6 @@ public class Frosty extends EntityPeacefulUntilAttacked {
     public Frosty(World worldIn) {
         super(worldIn);
         this.setSize(1.0F, 2.5F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -69,8 +66,9 @@ public class Frosty extends EntityPeacefulUntilAttacked {
         return this.LOOT;
     }
 
-    /**@Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }*/
+    /**
+     * @Override public boolean getCanSpawnHere() { return
+     *           world.provider.getDimension() ==
+     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
+     */
 }

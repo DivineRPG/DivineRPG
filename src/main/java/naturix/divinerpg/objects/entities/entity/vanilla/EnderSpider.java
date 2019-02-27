@@ -14,7 +14,6 @@ public class EnderSpider extends EntityEnderman {
     public EnderSpider(World worldIn) {
         super(worldIn);
         this.setSize(0.9F, 0.9F);
-        this.setHealth(this.getMaxHealth());
         this.experienceValue = 20;
     }
 

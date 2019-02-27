@@ -1,9 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -41,7 +39,6 @@ public class Fractite extends EntityDivineRPGFlying {
         super(worldIn);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
         this.setSize(1.7F, 1.3F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -236,8 +233,9 @@ public class Fractite extends EntityDivineRPGFlying {
         return this.LOOT;
     }
 
-    /**@Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }*/
+    /**
+     * @Override public boolean getCanSpawnHere() { return
+     *           world.provider.getDimension() ==
+     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
+     */
 }

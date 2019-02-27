@@ -34,7 +34,6 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
     public Rainbour(World worldIn) {
         super(worldIn);
         this.setSize(1F, 1f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

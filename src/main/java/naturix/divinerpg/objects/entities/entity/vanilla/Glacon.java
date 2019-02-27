@@ -15,7 +15,6 @@ public class Glacon extends EntityDivineRPGMob {
     public Glacon(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 1.4F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

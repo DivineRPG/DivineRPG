@@ -35,7 +35,6 @@ public class HellPig extends EntityDivineRPGTameable {
     public HellPig(World worldIn) {
         super(worldIn);
         this.setSize(0.7F, 0.5F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

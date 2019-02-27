@@ -17,7 +17,6 @@ public class Cyclops extends EntityPeacefulUntilAttacked {
     public Cyclops(World worldIn) {
         super(worldIn);
         this.setSize(1.5F, 3.9F);
-        this.setHealth(this.getMaxHealth());
         this.experienceValue = 40;
     }
 

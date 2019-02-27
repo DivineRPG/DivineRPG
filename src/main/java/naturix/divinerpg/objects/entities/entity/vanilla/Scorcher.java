@@ -37,7 +37,6 @@ public class Scorcher extends EntityDivineRPGMob {
         this.isImmuneToFire = true;
         this.experienceValue = 20;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

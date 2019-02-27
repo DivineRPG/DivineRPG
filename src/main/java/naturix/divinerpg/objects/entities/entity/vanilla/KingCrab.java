@@ -15,7 +15,6 @@ public class KingCrab extends EntityPeacefulUntilAttacked {
     public KingCrab(World worldIn) {
         super(worldIn);
         this.setSize(1.55F, 1.25F);
-        this.setHealth(this.getMaxHealth());
         this.experienceValue = 40;
     }
 

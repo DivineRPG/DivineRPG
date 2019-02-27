@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -14,7 +13,6 @@ public class EnderWatcher extends EntityEnderman {
     public EnderWatcher(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 0.6F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

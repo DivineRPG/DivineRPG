@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.utils.Reference;
@@ -31,7 +30,6 @@ public class EnderTriplets extends EntityDivineRPGFlying {
     public EnderTriplets(World worldIn) {
         super(worldIn);
         this.setSize(2.0F, 2.0F);
-        this.setHealth(this.getMaxHealth());
         this.isImmuneToFire = true;
         this.experienceValue = 5;
     }

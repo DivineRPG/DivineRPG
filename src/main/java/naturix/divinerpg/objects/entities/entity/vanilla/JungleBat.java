@@ -27,7 +27,6 @@ public class JungleBat extends EntityDivineRPGMob {
 
     public JungleBat(World worldIn) {
         super(worldIn);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

@@ -15,7 +15,6 @@ public class EnthralledDramcryx extends EntityDivineRPGMob {
     public EnthralledDramcryx(World worldIn) {
         super(worldIn);
         this.setSize(1.25F, 1.25F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

@@ -27,7 +27,6 @@ public class JackOMan extends EntityDivineRPGVillager {
     public JackOMan(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 2f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

@@ -1,9 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -31,7 +29,6 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
         super(worldIn);
         this.setSize(1.7f, 1.3f);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -91,8 +88,9 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
         return this.LOOT;
     }
 
-    /**@Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere();
-    }*/
+    /**
+     * @Override public boolean getCanSpawnHere() { return
+     *           world.provider.getDimension() ==
+     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
+     */
 }

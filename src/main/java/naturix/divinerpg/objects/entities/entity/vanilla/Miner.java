@@ -27,7 +27,6 @@ public class Miner extends EntityDivineRPGMob {
     public Miner(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.9F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

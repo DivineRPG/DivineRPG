@@ -15,7 +15,6 @@ public class Whale extends EntityDivineRPGSwimming {
     public Whale(World worldIn) {
         super(worldIn);
         this.setSize(4F, 2f);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

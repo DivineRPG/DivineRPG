@@ -16,7 +16,6 @@ public class TheGrue extends EntityDivineRPGMob {
     public TheGrue(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 2.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

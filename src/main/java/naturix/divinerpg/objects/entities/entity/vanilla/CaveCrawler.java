@@ -15,7 +15,6 @@ public class CaveCrawler extends EntityDivineRPGMob {
     public CaveCrawler(World worldIn) {
         super(worldIn);
         this.setSize(1.5F, 2.0F);
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override

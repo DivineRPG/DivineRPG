@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.utils.Reference;
@@ -29,7 +28,6 @@ public class HellSpider extends EntityDivineRPGMob {
         super(worldIn);
         this.setSize(1.4F, 0.9F);
         this.isImmuneToFire = true;
-        this.setHealth(this.getMaxHealth());
     }
 
     @Override
