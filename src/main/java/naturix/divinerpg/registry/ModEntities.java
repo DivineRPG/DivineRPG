@@ -899,11 +899,6 @@ public class ModEntities {
                 EntityRegistry.addSpawn(AridWarrior.class, 35, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(SaguaroWorm.class, 20, 1, 4, EnumCreatureType.MONSTER, biome);
             }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.OCEAN)) {
-                EntityRegistry.addSpawn(Whale.class, 1, 1, 1, EnumCreatureType.WATER_CREATURE, biome);
-                EntityRegistry.addSpawn(Shark.class, 1, 1, 1, EnumCreatureType.WATER_CREATURE, biome);
-                EntityRegistry.addSpawn(Liopleurodon.class, 1, 1, 1, EnumCreatureType.WATER_CREATURE, biome);
-            }
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.BEACH)) {
                 EntityRegistry.addSpawn(Crab.class, 100, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(KingCrab.class, 40, 4, 4, EnumCreatureType.MONSTER, biome);
@@ -918,7 +913,7 @@ public class ModEntities {
             }
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)
                     || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
-                EntityRegistry.addSpawn(Cyclops.class, 80, 2, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(Cyclops.class, 10, 2, 4, EnumCreatureType.MONSTER, biome);
             }
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.FOREST)) {
                 EntityRegistry.addSpawn(PumpkinSpider.class, 20, 1, 1, EnumCreatureType.MONSTER, biome);

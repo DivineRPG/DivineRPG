@@ -25,9 +25,9 @@ public abstract class RenderProjectile<T extends Entity> extends Render<T> {
     public void doRender(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
-        GlStateManager.translate((float) x, (float) y + 0.25F, (float) z);
+        GlStateManager.translate((float) x, (float) y, (float) z);
         GlStateManager.enableRescaleNormal();
-        GlStateManager.scale(1.0F, 1.0F, 1.0F);
+        GlStateManager.scale(scale * 0.5F, scale * 0.5F, scale * 0.5F);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();
         float f = 1.0F;

@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderScorcherShot;
-import naturix.divinerpg.particle.ParticleEntityPortal;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.init.Blocks;
@@ -10,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -37,6 +35,16 @@ public class EntityScorcherShot extends EntityFireball {
         this.accelerationY = j / d * 0.1D;
         this.accelerationZ = k / d * 0.1D;
         this.shootingEntity = shooter;
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        return false;
+    }
+
+    @Override
+    public boolean canBeCollidedWith() {
+        return false;
     }
 
     @Override
@@ -78,14 +86,14 @@ public class EntityScorcherShot extends EntityFireball {
     public void onUpdate() {
         super.onUpdate();
         if (this.world.isRemote) {
-            for (int i = 0; i < 3; i++) {
-                ParticleEntityPortal particle = new ParticleEntityPortal(this.world,
-                        this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 5,
-                        this.posY + 0.5D + (this.rand.nextDouble() - this.rand.nextDouble()) / 5,
-                        this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 5, 0.0D, 0.0D, 0.0D);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle);
-            }
+            /*
+             * for (int i = 0; i < 3; i++) { ParticleEntityPortal particle = new
+             * ParticleEntityPortal(this.world, this.posX + (this.rand.nextDouble() -
+             * this.rand.nextDouble()) / 5, this.posY + 0.5D + (this.rand.nextDouble() -
+             * this.rand.nextDouble()) / 5, this.posZ + (this.rand.nextDouble() -
+             * this.rand.nextDouble()) / 5, 0.0D, 0.0D, 0.0D);
+             * FMLClientHandler.instance().getClient().effectRenderer.addEffect(particle); }
+             */
         }
-
     }
 }

@@ -43,9 +43,4 @@ public class Whale extends EntityDivineRPGSwimming {
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
-    }
 }

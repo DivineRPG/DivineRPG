@@ -73,7 +73,7 @@ public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacke
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY > 45.0D && this.posY < (double) this.world.getSeaLevel() && isInWater()
-                && super.getCanSpawnHere();
+        return world.provider.getDimension() == 0 && this.posY > 45.0D && this.posY < (double) this.world.getSeaLevel()
+                && isInWater();
     }
 }
