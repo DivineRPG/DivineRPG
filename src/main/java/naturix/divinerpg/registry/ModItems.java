@@ -1,5 +1,8 @@
 package naturix.divinerpg.registry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.items.Aquamarine;
 import naturix.divinerpg.objects.items.AxeBase;
@@ -76,16 +79,13 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ModItems {
     public static final List<Item> ITEMS = new ArrayList<Item>();
 
-    //Egg base
+    // Egg base
     private static EntitySlime EntitySlime;
 
-    //Items
+    // Items
     public static final Item amthirmisDisk = new ItemDisk(6, "disk_amthirmis");
     public static final Item hunterBow = new BowBase("bow_hunter");
     public static final Item shadowBow = new BowBase("bow_shadow");
@@ -118,145 +118,277 @@ public class ModItems {
     public static final Item aquaton = new ItemBase("aquaton", DivineRPG.CombatTab);
     public static final Item arcanaSpawnEgg = new SpawnerBase("spawn_egg_arcana", EntitySlime);
 
-    //Armour
+    // Armour
     public static final Item angelicHelmet = new Angelic(EnumArmor.ANGELIC, EntityEquipmentSlot.HEAD, "angelic_helmet");
-    public static final Item angelicChestplate = new Angelic(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST, "angelic_chestplate");
-    public static final Item angelicLeggings = new Angelic(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS, "angelic_leggings");
+    public static final Item angelicChestplate = new Angelic(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST,
+            "angelic_chestplate");
+    public static final Item angelicLeggings = new Angelic(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS,
+            "angelic_leggings");
     public static final Item angelicBoots = new Angelic(EnumArmor.ANGELIC, EntityEquipmentSlot.FEET, "angelic_boots");
-    public static final Item apalachiaHelmet = new Apalachia(EnumArmor.apalachiaArmorMaterial, EntityEquipmentSlot.HEAD, "apalachia_helmet");
-    public static final Item apalachiaChestplate = new Apalachia(EnumArmor.apalachiaArmorMaterial, EntityEquipmentSlot.CHEST, "apalachia_chestplate");
-    public static final Item apalachiaLeggings = new Apalachia(EnumArmor.apalachiaArmorMaterial, EntityEquipmentSlot.LEGS, "apalachia_leggings");
-    public static final Item apalachiaBoots = new Apalachia(EnumArmor.apalachiaArmorMaterial, EntityEquipmentSlot.FEET, "apalachia_boots");
-    public static final Item aquastriveHelmet = new Aquastrive(EnumArmor.aquastriveArmorMaterial, EntityEquipmentSlot.HEAD, "aquastrive_helmet");
-    public static final Item aquastriveChestplate = new Aquastrive(EnumArmor.aquastriveArmorMaterial, EntityEquipmentSlot.CHEST, "aquastrive_chestplate");
-    public static final Item aquastriveLeggings = new Aquastrive(EnumArmor.aquastriveArmorMaterial, EntityEquipmentSlot.LEGS, "aquastrive_leggings");
-    public static final Item aquastriveBoots = new Aquastrive(EnumArmor.aquastriveArmorMaterial, EntityEquipmentSlot.FEET, "aquastrive_boots");
-    public static final Item bedrockHelmet = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.HEAD, "bedrock_helmet");
-    public static final Item bedrockChestplate = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.CHEST, "bedrock_chestplate");
-    public static final Item bedrockLeggings = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.LEGS, "bedrock_leggings");
-    public static final Item bedrockBoots = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.FEET, "bedrock_boots");
-    public static final Item corruptedHelmet = new Corrupted(EnumArmor.corruptedArmorMaterial, EntityEquipmentSlot.HEAD, "corrupted_helmet");
-    public static final Item corruptedChestplate = new Corrupted(EnumArmor.corruptedArmorMaterial, EntityEquipmentSlot.CHEST, "corrupted_chestplate");
-    public static final Item corruptedLeggings = new Corrupted(EnumArmor.corruptedArmorMaterial, EntityEquipmentSlot.LEGS, "corrupted_leggings");
-    public static final Item corruptedBoots = new Corrupted(EnumArmor.corruptedArmorMaterial, EntityEquipmentSlot.FEET, "corrupted_boots");
-    public static final Item degradedHelmet = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.HEAD, "degraded_helmet");
-    public static final Item degradedChestplate = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.CHEST, "degraded_chestplate");
-    public static final Item degradedLeggings = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.LEGS, "degraded_leggings");
-    public static final Item degradedBoots = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.FEET, "degraded_boots");
-    public static final Item demonizedHelmet = new Demonized(EnumArmor.demonizedArmorMaterial, EntityEquipmentSlot.HEAD, "demonized_helmet");
-    public static final Item demonizedChestplate = new Demonized(EnumArmor.demonizedArmorMaterial, EntityEquipmentSlot.CHEST, "demonized_chestplate");
-    public static final Item demonizedLeggings = new Demonized(EnumArmor.demonizedArmorMaterial, EntityEquipmentSlot.LEGS, "demonized_leggings");
-    public static final Item demonizedBoots = new Demonized(EnumArmor.demonizedArmorMaterial, EntityEquipmentSlot.FEET, "demonized_boots");
-    public static final Item divineHelmet = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.HEAD, "divine_helmet");
-    public static final Item divineChestplate = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.CHEST, "divine_chestplate");
-    public static final Item divineLeggings = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.LEGS, "divine_leggings");
-    public static final Item divineBoots = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.FEET, "divine_boots");
-    public static final Item donatorHelmet = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.HEAD, "donator_helmet");
-    public static final Item donatorChestplate = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.CHEST, "donator_chestplate");
-    public static final Item donatorLeggings = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.LEGS, "donator_leggings");
-    public static final Item donatorBoots = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.FEET, "donator_boots");
-    public static final Item edenHelmet = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.HEAD, "eden_helmet");
-    public static final Item edenChestplate = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.CHEST, "eden_chestplate");
-    public static final Item edenLeggings = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.LEGS, "eden_leggings");
+    public static final Item apalachiaHelmet = new Apalachia(EnumArmor.apalachiaArmorMaterial, EntityEquipmentSlot.HEAD,
+            "apalachia_helmet");
+    public static final Item apalachiaChestplate = new Apalachia(EnumArmor.apalachiaArmorMaterial,
+            EntityEquipmentSlot.CHEST, "apalachia_chestplate");
+    public static final Item apalachiaLeggings = new Apalachia(EnumArmor.apalachiaArmorMaterial,
+            EntityEquipmentSlot.LEGS, "apalachia_leggings");
+    public static final Item apalachiaBoots = new Apalachia(EnumArmor.apalachiaArmorMaterial, EntityEquipmentSlot.FEET,
+            "apalachia_boots");
+    public static final Item aquastriveHelmet = new Aquastrive(EnumArmor.aquastriveArmorMaterial,
+            EntityEquipmentSlot.HEAD, "aquastrive_helmet");
+    public static final Item aquastriveChestplate = new Aquastrive(EnumArmor.aquastriveArmorMaterial,
+            EntityEquipmentSlot.CHEST, "aquastrive_chestplate");
+    public static final Item aquastriveLeggings = new Aquastrive(EnumArmor.aquastriveArmorMaterial,
+            EntityEquipmentSlot.LEGS, "aquastrive_leggings");
+    public static final Item aquastriveBoots = new Aquastrive(EnumArmor.aquastriveArmorMaterial,
+            EntityEquipmentSlot.FEET, "aquastrive_boots");
+    public static final Item bedrockHelmet = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.HEAD,
+            "bedrock_helmet");
+    public static final Item bedrockChestplate = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.CHEST,
+            "bedrock_chestplate");
+    public static final Item bedrockLeggings = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.LEGS,
+            "bedrock_leggings");
+    public static final Item bedrockBoots = new Bedrock(EnumArmor.bedrockArmorMaterial, EntityEquipmentSlot.FEET,
+            "bedrock_boots");
+    public static final Item corruptedHelmet = new Corrupted(EnumArmor.corruptedArmorMaterial, EntityEquipmentSlot.HEAD,
+            "corrupted_helmet");
+    public static final Item corruptedChestplate = new Corrupted(EnumArmor.corruptedArmorMaterial,
+            EntityEquipmentSlot.CHEST, "corrupted_chestplate");
+    public static final Item corruptedLeggings = new Corrupted(EnumArmor.corruptedArmorMaterial,
+            EntityEquipmentSlot.LEGS, "corrupted_leggings");
+    public static final Item corruptedBoots = new Corrupted(EnumArmor.corruptedArmorMaterial, EntityEquipmentSlot.FEET,
+            "corrupted_boots");
+    public static final Item degradedHelmet = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.HEAD,
+            "degraded_helmet");
+    public static final Item degradedChestplate = new Degraded(EnumArmor.degradedArmorMaterial,
+            EntityEquipmentSlot.CHEST, "degraded_chestplate");
+    public static final Item degradedLeggings = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.LEGS,
+            "degraded_leggings");
+    public static final Item degradedBoots = new Degraded(EnumArmor.degradedArmorMaterial, EntityEquipmentSlot.FEET,
+            "degraded_boots");
+    public static final Item demonizedHelmet = new Demonized(EnumArmor.demonizedArmorMaterial, EntityEquipmentSlot.HEAD,
+            "demonized_helmet");
+    public static final Item demonizedChestplate = new Demonized(EnumArmor.demonizedArmorMaterial,
+            EntityEquipmentSlot.CHEST, "demonized_chestplate");
+    public static final Item demonizedLeggings = new Demonized(EnumArmor.demonizedArmorMaterial,
+            EntityEquipmentSlot.LEGS, "demonized_leggings");
+    public static final Item demonizedBoots = new Demonized(EnumArmor.demonizedArmorMaterial, EntityEquipmentSlot.FEET,
+            "demonized_boots");
+    public static final Item divineHelmet = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.HEAD,
+            "divine_helmet");
+    public static final Item divineChestplate = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.CHEST,
+            "divine_chestplate");
+    public static final Item divineLeggings = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.LEGS,
+            "divine_leggings");
+    public static final Item divineBoots = new Divine(EnumArmor.divineArmorMaterial, EntityEquipmentSlot.FEET,
+            "divine_boots");
+    public static final Item donatorHelmet = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.HEAD,
+            "donator_helmet");
+    public static final Item donatorChestplate = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.CHEST,
+            "donator_chestplate");
+    public static final Item donatorLeggings = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.LEGS,
+            "donator_leggings");
+    public static final Item donatorBoots = new Donator(EnumArmor.donatorArmorMaterial, EntityEquipmentSlot.FEET,
+            "donator_boots");
+    public static final Item edenHelmet = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.HEAD,
+            "eden_helmet");
+    public static final Item edenChestplate = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.CHEST,
+            "eden_chestplate");
+    public static final Item edenLeggings = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.LEGS,
+            "eden_leggings");
     public static final Item edenBoots = new Eden(EnumArmor.edenArmorMaterial, EntityEquipmentSlot.FEET, "eden_boots");
-    public static final Item eliteRealmiteHelmet = new HelmetBase("realmite_helmet_elite", EnumArmor.realmiteArmorMaterial, "realmite_elite1");
-    public static final Item eliteRealmiteChestplate = new ChestplateBase("realmite_chestplate_elite", EnumArmor.realmiteArmorMaterial, "realmite_elite1");
-    public static final Item eliteRealmiteLeggings = new LeggingsBase("realmite_leggings_elite", EnumArmor.realmiteArmorMaterial, "realmite_elite2");
-    public static final Item eliteRealmiteBoots = new BootsBase("realmite_boots_elite", EnumArmor.realmiteArmorMaterial, "realmite_elite3");
-    public static final Item enderHelmet = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.HEAD, "ender_helmet");
-    public static final Item enderChestplate = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.CHEST, "ender_chestplate");
-    public static final Item enderLeggings = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.LEGS, "ender_leggings");
-    public static final Item enderBoots = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.FEET, "ender_boots");
-    public static final Item finishedHelmet = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.HEAD, "finished_helmet");
-    public static final Item finishedChestplate = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.CHEST, "finished_chestplate");
-    public static final Item finishedLeggings = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.LEGS, "finished_leggings");
-    public static final Item finishedBoots = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.FEET, "finished_boots");
-    public static final Item frozenHelmet = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.HEAD, "frozen_helmet");
-    public static final Item frozenChestplate = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.CHEST, "frozen_chestplate");
-    public static final Item frozenLeggings = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.LEGS, "frozen_leggings");
-    public static final Item frozenBoots = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.FEET, "frozen_boots");
-    public static final Item glisteningHelmet = new Glistening(EnumArmor.glisteningArmorMaterial, EntityEquipmentSlot.HEAD, "glistening_helmet");
-    public static final Item glisteningChestplate = new Glistening(EnumArmor.glisteningArmorMaterial, EntityEquipmentSlot.CHEST, "glistening_chestplate");
-    public static final Item glisteningLeggings = new Glistening(EnumArmor.glisteningArmorMaterial, EntityEquipmentSlot.LEGS, "glistening_leggings");
-    public static final Item glisteningBoots = new Glistening(EnumArmor.glisteningArmorMaterial, EntityEquipmentSlot.FEET, "glistening_boots");
-    public static final Item haliteHelmet = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.HEAD, "halite_helmet");
-    public static final Item haliteChestplate = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.CHEST, "halite_chestplate");
-    public static final Item haliteLeggings = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.LEGS, "halite_leggings");
-    public static final Item haliteBoots = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.FEET, "halite_boots");
-    public static final Item infernoHelmet = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.HEAD, "inferno_helmet");
-    public static final Item infernoChestplate = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.CHEST, "inferno_chestplate");
-    public static final Item infernoLeggings = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.LEGS, "inferno_leggings");
-    public static final Item infernoBoots = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.FEET, "inferno_boots");
-    public static final Item jackomanHelmet = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.HEAD, "jackoman_helmet");
-    public static final Item jackomanChestplate = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.CHEST, "jackoman_chestplate");
-    public static final Item jackomanLeggings = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.LEGS, "jackoman_leggings");
-    public static final Item jackomanBoots = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.FEET, "jackoman_boots");
-    public static final Item jungleHelmet = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.HEAD, "jungle_helmet");
-    public static final Item jungleChestplate = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.CHEST, "jungle_chestplate");
-    public static final Item jungleLeggings = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.LEGS, "jungle_leggings");
-    public static final Item jungleBoots = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.FEET, "jungle_boots");
-    public static final Item kormaHelmet = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.HEAD, "korma_helmet");
-    public static final Item kormaChestplate = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.CHEST, "korma_chestplate");
-    public static final Item kormaLeggings = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.LEGS, "korma_leggings");
-    public static final Item kormaBoots = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.FEET, "korma_boots");
-    public static final Item krakenHelmet = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.HEAD, "kraken_helmet");
-    public static final Item krakenChestplate = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.CHEST, "kraken_chestplate");
-    public static final Item krakenLeggings = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.LEGS, "kraken_leggings");
-    public static final Item krakenBoots = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.FEET, "kraken_boots");
-    public static final Item mortumHelmet = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.HEAD, "mortum_helmet");
-    public static final Item mortumChestplate = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.CHEST, "mortum_chestplate");
-    public static final Item mortumLeggings = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.LEGS, "mortum_leggings");
-    public static final Item mortumBoots = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.FEET, "mortum_boots");
-    public static final Item netheriteHelmet = new Netherite(EnumArmor.netheriteArmorMaterial, EntityEquipmentSlot.HEAD, "netherite_helmet");
-    public static final Item netheriteChestplate = new Netherite(EnumArmor.netheriteArmorMaterial, EntityEquipmentSlot.CHEST, "netherite_chestplate");
-    public static final Item netheriteLeggings = new Netherite(EnumArmor.netheriteArmorMaterial, EntityEquipmentSlot.LEGS, "netherite_leggings");
-    public static final Item netheriteBoots = new Netherite(EnumArmor.netheriteArmorMaterial, EntityEquipmentSlot.FEET, "netherite_boots");
-    public static final Item realmiteHelmet = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.HEAD, "realmite_helmet");
-    public static final Item realmiteChestplate = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.CHEST, "realmite_chestplate");
-    public static final Item realmiteLeggings = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.LEGS, "realmite_leggings");
-    public static final Item realmiteBoots = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.FEET, "realmite_boots");
-    public static final Item rupeeHelmet = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.HEAD, "rupee_helmet");
-    public static final Item rupeeChestplate = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.CHEST, "rupee_chestplate");
-    public static final Item rupeeLeggings = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.LEGS, "rupee_leggings");
-    public static final Item rupeeBoots = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.FEET, "rupee_boots");
+    public static final Item eliteRealmiteHelmet = new HelmetBase("realmite_helmet_elite",
+            EnumArmor.realmiteArmorMaterial, "realmite_elite1");
+    public static final Item eliteRealmiteChestplate = new ChestplateBase("realmite_chestplate_elite",
+            EnumArmor.realmiteArmorMaterial, "realmite_elite1");
+    public static final Item eliteRealmiteLeggings = new LeggingsBase("realmite_leggings_elite",
+            EnumArmor.realmiteArmorMaterial, "realmite_elite2");
+    public static final Item eliteRealmiteBoots = new BootsBase("realmite_boots_elite", EnumArmor.realmiteArmorMaterial,
+            "realmite_elite3");
+    public static final Item enderHelmet = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.HEAD,
+            "ender_helmet");
+    public static final Item enderChestplate = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.CHEST,
+            "ender_chestplate");
+    public static final Item enderLeggings = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.LEGS,
+            "ender_leggings");
+    public static final Item enderBoots = new Ender(EnumArmor.enderArmorMaterial, EntityEquipmentSlot.FEET,
+            "ender_boots");
+    public static final Item finishedHelmet = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.HEAD,
+            "finished_helmet");
+    public static final Item finishedChestplate = new Finished(EnumArmor.finishedArmorMaterial,
+            EntityEquipmentSlot.CHEST, "finished_chestplate");
+    public static final Item finishedLeggings = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.LEGS,
+            "finished_leggings");
+    public static final Item finishedBoots = new Finished(EnumArmor.finishedArmorMaterial, EntityEquipmentSlot.FEET,
+            "finished_boots");
+    public static final Item frozenHelmet = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.HEAD,
+            "frozen_helmet");
+    public static final Item frozenChestplate = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.CHEST,
+            "frozen_chestplate");
+    public static final Item frozenLeggings = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.LEGS,
+            "frozen_leggings");
+    public static final Item frozenBoots = new Frozen(EnumArmor.frozenArmorMaterial, EntityEquipmentSlot.FEET,
+            "frozen_boots");
+    public static final Item glisteningHelmet = new Glistening(EnumArmor.glisteningArmorMaterial,
+            EntityEquipmentSlot.HEAD, "glistening_helmet");
+    public static final Item glisteningChestplate = new Glistening(EnumArmor.glisteningArmorMaterial,
+            EntityEquipmentSlot.CHEST, "glistening_chestplate");
+    public static final Item glisteningLeggings = new Glistening(EnumArmor.glisteningArmorMaterial,
+            EntityEquipmentSlot.LEGS, "glistening_leggings");
+    public static final Item glisteningBoots = new Glistening(EnumArmor.glisteningArmorMaterial,
+            EntityEquipmentSlot.FEET, "glistening_boots");
+    public static final Item haliteHelmet = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.HEAD,
+            "halite_helmet");
+    public static final Item haliteChestplate = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.CHEST,
+            "halite_chestplate");
+    public static final Item haliteLeggings = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.LEGS,
+            "halite_leggings");
+    public static final Item haliteBoots = new Halite(EnumArmor.haliteArmorMaterial, EntityEquipmentSlot.FEET,
+            "halite_boots");
+    public static final Item infernoHelmet = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.HEAD,
+            "inferno_helmet");
+    public static final Item infernoChestplate = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.CHEST,
+            "inferno_chestplate");
+    public static final Item infernoLeggings = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.LEGS,
+            "inferno_leggings");
+    public static final Item infernoBoots = new Inferno(EnumArmor.infernoArmorMaterial, EntityEquipmentSlot.FEET,
+            "inferno_boots");
+    public static final Item jackomanHelmet = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.HEAD,
+            "jackoman_helmet");
+    public static final Item jackomanChestplate = new JackOMan(EnumArmor.jackomanArmorMaterial,
+            EntityEquipmentSlot.CHEST, "jackoman_chestplate");
+    public static final Item jackomanLeggings = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.LEGS,
+            "jackoman_leggings");
+    public static final Item jackomanBoots = new JackOMan(EnumArmor.jackomanArmorMaterial, EntityEquipmentSlot.FEET,
+            "jackoman_boots");
+    public static final Item jungleHelmet = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.HEAD,
+            "jungle_helmet");
+    public static final Item jungleChestplate = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.CHEST,
+            "jungle_chestplate");
+    public static final Item jungleLeggings = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.LEGS,
+            "jungle_leggings");
+    public static final Item jungleBoots = new Jungle(EnumArmor.jungleArmorMaterial, EntityEquipmentSlot.FEET,
+            "jungle_boots");
+    public static final Item kormaHelmet = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.HEAD,
+            "korma_helmet");
+    public static final Item kormaChestplate = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.CHEST,
+            "korma_chestplate");
+    public static final Item kormaLeggings = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.LEGS,
+            "korma_leggings");
+    public static final Item kormaBoots = new Korma(EnumArmor.kormaArmorMaterial, EntityEquipmentSlot.FEET,
+            "korma_boots");
+    public static final Item krakenHelmet = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.HEAD,
+            "kraken_helmet");
+    public static final Item krakenChestplate = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.CHEST,
+            "kraken_chestplate");
+    public static final Item krakenLeggings = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.LEGS,
+            "kraken_leggings");
+    public static final Item krakenBoots = new Kraken(EnumArmor.krakenArmorMaterial, EntityEquipmentSlot.FEET,
+            "kraken_boots");
+    public static final Item mortumHelmet = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.HEAD,
+            "mortum_helmet");
+    public static final Item mortumChestplate = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.CHEST,
+            "mortum_chestplate");
+    public static final Item mortumLeggings = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.LEGS,
+            "mortum_leggings");
+    public static final Item mortumBoots = new Mortum(EnumArmor.mortumArmorMaterial, EntityEquipmentSlot.FEET,
+            "mortum_boots");
+    public static final Item netheriteHelmet = new Netherite(EnumArmor.netheriteArmorMaterial, EntityEquipmentSlot.HEAD,
+            "netherite_helmet");
+    public static final Item netheriteChestplate = new Netherite(EnumArmor.netheriteArmorMaterial,
+            EntityEquipmentSlot.CHEST, "netherite_chestplate");
+    public static final Item netheriteLeggings = new Netherite(EnumArmor.netheriteArmorMaterial,
+            EntityEquipmentSlot.LEGS, "netherite_leggings");
+    public static final Item netheriteBoots = new Netherite(EnumArmor.netheriteArmorMaterial, EntityEquipmentSlot.FEET,
+            "netherite_boots");
+    public static final Item realmiteHelmet = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.HEAD,
+            "realmite_helmet");
+    public static final Item realmiteChestplate = new Realmite(EnumArmor.realmiteArmorMaterial,
+            EntityEquipmentSlot.CHEST, "realmite_chestplate");
+    public static final Item realmiteLeggings = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.LEGS,
+            "realmite_leggings");
+    public static final Item realmiteBoots = new Realmite(EnumArmor.realmiteArmorMaterial, EntityEquipmentSlot.FEET,
+            "realmite_boots");
+    public static final Item rupeeHelmet = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.HEAD,
+            "rupee_helmet");
+    public static final Item rupeeChestplate = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.CHEST,
+            "rupee_chestplate");
+    public static final Item rupeeLeggings = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.LEGS,
+            "rupee_leggings");
+    public static final Item rupeeBoots = new Rupee(EnumArmor.rupeeArmorMaterial, EntityEquipmentSlot.FEET,
+            "rupee_boots");
     public static final Item santaCap = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.HEAD, "santa_cap");
-    public static final Item santaTunic = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.CHEST, "santa_tunic");
-    public static final Item santaPants = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.LEGS, "santa_pants");
-    public static final Item santaBoots = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.FEET, "santa_boots");
-    public static final Item shadowHelmet = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.HEAD, "shadow_helmet");
-    public static final Item shadowChestplate = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.CHEST, "shadow_chestplate");
-    public static final Item shadowLeggings = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.LEGS, "shadow_leggings");
-    public static final Item shadowBoots = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.FEET, "shadow_boots");
-    public static final Item skelemanHelmet = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.HEAD, "skeleman_helmet");
-    public static final Item skelemanChestplate = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.CHEST, "skeleman_chestplate");
-    public static final Item skelemanLeggings = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.LEGS, "skeleman_leggings");
-    public static final Item skelemanBoots = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.FEET, "skeleman_boots");
-    public static final Item skythernHelmet = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.HEAD, "skythern_helmet");
-    public static final Item skythernChestplate = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.CHEST, "skythern_chestplate");
-    public static final Item skythernLeggings = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.LEGS, "skythern_leggings");
-    public static final Item skythernBoots = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.FEET, "skythern_boots");
-    public static final Item terranHelmet = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.HEAD, "terran_helmet");
-    public static final Item terranChestplate = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.CHEST, "terran_chestplate");
-    public static final Item terranLeggings = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.LEGS, "terran_leggings");
-    public static final Item terranBoots = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.FEET, "terran_boots");
-    public static final Item tormentedHelmet = new Tormented(EnumArmor.tormentedArmorMaterial, EntityEquipmentSlot.HEAD, "tormented_helmet");
-    public static final Item tormentedChestplate = new Tormented(EnumArmor.tormentedArmorMaterial, EntityEquipmentSlot.CHEST, "tormented_chestplate");
-    public static final Item tormentedLeggings = new Tormented(EnumArmor.tormentedArmorMaterial, EntityEquipmentSlot.LEGS, "tormented_leggings");
-    public static final Item tormentedBoots = new Tormented(EnumArmor.tormentedArmorMaterial, EntityEquipmentSlot.FEET, "tormented_boots");
-    public static final Item vemosHelmet = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.HEAD, "vemos_helmet");
-    public static final Item vemosChestplate = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.CHEST, "vemos_chestplate");
-    public static final Item vemosLeggings = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.LEGS, "vemos_leggings");
-    public static final Item vemosBoots = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.FEET, "vemos_boots");
-    public static final Item wildwoodHelmet = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.HEAD, "wildwood_helmet");
-    public static final Item wildwoodChestplate = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.CHEST, "wildwood_chestplate");
-    public static final Item wildwoodLeggings = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.LEGS, "wildwood_leggings");
-    public static final Item wildwoodBoots = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.FEET, "wildwood_boots");
-    public static final Item witherreaperHelmet = new WitherReaper(EnumArmor.witherreaperArmorMaterial, EntityEquipmentSlot.HEAD, "wither_reaper_helmet");
-    public static final Item witherreaperChestplate = new WitherReaper(EnumArmor.witherreaperArmorMaterial, EntityEquipmentSlot.CHEST, "wither_reaper_chestplate");
-    public static final Item witherreaperLeggings = new WitherReaper(EnumArmor.witherreaperArmorMaterial, EntityEquipmentSlot.LEGS, "wither_reaper_leggings");
-    public static final Item witherreaperBoots = new WitherReaper(EnumArmor.witherreaperArmorMaterial, EntityEquipmentSlot.FEET, "wither_reaper_boots");
+    public static final Item santaTunic = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.CHEST,
+            "santa_tunic");
+    public static final Item santaPants = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.LEGS,
+            "santa_pants");
+    public static final Item santaBoots = new Santa(EnumArmor.santaArmorMaterial, EntityEquipmentSlot.FEET,
+            "santa_boots");
+    public static final Item shadowHelmet = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.HEAD,
+            "shadow_helmet");
+    public static final Item shadowChestplate = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.CHEST,
+            "shadow_chestplate");
+    public static final Item shadowLeggings = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.LEGS,
+            "shadow_leggings");
+    public static final Item shadowBoots = new Shadow(EnumArmor.shadowArmorMaterial, EntityEquipmentSlot.FEET,
+            "shadow_boots");
+    public static final Item skelemanHelmet = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.HEAD,
+            "skeleman_helmet");
+    public static final Item skelemanChestplate = new Skeleman(EnumArmor.skelemanArmorMaterial,
+            EntityEquipmentSlot.CHEST, "skeleman_chestplate");
+    public static final Item skelemanLeggings = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.LEGS,
+            "skeleman_leggings");
+    public static final Item skelemanBoots = new Skeleman(EnumArmor.skelemanArmorMaterial, EntityEquipmentSlot.FEET,
+            "skeleman_boots");
+    public static final Item skythernHelmet = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.HEAD,
+            "skythern_helmet");
+    public static final Item skythernChestplate = new Skythern(EnumArmor.skythernArmorMaterial,
+            EntityEquipmentSlot.CHEST, "skythern_chestplate");
+    public static final Item skythernLeggings = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.LEGS,
+            "skythern_leggings");
+    public static final Item skythernBoots = new Skythern(EnumArmor.skythernArmorMaterial, EntityEquipmentSlot.FEET,
+            "skythern_boots");
+    public static final Item terranHelmet = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.HEAD,
+            "terran_helmet");
+    public static final Item terranChestplate = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.CHEST,
+            "terran_chestplate");
+    public static final Item terranLeggings = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.LEGS,
+            "terran_leggings");
+    public static final Item terranBoots = new Terran(EnumArmor.terranArmorMaterial, EntityEquipmentSlot.FEET,
+            "terran_boots");
+    public static final Item tormentedHelmet = new Tormented(EnumArmor.tormentedArmorMaterial, EntityEquipmentSlot.HEAD,
+            "tormented_helmet");
+    public static final Item tormentedChestplate = new Tormented(EnumArmor.tormentedArmorMaterial,
+            EntityEquipmentSlot.CHEST, "tormented_chestplate");
+    public static final Item tormentedLeggings = new Tormented(EnumArmor.tormentedArmorMaterial,
+            EntityEquipmentSlot.LEGS, "tormented_leggings");
+    public static final Item tormentedBoots = new Tormented(EnumArmor.tormentedArmorMaterial, EntityEquipmentSlot.FEET,
+            "tormented_boots");
+    public static final Item vemosHelmet = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.HEAD,
+            "vemos_helmet");
+    public static final Item vemosChestplate = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.CHEST,
+            "vemos_chestplate");
+    public static final Item vemosLeggings = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.LEGS,
+            "vemos_leggings");
+    public static final Item vemosBoots = new Vemos(EnumArmor.vemosArmorMaterial, EntityEquipmentSlot.FEET,
+            "vemos_boots");
+    public static final Item wildwoodHelmet = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.HEAD,
+            "wildwood_helmet");
+    public static final Item wildwoodChestplate = new Wildwood(EnumArmor.wildwoodArmorMaterial,
+            EntityEquipmentSlot.CHEST, "wildwood_chestplate");
+    public static final Item wildwoodLeggings = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.LEGS,
+            "wildwood_leggings");
+    public static final Item wildwoodBoots = new Wildwood(EnumArmor.wildwoodArmorMaterial, EntityEquipmentSlot.FEET,
+            "wildwood_boots");
+    public static final Item witherreaperHelmet = new WitherReaper(EnumArmor.witherreaperArmorMaterial,
+            EntityEquipmentSlot.HEAD, "wither_reaper_helmet");
+    public static final Item witherreaperChestplate = new WitherReaper(EnumArmor.witherreaperArmorMaterial,
+            EntityEquipmentSlot.CHEST, "wither_reaper_chestplate");
+    public static final Item witherreaperLeggings = new WitherReaper(EnumArmor.witherreaperArmorMaterial,
+            EntityEquipmentSlot.LEGS, "wither_reaper_leggings");
+    public static final Item witherreaperBoots = new WitherReaper(EnumArmor.witherreaperArmorMaterial,
+            EntityEquipmentSlot.FEET, "wither_reaper_boots");
 
-    //tools
+    // tools
     public static final Item bandHeivaHunt = new ItemBase("band_heiva_hunt");
     public static final Item templateDisc = new ItemBase("template_disc");
     public static final Item templateCannon = new ItemBase("template_cannon");
@@ -280,8 +412,10 @@ public class ModItems {
     public static final Item fragmentWildwood = new ItemBase("fragment_wildwood");
     public static final Item fragmentMortum = new ItemBase("fragment_mortum");
     public static final Item corruptedAxe = new AxeBase(DivineRPGMaterials.corruptedAxeMaterial, "axe_corrupted");
-    public static final Item corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedShovelMaterial, "shovel_corrupted");
-    public static final Item corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedPickMaterial, "pickaxe_corrupted", 18F, 1F);
+    public static final Item corruptedShovel = new ShovelBase(DivineRPGMaterials.corruptedShovelMaterial,
+            "shovel_corrupted");
+    public static final Item corruptedPickaxe = new PickaxeBase(DivineRPGMaterials.corruptedPickMaterial,
+            "pickaxe_corrupted", 18F, 1F);
     public static final Item pearlsDirty = new ItemBase("pearls_dirty");
     public static final Item pearlsClean = new ItemBase("pearls_clean");
     public static final Item pearlsShiny = new ItemBase("pearls_shiny");
@@ -311,7 +445,7 @@ public class ModItems {
     public static final Item cannonHeliosis = new CannonBase("cannon_heliosis");
     public static final Item cannonArksiane = new CannonBase("cannon_arksiane");
 
-    //food
+    // food
     public static final Item chickenDinner = new FoodBase("winner_winner", 18, false, true);
     public static final Item bacon = new FoodBase("bacon", 3, true, true);
     public static final Item hotPumpkinPie = new FoodBase("pie_pumpkin_hot", 7, true);
@@ -347,54 +481,79 @@ public class ModItems {
     public static final Item pinfly = new FoodBase("pinfly", 1, false);
     public static final Item captainsparkler = new ItemCaptainsSparkler("captainsparkler");
 
-    //Stuff to be sorted
-    public static final Item teakerBackSword = new SwordBase(DivineRPGMaterials.teakerSwordMaterial, "sword_teaker_back");
-    public static final Item amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "sword_amthirmis_back");
-    public static final Item darvenBackSword = new SwordBase(DivineRPGMaterials.darvenSwordMaterial, "sword_darven_back");
-    public static final Item cermileBackSword = new SwordBase(DivineRPGMaterials.cermileSwordMaterial, "sword_cermile_back");
-    public static final Item pardimalBackSword = new SwordBase(DivineRPGMaterials.pardimalSwordMaterial, "sword_pardimal_back");
-    public static final Item quadroticBackSword = new SwordBase(DivineRPGMaterials.quadroticSwordMaterial, "sword_quadrotic_back");
+    // Stuff to be sorted
+    public static final Item teakerBackSword = new SwordBase(DivineRPGMaterials.teakerSwordMaterial,
+            "sword_teaker_back");
+    public static final Item amthrimisBackSword = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial,
+            "sword_amthirmis_back");
+    public static final Item darvenBackSword = new SwordBase(DivineRPGMaterials.darvenSwordMaterial,
+            "sword_darven_back");
+    public static final Item cermileBackSword = new SwordBase(DivineRPGMaterials.cermileSwordMaterial,
+            "sword_cermile_back");
+    public static final Item pardimalBackSword = new SwordBase(DivineRPGMaterials.pardimalSwordMaterial,
+            "sword_pardimal_back");
+    public static final Item quadroticBackSword = new SwordBase(DivineRPGMaterials.quadroticSwordMaterial,
+            "sword_quadrotic_back");
     public static final Item karosBackSword = new SwordBase(DivineRPGMaterials.karosSwordMaterial, "sword_karos_back");
-    public static final Item heliosisBackSword = new SwordBase(DivineRPGMaterials.heliosisSwordMaterial, "sword_heliosis_back");
-    public static final Item arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial, "sword_arksiane_wrath");
+    public static final Item heliosisBackSword = new SwordBase(DivineRPGMaterials.heliosisSwordMaterial,
+            "sword_heliosis_back");
+    public static final Item arksianeWrathSword = new SwordBase(DivineRPGMaterials.arksianeSwordMaterial,
+            "sword_arksiane_wrath");
     public static final Item icineSword = new SwordBase(DivineRPGMaterials.icineSwordMaterial, "sword_icine");
     public static final Item glacierSword = new SwordBase(DivineRPGMaterials.glacierSwordMaterial, "sword_glacier");
-    public static final Item frostkingSword = new SwordBase(DivineRPGMaterials.frostKingSwordMaterial, "sword_frostking");
+    public static final Item frostkingSword = new SwordBase(DivineRPGMaterials.frostKingSwordMaterial,
+            "sword_frostking");
     public static final Item frostSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_realmite");
     public static final Item divineSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine");
-    public static final Item divineYSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_yellow");
+    public static final Item divineYSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial,
+            "sword_divine_yellow");
     public static final Item divineGSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_grey");
     public static final Item divineRSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_red");
-    public static final Item divineGRSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_divine_green");
+    public static final Item divineGRSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial,
+            "sword_divine_green");
     public static final Item sharkSword = new SwordBase(DivineRPGMaterials.sharkSwordMaterial, "sword_shark");
     public static final Item slimeSword = new SwordBase(DivineRPGMaterials.slimeSwordMaterial, "sword_slime");
     public static final Item infernoSword = new SwordBase(DivineRPGMaterials.infernoSwordMaterial, "sword_inferno");
-    public static final Item cyclopsianSword = new SwordBase(DivineRPGMaterials.cyclopsianSwordMaterial, "sword_cyclopsian");
+    public static final Item cyclopsianSword = new SwordBase(DivineRPGMaterials.cyclopsianSwordMaterial,
+            "sword_cyclopsian");
     public static final Item moltenSword = new SwordBase(DivineRPGMaterials.moltenSwordMaterial, "sword_molten");
-    public static final Item scorchingSword = new SwordBase(DivineRPGMaterials.scorchingSwordMaterial, "sword_scorching");
+    public static final Item scorchingSword = new SwordBase(DivineRPGMaterials.scorchingSwordMaterial,
+            "sword_scorching");
     public static final Item bluefireSword = new SwordBase(DivineRPGMaterials.bluefireSwordMaterial, "sword_bluefire");
     public static final Item enderSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender");
     public static final Item enderBSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_blue");
     public static final Item enderYSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_yellow");
     public static final Item enderGSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_green");
     public static final Item enderRSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_ender_red");
-    public static final Item aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial, "sword_aquatooth");
+    public static final Item aquatoothSword = new SwordBase(DivineRPGMaterials.aquatoothSwordMaterial,
+            "sword_aquatooth");
     public static final Item bedrockSword = new SwordBase(DivineRPGMaterials.bedrockSwordMaterial, "sword_bedrock");
-    public static final Item blackEnderSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial, "sword_black_ender");
+    public static final Item blackEnderSword = new SwordBase(DivineRPGMaterials.enderSwordMaterial,
+            "sword_black_ender");
     public static final Item bloodgemSword = new SwordBase(DivineRPGMaterials.bloodgemSwordMaterial, "sword_bloodgem");
-    public static final Item blueDivineSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial, "sword_blue_divine");
+    public static final Item blueDivineSword = new SwordBase(DivineRPGMaterials.divineSwordMaterial,
+            "sword_blue_divine");
     public static final Item stormSword = new SwordBase(DivineRPGMaterials.stormSwordMaterial, "sword_storm");
     public static final Item donatorSword = new SwordBase(DivineRPGMaterials.realmiteSwordMaterial, "sword_donator");
-    public static final Item realmitePickaxe = new PickaxeBase(DivineRPGMaterials.realmitePickMaterial, "pickaxe_realmite", 0, 0);
+    public static final Item realmitePickaxe = new PickaxeBase(DivineRPGMaterials.realmitePickMaterial,
+            "pickaxe_realmite", 0, 0);
     public static final Item edenPickaxe = new PickaxeBase(DivineRPGMaterials.edenPickMaterial, "pickaxe_eden", 0, 0);
-    public static final Item wildwoodPickaxe = new PickaxeBase(DivineRPGMaterials.wildPickMaterial, "pickaxe_wildwood", 0, 0);
-    public static final Item apalachiaPickaxe = new PickaxeBase(DivineRPGMaterials.apalachiaPickMaterial, "pickaxe_apalachia", 0, 0);
-    public static final Item skythernPickaxe = new PickaxeBase(DivineRPGMaterials.skythernPickMaterial, "pickaxe_skythern", 0, 0);
-    public static final Item mortumPickaxe = new PickaxeBase(DivineRPGMaterials.mortumPickMaterial, "pickaxe_mortum", 0, 0);
-    public static final Item divinePickaxe = new PickaxeBase(DivineRPGMaterials.divinePickMaterial, "pickaxe_divine", 0, 0);
-    public static final Item arlemitePickaxe = new PickaxeBase(DivineRPGMaterials.arlemitePickMaterial, "pickaxe_arlemite", 0, 0);
-    public static final Item rupeePickaxe = new PickaxeBase(DivineRPGMaterials.rupeePickMaterial, "pickaxe_rupee", 0, 0);
-    public static final Item bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockPickMaterial, "pickaxe_bedrock", 0, 0);
+    public static final Item wildwoodPickaxe = new PickaxeBase(DivineRPGMaterials.wildPickMaterial, "pickaxe_wildwood",
+            0, 0);
+    public static final Item apalachiaPickaxe = new PickaxeBase(DivineRPGMaterials.apalachiaPickMaterial,
+            "pickaxe_apalachia", 0, 0);
+    public static final Item skythernPickaxe = new PickaxeBase(DivineRPGMaterials.skythernPickMaterial,
+            "pickaxe_skythern", 0, 0);
+    public static final Item mortumPickaxe = new PickaxeBase(DivineRPGMaterials.mortumPickMaterial, "pickaxe_mortum", 0,
+            0);
+    public static final Item divinePickaxe = new PickaxeBase(DivineRPGMaterials.divinePickMaterial, "pickaxe_divine", 0,
+            0);
+    public static final Item arlemitePickaxe = new PickaxeBase(DivineRPGMaterials.arlemitePickMaterial,
+            "pickaxe_arlemite", 0, 0);
+    public static final Item rupeePickaxe = new PickaxeBase(DivineRPGMaterials.rupeePickMaterial, "pickaxe_rupee", 0,
+            0);
+    public static final Item bedrockPickaxe = new PickaxeBase(DivineRPGMaterials.bedrockPickMaterial, "pickaxe_bedrock",
+            0, 0);
     public static final Item realmiteAxe = new AxeBase(DivineRPGMaterials.realmiteAxeMaterial, "axe_realmite");
     public static final Item edenAxe = new AxeBase(DivineRPGMaterials.edenAxeMaterial, "axe_eden");
     public static final Item wildwoodAxe = new AxeBase(DivineRPGMaterials.wildAxeMaterial, "axe_wildwood");
@@ -405,43 +564,58 @@ public class ModItems {
     public static final Item arlemiteAxe = new AxeBase(DivineRPGMaterials.arlemiteAxeMaterial, "axe_arlemite");
     public static final Item rupeeAxe = new AxeBase(DivineRPGMaterials.rupeeAxeMaterial, "axe_rupee");
     public static final Item bedrockAxe = new AxeBase(DivineRPGMaterials.bedrockAxeMaterial, "axe_bedrock");
-    public static final Item realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteShovelMaterial, "shovel_realmite");
+    public static final Item realmiteShovel = new ShovelBase(DivineRPGMaterials.realmiteShovelMaterial,
+            "shovel_realmite");
     public static final Item edenShovel = new ShovelBase(DivineRPGMaterials.edenShovelMaterial, "shovel_eden");
     public static final Item wildwoodShovel = new ShovelBase(DivineRPGMaterials.wildShovelMaterial, "shovel_wildwood");
-    public static final Item apalachiaShovel = new ShovelBase(DivineRPGMaterials.apalachiaShovelMaterial, "shovel_apalachia");
-    public static final Item skythernShovel = new ShovelBase(DivineRPGMaterials.skythernShovelMaterial, "shovel_skythern");
+    public static final Item apalachiaShovel = new ShovelBase(DivineRPGMaterials.apalachiaShovelMaterial,
+            "shovel_apalachia");
+    public static final Item skythernShovel = new ShovelBase(DivineRPGMaterials.skythernShovelMaterial,
+            "shovel_skythern");
     public static final Item mortumShovel = new ShovelBase(DivineRPGMaterials.mortumShovelMaterial, "shovel_mortum");
     public static final Item divineShovel = new ShovelBase(DivineRPGMaterials.divineShovelMaterial, "shovel_divine");
-    public static final Item arlemiteShovel = new ShovelBase(DivineRPGMaterials.arlemiteShovelMaterial, "shovel_arlemite");
+    public static final Item arlemiteShovel = new ShovelBase(DivineRPGMaterials.arlemiteShovelMaterial,
+            "shovel_arlemite");
     public static final Item rupeeShovel = new ShovelBase(DivineRPGMaterials.rupeeShovelMaterial, "shovel_rupee");
     public static final Item bedrockShovel = new ShovelBase(DivineRPGMaterials.bedrockShovelMaterial, "shovel_bedrock");
 
     public static final Item arlemiteHoe = new HoeBase(DivineRPGMaterials.arlemiteHoeMaterial, "hoe_arlemite");
     public static final Item rupeeHoe = new HoeBase(DivineRPGMaterials.rupeeHoeMaterial, "hoe_rupee");
     public static final Item realmiteHoe = new HoeBase(DivineRPGMaterials.realmiteHoeMaterial, "hoe_realmite");
-    public static final Item rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeShickaxeMaterial, "shickaxe_rupee");
-    public static final Item arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteShickaxeMaterial, "shickaxe_arlemite");
-    public static final Item divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineShickaxeMaterial, "shickaxe_divine");
+    public static final Item rupeeShickaxe = new ShickaxeBase(DivineRPGMaterials.rupeeShickaxeMaterial,
+            "shickaxe_rupee");
+    public static final Item arlemiteShickaxe = new ShickaxeBase(DivineRPGMaterials.arlemiteShickaxeMaterial,
+            "shickaxe_arlemite");
+    public static final Item divineShickaxe = new ShickaxeBase(DivineRPGMaterials.divineShickaxeMaterial,
+            "shickaxe_divine");
     public static final Item crabClaw = new ItemBase("claw_crab");
     public static final Item crabClawDual = new SwordBase(DivineRPGMaterials.amthrimisSwordMaterial, "claw_crab_dual");
     public static final Item crabClawAnchor = new CannonBase("anchor_claw_crab");
     public static final Item everlight = new SwordBase(DivineRPGMaterials.everlightSwordMaterial, "everlight");
     public static final Item everbright = new SwordBase(DivineRPGMaterials.everbrightSwordMaterial, "everbright");
     public static final Item clawTeaker = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_teaker", true);
-    public static final Item clawAmthirmis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_amthirmis", true);
+    public static final Item clawAmthirmis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_amthirmis",
+            true);
     public static final Item clawDarven = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_darven", true);
-    public static final Item clawCermile = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_cermile", true);
-    public static final Item clawPardimal = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_pardimal", true);
-    public static final Item clawQuadrotic = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_quadrotic", true);
+    public static final Item clawCermile = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_cermile",
+            true);
+    public static final Item clawPardimal = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_pardimal",
+            true);
+    public static final Item clawQuadrotic = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_quadrotic",
+            true);
     public static final Item clawKaros = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_karos", true);
-    public static final Item clawHeliosis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_heliosis", true);
-    public static final Item clawArksiane = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_arksiane", true);
+    public static final Item clawHeliosis = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_heliosis",
+            true);
+    public static final Item clawArksiane = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "claw_arksiane",
+            true);
     public static final Item palavence = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "palavence");
     public static final Item massivence = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "massivence");
-    public static final Item arlemiteStabber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "stabber_arlemite");
+    public static final Item arlemiteStabber = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial,
+            "stabber_arlemite");
     public static final Item rupeeRapier = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "rapier_rupee");
     public static final Item aquaticDagger = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "dagger_aquatic");
-    public static final Item aquaticTrident = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "trident_aquatic");
+    public static final Item aquaticTrident = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial,
+            "trident_aquatic");
     public static final Item oceanKnife = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "knife_ocean");
     public static final Item deathBringer = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "deathbringer");
     public static final Item aquaticMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_aquatic");
@@ -452,7 +626,8 @@ public class ModItems {
     public static final Item corruptedMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_corrupted");
     public static final Item edenBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_eden");
     public static final Item bedrockMaul = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "maul_bedrock");
-    public static final Item apalachiaBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_apalachia");
+    public static final Item apalachiaBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial,
+            "blade_apalachia");
     public static final Item mortumBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_mortum");
     public static final Item haliteBlade = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "blade_halite");
     public static final Item sandslash = new SwordBase(DivineRPGMaterials.arlemiteSwordMaterial, "sandslash");
@@ -474,8 +649,8 @@ public class ModItems {
     public static final Item tpStaff = new TeleportStaff("teleportation_crystal");
     public static final Item arrowInferno = new InfernoArrow("arrow_inferno");
     public static final Item edenSparklez = new ItemBase("eden_sparklez");
-    public static final Item callWatcher = new CallOfTheWatcher("callofthewatcher");
-    public static final Item eyeWatch = new ItemBase("watchingeye");
+    public static final Item callWatcher = new CallOfTheWatcher("call_of_the_watcher");
+    public static final Item eyeWatch = new ItemBase("watching_eye");
     public static final Item stoneMolten = new ItemBase("stone_molten");
     public static final Item stoneDivine = new ItemBase("stone_divine");
     public static final Item stoneEnder = new ItemBase("stone_ender");
@@ -486,7 +661,7 @@ public class ModItems {
     public static final Item pelletsAquaticPure = new ItemBase("pellets_aquatic_pure");
     public static final Item shardIce = new ItemBase("shard_ice");
     public static final Item seedsGlowbonePurple = new ItemBase("seeds_glowbone_purple");
-    public static final Item snowGlobe = new SnowGlobe("snowglobe");
+    public static final Item snowGlobe = new SnowGlobe("snow_globe");
     public static final Item blazePurple = new ItemBase("blaze_purple");
     public static final Item furyFire = new ItemBase("fury_fire");
     public static final Item stoneBluefire = new ItemBase("stone_bluefire");
