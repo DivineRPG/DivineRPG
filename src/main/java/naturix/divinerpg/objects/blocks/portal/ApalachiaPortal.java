@@ -7,9 +7,11 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.dimensions.apalachia.ModTeleporterApalachia;
-import naturix.divinerpg.particle.ParticleEntityPortal;
+import naturix.divinerpg.dimensions.mortum.ModTeleporterMortum;
+import naturix.divinerpg.particle.ParticleMortumPortal;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -40,7 +42,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ApalachiaPortal extends BlockBreakable {
+public class ApalachiaPortal extends BlockBreakable implements IHasModel {
 
 	public static class Size {
 		private final World world;
@@ -98,7 +100,7 @@ public class ApalachiaPortal extends BlockBreakable {
 						break label56;
 					}
 
-					/**if (block == ModBlocks.portalApalachia) {
+					if (block == ModBlocks.portalApalachia) {
 						++this.portalBlockCount;
 					}
 
@@ -114,15 +116,16 @@ public class ApalachiaPortal extends BlockBreakable {
 						if (block != ModBlocks.blockWildWood) {
 							break label56;
 						}
-					}*/
+					}
 				}
 			}
 
 			for (int j = 0; j < this.width; ++j) {
-				//if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != ModBlocks.blockWildWood) {
-				//	this.height = 0;
-				//	break;
-				//}
+				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
+				        .getBlock() != ModBlocks.blockWildWood) {
+					this.height = 0;
+					break;
+				}
 			}
 
 			if (this.height <= 21 && this.height >= 3) {
@@ -141,14 +144,14 @@ public class ApalachiaPortal extends BlockBreakable {
 			for (i = 0; i < 22; ++i) {
 				BlockPos blockpos = pos.offset(facing, i);
 
-				//if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.blockWildWood) {
-				//	break;
-				//}
+				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
+				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.blockWildWood) {
+					break;
+				}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			//return block == ModBlocks.blockWildWood ? i : 0;
-			return 0;
+			return block == ModBlocks.blockWildWood ? i : 0;
 		}
 
 		public int getHeight() {
@@ -160,8 +163,8 @@ public class ApalachiaPortal extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			//return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalApalachia;
-			return false;
+			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
+			        || blockIn == ModBlocks.portalApalachia;
 		}
 
 		public boolean isValid() {
@@ -174,7 +177,9 @@ public class ApalachiaPortal extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for (int j = 0; j < this.height; ++j) {
-					//this.world.setBlockState(blockpos.up(j), ModBlocks.portalApalachia.getDefaultState().withProperty(ApalachiaPortal.AXIS, this.axis), 2);
+					this.world.setBlockState(blockpos.up(j),
+					        ModBlocks.portalApalachia.getDefaultState().withProperty(ApalachiaPortal.AXIS, this.axis),
+					        2);
 				}
 			}
 		}
@@ -195,13 +200,14 @@ public class ApalachiaPortal extends BlockBreakable {
 
 	public ApalachiaPortal(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
-		this.name = name;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setTickRandomly(true);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
 	}
 
@@ -329,11 +335,11 @@ public class ApalachiaPortal extends BlockBreakable {
 			} else if (thePlayer.dimension != dimensionID) {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-				        new ModTeleporterApalachia(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this));
+				        new ModTeleporterMortum(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this));
 			} else {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new ModTeleporterApalachia(thePlayer.mcServer.getWorld(0), 0, this));
+				        new ModTeleporterMortum(thePlayer.mcServer.getWorld(0), 0, this));
 			}
 		}
 	}
@@ -368,12 +374,13 @@ public class ApalachiaPortal extends BlockBreakable {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 
-			ParticleEntityPortal var20 = new ParticleEntityPortal(worldIn, d0, d1, d2, d3, d4, d5);
+			ParticleMortumPortal var20 = new ParticleMortumPortal(worldIn, d0, d1, d2, d3, d4, d5);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 

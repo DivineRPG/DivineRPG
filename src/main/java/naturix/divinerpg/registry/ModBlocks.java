@@ -1,6 +1,30 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.objects.blocks.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import naturix.divinerpg.objects.blocks.BaseStatue;
+import naturix.divinerpg.objects.blocks.BeaconBaseBase;
+import naturix.divinerpg.objects.blocks.BedBase;
+import naturix.divinerpg.objects.blocks.BlockBase;
+import naturix.divinerpg.objects.blocks.BlockModSpawner;
+import naturix.divinerpg.objects.blocks.BlockOre;
+import naturix.divinerpg.objects.blocks.CandyCane;
+import naturix.divinerpg.objects.blocks.CoalstoneFurnace;
+import naturix.divinerpg.objects.blocks.DirtBase;
+import naturix.divinerpg.objects.blocks.FireBase;
+import naturix.divinerpg.objects.blocks.FrostedGlass;
+import naturix.divinerpg.objects.blocks.GrassBase;
+import naturix.divinerpg.objects.blocks.IceikaChest;
+import naturix.divinerpg.objects.blocks.LampBase;
+import naturix.divinerpg.objects.blocks.LeavesBase;
+import naturix.divinerpg.objects.blocks.LogBase;
+import naturix.divinerpg.objects.blocks.Spike;
+import naturix.divinerpg.objects.blocks.SteelDoor;
+import naturix.divinerpg.objects.blocks.TorchBase;
+import naturix.divinerpg.objects.blocks.VineBase;
+import naturix.divinerpg.objects.blocks.WorkshopCarpet;
+import naturix.divinerpg.objects.blocks.XMasLights;
 import naturix.divinerpg.objects.blocks.arcana.Acceleron;
 import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.HeatTrap;
@@ -25,9 +49,6 @@ import naturix.divinerpg.objects.blocks.tile.block.BlockAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.vethia.Acid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ModBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -133,7 +154,7 @@ public class ModBlocks {
 	public static final Block acidLunic = new Acid("acid_lunic", true, true);
 	public static final Block acceleron = new Acceleron("acceleron");
 	public static final Block grassArcana = new GrassBase("grass_arcana");
-	public static final Block portalEden = new EdenBlock("portal_eden", ModBlocks.blueFire);
+	public static final EdenBlock portalEden = new EdenBlock("portal_eden", ModBlocks.blueFire);
 	public static final Block blueFire = new FireBase("fire_blue");
 	public static final Block rockDivine = new BlockBase("rock_divine");
 	public static final Block rockTwilight = new BlockBase("rock_twilight");
@@ -142,20 +163,20 @@ public class ModBlocks {
 	public static final Block bedDream = new BedBase("bed_dream");
 	public static final Block grassWild = new GrassBase("grass_wildwood");
 	public static final Block dirtWild = new BlockBase("dirt_wild");
-	public static final Block portalWild = new WildWoodPortal("portal_wild", ModBlocks.blueFire);
+	public static final WildWoodPortal portalWild = new WildWoodPortal("portal_wild");
 	public static final Block vineWild = new VineBase("vine_wildwood");
 	public static final Block grassApalachia = new GrassBase("grass_apalachia");
 	public static final Block dirtApalachia = new BlockBase(Material.GROUND, "dirt_apalachia");
-	public static final Block portalApalachia = new ApalachiaPortal("portal_apalachia", ModBlocks.blueFire);
+	public static final ApalachiaPortal portalApalachia = new ApalachiaPortal("portal_apalachia", ModBlocks.blueFire);
 	public static final Block grassSkythern = new GrassBase("grass_skythern");
 	public static final Block dirtSkythern = new BlockBase("dirt_skythern");
-	public static final Block portalSkythern = new SkythernPortal("portal_skythern", ModBlocks.blueFire);
+	public static final SkythernPortal portalSkythern = new SkythernPortal("portal_skythern", ModBlocks.blueFire);
 	public static final Block grassMortum = new GrassBase("grass_mortum");
 	public static final Block dirtMortum = new BlockBase("dirt_mortum");
-	public static final Block portalMortum = new MortumPortal("portal_mortum", ModBlocks.blueFire);
+	public static final MortumPortal portalMortum = new MortumPortal("portal_mortum", ModBlocks.blueFire);
 	public static final Block grassIceika = new GrassBase("grass_iceika");
 	public static final Block dirtIceika = new DirtBase("dirt_iceika");
-	public static final Block portalIceika = new IceikaPortal("portal_iceika", ModBlocks.blueFire);
+	public static final IceikaPortal portalIceika = new IceikaPortal("portal_iceika", ModBlocks.blueFire);
 	public static final Block stoneFrozen = new BlockBase(Material.ROCK, "stone_frozen");
 	public static final Block stoneIcy = new BlockBase("stone_icy");
 	public static final Block bricksIceika = new BlockBase("bricks_iceika");
@@ -202,7 +223,8 @@ public class ModBlocks {
 	public static final Block purpleXMasLights = new XMasLights("purple_xmas_lights");
 	public static final Block candyCane = new CandyCane("candy_cane");
 
-	// Has a unique class because i dont have a method for universal itemblocks for doors - LiteWolf101
+	// Has a unique class because i dont have a method for universal itemblocks for
+	// doors - LiteWolf101
 	public static final Block steelDoor = new SteelDoor("steel_door", Material.ANVIL);
 
 	public static final Block ayeracoBeamBlue = new BlockAyeracoBeam("ayeracoBeamBlue", "blue");

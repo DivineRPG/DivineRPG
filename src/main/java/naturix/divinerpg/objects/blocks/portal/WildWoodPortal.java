@@ -1,48 +1,50 @@
 package naturix.divinerpg.objects.blocks.portal;
 
-import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.google.common.cache.LoadingCache;
+
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.dimensions.wildwood.ModTeleporterWildWood;
-import naturix.divinerpg.particle.ParticleWildWoodPortal;
+import naturix.divinerpg.dimensions.wildwood.ModTeleporter;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBreakable;
+import net.minecraft.block.BlockPortal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumFacing.Axis;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WildWoodPortal extends BlockBreakable {
+public class WildWoodPortal extends BlockPortal implements IHasModel {
 
-	/**public static class Size {
+	public static class Size {
 		private final World world;
 		private final EnumFacing.Axis axis;
 		private final EnumFacing rightDir;
@@ -52,11 +54,11 @@ public class WildWoodPortal extends BlockBreakable {
 		private int height;
 		private int width;
 
-		public Size(World worldIn, BlockPos pos, EnumFacing.Axis axis) {
+		public Size(World worldIn, BlockPos p_i45694_2_, EnumFacing.Axis p_i45694_3_) {
 			this.world = worldIn;
-			this.axis = axis;
+			this.axis = p_i45694_3_;
 
-			if (axis == EnumFacing.Axis.X) {
+			if (p_i45694_3_ == EnumFacing.Axis.X) {
 				this.leftDir = EnumFacing.EAST;
 				this.rightDir = EnumFacing.WEST;
 			} else {
@@ -64,15 +66,16 @@ public class WildWoodPortal extends BlockBreakable {
 				this.rightDir = EnumFacing.SOUTH;
 			}
 
-			for (BlockPos blockpos = pos; pos.getY() > blockpos.getY() - 21 && pos.getY() > 0
-			        && this.isEmptyBlock(worldIn.getBlockState(pos.down()).getBlock()); pos = pos.down()) {
+			for (BlockPos blockpos = p_i45694_2_; p_i45694_2_.getY() > blockpos.getY() - 21 && p_i45694_2_.getY() > 0
+			        && this.isEmptyBlock(
+			                worldIn.getBlockState(p_i45694_2_.down()).getBlock()); p_i45694_2_ = p_i45694_2_.down()) {
 				;
 			}
 
-			int i = this.getDistanceUntilEdge(pos, this.leftDir) - 1;
+			int i = this.getDistanceUntilEdge(p_i45694_2_, this.leftDir) - 1;
 
 			if (i >= 0) {
-				this.bottomLeft = pos.offset(this.leftDir, i);
+				this.bottomLeft = p_i45694_2_.offset(this.leftDir, i);
 				this.width = this.getDistanceUntilEdge(this.bottomLeft, this.rightDir);
 
 				if (this.width < 2 || this.width > 21) {
@@ -87,7 +90,7 @@ public class WildWoodPortal extends BlockBreakable {
 		}
 
 		protected int calculatePortalHeight() {
-			label56:
+			label24:
 
 			for (this.height = 0; this.height < 21; ++this.height) {
 				for (int i = 0; i < this.width; ++i) {
@@ -95,7 +98,7 @@ public class WildWoodPortal extends BlockBreakable {
 					Block block = this.world.getBlockState(blockpos).getBlock();
 
 					if (!this.isEmptyBlock(block)) {
-						break label56;
+						break label24;
 					}
 
 					if (block == ModBlocks.portalWild) {
@@ -106,13 +109,13 @@ public class WildWoodPortal extends BlockBreakable {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
 						if (block != ModBlocks.blockEden) {
-							break label56;
+							break label24;
 						}
 					} else if (i == this.width - 1) {
 						block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
 
 						if (block != ModBlocks.blockEden) {
-							break label56;
+							break label24;
 						}
 					}
 				}
@@ -136,11 +139,11 @@ public class WildWoodPortal extends BlockBreakable {
 			}
 		}
 
-		protected int getDistanceUntilEdge(BlockPos pos, EnumFacing facing) {
+		protected int getDistanceUntilEdge(BlockPos p_180120_1_, EnumFacing p_180120_2_) {
 			int i;
 
 			for (i = 0; i < 22; ++i) {
-				BlockPos blockpos = pos.offset(facing, i);
+				BlockPos blockpos = p_180120_1_.offset(p_180120_2_, i);
 
 				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
 				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.blockEden) {
@@ -148,7 +151,7 @@ public class WildWoodPortal extends BlockBreakable {
 				}
 			}
 
-			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
+			Block block = this.world.getBlockState(p_180120_1_.offset(p_180120_2_, i)).getBlock();
 			return block == ModBlocks.blockEden ? i : 0;
 		}
 
@@ -161,7 +164,7 @@ public class WildWoodPortal extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
+			return blockIn.getMaterial(null) == Material.AIR || blockIn == ModBlocks.blueFire
 			        || blockIn == ModBlocks.portalWild;
 		}
 
@@ -182,33 +185,107 @@ public class WildWoodPortal extends BlockBreakable {
 		}
 	}
 
+	public static String name;
 	public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis",
-	        EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
+	        EnumFacing.Axis.class, new EnumFacing.Axis[] { EnumFacing.Axis.X, EnumFacing.Axis.Z });
 	protected static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
 	protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
+
 	protected static final AxisAlignedBB Y_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
 
-	public static int meta(Axis a) {
-		return a == EnumFacing.Axis.X ? 1 : (a == EnumFacing.Axis.Z ? 2 : 0);
+	public static double prevX;
+	public static double prevY;
+	public static double prevZ;
+	public static double prevX2;
+	public static double prevY2;
+	public static double prevZ2;
+	public static int dme2;
+
+	public static int getMetaForAxis(EnumFacing.Axis axis) {
+		return axis == EnumFacing.Axis.X ? 1 : (axis == EnumFacing.Axis.Z ? 2 : 0);
 	}
 
-	public String name;
-	protected Block fireBlock;*/
+	public static void setDme21() {
 
-	public WildWoodPortal(String name, Block fireBlock) {
-		super(Material.PORTAL, false);
-		//this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
-		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		dme2 = 0;
+
+	}
+
+	public static void setDme22() {
+
+		dme2 = 2;
+
+	}
+
+	public static void setOverworldXYZ(double posX, double posY, double posZ) {
+		prevX = posX;
+		prevY = posY;
+		prevZ = posZ;
+	}
+
+	public static void setTestXYZ(double posX2, double posY2, double posZ2) {
+		prevX2 = posX2;
+		prevY2 = posY2;
+		prevZ2 = posZ2;
+	}
+
+	public static void tele(EntityPlayer player) {
+
+		if ((player.getRidingEntity() == null) && ((player instanceof EntityPlayerMP))) {
+
+			EntityPlayerMP player1 = (EntityPlayerMP) player;
+			MinecraftServer mcServer = player1.getServer();
+
+			if (player1.timeUntilPortal > 0) {
+
+				player1.timeUntilPortal = 10;
+
+			} else if (player1.dimension != Config.wildWoodDimensionId) {
+
+				player1.timeUntilPortal = 10;
+
+				if (prevX2 == 0.0 && prevY2 == 0.0 && prevZ2 == 0.0) {
+					player1.timeUntilPortal = 10;
+					setDme21();
+					setOverworldXYZ(player1.posX, player1.posY, player1.posZ);
+					mcServer.getPlayerList().transferPlayerToDimension(player1, Config.wildWoodDimensionId,
+					        new ModTeleporter(mcServer.getWorld(Config.wildWoodDimensionId)));
+					setTestXYZ(player1.posX, player1.posY, player1.posZ);
+
+				} else if (prevX2 != 0.0 && prevY2 != 0.0 && prevZ2 != 0.0) {
+					player1.timeUntilPortal = 10;
+					setDme22();
+					setOverworldXYZ(player1.posX, player1.posY, player1.posZ);
+					mcServer.getPlayerList().transferPlayerToDimension(player1, Config.wildWoodDimensionId,
+					        new ModTeleporter(mcServer.getWorld(Config.wildWoodDimensionId)));
+
+				}
+
+			} else if (player1.dimension == Config.wildWoodDimensionId) {
+
+				player1.timeUntilPortal = 10;
+				setDme22();
+				setTestXYZ(player1.posX, player1.posY, player1.posZ);
+				mcServer.getPlayerList().transferPlayerToDimension(player1, 0, new ModTeleporter(mcServer.getWorld(0)));
+
+			}
+
+		}
+	}
+
+	public WildWoodPortal(String name) {
+
+		super();
+		this.name = name;
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setTickRandomly(true);
-		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
+		setRegistryName(name);
+		setCreativeTab(DivineRPG.BlocksTab);
+		this.name = name;
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
-	}
-
-	/**@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add("Dimensions are all WIP");
 	}
 
 	@Override
@@ -216,13 +293,57 @@ public class WildWoodPortal extends BlockBreakable {
 		return new BlockStateContainer(this, new IProperty[] { AXIS });
 	}
 
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
-	}
-
 	@Override
-	public BlockFaceShape getBlockFaceShape(IBlockAccess i, IBlockState i2, BlockPos p, EnumFacing f) {
-		return BlockFaceShape.UNDEFINED;
+	public BlockPattern.PatternHelper createPatternHelper(World worldIn, BlockPos p_181089_2_) {
+		EnumFacing.Axis enumfacing$axis = EnumFacing.Axis.Z;
+		WildWoodPortal.Size blockportal$size = new WildWoodPortal.Size(worldIn, p_181089_2_, EnumFacing.Axis.X);
+		LoadingCache<BlockPos, BlockWorldState> loadingcache = BlockPattern.createLoadingCache(worldIn, true);
+
+		if (!blockportal$size.isValid()) {
+			enumfacing$axis = EnumFacing.Axis.X;
+			blockportal$size = new WildWoodPortal.Size(worldIn, p_181089_2_, EnumFacing.Axis.Z);
+		}
+
+		if (!blockportal$size.isValid()) {
+			return new BlockPattern.PatternHelper(p_181089_2_, EnumFacing.NORTH, EnumFacing.UP, loadingcache, 1, 1, 1);
+		} else {
+			int[] aint = new int[EnumFacing.AxisDirection.values().length];
+			EnumFacing enumfacing = blockportal$size.rightDir.rotateYCCW();
+			BlockPos blockpos = blockportal$size.bottomLeft.up(blockportal$size.getHeight() - 1);
+
+			for (EnumFacing.AxisDirection enumfacing$axisdirection : EnumFacing.AxisDirection.values()) {
+				BlockPattern.PatternHelper blockpattern$patternhelper = new BlockPattern.PatternHelper(
+				        enumfacing.getAxisDirection() == enumfacing$axisdirection ? blockpos
+				                : blockpos.offset(blockportal$size.rightDir, blockportal$size.getWidth() - 1),
+				        EnumFacing.getFacingFromAxis(enumfacing$axisdirection, enumfacing$axis), EnumFacing.UP,
+				        loadingcache, blockportal$size.getWidth(), blockportal$size.getHeight(), 1);
+
+				for (int i = 0; i < blockportal$size.getWidth(); ++i) {
+					for (int j = 0; j < blockportal$size.getHeight(); ++j) {
+						BlockWorldState blockworldstate = blockpattern$patternhelper.translateOffset(i, j, 1);
+
+						if (blockworldstate.getBlockState() != null
+						        && blockworldstate.getBlockState().getMaterial() != Material.AIR) {
+							++aint[enumfacing$axisdirection.ordinal()];
+						}
+					}
+				}
+			}
+
+			EnumFacing.AxisDirection enumfacing$axisdirection1 = EnumFacing.AxisDirection.POSITIVE;
+
+			for (EnumFacing.AxisDirection enumfacing$axisdirection2 : EnumFacing.AxisDirection.values()) {
+				if (aint[enumfacing$axisdirection2.ordinal()] < aint[enumfacing$axisdirection1.ordinal()]) {
+					enumfacing$axisdirection1 = enumfacing$axisdirection2;
+				}
+			}
+
+			return new BlockPattern.PatternHelper(
+			        enumfacing.getAxisDirection() == enumfacing$axisdirection1 ? blockpos
+			                : blockpos.offset(blockportal$size.rightDir, blockportal$size.getWidth() - 1),
+			        EnumFacing.getFacingFromAxis(enumfacing$axisdirection1, enumfacing$axis), EnumFacing.UP,
+			        loadingcache, blockportal$size.getWidth(), blockportal$size.getHeight(), 1);
+		}
 	}
 
 	@Override
@@ -244,26 +365,28 @@ public class WildWoodPortal extends BlockBreakable {
 		}
 	}
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		return null;
+	@Nullable
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+		return NULL_AABB;
 	}
 
 	@Override
+	@Nullable
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(this);
-	}
-
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return null;
 	}
 
+	/**
+	 * Convert the BlockState into the correct metadata value
+	 */
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return meta(state.getValue(AXIS));
+		return getMetaForAxis(state.getValue(AXIS));
 	}
 
+	/**
+	 * Convert the given metadata into a BlockState for this Block
+	 */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(AXIS, (meta & 3) == 2 ? EnumFacing.Axis.Z : EnumFacing.Axis.X);
@@ -274,79 +397,56 @@ public class WildWoodPortal extends BlockBreakable {
 		return false;
 	}
 
-	public boolean makePortal(World worldIn, BlockPos p) {
-		EntityLightningBolt bolt = new EntityLightningBolt(worldIn, p.getX(), p.getY(), p.getZ(), false);
-		WildWoodPortal.Size size = new WildWoodPortal.Size(worldIn, p, EnumFacing.Axis.X);
-		if (size.isValid() && size.portalBlockCount == 0) {
-			size.placePortalBlocks();
-			worldIn.addWeatherEffect(bolt);
-			worldIn.createExplosion(bolt, p.getX(), p.getY(), p.getZ(), 0.0F, true);
-			return true;
-		} else {
-			EntityLightningBolt bolt1 = new EntityLightningBolt(worldIn, p.getX(), p.getY(), p.getZ(), false);
-			WildWoodPortal.Size size1 = new WildWoodPortal.Size(worldIn, p, EnumFacing.Axis.Z);
-			if (size1.isValid() && size1.portalBlockCount == 0) {
-				size1.placePortalBlocks();
-				worldIn.addWeatherEffect(bolt1);
-				worldIn.createExplosion(bolt1, p.getX(), p.getY(), p.getZ(), 0.0F, true);
-				return true;
-			} else {
-				return false;
-			}
-		}
-	}
-
-	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+	/**
+	 * Called when a neighboring block was changed and marks that this state should
+	 * perform any checks during a neighbor change. Cases may include when redstone
+	 * power is updated, cactus blocks popping off due to a neighboring solid block,
+	 * etc.
+	 */
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
 		EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
 
 		if (enumfacing$axis == EnumFacing.Axis.X) {
-			WildWoodPortal.Size WildWoodPortal$size = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+			WildWoodPortal.Size blockportal$size = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
-			if (!WildWoodPortal$size.isValid()
-			        || WildWoodPortal$size.portalBlockCount < WildWoodPortal$size.width * WildWoodPortal$size.height) {
+			if (!blockportal$size.isValid()
+			        || blockportal$size.portalBlockCount < blockportal$size.width * blockportal$size.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		} else if (enumfacing$axis == EnumFacing.Axis.Z) {
-			WildWoodPortal.Size WildWoodPortal$size1 = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+			WildWoodPortal.Size blockportal$size1 = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-			if (!WildWoodPortal$size1.isValid() || WildWoodPortal$size1.portalBlockCount < WildWoodPortal$size1.width
-			        * WildWoodPortal$size1.height) {
+			if (!blockportal$size1.isValid()
+			        || blockportal$size1.portalBlockCount < blockportal$size1.width * blockportal$size1.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		}
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
-		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
-			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-			thePlayer.heal(0);
-			thePlayer.addExperience(0);
-			thePlayer.mcServer.getWorld(thePlayer.dimension);
-			int dimensionID = Config.wildWoodDimensionId;
-			if (thePlayer.timeUntilPortal > 0) {
-				thePlayer.timeUntilPortal = 10;
-			} else if (thePlayer.dimension != dimensionID) {
-				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-				        new ModTeleporterWildWood(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this));
-			} else {
-				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new ModTeleporterWildWood(thePlayer.mcServer.getWorld(0), 0, this));
-			}
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+
+		if ((entityIn.getRidingEntity() == null) && ((entityIn instanceof EntityPlayerMP))) {
+
+			EntityPlayerMP player1 = (EntityPlayerMP) entityIn;
+
+			WildWoodPortal.tele(player1);
+
 		}
+
 	}
 
+	/**
+	 * Returns the quantity of items to drop on block destruction.
+	 */
 	@Override
-	public int quantityDropped(Random p_149745_1_) {
+	public int quantityDropped(Random random) {
 		return 0;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
+	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (rand.nextInt(100) == 0) {
 			worldIn.playSound(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_PORTAL_AMBIENT,
 			        SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
@@ -360,6 +460,7 @@ public class WildWoodPortal extends BlockBreakable {
 			double d4 = (rand.nextFloat() - 0.5D) * 0.5D;
 			double d5 = (rand.nextFloat() - 0.5D) * 0.5D;
 			int j = rand.nextInt(2) * 2 - 1;
+
 			if (worldIn.getBlockState(pos.west()).getBlock() != this
 			        && worldIn.getBlockState(pos.east()).getBlock() != this) {
 				d0 = pos.getX() + 0.5D + 0.25D * j;
@@ -369,12 +470,12 @@ public class WildWoodPortal extends BlockBreakable {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 
-			ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
-			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			worldIn.spawnParticle(EnumParticleTypes.PORTAL, d0, d1, d2, d3, d4, d5, new int[0]);
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 
@@ -387,12 +488,15 @@ public class WildWoodPortal extends BlockBreakable {
 
 		if (blockState.getBlock() == this) {
 			enumfacing$axis = blockState.getValue(AXIS);
+
 			if (enumfacing$axis == null) {
 				return false;
 			}
+
 			if (enumfacing$axis == EnumFacing.Axis.Z && side != EnumFacing.EAST && side != EnumFacing.WEST) {
 				return false;
 			}
+
 			if (enumfacing$axis == EnumFacing.Axis.X && side != EnumFacing.SOUTH && side != EnumFacing.NORTH) {
 				return false;
 			}
@@ -408,18 +512,34 @@ public class WildWoodPortal extends BlockBreakable {
 		        && blockAccess.getBlockState(pos.south(2)).getBlock() != this;
 		boolean flag4 = flag || flag1 || enumfacing$axis == EnumFacing.Axis.X;
 		boolean flag5 = flag2 || flag3 || enumfacing$axis == EnumFacing.Axis.Z;
+		return flag4 && side == EnumFacing.WEST ? true
+		        : (flag4 && side == EnumFacing.EAST ? true
+		                : (flag5 && side == EnumFacing.NORTH ? true : flag5 && side == EnumFacing.SOUTH));
+	}
 
-		if (flag4 && side == EnumFacing.WEST) {
-			return true;
-		} else if (flag4 && side == EnumFacing.EAST) {
-			return true;
-		} else if (flag5 && side == EnumFacing.NORTH) {
+	@Override
+	public boolean trySpawnPortal(World worldIn, BlockPos pos) {
+		WildWoodPortal.Size blockportal$size = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+
+		if (blockportal$size.isValid() && blockportal$size.portalBlockCount == 0) {
+			blockportal$size.placePortalBlocks();
 			return true;
 		} else {
-			return flag5 && side == EnumFacing.SOUTH;
+			WildWoodPortal.Size blockportal$size1 = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+
+			if (blockportal$size1.isValid() && blockportal$size1.portalBlockCount == 0) {
+				blockportal$size1.placePortalBlocks();
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 
+	/**
+	 * Returns the blockstate with the given rotation from the passed blockstate. If
+	 * inapplicable, returns the passed blockstate.
+	 */
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		switch (rot) {
@@ -434,8 +554,9 @@ public class WildWoodPortal extends BlockBreakable {
 			default:
 				return state;
 			}
+
 		default:
 			return state;
 		}
-	}*/
+	}
 }

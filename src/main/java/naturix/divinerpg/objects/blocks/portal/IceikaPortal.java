@@ -8,7 +8,10 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.iceika.ModTeleporterIceika;
+import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -35,10 +38,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class IceikaPortal extends BlockBreakable {
+public class IceikaPortal extends BlockBreakable implements IHasModel {
 
 	public static class Size {
 		private final World world;
@@ -96,9 +100,9 @@ public class IceikaPortal extends BlockBreakable {
 						break label56;
 					}
 
-					//if (block == ModBlocks.portalIceika) {
-					//	++this.portalBlockCount;
-					//}
+					if (block == ModBlocks.portalIceika) {
+						++this.portalBlockCount;
+					}
 
 					if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
@@ -159,12 +163,13 @@ public class IceikaPortal extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			//return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalIceika;
-			return false;
+			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
+			        || blockIn == ModBlocks.portalIceika;
 		}
 
 		public boolean isValid() {
-			return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
+			return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3
+			        && this.height <= 21;
 		}
 
 		public void placePortalBlocks() {
@@ -172,7 +177,8 @@ public class IceikaPortal extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for (int j = 0; j < this.height; ++j) {
-					//this.world.setBlockState(blockpos.up(j), ModBlocks.portalIceika.getDefaultState().withProperty(IceikaPortal.AXIS, this.axis), 2);
+					this.world.setBlockState(blockpos.up(j),
+					        ModBlocks.portalIceika.getDefaultState().withProperty(IceikaPortal.AXIS, this.axis), 2);
 				}
 			}
 		}
@@ -189,18 +195,18 @@ public class IceikaPortal extends BlockBreakable {
 	}
 
 	public String name;
-
 	protected Block fireBlock;
 
 	public IceikaPortal(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
-		this.name = name;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setTickRandomly(true);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
 	}
 
@@ -299,17 +305,17 @@ public class IceikaPortal extends BlockBreakable {
 		EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
 
 		if (enumfacing$axis == EnumFacing.Axis.X) {
-			IceikaPortal.Size EdenBlock$size = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+			IceikaPortal.Size WildWoodPortal$size = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
-			if (!EdenBlock$size.isValid()
-			        || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height) {
+			if (!WildWoodPortal$size.isValid()
+			        || WildWoodPortal$size.portalBlockCount < WildWoodPortal$size.width * WildWoodPortal$size.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		} else if (enumfacing$axis == EnumFacing.Axis.Z) {
-			IceikaPortal.Size EdenBlock$size1 = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+			IceikaPortal.Size WildWoodPortal$size1 = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-			if (!EdenBlock$size1.isValid()
-			        || EdenBlock$size1.portalBlockCount < EdenBlock$size1.width * EdenBlock$size1.height) {
+			if (!WildWoodPortal$size1.isValid() || WildWoodPortal$size1.portalBlockCount < WildWoodPortal$size1.width
+			        * WildWoodPortal$size1.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		}
@@ -352,24 +358,29 @@ public class IceikaPortal extends BlockBreakable {
 		}
 
 		for (int i = 0; i < 4; ++i) {
-			pos.getX();
-			rand.nextFloat();
-			pos.getY();
-			rand.nextFloat();
-			pos.getZ();
-			rand.nextFloat();
-			rand.nextFloat();
-			rand.nextFloat();
-			rand.nextFloat();
-			rand.nextInt(2);
+			double d0 = pos.getX() + rand.nextFloat();
+			double d1 = pos.getY() + rand.nextFloat();
+			double d2 = pos.getZ() + rand.nextFloat();
+			double d3 = (rand.nextFloat() - 0.5D) * 0.5D;
+			double d4 = (rand.nextFloat() - 0.5D) * 0.5D;
+			double d5 = (rand.nextFloat() - 0.5D) * 0.5D;
+			int j = rand.nextInt(2) * 2 - 1;
+			if (worldIn.getBlockState(pos.west()).getBlock() != this
+			        && worldIn.getBlockState(pos.east()).getBlock() != this) {
+				d0 = pos.getX() + 0.5D + 0.25D * j;
+				d3 = rand.nextFloat() * 2.0F * j;
+			} else {
+				d2 = pos.getZ() + 0.5D + 0.25D * j;
+				d5 = rand.nextFloat() * 2.0F * j;
+			}
 
-			// EntityIceikaPortalFX var20 = new EntityIceikaPortalFX(worldIn, d0, d1, d2,
-			// d3, d4, d5);
-			// FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
+			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 

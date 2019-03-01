@@ -7,8 +7,9 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -16,14 +17,10 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -31,7 +28,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class FireBase extends Block {
+public class FireBase extends Block implements IHasModel {
 	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
 
 	public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(1F, 0.0F, 1F, 0F, 0.1F, 0F);
@@ -44,6 +41,8 @@ public class FireBase extends Block {
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.name = name;
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	/**
@@ -126,7 +125,7 @@ public class FireBase extends Block {
 	 * Common values are {@code SOLID}, which is the default, and {@code UNDEFINED},
 	 * which represents something that does not fit the other descriptions and will
 	 * generally cause other things not to connect to the face.
-	 * 
+	 *
 	 * @return an approximation of the form of the given face
 	 */
 	@Override
@@ -233,7 +232,7 @@ public class FireBase extends Block {
 	 */
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		/**if (worldIn.provider.getDimensionType().getId() > 0 || ModBlocks.portalEden.makePortal(worldIn, pos)) {
+		if (worldIn.provider.getDimensionType().getId() > 0 || ModBlocks.portalEden.makePortal(worldIn, pos)) {
 			if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos)) {
 				worldIn.setBlockToAir(pos);
 			} else {
@@ -249,7 +248,7 @@ public class FireBase extends Block {
 			}
 		}
 
-		if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalWild.makePortal(worldIn, pos)) {
+		if (worldIn.provider.getDimensionType().getId() > 0 || !ModBlocks.portalWild.trySpawnPortal(worldIn, pos)) {
 			if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos)) {
 				worldIn.setBlockToAir(pos);
 			} else {
@@ -257,7 +256,7 @@ public class FireBase extends Block {
 			}
 		}
 		if (worldIn.provider.getDimensionType().getId() > Config.wildWoodDimensionId
-		        || !ModBlocks.portalWild.makePortal(worldIn, pos)) {
+		        || !ModBlocks.portalWild.trySpawnPortal(worldIn, pos)) {
 			if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos)) {
 				worldIn.setBlockToAir(pos);
 			} else {
@@ -327,7 +326,7 @@ public class FireBase extends Block {
 			} else {
 				worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
 			}
-		}*/
+		}
 
 	}
 
@@ -342,68 +341,57 @@ public class FireBase extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		/**if (rand.nextInt(24) == 0) {
-			worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_FIRE_AMBIENT,
-			        SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
-		}
-
-		if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP)
-		        && !ModBlocks.blueFire.canCatchFire(worldIn, pos.down(), EnumFacing.UP)) {
-			if (ModBlocks.blueFire.canCatchFire(worldIn, pos.west(), EnumFacing.EAST)) {
-				for (int j = 0; j < 2; ++j) {
-					double d3 = pos.getX() + rand.nextDouble() * 0.10000000149011612D;
-					double d8 = pos.getY() + rand.nextDouble();
-					double d13 = pos.getZ() + rand.nextDouble();
-					worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d3, d8, d13, 0.0D, 0.0D, 0.0D);
-				}
-			}
-
-			if (ModBlocks.blueFire.canCatchFire(worldIn, pos.east(), EnumFacing.WEST)) {
-				for (int k = 0; k < 2; ++k) {
-					double d4 = pos.getX() + 1 - rand.nextDouble() * 0.10000000149011612D;
-					double d9 = pos.getY() + rand.nextDouble();
-					double d14 = pos.getZ() + rand.nextDouble();
-					worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d4, d9, d14, 0.0D, 0.0D, 0.0D);
-				}
-			}
-
-			if (ModBlocks.blueFire.canCatchFire(worldIn, pos.north(), EnumFacing.SOUTH)) {
-				for (int l = 0; l < 2; ++l) {
-					double d5 = pos.getX() + rand.nextDouble();
-					double d10 = pos.getY() + rand.nextDouble();
-					double d15 = pos.getZ() + rand.nextDouble() * 0.10000000149011612D;
-					worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d5, d10, d15, 0.0D, 0.0D, 0.0D);
-				}
-			}
-
-			if (ModBlocks.blueFire.canCatchFire(worldIn, pos.south(), EnumFacing.NORTH)) {
-				for (int i1 = 0; i1 < 2; ++i1) {
-					double d6 = pos.getX() + rand.nextDouble();
-					double d11 = pos.getY() + rand.nextDouble();
-					double d16 = pos.getZ() + 1 - rand.nextDouble() * 0.10000000149011612D;
-					worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d6, d11, d16, 0.0D, 0.0D, 0.0D);
-				}
-			}
-
-			if (ModBlocks.blueFire.canCatchFire(worldIn, pos.up(), EnumFacing.DOWN)) {
-				for (int j1 = 0; j1 < 2; ++j1) {
-					double d7 = pos.getX() + rand.nextDouble();
-					double d12 = pos.getY() + 1 - rand.nextDouble() * 0.10000000149011612D;
-					double d17 = pos.getZ() + rand.nextDouble();
-					worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d7, d12, d17, 0.0D, 0.0D, 0.0D);
-				}
-			}
-		} else {
-			for (int i = 0; i < 3; ++i) {
-				double d0 = pos.getX() + rand.nextDouble();
-				double d1 = pos.getY() + rand.nextDouble() * 0.5D + 0.5D;
-				double d2 = pos.getZ() + rand.nextDouble();
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-			}
-		}*/
+		/**
+		 * if (rand.nextInt(24) == 0) { worldIn.playSound(pos.getX() + 0.5F, pos.getY()
+		 * + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_FIRE_AMBIENT,
+		 * SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F +
+		 * 0.3F, false); }
+		 *
+		 * if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(),
+		 * EnumFacing.UP) && !ModBlocks.blueFire.canCatchFire(worldIn, pos.down(),
+		 * EnumFacing.UP)) { if (ModBlocks.blueFire.canCatchFire(worldIn, pos.west(),
+		 * EnumFacing.EAST)) { for (int j = 0; j < 2; ++j) { double d3 = pos.getX() +
+		 * rand.nextDouble() * 0.10000000149011612D; double d8 = pos.getY() +
+		 * rand.nextDouble(); double d13 = pos.getZ() + rand.nextDouble();
+		 * worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d3, d8, d13, 0.0D, 0.0D,
+		 * 0.0D); } }
+		 *
+		 * if (ModBlocks.blueFire.canCatchFire(worldIn, pos.east(), EnumFacing.WEST)) {
+		 * for (int k = 0; k < 2; ++k) { double d4 = pos.getX() + 1 - rand.nextDouble()
+		 * * 0.10000000149011612D; double d9 = pos.getY() + rand.nextDouble(); double
+		 * d14 = pos.getZ() + rand.nextDouble();
+		 * worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d4, d9, d14, 0.0D, 0.0D,
+		 * 0.0D); } }
+		 *
+		 * if (ModBlocks.blueFire.canCatchFire(worldIn, pos.north(), EnumFacing.SOUTH))
+		 * { for (int l = 0; l < 2; ++l) { double d5 = pos.getX() + rand.nextDouble();
+		 * double d10 = pos.getY() + rand.nextDouble(); double d15 = pos.getZ() +
+		 * rand.nextDouble() * 0.10000000149011612D;
+		 * worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d5, d10, d15, 0.0D,
+		 * 0.0D, 0.0D); } }
+		 *
+		 * if (ModBlocks.blueFire.canCatchFire(worldIn, pos.south(), EnumFacing.NORTH))
+		 * { for (int i1 = 0; i1 < 2; ++i1) { double d6 = pos.getX() +
+		 * rand.nextDouble(); double d11 = pos.getY() + rand.nextDouble(); double d16 =
+		 * pos.getZ() + 1 - rand.nextDouble() * 0.10000000149011612D;
+		 * worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d6, d11, d16, 0.0D,
+		 * 0.0D, 0.0D); } }
+		 *
+		 * if (ModBlocks.blueFire.canCatchFire(worldIn, pos.up(), EnumFacing.DOWN)) {
+		 * for (int j1 = 0; j1 < 2; ++j1) { double d7 = pos.getX() + rand.nextDouble();
+		 * double d12 = pos.getY() + 1 - rand.nextDouble() * 0.10000000149011612D;
+		 * double d17 = pos.getZ() + rand.nextDouble();
+		 * worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d7, d12, d17, 0.0D,
+		 * 0.0D, 0.0D); } } } else { for (int i = 0; i < 3; ++i) { double d0 =
+		 * pos.getX() + rand.nextDouble(); double d1 = pos.getY() + rand.nextDouble() *
+		 * 0.5D + 0.5D; double d2 = pos.getZ() + rand.nextDouble();
+		 * worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0, d1, d2, 0.0D, 0.0D,
+		 * 0.0D); } }
+		 */
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 
@@ -418,31 +406,6 @@ public class FireBase extends Block {
 	@Override
 	public int tickRate(World worldIn) {
 		return 30;
-	}
-
-	private void tryCatchFire(World worldIn, BlockPos pos, int chance, Random random, int age, EnumFacing face) {
-		int i = worldIn.getBlockState(pos).getBlock().getFlammability(worldIn, pos, face);
-
-		if (random.nextInt(chance) < i) {
-			IBlockState iblockstate = worldIn.getBlockState(pos);
-
-			if (random.nextInt(age + 10) < 5 && !worldIn.isRainingAt(pos)) {
-				int j = age + random.nextInt(5) / 4;
-
-				if (j > 15) {
-					j = 15;
-				}
-
-				worldIn.setBlockState(pos, this.getDefaultState().withProperty(AGE, Integer.valueOf(j)), 3);
-			} else {
-				worldIn.setBlockToAir(pos);
-			}
-
-			if (iblockstate.getBlock() == Blocks.TNT) {
-				Blocks.TNT.onBlockDestroyedByPlayer(worldIn, pos,
-				        iblockstate.withProperty(BlockTNT.EXPLODE, Boolean.valueOf(true)));
-			}
-		}
 	}
 
 	@Override

@@ -10,6 +10,8 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.skythern.ModTeleporterSkythern;
 import naturix.divinerpg.particle.ParticleSkythernPortal;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -40,9 +42,9 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SkythernPortal extends BlockBreakable {
+public class SkythernPortal extends BlockBreakable implements IHasModel {
 
-	/**public static class Size {
+	public static class Size {
 		private final World world;
 		private final EnumFacing.Axis axis;
 		private final EnumFacing rightDir;
@@ -138,7 +140,6 @@ public class SkythernPortal extends BlockBreakable {
 
 		protected int getDistanceUntilEdge(BlockPos pos, EnumFacing facing) {
 			int i;
-
 			for (i = 0; i < 22; ++i) {
 				BlockPos blockpos = pos.offset(facing, i);
 
@@ -147,7 +148,6 @@ public class SkythernPortal extends BlockBreakable {
 					break;
 				}
 			}
-
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
 			return block == ModBlocks.blockApalachia ? i : 0;
 		}
@@ -193,20 +193,22 @@ public class SkythernPortal extends BlockBreakable {
 	}
 
 	public String name;
-	protected Block fireBlock;*/
+	protected Block fireBlock;
 
 	public SkythernPortal(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
-		//this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setTickRandomly(true);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
 	}
 
-	/**@Override
+	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		tooltip.add("Dimensions are all WIP");
 	}
@@ -374,7 +376,8 @@ public class SkythernPortal extends BlockBreakable {
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 
@@ -437,5 +440,5 @@ public class SkythernPortal extends BlockBreakable {
 		default:
 			return state;
 		}
-	}*/
+	}
 }

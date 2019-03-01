@@ -8,8 +8,10 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.eden.ModTeleporterEden;
-import naturix.divinerpg.particle.ParticleEdenPortal;
+import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -40,7 +42,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EdenBlock extends BlockBreakable {
+public class EdenBlock extends BlockBreakable implements IHasModel {
 
 	public static class Size {
 		private final World world;
@@ -98,11 +100,11 @@ public class EdenBlock extends BlockBreakable {
 						break label56;
 					}
 
-					//if (block == ModBlocks.portalEden) {
-					//	++this.portalBlockCount;
-					//}
+					if (block == ModBlocks.portalEden) {
+						++this.portalBlockCount;
+					}
 
-					/**if (i == 0) {
+					if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
 						if (block != ModBlocks.rockDivine) {
@@ -114,15 +116,16 @@ public class EdenBlock extends BlockBreakable {
 						if (block != ModBlocks.rockDivine) {
 							break label56;
 						}
-					}*/
+					}
 				}
 			}
 
 			for (int j = 0; j < this.width; ++j) {
-				/**if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != ModBlocks.rockDivine) {
+				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
+				        .getBlock() != ModBlocks.rockDivine) {
 					this.height = 0;
 					break;
-				}*/
+				}
 			}
 
 			if (this.height <= 21 && this.height >= 3) {
@@ -141,14 +144,14 @@ public class EdenBlock extends BlockBreakable {
 			for (i = 0; i < 22; ++i) {
 				BlockPos blockpos = pos.offset(facing, i);
 
-				//if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.rockDivine) {
-				//	break;
-				//}
+				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
+				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.rockDivine) {
+					break;
+				}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			//return block == ModBlocks.rockDivine ? i : 0;
-			return 0;
+			return block == ModBlocks.rockDivine ? i : 0;
 		}
 
 		public int getHeight() {
@@ -160,8 +163,8 @@ public class EdenBlock extends BlockBreakable {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			//return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire || blockIn == ModBlocks.portalEden;
-			return false;
+			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
+			        || blockIn == ModBlocks.portalEden;
 		}
 
 		public boolean isValid() {
@@ -174,7 +177,8 @@ public class EdenBlock extends BlockBreakable {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
 
 				for (int j = 0; j < this.height; ++j) {
-					//this.world.setBlockState(blockpos.up(j), ModBlocks.portalEden.getDefaultState().withProperty(EdenBlock.AXIS, this.axis), 2);
+					this.world.setBlockState(blockpos.up(j),
+					        ModBlocks.portalEden.getDefaultState().withProperty(EdenBlock.AXIS, this.axis), 2);
 				}
 			}
 		}
@@ -195,13 +199,14 @@ public class EdenBlock extends BlockBreakable {
 
 	public EdenBlock(String name, Block fireBlock) {
 		super(Material.PORTAL, false);
-		this.name = name;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setTickRandomly(true);
 		setCreativeTab(DivineRPG.BlocksTab);
 		setUnlocalizedName(name);
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
 	}
 
@@ -300,17 +305,17 @@ public class EdenBlock extends BlockBreakable {
 		EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
 
 		if (enumfacing$axis == EnumFacing.Axis.X) {
-			EdenBlock.Size EdenBlock$size = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.X);
+			EdenBlock.Size WildWoodPortal$size = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.X);
 
-			if (!EdenBlock$size.isValid()
-			        || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height) {
+			if (!WildWoodPortal$size.isValid()
+			        || WildWoodPortal$size.portalBlockCount < WildWoodPortal$size.width * WildWoodPortal$size.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		} else if (enumfacing$axis == EnumFacing.Axis.Z) {
-			EdenBlock.Size EdenBlock$size1 = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.Z);
+			EdenBlock.Size WildWoodPortal$size1 = new EdenBlock.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-			if (!EdenBlock$size1.isValid()
-			        || EdenBlock$size1.portalBlockCount < EdenBlock$size1.width * EdenBlock$size1.height) {
+			if (!WildWoodPortal$size1.isValid() || WildWoodPortal$size1.portalBlockCount < WildWoodPortal$size1.width
+			        * WildWoodPortal$size1.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		}
@@ -324,19 +329,17 @@ public class EdenBlock extends BlockBreakable {
 			thePlayer.addExperience(0);
 			thePlayer.mcServer.getWorld(thePlayer.dimension);
 			int dimensionID = Config.edenDimensionId;
-			//Block blockFrame = ModBlocks.rockDivine;
-			Block blockFrame = Blocks.ACACIA_DOOR;
-
 			if (thePlayer.timeUntilPortal > 0) {
 				thePlayer.timeUntilPortal = 10;
 			} else if (thePlayer.dimension != dimensionID) {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-				        new ModTeleporterEden(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this, blockFrame));
+				        new ModTeleporterEden(thePlayer.mcServer.getWorld(dimensionID), Config.edenDimensionId, this,
+				                ModBlocks.rockDivine));
 			} else {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new ModTeleporterEden(thePlayer.mcServer.getWorld(0), 0, this, blockFrame));
+				        new ModTeleporterEden(thePlayer.mcServer.getWorld(0), 0, this, ModBlocks.rockDivine));
 			}
 		}
 	}
@@ -371,12 +374,13 @@ public class EdenBlock extends BlockBreakable {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 
-			ParticleEdenPortal var20 = new ParticleEdenPortal(worldIn, d0, d1, d2, d3, d4, d5);
+			ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
 	}
 

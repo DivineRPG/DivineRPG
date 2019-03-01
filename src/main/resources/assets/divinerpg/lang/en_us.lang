@@ -172,6 +172,7 @@ tile.glass_smooth.name=Smooth Glass
 tile.firelight.name=Firelight
 tile.star_bridge.name=Star Bridge
 tile.star_bridge_on.name=Star Bridge
+tile.heat_trap_on.name=Heat Trap
 
 container.iceika_chest=Iceika Chest
 
