@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemPickaxe;
@@ -14,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class PickaxeBase extends ItemPickaxe {
+public class PickaxeBase extends ItemPickaxe implements IHasModel {
 
 	public static String HARVEST = "tooltip.harvest";
 	public String lvl = getHarvestString();
@@ -24,8 +26,10 @@ public class PickaxeBase extends ItemPickaxe {
 		super(material);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		//setCreativeTab(DivineRPG.ToolsTab);
+		setCreativeTab(DivineRPG.ToolsTab);
 		this.name = name;
+
+		ModItems.ITEMS.add(this);
 	}
 
 	@Override
@@ -71,7 +75,8 @@ public class PickaxeBase extends ItemPickaxe {
 		return I18n.translateToLocal(HARVEST).replace("+", lvl);
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

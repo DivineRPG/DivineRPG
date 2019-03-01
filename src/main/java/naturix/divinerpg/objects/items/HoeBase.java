@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemHoe;
@@ -13,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class HoeBase extends ItemHoe {
+public class HoeBase extends ItemHoe implements IHasModel {
 
 	private String name;
 
@@ -21,8 +23,10 @@ public class HoeBase extends ItemHoe {
 		super(material);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		//setCreativeTab(DivineRPG.ToolsTab);
+		setCreativeTab(DivineRPG.ToolsTab);
 		this.name = name;
+
+		ModItems.ITEMS.add(this);
 	}
 
 	@Override
@@ -35,7 +39,8 @@ public class HoeBase extends ItemHoe {
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 
 	}

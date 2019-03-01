@@ -5,9 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
-import naturix.divinerpg.objects.items.arrows.InfernoArrow;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -31,7 +30,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BowBase extends ItemBow {
+public class BowBase extends ItemBow implements IHasModel {
 
 	protected String repairIngot = "";
 	public String name;
@@ -50,7 +49,9 @@ public class BowBase extends ItemBow {
 		// setMaxDamage(toolMaterial.getMaxUses() + 325);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		//this.setCreativeTab(DivineRPG.CombatTab);
+		this.setCreativeTab(DivineRPG.CombatTab);
+
+		ModItems.ITEMS.add(this);
 		addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
@@ -117,9 +118,9 @@ public class BowBase extends ItemBow {
 	@Override
 	protected boolean isArrow(ItemStack stack) {
 		boolean isInfernal = false;
-		//if (this == ModItems.infernoBow) {
-		//	isInfernal = true;
-		//}
+		// if (this == ModItems.infernoBow) {
+		// isInfernal = true;
+		// }
 
 		return isInfernal;
 	}
@@ -178,27 +179,22 @@ public class BowBase extends ItemBow {
 						int encPower = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
 						boolean encFlame = EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0;
 
-						/**InfernoArrow arrowItem = (InfernoArrow) (arrowStack.getItem() instanceof InfernoArrow ? arrowStack.getItem() : ModItems.arrowInferno);
-
-						EntityInfernoArrow arrow = arrowItem.createArrow(world, arrowStack, player);
-						arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F * speedMod,
-						        1.0F + (1.5F - f));
-						arrow.setDamage(arrow.getDamage() * (1 + arrowDamageMultiplier));
-
-						if (f >= 1.0F) {
-							arrow.setIsCritical(true);
-						}
-						if (encPower > 0) {
-							arrow.setDamage(arrow.getDamage() + encPower * 0.5D + 0.5D);
-						}
-						if (encPunch > 0) {
-							arrow.setKnockbackStrength(encPunch);
-						}
-						if (encFlame) {
-							arrow.setFire(100);
-						}
-
-						world.spawnEntity(arrow);*/
+						/**
+						 * InfernoArrow arrowItem = (InfernoArrow) (arrowStack.getItem() instanceof
+						 * InfernoArrow ? arrowStack.getItem() : ModItems.arrowInferno);
+						 * 
+						 * EntityInfernoArrow arrow = arrowItem.createArrow(world, arrowStack, player);
+						 * arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F
+						 * * speedMod, 1.0F + (1.5F - f)); arrow.setDamage(arrow.getDamage() * (1 +
+						 * arrowDamageMultiplier));
+						 * 
+						 * if (f >= 1.0F) { arrow.setIsCritical(true); } if (encPower > 0) {
+						 * arrow.setDamage(arrow.getDamage() + encPower * 0.5D + 0.5D); } if (encPunch >
+						 * 0) { arrow.setKnockbackStrength(encPunch); } if (encFlame) {
+						 * arrow.setFire(100); }
+						 * 
+						 * world.spawnEntity(arrow);
+						 */
 					}
 					stack.damageItem(1, player);
 				}
@@ -217,7 +213,8 @@ public class BowBase extends ItemBow {
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 

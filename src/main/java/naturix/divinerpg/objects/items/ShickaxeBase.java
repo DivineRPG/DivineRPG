@@ -8,6 +8,8 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Sets;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -30,7 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ShickaxeBase extends ItemTool {
+public class ShickaxeBase extends ItemTool implements IHasModel {
 	private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
 	        Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE,
 	        Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE,
@@ -42,6 +44,7 @@ public class ShickaxeBase extends ItemTool {
 	        Blocks.WOODEN_PRESSURE_PLATE, Blocks.COCOA, Blocks.CLAY, Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS,
 	        Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND,
 	        Blocks.GRASS_PATH, Blocks.CONCRETE_POWDER);
+
 	public static String HARVEST = "tooltip.harvest";
 
 	protected String name;
@@ -50,12 +53,14 @@ public class ShickaxeBase extends ItemTool {
 
 	public ShickaxeBase(ToolMaterial toolMaterial, String name) {
 		super(toolMaterial, EFFECTIVE_ON);
-		//setCreativeTab(DivineRPG.ToolsTab);
+		setCreativeTab(DivineRPG.ToolsTab);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.name = name;
 		this.setHarvestLevel("pickaxe", toolMaterial.getHarvestLevel());
 		this.setMaxDamage(toolMaterial.getMaxUses());
+
+		ModItems.ITEMS.add(this);
 	}
 
 	@Override
@@ -216,7 +221,8 @@ public class ShickaxeBase extends ItemTool {
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 

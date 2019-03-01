@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemAxe;
@@ -13,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class AxeBase extends ItemAxe {
+public class AxeBase extends ItemAxe implements IHasModel {
 
 	private String name;
 
@@ -22,7 +23,7 @@ public class AxeBase extends ItemAxe {
 		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		//setCreativeTab(DivineRPG.ToolsTab);
+		setCreativeTab(DivineRPG.ToolsTab);
 		this.name = name;
 	}
 
@@ -37,7 +38,8 @@ public class AxeBase extends ItemAxe {
 		}
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }
