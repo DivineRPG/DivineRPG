@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -14,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ArmorBase extends net.minecraft.item.ItemArmor {
+public class ArmorBase extends net.minecraft.item.ItemArmor implements IHasModel {
 
 	private String name;
 	protected double damageReduction;
@@ -30,6 +32,7 @@ public class ArmorBase extends net.minecraft.item.ItemArmor {
 		setUnlocalizedName(name);
 		this.name = name;
 		this.setCreativeTab(DivineRPG.ArmorTab);
+		ModItems.ITEMS.add(this);
 	}
 
 	@Override
@@ -68,7 +71,8 @@ public class ArmorBase extends net.minecraft.item.ItemArmor {
 		return null;
 	}
 
-	public void registerItemModel() {
+	@Override
+	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }
