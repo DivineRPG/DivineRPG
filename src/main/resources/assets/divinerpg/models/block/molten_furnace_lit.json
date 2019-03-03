@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/molten_furnace_front_on",
+    "down": "divinerpg:blocks/molten_furnace_top",
+    "up": "divinerpg:blocks/molten_furnace_top",
+    "east": "divinerpg:blocks/molten_furnace_side",
+    "west": "divinerpg:blocks/molten_furnace_side",
+    "north": "divinerpg:blocks/molten_furnace_front_on",
+    "south": "divinerpg:blocks/molten_furnace_side"
+  }
+}

@@ -1,46 +1,36 @@
 package naturix.divinerpg.objects.blocks.tile.container;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
-import naturix.divinerpg.objects.blocks.tile.container.slot.SlotCoalstoneFurnaceOutput;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
+import naturix.divinerpg.objects.blocks.tile.container.slot.SlotInfiniteFurnaceOutput;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntityFurnace;
 
-/**
- * Created by LiteWolf101 on Jan
- * /31/2019
- */
-public class ContainerCoalstoneFurnace extends Container {
-    private final TileEntityCoalstoneFurnace tileEntity;
+public class ContainerInfiniteFurnace extends Container {
+    private final TileEntityInfiniteFurnace tileEntity;
     private int cookTime, totalCookTime;
 
-    public ContainerCoalstoneFurnace(InventoryPlayer player, TileEntityCoalstoneFurnace tileEntity) {
+    public ContainerInfiniteFurnace(InventoryPlayer player, TileEntityInfiniteFurnace tileEntity) {
         this.tileEntity = tileEntity;
 
         this.addSlotToContainer(new Slot(tileEntity, 0, 56, 17));
-        this.addSlotToContainer(new SlotCoalstoneFurnaceOutput(player.player, tileEntity, 1, 116, 35));
+        this.addSlotToContainer(new SlotInfiniteFurnaceOutput(player.player, tileEntity, 1, 116, 35));
 
-        for (int i = 0; i < 3; ++i)
-        {
-            for (int j = 0; j < 9; ++j)
-            {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
                 this.addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
-        for (int k = 0; k < 9; ++k)
-        {
+        for (int k = 0; k < 9; ++k) {
             this.addSlotToContainer(new Slot(player, k, 8 + k * 18, 142));
         }
     }
 
-    public void addListener(IContainerListener listener)
-    {
+    public void addListener(IContainerListener listener) {
         super.addListener(listener);
         listener.sendAllWindowProperties(this, this.tileEntity);
     }
@@ -50,14 +40,12 @@ public class ContainerCoalstoneFurnace extends Container {
         super.detectAndSendChanges();
 
         for (int i = 0; i < this.listeners.size(); i++) {
-            IContainerListener listener = (IContainerListener)this.listeners.get(i);
+            IContainerListener listener = (IContainerListener) this.listeners.get(i);
 
-            if (this.cookTime != this.tileEntity.getField(0))
-            {
+            if (this.cookTime != this.tileEntity.getField(0)) {
                 listener.sendWindowProperty(this, 0, this.tileEntity.getField(0));
             }
-            if (this.totalCookTime != this.tileEntity.getField(1))
-            {
+            if (this.totalCookTime != this.tileEntity.getField(1)) {
                 listener.sendWindowProperty(this, 1, this.tileEntity.getField(1));
             }
         }
@@ -77,7 +65,7 @@ public class ContainerCoalstoneFurnace extends Container {
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
-        //TODO Fix non coalstone furnace recipe items from entering the input slot
+        // TODO Fix non coalstone furnace recipe items from entering the input slot
         ItemStack previous = ItemStack.EMPTY;
         Slot slot = (Slot) this.inventorySlots.get(index);
 

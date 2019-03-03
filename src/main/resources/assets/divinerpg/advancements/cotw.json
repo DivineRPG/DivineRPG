@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:callofthewatcher"
+      "item": "divinerpg:call_of_the_watcher"
     },
     "title": {
       "translate": "advancement.divinerpg.divineintervention"
@@ -19,7 +19,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:callofthewatcher"
+            "item": "divinerpg:call_of_the_watcher"
           }
         ]
       }

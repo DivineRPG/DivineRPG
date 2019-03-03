@@ -1,6 +1,7 @@
-package naturix.divinerpg.objects.blocks;
+package naturix.divinerpg.objects.blocks.iceika;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockBase;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/oceanfire_furnace_front_off",
+    "down": "divinerpg:blocks/oceanfire_furnace_top",
+    "up": "divinerpg:blocks/oceanfire_furnace_top",
+    "east": "divinerpg:blocks/oceanfire_furnace_side",
+    "west": "divinerpg:blocks/oceanfire_furnace_side",
+    "north": "divinerpg:blocks/oceanfire_furnace_front_off",
+    "south": "divinerpg:blocks/oceanfire_furnace_side"
+  }
+}

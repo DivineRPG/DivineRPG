@@ -2,19 +2,22 @@ package naturix.divinerpg.utils;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
-import naturix.divinerpg.objects.blocks.tile.container.ContainerCoalstoneFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerIceikaChest;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.IceikaChestGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
 import naturix.divinerpg.objects.entities.container.ContainerDivineMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;
 import naturix.divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiTheHunger;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopTinkerer;
-import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -25,21 +28,36 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
  * Created by LiteWolf101 on Jan /31/2019
  */
 public class GUIHandler implements IGuiHandler {
-    private WorkshopMerchant merchant;
     public static final int COALSTONE_FURNACE_GUI_ID = 0;
-    public static final int ICEIKA_CHEST_GUI_ID = 1;
-    public static final int WORKSHOP_MERCHANT = 2;
-    public static final int WORKSHOP_TINKERER = 3;
-    public static final int JACK_O_MAN = 4;
-    public static final int LIVESTOCK_MERCHANT = 5;
-    public static final int THE_HUNGER = 6;
+    public static final int MOLTEN_FURNACE_GUI_ID = 1;
+    public static final int OCEANFIRE_FURNACE_GUI_ID = 2;
+    public static final int WHITEFIRE_FURNACE_GUI_ID = 3;
+    public static final int DEMON_FURNACE_GUI_ID = 4;
+    public static final int ICEIKA_CHEST_GUI_ID = 5;
+    public static final int WORKSHOP_MERCHANT = 6;
+    public static final int WORKSHOP_TINKERER = 7;
+    public static final int JACK_O_MAN = 8;
+    public static final int LIVESTOCK_MERCHANT = 9;
+    public static final int THE_HUNGER = 10;
 
     @Nullable
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == COALSTONE_FURNACE_GUI_ID) {
             return new CoalstoneFurnaceGUI(player.inventory,
-                    (TileEntityCoalstoneFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == MOLTEN_FURNACE_GUI_ID) {
+            return new MoltenFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == OCEANFIRE_FURNACE_GUI_ID) {
+            return new OceanfireFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == WHITEFIRE_FURNACE_GUI_ID) {
+            return new WhitefireFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == DEMON_FURNACE_GUI_ID) {
+            return new DemonFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == ICEIKA_CHEST_GUI_ID) {
             return new IceikaChestGUI(player.inventory,
                     (TileEntityIceikaChest) world.getTileEntity(new BlockPos(x, y, z)), player);
@@ -60,9 +78,10 @@ public class GUIHandler implements IGuiHandler {
     @Nullable
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if (ID == COALSTONE_FURNACE_GUI_ID) {
-            return new ContainerCoalstoneFurnace(player.inventory,
-                    (TileEntityCoalstoneFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        if (ID == COALSTONE_FURNACE_GUI_ID || ID == MOLTEN_FURNACE_GUI_ID || ID == OCEANFIRE_FURNACE_GUI_ID
+                || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID) {
+            return new ContainerInfiniteFurnace(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         }
         if (ID == ICEIKA_CHEST_GUI_ID) {
             return new ContainerIceikaChest(player.inventory,

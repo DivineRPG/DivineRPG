@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "divinerpg:oceanfire_furnace"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory":{"model": "divinerpg:oceanfire_furnace"},
+    "burning=false,facing=north": { "model": "divinerpg:oceanfire_furnace" },
+    "burning=false,facing=east": { "model": "divinerpg:oceanfire_furnace", "y": 90 },
+    "burning=false,facing=south": { "model": "divinerpg:oceanfire_furnace", "y": 180 },
+    "burning=false,facing=west": { "model": "divinerpg:oceanfire_furnace", "y": 270 },
+    "burning=true,facing=north": { "model": "divinerpg:oceanfire_furnace_lit" },
+    "burning=true,facing=east": { "model": "divinerpg:oceanfire_furnace_lit", "y": 90 },
+    "burning=true,facing=south": { "model": "divinerpg:oceanfire_furnace_lit", "y": 180 },
+    "burning=true,facing=west": { "model": "divinerpg:oceanfire_furnace_lit", "y":270  }
+  }
+}

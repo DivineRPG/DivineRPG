@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.blocks;
+package naturix.divinerpg.objects.blocks.iceika;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;

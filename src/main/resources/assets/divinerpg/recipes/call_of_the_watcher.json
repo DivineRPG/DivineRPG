@@ -10,13 +10,13 @@
         "item": "divinerpg:ingot_hellstone"
     },
 	"Y": {
-		"item": "divinerpg:watchingeye"
+		"item": "divinerpg:watching_eye"
 	},
 	"Z": {
 		"item": "divinerpg:stone_molten"
 	}
   },
   "result": {
-    "item": "divinerpg:callofthewatcher"
+    "item": "divinerpg:call_of_the_watcher"
   }
 }

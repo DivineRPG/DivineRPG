@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "divinerpg:blocks/whitefire_furnace_front_on",
+    "down": "divinerpg:blocks/whitefire_furnace_top",
+    "up": "divinerpg:blocks/whitefire_furnace_top",
+    "east": "divinerpg:blocks/whitefire_furnace_side",
+    "west": "divinerpg:blocks/whitefire_furnace_side",
+    "north": "divinerpg:blocks/whitefire_furnace_front_on",
+    "south": "divinerpg:blocks/whitefire_furnace_side"
+  }
+}
