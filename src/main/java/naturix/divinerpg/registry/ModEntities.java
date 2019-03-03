@@ -115,7 +115,7 @@ import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderTheEye;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderTheGrue;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderTheWatcher;
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderWhale;
-import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderWildFire;
+import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderWildfire;
 import naturix.divinerpg.objects.entities.assets.render.vethia.RenderAcidHag;
 import naturix.divinerpg.objects.entities.assets.render.vethia.RenderBiphron;
 import naturix.divinerpg.objects.entities.assets.render.vethia.RenderBohemite;
@@ -624,7 +624,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Shark.class, RenderShark.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WildFire.class, RenderWildFire.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(WildFire.class, RenderWildfire.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Rotatick.class, RenderRotatick.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TheEye.class, RenderTheEye.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EnderTriplets.class, RenderEnderTriplets.FACTORY);

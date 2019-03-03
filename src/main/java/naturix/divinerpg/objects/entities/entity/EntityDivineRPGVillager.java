@@ -86,6 +86,11 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
     }
 
     @Override
+    protected boolean canDropLoot() {
+        return false;
+    }
+
+    @Override
     protected void updateAITasks() {
         if (this.randomTickDivider-- <= 0) {
             BlockPos blockpos = new BlockPos(this);

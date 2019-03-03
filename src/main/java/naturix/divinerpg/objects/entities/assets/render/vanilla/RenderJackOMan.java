@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelJackOMan;
+import naturix.divinerpg.objects.entities.assets.render.MainHandLayerRenderJackOMan;
 import naturix.divinerpg.objects.entities.entity.vanilla.JackOMan;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -17,6 +18,7 @@ public class RenderJackOMan extends RenderLiving<JackOMan> {
 
     public RenderJackOMan(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelJackOMan(), shadowsizeIn);
+        addLayer(new MainHandLayerRenderJackOMan(this));
     }
 
     @Nullable
