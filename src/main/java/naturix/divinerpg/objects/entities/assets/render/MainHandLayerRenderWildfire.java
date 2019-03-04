@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.assets.render;
 
 import naturix.divinerpg.objects.entities.assets.render.vanilla.RenderWildfire;
-import naturix.divinerpg.objects.entities.entity.vanilla.WildFire;
+import naturix.divinerpg.objects.entities.entity.vanilla.Wildfire;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 
-public class MainHandLayerRenderWildfire implements LayerRenderer<WildFire> {
+public class MainHandLayerRenderWildfire implements LayerRenderer<Wildfire> {
     private final RenderWildfire renderWildFire;
 
     public MainHandLayerRenderWildfire(RenderWildfire renderWildfireIn) {
@@ -17,7 +17,7 @@ public class MainHandLayerRenderWildfire implements LayerRenderer<WildFire> {
     }
 
     @Override
-    public void doRenderLayer(WildFire entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks,
+    public void doRenderLayer(Wildfire entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks,
             float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         GlStateManager.enableRescaleNormal();
         GlStateManager.pushMatrix();

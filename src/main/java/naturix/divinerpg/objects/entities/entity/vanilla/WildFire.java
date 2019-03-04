@@ -16,10 +16,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class WildFire extends EntityDivineRPGMob implements IRangedAttackMob {
+public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/wildfire");
 
-    public WildFire(World worldIn) {
+    public Wildfire(World worldIn) {
         super(worldIn);
         this.isImmuneToFire = true;
     }

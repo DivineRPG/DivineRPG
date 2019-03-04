@@ -283,7 +283,7 @@ import naturix.divinerpg.objects.entities.entity.vanilla.TheEye;
 import naturix.divinerpg.objects.entities.entity.vanilla.TheGrue;
 import naturix.divinerpg.objects.entities.entity.vanilla.TheWatcher;
 import naturix.divinerpg.objects.entities.entity.vanilla.Whale;
-import naturix.divinerpg.objects.entities.entity.vanilla.WildFire;
+import naturix.divinerpg.objects.entities.entity.vanilla.Wildfire;
 import naturix.divinerpg.objects.entities.entity.vethia.AcidHag;
 import naturix.divinerpg.objects.entities.entity.vethia.Biphron;
 import naturix.divinerpg.objects.entities.entity.vethia.Bohemite;
@@ -482,7 +482,7 @@ public class ModEntities {
         registerMobWithEgg(TheGrue.class, "the_grue");
         registerMobWithEgg(TheWatcher.class, "the_watcher");
         registerMobWithEgg(Whale.class, "whale");
-        registerMobWithEgg(WildFire.class, "wildfire");
+        registerMobWithEgg(Wildfire.class, "wildfire");
 
         // Vethia
         registerMobWithEgg(AcidHag.class, "acid_hag");
@@ -624,7 +624,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Shark.class, RenderShark.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WildFire.class, RenderWildfire.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(Wildfire.class, RenderWildfire.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Rotatick.class, RenderRotatick.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TheEye.class, RenderTheEye.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EnderTriplets.class, RenderEnderTriplets.FACTORY);
@@ -796,7 +796,7 @@ public class ModEntities {
         LootTableList.register(TwilightDemon.LOOT);
         LootTableList.register(Verek.LOOT);
         LootTableList.register(Whale.LOOT);
-        LootTableList.register(WildFire.LOOT);
+        LootTableList.register(Wildfire.LOOT);
         LootTableList.register(Wraith.LOOT);
 
         if (Config.debug) {
@@ -887,7 +887,7 @@ public class ModEntities {
                 EntityRegistry.addSpawn(HellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(HellSpider.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(Scorcher.class, 7, 4, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(WildFire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(Wildfire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
             }
             if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.SNOWY)) {
                 EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.MONSTER, biome);

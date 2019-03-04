@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.model.vanilla.model;
 
-import naturix.divinerpg.objects.entities.entity.vanilla.WildFire;
+import naturix.divinerpg.objects.entities.entity.vanilla.Wildfire;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -223,8 +223,8 @@ public class ModelWildfire extends ModelBase
   }
   @Override
   public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
-      if(entitylivingbaseIn instanceof WildFire) {
-          WildFire mobDarkenedKnight = (WildFire) entitylivingbaseIn;
+      if(entitylivingbaseIn instanceof Wildfire) {
+          Wildfire mobDarkenedKnight = (Wildfire) entitylivingbaseIn;
           isHolding = mobDarkenedKnight.getHeldItemMainhand() != null || !mobDarkenedKnight.getHeldItemMainhand().isEmpty();
       }
   }
