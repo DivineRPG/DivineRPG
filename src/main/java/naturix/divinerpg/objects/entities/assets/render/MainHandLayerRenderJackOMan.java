@@ -10,29 +10,27 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 
 public class MainHandLayerRenderJackOMan implements LayerRenderer<JackOMan> {
-    private final RenderJackOMan renderJackOMan;
+	public MainHandLayerRenderJackOMan(RenderJackOMan renderJackOManIn) {
+	}
 
-    public MainHandLayerRenderJackOMan(RenderJackOMan renderJackOManIn) {
-        renderJackOMan = renderJackOManIn;
-    }
+	@Override
+	public void doRenderLayer(JackOMan entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks,
+	        float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		GlStateManager.enableRescaleNormal();
+		GlStateManager.pushMatrix();
+		// (0.48f, -.45f, -0.05f); makes use off hand
+		GlStateManager.translate(-0.48F, 0.45F, -0.05F);
+		GlStateManager.rotate(90.0F, 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(-45.0F, 0.0F, 0.0F, 1.0F);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		Minecraft.getMinecraft().getItemRenderer().renderItem(entitylivingbaseIn, new ItemStack(ModItems.scythe),
+		        ItemCameraTransforms.TransformType.NONE);
+		GlStateManager.popMatrix();
+		GlStateManager.disableRescaleNormal();
+	}
 
-    @Override
-    public void doRenderLayer(JackOMan entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks,
-            float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        GlStateManager.enableRescaleNormal();
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(-0.48F, 0.45F, -0.05F);
-        GlStateManager.rotate(90.0F, 0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate(-45.0F, 0.0F, 0.0F, 1.0F);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        Minecraft.getMinecraft().getItemRenderer().renderItem(entitylivingbaseIn, new ItemStack(ModItems.scythe),
-                ItemCameraTransforms.TransformType.NONE);
-        GlStateManager.popMatrix();
-        GlStateManager.disableRescaleNormal();
-    }
-
-    @Override
-    public boolean shouldCombineTextures() {
-        return false;
-    }
+	@Override
+	public boolean shouldCombineTextures() {
+		return false;
+	}
 }

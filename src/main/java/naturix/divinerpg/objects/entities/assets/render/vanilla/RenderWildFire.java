@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelWildfire;
 import naturix.divinerpg.objects.entities.assets.render.MainHandLayerRenderWildfire;
 import naturix.divinerpg.objects.entities.entity.vanilla.WildFire;
@@ -11,40 +13,39 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-import javax.annotation.Nullable;
-
 public class RenderWildfire extends RenderLiving<WildFire> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildfire.png");
-    private final ModelWildfire modelEntity;
+	public static class Factory implements IRenderFactory<WildFire> {
+		@Override
+		public Render<? super WildFire> createRenderFor(RenderManager manager) {
+			return new RenderWildfire(manager, new ModelWildfire(), 0F);
+		}
+	}
 
-    public RenderWildfire(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWildfire(), shadowsizeIn);
-        modelEntity = (ModelWildfire) super.mainModel;
-        addLayer(new MainHandLayerRenderWildfire(this));
-    }
+	public static final IRenderFactory FACTORY = new Factory();
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildfire.png");
 
-    @SuppressWarnings("null")
-    @Override
-    public void doRender(WildFire entity, double x, double y, double z, float entityYaw, float partialTicks) {
-        ItemStack stack = entity.getHeldItemMainhand();
-        modelEntity.isHolding = stack != null || !stack.isEmpty();
-        if (modelEntity.isHolding && stack != null) {
-            modelEntity.itemStack = stack;
-        }
-        super.doRender(entity, x, y, z, entityYaw, partialTicks);
-    }
+	private final ModelWildfire modelEntity;
 
-    @Nullable
-    @Override
-    protected ResourceLocation getEntityTexture(WildFire entity) {
-        return texture;
-    }
+	public RenderWildfire(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+		super(rendermanagerIn, new ModelWildfire(), shadowsizeIn);
+		modelEntity = (ModelWildfire) super.mainModel;
+		addLayer(new MainHandLayerRenderWildfire(this));
+	}
 
-    public static class Factory implements IRenderFactory<WildFire> {
-        @Override
-        public Render<? super WildFire> createRenderFor(RenderManager manager) {
-            return new RenderWildfire(manager, new ModelWildfire(), 0F);
-        }
-    }
+	@SuppressWarnings("null")
+	@Override
+	public void doRender(WildFire entity, double x, double y, double z, float entityYaw, float partialTicks) {
+		ItemStack stack = entity.getHeldItemMainhand();
+		modelEntity.isHolding = stack != null || !stack.isEmpty();
+		if (modelEntity.isHolding && stack != null) {
+			modelEntity.itemStack = stack;
+		}
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
+	}
+
+	@Nullable
+	@Override
+	protected ResourceLocation getEntityTexture(WildFire entity) {
+		return texture;
+	}
 }
