@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 public class CoalstoneFurnace extends FurnaceBase implements ITileEntityProvider {
     protected String name;
 
-    public CoalstoneFurnace(String name) {
-        super(name, GUIHandler.COALSTONE_FURNACE_GUI_ID);
+    public CoalstoneFurnace(String name, boolean isBurnging) {
+        super(name, isBurnging, GUIHandler.COALSTONE_FURNACE_GUI_ID);
         this.name = name;
     }
 
@@ -24,13 +24,16 @@ public class CoalstoneFurnace extends FurnaceBase implements ITileEntityProvider
         TileEntity tileentity = worldIn.getTileEntity(pos);
         Block block = iblockstate.getBlock();
 
+        keepInventory = true;
         if (active) {
-            worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState()
-                    .withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, true), 3);
+            worldIn.setBlockState(pos,
+                    ModBlocks.coalstoneFurnaceOn.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)),
+                    3);
         } else {
-            worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState()
-                    .withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, false), 3);
+            worldIn.setBlockState(pos,
+                    ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
+        keepInventory = false;
 
         if (tileentity != null) {
             tileentity.validate();

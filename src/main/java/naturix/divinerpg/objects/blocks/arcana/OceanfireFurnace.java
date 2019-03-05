@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 public class OceanfireFurnace extends FurnaceBase implements ITileEntityProvider {
     protected String name;
 
-    public OceanfireFurnace(String name) {
-        super(name, GUIHandler.OCEANFIRE_FURNACE_GUI_ID);
+    public OceanfireFurnace(String name, boolean isBurnging) {
+        super(name, isBurnging, GUIHandler.OCEANFIRE_FURNACE_GUI_ID);
         this.name = name;
     }
 
@@ -24,13 +24,16 @@ public class OceanfireFurnace extends FurnaceBase implements ITileEntityProvider
         TileEntity tileentity = worldIn.getTileEntity(pos);
         Block block = iblockstate.getBlock();
 
+        keepInventory = true;
         if (active) {
-            worldIn.setBlockState(pos, ModBlocks.oceanfireFurnace.getDefaultState()
-                    .withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, true), 3);
+            worldIn.setBlockState(pos,
+                    ModBlocks.oceanfireFurnaceOn.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)),
+                    3);
         } else {
-            worldIn.setBlockState(pos, ModBlocks.oceanfireFurnace.getDefaultState()
-                    .withProperty(FACING, iblockstate.getValue(FACING)).withProperty(BURNING, false), 3);
+            worldIn.setBlockState(pos,
+                    ModBlocks.oceanfireFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
+        keepInventory = false;
 
         if (tileentity != null) {
             tileentity.validate();

@@ -13,7 +13,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -37,36 +36,46 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class FurnaceBase extends Block implements IHasModel, IMetaName {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    public static final PropertyBool BURNING = PropertyBool.create("burning");
+    public static boolean keepInventory;
+    protected boolean isBurning;
     protected String name;
     protected int guiID;
 
-    public FurnaceBase(String name, int guiID) {
+    public FurnaceBase(String name, boolean isBurning, int guiID) {
         super(Material.ROCK);
         this.name = name;
         this.guiID = guiID;
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(DivineRPG.BlocksTab);
+        if (isBurning) {
+            setLightLevel(0.875F);
+        } else {
+            setCreativeTab(DivineRPG.BlocksTab);
+        }
+        this.isBurning = isBurning;
         setHardness(3.5F);
-        setDefaultState(
-                this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+        setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
-
     }
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        TileEntityInfiniteFurnace tileentity = (TileEntityInfiniteFurnace) worldIn.getTileEntity(pos);
-        InventoryHelper.dropInventoryItems(worldIn, pos, tileentity);
+        if (!keepInventory) {
+            TileEntityInfiniteFurnace tileentity = (TileEntityInfiniteFurnace) worldIn.getTileEntity(pos);
+
+            if (tileentity instanceof TileEntityInfiniteFurnace) {
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityInfiniteFurnace) tileentity);
+            }
+        }
+
         super.breakBlock(worldIn, pos, state);
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { FACING, BURNING });
+        return new BlockStateContainer(this, new IProperty[] { FACING });
     }
 
     @Override
@@ -120,7 +129,7 @@ public class FurnaceBase extends Block implements IHasModel, IMetaName {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("incomplete-switch")
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        if (worldIn.getBlockState(pos).getValue(BURNING) == true) {
+        if (this.isBurning) {
             EnumFacing enumfacing = stateIn.getValue(FACING);
             double d0 = pos.getX() + 0.5D;
             double d1 = pos.getY() + rand.nextDouble() * 6.0D / 16.0D;

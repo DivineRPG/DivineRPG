@@ -6,13 +6,9 @@
   "variants": {
     "normal": [{}],
     "inventory":{"model": "divinerpg:molten_furnace"},
-    "burning=false,facing=north": { "model": "divinerpg:molten_furnace" },
-    "burning=false,facing=east": { "model": "divinerpg:molten_furnace", "y": 90 },
-    "burning=false,facing=south": { "model": "divinerpg:molten_furnace", "y": 180 },
-    "burning=false,facing=west": { "model": "divinerpg:molten_furnace", "y": 270 },
-    "burning=true,facing=north": { "model": "divinerpg:molten_furnace_lit" },
-    "burning=true,facing=east": { "model": "divinerpg:molten_furnace_lit", "y": 90 },
-    "burning=true,facing=south": { "model": "divinerpg:molten_furnace_lit", "y": 180 },
-    "burning=true,facing=west": { "model": "divinerpg:molten_furnace_lit", "y":270  }
+    "facing=north": { "model": "divinerpg:molten_furnace" },
+    "facing=east": { "model": "divinerpg:molten_furnace", "y": 90 },
+    "facing=south": { "model": "divinerpg:molten_furnace", "y": 180 },
+    "facing=west": { "model": "divinerpg:molten_furnace", "y": 270 }
   }
 }
