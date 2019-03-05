@@ -65,7 +65,6 @@ public class ContainerInfiniteFurnace extends Container {
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
-        // TODO Fix non coalstone furnace recipe items from entering the input slot
         ItemStack previous = ItemStack.EMPTY;
         Slot slot = (Slot) this.inventorySlots.get(index);
 

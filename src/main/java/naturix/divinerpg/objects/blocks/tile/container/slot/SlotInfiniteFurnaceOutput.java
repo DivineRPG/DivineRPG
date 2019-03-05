@@ -1,11 +1,11 @@
 package naturix.divinerpg.objects.blocks.tile.container.slot;
 
-import naturix.divinerpg.utils.block.CoalstoneFurnaceRecipes;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.math.MathHelper;
 
 /**
@@ -65,7 +65,7 @@ public class SlotInfiniteFurnaceOutput extends Slot {
 
         if (!this.player.world.isRemote) {
             int i = this.removeCount;
-            float f = CoalstoneFurnaceRecipes.getInstance().getSmeltingExperience(stack);
+            float f = FurnaceRecipes.instance().getSmeltingExperience(stack);
 
             if (f == 0.0F) {
                 i = 0;

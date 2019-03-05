@@ -2,11 +2,11 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.utils.block.CoalstoneFurnaceRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -121,7 +121,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements II
         if (((ItemStack) this.inventory.get(0)).isEmpty()) {
             return false;
         } else {
-            ItemStack result = CoalstoneFurnaceRecipes.getInstance().getResult((ItemStack) this.inventory.get(0));
+            ItemStack result = FurnaceRecipes.instance().getSmeltingResult((ItemStack) this.inventory.get(0));
             if (result.isEmpty()) {
                 return false;
             } else {
@@ -142,7 +142,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements II
         if (this.canSmelt()) {
             ItemStack input = (ItemStack) this.inventory.get(0);
             ItemStack output = (ItemStack) this.inventory.get(1);
-            ItemStack result = CoalstoneFurnaceRecipes.getInstance().getResult(input);
+            ItemStack result = FurnaceRecipes.instance().getSmeltingResult(input);
 
             if (output.isEmpty()) {
                 this.inventory.set(1, result.copy());
