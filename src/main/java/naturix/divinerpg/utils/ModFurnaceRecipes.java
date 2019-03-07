@@ -27,5 +27,6 @@ public class ModFurnaceRecipes {
 		GameRegistry.addSmelting(ModItems.rawEmpoweredMeat, new ItemStack(ModItems.empoweredMeat), 0.2f);
 		GameRegistry.addSmelting(ModItems.pelletsAquaticPure, new ItemStack(ModItems.ingotAquatic), 0.2f);
 		GameRegistry.addSmelting(ModBlocks.orebloodgem, new ItemStack(ModItems.gemBlood), 0.2f);
+
 	}
 }
