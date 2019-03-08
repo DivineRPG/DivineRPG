@@ -186,8 +186,30 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 		return a == EnumFacing.Axis.X ? 1 : (a == EnumFacing.Axis.Z ? 2 : 0);
 	}
 
+	public static boolean tryToCreatePortal(World par1World, BlockPos pos) {
+		PortalBase.Size blockportal$size = new PortalBase.Size(par1World, pos, EnumFacing.Axis.X);
+
+		if (blockportal$size.isValid() && blockportal$size.portalBlockCount == 0) {
+			blockportal$size.placePortalBlocks();
+			;
+			return true;
+		} else {
+			new PortalBase.Size(par1World, pos, EnumFacing.Axis.Z);
+
+			if (blockportal$size.isValid() && blockportal$size.portalBlockCount == 0) {
+				blockportal$size.placePortalBlocks();
+				;
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+	}
+
 	public String name;
 	public int dimensionID;
+
 	public Block blockFrame;
 
 	public PortalBase(String name, int ID, Block blockFrame) {
@@ -398,4 +420,5 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 			return state;
 		}
 	}
+
 }

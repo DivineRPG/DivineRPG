@@ -41,7 +41,12 @@ public class FireBase extends BlockFire implements IHasModel {
 	}
 
 	protected void lightPortal(World world, BlockPos pos, IBlockState state) {
-
+		ModBlocks.portalEden.makePortal(world, pos);
+		ModBlocks.portalWild.makePortal(world, pos);
+		ModBlocks.portalApalachia.makePortal(world, pos);
+		ModBlocks.portalSkythern.makePortal(world, pos);
+		ModBlocks.portalMortum.makePortal(world, pos);
+		ModBlocks.portalIceika.makePortal(world, pos);
 	}
 
 	@Override

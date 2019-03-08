@@ -22,6 +22,7 @@ import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -397,6 +398,28 @@ public class WildWoodPortal extends BlockPortal implements IHasModel {
 		return false;
 	}
 
+	public boolean makePortal(World worldIn, BlockPos p) {
+		EntityLightningBolt bolt = new EntityLightningBolt(worldIn, p.getX(), p.getY(), p.getZ(), false);
+		WildWoodPortal.Size size = new WildWoodPortal.Size(worldIn, p, EnumFacing.Axis.X);
+		if (size.isValid() && size.portalBlockCount == 0) {
+			size.placePortalBlocks();
+			worldIn.addWeatherEffect(bolt);
+			worldIn.createExplosion(bolt, p.getX(), p.getY(), p.getZ(), 0.0F, true);
+			return true;
+		} else {
+			EntityLightningBolt bolt1 = new EntityLightningBolt(worldIn, p.getX(), p.getY(), p.getZ(), false);
+			WildWoodPortal.Size size1 = new WildWoodPortal.Size(worldIn, p, EnumFacing.Axis.Z);
+			if (size1.isValid() && size1.portalBlockCount == 0) {
+				size1.placePortalBlocks();
+				worldIn.addWeatherEffect(bolt1);
+				worldIn.createExplosion(bolt1, p.getX(), p.getY(), p.getZ(), 0.0F, true);
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
 	/**
 	 * Called when a neighboring block was changed and marks that this state should
 	 * perform any checks during a neighbor change. Cases may include when redstone
@@ -515,25 +538,6 @@ public class WildWoodPortal extends BlockPortal implements IHasModel {
 		return flag4 && side == EnumFacing.WEST ? true
 		        : (flag4 && side == EnumFacing.EAST ? true
 		                : (flag5 && side == EnumFacing.NORTH ? true : flag5 && side == EnumFacing.SOUTH));
-	}
-
-	@Override
-	public boolean trySpawnPortal(World worldIn, BlockPos pos) {
-		WildWoodPortal.Size blockportal$size = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.X);
-
-		if (blockportal$size.isValid() && blockportal$size.portalBlockCount == 0) {
-			blockportal$size.placePortalBlocks();
-			return true;
-		} else {
-			WildWoodPortal.Size blockportal$size1 = new WildWoodPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
-
-			if (blockportal$size1.isValid() && blockportal$size1.portalBlockCount == 0) {
-				blockportal$size1.placePortalBlocks();
-				return true;
-			} else {
-				return false;
-			}
-		}
 	}
 
 	/**
