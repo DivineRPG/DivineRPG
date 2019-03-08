@@ -31,8 +31,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -94,20 +92,20 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 						break label56;
 					}
 
-					if (block == JourneyBlocks.goldenPortal) {
+					if (block == ModBlocks.portalEden) {
 						++this.portalBlockCount;
 					}
 
 					if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
-						if (block != JourneyBlocks.goldenPortalFrame) {
+						if (block != ModBlocks.rockDivine) {
 							break label56;
 						}
 					} else if (i == this.width - 1) {
 						block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
 
-						if (block != JourneyBlocks.goldenPortalFrame) {
+						if (block != ModBlocks.rockDivine) {
 							break label56;
 						}
 					}
@@ -116,7 +114,7 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 
 			for (int j = 0; j < this.width; ++j) {
 				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-				        .getBlock() != JourneyBlocks.goldenPortalFrame) {
+				        .getBlock() != ModBlocks.rockDivine) {
 					this.height = 0;
 					break;
 				}
@@ -139,13 +137,13 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 				BlockPos blockpos = pos.offset(facing, i);
 
 				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-				        || this.world.getBlockState(blockpos.down()).getBlock() != JourneyBlocks.goldenPortalFrame) {
+				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.rockDivine) {
 					break;
 				}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			return block == JourneyBlocks.goldenPortalFrame ? i : 0;
+			return block == ModBlocks.rockDivine ? i : 0;
 		}
 
 		public int getHeight() {
@@ -157,8 +155,8 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 		}
 
 		protected boolean isEmptyBlock(Block blockIn) {
-			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == JourneyBlocks.fire
-			        || blockIn == JourneyBlocks.goldenPortal;
+			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
+			        || blockIn == ModBlocks.portalEden;
 		}
 
 		public boolean isValid() {
@@ -172,7 +170,7 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 
 				for (int j = 0; j < this.height; ++j) {
 					this.world.setBlockState(blockpos.up(j),
-					        JourneyBlocks.goldenPortal.getDefaultState().withProperty(PortalBase.AXIS, this.axis), 2);
+					        ModBlocks.portalEden.getDefaultState().withProperty(PortalBase.AXIS, this.axis), 2);
 				}
 			}
 		}
@@ -293,7 +291,7 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
 		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
 			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-			WorldServer worldserver = thePlayer.mcServer.getWorld(thePlayer.dimension);
+			thePlayer.mcServer.getWorld(thePlayer.dimension);
 			if (thePlayer.timeUntilPortal > 0) {
 				thePlayer.timeUntilPortal = 10;
 			} else if (thePlayer.dimension != dimensionID) {
@@ -303,7 +301,7 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 			} else {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new DTeleporter(thePlayer.mcServer.getWorld(0), 0, this, blockFrame));
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(0), 0, this, blockFrame));
 			}
 		}
 	}
@@ -322,28 +320,17 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 		}
 
 		for (int i = 0; i < 4; ++i) {
-			double d0 = pos.getX() + rand.nextFloat();
-			double d1 = pos.getY() + rand.nextFloat();
-			double d2 = pos.getZ() + rand.nextFloat();
-			double d3 = (rand.nextFloat() - 0.5D) * 0.5D;
-			double d4 = (rand.nextFloat() - 0.5D) * 0.5D;
-			double d5 = (rand.nextFloat() - 0.5D) * 0.5D;
-			int j = rand.nextInt(2) * 2 - 1;
-			if (worldIn.getBlockState(pos.west()).getBlock() != this
-			        && worldIn.getBlockState(pos.east()).getBlock() != this) {
-				d0 = pos.getX() + 0.5D + 0.25D * j;
-				d3 = rand.nextFloat() * 2.0F * j;
-			} else {
-				d2 = pos.getZ() + 0.5D + 0.25D * j;
-				d5 = rand.nextFloat() * 2.0F * j;
-			}
-			EntityEucaPotalFX var20 = new EntityEucaPotalFX(worldIn, d0, d1, d2, d3, d4, d5);
-			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			pos.getX();
+			rand.nextFloat();
+			pos.getY();
+			rand.nextFloat();
+			pos.getZ();
+			rand.nextFloat();
+			rand.nextFloat();
+			rand.nextFloat();
+			rand.nextFloat();
+			rand.nextInt(2);
 		}
-	}
-
-	public void registerItemModel(Item itemBlock) {
-		JITL.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 
 	@Override
