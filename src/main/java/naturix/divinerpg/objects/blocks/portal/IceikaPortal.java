@@ -7,10 +7,10 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.dimensions.iceika.ModTeleporterIceika;
 import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.DivineTeleporter;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -29,6 +29,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumFacing.Axis;
@@ -38,7 +39,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -322,24 +325,65 @@ public class IceikaPortal extends BlockBreakable implements IHasModel {
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
-		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
-			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-			thePlayer.heal(0);
-			thePlayer.addExperience(0);
-			thePlayer.mcServer.getWorld(thePlayer.dimension);
-			int dimensionID = Config.iceikaDimensionId;
-			if (thePlayer.timeUntilPortal > 0) {
-				thePlayer.timeUntilPortal = 10;
-			} else if (thePlayer.dimension != dimensionID) {
-				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-				        new ModTeleporterIceika(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this,
-				                Blocks.SNOW));
+	public void onEntityCollidedWithBlock(World par1World, BlockPos pos, IBlockState state, Entity par5Entity) {
+
+		if (!par5Entity.isRiding() && !par5Entity.isBeingRidden() && !par1World.isRemote) {
+			if (par5Entity.timeUntilPortal <= 0) {
+				if (par5Entity instanceof EntityPlayerMP) {
+					EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
+					thePlayer.timeUntilPortal = 10;
+					if (thePlayer.dimension != Config.iceikaDimensionId) {
+						if (!ForgeHooks.onTravelToDimension(thePlayer, Config.iceikaDimensionId)) {
+							return;
+						}
+						thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer,
+						        Config.iceikaDimensionId,
+						        new DivineTeleporter(thePlayer.mcServer.getWorld(Config.iceikaDimensionId), this,
+						                Blocks.SNOW.getDefaultState()));
+					} else {
+						if (!ForgeHooks.onTravelToDimension(thePlayer, 0)) {
+							return;
+						}
+						thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new DivineTeleporter(
+						        thePlayer.mcServer.getWorld(0), this, Blocks.SNOW.getDefaultState()));
+					}
+				} else {
+					MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
+					par5Entity.timeUntilPortal = par5Entity.getPortalCooldown();
+
+					if (par5Entity.dimension != Config.iceikaDimensionId) {
+						if (!ForgeHooks.onTravelToDimension(par5Entity, Config.iceikaDimensionId)) {
+							return;
+						}
+
+						int i = par5Entity.dimension;
+
+						par5Entity.dimension = Config.iceikaDimensionId;
+						par1World.removeEntityDangerously(par5Entity);
+
+						par5Entity.isDead = false;
+
+						server.getPlayerList().transferEntityToWorld(par5Entity, i, server.getWorld(i),
+						        server.getWorld(Config.iceikaDimensionId),
+						        new DivineTeleporter(server.getWorld(Config.iceikaDimensionId), this,
+						                Blocks.SNOW.getDefaultState()));
+					} else {
+						if (!ForgeHooks.onTravelToDimension(par5Entity, 0)) {
+							return;
+						}
+
+						par5Entity.dimension = 0;
+						par1World.removeEntityDangerously(par5Entity);
+
+						par5Entity.isDead = false;
+
+						server.getPlayerList().transferEntityToWorld(par5Entity, Config.iceikaDimensionId,
+						        server.getWorld(Config.iceikaDimensionId), server.getWorld(0),
+						        new DivineTeleporter(server.getWorld(0), this, Blocks.SNOW.getDefaultState()));
+					}
+				}
 			} else {
-				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new ModTeleporterIceika(thePlayer.mcServer.getWorld(0), 0, this, Blocks.SNOW));
+				par5Entity.timeUntilPortal = par5Entity instanceof EntityPlayerMP ? 10 : par5Entity.getPortalCooldown();
 			}
 		}
 	}

@@ -319,11 +319,12 @@ public class PortalBase extends BlockBreakable implements IHasModel {
 			} else if (thePlayer.dimension != dimensionID) {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-				        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this, blockFrame));
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
+				                blockFrame.getDefaultState()));
 			} else {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new DivineTeleporter(thePlayer.mcServer.getWorld(0), 0, this, blockFrame));
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, blockFrame.getDefaultState()));
 			}
 		}
 	}
