@@ -9,6 +9,7 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DivineTeleporter;
 import naturix.divinerpg.utils.IHasModel;
@@ -338,8 +339,10 @@ public class IceikaPortal extends BlockBreakable implements IHasModel {
 						}
 						thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer,
 						        Config.iceikaDimensionId,
-						        new DivineTeleporter(thePlayer.getServer().getWorld(Config.iceikaDimensionId), this,
-						                Blocks.SNOW.getDefaultState()));
+						        new DivineTeleporter(
+						                ((EntityPlayerMP) par5Entity).getServer()
+						                        .getWorld(ModDimensions.iceikaDimension.getId()),
+						                this, Blocks.SNOW.getDefaultState()));
 					} else {
 						if (!ForgeHooks.onTravelToDimension(thePlayer, 0)) {
 							return;
