@@ -338,7 +338,7 @@ public class IceikaPortal extends BlockBreakable implements IHasModel {
 						}
 						thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer,
 						        Config.iceikaDimensionId,
-						        new DivineTeleporter(thePlayer.mcServer.getWorld(Config.iceikaDimensionId), this,
+						        new DivineTeleporter(thePlayer.getServer().getWorld(Config.iceikaDimensionId), this,
 						                Blocks.SNOW.getDefaultState()));
 					} else {
 						if (!ForgeHooks.onTravelToDimension(thePlayer, 0)) {
