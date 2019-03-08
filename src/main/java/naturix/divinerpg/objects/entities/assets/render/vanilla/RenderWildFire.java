@@ -14,38 +14,38 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderWildfire extends RenderLiving<Wildfire> {
-    public static class Factory implements IRenderFactory<Wildfire> {
-        @Override
-        public Render<? super Wildfire> createRenderFor(RenderManager manager) {
-            return new RenderWildfire(manager, new ModelWildfire(), 0F);
-        }
-    }
+	public static class Factory implements IRenderFactory<Wildfire> {
+		@Override
+		public Render<? super Wildfire> createRenderFor(RenderManager manager) {
+			return new RenderWildfire(manager, new ModelWildfire(), 0F);
+		}
+	}
 
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildfire.png");
+	public static final IRenderFactory FACTORY = new Factory();
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildfire.png");
 
-    private final ModelWildfire modelEntity;
+	private final ModelWildfire modelEntity;
 
-    public RenderWildfire(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWildfire(), shadowsizeIn);
-        modelEntity = (ModelWildfire) super.mainModel;
-        addLayer(new MainHandLayerRenderWildfire(this));
-    }
+	public RenderWildfire(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+		super(rendermanagerIn, new ModelWildfire(), shadowsizeIn);
+		modelEntity = (ModelWildfire) super.mainModel;
+		addLayer(new MainHandLayerRenderWildfire(this));
+	}
 
-    @SuppressWarnings("null")
-    @Override
-    public void doRender(Wildfire entity, double x, double y, double z, float entityYaw, float partialTicks) {
-        ItemStack stack = entity.getHeldItemMainhand();
-        modelEntity.isHolding = stack != null || !stack.isEmpty();
-        if (modelEntity.isHolding && stack != null) {
-            modelEntity.itemStack = stack;
-        }
-        super.doRender(entity, x, y, z, entityYaw, partialTicks);
-    }
+	@SuppressWarnings("null")
+	@Override
+	public void doRender(Wildfire entity, double x, double y, double z, float entityYaw, float partialTicks) {
+		ItemStack stack = entity.getHeldItemMainhand();
+		modelEntity.isHolding = stack != null || !stack.isEmpty();
+		if (modelEntity.isHolding && stack != null) {
+			modelEntity.itemStack = stack;
+		}
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
+	}
 
-    @Nullable
-    @Override
-    protected ResourceLocation getEntityTexture(Wildfire entity) {
-        return texture;
-    }
+	@Nullable
+	@Override
+	protected ResourceLocation getEntityTexture(Wildfire entity) {
+		return texture;
+	}
 }
