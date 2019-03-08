@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.eden.ModTeleporterEden;
-import naturix.divinerpg.particle.ParticleWildWoodPortal;
+import naturix.divinerpg.particle.ParticleEdenPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -374,7 +374,7 @@ public class EdenBlock extends BlockBreakable implements IHasModel {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 
-			ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
+			ParticleEdenPortal var20 = new ParticleEdenPortal(worldIn, d0, d1, d2, d3, d4, d5);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
