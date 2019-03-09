@@ -5,9 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.particle.ParticleWildWoodPortal;
+import naturix.divinerpg.particle.ParticleFrost;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
@@ -30,7 +29,6 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumFacing.Axis;
@@ -40,9 +38,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -307,86 +303,40 @@ public class IceikaPortal extends BlockBreakable implements IHasModel {
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
-
 		if (enumfacing$axis == EnumFacing.Axis.X) {
-			IceikaPortal.Size WildWoodPortal$size = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+			IceikaPortal.Size IceikaPortal$size = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
-			if (!WildWoodPortal$size.isValid()
-			        || WildWoodPortal$size.portalBlockCount < WildWoodPortal$size.width * WildWoodPortal$size.height) {
+			if (!IceikaPortal$size.isValid()
+			        || IceikaPortal$size.portalBlockCount < IceikaPortal$size.width * IceikaPortal$size.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		} else if (enumfacing$axis == EnumFacing.Axis.Z) {
-			IceikaPortal.Size WildWoodPortal$size1 = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+			IceikaPortal.Size IceikaPortal$size1 = new IceikaPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-			if (!WildWoodPortal$size1.isValid() || WildWoodPortal$size1.portalBlockCount < WildWoodPortal$size1.width
-			        * WildWoodPortal$size1.height) {
+			if (!IceikaPortal$size1.isValid()
+			        || IceikaPortal$size1.portalBlockCount < IceikaPortal$size1.width * IceikaPortal$size1.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		}
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, BlockPos pos, IBlockState state, Entity par5Entity) {
-
-		if (!par5Entity.isRiding() && !par5Entity.isBeingRidden() && !par1World.isRemote) {
-			if (par5Entity.timeUntilPortal <= 0) {
-				if (par5Entity instanceof EntityPlayerMP) {
-					EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
-					thePlayer.timeUntilPortal = 10;
-					if (thePlayer.dimension != Config.iceikaDimensionId) {
-						if (!ForgeHooks.onTravelToDimension(thePlayer, Config.iceikaDimensionId)) {
-							return;
-						}
-						thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer,
-						        Config.iceikaDimensionId,
-						        new DivineTeleporter(
-						                ((EntityPlayerMP) par5Entity).getServer()
-						                        .getWorld(ModDimensions.iceikaDimension.getId()),
-						                this, Blocks.SNOW.getDefaultState()));
-					} else {
-						if (!ForgeHooks.onTravelToDimension(thePlayer, 0)) {
-							return;
-						}
-						thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new DivineTeleporter(
-						        thePlayer.mcServer.getWorld(0), this, Blocks.SNOW.getDefaultState()));
-					}
-				} else {
-					MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
-					par5Entity.timeUntilPortal = par5Entity.getPortalCooldown();
-
-					if (par5Entity.dimension != Config.iceikaDimensionId) {
-						if (!ForgeHooks.onTravelToDimension(par5Entity, Config.iceikaDimensionId)) {
-							return;
-						}
-
-						int i = par5Entity.dimension;
-
-						par5Entity.dimension = Config.iceikaDimensionId;
-						par1World.removeEntityDangerously(par5Entity);
-
-						par5Entity.isDead = false;
-
-						server.getPlayerList().transferEntityToWorld(par5Entity, i, server.getWorld(i),
-						        server.getWorld(Config.iceikaDimensionId),
-						        new DivineTeleporter(server.getWorld(Config.iceikaDimensionId), this,
-						                Blocks.SNOW.getDefaultState()));
-					} else {
-						if (!ForgeHooks.onTravelToDimension(par5Entity, 0)) {
-							return;
-						}
-
-						par5Entity.dimension = 0;
-						par1World.removeEntityDangerously(par5Entity);
-
-						par5Entity.isDead = false;
-
-						server.getPlayerList().transferEntityToWorld(par5Entity, Config.iceikaDimensionId,
-						        server.getWorld(Config.iceikaDimensionId), server.getWorld(0),
-						        new DivineTeleporter(server.getWorld(0), this, Blocks.SNOW.getDefaultState()));
-					}
-				}
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
+		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
+			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
+			thePlayer.mcServer.getWorld(thePlayer.dimension);
+			int dimensionID = ModDimensions.iceikaDimension.getId();
+			if (thePlayer.timeUntilPortal > 0) {
+				thePlayer.timeUntilPortal = 10;
+			} else if (thePlayer.dimension != dimensionID) {
+				thePlayer.timeUntilPortal = 10;
+				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
+				                Blocks.SNOW.getDefaultState()));
 			} else {
-				par5Entity.timeUntilPortal = par5Entity instanceof EntityPlayerMP ? 10 : par5Entity.getPortalCooldown();
+				thePlayer.timeUntilPortal = 10;
+				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, Blocks.SNOW.getDefaultState()));
 			}
 		}
 	}
@@ -421,7 +371,7 @@ public class IceikaPortal extends BlockBreakable implements IHasModel {
 				d5 = rand.nextFloat() * 2.0F * j;
 			}
 
-			ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
+			ParticleFrost var20 = new ParticleFrost(worldIn, d0, d1, d2, d3, d4, d5);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
