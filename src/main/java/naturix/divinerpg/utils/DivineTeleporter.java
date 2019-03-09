@@ -5,7 +5,6 @@ import java.util.Random;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
-import naturix.divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.IBlockState;
@@ -216,8 +215,7 @@ public class DivineTeleporter extends Teleporter {
 					BlockPos blockpos = new BlockPos(i11, i12, l12);
 					worldServerInstance.notifyNeighborsOfStateChange(blockpos,
 					        worldServerInstance.getBlockState(blockpos).getBlock(), false);
-					DivineRPG.logger.info(worldServerInstance.getBlockState(blockpos).getBlock().getLocalizedName()
-					        + "is the block causing issues");
+
 				}
 			}
 		}
