@@ -13,6 +13,7 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
@@ -30,63 +31,63 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
-    public static Configuration config;
+	public static Configuration config;
 
-    public void preInit(FMLPreInitializationEvent e) {
-        ModDimensions.init();
-        ModEntities.init();
-        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
-        ModLiquids.init();
-        ModEntities.initLoot();
+	public EntityPlayer getPlayer() {
+		return null;
+	}
 
-        File directory = e.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
-        Config.readConfig();
-        // ListAllObjs.listobjs();
-    }
+	public void init(FMLInitializationEvent e) {
+	}
 
-    public void init(FMLInitializationEvent e) {
-    }
+	public void postInit(FMLPostInitializationEvent e) {
+		if (config.hasChanged()) {
+			config.save();
+		}
+		ModEntities.initSpawns();
+	}
 
-    public void postInit(FMLPostInitializationEvent e) {
-        if (config.hasChanged()) {
-            config.save();
-        }
-        ModEntities.initSpawns();
-    }
+	public void preInit(FMLPreInitializationEvent e) {
+		ModDimensions.init();
+		ModEntities.init();
+		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+		ModLiquids.init();
+		ModEntities.initLoot();
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-    }
+		File directory = e.getModConfigurationDirectory();
+		config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
+		Config.readConfig();
+	}
 
-    public void registerVariantRenderer(Item item, int meta, String filename, String id) {
-    }
+	public void registerItemRenderer(Item item, int meta, String id) {
+	}
 
-    public void RegisterTileEntityRender() {
-    }
+	@SuppressWarnings("deprecation")
+	public void registerTileEntities() {
+		GameRegistry.registerTileEntity(TileEntityDramixAltar.class, Reference.MODID + ":te_altar_dramix");
+		GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, Reference.MODID + ":te_altar_parasecta");
+		GameRegistry.registerTileEntity(TEBed.class, Reference.MODID + ":te_bed_dream");
+		GameRegistry.registerTileEntity(TileEntityCoalstoneFurnace.class, Reference.MODID + ":te_colastone_furnace");
+		GameRegistry.registerTileEntity(TileEntityMoltenFurnace.class, Reference.MODID + ":te_molten_furnace");
+		GameRegistry.registerTileEntity(TileEntityOceanfireFurnace.class, Reference.MODID + ":te_oceanfire_furnace");
+		GameRegistry.registerTileEntity(TileEntityWhitefireFurnace.class, Reference.MODID + ":te_whitefire_furnace");
+		GameRegistry.registerTileEntity(TileEntityDemonFurnace.class, Reference.MODID + ":te_demon_furnace");
+		GameRegistry.registerTileEntity(TileEntityIceikaChest.class, Reference.MODID + ":te_iceika_chest");
+		GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
+		GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");
+		GameRegistry.registerTileEntity(TileEntityDramixStatue.class, Reference.MODID + ":te_statue_dramix");
+	}
 
-    @SuppressWarnings("deprecation")
-    public void registerTileEntities() {
-        GameRegistry.registerTileEntity(TileEntityDramixAltar.class, Reference.MODID + ":te_altar_dramix");
-        GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, Reference.MODID + ":te_altar_parasecta");
-        GameRegistry.registerTileEntity(TEBed.class, Reference.MODID + ":te_bed_dream");
-        GameRegistry.registerTileEntity(TileEntityCoalstoneFurnace.class, Reference.MODID + ":te_colastone_furnace");
-        GameRegistry.registerTileEntity(TileEntityMoltenFurnace.class, Reference.MODID + ":te_molten_furnace");
-        GameRegistry.registerTileEntity(TileEntityOceanfireFurnace.class, Reference.MODID + ":te_oceanfire_furnace");
-        GameRegistry.registerTileEntity(TileEntityWhitefireFurnace.class, Reference.MODID + ":te_whitefire_furnace");
-        GameRegistry.registerTileEntity(TileEntityDemonFurnace.class, Reference.MODID + ":te_demon_furnace");
-        GameRegistry.registerTileEntity(TileEntityIceikaChest.class, Reference.MODID + ":te_iceika_chest");
-        GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
-        GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");
-    }
+	public void RegisterTileEntityRender() {
+	}
 
-    public EntityPlayer getPlayer() {
-        return null;
-    }
+	public void registerVariantRenderer(Item item, int meta, String filename, String id) {
+	}
 
-    public void updateClientArcana(float amount) {
-    }
+	public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX,
+	        double velY, double velZ) {
+	}
 
-    public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX,
-            double velY, double velZ) {
-    }
+	public void updateClientArcana(float amount) {
+	}
 }
