@@ -5,12 +5,12 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.dimensions.skythern.ModTeleporterSkythern;
 import naturix.divinerpg.particle.ParticleSkythernPortal;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.DivineTeleporter;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -323,20 +323,19 @@ public class SkythernPortal extends BlockBreakable implements IHasModel {
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
 		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
 			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-			thePlayer.heal(0);
-			thePlayer.addExperience(0);
 			thePlayer.mcServer.getWorld(thePlayer.dimension);
-			int dimensionID = Config.skythernDimensionId;
+			int dimensionID = ModDimensions.skythernDimension.getId();
 			if (thePlayer.timeUntilPortal > 0) {
 				thePlayer.timeUntilPortal = 10;
 			} else if (thePlayer.dimension != dimensionID) {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-				        new ModTeleporterSkythern(thePlayer.mcServer.getWorld(dimensionID), dimensionID, this));
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
+				                ModBlocks.blockApalachia.getDefaultState()));
 			} else {
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-				        new ModTeleporterSkythern(thePlayer.mcServer.getWorld(0), 0, this));
+				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new DivineTeleporter(
+				        thePlayer.mcServer.getWorld(0), this, ModBlocks.blockApalachia.getDefaultState()));
 			}
 		}
 	}
