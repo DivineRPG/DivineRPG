@@ -1,14 +1,7 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import java.util.Objects;
-
-import javax.annotation.Nonnull;
-
-import naturix.divinerpg.objects.blocks.BaseStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelDramixStatue;
-import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -17,24 +10,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderDramixStatue extends TileEntitySpecialRenderer<TileEntityDramixStatue> {
-	private final ModelDramixStatue ModelDramixStatue = new ModelDramixStatue();
+	private static final ResourceLocation ENDER_CHEST_TEXTURE = new ResourceLocation(
+	        "divinerpg:textures/model/statue_dramix.png");
+	private final ModelDramixStatue modelChest = new ModelDramixStatue();
 
 	@Override
-	public void render(@Nonnull TileEntityDramixStatue te, double x, double y, double z, float partialTicks,
-	        int destroyStage, float alpha) {
-		GlStateManager.enableDepth();
-		GlStateManager.depthFunc(515);
-		GlStateManager.depthMask(true);
-		int meta;
+	public void render(TileEntityDramixStatue te, double x, double y, double z, float partialTicks, int destroyStage,
+	        float alpha) {
+		int i = 0;
 
 		if (te.hasWorld()) {
-			Block block = te.getBlockType();
-			meta = te.getBlockMetadata();
-			if (block instanceof BaseStatue && meta == 0) {
-				meta = te.getBlockMetadata();
-			}
-		} else {
-			meta = 0;
+			i = te.getBlockMetadata();
 		}
 
 		if (destroyStage >= 0) {
@@ -45,20 +31,35 @@ public class RenderDramixStatue extends TileEntitySpecialRenderer<TileEntityDram
 			GlStateManager.translate(0.0625F, 0.0625F, 0.0625F);
 			GlStateManager.matrixMode(5888);
 		} else {
-			this.bindTexture(new ResourceLocation(Reference.MODID, "textures/blocks/"
-			        + Objects.requireNonNull(te.getBlockType().getRegistryName()).getResourcePath() + ".png"));
+			this.bindTexture(ENDER_CHEST_TEXTURE);
 		}
 
 		GlStateManager.pushMatrix();
 		GlStateManager.enableRescaleNormal();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, alpha);
+		GlStateManager.translate((float) x, (float) y + 1.0F, (float) z + 1.0F);
+		GlStateManager.scale(1.0F, -1.0F, -1.0F);
+		GlStateManager.translate(0.5F, 0.5F, 0.5F);
+		int j = 0;
 
-		if (destroyStage < 0) {
-			GlStateManager.color(1.0F, 1.0F, 1.0F, alpha);
+		if (i == 2) {
+			j = 180;
 		}
 
-		GlStateManager.translate((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-		GlStateManager.scale(1.0F, -1.0F, -1.0F);
+		if (i == 3) {
+			j = 0;
+		}
 
+		if (i == 4) {
+			j = 90;
+		}
+
+		if (i == 5) {
+			j = -90;
+		}
+
+		GlStateManager.rotate(j, 0.0F, 1.0F, 0.0F);
+		GlStateManager.translate(-0.5F, -0.5F, -0.5F);
 		GlStateManager.disableRescaleNormal();
 		GlStateManager.popMatrix();
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
