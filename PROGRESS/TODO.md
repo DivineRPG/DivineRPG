@@ -1,15 +1,11 @@
 ## Porting of DivineRPG 1.7.10
 ### General
 - Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
-- Make Recipes
 - Fix flight
-- Make Projectiles
-- Make Custom Trades
 - Final balancing
-- Fix weapon damage values
-- Double check entity hitboxes
+- Fix bow damage values
 - Fix Statues and Altars
-- Recipes https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/recipes.md### Dimensions
+### Dimensions
 ### Vanilla
 #### Items
 - Fix Shickaxe

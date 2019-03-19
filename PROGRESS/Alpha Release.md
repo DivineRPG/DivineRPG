@@ -8,5 +8,4 @@
 
 # Other non urgent :
 + Statues 
-+ Render remaining blocks
 + Add remaining blocks/items
