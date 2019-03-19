@@ -3,7 +3,6 @@
 * Torches
 * Portals
 * Demon Furnace
-* Spawners
 * Present Box
 * Yellow Christmas Lights
 * Blue Lights
@@ -11,7 +10,6 @@
 * Green Lights
 * Red Lights
 * Fences
-* Frost archer spawner
 * Frosted Chests
 
 ## Missing Textures

@@ -1,29 +1,29 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:eden_block"
+      "item": "divinerpg:iceika_portal"
     },
     "title": {
-      "translate": "advancement.divinerpg.enter_eden"
+      "translate": "advancement.divinerpg.enter_iceika"
     },
     "frame": "challenge",
     "description": {
-      "translate": "advancement.divinerpg.enter_eden.desc"
+      "translate": "advancement.divinerpg.enter_iceika.desc"
     },
     "announce_to_chat": true
   },
   "parent": "divinerpg:root",
   "criteria": {
-    "in_eden": {
+    "in_iceika": {
       "trigger": "minecraft:location",
       "conditions": {
-        "dimension": "divinerpg:eden"
+        "dimension": "divinerpg:iceika"
       }
     }
   },
   "requirements": [
     [
-      "in_eden"
+      "in_iceika"
     ]
   ]
 }

@@ -38,100 +38,100 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, updateJSON = Reference.UPDATE_URL)
 public class DivineRPG {
-    @Mod.Instance
-    public static DivineRPG instance;
+	@Mod.Instance
+	public static DivineRPG instance;
 
-    @SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
-    public static CommonProxy proxy;
+	@SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
+	public static CommonProxy proxy;
 
-    public static org.apache.logging.log4j.Logger logger;
+	public static org.apache.logging.log4j.Logger logger;
 
-    public static SimpleNetworkWrapper network;
+	public static SimpleNetworkWrapper network;
 
-    /* Creative Tabs */
-    public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.arlemiteOre);
-        }
-    };
-    public static final CreativeTabs ItemsTab = new CreativeTabs("Item") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.arlemiteIngot);
-        }
-    };
-    public static final CreativeTabs CombatTab = new CreativeTabs("Combat") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.arlemiteStabber);
-        }
-    };
-    public static final CreativeTabs ArmorTab = new CreativeTabs("Armor") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.divineHelmet);
-        }
-    };
-    public static final CreativeTabs ToolsTab = new CreativeTabs("Tools") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.arlemiteShickaxe);
-        }
-    };
-    public static final CreativeTabs TrophyTab = new CreativeTabs("Trophy") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.theWatcherStatue);
-        }
-    };
+	/* Creative Tabs */
+	public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModBlocks.edenOre);
+		}
+	};
+	public static final CreativeTabs ItemsTab = new CreativeTabs("Item") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.rupeeIngot);
+		}
+	};
+	public static final CreativeTabs CombatTab = new CreativeTabs("Combat") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.aquaton);
+		}
+	};
+	public static final CreativeTabs ArmorTab = new CreativeTabs("Armor") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.divineHelmet);
+		}
+	};
+	public static final CreativeTabs ToolsTab = new CreativeTabs("Tools") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.rupeeShickaxe);
+		}
+	};
+	public static final CreativeTabs TrophyTab = new CreativeTabs("Trophy") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModBlocks.theWatcherStatue);
+		}
+	};
 
-    /** Init Methods */
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
-        proxy.preInit(event);
-        proxy.registerTileEntities();
-        proxy.RegisterTileEntityRender();
-        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
-        ModEvents.preInit();
-        PreInitLog.init();
-    }
+	public DivineRPG() {
+		FluidRegistry.enableUniversalBucket();
+	}
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent e) {
-        proxy.init(e);
-        ModTriggers.registerTriggers();
-        InitLog.init();
-        RegistryHandler.otherRegistries();
-        ModFurnaceRecipes.registerFurnaceRecipies();
-    }
+	@Mod.EventHandler
+	public void init(FMLInitializationEvent e) {
+		proxy.init(e);
+		ModTriggers.registerTriggers();
+		InitLog.init();
+		RegistryHandler.otherRegistries();
+		ModFurnaceRecipes.registerFurnaceRecipies();
+	}
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-        proxy.postInit(e);
-        if (Loader.isModLoaded("projecte")) {
-            ProjectECompat.init();
-        }
-        PostInitLog.init();
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		proxy.postInit(e);
+		if (Loader.isModLoaded("projecte")) {
+			ProjectECompat.init();
+		}
+		PostInitLog.init();
 
-        if (Config.debug) {
-            IntenseDebug.init();
-        }
-    }
+		if (Config.debug) {
+			IntenseDebug.init();
+		}
+	}
 
-    /** For Registering Commands */
-    @Mod.EventHandler
-    public void serverLoad(FMLServerStartingEvent event) {
-    }
+	/** Init Methods */
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
+		proxy.preInit(event);
+		proxy.registerTileEntities();
+		proxy.RegisterTileEntityRender();
+		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
+		ModEvents.preInit();
+		PreInitLog.init();
+	}
 
-    public DivineRPG() {
-        FluidRegistry.enableUniversalBucket();
-    }
+	/** For Registering Commands */
+	@Mod.EventHandler
+	public void serverLoad(FMLServerStartingEvent event) {
+	}
 }

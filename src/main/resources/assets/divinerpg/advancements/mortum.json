@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:block_mortum"
+      "item": "divinerpg:mortum_block"
     },
     "title": {
       "translate": "advancement.divinerpg.enter_mortum"
