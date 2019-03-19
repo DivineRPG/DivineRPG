@@ -8,16 +8,24 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModGlass extends BlockMod {
 
-    public BlockModGlass(String name, float hardness) {
-        super(EnumBlockType.GLASS, name, hardness);
-    }
+	public BlockModGlass(String name, float hardness) {
+		super(EnumBlockType.GLASS, name, hardness);
+	}
 
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
+	}
 
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
 }
