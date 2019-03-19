@@ -311,12 +311,13 @@ public class GenerateJSON {
                 }
                 String furnaceTop = furnace + "_top";
                 String furnaceSide = furnace + "_side";
+                if (registeryName.equals("coalstone_furnace")) {
+                    furnaceTop = furnaceTop.replace("_furnace_top", "");
+                    furnaceSide = furnaceSide.replace("_furnace_side", "");
+                }
                 textures.put("particle", furnaceFront);
                 textures.put("down", furnaceTop);
                 textures.put("up", furnaceTop);
-                if (registeryName.equals("coalstone_furnace")) {
-                    furnaceSide = furnaceSide.replace("_furnace_side", "");
-                }
                 textures.put("east", furnaceSide);
                 textures.put("west", furnaceSide);
                 textures.put("south", furnaceSide);
