@@ -30,7 +30,8 @@ This mod is owned by XolovA, but he is no longer part of the team
 * Eternaldoom - Developer
 * krwminer - Developer
 * BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
-* NicosasurusRex99 - Port Developer
+* NicosasurusRex99 - Developer
+* Wufflez/Litewolf101 - Developer
 
 ##### Special Thanks to
 * Dizzlepop12 - A few models/textures
