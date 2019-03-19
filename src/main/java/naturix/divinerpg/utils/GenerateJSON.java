@@ -311,7 +311,7 @@ public class GenerateJSON {
                 }
                 String furnaceTop = furnace + "_top";
                 String furnaceSide = furnace + "_side";
-                if (registeryName.equals("coalstone_furnace")) {
+                if (registeryName.contains("coalstone_furnace")) {
                     furnaceTop = furnaceTop.replace("_furnace_top", "");
                     furnaceSide = furnaceSide.replace("_furnace_side", "");
                 }
@@ -375,10 +375,10 @@ public class GenerateJSON {
         String suffix = result.getItem().getHasSubtypes() ? "_" + result.getItemDamage() : "";
         File f = new File(RECIPE_DIR, result.getItem().getRegistryName().getResourcePath() + suffix + ".json");
 
-        while (f.exists()) {
-            suffix += "_alt";
-            f = new File(RECIPE_DIR, result.getItem().getRegistryName().getResourcePath() + suffix + ".json");
-        }
+        //while (f.exists()) {
+        //    suffix += "_alt";
+        //    f = new File(RECIPE_DIR, result.getItem().getRegistryName().getResourcePath() + suffix + ".json");
+        //}
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -430,10 +430,10 @@ public class GenerateJSON {
         String suffix = result.getItem().getHasSubtypes() ? "_" + result.getItemDamage() : "";
         File f = new File(RECIPE_DIR, result.getItem().getRegistryName().getResourcePath() + suffix + ".json");
 
-        while (f.exists()) {
-            suffix += "_alt";
-            f = new File(RECIPE_DIR, result.getItem().getRegistryName().getResourcePath() + suffix + ".json");
-        }
+        //while (f.exists()) {
+        //    suffix += "_alt";
+        //    f = new File(RECIPE_DIR, result.getItem().getRegistryName().getResourcePath() + suffix + ".json");
+        //}
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
