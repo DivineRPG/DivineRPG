@@ -399,9 +399,27 @@ tile.arcanium_torch.name=Arcanium Torch
 tile.elevantium.name=Elevantium
 tile.arcanite_rails.name=Arcanite Rails
 tile.acceleron.name=Acceleron
+tile.coalstone_furnace_down.name=Coalstone Furnace
+tile.coalstone_furnace_on_down.name=Coalstone Furnace
+tile.oceanfire_furnace_down.name=Oceanfire Furnace
+tile.oceanfire_furnace_on_down.name=Oceanfire Furnace
+tile.molten_furnace_down.name=Molten Furnace
+tile.molten_furnace_on_down.name=Molten Furnace
+tile.whitefire_furnace_down.name=Whitefire Furnace
+tile.whitefire_furnace_on_down.name=Whitefire Furnace
+tile.demon_furnace_down.name=Demon Furnace
+tile.demon_furnace_on_down.name=Demon Furnace
+tile.dark_bridge_on.name=Dark Bridge
+tile.slime_light_on.name=Slime Light
+tile.blueFire.name=Bluefire
+tile.divine_slab_double.name=Double Divine Slab
+tile.frozen_slab_double.name=Double Frozen Slab
+tile.white_mushroom_plant.name=White Mushroom
 
 container.iceika_chest=Iceika Chest
 
+item.pet_spawn_egg.name=Pet Spawn Egg
+item.everfright_bow.name=Everfright Bow
 item.bacon.name=Bacon
 item.hot_pumpkin_pie.name=Hot Pumpkin Pie
 item.boiled_egg.name=Boiled Egg
