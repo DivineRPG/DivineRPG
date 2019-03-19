@@ -18,8 +18,7 @@ import net.minecraft.world.World;
 
 public class WorkshopMerchant extends EntityDivineRPGVillager {
 
-    private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in",
-            "message.merchant.burr" };
+    private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr" };
 
     public WorkshopMerchant(World worldIn) {
         super(worldIn);
@@ -36,8 +35,7 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.workshop_merchant.name")
-                + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.workshop_merchant.name") + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override
@@ -51,23 +49,17 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.peppermints, 15, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.fruitCake, 3, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 20), new ItemStack(ModItems.icicleBane, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
-                new ItemStack(ModBlocks.greenXMasLights, 16, 0)));
-        list.add(
-                new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.redXMasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
-                new ItemStack(ModBlocks.blueXMasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
-                new ItemStack(ModBlocks.yellowXMasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
-                new ItemStack(ModBlocks.purpleXMasLights, 16, 0)));
-        // list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 3), new
-        // ItemStack(ModBlocks.presentBox, 1)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.candyCane, 4, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.candyCane, 4, 1)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.candyCane, 4, 2)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.candyCane, 4, 3)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.candyCane, 4, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.greenChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.redChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.blueChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.yellowChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.purpleChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 3), new ItemStack(ModBlocks.presentBox, 1)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.blueCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.greenCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.pinkCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.redCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.yellowCandyCane, 4)));
     }
 
     @Override

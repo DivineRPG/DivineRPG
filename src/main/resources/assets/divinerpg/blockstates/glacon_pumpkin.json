@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:glacon_pumpkin"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:glacon_pumpkin"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:glacon_pumpkin"
+    },
+    "facing=north": {
+      "model": "divinerpg:glacon_pumpkin"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:glacon_pumpkin"
+    }
+  }
+}

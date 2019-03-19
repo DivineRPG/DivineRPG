@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderVileStorm extends RenderProjectile<EntityVileStorm> {
-    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/items/vilestorm.png");
+    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/items/vile_storm.png");
 
     public RenderVileStorm(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

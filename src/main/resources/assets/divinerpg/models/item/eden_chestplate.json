@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/chestplate_eden"
+    "layer0": "divinerpg:items/eden_chestplate"
   }
 }

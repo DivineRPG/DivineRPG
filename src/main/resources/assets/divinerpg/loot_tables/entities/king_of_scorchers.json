@@ -27,7 +27,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:stone_bluefire",
+               "name":"divinerpg:bluefire_stone",
                "weight":1,
                "functions":[
                   {
@@ -53,7 +53,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:statue_kingscorcher",
+               "name":"divinerpg:king_of_scorchers_statue",
                "weight":1
             }
          ]

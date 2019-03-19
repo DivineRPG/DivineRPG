@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_boots"
+  },
+  "pattern": [
+    "X X",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  }
+}

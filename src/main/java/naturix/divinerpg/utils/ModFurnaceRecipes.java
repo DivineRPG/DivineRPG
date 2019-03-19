@@ -2,8 +2,6 @@ package naturix.divinerpg.utils;
 
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -11,22 +9,21 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * Created by LiteWolf101 on Feb /22/2019
  */
 public class ModFurnaceRecipes {
-	public static void registerFurnaceRecipies() {
-		GameRegistry.addSmelting(ModBlocks.oreArlemite, new ItemStack(ModItems.ingotArlemite), 0.7f);
-		GameRegistry.addSmelting(ModBlocks.oreapalachia, new ItemStack(ModItems.fragmentApalachia), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreEden, new ItemStack(ModItems.fragmentEden), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreNetherite, new ItemStack(ModItems.ingotNetherite), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreRealmite, new ItemStack(ModItems.ingotRealmite), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreRupee, new ItemStack(ModItems.ingotRupee), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreWildwood, new ItemStack(ModItems.fragmentWildwood), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreSkythern, new ItemStack(ModItems.fragmentSkythern), 0.2f);
-		GameRegistry.addSmelting(Items.EGG, new ItemStack(ModItems.boiledEgg), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.oreMortum, new ItemStack(ModItems.fragmentMortum), 0.2f);
-		GameRegistry.addSmelting(ModItems.fragmentEden, new ItemStack(ModItems.edenSparklez), 0.2f);
-		GameRegistry.addSmelting(Blocks.PUMPKIN, new ItemStack(ModItems.hotPumpkinPie), 0f);
-		GameRegistry.addSmelting(ModItems.rawEmpoweredMeat, new ItemStack(ModItems.empoweredMeat), 0.2f);
-		GameRegistry.addSmelting(ModItems.pelletsAquaticPure, new ItemStack(ModItems.ingotAquatic), 0.2f);
-		GameRegistry.addSmelting(ModBlocks.orebloodgem, new ItemStack(ModItems.gemBlood), 0.2f);
-
-	}
+    public static void registerFurnaceRecipies() {
+        //GameRegistry.addSmelting(ModBlocks.arlemiteOre, new ItemStack(ModItems.arlemiteIngot), 0.7f);
+        GameRegistry.addSmelting(ModBlocks.apalachiaOre, new ItemStack(ModItems.apalachiaFragments), 0.2f);
+        GameRegistry.addSmelting(ModBlocks.edenOre, new ItemStack(ModItems.edenFragments), 0.2f);
+        //GameRegistry.addSmelting(ModBlocks.netheriteOre, new ItemStack(ModItems.netheriteIngot), 0.2f);
+        //GameRegistry.addSmelting(ModBlocks.realmiteOre, new ItemStack(ModItems.realmiteIngot), 0.2f);
+        //GameRegistry.addSmelting(ModBlocks.rupeeOre, new ItemStack(ModItems.rupeeIngot), 0.2f);
+        GameRegistry.addSmelting(ModBlocks.wildwoodOre, new ItemStack(ModItems.wildwoodFragments), 0.2f);
+        GameRegistry.addSmelting(ModBlocks.skythernOre, new ItemStack(ModItems.skythernFragments), 0.2f);
+        //GameRegistry.addSmelting(Items.EGG, new ItemStack(ModItems.boiledEgg), 0.2f);
+        GameRegistry.addSmelting(ModBlocks.mortumOre, new ItemStack(ModItems.mortumFragments), 0.2f);
+        GameRegistry.addSmelting(ModItems.edenFragments, new ItemStack(ModItems.edenSparkles), 0.2f);
+        //GameRegistry.addSmelting(Blocks.PUMPKIN, new ItemStack(ModItems.hotPumpkinPie), 0f);
+        //GameRegistry.addSmelting(ModItems.rawEmpoweredMeat, new ItemStack(ModItems.empoweredMeat), 0.2f);
+        //GameRegistry.addSmelting(ModItems.pureAquaticPellets, new ItemStack(ModItems.aquaticIngot), 0.2f);
+        //GameRegistry.addSmelting(ModBlocks.bloodgemOre, new ItemStack(ModItems.bloodgem), 0.2f);
+    }
 }

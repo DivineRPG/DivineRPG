@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:red_fence"
+  },
+  "pattern": [
+    "   ",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:redstone"
+    }
+  }
+}

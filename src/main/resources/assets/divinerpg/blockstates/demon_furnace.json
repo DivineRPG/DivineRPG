@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:demon_furnace"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:demon_furnace"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:demon_furnace"
+    },
+    "facing=north": {
+      "model": "divinerpg:demon_furnace"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:demon_furnace"
+    }
+  }
+}

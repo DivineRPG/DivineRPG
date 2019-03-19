@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:netherite_chestplate"
+  },
+  "pattern": [
+    "S S",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "I": {
+      "item": "divinerpg:netherite_block"
+    }
+  }
+}

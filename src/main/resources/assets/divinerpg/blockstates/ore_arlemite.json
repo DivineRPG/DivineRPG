@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=overworld": {"model": "divinerpg:ore_arlemite_overworld"},
-        "type=nether": {"model": "divinerpg:ore_arlemite_nether"},
-        "type=end": {"model": "divinerpg:ore_arlemite_end"}
-    }
-}

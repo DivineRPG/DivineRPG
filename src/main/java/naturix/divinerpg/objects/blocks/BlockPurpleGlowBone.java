@@ -1,8 +1,6 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
-import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -16,8 +14,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockPurpleGlowBone extends BlockBase implements IPlantable, IHasModel {
 
@@ -107,7 +103,7 @@ public class BlockPurpleGlowBone extends BlockBase implements IPlantable, IHasMo
 	@Override
 	@SuppressWarnings("deprecation")
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(ModItems.seedsGlowbonePurple);
+		return new ItemStack(ModItems.purpleGlowboneSeeds);
 	}
 
 	@Override

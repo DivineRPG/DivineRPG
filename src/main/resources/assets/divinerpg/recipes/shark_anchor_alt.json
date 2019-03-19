@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:shark_anchor"
+  },
+  "pattern": [
+    "III",
+    "IXI",
+    " X "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:aquatic_ingot"
+    },
+    "I": {
+      "item": "divinerpg:shark_fin"
+    }
+  }
+}

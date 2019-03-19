@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:hot_spike_block"
+  },
+  "pattern": [
+    "x x",
+    " x ",
+    "x x"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "divinerpg:netherite_ingot"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:lapis_lazuli_lamp"
+  },
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xzx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "minecraft:dye",
+      "data": 4
+    },
+    "z": {
+      "item": "minecraft:glowstone"
+    }
+  }
+}

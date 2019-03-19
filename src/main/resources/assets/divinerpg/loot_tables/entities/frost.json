@@ -39,7 +39,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_ice",
+               "name":"divinerpg:ice_shards",
                "weight":1,
                "functions":[
                   {
@@ -72,7 +72,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:stone_ice",
+               "name":"divinerpg:ice_stone",
                "weight":1,
                "functions":[
                   {

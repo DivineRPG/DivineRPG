@@ -11,7 +11,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:ingot_netherite",
+               "name":"divinerpg:netherite_ingot",
                "weight":1,
                "functions":[
                   {
@@ -33,7 +33,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:stone_bluefire",
+               "name":"divinerpg:bluefire_stone",
                "weight":1
             }
          ]
@@ -49,7 +49,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_divine",
+               "name":"divinerpg:divine_shards",
                "weight":1,
                "functions":[
                   {
@@ -78,7 +78,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:statue_watcher",
+               "name":"divinerpg:the_watcher_statue",
                "weight":1
             }
          ]

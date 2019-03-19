@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/ghast_pumpkin_side",
+    "south": "divinerpg:blocks/ghast_pumpkin_side",
+    "north": "divinerpg:blocks/ghast_pumpkin_front",
+    "west": "divinerpg:blocks/ghast_pumpkin_side",
+    "particle": "divinerpg:blocks/ghast_pumpkin_side",
+    "up": "divinerpg:blocks/ghast_pumpkin_top",
+    "down": "divinerpg:blocks/ghast_pumpkin_top"
+  }
+}

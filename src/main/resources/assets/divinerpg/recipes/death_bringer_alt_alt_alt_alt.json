@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:death_bringer"
+  },
+  "pattern": [
+    " I ",
+    "ISI",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:corrupted_stone"
+    }
+  }
+}

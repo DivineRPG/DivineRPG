@@ -1,6 +1,0 @@
-{
-	"parent": "block/cross",
-    "textures": {
-        "cross": "divinerpg:blocks/sapling_wildwood"
-    }
-}

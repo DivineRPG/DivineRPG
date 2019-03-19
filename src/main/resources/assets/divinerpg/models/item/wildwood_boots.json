@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/boots_wildwood"
+    "layer0": "divinerpg:items/wildwood_boots"
   }
 }

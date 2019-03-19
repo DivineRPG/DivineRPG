@@ -1,14 +1,23 @@
 {
   "forge_marker": 1,
-  "defaults": {
-    "model": "divinerpg:molten_furnace_on"
-  },
   "variants": {
-    "normal": [{}],
-    "inventory":{"model": "divinerpg:molten_furnace"},
-    "facing=north": { "model": "divinerpg:molten_furnace_on" },
-    "facing=east": { "model": "divinerpg:molten_furnace_on", "y": 90 },
-    "facing=south": { "model": "divinerpg:molten_furnace_on", "y": 180 },
-    "facing=west": { "model": "divinerpg:molten_furnace_on", "y": 270 }
+    "normal": {
+      "model": "divinerpg:molten_furnace_on"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:molten_furnace_on"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:molten_furnace_on"
+    },
+    "facing=north": {
+      "model": "divinerpg:molten_furnace_on"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:molten_furnace_on"
+    }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:hellstone_ingot"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:shadow_bar"
+    },
+    {
+      "item": "divinerpg:netherite_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

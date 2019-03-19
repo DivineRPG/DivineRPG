@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:sword_divine"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine_sword"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.divine_sword.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:root",
+  "criteria": {
+    "cotw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:divine_sword"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cotw"
+    ]
+  ]
+}

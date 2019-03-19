@@ -1,0 +1,8 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:milk_stone_bricks"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:shark_sword"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:aquatic_ingot"
+    },
+    "I": {
+      "item": "divinerpg:shark_fin"
+    }
+  }
+}

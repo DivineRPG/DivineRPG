@@ -1,14 +1,23 @@
 {
   "forge_marker": 1,
-  "defaults": {
-    "model": "divinerpg:coalstone_furnace"
-  },
   "variants": {
-    "normal": [{}],
-    "inventory":{"model": "divinerpg:coalstone_furnace"},
-    "facing=north": { "model": "divinerpg:coalstone_furnace" },
-    "facing=east": { "model": "divinerpg:coalstone_furnace", "y": 90 },
-    "facing=south": { "model": "divinerpg:coalstone_furnace", "y": 180 },
-    "facing=west": { "model": "divinerpg:coalstone_furnace", "y": 270 }
+    "normal": {
+      "model": "divinerpg:coalstone_furnace"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:coalstone_furnace"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:coalstone_furnace"
+    },
+    "facing=north": {
+      "model": "divinerpg:coalstone_furnace"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:coalstone_furnace"
+    }
   }
 }

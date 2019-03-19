@@ -1,6 +1,6 @@
 package naturix.divinerpg.world.structures;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.DRPGLootTables;
@@ -97,8 +97,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     private void generateIceikaLoot(World world, BlockPos pos, Random random) {
         TileEntity tileEntity = world.getTileEntity(pos);
 
-        if (tileEntity instanceof TileEntityIceikaChest) {
-            ((TileEntityIceikaChest)tileEntity).setLootTable(DRPGLootTables.ICEIKA_CHEST, random.nextLong());
+        if (tileEntity instanceof TileEntityFrostedChest) {
+            ((TileEntityFrostedChest)tileEntity).setLootTable(DRPGLootTables.ICEIKA_CHEST, random.nextLong());
         }
     }
 

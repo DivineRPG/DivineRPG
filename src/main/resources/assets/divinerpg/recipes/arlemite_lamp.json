@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_lamp"
+  },
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xzx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "divinerpg:arlemite_ingot"
+    },
+    "z": {
+      "item": "minecraft:glowstone"
+    }
+  }
+}

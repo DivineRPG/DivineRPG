@@ -5,7 +5,7 @@ import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
@@ -91,7 +91,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new TileEntityDramixAltarRender());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class,
 		        new TileEntityParasectaAltarRender());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityIceikaChest.class, new RenderIceikaChest());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderIceikaChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonFurnace.class, new RenderDemonFurnace());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixStatue.class, new RenderDramixStatue());

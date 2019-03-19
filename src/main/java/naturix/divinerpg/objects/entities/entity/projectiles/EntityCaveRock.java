@@ -35,7 +35,6 @@ public class EntityCaveRock extends EntityThrowable {
         if (result.entityHit != null) {
             result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 6.0F);
         }
-
         if (!this.world.isRemote) {
             this.setDead();
         }

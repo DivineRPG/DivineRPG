@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:kraken_lamp"
+  },
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "divinerpg:kraken_skin"
+    }
+  }
+}

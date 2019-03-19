@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:skeleton_pumpkin"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:skeleton_pumpkin"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:skeleton_pumpkin"
+    },
+    "facing=north": {
+      "model": "divinerpg:skeleton_pumpkin"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:skeleton_pumpkin"
+    }
+  }
+}

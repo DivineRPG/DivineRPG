@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:claw_crab",
+               "name":"divinerpg:crab_claw",
                "weight":1,
                "functions":[
                   {
@@ -33,7 +33,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:pellets_aquatic",
+               "name":"divinerpg:aquatic_pellets",
                "weight":1,
                "functions":[
                   {

@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:green_fence"
+  },
+  "pattern": [
+    "   ",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:dye",
+      "data": 2
+    }
+  }
+}

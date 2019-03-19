@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_terran",
+               "name":"divinerpg:terran_shards",
                "weight":1,
                "functions":[
                   {

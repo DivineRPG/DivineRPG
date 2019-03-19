@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:terran_dagger"
+  },
+  "pattern": [
+    " T ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "T": {
+      "item": "divinerpg:terran_stone"
+    }
+  }
+}

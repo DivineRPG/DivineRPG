@@ -9,33 +9,25 @@ import net.minecraft.world.World;
 
 public class EntityShuriken extends EntityThrowable {
 
-	public EntityShuriken(World var1) {
-		super(var1);
-	}
+    public EntityShuriken(World worldIn) {
+        super(worldIn);
+    }
 
-	public EntityShuriken(World var1, double var2, double var4, double var6) {
-		super(var1, var2, var4, var6);
-	}
+    public EntityShuriken(World worldIn, double x, double y, double z) {
+        super(worldIn, x, y, z);
+    }
 
-	public EntityShuriken(World var1, EntityLivingBase var3) {
-		super(var1, var3);
-	}
+    public EntityShuriken(World worldIn, EntityLivingBase throwerIn) {
+        super(worldIn, throwerIn);
+    }
 
-	@Override
-	protected void onImpact(RayTraceResult var1) {
-		if (var1.entityHit != null) {
-			byte var2 = 4;
-
-			if (var1.entityHit instanceof EntityBlaze) {
-				var2 = 4;
-			}
-
-			if (var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2)) {
-			}
-		}
-
-		if (!this.world.isRemote) {
-			this.setDead();
-		}
-	}
+    @Override
+    protected void onImpact(RayTraceResult result) {
+        if (result.entityHit != null) {
+            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 4.0F);
+        }
+        if (!this.world.isRemote) {
+            this.setDead();
+        }
+    }
 }

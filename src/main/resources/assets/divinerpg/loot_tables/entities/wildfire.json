@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_molten",
+               "name":"divinerpg:molten_shards",
                "weight":1,
                "functions":[
                   {
@@ -33,7 +33,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:ingot_netherite",
+               "name":"divinerpg:netherite_ingot",
                "weight":80,
                "functions":[
                   {
@@ -44,7 +44,7 @@
             },
             {
                "type":"item",
-               "name":"divinerpg:ingot_hellstone",
+               "name":"divinerpg:hellstone_ingot",
                "weight":20
             }
          ]

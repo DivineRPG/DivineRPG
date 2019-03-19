@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/creeper_pumpkin_side",
+    "south": "divinerpg:blocks/creeper_pumpkin_side",
+    "north": "divinerpg:blocks/creeper_pumpkin_front",
+    "west": "divinerpg:blocks/creeper_pumpkin_side",
+    "particle": "divinerpg:blocks/creeper_pumpkin_side",
+    "up": "divinerpg:blocks/creeper_pumpkin_top",
+    "down": "divinerpg:blocks/creeper_pumpkin_top"
+  }
+}

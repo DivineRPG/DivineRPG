@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:yellow_rupee_leggings"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_leggings"
+    },
+    {
+      "item": "divinerpg:yellow_diamond_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "divinerpg:items/shadowbow_0",
-	"pull": "divinerpg:items/shadowbow_1"
-  }
-}

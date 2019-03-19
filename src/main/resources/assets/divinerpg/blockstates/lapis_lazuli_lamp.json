@@ -1,0 +1,8 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:lapis_lazuli_lamp"
+    }
+  }
+}

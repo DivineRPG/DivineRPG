@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/boots_bedrock"
+    "layer0": "divinerpg:items/bedrock_boots"
   }
 }

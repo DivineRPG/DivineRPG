@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:redstone_ore_lamp"
+  },
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xzx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "minecraft:redstone"
+    },
+    "z": {
+      "item": "minecraft:glowstone"
+    }
+  }
+}

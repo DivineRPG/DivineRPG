@@ -36,7 +36,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_molten",
+               "name":"divinerpg:molten_shards",
                "weight":1,
                "functions":[
                   {

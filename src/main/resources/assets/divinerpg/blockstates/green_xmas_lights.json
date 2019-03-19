@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "divinerpg:green_xmas_lights" },
-        "facing=east":  { "model": "divinerpg:green_xmas_lights", "y": 90 },
-        "facing=south": { "model": "divinerpg:green_xmas_lights", "y": 180 },
-        "facing=west":  { "model": "divinerpg:green_xmas_lights", "y": 270 }
-    }
-}

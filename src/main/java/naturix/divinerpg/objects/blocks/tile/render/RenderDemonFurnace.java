@@ -2,7 +2,6 @@ package naturix.divinerpg.objects.blocks.tile.render;
 
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.model.ModelDemonFurnace;
-import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -19,17 +18,16 @@ public class RenderDemonFurnace extends TileEntitySpecialRenderer<TileEntityDemo
 
     private static ModelDemonFurnace model = new ModelDemonFurnace();
 
-    public void render(TileEntityDemonFurnace te, double x, double y, double z, float partialTicks, int destroyStage,
-            float alpha) {
+    public void render(TileEntityDemonFurnace te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         ResourceLocation texture = FURNACE_OFF;
         int rotation = 0;
 
         World world = te.getWorld();
         if (world != null) {
             IBlockState state = world.getBlockState(te.getPos());
-            if (state.getBlock() == ModBlocks.demonFurnaceOn) {
-                texture = FURNACE_ON;
-            }
+            //if (state.getBlock() == ModBlocks.demonFurnaceOn) {
+            //    texture = FURNACE_ON;
+            //}
             rotation = facingToRotation[state.getValue(FACING).getHorizontalIndex()];
         }
 

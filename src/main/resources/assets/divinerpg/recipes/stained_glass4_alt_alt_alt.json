@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:stained_glass4"
+  },
+  "pattern": [
+    "   ",
+    "yx ",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:glass"
+    },
+    "y": {
+      "item": "divinerpg:marsine"
+    }
+  }
+}

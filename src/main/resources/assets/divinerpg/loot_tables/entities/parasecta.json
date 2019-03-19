@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:tokens_dungeon",
+          "name": "divinerpg:dungeon_tokens",
           "weight": 1,
           "functions": [
             {
@@ -43,7 +43,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:tokens_dungeon",
+          "name": "divinerpg:dungeon_tokens",
           "weight": 1
         }
       ]

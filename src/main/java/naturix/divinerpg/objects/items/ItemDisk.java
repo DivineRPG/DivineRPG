@@ -1,12 +1,12 @@
 package naturix.divinerpg.objects.items;
 
-import naturix.divinerpg.objects.items.vethia.ItemVethianDisk;
+import naturix.divinerpg.objects.items.vethea.ItemVetheanDisk;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemDisk extends ItemVethianDisk {
+public class ItemDisk extends ItemVetheanDisk {
 	public ItemDisk(int par1, String name) {
 		super(par1, name);
 	}

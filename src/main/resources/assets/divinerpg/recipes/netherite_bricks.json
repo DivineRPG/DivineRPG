@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:netherite_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:netherite_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

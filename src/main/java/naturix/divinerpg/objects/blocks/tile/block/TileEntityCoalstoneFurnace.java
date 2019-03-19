@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
-import naturix.divinerpg.objects.blocks.iceika.CoalstoneFurnace;
+import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 
 public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {
     public TileEntityCoalstoneFurnace() {
@@ -8,6 +8,6 @@ public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {
     }
 
     public void updateBlockState() {
-        CoalstoneFurnace.setState(this.canSmelt(), world, pos);
+        BlockCoalstoneFurnace.setState(this.canSmelt(), world, pos);
     }
 }

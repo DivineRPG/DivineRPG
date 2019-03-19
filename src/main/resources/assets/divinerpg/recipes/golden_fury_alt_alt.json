@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:golden_fury"
+  },
+  "pattern": [
+    "GGG",
+    "GFG",
+    "FFF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "divinerpg:fury_fire"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    }
+  }
+}

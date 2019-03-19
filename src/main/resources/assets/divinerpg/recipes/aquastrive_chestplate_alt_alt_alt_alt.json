@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:aquastrive_chestplate"
+  },
+  "pattern": [
+    "I I",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:aquatic_ingot"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:netherite_helmet"
+  },
+  "pattern": [
+    "III",
+    "S S"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "I": {
+      "item": "divinerpg:netherite_block"
+    }
+  }
+}

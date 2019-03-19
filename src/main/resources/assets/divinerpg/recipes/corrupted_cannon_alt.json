@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:corrupted_cannon"
+  },
+  "pattern": [
+    "III",
+    "S S"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:corrupted_stone"
+    }
+  }
+}

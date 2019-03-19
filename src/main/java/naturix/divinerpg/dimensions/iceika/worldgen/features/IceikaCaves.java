@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.iceika.worldgen.features;
 
+import java.util.Random;
+
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -8,10 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
-import java.util.Random;
-
-public class IceikaCaves extends MapGenBase
-{
+public class IceikaCaves extends MapGenBase {
     protected static final IBlockState BLOCK_AIR = Blocks.AIR.getDefaultState();
 
     protected void generateLargeCaveNode(long seed, int chunkX, int chunkZ, ChunkPrimer primer, double xx, double yy, double zz) {
@@ -26,12 +25,10 @@ public class IceikaCaves extends MapGenBase
         long j = this.rand.nextLong();
         long k = this.rand.nextLong();
 
-        for (int l = x - i; l <= x + i; ++l)
-        {
-            for (int i1 = z - i; i1 <= z + i; ++i1)
-            {
-                long j1 = (long)l * j;
-                long k1 = (long)i1 * k;
+        for (int l = x - i; l <= x + i; ++l) {
+            for (int i1 = z - i; i1 <= z + i; ++i1) {
+                long j1 = (long) l * j;
+                long k1 = (long) i1 * k;
                 this.rand.setSeed(j1 ^ k1 ^ worldIn.getSeed());
                 this.recursiveGenerate(worldIn, l, i1, x, z, primer);
             }
@@ -138,8 +135,8 @@ public class IceikaCaves extends MapGenBase
 
                                         if (yDiff > -0.7D && xDiff * xDiff + yDiff * yDiff + zDiff * zDiff < 1D) {
                                             IBlockState state = primer.getBlockState(px, py, pz);
-                                            //if (state.getBlock() == ModBlocks.stoneFrozen || state.getBlock() == ModBlocks.dirtIceika || state.getBlock() == ModBlocks.grassIceika)
-                                            //    primer.setBlockState(px, py, pz, BLOCK_AIR);
+                                            if (state.getBlock() == ModBlocks.frozenStone || state.getBlock() == ModBlocks.frozenDirt || state.getBlock() == ModBlocks.frozenGrass)
+                                                primer.setBlockState(px, py, pz, BLOCK_AIR);
                                         }
                                     }
                             }

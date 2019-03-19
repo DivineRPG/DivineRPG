@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_divine",
+               "name":"divinerpg:divine_shards",
                "weight":1,
                "functions":[
                   {
@@ -47,7 +47,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:statue_anciententity",
+               "name":"divinerpg:ancient_entity_statue",
                "weight":1
             }
          ]

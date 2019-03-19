@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:jungle_stone"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:jungle_shards"
+    }
+  }
+}

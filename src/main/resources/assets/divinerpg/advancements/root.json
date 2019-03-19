@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:ingot_rupee"
+      "item": "divinerpg:rupee_ingot"
     },
     "title": {
       "translate": "advancement.divinerpg.name"
@@ -18,7 +18,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:ingot_rupee"
+            "item": "divinerpg:rupee_ingot"
           }
         ]
       }

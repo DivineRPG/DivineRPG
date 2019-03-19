@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/skythern_grass_side",
+    "south": "divinerpg:blocks/skythern_grass_side",
+    "north": "divinerpg:blocks/skythern_grass_side",
+    "west": "divinerpg:blocks/skythern_grass_side",
+    "particle": "divinerpg:blocks/skythern_dirt",
+    "up": "divinerpg:blocks/skythern_grass_top",
+    "down": "divinerpg:blocks/skythern_dirt"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:divine_slab",
+    "count": 6
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:divine_planks"
+    }
+  }
+}

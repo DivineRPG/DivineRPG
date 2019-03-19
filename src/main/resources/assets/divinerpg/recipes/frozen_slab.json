@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_slab",
+    "count": 6
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:frozen_planks"
+    }
+  }
+}

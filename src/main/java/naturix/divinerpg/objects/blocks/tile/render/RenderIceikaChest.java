@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityIceikaChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.model.ModelIceikaChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
  * Created by LiteWolf101 on Feb
  * /08/2019
  */
-public class RenderIceikaChest extends TileEntitySpecialRenderer<TileEntityIceikaChest> {
+public class RenderIceikaChest extends TileEntitySpecialRenderer<TileEntityFrostedChest> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID + ":textures/model/iceika_chest.png");
     private final ModelIceikaChest MODEL = new ModelIceikaChest();
 
     @Override
-    public void render(TileEntityIceikaChest te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+    public void render(TileEntityFrostedChest te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
         GlStateManager.enableDepth();
         GlStateManager.depthFunc(515);

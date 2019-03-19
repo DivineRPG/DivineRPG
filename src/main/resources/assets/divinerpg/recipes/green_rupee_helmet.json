@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:green_rupee_helmet"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_helmet"
+    },
+    {
+      "item": "divinerpg:green_diamond_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

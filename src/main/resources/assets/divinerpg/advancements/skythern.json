@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:block_skythern"
+      "item": "divinerpg:skythern_block"
     },
     "title": {
       "translate": "advancement.divinerpg.enter_skythern"

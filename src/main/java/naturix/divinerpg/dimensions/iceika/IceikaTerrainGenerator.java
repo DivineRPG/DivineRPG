@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.iceika;
 
+import java.util.Random;
+
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
@@ -10,11 +12,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
-import java.util.Random;
-
 /**
- * Created by LiteWolf101 on Jan
- * /23/2019
+ * Created by LiteWolf101 on Jan /23/2019
  */
 public class IceikaTerrainGenerator {
     private World world;
@@ -67,9 +66,7 @@ public class IceikaTerrainGenerator {
         this.depthNoise = new NoiseGeneratorOctaves(rand, 16);
         NoiseGeneratorOctaves mobSpawnerNoise = new NoiseGeneratorOctaves(rand, 8);
 
-        net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld ctx =
-                new net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld(minLimitPerlinNoise,
-                        maxLimitPerlinNoise, mainPerlinNoise, surfaceNoise, noiseGen5, depthNoise, mobSpawnerNoise);
+        net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld ctx = new net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld(minLimitPerlinNoise, maxLimitPerlinNoise, mainPerlinNoise, surfaceNoise, noiseGen5, depthNoise, mobSpawnerNoise);
         ctx = net.minecraftforge.event.terraingen.TerrainGen.getModdedNoiseGenerators(world, rand, ctx);
         this.minLimitPerlinNoise = ctx.getLPerlin1();
         this.maxLimitPerlinNoise = ctx.getLPerlin2();
@@ -77,7 +74,6 @@ public class IceikaTerrainGenerator {
         this.surfaceNoise = ctx.getHeight();
         this.depthNoise = ctx.getDepth();
     }
-
 
     private void generateHeightmap(int chunkX4, int chunkY4, int chunkZ4) {
         this.depthRegion = this.depthNoise.generateNoiseOctaves(this.depthRegion, chunkX4, chunkZ4, 5, 5, 200.0D, 200.0D, 0.5D);
@@ -167,7 +163,6 @@ public class IceikaTerrainGenerator {
         }
     }
 
-
     public void generate(int chunkX, int chunkZ, ChunkPrimer primer) {
         generateHeightmap(chunkX * 4, 0, chunkZ * 4);
 
@@ -210,7 +205,7 @@ public class IceikaTerrainGenerator {
                                 if (height < 2) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.BEDROCK.getDefaultState());
                                 } else if ((d15 += d16) > 0.0D) {
-                                    //primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, ModBlocks.stoneFrozen.getDefaultState());
+                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, ModBlocks.frozenStone.getDefaultState());
                                 }
                             }
 
@@ -229,7 +224,8 @@ public class IceikaTerrainGenerator {
     }
 
     public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, IChunkGenerator generator, Biome[] biomes) {
-        if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(generator, x, z, primer, this.world)) return;
+        if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(generator, x, z, primer, this.world))
+            return;
         this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, (x * 16), (z * 16), 16, 16, 0.0625D, 0.0625D, 1.0D);
 
         for (int i = 0; i < 16; ++i) {

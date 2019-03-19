@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/blaze_pumpkin_side",
+    "south": "divinerpg:blocks/blaze_pumpkin_side",
+    "north": "divinerpg:blocks/blaze_pumpkin_front",
+    "west": "divinerpg:blocks/blaze_pumpkin_side",
+    "particle": "divinerpg:blocks/blaze_pumpkin_side",
+    "up": "divinerpg:blocks/blaze_pumpkin_top",
+    "down": "divinerpg:blocks/blaze_pumpkin_top"
+  }
+}

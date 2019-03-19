@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=overworld": {"model": "divinerpg:ore_rupee_overworld"},
-        "type=nether": {"model": "divinerpg:ore_rupee_nether"},
-        "type=end": {"model": "divinerpg:ore_rupee_end"}
-    }
-}

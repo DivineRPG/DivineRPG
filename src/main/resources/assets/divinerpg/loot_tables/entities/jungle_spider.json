@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_jungle",
+               "name":"divinerpg:jungle_shards",
                "weight":1,
                "functions":[
                   {
@@ -33,7 +33,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_jungle",
+               "name":"divinerpg:jungle_shards",
                "weight":1,
                "functions":[
                   {

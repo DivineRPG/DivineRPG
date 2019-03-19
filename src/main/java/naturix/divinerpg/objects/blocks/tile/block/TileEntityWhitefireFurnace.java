@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
-import naturix.divinerpg.objects.blocks.arcana.WhitefireFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
 
 public class TileEntityWhitefireFurnace extends TileEntityInfiniteFurnace {
     public TileEntityWhitefireFurnace() {
@@ -8,6 +8,6 @@ public class TileEntityWhitefireFurnace extends TileEntityInfiniteFurnace {
     }
 
     public void updateBlockState() {
-        WhitefireFurnace.setState(this.canSmelt(), world, pos);
+        BlockWhitefireFurnace.setState(this.canSmelt(), world, pos);
     }
 }

@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:ingot_arlemite",
+               "name":"divinerpg:arlemite_ingot",
                "weight":1
             }
          ]
@@ -23,7 +23,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_corrupted",
+               "name":"divinerpg:corrupted_shards",
                "weight":1,
                "functions":[
                   {

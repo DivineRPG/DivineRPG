@@ -6,7 +6,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:eye_cyclops",
+               "name":"divinerpg:cyclops_eye",
                "weight":1,
                "functions":[
                   {
@@ -69,7 +69,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:gem_blood",
+               "name":"divinerpg:bloodgem",
                "weight":1
             }
          ]

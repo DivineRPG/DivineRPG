@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:advanced_mushroom_stew"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:white_mushroom"
+    },
+    {
+      "item": "minecraft:mushroom_stew"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

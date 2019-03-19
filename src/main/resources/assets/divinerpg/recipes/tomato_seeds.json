@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:tomato_seeds",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:tomato"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

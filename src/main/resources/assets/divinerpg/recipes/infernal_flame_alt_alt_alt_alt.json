@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:infernal_flame"
+  },
+  "pattern": [
+    "BBB",
+    "BSB",
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "divinerpg:purple_blaze"
+    },
+    "S": {
+      "item": "divinerpg:inferno_sword"
+    }
+  }
+}

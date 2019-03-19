@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:slime_sword"
+  },
+  "pattern": [
+    "SDS",
+    "SDS",
+    "SDS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:slime_ball"
+    },
+    "D": {
+      "item": "minecraft:diamond_sword"
+    }
+  }
+}

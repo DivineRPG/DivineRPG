@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/chestplate_vemos"
+    "layer0": "divinerpg:items/vemos_chestplate"
   }
 }

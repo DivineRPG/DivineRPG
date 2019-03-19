@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:jungle_lamp"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone"
+    },
+    {
+      "item": "divinerpg:jungle_stone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

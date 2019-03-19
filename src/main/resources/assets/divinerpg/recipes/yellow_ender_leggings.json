@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:yellow_ender_leggings"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:ender_leggings"
+    },
+    {
+      "item": "divinerpg:yellow_diamond_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

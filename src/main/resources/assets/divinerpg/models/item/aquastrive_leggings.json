@@ -1,6 +1,6 @@
 {
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "divinerpg:items/leggings_aquastrive"
-	}
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:items/aquastrive_leggings"
+  }
 }

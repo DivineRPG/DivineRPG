@@ -1,14 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XX"
-  ],
-  "key": {
-   "X": {
-      "item": "divinerpg:kraken_scale"
-    }
-  },
   "result": {
     "item": "divinerpg:kraken_skin"
-  }
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:kraken_scale"
+    },
+    {
+      "item": "divinerpg:kraken_scale"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
 }

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
-import naturix.divinerpg.objects.blocks.arcana.DemonFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
@@ -10,7 +10,7 @@ public class TileEntityDemonFurnace extends TileEntityInfiniteFurnace {
     }
 
     public void updateBlockState() {
-        DemonFurnace.setState(this.canSmelt(), world, pos);
+        BlockDemonFurnace.setState(this.canSmelt(), world, pos);
     }
 
     @Override

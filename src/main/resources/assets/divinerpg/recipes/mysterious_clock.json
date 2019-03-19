@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:mysterious_clock"
+  },
+  "pattern": [
+    " H ",
+    "SCS",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:clock"
+    },
+    "S": {
+      "item": "divinerpg:corrupted_stone"
+    },
+    "H": {
+      "item": "divinerpg:hellstone_ingot"
+    }
+  }
+}

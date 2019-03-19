@@ -16,7 +16,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:sword_ender",
+               "name":"divinerpg:ender_sword",
                "weight":1
             }
          ]
@@ -27,7 +27,7 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:shard_divine",
+               "name":"divinerpg:divine_shards",
                "weight":1,
                "functions":[
                   {
@@ -102,6 +102,26 @@
             {
                "type":"item",
                "name":"divinerpg:divine_helmet",
+               "weight":1
+            }
+         ]
+      },
+      {
+         "name":"divinerpg:ayeraco_purple",
+         "conditions":[
+            {
+               "condition":"killed_by_player"
+            },
+            {
+               "condition":"random_chance",
+               "chance":0.1
+            }
+         ],
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:ayeraco_statue",
                "weight":1
             }
          ]

@@ -53,14 +53,14 @@ public class DivineRPG {
         @Override
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.oreArlemite);
+            return new ItemStack(ModBlocks.arlemiteOre);
         }
     };
     public static final CreativeTabs ItemsTab = new CreativeTabs("Item") {
         @Override
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.ingotArlemite);
+            return new ItemStack(ModItems.arlemiteIngot);
         }
     };
     public static final CreativeTabs CombatTab = new CreativeTabs("Combat") {
@@ -88,7 +88,7 @@ public class DivineRPG {
         @Override
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.watcherStatue);
+            return new ItemStack(ModBlocks.theWatcherStatue);
         }
     };
 

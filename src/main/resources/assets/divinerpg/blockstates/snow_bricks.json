@@ -1,13 +1,8 @@
 {
   "forge_marker": 1,
-  "defaults": {
-    "model": "divinerpg:snow_bricks"
-  },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}],
-	"type=overworld": [{}],
-	"type=nether": [{}],
-	"type=end": [{}]
+    "normal": {
+      "model": "divinerpg:snow_bricks"
+    }
   }
 }

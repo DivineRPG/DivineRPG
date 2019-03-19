@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:bloodgem_minibricks"
+  },
+  "pattern": [
+    "XXX",
+    "XCX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "divinerpg:bloodgem"
+    },
+    "X": {
+      "item": "divinerpg:minibricks"
+    }
+  }
+}

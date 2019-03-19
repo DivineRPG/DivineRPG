@@ -42,33 +42,33 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
     @Override
     public void addRecipies(MerchantRecipeList list) {
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.shuriken, 16, 0),
-                new ItemStack(ModItems.shurikenSnow, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.serenadeStrike, 1, 0),
-                new ItemStack(ModItems.serenadeIce, 1, 0)));
+                new ItemStack(ModItems.snowflakeShuriken, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.serenadeStriker, 1, 0),
+                new ItemStack(ModItems.serenadeOfIce, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 7), new ItemStack(ModItems.slimeSword, 1, 0),
                 new ItemStack(ModItems.glacierSword, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModItems.shadowBow, 1, 0),
                 new ItemStack(ModItems.icicleBow, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.massivence, 1, 0),
                 new ItemStack(ModItems.frossivence, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModItems.cannonCrab, 1, 0),
-                new ItemStack(ModItems.cannonFrost, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModItems.cannonFrost, 1, 0),
-                new ItemStack(ModItems.cannonFractite, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModItems.crabclawCannon, 1, 0),
+                new ItemStack(ModItems.frostclawCannon, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModItems.frostCannon, 1, 0),
+                new ItemStack(ModItems.fractiteCannon, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 15), new ItemStack(ModItems.frostSword, 1, 0),
                 new ItemStack(ModItems.frostkingSword, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 18), new ItemStack(ModItems.soundMusic, 1, 0),
-                new ItemStack(ModItems.soundCarol, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 18), new ItemStack(ModItems.soundOfMusic, 1, 0),
+                new ItemStack(ModItems.soundOfCarols, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 25), new ItemStack(ModItems.enderSword, 1, 0),
-                new ItemStack(ModItems.iceEnder, 1, 0)));
+                new ItemStack(ModItems.enderice, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 30), new ItemStack(ModItems.bluefireBow, 1, 0),
-                new ItemStack(ModItems.snowBow, 1, 0)));
+                new ItemStack(ModItems.snowstormBow, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 45), new ItemStack(ModItems.bedrockMaul, 1, 0),
-                new ItemStack(ModItems.maulFrozen, 1, 0)));
+                new ItemStack(ModItems.frozenMaul, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 40), new ItemStack(ModItems.divineSword, 1, 0),
                 new ItemStack(ModItems.icineSword, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 15), new ItemStack(ModItems.sandslash, 1, 0),
-                new ItemStack(ModItems.snowslash, 1, 0)));
+                new ItemStack(ModItems.snowSlash, 1, 0)));
     }
 
     @Override

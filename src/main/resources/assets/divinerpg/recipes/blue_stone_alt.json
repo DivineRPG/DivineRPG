@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:blue_stone",
+    "count": 8
+  },
+  "pattern": [
+    "GGG",
+    "GLG",
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "minecraft:glowstone"
+    },
+    "L": {
+      "item": "minecraft:dye",
+      "data": 4
+    }
+  }
+}

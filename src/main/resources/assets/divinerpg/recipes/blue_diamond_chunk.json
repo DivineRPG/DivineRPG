@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:blue_diamond_chunk"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "divinerpg:rupee_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

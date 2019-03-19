@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:realmite_ingot"
+    },
+    {
+      "item": "divinerpg:realmite_ingot"
+    },
+    {
+      "item": "divinerpg:realmite_ingot"
+    },
+    {
+      "item": "divinerpg:realmite_ingot"
+    },
+    {
+      "item": "divinerpg:realmite_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

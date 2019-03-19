@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:angelic_leggings"
+  },
+  "pattern": [
+    "III",
+    "X X",
+    "X X"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:ice_stone"
+    },
+    "I": {
+      "item": "divinerpg:bluefire_stone"
+    }
+  }
+}

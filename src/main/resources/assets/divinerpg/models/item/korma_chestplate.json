@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/chestplate_korma"
+    "layer0": "divinerpg:items/korma_chestplate"
   }
 }

@@ -48,23 +48,23 @@ public class JackOMan extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
                 new ItemStack(ModItems.skelemanHelmet, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
-                new ItemStack(ModItems.skelemanChestplate, 1, 0)));
+                new ItemStack(ModItems.skelemanBody, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
-                new ItemStack(ModItems.skelemanLeggings, 1, 0)));
+                new ItemStack(ModItems.skelemanLegs, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 40), new ItemStack(Items.SPIDER_EYE, 60),
                 new ItemStack(ModItems.skelemanBoots, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModItems.jackomanHelmet)));
+                new ItemStack(ModItems.jackOManHelmet)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModItems.jackomanChestplate)));
+                new ItemStack(ModItems.jackOManBody)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModItems.jackomanLeggings)));
+                new ItemStack(ModItems.jackOManLegs)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModItems.jackomanBoots)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 3, 1), new ItemStack(ModItems.witherreaperHelmet)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 5, 1), new ItemStack(ModItems.witherreaperChestplate)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 4, 1), new ItemStack(ModItems.witherreaperLeggings)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ModItems.witherreaperBoots)));
+                new ItemStack(ModItems.jackOManBoots)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 3, 1), new ItemStack(ModItems.witherReaperHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 5, 1), new ItemStack(ModItems.witherReaperBody)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 4, 1), new ItemStack(ModItems.witherReaperLegs)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ModItems.witherReaperBoots)));
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new ItemStack(Items.ENDER_EYE, 60),
                 new ItemStack(ModItems.scythe)));
     }
