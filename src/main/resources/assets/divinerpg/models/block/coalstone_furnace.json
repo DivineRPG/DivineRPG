@@ -6,7 +6,7 @@
     "north": "divinerpg:blocks/coalstone_furnace_front_off",
     "west": "divinerpg:blocks/coalstone",
     "particle": "divinerpg:blocks/coalstone_furnace_front_off",
-    "up": "divinerpg:blocks/coalstone_furnace_top",
-    "down": "divinerpg:blocks/coalstone_furnace_top"
+    "up": "divinerpg:blocks/coalstone",
+    "down": "divinerpg:blocks/coalstone"
   }
 }
