@@ -1,5 +1,5 @@
 {
-    "parent": "block/stairs",
+    "parent": "block/inner_stairs",
     "textures": {
         "bottom": "divinerpg:blocks/divine_planks",
         "top": "divinerpg:blocks/divine_planks",
