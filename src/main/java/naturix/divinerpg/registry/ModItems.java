@@ -21,6 +21,7 @@ import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemSwordBase;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
+import naturix.divinerpg.objects.items.twilight.ItemTwilightClock;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
 import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
 import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
@@ -747,8 +748,7 @@ public class ModItems {
 	public static Item skythernDust = new ItemBase("skythern_dust");
 	public static Item mortumDust = new ItemBase("mortum_dust");
 
-	// public static Item twilightClock = new ItemTwilightClock("twilight_clock");
-	public static Item twilightClock = new ItemNotReady("twilight_clock", DRPGCreativeTabs.items);
+	public static Item twilightClock = new ItemTwilightClock("twilight_clock");
 
 	public static Item edenSparkles = new ItemBase("eden_sparkles");
 
