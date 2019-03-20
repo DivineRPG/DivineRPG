@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.model.ModelIceikaChest;
 import naturix.divinerpg.utils.Reference;

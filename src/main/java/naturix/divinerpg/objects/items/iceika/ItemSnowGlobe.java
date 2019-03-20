@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.items.iceika;
 
-import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;

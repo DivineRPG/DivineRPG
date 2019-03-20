@@ -1,6 +1,5 @@
 package naturix.divinerpg.utils;
 
-import naturix.divinerpg.DivineRPG;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;

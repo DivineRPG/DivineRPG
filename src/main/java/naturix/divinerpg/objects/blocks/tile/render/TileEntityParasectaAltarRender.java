@@ -1,21 +1,13 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.DivineRPG;
+import org.lwjgl.opengl.GL11;
+
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.objects.blocks.tile.model.ParasectaAltarModel;
-import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderItem;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class TileEntityParasectaAltarRender extends TileEntitySpecialRenderer<TileEntityParasectaAltar> {
 

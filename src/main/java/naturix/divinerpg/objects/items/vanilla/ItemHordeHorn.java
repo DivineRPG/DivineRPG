@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.items.vanilla;
 
-import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.registry.ModBlocks;

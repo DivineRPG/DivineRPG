@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vethea;
 
-import naturix.divinerpg.DivineRPG;
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityFlying;
@@ -15,8 +16,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
 
 public class Lorgaflight extends EntityFlying {
 

@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.assets.model.vanilla.model;
 
+import org.lwjgl.opengl.GL11;
+
 import naturix.divinerpg.objects.entities.entity.vanilla.JungleBat;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,7 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class ModelJungleBat extends ModelBase {

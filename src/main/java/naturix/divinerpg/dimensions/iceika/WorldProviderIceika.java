@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.iceika;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.dimensions.iceika.biome.BiomeProviderIceika;
 import naturix.divinerpg.dimensions.iceika.chunk.ChunkProviderIceika;
 import naturix.divinerpg.proxy.ClientProxy;
@@ -13,8 +15,6 @@ import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
 
 public class WorldProviderIceika extends WorldProvider {
 	

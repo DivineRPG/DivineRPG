@@ -1,5 +1,7 @@
 package naturix.divinerpg.events;
 
+import org.lwjgl.opengl.GL11;
+
 import naturix.divinerpg.objects.entities.assets.model.ModelHat;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
@@ -9,8 +11,6 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL11;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 	public class EventDevHat {

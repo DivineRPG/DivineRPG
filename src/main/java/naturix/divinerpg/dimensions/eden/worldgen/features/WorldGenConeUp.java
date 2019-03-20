@@ -1,12 +1,11 @@
 package naturix.divinerpg.dimensions.eden.worldgen.features;
 
-import naturix.divinerpg.registry.ModBlocks;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 /**
  * Created by LiteWolf101 on Feb

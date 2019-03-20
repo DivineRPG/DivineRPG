@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelAridWarrior;
 import naturix.divinerpg.objects.entities.assets.render.MainHandLayerRenderAridWarrior;
 import naturix.divinerpg.objects.entities.entity.vanilla.AridWarrior;
@@ -9,8 +11,6 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
-
-import javax.annotation.Nullable;
 
 public class RenderAridWarrior extends RenderLiving<AridWarrior> {
     public static final IRenderFactory FACTORY = new Factory();

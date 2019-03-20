@@ -5,9 +5,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.EventArmorSet;
-import naturix.divinerpg.objects.items.ItemSpawnEgg;
+import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

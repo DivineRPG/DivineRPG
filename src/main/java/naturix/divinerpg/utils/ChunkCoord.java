@@ -1,8 +1,8 @@
 package naturix.divinerpg.utils;
 
-import net.minecraft.util.math.BlockPos;
-
 import java.util.Objects;
+
+import net.minecraft.util.math.BlockPos;
 
 public class ChunkCoord {
     private final int chunkX;

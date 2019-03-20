@@ -1,13 +1,11 @@
 package naturix.divinerpg.dimensions.skythern.worldgen.trees;
 
-import naturix.divinerpg.registry.ModBlocks;
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
 
 public class SkythernTree extends WorldGenAbstractTree {
     private int minTreeHeight;

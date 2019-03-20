@@ -1,5 +1,12 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.vecmath.Matrix4f;
+
+import org.apache.commons.lang3.tuple.Pair;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
@@ -9,11 +16,6 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.commons.lang3.tuple.Pair;
-
-import javax.annotation.Nonnull;
-import javax.vecmath.Matrix4f;
-import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class ItemBakedBase implements IBakedModel {

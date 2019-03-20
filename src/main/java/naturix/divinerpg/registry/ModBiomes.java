@@ -1,5 +1,7 @@
 package naturix.divinerpg.registry;
 
+import java.util.ArrayList;
+
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.world.biomes.BiomeApalachia;
 import naturix.divinerpg.world.biomes.BiomeEden;
@@ -14,8 +16,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-
-import java.util.ArrayList;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ModBiomes {

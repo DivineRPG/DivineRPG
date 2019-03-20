@@ -3,22 +3,23 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.objects.items.ItemArmorBase;
-import naturix.divinerpg.objects.items.ItemAxeBase;
-import naturix.divinerpg.objects.items.ItemBase;
-import naturix.divinerpg.objects.items.ItemBowBase;
-import naturix.divinerpg.objects.items.ItemFastFood;
-import naturix.divinerpg.objects.items.ItemHealingSword;
-import naturix.divinerpg.objects.items.ItemHoeBase;
 import naturix.divinerpg.objects.items.ItemNotReady;
-import naturix.divinerpg.objects.items.ItemPickaxeBase;
-import naturix.divinerpg.objects.items.ItemPoisonousSword;
-import naturix.divinerpg.objects.items.ItemShickaxeBase;
-import naturix.divinerpg.objects.items.ItemShovelBase;
-import naturix.divinerpg.objects.items.ItemSlowingSword;
-import naturix.divinerpg.objects.items.ItemSpawnEgg;
-import naturix.divinerpg.objects.items.ItemSwordBase;
-import naturix.divinerpg.objects.items.food.ItemFoodBase;
+import naturix.divinerpg.objects.items.base.ItemArmorBase;
+import naturix.divinerpg.objects.items.base.ItemAxeBase;
+import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemBowBase;
+import naturix.divinerpg.objects.items.base.ItemFastFood;
+import naturix.divinerpg.objects.items.base.ItemHealingSword;
+import naturix.divinerpg.objects.items.base.ItemHoeBase;
+import naturix.divinerpg.objects.items.base.ItemModFood;
+import naturix.divinerpg.objects.items.base.ItemPickaxeBase;
+import naturix.divinerpg.objects.items.base.ItemPoisonousSword;
+import naturix.divinerpg.objects.items.base.ItemShickaxeBase;
+import naturix.divinerpg.objects.items.base.ItemShovelBase;
+import naturix.divinerpg.objects.items.base.ItemSlowingSword;
+import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
+import naturix.divinerpg.objects.items.base.ItemSwordBase;
+import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
 import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
@@ -517,13 +518,12 @@ public class ModItems {
 	// public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
 	public static Item serenadeOfIce = new ItemNotReady("serenade_of_ice", DRPGCreativeTabs.ranged);
 
-	// public static Item eggNog = new ItemEggNog("egg_nog");
-	public static Item eggNog = new ItemNotReady("egg_nog", DRPGCreativeTabs.items);
-	public static Item peppermints = new ItemFoodBase(1, 0.3F, false, "peppermints");
-	public static Item chocolateLog = new ItemFoodBase(4, 1.0F, false, "chocolate_log");
-	public static Item snowCones = new ItemFoodBase(2, 0.3F, false, "snow_cones");
-	public static Item fruitCake = new ItemFoodBase(16, 2.0F, false, "fruit_cake");
-	public static Item winterberry = new ItemFoodBase(4, 1.0F, false, "winterberry");
+	public static Item eggNog = new ItemEggNog("egg_nog");
+	public static Item peppermints = new ItemModFood(1, 0.3F, false, "peppermints");
+	public static Item chocolateLog = new ItemModFood(4, 1.0F, false, "chocolate_log");
+	public static Item snowCones = new ItemModFood(2, 0.3F, false, "snow_cones");
+	public static Item fruitCake = new ItemModFood(16, 2.0F, false, "fruit_cake");
+	public static Item winterberry = new ItemModFood(4, 1.0F, false, "winterberry");
 
 	public static Item icicleBow = new ItemBowBase("icicle_bow", 10000, 2, 11, 24000, Items.ARROW, "icicle_arrow");
 	public static Item snowstormBow = new ItemBowBase("snowstorm_bow", -1, 2, 11, "snowstorm_arrow");
@@ -538,17 +538,17 @@ public class ModItems {
 	public static Item snowGlobe = new ItemSnowGlobe("snow_globe");
 
 	// Foods
-	public static Item bacon = new ItemFoodBase(2, 3.0F, true, "bacon");
-	public static Item hotPumpkinPie = new ItemFoodBase(5, 7.0F, true, "hot_pumpkin_pie");
-	public static Item boiledEgg = new ItemFoodBase(4, 0.5F, false, "boiled_egg");
-	public static Item cheese = new ItemFoodBase(2, 0.2F, false, "cheese");
-	public static Item whiteMushroom = new ItemFoodBase(1, 0.1F, false, "white_mushroom");
-	public static Item advMushroomStew = new ItemFoodBase(10, 10.0F, false, "advanced_mushroom_stew");
-	public static Item chickenDinner = new ItemFoodBase(20, 20.0F, false, "chicken_dinner");
-	public static Item tomato = new ItemFoodBase(4, 0.3F, false, "tomato");
-	public static Item donut = new ItemFoodBase(16, 0.3F, false, "donut");
-	public static Item rawEmpoweredMeat = new ItemFoodBase(5, 2.0F, true, "raw_empowered_meat");
-	public static Item empoweredMeat = new ItemFoodBase(10, 4.0F, true, "empowered_meat");
+	public static Item bacon = new ItemModFood(2, 3.0F, true, "bacon");
+	public static Item hotPumpkinPie = new ItemModFood(5, 7.0F, true, "hot_pumpkin_pie");
+	public static Item boiledEgg = new ItemModFood(4, 0.5F, false, "boiled_egg");
+	public static Item cheese = new ItemModFood(2, 0.2F, false, "cheese");
+	public static Item whiteMushroom = new ItemModFood(1, 0.1F, false, "white_mushroom");
+	public static Item advMushroomStew = new ItemModFood(10, 10.0F, false, "advanced_mushroom_stew");
+	public static Item chickenDinner = new ItemModFood(20, 20.0F, false, "chicken_dinner");
+	public static Item tomato = new ItemModFood(4, 0.3F, false, "tomato");
+	public static Item donut = new ItemModFood(16, 0.3F, false, "donut");
+	public static Item rawEmpoweredMeat = new ItemModFood(5, 2.0F, true, "raw_empowered_meat");
+	public static Item empoweredMeat = new ItemModFood(10, 4.0F, true, "empowered_meat");
 	public static Item magicMeat = new ItemFastFood(5, 1.0F, true, "magic_meat");
 	public static Item enrichedMagicMeat = new ItemFastFood(7, 2.5F, true, "enriched_magic_meat");
 
@@ -858,7 +858,7 @@ public class ModItems {
 	public static Item paratikuSpawner = new ItemNotReady("paratiku_egg", DRPGCreativeTabs.items);
 	public static Item fyracryxSpawner = new ItemNotReady("fyracryx_egg", DRPGCreativeTabs.items);
 
-	public static Item hitchak = new ItemFoodBase(2, 3, false, "hitchak");
+	public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
 	// public static Item hitchakSeeds = new ItemArcanaSeeds("hitchakSeeds",
 	// (BlockModCrop) ArcanaBlocks.hitchak);
 	public static Item hitchakSeeds = new ItemNotReady("hitchak_seeds", DRPGCreativeTabs.items);
@@ -879,7 +879,7 @@ public class ModItems {
 	// public static Item firestockSeeds = new ItemTwilightSeeds("firestockSeeds",
 	// ArcanaBlocks.firestock, ArcanaBlocks.arcanaGrass);
 	public static Item firestockSeeds = new ItemNotReady("firestock_seeds", DRPGCreativeTabs.items);
-	public static Item pinfly = new ItemFoodBase(2, 0.3F, false, "pinfly")
+	public static Item pinfly = new ItemModFood(2, 0.3F, false, "pinfly")
 	        .setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F);
 	// public static Item pinflySeeds = new ItemTwilightSeeds("pinflySeeds",
 	// ArcanaBlocks.pinfly, ArcanaBlocks.arcanaGrass);

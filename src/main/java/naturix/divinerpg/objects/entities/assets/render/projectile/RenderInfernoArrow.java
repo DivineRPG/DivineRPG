@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.assets.render.projectile;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.entity.RenderArrow;

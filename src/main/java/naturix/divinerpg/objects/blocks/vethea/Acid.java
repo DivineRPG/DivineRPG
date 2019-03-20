@@ -1,5 +1,10 @@
 package naturix.divinerpg.objects.blocks.vethea;
 
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.blocks.BlockBase;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.block.material.Material;
@@ -14,10 +19,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Random;
 
 public class Acid extends BlockBase {
 	private boolean decays, poison;

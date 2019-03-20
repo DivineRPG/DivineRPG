@@ -1,6 +1,8 @@
 package naturix.divinerpg.objects.entities.assets.render.vethea;
 
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.assets.model.vethea.model.ModelHungerHungry;
 import naturix.divinerpg.objects.entities.entity.vethea.TheHunger;
 import net.minecraft.client.model.ModelBase;
@@ -9,8 +11,6 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
-
-import javax.annotation.Nullable;
 
 public class RenderTheHunger extends RenderLiving<TheHunger> {
 	

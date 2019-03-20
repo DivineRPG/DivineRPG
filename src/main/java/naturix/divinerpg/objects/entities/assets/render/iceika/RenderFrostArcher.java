@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.assets.render.iceika;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.entity.iceika.FrostArcher;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -8,8 +10,6 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
-
-import javax.annotation.Nullable;
 
 public class RenderFrostArcher extends RenderLiving<FrostArcher> {
 	

@@ -1,16 +1,12 @@
 package naturix.divinerpg.dimensions.eden.worldgen.trees;
 
 
-import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
 
 /**
  * Created by LiteWolf101 on 10/8/2018.

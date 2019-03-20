@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
-import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockBed;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;

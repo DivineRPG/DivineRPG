@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderInfernoArrow;
-import naturix.divinerpg.registry.ModItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;

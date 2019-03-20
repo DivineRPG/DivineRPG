@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.eden;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.dimensions.eden.biome.BiomeProviderEden;
 import naturix.divinerpg.dimensions.eden.chunk.ChunkGeneratorEden;
 import naturix.divinerpg.registry.ModBiomes;
@@ -12,8 +14,6 @@ import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
 
 public class WorldProviderEden extends WorldProvider {
 	

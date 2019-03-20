@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
-import naturix.divinerpg.objects.items.ItemThrowable;
+import naturix.divinerpg.objects.items.base.ItemThrowable;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;

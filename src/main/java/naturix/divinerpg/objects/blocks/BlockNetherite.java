@@ -1,5 +1,8 @@
 package naturix.divinerpg.objects.blocks;
 
+import java.util.List;
+import java.util.Random;
+
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.state.IBlockState;
@@ -10,9 +13,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.Random;
 
 public class BlockNetherite extends BlockOreNether {
 

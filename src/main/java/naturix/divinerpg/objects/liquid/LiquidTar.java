@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.liquid;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;

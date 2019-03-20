@@ -1,11 +1,11 @@
 
 package naturix.divinerpg.utils;
 
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class HealthHelper {
 	/**

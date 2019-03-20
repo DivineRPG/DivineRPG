@@ -1,6 +1,5 @@
 package naturix.divinerpg.client;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.util.ResourceLocation;
 

@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.assets.render;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.model.ModelHat;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;

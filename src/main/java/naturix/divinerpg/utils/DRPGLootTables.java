@@ -1,6 +1,5 @@
 package naturix.divinerpg.utils;
 
-import naturix.divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 

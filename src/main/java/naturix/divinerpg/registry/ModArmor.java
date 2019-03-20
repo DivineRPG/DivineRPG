@@ -1,10 +1,9 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.DivineRPG;
-import net.minecraft.item.Item;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import net.minecraft.item.Item;
 
 public class ModArmor {
 public static List<Item> DivineItemList = new ArrayList<>(30);

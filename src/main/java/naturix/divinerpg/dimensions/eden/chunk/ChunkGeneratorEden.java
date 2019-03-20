@@ -1,33 +1,23 @@
 package naturix.divinerpg.dimensions.eden.chunk;
 
 
-import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.Block;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.BlockFalling;
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.feature.WorldGenEndIsland;
-import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.ChunkGeneratorEvent;
-import net.minecraftforge.fml.common.eventhandler.Event;
-
-import java.util.List;
-import java.util.Random;
+import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.NoiseGeneratorSimplex;
 
 public class ChunkGeneratorEden implements  IChunkGenerator {
     /** RNG. */

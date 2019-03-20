@@ -1,8 +1,6 @@
 package naturix.divinerpg.utils;
 
-import naturix.divinerpg.registry.ModItems;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class DivineRPGMaterials {

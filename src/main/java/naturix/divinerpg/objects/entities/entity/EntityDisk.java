@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.client.RenderSpecialProjectile;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.utils.Reference;

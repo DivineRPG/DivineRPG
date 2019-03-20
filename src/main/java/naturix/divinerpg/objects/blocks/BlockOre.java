@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
 import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
-import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;

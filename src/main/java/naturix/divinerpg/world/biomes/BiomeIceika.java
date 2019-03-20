@@ -1,7 +1,8 @@
 package naturix.divinerpg.world.biomes;
 
+import java.util.Random;
+
 import naturix.divinerpg.dimensions.iceika.worldgen.trees.WorldGenIceTree;
-import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
@@ -14,8 +15,6 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Random;
 
 public class BiomeIceika extends Biome {
 

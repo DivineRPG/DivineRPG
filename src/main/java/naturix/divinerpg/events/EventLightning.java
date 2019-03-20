@@ -1,15 +1,12 @@
 package naturix.divinerpg.events;
 
 import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumHand;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class EventLightning {

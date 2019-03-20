@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.wildwood;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.dimensions.wildwood.biome.BiomeProviderWildWood;
 import naturix.divinerpg.dimensions.wildwood.chunk.ChunkGeneratorWildWood;
 import naturix.divinerpg.registry.ModBiomes;
@@ -11,8 +13,6 @@ import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
 
 public class WorldProviderWildWood extends WorldProvider {
 	

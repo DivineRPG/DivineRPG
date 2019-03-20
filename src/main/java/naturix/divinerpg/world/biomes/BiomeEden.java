@@ -1,9 +1,9 @@
 package naturix.divinerpg.world.biomes;
 
-import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
+import java.awt.Color;
+import java.util.Random;
+
 import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenAbstractTree;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenAbstractTree;
-import naturix.divinerpg.dimensions.iceika.worldgen.trees.WorldGenIceTree;
 import naturix.divinerpg.objects.entities.entity.arcana.EdenCadillion;
 import naturix.divinerpg.objects.entities.entity.arcana.EdenCori;
 import naturix.divinerpg.objects.entities.entity.arcana.EdenTomo;
@@ -11,20 +11,13 @@ import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
 import naturix.divinerpg.objects.entities.entity.twilight.Greenfeet;
 import naturix.divinerpg.objects.entities.entity.twilight.Madivel;
 import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
-import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.awt.*;
-import java.util.Random;
 
 public class BiomeEden extends Biome {
 

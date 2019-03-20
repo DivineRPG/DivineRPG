@@ -1,7 +1,6 @@
 package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.dimensions.apalachia.WorldProviderApalachia;
 import naturix.divinerpg.dimensions.eden.WorldProviderEden;
 import naturix.divinerpg.dimensions.iceika.WorldProviderIceika;

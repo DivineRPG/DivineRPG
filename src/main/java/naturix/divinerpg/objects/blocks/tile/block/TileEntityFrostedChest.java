@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerFrostedChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;

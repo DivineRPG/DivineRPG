@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.items.vanilla;
 
 import java.util.List;
 
-import naturix.divinerpg.objects.items.ItemSwordBase;
+import naturix.divinerpg.objects.items.base.ItemSwordBase;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

@@ -1,6 +1,7 @@
 package naturix.divinerpg.utils;
 
-import naturix.divinerpg.DivineRPG;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
@@ -9,8 +10,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-
-import java.util.Random;
 
 /**
  * Created by LiteWolf101 on Jan

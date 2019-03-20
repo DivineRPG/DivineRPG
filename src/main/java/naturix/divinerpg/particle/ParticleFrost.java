@@ -1,6 +1,5 @@
 package naturix.divinerpg.particle;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;

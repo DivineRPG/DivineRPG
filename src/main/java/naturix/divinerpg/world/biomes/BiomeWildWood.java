@@ -1,18 +1,25 @@
 package naturix.divinerpg.world.biomes;
 
+import java.awt.Color;
+import java.util.Random;
+
 import naturix.divinerpg.dimensions.wildwood.worldgen.trees.LargeWildWoodTree;
 import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
-import naturix.divinerpg.objects.entities.entity.twilight.*;
-import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.objects.entities.entity.twilight.Bohemoth;
+import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
+import naturix.divinerpg.objects.entities.entity.twilight.Mage;
+import naturix.divinerpg.objects.entities.entity.twilight.MoonWolf;
+import naturix.divinerpg.objects.entities.entity.twilight.Verek;
+import naturix.divinerpg.objects.entities.entity.twilight.WildwoodCadillion;
+import naturix.divinerpg.objects.entities.entity.twilight.WildwoodGolem;
+import naturix.divinerpg.objects.entities.entity.twilight.WildwoodTomo;
+import naturix.divinerpg.objects.entities.entity.twilight.WildwoodWolf;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.awt.*;
-import java.util.Random;
 
 public class BiomeWildWood extends Biome {
 

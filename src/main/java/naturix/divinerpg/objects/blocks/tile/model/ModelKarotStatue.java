@@ -1,9 +1,10 @@
 package naturix.divinerpg.objects.blocks.tile.model;
 
+import org.lwjgl.opengl.GL11;
+
 import naturix.divinerpg.utils.models.DivineModel;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 
 public class ModelKarotStatue extends DivineModel {
