@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DRPGParticleTypes;
@@ -35,137 +36,143 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by LiteWolf101 on Feb /01/2019
  */
 public class BlockFrostedChest extends BlockContainer {
-    public String name;
-    private boolean dropsSnowflake;
+	public String name;
+	private boolean dropsSnowflake;
 
-    public BlockFrostedChest(String name, boolean dropsSnowFlake) {
-        super(Material.WOOD);
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setCreativeTab(DivineRPG.BlocksTab);
-        setSoundType(SoundType.GLASS);
-        this.name = name;
-        this.dropsSnowflake = dropsSnowFlake;
+	public BlockFrostedChest(String name, boolean dropsSnowFlake) {
+		super(Material.WOOD);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		setSoundType(SoundType.GLASS);
+		this.name = name;
+		this.dropsSnowflake = dropsSnowFlake;
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
 
-    @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        TileEntityFrostedChest tileEntity = (TileEntityFrostedChest) worldIn.getTileEntity(pos);
-        InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity);
-        super.breakBlock(worldIn, pos, state);
-    }
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		TileEntityFrostedChest tileEntity = (TileEntityFrostedChest) worldIn.getTileEntity(pos);
+		InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity);
+		super.breakBlock(worldIn, pos, state);
+	}
 
-    public Item createItemBlock() {
-        return new ItemBlock(this).setRegistryName(getRegistryName());
-    }
+	public Item createItemBlock() {
+		return new ItemBlock(this).setRegistryName(getRegistryName());
+	}
 
-    @Nullable
-    @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityFrostedChest();
-    }
+	@Nullable
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileEntityFrostedChest();
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
-    }
+	@Override
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state,
+	        int fortune) {
+		Random rand = new Random();
+		if (this.dropsSnowflake) {
+			if (rand.nextInt(20) == 0) {
+				drops.add(new ItemStack(ModBlocks.decorativeFrostedChest, 1, 0));
+			} else {
+				drops.add(new ItemStack(ModItems.snowflake, 1, 0));
+			}
+		} else {
+			drops.add(new ItemStack(ModBlocks.decorativeFrostedChest, 1, 0));
+		}
+	}
 
-    @Override
-    @SuppressWarnings("deprecation")
-    public boolean isFullBlock(IBlockState state) {
-        return false;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+	}
 
-    @Override
-    @SuppressWarnings("deprecation")
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
+	@Override
+	@SuppressWarnings("deprecation")
+	public boolean isFullBlock(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    @SuppressWarnings("deprecation")
-    @SideOnly(Side.CLIENT)
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
+	@Override
+	@SuppressWarnings("deprecation")
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (!worldIn.isRemote) {
-            playerIn.openGui(DivineRPG.instance, GUIHandler.FROSTED_CHEST_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
-        }
-        return true;
-    }
+	@Override
+	@SuppressWarnings("deprecation")
+	@SideOnly(Side.CLIENT)
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        Random rand = new Random();
-        if (this.dropsSnowflake) {
-            if (rand.nextInt(20) == 0) {
-                drops.add(new ItemStack(ModBlocks.decorativeFrostedChest, 1, 0));
-            } else {
-                drops.add(new ItemStack(ModItems.snowflake, 1, 0));
-            }
-        } else
-            drops.add(new ItemStack(ModBlocks.decorativeFrostedChest, 1, 0));
-    }
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+	        EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if (!worldIn.isRemote) {
+			playerIn.openGui(DivineRPG.instance, GUIHandler.FROSTED_CHEST_GUI_ID, worldIn, pos.getX(), pos.getY(),
+			        pos.getZ());
+		}
+		return true;
+	}
 
-    @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        if (stack.hasDisplayName()) {
-            TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if (tileEntity instanceof TileEntityFrostedChest) {
-                ((TileEntityFrostedChest) tileEntity).setCustomName(stack.getDisplayName());
-            }
-        }
-    }
+	@Override
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	        ItemStack stack) {
+		if (stack.hasDisplayName()) {
+			TileEntity tileEntity = worldIn.getTileEntity(pos);
+			if (tileEntity instanceof TileEntityFrostedChest) {
+				((TileEntityFrostedChest) tileEntity).setCustomName(stack.getDisplayName());
+			}
+		}
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        Random random = worldIn.rand;
-        for (int i = 0; i < 6; ++i) {
-            double d1 = pos.getX() + random.nextFloat();
-            double d2 = pos.getY() + random.nextFloat();
-            double d3 = pos.getZ() + random.nextFloat();
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+		Random random = worldIn.rand;
+		for (int i = 0; i < 6; ++i) {
+			double d1 = pos.getX() + random.nextFloat();
+			double d2 = pos.getY() + random.nextFloat();
+			double d3 = pos.getZ() + random.nextFloat();
 
-            if (i == 0 && !worldIn.getBlockState(pos.up()).isOpaqueCube()) {
-                d2 = pos.getY() + 0.0625D + 1.0D;
-            }
+			if (i == 0 && !worldIn.getBlockState(pos.up()).isOpaqueCube()) {
+				d2 = pos.getY() + 0.0625D + 1.0D;
+			}
 
-            if (i == 1 && !worldIn.getBlockState(pos.down()).isOpaqueCube()) {
-                d2 = pos.getY() - 0.0625D;
-            }
+			if (i == 1 && !worldIn.getBlockState(pos.down()).isOpaqueCube()) {
+				d2 = pos.getY() - 0.0625D;
+			}
 
-            if (i == 2 && !worldIn.getBlockState(pos.south()).isOpaqueCube()) {
-                d3 = pos.getZ() + 0.0625D + 1.0D;
-            }
+			if (i == 2 && !worldIn.getBlockState(pos.south()).isOpaqueCube()) {
+				d3 = pos.getZ() + 0.0625D + 1.0D;
+			}
 
-            if (i == 3 && !worldIn.getBlockState(pos.north()).isOpaqueCube()) {
-                d3 = pos.getZ() - 0.0625D;
-            }
+			if (i == 3 && !worldIn.getBlockState(pos.north()).isOpaqueCube()) {
+				d3 = pos.getZ() - 0.0625D;
+			}
 
-            if (i == 4 && !worldIn.getBlockState(pos.east()).isOpaqueCube()) {
-                d1 = pos.getX() + 0.0625D + 1.0D;
-            }
+			if (i == 4 && !worldIn.getBlockState(pos.east()).isOpaqueCube()) {
+				d1 = pos.getX() + 0.0625D + 1.0D;
+			}
 
-            if (i == 5 && !worldIn.getBlockState(pos.west()).isOpaqueCube()) {
-                d1 = pos.getX() - 0.0625D;
-            }
+			if (i == 5 && !worldIn.getBlockState(pos.west()).isOpaqueCube()) {
+				d1 = pos.getX() - 0.0625D;
+			}
 
-            if (d1 < pos.getX() || d1 > pos.getX() + 1 || d2 < 0.0D || d2 > pos.getY() + 1 || d3 < pos.getZ() || d3 > pos.getZ() + 1) {
-                if (rand.nextInt(10) <= 5) {
-                    DivineRPG.proxy.spawnParticle(worldIn, DRPGParticleTypes.FROST, d1, d2, d3, 0.0D, 0.5D, 0.0D);
-                }
-            }
-        }
-    }
+			if (d1 < pos.getX() || d1 > pos.getX() + 1 || d2 < 0.0D || d2 > pos.getY() + 1 || d3 < pos.getZ()
+			        || d3 > pos.getZ() + 1) {
+				if (rand.nextInt(10) <= 5) {
+					DivineRPG.proxy.spawnParticle(worldIn, DRPGParticleTypes.FROST, d1, d2, d3, 0.0D, 0.5D, 0.0D);
+				}
+			}
+		}
+	}
 
-    public void registerItemModel() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
-    }
+	public void registerItemModel() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+	}
 }

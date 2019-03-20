@@ -9,6 +9,7 @@ import com.google.common.base.Predicate;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
 import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -22,7 +23,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -36,9 +36,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TorchBase extends Block implements IHasModel, IMetaName{
+public class TorchBase extends Block implements IHasModel, IMetaName {
 
-	private static final CreativeTabs tab = DivineRPG.BlocksTab;
+	private static final CreativeTabs tab = DRPGCreativeTabs.BlocksTab;
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", new Predicate<EnumFacing>() {
 		@Override
 		public boolean apply(@Nullable EnumFacing p_apply_1_) {
@@ -135,7 +135,7 @@ public class TorchBase extends Block implements IHasModel, IMetaName{
 	 * Common values are {@code SOLID}, which is the default, and {@code UNDEFINED},
 	 * which represents something that does not fit the other descriptions and will
 	 * generally cause other things not to connect to the face.
-	 * 
+	 *
 	 * @return an approximation of the form of the given face
 	 */
 	@Override
@@ -198,6 +198,11 @@ public class TorchBase extends Block implements IHasModel, IMetaName{
 		}
 
 		return i;
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		return EnumFacing.values()[stack.getItemDamage()].getName();
 	}
 
 	/**
@@ -329,6 +334,14 @@ public class TorchBase extends Block implements IHasModel, IMetaName{
 	}
 
 	@Override
+	public void registerModels() {
+		for (int i = 0; i < EnumFacing.values().length; i++) {
+			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i,
+			        this.name + "_" + EnumFacing.values()[i].getName(), "inventory");
+		}
+	}
+
+	@Override
 	public Block setLightLevel(float value) {
 		value = 1f;
 		this.lightValue = (int) (15.0F * value);
@@ -351,18 +364,5 @@ public class TorchBase extends Block implements IHasModel, IMetaName{
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
-	}
-
-	@Override
-	public void registerModels() {
-		for(int i = 0; i < EnumFacing.values().length; i++)
-		{
-			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumFacing.values()[i].getName(), "inventory");
-		}
-	}
-
-	@Override
-	public String getSpecialName(ItemStack stack) {
-		return EnumFacing.values()[stack.getItemDamage()].getName();
 	}
 }

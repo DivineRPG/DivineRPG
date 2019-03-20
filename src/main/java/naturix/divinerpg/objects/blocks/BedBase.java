@@ -4,11 +4,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
-import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
-import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
@@ -69,7 +66,8 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 		}
 	}
 
-	public static final PropertyEnum<BlockBed.EnumPartType> PART = PropertyEnum.<BlockBed.EnumPartType>create("part", BlockBed.EnumPartType.class);
+	public static final PropertyEnum<BlockBed.EnumPartType> PART = PropertyEnum.<BlockBed.EnumPartType>create("part",
+	        BlockBed.EnumPartType.class);
 	public static final PropertyBool OCCUPIED = PropertyBool.create("occupied");
 	protected static final AxisAlignedBB BED_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5625D, 1.0D);
 
@@ -119,14 +117,16 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 
 	public BedBase(String name) {
 		super(Material.CLOTH);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockBed.EnumPartType.FOOT).withProperty(OCCUPIED, Boolean.valueOf(false)));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockBed.EnumPartType.FOOT)
+		        .withProperty(OCCUPIED, Boolean.valueOf(false)));
 		this.hasTileEntity = true;
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 
-		//ModBlocks.BLOCKS.add(this);
-		//ModItems.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
+		// ModBlocks.BLOCKS.add(this);
+		// ModItems.ITEMS.add(new
+		// ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 	}
 
 	/**
@@ -195,7 +195,7 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 	 * Common values are {@code SOLID}, which is the default, and {@code UNDEFINED},
 	 * which represents something that does not fit the other descriptions and will
 	 * generally cause other things not to connect to the face.
-	 * 
+	 *
 	 * @return an approximation of the form of the given face
 	 */
 	@Override
@@ -296,6 +296,12 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 	@Override
 	public EnumBlockRenderType getRenderType(IBlockState state) {
 		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		// return EnumFacing.values()[stack.getItemDamage()].getName();
+		return this.getUnlocalizedName();
 	}
 
 	/**
@@ -481,6 +487,17 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 		}
 	}
 
+	// TODO fix
+	@Override
+	public void registerModels() {
+		/**
+		 * for(int i = 0; i < EnumFacing.values().length; i++) {
+		 * DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i,
+		 * this.getRegistryName() + "_" + EnumFacing.values()[i].getName(),
+		 * "inventory"); }
+		 */
+	}
+
 	/**
 	 * Returns the blockstate with the given mirror of the passed blockstate. If
 	 * inapplicable, returns the passed blockstate.
@@ -497,20 +514,5 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
-	}
-
-	//TODO fix
-	@Override
-	public void registerModels() {
-		/**for(int i = 0; i < EnumFacing.values().length; i++)
-		{
-			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.getRegistryName() + "_" + EnumFacing.values()[i].getName(), "inventory");
-		}*/
-	}
-
-	@Override
-	public String getSpecialName(ItemStack stack) {
-		//return EnumFacing.values()[stack.getItemDamage()].getName();
-		return this.getUnlocalizedName();
 	}
 }

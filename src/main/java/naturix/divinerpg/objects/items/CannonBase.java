@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -14,7 +14,7 @@ public class CannonBase extends ItemBase {
 
 	public CannonBase(String name) {
 		super(name);
-		setCreativeTab(DivineRPG.CombatTab);
+		setCreativeTab(DRPGCreativeTabs.ranged);
 		setMaxStackSize(1);
 		setMaxDamage(0);
 		this.name = name;

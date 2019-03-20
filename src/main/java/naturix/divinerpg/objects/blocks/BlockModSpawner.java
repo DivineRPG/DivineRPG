@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -28,12 +29,12 @@ public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
 		this.mobName = Reference.MODID + "." + mobName;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		setHardness(5.0F);
 		this.setTickRandomly(true);
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	public Item createItemBlock() {

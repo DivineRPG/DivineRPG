@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -10,44 +11,43 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
 
 /**
- * Created by LiteWolf101 on Jan
- * /28/2019
+ * Created by LiteWolf101 on Jan /28/2019
  */
 public class GlassBase extends Block {
-    protected String name;
-    public GlassBase(String name) {
-        super(Material.GLASS);
-        setSoundType(SoundType.GLASS);
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setCreativeTab(DivineRPG.BlocksTab);
-        this.setHardness(1);
-    }
+	protected String name;
 
-    public void registerItemModel(Item itemBlock) {
-        DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
-    }
+	public GlassBase(String name) {
+		super(Material.GLASS);
+		setSoundType(SoundType.GLASS);
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setHardness(1);
+	}
 
-    public Item createItemBlock() {
-        return new ItemBlock(this).setRegistryName(getRegistryName());
-    }
+	public Item createItemBlock() {
+		return new ItemBlock(this).setRegistryName(getRegistryName());
+	}
 
-    @Override
-    public BlockRenderLayer getBlockLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
-    }
+	@Override
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.TRANSLUCENT;
+	}
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public boolean isFullCube(IBlockState state)
-    {
-        return false;
-    }
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    @SuppressWarnings("deprecation")
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
+	@Override
+	@SuppressWarnings("deprecation")
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	public void registerItemModel(Item itemBlock) {
+		DivineRPG.proxy.registerItemRenderer(itemBlock, 0, name);
+	}
 }

@@ -1,7 +1,11 @@
 package naturix.divinerpg.objects.items.serenade;
 
-import naturix.divinerpg.DivineRPG;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.DRPGSoundHandler;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,14 +15,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
 public class SerenadeIce extends ItemBase {
 
 	public SerenadeIce(String name) {
 		super(name);
-		//setCreativeTab(DivineRPG.CombatTab);
+		this.setCreativeTab(DRPGCreativeTabs.ranged);
 		setMaxDamage(100);
 		setMaxStackSize(1);
 	}

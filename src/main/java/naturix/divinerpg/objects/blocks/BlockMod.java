@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -19,163 +20,168 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockMod extends Block implements IHasModel {
 
-    protected String name;
-    protected EnumBlockType blockType;
-    protected Item drop;
-    protected Random rand;
-    protected boolean exp = false;
-    protected boolean twilightOre = false;
-    protected float hardness = 2.0f;
+	protected String name;
+	protected EnumBlockType blockType;
+	protected Item drop;
+	protected Random rand;
+	protected boolean exp = false;
+	protected boolean twilightOre = false;
+	protected float hardness = 2.0f;
 
-    public BlockMod(String name, float hardness) {
-        this(EnumBlockType.ROCK, name, hardness, DivineRPG.BlocksTab);
-    }
+	public BlockMod(EnumBlockType blockType, String name, boolean breakable) {
+		this(blockType, name, breakable, DRPGCreativeTabs.BlocksTab);
+	}
 
-    public BlockMod(String name, float hardness, CreativeTabs tab) {
-        this(EnumBlockType.ROCK, name, hardness, tab);
-    }
+	public BlockMod(EnumBlockType blockType, String name, boolean breakable, CreativeTabs tab) {
+		this(blockType, name, tab);
+		if (!breakable) {
+			setBlockUnbreakable();
+			setResistance(6000000F);
+		}
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
 
-    public BlockMod(String name, boolean breakable) {
-        this(EnumBlockType.ROCK, name, breakable);
-    }
+	public BlockMod(EnumBlockType blockType, String name, CreativeTabs tab) {
+		super(blockType.getMaterial());
+		this.blockType = blockType;
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		rand = new Random();
+		setSoundType(blockType.getSound());
+		setCreativeTab(tab);
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
 
-    public BlockMod(EnumBlockType blockType, String name, float hardness) {
-        this(blockType, name, hardness, DivineRPG.BlocksTab);
-        if (blockType == EnumBlockType.DIRT)
-            setHarvestLevel("shovel", 3);
-    }
+	public BlockMod(EnumBlockType blockType, String name, float hardness) {
+		this(blockType, name, hardness, DRPGCreativeTabs.BlocksTab);
+		if (blockType == EnumBlockType.DIRT) {
+			setHarvestLevel("shovel", 3);
+		}
+	}
 
-    public BlockMod(String name, boolean breakable, CreativeTabs tab) {
-        this(EnumBlockType.ROCK, name, breakable, tab);
-    }
+	public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab) {
+		super(blockType.getMaterial());
+		this.blockType = blockType;
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		rand = new Random();
+		setSoundType(blockType.getSound());
+		setCreativeTab(tab);
+		this.hardness = hardness;
+		setHardness(hardness);
+		if (hardness == -1F) {
+			setBlockUnbreakable();
+			setResistance(6000000F);
+		}
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
 
-    public BlockMod(EnumBlockType blockType, String name, boolean breakable) {
-        this(blockType, name, breakable, DivineRPG.BlocksTab);
-    }
+	public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab,
+	        Class<? extends ItemBlock> item) {
+		super(blockType.getMaterial());
+		this.blockType = blockType;
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		rand = new Random();
+		setSoundType(blockType.getSound());
+		setCreativeTab(tab);
+		this.hardness = hardness;
+		setHardness(hardness);
+		if (hardness == -1F) {
+			setBlockUnbreakable();
+			setResistance(6000000F);
+		}
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
 
-    public BlockMod(EnumBlockType blockType, String name, boolean breakable, CreativeTabs tab) {
-        this(blockType, name, tab);
-        if (!breakable) {
-            setBlockUnbreakable();
-            setResistance(6000000F);
-        }
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
+	public BlockMod(String name, boolean breakable) {
+		this(EnumBlockType.ROCK, name, breakable);
+	}
 
-    public BlockMod(EnumBlockType blockType, String name, CreativeTabs tab) {
-        super(blockType.getMaterial());
-        this.blockType = blockType;
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        rand = new Random();
-        setSoundType(blockType.getSound());
-        setCreativeTab(tab);
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
+	public BlockMod(String name, boolean breakable, CreativeTabs tab) {
+		this(EnumBlockType.ROCK, name, breakable, tab);
+	}
 
-    public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab) {
-        super(blockType.getMaterial());
-        this.blockType = blockType;
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        rand = new Random();
-        setSoundType(blockType.getSound());
-        setCreativeTab(tab);
-        this.hardness = hardness;
-        setHardness(hardness);
-        if (hardness == -1F) {
-            setBlockUnbreakable();
-            setResistance(6000000F);
-        }
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
+	public BlockMod(String name, float hardness) {
+		this(EnumBlockType.ROCK, name, hardness, DRPGCreativeTabs.BlocksTab);
+	}
 
-    public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab, Class<? extends ItemBlock> item) {
-        super(blockType.getMaterial());
-        this.blockType = blockType;
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        rand = new Random();
-        setSoundType(blockType.getSound());
-        setCreativeTab(tab);
-        this.hardness = hardness;
-        setHardness(hardness);
-        if (hardness == -1F) {
-            setBlockUnbreakable();
-            setResistance(6000000F);
-        }
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
+	public BlockMod(String name, float hardness, CreativeTabs tab) {
+		this(EnumBlockType.ROCK, name, hardness, tab);
+	}
 
-    public float getBlockModHardness() {
-        return hardness;
-    }
+	public float getBlockModHardness() {
+		return hardness;
+	}
 
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (drop == null)
-            return Item.getItemFromBlock(this);
-        return drop;
-    }
+	@Override
+	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
+		if (this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)) {
+			int j1 = 0;
 
-    public BlockMod toggleExp(boolean exp) {
-        this.exp = exp;
-        return this;
-    }
+			if (exp) {
+				j1 = MathHelper.getInt(rand, 0, 4);
+			}
+			return j1;
+		}
+		return 0;
+	}
 
-    public BlockMod setTwilightOre(boolean twilightOre) {
-        this.twilightOre = twilightOre;
-        return this;
-    }
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		if (drop == null) {
+			return Item.getItemFromBlock(this);
+		}
+		return drop;
+	}
 
-    public boolean isTwilightOre() {
-        return twilightOre;
-    }
+	public boolean isTwilightOre() {
+		return twilightOre;
+	}
 
-    public BlockMod setDropItem(Item drop) {
-        this.drop = drop;
-        return this;
-    }
+	@Override
+	public int quantityDropped(IBlockState state, int fortune, Random random) {
+		if (twilightOre && fortune > 0) {
+			int j = random.nextInt(fortune + 2) - 1;
 
-    public BlockMod setHarvestLevel(EnumToolType type) {
-        setHarvestLevel(type.getType(), type.getLevel());
-        return this;
-    }
+			if (j < 0) {
+				j = 0;
+			}
 
-    @Override
-    public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
-        if (this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)) {
-            int j1 = 0;
+			return (j + 1);
+		}
+		return 1;
+	}
 
-            if (exp)
-                j1 = MathHelper.getInt(rand, 0, 4);
-            return j1;
-        }
-        return 0;
-    }
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+	}
 
-    @Override
-    public int quantityDropped(IBlockState state, int fortune, Random random) {
-        if (twilightOre && fortune > 0) {
-            int j = random.nextInt(fortune + 2) - 1;
+	public BlockMod setDropItem(Item drop) {
+		this.drop = drop;
+		return this;
+	}
 
-            if (j < 0)
-                j = 0;
+	public BlockMod setHarvestLevel(EnumToolType type) {
+		setHarvestLevel(type.getType(), type.getLevel());
+		return this;
+	}
 
-            return (j + 1);
-        }
-        return 1;
-    }
+	public BlockMod setTwilightOre(boolean twilightOre) {
+		this.twilightOre = twilightOre;
+		return this;
+	}
 
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-    }
+	public BlockMod toggleExp(boolean exp) {
+		this.exp = exp;
+		return this;
+	}
 }

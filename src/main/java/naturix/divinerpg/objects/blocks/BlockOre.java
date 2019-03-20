@@ -4,6 +4,7 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
 import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
 import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -18,25 +19,24 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockOre extends Block implements IHasModel, IMetaName{
-	protected String name;
+public class BlockOre extends Block implements IHasModel, IMetaName {
 	public static final PropertyEnum TYPE = PropertyEnum.create("type", OreType.class);
+	protected String name;
 
 	public BlockOre(String name) {
 		super(Material.ROCK);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.name=name;
+		this.name = name;
 		setHardness(3f);
 		setResistance(5f);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, OreType.OVERWORLD));
 
 		ModBlocks.BLOCKS.add(this);
@@ -50,7 +50,7 @@ public class BlockOre extends Block implements IHasModel, IMetaName{
 		setRegistryName(name);
 		setHardness(3f);
 		setResistance(5f);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, OreType.OVERWORLD));
 
 		ModBlocks.BLOCKS.add(this);
@@ -70,21 +70,14 @@ public class BlockOre extends Block implements IHasModel, IMetaName{
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return ((EnumHandler.OreType)state.getValue(TYPE)).getMeta();
+		return ((EnumHandler.OreType) state.getValue(TYPE)).getMeta();
 	}
 
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
+	        EntityPlayer player) {
 
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
-	}
-
-	@Override
-	public void registerModels() {
-		for(int i = 0; i < OreType.values().length; i++)
-		{
-			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, this.name + "_" + OreType.values()[i].getName(), "inventory");
-		}
 	}
 
 	@Override
@@ -103,11 +96,22 @@ public class BlockOre extends Block implements IHasModel, IMetaName{
 	/**
 	 * All the different item variants for the block
 	 */
+	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		/*for(EnumHandler.OreType oreType$enumtype : EnumHandler.OreType.values()) {
-			list.add(new ItemStack(this, 1, oreType$enumtype.getMeta()));  //Just in case if you wish to have these in here
-		}*/
+		/*
+		 * for(EnumHandler.OreType oreType$enumtype : EnumHandler.OreType.values()) {
+		 * list.add(new ItemStack(this, 1, oreType$enumtype.getMeta())); //Just in case
+		 * if you wish to have these in here }
+		 */
 		list.add(new ItemStack(this, 1, 0));
+	}
+
+	@Override
+	public void registerModels() {
+		for (int i = 0; i < OreType.values().length; i++) {
+			DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i,
+			        this.name + "_" + OreType.values()[i].getName(), "inventory");
+		}
 	}
 
 }

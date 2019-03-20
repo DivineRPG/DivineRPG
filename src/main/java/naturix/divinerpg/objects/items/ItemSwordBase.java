@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -18,47 +19,48 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSwordBase extends ItemSword implements IHasModel {
 
-    private String name;
-    private ToolMaterial material;
+	private String name;
+	private ToolMaterial material;
 
-    public ItemSwordBase(ToolMaterial material, String name) {
-        super(material);
-        this.name = name;
-        this.material = material;
-        setRegistryName(name);
-        setUnlocalizedName(name);
-        setCreativeTab(DivineRPG.CombatTab);
+	public ItemSwordBase(ToolMaterial material, String name) {
+		super(material);
+		this.name = name;
+		this.material = material;
+		setRegistryName(name);
+		setUnlocalizedName(name);
+		setCreativeTab(DRPGCreativeTabs.swords);
 
-        ModItems.ITEMS.add(this);
-    }
+		ModItems.ITEMS.add(this);
+	}
 
-    //@Override
-    //public boolean isItemTool(ItemStack par1ItemStack) {
-    //    return true;
-    //}
+	// @Override
+	// public boolean isItemTool(ItemStack par1ItemStack) {
+	// return true;
+	// }
 
-    @Override
-    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-        //if(stack.getItem() == ModItems.divineSword) player.triggerAchievement(DivineRPGAchievements.divinePlan);
-    }
+	protected void addAdditionalInformation(List list) {
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.meleeDam(material.getAttackDamage() + 5));
-        addAdditionalInformation(list);
-        if (item.getMaxDamage() > 0) {
-            list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
-        } else {
-            list.add(TooltipLocalizer.infiniteUses());
-        }
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+		list.add(TooltipLocalizer.meleeDam(material.getAttackDamage() + 5));
+		addAdditionalInformation(list);
+		if (item.getMaxDamage() > 0) {
+			list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
+		} else {
+			list.add(TooltipLocalizer.infiniteUses());
+		}
+	}
 
-    protected void addAdditionalInformation(List list) {
-    }
+	@Override
+	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+		// if(stack.getItem() == ModItems.divineSword)
+		// player.triggerAchievement(DivineRPGAchievements.divinePlan);
+	}
 
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
-    }
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(this, 0, name);
+	}
 }

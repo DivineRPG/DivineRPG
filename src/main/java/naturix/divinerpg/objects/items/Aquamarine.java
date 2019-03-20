@@ -1,10 +1,9 @@
 package naturix.divinerpg.objects.items;
 
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -36,14 +35,13 @@ public class Aquamarine extends ItemBucket implements IHasModel {
 
 	private static Block containedBlock;
 	protected String name;
-	private Random rand;
 
 	public Aquamarine(String name) {
 		super(containedBlock);
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DivineRPG.ItemsTab);
+		this.setCreativeTab(DRPGCreativeTabs.items);
 
 		ModItems.ITEMS.add(this);
 

@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.Ticker;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,7 +33,7 @@ public class ItemProjectileShooter extends ItemBase {
 
 	public ItemProjectileShooter(String name, float damage, Item ammo, int uses, int counter) {
 		super(name);
-		//setCreativeTab(DivineRPG.CombatTab);
+		setCreativeTab(DRPGCreativeTabs.ranged);
 		setMaxStackSize(1);
 		this.damage = damage;
 		this.ammo = ammo;
@@ -50,7 +51,7 @@ public class ItemProjectileShooter extends ItemBase {
 
 	public ItemProjectileShooter(String name, float damage, Item ammo, String projectileTex, int uses, int counter) {
 		super(name);
-		//setCreativeTab(DivineRPG.CombatTab);
+		setCreativeTab(DRPGCreativeTabs.ranged);
 		setMaxStackSize(1);
 		this.damage = damage;
 		this.ammo = ammo;
@@ -66,9 +67,28 @@ public class ItemProjectileShooter extends ItemBase {
 		}
 	}
 
+	public ItemProjectileShooter(String name, float damage, SoundEvent soundName, String projectileTex, int uses,
+	        int counter) {
+		super(name);
+		setCreativeTab(DRPGCreativeTabs.ranged);
+		setMaxStackSize(1);
+		this.damage = damage;
+		this.uses = uses;
+		this.delay = counter;
+		this.setMaxDamage(uses);
+		if (!name.contains("Phaser") && !name.contains("frostclaw") && !name.contains("crabclawCannon")
+		        && !name.contains("bowheadCannon") && !name.contains("Anchor")) {
+			gunList.add(this);
+		} else if (name.contains("Phaser") || name.contains("frostclaw") || name.contains("crabclawCannon")
+		        || name.contains("bowheadCannon") || name.contains("Anchor")) {
+			phaserList.add(this);
+		}
+
+	}
+
 	public ItemProjectileShooter(String name, float damage, String projectileTex, int uses, int counter) {
 		super(name);
-		//setCreativeTab(DivineRPG.CombatTab);
+		// setCreativeTab(DivineRPG.CombatTab);
 		setMaxStackSize(1);
 		this.damage = damage;
 		this.uses = uses;
@@ -90,11 +110,6 @@ public class ItemProjectileShooter extends ItemBase {
 	public ItemProjectileShooter(String name, float damage, String soundName, Item ammo, String projectileTex, int uses,
 	        int counter) {
 		this(name, damage, ammo, projectileTex, uses, counter);
-	}
-
-	public ItemProjectileShooter(String name, float damage, String soundName, String projectileTex, int uses,
-	        int counter) {
-		this(name, damage, projectileTex, uses, counter);
 	}
 
 	@Override
@@ -135,7 +150,8 @@ public class ItemProjectileShooter extends ItemBase {
 					// ? (this.projectileTex != null
 					// ? new EntityParticleBullet(worldgen, player, this.damage, this.projectileTex,
 					// this.fx)
-					// : new EntityParticleBullet(worldgen, player, this.damage, this.ammo, this.fx))
+					// : new EntityParticleBullet(worldgen, player, this.damage, this.ammo,
+					// this.fx))
 					// : (this.projectileTex != null
 					// ? new EntityShooterBullet(worldgen, player, this.damage, this.projectileTex)
 					// : new EntityShooterBullet(worldgen, player, this.damage, this.ammo));

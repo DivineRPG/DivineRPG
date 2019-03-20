@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.items.ItemBase;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
-import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,6 +26,7 @@ public class ItemVileStorm extends ItemBase {
 
 	public ItemVileStorm(String name) {
 		super(name);
+		this.setCreativeTab(DRPGCreativeTabs.ranged);
 	}
 
 	@Override
@@ -37,9 +38,9 @@ public class ItemVileStorm extends ItemBase {
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-		//ItemStack stack = new ItemStack(ModItems.vileStorm);
+		// ItemStack stack = new ItemStack(ModItems.vileStorm);
 		if (!player.capabilities.isCreativeMode) {
-			//stack.shrink(1);
+			// stack.shrink(1);
 		}
 		BlockPos pos = new BlockPos(player.getPosition());
 		if (!world.isRemote) {

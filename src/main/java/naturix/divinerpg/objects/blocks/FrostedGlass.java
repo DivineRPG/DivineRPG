@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks;
 
-import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,7 +16,7 @@ public class FrostedGlass extends BlockBase {
 	public FrostedGlass(String name) {
 		super(Material.GLASS, name);
 		setSoundType(SoundType.GLASS);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setHardness(1);
 		this.lightOpacity = 0;
 	}

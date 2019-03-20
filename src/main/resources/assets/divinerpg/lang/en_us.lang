@@ -1,9 +1,13 @@
 itemGroup.Blocks=DivineRPG: Blocks
-itemGroup.Item=DivineRPG: Items
-itemGroup.Combat=DivineRPG: Combat
-itemGroup.Armor=DivineRPG: Armor
+itemGroup.Ranged=DivineRPG: Ranged Weapons
+itemGroup.Swords=DivineRPG: Melee Weapons
 itemGroup.Tools=DivineRPG: Tools
-itemGroup.Trophy=DivineRPG: Trophy
+itemGroup.Materials=DivineRPG: Raw Materials
+itemGroup.Armor=DivineRPG: Armor
+itemGroup.Spawner=DivineRPG: Spawner
+itemGroup.Utility=DivineRPG: Utility
+itemGroup.Herbalism=DivineRPG: Herbalism
+itemGroup.Vethea=DivineRPG: Vethea
 
 tile.rupee_ore.name=Rupee Ore
 tile.arlemite_ore.name=Arlemite Ore

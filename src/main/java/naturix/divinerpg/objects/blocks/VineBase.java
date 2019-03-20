@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.BlockVine;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -14,7 +15,7 @@ public class VineBase extends BlockVine {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setHardness(2);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false))
 		        .withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false))

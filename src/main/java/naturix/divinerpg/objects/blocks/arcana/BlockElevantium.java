@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockBase;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ public class BlockElevantium extends BlockBase {
 	        0.9375F);
 
 	public BlockElevantium(String name) {
-		super(Material.IRON, name, DivineRPG.BlocksTab);
+		super(Material.IRON, name, DRPGCreativeTabs.BlocksTab);
 		setResistance(20);
 		this.setHardness(3);
 	}

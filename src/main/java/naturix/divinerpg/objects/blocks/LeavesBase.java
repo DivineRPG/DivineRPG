@@ -6,8 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
-import naturix.divinerpg.objects.blocks.itemblock.ItemBlockVariants;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -28,26 +27,23 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class LeavesBase extends BlockLeaves implements IHasModel{
+public class LeavesBase extends BlockLeaves implements IHasModel {
 	public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
 	public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
 	int[] surroundings;
-	private String name;
 	private Block sapling;
 
 	public LeavesBase(String name) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
-		this.name = name;
-		this.setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -56,8 +52,7 @@ public class LeavesBase extends BlockLeaves implements IHasModel{
 	public LeavesBase(String name, Block sapling) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.name = name;
-		this.setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.sapling = sapling;
 		this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
 

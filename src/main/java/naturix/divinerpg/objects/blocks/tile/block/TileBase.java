@@ -1,6 +1,8 @@
 package naturix.divinerpg.objects.blocks.tile.block;
 
-import naturix.divinerpg.DivineRPG;
+import javax.annotation.Nullable;
+
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -9,31 +11,29 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
 public abstract class TileBase<TE extends TileEntity> extends BlockContainer {
 
 	public TileBase(Material material, String name) {
 		super(material);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setTickRandomly(true);
 	}
-	
-	public abstract Class<TE> getTileEntityClass();
-	
+
+	@Nullable
+	@Override
+	public abstract TE createTileEntity(World world, IBlockState state);
+
 	public TE getTileEntity(IBlockAccess world, BlockPos pos) {
-		return (TE)world.getTileEntity(pos);
+		return (TE) world.getTileEntity(pos);
 	}
-	
+
+	public abstract Class<TE> getTileEntityClass();
+
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
-	
-	@Nullable
-	@Override
-	public abstract TE createTileEntity(World world, IBlockState state);
 
 }

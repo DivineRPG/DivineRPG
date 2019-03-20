@@ -3,7 +3,6 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
@@ -271,7 +270,7 @@ public class ModBlocks {
 	public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F);
 	public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
-	public static Block divinePlanks = new BlockMod(EnumBlockType.WOOD, "divine_planks", 2, DivineRPG.BlocksTab)
+	public static Block divinePlanks = new BlockMod(EnumBlockType.WOOD, "divine_planks", 2, DRPGCreativeTabs.BlocksTab)
 	        .setResistance(5);
 	public static Block divineStairs = new BlockModStairs(divinePlanks, "divine_stairs");
 	public static Block divineSlab = new BlockModSlab((BlockMod) divinePlanks, null);

@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.blocks.iceika;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.BlockLadder;
@@ -16,33 +17,33 @@ import net.minecraft.world.IBlockAccess;
  * Created by LiteWolf101 on Feb /20/2019
  */
 public class BlockChristmasLights extends BlockLadder {
-    protected String name;
+	protected String name;
 
-    public BlockChristmasLights(String name) {
-        super();
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setHardness(3f);
-        setResistance(5f);
-        setCreativeTab(DivineRPG.BlocksTab);
-        setLightLevel(1);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+	public BlockChristmasLights(String name) {
+		super();
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		setHardness(3f);
+		setResistance(5f);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		setLightLevel(1);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
+		ModBlocks.BLOCKS.add(this);
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
 
-    @Override
-    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-        return false;
-    }
+	public Item createItemBlock() {
+		return new ItemBlock(this).setRegistryName(getRegistryName());
+	}
 
-    public Item createItemBlock() {
-        return new ItemBlock(this).setRegistryName(getRegistryName());
-    }
+	@Override
+	public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
+		return false;
+	}
 
-    public void registerItemModel() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
-    }
+	public void registerItemModel() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
+	}
 }

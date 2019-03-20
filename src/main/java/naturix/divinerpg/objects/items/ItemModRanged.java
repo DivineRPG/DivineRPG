@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,6 +29,7 @@ public class ItemModRanged extends ItemBase {
 		this.clazz = clazz;
 		setMaxStackSize(1);
 		setMaxDamage(maxDamage);
+		this.setCreativeTab(DRPGCreativeTabs.ranged);
 		this.sound = sound;
 	}
 

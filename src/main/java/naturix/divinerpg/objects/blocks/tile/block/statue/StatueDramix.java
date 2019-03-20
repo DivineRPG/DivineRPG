@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -24,7 +25,7 @@ public class StatueDramix extends BlockContainer {
 		super(Material.ROCK);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		setBlockUnbreakable();
 		setResistance(6000000F);
 		this.name = name;

@@ -2,7 +2,6 @@ package naturix.divinerpg.objects.blocks;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -17,48 +16,50 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockStatue extends BlockMod implements ITileEntityProvider {
-    public static final PropertyDirection FACING = BlockHorizontal.FACING;
+	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-    public BlockStatue(String name) {
-        super(EnumBlockType.ROCK, name, 6.0F, DivineRPG.TrophyTab);
-        this.hasTileEntity = true;
-        setHarvestLevel("pickaxe", 0);
-    }
+	public BlockStatue(String name) {
+		super(EnumBlockType.ROCK, name, 6.0F);
+		this.hasTileEntity = true;
+		setHarvestLevel("pickaxe", 0);
+	}
 
-    @Override
-    public TileEntity createNewTileEntity(World var1, int var2) {
-        return null;
-    }
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		super.breakBlock(worldIn, pos, state);
+		worldIn.removeTileEntity(pos);
+	}
 
-    @Override
-    public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.INVISIBLE;
-    }
+	@Override
+	public TileEntity createNewTileEntity(World var1, int var2) {
+		return null;
+	}
 
-    @Override
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.INVISIBLE;
+	}
 
-    @Override
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
+	@Override
+	public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state,
+	        @Nullable TileEntity te, ItemStack stack) {
+		super.harvestBlock(worldIn, player, pos, state, (TileEntity) null, stack);
+	}
 
-    @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        super.breakBlock(worldIn, pos, state);
-        worldIn.removeTileEntity(pos);
-    }
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
-        super.harvestBlock(worldIn, player, pos, state, (TileEntity) null, stack);
-    }
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        // FIXME
-        // Set block to correct statue? This might be expanded to be 
-    }
+	@Override
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	        ItemStack stack) {
+		// FIXME
+		// Set block to correct statue? This might be expanded to be
+	}
 }

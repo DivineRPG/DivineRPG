@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.iceika;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockBase;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
@@ -13,7 +13,7 @@ public class WorkshopCarpet extends BlockBase {
 	public WorkshopCarpet(String name) {
 		super(Material.CARPET, name);
 		setSoundType(SoundType.CLOTH);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setHardness(1.5f);
 	}
 

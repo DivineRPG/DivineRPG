@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.blocks.fluid;
 
-import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.Config;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModLiquids;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.material.Material;
@@ -19,31 +20,39 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockTar extends BlockFluidClassic {
 
-    public static final ResourceLocation tar = new ResourceLocation(Reference.MODID, "tar");
-    public BlockTar() {
-        super(ModLiquids.tar, Material.WATER);
-        setCreativeTab(DivineRPG.BlocksTab);
-//        setTranslationKey(DivineRPG.modId + ".tar");
-        setRegistryName(tar);
-        
-    }
+	public static final ResourceLocation tar = new ResourceLocation(Reference.MODID, "tar");
 
-    @SideOnly(Side.CLIENT)
-    public void initModel() {
-        ModelResourceLocation fluidLocation = new ModelResourceLocation(tar, "fluid");
+	public BlockTar() {
+		super(ModLiquids.tar, Material.WATER);
 
-        StateMapperBase customState = new StateMapperBase() {
-            @Override
-            protected ModelResourceLocation getModelResourceLocation(IBlockState iBlockState) {
-                return fluidLocation;
-            }
-        };
-        ModelLoader.setCustomStateMapper(this, customState);
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(tar, "inventory"));
-    }
-    @Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-    {
-    	
-    }
+		if (Config.debug) {
+			this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		} else {
+
+			this.setCreativeTab(null);
+		}
+		// setTranslationKey(DivineRPG.modId + ".tar");
+		setRegistryName(tar);
+
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void initModel() {
+		ModelResourceLocation fluidLocation = new ModelResourceLocation(tar, "fluid");
+
+		StateMapperBase customState = new StateMapperBase() {
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState iBlockState) {
+				return fluidLocation;
+			}
+		};
+		ModelLoader.setCustomStateMapper(this, customState);
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,
+		        new ModelResourceLocation(tar, "inventory"));
+	}
+
+	@Override
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+
+	}
 }

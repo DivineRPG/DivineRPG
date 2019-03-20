@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -19,7 +20,7 @@ public class BlockBase extends Block implements IHasModel {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setHardness(2);
 
 		ModBlocks.BLOCKS.add(this);
@@ -31,7 +32,7 @@ public class BlockBase extends Block implements IHasModel {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setHardness(2);
 
 		ModBlocks.BLOCKS.add(this);
@@ -43,7 +44,7 @@ public class BlockBase extends Block implements IHasModel {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(DivineRPG.BlocksTab);
+		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		this.setHardness(2);
 
 		ModBlocks.BLOCKS.add(this);

@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.items.ItemBase;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +27,7 @@ public class ItemVetheanDisk extends ItemBase {
 		super(name);
 		this.maxStackSize = 1;
 		this.damage = par1;
-		//this.setCreativeTab(DivineRPG.CombatTab);
+		this.setCreativeTab(DRPGCreativeTabs.ranged);
 	}
 
 	@Override
