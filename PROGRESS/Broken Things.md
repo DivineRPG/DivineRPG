@@ -6,7 +6,6 @@
 * Fences
 * Slabs
 * Fires
-* Spawners (They use a common texture)
 * Plants
 
 ## Create special Item JSON Models
