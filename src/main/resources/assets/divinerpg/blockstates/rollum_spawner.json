@@ -1,7 +1,8 @@
 {
   "forge_marker": 1,
   "variants": {
-    "normal": {"model": "divinerpg:spawner"},
-    "inventory": {"model": "divinerpg:spawner"}
+    "normal": {
+      "model": "divinerpg:spawner"
+    }
   }
 }

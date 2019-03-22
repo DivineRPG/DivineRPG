@@ -3,6 +3,18 @@
   "variants": {
     "normal": {
       "model": "divinerpg:divine_leaves"
+    },
+    "check_decay=false,decayable=false": {
+      "model": "divinerpg:divine_leaves"
+    },
+    "check_decay=false,decayable=true": {
+      "model": "divinerpg:divine_leaves"
+    },
+    "check_decay=true,decayable=false": {
+      "model": "divinerpg:divine_leaves"
+    },
+    "check_decay=true,decayable=true": {
+      "model": "divinerpg:divine_leaves"
     }
   }
 }

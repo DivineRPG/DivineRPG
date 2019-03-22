@@ -3,6 +3,18 @@
   "variants": {
     "normal": {
       "model": "divinerpg:brittle_leaves"
+    },
+    "check_decay=false,decayable=false": {
+      "model": "divinerpg:brittle_leaves"
+    },
+    "check_decay=false,decayable=true": {
+      "model": "divinerpg:brittle_leaves"
+    },
+    "check_decay=true,decayable=false": {
+      "model": "divinerpg:brittle_leaves"
+    },
+    "check_decay=true,decayable=true": {
+      "model": "divinerpg:brittle_leaves"
     }
   }
 }

@@ -17,7 +17,10 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
+import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
+import naturix.divinerpg.objects.blocks.BlockModSpawner;
+import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.FurnaceBase;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.proxy.CommonProxy;
@@ -174,7 +177,11 @@ public class GenerateJSON {
                     json.put("textures", textures);
                 }
             } else {
-                json.put("parent", Reference.MODID + ":" + "block/" + registeryName);
+                if (registeryName.endsWith("_spawner")) {
+                    json.put("parent", Reference.MODID + ":" + "block/spawner");
+                } else {
+                    json.put("parent", Reference.MODID + ":" + "block/" + registeryName);
+                }
             }
 
             File f = new File(MODEL_ITEM_DIR, registeryName + ".json");
@@ -215,57 +222,383 @@ public class GenerateJSON {
         DivineRPG.logger.info("Generating Blockstate JSONs");
         ModBlocks.BLOCKS.forEach((block) -> {
             String registeryName = block.getRegistryName().getResourcePath();
-            String blockPath = Reference.MODID + ":" + registeryName;
-
-            Map<String, Object> json = new HashMap<>();
-            json.put("forge_marker", 1);
-            Map<String, Object> variants = new HashMap<>();
-            Map<String, Object> normal = new HashMap<>();
-            normal.put("model", blockPath);
-            variants.put("normal", normal);
             if (block instanceof FurnaceBase || block instanceof BlockMobPumpkin) {
-                Map<String, Object> facingNorth = new HashMap<>();
-                facingNorth.put("model", blockPath);
-                Map<String, Object> facingEast = new HashMap<>();
-                facingEast.put("y", 90);
-                facingEast.put("model", blockPath);
-                Map<String, Object> facingSouth = new HashMap<>();
-                facingSouth.put("y", 180);
-                facingSouth.put("model", blockPath);
-                Map<String, Object> facingWest = new HashMap<>();
-                facingWest.put("y", 270);
-                facingWest.put("model", blockPath);
-                variants.put("facing=north", facingNorth);
-                variants.put("facing=east", facingEast);
-                variants.put("facing=south", facingSouth);
-                variants.put("facing=west", facingWest);
+                generateFacingBlockstate(registeryName);
             } else if (block instanceof BlockModLog) {
-                Map<String, Object> axisNone = new HashMap<>();
-                axisNone.put("model", blockPath);
-                Map<String, Object> axisY = new HashMap<>();
-                axisY.put("model", blockPath);
-                Map<String, Object> axisX = new HashMap<>();
-                axisX.put("x", 90);
-                axisX.put("y", 90);
-                axisX.put("model", blockPath);
-                Map<String, Object> axisZ = new HashMap<>();
-                axisZ.put("x", 90);
-                axisZ.put("model", blockPath);
-                variants.put("axis=none", axisNone);
-                variants.put("axis=y", axisY);
-                variants.put("axis=x", axisX);
-                variants.put("axis=z", axisZ);
-            }
-            json.put("variants", variants);
-
-            File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
-
-            try (FileWriter w = new FileWriter(f)) {
-                GSON.toJson(json, w);
-            } catch (IOException e) {
-                e.printStackTrace();
+                generateAxisBlockstate(registeryName);
+            } else if (block instanceof BlockModStairs) {
+                generateStairsBlockstate(registeryName);
+            } else if (block instanceof BlockModSpawner) {
+                generateSpawnerBlockstate(registeryName);
+            } else if (block instanceof BlockModLeaves) {
+                generateLeavesBlockstate(registeryName);
+            } else {
+                generateCubeBlockstate(registeryName);
             }
         });
+    }
+
+    private static void generateFacingBlockstate(String registeryName) {
+        String blockPath = Reference.MODID + ":" + registeryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> normal = new HashMap<>();
+        normal.put("model", blockPath);
+        variants.put("normal", normal);
+        Map<String, Object> facingNorth = new HashMap<>();
+        facingNorth.put("model", blockPath);
+        Map<String, Object> facingEast = new HashMap<>();
+        facingEast.put("y", 90);
+        facingEast.put("model", blockPath);
+        Map<String, Object> facingSouth = new HashMap<>();
+        facingSouth.put("y", 180);
+        facingSouth.put("model", blockPath);
+        Map<String, Object> facingWest = new HashMap<>();
+        facingWest.put("y", 270);
+        facingWest.put("model", blockPath);
+        variants.put("facing=north", facingNorth);
+        variants.put("facing=east", facingEast);
+        variants.put("facing=south", facingSouth);
+        variants.put("facing=west", facingWest);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateLeavesBlockstate(String registeryName) {
+        String blockPath = Reference.MODID + ":" + registeryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> normal = new HashMap<>();
+        normal.put("model", blockPath);
+        variants.put("normal", normal);
+        variants.put("check_decay=true,decayable=true", normal);
+        variants.put("check_decay=true,decayable=false", normal);
+        variants.put("check_decay=false,decayable=true", normal);
+        variants.put("check_decay=false,decayable=false", normal);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateAxisBlockstate(String registeryName) {
+        String blockPath = Reference.MODID + ":" + registeryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> normal = new HashMap<>();
+        normal.put("model", blockPath);
+        variants.put("normal", normal);
+        Map<String, Object> axisNone = new HashMap<>();
+        axisNone.put("model", blockPath);
+        Map<String, Object> axisY = new HashMap<>();
+        axisY.put("model", blockPath);
+        Map<String, Object> axisX = new HashMap<>();
+        axisX.put("x", 90);
+        axisX.put("y", 90);
+        axisX.put("model", blockPath);
+        Map<String, Object> axisZ = new HashMap<>();
+        axisZ.put("x", 90);
+        axisZ.put("model", blockPath);
+        variants.put("axis=none", axisNone);
+        variants.put("axis=y", axisY);
+        variants.put("axis=x", axisX);
+        variants.put("axis=z", axisZ);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateCubeBlockstate(String registeryName) {
+        String blockPath = Reference.MODID + ":" + registeryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> normal = new HashMap<>();
+        normal.put("model", blockPath);
+        variants.put("normal", normal);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateStairsBlockstate(String registeryName) {
+        String stairs = Reference.MODID + ":" + registeryName;
+        String innerStairs = stairs.replace("_stairs", "_inner_stairs");
+        String outerStairs = stairs.replace("_stairs", "_outer_stairs");
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+
+        Map<String, Object> variant = new HashMap<>();
+        variant.put("model", stairs);
+        variants.put("facing=east,half=bottom,shape=straight", variant);
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=bottom,shape=straight", variant);
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=bottom,shape=straight", variant);
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=bottom,shape=straight", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variants.put("facing=east,half=bottom,shape=outer_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=bottom,shape=outer_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=bottom,shape=outer_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=bottom,shape=outer_right", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=bottom,shape=outer_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=bottom,shape=outer_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=bottom,shape=outer_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variants.put("facing=north,half=bottom,shape=outer_left", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variants.put("facing=east,half=bottom,shape=inner_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=bottom,shape=inner_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=bottom,shape=inner_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=bottom,shape=inner_right", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=bottom,shape=inner_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=bottom,shape=inner_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variants.put("facing=south,half=bottom,shape=inner_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=bottom,shape=inner_left", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("x", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=top,shape=straight", variant);
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("x", 180);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=top,shape=straight", variant);
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("x", 180);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=top,shape=straight", variant);
+        variant = new HashMap<>();
+        variant.put("model", stairs);
+        variant.put("x", 180);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=top,shape=straight", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=top,shape=outer_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=top,shape=outer_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=top,shape=outer_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=top,shape=outer_right", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=top,shape=outer_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=top,shape=outer_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=top,shape=outer_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", outerStairs);
+        variant.put("x", 180);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=top,shape=outer_left", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=top,shape=inner_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=top,shape=inner_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=top,shape=inner_right", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=top,shape=inner_right", variant);
+
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=east,half=top,shape=inner_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("y", 180);
+        variant.put("uvlock", true);
+        variants.put("facing=west,half=top,shape=inner_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("y", 90);
+        variant.put("uvlock", true);
+        variants.put("facing=south,half=top,shape=inner_left", variant);
+        variant = new HashMap<>();
+        variant.put("model", innerStairs);
+        variant.put("x", 180);
+        variant.put("y", 270);
+        variant.put("uvlock", true);
+        variants.put("facing=north,half=top,shape=inner_left", variant);
+
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateSpawnerBlockstate(String registeryName) {
+        String blockPath = Reference.MODID + ":spawner";
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> normal = new HashMap<>();
+        normal.put("model", blockPath);
+        variants.put("normal", normal);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void generateModelBlockJSONs() {
@@ -275,77 +608,224 @@ public class GenerateJSON {
         ModBlocks.BLOCKS.forEach((block) -> {
             String registeryName = block.getRegistryName().getResourcePath();
 
-            Map<String, Object> json = new HashMap<>();
-            json.put("parent", "block/cube_all");
-            Map<String, Object> textures = new HashMap<>();
-            String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
             if (block instanceof BlockModGrass) {
-                String dirt = blockPath.replace("_grass", "_dirt");
-                String grassTop = blockPath + "_top";
-                String grassSide = blockPath + "_side";
-                textures.put("particle", dirt);
-                textures.put("down", dirt);
-                textures.put("up", grassTop);
-                textures.put("east", grassSide);
-                textures.put("west", grassSide);
-                textures.put("north", grassSide);
-                textures.put("south", grassSide);
+                generateGrassModelBlock(registeryName);
             } else if (block instanceof BlockModLog) {
-                String logTop = blockPath + "_top";
-                String logSide = blockPath + "_side";
-                textures.put("particle", logTop);
-                textures.put("down", logTop);
-                textures.put("up", logTop);
-                textures.put("east", logSide);
-                textures.put("west", logSide);
-                textures.put("north", logSide);
-                textures.put("south", logSide);
+                generateLogModelBlock(registeryName);
             } else if (block instanceof FurnaceBase) {
-                String furnace = blockPath;
-                String furnaceFront;
-                if (furnace.endsWith("_on")) {
-                    furnace = furnace.replace("_on", "");
-                    furnaceFront = furnace + "_front_on";
-                } else {
-                    furnaceFront = furnace + "_front_off";
-                }
-                String furnaceTop = furnace + "_top";
-                String furnaceSide = furnace + "_side";
-                if (registeryName.contains("coalstone_furnace")) {
-                    furnaceTop = furnaceTop.replace("_furnace_top", "");
-                    furnaceSide = furnaceSide.replace("_furnace_side", "");
-                }
-                textures.put("particle", furnaceFront);
-                textures.put("down", furnaceTop);
-                textures.put("up", furnaceTop);
-                textures.put("east", furnaceSide);
-                textures.put("west", furnaceSide);
-                textures.put("south", furnaceSide);
-                textures.put("north", furnaceFront);
+                generateFurnaceModelBlock(registeryName);
             } else if (block instanceof BlockMobPumpkin) {
-                String pumpkinTop = blockPath + "_top";
-                String pumpkinSide = blockPath + "_side";
-                String pumpkinFront = blockPath + "_front";
-                textures.put("particle", pumpkinSide);
-                textures.put("down", pumpkinTop);
-                textures.put("up", pumpkinTop);
-                textures.put("east", pumpkinSide);
-                textures.put("west", pumpkinSide);
-                textures.put("north", pumpkinFront);
-                textures.put("south", pumpkinSide);
+                generatePumpkinModelBlock(registeryName);
+            } else if (block instanceof BlockModSpawner) {
+                generateSpawnerModelBlock();
+            } else if (block instanceof BlockModStairs) {
+                generateStairsModelBlock(registeryName);
             } else {
-                textures.put("all", Reference.MODID + ":" + "blocks/" + registeryName);
-            }
-            json.put("textures", textures);
-
-            File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
-
-            try (FileWriter w = new FileWriter(f)) {
-                GSON.toJson(json, w);
-            } catch (IOException e) {
-                e.printStackTrace();
+                generateBasicModelBlock(registeryName);
             }
         });
+    }
+
+    private static void generateLogModelBlock(String registeryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+        String logTop = blockPath + "_top";
+        String logSide = blockPath + "_side";
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", logTop);
+        textures.put("down", logTop);
+        textures.put("up", logTop);
+        textures.put("east", logSide);
+        textures.put("west", logSide);
+        textures.put("north", logSide);
+        textures.put("south", logSide);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateGrassModelBlock(String registeryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+        String dirt = blockPath.replace("_grass", "_dirt");
+        String grassTop = blockPath + "_top";
+        String grassSide = blockPath + "_side";
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", dirt);
+        textures.put("down", dirt);
+        textures.put("up", grassTop);
+        textures.put("east", grassSide);
+        textures.put("west", grassSide);
+        textures.put("north", grassSide);
+        textures.put("south", grassSide);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateFurnaceModelBlock(String registeryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+        String furnace = blockPath;
+        String furnaceFront;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        if (furnace.endsWith("_on")) {
+            furnace = furnace.replace("_on", "");
+            furnaceFront = furnace + "_front_on";
+        } else {
+            furnaceFront = furnace + "_front_off";
+        }
+        String furnaceTop = furnace + "_top";
+        String furnaceSide = furnace + "_side";
+        if (registeryName.contains("coalstone_furnace")) {
+            furnaceTop = furnaceTop.replace("_furnace_top", "");
+            furnaceSide = furnaceSide.replace("_furnace_side", "");
+        }
+        textures.put("particle", furnaceFront);
+        textures.put("down", furnaceTop);
+        textures.put("up", furnaceTop);
+        textures.put("east", furnaceSide);
+        textures.put("west", furnaceSide);
+        textures.put("south", furnaceSide);
+        textures.put("north", furnaceFront);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generatePumpkinModelBlock(String registeryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+        String pumpkinTop = blockPath + "_top";
+        String pumpkinSide = blockPath + "_side";
+        String pumpkinFront = blockPath + "_front";
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", pumpkinSide);
+        textures.put("down", pumpkinTop);
+        textures.put("up", pumpkinTop);
+        textures.put("east", pumpkinSide);
+        textures.put("west", pumpkinSide);
+        textures.put("north", pumpkinFront);
+        textures.put("south", pumpkinSide);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateSpawnerModelBlock() {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("all", Reference.MODID + ":" + "blocks/spawner");
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, "spawner.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateBasicModelBlock(String registeryName) {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("all", Reference.MODID + ":" + "blocks/" + registeryName);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateStairsModelBlock(String registeryName) {
+        String innerStairs = registeryName.replace("_stairs", "_inner_stairs");
+        String outerStairs = registeryName.replace("_stairs", "_outer_stairs");
+        String material;
+
+        if (registeryName.contains("coalstone_stairs")) {
+            material = Reference.MODID + ":" + "blocks/coalstone";
+        } else {
+            material = Reference.MODID + ":" + "blocks/" + registeryName.replace("_stairs", "_planks");
+        }
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/stairs");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("bottom", material);
+        textures.put("top", material);
+        textures.put("side", material);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/inner_stairs");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, innerStairs + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/outer_stairs");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, outerStairs + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // EXPERIMENTAL: JSONs generated will definitely not work in 1.12.2 and below, and may not even work when 1.13 comes out
