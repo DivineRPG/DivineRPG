@@ -1,6 +1,5 @@
 ## Create special Block JSON Models
 * Torches
-* Portals
 * Christmas Lights
 * Fences
 * Slabs

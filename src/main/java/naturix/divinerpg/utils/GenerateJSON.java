@@ -17,6 +17,7 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
@@ -183,6 +184,8 @@ public class GenerateJSON {
             } else {
                 if (registryName.endsWith("_spawner")) {
                     json.put("parent", Reference.MODID + ":" + "block/spawner");
+                } else if (registryName.endsWith("_fire")) {
+                    json.put("parent", Reference.MODID + ":" + "block/blue_fire_0");
                 } else {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName);
                 }
@@ -240,6 +243,8 @@ public class GenerateJSON {
                 generateLeavesBlockstate(registryName);
             } else if (block instanceof BlockModPortal) {
                 generatePortalBlockstate(registryName);
+            } else if (block instanceof BlockModFire) {
+                generateFireBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -631,6 +636,32 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateFireBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        List<Map<String, Object>> multipart = new ArrayList<>();
+        Map<String, Object> floor = new HashMap<>();
+        List<Map<String, Object>> apply = new ArrayList<>();
+        Map<String, Object> texture = new HashMap<>();
+        texture.put("model", "divinerpg:blue_fire_0");
+        apply.add(texture);
+        texture = new HashMap<>();
+        texture.put("model", "divinerpg:blue_fire_1");
+        apply.add(texture);
+        floor.put("apply", apply);
+        multipart.add(floor);
+        json.put("multipart", multipart);
+
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -654,6 +685,8 @@ public class GenerateJSON {
                 generateStairsModelBlock(registryName);
             } else if (block instanceof BlockModPortal) {
                 generatePortalModelBlock(registryName);
+            } else if (block instanceof BlockModFire) {
+                generateFireModelBlock();
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -906,6 +939,38 @@ public class GenerateJSON {
         json.put("elements", elements);
 
         f = new File(MODEL_BLOCK_DIR, registryName + "_ns.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateFireModelBlock() {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/fire_floor");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", Reference.MODID + ":" + "blocks/blue_fire_0");
+        textures.put("fire", Reference.MODID + ":" + "blocks/blue_fire_0");
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, "blue_fire_0.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/fire_floor");
+        textures = new HashMap<>();
+        textures.put("particle", Reference.MODID + ":" + "blocks/blue_fire_1");
+        textures.put("fire", Reference.MODID + ":" + "blocks/blue_fire_1");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, "blue_fire_1.json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);

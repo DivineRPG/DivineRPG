@@ -1,0 +1,7 @@
+{
+  "parent": "block/fire_floor",
+  "textures": {
+    "fire": "divinerpg:blocks/blue_fire_0",
+    "particle": "divinerpg:blocks/blue_fire_0"
+  }
+}
