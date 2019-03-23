@@ -327,9 +327,7 @@ public class ModBlocks {
 
 	public static Block presentBox = new BlockPresentBox("present_box");
 
-	// public static Block iceikaFire = new BlockIceikaFire("iceika_fire");
-	// public static Block iceikaPortal = new BlockModPortal("iceika_portal",
-	// ConfigurationHelper.iceika, iceikaFire, Blocks.SNOW);
+	public static Block blueFire = new FireBase("blueFire");
 	public static Block iceikaFire = new FireBase("iceika_fire");
 	public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal", iceikaFire,
 	        ModDimensions.iceikaDimension.getId(), Blocks.SNOW);
@@ -368,7 +366,6 @@ public class ModBlocks {
 
 	public static Block twilightStone = new BlockMod("twilight_stone", 6.0F);
 	// public static Block blueFire = new BlockBlueFire("blueFire");
-	public static Block blueFire = new FireBase("blueFire");
 	public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", blueFire,
 	        ModDimensions.edenDimension.getId(), divineRock);
 	public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal", blueFire,

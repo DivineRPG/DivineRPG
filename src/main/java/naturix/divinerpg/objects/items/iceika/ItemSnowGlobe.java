@@ -6,6 +6,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -28,14 +29,15 @@ public class ItemSnowGlobe extends ItemBase {
 	        EnumFacing facing, float hitX, float hitY, float hitZ) {
 		pos = pos.offset(facing);
 		ItemStack itemstack = player.getHeldItem(hand);
-
 		if (!player.canPlayerEdit(pos, facing, itemstack)) {
 			return EnumActionResult.FAIL;
 		} else {
 			if (worldIn.isAirBlock(pos)) {
 				worldIn.playSound(player, pos, SoundEvents.BLOCK_SNOW_STEP, SoundCategory.BLOCKS, 1.0F,
 				        itemRand.nextFloat() * 0.4F + 0.8F);
-				worldIn.setBlockState(pos, ModBlocks.iceikaFire.getDefaultState(), 11);
+				if (worldIn.getBlockState(pos.down()) == Blocks.SNOW.getDefaultState()) {
+					worldIn.setBlockState(pos, ModBlocks.iceikaFire.getDefaultState(), 11);
+				}
 			}
 
 			if (player instanceof EntityPlayerMP) {

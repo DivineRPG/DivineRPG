@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/bluefire"
+    "all": "divinerpg:blocks/bluefire_0"
   }
 }

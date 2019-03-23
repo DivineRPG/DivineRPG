@@ -6,6 +6,12 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.particle.ParticleApalachiaPortal;
+import naturix.divinerpg.particle.ParticleEdenPortal;
+import naturix.divinerpg.particle.ParticleFrost;
+import naturix.divinerpg.particle.ParticleMortumPortal;
+import naturix.divinerpg.particle.ParticleSkythernPortal;
+import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -36,12 +42,13 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModPortal extends BlockBreakable implements IHasModel {
 
-	public static class Size {
+	public class Size {
 		private final World world;
 		private final EnumFacing.Axis axis;
 		private final EnumFacing rightDir;
@@ -97,20 +104,20 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 						break label56;
 					}
 
-					if (block == ModBlocks.wildwoodPortal) {
+					if (block == portalBlock) {
 						++this.portalBlockCount;
 					}
 
 					if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
-						if (block != ModBlocks.edenBlock) {
+						if (block != portalFrame) {
 							break label56;
 						}
 					} else if (i == this.width - 1) {
 						block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
 
-						if (block != ModBlocks.edenBlock) {
+						if (block != portalFrame) {
 							break label56;
 						}
 					}
@@ -119,7 +126,7 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 
 			for (int j = 0; j < this.width; ++j) {
 				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-				        .getBlock() != ModBlocks.edenBlock) {
+				        .getBlock() != portalFrame) {
 					this.height = 0;
 					break;
 				}
@@ -142,13 +149,13 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 				BlockPos blockpos = pos.offset(facing, i);
 
 				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.edenBlock) {
+				        || this.world.getBlockState(blockpos.down()).getBlock() != portalFrame) {
 					break;
 				}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			return block == ModBlocks.edenBlock ? i : 0;
+			return block == portalFrame ? i : 0;
 		}
 
 		public int getHeight() {
@@ -161,7 +168,7 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 
 		protected boolean isEmptyBlock(Block blockIn) {
 			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
-			        || blockIn == ModBlocks.wildwoodPortal;
+			        || blockIn == portalBlock;
 		}
 
 		public boolean isValid() {
@@ -172,10 +179,10 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 		public void placePortalBlocks() {
 			for (int i = 0; i < this.width; ++i) {
 				BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
-
+				DivineRPG.logger.info("attempting to ignight a portal");
 				for (int j = 0; j < this.height; ++j) {
 					this.world.setBlockState(blockpos.up(j),
-					        ModBlocks.wildwoodPortal.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);
+					        portalBlock.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);
 				}
 			}
 		}
@@ -185,6 +192,7 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 	        EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
 	protected static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
 	protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
+
 	protected static final AxisAlignedBB Y_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
 
 	public static int meta(Axis a) {
@@ -192,7 +200,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 	}
 
 	public String name;
-	protected Block fireBlock, portalFrame;
+	protected Block fireBlock, portalFrame, portalBlock = this;
+
 	public int dimId;
 
 	public BlockModPortal(String name, Block fireBlock, int dimId, Block portalFrame) {
@@ -353,20 +362,46 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 		}
 
 		for (int i = 0; i < 4; ++i) {
-			pos.getX();
-			rand.nextFloat();
-			pos.getY();
-			rand.nextFloat();
-			pos.getZ();
-			rand.nextFloat();
-			rand.nextFloat();
-			rand.nextFloat();
-			rand.nextFloat();
-			rand.nextInt(2);
+			double d0 = pos.getX() + rand.nextFloat();
+			double d1 = pos.getY() + rand.nextFloat();
+			double d2 = pos.getZ() + rand.nextFloat();
+			double d3 = (rand.nextFloat() - 0.5D) * 0.5D;
+			double d4 = (rand.nextFloat() - 0.5D) * 0.5D;
+			double d5 = (rand.nextFloat() - 0.5D) * 0.5D;
+			int j = rand.nextInt(2) * 2 - 1;
+			if (worldIn.getBlockState(pos.west()).getBlock() != this
+			        && worldIn.getBlockState(pos.east()).getBlock() != this) {
+				d0 = pos.getX() + 0.5D + 0.25D * j;
+				d3 = rand.nextFloat() * 2.0F * j;
+			} else {
+				d2 = pos.getZ() + 0.5D + 0.25D * j;
+				d5 = rand.nextFloat() * 2.0F * j;
+			}
 
-			// ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1,
-			// d2, d3, d4, d5);
-			// FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			if (state.getBlock() == ModBlocks.edenPortal) {
+				ParticleEdenPortal var20 = new ParticleEdenPortal(worldIn, d0, d1, d2, d3, d4, d5);
+				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			}
+			if (state.getBlock() == ModBlocks.wildwoodPortal) {
+				ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
+				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			}
+			if (state.getBlock() == ModBlocks.apalachiaPortal) {
+				ParticleApalachiaPortal var20 = new ParticleApalachiaPortal(worldIn, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			}
+			if (state.getBlock() == ModBlocks.skythernPortal) {
+				ParticleSkythernPortal var20 = new ParticleSkythernPortal(worldIn, d0, d1, d2, d3, d4, d5);
+				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			}
+			if (state.getBlock() == ModBlocks.mortumPortal) {
+				ParticleMortumPortal var20 = new ParticleMortumPortal(worldIn, d0, d1, d2, d3, d4, d5);
+				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			}
+			if (state.getBlock() == ModBlocks.iceikaPortal) {
+				ParticleFrost var20 = new ParticleFrost(worldIn, d0, d1, d2, d3, d4, d5);
+				FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			}
 		}
 	}
 

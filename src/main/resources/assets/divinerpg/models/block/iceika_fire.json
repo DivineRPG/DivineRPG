@@ -1,6 +1,8 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "divinerpg:blocks/iceika_fire"
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:iceika_fire_0"
+    }
   }
 }
