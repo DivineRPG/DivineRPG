@@ -1,4 +1,3 @@
-//Made By NicosaurusRex99
 ## Create special Block JSON Models
 * Torches
 * Portals
@@ -14,3 +13,6 @@
 * Frosted Chest
 * Bone Chest
 * Statues
+
+## Bugs
+* Furnaces export via hopper instantly rather than waiting for the object to smelt
