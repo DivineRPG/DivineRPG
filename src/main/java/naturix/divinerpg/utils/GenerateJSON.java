@@ -15,10 +15,12 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
+import naturix.divinerpg.objects.blocks.BlockModPortal;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.FurnaceBase;
@@ -99,22 +101,24 @@ public class GenerateJSON {
     public static void generateItemModelJSONs() {
         setupModelItemDir();
 
-        DivineRPG.logger.info("Generating Item Model JSONs");
+        if (Config.debug) {
+            DivineRPG.logger.info("Generating Item Model JSONs");
+        }
         ModItems.ITEMS.forEach((item) -> {
-            String registeryName = item.getRegistryName().getResourcePath();
-            boolean isBow = registeryName.endsWith("bow");
-            boolean isEgg = registeryName.endsWith("_egg") && !registeryName.equals("boiled_egg");
-            boolean isMeriks = registeryName.equals("meriks_missile");
+            String registryName = item.getRegistryName().getResourcePath();
+            boolean isBow = registryName.endsWith("bow");
+            boolean isEgg = registryName.endsWith("_egg") && !registryName.equals("boiled_egg");
+            boolean isMeriks = registryName.equals("meriks_missile");
 
             Map<String, Object> json = new HashMap<>();
             if (item instanceof IHasModel) {
                 json.put("parent", "item/generated");
                 Map<String, Object> textures = new HashMap<>();
                 if (isMeriks) {
-                    textures.put("layer0", Reference.MODID + ":items/" + registeryName + "_0");
+                    textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
                     json.put("textures", textures);
                 } else if (isBow) {
-                    textures.put("layer0", Reference.MODID + ":items/" + registeryName + "_0");
+                    textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
                     json.put("textures", textures);
                     Map<String, Object> display = new HashMap<>();
 
@@ -148,21 +152,21 @@ public class GenerateJSON {
                     Map<String, Object> predicate_1 = new HashMap<>();
                     predicate_1.put("pulling", 1);
                     pull_1.put("predicate", predicate_1);
-                    pull_1.put("model", Reference.MODID + ":item/" + registeryName + "_1");
+                    pull_1.put("model", Reference.MODID + ":item/" + registryName + "_1");
 
                     Map<String, Object> pull_2 = new HashMap<>();
                     Map<String, Object> predicate_2 = new HashMap<>();
                     predicate_2.put("pulling", 1);
                     predicate_2.put("pull", 0.65);
                     pull_2.put("predicate", predicate_2);
-                    pull_2.put("model", Reference.MODID + ":item/" + registeryName + "_2");
+                    pull_2.put("model", Reference.MODID + ":item/" + registryName + "_2");
 
                     Map<String, Object> pull_3 = new HashMap<>();
                     Map<String, Object> predicate_3 = new HashMap<>();
                     predicate_2.put("pulling", 1);
                     predicate_2.put("pull", 0.9);
                     pull_3.put("predicate", predicate_2);
-                    pull_3.put("model", Reference.MODID + ":item/" + registeryName + "_3");
+                    pull_3.put("model", Reference.MODID + ":item/" + registryName + "_3");
 
                     List<Map<String, Object>> overrides = new ArrayList<>();
                     overrides.add(pull_1);
@@ -173,18 +177,18 @@ public class GenerateJSON {
                     textures.put("layer0", Reference.MODID + ":items/pet_spawn_egg");
                     json.put("textures", textures);
                 } else {
-                    textures.put("layer0", Reference.MODID + ":items/" + registeryName);
+                    textures.put("layer0", Reference.MODID + ":items/" + registryName);
                     json.put("textures", textures);
                 }
             } else {
-                if (registeryName.endsWith("_spawner")) {
+                if (registryName.endsWith("_spawner")) {
                     json.put("parent", Reference.MODID + ":" + "block/spawner");
                 } else {
-                    json.put("parent", Reference.MODID + ":" + "block/" + registeryName);
+                    json.put("parent", Reference.MODID + ":" + "block/" + registryName);
                 }
             }
 
-            File f = new File(MODEL_ITEM_DIR, registeryName + ".json");
+            File f = new File(MODEL_ITEM_DIR, registryName + ".json");
 
             try (FileWriter w = new FileWriter(f)) {
                 GSON.toJson(json, w);
@@ -193,20 +197,20 @@ public class GenerateJSON {
             }
 
             if (isMeriks || isBow) {
-                creatAdditionalModelItemJSONs(registeryName);
+                creatAdditionalModelItemJSONs(registryName);
             }
         });
     }
 
-    private static void creatAdditionalModelItemJSONs(String registeryName) {
+    private static void creatAdditionalModelItemJSONs(String registryName) {
         for (int i = 1; i < 4; i++) {
             Map<String, Object> json = new HashMap<>();
             json.put("parent", "item/generated");
             Map<String, Object> textures = new HashMap<>();
-            textures.put("layer0", Reference.MODID + ":items/" + registeryName + "_" + i);
+            textures.put("layer0", Reference.MODID + ":items/" + registryName + "_" + i);
             json.put("textures", textures);
 
-            File f = new File(MODEL_ITEM_DIR, registeryName + "_" + i + ".json");
+            File f = new File(MODEL_ITEM_DIR, registryName + "_" + i + ".json");
 
             try (FileWriter w = new FileWriter(f)) {
                 GSON.toJson(json, w);
@@ -219,27 +223,31 @@ public class GenerateJSON {
     public static void generateBlockstateJSONs() {
         setupBlockStatesDir();
 
-        DivineRPG.logger.info("Generating Blockstate JSONs");
+        if (Config.debug) {
+            DivineRPG.logger.info("Generating Blockstate JSONs");
+        }
         ModBlocks.BLOCKS.forEach((block) -> {
-            String registeryName = block.getRegistryName().getResourcePath();
+            String registryName = block.getRegistryName().getResourcePath();
             if (block instanceof FurnaceBase || block instanceof BlockMobPumpkin) {
-                generateFacingBlockstate(registeryName);
+                generateFacingBlockstate(registryName);
             } else if (block instanceof BlockModLog) {
-                generateAxisBlockstate(registeryName);
+                generateAxisBlockstate(registryName);
             } else if (block instanceof BlockModStairs) {
-                generateStairsBlockstate(registeryName);
+                generateStairsBlockstate(registryName);
             } else if (block instanceof BlockModSpawner) {
-                generateSpawnerBlockstate(registeryName);
+                generateSpawnerBlockstate(registryName);
             } else if (block instanceof BlockModLeaves) {
-                generateLeavesBlockstate(registeryName);
+                generateLeavesBlockstate(registryName);
+            } else if (block instanceof BlockModPortal) {
+                generatePortalBlockstate(registryName);
             } else {
-                generateCubeBlockstate(registeryName);
+                generateCubeBlockstate(registryName);
             }
         });
     }
 
-    private static void generateFacingBlockstate(String registeryName) {
-        String blockPath = Reference.MODID + ":" + registeryName;
+    private static void generateFacingBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
         json.put("forge_marker", 1);
@@ -263,7 +271,7 @@ public class GenerateJSON {
         variants.put("facing=south", facingSouth);
         variants.put("facing=west", facingWest);
         json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -272,8 +280,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateLeavesBlockstate(String registeryName) {
-        String blockPath = Reference.MODID + ":" + registeryName;
+    private static void generateLeavesBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
         json.put("forge_marker", 1);
@@ -286,7 +294,7 @@ public class GenerateJSON {
         variants.put("check_decay=false,decayable=true", normal);
         variants.put("check_decay=false,decayable=false", normal);
         json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -295,8 +303,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateAxisBlockstate(String registeryName) {
-        String blockPath = Reference.MODID + ":" + registeryName;
+    private static void generateAxisBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
         json.put("forge_marker", 1);
@@ -320,7 +328,7 @@ public class GenerateJSON {
         variants.put("axis=x", axisX);
         variants.put("axis=z", axisZ);
         json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -329,8 +337,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateCubeBlockstate(String registeryName) {
-        String blockPath = Reference.MODID + ":" + registeryName;
+    private static void generateCubeBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
         json.put("forge_marker", 1);
@@ -339,7 +347,7 @@ public class GenerateJSON {
         normal.put("model", blockPath);
         variants.put("normal", normal);
         json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -348,8 +356,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateStairsBlockstate(String registeryName) {
-        String stairs = Reference.MODID + ":" + registeryName;
+    private static void generateStairsBlockstate(String registryName) {
+        String stairs = Reference.MODID + ":" + registryName;
         String innerStairs = stairs.replace("_stairs", "_inner_stairs");
         String outerStairs = stairs.replace("_stairs", "_outer_stairs");
 
@@ -573,7 +581,7 @@ public class GenerateJSON {
         variants.put("facing=north,half=top,shape=inner_left", variant);
 
         json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -582,7 +590,7 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateSpawnerBlockstate(String registeryName) {
+    private static void generateSpawnerBlockstate(String registryName) {
         String blockPath = Reference.MODID + ":spawner";
 
         Map<String, Object> json = new HashMap<>();
@@ -592,7 +600,29 @@ public class GenerateJSON {
         normal.put("model", blockPath);
         variants.put("normal", normal);
         json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registeryName + ".json");
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generatePortalBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("forge_marker", 1);
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> axisZ = new HashMap<>();
+        axisZ.put("model", blockPath + "_ew");
+        variants.put("axis=z", axisZ);
+        Map<String, Object> axisX = new HashMap<>();
+        axisX.put("model", blockPath + "_ns");
+        variants.put("axis=x", axisX);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -604,30 +634,34 @@ public class GenerateJSON {
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
-        DivineRPG.logger.info("Generating Block Model JSONs");
+        if (Config.debug) {
+            DivineRPG.logger.info("Generating Block Model JSONs");
+        }
         ModBlocks.BLOCKS.forEach((block) -> {
-            String registeryName = block.getRegistryName().getResourcePath();
+            String registryName = block.getRegistryName().getResourcePath();
 
             if (block instanceof BlockModGrass) {
-                generateGrassModelBlock(registeryName);
+                generateGrassModelBlock(registryName);
             } else if (block instanceof BlockModLog) {
-                generateLogModelBlock(registeryName);
+                generateLogModelBlock(registryName);
             } else if (block instanceof FurnaceBase) {
-                generateFurnaceModelBlock(registeryName);
+                generateFurnaceModelBlock(registryName);
             } else if (block instanceof BlockMobPumpkin) {
-                generatePumpkinModelBlock(registeryName);
+                generatePumpkinModelBlock(registryName);
             } else if (block instanceof BlockModSpawner) {
                 generateSpawnerModelBlock();
             } else if (block instanceof BlockModStairs) {
-                generateStairsModelBlock(registeryName);
+                generateStairsModelBlock(registryName);
+            } else if (block instanceof BlockModPortal) {
+                generatePortalModelBlock(registryName);
             } else {
-                generateBasicModelBlock(registeryName);
+                generateBasicModelBlock(registryName);
             }
         });
     }
 
-    private static void generateLogModelBlock(String registeryName) {
-        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+    private static void generateLogModelBlock(String registryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registryName;
         String logTop = blockPath + "_top";
         String logSide = blockPath + "_side";
 
@@ -643,7 +677,7 @@ public class GenerateJSON {
         textures.put("south", logSide);
         json.put("textures", textures);
 
-        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -652,8 +686,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateGrassModelBlock(String registeryName) {
-        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+    private static void generateGrassModelBlock(String registryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registryName;
         String dirt = blockPath.replace("_grass", "_dirt");
         String grassTop = blockPath + "_top";
         String grassSide = blockPath + "_side";
@@ -670,7 +704,7 @@ public class GenerateJSON {
         textures.put("south", grassSide);
         json.put("textures", textures);
 
-        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -679,8 +713,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateFurnaceModelBlock(String registeryName) {
-        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+    private static void generateFurnaceModelBlock(String registryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registryName;
         String furnace = blockPath;
         String furnaceFront;
 
@@ -695,7 +729,7 @@ public class GenerateJSON {
         }
         String furnaceTop = furnace + "_top";
         String furnaceSide = furnace + "_side";
-        if (registeryName.contains("coalstone_furnace")) {
+        if (registryName.contains("coalstone_furnace")) {
             furnaceTop = furnaceTop.replace("_furnace_top", "");
             furnaceSide = furnaceSide.replace("_furnace_side", "");
         }
@@ -708,7 +742,7 @@ public class GenerateJSON {
         textures.put("north", furnaceFront);
         json.put("textures", textures);
 
-        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -717,8 +751,8 @@ public class GenerateJSON {
         }
     }
 
-    private static void generatePumpkinModelBlock(String registeryName) {
-        String blockPath = Reference.MODID + ":" + "blocks/" + registeryName;
+    private static void generatePumpkinModelBlock(String registryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registryName;
         String pumpkinTop = blockPath + "_top";
         String pumpkinSide = blockPath + "_side";
         String pumpkinFront = blockPath + "_front";
@@ -735,7 +769,7 @@ public class GenerateJSON {
         textures.put("south", pumpkinSide);
         json.put("textures", textures);
 
-        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -760,14 +794,14 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateBasicModelBlock(String registeryName) {
+    private static void generateBasicModelBlock(String registryName) {
         Map<String, Object> json = new HashMap<>();
         json.put("parent", "block/cube_all");
         Map<String, Object> textures = new HashMap<>();
-        textures.put("all", Reference.MODID + ":" + "blocks/" + registeryName);
+        textures.put("all", Reference.MODID + ":" + "blocks/" + registryName);
         json.put("textures", textures);
 
-        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -776,15 +810,15 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateStairsModelBlock(String registeryName) {
-        String innerStairs = registeryName.replace("_stairs", "_inner_stairs");
-        String outerStairs = registeryName.replace("_stairs", "_outer_stairs");
+    private static void generateStairsModelBlock(String registryName) {
+        String innerStairs = registryName.replace("_stairs", "_inner_stairs");
+        String outerStairs = registryName.replace("_stairs", "_outer_stairs");
         String material;
 
-        if (registeryName.contains("coalstone_stairs")) {
+        if (registryName.contains("coalstone_stairs")) {
             material = Reference.MODID + ":" + "blocks/coalstone";
         } else {
-            material = Reference.MODID + ":" + "blocks/" + registeryName.replace("_stairs", "_planks");
+            material = Reference.MODID + ":" + "blocks/" + registryName.replace("_stairs", "_planks");
         }
 
         Map<String, Object> json = new HashMap<>();
@@ -795,7 +829,7 @@ public class GenerateJSON {
         textures.put("side", material);
         json.put("textures", textures);
 
-        File f = new File(MODEL_BLOCK_DIR, registeryName + ".json");
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
@@ -820,6 +854,58 @@ public class GenerateJSON {
         json.put("textures", textures);
 
         f = new File(MODEL_BLOCK_DIR, outerStairs + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generatePortalModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", texturePath);
+        textures.put("portal", texturePath);
+        json.put("textures", textures);
+        List<Map<String, Object>> elements = new ArrayList<>();
+        Map<String, Object> element = new HashMap<>();
+        element.put("from", new int[] { 6, 0, 0 });
+        element.put("to", new int[] { 10, 16, 16 });
+        Map<String, Object> faces = new HashMap<>();
+        Map<String, Object> direction = new HashMap<>();
+        direction.put("uv", new int[] { 0, 0, 16, 16 });
+        direction.put("texture", "#portal");
+        faces.put("east", direction);
+        faces.put("west", direction);
+        element.put("faces", faces);
+        elements.add(element);
+        json.put("elements", elements);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + "_ew.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("textures", textures);
+        elements = new ArrayList<>();
+        element = new HashMap<>();
+        element.put("from", new int[] { 0, 0, 6 });
+        element.put("to", new int[] { 16, 16, 10 });
+        faces = new HashMap<>();
+        faces.put("north", direction);
+        faces.put("south", direction);
+        element.put("faces", faces);
+        elements.add(element);
+        json.put("elements", elements);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_ns.json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);

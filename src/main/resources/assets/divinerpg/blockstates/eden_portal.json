@@ -1,8 +1,11 @@
 {
   "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "divinerpg:eden_portal"
+    "axis=z": {
+      "model": "divinerpg:eden_portal_ew"
+    },
+    "axis=x": {
+      "model": "divinerpg:eden_portal_ns"
     }
   }
 }
