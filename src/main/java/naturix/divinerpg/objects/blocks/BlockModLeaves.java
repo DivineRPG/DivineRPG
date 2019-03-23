@@ -28,7 +28,6 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setHardness(hardness);
-        this.setLightOpacity(1);
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
         this.setTickRandomly(true);
         this.leavesFancy = true;

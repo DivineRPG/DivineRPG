@@ -8,11 +8,11 @@ import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.material.EnumBlockType;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -28,9 +28,11 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
     World w;
 
     public BlockWinterberryBush(boolean grown, String name) {
-        super(EnumBlockType.LEAVES, name, 0.3F);
+        super(EnumBlockType.LEAVES, name, 0.2F);
         this.isGrown = grown;
         setTickRandomly(true);
+        this.setLightOpacity(1);
+        this.setSoundType(SoundType.PLANT);
     }
 
     @Override
@@ -41,7 +43,17 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
         return null;
     }
 
-    public boolean isOpaqueCube() {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
+    public boolean causesSuffocation(IBlockState state) {
         return false;
     }
 
@@ -66,14 +78,9 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
         return ret;
     }
 
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        return !Minecraft.getMinecraft().gameSettings.fancyGraphics && blockState == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @Override
@@ -82,5 +89,4 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
             w.setBlockState(pos, ModBlocks.winterberryBushGrown.getDefaultState());
         }
     }
-
 }

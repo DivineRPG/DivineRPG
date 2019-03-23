@@ -220,8 +220,8 @@ public class ModBlocks {
     public static Block frozenSlab = new BlockModSlab((BlockMod) frozenPlanks, null);
     public static Block frozenSlabDouble = new BlockModSlab((BlockMod) frozenPlanks, frozenSlab);
 
-    public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush").setHardness(0.2F);
-    public static Block winterberryBushGrown = new BlockWinterberryBush(true, "winterberry_bush_grown").setHardness(0.2F);
+    public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
+    public static Block winterberryBushGrown = new BlockWinterberryBush(true, "winterberry_bush_grown");
 
     public static Block icyStone = new BlockMod("icy_stone", -1F);
     public static Block icyBricks = new BlockMod("icy_bricks", -1F);
@@ -255,7 +255,6 @@ public class ModBlocks {
 
     public static Block presentBox = new BlockPresentBox("present_box");
 
-    public static Block blueFire = new BlockModFire("blue_fire");
     public static Block iceikaFire = new BlockModFire("iceika_fire");
     public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal", iceikaFire, ModDimensions.iceikaDimension.getId(), Blocks.SNOW);
 
@@ -284,7 +283,7 @@ public class ModBlocks {
     public static Block mortumBlock = new BlockMod("mortum_block", 9);
 
     public static Block twilightStone = new BlockMod("twilight_stone", 6.0F);
-    // public static Block blueFire = new BlockBlueFire("blueFire");
+    public static Block blueFire = new BlockModFire("blue_fire");
     public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", blueFire, ModDimensions.edenDimension.getId(), divineRock);
     public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal", blueFire, ModDimensions.wildWoodDimension.getId(), edenBlock);
     public static BlockModPortal apalachiaPortal = new BlockModPortal("apalachia_portal", blueFire, ModDimensions.apalachiaDimension.getId(), wildwoodBlock);

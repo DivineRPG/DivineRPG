@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.blocks;
 
 import java.util.Random;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -35,13 +36,13 @@ public class BlockModFire extends BlockFire implements IHasModel {
 
     protected void lightPortal(World world, BlockPos pos, IBlockState state) {
         if (this == ModBlocks.blueFire) {
-            ModBlocks.edenPortal.makePortal(world, pos);
-            ModBlocks.wildwoodPortal.makePortal(world, pos);
-            ModBlocks.apalachiaPortal.makePortal(world, pos);
-            ModBlocks.skythernPortal.makePortal(world, pos);
-            ModBlocks.mortumPortal.makePortal(world, pos);
+            if ((ModBlocks.edenPortal.makePortal(world, pos) || ModBlocks.wildwoodPortal.makePortal(world, pos) || ModBlocks.apalachiaPortal.makePortal(world, pos) || ModBlocks.skythernPortal.makePortal(world, pos) || ModBlocks.mortumPortal.makePortal(world, pos)) && Config.debug) {
+                DivineRPG.logger.info("Twilight portal created");
+            }
         } else {
-            ModBlocks.iceikaPortal.makePortal(world, pos);
+            if (ModBlocks.iceikaPortal.makePortal(world, pos) && Config.debug) {
+                DivineRPG.logger.info("Iceika portal created");
+            }
         }
     }
 

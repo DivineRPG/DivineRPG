@@ -186,6 +186,8 @@ public class GenerateJSON {
                     json.put("parent", Reference.MODID + ":" + "block/spawner");
                 } else if (registryName.endsWith("_fire")) {
                     json.put("parent", Reference.MODID + ":" + "block/blue_fire_0");
+                } else if (registryName.endsWith("_portal")) {
+                    json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_ns");
                 } else {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName);
                 }

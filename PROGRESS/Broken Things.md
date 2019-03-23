@@ -3,7 +3,6 @@
 * Christmas Lights
 * Fences
 * Slabs
-* Fires
 * Plants
 
 ## Create special Item JSON Models
