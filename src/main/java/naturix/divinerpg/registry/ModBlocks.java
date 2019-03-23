@@ -25,6 +25,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
 import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.iceika.BlockPresentBox;
+import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.vanilla.BlockBloodgemOre;
@@ -403,6 +404,9 @@ public class ModBlocks {
 	// BlockMoonlightFurnace("moonlight_furnace_on", true);
 	public static Block demonFurnace = new BlockDemonFurnace("demon_furnace", false);
 	public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
+
+	public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
+	public static Block winterberryBushGrown = new BlockWinterberryBush(true, "winterberry_bush_grown");
 
 	public static void CreateJSONs() {
 		GenerateJSON.generateBlockstateJSONs();
