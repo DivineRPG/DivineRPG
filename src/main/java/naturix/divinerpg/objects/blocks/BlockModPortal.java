@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.blocks.portal;
+package naturix.divinerpg.objects.blocks;
 
 import java.util.List;
 import java.util.Random;
@@ -6,10 +6,8 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.particle.ParticleMortumPortal;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DivineTeleporter;
 import naturix.divinerpg.utils.IHasModel;
@@ -38,11 +36,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MortumPortal extends BlockBreakable implements IHasModel {
+public class BlockModPortal extends BlockBreakable implements IHasModel {
 
 	public static class Size {
 		private final World world;
@@ -100,20 +97,20 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 						break label56;
 					}
 
-					if (block == ModBlocks.mortumPortal) {
+					if (block == ModBlocks.wildwoodPortal) {
 						++this.portalBlockCount;
 					}
 
 					if (i == 0) {
 						block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
 
-						if (block != ModBlocks.skythernBlock) {
+						if (block != ModBlocks.edenBlock) {
 							break label56;
 						}
 					} else if (i == this.width - 1) {
 						block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
 
-						if (block != ModBlocks.skythernBlock) {
+						if (block != ModBlocks.edenBlock) {
 							break label56;
 						}
 					}
@@ -122,7 +119,7 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 
 			for (int j = 0; j < this.width; ++j) {
 				if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-				        .getBlock() != ModBlocks.skythernBlock) {
+				        .getBlock() != ModBlocks.edenBlock) {
 					this.height = 0;
 					break;
 				}
@@ -145,13 +142,13 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 				BlockPos blockpos = pos.offset(facing, i);
 
 				if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.skythernBlock) {
+				        || this.world.getBlockState(blockpos.down()).getBlock() != ModBlocks.edenBlock) {
 					break;
 				}
 			}
 
 			Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-			return block == ModBlocks.skythernBlock ? i : 0;
+			return block == ModBlocks.edenBlock ? i : 0;
 		}
 
 		public int getHeight() {
@@ -164,7 +161,7 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 
 		protected boolean isEmptyBlock(Block blockIn) {
 			return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == ModBlocks.blueFire
-			        || blockIn == ModBlocks.mortumPortal;
+			        || blockIn == ModBlocks.wildwoodPortal;
 		}
 
 		public boolean isValid() {
@@ -178,7 +175,7 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 
 				for (int j = 0; j < this.height; ++j) {
 					this.world.setBlockState(blockpos.up(j),
-					        ModBlocks.mortumPortal.getDefaultState().withProperty(MortumPortal.AXIS, this.axis), 2);
+					        ModBlocks.wildwoodPortal.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);
 				}
 			}
 		}
@@ -195,9 +192,10 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 	}
 
 	public String name;
-	protected Block fireBlock;
+	protected Block fireBlock, portalFrame;
+	public int dimId;
 
-	public MortumPortal(String name, Block fireBlock) {
+	public BlockModPortal(String name, Block fireBlock, int dimId, Block portalFrame) {
 		super(Material.PORTAL, false);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
 		this.setRegistryName(name);
@@ -205,6 +203,11 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 		this.setTickRandomly(true);
 		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 		setUnlocalizedName(name);
+
+		this.fireBlock = fireBlock;
+		this.dimId = dimId;
+		this.portalFrame = portalFrame;
+
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
@@ -279,12 +282,12 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 	}
 
 	public boolean makePortal(World worldIn, BlockPos p) {
-		MortumPortal.Size size = new MortumPortal.Size(worldIn, p, EnumFacing.Axis.X);
+		BlockModPortal.Size size = new BlockModPortal.Size(worldIn, p, EnumFacing.Axis.X);
 		if (size.isValid() && size.portalBlockCount == 0) {
 			size.placePortalBlocks();
 			return true;
 		} else {
-			MortumPortal.Size size1 = new MortumPortal.Size(worldIn, p, EnumFacing.Axis.Z);
+			BlockModPortal.Size size1 = new BlockModPortal.Size(worldIn, p, EnumFacing.Axis.Z);
 			if (size1.isValid() && size1.portalBlockCount == 0) {
 				size1.placePortalBlocks();
 				return true;
@@ -299,17 +302,17 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 		EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
 
 		if (enumfacing$axis == EnumFacing.Axis.X) {
-			MortumPortal.Size EdenBlock$size = new MortumPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+			BlockModPortal.Size EdenBlock$size = new BlockModPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
 			if (!EdenBlock$size.isValid()
 			        || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		} else if (enumfacing$axis == EnumFacing.Axis.Z) {
-			MortumPortal.Size EdenBlock$size1 = new MortumPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+			BlockModPortal.Size BlockModPortal$size1 = new BlockModPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-			if (!EdenBlock$size1.isValid()
-			        || EdenBlock$size1.portalBlockCount < EdenBlock$size1.width * EdenBlock$size1.height) {
+			if (!BlockModPortal$size1.isValid() || BlockModPortal$size1.portalBlockCount < BlockModPortal$size1.width
+			        * BlockModPortal$size1.height) {
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 		}
@@ -320,18 +323,18 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 		if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
 			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
 			thePlayer.mcServer.getWorld(thePlayer.dimension);
-			int dimensionID = ModDimensions.mortumDimension.getId();
+			int dimensionID = dimId;
 			if (thePlayer.timeUntilPortal > 0) {
 				thePlayer.timeUntilPortal = 10;
 			} else if (thePlayer.dimension != dimensionID) {
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
 				        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
-				                ModBlocks.skythernBlock.getDefaultState()));
+				                portalFrame.getDefaultState()));
 			} else {
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new DivineTeleporter(
-				        thePlayer.mcServer.getWorld(0), this, ModBlocks.skythernBlock.getDefaultState()));
+				thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
+				        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrame.getDefaultState()));
 			}
 		}
 	}
@@ -350,24 +353,20 @@ public class MortumPortal extends BlockBreakable implements IHasModel {
 		}
 
 		for (int i = 0; i < 4; ++i) {
-			double d0 = pos.getX() + rand.nextFloat();
-			double d1 = pos.getY() + rand.nextFloat();
-			double d2 = pos.getZ() + rand.nextFloat();
-			double d3 = (rand.nextFloat() - 0.5D) * 0.5D;
-			double d4 = (rand.nextFloat() - 0.5D) * 0.5D;
-			double d5 = (rand.nextFloat() - 0.5D) * 0.5D;
-			int j = rand.nextInt(2) * 2 - 1;
-			if (worldIn.getBlockState(pos.west()).getBlock() != this
-			        && worldIn.getBlockState(pos.east()).getBlock() != this) {
-				d0 = pos.getX() + 0.5D + 0.25D * j;
-				d3 = rand.nextFloat() * 2.0F * j;
-			} else {
-				d2 = pos.getZ() + 0.5D + 0.25D * j;
-				d5 = rand.nextFloat() * 2.0F * j;
-			}
+			pos.getX();
+			rand.nextFloat();
+			pos.getY();
+			rand.nextFloat();
+			pos.getZ();
+			rand.nextFloat();
+			rand.nextFloat();
+			rand.nextFloat();
+			rand.nextFloat();
+			rand.nextInt(2);
 
-			ParticleMortumPortal var20 = new ParticleMortumPortal(worldIn, d0, d1, d2, d3, d4, d5);
-			FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
+			// ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1,
+			// d2, d3, d4, d5);
+			// FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
 		}
 	}
 
