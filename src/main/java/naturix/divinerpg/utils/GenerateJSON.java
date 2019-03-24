@@ -24,6 +24,7 @@ import naturix.divinerpg.objects.blocks.BlockModLog;
 import naturix.divinerpg.objects.blocks.BlockModPortal;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
+import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.FurnaceBase;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.proxy.CommonProxy;
@@ -247,6 +248,8 @@ public class GenerateJSON {
                 generatePortalBlockstate(registryName);
             } else if (block instanceof BlockModFire) {
                 generateFireBlockstate(registryName);
+            } else if (block instanceof BlockModTorch) {
+                generateTorchBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -664,6 +667,40 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateTorchBlockstate(String registryName) {
+        String floorModel = Reference.MODID + ":" + registryName;
+        String wallModel = Reference.MODID + ":" + registryName + "_wall";
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> facingUp = new HashMap<>();
+        facingUp.put("model", floorModel);
+        variants.put("facing=up", facingUp);
+        Map<String, Object> facingEast = new HashMap<>();
+        facingEast.put("model", wallModel);
+        Map<String, Object> facingSouth = new HashMap<>();
+        facingSouth.put("y", 90);
+        facingSouth.put("model", wallModel);
+        Map<String, Object> facingWest = new HashMap<>();
+        facingWest.put("y", 180);
+        facingWest.put("model", wallModel);
+        Map<String, Object> facingNorth = new HashMap<>();
+        facingNorth.put("y", 270);
+        facingNorth.put("model", wallModel);
+        variants.put("facing=east", facingEast);
+        variants.put("facing=south", facingSouth);
+        variants.put("facing=west", facingWest);
+        variants.put("facing=north", facingNorth);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -689,6 +726,8 @@ public class GenerateJSON {
                 generatePortalModelBlock(registryName);
             } else if (block instanceof BlockModFire) {
                 generateFireModelBlock();
+            } else if (block instanceof BlockModTorch) {
+                generateTorchModelBlock(registryName);
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -973,6 +1012,36 @@ public class GenerateJSON {
         json.put("textures", textures);
 
         f = new File(MODEL_BLOCK_DIR, "blue_fire_1.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateTorchModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/torch");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("torch", texturePath);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/torch_wall");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_wall.json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
