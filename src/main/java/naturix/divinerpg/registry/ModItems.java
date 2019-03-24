@@ -3,6 +3,7 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
+import naturix.divinerpg.client.EntityResourceLocation;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.base.ItemArmorBase;
 import naturix.divinerpg.objects.items.base.ItemAxeBase;
@@ -22,6 +23,7 @@ import naturix.divinerpg.objects.items.base.ItemSwordBase;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightClock;
+import naturix.divinerpg.objects.items.vanilla.ItemAnchor;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
 import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
 import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
@@ -40,6 +42,7 @@ import net.minecraft.potion.PotionEffect;
 public class ModItems {
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 
+	private static EntityResourceLocation x;
 	// Vanilla Weapons
 	public static Item slimeSword = new ItemSwordBase(ToolMaterialMod.Slime, "slime_sword");
 	public static Item oceanKnife = new ItemSwordBase(ToolMaterialMod.OceanKnife, "ocean_knife");
@@ -112,18 +115,11 @@ public class ModItems {
 	// Sounds.ghastCannon.getPrefixedName(),
 	// x.maelstrom.toString(), 100, 0);
 	public static Item maelstrom = new ItemNotReady("maelstrom", DRPGCreativeTabs.ranged);
-	// public static Item crabAnchor = new ItemAnchor("crab_anchor",
-	// x.crabAnchor.toString(), 3);
-	public static Item crabAnchor = new ItemNotReady("crab_anchor", DRPGCreativeTabs.ranged);
-	// public static Item sharkAnchor = new ItemAnchor("shark_anchor",
-	// x.bowheadAnchor.toString(), 4);
-	public static Item sharkAnchor = new ItemNotReady("shark_anchor", DRPGCreativeTabs.ranged);
-	// public static Item bowheadAnchor = new ItemAnchor("bowhead_anchor",
-	// x.bowheadAnchor.toString(), 5);
-	public static Item bowheadAnchor = new ItemNotReady("bowhead_anchor", DRPGCreativeTabs.ranged);
-	// public static Item liopleurodonAnchor = new ItemAnchor("liopleurodon_anchor",
-	// x.liopleurodonAnchor.toString(), 6);
-	public static Item liopleurodonAnchor = new ItemNotReady("liopleurodon_anchor", DRPGCreativeTabs.ranged);
+
+	public static Item crabAnchor = new ItemAnchor("crab_anchor", x.crabAnchor.toString(), 3);
+	public static Item sharkAnchor = new ItemAnchor("shark_anchor", x.bowheadAnchor.toString(), 4);
+	public static Item bowheadAnchor = new ItemAnchor("bowhead_anchor", x.bowheadAnchor.toString(), 5);
+	public static Item liopleurodonAnchor = new ItemAnchor("liopleurodon_anchor", x.liopleurodonAnchor.toString(), 6);
 	// public static Item goldenFury = new ItemProjectileShooter("golden_fury", 30F,
 	// Sounds.blitz.getPrefixedName(),
 	// Items.GOLD_NUGGET, -1, 0);

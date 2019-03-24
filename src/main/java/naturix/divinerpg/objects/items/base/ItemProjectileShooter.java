@@ -119,6 +119,7 @@ public class ItemProjectileShooter extends ItemBase {
 		list.add(this.ammo == null ? TooltipLocalizer.infiniteAmmo() : TooltipLocalizer.ammo(this.ammo));
 		list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses()
 		        : TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+		list.add("Does not shoot as of yet");
 	}
 
 	@Override
