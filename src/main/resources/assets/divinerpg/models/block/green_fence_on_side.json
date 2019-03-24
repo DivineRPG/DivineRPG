@@ -1,0 +1,6 @@
+{
+  "parent": "block/fence_side",
+  "textures": {
+    "texture": "divinerpg:blocks/green_fence_on"
+  }
+}
