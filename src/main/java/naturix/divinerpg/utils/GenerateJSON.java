@@ -17,6 +17,7 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockModFence;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
@@ -189,6 +190,8 @@ public class GenerateJSON {
                     json.put("parent", Reference.MODID + ":" + "block/blue_fire_0");
                 } else if (registryName.endsWith("_portal")) {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_ns");
+                } else if (registryName.contains("_fence")) {
+                    json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_inventory");
                 } else {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName);
                 }
@@ -250,6 +253,8 @@ public class GenerateJSON {
                 generateFireBlockstate(registryName);
             } else if (block instanceof BlockModTorch) {
                 generateTorchBlockstate(registryName);
+            } else if (block instanceof BlockModFence) {
+                generateFenceBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -701,6 +706,74 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateFenceBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
+        String fencePost = blockPath + "_post";
+        String fenceSide = blockPath + "_side";
+
+        Map<String, Object> json = new HashMap<>();
+        List<Map<String, Object>> multipart = new ArrayList<>();
+        Map<String, Object> side = new HashMap<>();
+        Map<String, Object> post = new HashMap<>();
+        Map<String, Object> apply = new HashMap<>();
+        Map<String, Object> when = new HashMap<>();
+
+        apply.put("model", fencePost);
+        post.put("apply", apply);
+        multipart.add(post);
+
+        apply = new HashMap<>();
+        when.put("north", "true");
+        side.put("when", when);
+        apply.put("model", fenceSide);
+        apply.put("uvlock", true);
+        side.put("apply", apply);
+        multipart.add(side);
+
+        when = new HashMap<>();
+        apply = new HashMap<>();
+        side = new HashMap<>();
+        when.put("east", "true");
+        side.put("when", when);
+        apply.put("model", fenceSide);
+        apply.put("y", 90);
+        apply.put("uvlock", true);
+        side.put("apply", apply);
+        multipart.add(side);
+
+        when = new HashMap<>();
+        apply = new HashMap<>();
+        side = new HashMap<>();
+        when.put("south", "true");
+        side.put("when", when);
+        apply.put("model", fenceSide);
+        apply.put("y", 180);
+        apply.put("uvlock", true);
+        side.put("apply", apply);
+        multipart.add(side);
+
+        when = new HashMap<>();
+        apply = new HashMap<>();
+        side = new HashMap<>();
+        when.put("west", "true");
+        side.put("when", when);
+        apply.put("model", fenceSide);
+        apply.put("y", 270);
+        apply.put("uvlock", true);
+        side.put("apply", apply);
+        multipart.add(side);
+
+        json.put("multipart", multipart);
+
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -728,6 +801,8 @@ public class GenerateJSON {
                 generateFireModelBlock();
             } else if (block instanceof BlockModTorch) {
                 generateTorchModelBlock(registryName);
+            } else if (block instanceof BlockModFence) {
+                generateFenceModelBlock(registryName);
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1042,6 +1117,48 @@ public class GenerateJSON {
         json.put("textures", textures);
 
         f = new File(MODEL_BLOCK_DIR, registryName + "_wall.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateFenceModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/fence_post");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("texture", texturePath);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + "_post.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/fence_side");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_side.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/fence_inventory");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_inventory.json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
