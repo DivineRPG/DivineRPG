@@ -1,13 +1,13 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderEnderTripletsFireball;
-import naturix.divinerpg.particle.ParticleEnderTriplet;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -43,10 +43,9 @@ public class EntityEnderTripletsFireball extends EntityFireball {
     @SideOnly(Side.CLIENT)
     public void onUpdate() {
         super.onUpdate();
-        ParticleEnderTriplet fx = new ParticleEnderTriplet(this.world,
+        DivineRPG.proxy.spawnParticle(this.world, DRPGParticleTypes.ENDER_TRIPLET,
                 this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 6,
                 this.posY + 0.5D + (this.rand.nextDouble() - this.rand.nextDouble()) / 6,
                 this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 6, 0.0D, 0.0D, 0.0D);
-        FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
     }
 }

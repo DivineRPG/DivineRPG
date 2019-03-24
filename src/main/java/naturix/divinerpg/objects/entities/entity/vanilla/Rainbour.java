@@ -2,9 +2,10 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import java.util.Calendar;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import naturix.divinerpg.particle.ParticleSparkler;
 import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -21,7 +22,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -143,13 +143,12 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
     public void onLivingUpdate() {
         super.onLivingUpdate();
         for (int var3 = 0; var3 < 8; ++var3) {
-            ParticleSparkler sparkle = new ParticleSparkler(this.world,
+            DivineRPG.proxy.spawnParticle(this.world, DRPGParticleTypes.SPARKLER,
                     this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width,
                     this.posY + this.rand.nextDouble() * (double) this.height - 0.25D,
                     this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width,
                     (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(),
                     (this.rand.nextDouble() - 0.5D) * 2.0D);
-            FMLClientHandler.instance().getClient().effectRenderer.addEffect(sparkle);
         }
     }
 

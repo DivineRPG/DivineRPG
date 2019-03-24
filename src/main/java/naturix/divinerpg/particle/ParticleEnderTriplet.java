@@ -8,8 +8,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ParticleEnderTriplet extends Particle {
 
-    public float portalParticleScale;
-
     public ParticleEnderTriplet(World par1World, double par2, double par4, double par6, double par8, double par10,
             double par12) {
         super(par1World, par2, par4, par6, par8, par10, par12);
@@ -17,7 +15,7 @@ public class ParticleEnderTriplet extends Particle {
         this.motionY = par10 + (float) (Math.random() * 2.0D - 1.0D) * 0.05F;
         this.motionZ = par12 + (float) (Math.random() * 2.0D - 1.0D) * 0.05F;
         float var14 = this.rand.nextFloat() * 0.6F + 0.4F;
-        this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
+        this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
         this.particleRed = this.particleGreen = this.particleBlue = 1.0F * var14;
         this.particleGreen *= 0.3F;
         this.particleRed *= 0.9F;

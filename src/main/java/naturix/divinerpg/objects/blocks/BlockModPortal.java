@@ -7,15 +7,10 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.particle.ParticleApalachiaPortal;
-import naturix.divinerpg.particle.ParticleEdenPortal;
-import naturix.divinerpg.particle.ParticleFrost;
-import naturix.divinerpg.particle.ParticleMortumPortal;
-import naturix.divinerpg.particle.ParticleSkythernPortal;
-import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.DivineTeleporter;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
@@ -43,13 +38,13 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModPortal extends BlockBreakable implements IHasModel {
 
-    public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis", EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
+    public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis",
+            EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
     protected static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
     protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
 
@@ -59,23 +54,23 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
         return a == EnumFacing.Axis.X ? 1 : (a == EnumFacing.Axis.Z ? 2 : 0);
     }
 
-    public String name;
     protected Block fireBlock, portalFrame, portalBlock = this;
+    DRPGParticleTypes portalParticle;
+    protected String name;
+    protected int dimId;
 
-    public int dimId;
-
-    public BlockModPortal(String name, Block fireBlock, int dimId, Block portalFrame) {
+    public BlockModPortal(String name, int dimId, Block fireBlock, Block portalFrame, DRPGParticleTypes particle) {
         super(Material.PORTAL, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
-        setUnlocalizedName(name);
 
         this.fireBlock = fireBlock;
         this.dimId = dimId;
         this.portalFrame = portalFrame;
+        this.portalParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -173,13 +168,15 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
         if (enumfacing$axis == EnumFacing.Axis.X) {
             BlockModPortal.Size EdenBlock$size = new BlockModPortal.Size(worldIn, pos, EnumFacing.Axis.X);
 
-            if (!EdenBlock$size.isValid() || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height) {
+            if (!EdenBlock$size.isValid()
+                    || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height) {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         } else if (enumfacing$axis == EnumFacing.Axis.Z) {
             BlockModPortal.Size BlockModPortal$size1 = new BlockModPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
 
-            if (!BlockModPortal$size1.isValid() || BlockModPortal$size1.portalBlockCount < BlockModPortal$size1.width * BlockModPortal$size1.height) {
+            if (!BlockModPortal$size1.isValid() || BlockModPortal$size1.portalBlockCount < BlockModPortal$size1.width
+                    * BlockModPortal$size1.height) {
                 worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         }
@@ -195,10 +192,13 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
                 thePlayer.timeUntilPortal = 10;
             } else if (thePlayer.dimension != dimensionID) {
                 thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID, new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this, portalFrame.getDefaultState()));
+                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
+                        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
+                                portalFrame.getDefaultState()));
             } else {
                 thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0, new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrame.getDefaultState()));
+                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
+                        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrame.getDefaultState()));
             }
         }
     }
@@ -212,7 +212,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(100) == 0) {
-            worldIn.playSound(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_PORTAL_AMBIENT, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
+            worldIn.playSound(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_PORTAL_AMBIENT,
+                    SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
         }
 
         for (int i = 0; i < 4; ++i) {
@@ -223,7 +224,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
             double d4 = (rand.nextFloat() - 0.5D) * 0.5D;
             double d5 = (rand.nextFloat() - 0.5D) * 0.5D;
             int j = rand.nextInt(2) * 2 - 1;
-            if (worldIn.getBlockState(pos.west()).getBlock() != this && worldIn.getBlockState(pos.east()).getBlock() != this) {
+            if (worldIn.getBlockState(pos.west()).getBlock() != this
+                    && worldIn.getBlockState(pos.east()).getBlock() != this) {
                 d0 = pos.getX() + 0.5D + 0.25D * j;
                 d3 = rand.nextFloat() * 2.0F * j;
             } else {
@@ -231,25 +233,7 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
                 d5 = rand.nextFloat() * 2.0F * j;
             }
 
-            if (state.getBlock() == ModBlocks.edenPortal) {
-                ParticleEdenPortal var20 = new ParticleEdenPortal(worldIn, d0, d1, d2, d3, d4, d5);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
-            } else if (state.getBlock() == ModBlocks.wildwoodPortal) {
-                ParticleWildWoodPortal var20 = new ParticleWildWoodPortal(worldIn, d0, d1, d2, d3, d4, d5);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
-            } else if (state.getBlock() == ModBlocks.apalachiaPortal) {
-                ParticleApalachiaPortal var20 = new ParticleApalachiaPortal(worldIn, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
-            } else if (state.getBlock() == ModBlocks.skythernPortal) {
-                ParticleSkythernPortal var20 = new ParticleSkythernPortal(worldIn, d0, d1, d2, d3, d4, d5);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
-            } else if (state.getBlock() == ModBlocks.mortumPortal) {
-                ParticleMortumPortal var20 = new ParticleMortumPortal(worldIn, d0, d1, d2, d3, d4, d5);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
-            } else if (state.getBlock() == ModBlocks.iceikaPortal) {
-                ParticleFrost var20 = new ParticleFrost(worldIn, d0, d1, d2, d3, d4, d5);
-                FMLClientHandler.instance().getClient().effectRenderer.addEffect(var20);
-            }
+            DivineRPG.proxy.spawnParticle(worldIn, portalParticle, d0, d1, d2, d3, d4, d5);
         }
     }
 
@@ -260,7 +244,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos,
+            EnumFacing side) {
         pos = pos.offset(side);
         EnumFacing.Axis enumfacing$axis = null;
 
@@ -277,10 +262,14 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
             }
         }
 
-        boolean flag = blockAccess.getBlockState(pos.west()).getBlock() == this && blockAccess.getBlockState(pos.west(2)).getBlock() != this;
-        boolean flag1 = blockAccess.getBlockState(pos.east()).getBlock() == this && blockAccess.getBlockState(pos.east(2)).getBlock() != this;
-        boolean flag2 = blockAccess.getBlockState(pos.north()).getBlock() == this && blockAccess.getBlockState(pos.north(2)).getBlock() != this;
-        boolean flag3 = blockAccess.getBlockState(pos.south()).getBlock() == this && blockAccess.getBlockState(pos.south(2)).getBlock() != this;
+        boolean flag = blockAccess.getBlockState(pos.west()).getBlock() == this
+                && blockAccess.getBlockState(pos.west(2)).getBlock() != this;
+        boolean flag1 = blockAccess.getBlockState(pos.east()).getBlock() == this
+                && blockAccess.getBlockState(pos.east(2)).getBlock() != this;
+        boolean flag2 = blockAccess.getBlockState(pos.north()).getBlock() == this
+                && blockAccess.getBlockState(pos.north(2)).getBlock() != this;
+        boolean flag3 = blockAccess.getBlockState(pos.south()).getBlock() == this
+                && blockAccess.getBlockState(pos.south(2)).getBlock() != this;
         boolean flag4 = flag || flag1 || enumfacing$axis == EnumFacing.Axis.X;
         boolean flag5 = flag2 || flag3 || enumfacing$axis == EnumFacing.Axis.Z;
 
@@ -336,7 +325,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
                 this.rightDir = EnumFacing.SOUTH;
             }
 
-            for (BlockPos blockpos = pos; pos.getY() > blockpos.getY() - 21 && pos.getY() > 0 && this.isEmptyBlock(worldIn.getBlockState(pos.down()).getBlock()); pos = pos.down()) {
+            for (BlockPos blockpos = pos; pos.getY() > blockpos.getY() - 21 && pos.getY() > 0
+                    && this.isEmptyBlock(worldIn.getBlockState(pos.down()).getBlock()); pos = pos.down()) {
                 ;
             }
 
@@ -390,7 +380,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
             }
 
             for (int j = 0; j < this.width; ++j) {
-                if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height)).getBlock() != portalFrame) {
+                if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
+                        .getBlock() != portalFrame) {
                     this.height = 0;
                     break;
                 }
@@ -412,7 +403,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
             for (i = 0; i < 22; ++i) {
                 BlockPos blockpos = pos.offset(facing, i);
 
-                if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock()) || this.world.getBlockState(blockpos.down()).getBlock() != portalFrame) {
+                if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
+                        || this.world.getBlockState(blockpos.down()).getBlock() != portalFrame) {
                     break;
                 }
             }
@@ -430,11 +422,13 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
         }
 
         protected boolean isEmptyBlock(Block blockIn) {
-            return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == fireBlock || blockIn == portalBlock;
+            return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == fireBlock
+                    || blockIn == portalBlock;
         }
 
         public boolean isValid() {
-            return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
+            return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3
+                    && this.height <= 21;
         }
 
         public void placePortalBlocks() {
@@ -444,7 +438,8 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
                     DivineRPG.logger.info("attempting to ignight a portal");
                 }
                 for (int j = 0; j < this.height; ++j) {
-                    this.world.setBlockState(blockpos.up(j), portalBlock.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);
+                    this.world.setBlockState(blockpos.up(j),
+                            portalBlock.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);
                 }
             }
         }

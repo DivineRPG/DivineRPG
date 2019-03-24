@@ -1,9 +1,8 @@
 package naturix.divinerpg.utils;
 
 /**
- * Created by LiteWolf101 on Feb
- * /07/2019
+ * Created by LiteWolf101 on Feb /07/2019
  */
 public enum DRPGParticleTypes {
-    FROST
+    APALACHIA_PORTAL, EDEN_PORTAL, MORTUM_PORTAL, SKYTHERN_PORTAL, WILDWOOD_PORTAL, BLACK_FLAME, BLUE_FLAME, GREEN_FLAME, FROST, SPARKLER, ENDER_TRIPLET
 }

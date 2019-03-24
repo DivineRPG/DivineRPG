@@ -38,6 +38,7 @@ import naturix.divinerpg.objects.blocks.vanilla.BlockSpike;
 import naturix.divinerpg.objects.blocks.vanilla.BlockTomatoPlant;
 import naturix.divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
 import naturix.divinerpg.objects.blocks.vanilla.VanillaBlock;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GenerateJSON;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
@@ -49,17 +50,26 @@ public class ModBlocks {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
 
     // Vanilla
-    public static Block rupeeOre = new VanillaBlock(EnumBlockType.ROCK, "rupee_ore", 3.0F, DIAMOND).setResistance(2000.0F);
-    public static Block arlemiteOre = new VanillaBlock(EnumBlockType.ROCK, "arlemite_ore", 3.0F, DIAMOND).setResistance(2000.0F);
-    public static Block realmiteOre = new VanillaBlock(EnumBlockType.ROCK, "realmite_ore", 3.0F, IRON).setResistance(2000.0F);
+    public static Block rupeeOre = new VanillaBlock(EnumBlockType.ROCK, "rupee_ore", 3.0F, DIAMOND)
+            .setResistance(2000.0F);
+    public static Block arlemiteOre = new VanillaBlock(EnumBlockType.ROCK, "arlemite_ore", 3.0F, DIAMOND)
+            .setResistance(2000.0F);
+    public static Block realmiteOre = new VanillaBlock(EnumBlockType.ROCK, "realmite_ore", 3.0F, IRON)
+            .setResistance(2000.0F);
     public static Block bloodgemOre = new BlockBloodgemOre("bloodgem_ore");
-    public static Block netheriteOre = new VanillaBlock(EnumBlockType.ROCK, "netherite_ore", 3.0F, DIAMOND).setResistance(2000.0F);
+    public static Block netheriteOre = new VanillaBlock(EnumBlockType.ROCK, "netherite_ore", 3.0F, DIAMOND)
+            .setResistance(2000.0F);
 
-    public static Block rupeeBlock = new VanillaBlock(EnumBlockType.ROCK, "rupee_block", 5.0F, DIAMOND).setResistance(10F);
-    public static Block arlemiteBlock = new VanillaBlock(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND).setResistance(10F);
-    public static Block realmiteBlock = new VanillaBlock(EnumBlockType.ROCK, "realmite_block", 5.0F, IRON).setResistance(10F);
-    public static Block bloodgemBlock = new VanillaBlock(EnumBlockType.ROCK, "bloodgem_block", 5.0F, DIAMOND).setResistance(10F);
-    public static Block netheriteBlock = new VanillaBlock(EnumBlockType.ROCK, "netherite_block", 5.0F, DIAMOND).setResistance(10F);
+    public static Block rupeeBlock = new VanillaBlock(EnumBlockType.ROCK, "rupee_block", 5.0F, DIAMOND)
+            .setResistance(10F);
+    public static Block arlemiteBlock = new VanillaBlock(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND)
+            .setResistance(10F);
+    public static Block realmiteBlock = new VanillaBlock(EnumBlockType.ROCK, "realmite_block", 5.0F, IRON)
+            .setResistance(10F);
+    public static Block bloodgemBlock = new VanillaBlock(EnumBlockType.ROCK, "bloodgem_block", 5.0F, DIAMOND)
+            .setResistance(10F);
+    public static Block netheriteBlock = new VanillaBlock(EnumBlockType.ROCK, "netherite_block", 5.0F, DIAMOND)
+            .setResistance(10F);
 
     public static Block spiderPumpkin = new BlockMobPumpkin("spider_pumpkin");
     public static Block enderPumpkin = new BlockMobPumpkin("ender_pumpkin");
@@ -75,14 +85,15 @@ public class ModBlocks {
     public static Block jungleSpiderPumpkin = new BlockMobPumpkin("jungle_spider_pumpkin");
     public static Block hellspiderPumpkin = new BlockMobPumpkin("hellspider_pumpkin");
 
-    public static Block aquaTorch = new BlockModTorch("aqua_torch", "blue_flame");
-    public static Block skeletonTorch = new BlockModTorch("skeleton_torch", "black_flame");
+    public static Block aquaTorch = new BlockModTorch("aqua_torch", DRPGParticleTypes.BLUE_FLAME);
+    public static Block skeletonTorch = new BlockModTorch("skeleton_torch", DRPGParticleTypes.BLACK_FLAME);
 
     public static Block checker = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD);
     public static Block rainbowWool = new VanillaBlock(EnumBlockType.WOOL, "rainbow_wool", 0.8F, WOOD_GOLD);
     public static Block crate = new VanillaBlock(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD);
     public static Block plankDesign = new VanillaBlock(EnumBlockType.WOOD, "plank_design", 2.5F, WOOD_GOLD);
-    public static Block blueStone = new VanillaBlock(EnumBlockType.ROCK, "blue_stone", 1.5F, WOOD_GOLD).setResistance(10F).setLightLevel(1);
+    public static Block blueStone = new VanillaBlock(EnumBlockType.ROCK, "blue_stone", 1.5F, WOOD_GOLD)
+            .setResistance(10F).setLightLevel(1);
 
     public static Block blueVane = new VanillaBlock(EnumBlockType.ROCK, "blue_vane", 2.0F, IRON).setResistance(10F);
     public static Block cyanVane = new VanillaBlock(EnumBlockType.ROCK, "cyan_vane", 2.0F, IRON).setResistance(10F);
@@ -90,72 +101,130 @@ public class ModBlocks {
     public static Block redVane = new VanillaBlock(EnumBlockType.ROCK, "red_vane", 2.0F, IRON).setResistance(10F);
     public static Block yellowVane = new VanillaBlock(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON).setResistance(10F);
 
-    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F);
+    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE)
+            .setResistance(10F);
     public static Block tar = new BlockTar();
 
     public static Block fancyWool = new VanillaBlock(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD);
 
-    public static Block tealSteel = new VanillaBlock(EnumBlockType.ROCK, "teal_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block redSteel = new VanillaBlock(EnumBlockType.ROCK, "red_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block purpleSteel = new VanillaBlock(EnumBlockType.ROCK, "purple_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block greenSteel = new VanillaBlock(EnumBlockType.ROCK, "green_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block yellowSteel = new VanillaBlock(EnumBlockType.ROCK, "yellow_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block blueSteel = new VanillaBlock(EnumBlockType.ROCK, "blue_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block whiteSteel = new VanillaBlock(EnumBlockType.ROCK, "white_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block blackSteel = new VanillaBlock(EnumBlockType.ROCK, "black_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block orangeSteel = new VanillaBlock(EnumBlockType.ROCK, "orange_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block brightRedSteel = new VanillaBlock(EnumBlockType.ROCK, "bright_red_steel", 10.0F, DIAMOND).setResistance(60.0F);
+    public static Block tealSteel = new VanillaBlock(EnumBlockType.ROCK, "teal_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block redSteel = new VanillaBlock(EnumBlockType.ROCK, "red_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block purpleSteel = new VanillaBlock(EnumBlockType.ROCK, "purple_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block greenSteel = new VanillaBlock(EnumBlockType.ROCK, "green_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block yellowSteel = new VanillaBlock(EnumBlockType.ROCK, "yellow_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block blueSteel = new VanillaBlock(EnumBlockType.ROCK, "blue_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block whiteSteel = new VanillaBlock(EnumBlockType.ROCK, "white_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block blackSteel = new VanillaBlock(EnumBlockType.ROCK, "black_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block orangeSteel = new VanillaBlock(EnumBlockType.ROCK, "orange_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
+    public static Block brightRedSteel = new VanillaBlock(EnumBlockType.ROCK, "bright_red_steel", 10.0F, DIAMOND)
+            .setResistance(60.0F);
 
-    public static Block aquatonicBricks = new VanillaBlock(EnumBlockType.ROCK, "aquatonic_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block arlemiteBricks = new VanillaBlock(EnumBlockType.ROCK, "arlemite_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block darkstoneBricks = new VanillaBlock(EnumBlockType.ROCK, "darkstone_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block diamondBricks = new VanillaBlock(EnumBlockType.ROCK, "diamond_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block goldBricks = new VanillaBlock(EnumBlockType.ROCK, "gold_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block greenBricks = new VanillaBlock(EnumBlockType.ROCK, "green_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block ironBricks = new VanillaBlock(EnumBlockType.ROCK, "iron_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block lapisLazuliBricks = new VanillaBlock(EnumBlockType.ROCK, "lapis_lazuli_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block lavaBricks = new VanillaBlock(EnumBlockType.ROCK, "lava_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block netheriteBricks = new VanillaBlock(EnumBlockType.ROCK, "netherite_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block pinkBricks = new VanillaBlock(EnumBlockType.ROCK, "pink_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block purpleBricks = new VanillaBlock(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block realmiteBricks = new VanillaBlock(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block redstoneBricks = new VanillaBlock(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block milkStoneBricks = new VanillaBlock(EnumBlockType.ROCK, "milk_stone_bricks", 3.0F, IRON).setResistance(30.0F);
+    public static Block aquatonicBricks = new VanillaBlock(EnumBlockType.ROCK, "aquatonic_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block arlemiteBricks = new VanillaBlock(EnumBlockType.ROCK, "arlemite_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block darkstoneBricks = new VanillaBlock(EnumBlockType.ROCK, "darkstone_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block diamondBricks = new VanillaBlock(EnumBlockType.ROCK, "diamond_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block goldBricks = new VanillaBlock(EnumBlockType.ROCK, "gold_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block greenBricks = new VanillaBlock(EnumBlockType.ROCK, "green_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block ironBricks = new VanillaBlock(EnumBlockType.ROCK, "iron_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block lapisLazuliBricks = new VanillaBlock(EnumBlockType.ROCK, "lapis_lazuli_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block lavaBricks = new VanillaBlock(EnumBlockType.ROCK, "lava_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block netheriteBricks = new VanillaBlock(EnumBlockType.ROCK, "netherite_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block pinkBricks = new VanillaBlock(EnumBlockType.ROCK, "pink_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block purpleBricks = new VanillaBlock(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block realmiteBricks = new VanillaBlock(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block redstoneBricks = new VanillaBlock(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block milkStoneBricks = new VanillaBlock(EnumBlockType.ROCK, "milk_stone_bricks", 3.0F, IRON)
+            .setResistance(30.0F);
 
-    public static Block rupeeMinibricks = new VanillaBlock(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block realmiteMinibricks = new VanillaBlock(EnumBlockType.ROCK, "realmite_minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block arlemiteMinibricks = new VanillaBlock(EnumBlockType.ROCK, "arlemite_minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block minibricks = new VanillaBlock(EnumBlockType.ROCK, "minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block bloodgemMinibricks = new VanillaBlock(EnumBlockType.ROCK, "bloodgem_minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block netheriteMinibricks = new VanillaBlock(EnumBlockType.ROCK, "netherite_minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block bedrockMinibricks = new VanillaBlock(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON).setResistance(30.0F);
+    public static Block rupeeMinibricks = new VanillaBlock(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block realmiteMinibricks = new VanillaBlock(EnumBlockType.ROCK, "realmite_minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block arlemiteMinibricks = new VanillaBlock(EnumBlockType.ROCK, "arlemite_minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block minibricks = new VanillaBlock(EnumBlockType.ROCK, "minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block bloodgemMinibricks = new VanillaBlock(EnumBlockType.ROCK, "bloodgem_minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block netheriteMinibricks = new VanillaBlock(EnumBlockType.ROCK, "netherite_minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
+    public static Block bedrockMinibricks = new VanillaBlock(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON)
+            .setResistance(30.0F);
 
-    public static Block aquaLamp = new VanillaBlock(EnumBlockType.GLASS, "aqua_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block arlemiteLamp = new VanillaBlock(EnumBlockType.GLASS, "arlemite_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block blazeLamp = new VanillaBlock(EnumBlockType.GLASS, "blaze_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block bluefireLamp = new VanillaBlock(EnumBlockType.GLASS, "bluefire_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block diamondLamp = new VanillaBlock(EnumBlockType.GLASS, "diamond_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block divineLamp = new VanillaBlock(EnumBlockType.GLASS, "divine_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block drakenLamp = new VanillaBlock(EnumBlockType.GLASS, "draken_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block edenLamp = new VanillaBlock(EnumBlockType.GLASS, "eden_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block enderLamp = new VanillaBlock(EnumBlockType.GLASS, "ender_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block enderStoneLamp = new VanillaBlock(EnumBlockType.GLASS, "ender_stone_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block goldLamp = new VanillaBlock(EnumBlockType.GLASS, "gold_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block iceLamp = new VanillaBlock(EnumBlockType.GLASS, "ice_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block jungleLamp = new VanillaBlock(EnumBlockType.GLASS, "jungle_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block krakenLamp = new VanillaBlock(EnumBlockType.GLASS, "kraken_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block lapisLazuliLamp = new VanillaBlock(EnumBlockType.GLASS, "lapis_lazuli_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block lavaLamp = new VanillaBlock(EnumBlockType.GLASS, "lava_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block milkyLamp = new VanillaBlock(EnumBlockType.GLASS, "milky_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block moltenLamp = new VanillaBlock(EnumBlockType.GLASS, "molten_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block netheriteLamp = new VanillaBlock(EnumBlockType.GLASS, "netherite_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block realmiteLamp = new VanillaBlock(EnumBlockType.GLASS, "realmite_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block redstoneOrekLamp = new VanillaBlock(EnumBlockType.GLASS, "redstone_ore_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block rupeeLamp = new VanillaBlock(EnumBlockType.GLASS, "rupee_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
-    public static Block terranLamp = new VanillaBlock(EnumBlockType.GLASS, "terran_lamp", 3.0F, DIAMOND).setResistance(30.0F).setLightLevel(1);
+    public static Block aquaLamp = new VanillaBlock(EnumBlockType.GLASS, "aqua_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block arlemiteLamp = new VanillaBlock(EnumBlockType.GLASS, "arlemite_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block blazeLamp = new VanillaBlock(EnumBlockType.GLASS, "blaze_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block bluefireLamp = new VanillaBlock(EnumBlockType.GLASS, "bluefire_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block diamondLamp = new VanillaBlock(EnumBlockType.GLASS, "diamond_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block divineLamp = new VanillaBlock(EnumBlockType.GLASS, "divine_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block drakenLamp = new VanillaBlock(EnumBlockType.GLASS, "draken_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block edenLamp = new VanillaBlock(EnumBlockType.GLASS, "eden_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block enderLamp = new VanillaBlock(EnumBlockType.GLASS, "ender_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block enderStoneLamp = new VanillaBlock(EnumBlockType.GLASS, "ender_stone_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block goldLamp = new VanillaBlock(EnumBlockType.GLASS, "gold_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block iceLamp = new VanillaBlock(EnumBlockType.GLASS, "ice_lamp", 3.0F, DIAMOND).setResistance(30.0F)
+            .setLightLevel(1);
+    public static Block jungleLamp = new VanillaBlock(EnumBlockType.GLASS, "jungle_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block krakenLamp = new VanillaBlock(EnumBlockType.GLASS, "kraken_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block lapisLazuliLamp = new VanillaBlock(EnumBlockType.GLASS, "lapis_lazuli_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block lavaLamp = new VanillaBlock(EnumBlockType.GLASS, "lava_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block milkyLamp = new VanillaBlock(EnumBlockType.GLASS, "milky_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block moltenLamp = new VanillaBlock(EnumBlockType.GLASS, "molten_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block netheriteLamp = new VanillaBlock(EnumBlockType.GLASS, "netherite_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block realmiteLamp = new VanillaBlock(EnumBlockType.GLASS, "realmite_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block redstoneOrekLamp = new VanillaBlock(EnumBlockType.GLASS, "redstone_ore_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block rupeeLamp = new VanillaBlock(EnumBlockType.GLASS, "rupee_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
+    public static Block terranLamp = new VanillaBlock(EnumBlockType.GLASS, "terran_lamp", 3.0F, DIAMOND)
+            .setResistance(30.0F).setLightLevel(1);
 
-    public static Block milkStone = new VanillaBlock(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD).setResistance(10F);
-    public static Block darkstone = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setResistance(2000.0F).setLightLevel(1);
+    public static Block milkStone = new VanillaBlock(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD)
+            .setResistance(10F);
+    public static Block darkstone = new VanillaBlock(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND)
+            .setResistance(2000.0F).setLightLevel(1);
     public static Block spikeBlock = new BlockSpike("spike_block");
     public static Block hotSpikeBlock = new BlockHotSpike("hot_spike_block");
     public static Block slimeLight = new BlockSlimeLight("slime_light", false);
@@ -198,7 +267,8 @@ public class ModBlocks {
     public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
-    public static Block divinePlanks = new BlockMod(EnumBlockType.WOOD, "divine_planks", 2, DRPGCreativeTabs.BlocksTab).setResistance(5);
+    public static Block divinePlanks = new BlockMod(EnumBlockType.WOOD, "divine_planks", 2, DRPGCreativeTabs.BlocksTab)
+            .setResistance(5);
     public static Block divineStairs = new BlockModStairs(divinePlanks, "divine_stairs");
     public static Block divineSlab = new BlockModSlab((BlockMod) divinePlanks, null);
     public static Block divineSlabDouble = new BlockModSlab((BlockMod) divinePlanks, divineSlab);
@@ -226,9 +296,11 @@ public class ModBlocks {
     public static Block icyStone = new BlockMod("icy_stone", -1F);
     public static Block icyBricks = new BlockMod("icy_bricks", -1F);
     public static Block frostedChest = new BlockFrostedChest("frosted_chest", true).setHardness(2.5F);
-    public static Block decorativeFrostedChest = new BlockFrostedChest("decorative_frosted_chest", false).setHardness(2.5F);
+    public static Block decorativeFrostedChest = new BlockFrostedChest("decorative_frosted_chest", false)
+            .setHardness(2.5F);
     public static Block rollumSpawner = new BlockModSpawner("rollum_spawner", "rollum").setHardness(5.0F);
-    public static Block frostArcherSpawner = new BlockModSpawner("frost_archer_spawner", "frost_archer").setHardness(5.0F);
+    public static Block frostArcherSpawner = new BlockModSpawner("frost_archer_spawner", "frost_archer")
+            .setHardness(5.0F);
     public static Block snowBricks = new BlockMod("snow_bricks", 6.0F);
     public static Block coalstone = new BlockMod("coalstone", 3.0F);
     public static Block coalstoneStairs = new BlockModStairs(coalstone, "coalstone_stairs");
@@ -256,7 +328,8 @@ public class ModBlocks {
     public static Block presentBox = new BlockPresentBox("present_box");
 
     public static Block iceikaFire = new BlockModFire("iceika_fire");
-    public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal", iceikaFire, ModDimensions.iceikaDimension.getId(), Blocks.SNOW);
+    public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal",
+            ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, DRPGParticleTypes.FROST);
 
     // Twilight
     public static Block edenDirt = new BlockMod(EnumBlockType.DIRT, "eden_dirt", 5.0F);
@@ -265,16 +338,24 @@ public class ModBlocks {
     public static Block skythernDirt = new BlockMod(EnumBlockType.DIRT, "skythern_dirt", 5.0F);
     public static Block mortumDirt = new BlockMod(EnumBlockType.DIRT, "mortum_dirt", 5.0F);
     public static Block edenGrass = new BlockModGrass((BlockMod) edenDirt, "eden_grass", "eden_dirt", 5.0F);
-    public static Block wildwoodGrass = new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", "wildwood_dirt", 5.0F);
-    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass", "apalachia_dirt", 5.0F);
-    public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", "skythern_dirt", 5.0F);
+    public static Block wildwoodGrass = new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", "wildwood_dirt",
+            5.0F);
+    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass",
+            "apalachia_dirt", 5.0F);
+    public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", "skythern_dirt",
+            5.0F);
     public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", "mortum_dirt", 5.0F);
 
-    public static Block edenOre = new BlockMod("eden_ore", 9).toggleExp(true).setTwilightOre(true).setDropItem(ModItems.edenFragments);
-    public static Block wildwoodOre = new BlockMod("wildwood_ore", 9).setTwilightOre(true).setDropItem(ModItems.wildwoodFragments);
-    public static Block apalachiaOre = new BlockMod("apalachia_ore", 9).setTwilightOre(true).setDropItem(ModItems.apalachiaFragments);
-    public static Block skythernOre = new BlockMod("skythern_ore", 9).setTwilightOre(true).setDropItem(ModItems.skythernFragments);
-    public static Block mortumOre = new BlockMod("mortum_ore", 9).setTwilightOre(true).setDropItem(ModItems.mortumFragments);
+    public static Block edenOre = new BlockMod("eden_ore", 9).toggleExp(true).setTwilightOre(true)
+            .setDropItem(ModItems.edenFragments);
+    public static Block wildwoodOre = new BlockMod("wildwood_ore", 9).setTwilightOre(true)
+            .setDropItem(ModItems.wildwoodFragments);
+    public static Block apalachiaOre = new BlockMod("apalachia_ore", 9).setTwilightOre(true)
+            .setDropItem(ModItems.apalachiaFragments);
+    public static Block skythernOre = new BlockMod("skythern_ore", 9).setTwilightOre(true)
+            .setDropItem(ModItems.skythernFragments);
+    public static Block mortumOre = new BlockMod("mortum_ore", 9).setTwilightOre(true)
+            .setDropItem(ModItems.mortumFragments);
 
     public static Block edenBlock = new BlockMod("eden_block", 9);
     public static Block wildwoodBlock = new BlockMod("wildwood_block", 9);
@@ -284,11 +365,16 @@ public class ModBlocks {
 
     public static Block twilightStone = new BlockMod("twilight_stone", 6.0F);
     public static Block blueFire = new BlockModFire("blue_fire");
-    public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", blueFire, ModDimensions.edenDimension.getId(), divineRock);
-    public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal", blueFire, ModDimensions.wildWoodDimension.getId(), edenBlock);
-    public static BlockModPortal apalachiaPortal = new BlockModPortal("apalachia_portal", blueFire, ModDimensions.apalachiaDimension.getId(), wildwoodBlock);
-    public static BlockModPortal skythernPortal = new BlockModPortal("skythern_portal", blueFire, ModDimensions.skythernDimension.getId(), apalachiaBlock);
-    public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal", blueFire, ModDimensions.mortumDimension.getId(), skythernBlock);
+    public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(),
+            blueFire, divineRock, DRPGParticleTypes.EDEN_PORTAL);
+    public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal",
+            ModDimensions.wildWoodDimension.getId(), blueFire, edenBlock, DRPGParticleTypes.WILDWOOD_PORTAL);
+    public static BlockModPortal apalachiaPortal = new BlockModPortal("apalachia_portal",
+            ModDimensions.apalachiaDimension.getId(), blueFire, wildwoodBlock, DRPGParticleTypes.APALACHIA_PORTAL);
+    public static BlockModPortal skythernPortal = new BlockModPortal("skythern_portal",
+            ModDimensions.skythernDimension.getId(), blueFire, apalachiaBlock, DRPGParticleTypes.SKYTHERN_PORTAL);
+    public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal",
+            ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
 
     // Arcana
     public static Block stainedGlass = new BlockModGlass("stained_glass", 0.3F).setUnlocalizedName("stained_glass");

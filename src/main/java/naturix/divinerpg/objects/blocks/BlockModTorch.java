@@ -3,11 +3,10 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.particle.ParticleBlackFlame;
-import naturix.divinerpg.particle.ParticleBlueFlame;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
@@ -16,21 +15,20 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModTorch extends BlockTorch implements IHasModel {
-    private String particle;
+    private DRPGParticleTypes flameParticle;
 
-    public BlockModTorch(String name, String particle) {
+    public BlockModTorch(String name, DRPGParticleTypes particle) {
         super();
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setLightLevel(1);
         this.setHardness(0.0F);
-        this.particle = particle;
+        this.flameParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -49,13 +47,7 @@ public class BlockModTorch extends BlockTorch implements IHasModel {
             d1 = d1 + 0.22D;
             d2 = d2 + 0.27D * (double) enumfacing1.getFrontOffsetZ();
         }
-        if (stateIn.getBlock() == ModBlocks.aquaTorch) {
-            ParticleBlueFlame flame = new ParticleBlueFlame(worldIn, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-            FMLClientHandler.instance().getClient().effectRenderer.addEffect(flame);
-        } else if (stateIn.getBlock() == ModBlocks.skeletonTorch) {
-            ParticleBlackFlame flame = new ParticleBlackFlame(worldIn, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-            FMLClientHandler.instance().getClient().effectRenderer.addEffect(flame);
-        }
+        DivineRPG.proxy.spawnParticle(worldIn, flameParticle, d0, d1, d2, 0.0D, 0.0D, 0.0D);
     }
 
     @Override
