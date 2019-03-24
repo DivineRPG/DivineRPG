@@ -10,6 +10,7 @@ import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import naturix.divinerpg.utils.material.EnumToolType;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -99,6 +100,10 @@ public class BlockMod extends Block implements IHasModel {
 		}
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
+
+	public BlockMod(Material rock, String name2) {
+		this(EnumBlockType.ROCK, name2, 1, DRPGCreativeTabs.BlocksTab);
 	}
 
 	public BlockMod(String name, boolean breakable) {

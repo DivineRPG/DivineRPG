@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import net.minecraft.block.material.Material;
 
-public class LampBase extends BlockBase {
+public class LampBase extends BlockMod {
 
 	public LampBase(Material material, String name) {
 		super(material, name);

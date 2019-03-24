@@ -10,7 +10,7 @@ import net.minecraft.util.EnumBlockRenderType;
 /**
  * Created by LiteWolf101 on Jan /28/2019
  */
-public class FrostedGlass extends BlockBase {
+public class FrostedGlass extends BlockMod {
 	protected String name;
 
 	public FrostedGlass(String name) {

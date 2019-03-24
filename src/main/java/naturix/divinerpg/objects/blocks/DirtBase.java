@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class DirtBase extends BlockBase {
+public class DirtBase extends BlockMod {
 
 	public DirtBase(String name) {
 		super(Material.GROUND, name);

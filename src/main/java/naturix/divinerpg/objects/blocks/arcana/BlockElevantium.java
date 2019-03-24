@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
-import naturix.divinerpg.objects.blocks.BlockBase;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.objects.blocks.BlockMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,13 +11,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockElevantium extends BlockBase {
+public class BlockElevantium extends BlockMod {
 
 	public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.03125F,
 	        0.9375F);
 
 	public BlockElevantium(String name) {
-		super(Material.IRON, name, DRPGCreativeTabs.BlocksTab);
+		super(Material.IRON, name);
 		setResistance(20);
 		this.setHardness(3);
 	}

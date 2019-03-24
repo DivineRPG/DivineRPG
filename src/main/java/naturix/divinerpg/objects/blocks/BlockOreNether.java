@@ -12,7 +12,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class BlockOreNether extends BlockBase implements IHasModel, IMetaName {
+public class BlockOreNether extends BlockMod implements IHasModel, IMetaName {
 	// public static final PropertyEnum TYPE = PropertyEnum.create("type",
 	// OreType.class);
 
@@ -36,22 +36,22 @@ public class BlockOreNether extends BlockBase implements IHasModel, IMetaName {
 	/**
 	 * @Override protected BlockStateContainer createBlockState() { return new
 	 *           BlockStateContainer(this, new IProperty[] { TYPE }); }
-	 * 
+	 *
 	 * @Override public int damageDropped(IBlockState state) { return
 	 *           getMetaFromState(state); }
-	 * 
+	 *
 	 * @Override public int getMetaFromState(IBlockState state) { OreType type =
 	 *           (OreType) state.getValue(TYPE); return type.getID(); }
-	 * 
+	 *
 	 * @Override public ItemStack getPickBlock(IBlockState state, RayTraceResult
 	 *           target, World world, BlockPos pos, EntityPlayer player) { return
 	 *           new ItemStack(Item.getItemFromBlock(this), 1,
 	 *           getMetaFromState(state)); }
-	 * 
+	 *
 	 * @Override public IBlockState getStateFromMeta(int meta) { return
 	 *           this.getDefaultState().withProperty(TYPE, OreType.values()[meta]);
 	 *           }
-	 * 
+	 *
 	 *           public void getSubBlocks(Item itemIn, CreativeTabs tab,
 	 *           NonNullList<ItemStack> list) { for (int i = 0; i <
 	 *           OreType.values().length; i++) { list.add(new ItemStack(itemIn, 1,

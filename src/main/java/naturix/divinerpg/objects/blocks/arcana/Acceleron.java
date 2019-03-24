@@ -1,8 +1,9 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
-import naturix.divinerpg.objects.blocks.BlockBase;
+import naturix.divinerpg.objects.blocks.BlockMod;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -16,67 +17,78 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Acceleron extends BlockBase {
+public class Acceleron extends BlockMod {
 
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
+
 	public Acceleron(String name) {
-		super(Material.ROCK, name);
+		super(EnumBlockType.ROCK, name, DRPGCreativeTabs.BlocksTab);
 		slipperiness = 1.2f;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		
-	}
-	@Override
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		if (!worldIn.isRemote) 
-        {
-            IBlockState north = worldIn.getBlockState(pos.north());
-            IBlockState south = worldIn.getBlockState(pos.south());
-            IBlockState west = worldIn.getBlockState(pos.west());
-            IBlockState east = worldIn.getBlockState(pos.east());
-            EnumFacing face = (EnumFacing)state.getValue(FACING);
 
-            if (face == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock()) face = EnumFacing.SOUTH;
-            else if (face == EnumFacing.SOUTH && south.isFullBlock() && !north.isFullBlock()) face = EnumFacing.NORTH;
-            else if (face == EnumFacing.WEST && west.isFullBlock() && !east.isFullBlock()) face = EnumFacing.EAST;
-            else if (face == EnumFacing.EAST && east.isFullBlock() && !west.isFullBlock()) face = EnumFacing.WEST;
-            worldIn.setBlockState(pos, state.withProperty(FACING, face), 2);
-        }
 	}
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
-	}
-	
-	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack) {
-		worldIn.setBlockState(pos, this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()));
-	}
-	@Override
-	public IBlockState withRotation(IBlockState state, Rotation rot) {
-		return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
-	}
-	
-	@Override
-	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-		return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
-	}
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] { FACING });
 	}
-	
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING).getIndex();
+	}
+
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+	        float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+	}
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		EnumFacing facing = EnumFacing.getFront(meta);
-		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
+		if (facing.getAxis() == EnumFacing.Axis.Y) {
+			facing = EnumFacing.NORTH;
+		}
 		return this.getDefaultState().withProperty(FACING, facing);
 	}
-	
+
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		return ((EnumFacing)state.getValue(FACING)).getIndex();
+	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+		if (!worldIn.isRemote) {
+			IBlockState north = worldIn.getBlockState(pos.north());
+			IBlockState south = worldIn.getBlockState(pos.south());
+			IBlockState west = worldIn.getBlockState(pos.west());
+			IBlockState east = worldIn.getBlockState(pos.east());
+			EnumFacing face = state.getValue(FACING);
+
+			if (face == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock()) {
+				face = EnumFacing.SOUTH;
+			} else if (face == EnumFacing.SOUTH && south.isFullBlock() && !north.isFullBlock()) {
+				face = EnumFacing.NORTH;
+			} else if (face == EnumFacing.WEST && west.isFullBlock() && !east.isFullBlock()) {
+				face = EnumFacing.EAST;
+			} else if (face == EnumFacing.EAST && east.isFullBlock() && !west.isFullBlock()) {
+				face = EnumFacing.WEST;
+			}
+			worldIn.setBlockState(pos, state.withProperty(FACING, face), 2);
+		}
+	}
+
+	@Override
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	        ItemStack stack) {
+		worldIn.setBlockState(pos,
+		        this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()));
+	}
+
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
+		return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
+	}
+
+	@Override
+	public IBlockState withRotation(IBlockState state, Rotation rot) {
+		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
 	}
 }
