@@ -20,6 +20,7 @@ public class ItemTwilightClock extends ItemBase {
 	public ItemTwilightClock(String name) {
 		super(name);
 		setCreativeTab(DRPGCreativeTabs.utility);
+		setMaxStackSize(1);
 	}
 
 	@Override
