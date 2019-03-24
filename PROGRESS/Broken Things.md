@@ -13,5 +13,4 @@
 ## Bugs
 * Furnaces export via hopper instantly rather than waiting for the object to smelt
 * Tar
-* Dimension world gen
 * Shurikens
