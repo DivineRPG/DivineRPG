@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:apalachia_log"
+    },
+    "axis=none": {
+      "model": "divinerpg:apalachia_log"
+    },
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:apalachia_log"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:apalachia_log"
+    },
+    "axis=y": {
+      "model": "divinerpg:apalachia_log"
+    }
+  }
+}

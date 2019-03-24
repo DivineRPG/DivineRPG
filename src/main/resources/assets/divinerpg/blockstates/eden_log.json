@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:eden_log"
+    },
+    "axis=none": {
+      "model": "divinerpg:eden_log"
+    },
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:eden_log"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:eden_log"
+    },
+    "axis=y": {
+      "model": "divinerpg:eden_log"
+    }
+  }
+}

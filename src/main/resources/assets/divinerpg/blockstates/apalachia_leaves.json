@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:apalachia_leaves"
+    },
+    "check_decay=false,decayable=false": {
+      "model": "divinerpg:apalachia_leaves"
+    },
+    "check_decay=false,decayable=true": {
+      "model": "divinerpg:apalachia_leaves"
+    },
+    "check_decay=true,decayable=false": {
+      "model": "divinerpg:apalachia_leaves"
+    },
+    "check_decay=true,decayable=true": {
+      "model": "divinerpg:apalachia_leaves"
+    }
+  }
+}

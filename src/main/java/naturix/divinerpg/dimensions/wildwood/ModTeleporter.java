@@ -1,5 +1,7 @@
 package naturix.divinerpg.dimensions.wildwood;
 
+import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -10,7 +12,7 @@ import net.minecraft.world.WorldServer;
 public class ModTeleporter extends Teleporter {
 
     protected WorldServer myWorld;
-    //public Block portal = ModBlocks.wildwoodPortal, frame = ModBlocks.edenBlock;
+    public Block portal = ModBlocks.wildwoodPortal, frame = ModBlocks.edenBlock;
 
     public ModTeleporter(WorldServer var1) {
         super(var1);
@@ -18,8 +20,7 @@ public class ModTeleporter extends Teleporter {
     }
 
     public boolean isBlockPortal(World var1, int var2, int var3, int var4) {
-        //return var1.getBlockState(new BlockPos(var2, var3, var4)) == portal.getDefaultState();
-        return false;
+        return var1.getBlockState(new BlockPos(var2, var3, var4)) == portal.getDefaultState();
     }
 
     @Override
@@ -29,7 +30,8 @@ public class ModTeleporter extends Teleporter {
         int var7 = MathHelper.floor(entity.posX);
         int var8 = MathHelper.floor(entity.posY * var2);
         int var9 = MathHelper.floor(entity.posZ);
-        int var10 = var7, var11 = var8, var12 = var9, var13 = 0, var14 = this.myWorld.rand.nextInt(4), var15, var18, var21, var23, var22, var25, var24, var27, var26, var29, var28;
+        int var10 = var7, var11 = var8, var12 = var9, var13 = 0, var14 = this.myWorld.rand.nextInt(4), var15, var18,
+                var21, var23, var22, var25, var24, var27, var26, var29, var28;
 
         for (var15 = var7 - var4; var15 <= var7 + var4; ++var15) {
             var16 = var15 + 0.5D - entity.posX;
@@ -60,7 +62,11 @@ public class ModTeleporter extends Teleporter {
                                         var29 = var21 + var27;
                                         int var30 = var18 + (var26 - 1) * var24 - var25 * var23;
 
-                                        if (var27 < 0 && !this.myWorld.getBlockState(new BlockPos(var28, var29, var30)).getBlock().getMaterial(null).isSolid() || var27 >= 0 && !this.myWorld.isAirBlock(new BlockPos(var28, var29, var30))) {
+                                        if (var27 < 0
+                                                && !this.myWorld.getBlockState(new BlockPos(var28, var29, var30))
+                                                        .getBlock().getMaterial(null).isSolid()
+                                                || var27 >= 0 && !this.myWorld
+                                                        .isAirBlock(new BlockPos(var28, var29, var30))) {
                                             continue label178;
                                         }
                                     }
@@ -107,7 +113,11 @@ public class ModTeleporter extends Teleporter {
                                         var28 = var21 + var26;
                                         var29 = var18 + (var25 - 1) * var24;
 
-                                        if (var26 < 0 && !this.myWorld.getBlockState(new BlockPos(var27, var28, var29)).getBlock().getMaterial(null).isSolid() || var26 >= 0 && !this.myWorld.isAirBlock(new BlockPos(var27, var28, var29))) {
+                                        if (var26 < 0
+                                                && !this.myWorld.getBlockState(new BlockPos(var27, var28, var29))
+                                                        .getBlock().getMaterial(null).isSolid()
+                                                || var26 >= 0 && !this.myWorld
+                                                        .isAirBlock(new BlockPos(var27, var28, var29))) {
                                             continue label126;
                                         }
                                     }
@@ -144,28 +154,28 @@ public class ModTeleporter extends Teleporter {
 
     private void makePortalAt(World world, int x, int y, int z) {
         y = 90;
-        //world.setBlockState(new BlockPos(x, y, z), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x, y, z + 1), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x, y, z + 2), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 1, y, z + 3), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 2, y, z + 3), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 3, y, z + 3), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 4, y, z), frame.getDefaultState());
-        // world.setBlockState(new BlockPos(x + 4, y, z + 1), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 4, y, z + 2), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 1, y, z - 1), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 2, y, z - 1), frame.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 3, y, z - 1), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x, y, z), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x, y, z + 1), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x, y, z + 2), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y, z + 3), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 2, y, z + 3), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 3, y, z + 3), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 4, y, z), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 4, y, z + 1), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 4, y, z + 2), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y, z - 1), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 2, y, z - 1), frame.getDefaultState());
+        world.setBlockState(new BlockPos(x + 3, y, z - 1), frame.getDefaultState());
 
-        //world.setBlockState(new BlockPos(x + 1, y, z), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 2, y, z), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 3, y, z), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 1, y, z + 1), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 2, y, z + 1), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 3, y, z + 1), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 1, y, z + 2), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 2, y, z + 2), portal.getDefaultState());
-        //world.setBlockState(new BlockPos(x + 3, y, z + 2), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y, z), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 2, y, z), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 3, y, z), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y, z + 1), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 2, y, z + 1), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 3, y, z + 1), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y, z + 2), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 2, y, z + 2), portal.getDefaultState());
+        world.setBlockState(new BlockPos(x + 3, y, z + 2), portal.getDefaultState());
     }
 
     @Override

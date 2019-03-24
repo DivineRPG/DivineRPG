@@ -6,11 +6,13 @@ import java.util.Random;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
+import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -23,7 +25,8 @@ public class ModTeleporterSkythern extends Teleporter {
 
     protected final WorldServer myWorld;
     protected final Random random;
-    protected final Long2ObjectMap<ModTeleporterSkythern.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap<ModTeleporterSkythern.PortalPosition>(4096);
+    protected final Long2ObjectMap<ModTeleporterSkythern.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap<ModTeleporterSkythern.PortalPosition>(
+            4096);
     protected final List destinationCoordinateKeys = new ArrayList();
     protected int dimensionID;
     protected Block portal, frameBlock;
@@ -57,7 +60,8 @@ public class ModTeleporterSkythern extends Teleporter {
                         int l1 = j + j1;
                         int i2 = k + i1 * b1 - l * b0;
                         boolean flag = j1 < 0;
-                        //this.myWorld.setBlockState(new BlockPos(k1, l1, i2), flag ? ModBlocks.skythernPortal.getDefaultState() : Blocks.AIR.getDefaultState());
+                        this.myWorld.setBlockState(new BlockPos(k1, l1, i2),
+                                flag ? ModBlocks.skythernPortal.getDefaultState() : Blocks.AIR.getDefaultState());
                     }
                 }
             }
@@ -78,7 +82,8 @@ public class ModTeleporterSkythern extends Teleporter {
         long k = ChunkPos.asLong(i, j);
 
         if (this.destinationCoordinateCache.containsKey(k)) {
-            ModTeleporterSkythern.PortalPosition portalposition = (ModTeleporterSkythern.PortalPosition) this.destinationCoordinateCache.get(k);
+            ModTeleporterSkythern.PortalPosition portalposition = (ModTeleporterSkythern.PortalPosition) this.destinationCoordinateCache
+                    .get(k);
             d0 = 0.0D;
             object = portalposition;
             portalposition.lastUpdateTime = this.myWorld.getTotalWorldTime();
@@ -90,7 +95,8 @@ public class ModTeleporterSkythern extends Teleporter {
                 BlockPos blockpos1;
 
                 for (int i1 = -128; i1 <= 128; ++i1) {
-                    for (BlockPos blockpos = blockpos4.add(l, this.myWorld.getActualHeight() - 1 - blockpos4.getY(), i1); blockpos.getY() >= 0; blockpos = blockpos1) {
+                    for (BlockPos blockpos = blockpos4.add(l, this.myWorld.getActualHeight() - 1 - blockpos4.getY(),
+                            i1); blockpos.getY() >= 0; blockpos = blockpos1) {
                         blockpos1 = blockpos.down();
 
                         if (this.myWorld.getBlockState(blockpos).getBlock() == portal) {
@@ -112,7 +118,8 @@ public class ModTeleporterSkythern extends Teleporter {
 
         if (d0 >= 0.0D) {
             if (flag1) {
-                this.destinationCoordinateCache.put(k, new ModTeleporterSkythern.PortalPosition(object, this.myWorld.getTotalWorldTime()));
+                this.destinationCoordinateCache.put(k,
+                        new ModTeleporterSkythern.PortalPosition(object, this.myWorld.getTotalWorldTime()));
             }
 
             double d4 = (double) ((BlockPos) object).getX() + 0.5D;
@@ -196,7 +203,8 @@ public class ModTeleporterSkythern extends Teleporter {
                 entityIn.motionX = d2 * (double) f2 + d3 * (double) f5;
                 entityIn.motionZ = d2 * (double) f4 + d3 * (double) f3;
                 if (enumfacing1 != null)
-                    entityIn.rotationYaw = par2 - (float) (enumfacing1.getHorizontalIndex() * 90) + (float) (enumfacing.getHorizontalIndex() * 90);
+                    entityIn.rotationYaw = par2 - (float) (enumfacing1.getHorizontalIndex() * 90)
+                            + (float) (enumfacing.getHorizontalIndex() * 90);
             } else {
                 entityIn.motionX = entityIn.motionY = entityIn.motionZ = 0.0D;
             }
@@ -270,7 +278,8 @@ public class ModTeleporterSkythern extends Teleporter {
                                         i5 = i3 + k4;
                                         int j5 = k2 + (j4 - 1) * l3 - i4 * k3;
                                         Block tmp = this.myWorld.getBlockState(new BlockPos(l4, i5, j5)).getBlock();
-                                        if (k4 < 0 && !tmp.getMaterial(tmp.getDefaultState()).isSolid() || k4 >= 0 && !this.myWorld.isAirBlock(new BlockPos(l4, i5, j5))) {
+                                        if (k4 < 0 && !tmp.getMaterial(tmp.getDefaultState()).isSolid()
+                                                || k4 >= 0 && !this.myWorld.isAirBlock(new BlockPos(l4, i5, j5))) {
                                             continue label271;
                                         }
                                     }
@@ -317,7 +326,8 @@ public class ModTeleporterSkythern extends Teleporter {
                                         l4 = i3 + j4;
                                         i5 = k2 + (i4 - 1) * l3;
                                         Block tmpb = this.myWorld.getBlockState(new BlockPos(k4, l4, i5)).getBlock();
-                                        if (j4 < 0 && !tmpb.getMaterial(tmpb.getDefaultState()).isSolid() || j4 >= 0 && !this.myWorld.isAirBlock(new BlockPos(k4, l4, i5))) {
+                                        if (j4 < 0 && !tmpb.getMaterial(tmpb.getDefaultState()).isSolid()
+                                                || j4 >= 0 && !this.myWorld.isAirBlock(new BlockPos(k4, l4, i5))) {
                                             continue label219;
                                         }
                                     }
@@ -362,13 +372,15 @@ public class ModTeleporterSkythern extends Teleporter {
                         i4 = j2 + k3;
                         j4 = k2 + (j3 - 1) * l2 - i3 * l5;
                         boolean flag = k3 < 0;
-                        //this.myWorld.setBlockState(new BlockPos(l3, i4, j4), flag ? ModBlocks.apalachiaBlock.getDefaultState() : Blocks.AIR.getDefaultState());
+                        this.myWorld.setBlockState(new BlockPos(l3, i4, j4),
+                                flag ? ModBlocks.apalachiaBlock.getDefaultState() : Blocks.AIR.getDefaultState());
                     }
                 }
             }
         }
 
-        IBlockState iblockstate = portal.getDefaultState().withProperty(BlockPortal.AXIS, l5 == 0 ? EnumFacing.Axis.Z : EnumFacing.Axis.X);
+        IBlockState iblockstate = portal.getDefaultState().withProperty(BlockPortal.AXIS,
+                l5 == 0 ? EnumFacing.Axis.Z : EnumFacing.Axis.X);
 
         for (j3 = 0; j3 < 4; ++j3) {
             for (k3 = 0; k3 < 4; ++k3) {
@@ -377,7 +389,8 @@ public class ModTeleporterSkythern extends Teleporter {
                     j4 = j2 + l3;
                     k4 = k2 + (k3 - 1) * l2;
                     boolean flag1 = k3 == 0 || k3 == 3 || l3 == -1 || l3 == 3;
-                    //this.myWorld.setBlockState(new BlockPos(i4, j4, k4), flag1 ? ModBlocks.apalachiaBlock.getDefaultState() : iblockstate, 2);
+                    this.myWorld.setBlockState(new BlockPos(i4, j4, k4),
+                            flag1 ? ModBlocks.apalachiaBlock.getDefaultState() : iblockstate, 2);
                 }
             }
 
@@ -386,7 +399,8 @@ public class ModTeleporterSkythern extends Teleporter {
                     i4 = k5 + (k3 - 1) * l5;
                     j4 = j2 + l3;
                     k4 = k2 + (k3 - 1) * l2;
-                    this.myWorld.notifyNeighborsOfStateChange(new BlockPos(i4, j4, k4), this.myWorld.getBlockState(new BlockPos(i4, j4, k4)).getBlock(), true);
+                    this.myWorld.notifyNeighborsOfStateChange(new BlockPos(i4, j4, k4),
+                            this.myWorld.getBlockState(new BlockPos(i4, j4, k4)).getBlock(), true);
                 }
             }
         }

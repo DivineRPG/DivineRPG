@@ -2,15 +2,17 @@ package naturix.divinerpg.dimensions.apalachia.worldgen.trees;
 
 import java.util.Random;
 
+import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class ApalachiaTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    //protected IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
-    //protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
+    protected IBlockState log = ModBlocks.apalachiaLogs.getDefaultState();
+    protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
 
     public ApalachiaTree(boolean notify) {
         this(notify, 13);
@@ -19,8 +21,8 @@ public class ApalachiaTree extends WorldGenAbstractTree {
     public ApalachiaTree(boolean notify, int minTreeHeightIn) {
         super(notify);
         this.minTreeHeight = minTreeHeightIn;
-        //log = ModBlocks.apalachiaLog.getDefaultState();
-        //leaves = ModBlocks.apalachiaLeaves.getDefaultState();
+        log = ModBlocks.apalachiaLogs.getDefaultState();
+        leaves = ModBlocks.apalachiaLeaves.getDefaultState();
     }
 
     @Override
@@ -29,15 +31,16 @@ public class ApalachiaTree extends WorldGenAbstractTree {
         int randBranchNum = 0;
         Material materialBelow = worldIn.getBlockState(position.down()).getMaterial();
 
-        if (position.getY() <= 13 && position.getY() + treeHeight + 1 >= worldIn.getHeight() || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
+        if (position.getY() <= 13 && position.getY() + treeHeight + 1 >= worldIn.getHeight()
+                || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
             return false;
         }
-        
-        //buildTrunk(worldIn, position, treeHeight);
+
+        buildTrunk(worldIn, position, treeHeight);
         return true;
     }
 
-    /**private void buildTrunk(World world, BlockPos pos, int treeHeight) {
+    private void buildTrunk(World world, BlockPos pos, int treeHeight) {
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
@@ -50,7 +53,7 @@ public class ApalachiaTree extends WorldGenAbstractTree {
         drawLeafCircle(world, pos.add(0, extraHeight, 0), 2, leaves);
         drawLeafCircle(world, pos.add(0, extraHeight + 1, 0), 1, leaves);
         drawLeafCircle(world, pos.add(0, extraHeight + 2, 0), 0, leaves);
-        for (int dy = 0; dy < extraHeight; dy++){
+        for (int dy = 0; dy < extraHeight; dy++) {
             this.setBlockAndNotifyAdequately(world, pos.add(0, dy, 0), log);
         }
     }
@@ -58,7 +61,7 @@ public class ApalachiaTree extends WorldGenAbstractTree {
     private void drawLeafCircle(World world, BlockPos pos, int rad, IBlockState baseState) {
         for (byte dx = 0; dx <= rad; dx++) {
             for (byte dz = 0; dz <= rad; dz++) {
-                int dist = (int)(Math.max(dx, dz) + (Math.min(dx, dz) * 0.5));
+                int dist = (int) (Math.max(dx, dz) + (Math.min(dx, dz) * 0.5));
                 if (dx == 3 && dz == 3) {
                     dist = 6;
                 }
@@ -95,6 +98,5 @@ public class ApalachiaTree extends WorldGenAbstractTree {
                 }
             }
         }
-    }*/
-
+    }
 }

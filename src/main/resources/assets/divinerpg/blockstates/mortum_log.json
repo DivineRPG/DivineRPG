@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "divinerpg:mortum_log"
+    },
+    "axis=none": {
+      "model": "divinerpg:mortum_log"
+    },
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:mortum_log"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:mortum_log"
+    },
+    "axis=y": {
+      "model": "divinerpg:mortum_log"
+    }
+  }
+}

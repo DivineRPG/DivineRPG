@@ -3,6 +3,8 @@ package naturix.divinerpg.world.structures;
 import java.util.Random;
 
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.DRPGLootTables;
 import naturix.divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
@@ -15,8 +17,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 /**
- * Created by LiteWolf101 on Jan
- * /27/2019
+ * Created by LiteWolf101 on Jan /27/2019
  */
 public class WorldGenCustomStructures implements IWorldGenerator {
     public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon");
@@ -26,18 +27,20 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3");
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        /**if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
+            IChunkProvider chunkProvider) {
+        if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
             generateIceikaDungeon(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
             generateIceikaRollumDungeon(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
-            generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
-            generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
-            generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.grassIceika);
-        }*/
+            generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
+            generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
+            generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
+        }
     }
 
-    /**Generates a structure between y=13 and y=56 */
-    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
+    /** Generates a structure between y=13 and y=56 */
+    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
+            int chance) {
         int x = chunkX * 16;
         int z = chunkZ * 16;
         int y = random.nextInt(43) + 13;
@@ -47,19 +50,21 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    /**Generates a structure only on the specified topblock*/
-    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock){
+    /** Generates a structure only on the specified topblock */
+    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
+            int chance, Block topBlock) {
         int x = chunkX * 16;
         int z = chunkZ * 16;
         int y = calculateGenerationHeight(world, x, z, topBlock);
-        BlockPos pos = new BlockPos(x,y,z);
-        if(random.nextInt(chance) == 0){
+        BlockPos pos = new BlockPos(x, y, z);
+        if (random.nextInt(chance) == 0) {
             generator.generate(world, random, pos);
         }
     }
 
-    /**Generates an Iceika Dungeon with the specified loot*/
-    private void generateIceikaDungeon(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
+    /** Generates an Iceika Dungeon with the specified loot */
+    private void generateIceikaDungeon(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
+            int chance) {
         int x = chunkX * 16;
         int z = chunkZ * 16;
         int y = random.nextInt(43) + 13;
@@ -71,8 +76,9 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    /**Generates an Iceika Rollum Dungeon with the specified loot*/
-    private void generateIceikaRollumDungeon(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
+    /** Generates an Iceika Rollum Dungeon with the specified loot */
+    private void generateIceikaRollumDungeon(WorldGenerator generator, World world, Random random, int chunkX,
+            int chunkZ, int chance) {
         int x = chunkX * 16;
         int z = chunkZ * 16;
         int y = random.nextInt(43) + 13;
@@ -93,15 +99,15 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         TileEntity tileEntity = world.getTileEntity(pos);
 
         if (tileEntity instanceof TileEntityFrostedChest) {
-            ((TileEntityFrostedChest)tileEntity).setLootTable(DRPGLootTables.ICEIKA_CHEST, random.nextLong());
+            ((TileEntityFrostedChest) tileEntity).setLootTable(DRPGLootTables.ICEIKA_CHEST, random.nextLong());
         }
     }
 
-    private static int calculateGenerationHeight(World world, int x, int z, Block topBlock){
+    private static int calculateGenerationHeight(World world, int x, int z, Block topBlock) {
         int y = world.getHeight();
         boolean foundGround = false;
-        while(!foundGround && y-- >= 15){
-            Block block = world.getBlockState(new BlockPos(x,y,z)).getBlock();
+        while (!foundGround && y-- >= 15) {
+            Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
             foundGround = block == topBlock;
         }
         return y;

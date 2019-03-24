@@ -363,6 +363,23 @@ public class ModBlocks {
     public static Block skythernBlock = new BlockMod("skythern_block", 9);
     public static Block mortumBlock = new BlockMod("mortum_block", 9);
 
+    //public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
+    //public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
+    //public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling).setLightLevel(0.5F);
+    //public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling);
+    //public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling);
+    public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F);
+    public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F);
+    public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F).setLightLevel(0.5F);
+    public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F);
+    public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F);
+
+    public static Block edenLogs = new BlockModLog("eden_log");
+    public static Block wildwoodLogs = new BlockModLog("wildwood_log");
+    public static Block apalachiaLogs = new BlockModLog("apalachia_log");
+    public static Block skythernLogs = new BlockModLog("skythern_log");
+    public static Block mortumLogs = new BlockModLog("mortum_log");
+
     public static Block twilightStone = new BlockMod("twilight_stone", 6.0F);
     public static Block blueFire = new BlockModFire("blue_fire");
     public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(),

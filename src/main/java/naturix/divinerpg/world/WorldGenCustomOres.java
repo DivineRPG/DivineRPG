@@ -22,9 +22,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private static WorldGenHut hut = new WorldGenHut();
     public static WorldGenCustomOres instance = new WorldGenCustomOres();
 
-    //int jeff = ModDimensions.edenDimension.getId();
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
+            IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
         case -1:
             genNether(world, random, chunkX, chunkZ);
@@ -54,7 +54,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
     }
 
-    private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn) {
+    private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX,
+            int maxZ, int maxVeinSize, int chance, int minY, int maxY, Predicate<IBlockState> blockToSpawnIn) {
         int diffMinMaxY = maxY - minY;
         for (int x = 0; x < chance; x++) {
             int posX = blockXPos + random.nextInt(maxX);
@@ -84,9 +85,12 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
     //block, worldgen, random, blockXPos, blockZPos, maxX, maxZ, maxVeinSize, chance, minY, maxY, blockToSpawnIn
     private void genSurface(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.realmiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.realmiteVein, Config.realmiteTries, Config.realmiteMin, Config.realmiteMax, BlockMatcher.forBlock(Blocks.STONE));
-        addOreSpawn(ModBlocks.rupeeOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.rupeeVein, Config.rupeeTries, Config.rupeeMin, Config.rupeeMax, BlockMatcher.forBlock(Blocks.STONE));
-        addOreSpawn(ModBlocks.arlemiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.arlemiteVein, Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax, BlockMatcher.forBlock(Blocks.STONE));
+        addOreSpawn(ModBlocks.realmiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.realmiteVein,
+                Config.realmiteTries, Config.realmiteMin, Config.realmiteMax, BlockMatcher.forBlock(Blocks.STONE));
+        addOreSpawn(ModBlocks.rupeeOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.rupeeVein,
+                Config.rupeeTries, Config.rupeeMin, Config.rupeeMax, BlockMatcher.forBlock(Blocks.STONE));
+        addOreSpawn(ModBlocks.arlemiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.arlemiteVein,
+                Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax, BlockMatcher.forBlock(Blocks.STONE));
 
         if (world.provider.getDimension() == 0) {
             hut.generate(world, random, new BlockPos(chunkX, random.nextInt(world.getHeight()), chunkZ));
@@ -95,30 +99,37 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void genNether(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.netheriteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
-        addOreSpawn(ModBlocks.bloodgemOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1, world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
+        addOreSpawn(ModBlocks.netheriteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1,
+                world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
+        addOreSpawn(ModBlocks.bloodgemOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 1,
+                world.getHeight(), BlockMatcher.forBlock(Blocks.NETHERRACK));
 
     }
 
     private void genEden(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.edenOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.twilightStone));
+        addOreSpawn(ModBlocks.edenOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
+                BlockMatcher.forBlock(ModBlocks.twilightStone));
 
     }
 
     private void genWild(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.wildwoodOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.twilightStone));
+        addOreSpawn(ModBlocks.wildwoodOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
+                BlockMatcher.forBlock(ModBlocks.twilightStone));
     }
 
     private void genApalachia(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.apalachiaOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.twilightStone));
+        addOreSpawn(ModBlocks.apalachiaOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
+                BlockMatcher.forBlock(ModBlocks.twilightStone));
     }
 
     private void genSkythern(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.skythernOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.twilightStone));
+        addOreSpawn(ModBlocks.skythernOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
+                BlockMatcher.forBlock(ModBlocks.twilightStone));
     }
 
     private void genMortum(World world, Random random, int chunkX, int chunkZ) {
-        addOreSpawn(ModBlocks.mortumOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100, BlockMatcher.forBlock(ModBlocks.twilightStone));
+        addOreSpawn(ModBlocks.mortumOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
+                BlockMatcher.forBlock(ModBlocks.twilightStone));
     }
 
 }

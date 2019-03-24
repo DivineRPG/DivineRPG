@@ -2,14 +2,14 @@ package naturix.divinerpg.dimensions.eden.worldgen.features;
 
 import java.util.Random;
 
+import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 /**
- * Created by LiteWolf101 on Feb
- * /18/2019
+ * Created by LiteWolf101 on Feb /18/2019
  */
 public class WorldGenConeUp extends WorldGenerator {
     private final Block block;
@@ -25,11 +25,11 @@ public class WorldGenConeUp extends WorldGenerator {
         int y = pos.getY();
         int z = pos.getZ();
         int var2 = rand.nextInt(4) + height;
-        //if (world.getBlockState(pos.down()).getBlock() != ModBlocks.grassEden) {
-        //    return false;
-        //}
+        if (world.getBlockState(pos.down()).getBlock() != ModBlocks.edenGrass) {
+            return false;
+        }
         for (int i = 0; i < var2; i++) {
-            this.placeBlockCircle(world, rand, x, y+i, z, var2-i);
+            this.placeBlockCircle(world, rand, x, y + i, z, var2 - i);
         }
         return true;
     }
@@ -39,12 +39,22 @@ public class WorldGenConeUp extends WorldGenerator {
         return generate(world, rand, pos);
     }
 
-    void placeBlockCircle (World world, Random rand, int x, int y, int z, int radius) {
+    void placeBlockCircle(World world, Random rand, int x, int y, int z, int radius) {
         for (float i = 0; i < radius; i += 0.5) {
             for (float j = 0; j < 2 * Math.PI * i; j += 0.5) {
-                world.setBlockState(new BlockPos((int)Math.floor(x + Math.sin(j) * i), y, (int)Math.floor(z + Math.cos(j) * i)), block.getDefaultState());
-                if(rand.nextInt(6)==0)world.setBlockState(new BlockPos((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y+1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2)), block.getDefaultState());
-                if(rand.nextInt(6)==0)world.setBlockState(new BlockPos((int)Math.floor(x + Math.sin(j) * i)+rand.nextInt(2)-rand.nextInt(2), y-1, (int)Math.floor(z + Math.cos(j) * i)+rand.nextInt(2)-rand.nextInt(2)), block.getDefaultState());
+                world.setBlockState(
+                        new BlockPos((int) Math.floor(x + Math.sin(j) * i), y, (int) Math.floor(z + Math.cos(j) * i)),
+                        block.getDefaultState());
+                if (rand.nextInt(6) == 0)
+                    world.setBlockState(
+                            new BlockPos((int) Math.floor(x + Math.sin(j) * i) + rand.nextInt(2) - rand.nextInt(2),
+                                    y + 1, (int) Math.floor(z + Math.cos(j) * i) + rand.nextInt(2) - rand.nextInt(2)),
+                            block.getDefaultState());
+                if (rand.nextInt(6) == 0)
+                    world.setBlockState(
+                            new BlockPos((int) Math.floor(x + Math.sin(j) * i) + rand.nextInt(2) - rand.nextInt(2),
+                                    y - 1, (int) Math.floor(z + Math.cos(j) * i) + rand.nextInt(2) - rand.nextInt(2)),
+                            block.getDefaultState());
             }
         }
     }
