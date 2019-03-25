@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "divinerpg:densos_crystal"
+        },
+        "title": {
+            "translate": "advancement.divinerpg.densos_crystal"
+        },
+        "description": {
+            "translate": "advancement.divinerpg.densos_crystal.description"
+        }
+    },
+
+    "parent": "divinerpg:root",
+    "criteria": {
+        "densos_crystal": {
+            "trigger": "ten_heads"
+        }
+    }
+}

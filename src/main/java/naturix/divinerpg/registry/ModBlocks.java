@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import naturix.divinerpg.objects.blocks.BlockMod;
+import naturix.divinerpg.objects.blocks.BlockModDoubleSlab;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
@@ -14,8 +15,8 @@ import naturix.divinerpg.objects.blocks.BlockModSlab;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
-import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.BlockModVine;
+import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
@@ -272,7 +273,6 @@ public class ModBlocks {
 	        .setResistance(5);
 	public static Block divineStairs = new BlockModStairs(divinePlanks, "divine_stairs");
 	public static Block divineSlab = new BlockModSlab((BlockMod) divinePlanks, null);
-	public static Block divineSlabDouble = new BlockModSlab((BlockMod) divinePlanks, divineSlab);
 
 	// FIXME - Need to add
 	// public static Block altarOfCorruption = new
@@ -289,7 +289,6 @@ public class ModBlocks {
 	public static Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozen_planks", 6).setResistance(5);
 	public static Block frozenStairs = new BlockModStairs(frozenPlanks, "frozen_stairs");
 	public static Block frozenSlab = new BlockModSlab((BlockMod) frozenPlanks, null);
-	public static Block frozenSlabDouble = new BlockModSlab((BlockMod) frozenPlanks, frozenSlab);
 
 	public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
 	public static Block winterberryBushGrown = new BlockWinterberryBush(true, "winterberry_bush_grown");
@@ -430,6 +429,14 @@ public class ModBlocks {
 	public static Block weedWoodVineBlossom = new BlockModVine("blossomed_weedwood_vine");
 	public static Block hyreVine = new BlockModVine("hyre_vine");
 	public static Block wildWoodVine = new BlockModVine("wildwood_vine");
+
+	public static Block frozenDoubleSlab = new BlockModDoubleSlab("frozen_double_slab", Blocks.STONE_SLAB);
+	public static Block divineDoubleSlab = new BlockModDoubleSlab("divine_double_slab", Blocks.STONE_SLAB);
+	public static Block edenDoubleSlab = new BlockModDoubleSlab("eden_double_slab", Blocks.STONE_SLAB);
+	public static Block wildwoodDoubleSlab = new BlockModDoubleSlab("wildwood_double_slab", Blocks.STONE_SLAB);
+	public static Block apalachiaDoubleSlab = new BlockModDoubleSlab("apalachia_double_slab", Blocks.STONE_SLAB);
+	public static Block skythernDoubleSlab = new BlockModDoubleSlab("skythern_double_slab", Blocks.STONE_SLAB);
+	public static Block mortumDoubleSlab = new BlockModDoubleSlab("mortum_double_slab", Blocks.STONE_SLAB);
 
 	public static void CreateJSONs() {
 		GenerateJSON.generateBlockstateJSONs();

@@ -420,8 +420,13 @@ tile.demon_furnace_on_down.name=Demon Furnace
 tile.dark_bridge_on.name=Dark Bridge
 tile.slime_light_on.name=Slime Light
 tile.blueFire.name=Bluefire
-tile.divine_slab_double.name=Double Divine Slab
-tile.frozen_slab_double.name=Double Frozen Slab
+tile.divine_double_slab.name=Double Divine Slab
+tile.frozen_double_slab.name=Double Frozen Slab
+tile.eden_double_slab.name=Double Eden Slab
+tile.wildwood_double_slab.name=Double Wild Wood Slab
+tile.apalachia_double_slab.name=Double Apalachia Slab
+tile.skythern_double_slab.name=Double Skythern Slab
+tile.mortum_double_slab.name=Double Mortum Slab
 tile.white_mushroom_plant.name=White Mushroom
 
 container.iceika_chest=Iceika Chest
@@ -1273,6 +1278,8 @@ advancement.divinerpg.divine_sword=Divine Plan
 advancement.divinerpg.divine_sword.desc=Craft a divine sword
 advancement.divinerpg.spawnpet=Pet Collector
 advancement.divinerpg.spawnpet.description=Spawn any pet mob
+advancement.divinerpg.densos_crystal=Ten heads are better than one
+advancement.divinerpg.densos_crystal.description=Spawn the Densos
 
 fluid.tar=Tar
 

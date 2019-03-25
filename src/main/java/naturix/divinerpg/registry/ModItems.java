@@ -23,6 +23,7 @@ import naturix.divinerpg.objects.items.base.ItemSwordBase;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightClock;
+import naturix.divinerpg.objects.items.twilight.ItemTwilightSpawner;
 import naturix.divinerpg.objects.items.vanilla.ItemAnchor;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
 import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
@@ -749,24 +750,14 @@ public class ModItems {
 	public static Item edenSparkles = new ItemBase("eden_sparkles");
 
 	public static Item baseSpawnCrystal = new ItemBase("base_spawn_crystal");
-	// public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
-	// public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
-	// public static Item reyvorCrystal = new ItemTwilightSpawner("reyvor_crystal");
-	// public static Item soulFiendCrystal = new
-	// ItemTwilightSpawner("soul_fiend_crystal");
-	// public static Item twilightDemonCrystal = new
-	// ItemTwilightSpawner("twilight_demon_crystal");
-	// public static Item vamacheronCrystal = new
-	// ItemTwilightSpawner("vamacheron_crystal");
-	// public static Item eternalArcherCrystal = new
-	// ItemTwilightSpawner("eternal_archer_crystal");
-	public static Item densosCrystal = new ItemNotReady("densos_crystal", DRPGCreativeTabs.items);
-	public static Item karotCrystal = new ItemNotReady("karot_crystal", DRPGCreativeTabs.items);
-	public static Item reyvorCrystal = new ItemNotReady("reyvor_crystal", DRPGCreativeTabs.items);
-	public static Item soulFiendCrystal = new ItemNotReady("soul_fiend_crystal", DRPGCreativeTabs.items);
-	public static Item twilightDemonCrystal = new ItemNotReady("twilight_demon_crystal", DRPGCreativeTabs.items);
-	public static Item vamacheronCrystal = new ItemNotReady("vamacheron_crystal", DRPGCreativeTabs.items);
-	public static Item eternalArcherCrystal = new ItemNotReady("eternal_archer_crystal", DRPGCreativeTabs.items);
+
+	public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
+	public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
+	public static Item reyvorCrystal = new ItemTwilightSpawner("reyvor_crystal");
+	public static Item soulFiendCrystal = new ItemTwilightSpawner("soul_fiend_crystal");
+	public static Item twilightDemonCrystal = new ItemTwilightSpawner("twilight_demon_crystal");
+	public static Item vamacheronCrystal = new ItemTwilightSpawner("vamacheron_crystal");
+	public static Item eternalArcherCrystal = new ItemTwilightSpawner("eternal_archer_crystal");
 
 	// Arcana
 	public static Item dungeonTokens = new ItemBase("dungeon_tokens");
