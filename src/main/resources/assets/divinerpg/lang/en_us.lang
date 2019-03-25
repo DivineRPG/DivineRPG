@@ -1280,6 +1280,8 @@ advancement.divinerpg.spawnpet=Pet Collector
 advancement.divinerpg.spawnpet.description=Spawn any pet mob
 advancement.divinerpg.densos_crystal=Ten heads are better than one
 advancement.divinerpg.densos_crystal.description=Spawn the Densos
+advancement.divinerpg.eternal_archer_crystal=Six in one
+advancement.divinerpg.eternal_archer_crystal.description=Spawn an eternal archer
 
 fluid.tar=Tar
 
