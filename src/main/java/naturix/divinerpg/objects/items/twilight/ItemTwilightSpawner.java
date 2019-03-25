@@ -103,7 +103,9 @@ public class ItemTwilightSpawner extends ItemBase {
 					stack.shrink(1);
 				}
 				return EnumActionResult.PASS;
-			} else {
+			}
+
+			if (world.provider.getDimensionType().getId() != ModDimensions.mortumDimension.getId()) {
 				Logging.message(player, TextFormatting.AQUA + "This item can only be used in Mortum.");
 			}
 		}
