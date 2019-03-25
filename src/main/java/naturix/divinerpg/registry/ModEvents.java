@@ -5,6 +5,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.utils.Reference;
@@ -28,10 +29,15 @@ public class ModEvents {
 			EntityPlayerMP thePlayerMP = (EntityPlayerMP) thePlayer;
 
 			// DEBUG
-			//System.out.println("Right clicking block with " + thePlayer.getHeldItem(event.getHand()));
+			// System.out.println("Right clicking block with " +
+			// thePlayer.getHeldItem(event.getHand()));
 
 			if (thePlayer.getHeldItem(event.getHand()).getItem() instanceof ItemSpawnEgg) {
 				ModTriggers.SPAWN_PET.trigger(thePlayerMP);
+			}
+			if (thePlayer.getHeldItem(event.getHand()).getItem() == ModItems.densosCrystal
+			        && thePlayer.world.provider.getDimensionType().getId() == Config.mortumDimensionId) {
+				ModTriggers.TEN_HEADS.trigger(thePlayerMP);
 			}
 		}
 	}
