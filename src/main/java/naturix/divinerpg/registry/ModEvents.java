@@ -6,6 +6,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.utils.Reference;
@@ -28,9 +29,9 @@ public class ModEvents {
 		if (thePlayer instanceof EntityPlayerMP) {
 			EntityPlayerMP thePlayerMP = (EntityPlayerMP) thePlayer;
 
-			// DEBUG
-			// System.out.println("Right clicking block with " +
-			// thePlayer.getHeldItem(event.getHand()));
+			if (Config.debug) {
+				DivineRPG.logger.info("Right clicking block with " + thePlayer.getHeldItem(event.getHand()));
+			}
 
 			if (thePlayer.getHeldItem(event.getHand()).getItem() instanceof ItemSpawnEgg) {
 				ModTriggers.SPAWN_PET.trigger(thePlayerMP);
