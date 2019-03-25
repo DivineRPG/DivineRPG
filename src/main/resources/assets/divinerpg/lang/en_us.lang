@@ -9,6 +9,9 @@ itemGroup.Utility=DivineRPG: Utility
 itemGroup.Herbalism=DivineRPG: Herbalism
 itemGroup.Vethea=DivineRPG: Vethea
 
+tile.weedwood_vine.name=Weed Wood Vine
+tile.blossomed_weedwood_vine.name=Blossomed Weed Wood Vine
+tile.hyre_vine.name=Hyre Wood Vine
 tile.winterberry_bush_grown.name=Ripe Winterberry Bush
 tile.rupee_ore.name=Rupee Ore
 tile.arlemite_ore.name=Arlemite Ore
