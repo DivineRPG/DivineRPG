@@ -39,6 +39,10 @@ public class ModEvents {
 			        && thePlayer.world.provider.getDimensionType().getId() == Config.mortumDimensionId) {
 				ModTriggers.TEN_HEADS.trigger(thePlayerMP);
 			}
+			if (thePlayer.getHeldItem(event.getHand()).getItem() == ModItems.eternalArcherCrystal
+			        && thePlayer.world.provider.getDimensionType().getId() == Config.mortumDimensionId) {
+				ModTriggers.SIX_ONE.trigger(thePlayerMP);
+			}
 		}
 	}
 

@@ -14,9 +14,11 @@ public class ModTriggers
 {
 	public static final AdvancementSpawnPet SPAWN_PET = new AdvancementSpawnPet("spawn_pet");
 	public static final AdvancementTenHeads TEN_HEADS = new AdvancementTenHeads("ten_heads");
+	public static final AdvancementTenHeads SIX_ONE = new AdvancementTenHeads("six_one");
 
 	public static final AdvancementSpawnPet[] TRIGGER_ARRAY = new AdvancementSpawnPet[] { SPAWN_PET };
 	public static final AdvancementTenHeads[] TRIGGER_ARRAY1 = new AdvancementTenHeads[] { TEN_HEADS };
+	public static final AdvancementTenHeads[] TRIGGER_ARRAY2 = new AdvancementTenHeads[] { SIX_ONE };
 
 	public static void registerTriggers() {
 		System.out.println("Registering custom triggers");
@@ -38,6 +40,13 @@ public class ModTriggers
 		for (int i = 0; i < TRIGGER_ARRAY1.length; i++) {
 			try {
 				method.invoke(null, TRIGGER_ARRAY1[i]);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		}
+		for (int i = 0; i < TRIGGER_ARRAY2.length; i++) {
+			try {
+				method.invoke(null, TRIGGER_ARRAY2[i]);
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 				e.printStackTrace();
 			}
