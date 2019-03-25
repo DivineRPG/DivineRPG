@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "divinerpgp:blocks/wildwood_vine",
-        "vine": "divinerpgp:blocks/wildwood_vine"
+        "particle": "divinerpg:blocks/wildwood_vine",
+        "vine": "divinerpg:blocks/wildwood_vine"
     },
     "elements": [
         {   "from": [ 0, 0, 15.2 ],
