@@ -1,9 +1,5 @@
 package naturix.divinerpg.objects.items.twilight;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.objects.entities.entity.twilight.Densos;
 import naturix.divinerpg.objects.entities.entity.twilight.EntityReyvor;
 import naturix.divinerpg.objects.entities.entity.twilight.EternalArcher;
@@ -16,7 +12,6 @@ import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.log.Logging;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -32,11 +27,6 @@ public class ItemTwilightSpawner extends ItemBase {
 		super(name);
 		setMaxStackSize(1);
 		this.setCreativeTab(DRPGCreativeTabs.spawner);
-	}
-
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add("Not yet finished");
 	}
 
 	@Override
