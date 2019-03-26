@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:horde_horn"
+  },
+  "pattern": [
+    " H ",
+    "SES",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:ender_stone"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "H": {
+      "item": "divinerpg:hellstone_ingot"
+    }
+  }
+}

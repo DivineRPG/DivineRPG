@@ -3,6 +3,7 @@ package naturix.divinerpg.compat;
 import moze_intel.projecte.api.ProjectEAPI;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class ProjectECompat {
@@ -38,6 +39,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonSkull, 1, 0), 13945);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonTeeth, 1, 0), 300);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.cyclopsEye, 1, 0), 415);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(Blocks.BEDROCK), 0);
 
 	}
 

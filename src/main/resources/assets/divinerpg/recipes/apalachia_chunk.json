@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_chunk"
+  },
+  "pattern": [
+    "GGG",
+    "G G",
+    "G G"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "divinerpg:apalachia_gem"
+    }
+  }
+}

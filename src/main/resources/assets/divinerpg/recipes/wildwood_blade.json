@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_blade"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:wildwood_chunk"
+    }
+  }
+}

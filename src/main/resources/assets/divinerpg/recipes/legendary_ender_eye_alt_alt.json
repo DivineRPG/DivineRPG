@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:legendary_ender_eye"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:ender_stone"
+    }
+  }
+}

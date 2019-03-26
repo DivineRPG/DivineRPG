@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_chunk"
+  },
+  "pattern": [
+    "GGG",
+    "G G",
+    "G G"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "divinerpg:skythern_gem"
+    }
+  }
+}

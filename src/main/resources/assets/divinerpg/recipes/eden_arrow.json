@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:eden_arrow",
+    "count": 4
+  },
+  "pattern": [
+    " I ",
+    " S ",
+    " Z "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:eden_fragments"
+    },
+    "Z": {
+      "item": "minecraft:feather"
+    }
+  }
+}

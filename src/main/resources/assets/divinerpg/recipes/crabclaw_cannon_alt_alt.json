@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:crabclaw_cannon"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " X "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:aquatic_ingot"
+    },
+    "I": {
+      "item": "divinerpg:crab_claw"
+    }
+  }
+}

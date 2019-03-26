@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:aqua_torch",
+    "count": 4
+  },
+  "pattern": [
+    "x",
+    "y"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "x": {
+      "item": "divinerpg:aquatic_blaze_rod"
+    },
+    "y": {
+      "item": "#STICKWOOD"
+    }
+  }
+}

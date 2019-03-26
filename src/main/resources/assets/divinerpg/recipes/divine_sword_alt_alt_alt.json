@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:divine_sword"
+  },
+  "pattern": [
+    " I ",
+    "III",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:divine_stone"
+    }
+  }
+}

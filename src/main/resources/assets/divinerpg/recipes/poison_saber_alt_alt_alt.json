@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:poison_saber"
+  },
+  "pattern": [
+    " R ",
+    "BRB",
+    "BSB"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "R": {
+      "item": "divinerpg:jungle_stone"
+    },
+    "B": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  }
+}

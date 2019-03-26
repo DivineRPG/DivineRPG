@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_boots"
+  },
+  "pattern": [
+    "   ",
+    "I I",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:apalachia_chunk"
+    }
+  }
+}

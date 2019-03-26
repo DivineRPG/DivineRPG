@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:massivence"
+  },
+  "pattern": [
+    "X X",
+    "III",
+    " I "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:bloodgem"
+    },
+    "I": {
+      "item": "divinerpg:netherite_ingot"
+    }
+  }
+}

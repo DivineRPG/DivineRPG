@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:netherite_boots"
+  },
+  "pattern": [
+    "S S",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "I": {
+      "item": "divinerpg:netherite_block"
+    }
+  }
+}

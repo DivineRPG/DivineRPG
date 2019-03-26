@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:draken_lamp"
+  },
+  "pattern": [
+    "xxx",
+    "zyz",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "minecraft:lava_bucket"
+    },
+    "z": {
+      "item": "minecraft:gold_block"
+    }
+  }
+}

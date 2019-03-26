@@ -4,7 +4,7 @@
   },
   "pattern": [
     "II ",
-    "IS ",
+    "ModItems ",
     " S "
   ],
   "type": "forge:ore_shaped",

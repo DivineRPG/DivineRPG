@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_block"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:wildwood_fragments"
+    }
+  }
+}

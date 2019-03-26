@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_blitz"
+  },
+  "pattern": [
+    "X X",
+    "X X",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:wildwood_chunk"
+    }
+  }
+}

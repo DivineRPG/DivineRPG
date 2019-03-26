@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:corrupted_shovel"
+  },
+  "pattern": [
+    " I ",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:corrupted_stone"
+    }
+  }
+}

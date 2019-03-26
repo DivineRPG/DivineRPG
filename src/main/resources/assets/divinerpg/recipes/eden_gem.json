@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:eden_gem"
+  },
+  "pattern": [
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "divinerpg:eden_fragments"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:dark_bridge"
+  },
+  "pattern": [
+    "GGG",
+    "G G",
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  }
+}

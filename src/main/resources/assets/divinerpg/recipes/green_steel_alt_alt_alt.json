@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:green_steel"
+  },
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "minecraft:dye",
+      "data": 2
+    }
+  }
+}

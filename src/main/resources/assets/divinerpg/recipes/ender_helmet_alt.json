@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:ender_helmet"
+  },
+  "pattern": [
+    "III",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:ender_stone"
+    }
+  }
+}

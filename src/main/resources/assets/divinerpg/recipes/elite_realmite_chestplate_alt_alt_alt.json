@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:elite_realmite_chestplate"
+  },
+  "pattern": [
+    "I I",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:realmite_block"
+    }
+  }
+}

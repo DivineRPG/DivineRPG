@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_blade"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:apalachia_chunk"
+    }
+  }
+}

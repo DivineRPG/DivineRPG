@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:corrupted_axe"
+  },
+  "pattern": [
+    "II ",
+    "IS ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:corrupted_stone"
+    }
+  }
+}

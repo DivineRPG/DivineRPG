@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:scorching_sword"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:netherite_ingot"
+    },
+    "I": {
+      "item": "divinerpg:purple_blaze"
+    }
+  }
+}

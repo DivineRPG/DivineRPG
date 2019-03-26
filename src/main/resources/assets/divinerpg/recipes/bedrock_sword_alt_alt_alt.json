@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_sword"
+  },
+  "pattern": [
+    " B ",
+    " B ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:bedrock"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  }
+}

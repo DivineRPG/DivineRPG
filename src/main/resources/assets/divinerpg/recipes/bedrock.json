@@ -1,7 +1,6 @@
 {
   "result": {
-    "item": "minecraft:bedrock",
-    "count": 3
+    "item": "minecraft:bedrock"
   },
   "pattern": [
     "OOO",

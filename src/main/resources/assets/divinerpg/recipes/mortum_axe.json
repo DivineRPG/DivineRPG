@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_axe"
+  },
+  "pattern": [
+    "II ",
+    "IS ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:mortum_chunk"
+    }
+  }
+}

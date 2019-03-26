@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:liopleurodon_anchor"
+  },
+  "pattern": [
+    "SIS",
+    "IXI",
+    " X "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:liopleurodon_skull"
+    },
+    "X": {
+      "item": "divinerpg:aquatic_ingot"
+    },
+    "I": {
+      "item": "divinerpg:liopleurodon_teeth"
+    }
+  }
+}

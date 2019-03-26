@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:kraken_scale"
+  },
+  "pattern": [
+    "K K",
+    "K K",
+    "KKK"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "K": {
+      "item": "minecraft:dye",
+      "data": 0
+    }
+  }
+}

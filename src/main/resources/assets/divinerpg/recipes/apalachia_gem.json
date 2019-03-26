@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_gem"
+  },
+  "pattern": [
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "divinerpg:apalachia_fragments"
+    }
+  }
+}

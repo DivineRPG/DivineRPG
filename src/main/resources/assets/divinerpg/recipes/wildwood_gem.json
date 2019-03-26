@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_gem"
+  },
+  "pattern": [
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "divinerpg:wildwood_fragments"
+    }
+  }
+}

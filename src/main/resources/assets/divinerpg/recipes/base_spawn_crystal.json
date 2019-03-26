@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:base_spawn_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_soul"
+    },
+    {
+      "item": "divinerpg:skythern_soul"
+    },
+    {
+      "item": "divinerpg:skythern_soul"
+    },
+    {
+      "item": "divinerpg:skythern_soul"
+    },
+    {
+      "item": "divinerpg:skythern_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

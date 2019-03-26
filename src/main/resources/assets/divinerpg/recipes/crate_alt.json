@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:crate",
+    "count": 4
+  },
+  "pattern": [
+    "xxx",
+    "y y",
+    "xxx"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "x": {
+      "item": "#PLANKWOOD"
+    },
+    "y": {
+      "item": "#LOGWOOD"
+    }
+  }
+}

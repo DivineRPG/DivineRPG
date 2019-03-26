@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:sound_of_music"
+  },
+  "pattern": [
+    "III",
+    "IXI",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "item": "divinerpg:purple_blaze"
+    }
+  }
+}

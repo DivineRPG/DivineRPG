@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_leggings"
+  },
+  "pattern": [
+    "III",
+    "I I",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:rupee_ingot"
+    }
+  }
+}

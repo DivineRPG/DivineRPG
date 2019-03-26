@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_stairs",
+    "count": 4
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:frozen_planks"
+    }
+  }
+}

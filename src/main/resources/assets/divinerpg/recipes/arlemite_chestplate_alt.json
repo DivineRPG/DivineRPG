@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_chestplate"
+  },
+  "pattern": [
+    "I I",
+    "XIX",
+    "IXI"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  }
+}

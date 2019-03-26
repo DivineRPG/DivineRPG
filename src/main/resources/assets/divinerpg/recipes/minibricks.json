@@ -1,17 +1,22 @@
 {
   "result": {
-    "item": "divinerpg:minibricks"
+    "item": "divinerpg:minibricks",
+    "data": 6,
+    "count": 8
   },
   "pattern": [
     "XXX",
-    "XXX",
+    "XCX",
     "XXX"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
+    "C": {
+      "item": "minecraft:bedrock"
+    },
     "X": {
-      "item": "minecraft:stonebrick",
-      "data": 0
+      "item": "divinerpg:minibricks",
+      "data": 3
     }
   }
 }

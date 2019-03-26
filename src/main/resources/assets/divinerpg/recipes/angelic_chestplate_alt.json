@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:angelic_chestplate"
+  },
+  "pattern": [
+    "I I",
+    "XIX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:ice_stone"
+    },
+    "I": {
+      "item": "divinerpg:bluefire_stone"
+    }
+  }
+}

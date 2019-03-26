@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:jungle_knife"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:jungle_stone"
+    }
+  }
+}
