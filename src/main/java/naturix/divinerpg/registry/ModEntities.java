@@ -50,6 +50,7 @@ import naturix.divinerpg.objects.entities.assets.render.twilight.RenderMortumArc
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderMortumCadillion;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderMortumDemon;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderMystic;
+import naturix.divinerpg.objects.entities.assets.render.twilight.RenderReyvor;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSamek;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSkythernArcher;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSkythernCori;
@@ -206,6 +207,7 @@ import naturix.divinerpg.objects.entities.entity.twilight.DenseDemon;
 import naturix.divinerpg.objects.entities.entity.twilight.Densos;
 import naturix.divinerpg.objects.entities.entity.twilight.EnchantedArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.EnchantedWarrior;
+import naturix.divinerpg.objects.entities.entity.twilight.EntityReyvor;
 import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
 import naturix.divinerpg.objects.entities.entity.twilight.EternalArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.Greenfeet;
@@ -425,6 +427,7 @@ public class ModEntities {
 		registerMobWithEgg(SoulSpider.class, "soul_spider");
 		registerMobWithEgg(SoulStealer.class, "soul_stealer");
 		registerMobWithEgg(SunArcher.class, "sun_archer");
+		registerMobWithEgg(EntityReyvor.class, "reyvor");
 		registerMobWithEgg(TameAngryBunny.class, "tamed_angry_bunny");
 		registerMobWithEgg(TwilightArcher.class, "twilight_archer");
 		registerMobWithEgg(TwilightDemon.class, "twilight_demon");
@@ -589,6 +592,7 @@ public class ModEntities {
 		LootTableList.register(Razorback.LOOT);
 		LootTableList.register(RejuvGolem.LOOT);
 		LootTableList.register(Roamer.LOOT);
+		LootTableList.register(EntityReyvor.LOOT);
 		LootTableList.register(Rollum.LOOT);
 		LootTableList.register(Rotatick.LOOT);
 		LootTableList.register(Samek.LOOT);
@@ -709,6 +713,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(WildwoodTomo.class, RenderWildwoodTomo.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityReyvor.class, RenderReyvor.FACTORY);
 
 		// Vanilla
 		RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
