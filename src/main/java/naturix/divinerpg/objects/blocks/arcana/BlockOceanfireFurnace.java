@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
-import naturix.divinerpg.objects.blocks.FurnaceBase;
+import naturix.divinerpg.objects.blocks.BlockModFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityOceanfireFurnace;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.GUIHandler;
@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockOceanfireFurnace extends FurnaceBase implements ITileEntityProvider {
+public class BlockOceanfireFurnace extends BlockModFurnace implements ITileEntityProvider {
     protected String name;
 
     public BlockOceanfireFurnace(String name, boolean isBurnging) {

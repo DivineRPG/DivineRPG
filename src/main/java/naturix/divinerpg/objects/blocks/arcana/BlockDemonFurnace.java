@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
-import naturix.divinerpg.objects.blocks.FurnaceBase;
+import naturix.divinerpg.objects.blocks.BlockModFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.GUIHandler;
@@ -12,7 +12,7 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockDemonFurnace extends FurnaceBase implements ITileEntityProvider {
+public class BlockDemonFurnace extends BlockModFurnace implements ITileEntityProvider {
     protected String name;
 
     public BlockDemonFurnace(String name, boolean isBurning) {

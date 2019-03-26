@@ -1,8 +1,10 @@
 {
-  "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "divinerpg:white_mushroom_plant"
+    "age=1": {
+      "model": "divinerpg:white_mushroom_plant_stage_1"
+    },
+    "age=0": {
+      "model": "divinerpg:white_mushroom_plant_stage_0"
     }
   }
 }

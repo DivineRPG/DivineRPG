@@ -1,18 +1,16 @@
 package naturix.divinerpg.objects.blocks.vanilla;
 
 import naturix.divinerpg.objects.blocks.BlockMod;
+import naturix.divinerpg.utils.Utils;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockSpike extends BlockMod {
-    public static DamageSource spikeSource = new DamageSource("spikes");
-
     public BlockSpike(String name) {
         super(EnumBlockType.ROCK, name, 3);
     }
@@ -25,6 +23,6 @@ public class BlockSpike extends BlockMod {
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
         if (entity instanceof EntityLivingBase)
-            entity.attackEntityFrom(spikeSource, 5);
+            entity.attackEntityFrom(Utils.spikeSource, 5);
     }
 }

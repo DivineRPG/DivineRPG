@@ -17,8 +17,10 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModFence;
 import naturix.divinerpg.objects.blocks.BlockModFire;
+import naturix.divinerpg.objects.blocks.BlockModFurnace;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
@@ -26,7 +28,6 @@ import naturix.divinerpg.objects.blocks.BlockModPortal;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
-import naturix.divinerpg.objects.blocks.FurnaceBase;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
@@ -237,7 +238,7 @@ public class GenerateJSON {
         }
         ModBlocks.BLOCKS.forEach((block) -> {
             String registryName = block.getRegistryName().getResourcePath();
-            if (block instanceof FurnaceBase || block instanceof BlockMobPumpkin) {
+            if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin) {
                 generateFacingBlockstate(registryName);
             } else if (block instanceof BlockModLog) {
                 generateAxisBlockstate(registryName);
@@ -255,6 +256,8 @@ public class GenerateJSON {
                 generateTorchBlockstate(registryName);
             } else if (block instanceof BlockModFence) {
                 generateFenceBlockstate(registryName);
+            } else if (block instanceof BlockModCrop) {
+                generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -774,6 +777,28 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateCropBlockstate(String registryName, int maxAge) {
+        String blockPath = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> variants = new HashMap<>();
+
+        for (int age = 0; age <= maxAge; age++) {
+            Map<String, Object> ageNode = new HashMap<>();
+            ageNode.put("model", blockPath + "_stage_" + age);
+            variants.put("age=" + age, ageNode);
+        }
+
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -787,7 +812,7 @@ public class GenerateJSON {
                 generateGrassModelBlock(registryName);
             } else if (block instanceof BlockModLog) {
                 generateLogModelBlock(registryName);
-            } else if (block instanceof FurnaceBase) {
+            } else if (block instanceof BlockModFurnace) {
                 generateFurnaceModelBlock(registryName);
             } else if (block instanceof BlockMobPumpkin) {
                 generatePumpkinModelBlock(registryName);
@@ -803,6 +828,8 @@ public class GenerateJSON {
                 generateTorchModelBlock(registryName);
             } else if (block instanceof BlockModFence) {
                 generateFenceModelBlock(registryName);
+            } else if (block instanceof BlockModCrop) {
+                generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1164,6 +1191,26 @@ public class GenerateJSON {
             GSON.toJson(json, w);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void generateCropModelBlock(String registryName, int maxAge) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        for (int age = 0; age <= maxAge; age++) {
+            Map<String, Object> json = new HashMap<>();
+            Map<String, Object> textures = new HashMap<>();
+
+            json.put("parent", "block/crop");
+            textures.put("crop", texturePath + "_" + age);
+            json.put("textures", textures);
+            File f = new File(MODEL_BLOCK_DIR, registryName + "_stage_" + age + ".json");
+
+            try (FileWriter w = new FileWriter(f)) {
+                GSON.toJson(json, w);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

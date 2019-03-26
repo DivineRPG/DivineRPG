@@ -35,14 +35,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class FurnaceBase extends Block implements IHasModel, IMetaName {
+public class BlockModFurnace extends Block implements IHasModel, IMetaName {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static boolean keepInventory;
 	protected boolean isBurning;
 	protected String name;
 	protected int guiID;
 
-	public FurnaceBase(String name, boolean isBurning, int guiID) {
+	public BlockModFurnace(String name, boolean isBurning, int guiID) {
 		super(Material.ROCK);
 		this.name = name;
 		this.guiID = guiID;

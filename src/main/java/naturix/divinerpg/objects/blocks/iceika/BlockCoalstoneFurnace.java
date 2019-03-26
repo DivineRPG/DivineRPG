@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.iceika;
 
-import naturix.divinerpg.objects.blocks.FurnaceBase;
+import naturix.divinerpg.objects.blocks.BlockModFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.GUIHandler;
@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockCoalstoneFurnace extends FurnaceBase implements ITileEntityProvider {
+public class BlockCoalstoneFurnace extends BlockModFurnace implements ITileEntityProvider {
 
     public BlockCoalstoneFurnace(String name, boolean isBurnging) {
         super(name, isBurnging, GUIHandler.COALSTONE_FURNACE_GUI_ID);

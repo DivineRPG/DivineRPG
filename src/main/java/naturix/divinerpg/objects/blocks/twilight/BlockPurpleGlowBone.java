@@ -1,6 +1,7 @@
-package naturix.divinerpg.objects.blocks;
+package naturix.divinerpg.objects.blocks.twilight;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;

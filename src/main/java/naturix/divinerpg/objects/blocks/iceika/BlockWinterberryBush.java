@@ -37,7 +37,7 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (this == ModBlocks.winterberryBushGrown) {
+        if (this == ModBlocks.ripeWinterberryBush) {
             return ModItems.winterberry;
         }
         return null;
@@ -86,7 +86,7 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
     @Override
     public void updateTick(World w, BlockPos pos, IBlockState state, Random r) {
         if (r.nextInt(2) == 0 && w.getBlockState(pos) == ModBlocks.winterberryBush) {
-            w.setBlockState(pos, ModBlocks.winterberryBushGrown.getDefaultState());
+            w.setBlockState(pos, ModBlocks.ripeWinterberryBush.getDefaultState());
         }
     }
 }
