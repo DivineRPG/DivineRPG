@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:rupee_ingot"
+    "item": "divinerpg:rupee_ingot",
+    "count": 9
   },
   "ingredients": [
     {

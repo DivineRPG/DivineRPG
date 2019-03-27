@@ -81,3 +81,4 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == -1;
     }
 }
+

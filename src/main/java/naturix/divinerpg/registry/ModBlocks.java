@@ -425,9 +425,9 @@ public class ModBlocks {
     public static Block demonFurnace = new BlockDemonFurnace("demon_furnace", false);
     public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
 
-    public static Block weedwoodVine = new BlockModVine("weedwood_vine");
-    public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
-    public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
+    //public static Block weedwoodVine = new BlockModVine("weedwood_vine");
+    //public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
+    //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
     public static Block wildwoodVine = new BlockModVine("wildwood_vine");
 
     public static Block frozenDoubleSlab = new BlockModDoubleSlab("frozen_double_slab", Blocks.STONE_SLAB);

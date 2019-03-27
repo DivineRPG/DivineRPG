@@ -18,60 +18,60 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockModSlab extends BlockSlab implements IHasModel {
-	public final String NAME;
-	boolean isDouble = false;
-	private Block single;
+    public final String NAME;
+    boolean isDouble = false;
+    private Block single;
 
-	public BlockModSlab(BlockMod base, Block single) {
-		super(base.blockType.getMaterial(), base.blockType.getMaterial().getMaterialMapColor());
-		setHardness(base.getBlockModHardness());
-		setResistance(5);
-		NAME = base.name.replace("_planks", "_") + ((single == null) ? "slab" : "slab_double");
-		setUnlocalizedName(NAME);
-		setRegistryName(NAME);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
-		this.single = single;
-		if (single == null) {
-			useNeighborBrightness = true;
-		} else {
-			isDouble = true;
-		}
-		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-	}
+    public BlockModSlab(BlockMod base, Block single) {
+        super(base.blockType.getMaterial(), base.blockType.getMaterial().getMaterialMapColor());
+        setHardness(base.getBlockModHardness());
+        setResistance(5);
+        NAME = base.name.replace("_planks", "_") + ((single == null) ? "slab" : "double_slab");
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
+        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.single = single;
+        if (single == null) {
+            useNeighborBrightness = true;
+        } else {
+            isDouble = true;
+        }
+        ModBlocks.BLOCKS.add(this);
+        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
 
-	@Override
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(Item.getItemFromBlock(this.isDouble ? single : this));
-	}
+    @Override
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+        return new ItemStack(Item.getItemFromBlock(this.isDouble ? single : this));
+    }
 
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return Item.getItemFromBlock(this.isDouble ? single : this);
-	}
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return Item.getItemFromBlock(this.isDouble ? single : this);
+    }
 
-	@Override
-	public Comparable<?> getTypeForItem(ItemStack stack) {
-		return null;
-	}
+    @Override
+    public Comparable<?> getTypeForItem(ItemStack stack) {
+        return null;
+    }
 
-	@Override
-	public String getUnlocalizedName(int meta) {
-		return super.getUnlocalizedName();
-	}
+    @Override
+    public String getUnlocalizedName(int meta) {
+        return super.getUnlocalizedName();
+    }
 
-	@Override
-	public IProperty<?> getVariantProperty() {
-		return null;
-	}
+    @Override
+    public IProperty<?> getVariantProperty() {
+        return null;
+    }
 
-	@Override
-	public boolean isDouble() {
-		return this.isDouble;
-	}
+    @Override
+    public boolean isDouble() {
+        return this.isDouble;
+    }
 
-	@Override
-	public void registerModels() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-	}
+    @Override
+    public void registerModels() {
+        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
 }

@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:cheese"
+    "item": "divinerpg:cheese",
+    "count": 3
   },
   "pattern": [
     "MMM",
