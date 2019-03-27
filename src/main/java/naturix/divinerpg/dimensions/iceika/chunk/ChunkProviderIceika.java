@@ -180,12 +180,12 @@ public class ChunkProviderIceika implements  IChunkGenerator
 
 					if (this.worldObj.canBlockFreezeWater(blockpos2))
 					{
-						this.worldObj.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 2);
+						this.worldObj.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 3);
 					}
 
 					if (this.worldObj.canSnowAt(blockpos1, true))
 					{
-						this.worldObj.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 2);
+						this.worldObj.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 3);
 					}
 				}
 			}

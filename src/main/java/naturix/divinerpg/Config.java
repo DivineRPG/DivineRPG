@@ -13,7 +13,7 @@ public class Config {
 	public static int apalachiaDimensionId = 422;
 	public static int skythernDimensionId = 423;
 	public static int mortumDimensionId = 424;
-	public static int iceikaDimensionId = 425;
+	public static int iceikaDimensionId = 7;
 	public static int arcanaDimensionId = 426;
 	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
@@ -47,9 +47,9 @@ public class Config {
 		wildWoodDimensionId = cfg.getInt("wildWoodId", CATEGORY_DIMENSION, 421, 2, 4096, "Wild Wood dimension ID");
 		apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_DIMENSION, 422, 2, 4096, "Apalachia dimension ID");
 		skythernDimensionId = cfg.getInt("skythernId", CATEGORY_DIMENSION, 423, 2, 4096, "Skythern dimension ID");
-		mortumDimensionId = cfg.getInt("mortumId", CATEGORY_DIMENSION, 425, 2, 4096, "Mortum dimension ID");
-		iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 426, 2, 4096, "Iceika dimension ID");
-		arcanaDimensionId = cfg.getInt("arcanaId", CATEGORY_DIMENSION, 427, 2, 4096, "Arcana dimension ID");
+		mortumDimensionId = cfg.getInt("mortumId", CATEGORY_DIMENSION, 424, 2, 4096, "Mortum dimension ID");
+		iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 7, 2, 4096, "Iceika dimension ID");
+		arcanaDimensionId = cfg.getInt("arcanaId", CATEGORY_DIMENSION, 426, 2, 4096, "Arcana dimension ID");
 		isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase,
 		        "Set to false to make DivineRPG blocks non-beacon objects");
 		UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker,

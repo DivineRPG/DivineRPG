@@ -12,6 +12,6 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
  * /27/2019
  */
 public interface IStructure {
-    public static final WorldServer worldServer = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(Config.iceikaDimensionId); //Temp for now
-    public static final PlacementSettings settings = (new PlacementSettings()).setChunk(null).setIgnoreEntities(false).setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
+    WorldServer worldServer = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(Config.iceikaDimensionId);
+    PlacementSettings settings = (new PlacementSettings()).setChunk(null).setIgnoreEntities(false).setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
 }
