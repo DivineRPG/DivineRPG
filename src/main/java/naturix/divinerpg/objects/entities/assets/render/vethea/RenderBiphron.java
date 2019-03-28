@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vethea;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.entities.assets.model.vethea.model.ModelBiphron;
 import naturix.divinerpg.objects.entities.assets.model.vethea.model.ModelBoheimite;
 import naturix.divinerpg.objects.entities.entity.vethea.Biphron;
 import net.minecraft.client.model.ModelBase;
@@ -15,11 +16,11 @@ public class RenderBiphron extends RenderLiving<Biphron> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/biphron.png");
-	private final ModelBoheimite modelEntity;
+	private final ModelBiphron modelEntity;
     
 	public RenderBiphron(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelBoheimite(), 1F);
-        modelEntity = (ModelBoheimite) super.mainModel;
+        super(rendermanagerIn, new ModelBiphron(), 1F);
+        modelEntity = (ModelBiphron) super.mainModel;
 
     }
 
@@ -34,7 +35,7 @@ public class RenderBiphron extends RenderLiving<Biphron> {
 
 	        @Override
 	        public Render<? super Biphron> createRenderFor(RenderManager manager) {
-	            return new RenderBiphron(manager, new ModelBoheimite(), 1F);
+	            return new RenderBiphron(manager, new ModelBiphron(), 1F);
 	        }
 	    }
 
