@@ -18,12 +18,7 @@ public class WorldGenHut extends WorldGenerator {
         int i = position.getX();
         int j = position.getY();
         int k = position.getZ();
-        if (world.getBlockState(new BlockPos(i + 5, j, k + 5)) == Blocks.GRASS.getDefaultState()
-                && world.getBlockState(new BlockPos(i + 5, j + 1, k + 5)) == Blocks.AIR.getDefaultState()
-                && world.getBlockState(new BlockPos(i + 3, j, k + 3)) == Blocks.GRASS.getDefaultState()
-                && world.getBlockState(new BlockPos(i + 3, j + 1, k + 3)) == Blocks.AIR.getDefaultState()
-                && world.getBlockState(new BlockPos(i + 7, j, k + 7)) == Blocks.GRASS.getDefaultState()
-                && world.getBlockState(new BlockPos(i + 7, j + 1, k + 7)) == Blocks.AIR.getDefaultState()) {
+
             world.setBlockState(new BlockPos(i + 0, j + 1, k + 0), Blocks.OAK_FENCE.getDefaultState());
             world.setBlockState(new BlockPos(i + 0, j + 1, k + 1), Blocks.OAK_FENCE.getDefaultState());
             world.setBlockState(new BlockPos(i + 0, j + 1, k + 2), Blocks.OAK_FENCE.getDefaultState());
@@ -262,9 +257,9 @@ public class WorldGenHut extends WorldGenerator {
             LivestockMerchant e = new LivestockMerchant(world);
             e.setLocationAndAngles(i + 5, j + 1, k + 5, 0, 0);
             world.spawnEntity(e);
-            return true;
-        }
+
+
         DivineRPG.logger.info("hut was called but failed to load at " + new BlockPos(i, j, k));
-        return false;
+        return true;
     }
 }

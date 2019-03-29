@@ -24,6 +24,7 @@ import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemSwordBase;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
+import naturix.divinerpg.objects.items.itemblock.ItemBlockDoor;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightClock;
 import naturix.divinerpg.objects.items.vanilla.ItemAnchor;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
@@ -477,6 +478,7 @@ public class ModItems {
     public static Item teleportationCrystal = new ItemNotReady("teleportation_crystal", DRPGCreativeTabs.items);
 
     // Iceika
+    public static Item steelDoor = new ItemBlockDoor(ModBlocks.steelDoor);
     public static Item snowflake = new ItemBase("snowflake");
     public static Item iceShards = new ItemBase("ice_shards");
     public static Item iceStone = new ItemBase("ice_stone");

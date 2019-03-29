@@ -3,21 +3,7 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.objects.blocks.BlockMod;
-import naturix.divinerpg.objects.blocks.BlockModCrop;
-import naturix.divinerpg.objects.blocks.BlockModDoubleSlab;
-import naturix.divinerpg.objects.blocks.BlockModFire;
-import naturix.divinerpg.objects.blocks.BlockModGlass;
-import naturix.divinerpg.objects.blocks.BlockModGrass;
-import naturix.divinerpg.objects.blocks.BlockModLeaves;
-import naturix.divinerpg.objects.blocks.BlockModLog;
-import naturix.divinerpg.objects.blocks.BlockModPortal;
-import naturix.divinerpg.objects.blocks.BlockModSlab;
-import naturix.divinerpg.objects.blocks.BlockModSpawner;
-import naturix.divinerpg.objects.blocks.BlockModStairs;
-import naturix.divinerpg.objects.blocks.BlockModTorch;
-import naturix.divinerpg.objects.blocks.BlockModVine;
-import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.*;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
@@ -44,6 +30,7 @@ import naturix.divinerpg.utils.GenerateJSON;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 
 public class ModBlocks {
@@ -309,8 +296,7 @@ public class ModBlocks {
     // public static Block workshopBookcase = new BlockModBook(EnumBlockType.ROCK,
     // "workshop_bookcase").setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
-    // public static Block steelDoorBlock = new BlockModDoor(EnumBlockType.IRON,
-    // "steel_door_block", 7.0F, true);
+    public static Block steelDoor = new BlockDoorBase("steel_door_block", Material.ANVIL);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
     public static Block coalstoneFurnaceOn = new BlockCoalstoneFurnace("coalstone_furnace_on", true);
 

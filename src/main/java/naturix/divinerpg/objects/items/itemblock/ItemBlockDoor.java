@@ -1,6 +1,8 @@
 package naturix.divinerpg.objects.items.itemblock;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;
@@ -19,14 +21,9 @@ import net.minecraft.world.World;
  * Created by LiteWolf101 on Jan
  * /29/2019
  */
-public class ItemBlockSteelDoor extends ItemBlock {
-    protected String name;
-    public ItemBlockSteelDoor(String name, Block block) {
+public class ItemBlockDoor extends ItemBlock {
+    public ItemBlockDoor(Block block) {
         super(block);
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        //this.setCreativeTab(DivineRPG.ItemsTab);
     }
 
     @Override
@@ -43,7 +40,7 @@ public class ItemBlockSteelDoor extends ItemBlock {
 
             ItemStack stack = player.getHeldItem(hand);
 
-            if (player.canPlayerEdit(pos, facing, stack) && block.canPlaceBlockAt(worldIn, pos)) {
+            if (player.canPlayerEdit(pos, facing, stack) && this.block.canPlaceBlockAt(worldIn, pos)) {
                 EnumFacing playerFacing = EnumFacing.fromAngle((double) player.rotationYaw);
                 int x = playerFacing.getFrontOffsetX();
                 int z = playerFacing.getFrontOffsetZ();
@@ -59,7 +56,7 @@ public class ItemBlockSteelDoor extends ItemBlock {
         }
     }
 
-    private void placeDoor(World worldIn, BlockPos bottomDoorPos, EnumFacing playerFacing, Block door, boolean isRightHinge) {
+    private static void placeDoor(World worldIn, BlockPos bottomDoorPos, EnumFacing playerFacing, Block door, boolean isRightHinge) {
         BlockPos posYClockwise = bottomDoorPos.offset(playerFacing.rotateY());
         BlockPos posYCounterClockwise = bottomDoorPos.offset(playerFacing.rotateYCCW());
 
@@ -89,9 +86,5 @@ public class ItemBlockSteelDoor extends ItemBlock {
         worldIn.setBlockState(topDoorPos, doorState.withProperty(BlockDoor.HALF, BlockDoor.EnumDoorHalf.UPPER));
         worldIn.notifyNeighborsOfStateChange(bottomDoorPos, door, false);
         worldIn.notifyNeighborsOfStateChange(topDoorPos, door, false);
-    }
-
-    public void registerItemModel() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 }
