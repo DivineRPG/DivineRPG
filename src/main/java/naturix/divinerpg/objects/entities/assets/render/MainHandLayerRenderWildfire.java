@@ -15,7 +15,7 @@ public class MainHandLayerRenderWildfire implements LayerRenderer<Wildfire> {
 
 	@Override
 	public void doRenderLayer(Wildfire entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks,
-							  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	        float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		GlStateManager.enableRescaleNormal();
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(-0.48F, 0.45F, -0.05F);
