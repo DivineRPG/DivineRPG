@@ -5,6 +5,7 @@ import naturix.divinerpg.objects.blocks.tile.model.ModelIceikaChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 /**

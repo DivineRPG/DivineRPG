@@ -4,6 +4,7 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
+import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
@@ -28,6 +29,7 @@ import naturix.divinerpg.particle.ParticleSkythernPortal;
 import naturix.divinerpg.particle.ParticleSparkler;
 import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
@@ -92,6 +94,9 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+        if (item == Item.getItemFromBlock(ModBlocks.frostedChest)) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.frostedChest), 0, new ModelResourceLocation(Reference.MODID, "frosted_chest"));
+        }
     }
 
     @Override
