@@ -4,6 +4,9 @@
     "normal": {
       "model": "divinerpg:demon_furnace"
     },
+	"inventory": {
+      "model": "divinerpg:demon_furnace"
+    },
     "facing=east": {
       "y": 90,
       "model": "divinerpg:demon_furnace"
