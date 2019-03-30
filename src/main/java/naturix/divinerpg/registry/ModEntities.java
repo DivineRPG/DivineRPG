@@ -160,9 +160,9 @@ import naturix.divinerpg.objects.entities.entity.arcana.DeathHound;
 import naturix.divinerpg.objects.entities.entity.arcana.Deathcryx;
 import naturix.divinerpg.objects.entities.entity.arcana.Dramix;
 import naturix.divinerpg.objects.entities.entity.arcana.DungeonDemon;
-import naturix.divinerpg.objects.entities.entity.arcana.EdenCadillion;
-import naturix.divinerpg.objects.entities.entity.arcana.EdenCori;
-import naturix.divinerpg.objects.entities.entity.arcana.EdenTomo;
+import naturix.divinerpg.objects.entities.entity.twilight.EdenCadillion;
+import naturix.divinerpg.objects.entities.entity.twilight.EdenCori;
+import naturix.divinerpg.objects.entities.entity.twilight.EdenTomo;
 import naturix.divinerpg.objects.entities.entity.arcana.Leorna;
 import naturix.divinerpg.objects.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.objects.entities.entity.arcana.Paratiku;
@@ -200,14 +200,14 @@ import naturix.divinerpg.objects.entities.entity.twilight.AngryBunny;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaCadillion;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaGolem;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaTomo;
-import naturix.divinerpg.objects.entities.entity.twilight.Basalisk;
-import naturix.divinerpg.objects.entities.entity.twilight.Bohemoth;
+import naturix.divinerpg.objects.entities.entity.twilight.Basilisk;
+import naturix.divinerpg.objects.entities.entity.twilight.Behemoth;
 import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
 import naturix.divinerpg.objects.entities.entity.twilight.DenseDemon;
 import naturix.divinerpg.objects.entities.entity.twilight.Densos;
 import naturix.divinerpg.objects.entities.entity.twilight.EnchantedArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.EnchantedWarrior;
-import naturix.divinerpg.objects.entities.entity.twilight.EntityReyvor;
+import naturix.divinerpg.objects.entities.entity.twilight.Reyvor;
 import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
 import naturix.divinerpg.objects.entities.entity.twilight.EternalArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.Greenfeet;
@@ -233,7 +233,7 @@ import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.TameAngryBunny;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightDemon;
-import naturix.divinerpg.objects.entities.entity.twilight.Vamecheron;
+import naturix.divinerpg.objects.entities.entity.twilight.Vamacheron;
 import naturix.divinerpg.objects.entities.entity.twilight.Verek;
 import naturix.divinerpg.objects.entities.entity.twilight.WildwoodCadillion;
 import naturix.divinerpg.objects.entities.entity.twilight.WildwoodGolem;
@@ -395,8 +395,8 @@ public class ModEntities {
 		registerMobWithEgg(ApalachiaCadillion.class, "apalachia_cadillion");
 		registerMobWithEgg(ApalachiaGolem.class, "apalachia_golem");
 		registerMobWithEgg(ApalachiaTomo.class, "apalachia_tomo");
-		registerMobWithEgg(Basalisk.class, "basalisk");
-		registerMobWithEgg(Bohemoth.class, "behemoth");
+		registerMobWithEgg(Basilisk.class, "basalisk");
+		registerMobWithEgg(Behemoth.class, "behemoth");
 		registerMobWithEgg(Bunny.class, "bunny");
 		registerMobWithEgg(DenseDemon.class, "dense_demon");
 		registerMobWithEgg(Densos.class, "densos");
@@ -427,11 +427,11 @@ public class ModEntities {
 		registerMobWithEgg(SoulSpider.class, "soul_spider");
 		registerMobWithEgg(SoulStealer.class, "soul_stealer");
 		registerMobWithEgg(SunArcher.class, "sun_archer");
-		registerMobWithEgg(EntityReyvor.class, "reyvor");
+		registerMobWithEgg(Reyvor.class, "reyvor");
 		registerMobWithEgg(TameAngryBunny.class, "tamed_angry_bunny");
 		registerMobWithEgg(TwilightArcher.class, "twilight_archer");
 		registerMobWithEgg(TwilightDemon.class, "twilight_demon");
-		registerMobWithEgg(Vamecheron.class, "vamacheron");
+		registerMobWithEgg(Vamacheron.class, "vamacheron");
 		registerMobWithEgg(Verek.class, "varek");
 		registerMobWithEgg(WildwoodCadillion.class, "wildwood_cadillion");
 		registerMobWithEgg(WildwoodGolem.class, "wildwood_golem");
@@ -541,8 +541,8 @@ public class ModEntities {
 		LootTableList.register(AyeracoPurple.LOOT);
 		LootTableList.register(AyeracoRed.LOOT);
 		LootTableList.register(AyeracoYellow.LOOT);
-		LootTableList.register(Basalisk.LOOT);
-		LootTableList.register(Bohemoth.LOOT);
+		LootTableList.register(Basilisk.LOOT);
+		LootTableList.register(Behemoth.LOOT);
 		LootTableList.register(Bunny.LOOT);
 		LootTableList.register(CaveCrawler.LOOT);
 		LootTableList.register(Caveclops.LOOT);
@@ -592,7 +592,7 @@ public class ModEntities {
 		LootTableList.register(Razorback.LOOT);
 		LootTableList.register(RejuvGolem.LOOT);
 		LootTableList.register(Roamer.LOOT);
-		LootTableList.register(EntityReyvor.LOOT);
+		LootTableList.register(Reyvor.LOOT);
 		LootTableList.register(Rollum.LOOT);
 		LootTableList.register(Rotatick.LOOT);
 		LootTableList.register(Samek.LOOT);
@@ -671,8 +671,8 @@ public class ModEntities {
 		// Twilight
 		RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Basalisk.class, RenderBasalisk.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Bohemoth.class, RenderBehemoth.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasalisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Behemoth.class, RenderBehemoth.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EdenCadillion.class, RenderEdenCadillion.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EdenCori.class, RenderEdenCori.FACTORY);
@@ -698,7 +698,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(TwilightArcher.class, RenderTwilightArcher.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(TwilightDemon.class, RenderTwilightDemon.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(ApalachiaGolem.class, RenderApalachiaGolem.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Vamecheron.class, RenderVamacheron.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Vamacheron.class, RenderVamacheron.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnchantedArcher.class, RenderEnchantedArcher.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(MortumArcher.class, RenderMortumArcher.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(SkythernArcher.class, RenderSkythernArcher.FACTORY);
@@ -713,7 +713,7 @@ public class ModEntities {
 		RenderingRegistry.registerEntityRenderingHandler(WildwoodTomo.class, RenderWildwoodTomo.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityReyvor.class, RenderReyvor.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Reyvor.class, RenderReyvor.FACTORY);
 
 		// Vanilla
 		RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
@@ -767,7 +767,7 @@ public class ModEntities {
 
 		// Vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Basalisk.class, RenderBasalisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasalisk.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Biphron.class, RenderBiphron.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Bohemite.class, RenderBohemite.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(CryptKeeper.class, RenderCryptKeeper.FACTORY);
@@ -837,8 +837,8 @@ public class ModEntities {
 		EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
 		EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.MONSTER, ModBiomes.WildWood);
 		EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.CREATURE, ModBiomes.WildWood);
-		EntityRegistry.addSpawn(Bohemoth.class, 1, 1, 1, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-		EntityRegistry.addSpawn(Bohemoth.class, 1, 1, 1, EnumCreatureType.CREATURE, ModBiomes.WildWood);
+		EntityRegistry.addSpawn(Behemoth.class, 1, 1, 1, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+		EntityRegistry.addSpawn(Behemoth.class, 1, 1, 1, EnumCreatureType.CREATURE, ModBiomes.WildWood);
 		EntityRegistry.addSpawn(WildwoodGolem.class, 3, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
 		EntityRegistry.addSpawn(Verek.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
 		EntityRegistry.addSpawn(Mage.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
@@ -863,7 +863,7 @@ public class ModEntities {
 		EntityRegistry.addSpawn(Megalith.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
 
 		EntityRegistry.addSpawn(MortumDemon.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
-		EntityRegistry.addSpawn(Basalisk.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+		EntityRegistry.addSpawn(Basilisk.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
 		EntityRegistry.addSpawn(SoulStealer.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
 		EntityRegistry.addSpawn(MortumCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
 		EntityRegistry.addSpawn(TwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);

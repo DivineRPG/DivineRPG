@@ -30,7 +30,7 @@ public class Quadro extends EntityMob {
 		this.setSize(1.2F, 2.2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/quadro");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/quadro");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

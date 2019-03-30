@@ -30,7 +30,7 @@ public class Ent extends EntityMob {
 		this.setSize(2F, 4.4f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ent");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/ent");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

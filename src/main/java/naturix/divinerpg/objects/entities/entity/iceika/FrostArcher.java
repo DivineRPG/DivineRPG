@@ -23,7 +23,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/frost_archer");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/frost_archer");
 
     public FrostArcher(World worldIn) {
         super(worldIn);

@@ -25,7 +25,7 @@ public class MoonWolf extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/moonwolf");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/moonwolf");
 
 
     protected boolean isMaster() {

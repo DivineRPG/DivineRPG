@@ -30,7 +30,7 @@ public class Lorga extends EntityMob {
 		this.setSize(1F, 2.4f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/lorga");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/lorga");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

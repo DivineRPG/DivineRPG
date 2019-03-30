@@ -25,7 +25,7 @@ public class WildwoodCadillion extends EntityMob {
 		this.setSize(1F, 1.4f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/cadillion_wildwood");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/wildwood_cadillion");
 
 
     protected boolean isMaster() {

@@ -30,7 +30,7 @@ public class Roamer extends EntityMob {
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/roamer");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/roamer");
 
 
     protected boolean isMaster() {

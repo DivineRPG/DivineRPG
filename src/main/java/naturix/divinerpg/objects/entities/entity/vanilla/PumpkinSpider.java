@@ -20,7 +20,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class PumpkinSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/pumpkin_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/pumpkin_spider");
     private static final DataParameter<Boolean> CLIMBING = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
             DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,

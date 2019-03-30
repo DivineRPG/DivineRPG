@@ -12,10 +12,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
-	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/reyvor");
+public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/reyvor");
 
-	public EntityReyvor(World worldIn) {
+	public Reyvor(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 2.4f);
 	}

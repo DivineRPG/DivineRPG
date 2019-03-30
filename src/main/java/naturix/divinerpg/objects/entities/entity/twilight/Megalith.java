@@ -25,7 +25,7 @@ public class Megalith extends EntityMob {
 		this.setSize(1F, 3.5f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/megalith");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/megalith");
 
 
     protected boolean isMaster() {

@@ -5,7 +5,7 @@ import java.util.Random;
 
 import naturix.divinerpg.dimensions.wildwood.worldgen.trees.LargeWildWoodTree;
 import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
-import naturix.divinerpg.objects.entities.entity.twilight.Bohemoth;
+import naturix.divinerpg.objects.entities.entity.twilight.Behemoth;
 import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
 import naturix.divinerpg.objects.entities.entity.twilight.Mage;
 import naturix.divinerpg.objects.entities.entity.twilight.MoonWolf;
@@ -46,7 +46,7 @@ public class BiomeWildWood extends Biome {
         this.spawnableMonsterList.add(new SpawnListEntry(WildwoodGolem.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(WildwoodWolf.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(Epiphite.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Bohemoth.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(Behemoth.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(Verek.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(Mage.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(MoonWolf.class, 1, 1, 1));

@@ -30,7 +30,7 @@ public class Cymesoid extends EntityMob {
 		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/cymesoid");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/cymesoid");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

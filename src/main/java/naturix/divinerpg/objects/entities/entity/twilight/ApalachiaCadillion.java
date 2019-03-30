@@ -25,7 +25,7 @@ public class ApalachiaCadillion extends EntityMob {
 		this.setSize(1F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/cadillion_apalachia");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/apalachia_cadillion");
 
 
     protected boolean isMaster() {

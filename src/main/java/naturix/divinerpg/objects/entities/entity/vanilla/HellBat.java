@@ -13,7 +13,7 @@ public class HellBat extends EntityBat
 		super(worldIn);
 		this.setHealth(this.getMaxHealth());
 	}
-	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/hell_bat");
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/hell_bat");
 	private ResourceLocation deathLootTable = LOOT;
 	@Override
 	protected ResourceLocation getLootTable()

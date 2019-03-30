@@ -25,7 +25,7 @@ public class TwilightDemon extends EntityMob {
 		this.setSize(0.6F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/demon_twilight");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/twilight_demon");
 
 
     protected boolean isMaster() {

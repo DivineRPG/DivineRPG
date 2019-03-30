@@ -30,7 +30,7 @@ public class Kazrotic extends EntityMob {
 		this.setSize(1.4F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/kazrotic");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/kazrotic");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

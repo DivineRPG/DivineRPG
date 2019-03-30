@@ -25,7 +25,7 @@ public class Lorgaflight extends EntityFlying {
 		this.setHealth(this.getMaxHealth());
 		
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/lorga_flight");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/lorga_flight");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

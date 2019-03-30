@@ -16,7 +16,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Hastreus extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/hastreus");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/hastreus");
 
     public Hastreus(World worldIn) {
         super(worldIn);

@@ -25,7 +25,7 @@ public class Mystic extends EntityMob {
 		this.setSize(0.6F, 2.2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/mystic");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/mystic");
 
 
     protected boolean isMaster() {

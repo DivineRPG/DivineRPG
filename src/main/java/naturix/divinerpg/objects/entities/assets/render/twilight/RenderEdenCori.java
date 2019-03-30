@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.assets.model.twilight.model.ModelCori;
+import naturix.divinerpg.objects.entities.entity.twilight.EdenCori;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEdenCori extends RenderLiving<naturix.divinerpg.objects.entities.entity.arcana.EdenCori> {
+public class RenderEdenCori extends RenderLiving<EdenCori> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eden_cori.png");
@@ -25,14 +26,14 @@ public class RenderEdenCori extends RenderLiving<naturix.divinerpg.objects.entit
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(naturix.divinerpg.objects.entities.entity.arcana.EdenCori entity) {
+    protected ResourceLocation getEntityTexture(EdenCori entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<naturix.divinerpg.objects.entities.entity.arcana.EdenCori> {
+	 public static class Factory implements IRenderFactory<EdenCori> {
 
 	        @Override
-	        public Render<? super naturix.divinerpg.objects.entities.entity.arcana.EdenCori> createRenderFor(RenderManager manager) {
+	        public Render<? super EdenCori> createRenderFor(RenderManager manager) {
 	            return new RenderEdenCori(manager, new ModelCori(), 0.5F);
 	        }
 	    }

@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Glacide extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/glacide");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/glacide");
 
     public Glacide(World worldIn) {
         super(worldIn);

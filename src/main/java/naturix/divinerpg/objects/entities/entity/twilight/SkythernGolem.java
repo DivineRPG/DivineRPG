@@ -25,7 +25,7 @@ public class SkythernGolem extends EntityMob {
 		this.setSize(0.9F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/golem_skythern");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/skythern_golem");
 
 
     protected boolean isMaster() {

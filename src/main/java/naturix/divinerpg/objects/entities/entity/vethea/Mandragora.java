@@ -30,7 +30,7 @@ public class Mandragora extends EntityMob {
 		this.setSize(0.5F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/mandragora");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/mandragora");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

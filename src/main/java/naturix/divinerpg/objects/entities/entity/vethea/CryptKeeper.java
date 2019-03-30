@@ -30,7 +30,7 @@ public class CryptKeeper extends EntityMob {
 		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/cryptkeeper");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/cryptkeeper");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

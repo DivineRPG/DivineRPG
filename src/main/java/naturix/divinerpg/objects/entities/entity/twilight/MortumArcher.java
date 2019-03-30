@@ -25,7 +25,7 @@ public class MortumArcher extends EntityMob {
 		this.setSize(2F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/archer_mortum");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/mortum_archer");
 
 
     protected boolean isMaster() {

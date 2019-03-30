@@ -18,21 +18,16 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Basalisk extends EntityMob {
+public class EdenCori extends EntityMob {
 
-    public Basalisk(World worldIn) {
+    public EdenCori(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/basalisk");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eden_cori");
 
 
-    /**@Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.mortumDimension.getId();
-    }*/
     protected boolean isMaster() {
         return false;
     }
@@ -55,7 +50,7 @@ public class Basalisk extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Basalisk.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, EdenCori.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
@@ -94,6 +89,12 @@ public class Basalisk extends EntityMob {
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
-
 	}
+		/**protected Block spawnableBlock = ModBlocks.grassEden;
+
+	    @Override
+	    public boolean getCanSpawnHere()
+	    {
+	        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.edenDimension.getId();
+	    }*/
 }

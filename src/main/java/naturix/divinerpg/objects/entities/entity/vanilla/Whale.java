@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Whale extends EntityDivineRPGSwimming {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/whale");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/whale");
 
     public Whale(World worldIn) {
         super(worldIn);

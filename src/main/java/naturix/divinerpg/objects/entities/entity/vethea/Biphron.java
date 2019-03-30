@@ -30,7 +30,7 @@ public class Biphron extends EntityMob {
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/biphron");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/biphron");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

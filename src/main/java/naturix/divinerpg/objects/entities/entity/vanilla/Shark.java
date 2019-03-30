@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Shark extends EntityDivineRPGSwimming {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/shark");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/shark");
 
     public Shark(World worldIn) {
         super(worldIn);

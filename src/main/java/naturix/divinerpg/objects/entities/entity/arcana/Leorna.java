@@ -29,7 +29,7 @@ public class Leorna extends EntityMob{
 		this.setHealth(this.getMaxHealth());
 
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/leorna");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/leorna");
 
 
     protected boolean isMaster() {

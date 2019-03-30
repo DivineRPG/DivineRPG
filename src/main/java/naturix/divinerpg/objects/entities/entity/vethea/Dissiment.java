@@ -30,7 +30,7 @@ public class Dissiment extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/dissiment");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/dissiment");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

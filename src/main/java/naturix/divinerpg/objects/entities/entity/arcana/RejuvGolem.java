@@ -30,7 +30,7 @@ public class RejuvGolem extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/golem_rejuv");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/golem_rejuv");
 
 
     protected boolean isMaster() {

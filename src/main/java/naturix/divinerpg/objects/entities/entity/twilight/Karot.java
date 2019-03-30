@@ -25,7 +25,7 @@ public class Karot extends EntityMob {
 		this.setSize(.6F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/karot");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/karot");
 
 
     protected boolean isMaster() {

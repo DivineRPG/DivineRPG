@@ -30,7 +30,7 @@ public class Shadahier extends EntityMob {
 		this.setSize(0.8F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/shadahier");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/shadahier");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

@@ -30,7 +30,7 @@ public class Wraith extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/wraith");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/wraith");
 
 
     protected boolean isMaster() {

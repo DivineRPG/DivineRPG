@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.entities.entity.arcana;
+package naturix.divinerpg.objects.entities.entity.twilight;
 
 import javax.annotation.Nullable;
 
@@ -18,14 +18,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class EdenCadillion extends EntityMob {
+public class EdenTomo extends EntityMob {
 
-    public EdenCadillion(World worldIn) {
+    public EdenTomo(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/cadillion");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eden_tomo");
 
 
     protected boolean isMaster() {
@@ -50,7 +50,7 @@ public class EdenCadillion extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, EdenCadillion.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, EdenTomo.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
@@ -90,14 +90,12 @@ public class EdenCadillion extends EntityMob {
 	{
 		return this.LOOT;
 
-	}    
+	}
+    /**protected Block spawnableBlock = ModBlocks.grassEden;
 
-    //protected Block spawnableBlock = ModBlocks.grassEden;
-
-    //@Override
-    //public boolean getCanSpawnHere()
-    //{
-    //    return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.edenDimension.getId();
-    //}
-    
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.edenDimension.getId();
+    }*/
 }

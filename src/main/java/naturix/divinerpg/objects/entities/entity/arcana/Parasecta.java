@@ -37,7 +37,7 @@ public class Parasecta extends EntityMob {
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/parasecta");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/parasecta");
 
 
     protected boolean isMaster() {

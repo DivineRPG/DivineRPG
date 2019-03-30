@@ -9,7 +9,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EnderSpider extends EntityEnderman {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ender_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ender_spider");
 
     public EnderSpider(World worldIn) {
         super(worldIn);
