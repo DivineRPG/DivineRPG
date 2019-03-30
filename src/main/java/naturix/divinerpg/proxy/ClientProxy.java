@@ -92,15 +92,11 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void registerItemRenderer(Item item, int meta, String id) {
-        if (item == Item.getItemFromBlock(ModBlocks.frostedChest)) {
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.frostedChest), 0,
-                    new ModelResourceLocation(new ResourceLocation(Reference.MODID, "frosted_chest"), "inventory"));
-            item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-            return;
-        }
+    public void registerItemRenderer(final Item item, final int meta, final String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-
+        if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))) {
+            item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
+        }
     }
 
     @Override

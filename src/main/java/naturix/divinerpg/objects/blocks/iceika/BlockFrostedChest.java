@@ -11,6 +11,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -35,7 +36,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by LiteWolf101 on Feb /01/2019
  */
-public class BlockFrostedChest extends BlockContainer {
+public class BlockFrostedChest extends BlockContainer implements IHasModel {
 	public String name;
 	private boolean dropsSnowflake;
 
@@ -57,10 +58,6 @@ public class BlockFrostedChest extends BlockContainer {
 		TileEntityFrostedChest tileEntity = (TileEntityFrostedChest) worldIn.getTileEntity(pos);
 		InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity);
 		super.breakBlock(worldIn, pos, state);
-	}
-
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 
 	@Nullable
@@ -172,5 +169,8 @@ public class BlockFrostedChest extends BlockContainer {
 		}
 	}
 
-	//public void registerItemModel() {DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);}
+	@Override
+	public void registerModels() {
+		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+	}
 }
