@@ -27,8 +27,12 @@ minecraft {
     mappings = "snapshot_20171003"
 }
 
+repositories {
+    maven { url = "https://minecraft.curseforge.com/api/maven/" }
+}
+
 dependencies {
-   
+   deobfCompile "projecte:ProjectE:1.12.2:${projecte_version}"
 }
 
 processResources {
