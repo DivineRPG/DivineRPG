@@ -49,6 +49,7 @@ public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
 		spawner.writeToNBT(compound);
 		compound2.setString("id", Reference.MODID + ":" + mobName);
 		compound.setTag("SpawnData", compound2);
+		compound.setString("SpawnPotentials", mobName);
 		spawner.readFromNBT(compound);
 		spawner.readFromNBT(compound2);
 		spawner.markDirty();
