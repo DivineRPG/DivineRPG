@@ -249,8 +249,8 @@ public class WorldGenHut extends WorldGenerator {
             world.setBlockState(new BlockPos(i + 10, j + 1, k + 8), Blocks.OAK_FENCE.getDefaultState());
             world.setBlockState(new BlockPos(i + 10, j + 1, k + 9), Blocks.OAK_FENCE.getDefaultState());
             world.setBlockState(new BlockPos(i + 10, j + 1, k + 10), Blocks.OAK_FENCE.getDefaultState());
-            world.setBlockState(new BlockPos(i + 7, j + 1, k + 5), Blocks.WOODEN_BUTTON.getDefaultState(), 2);
-            world.setBlockState(new BlockPos(i + 7, j + 2, k + 5), Blocks.WOODEN_BUTTON.getDefaultState(), 8);
+            world.setBlockState(new BlockPos(i + 7, j + 1, k + 5), Blocks.WOODEN_BUTTON.getDefaultState());
+            world.setBlockState(new BlockPos(i + 7, j + 2, k + 5), Blocks.WOODEN_BUTTON.getDefaultState());
             if (Config.debug) {
                 DivineRPG.logger.info(new BlockPos(i + 7, j + 2, k + 5) + " hut");
             }

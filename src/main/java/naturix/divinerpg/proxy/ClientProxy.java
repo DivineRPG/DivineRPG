@@ -93,10 +93,14 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
         if (item == Item.getItemFromBlock(ModBlocks.frostedChest)) {
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.frostedChest), 0, new ModelResourceLocation(Reference.MODID, "frosted_chest"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.frostedChest), 0,
+                    new ModelResourceLocation(new ResourceLocation(Reference.MODID, "frosted_chest"), "inventory"));
+            item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
+            return;
         }
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+
     }
 
     @Override
@@ -104,8 +108,7 @@ public class ClientProxy extends CommonProxy {
         // ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVase.class, new
         // TileEntityVaseRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new TileEntityDramixAltarRender());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class,
-                new TileEntityParasectaAltarRender());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new TileEntityParasectaAltarRender());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderIceikaChest());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonFurnace.class, new RenderDemonFurnace());
@@ -114,8 +117,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerVariantRenderer(Item item, int meta, String filename, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta,
-                new ModelResourceLocation(new ResourceLocation(Reference.MODID, filename), id));
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Reference.MODID, filename), id));
     }
 
     @Override

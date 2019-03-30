@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenCustomOres implements IWorldGenerator {
 
-    //private static WorldGenHut hut = new WorldGenHut();
+    private static WorldGenHut hut = new WorldGenHut();
     public static WorldGenCustomOres instance = new WorldGenCustomOres();
 
     @Override
@@ -93,7 +93,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
                 Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax, BlockMatcher.forBlock(Blocks.STONE));
 
         if (world.provider.getDimension() == 0) {
-            //hut.generate(world, random, new BlockPos(chunkX, random.nextInt(world.getHeight()), chunkZ));
+            hut.generate(world, random, new BlockPos(chunkX, random.nextInt(world.getHeight()), chunkZ));
         }
 
     }
