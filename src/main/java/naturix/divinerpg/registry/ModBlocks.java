@@ -293,8 +293,7 @@ public class ModBlocks {
     public static Block coalstoneStairs = new BlockModStairs(coalstone, "coalstone_stairs");
     public static Block workshopCarpet = new BlockMod(EnumBlockType.WOOL, "workshop_carpet", 0.1F);
     public static Block frostedGlass = new BlockModGlass("frosted_glass", 1.0F);
-    // public static Block workshopBookcase = new BlockModBook(EnumBlockType.ROCK,
-    // "workshop_bookcase").setHardness(1.5F);
+    public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase", DRPGCreativeTabs.BlocksTab).setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
     public static Block steelDoor = new BlockDoorBase("steel_door_block", Material.ANVIL);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
