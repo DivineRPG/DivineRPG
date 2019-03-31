@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/blue_christmas_lights"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/blue_christmas_lights"
+  }
 }
