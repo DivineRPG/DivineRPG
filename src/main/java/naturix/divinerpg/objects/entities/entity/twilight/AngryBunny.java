@@ -27,7 +27,7 @@ public class AngryBunny extends EntityMob {
 		this.setSize(0.6F, 0.7f);
 		this.setHealth(this.getHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/bunny_angry");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/angry_bunny");
 
 
     protected boolean isMaster() {

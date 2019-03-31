@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EnthralledDramcryx extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/enthralled_dramcryx");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/enthralled_dramcryx");
 
     public EnthralledDramcryx(World worldIn) {
         super(worldIn);

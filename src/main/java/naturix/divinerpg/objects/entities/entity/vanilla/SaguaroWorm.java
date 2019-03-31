@@ -18,7 +18,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class SaguaroWorm extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/saguaro_worm");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/saguaro_worm");
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(SaguaroWorm.class,
             DataSerializers.BOOLEAN);
 

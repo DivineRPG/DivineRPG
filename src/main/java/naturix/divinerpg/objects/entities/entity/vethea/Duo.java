@@ -30,7 +30,7 @@ public class Duo extends EntityMob {
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/duo");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/duo");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

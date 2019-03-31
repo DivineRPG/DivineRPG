@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arid_warrior");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/arid_warrior");
 
     public AridWarrior(World worldIn) {
         super(worldIn);

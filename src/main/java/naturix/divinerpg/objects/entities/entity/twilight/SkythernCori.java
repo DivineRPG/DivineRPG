@@ -25,7 +25,7 @@ public class SkythernCori extends EntityMob {
 		this.setSize(0.8F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/skythern_cori");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/skythern_cori");
 
 
     protected boolean isMaster() {

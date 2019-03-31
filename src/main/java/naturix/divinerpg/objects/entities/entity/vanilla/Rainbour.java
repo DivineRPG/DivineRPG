@@ -26,7 +26,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Rainbour extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/rainbour");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/rainbour");
     private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
             DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;

@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/caveclops");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/caveclops");
 
     public Caveclops(World worldIn) {
         super(worldIn);

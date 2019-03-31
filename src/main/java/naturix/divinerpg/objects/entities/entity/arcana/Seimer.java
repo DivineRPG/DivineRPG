@@ -30,7 +30,7 @@ public class Seimer extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/seimer");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/seimer");
 
 
     protected boolean isMaster() {

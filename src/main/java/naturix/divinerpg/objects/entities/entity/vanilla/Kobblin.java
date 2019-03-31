@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Kobblin extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/kobblin");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/kobblin");
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(Kobblin.class,
             DataSerializers.BOOLEAN);
 

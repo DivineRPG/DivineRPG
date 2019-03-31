@@ -24,7 +24,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Fractite extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/fractite");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/fractite");
     public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;

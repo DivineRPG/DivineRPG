@@ -30,7 +30,7 @@ public class MysteriousMan extends EntityMob {
 		this.setSize(0.9F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/mysterious_man");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/mysterious_man");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

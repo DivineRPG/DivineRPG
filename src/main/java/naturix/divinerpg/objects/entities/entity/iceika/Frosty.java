@@ -15,7 +15,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Frosty extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/frosty");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/frosty");
 
     public Frosty(World worldIn) {
         super(worldIn);

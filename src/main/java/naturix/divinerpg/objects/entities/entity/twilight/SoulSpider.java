@@ -25,7 +25,7 @@ public class SoulSpider extends EntityMob {
 		this.setSize(0.7F, 0.4f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/spider_soul");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/soul_spider");
 
 
     protected boolean isMaster() {

@@ -8,7 +8,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderWatcher extends EntityEnderman {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ender_watcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ender_watcher");
 
     public EnderWatcher(World worldIn) {
         super(worldIn);

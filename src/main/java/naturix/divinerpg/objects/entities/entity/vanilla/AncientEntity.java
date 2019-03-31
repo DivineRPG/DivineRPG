@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class AncientEntity extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ancient_entity");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ancient_entity");
 
     public AncientEntity(World worldIn) {
         super(worldIn);

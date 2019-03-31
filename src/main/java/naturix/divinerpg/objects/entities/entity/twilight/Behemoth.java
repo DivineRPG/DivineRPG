@@ -18,14 +18,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Bohemoth extends EntityMob {
+public class Behemoth extends EntityMob {
 
-    public Bohemoth(World worldIn) {
+    public Behemoth(World worldIn) {
 		super(worldIn);
 		this.setSize(1.4F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/bohemoth");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/behemoth");
 
 
     protected boolean isMaster() {
@@ -55,7 +55,7 @@ public class Bohemoth extends EntityMob {
 
     protected void initEntityAI()
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Bohemoth.class));
+    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Behemoth.class));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));

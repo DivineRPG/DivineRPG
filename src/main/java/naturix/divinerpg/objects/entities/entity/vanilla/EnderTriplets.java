@@ -17,7 +17,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderTriplets extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ender_triplets");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ender_triplets");
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;

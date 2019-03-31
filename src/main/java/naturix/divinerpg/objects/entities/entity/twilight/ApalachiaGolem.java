@@ -25,7 +25,7 @@ public class ApalachiaGolem extends EntityMob {
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/golem_apalachia");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/apalachia_golem");
 
 
     protected boolean isMaster() {

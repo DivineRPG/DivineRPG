@@ -28,7 +28,7 @@ public class TameAngryBunny extends EntityTameable {
 		this.setSize(0.6F, 1f);
 		this.setHealth(this.getHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/bunny_angry_tamed");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/tame_angry_bunny");
 
 
     protected boolean isMaster() {

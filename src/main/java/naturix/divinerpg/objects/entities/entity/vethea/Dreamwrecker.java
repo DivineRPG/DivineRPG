@@ -30,7 +30,7 @@ public class Dreamwrecker extends EntityMob {
 		this.setSize(1F, 4.4f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/dreamwrecker");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/dreamwrecker");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

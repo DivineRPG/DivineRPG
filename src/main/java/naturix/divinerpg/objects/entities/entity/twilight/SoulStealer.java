@@ -25,7 +25,7 @@ public class SoulStealer extends EntityMob {
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/stealer_soul");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/soul_stealer");
 
 
     /**@Override

@@ -26,7 +26,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Scorcher extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/scorcher");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/scorcher");
     private float heightOffset = 0.5F;
     private int heightOffsetUpdateTime;
     private int anger;

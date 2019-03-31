@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class KingCrab extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/king_crab");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/king_crab");
 
     public KingCrab(World worldIn) {
         super(worldIn);

@@ -24,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Deathcryx extends EntityMob {
-	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/wraith");
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/deathcryx");
 	private ResourceLocation deathLootTable = LOOT;
 
     public Deathcryx(World worldIn) {

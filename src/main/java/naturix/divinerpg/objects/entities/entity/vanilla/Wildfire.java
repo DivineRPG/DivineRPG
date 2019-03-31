@@ -17,7 +17,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
-	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/wildfire");
+	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/wildfire");
 
 	public Wildfire(World worldIn) {
 		super(worldIn);

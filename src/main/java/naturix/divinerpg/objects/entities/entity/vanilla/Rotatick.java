@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Rotatick extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/rotatick");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/rotatick");
 
     public Rotatick(World worldIn) {
         super(worldIn);

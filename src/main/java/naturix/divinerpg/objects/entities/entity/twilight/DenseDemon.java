@@ -25,7 +25,7 @@ public class DenseDemon extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/demon_dense");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/demon_dense");
 
 
     protected boolean isMaster() {

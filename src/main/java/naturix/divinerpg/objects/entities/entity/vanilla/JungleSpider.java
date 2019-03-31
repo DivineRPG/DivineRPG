@@ -23,7 +23,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class JungleSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/jungle_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/jungle_spider");
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(JungleSpider.class,
             DataSerializers.BYTE);
 

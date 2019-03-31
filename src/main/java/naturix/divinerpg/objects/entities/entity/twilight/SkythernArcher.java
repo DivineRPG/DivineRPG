@@ -25,7 +25,7 @@ public class SkythernArcher extends EntityMob {
 		this.setSize(2F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/archer_skythern");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/skythern_archer");
 
 
     protected boolean isMaster() {

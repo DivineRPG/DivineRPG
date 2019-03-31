@@ -30,7 +30,7 @@ public class HiveSoldier extends EntityMob {
 		this.setSize(0.6F, 1.8f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/hivesoldier");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/hivesoldier");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

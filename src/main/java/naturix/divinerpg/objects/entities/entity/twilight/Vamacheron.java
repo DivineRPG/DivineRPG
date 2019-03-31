@@ -28,14 +28,14 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class Vamecheron extends EntityMob {
+public class Vamacheron extends EntityMob {
 
-    public Vamecheron(World worldIn) {
+    public Vamacheron(World worldIn) {
 		super(worldIn);
 		this.setSize(1.3F, 1.5f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vamacheron_boss");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/vamacheron");
 
 
     protected boolean isMaster() {

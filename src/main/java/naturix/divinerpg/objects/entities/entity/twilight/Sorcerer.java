@@ -25,7 +25,7 @@ public class Sorcerer extends EntityMob {
 		this.setSize(0.8F, 2.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/sorcerer");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/sorcerer");
 
     /**@Override
     public boolean getCanSpawnHere()

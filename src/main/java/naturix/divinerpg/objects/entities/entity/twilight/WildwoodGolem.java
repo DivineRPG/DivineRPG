@@ -25,7 +25,7 @@ public class WildwoodGolem extends EntityMob {
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/golem_wildwood");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/wildwood_golem");
 
 
     protected boolean isMaster() {

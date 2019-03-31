@@ -22,7 +22,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Alicanto extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/alicanto");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/alicanto");
     private BlockPos currentFlightTarget;
     private int flyTimer;
 

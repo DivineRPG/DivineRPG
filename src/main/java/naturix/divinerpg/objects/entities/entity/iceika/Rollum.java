@@ -11,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Rollum extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/rollum");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/rollum");
 
     public Rollum(World worldIn) {
         super(worldIn);

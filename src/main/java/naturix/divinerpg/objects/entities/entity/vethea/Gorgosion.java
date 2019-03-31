@@ -30,7 +30,7 @@ public class Gorgosion extends EntityMob {
 		this.setSize(2F, 1.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/gorgosion");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/gorgosion");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

@@ -30,7 +30,7 @@ public class DungeonDemon extends EntityMob {
 		this.setSize(1.2F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/dungeon_demon");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/dungeon_demon");
 
 
     protected boolean isMaster() {

@@ -25,7 +25,7 @@ public class EternalArcher extends EntityMob {
 		this.setSize(1.6F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/eternal_archer");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eternal_archer");
 
 
     protected boolean isMaster() {

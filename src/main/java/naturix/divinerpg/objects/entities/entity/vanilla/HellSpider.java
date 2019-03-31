@@ -20,7 +20,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class HellSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/hell_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/hell_spider");
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(HellSpider.class,
             DataSerializers.BYTE);
 

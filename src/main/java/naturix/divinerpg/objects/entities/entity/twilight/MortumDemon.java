@@ -25,7 +25,7 @@ public class MortumDemon extends EntityMob {
 		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/demon_mortum");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/demon_mortum");
 
 
     /**@Override

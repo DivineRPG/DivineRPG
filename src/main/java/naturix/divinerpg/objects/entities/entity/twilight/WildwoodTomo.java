@@ -25,7 +25,7 @@ public class WildwoodTomo extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/tomo_wildwood");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/wildwood_tomo");
 
 
     protected boolean isMaster() {

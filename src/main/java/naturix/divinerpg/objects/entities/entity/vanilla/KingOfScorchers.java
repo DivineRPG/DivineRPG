@@ -15,7 +15,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class KingOfScorchers extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/king_of_scorchers");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/king_of_scorchers");
     private int special;
 
     public KingOfScorchers(World worldIn) {

@@ -30,7 +30,7 @@ public class Razorback extends EntityMob {
 		this.setSize(0.6F, 0.2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/razorback");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/razorback");
 
 
     protected boolean isMaster() {

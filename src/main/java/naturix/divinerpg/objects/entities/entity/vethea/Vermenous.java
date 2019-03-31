@@ -30,7 +30,7 @@ public class Vermenous extends EntityMob {
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vermenous");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/vermenous");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

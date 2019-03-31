@@ -24,7 +24,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Frost extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/frost");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/frost");
     private float heightOffset = 0.5F;
     private int heightOffsetUpdateTime;
 

@@ -11,7 +11,7 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class AyeracoYellow extends Ayeraco {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/ayeraco_yellow");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ayeraco_yellow");
     private Ayeraco aGreen;
     private Ayeraco aBlue;
     private Ayeraco aRed;

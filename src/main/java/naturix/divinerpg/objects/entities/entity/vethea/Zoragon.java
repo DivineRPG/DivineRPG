@@ -30,7 +30,7 @@ public class Zoragon extends EntityMob {
 		this.setSize(1.5F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/zoragon");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/zoragon");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

@@ -22,7 +22,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class Miner extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/miner");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/miner");
 
     public Miner(World worldIn) {
         super(worldIn);

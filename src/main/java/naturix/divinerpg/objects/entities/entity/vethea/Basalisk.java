@@ -30,7 +30,7 @@ public class Basalisk extends EntityMob {
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/basalisk");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/basalisk");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

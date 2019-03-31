@@ -30,7 +30,7 @@ public class Tocaxin extends EntityMob {
 		this.setSize(1F, 3.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/tocaxin");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/tocaxin");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

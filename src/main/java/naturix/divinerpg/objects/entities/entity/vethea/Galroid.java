@@ -30,7 +30,7 @@ public class Galroid extends EntityMob {
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/galroid");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/galroid");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

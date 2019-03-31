@@ -25,7 +25,7 @@ public class Verek extends EntityMob {
 		this.setSize(0.6F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/varek");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/verek");
 
 
     protected boolean isMaster() {

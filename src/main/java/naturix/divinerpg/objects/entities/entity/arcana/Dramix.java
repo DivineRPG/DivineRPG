@@ -35,7 +35,7 @@ public class Dramix extends EntityMob {
 		this.setSize(0.8F, 2.6f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/dramix");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/dramix");
 
 
     protected boolean isMaster() {
