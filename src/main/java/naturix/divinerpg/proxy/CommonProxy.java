@@ -3,13 +3,7 @@ package naturix.divinerpg.proxy;
 import java.io.File;
 
 import naturix.divinerpg.Config;
-import naturix.divinerpg.objects.blocks.tile.block.TEBed;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityMoltenFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityOceanfireFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityWhitefireFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.*;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
@@ -78,6 +72,7 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");
         GameRegistry.registerTileEntity(TileEntityDramixStatue.class, Reference.MODID + ":te_statue_dramix");
+        GameRegistry.registerTileEntity(TileEntityPresentBox.class, Reference.MODID + ":te_present_box");
     }
 
     public void RegisterTileEntityRender() {

@@ -110,8 +110,7 @@ public class BlockFrostedChest extends BlockContainer implements IHasModel {
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 	        EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
-			playerIn.openGui(DivineRPG.instance, GUIHandler.FROSTED_CHEST_GUI_ID, worldIn, pos.getX(), pos.getY(),
-			        pos.getZ());
+			playerIn.openGui(DivineRPG.instance, GUIHandler.FROSTED_CHEST_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}

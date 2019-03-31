@@ -4,14 +4,11 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerInfiniteFurnace;
-import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
-import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
-import naturix.divinerpg.objects.blocks.tile.container.gui.FrostedChestGUI;
-import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
-import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
-import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerPresentBox;
+import naturix.divinerpg.objects.blocks.tile.container.gui.*;
 import naturix.divinerpg.objects.entities.container.ContainerDivineMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;
 import naturix.divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
@@ -39,6 +36,7 @@ public class GUIHandler implements IGuiHandler {
     public static final int JACK_O_MAN = 8;
     public static final int LIVESTOCK_MERCHANT = 9;
     public static final int THE_HUNGER = 10;
+    public static final int PRESENT_BOX = 11;
 
     @Nullable
     @Override
@@ -65,7 +63,9 @@ public class GUIHandler implements IGuiHandler {
             return new GuiLivestockMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == THE_HUNGER) {
             return new GuiTheHunger(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        }
+        } else if (ID == PRESENT_BOX) {
+        return new PresentBoxGUI(player.inventory, (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);
+    }
         return null;
     }
 
@@ -77,6 +77,9 @@ public class GUIHandler implements IGuiHandler {
         }
         if (ID == FROSTED_CHEST_GUI_ID) {
             return new ContainerFrostedChest(player.inventory, (TileEntityFrostedChest) world.getTileEntity(new BlockPos(x, y, z)), player);
+        }
+        if (ID == PRESENT_BOX) {
+            return new ContainerPresentBox(player.inventory, (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);
         }
         if (ID == WORKSHOP_MERCHANT || ID == WORKSHOP_TINKERER || ID == JACK_O_MAN || ID == LIVESTOCK_MERCHANT || ID == THE_HUNGER) {
             return new ContainerDivineMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);

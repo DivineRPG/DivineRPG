@@ -15,11 +15,11 @@ public class ModelPresentBox extends ModelBase {
         this.lid.rotationPointX = 1.0F;
         this.lid.rotationPointY = 7.0F;
         this.lid.rotationPointZ = 33.0F;
-        /*this.knob = (new ModelRenderer(this, 0, 0));
+        this.knob = (new ModelRenderer(this, 0, 0));
         this.knob.addBox(-2.0F, -4.0F, -30.0F, 4, 8, 2, 0.0F);
         this.knob.rotationPointX = 8.0F;
         this.knob.rotationPointY = 7.0F;
-        this.knob.rotationPointZ = 15.0F;*/
+        this.knob.rotationPointZ = 15.0F;
         this.base = (new ModelRenderer(this, 0, 40));
         this.base.addBox(-1.0F, -1.0F, -1.0F, 32, 27, 32, 0.0F);
         this.base.rotationPointX = 1.0F;
@@ -28,9 +28,9 @@ public class ModelPresentBox extends ModelBase {
     }
 
     public void renderAll() {
-        //this.knob.rotateAngleX = this.lid.rotateAngleX;
+        this.knob.rotateAngleX = this.lid.rotateAngleX;
         this.lid.render(0.03125F);
-        //this.knob.render(0.03125F);
+        this.knob.render(0.03125F);
         this.base.render(0.03125F);
     }
 }

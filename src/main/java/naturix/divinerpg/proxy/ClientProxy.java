@@ -4,19 +4,17 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
+import naturix.divinerpg.client.render.RenderItemDemonFurnace;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
+import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
-import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoBeam;
-import naturix.divinerpg.objects.blocks.tile.render.RenderDemonFurnace;
-import naturix.divinerpg.objects.blocks.tile.render.RenderDramixStatue;
-import naturix.divinerpg.objects.blocks.tile.render.RenderIceikaChest;
-import naturix.divinerpg.objects.blocks.tile.render.TileEntityDramixAltarRender;
-import naturix.divinerpg.objects.blocks.tile.render.TileEntityParasectaAltarRender;
+import naturix.divinerpg.objects.blocks.tile.render.*;
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
 import naturix.divinerpg.particle.ParticleBlackFlame;
 import naturix.divinerpg.particle.ParticleBlueFlame;
@@ -94,8 +92,14 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerItemRenderer(final Item item, final int meta, final String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))) {
+        if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest)) || item.equals(Item.getItemFromBlock(ModBlocks.decorativeFrostedChest))) {
             item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
+        }
+        if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
+            item.setTileEntityItemStackRenderer(new RenderItemPresentBox());
+        }
+        if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
+            item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
         }
     }
 
@@ -109,6 +113,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonFurnace.class, new RenderDemonFurnace());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixStatue.class, new RenderDramixStatue());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
     }
 
     @Override
