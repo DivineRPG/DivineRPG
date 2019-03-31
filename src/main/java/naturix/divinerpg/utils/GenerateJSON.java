@@ -25,6 +25,7 @@ import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
 import naturix.divinerpg.objects.blocks.BlockModPortal;
+import naturix.divinerpg.objects.blocks.BlockModSlab;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
@@ -193,6 +194,13 @@ public class GenerateJSON {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_ns");
                 } else if (registryName.contains("_fence")) {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_inventory");
+                } else if (registryName.endsWith("_plant")) {
+                    json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_stage_0");
+                } else if (registryName.endsWith("_double_slab")) {
+                    json.put("parent",
+                            Reference.MODID + ":" + "block/" + registryName.replace("_double_slab", "_planks"));
+                } else if (registryName.endsWith("_slab")) {
+                    json.put("parent", Reference.MODID + ":" + "block/" + registryName.replace("_slab", "_half_slab"));
                 } else {
                     json.put("parent", Reference.MODID + ":" + "block/" + registryName);
                 }
@@ -258,6 +266,8 @@ public class GenerateJSON {
                 generateFenceBlockstate(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
+            } else if (block instanceof BlockModSlab) {
+                generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -799,6 +809,49 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateSlabBlockstate(String registryName, boolean isDouble) {
+        Map<String, Object> json = new HashMap<>();
+        List<Map<String, Object>> multipart = new ArrayList<>();
+
+        if (isDouble) {
+            String baseName = registryName.replace("_double_slab", "");
+            Map<String, Object> normal = new HashMap<>();
+            Map<String, Object> apply = new HashMap<>();
+            apply.put("model", Reference.MODID + ":" + baseName + "_planks");
+            normal.put("apply", apply);
+            multipart.add(normal);
+        } else {
+            String baseName = registryName.replace("_slab", "");
+            Map<String, Object> halfBottom = new HashMap<>();
+            Map<String, Object> apply = new HashMap<>();
+            Map<String, Object> when = new HashMap<>();
+            apply.put("model", Reference.MODID + ":" + baseName + "_half_slab");
+            halfBottom.put("apply", apply);
+            when.put("half", "bottom");
+            halfBottom.put("when", when);
+
+            Map<String, Object> halfTop = new HashMap<>();
+            apply = new HashMap<>();
+            when = new HashMap<>();
+            apply.put("model", Reference.MODID + ":" + baseName + "_upper_slab");
+            halfTop.put("apply", apply);
+            when.put("half", "top");
+            halfTop.put("when", when);
+            multipart.add(halfBottom);
+            multipart.add(halfTop);
+        }
+
+        json.put("multipart", multipart);
+
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -830,6 +883,8 @@ public class GenerateJSON {
                 generateFenceModelBlock(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
+            } else if (block instanceof BlockModSlab) {
+                generateSlabModelBlock(registryName, ((BlockModSlab) block).isDouble());
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1205,6 +1260,41 @@ public class GenerateJSON {
             textures.put("crop", texturePath + "_" + age);
             json.put("textures", textures);
             File f = new File(MODEL_BLOCK_DIR, registryName + "_stage_" + age + ".json");
+
+            try (FileWriter w = new FileWriter(f)) {
+                GSON.toJson(json, w);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void generateSlabModelBlock(String registryName, boolean isDouble) {
+        if (!isDouble) {
+            String baseName = registryName.replace("_slab", "");
+            String texturePath = Reference.MODID + ":blocks/" + baseName + "_planks";
+
+            Map<String, Object> json = new HashMap<>();
+            json.put("parent", "block/half_slab");
+            Map<String, Object> textures = new HashMap<>();
+            textures.put("bottom", texturePath);
+            textures.put("top", texturePath);
+            textures.put("side", texturePath);
+            json.put("textures", textures);
+
+            File f = new File(MODEL_BLOCK_DIR, baseName + "_half_slab.json");
+
+            try (FileWriter w = new FileWriter(f)) {
+                GSON.toJson(json, w);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            json = new HashMap<>();
+            json.put("parent", "block/upper_slab");
+            json.put("textures", textures);
+
+            f = new File(MODEL_BLOCK_DIR, baseName + "_upper_slab.json");
 
             try (FileWriter w = new FileWriter(f)) {
                 GSON.toJson(json, w);

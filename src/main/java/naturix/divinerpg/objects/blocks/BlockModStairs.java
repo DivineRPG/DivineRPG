@@ -12,19 +12,19 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockModStairs extends BlockStairs implements IHasModel {
 
-	public BlockModStairs(Block stair, String name) {
-		super(stair.getDefaultState());
-		this.useNeighborBrightness = true;
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+    public BlockModStairs(Block base, String name) {
+        super(base.getDefaultState());
+        this.useNeighborBrightness = true;
+        setUnlocalizedName(name);
+        setRegistryName(name);
+        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 
-		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-	}
+        ModBlocks.BLOCKS.add(this);
+        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
 
-	@Override
-	public void registerModels() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-	}
+    @Override
+    public void registerModels() {
+        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
 }

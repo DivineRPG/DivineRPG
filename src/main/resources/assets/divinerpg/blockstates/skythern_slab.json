@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:skythern_half_slab"
+      },
+      "when": {
+        "half": "bottom"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:skythern_upper_slab"
+      },
+      "when": {
+        "half": "top"
+      }
+    }
+  ]
+}

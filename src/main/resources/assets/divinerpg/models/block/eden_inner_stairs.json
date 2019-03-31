@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "side": "divinerpg:blocks/eden_planks",
+    "top": "divinerpg:blocks/eden_planks",
+    "bottom": "divinerpg:blocks/eden_planks"
+  }
+}

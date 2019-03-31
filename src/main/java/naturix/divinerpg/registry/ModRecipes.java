@@ -2,6 +2,7 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.enums.WoodVariant;
 import naturix.divinerpg.utils.GenerateJSON;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -596,7 +597,7 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.advMushroomStew, ModItems.whiteMushroom, Items.MUSHROOM_STEW);
         addShapelessRecipe(ModItems.chickenDinner, ModItems.advMushroomStew, Items.COOKED_CHICKEN, Items.BREAD);
 
-        addShapelessRecipe(new ItemStack(ModBlocks.divinePlanks, 4), ModBlocks.divineWood);
+        //addShapelessRecipe(new ItemStack(ModBlocks.divinePlanks, 4), ModBlocks.divineWood);
 
         // FIXME - Need to add
         // addRecipe(ModBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's',
@@ -649,16 +650,16 @@ public class ModRecipes {
         addShapelessRecipe(new ItemStack(ModItems.whiteMushroomSeeds, 4), ModItems.whiteMushroom);
         addShapelessRecipe(new ItemStack(ModItems.tomatoSeeds, 4), ModItems.tomato);
 
-        addStairRecipe(ModBlocks.divinePlanks, ModBlocks.divineStairs);
-        addSlabRecipe(ModBlocks.divinePlanks, ModBlocks.divineSlab);
+        //addStairRecipe(ModBlocks.divinePlanks, ModBlocks.divineStairs);
+        //addSlabRecipe(ModBlocks.divinePlanks, ModBlocks.divineSlab);
 
         // FIXME - Need to add
         // addShapelessRecipe(new ItemStack(ModBlocks.eucalyptusPlank, 4),
         // ModBlocks.eucalyptusWood);
 
-        addShapelessRecipe(new ItemStack(ModBlocks.frozenPlanks, 4), ModBlocks.frozenWood);
-        addStairRecipe(ModBlocks.frozenPlanks, ModBlocks.frozenStairs);
-        addSlabRecipe(ModBlocks.frozenPlanks, ModBlocks.frozenSlab);
+        //addShapelessRecipe(new ItemStack(ModBlocks.frozenPlanks, 4), ModBlocks.frozenWood);
+        //addStairRecipe(ModBlocks.frozenPlanks, ModBlocks.frozenStairs);
+        //addSlabRecipe(ModBlocks.frozenPlanks, ModBlocks.frozenSlab);
 
         addRecipe(new ItemStack(ModBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.DYE, 4), 'O',
                 Blocks.OBSIDIAN);
@@ -865,6 +866,38 @@ public class ModRecipes {
         // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F",
         // 'F', ModItems.apalachiaFragments);
 
+        AddWoodVariantsRecipes();
+
         GenerateJSON.generateConstants();
+    }
+
+    public void AddWoodVariantsRecipes() {
+        for (WoodVariant woodType : WoodVariant.values()) {
+            String woodName = woodType.getName();
+
+            Block log = getBlockFromName(woodName + "_log");
+            Block plank = getBlockFromName(woodName + "_planks");
+            Block stair = getBlockFromName(woodName + "_stairs");
+            Block slab = getBlockFromName(woodName + "_slab");
+
+            if (log != null && plank != null) {
+                addShapelessRecipe(new ItemStack(plank, 4), log);
+            }
+            if (plank != null && stair != null) {
+                addStairRecipe(plank, stair);
+            }
+            if (plank != null && slab != null) {
+                addSlabRecipe(plank, slab);
+            }
+        }
+    }
+
+    private Block getBlockFromName(String blockRegistryName) {
+        for (Block block : ModBlocks.BLOCKS) {
+            if (block.getUnlocalizedName().endsWith(blockRegistryName)) {
+                return block;
+            }
+        }
+        return null;
     }
 }

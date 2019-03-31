@@ -86,7 +86,8 @@ public class CommonProxy {
     public void registerVariantRenderer(Item item, int meta, String filename, String id) {
     }
 
-    public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX, double velY, double velZ) {
+    public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX,
+            double velY, double velZ) {
     }
 
     public void updateClientArcana(float amount) {

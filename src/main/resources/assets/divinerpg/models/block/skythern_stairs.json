@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "side": "divinerpg:blocks/skythern_planks",
+    "top": "divinerpg:blocks/skythern_planks",
+    "bottom": "divinerpg:blocks/skythern_planks"
+  }
+}
