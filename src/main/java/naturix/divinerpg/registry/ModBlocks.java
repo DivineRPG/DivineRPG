@@ -23,6 +23,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
+import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
 import naturix.divinerpg.objects.blocks.fluid.BlockTar;
 import naturix.divinerpg.objects.blocks.iceika.BlockCandyCane;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
@@ -385,14 +386,14 @@ public class ModBlocks {
     public static Block blueFire = new BlockModFire("blue_fire");
     public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(),
             blueFire, divineRock, DRPGParticleTypes.EDEN_PORTAL);
-    public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal",
-            ModDimensions.wildWoodDimension.getId(), blueFire, edenBlock, DRPGParticleTypes.WILDWOOD_PORTAL);
-    public static BlockModPortal apalachiaPortal = new BlockModPortal("apalachia_portal",
-            ModDimensions.apalachiaDimension.getId(), blueFire, wildwoodBlock, DRPGParticleTypes.APALACHIA_PORTAL);
-    public static BlockModPortal skythernPortal = new BlockModPortal("skythern_portal",
-            ModDimensions.skythernDimension.getId(), blueFire, apalachiaBlock, DRPGParticleTypes.SKYTHERN_PORTAL);
-    public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal",
-            ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
+    public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal", ModDimensions.wildWoodDimension.getId(), blueFire, edenBlock, DRPGParticleTypes.WILDWOOD_PORTAL);
+    public static BlockModPortal apalachiaPortal = new BlockModPortal("apalachia_portal", ModDimensions.apalachiaDimension.getId(), blueFire, wildwoodBlock, DRPGParticleTypes.APALACHIA_PORTAL);
+    public static BlockModPortal skythernPortal = new BlockModPortal("skythern_portal", ModDimensions.skythernDimension.getId(), blueFire, apalachiaBlock, DRPGParticleTypes.SKYTHERN_PORTAL);
+    public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal", ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
+
+    public static Block edenBrush = new BlockSinglePlant("eden_brush");
+    public static Block sunbloom = new BlockSinglePlant("sunbloom");
+    public static Block sunBlossom = new BlockSinglePlant("sun_blossom");
 
     // Arcana
     public static Block stainedGlass = new BlockModGlass("stained_glass", 0.3F).setUnlocalizedName("stained_glass");

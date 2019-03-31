@@ -5,13 +5,17 @@
 - Final balancing
 - Fix bow damage values
 - Fix Statues and Altars
+
 ### Dimensions
+
 ### Vanilla
 #### Items
 - Fix Shickaxe
 - List Items left to do
+
 #### Blocks
 - List Blocks left to do
+
 #### Entities
  - Ayeracos - (Needs TileEntityAyeracoBeam)
  - KingOfScorchers - (Needs small AI port and add EntityKingOfScorchersMeteor)
@@ -21,35 +25,47 @@
  - JackOMan - (Requires port of Trading)
  - LivestockMerchant - (Requires port of Trading)
  - Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
+
 ### Iceika
 #### Items
 - List Items left to do
+
 #### Blocks
-- List Blocks left to do
+- Add facing values to Frosted Chest and Decorative Frosted Chest
+
 #### Entities
 - List Entities left to do
+
 ### Twilight
 #### Items
 - List Items left to do
+
 #### Blocks
 - List Blocks left to do
+
 #### Entities
 - List Entities left to do
 - Traders
+
 ### Arcana
 #### Items
 - Divine Accumulator
 - List Items left to do
+
 #### Blocks
 - List Blocks left to do
+
 #### Entities
 - List Entities left to do
+
 ### Vethea
 #### Items
 - Divine Accumulator
 - List Items left to do
+
 #### Blocks
 - List Blocks left to do
+
 #### Entities
 - List Entities left to do
 
