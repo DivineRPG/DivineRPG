@@ -5,6 +5,7 @@ import java.util.Random;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -31,9 +32,17 @@ public class LargeEdenAbstractTree extends WorldGenAbstractTree {
         Material materialBelow = world.getBlockState(blockPos.down()).getMaterial();
 
         //return false if these conditions are met
-        if (blockPos.getY() <= 13 && blockPos.getY() + treeHeight + 1 >= world.getHeight()
-                || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
+        if (blockPos.getY() < 1 || blockPos.getY() + treeHeight + 1 > 256 || world.getBlockState(blockPos.down()).getBlock() != ModBlocks.edenGrass || blockPos.getY() >= 256 - treeHeight - 1) {
             return false;
+        }
+        for (int x = -5; x <= 5; x++) {
+            for (int z = -5; z <= 5; z++) {
+                for (int y = trunkHeight; y <= treeHeight; y++) {
+                    if (world.getBlockState(new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z)).getBlock() != Blocks.AIR) {
+                        return false;
+                    }
+                }
+            }
         }
 
         //Build-a-trees!

@@ -61,8 +61,7 @@ public class BiomeEden extends Biome {
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         EdenAbstractTree genTree = new EdenAbstractTree(false, 3);
-        LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLogs.getDefaultState(),
-                ModBlocks.edenLeaves.getDefaultState());
+        LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLogs.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
 
@@ -94,9 +93,8 @@ public class BiomeEden extends Biome {
             int ry = 55 + rand.nextInt(20);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            if (rand.nextInt(10) == 1) {
-                genConeUp.generate(worldIn, rand, mutPos);
-            }
+            genConeUp.generate(worldIn, rand, mutPos);
+
         }
     }
 }
