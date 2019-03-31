@@ -1,20 +1,9 @@
 {
-  "forge_marker": 1,
-  "variants": {
-    "normal": {
-      "model": "divinerpg:wildwood_leaves"
-    },
-    "check_decay=false,decayable=false": {
-      "model": "divinerpg:wildwood_leaves"
-    },
-    "check_decay=false,decayable=true": {
-      "model": "divinerpg:wildwood_leaves"
-    },
-    "check_decay=true,decayable=false": {
-      "model": "divinerpg:wildwood_leaves"
-    },
-    "check_decay=true,decayable=true": {
-      "model": "divinerpg:wildwood_leaves"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:wildwood_leaves"
+      }
     }
-  }
+  ]
 }

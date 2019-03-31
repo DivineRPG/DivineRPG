@@ -1,5 +1,4 @@
 {
-  "forge_marker": 1,
   "variants": {
     "facing=north,half=bottom,shape=outer_right": {
       "uvlock": true,

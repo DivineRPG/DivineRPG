@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/densos_statue"
+    "all": "blocks/debug"
   }
 }

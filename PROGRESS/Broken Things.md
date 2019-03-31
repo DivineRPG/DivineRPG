@@ -1,14 +1,9 @@
-## Create special Block JSON Models
-* Christmas Lights
-* Doors
-* Bookcase?
-* Slabs
+## Add to Block JSON Auto-Generate
+* Steel Door
 * Vines (Once we start on Twilight)
 
 ## Create special Item JSON Models
-* Demon Furnace (Try out the one Wufflez made)
-* Present Box
-* Frosted Chest
+* Demon Furnace (Model works, needs rotation)
 * Bone Chest
 * Statues
 
@@ -16,6 +11,7 @@
 * Furnaces export via hopper instantly rather than waiting for the object to smelt
 * Tar
 * Shurikens
+* Frosted Chests needs to handle facing
 
 ## Additional Items to complete for Vanilla & Iceika Release
 * Vanilla Armor replacement

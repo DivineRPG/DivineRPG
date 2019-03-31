@@ -1,9 +1,5 @@
 {
-  "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "divinerpg:jungle_spider_pumpkin"
-    },
     "facing=east": {
       "y": 90,
       "model": "divinerpg:jungle_spider_pumpkin"
