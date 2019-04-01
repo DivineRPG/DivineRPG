@@ -31,8 +31,6 @@ public class BiomeMortum extends Biome {
         this.flowers.clear();
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 0;
-
-        this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     }
 
     @Override

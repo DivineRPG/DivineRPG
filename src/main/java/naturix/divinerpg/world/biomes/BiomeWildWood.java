@@ -52,7 +52,6 @@ public class BiomeWildWood extends Biome {
         this.spawnableMonsterList.add(new SpawnListEntry(MoonWolf.class, 1, 1, 1));
 
         this.decorator.treesPerChunk = 6;
-        this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     }
 
     @Override

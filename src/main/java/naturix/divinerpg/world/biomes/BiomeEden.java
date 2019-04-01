@@ -6,10 +6,10 @@ import java.util.Random;
 import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenAbstractTree;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenAbstractTree;
+import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
 import naturix.divinerpg.objects.entities.entity.twilight.EdenCadillion;
 import naturix.divinerpg.objects.entities.entity.twilight.EdenCori;
 import naturix.divinerpg.objects.entities.entity.twilight.EdenTomo;
-import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
 import naturix.divinerpg.objects.entities.entity.twilight.Greenfeet;
 import naturix.divinerpg.objects.entities.entity.twilight.Madivel;
 import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
@@ -20,7 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -50,8 +49,6 @@ public class BiomeEden extends Biome {
         this.spawnableMonsterList.add(new SpawnListEntry(Greenfeet.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));
-
-        this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     }
 
     @Override
@@ -63,7 +60,8 @@ public class BiomeEden extends Biome {
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         EdenAbstractTree genTree = new EdenAbstractTree(false, 3);
-        LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLogs.getDefaultState(), ModBlocks.edenLeaves.getDefaultState());
+        LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLogs.getDefaultState(),
+                ModBlocks.edenLeaves.getDefaultState());
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
         WorldGenEdenPlants brush = new WorldGenEdenPlants(ModBlocks.edenBrush);

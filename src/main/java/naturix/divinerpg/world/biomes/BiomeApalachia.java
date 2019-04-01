@@ -46,8 +46,6 @@ public class BiomeApalachia extends Biome {
         this.spawnableMonsterList.add(new SpawnListEntry(Greenfeet.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));
-
-        this.getSkyColorByTemp(Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB());
     }
 
     @Override
