@@ -21,3 +21,4 @@
 * Music Shooters
 * ItemProjectileShooter (Cannons, Golden Fury, Cyclops Staff, Maelstrom)
 * Shurikens
+* Bows
