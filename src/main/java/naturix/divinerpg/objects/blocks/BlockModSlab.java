@@ -81,11 +81,13 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(Item.getItemFromBlock(getSingle()));
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.isDouble() ? this.getDefaultState()
                 : this.getDefaultState().withProperty(HALF, meta == 0 ? EnumBlockHalf.BOTTOM : EnumBlockHalf.TOP);

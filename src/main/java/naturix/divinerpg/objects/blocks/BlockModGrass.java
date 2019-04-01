@@ -68,47 +68,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
-        BlockPos blockpos = pos.up();
 
-        for (int i = 0; i < 128; ++i)
-        {
-            BlockPos blockpos1 = blockpos;
-            int j = 0;
-
-            while (true)
-            {
-                if (j >= i / 16)
-                {
-                    if (worldIn.isAirBlock(blockpos1))
-                    {
-                        if (rand.nextInt(8) == 0)
-                        {
-                            worldIn.getBiome(blockpos1).plantFlower(worldIn, rand, blockpos1);
-                        }
-                        else
-                        {
-                            IBlockState iblockstate1 = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
-
-                            if (Blocks.TALLGRASS.canBlockStay(worldIn, blockpos1, iblockstate1))
-                            {
-                                worldIn.setBlockState(blockpos1, iblockstate1, 3);
-                            }
-                        }
-                    }
-
-                    break;
-                }
-
-                blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-
-                if (worldIn.getBlockState(blockpos1.down()).getBlock() != Blocks.GRASS || worldIn.getBlockState(blockpos1).isNormalCube())
-                {
-                    break;
-                }
-
-                ++j;
-            }
-        }
     }
 
     public String getDirtName() {
