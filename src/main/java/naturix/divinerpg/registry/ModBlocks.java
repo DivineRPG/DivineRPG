@@ -34,6 +34,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.vanilla.BlockBloodgemOre;
+import naturix.divinerpg.objects.blocks.vanilla.BlockBoneChest;
 import naturix.divinerpg.objects.blocks.vanilla.BlockDarkBridge;
 import naturix.divinerpg.objects.blocks.vanilla.BlockHotSpike;
 import naturix.divinerpg.objects.blocks.vanilla.BlockLightFence;
@@ -279,7 +280,8 @@ public class ModBlocks {
     // FIXME - Need to add
     // public static Block altarOfCorruption = new
     // BlockAltarOfCorruption("altar_of_corruption");
-    // public static Block boneChest = new BlockBoneChest("bone_chest");
+
+    public static Block boneChest = new BlockBoneChest("bone_chest");
 
     // Iceika
     public static Block frozenDirt = new BlockMod(EnumBlockType.DIRT, "frozen_dirt", 2.5F);

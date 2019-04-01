@@ -547,8 +547,7 @@ public class ModRecipes {
         addRecipe(new ItemStack(ModBlocks.stainedGlass8, 1), "   ", " x ", "  y", 'x', Blocks.GLASS, 'y',
                 ModItems.marsine);
 
-        // FIXME - Need to add
-        // addRecipe(ModBlocks.boneChest, "bbb", "b b", "bbb", 'b', Items.BONE);
+        addRecipe(ModBlocks.boneChest, "bbb", "b b", "bbb", 'b', Items.BONE);
 
         addRecipe(new ItemStack(Blocks.BEDROCK, 3), "OOO", "OBO", " OO", 'O', Blocks.OBSIDIAN, 'B',
                 ModBlocks.rupeeBlock);

@@ -1,22 +1,19 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
-import naturix.divinerpg.objects.blocks.tile.model.ModelPresentBox;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
+import naturix.divinerpg.objects.blocks.tile.model.ModelBoneChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 
-/**
- * Created by LiteWolf101 on Feb /08/2019
- */
-public class RenderPresentBox extends TileEntitySpecialRenderer<TileEntityPresentBox> {
+public class RenderBoneChest extends TileEntitySpecialRenderer<TileEntityBoneChest> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(
-            Reference.MODID + ":textures/model/present_box.png");
-    private final ModelPresentBox MODEL = new ModelPresentBox();
+            Reference.MODID + ":textures/model/bone_chest.png");
+    private final ModelBoneChest MODEL = new ModelBoneChest();
 
     @Override
-    public void render(TileEntityPresentBox te, double x, double y, double z, float partialTicks, int destroyStage,
+    public void render(TileEntityBoneChest te, double x, double y, double z, float partialTicks, int destroyStage,
             float alpha) {
         int i = 0;
 
@@ -28,7 +25,7 @@ public class RenderPresentBox extends TileEntitySpecialRenderer<TileEntityPresen
         GlStateManager.depthFunc(515);
         GlStateManager.depthMask(true);
 
-        ModelPresentBox model = MODEL;
+        ModelBoneChest model = MODEL;
 
         if (destroyStage >= 0) {
             this.bindTexture(DESTROY_STAGES[destroyStage]);
@@ -65,7 +62,6 @@ public class RenderPresentBox extends TileEntitySpecialRenderer<TileEntityPresen
 
         GlStateManager.rotate((float) j, 0.0F, 1.0F, 0.0F);
         GlStateManager.translate(-0.5F, -0.5F, -0.5F);
-
         float f = te.prevLidAngle + (te.lidAngle - te.prevLidAngle) * partialTicks;
         f = 1.0F - f;
         f = 1.0F - f * f * f;

@@ -18,7 +18,8 @@ import net.minecraft.world.World;
 
 public class WorkshopMerchant extends EntityDivineRPGVillager {
 
-    private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr" };
+    private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in",
+            "message.merchant.burr" };
 
     public WorkshopMerchant(World worldIn) {
         super(worldIn);
@@ -27,7 +28,7 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_MERCHANT, this.world, getEntityId(), 0, 0);
+            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_MERCHANT_GUI_ID, this.world, getEntityId(), 0, 0);
             // player.triggerAchievement(DivineRPGAchievements.lilGift);
         }
         return super.processInteract(player, hand);
@@ -35,7 +36,8 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.workshop_merchant.name") + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.workshop_merchant.name")
+                + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override
@@ -49,11 +51,16 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.peppermints, 15, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.fruitCake, 3, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 20), new ItemStack(ModItems.icicleBane, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.greenChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.redChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.blueChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.yellowChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.purpleChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+                new ItemStack(ModBlocks.greenChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+                new ItemStack(ModBlocks.redChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+                new ItemStack(ModBlocks.blueChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+                new ItemStack(ModBlocks.yellowChristmasLights, 16, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+                new ItemStack(ModBlocks.purpleChristmasLights, 16, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 3), new ItemStack(ModBlocks.presentBox, 1)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.blueCandyCane, 4)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.greenCandyCane, 4)));

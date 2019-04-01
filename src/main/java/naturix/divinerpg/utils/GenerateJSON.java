@@ -18,6 +18,7 @@ import com.google.gson.GsonBuilder;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockDoorBase;
+import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModFence;
 import naturix.divinerpg.objects.blocks.BlockModFire;
@@ -33,7 +34,6 @@ import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
-import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
@@ -289,7 +289,7 @@ public class GenerateJSON {
                 generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
             } else if (block instanceof BlockModSlab) {
                 generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
-            } else if (block instanceof BlockFrostedChest) {
+            } else if (block instanceof BlockModChest) {
                 generateIgnoreVariantBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
@@ -922,7 +922,7 @@ public class GenerateJSON {
                 generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
             } else if (block instanceof BlockModSlab) {
                 generateSlabModelBlock(registryName, ((BlockModSlab) block).isDouble());
-            } else if (block instanceof BlockStatue || block instanceof BlockFrostedChest) {
+            } else if (block instanceof BlockStatue || block instanceof BlockModChest) {
                 generateDummyModelBlock(registryName);
             } else if (block instanceof BlockSinglePlant) {
                 generateCrossModelBlock(registryName);

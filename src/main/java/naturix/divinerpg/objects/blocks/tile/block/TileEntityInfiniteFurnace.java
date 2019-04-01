@@ -17,9 +17,9 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
 public abstract class TileEntityInfiniteFurnace extends TileEntity implements ISidedInventory, ITickable {
-    private static final int[] SLOTS_TOP = new int[] { 0 };
-    private static final int[] SLOTS_BOTTOM = new int[] { 1 };
-    private static final int[] SLOTS_SIDES = new int[] { 1 };
+    private static final int[] INPUT_SLOT = new int[] { 0 };
+    private static final int[] OUTPUT_SLOT = new int[] { 1 };
+    private static final int[] NO_SLOT = new int[] {};
     private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY); // 0 is input. 1 is
                                                                                                     // output.
     private String customName;
@@ -244,10 +244,15 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     }
 
     public int[] getSlotsForFace(EnumFacing side) {
-        if (side == EnumFacing.DOWN) {
-            return SLOTS_BOTTOM;
-        } else {
-            return side == EnumFacing.UP ? SLOTS_TOP : SLOTS_SIDES;
+        switch (side) {
+        case NORTH:
+        case UP:
+            return INPUT_SLOT;
+        case SOUTH:
+        case DOWN:
+            return OUTPUT_SLOT;
+        default:
+            return NO_SLOT;
         }
     }
 

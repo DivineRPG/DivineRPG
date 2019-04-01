@@ -2,13 +2,21 @@ package naturix.divinerpg.utils;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
-import naturix.divinerpg.objects.blocks.tile.container.ContainerFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerInfiniteFurnace;
-import naturix.divinerpg.objects.blocks.tile.container.ContainerPresentBox;
-import naturix.divinerpg.objects.blocks.tile.container.gui.*;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
+import naturix.divinerpg.objects.blocks.tile.container.gui.BoneChestGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.FrostedChestGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.PresentBoxGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
 import naturix.divinerpg.objects.entities.container.ContainerDivineMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;
 import naturix.divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
@@ -31,57 +39,67 @@ public class GUIHandler implements IGuiHandler {
     public static final int WHITEFIRE_FURNACE_GUI_ID = 3;
     public static final int DEMON_FURNACE_GUI_ID = 4;
     public static final int FROSTED_CHEST_GUI_ID = 5;
-    public static final int WORKSHOP_MERCHANT = 6;
-    public static final int WORKSHOP_TINKERER = 7;
-    public static final int JACK_O_MAN = 8;
-    public static final int LIVESTOCK_MERCHANT = 9;
-    public static final int THE_HUNGER = 10;
-    public static final int PRESENT_BOX = 11;
+    public static final int WORKSHOP_MERCHANT_GUI_ID = 6;
+    public static final int WORKSHOP_TINKERER_GUI_ID = 7;
+    public static final int JACK_O_MAN_GUI_ID = 8;
+    public static final int LIVESTOCK_MERCHANT_GUI_ID = 9;
+    public static final int THE_HUNGER_GUI_ID = 10;
+    public static final int PRESENT_BOX_GUI_ID = 11;
+    public static final int BONE_CHEST_GUI_ID = 12;
 
     @Nullable
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == COALSTONE_FURNACE_GUI_ID) {
-            return new CoalstoneFurnaceGUI(player.inventory, (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+            return new CoalstoneFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == MOLTEN_FURNACE_GUI_ID) {
-            return new MoltenFurnaceGUI(player.inventory, (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+            return new MoltenFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == OCEANFIRE_FURNACE_GUI_ID) {
-            return new OceanfireFurnaceGUI(player.inventory, (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+            return new OceanfireFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == WHITEFIRE_FURNACE_GUI_ID) {
-            return new WhitefireFurnaceGUI(player.inventory, (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+            return new WhitefireFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == DEMON_FURNACE_GUI_ID) {
-            return new DemonFurnaceGUI(player.inventory, (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+            return new DemonFurnaceGUI(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == FROSTED_CHEST_GUI_ID) {
-            return new FrostedChestGUI(player.inventory, (TileEntityFrostedChest) world.getTileEntity(new BlockPos(x, y, z)), player);
-        } else if (ID == WORKSHOP_MERCHANT) {
+            return new FrostedChestGUI(player.inventory,
+                    (TileEntityFrostedChest) world.getTileEntity(new BlockPos(x, y, z)), player);
+        } else if (ID == WORKSHOP_MERCHANT_GUI_ID) {
             return new GuiWorkshopMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == WORKSHOP_TINKERER) {
+        } else if (ID == WORKSHOP_TINKERER_GUI_ID) {
             return new GuiWorkshopTinkerer(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == JACK_O_MAN) {
+        } else if (ID == JACK_O_MAN_GUI_ID) {
             return new GuiJackOMan(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == LIVESTOCK_MERCHANT) {
+        } else if (ID == LIVESTOCK_MERCHANT_GUI_ID) {
             return new GuiLivestockMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == THE_HUNGER) {
+        } else if (ID == THE_HUNGER_GUI_ID) {
             return new GuiTheHunger(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == PRESENT_BOX) {
-        return new PresentBoxGUI(player.inventory, (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);
-    }
+        } else if (ID == PRESENT_BOX_GUI_ID) {
+            return new PresentBoxGUI(player.inventory,
+                    (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);
+        } else if (ID == BONE_CHEST_GUI_ID) {
+            return new BoneChestGUI(player.inventory, (TileEntityBoneChest) world.getTileEntity(new BlockPos(x, y, z)),
+                    player);
+        }
         return null;
     }
 
     @Nullable
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if (ID == COALSTONE_FURNACE_GUI_ID || ID == MOLTEN_FURNACE_GUI_ID || ID == OCEANFIRE_FURNACE_GUI_ID || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID) {
-            return new ContainerInfiniteFurnace(player.inventory, (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        }
-        if (ID == FROSTED_CHEST_GUI_ID) {
-            return new ContainerFrostedChest(player.inventory, (TileEntityFrostedChest) world.getTileEntity(new BlockPos(x, y, z)), player);
-        }
-        if (ID == PRESENT_BOX) {
-            return new ContainerPresentBox(player.inventory, (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);
-        }
-        if (ID == WORKSHOP_MERCHANT || ID == WORKSHOP_TINKERER || ID == JACK_O_MAN || ID == LIVESTOCK_MERCHANT || ID == THE_HUNGER) {
+        if (ID == COALSTONE_FURNACE_GUI_ID || ID == MOLTEN_FURNACE_GUI_ID || ID == OCEANFIRE_FURNACE_GUI_ID
+                || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID) {
+            return new ContainerInfiniteFurnace(player.inventory,
+                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == FROSTED_CHEST_GUI_ID || ID == PRESENT_BOX_GUI_ID || ID == BONE_CHEST_GUI_ID) {
+            return new ContainerModChest(player.inventory,
+                    (TileEntityModChest) world.getTileEntity(new BlockPos(x, y, z)), player);
+        } else if (ID == WORKSHOP_MERCHANT_GUI_ID || ID == WORKSHOP_TINKERER_GUI_ID || ID == JACK_O_MAN_GUI_ID
+                || ID == LIVESTOCK_MERCHANT_GUI_ID || ID == THE_HUNGER_GUI_ID) {
             return new ContainerDivineMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
         }
         return null;

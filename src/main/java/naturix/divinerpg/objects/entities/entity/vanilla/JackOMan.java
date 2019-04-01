@@ -32,7 +32,7 @@ public class JackOMan extends EntityDivineRPGVillager {
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.JACK_O_MAN, this.world, getEntityId(), 0, 0);
+            player.openGui(DivineRPG.instance, GUIHandler.JACK_O_MAN_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
     }

@@ -1,20 +1,17 @@
 package naturix.divinerpg.objects.blocks.tile.container;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-/**
- * Created by LiteWolf101 on Feb
- * /01/2019
- */
-public class ContainerFrostedChest extends Container {
+public class ContainerModChest extends Container {
     private final int numRows;
-    private final TileEntityFrostedChest chestInventory;
-    public ContainerFrostedChest(InventoryPlayer playerInventory, TileEntityFrostedChest chestInventory, EntityPlayer player) {
+    private final TileEntityModChest chestInventory;
+
+    public ContainerModChest(InventoryPlayer playerInventory, TileEntityModChest chestInventory, EntityPlayer player) {
         this.chestInventory = chestInventory;
         this.numRows = chestInventory.getSizeInventory() / 9;
         chestInventory.openInventory(player);
@@ -27,17 +24,14 @@ public class ContainerFrostedChest extends Container {
         }
 
         //player inv
-        for (int i = 0; i < 3; ++i)
-        {
-            for (int j = 0; j < 9; ++j)
-            {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
                 this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + 2));
             }
         }
 
         //player hotbar
-        for (int k = 0; k < 9; ++k)
-        {
+        for (int k = 0; k < 9; ++k) {
             this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 144));
         }
     }
@@ -66,8 +60,8 @@ public class ContainerFrostedChest extends Container {
                 if (!this.mergeItemStack(itemStack1, this.numRows * 9, this.inventorySlots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.mergeItemStack(itemStack1, 0, this.numRows * 9, false)){
-                return  ItemStack.EMPTY;
+            } else if (!this.mergeItemStack(itemStack1, 0, this.numRows * 9, false)) {
+                return ItemStack.EMPTY;
             }
             if (itemStack1.isEmpty()) {
                 slot.putStack(ItemStack.EMPTY);
@@ -78,7 +72,7 @@ public class ContainerFrostedChest extends Container {
         return itemStack;
     }
 
-    public TileEntityFrostedChest getChestInventory(){
+    public TileEntityModChest getChestInventory() {
         return this.chestInventory;
     }
 }

@@ -27,7 +27,7 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_TINKERER, this.world, getEntityId(), 0, 0);
+            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_TINKERER_GUI_ID, this.world, getEntityId(), 0, 0);
             // player.triggerAchievement(DivineRPGAchievements.lilGift);
         }
         return super.processInteract(player, hand);

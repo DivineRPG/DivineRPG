@@ -11,12 +11,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 
 @SideOnly(Side.CLIENT)
-public class ModelIceikaChest extends ModelBase{
+public class ModelFrostedChest extends ModelBase{
     ModelRenderer storage;
     public ModelRenderer lid;
     ModelRenderer handle;
 
-    public ModelIceikaChest()
+    public ModelFrostedChest()
     {
         this.textureWidth = 64;
         this.textureHeight = 64;

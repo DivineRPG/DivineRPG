@@ -30,7 +30,7 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.LIVESTOCK_MERCHANT, this.world, getEntityId(), 0, 0);
+            player.openGui(DivineRPG.instance, GUIHandler.LIVESTOCK_MERCHANT_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
     }

@@ -3,14 +3,11 @@
 * Vines (Once we start on Twilight)
 
 ## Create special Item JSON Models
-* Demon Furnace (Model works, needs rotation)
-* Bone Chest
 * Statues
 
 ## Bugs
 * Tar
 * Shurikens
-* Frosted Chests needs to handle facing
 
 ## Additional Items to complete for Vanilla & Iceika Release
 * Vanilla Armor replacement
