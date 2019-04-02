@@ -49,9 +49,9 @@ public void addInformation(ItemStack stack, @Nullable World worldIn, List<String
 public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 	ItemStack stack = player.getHeldItem(hand);
 	BlockPos pos = player.getBedLocation();
+	player.changeDimension(0, new CommandTeleporter(pos));
+	player.moveToBlockPosAndAngles(pos, player.rotationYaw, player.rotationPitch);
 	if (!player.isCreative()) {
-		player.changeDimension(0, new CommandTeleporter(pos));
-		player.moveToBlockPosAndAngles(pos, player.rotationYaw, player.rotationPitch);
 		stack.damageItem(1, player);
 	}
 	return super.onItemRightClick(world, player, hand);
