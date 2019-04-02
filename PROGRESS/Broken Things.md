@@ -12,7 +12,7 @@
 * Shurikens
 
 ## Additional Items to complete for Vanilla & Iceika Release
-* Vanilla Armor replacement
+* Vanilla Armor (change unlocalized domain to "minecraft:" and this is done)
 * Full set armor special abilities
 * Serenades
 * Bucket of Tar
