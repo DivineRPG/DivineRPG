@@ -24,7 +24,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
-import naturix.divinerpg.objects.blocks.fluid.BlockTar;
+import naturix.divinerpg.objects.blocks.fluid.BlockFluid;
 import naturix.divinerpg.objects.blocks.iceika.BlockCandyCane;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
 import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
@@ -110,9 +110,8 @@ public class ModBlocks {
     public static Block redVane = new VanillaBlock(EnumBlockType.ROCK, "red_vane", 2.0F, IRON).setResistance(10F);
     public static Block yellowVane = new VanillaBlock(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON).setResistance(10F);
 
-    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE)
-            .setResistance(10F);
-    public static Block tar = new BlockTar();
+    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F);
+    public static Block tar = new BlockFluid("tar", ModLiquids.tar, Material.WATER);
 
     public static Block fancyWool = new VanillaBlock(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD);
 
@@ -327,8 +326,7 @@ public class ModBlocks {
     public static Block presentBox = new BlockPresentBox("present_box");
 
     public static Block iceikaFire = new BlockModFire("iceika_fire");
-    public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal",
-            ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, DRPGParticleTypes.FROST);
+    public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal", ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, DRPGParticleTypes.FROST);
 
     // Twilight
     public static Block edenDirt = new BlockMod(EnumBlockType.DIRT, "eden_dirt", 5.0F);

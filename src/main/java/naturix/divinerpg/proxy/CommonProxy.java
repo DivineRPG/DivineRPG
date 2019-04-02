@@ -55,7 +55,6 @@ public class CommonProxy {
         ModDimensions.init();
         ModEntities.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
-        ModLiquids.init();
         ModEntities.initLoot();
 
         File directory = e.getModConfigurationDirectory();

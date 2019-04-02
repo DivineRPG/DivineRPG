@@ -3,6 +3,7 @@ package naturix.divinerpg.utils.handlers;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModLiquids;
 import naturix.divinerpg.registry.ModSpawns;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
@@ -11,6 +12,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -18,6 +20,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  */
 @Mod.EventBusSubscriber
 public class RegistryHandler {
+
+    public static void preInitRegistries(FMLPreInitializationEvent event) {
+        ModLiquids.registerFluids();
+    }
 
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
@@ -54,8 +60,5 @@ public class RegistryHandler {
                 ((IHasModel) block).registerModels();
             }
         }
-    }
-
-    public static void otherRegistries() {
     }
 }

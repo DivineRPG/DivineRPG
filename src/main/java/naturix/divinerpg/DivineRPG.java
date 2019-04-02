@@ -1,12 +1,10 @@
 /**
- *
- */
-/**
  * @author NicosaurusRex99
  *
  */
 package naturix.divinerpg;
 
+import naturix.divinerpg.client.render.RenderFluids;
 import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModEvents;
@@ -41,7 +39,7 @@ public class DivineRPG {
 
     public static SimpleNetworkWrapper network;
 
-    public DivineRPG() {
+    static {
         FluidRegistry.enableUniversalBucket();
     }
 
@@ -49,8 +47,8 @@ public class DivineRPG {
     public void init(FMLInitializationEvent e) {
         proxy.init(e);
         ModTriggers.registerTriggers();
+        RenderFluids.registerCustomMeshesAndStates();
         InitLog.init();
-        RegistryHandler.otherRegistries();
     }
 
     @Mod.EventHandler
@@ -69,6 +67,7 @@ public class DivineRPG {
     /** Init Methods */
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        RegistryHandler.preInitRegistries(event);
         logger = event.getModLog();
         proxy.preInit(event);
         proxy.registerTileEntities();
