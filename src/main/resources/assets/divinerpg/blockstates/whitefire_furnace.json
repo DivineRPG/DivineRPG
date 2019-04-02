@@ -1,9 +1,5 @@
 {
-  "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "divinerpg:whitefire_furnace"
-    },
     "facing=east": {
       "y": 90,
       "model": "divinerpg:whitefire_furnace"

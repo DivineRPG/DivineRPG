@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/eternal_archer_statue"
+    "all": "blocks/debug"
   }
 }

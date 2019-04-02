@@ -1,8 +1,20 @@
 {
-  "forge_marker": 1,
-  "variants": {
-    "normal": {
-      "model": "divinerpg:divine_slab"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:divine_half_slab"
+      },
+      "when": {
+        "half": "bottom"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:divine_upper_slab"
+      },
+      "when": {
+        "half": "top"
+      }
     }
-  }
+  ]
 }

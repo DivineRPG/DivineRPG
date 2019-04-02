@@ -3,72 +3,113 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.enums.WoodVariant;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockModSlab extends BlockSlab implements IHasModel {
-    public final String NAME;
-    boolean isDouble = false;
-    private Block single;
+public abstract class BlockModSlab extends BlockSlab implements IHasModel {
+    public static final PropertyEnum<WoodVariant> VARIANT = PropertyEnum.<WoodVariant>create("variant",
+            WoodVariant.class);
 
-    public BlockModSlab(BlockMod base, Block single) {
-        super(base.blockType.getMaterial(), base.blockType.getMaterial().getMaterialMapColor());
-        setHardness(base.getBlockModHardness());
+    public final String NAME;
+    private Block single;
+    private WoodVariant woodType;
+
+    public BlockModSlab(BlockMod plank, Block single, WoodVariant woodType) {
+        super(Material.WOOD, woodType.getMapColor());
+        setHardness(plank.getBlockModHardness());
         setResistance(5);
-        NAME = base.name.replace("_planks", "_") + ((single == null) ? "slab" : "double_slab");
+
+        NAME = plank.name.replace("_planks", "_") + (isDouble() ? "double_slab" : "slab");
         setUnlocalizedName(NAME);
         setRegistryName(NAME);
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+
         this.single = single;
-        if (single == null) {
-            useNeighborBrightness = true;
+        this.woodType = woodType;
+        if (this.isDouble()) {
+            setDefaultState(this.blockState.getBaseState().withProperty(this.getVariantProperty(), woodType));
         } else {
-            isDouble = true;
+            useNeighborBrightness = true;
+            setDefaultState(this.blockState.getBaseState().withProperty(this.getVariantProperty(), woodType)
+                    .withProperty(HALF, EnumBlockHalf.BOTTOM));
+            setCreativeTab(DRPGCreativeTabs.BlocksTab);
         }
+
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
-    @Override
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(Item.getItemFromBlock(this.isDouble ? single : this));
-    }
-
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(this.isDouble ? single : this);
-    }
-
-    @Override
-    public Comparable<?> getTypeForItem(ItemStack stack) {
-        return null;
-    }
-
-    @Override
     public String getUnlocalizedName(int meta) {
         return super.getUnlocalizedName();
     }
 
     @Override
-    public IProperty<?> getVariantProperty() {
-        return null;
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+            float hitZ, int meta, EntityLivingBase placer) {
+        IBlockState iblockstate = this.getDefaultState();
+
+        if (this.isDouble()) {
+            return iblockstate;
+        } else {
+            return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || (double) hitY <= 0.5D) ? iblockstate
+                    : iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
+        }
     }
 
     @Override
-    public boolean isDouble() {
-        return this.isDouble;
+    protected BlockStateContainer createBlockState() {
+        return this.isDouble() ? new BlockStateContainer(this, this.getVariantProperty())
+                : new BlockStateContainer(this, this.getVariantProperty(), HALF);
     }
+
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return Item.getItemFromBlock(getSingle());
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+        return new ItemStack(Item.getItemFromBlock(getSingle()));
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public IBlockState getStateFromMeta(int meta) {
+        return this.isDouble() ? this.getDefaultState()
+                : this.getDefaultState().withProperty(HALF, meta == 0 ? EnumBlockHalf.BOTTOM : EnumBlockHalf.TOP);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return this.isDouble() ? 0 : state.getValue(HALF) == EnumBlockHalf.BOTTOM ? 0 : 1;
+    }
+
+    @Override
+    public abstract boolean isDouble();
+
+    @Override
+    public abstract IProperty<WoodVariant> getVariantProperty();
+
+    @Override
+    public Comparable<WoodVariant> getTypeForItem(ItemStack stack) {
+        return woodType;
+    }
+
+    protected abstract Block getSingle();
 
     @Override
     public void registerModels() {

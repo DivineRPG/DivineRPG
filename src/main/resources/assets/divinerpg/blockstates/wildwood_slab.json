@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:wildwood_half_slab"
+      },
+      "when": {
+        "half": "bottom"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:wildwood_upper_slab"
+      },
+      "when": {
+        "half": "top"
+      }
+    }
+  ]
+}

@@ -4,11 +4,13 @@ import java.io.File;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.objects.blocks.tile.block.TEBed;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityMoltenFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityOceanfireFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
@@ -78,6 +80,8 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");
         GameRegistry.registerTileEntity(TileEntityDramixStatue.class, Reference.MODID + ":te_statue_dramix");
+        GameRegistry.registerTileEntity(TileEntityPresentBox.class, Reference.MODID + ":te_present_box");
+        GameRegistry.registerTileEntity(TileEntityBoneChest.class, Reference.MODID + ":te_bone_chest");
     }
 
     public void RegisterTileEntityRender() {
@@ -86,7 +90,8 @@ public class CommonProxy {
     public void registerVariantRenderer(Item item, int meta, String filename, String id) {
     }
 
-    public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX, double velY, double velZ) {
+    public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX,
+            double velY, double velZ) {
     }
 
     public void updateClientArcana(float amount) {

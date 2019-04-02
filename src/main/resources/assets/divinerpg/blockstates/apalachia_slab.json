@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:apalachia_half_slab"
+      },
+      "when": {
+        "half": "bottom"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:apalachia_upper_slab"
+      },
+      "when": {
+        "half": "top"
+      }
+    }
+  ]
+}

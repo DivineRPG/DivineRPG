@@ -1,7 +1,18 @@
 {
-  "forge_marker": 1,
   "variants": {
-    "normal": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:blue_christmas_lights"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:blue_christmas_lights"
+    },
+    "facing=north": {
+      "model": "divinerpg:blue_christmas_lights"
+    },
+    "facing=west": {
+      "y": 270,
       "model": "divinerpg:blue_christmas_lights"
     }
   }

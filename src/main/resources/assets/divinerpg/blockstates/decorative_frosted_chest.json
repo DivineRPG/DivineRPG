@@ -1,8 +1,9 @@
 {
-  "forge_marker": 1,
-  "variants": {
-    "normal": {
-      "model": "divinerpg:decorative_frosted_chest"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:decorative_frosted_chest"
+      }
     }
-  }
+  ]
 }

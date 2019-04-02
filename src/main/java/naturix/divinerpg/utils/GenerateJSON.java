@@ -17,6 +17,8 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockDoorBase;
+import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModFence;
 import naturix.divinerpg.objects.blocks.BlockModFire;
@@ -25,15 +27,20 @@ import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
 import naturix.divinerpg.objects.blocks.BlockModPortal;
+import naturix.divinerpg.objects.blocks.BlockModSlab;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
+import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
+import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -185,16 +192,33 @@ public class GenerateJSON {
                     json.put("textures", textures);
                 }
             } else {
-                if (registryName.endsWith("_spawner")) {
-                    json.put("parent", Reference.MODID + ":" + "block/spawner");
-                } else if (registryName.endsWith("_fire")) {
-                    json.put("parent", Reference.MODID + ":" + "block/blue_fire_0");
-                } else if (registryName.endsWith("_portal")) {
-                    json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_ns");
-                } else if (registryName.contains("_fence")) {
-                    json.put("parent", Reference.MODID + ":" + "block/" + registryName + "_inventory");
+                Block block = ((ItemBlock) item).getBlock();
+                if (block instanceof BlockModSpawner) {
+                    json.put("parent", Reference.MODID + ":block/spawner");
+                } else if (block instanceof BlockModFire) {
+                    json.put("parent", Reference.MODID + ":block/blue_fire_0");
+                } else if (block instanceof BlockModPortal) {
+                    json.put("parent", Reference.MODID + ":block/" + registryName + "_ns");
+                } else if (block instanceof BlockModFence) {
+                    json.put("parent", Reference.MODID + ":block/" + registryName + "_inventory");
+                } else if (block instanceof BlockModCrop) {
+                    json.put("parent", Reference.MODID + ":block/" + registryName + "_stage_0");
+                } else if (registryName.endsWith("_double_slab")) {
+                    json.put("parent", Reference.MODID + ":block/" + registryName.replace("_double_slab", "_planks"));
+                } else if (registryName.endsWith("_slab")) {
+                    json.put("parent", Reference.MODID + ":block/" + registryName.replace("_slab", "_half_slab"));
+                } else if (block instanceof BlockChristmasLights || block instanceof BlockSinglePlant) {
+                    json.put("parent", "item/generated");
+                    Map<String, Object> textures = new HashMap<>();
+                    textures.put("layer0", Reference.MODID + ":blocks/" + registryName);
+                    json.put("textures", textures);
+                } else if (block instanceof BlockDoorBase) {
+                    json.put("parent", "item/generated");
+                    Map<String, Object> textures = new HashMap<>();
+                    textures.put("layer0", Reference.MODID + ":items/" + registryName);
+                    json.put("textures", textures);
                 } else {
-                    json.put("parent", Reference.MODID + ":" + "block/" + registryName);
+                    json.put("parent", Reference.MODID + ":block/" + registryName);
                 }
             }
 
@@ -238,8 +262,13 @@ public class GenerateJSON {
         }
         ModBlocks.BLOCKS.forEach((block) -> {
             String registryName = block.getRegistryName().getResourcePath();
-            if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin) {
-                generateFacingBlockstate(registryName);
+            if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin
+                    || block instanceof BlockChristmasLights) {
+                if (registryName.contains("demon")) {
+                    generateIgnoreVariantBlockstate(registryName);
+                } else {
+                    generateFacingBlockstate(registryName);
+                }
             } else if (block instanceof BlockModLog) {
                 generateAxisBlockstate(registryName);
             } else if (block instanceof BlockModStairs) {
@@ -247,7 +276,7 @@ public class GenerateJSON {
             } else if (block instanceof BlockModSpawner) {
                 generateSpawnerBlockstate(registryName);
             } else if (block instanceof BlockModLeaves) {
-                generateLeavesBlockstate(registryName);
+                generateIgnoreVariantBlockstate(registryName);
             } else if (block instanceof BlockModPortal) {
                 generatePortalBlockstate(registryName);
             } else if (block instanceof BlockModFire) {
@@ -258,6 +287,10 @@ public class GenerateJSON {
                 generateFenceBlockstate(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
+            } else if (block instanceof BlockModSlab) {
+                generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
+            } else if (block instanceof BlockModChest) {
+                generateIgnoreVariantBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -268,11 +301,7 @@ public class GenerateJSON {
         String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
-        json.put("forge_marker", 1);
         Map<String, Object> variants = new HashMap<>();
-        Map<String, Object> normal = new HashMap<>();
-        normal.put("model", blockPath);
-        variants.put("normal", normal);
         Map<String, Object> facingNorth = new HashMap<>();
         facingNorth.put("model", blockPath);
         Map<String, Object> facingEast = new HashMap<>();
@@ -298,20 +327,19 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateLeavesBlockstate(String registryName) {
+    private static void generateIgnoreVariantBlockstate(String registryName) {
         String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
-        json.put("forge_marker", 1);
-        Map<String, Object> variants = new HashMap<>();
+        List<Map<String, Object>> multipart = new ArrayList<>();
+
         Map<String, Object> normal = new HashMap<>();
-        normal.put("model", blockPath);
-        variants.put("normal", normal);
-        variants.put("check_decay=true,decayable=true", normal);
-        variants.put("check_decay=true,decayable=false", normal);
-        variants.put("check_decay=false,decayable=true", normal);
-        variants.put("check_decay=false,decayable=false", normal);
-        json.put("variants", variants);
+        Map<String, Object> apply = new HashMap<>();
+        apply.put("model", blockPath);
+        normal.put("apply", apply);
+        multipart.add(normal);
+        json.put("multipart", multipart);
+
         File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
@@ -325,7 +353,6 @@ public class GenerateJSON {
         String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
-        json.put("forge_marker", 1);
         Map<String, Object> variants = new HashMap<>();
         Map<String, Object> normal = new HashMap<>();
         normal.put("model", blockPath);
@@ -359,7 +386,6 @@ public class GenerateJSON {
         String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
-        json.put("forge_marker", 1);
         Map<String, Object> variants = new HashMap<>();
         Map<String, Object> normal = new HashMap<>();
         normal.put("model", blockPath);
@@ -380,7 +406,6 @@ public class GenerateJSON {
         String outerStairs = stairs.replace("_stairs", "_outer_stairs");
 
         Map<String, Object> json = new HashMap<>();
-        json.put("forge_marker", 1);
         Map<String, Object> variants = new HashMap<>();
 
         Map<String, Object> variant = new HashMap<>();
@@ -781,15 +806,76 @@ public class GenerateJSON {
         String blockPath = Reference.MODID + ":" + registryName;
 
         Map<String, Object> json = new HashMap<>();
-        Map<String, Object> variants = new HashMap<>();
+        if (maxAge < 7) {
+            List<Map<String, Object>> multipart = new ArrayList<>();
 
-        for (int age = 0; age <= maxAge; age++) {
-            Map<String, Object> ageNode = new HashMap<>();
-            ageNode.put("model", blockPath + "_stage_" + age);
-            variants.put("age=" + age, ageNode);
+            for (int age = 0; age <= maxAge; age++) {
+                Map<String, Object> ageNode = new HashMap<>();
+                Map<String, Object> apply = new HashMap<>();
+                Map<String, Object> when = new HashMap<>();
+                apply.put("model", blockPath + "_stage_" + age);
+                ageNode.put("apply", apply);
+                when.put("age", "" + age);
+                ageNode.put("when", when);
+                multipart.add(ageNode);
+            }
+
+            json.put("multipart", multipart);
+        } else {
+            Map<String, Object> variants = new HashMap<>();
+
+            for (int age = 0; age <= maxAge; age++) {
+                Map<String, Object> ageNode = new HashMap<>();
+                ageNode.put("model", blockPath + "_stage_" + age);
+                variants.put("age=" + age, ageNode);
+            }
+
+            json.put("variants", variants);
         }
 
-        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateSlabBlockstate(String registryName, boolean isDouble) {
+        Map<String, Object> json = new HashMap<>();
+        List<Map<String, Object>> multipart = new ArrayList<>();
+
+        if (isDouble) {
+            String baseName = registryName.replace("_double_slab", "");
+            Map<String, Object> normal = new HashMap<>();
+            Map<String, Object> apply = new HashMap<>();
+            apply.put("model", Reference.MODID + ":" + baseName + "_planks");
+            normal.put("apply", apply);
+            multipart.add(normal);
+        } else {
+            String baseName = registryName.replace("_slab", "");
+            Map<String, Object> halfBottom = new HashMap<>();
+            Map<String, Object> apply = new HashMap<>();
+            Map<String, Object> when = new HashMap<>();
+            apply.put("model", Reference.MODID + ":" + baseName + "_half_slab");
+            halfBottom.put("apply", apply);
+            when.put("half", "bottom");
+            halfBottom.put("when", when);
+
+            Map<String, Object> halfTop = new HashMap<>();
+            apply = new HashMap<>();
+            when = new HashMap<>();
+            apply.put("model", Reference.MODID + ":" + baseName + "_upper_slab");
+            halfTop.put("apply", apply);
+            when.put("half", "top");
+            halfTop.put("when", when);
+            multipart.add(halfBottom);
+            multipart.add(halfTop);
+        }
+
+        json.put("multipart", multipart);
+
         File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
@@ -813,7 +899,11 @@ public class GenerateJSON {
             } else if (block instanceof BlockModLog) {
                 generateLogModelBlock(registryName);
             } else if (block instanceof BlockModFurnace) {
-                generateFurnaceModelBlock(registryName);
+                if (registryName.contains("demon")) {
+                    generateDummyModelBlock(registryName);
+                } else {
+                    generateFurnaceModelBlock(registryName);
+                }
             } else if (block instanceof BlockMobPumpkin) {
                 generatePumpkinModelBlock(registryName);
             } else if (block instanceof BlockModSpawner) {
@@ -830,6 +920,16 @@ public class GenerateJSON {
                 generateFenceModelBlock(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
+            } else if (block instanceof BlockModSlab) {
+                generateSlabModelBlock(registryName, ((BlockModSlab) block).isDouble());
+            } else if (block instanceof BlockStatue || block instanceof BlockModChest) {
+                generateDummyModelBlock(registryName);
+            } else if (block instanceof BlockSinglePlant) {
+                generateCrossModelBlock(registryName);
+            } else if (block instanceof BlockChristmasLights) {
+                generateLadderModelBlock(registryName);
+            } else if (registryName.contains("workshop_bookcase")) {
+                generateWorkshopBookcaseModelBlock(registryName);
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -975,6 +1075,59 @@ public class GenerateJSON {
         json.put("parent", "block/cube_all");
         Map<String, Object> textures = new HashMap<>();
         textures.put("all", Reference.MODID + ":" + "blocks/" + registryName);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateWorkshopBookcaseModelBlock(String registryName) {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("north", "divinerpg:blocks/workshop_bookcase");
+        textures.put("east", "divinerpg:blocks/workshop_bookcase");
+        textures.put("south", "divinerpg:blocks/workshop_bookcase");
+        textures.put("west", "divinerpg:blocks/workshop_bookcase");
+        textures.put("up", "divinerpg:blocks/coalstone");
+        textures.put("down", "divinerpg:blocks/coalstone");
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateCrossModelBlock(String registryName) {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cross");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("cross", Reference.MODID + ":" + "blocks/" + registryName);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateDummyModelBlock(String registryName) {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("all", "blocks/debug");
         json.put("textures", textures);
 
         File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
@@ -1211,6 +1364,74 @@ public class GenerateJSON {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private static void generateSlabModelBlock(String registryName, boolean isDouble) {
+        if (!isDouble) {
+            String baseName = registryName.replace("_slab", "");
+            String texturePath = Reference.MODID + ":blocks/" + baseName + "_planks";
+
+            Map<String, Object> json = new HashMap<>();
+            json.put("parent", "block/half_slab");
+            Map<String, Object> textures = new HashMap<>();
+            textures.put("bottom", texturePath);
+            textures.put("top", texturePath);
+            textures.put("side", texturePath);
+            json.put("textures", textures);
+
+            File f = new File(MODEL_BLOCK_DIR, baseName + "_half_slab.json");
+
+            try (FileWriter w = new FileWriter(f)) {
+                GSON.toJson(json, w);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            json = new HashMap<>();
+            json.put("parent", "block/upper_slab");
+            json.put("textures", textures);
+
+            f = new File(MODEL_BLOCK_DIR, baseName + "_upper_slab.json");
+
+            try (FileWriter w = new FileWriter(f)) {
+                GSON.toJson(json, w);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void generateLadderModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("ambientocclusion", false);
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", texturePath);
+        textures.put("texture", texturePath);
+        json.put("textures", textures);
+        List<Map<String, Object>> elements = new ArrayList<>();
+        Map<String, Object> element = new HashMap<>();
+        element.put("from", new float[] { 0, 0, 15.2f });
+        element.put("to", new float[] { 16, 16, 15.2f });
+        element.put("shade", false);
+        Map<String, Object> faces = new HashMap<>();
+        Map<String, Object> direction = new HashMap<>();
+        direction.put("uv", new int[] { 0, 0, 16, 16 });
+        direction.put("texture", "#texture");
+        faces.put("north", direction);
+        faces.put("south", direction);
+        element.put("faces", faces);
+        elements.add(element);
+        json.put("elements", elements);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

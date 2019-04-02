@@ -5,6 +5,7 @@ import java.util.Random;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -31,10 +32,17 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         int randBranchNum = 0;
         Material materialBelow = worldIn.getBlockState(position.down()).getMaterial();
 
-        if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256
-                || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.edenGrass
-                || position.getY() >= 256 - treeHeight - 1) {
+        if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256 || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.edenGrass || position.getY() >= 256 - treeHeight - 1) {
             return false;
+        }
+        for (int x = -2; x <= 2; x++) {
+            for (int z = -2; z <= 2; z++) {
+                for (int y = 0; y <= treeHeight; y++) {
+                    if (worldIn.getBlockState(new BlockPos(position.getX() + x, position.getY() + y, position.getZ() + z)).getBlock() != Blocks.AIR) {
+                        return false;
+                    }
+                }
+            }
         }
 
         buildTrunk(worldIn, position, treeHeight);
@@ -45,11 +53,14 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
+        this.setBlockAndNotifyAdequately(world, pos.add(1, 0, 0), log);
+        this.setBlockAndNotifyAdequately(world, pos.add(0, 0, 1), log);
+        this.setBlockAndNotifyAdequately(world, pos.add(-1, 0, 0), log);
+        this.setBlockAndNotifyAdequately(world, pos.add(0, 0, -1), log);
         this.setBlockAndNotifyAdequately(world, pos.add(1, 1, 0), log);
         this.setBlockAndNotifyAdequately(world, pos.add(0, 1, 1), log);
         this.setBlockAndNotifyAdequately(world, pos.add(-1, 1, 0), log);
         this.setBlockAndNotifyAdequately(world, pos.add(0, 1, -1), log);
-        drawLeafCircle(world, pos.add(0, 0, 0), 2, log);
         drawLeafCircle(world, pos.add(0, extraHeight - 1, 0), 1, leaves);
         drawLeafCircle(world, pos.add(0, extraHeight, 0), 2, leaves);
         drawLeafCircle(world, pos.add(0, extraHeight + 1, 0), 1, leaves);

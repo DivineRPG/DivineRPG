@@ -809,6 +809,7 @@ public class ModEntities {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void initSpawns() {
 		EntityRegistry.addSpawn(Alicanto.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
 		EntityRegistry.addSpawn(Fractite.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);

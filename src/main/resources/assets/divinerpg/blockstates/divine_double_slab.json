@@ -1,11 +1,9 @@
 {
-  "forge_marker": 1,
-  "variants": {
-    "normal": {
-      "model": "divinerpg:divine_double_slab"
-    },
-    "inventory": {
-      "model": "divinerpg:divine_double_slab"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:divine_planks"
+      }
     }
-  }
+  ]
 }

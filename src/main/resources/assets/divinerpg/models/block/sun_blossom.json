@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "divinerpg:blocks/sun_blossom"
+  }
+}

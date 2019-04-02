@@ -3,11 +3,27 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.objects.blocks.*;
+import naturix.divinerpg.enums.WoodVariant;
+import naturix.divinerpg.objects.blocks.BlockDoorBase;
+import naturix.divinerpg.objects.blocks.BlockMod;
+import naturix.divinerpg.objects.blocks.BlockModCrop;
+import naturix.divinerpg.objects.blocks.BlockModFire;
+import naturix.divinerpg.objects.blocks.BlockModGlass;
+import naturix.divinerpg.objects.blocks.BlockModGrass;
+import naturix.divinerpg.objects.blocks.BlockModLeaves;
+import naturix.divinerpg.objects.blocks.BlockModLog;
+import naturix.divinerpg.objects.blocks.BlockModPortal;
+import naturix.divinerpg.objects.blocks.BlockModSlab;
+import naturix.divinerpg.objects.blocks.BlockModSpawner;
+import naturix.divinerpg.objects.blocks.BlockModStairs;
+import naturix.divinerpg.objects.blocks.BlockModTorch;
+import naturix.divinerpg.objects.blocks.BlockModVine;
+import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
+import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
 import naturix.divinerpg.objects.blocks.fluid.BlockTar;
 import naturix.divinerpg.objects.blocks.iceika.BlockCandyCane;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
@@ -18,6 +34,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.vanilla.BlockBloodgemOre;
+import naturix.divinerpg.objects.blocks.vanilla.BlockBoneChest;
 import naturix.divinerpg.objects.blocks.vanilla.BlockDarkBridge;
 import naturix.divinerpg.objects.blocks.vanilla.BlockHotSpike;
 import naturix.divinerpg.objects.blocks.vanilla.BlockLightFence;
@@ -29,9 +46,13 @@ import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GenerateJSON;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSlab;
 
 public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -256,15 +277,11 @@ public class ModBlocks {
     public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
-    public static Block divinePlanks = new BlockMod(EnumBlockType.WOOD, "divine_planks", 2, DRPGCreativeTabs.BlocksTab)
-            .setResistance(5);
-    public static Block divineStairs = new BlockModStairs(divinePlanks, "divine_stairs");
-    public static Block divineSlab = new BlockModSlab((BlockMod) divinePlanks, null);
-
     // FIXME - Need to add
     // public static Block altarOfCorruption = new
     // BlockAltarOfCorruption("altar_of_corruption");
-    // public static Block boneChest = new BlockBoneChest("bone_chest");
+
+    public static Block boneChest = new BlockBoneChest("bone_chest");
 
     // Iceika
     public static Block frozenDirt = new BlockMod(EnumBlockType.DIRT, "frozen_dirt", 2.5F);
@@ -272,10 +289,6 @@ public class ModBlocks {
     public static Block frozenStone = new BlockMod("frozen_stone", 6.0F);
     public static Block frozenWood = new BlockModLog("frozen_log").setHardness(5.0F);
     public static Block brittleLeaves = new BlockModLeaves("brittle_leaves", 0.1F);
-
-    public static Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozen_planks", 6).setResistance(5);
-    public static Block frozenStairs = new BlockModStairs(frozenPlanks, "frozen_stairs");
-    public static Block frozenSlab = new BlockModSlab((BlockMod) frozenPlanks, null);
 
     public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
     public static Block ripeWinterberryBush = new BlockWinterberryBush(true, "ripe_winterberry_bush");
@@ -293,9 +306,10 @@ public class ModBlocks {
     public static Block coalstoneStairs = new BlockModStairs(coalstone, "coalstone_stairs");
     public static Block workshopCarpet = new BlockMod(EnumBlockType.WOOL, "workshop_carpet", 0.1F);
     public static Block frostedGlass = new BlockModGlass("frosted_glass", 1.0F);
-    public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase", DRPGCreativeTabs.BlocksTab).setHardness(1.5F);
+    public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",
+            DRPGCreativeTabs.BlocksTab).setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
-    public static Block steelDoor = new BlockDoorBase("steel_door_block", Material.ANVIL);
+    public static Block steelDoor = new BlockDoorBase("steel_door", Material.ANVIL);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
     public static Block coalstoneFurnaceOn = new BlockCoalstoneFurnace("coalstone_furnace_on", true);
 
@@ -383,6 +397,10 @@ public class ModBlocks {
     public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal",
             ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
 
+    public static Block edenBrush = new BlockSinglePlant("eden_brush");
+    public static Block sunbloom = new BlockSinglePlant("sunbloom");
+    public static Block sunBlossom = new BlockSinglePlant("sun_blossom");
+
     // Arcana
     public static Block stainedGlass = new BlockModGlass("stained_glass", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass2 = new BlockModGlass("stained_glass2", 0.3F).setUnlocalizedName("stained_glass");
@@ -415,13 +433,54 @@ public class ModBlocks {
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
     public static Block wildwoodVine = new BlockModVine("wildwood_vine");
 
-    public static Block frozenDoubleSlab = new BlockModDoubleSlab("frozen_double_slab", Blocks.STONE_SLAB);
-    public static Block divineDoubleSlab = new BlockModDoubleSlab("divine_double_slab", Blocks.STONE_SLAB);
-    public static Block edenDoubleSlab = new BlockModDoubleSlab("eden_double_slab", Blocks.STONE_SLAB);
-    public static Block wildwoodDoubleSlab = new BlockModDoubleSlab("wildwood_double_slab", Blocks.STONE_SLAB);
-    public static Block apalachiaDoubleSlab = new BlockModDoubleSlab("apalachia_double_slab", Blocks.STONE_SLAB);
-    public static Block skythernDoubleSlab = new BlockModDoubleSlab("skythern_double_slab", Blocks.STONE_SLAB);
-    public static Block mortumDoubleSlab = new BlockModDoubleSlab("mortum_double_slab", Blocks.STONE_SLAB);
+    public static void AddWoodVariants() {
+        for (WoodVariant woodType : WoodVariant.values()) {
+            String woodName = woodType.getName();
+
+            // Make special property key that allows ONLY one value because slabs are special level of stupid
+            final PropertyEnum<WoodVariant> restrictedKey = PropertyEnum.create("variant", WoodVariant.class,
+                    input -> input == woodType);
+
+            BlockMod planks = new BlockMod(EnumBlockType.WOOD, woodName + "_planks", 2, DRPGCreativeTabs.BlocksTab);
+            Block stairs = new BlockModStairs(planks, woodName + "_stairs");
+            Block singleSlab = new BlockModSlab(planks, null, woodType) {
+                @Override
+                public boolean isDouble() {
+                    return false;
+                }
+
+                protected Block getSingle() {
+                    return this;
+                }
+
+                @Override
+                public IProperty<WoodVariant> getVariantProperty() {
+                    return restrictedKey;
+                }
+            };
+
+            Block doubleSlab = new BlockModSlab(planks, singleSlab, woodType) {
+                @Override
+                public boolean isDouble() {
+                    return true;
+                }
+
+                protected Block getSingle() {
+                    return singleSlab;
+                }
+
+                @Override
+                public IProperty<WoodVariant> getVariantProperty() {
+                    return restrictedKey;
+                }
+            };
+
+            ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
+                    .setRegistryName(singleSlab.getRegistryName()));
+            ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
+                    .setRegistryName(doubleSlab.getRegistryName()));
+        }
+    }
 
     public static void CreateJSONs() {
         GenerateJSON.generateBlockstateJSONs();

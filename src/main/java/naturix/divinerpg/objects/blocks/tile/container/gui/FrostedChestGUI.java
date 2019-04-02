@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.tile.container.gui;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
-import naturix.divinerpg.objects.blocks.tile.container.ContainerFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,12 +13,13 @@ import net.minecraft.util.ResourceLocation;
  * Created by LiteWolf101 on Feb /01/2019
  */
 public class FrostedChestGUI extends GuiContainer {
-    private static final ResourceLocation GUI_FROSTED_CHEST = new ResourceLocation(Reference.MODID + ":textures/gui/frosted_chest_gui.png");
+    private static final ResourceLocation GUI_FROSTED_CHEST = new ResourceLocation(
+            Reference.MODID + ":textures/gui/frosted_chest_gui.png");
     private final InventoryPlayer playerInventory;
-    private final TileEntityFrostedChest te;
+    private final TileEntityModChest te;
 
-    public FrostedChestGUI(InventoryPlayer playerInventory, TileEntityFrostedChest chestInventory, EntityPlayer player) {
-        super(new ContainerFrostedChest(playerInventory, chestInventory, player));
+    public FrostedChestGUI(InventoryPlayer playerInventory, TileEntityModChest chestInventory, EntityPlayer player) {
+        super(new ContainerModChest(playerInventory, chestInventory, player));
         this.playerInventory = playerInventory;
         this.te = chestInventory;
 
@@ -35,8 +36,11 @@ public class FrostedChestGUI extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.fontRenderer.drawString(this.te.getDisplayName().getUnformattedText(), 8, 6, 3449263);
-        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 92, 3449263);
+        String tileName = this.te.getDisplayName().getUnformattedComponentText();
+        this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2) + 0, 6,
+                3449263);
+        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 92,
+                3449263);
     }
 
     @Override

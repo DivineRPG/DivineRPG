@@ -1,24 +1,19 @@
-## Create special Block JSON Models
-* Christmas Lights
-* Doors
-* Bookcase?
-* Slabs
+## Add to Block JSON Auto-Generate
+* Steel Door
 * Vines (Once we start on Twilight)
+* Demon Furnace
+* Chests
 
 ## Create special Item JSON Models
-* Demon Furnace (Try out the one Wufflez made)
-* Present Box
-* Frosted Chest
-* Bone Chest
 * Statues
 
 ## Bugs
-* Furnaces export via hopper instantly rather than waiting for the object to smelt
 * Tar
 * Shurikens
 
 ## Additional Items to complete for Vanilla & Iceika Release
 * Vanilla Armor replacement
+* Full set armor special abilities
 * Serenades
 * Bucket of Tar
 * Infernal Flame
@@ -26,3 +21,4 @@
 * Music Shooters
 * ItemProjectileShooter (Cannons, Golden Fury, Cyclops Staff, Maelstrom)
 * Shurikens
+* Bows
