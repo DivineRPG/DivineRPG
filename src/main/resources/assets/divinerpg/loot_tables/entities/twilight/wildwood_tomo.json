@@ -1,7 +1,7 @@
 {
    "pools":[
       {
-         "name":"divinerpg:behemoth",
+         "name":"divinerpg:wildwood_tomo",
          "rolls":1,
          "entries":[
             {
@@ -28,7 +28,7 @@
          ]
       },
       {
-         "name":"divinerpg:behemoth",
+         "name":"divinerpg:wildwood_tomo",
          "rolls":1,
          "entries":[
             {

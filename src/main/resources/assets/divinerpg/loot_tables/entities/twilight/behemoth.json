@@ -1,18 +1,18 @@
 {
    "pools":[
       {
-         "name":"divinerpg:apalachia_tomo",
+         "name":"divinerpg:behemoth",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:apalachia_soul",
+               "name":"divinerpg:wildwood_soul",
                "weight":1,
                "functions":[
                   {
                      "function":"set_count",
                      "count":{
-                        "min":1,
+                        "min":0,
                         "max":2
                      }
                   },
@@ -28,19 +28,19 @@
          ]
       },
       {
-         "name":"divinerpg:apalachia_tomo",
+         "name":"divinerpg:behemoth",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:enriched_magic_meat",
+               "name":"divinerpg:magic_meat",
                "weight":1,
                "functions":[
                   {
                      "function":"set_count",
                      "count":{
-                        "min":0,
-                        "max":2
+                        "min":1,
+                        "max":1
                      }
                   },
                   {

@@ -1,12 +1,12 @@
 {
    "pools":[
       {
-         "name":"divinerpg:apalachia_golem",
+         "name":"divinerpg:wildwood_golem",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:apalachia_soul",
+               "name":"divinerpg:wildwood_soul",
                "weight":1,
                "functions":[
                   {
@@ -28,12 +28,12 @@
          ]
       },
       {
-         "name":"divinerpg:apalachia_golem",
+         "name":"divinerpg:wildwood_golem",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:enriched_magic_meat",
+               "name":"divinerpg:magic_meat",
                "weight":1,
                "functions":[
                   {
@@ -55,33 +55,12 @@
          ]
       },
       {
-         "name":"divinerpg:apalachia_golem",
+         "name":"divinerpg:wildwood_golem",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:pink_glowbone_seeds",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":1,
-                        "max":3
-                     }
-                  },
-                  {
-                     "function":"looting_enchant",
-                     "count":{
-                        "min":0,
-                        "max":1
-                     }
-                  }
-               ]
-            },
-            {
-               "type":"item",
-               "name":"divinerpg:purple_glowbone_seeds",
+               "name":"divinerpg:moonbulb_seeds",
                "weight":1,
                "functions":[
                   {
@@ -102,7 +81,7 @@
             },
             {
                "type":"empty",
-               "weight":2
+               "weight":1
             }
          ]
       }
