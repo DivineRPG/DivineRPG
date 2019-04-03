@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures":
-  {
-    "all": "divinerpg:blocks/liquid_tar_still"
-  }
-}

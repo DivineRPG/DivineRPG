@@ -12,7 +12,7 @@ import net.minecraftforge.client.model.ModelLoader;
 public class RenderFluids {
     public static void registerCustomMeshesAndStates()
     {
-        ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(ModBlocks.tar), new ItemMeshDefinition()
+        /*ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(ModBlocks.tar), new ItemMeshDefinition()
         {
             @Override
             public ModelResourceLocation getModelLocation(ItemStack stack)
@@ -28,7 +28,7 @@ public class RenderFluids {
             {
                 return new ModelResourceLocation("divinerpg:tar", "fluid");
             }
-        });
+        });*/
     }
 
 }

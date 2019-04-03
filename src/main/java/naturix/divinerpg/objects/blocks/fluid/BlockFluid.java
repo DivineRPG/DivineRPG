@@ -26,12 +26,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockFluid extends BlockFluidClassic {
 	public BlockFluid(String name, Fluid fluid, Material material) {
 		super(fluid, material);
-		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		setRegistryName(name);
 
 		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(name));
 	}
 
 	@Override
