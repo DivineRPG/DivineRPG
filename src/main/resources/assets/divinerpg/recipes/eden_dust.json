@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:eden_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:sun_blossom"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

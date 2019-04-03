@@ -112,13 +112,13 @@ public class WorldGenIceTree extends WorldGenerator {
             if (world.getBlockState(new BlockPos(i, j + l3, k)).getBlock() == Blocks.AIR
                     || world.getBlockState(new BlockPos(i, j + l3, k)).getBlock().isLeaves(
                             world.getBlockState(new BlockPos(i, j + l3, k)), world, new BlockPos(i, j + l3, k))) {
-                setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k), ModBlocks.frozenWood.getDefaultState());
+                setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k), ModBlocks.frozenLogs.getDefaultState());
                 setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j + l3, k),
-                        ModBlocks.frozenWood.getDefaultState());
+                        ModBlocks.frozenLogs.getDefaultState());
                 setBlockAndNotifyAdequately(world, new BlockPos(i, j + l3, k - 1),
-                        ModBlocks.frozenWood.getDefaultState());
+                        ModBlocks.frozenLogs.getDefaultState());
                 setBlockAndNotifyAdequately(world, new BlockPos(i - 1, j + l3, k - 1),
-                        ModBlocks.frozenWood.getDefaultState());
+                        ModBlocks.frozenLogs.getDefaultState());
             }
         }
         return true;

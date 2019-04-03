@@ -3,7 +3,7 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.enums.WoodVariant;
+import naturix.divinerpg.enums.WoodType;
 import naturix.divinerpg.objects.blocks.BlockDoorBase;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
@@ -12,6 +12,7 @@ import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
+import naturix.divinerpg.objects.blocks.BlockModPlank;
 import naturix.divinerpg.objects.blocks.BlockModPortal;
 import naturix.divinerpg.objects.blocks.BlockModSlab;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
@@ -110,7 +111,8 @@ public class ModBlocks {
     public static Block redVane = new VanillaBlock(EnumBlockType.ROCK, "red_vane", 2.0F, IRON).setResistance(10F);
     public static Block yellowVane = new VanillaBlock(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON).setResistance(10F);
 
-    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F);
+    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE)
+            .setResistance(10F);
     public static Block tar = new BlockFluid("tar", ModLiquids.tar, Material.WATER);
 
     public static Block fancyWool = new VanillaBlock(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD);
@@ -272,7 +274,7 @@ public class ModBlocks {
     public static Block whiteMushroomPlant = new BlockModCrop("white_mushroom_plant", 1, ModItems.whiteMushroomSeeds,
             ModItems.whiteMushroom);
 
-    public static Block divineWood = new BlockModLog("divine_log");
+    public static Block divineLogs = new BlockModLog("divine_log");
     public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
@@ -286,7 +288,7 @@ public class ModBlocks {
     public static Block frozenDirt = new BlockMod(EnumBlockType.DIRT, "frozen_dirt", 2.5F);
     public static Block frozenGrass = new BlockModGrass((BlockMod) frozenDirt, "frozen_grass", "frozen_dirt", 2.5F);
     public static Block frozenStone = new BlockMod("frozen_stone", 6.0F);
-    public static Block frozenWood = new BlockModLog("frozen_log").setHardness(5.0F);
+    public static Block frozenLogs = new BlockModLog("frozen_log").setHardness(5.0F);
     public static Block brittleLeaves = new BlockModLeaves("brittle_leaves", 0.1F);
 
     public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
@@ -326,7 +328,8 @@ public class ModBlocks {
     public static Block presentBox = new BlockPresentBox("present_box");
 
     public static Block iceikaFire = new BlockModFire("iceika_fire");
-    public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal", ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, DRPGParticleTypes.FROST);
+    public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal",
+            ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, DRPGParticleTypes.FROST);
 
     // Twilight
     public static Block edenDirt = new BlockMod(EnumBlockType.DIRT, "eden_dirt", 5.0F);
@@ -409,6 +412,8 @@ public class ModBlocks {
     public static Block stainedGlass7 = new BlockModGlass("stained_glass7", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass8 = new BlockModGlass("stained_glass8", 0.3F).setUnlocalizedName("stained_glass");
 
+    public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log");
+
     // public static Block greenlightFurnace = new
     // BlockGreenlightFurnace("greenlight_furnace", false);
     // public static Block greenlightFurnaceOn = new
@@ -432,14 +437,14 @@ public class ModBlocks {
     public static Block wildwoodVine = new BlockModVine("wildwood_vine");
 
     public static void AddWoodVariants() {
-        for (WoodVariant woodType : WoodVariant.values()) {
+        for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();
 
             // Make special property key that allows ONLY one value because slabs are special level of stupid
-            final PropertyEnum<WoodVariant> restrictedKey = PropertyEnum.create("variant", WoodVariant.class,
+            final PropertyEnum<WoodType> restrictedKey = PropertyEnum.create("variant", WoodType.class,
                     input -> input == woodType);
 
-            BlockMod planks = new BlockMod(EnumBlockType.WOOD, woodName + "_planks", 2, DRPGCreativeTabs.BlocksTab);
+            BlockMod planks = new BlockModPlank(woodType);
             Block stairs = new BlockModStairs(planks, woodName + "_stairs");
             Block singleSlab = new BlockModSlab(planks, null, woodType) {
                 @Override
@@ -452,7 +457,7 @@ public class ModBlocks {
                 }
 
                 @Override
-                public IProperty<WoodVariant> getVariantProperty() {
+                public IProperty<WoodType> getVariantProperty() {
                     return restrictedKey;
                 }
             };
@@ -468,7 +473,7 @@ public class ModBlocks {
                 }
 
                 @Override
-                public IProperty<WoodVariant> getVariantProperty() {
+                public IProperty<WoodType> getVariantProperty() {
                     return restrictedKey;
                 }
             };

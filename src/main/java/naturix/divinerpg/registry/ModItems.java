@@ -452,8 +452,6 @@ public static Item yellowDiamondChunk = new ItemBase("yellow_diamond_chunk");
 public static Item tarBucket = new ItemNotReady("bucket_of_tar", DRPGCreativeTabs.items);
 
 public static Item mysteriousClock = new ItemMysteriousClock("mysterious_clock");
-// public static Item mysteriousClock = new ItemNotReady("mysterious_clock",
-// DRPGCreativeTabs.items);
 public static Item watchingEye = new ItemBase("watching_eye");
 public static Item callOfTheWatcher = new ItemCallOfTheWatcher("call_of_the_watcher");
 // public static Item infernalFlame = new ItemInfernalFlame("infernal_flame");

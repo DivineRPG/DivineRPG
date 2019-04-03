@@ -2,7 +2,7 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.enums.WoodVariant;
+import naturix.divinerpg.enums.WoodType;
 import naturix.divinerpg.utils.GenerateJSON;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -647,10 +647,6 @@ public class ModRecipes {
         addShapelessRecipe(new ItemStack(ModItems.whiteMushroomSeeds, 4), ModItems.whiteMushroom);
         addShapelessRecipe(new ItemStack(ModItems.tomatoSeeds, 4), ModItems.tomato);
 
-        // FIXME - Need to add
-        // addShapelessRecipe(new ItemStack(ModBlocks.eucalyptusPlank, 4),
-        // ModBlocks.eucalyptusWood);
-
         addRecipe(new ItemStack(ModBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.DYE, 4), 'O',
                 Blocks.OBSIDIAN);
         addRecipe(new ItemStack(ModBlocks.redVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.DYE, 1, 1), 'O',
@@ -696,9 +692,9 @@ public class ModRecipes {
         addSmelting(ModBlocks.skythernOre, ModItems.skythernFragments, 1.7F);
         addSmelting(ModBlocks.mortumOre, ModItems.mortumFragments, 2.0F);
 
-        // addShapelessRecipe(ModItems.edenDust, ModBlocks.sunbloom);
-        // addShapelessRecipe(ModItems.edenDust, ModBlocks.edenBrush);
-        // addShapelessRecipe(ModItems.edenDust, ModBlocks.sunBlossom);
+        addShapelessRecipe(ModItems.edenDust, ModBlocks.sunbloom);
+        addShapelessRecipe(ModItems.edenDust, ModBlocks.edenBrush);
+        addShapelessRecipe(ModItems.edenDust, ModBlocks.sunBlossom);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonlightFern);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonBud);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.wildwoodTallgrass);
@@ -839,7 +835,7 @@ public class ModRecipes {
     }
 
     public void AddWoodVariantsRecipes() {
-        for (WoodVariant woodType : WoodVariant.values()) {
+        for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();
 
             Block log = getBlockFromName(woodName + "_log");

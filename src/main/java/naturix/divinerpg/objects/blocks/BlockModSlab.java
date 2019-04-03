@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.enums.WoodVariant;
+import naturix.divinerpg.enums.WoodType;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.IHasModel;
@@ -22,14 +22,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public abstract class BlockModSlab extends BlockSlab implements IHasModel {
-    public static final PropertyEnum<WoodVariant> VARIANT = PropertyEnum.<WoodVariant>create("variant",
-            WoodVariant.class);
+    public static final PropertyEnum<WoodType> VARIANT = PropertyEnum.<WoodType>create("variant",
+            WoodType.class);
 
     public final String NAME;
     private Block single;
-    private WoodVariant woodType;
+    private WoodType woodType;
 
-    public BlockModSlab(BlockMod plank, Block single, WoodVariant woodType) {
+    public BlockModSlab(BlockMod plank, Block single, WoodType woodType) {
         super(Material.WOOD, woodType.getMapColor());
         setHardness(plank.getBlockModHardness());
         setResistance(5);
@@ -102,10 +102,10 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
     public abstract boolean isDouble();
 
     @Override
-    public abstract IProperty<WoodVariant> getVariantProperty();
+    public abstract IProperty<WoodType> getVariantProperty();
 
     @Override
-    public Comparable<WoodVariant> getTypeForItem(ItemStack stack) {
+    public Comparable<WoodType> getTypeForItem(ItemStack stack) {
         return woodType;
     }
 
