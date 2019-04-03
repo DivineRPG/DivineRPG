@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelBasalisk extends ModelBase
+public class ModelBasilisk extends ModelBase
 {
     ModelRenderer head;
     ModelRenderer body;
@@ -22,7 +22,7 @@ public class ModelBasalisk extends ModelBase
     ModelRenderer Spine_4;
     ModelRenderer Spine_5;
 
-    public ModelBasalisk()
+    public ModelBasilisk()
     {
         this.textureWidth = 64;
         this.textureHeight = 32;

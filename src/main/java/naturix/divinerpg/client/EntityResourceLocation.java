@@ -155,7 +155,7 @@ public class EntityResourceLocation {
 	public static ResourceLocation megalith = addMob("megalith");
 	public static ResourceLocation mortumCadillion = addMob("mortumCadillion");
 	public static ResourceLocation mortumDemon = addMob("mortumDemon");
-	public static ResourceLocation basalisk = addMob("basalisk");
+	public static ResourceLocation basilisk = addMob("basilisk");
 	public static ResourceLocation soulStealer = addMob("soulStealer");
 	public static ResourceLocation glacon = addMob("glacon");
 
