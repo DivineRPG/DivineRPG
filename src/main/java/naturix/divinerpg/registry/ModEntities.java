@@ -28,7 +28,7 @@ import naturix.divinerpg.objects.entities.assets.render.iceika.RenderWorkshopMer
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaGolem;
-import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBasalisk;
+import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBasilisk;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBehemoth;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderDenseDemon;
@@ -395,7 +395,7 @@ public class ModEntities {
 		registerMobWithEgg(ApalachiaCadillion.class, "apalachia_cadillion");
 		registerMobWithEgg(ApalachiaGolem.class, "apalachia_golem");
 		registerMobWithEgg(ApalachiaTomo.class, "apalachia_tomo");
-		registerMobWithEgg(Basilisk.class, "basalisk");
+		registerMobWithEgg(Basilisk.class, "basilisk");
 		registerMobWithEgg(Behemoth.class, "behemoth");
 		registerMobWithEgg(Bunny.class, "bunny");
 		registerMobWithEgg(DenseDemon.class, "dense_demon");
@@ -671,7 +671,7 @@ public class ModEntities {
 		// Twilight
 		RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasalisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Behemoth.class, RenderBehemoth.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EdenCadillion.class, RenderEdenCadillion.FACTORY);
@@ -767,7 +767,7 @@ public class ModEntities {
 
 		// Vethia
 		RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasalisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Biphron.class, RenderBiphron.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(Bohemite.class, RenderBohemite.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(CryptKeeper.class, RenderCryptKeeper.FACTORY);
