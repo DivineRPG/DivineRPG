@@ -6,28 +6,17 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.utils.ItemTeleporter;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ITeleporter;
 
 public class ItemTeleportationCrystal extends ItemBase {
-
-private static class CommandTeleporter implements ITeleporter {
-private CommandTeleporter(BlockPos targetPos) {
-}
-
-@Override
-public void placeEntity(World world, Entity entity, float yaw) {
-}
-
-}
 
 public ItemTeleportationCrystal(String name) {
 	super(name);
@@ -46,14 +35,20 @@ public void addInformation(ItemStack stack, @Nullable World worldIn, List<String
 }
 
 @Override
-public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-	ItemStack stack = player.getHeldItem(hand);
-	BlockPos pos = player.getBedLocation();
-	player.changeDimension(0, new CommandTeleporter(pos));
-	player.moveToBlockPosAndAngles(pos, player.rotationYaw, player.rotationPitch);
-	if (!player.isCreative()) {
-		stack.damageItem(1, player);
+public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer entityIn, EnumHand hand) {
+	// The line below keeps crashing but thats how i thought you got the overworld?
+	ItemTeleporter teleporter = new ItemTeleporter(worldIn.getMinecraftServer().getWorld(0));
+	ItemStack stack = entityIn.getHeldItem(hand);
+
+	EntityPlayerMP playerMP = (EntityPlayerMP) entityIn;
+
+	teleporter.transferPlayerToDimension(playerMP, 0);
+	if (!entityIn.isCreative())
+
+	{
+		stack.damageItem(1, entityIn);
 	}
-	return super.onItemRightClick(world, player, hand);
+	return super.onItemRightClick(worldIn, entityIn, hand);
 }
+
 }
