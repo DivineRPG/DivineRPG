@@ -17,7 +17,6 @@
 * Serenades
 * Bucket of Tar
 * Infernal Flame
-* Teleportation Crystal
 * Music Shooters
 * ItemProjectileShooter (Cannons, Golden Fury, Cyclops Staff, Maelstrom)
 * Shurikens
