@@ -28,10 +28,11 @@ public void onBlockDrops(HarvestDropsEvent event) {
 	        && ((BlockMod) event.getState().getBlock()).isTwilightOre()) {
 		if (event.getHarvester() != null && event.getHarvester() instanceof EntityPlayer) {
 			EntityPlayer player = event.getHarvester();
-			ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-			ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-			ItemStack stackBody = player.inventory.armorItemInSlot(2);
-			ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+
+			ItemStack stackBoots = player.inventory.armorInventory.get(0);
+			ItemStack stackLegs = player.inventory.armorInventory.get(1);
+			ItemStack stackBody = player.inventory.armorInventory.get(2);
+			ItemStack stackHelmet = player.inventory.armorInventory.get(3);
 
 			if (stackBoots != null) {
 				boots = stackBoots.getItem();
@@ -75,10 +76,11 @@ public void onBlockDrops(HarvestDropsEvent event) {
 public void onJump(LivingJumpEvent event) {
 	if (event.getEntityLiving() instanceof EntityPlayer) {
 		EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-		ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-		ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-		ItemStack stackBody = player.inventory.armorItemInSlot(2);
-		ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+
+		ItemStack stackBoots = player.inventory.armorInventory.get(0);
+		ItemStack stackLegs = player.inventory.armorInventory.get(1);
+		ItemStack stackBody = player.inventory.armorInventory.get(2);
+		ItemStack stackHelmet = player.inventory.armorInventory.get(3);
 		if (stackBoots != null) {
 			boots = stackBoots.getItem();
 		} else {
@@ -133,13 +135,14 @@ public void onJump(LivingJumpEvent event) {
 
 @SubscribeEvent
 public void onPlayerAttackEvent(LivingAttackEvent e) {
+	// if(e.getEntityLiving().world.isRemote) {
 	if (e.getEntity() instanceof EntityPlayer) {
-		EntityPlayer player = (EntityPlayer) e.getEntity();
+		EntityPlayer player = (EntityPlayer) e.getEntityLiving();
 
-		ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-		ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-		ItemStack stackBody = player.inventory.armorItemInSlot(2);
-		ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+		ItemStack stackBoots = player.inventory.armorInventory.get(0);
+		ItemStack stackLegs = player.inventory.armorInventory.get(1);
+		ItemStack stackBody = player.inventory.armorInventory.get(2);
+		ItemStack stackHelmet = player.inventory.armorInventory.get(3);
 
 		if (stackBoots != null) {
 			boots = stackBoots.getItem();
