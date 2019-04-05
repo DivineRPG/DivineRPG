@@ -35,7 +35,7 @@ public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos p
 
 		return EnumActionResult.SUCCESS;
 	} else {
-		if (worldIn.provider.getDimension() != -1) {
+		if (worldIn.provider.getDimension() != -1 && worldIn.isRemote) {
 			Logging.message(player, TextFormatting.AQUA + "This item can only be used in the nether.");
 		}
 		return EnumActionResult.FAIL;
