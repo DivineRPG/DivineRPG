@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.utils.ItemTeleporter;
+import naturix.divinerpg.utils.TeleportationHandler;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,9 +14,13 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 public class ItemTeleportationCrystal extends ItemBase {
+
+WorldServer worldserver;
 
 public ItemTeleportationCrystal(String name) {
 	super(name);
@@ -29,20 +33,19 @@ public ItemTeleportationCrystal(String name) {
 public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
 	list.add("Teleport to spawn point");
 	list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
-
-	list.add("Not yet ready!");
-	list.add("Works in overworld but not other dims");
 }
 
 @Override
 public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer entityIn, EnumHand hand) {
-	// The line below keeps crashing but thats how i thought you got the overworld?
-	ItemTeleporter teleporter = new ItemTeleporter(worldIn.getMinecraftServer().getWorld(0));
-	ItemStack stack = entityIn.getHeldItem(hand);
-
-	EntityPlayerMP playerMP = (EntityPlayerMP) entityIn;
-
-	teleporter.transferPlayerToDimension(playerMP, 0);
+	ItemStack stack = new ItemStack(this);
+	if (worldIn.provider.getDimension() != 0) {
+		if (!worldIn.isRemote) {
+			teleportPlayer(worldIn, entityIn);
+		}
+	} else {
+		entityIn.setPosition(entityIn.getBedLocation().getX(), entityIn.getBedLocation().getY(),
+		        entityIn.getBedLocation().getZ());
+	}
 	if (!entityIn.isCreative())
 
 	{
@@ -51,4 +54,13 @@ public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer enti
 	return super.onItemRightClick(worldIn, entityIn, hand);
 }
 
+private void teleportPlayer(World world, EntityPlayer player) {
+	EntityPlayerMP playerMP = (EntityPlayerMP) player;
+	BlockPos coords;
+
+	coords = TeleportationHandler.getDimPos(playerMP, 0, player.getBedLocation());
+	TeleportationHandler.updateDimPos(playerMP, world.provider.getDimension(), player.getPosition());
+	TeleportationHandler.teleport(playerMP, 0, coords.getX(), coords.getY(), coords.getZ(),
+	        playerMP.mcServer.getPlayerList());
+}
 }
