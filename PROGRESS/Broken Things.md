@@ -16,7 +16,6 @@
 * Full set armor special abilities
 * Serenades
 * Bucket of Tar
-* Infernal Flame
 * Music Shooters
 * ItemProjectileShooter (Cannons, Golden Fury, Cyclops Staff, Maelstrom)
 * Shurikens

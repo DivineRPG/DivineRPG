@@ -30,6 +30,7 @@ import naturix.divinerpg.objects.items.vanilla.ItemAnchor;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
 import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
 import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
+import naturix.divinerpg.objects.items.vanilla.ItemInfernalFlame;
 import naturix.divinerpg.objects.items.vanilla.ItemMysteriousClock;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import naturix.divinerpg.utils.ArmorInfo;
@@ -454,8 +455,7 @@ public static Item tarBucket = new ItemNotReady("bucket_of_tar", DRPGCreativeTab
 public static Item mysteriousClock = new ItemMysteriousClock("mysterious_clock");
 public static Item watchingEye = new ItemBase("watching_eye");
 public static Item callOfTheWatcher = new ItemCallOfTheWatcher("call_of_the_watcher");
-// public static Item infernalFlame = new ItemInfernalFlame("infernal_flame");
-public static Item infernalFlame = new ItemNotReady("infernal_flame", DRPGCreativeTabs.ranged);
+public static Item infernalFlame = new ItemInfernalFlame("infernal_flame");
 public static Item hordeHorn = new ItemHordeHorn("horde_horn");
 
 public static Item whiteMushroomSeeds = new ItemModSeeds("white_mushroom_seeds",
