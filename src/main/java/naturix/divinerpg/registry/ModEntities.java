@@ -362,7 +362,7 @@ public class ModEntities {
         registerProjectile(EntityShuriken.class, "shuriken");
         registerProjectile(EntitySparkler.class, "sparkler");
         registerProjectile(EntityWatcherShot.class, "watcher_shot");
-        registerProjectile(EntityVileStorm.class, "vilestorm");
+        registerProjectile(EntityVileStorm.class, "vile_storm");
         registerProjectile(EntitySnowflakeShuriken.class, "shuriken_snow");
         registerProjectile(EntityShooterBullet.class, "shooter_bullet");
         registerProjectile(EntityParticleBullet.class, "particle_bullet");

@@ -23,6 +23,7 @@ import naturix.divinerpg.objects.items.base.ItemShovelBase;
 import naturix.divinerpg.objects.items.base.ItemSlowingSword;
 import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemSwordBase;
+import naturix.divinerpg.objects.items.base.ItemThrowable;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
 import naturix.divinerpg.objects.items.itemblock.ItemBlockDoor;
@@ -37,6 +38,7 @@ import naturix.divinerpg.objects.items.vanilla.ItemInfernalFlame;
 import naturix.divinerpg.objects.items.vanilla.ItemMysteriousClock;
 import naturix.divinerpg.objects.items.vanilla.ItemScythe;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
+import naturix.divinerpg.objects.items.vanilla.ItemVileStorm;
 import naturix.divinerpg.utils.ArmorInfo;
 import naturix.divinerpg.utils.ChatFormats;
 import naturix.divinerpg.utils.GenerateJSON;
@@ -106,10 +108,8 @@ public class ModItems {
     public static Item bluefireBow = new ItemBowBase("bluefire_bow", -1, 2, 11, "bluefire_arrow");
     public static Item infernoBow = new ItemBowBase("inferno_bow", 10000, 2, 11, "inferno_arrow");
 
-    // public static Item shuriken = new ItemShuriken("shuriken", 4);
-    // public static Item vileStorm = new ItemVileStorm("vile_storm");
-    public static Item shuriken = new ItemNotReady("shuriken", DRPGCreativeTabs.ranged);
-    public static Item vileStorm = new ItemNotReady("vile_storm", DRPGCreativeTabs.ranged);
+    public static Item shuriken = new ItemThrowable("shuriken", ProjectileType.SHURIKEN_SHOT);
+    public static Item vileStorm = new ItemVileStorm("vile_storm");
     public static Item scythe = new ItemScythe("scythe");
 
     public static Item frostCannon = new ItemProjectileShooter("frost_cannon", ProjectileType.FROST_CANNON_SHOT,
@@ -469,8 +469,8 @@ public class ModItems {
             10000, 0);
     public static Item fractiteCannon = new ItemProjectileShooter("fractite_cannon",
             ProjectileType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, iceShards, 10000, 0);
-    // public static Item snowflakeShuriken = new ItemSnowflakeShuriken("snowflake_shuriken", 7);
-    public static Item snowflakeShuriken = new ItemNotReady("snowflake_shuriken", DRPGCreativeTabs.ranged);
+    public static Item snowflakeShuriken = new ItemThrowable("snowflake_shuriken",
+            ProjectileType.SNOWFLAKE_SHURIKEN_SHOT);
     // public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
     public static Item serenadeOfIce = new ItemNotReady("serenade_of_ice", DRPGCreativeTabs.ranged);
 

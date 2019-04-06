@@ -51,7 +51,7 @@ public class ItemScythe extends ItemMod {
             world.spawnEntity(bullet);
         }
 
-        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(handIn));
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
     }
 
     @SideOnly(Side.CLIENT)

@@ -74,7 +74,7 @@ public class ItemCorruptedCannon extends ItemMod {
             stack.getTagCompound().setLong("CanShootTime", 0);
         }
 
-        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(handIn));
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
     }
 
     @SideOnly(Side.CLIENT)

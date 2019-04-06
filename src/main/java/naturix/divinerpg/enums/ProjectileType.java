@@ -43,7 +43,9 @@ public enum ProjectileType {
     ARKSIANE_WRATH_CANNON_SHOT(34, 36, ProjectileLoc("cannon")),
     EVERSIGHT_SHOT(35, 42, ProjectileLoc("eversight")),
     SCYTHE_SHOT(36, 6, ProjectileLoc("scythe")),
-    MEGA_SCYTHE_SHOT(37, 18, ProjectileLoc("scythe"));
+    MEGA_SCYTHE_SHOT(37, 18, ProjectileLoc("scythe")),
+    SHURIKEN_SHOT(38, 4, ItemLoc("shuriken")),
+    SNOWFLAKE_SHURIKEN_SHOT(39, 7, ItemLoc("snowflake_shuriken"));
 
     private final int id;
     private final float damage;

@@ -133,7 +133,7 @@ public class ItemProjectileShooter extends ItemMod {
             stack.getTagCompound().setLong("CanShootTime", 0);
         }
 
-        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(handIn));
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
     }
 
     protected boolean isAmmo(@Nullable ItemStack stack) {
