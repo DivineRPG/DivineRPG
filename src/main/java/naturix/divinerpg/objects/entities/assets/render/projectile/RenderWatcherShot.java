@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderWatcherShot extends RenderProjectile<EntityWatcherShot> {
-    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/projectiles/watcher_shot.png");
+    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/projectiles/watcher_shot.png");
 
     public RenderWatcherShot(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -36,7 +36,7 @@ public class SerenadeIce extends ItemBase {
 
 		if (!world.isRemote) {
 			// worldgen.spawnEntity(new EntitySerenadeOfIce(worldgen, entity));
-			world.playSound(entity, entity.getPosition(), DRPGSoundHandler.SERENADE, SoundCategory.MASTER, 1, 1);
+			world.playSound(entity, entity.getPosition(), ModSounds.SERENADE, SoundCategory.MASTER, 1, 1);
 
 			entity.getHeldItem(hand).damageItem(1, entity);
 		}

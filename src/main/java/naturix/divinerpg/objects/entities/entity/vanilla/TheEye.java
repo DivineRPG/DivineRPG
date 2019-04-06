@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -61,17 +61,17 @@ public class TheEye extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.THE_EYE;
+        return ModSounds.THE_EYE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.THE_EYE_HURT;
+        return ModSounds.THE_EYE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.THE_EYE_HURT;
+        return ModSounds.THE_EYE_HURT;
     }
 
     @Override

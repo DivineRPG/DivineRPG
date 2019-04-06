@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderFrostShot extends RenderProjectile<EntityFrostShot> {
-    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/projectiles/frost_shot.png");
+    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/projectiles/frost_shot.png");
 
     public RenderFrostShot(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

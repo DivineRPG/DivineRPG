@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderCaveRock extends RenderProjectile<EntityCaveRock> {
-    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/projectiles/cave_rock.png");
+    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/projectiles/cave_rock.png");
 
     public RenderCaveRock(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

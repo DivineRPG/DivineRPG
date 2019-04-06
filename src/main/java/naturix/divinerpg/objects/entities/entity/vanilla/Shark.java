@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -26,17 +26,17 @@ public class Shark extends EntityDivineRPGSwimming {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.SHARK;
+        return ModSounds.SHARK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.SHARK_HURT;
+        return ModSounds.SHARK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.SHARK_HURT;
+        return ModSounds.SHARK_HURT;
     }
 
     @Override

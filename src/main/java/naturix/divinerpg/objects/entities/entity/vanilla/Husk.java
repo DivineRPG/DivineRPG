@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -68,16 +68,16 @@ public class Husk extends EntityDivineRPGTameable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.EHU;
+        return ModSounds.EHU;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.EHU_HURT;
+        return ModSounds.EHU_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.EHU_HURT;
+        return ModSounds.EHU_HURT;
     }
 }

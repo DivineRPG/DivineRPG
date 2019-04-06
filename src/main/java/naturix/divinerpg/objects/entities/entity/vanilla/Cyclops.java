@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -49,17 +49,17 @@ public class Cyclops extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.CYCLOPS;
+        return ModSounds.CYCLOPS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.CYCLOPS_HURT;
+        return ModSounds.CYCLOPS_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.CYCLOPS_HURT;
+        return ModSounds.CYCLOPS_HURT;
     }
 
     @Override

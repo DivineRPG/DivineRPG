@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.items.vanilla;
+package naturix.divinerpg.objects.items.twilight;
 
 import java.util.List;
 
@@ -14,24 +14,25 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemAnchor extends ItemProjectileShooter {
+public class ItemTwilightBlitz extends ItemProjectileShooter {
 
-    public ItemAnchor(String name, ProjectileType projectileType) {
-        super(name, projectileType, ModSounds.BLITZ, -1, 0);
+    public ItemTwilightBlitz(String name, ProjectileType projectileType, Item ammo) {
+        super(name, projectileType, ModSounds.BLITZ, ammo, -1, 0);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(TooltipLocalizer.rangedDam(this.projectileType.getDamage()));
-        //list.add(TooltipLocalizer.meleeDam(8));
-        list.add(TooltipLocalizer.infiniteAmmo());
-        list.add(TooltipLocalizer.infiniteUses());
+        list.add(TooltipLocalizer.ammo(this.ammo));
+        list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses()
+                : TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 
     @Override
@@ -39,8 +40,8 @@ public class ItemAnchor extends ItemProjectileShooter {
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
-                    new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 7, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER,
+                    "Weapon modifier", this.projectileType.getDamage() - 1, 0));
         }
 
         return multimap;

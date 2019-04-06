@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -117,7 +117,7 @@ public class HellSpider extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.HELL_SPIDER;
+        return ModSounds.HELL_SPIDER;
     }
 
     @Override

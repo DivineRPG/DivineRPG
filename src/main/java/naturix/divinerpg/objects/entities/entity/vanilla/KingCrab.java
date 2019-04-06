@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -27,17 +27,17 @@ public class KingCrab extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.CRAB;
+        return ModSounds.CRAB;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.CRAB_HURT;
+        return ModSounds.CRAB_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.CRAB_HURT;
+        return ModSounds.CRAB_HURT;
     }
 
     @Override

@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -56,17 +56,17 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.ARID_WARRIOR;
+        return ModSounds.ARID_WARRIOR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.ARID_WARRIOR_HURT;
+        return ModSounds.ARID_WARRIOR_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.ARID_WARRIOR_HURT;
+        return ModSounds.ARID_WARRIOR_HURT;
     }
 
     @Override

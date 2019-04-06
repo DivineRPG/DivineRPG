@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -43,17 +43,17 @@ public class Frosty extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.FROSTY;
+        return ModSounds.FROSTY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.FROSTY_HURT;
+        return ModSounds.FROSTY_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.FROSTY_HURT;
+        return ModSounds.FROSTY_HURT;
     }
 
     @Override

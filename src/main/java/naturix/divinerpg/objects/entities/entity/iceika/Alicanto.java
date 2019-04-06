@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -109,17 +109,17 @@ public class Alicanto extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : DRPGSoundHandler.ALICANTO;
+        return this.rand.nextInt(4) != 0 ? null : ModSounds.ALICANTO;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.ALICANTO_HURT;
+        return ModSounds.ALICANTO_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.ALICANTO_HURT;
+        return ModSounds.ALICANTO_HURT;
     }
 
     @Override

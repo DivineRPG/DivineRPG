@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -37,17 +37,17 @@ public class Rotatick extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.ROTATICK;
+        return ModSounds.ROTATICK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.ROTATICK_HURT;
+        return ModSounds.ROTATICK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.ROTATICK_HURT;
+        return ModSounds.ROTATICK_HURT;
     }
 
     @Override

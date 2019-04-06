@@ -9,8 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderDivineArrow extends RenderArrow<EntityDivineArrow> {
-    public static final ResourceLocation ARROW = new ResourceLocation(
-            "minecraft:textures/entity/projectiles/arrow.png");
+    public static final ResourceLocation ARROW = new ResourceLocation("minecraft:textures/projectiles/arrow.png");
 
     public RenderDivineArrow(RenderManager manager) {
         super(manager);

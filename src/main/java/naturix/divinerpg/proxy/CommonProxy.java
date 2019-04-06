@@ -1,8 +1,10 @@
 package naturix.divinerpg.proxy;
 
+import java.awt.Color;
 import java.io.File;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.blocks.tile.block.TEBed;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
@@ -19,7 +21,6 @@ import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
-import naturix.divinerpg.registry.ModLiquids;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.Reference;
@@ -27,6 +28,7 @@ import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -56,6 +58,7 @@ public class CommonProxy {
         ModEntities.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         ModEntities.initLoot();
+        MinecraftForge.EVENT_BUS.register(new Ticker());
 
         File directory = e.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
@@ -91,6 +94,10 @@ public class CommonProxy {
 
     public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX,
             double velY, double velZ) {
+    }
+
+    public void spawnColoredParticle(World world, double x, double y, double z, Color color, boolean bigger,
+            boolean shortLived) {
     }
 
     public void updateClientArcana(float amount) {

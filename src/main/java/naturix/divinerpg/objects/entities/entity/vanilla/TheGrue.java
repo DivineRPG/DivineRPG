@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
@@ -40,17 +40,17 @@ public class TheGrue extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.DEATHCRYX;
+        return ModSounds.DEATHCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.DEATHCRYX_HURT;
+        return ModSounds.DEATHCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.DEATHCRYX_HURT;
+        return ModSounds.DEATHCRYX_HURT;
     }
 
     @Override

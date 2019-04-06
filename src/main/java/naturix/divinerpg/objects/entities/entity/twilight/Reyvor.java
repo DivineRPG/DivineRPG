@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -42,7 +42,7 @@ public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DRPGSoundHandler.REYVOR_HURT;
+		return ModSounds.REYVOR_HURT;
 	}
 
 	@Override

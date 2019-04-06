@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -90,12 +90,12 @@ public class KingOfScorchers extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.KING_OF_SCORCHERS;
+        return ModSounds.KING_OF_SCORCHERS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.KING_OF_SCORCHERS_HURT;
+        return ModSounds.KING_OF_SCORCHERS_HURT;
     }
 
     @Override

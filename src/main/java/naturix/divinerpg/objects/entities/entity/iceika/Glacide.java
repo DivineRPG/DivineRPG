@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -32,17 +32,17 @@ public class Glacide extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.GLACIDE;
+        return ModSounds.GLACIDE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.GLACIDE_HURT;
+        return ModSounds.GLACIDE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.GLACIDE_HURT;
+        return ModSounds.GLACIDE_HURT;
     }
 
     @Override

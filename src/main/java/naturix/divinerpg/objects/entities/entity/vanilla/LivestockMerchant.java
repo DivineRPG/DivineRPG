@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
@@ -61,17 +61,17 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.LIVESTOCK_MERCHANT;
+        return ModSounds.LIVESTOCK_MERCHANT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.LIVESTOCK_MERCHANT_HURT;
+        return ModSounds.LIVESTOCK_MERCHANT_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.LIVESTOCK_MERCHANT_HURT;
+        return ModSounds.LIVESTOCK_MERCHANT_HURT;
     }
 
     @Override

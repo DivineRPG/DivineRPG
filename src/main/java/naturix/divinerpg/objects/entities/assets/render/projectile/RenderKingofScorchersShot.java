@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderKingofScorchersShot extends RenderProjectile<EntityKingOfScorchersShot> {
     private ResourceLocation TEXTURE = new ResourceLocation(
-            "divinerpg:textures/entity/projectiles/king_of_scorchers_shot.png");
+            "divinerpg:textures/projectiles/king_of_scorchers_shot.png");
 
     public RenderKingofScorchersShot(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

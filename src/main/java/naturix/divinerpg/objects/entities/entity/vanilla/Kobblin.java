@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -102,12 +102,12 @@ public class Kobblin extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.KOBBLIN;
+        return ModSounds.KOBBLIN;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.KOBBLIN;
+        return ModSounds.KOBBLIN;
     }
 
     @Override

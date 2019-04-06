@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -47,7 +47,7 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return DRPGSoundHandler.WILDFIRE;
+		return ModSounds.WILDFIRE;
 	}
 
 	@Override
@@ -57,12 +57,12 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return DRPGSoundHandler.WILDFIRE_HURT;
+		return ModSounds.WILDFIRE_HURT;
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DRPGSoundHandler.WILDFIRE_HURT;
+		return ModSounds.WILDFIRE_HURT;
 	}
 
 	@Override

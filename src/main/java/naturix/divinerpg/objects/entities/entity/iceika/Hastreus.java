@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.entities.entity.iceika;
 import java.util.List;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -54,17 +54,17 @@ public class Hastreus extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.HASTREUS;
+        return ModSounds.HASTREUS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.HASTREUS_HURT;
+        return ModSounds.HASTREUS_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.HASTREUS_HURT;
+        return ModSounds.HASTREUS_HURT;
     }
 
     @Override

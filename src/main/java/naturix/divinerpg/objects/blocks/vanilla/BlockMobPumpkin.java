@@ -4,7 +4,7 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -83,13 +83,13 @@ public class BlockMobPumpkin extends BlockHorizontal implements IHasModel {
             if (block == ModBlocks.spiderPumpkin) {
                 sound = SoundEvents.ENTITY_SPIDER_AMBIENT;
             } else if (block == ModBlocks.glaconPumpkin) {
-                sound = DRPGSoundHandler.GLACIDE;
+                sound = ModSounds.GLACIDE;
             } else if (block == ModBlocks.enderWatcherPumpkin) {
                 sound = SoundEvents.ENTITY_ENDERMEN_AMBIENT;
             } else if (block == ModBlocks.jungleSpiderPumpkin) {
-                sound = DRPGSoundHandler.HELL_SPIDER;
+                sound = ModSounds.HELL_SPIDER;
             } else if (block == ModBlocks.hellspiderPumpkin) {
-                sound = DRPGSoundHandler.HELL_SPIDER;
+                sound = ModSounds.HELL_SPIDER;
             } else if (block == ModBlocks.enderPumpkin) {
                 sound = SoundEvents.ENTITY_ENDERMEN_SCREAM;
             } else if (block == ModBlocks.creeperPumpkin) {
@@ -101,9 +101,9 @@ public class BlockMobPumpkin extends BlockHorizontal implements IHasModel {
             } else if (block == ModBlocks.zombiePumpkin) {
                 sound = SoundEvents.ENTITY_ZOMBIE_AMBIENT;
             } else if (block == ModBlocks.frostPumpkin) {
-                sound = DRPGSoundHandler.FROST;
+                sound = ModSounds.FROST;
             } else if (block == ModBlocks.cyclopsPumpkin) {
-                sound = DRPGSoundHandler.CYCLOPS;
+                sound = ModSounds.CYCLOPS;
             } else if (block == ModBlocks.ghastPumpkin) {
                 sound = SoundEvents.ENTITY_GHAST_SCREAM;
             }

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -28,7 +28,7 @@ public class EnderSpider extends EntityEnderman {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.HELL_SPIDER;
+        return ModSounds.HELL_SPIDER;
     }
 
     @Override

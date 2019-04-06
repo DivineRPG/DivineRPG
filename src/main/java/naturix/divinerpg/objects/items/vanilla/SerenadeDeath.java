@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDeath;
 import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class SerenadeDeath extends ItemBase {
 
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
 		if (!world.isRemote) {
-			world.playSound(entity, entity.getPosition(), DRPGSoundHandler.SERENADE, SoundCategory.MASTER, 1, 1);
+			world.playSound(entity, entity.getPosition(), ModSounds.SERENADE, SoundCategory.MASTER, 1, 1);
 			EntityThrowable bullet = new EntityDeath(world, entity);
 			bullet.shoot(entity, entity.rotationPitch, entity.rotationYaw, 0.0F, 1.5F, 1.0F);
 			world.spawnEntity(bullet);

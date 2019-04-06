@@ -1,5 +1,7 @@
 package naturix.divinerpg.proxy;
 
+import java.awt.Color;
+
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
@@ -27,17 +29,19 @@ import naturix.divinerpg.objects.blocks.tile.render.TileEntityParasectaAltarRend
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
 import naturix.divinerpg.particle.ParticleBlackFlame;
 import naturix.divinerpg.particle.ParticleBlueFlame;
+import naturix.divinerpg.particle.ParticleColored;
 import naturix.divinerpg.particle.ParticleEdenPortal;
 import naturix.divinerpg.particle.ParticleEnderTriplet;
 import naturix.divinerpg.particle.ParticleFrost;
 import naturix.divinerpg.particle.ParticleGreenFlame;
+import naturix.divinerpg.particle.ParticleGreenPortal;
 import naturix.divinerpg.particle.ParticleMortumPortal;
 import naturix.divinerpg.particle.ParticleSkythernPortal;
 import naturix.divinerpg.particle.ParticleSparkler;
 import naturix.divinerpg.particle.ParticleWildWoodPortal;
-import naturix.divinerpg.registry.DRPGSoundHandler;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEntities;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.Reference;
@@ -76,12 +80,12 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        DRPGSoundHandler.init();
+        //DRPGSoundHandler.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
         Utils.setupCapes();
         Utils.updateCapeList();
 
-        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", DRPGSoundHandler.ICEIKA_MUSIC, 1200, 12000);
+        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }
 
     @Override
@@ -95,8 +99,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-        ModelLoader.setCustomStateMapper(ModBlocks.tar,
-                new StateMap.Builder().ignore(BlockFluidBase.LEVEL).build());
+        ModelLoader.setCustomStateMapper(ModBlocks.tar, new StateMap.Builder().ignore(BlockFluidBase.LEVEL).build());
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
 
@@ -145,6 +148,65 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX,
             double velY, double velZ) {
+        if (canSpawnParticle(world, x, y, z)) {
+            Particle particle = null;
+
+            switch (particletype) {
+            case NONE:
+                break;
+            case APALACHIA_PORTAL:
+                particle = new ParticleApalachiaPortal(world, x, y, z, velX, velY, velZ);
+                break;
+            case EDEN_PORTAL:
+                particle = new ParticleEdenPortal(world, x, y, z, velX, velY, velZ);
+                break;
+            case MORTUM_PORTAL:
+                particle = new ParticleMortumPortal(world, x, y, z, velX, velY, velZ);
+                break;
+            case SKYTHERN_PORTAL:
+                particle = new ParticleSkythernPortal(world, x, y, z, velX, velY, velZ);
+                break;
+            case WILDWOOD_PORTAL:
+                particle = new ParticleWildWoodPortal(world, x, y, z, velX, velY, velZ);
+                break;
+            case GREEN_PORTAL:
+                particle = new ParticleGreenPortal(world, x, y, z, velX, velY, velZ);
+                break;
+            case BLACK_FLAME:
+                particle = new ParticleBlackFlame(world, x, y, z, velX, velY, velZ);
+                break;
+            case BLUE_FLAME:
+                particle = new ParticleBlueFlame(world, x, y, z, velX, velY, velZ);
+                break;
+            case GREEN_FLAME:
+                particle = new ParticleGreenFlame(world, x, y, z, velX, velY, velZ);
+                break;
+            case FROST:
+                particle = new ParticleFrost(world, x, y, z, velX, velY, velZ);
+                break;
+            case SPARKLER:
+                particle = new ParticleSparkler(world, x, y, z, velX, velY, velZ);
+                break;
+            case ENDER_TRIPLET:
+                particle = new ParticleEnderTriplet(world, x, y, z, velX, velY, velZ);
+                break;
+            }
+
+            if (particle != null) {
+                Minecraft.getMinecraft().effectRenderer.addEffect(particle);
+            }
+        }
+    }
+
+    public void spawnColoredParticle(World world, double x, double y, double z, Color color, boolean bigger,
+            boolean shortLived) {
+        if (canSpawnParticle(world, x, y, z)) {
+            Minecraft.getMinecraft().effectRenderer
+                    .addEffect(new ParticleColored(world, x, y, z, 0, 0, 0, color, bigger, shortLived));
+        }
+    }
+
+    private boolean canSpawnParticle(World world, double x, double y, double z) {
         Minecraft mc = Minecraft.getMinecraft();
         Entity entity = mc.getRenderViewEntity();
 
@@ -160,49 +222,11 @@ public class ClientProxy extends CommonProxy {
             double d2 = entity.posZ - z;
 
             if (d0 * d0 + d1 * d1 + d2 * d2 <= 1024D && i <= 1) {
-                Particle particle = null;
-
-                switch (particletype) {
-                case APALACHIA_PORTAL:
-                    particle = new ParticleApalachiaPortal(world, x, y, z, velX, velY, velZ);
-                    break;
-                case EDEN_PORTAL:
-                    particle = new ParticleEdenPortal(world, x, y, z, velX, velY, velZ);
-                    break;
-                case MORTUM_PORTAL:
-                    particle = new ParticleMortumPortal(world, x, y, z, velX, velY, velZ);
-                    break;
-                case SKYTHERN_PORTAL:
-                    particle = new ParticleSkythernPortal(world, x, y, z, velX, velY, velZ);
-                    break;
-                case WILDWOOD_PORTAL:
-                    particle = new ParticleWildWoodPortal(world, x, y, z, velX, velY, velZ);
-                    break;
-                case BLACK_FLAME:
-                    particle = new ParticleBlackFlame(world, x, y, z, velX, velY, velZ);
-                    break;
-                case BLUE_FLAME:
-                    particle = new ParticleBlueFlame(world, x, y, z, velX, velY, velZ);
-                    break;
-                case GREEN_FLAME:
-                    particle = new ParticleGreenFlame(world, x, y, z, velX, velY, velZ);
-                    break;
-                case FROST:
-                    particle = new ParticleFrost(world, x, y, z, velX, velY, velZ);
-                    break;
-                case SPARKLER:
-                    particle = new ParticleSparkler(world, x, y, z, velX, velY, velZ);
-                    break;
-                case ENDER_TRIPLET:
-                    particle = new ParticleEnderTriplet(world, x, y, z, velX, velY, velZ);
-                    break;
-                }
-
-                if (particle != null) {
-                    mc.effectRenderer.addEffect(particle);
-                }
+                return true;
             }
         }
+
+        return false;
     }
 
     @Override

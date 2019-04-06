@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -121,7 +121,7 @@ public class Fractite extends EntityDivineRPGFlying {
 
                 if (this.attackCounter == 20) {
                     if (!this.world.isRemote)
-                        this.playSound(DRPGSoundHandler.FRACTITE_ATTACK, 1.0F, 1.0F);
+                        this.playSound(ModSounds.FRACTITE_ATTACK, 1.0F, 1.0F);
                     EntityFractiteShot shot = new EntityFractiteShot(this.world, this, var11, var13, var15);
                     double var18 = 4.0D;
                     Vec3d var20 = this.getLook(1.0F);
@@ -215,17 +215,17 @@ public class Fractite extends EntityDivineRPGFlying {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.FRACTITE;
+        return ModSounds.FRACTITE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.FRACTITE_HURT;
+        return ModSounds.FRACTITE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.FRACTITE_HURT;
+        return ModSounds.FRACTITE_HURT;
     }
 
     @Override

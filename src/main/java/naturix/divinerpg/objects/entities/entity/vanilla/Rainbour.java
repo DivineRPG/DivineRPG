@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -197,17 +197,17 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.RAINBOUR;
+        return ModSounds.RAINBOUR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.RAINBOUR_HURT;
+        return ModSounds.RAINBOUR_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.RAINBOUR_HURT;
+        return ModSounds.RAINBOUR_HURT;
     }
 
     @Override

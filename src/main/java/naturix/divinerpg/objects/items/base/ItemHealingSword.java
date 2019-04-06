@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,7 +32,7 @@ public class ItemHealingSword extends ItemSwordBase {
             if (!player.capabilities.isCreativeMode) {
                 stack.shrink(1);
             }
-            player.playSound(DRPGSoundHandler.HEAL, 1, 1);
+            player.playSound(ModSounds.HEAL, 1, 1);
         }
         return super.onItemRightClick(world, player, hand);
     }

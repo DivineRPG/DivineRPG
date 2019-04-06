@@ -8,8 +8,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSaguaroWormShot extends Render<EntitySaguaroWormShot> {
-    private ResourceLocation TEXTURE = new ResourceLocation(
-            "divinerpg:textures/entity/projectiles/saguaro_worm_shot.png");
+    private ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/projectiles/saguaro_worm_shot.png");
     private ModelSaguaroWormShot model = new ModelSaguaroWormShot();
 
     public RenderSaguaroWormShot(RenderManager manager) {
@@ -17,7 +16,8 @@ public class RenderSaguaroWormShot extends Render<EntitySaguaroWormShot> {
         this.bindTexture(TEXTURE);
     }
 
-    public void doRender(EntitySaguaroWormShot entity, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(EntitySaguaroWormShot entity, double x, double y, double z, float entityYaw,
+            float partialTicks) {
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
         GlStateManager.translate((float) x, (float) y, (float) z);

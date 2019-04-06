@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
-import naturix.divinerpg.registry.DRPGSoundHandler;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -59,7 +59,7 @@ public class Ayeraco extends EntityDivineRPGBoss {
         if (getHealth() * 2 < getMaxHealth()) {
             this.tickAbility();
             if (this.halfHp == false) {
-                this.playSound(DRPGSoundHandler.AYERACO_HALF_HEALTH, 20.0F,
+                this.playSound(ModSounds.AYERACO_HALF_HEALTH, 20.0F,
                         0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
                 this.halfHp = true;
             }
@@ -164,7 +164,7 @@ public class Ayeraco extends EntityDivineRPGBoss {
     }
 
     protected void teleportRandomUp(World world) {
-        this.playSound(DRPGSoundHandler.AYERACO_TELEPORT, 2.0F, 0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
+        this.playSound(ModSounds.AYERACO_TELEPORT, 2.0F, 0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
         this.motionY = 20;
         this.motionX = this.rand.nextInt(5);
         this.motionZ = this.rand.nextInt(5);
@@ -191,16 +191,16 @@ public class Ayeraco extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return DRPGSoundHandler.AYERACO;
+        return ModSounds.AYERACO;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return DRPGSoundHandler.AYERACO_HURT;
+        return ModSounds.AYERACO_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return DRPGSoundHandler.AYERACO_HURT;
+        return ModSounds.AYERACO_HURT;
     }
 }

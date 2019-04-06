@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderEnderTripletsFireball extends RenderProjectile<EntityEnderTripletsFireball> {
     private ResourceLocation TEXTURE = new ResourceLocation(
-            "divinerpg:textures/entity/projectiles/ender_triplets_fireball.png");
+            "divinerpg:textures/projectiles/ender_triplets_fireball.png");
 
     public RenderEnderTripletsFireball(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);
