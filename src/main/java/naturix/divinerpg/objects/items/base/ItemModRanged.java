@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModRanged extends ItemBase {
+public class ItemModRanged extends ItemMod {
 
 	protected int weaponDamage;
 	protected SoundEvent sound;

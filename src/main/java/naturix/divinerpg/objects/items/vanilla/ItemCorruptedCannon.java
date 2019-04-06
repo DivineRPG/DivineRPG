@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCorruptedCannon extends ItemBase {
+public class ItemCorruptedCannon extends ItemMod {
     private Random rand = new Random();
 
     public ItemCorruptedCannon(String name) {

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.items.vanilla;
 
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.registry.ModBlocks;
@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class ItemHordeHorn extends ItemBase {
+public class ItemHordeHorn extends ItemMod {
 
 	public ItemHordeHorn(String name) {
 		super(name);

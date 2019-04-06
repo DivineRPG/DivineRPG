@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class ItemThrowable extends ItemBase {
+public abstract class ItemThrowable extends ItemMod {
 	private String name;
 	public float damage;
 

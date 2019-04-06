@@ -9,7 +9,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class CannonBase extends ItemBase {
+public class CannonBase extends ItemMod {
 	public String name;
 
 	public CannonBase(String name) {

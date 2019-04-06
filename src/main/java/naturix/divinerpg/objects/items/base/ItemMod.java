@@ -12,15 +12,15 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class ItemBase extends Item implements IHasModel {
+public class ItemMod extends Item implements IHasModel {
 	protected int healAmount = 0;
 	protected String name;
 
-	public ItemBase(String name) {
+	public ItemMod(String name) {
 		this(name, DRPGCreativeTabs.items);
 	}
 
-	public ItemBase(String name, CreativeTabs tab) {
+	public ItemMod(String name, CreativeTabs tab) {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -46,7 +46,7 @@ public class ItemBase extends Item implements IHasModel {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 
-	public ItemBase setHealAmount(int healAmount) {
+	public ItemMod setHealAmount(int healAmount) {
 		this.healAmount = healAmount;
 		return this;
 	}

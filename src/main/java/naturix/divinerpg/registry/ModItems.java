@@ -8,11 +8,11 @@ import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.base.ItemArmorBase;
 import naturix.divinerpg.objects.items.base.ItemAxeBase;
-import naturix.divinerpg.objects.items.base.ItemBase;
 import naturix.divinerpg.objects.items.base.ItemBowBase;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
 import naturix.divinerpg.objects.items.base.ItemHealingSword;
 import naturix.divinerpg.objects.items.base.ItemHoeBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.base.ItemModFood;
 import naturix.divinerpg.objects.items.base.ItemModSeeds;
 import naturix.divinerpg.objects.items.base.ItemPickaxeBase;
@@ -35,6 +35,7 @@ import naturix.divinerpg.objects.items.vanilla.ItemCorruptedCannon;
 import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
 import naturix.divinerpg.objects.items.vanilla.ItemInfernalFlame;
 import naturix.divinerpg.objects.items.vanilla.ItemMysteriousClock;
+import naturix.divinerpg.objects.items.vanilla.ItemScythe;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import naturix.divinerpg.utils.ArmorInfo;
 import naturix.divinerpg.utils.ChatFormats;
@@ -107,10 +108,9 @@ public class ModItems {
 
     // public static Item shuriken = new ItemShuriken("shuriken", 4);
     // public static Item vileStorm = new ItemVileStorm("vile_storm");
-    // public static Item scythe = new ItemScythe();
     public static Item shuriken = new ItemNotReady("shuriken", DRPGCreativeTabs.ranged);
     public static Item vileStorm = new ItemNotReady("vile_storm", DRPGCreativeTabs.ranged);
-    public static Item scythe = new ItemNotReady("scythe", DRPGCreativeTabs.ranged);
+    public static Item scythe = new ItemScythe("scythe");
 
     public static Item frostCannon = new ItemProjectileShooter("frost_cannon", ProjectileType.FROST_CANNON_SHOT,
             ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0);
@@ -377,65 +377,61 @@ public class ModItems {
     public static Item divineShovel = new ItemShovelBase(ToolMaterialMod.DivineShovel, "divine_shovel");
 
     // Vanilla Other
-    public static Item rupeeIngot = new ItemBase("rupee_ingot");
-    public static Item arlemiteIngot = new ItemBase("arlemite_ingot");
-    public static Item realmiteIngot = new ItemBase("realmite_ingot");
-    public static Item shadowBar = new ItemBase("shadow_bar");
-    public static Item hellstoneIngot = new ItemBase("hellstone_ingot");
-    public static Item netheriteIngot = new ItemBase("netherite_ingot");
-    public static Item bloodgem = new ItemBase("bloodgem");
+    public static Item rupeeIngot = new ItemMod("rupee_ingot");
+    public static Item arlemiteIngot = new ItemMod("arlemite_ingot");
+    public static Item realmiteIngot = new ItemMod("realmite_ingot");
+    public static Item shadowBar = new ItemMod("shadow_bar");
+    public static Item hellstoneIngot = new ItemMod("hellstone_ingot");
+    public static Item netheriteIngot = new ItemMod("netherite_ingot");
+    public static Item bloodgem = new ItemMod("bloodgem");
 
-    public static Item jungleShards = new ItemBase("jungle_shards");
-    public static Item divineShards = new ItemBase("divine_shards");
-    public static Item corruptedShards = new ItemBase("corrupted_shards");
-    public static Item moltenShards = new ItemBase("molten_shards");
-    public static Item enderShards = new ItemBase("ender_shards");
-    public static Item terranShards = new ItemBase("terran_shards");
-    public static Item cyclopsEyeShards = new ItemBase("cyclops_eye_shards");
+    public static Item jungleShards = new ItemMod("jungle_shards");
+    public static Item divineShards = new ItemMod("divine_shards");
+    public static Item corruptedShards = new ItemMod("corrupted_shards");
+    public static Item moltenShards = new ItemMod("molten_shards");
+    public static Item enderShards = new ItemMod("ender_shards");
+    public static Item terranShards = new ItemMod("terran_shards");
+    public static Item cyclopsEyeShards = new ItemMod("cyclops_eye_shards");
 
-    public static Item corruptedBullet = new ItemBase("corrupted_bullet");
+    public static Item corruptedBullet = new ItemMod("corrupted_bullet");
 
-    public static Item jungleStone = new ItemBase("jungle_stone");
-    public static Item divineStone = new ItemBase("divine_stone");
-    public static Item corruptedStone = new ItemBase("corrupted_stone");
-    public static Item moltenStone = new ItemBase("molten_stone");
-    public static Item enderStone = new ItemBase("ender_stone");
-    public static Item terranStone = new ItemBase("terran_stone");
-    public static Item healingStone = new ItemBase("healing_stone").setHealAmount(20);
-    public static Item shadowStone = new ItemBase("shadow_stone");
+    public static Item jungleStone = new ItemMod("jungle_stone");
+    public static Item divineStone = new ItemMod("divine_stone");
+    public static Item corruptedStone = new ItemMod("corrupted_stone");
+    public static Item moltenStone = new ItemMod("molten_stone");
+    public static Item enderStone = new ItemMod("ender_stone");
+    public static Item terranStone = new ItemMod("terran_stone");
+    public static Item healingStone = new ItemMod("healing_stone").setHealAmount(20);
+    public static Item shadowStone = new ItemMod("shadow_stone");
 
-    public static Item aquaticIngot = new ItemBase("aquatic_ingot");
-    public static Item aquaticPellets = new ItemBase("aquatic_pellets");
-    public static Item pureAquaticPellets = new ItemBase("pure_aquatic_pellets");
-    public static Item cyclopsEye = new ItemBase("cyclops_eye");
-    public static Item crabClaw = new ItemBase("crab_claw");
-    public static Item legendaryEnderEye = new ItemBase("legendary_ender_eye");
-    public static Item sharkFin = new ItemBase("shark_fin");
-    public static Item whaleFin = new ItemBase("whale_fin");
-    public static Item liopleurodonSkull = new ItemBase("liopleurodon_skull");
-    public static Item liopleurodonTeeth = new ItemBase("liopleurodon_teeth");
-    public static Item netheriteChunk = new ItemBase("netherite_chunk");
-    public static Item bluefireStone = new ItemBase("bluefire_stone");
-    public static Item purpleBlaze = new ItemBase("purple_blaze");
-    public static Item furyFire = new ItemBase("fury_fire");
-    public static Item aquaBall = new ItemBase("aqua_ball");
-    public static Item aquaticBlazeRod = new ItemBase("aquatic_blaze_rod");
-    public static Item shadowCoins = new ItemBase("shadow_coins");
+    public static Item aquaticIngot = new ItemMod("aquatic_ingot");
+    public static Item aquaticPellets = new ItemMod("aquatic_pellets");
+    public static Item pureAquaticPellets = new ItemMod("pure_aquatic_pellets");
+    public static Item cyclopsEye = new ItemMod("cyclops_eye");
+    public static Item crabClaw = new ItemMod("crab_claw");
+    public static Item legendaryEnderEye = new ItemMod("legendary_ender_eye");
+    public static Item sharkFin = new ItemMod("shark_fin");
+    public static Item whaleFin = new ItemMod("whale_fin");
+    public static Item liopleurodonSkull = new ItemMod("liopleurodon_skull");
+    public static Item liopleurodonTeeth = new ItemMod("liopleurodon_teeth");
+    public static Item netheriteChunk = new ItemMod("netherite_chunk");
+    public static Item bluefireStone = new ItemMod("bluefire_stone");
+    public static Item purpleBlaze = new ItemMod("purple_blaze");
+    public static Item furyFire = new ItemMod("fury_fire");
+    public static Item aquaBall = new ItemMod("aqua_ball");
+    public static Item aquaticBlazeRod = new ItemMod("aquatic_blaze_rod");
+    public static Item shadowCoins = new ItemMod("shadow_coins");
 
     public static Item petSpawnEgg = new ItemSpawnEgg("pet_spawn_egg");
 
-    public static Item greenDiamondChunk = new ItemBase("green_diamond_chunk");
-    public static Item grayDiamondChunk = new ItemBase("gray_diamond_chunk");
-    public static Item blueDiamondChunk = new ItemBase("blue_diamond_chunk");
-    public static Item redDiamondChunk = new ItemBase("red_diamond_chunk");
-    public static Item yellowDiamondChunk = new ItemBase("yellow_diamond_chunk");
-
-    // public static Item tarBucket = new ItemModBucket(VanillaBlocks.tar,
-    // "bucket_of_tar");
-    public static Item tarBucket = new ItemNotReady("bucket_of_tar", DRPGCreativeTabs.items);
+    public static Item greenDiamondChunk = new ItemMod("green_diamond_chunk");
+    public static Item grayDiamondChunk = new ItemMod("gray_diamond_chunk");
+    public static Item blueDiamondChunk = new ItemMod("blue_diamond_chunk");
+    public static Item redDiamondChunk = new ItemMod("red_diamond_chunk");
+    public static Item yellowDiamondChunk = new ItemMod("yellow_diamond_chunk");
 
     public static Item mysteriousClock = new ItemMysteriousClock("mysterious_clock");
-    public static Item watchingEye = new ItemBase("watching_eye");
+    public static Item watchingEye = new ItemMod("watching_eye");
     public static Item callOfTheWatcher = new ItemCallOfTheWatcher("call_of_the_watcher");
     public static Item infernalFlame = new ItemInfernalFlame("infernal_flame");
     public static Item hordeHorn = new ItemHordeHorn("horde_horn");
@@ -443,16 +439,16 @@ public class ModItems {
     public static Item whiteMushroomSeeds = new ItemModSeeds("white_mushroom_seeds",
             (BlockModCrop) ModBlocks.whiteMushroomPlant);
     public static Item tomatoSeeds = new ItemModSeeds("tomato_seeds", (BlockModCrop) ModBlocks.tomatoPlant);
-    public static Item krakenSkin = new ItemBase("kraken_skin");
-    public static Item krakenScale = new ItemBase("kraken_scale");
+    public static Item krakenSkin = new ItemMod("kraken_skin");
+    public static Item krakenScale = new ItemMod("kraken_scale");
 
     public static Item teleportationCrystal = new ItemTeleportationCrystal("teleportation_crystal");
 
     // Iceika
     public static Item steelDoor = new ItemBlockDoor(ModBlocks.steelDoor);
-    public static Item snowflake = new ItemBase("snowflake");
-    public static Item iceShards = new ItemBase("ice_shards");
-    public static Item iceStone = new ItemBase("ice_stone");
+    public static Item snowflake = new ItemMod("snowflake");
+    public static Item iceShards = new ItemMod("ice_shards");
+    public static Item iceStone = new ItemMod("ice_stone");
 
     public static Item icicleBane = new ItemSlowingSword(ToolMaterialMod.IcicleBane, "icicle_bane");
     public static Item icineSword = new ItemSlowingSword(ToolMaterialMod.Icine, "icine_sword");
@@ -513,41 +509,41 @@ public class ModItems {
     public static Item enrichedMagicMeat = new ItemFastFood(7, 2.5F, true, "enriched_magic_meat");
 
     // Twilight Items
-    public static Item edenSoul = new ItemBase("eden_soul");
-    public static Item wildwoodSoul = new ItemBase("wildwood_soul");
-    public static Item apalachiaSoul = new ItemBase("apalachia_soul");
-    public static Item skythernSoul = new ItemBase("skythern_soul");
-    public static Item mortumSoul = new ItemBase("mortum_soul");
+    public static Item edenSoul = new ItemMod("eden_soul");
+    public static Item wildwoodSoul = new ItemMod("wildwood_soul");
+    public static Item apalachiaSoul = new ItemMod("apalachia_soul");
+    public static Item skythernSoul = new ItemMod("skythern_soul");
+    public static Item mortumSoul = new ItemMod("mortum_soul");
 
-    public static Item edenFragments = new ItemBase("eden_fragments");
-    public static Item wildwoodFragments = new ItemBase("wildwood_fragments");
-    public static Item apalachiaFragments = new ItemBase("apalachia_fragments");
-    public static Item skythernFragments = new ItemBase("skythern_fragments");
-    public static Item mortumFragments = new ItemBase("mortum_fragments");
+    public static Item edenFragments = new ItemMod("eden_fragments");
+    public static Item wildwoodFragments = new ItemMod("wildwood_fragments");
+    public static Item apalachiaFragments = new ItemMod("apalachia_fragments");
+    public static Item skythernFragments = new ItemMod("skythern_fragments");
+    public static Item mortumFragments = new ItemMod("mortum_fragments");
 
-    public static Item edenGem = new ItemBase("eden_gem");
-    public static Item wildwoodGem = new ItemBase("wildwood_gem");
-    public static Item apalachiaGem = new ItemBase("apalachia_gem");
-    public static Item skythernGem = new ItemBase("skythern_gem");
-    public static Item mortumGem = new ItemBase("mortum_gem");
+    public static Item edenGem = new ItemMod("eden_gem");
+    public static Item wildwoodGem = new ItemMod("wildwood_gem");
+    public static Item apalachiaGem = new ItemMod("apalachia_gem");
+    public static Item skythernGem = new ItemMod("skythern_gem");
+    public static Item mortumGem = new ItemMod("mortum_gem");
 
-    public static Item edenChunk = new ItemBase("eden_chunk");
-    public static Item wildwoodChunk = new ItemBase("wildwood_chunk");
-    public static Item apalachiaChunk = new ItemBase("apalachia_chunk");
-    public static Item skythernChunk = new ItemBase("skythern_chunk");
-    public static Item mortumChunk = new ItemBase("mortum_chunk");
+    public static Item edenChunk = new ItemMod("eden_chunk");
+    public static Item wildwoodChunk = new ItemMod("wildwood_chunk");
+    public static Item apalachiaChunk = new ItemMod("apalachia_chunk");
+    public static Item skythernChunk = new ItemMod("skythern_chunk");
+    public static Item mortumChunk = new ItemMod("mortum_chunk");
 
-    public static Item edenDust = new ItemBase("eden_dust");
-    public static Item wildwoodDust = new ItemBase("wildwood_dust");
-    public static Item apalachiaDust = new ItemBase("apalachia_dust");
-    public static Item skythernDust = new ItemBase("skythern_dust");
-    public static Item mortumDust = new ItemBase("mortum_dust");
+    public static Item edenDust = new ItemMod("eden_dust");
+    public static Item wildwoodDust = new ItemMod("wildwood_dust");
+    public static Item apalachiaDust = new ItemMod("apalachia_dust");
+    public static Item skythernDust = new ItemMod("skythern_dust");
+    public static Item mortumDust = new ItemMod("mortum_dust");
 
     public static Item twilightClock = new ItemTwilightClock("twilight_clock");
 
-    public static Item edenSparkles = new ItemBase("eden_sparkles");
+    public static Item edenSparkles = new ItemMod("eden_sparkles");
 
-    public static Item baseSpawnCrystal = new ItemBase("base_spawn_crystal");
+    public static Item baseSpawnCrystal = new ItemMod("base_spawn_crystal");
 
     // public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
     // public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
@@ -611,9 +607,9 @@ public class ModItems {
     public static Item halitePhaser = new ItemProjectileShooter("halite_phaser", ProjectileType.HALITE_PHASER_SHOT,
             ModSounds.PHASER, 3000, 3);
 
-    public static Item edenArrow = new ItemBase("eden_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
-    public static Item wildwoodArrow = new ItemBase("wildwood_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
-    public static Item furyArrow = new ItemBase("fury_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
+    public static Item edenArrow = new ItemMod("eden_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
+    public static Item wildwoodArrow = new ItemMod("wildwood_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
+    public static Item furyArrow = new ItemMod("fury_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
 
     public static Item edenBow = new ItemBowBase("eden_bow", -1, 6, 16, edenArrow);
     public static Item wildwoodBow = new ItemBowBase("wildwood_bow", -1, 6, 16, 36000, wildwoodArrow);
@@ -701,8 +697,8 @@ public class ModItems {
     public static Item skyPlantSeeds = new ItemNotReady("sky_plant_seeds", DRPGCreativeTabs.items);
 
     // Arcana
-    public static Item dungeonTokens = new ItemBase("dungeon_tokens");
-    public static Item arcanium = new ItemBase("arcanium");
+    public static Item dungeonTokens = new ItemMod("dungeon_tokens");
+    public static Item arcanium = new ItemMod("arcanium");
     // public static Item staffStarlight = new ItemStaffStarlight("staffOfStarlight");
     // public static Item starlight = new ItemStaffStarlight("starlight");
     // public static Item stormSword = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
@@ -715,7 +711,7 @@ public class ModItems {
     // public static Item weakArcanaPotion = new ItemArcanaPotion("weakArcanaPotion", 100);
     public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DRPGCreativeTabs.items);
     public static Item weakArcanaPotion = new ItemNotReady("weak_arcana_potion", DRPGCreativeTabs.items);
-    public static Item collector = new ItemBase("collector");
+    public static Item collector = new ItemMod("collector");
     // public static Item chargedCollector = new
     // ItemChargedCollector("chargedCollector");
     // public static Item wizardBook = new ItemWizardsBook("wizardsBook");
@@ -785,11 +781,11 @@ public class ModItems {
     // public static Item hitchakSeeds = new ItemArcanaSeeds("hitchakSeeds",
     // (BlockModCrop) ArcanaBlocks.hitchak);
     public static Item hitchakSeeds = new ItemNotReady("hitchak_seeds", DRPGCreativeTabs.items);
-    public static Item veilo = new ItemBase("veilo");
+    public static Item veilo = new ItemMod("veilo");
     // public static Item veiloSeeds = new ItemArcanaSeeds("veiloSeeds",
     // (BlockModCrop) ArcanaBlocks.veilo);
     public static Item veiloSeeds = new ItemNotReady("veilo_seeds", DRPGCreativeTabs.items);
-    public static Item marsine = new ItemBase("marsine");
+    public static Item marsine = new ItemMod("marsine");
     // public static Item marsineSeeds = new ItemArcanaSeeds("marsineSeeds",
     // (BlockModCrop) ArcanaBlocks.marsine);
     // public static Item lamona = new ItemLamona();
@@ -798,7 +794,7 @@ public class ModItems {
     public static Item marsineSeeds = new ItemNotReady("marsine_seeds", DRPGCreativeTabs.items);
     public static Item lamona = new ItemNotReady("lamona", DRPGCreativeTabs.items);
     public static Item lamonaSeeds = new ItemNotReady("lamona_seeds", DRPGCreativeTabs.items);
-    public static Item firestock = new ItemBase("firestock");
+    public static Item firestock = new ItemMod("firestock");
     // public static Item firestockSeeds = new ItemTwilightSeeds("firestockSeeds",
     // ArcanaBlocks.firestock, ArcanaBlocks.arcanaGrass);
     public static Item firestockSeeds = new ItemNotReady("firestock_seeds", DRPGCreativeTabs.items);
@@ -830,25 +826,25 @@ public class ModItems {
     public static Item vemosBoots = new ItemArmorBase(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo);
 
     // Vethea
-    public static Item dirtyPearls = new ItemBase("dirty_pearls");
-    public static Item cleanPearls = new ItemBase("clean_pearls");
-    public static Item polishedPearls = new ItemBase("polished_pearls");
-    public static Item shinyPearls = new ItemBase("shiny_pearls");
+    public static Item dirtyPearls = new ItemMod("dirty_pearls");
+    public static Item cleanPearls = new ItemMod("clean_pearls");
+    public static Item polishedPearls = new ItemMod("polished_pearls");
+    public static Item shinyPearls = new ItemMod("shiny_pearls");
 
     // public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor,
     // "barred_door");
     // public static Item barredDoor = new ItemNotReady("barred_door",
     // DRPGCreativeTabs.items);
 
-    public static Item teakerLump = new ItemBase("teaker_lump");
-    public static Item amthirmisLump = new ItemBase("amthirmis_lump");
-    public static Item darvenLump = new ItemBase("darven_lump");
-    public static Item cermileLump = new ItemBase("cermile_lump");
-    public static Item pardimalLump = new ItemBase("pardimal_lump");
-    public static Item quadroticLump = new ItemBase("quadrotic_lump");
-    public static Item karosLump = new ItemBase("karos_lump");
-    public static Item heliosisLump = new ItemBase("heliosis_lump");
-    public static Item arksianeLump = new ItemBase("arksiane_lump");
+    public static Item teakerLump = new ItemMod("teaker_lump");
+    public static Item amthirmisLump = new ItemMod("amthirmis_lump");
+    public static Item darvenLump = new ItemMod("darven_lump");
+    public static Item cermileLump = new ItemMod("cermile_lump");
+    public static Item pardimalLump = new ItemMod("pardimal_lump");
+    public static Item quadroticLump = new ItemMod("quadrotic_lump");
+    public static Item karosLump = new ItemMod("karos_lump");
+    public static Item heliosisLump = new ItemMod("heliosis_lump");
+    public static Item arksianeLump = new ItemMod("arksiane_lump");
 
     // public static Item teakerDisk = new ItemDisk(4, "teaker_disk");
     // public static Item amthrimisDisk = new ItemDisk(6, "amthirmis_disk");
@@ -910,22 +906,22 @@ public class ModItems {
     public static Item dreamCake = new ItemNotReady("dream_cake", DRPGCreativeTabs.items);
     public static Item dreamSweets = new ItemNotReady("dream_sweets", DRPGCreativeTabs.items);
     public static Item dreamSours = new ItemNotReady("dream_sours", DRPGCreativeTabs.items);
-    public static Item acid = new ItemBase("acid");
-    public static Item heivaBelt = new ItemBase("band_of_heiva_hunting");
-    public static Item minersAmulet = new ItemBase("miners_amulet");
+    public static Item acid = new ItemMod("acid");
+    public static Item heivaBelt = new ItemMod("band_of_heiva_hunting");
+    public static Item minersAmulet = new ItemMod("miners_amulet");
 
-    public static Item hammerTemplate = new ItemBase("hammer_template");
-    public static Item backswordTemplate = new ItemBase("backsword_template");
-    public static Item bowTemplate = new ItemBase("bow_template");
-    public static Item cannonTemplate = new ItemBase("cannon_template");
-    public static Item clawTemplate = new ItemBase("claw_template");
-    public static Item diskTemplate = new ItemBase("disk_template");
-    public static Item staffTemplate = new ItemBase("staff_template");
-    public static Item degradedTemplate = new ItemBase("degraded_template");
-    public static Item finishedTemplate = new ItemBase("finished_template");
-    public static Item glisteningTemplate = new ItemBase("glistening_template");
-    public static Item demonizedTemplate = new ItemBase("demonized_template");
-    public static Item tormentedTemplate = new ItemBase("tormented_template");
+    public static Item hammerTemplate = new ItemMod("hammer_template");
+    public static Item backswordTemplate = new ItemMod("backsword_template");
+    public static Item bowTemplate = new ItemMod("bow_template");
+    public static Item cannonTemplate = new ItemMod("cannon_template");
+    public static Item clawTemplate = new ItemMod("claw_template");
+    public static Item diskTemplate = new ItemMod("disk_template");
+    public static Item staffTemplate = new ItemMod("staff_template");
+    public static Item degradedTemplate = new ItemMod("degraded_template");
+    public static Item finishedTemplate = new ItemMod("finished_template");
+    public static Item glisteningTemplate = new ItemMod("glistening_template");
+    public static Item demonizedTemplate = new ItemMod("demonized_template");
+    public static Item tormentedTemplate = new ItemMod("tormented_template");
 
     // public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", 3);
     // public static Item amthrimisCannon = new
@@ -1038,7 +1034,7 @@ public class ModItems {
     public static Item eversight = new ItemNotReady("eversight", DRPGCreativeTabs.ranged);
     public static Item everlight = new ItemNotReady("everlight", DRPGCreativeTabs.ranged);
     public static Item everbright = new ItemNotReady("everbright", DRPGCreativeTabs.ranged);
-    public static Item everArrow = new ItemBase("ever_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
+    public static Item everArrow = new ItemMod("ever_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
     // public static Item everfright = new ItemModBow("everfright", -1, 25, 46,
     // everArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
     // public static Item evernight = new ItemStaff(115, 80, "evernight");
@@ -1049,10 +1045,10 @@ public class ModItems {
     // Util.addHammerMaterial(46));
     public static Item karosRockmaul = new ItemNotReady("karos_rockmaul", DRPGCreativeTabs.ranged);
 
-    public static Item teakerArrow = new ItemBase("teaker_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
-    public static Item darvenArrow = new ItemBase("darven_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
-    public static Item pardimalArrow = new ItemBase("pardimal_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
-    public static Item karosArrow = new ItemBase("karos_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
+    public static Item teakerArrow = new ItemMod("teaker_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
+    public static Item darvenArrow = new ItemMod("darven_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
+    public static Item pardimalArrow = new ItemMod("pardimal_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
+    public static Item karosArrow = new ItemMod("karos_arrow").setCreativeTab(DRPGCreativeTabs.ranged);;
 
     // public static Item teakerBow = new ItemModBow("teaker_bow", -1, 2, 5,
     // teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
@@ -1086,7 +1082,7 @@ public class ModItems {
     // public static Item moonClock = new ItemMoonClock();
     public static Item dreamFlint = new ItemNotReady("dream_flint", DRPGCreativeTabs.items);
     public static Item moonClock = new ItemNotReady("moon_clock", DRPGCreativeTabs.items);
-    public static Item rockChunks = new ItemBase("rock_chunks");
+    public static Item rockChunks = new ItemMod("rock_chunks");
     // public static Item nightmareBed = new ItemNightmareBed();
     public static Item nightmareBed = new ItemNotReady("nightmare_bed", DRPGCreativeTabs.items);
 

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.items.iceika;
 
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -16,7 +16,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemSnowGlobe extends ItemBase {
+public class ItemSnowGlobe extends ItemMod {
 
 	public ItemSnowGlobe(String name) {
 		super(name);

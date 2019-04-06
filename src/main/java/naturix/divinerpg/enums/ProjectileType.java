@@ -41,7 +41,9 @@ public enum ProjectileType {
     KAROS_WAR_CANNON_SHOT(32, 21, ProjectileLoc("cannon")),
     HALIOSIS_WRATH_CANNON_SHOT(33, 28, ProjectileLoc("cannon")),
     ARKSIANE_WRATH_CANNON_SHOT(34, 36, ProjectileLoc("cannon")),
-    EVERSIGHT_SHOT(35, 42, ProjectileLoc("eversight"));
+    EVERSIGHT_SHOT(35, 42, ProjectileLoc("eversight")),
+    SCYTHE_SHOT(36, 6, ProjectileLoc("scythe")),
+    MEGA_SCYTHE_SHOT(37, 18, ProjectileLoc("scythe"));
 
     private final int id;
     private final float damage;

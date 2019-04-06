@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TeleportationHandler;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-public class ItemTeleportationCrystal extends ItemBase {
+public class ItemTeleportationCrystal extends ItemMod {
 
 WorldServer worldserver;
 

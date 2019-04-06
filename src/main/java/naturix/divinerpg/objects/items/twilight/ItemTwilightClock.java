@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.items.twilight;
 
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -15,7 +15,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemTwilightClock extends ItemBase {
+public class ItemTwilightClock extends ItemMod {
 
 	public ItemTwilightClock(String name) {
 		super(name);

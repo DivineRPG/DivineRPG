@@ -8,14 +8,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BookBase extends ItemBase {
+public class BookBase extends ItemMod {
 
 	protected int healAmount = 0;
 	public BookBase(String name) {
 		super(name);
 		setMaxStackSize(1);
 	}
-	public ItemBase setHealAmount(int healAmount){
+	public ItemMod setHealAmount(int healAmount){
 		this.healAmount = healAmount;
 		return this;
 	}

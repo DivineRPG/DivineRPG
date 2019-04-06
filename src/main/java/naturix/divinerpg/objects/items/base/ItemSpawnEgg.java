@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSpawnEgg extends ItemBase {
+public class ItemSpawnEgg extends ItemMod {
 	public ItemSpawnEgg(String name) {
 		super(name, DRPGCreativeTabs.spawner);
 		this.name = name;

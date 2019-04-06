@@ -7,7 +7,7 @@ import naturix.divinerpg.objects.entities.entity.twilight.Karot;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulFiend;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightDemon;
 import naturix.divinerpg.objects.entities.entity.twilight.Vamacheron;
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
@@ -21,7 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class ItemTwilightSpawner extends ItemBase {
+public class ItemTwilightSpawner extends ItemMod {
 
 	public ItemTwilightSpawner(String name) {
 		super(name);

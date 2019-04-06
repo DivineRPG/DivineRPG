@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemNotReady extends ItemBase {
+public class ItemNotReady extends ItemMod {
     public ItemNotReady(String name, CreativeTabs tab) {
         super(name);
         this.setCreativeTab(tab);

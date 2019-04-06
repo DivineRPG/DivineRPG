@@ -30,7 +30,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemProjectileShooter extends ItemBase {
+public class ItemProjectileShooter extends ItemMod {
 
     public static List<Item> gunList = new ArrayList<Item>();
     public static List<Item> phaserList = new ArrayList<Item>();

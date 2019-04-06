@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.items.base.ItemBase;
+import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,7 +17,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class SerenadeInfusion extends ItemBase {
+public class SerenadeInfusion extends ItemMod {
 
 	public SerenadeInfusion(String name) {
 		super(name);
