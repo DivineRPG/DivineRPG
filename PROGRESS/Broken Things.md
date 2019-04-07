@@ -15,3 +15,4 @@
 
 ## Bugs
 * Furnace GUIs dont open on a server (i can let you join mine to test/fix it)
+* Ores dont smelt on the Hexxit Updated server
