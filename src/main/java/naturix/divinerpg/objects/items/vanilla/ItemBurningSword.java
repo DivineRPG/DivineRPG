@@ -2,12 +2,12 @@ package naturix.divinerpg.objects.items.vanilla;
 
 import java.util.List;
 
-import naturix.divinerpg.objects.items.base.ItemSwordBase;
+import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-public class ItemBurningSword extends ItemSwordBase {
+public class ItemBurningSword extends ItemModSword {
     private int burnSeconds;
 
     public ItemBurningSword(ToolMaterial toolMaterial, String name, int seconds) {

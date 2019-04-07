@@ -20,10 +20,10 @@ import naturix.divinerpg.objects.items.base.ItemModShovel;
 import naturix.divinerpg.objects.items.base.ItemMusicShooter;
 import naturix.divinerpg.objects.items.base.ItemPoisonousSword;
 import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
-import naturix.divinerpg.objects.items.base.ItemShickaxeBase;
+import naturix.divinerpg.objects.items.base.ItemModShickaxe;
 import naturix.divinerpg.objects.items.base.ItemSlowingSword;
 import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
-import naturix.divinerpg.objects.items.base.ItemSwordBase;
+import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.objects.items.base.ItemThrowable;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
@@ -56,52 +56,52 @@ public class ModItems {
 public static final List<Item> ITEMS = new ArrayList<Item>();
 
 // Vanilla Weapons
-public static Item slimeSword = new ItemSwordBase(ToolMaterialMod.Slime, "slime_sword");
-public static Item oceanKnife = new ItemSwordBase(ToolMaterialMod.OceanKnife, "ocean_knife");
-public static Item aquaticMaul = new ItemSwordBase(ToolMaterialMod.AquaMaul, "aqua_maul");
-public static Item arlemiteStabber = new ItemSwordBase(ToolMaterialMod.Arlemite, "arlemite_stabber");
-public static Item bedrockSword = new ItemSwordBase(ToolMaterialMod.Bedrock, "bedrock_sword");
-public static Item realmiteSword = new ItemSwordBase(ToolMaterialMod.Realmite, "realmite_sword");
-public static Item rupeeSword = new ItemSwordBase(ToolMaterialMod.Rupee, "rupee_rapier");
-public static Item sandslash = new ItemSwordBase(ToolMaterialMod.Sandslash, "sandslash");
-public static Item divineSword = new ItemSwordBase(ToolMaterialMod.Divine, "divine_sword");
-public static Item blueDivineSword = new ItemSwordBase(ToolMaterialMod.Divine, "blue_divine_sword");
-public static Item yellowDivineSword = new ItemSwordBase(ToolMaterialMod.Divine, "yellow_divine_sword");
-public static Item grayDivineSword = new ItemSwordBase(ToolMaterialMod.Divine, "gray_divine_sword");
-public static Item redDivineSword = new ItemSwordBase(ToolMaterialMod.Divine, "red_divine_sword");
-public static Item greenDivineSword = new ItemSwordBase(ToolMaterialMod.Divine, "green_divine_sword");
-public static Item bedrockMaul = new ItemSwordBase(ToolMaterialMod.BedrockMaul, "bedrock_maul");
+public static Item slimeSword = new ItemModSword(ToolMaterialMod.Slime, "slime_sword");
+public static Item oceanKnife = new ItemModSword(ToolMaterialMod.OceanKnife, "ocean_knife");
+public static Item aquaticMaul = new ItemModSword(ToolMaterialMod.AquaMaul, "aqua_maul");
+public static Item arlemiteStabber = new ItemModSword(ToolMaterialMod.Arlemite, "arlemite_stabber");
+public static Item bedrockSword = new ItemModSword(ToolMaterialMod.Bedrock, "bedrock_sword");
+public static Item realmiteSword = new ItemModSword(ToolMaterialMod.Realmite, "realmite_sword");
+public static Item rupeeSword = new ItemModSword(ToolMaterialMod.Rupee, "rupee_rapier");
+public static Item sandslash = new ItemModSword(ToolMaterialMod.Sandslash, "sandslash");
+public static Item divineSword = new ItemModSword(ToolMaterialMod.Divine, "divine_sword");
+public static Item blueDivineSword = new ItemModSword(ToolMaterialMod.Divine, "blue_divine_sword");
+public static Item yellowDivineSword = new ItemModSword(ToolMaterialMod.Divine, "yellow_divine_sword");
+public static Item grayDivineSword = new ItemModSword(ToolMaterialMod.Divine, "gray_divine_sword");
+public static Item redDivineSword = new ItemModSword(ToolMaterialMod.Divine, "red_divine_sword");
+public static Item greenDivineSword = new ItemModSword(ToolMaterialMod.Divine, "green_divine_sword");
+public static Item bedrockMaul = new ItemModSword(ToolMaterialMod.BedrockMaul, "bedrock_maul");
 public static Item jungleKnife = new ItemPoisonousSword(ToolMaterialMod.JungleKnife, "jungle_knife", 2.5f);
 public static Item jungleRapier = new ItemPoisonousSword(ToolMaterialMod.JungleRapier, "jungle_rapier", 4f);
-public static Item aquaticTrident = new ItemSwordBase(ToolMaterialMod.AquaTrident, "aquatic_trident");
-public static Item aquaticDagger = new ItemSwordBase(ToolMaterialMod.AquaDagger, "aquatic_dagger");
-public static Item aquaton = new ItemSwordBase(ToolMaterialMod.Aquaton, "aquaton");
-public static Item sharkSword = new ItemSwordBase(ToolMaterialMod.Shark, "shark_sword");
-public static Item deathBringer = new ItemSwordBase(ToolMaterialMod.DeathBringer, "death_bringer");
-public static Item crabclawMaul = new ItemSwordBase(ToolMaterialMod.CrabclawMaul, "crabclaw_maul");
+public static Item aquaticTrident = new ItemModSword(ToolMaterialMod.AquaTrident, "aquatic_trident");
+public static Item aquaticDagger = new ItemModSword(ToolMaterialMod.AquaDagger, "aquatic_dagger");
+public static Item aquaton = new ItemModSword(ToolMaterialMod.Aquaton, "aquaton");
+public static Item sharkSword = new ItemModSword(ToolMaterialMod.Shark, "shark_sword");
+public static Item deathBringer = new ItemModSword(ToolMaterialMod.DeathBringer, "death_bringer");
+public static Item crabclawMaul = new ItemModSword(ToolMaterialMod.CrabclawMaul, "crabclaw_maul");
 public static Item poisonSaber = new ItemPoisonousSword(ToolMaterialMod.PoisonSaber, "poison_saber", 5);
-public static Item furyMaul = new ItemSwordBase(ToolMaterialMod.FuryMaul, "fury_maul");
-public static Item corruptedMaul = new ItemSwordBase(ToolMaterialMod.CorruptedMaul, "corrupted_maul");
+public static Item furyMaul = new ItemModSword(ToolMaterialMod.FuryMaul, "fury_maul");
+public static Item corruptedMaul = new ItemModSword(ToolMaterialMod.CorruptedMaul, "corrupted_maul");
 public static Item frostSword = new ItemSlowingSword(ToolMaterialMod.Frost, "frost_sword");
 public static Item infernoSword = new ItemBurningSword(ToolMaterialMod.Inferno, "inferno_sword", 12);
-public static Item bloodgemSword = new ItemSwordBase(ToolMaterialMod.Bloodgem, "bloodgem_sword");
+public static Item bloodgemSword = new ItemModSword(ToolMaterialMod.Bloodgem, "bloodgem_sword");
 public static Item moltenSword = new ItemBurningSword(ToolMaterialMod.Molten, "molten_sword", 5);
-public static Item scorchingSword = new ItemSwordBase(ToolMaterialMod.Scorching, "scorching_sword");
-public static Item bluefireSword = new ItemSwordBase(ToolMaterialMod.Bluefire, "bluefire_sword");
-public static Item enderSword = new ItemSwordBase(ToolMaterialMod.Ender, "ender_sword");
-public static Item blueEnderSword = new ItemSwordBase(ToolMaterialMod.Ender, "blue_ender_sword");
-public static Item grayEnderSword = new ItemSwordBase(ToolMaterialMod.Ender, "black_ender_sword");
-public static Item greenEnderSword = new ItemSwordBase(ToolMaterialMod.Ender, "green_ender_sword");
-public static Item redEnderSword = new ItemSwordBase(ToolMaterialMod.Ender, "red_ender_sword");
-public static Item yellowEnderSword = new ItemSwordBase(ToolMaterialMod.Ender, "yellow_ender_sword");
-public static Item cyclopsianSword = new ItemSwordBase(ToolMaterialMod.Cyclops, "cyclopsian_sword");
+public static Item scorchingSword = new ItemModSword(ToolMaterialMod.Scorching, "scorching_sword");
+public static Item bluefireSword = new ItemModSword(ToolMaterialMod.Bluefire, "bluefire_sword");
+public static Item enderSword = new ItemModSword(ToolMaterialMod.Ender, "ender_sword");
+public static Item blueEnderSword = new ItemModSword(ToolMaterialMod.Ender, "blue_ender_sword");
+public static Item grayEnderSword = new ItemModSword(ToolMaterialMod.Ender, "black_ender_sword");
+public static Item greenEnderSword = new ItemModSword(ToolMaterialMod.Ender, "green_ender_sword");
+public static Item redEnderSword = new ItemModSword(ToolMaterialMod.Ender, "red_ender_sword");
+public static Item yellowEnderSword = new ItemModSword(ToolMaterialMod.Ender, "yellow_ender_sword");
+public static Item cyclopsianSword = new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsian_sword");
 public static Item flamingFury = new ItemBurningSword(ToolMaterialMod.FlamingFury, "flaming_fury", 15);
-public static Item dualClaw = new ItemSwordBase(ToolMaterialMod.DualClaw, "dual_claw");
-public static Item terranDagger = new ItemSwordBase(ToolMaterialMod.TerranDagger, "terran_dagger");
-public static Item terranKnife = new ItemSwordBase(ToolMaterialMod.TerranKnife, "terran_knife");
-public static Item terranMaul = new ItemSwordBase(ToolMaterialMod.TerranMaul, "terran_maul");
-public static Item aquatoothSword = new ItemSwordBase(ToolMaterialMod.AquatoothSword, "aquatooth_sword");
-public static Item aquatoothMaul = new ItemSwordBase(ToolMaterialMod.AquatoothMaul, "aquatooth_maul");
+public static Item dualClaw = new ItemModSword(ToolMaterialMod.DualClaw, "dual_claw");
+public static Item terranDagger = new ItemModSword(ToolMaterialMod.TerranDagger, "terran_dagger");
+public static Item terranKnife = new ItemModSword(ToolMaterialMod.TerranKnife, "terran_knife");
+public static Item terranMaul = new ItemModSword(ToolMaterialMod.TerranMaul, "terran_maul");
+public static Item aquatoothSword = new ItemModSword(ToolMaterialMod.AquatoothSword, "aquatooth_sword");
+public static Item aquatoothMaul = new ItemModSword(ToolMaterialMod.AquatoothMaul, "aquatooth_maul");
 
 public static Item hunterBow = new ItemBowBase("hunter_bow", 2500, 2, 11, Items.ARROW, "hunter_arrow");
 public static Item shadowBow = new ItemBowBase("shadow_bow", 10000, 2, 11, 36000, Items.ARROW, "shadow_arrow");
@@ -342,13 +342,13 @@ public static Item goldLegs = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmen
 public static Item goldBoots = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.FEET);
 
 // Vanilla Tools
-public static Item rupeeShickaxe = new ItemShickaxeBase(ToolMaterialMod.RupeeShick, "rupee_shickaxe");
+public static Item rupeeShickaxe = new ItemModShickaxe(ToolMaterialMod.RupeeShick, "rupee_shickaxe");
 public static Item rupeePickaxe = new ItemModPickaxe(ToolMaterialMod.RupeePick, "rupee_pickaxe");
 public static Item rupeeAxe = new ItemModAxe(ToolMaterialMod.RupeeAxe, "rupee_axe");
 public static Item rupeeShovel = new ItemModShovel(ToolMaterialMod.RupeeShovel, "rupee_shovel");
 public static Item rupeeHoe = new ItemModHoe(ToolMaterialMod.RupeePick, "rupee_hoe");
 
-public static Item arlemiteShickaxe = new ItemShickaxeBase(ToolMaterialMod.ArlemiteShick, "arlemite_shickaxe");
+public static Item arlemiteShickaxe = new ItemModShickaxe(ToolMaterialMod.ArlemiteShick, "arlemite_shickaxe");
 public static Item arlemitePickaxe = new ItemModPickaxe(ToolMaterialMod.ArlemitePick, "arlemite_pickaxe");
 public static Item arlemiteAxe = new ItemModAxe(ToolMaterialMod.ArlemiteAxe, "arlemite_axe");
 public static Item arlemiteShovel = new ItemModShovel(ToolMaterialMod.ArlemiteShovel, "arlemite_shovel");
@@ -367,7 +367,7 @@ public static Item corruptedPickaxe = new ItemModPickaxe(ToolMaterialMod.Corrupt
 public static Item corruptedAxe = new ItemModAxe(ToolMaterialMod.CorruptedAxe, "corrupted_axe");
 public static Item corruptedShovel = new ItemModShovel(ToolMaterialMod.CorruptedShovel, "corrupted_shovel");
 
-public static Item divineShickaxe = new ItemShickaxeBase(ToolMaterialMod.DivineShick, "divine_shickaxe");
+public static Item divineShickaxe = new ItemModShickaxe(ToolMaterialMod.DivineShick, "divine_shickaxe");
 public static Item divinePickaxe = new ItemModPickaxe(ToolMaterialMod.DivinePick, "divine_pickaxe");
 public static Item divineAxe = new ItemModAxe(ToolMaterialMod.DivineAxe, "divine_axe");
 public static Item divineShovel = new ItemModShovel(ToolMaterialMod.DivineShovel, "divine_shovel");
@@ -560,12 +560,12 @@ public static Item vamacheronCrystal = new ItemNotReady("vamacheron_crystal", DR
 public static Item eternalArcherCrystal = new ItemNotReady("eternal_archer_crystal", DRPGCreativeTabs.items);
 
 // Twilight Weapons
-public static Item edenBlade = new ItemSwordBase(ToolMaterialMod.Eden, "eden_blade");
-public static Item wildwoodBlade = new ItemSwordBase(ToolMaterialMod.Wildwood, "wildwood_blade");
-public static Item apalachiaBlade = new ItemSwordBase(ToolMaterialMod.Apalachia, "apalachia_blade");
-public static Item skythernBlade = new ItemSwordBase(ToolMaterialMod.Skythern, "skythern_blade");
-public static Item mortumBlade = new ItemSwordBase(ToolMaterialMod.Mortum, "mortum_blade");
-public static Item haliteBlade = new ItemSwordBase(ToolMaterialMod.Halite, "halite_blade");
+public static Item edenBlade = new ItemModSword(ToolMaterialMod.Eden, "eden_blade");
+public static Item wildwoodBlade = new ItemModSword(ToolMaterialMod.Wildwood, "wildwood_blade");
+public static Item apalachiaBlade = new ItemModSword(ToolMaterialMod.Apalachia, "apalachia_blade");
+public static Item skythernBlade = new ItemModSword(ToolMaterialMod.Skythern, "skythern_blade");
+public static Item mortumBlade = new ItemModSword(ToolMaterialMod.Mortum, "mortum_blade");
+public static Item haliteBlade = new ItemModSword(ToolMaterialMod.Halite, "halite_blade");
 
 // public static Item edenSlicer = new ItemThrowable("eden_slicer", 8);
 // public static Item wildwoodSlicer = new ItemThrowable("wildwood_slicer", 10);

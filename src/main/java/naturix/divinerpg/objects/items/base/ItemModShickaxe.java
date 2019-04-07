@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemShickaxeBase extends ItemTool implements IHasModel {
+public class ItemModShickaxe extends ItemTool implements IHasModel {
     private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
             Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE,
             Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE,
@@ -45,12 +45,10 @@ public class ItemShickaxeBase extends ItemTool implements IHasModel {
             Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND,
             Blocks.GRASS_PATH, Blocks.CONCRETE_POWDER);
 
-    public static String HARVEST = "tooltip.harvest";
-
     protected String name;
 
-    public ItemShickaxeBase(ToolMaterial toolMaterial, String name) {
-        super(toolMaterial, EFFECTIVE_ON);
+    public ItemModShickaxe(ToolMaterial toolMaterial, String name) {
+        super(toolMaterial.getAttackDamage(), -2.8F, toolMaterial, EFFECTIVE_ON);
         setCreativeTab(DRPGCreativeTabs.tools);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -61,23 +59,11 @@ public class ItemShickaxeBase extends ItemTool implements IHasModel {
         ModItems.ITEMS.add(this);
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
-        infoList.add(TooltipLocalizer.efficiency(toolMaterial.getEfficiency()));
-        if (stack.getMaxDamage() > 0) {
-            infoList.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
-        } else {
-            infoList.add(TooltipLocalizer.infiniteUses());
-        }
-    }
-
-    @Override
     public boolean canHarvestBlock(IBlockState blockIn) {
         Block block = blockIn.getBlock();
 
         if (block == Blocks.OBSIDIAN) {
-            return this.toolMaterial.getHarvestLevel() == 3;
+            return this.toolMaterial.getHarvestLevel() >= 3;
         } else if (block != Blocks.DIAMOND_BLOCK && block != Blocks.DIAMOND_ORE) {
             if (block != Blocks.EMERALD_ORE && block != Blocks.EMERALD_BLOCK) {
                 if (block != Blocks.GOLD_BLOCK && block != Blocks.GOLD_ORE) {
@@ -86,12 +72,11 @@ public class ItemShickaxeBase extends ItemTool implements IHasModel {
                             if (block != Blocks.REDSTONE_ORE && block != Blocks.LIT_REDSTONE_ORE) {
                                 Material material = blockIn.getMaterial();
 
-                                if (material == Material.ROCK) {
-                                    return true;
-                                } else if (material == Material.IRON) {
+                                if (material == Material.ROCK || material == Material.IRON || material == Material.ANVIL
+                                        || block == Blocks.SNOW_LAYER || block == Blocks.SNOW) {
                                     return true;
                                 } else {
-                                    return material == Material.ANVIL;
+                                    return false;
                                 }
                             } else {
                                 return this.toolMaterial.getHarvestLevel() >= 2;
@@ -111,41 +96,6 @@ public class ItemShickaxeBase extends ItemTool implements IHasModel {
         } else {
             return this.toolMaterial.getHarvestLevel() >= 2;
         }
-    }
-
-    public boolean canItemHarvestBlock(Block block) {
-        return isEfficient(block);
-    }
-
-    @Override
-    public float getDestroySpeed(ItemStack stack, IBlockState state) {
-        for (String type : getToolClasses(stack)) {
-            if (state.getBlock().isToolEffective(type, state)) {
-                return efficiency;
-            }
-        }
-        return this.EFFECTIVE_ON.contains(state.getBlock()) ? this.efficiency : 1.0F;
-    }
-
-    public float getStrVsBlock(ItemStack stack, Block block) {
-        return this.toolMaterial.getEfficiency();
-    }
-
-    /**
-     * Current implementations of this method in child classes do not use the entry
-     * argument beside ev. They just raise the damage on the stack.
-     */
-    @Override
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        stack.damageItem(1, attacker);
-        return true;
-    }
-
-    protected boolean isEfficient(Block block) {
-        if (this.toolMaterial.getHarvestLevel() >= 1) {
-            EFFECTIVE_ON.add(Blocks.OBSIDIAN);
-        }
-        return block == EFFECTIVE_ON;
     }
 
     @Override
@@ -186,6 +136,30 @@ public class ItemShickaxeBase extends ItemTool implements IHasModel {
 
             return EnumActionResult.PASS;
         }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
+        infoList.add(TooltipLocalizer.efficiency(toolMaterial.getEfficiency()));
+        if (stack.getMaxDamage() > 0) {
+            infoList.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+        } else {
+            infoList.add(TooltipLocalizer.infiniteUses());
+        }
+    }
+
+    public float getDestroySpeed(ItemStack stack, IBlockState state) {
+        Material material = state.getMaterial();
+        return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE
+                && material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ?
+                        super.getDestroySpeed(stack, state) : this.efficiency;
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+        stack.damageItem(1, attacker);
+        return true;
     }
 
     protected void setBlock(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, IBlockState state) {

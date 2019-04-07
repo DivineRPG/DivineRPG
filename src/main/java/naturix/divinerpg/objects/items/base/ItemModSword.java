@@ -20,12 +20,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSwordBase extends ItemSword implements IHasModel {
+public class ItemModSword extends ItemSword implements IHasModel {
 
     private String name;
     private ToolMaterial material;
 
-    public ItemSwordBase(ToolMaterial material, String name) {
+    public ItemModSword(ToolMaterial material, String name) {
         super(material);
         this.name = name;
         this.material = material;

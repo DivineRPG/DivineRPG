@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemHealingSword extends ItemSwordBase {
+public class ItemHealingSword extends ItemModSword {
 
     private float healAmount;
 

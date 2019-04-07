@@ -10,7 +10,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
-public class ItemSlowingSword extends ItemSwordBase {
+public class ItemSlowingSword extends ItemModSword {
 
     public ItemSlowingSword(ToolMaterial toolMaterial, String name) {
         super(toolMaterial, name);

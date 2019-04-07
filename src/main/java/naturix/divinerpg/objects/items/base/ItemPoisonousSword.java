@@ -10,7 +10,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
-public class ItemPoisonousSword extends ItemSwordBase {
+public class ItemPoisonousSword extends ItemModSword {
     private float poisonSeconds;
 
     public ItemPoisonousSword(ToolMaterial mat, String name, float seconds) {
