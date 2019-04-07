@@ -49,7 +49,9 @@ public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player
 			// world.spawnEntityInWorld(new EntityMusic(world, player));
 			world.playSound(player, player.getPosition(), ModSounds.SOUND_OF_MUSIC, SoundCategory.MUSIC, 1, 1);
 		}
-		stack.damageItem(1, player);
+		if (!player.isCreative()) {
+			stack.damageItem(1, player);
+		}
 	}
 	return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(handIn));
 }
