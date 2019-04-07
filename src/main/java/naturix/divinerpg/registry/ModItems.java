@@ -142,6 +142,7 @@ public static Item serenadeOfHealth = new ItemNotReady("serenade_of_health", DRP
 // public static Item serenadeStriker = new
 // ItemSerenadeStriker("serenade_striker");
 public static Item serenadeStriker = new ItemNotReady("serenade_striker", DRPGCreativeTabs.ranged);
+// FIXME
 // public static Item serenadeOfDeath = new
 // ItemSerenadeOfDeath("serenade_of_death");
 public static Item serenadeOfDeath = new ItemNotReady("serenade_of_death", DRPGCreativeTabs.ranged);
@@ -454,6 +455,7 @@ public static Item frostkingSword = new ItemSlowingSword(ToolMaterialMod.Frostki
 public static Item frozenMaul = new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozen_maul");
 public static Item frossivence = new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1);
 
+// FIXME
 public static Item soundOfCarols = new ItemMusicShooter("sound_of_carols");
 public static Item soundOfMusic = new ItemMusicShooter("sound_of_music");
 
@@ -462,6 +464,8 @@ public static Item frostclawCannon = new ItemProjectileShooter("frostclaw_cannon
 public static Item fractiteCannon = new ItemProjectileShooter("fractite_cannon", ProjectileType.FRACTITE_CANNON_SHOT,
         ModSounds.FRACTITE_CANNON, iceShards, 10000, 0);
 public static Item snowflakeShuriken = new ItemThrowable("snowflake_shuriken", ProjectileType.SNOWFLAKE_SHURIKEN_SHOT);
+
+// FIXME
 // public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
 public static Item serenadeOfIce = new ItemNotReady("serenade_of_ice", DRPGCreativeTabs.ranged);
 
