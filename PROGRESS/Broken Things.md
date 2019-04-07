@@ -16,3 +16,6 @@
 ## Bugs
 * Furnace GUIs dont open on a server (i can let you join mine to test/fix it)
 * Ores dont smelt on the Hexxit Updated server
+* Frosted chest does not turn into snowflakes
+* Chests and Furnaces name change on break
+* Chests and Furnaces loose their name
