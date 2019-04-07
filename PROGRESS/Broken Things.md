@@ -12,3 +12,6 @@
 * Serenades (Ice/Death require entites)
 * Music Shooters (require entities)
 * Bows
+
+## Bugs
+* Furnace GUIs dont open on a server (i can let you join mine to test/fix it)
