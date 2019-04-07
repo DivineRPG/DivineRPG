@@ -27,7 +27,7 @@ import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemArmorBase extends net.minecraft.item.ItemArmor implements ISpecialArmor, IHasModel {
+public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISpecialArmor, IHasModel {
 	protected double damageReduction;
 	protected boolean unbreakable;
 	protected int fullReduction;
@@ -36,27 +36,27 @@ public class ItemArmorBase extends net.minecraft.item.ItemArmor implements ISpec
 	protected String name;
 	protected StringBuilder infoBuilder;
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot) {
 		this(armorMaterial, slot, armorMaterial.getType());
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, boolean vethean) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, boolean vethean) {
 		this(armorMaterial, slot, armorMaterial.getType(), vethean);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR) {
 		this(armorMaterial, slot, dR, armorMaterial.getType(), new Object[] { "null", "null" }, false, null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, Object[] info) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, Object[] info) {
 		this(armorMaterial, slot, dR, armorMaterial.getType(), info, false, null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, String name) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, String name) {
 		this(armorMaterial, slot, dR, name, new Object[] { "null", "null" }, false, null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, String name, Object[] info,
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, String name, Object[] info,
 	        boolean vethean, String helmType) {
 		super(armorMaterial.getArmorMaterial(), 0, slot);
 		this.armorMaterial = armorMaterial;
@@ -109,35 +109,35 @@ public class ItemArmorBase extends net.minecraft.item.ItemArmor implements ISpec
 		ModItems.ITEMS.add(this);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info) {
 		this(armorMaterial, slot, armorMaterial.getType(), info);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info, boolean vethean,
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info, boolean vethean,
 	        String helmType) {
 		this(armorMaterial, slot, armorMaterial.getType(), info, vethean, helmType);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name) {
 		this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" }, false,
 		        null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, boolean vethean) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, boolean vethean) {
 		this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" }, vethean,
 		        null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info) {
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info) {
 		this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, info, false, null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info,
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info,
 	        boolean vethean) {
 		this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, info, vethean, null);
 	}
 
-	public ItemArmorBase(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info, boolean vethean,
+	public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info, boolean vethean,
 	        String helmType) {
 		this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, info, vethean, helmType);
 	}

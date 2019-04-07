@@ -6,20 +6,20 @@ import java.util.List;
 import naturix.divinerpg.enums.ProjectileType;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.items.ItemNotReady;
-import naturix.divinerpg.objects.items.base.ItemArmorBase;
-import naturix.divinerpg.objects.items.base.ItemAxeBase;
+import naturix.divinerpg.objects.items.base.ItemDivineArmor;
+import naturix.divinerpg.objects.items.base.ItemModAxe;
 import naturix.divinerpg.objects.items.base.ItemBowBase;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
 import naturix.divinerpg.objects.items.base.ItemHealingSword;
-import naturix.divinerpg.objects.items.base.ItemHoeBase;
+import naturix.divinerpg.objects.items.base.ItemModHoe;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.base.ItemModFood;
 import naturix.divinerpg.objects.items.base.ItemModSeeds;
-import naturix.divinerpg.objects.items.base.ItemPickaxeBase;
+import naturix.divinerpg.objects.items.base.ItemModPickaxe;
 import naturix.divinerpg.objects.items.base.ItemPoisonousSword;
 import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
 import naturix.divinerpg.objects.items.base.ItemShickaxeBase;
-import naturix.divinerpg.objects.items.base.ItemShovelBase;
+import naturix.divinerpg.objects.items.base.ItemModShovel;
 import naturix.divinerpg.objects.items.base.ItemSlowingSword;
 import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemSwordBase;
@@ -150,231 +150,231 @@ public class ModItems {
 
     // Vanilla Armor
     private static Object[] angelicInfo = new Object[] { ArmorInfo.NO_FALL, ArmorInfo.FLY };
-    public static Item angelicHelmet = new ItemArmorBase(EnumArmor.ANGELIC, EntityEquipmentSlot.HEAD, angelicInfo);
-    public static Item angelicBody = new ItemArmorBase(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST, angelicInfo);
-    public static Item angelicLegs = new ItemArmorBase(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS, angelicInfo);
-    public static Item angelicBoots = new ItemArmorBase(EnumArmor.ANGELIC, EntityEquipmentSlot.FEET, angelicInfo);
+    public static Item angelicHelmet = new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.HEAD, angelicInfo);
+    public static Item angelicBody = new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST, angelicInfo);
+    public static Item angelicLegs = new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS, angelicInfo);
+    public static Item angelicBoots = new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.FEET, angelicInfo);
 
     private static Object[] divineInfo = new Object[] { 6, ArmorInfo.MELEE_DAMAGE, 2, ArmorInfo.JUMP_HEIGHT,
             ArmorInfo.NO_FALL };
-    public static Item divineHelmet = new ItemArmorBase(EnumArmor.DIVINE, EntityEquipmentSlot.HEAD, divineInfo);
-    public static Item divineBody = new ItemArmorBase(EnumArmor.DIVINE, EntityEquipmentSlot.CHEST, divineInfo);
-    public static Item divineLegs = new ItemArmorBase(EnumArmor.DIVINE, EntityEquipmentSlot.LEGS, divineInfo);
-    public static Item divineBoots = new ItemArmorBase(EnumArmor.DIVINE, EntityEquipmentSlot.FEET, divineInfo);
+    public static Item divineHelmet = new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.HEAD, divineInfo);
+    public static Item divineBody = new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.CHEST, divineInfo);
+    public static Item divineLegs = new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.LEGS, divineInfo);
+    public static Item divineBoots = new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.FEET, divineInfo);
 
     private static Object[] bedrockInfo = new Object[] { ArmorInfo.FIRE_PROTECTION, ArmorInfo.EXPLOSION_PROTECTION };
-    public static Item bedrockHelmet = new ItemArmorBase(EnumArmor.BEDROCK, EntityEquipmentSlot.HEAD, bedrockInfo);
-    public static Item bedrockBody = new ItemArmorBase(EnumArmor.BEDROCK, EntityEquipmentSlot.CHEST, bedrockInfo);
-    public static Item bedrockLegs = new ItemArmorBase(EnumArmor.BEDROCK, EntityEquipmentSlot.LEGS, bedrockInfo);
-    public static Item bedrockBoots = new ItemArmorBase(EnumArmor.BEDROCK, EntityEquipmentSlot.FEET, bedrockInfo);
+    public static Item bedrockHelmet = new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.HEAD, bedrockInfo);
+    public static Item bedrockBody = new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.CHEST, bedrockInfo);
+    public static Item bedrockLegs = new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.LEGS, bedrockInfo);
+    public static Item bedrockBoots = new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.FEET, bedrockInfo);
 
-    public static Item realmiteHelmet = new ItemArmorBase(EnumArmor.REALMITE, EntityEquipmentSlot.HEAD);
-    public static Item realmiteBody = new ItemArmorBase(EnumArmor.REALMITE, EntityEquipmentSlot.CHEST);
-    public static Item realmiteLegs = new ItemArmorBase(EnumArmor.REALMITE, EntityEquipmentSlot.LEGS);
-    public static Item realmiteBoots = new ItemArmorBase(EnumArmor.REALMITE, EntityEquipmentSlot.FEET);
+    public static Item realmiteHelmet = new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.HEAD);
+    public static Item realmiteBody = new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.CHEST);
+    public static Item realmiteLegs = new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.LEGS);
+    public static Item realmiteBoots = new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.FEET);
 
     private static Object[] eliteRealmiteInfo = new Object[] { ArmorInfo.NO_FALL };
-    public static Item eliteRealmiteHelmet = new ItemArmorBase(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.HEAD,
+    public static Item eliteRealmiteHelmet = new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.HEAD,
             eliteRealmiteInfo);
-    public static Item eliteRealmiteBody = new ItemArmorBase(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.CHEST,
+    public static Item eliteRealmiteBody = new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.CHEST,
             eliteRealmiteInfo);
-    public static Item eliteRealmiteLegs = new ItemArmorBase(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.LEGS,
+    public static Item eliteRealmiteLegs = new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.LEGS,
             eliteRealmiteInfo);
-    public static Item eliteRealmiteBoots = new ItemArmorBase(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.FEET,
+    public static Item eliteRealmiteBoots = new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.FEET,
             eliteRealmiteInfo);
 
     private static Object[] arlemiteInfo = new Object[] { 85, ArmorInfo.RANGED_PROTECTION };
-    public static Item arlemiteHelmet = new ItemArmorBase(EnumArmor.ARLEMITE, EntityEquipmentSlot.HEAD, arlemiteInfo);
-    public static Item arlemiteBody = new ItemArmorBase(EnumArmor.ARLEMITE, EntityEquipmentSlot.CHEST, arlemiteInfo);
-    public static Item arlemiteLegs = new ItemArmorBase(EnumArmor.ARLEMITE, EntityEquipmentSlot.LEGS, arlemiteInfo);
-    public static Item arlemiteBoots = new ItemArmorBase(EnumArmor.ARLEMITE, EntityEquipmentSlot.FEET, arlemiteInfo);
+    public static Item arlemiteHelmet = new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.HEAD, arlemiteInfo);
+    public static Item arlemiteBody = new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.CHEST, arlemiteInfo);
+    public static Item arlemiteLegs = new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.LEGS, arlemiteInfo);
+    public static Item arlemiteBoots = new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.FEET, arlemiteInfo);
 
     private static Object[] rupeeInfo = new Object[] { 85, ArmorInfo.MELEE_PROTECTION };
-    public static Item rupeeHelmet = new ItemArmorBase(EnumArmor.RUPEE, EntityEquipmentSlot.HEAD, rupeeInfo);
-    public static Item rupeeBody = new ItemArmorBase(EnumArmor.RUPEE, EntityEquipmentSlot.CHEST, rupeeInfo);
-    public static Item rupeeLegs = new ItemArmorBase(EnumArmor.RUPEE, EntityEquipmentSlot.LEGS, rupeeInfo);
-    public static Item rupeeBoots = new ItemArmorBase(EnumArmor.RUPEE, EntityEquipmentSlot.FEET, rupeeInfo);
-    public static Item yellowRupeeHelmet = new ItemArmorBase(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD,
+    public static Item rupeeHelmet = new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.HEAD, rupeeInfo);
+    public static Item rupeeBody = new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.CHEST, rupeeInfo);
+    public static Item rupeeLegs = new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.LEGS, rupeeInfo);
+    public static Item rupeeBoots = new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.FEET, rupeeInfo);
+    public static Item yellowRupeeHelmet = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD,
             rupeeInfo);
-    public static Item yellowRupeeBody = new ItemArmorBase(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.CHEST,
+    public static Item yellowRupeeBody = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.CHEST,
             rupeeInfo);
-    public static Item yellowRupeeLegs = new ItemArmorBase(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.LEGS, rupeeInfo);
-    public static Item yellowRupeeBoots = new ItemArmorBase(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.FEET,
+    public static Item yellowRupeeLegs = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.LEGS, rupeeInfo);
+    public static Item yellowRupeeBoots = new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.FEET,
             rupeeInfo);
-    public static Item redRupeeHelmet = new ItemArmorBase(EnumArmor.RUPEE_RED, EntityEquipmentSlot.HEAD, rupeeInfo);
-    public static Item redRupeeBody = new ItemArmorBase(EnumArmor.RUPEE_RED, EntityEquipmentSlot.CHEST, rupeeInfo);
-    public static Item redRupeeLegs = new ItemArmorBase(EnumArmor.RUPEE_RED, EntityEquipmentSlot.LEGS, rupeeInfo);
-    public static Item redRupeeBoots = new ItemArmorBase(EnumArmor.RUPEE_RED, EntityEquipmentSlot.FEET, rupeeInfo);
-    public static Item greenRupeeHelmet = new ItemArmorBase(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.HEAD, rupeeInfo);
-    public static Item greenRupeeBody = new ItemArmorBase(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.CHEST, rupeeInfo);
-    public static Item greenRupeeLegs = new ItemArmorBase(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.LEGS, rupeeInfo);
-    public static Item greenRupeeBoots = new ItemArmorBase(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.FEET, rupeeInfo);
-    public static Item blueRupeeHelmet = new ItemArmorBase(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.HEAD, rupeeInfo);
-    public static Item blueRupeeBody = new ItemArmorBase(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.CHEST, rupeeInfo);
-    public static Item blueRupeeLegs = new ItemArmorBase(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.LEGS, rupeeInfo);
-    public static Item blueRupeeBoots = new ItemArmorBase(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.FEET, rupeeInfo);
-    public static Item grayRupeeHelmet = new ItemArmorBase(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.HEAD, rupeeInfo);
-    public static Item grayRupeeBody = new ItemArmorBase(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.CHEST, rupeeInfo);
-    public static Item grayRupeeLegs = new ItemArmorBase(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.LEGS, rupeeInfo);
-    public static Item grayRupeeBoots = new ItemArmorBase(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.FEET, rupeeInfo);
+    public static Item redRupeeHelmet = new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.HEAD, rupeeInfo);
+    public static Item redRupeeBody = new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.CHEST, rupeeInfo);
+    public static Item redRupeeLegs = new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.LEGS, rupeeInfo);
+    public static Item redRupeeBoots = new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.FEET, rupeeInfo);
+    public static Item greenRupeeHelmet = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.HEAD, rupeeInfo);
+    public static Item greenRupeeBody = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.CHEST, rupeeInfo);
+    public static Item greenRupeeLegs = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.LEGS, rupeeInfo);
+    public static Item greenRupeeBoots = new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.FEET, rupeeInfo);
+    public static Item blueRupeeHelmet = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.HEAD, rupeeInfo);
+    public static Item blueRupeeBody = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.CHEST, rupeeInfo);
+    public static Item blueRupeeLegs = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.LEGS, rupeeInfo);
+    public static Item blueRupeeBoots = new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.FEET, rupeeInfo);
+    public static Item grayRupeeHelmet = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.HEAD, rupeeInfo);
+    public static Item grayRupeeBody = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.CHEST, rupeeInfo);
+    public static Item grayRupeeLegs = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.LEGS, rupeeInfo);
+    public static Item grayRupeeBoots = new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.FEET, rupeeInfo);
 
     private static Object[] krakenInfo = new Object[] { ArmorInfo.UNDERWATER };
-    public static Item krakenHelmet = new ItemArmorBase(EnumArmor.KRAKEN, EntityEquipmentSlot.HEAD, krakenInfo);
-    public static Item krakenBody = new ItemArmorBase(EnumArmor.KRAKEN, EntityEquipmentSlot.CHEST, krakenInfo);
-    public static Item krakenLegs = new ItemArmorBase(EnumArmor.KRAKEN, EntityEquipmentSlot.LEGS, krakenInfo);
-    public static Item krakenBoots = new ItemArmorBase(EnumArmor.KRAKEN, EntityEquipmentSlot.FEET, krakenInfo);
+    public static Item krakenHelmet = new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.HEAD, krakenInfo);
+    public static Item krakenBody = new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.CHEST, krakenInfo);
+    public static Item krakenLegs = new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.LEGS, krakenInfo);
+    public static Item krakenBoots = new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.FEET, krakenInfo);
 
     private static Object[] jackomanInfo = new Object[] { 3, ArmorInfo.SCYTHE_DAMAGE };
-    public static Item jackOManHelmet = new ItemArmorBase(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, "jackOMan",
+    public static Item jackOManHelmet = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, "jackOMan",
             jackomanInfo);
-    public static Item jackOManBody = new ItemArmorBase(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, "jackOMan",
+    public static Item jackOManBody = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, "jackOMan",
             jackomanInfo);
-    public static Item jackOManLegs = new ItemArmorBase(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, "jackOMan",
+    public static Item jackOManLegs = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, "jackOMan",
             jackomanInfo);
-    public static Item jackOManBoots = new ItemArmorBase(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, "jackOMan",
+    public static Item jackOManBoots = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, "jackOMan",
             jackomanInfo);
 
     private static Object[] infernoInfo = new Object[] { ArmorInfo.FIRE_PROTECTION };
-    public static Item infernoHelmet = new ItemArmorBase(EnumArmor.INFERNO, EntityEquipmentSlot.HEAD, infernoInfo);
-    public static Item infernoBody = new ItemArmorBase(EnumArmor.INFERNO, EntityEquipmentSlot.CHEST, infernoInfo);
-    public static Item infernoLegs = new ItemArmorBase(EnumArmor.INFERNO, EntityEquipmentSlot.LEGS, infernoInfo);
-    public static Item infernoBoots = new ItemArmorBase(EnumArmor.INFERNO, EntityEquipmentSlot.FEET, infernoInfo);
+    public static Item infernoHelmet = new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.HEAD, infernoInfo);
+    public static Item infernoBody = new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.CHEST, infernoInfo);
+    public static Item infernoLegs = new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.LEGS, infernoInfo);
+    public static Item infernoBoots = new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.FEET, infernoInfo);
 
     private static Object[] aquastriveInfo = new Object[] { ArmorInfo.UNDERWATER, ArmorInfo.SWIM };
-    public static Item aquastriveHelmet = new ItemArmorBase(EnumArmor.AQUATIC, EntityEquipmentSlot.HEAD,
+    public static Item aquastriveHelmet = new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.HEAD,
             aquastriveInfo);
-    public static Item aquastriveBody = new ItemArmorBase(EnumArmor.AQUATIC, EntityEquipmentSlot.CHEST, aquastriveInfo);
-    public static Item aquastriveLegs = new ItemArmorBase(EnumArmor.AQUATIC, EntityEquipmentSlot.LEGS, aquastriveInfo);
-    public static Item aquastriveBoots = new ItemArmorBase(EnumArmor.AQUATIC, EntityEquipmentSlot.FEET, aquastriveInfo);
+    public static Item aquastriveBody = new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.CHEST, aquastriveInfo);
+    public static Item aquastriveLegs = new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.LEGS, aquastriveInfo);
+    public static Item aquastriveBoots = new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.FEET, aquastriveInfo);
 
     private static Object[] shadowInfo = new Object[] { 3, ArmorInfo.SPEED };
-    public static Item shadowHelmet = new ItemArmorBase(EnumArmor.SHADOW, EntityEquipmentSlot.HEAD, shadowInfo);
-    public static Item shadowBody = new ItemArmorBase(EnumArmor.SHADOW, EntityEquipmentSlot.CHEST, shadowInfo);
-    public static Item shadowLegs = new ItemArmorBase(EnumArmor.SHADOW, EntityEquipmentSlot.LEGS, shadowInfo);
-    public static Item shadowBoots = new ItemArmorBase(EnumArmor.SHADOW, EntityEquipmentSlot.FEET, shadowInfo);
+    public static Item shadowHelmet = new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.HEAD, shadowInfo);
+    public static Item shadowBody = new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.CHEST, shadowInfo);
+    public static Item shadowLegs = new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.LEGS, shadowInfo);
+    public static Item shadowBoots = new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.FEET, shadowInfo);
 
     private static Object[] netheriteInfo = new Object[] { ArmorInfo.FIRE_PROTECTION };
-    public static Item netheriteHelmet = new ItemArmorBase(EnumArmor.NETHERITE, EntityEquipmentSlot.HEAD,
+    public static Item netheriteHelmet = new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.HEAD,
             netheriteInfo);
-    public static Item netheriteBody = new ItemArmorBase(EnumArmor.NETHERITE, EntityEquipmentSlot.CHEST, netheriteInfo);
-    public static Item netheriteLegs = new ItemArmorBase(EnumArmor.NETHERITE, EntityEquipmentSlot.LEGS, netheriteInfo);
-    public static Item netheriteBoots = new ItemArmorBase(EnumArmor.NETHERITE, EntityEquipmentSlot.FEET, netheriteInfo);
+    public static Item netheriteBody = new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.CHEST, netheriteInfo);
+    public static Item netheriteLegs = new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.LEGS, netheriteInfo);
+    public static Item netheriteBoots = new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.FEET, netheriteInfo);
 
     private static Object[] skelemanInfo = new Object[] { ArmorInfo.HUNGER };
-    public static Item skelemanHelmet = new ItemArmorBase(EnumArmor.SKELEMAN, EntityEquipmentSlot.HEAD, skelemanInfo);
-    public static Item skelemanBody = new ItemArmorBase(EnumArmor.SKELEMAN, EntityEquipmentSlot.CHEST, skelemanInfo);
-    public static Item skelemanLegs = new ItemArmorBase(EnumArmor.SKELEMAN, EntityEquipmentSlot.LEGS, skelemanInfo);
-    public static Item skelemanBoots = new ItemArmorBase(EnumArmor.SKELEMAN, EntityEquipmentSlot.FEET, skelemanInfo);
+    public static Item skelemanHelmet = new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.HEAD, skelemanInfo);
+    public static Item skelemanBody = new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.CHEST, skelemanInfo);
+    public static Item skelemanLegs = new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.LEGS, skelemanInfo);
+    public static Item skelemanBoots = new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.FEET, skelemanInfo);
 
     private static Object[] witherReaperInfo = new Object[] { ArmorInfo.WITHER_PROTECTION };
-    public static Item witherReaperHelmet = new ItemArmorBase(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.HEAD,
+    public static Item witherReaperHelmet = new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.HEAD,
             witherReaperInfo);
-    public static Item witherReaperBody = new ItemArmorBase(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.CHEST,
+    public static Item witherReaperBody = new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.CHEST,
             witherReaperInfo);
-    public static Item witherReaperLegs = new ItemArmorBase(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.LEGS,
+    public static Item witherReaperLegs = new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.LEGS,
             witherReaperInfo);
-    public static Item witherReaperBoots = new ItemArmorBase(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.FEET,
+    public static Item witherReaperBoots = new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.FEET,
             witherReaperInfo);
 
     private static Object[] enderInfo = new Object[] { ArmorInfo.EXPLOSION_PROTECTION };
-    public static Item enderHelmet = new ItemArmorBase(EnumArmor.ENDER, EntityEquipmentSlot.HEAD, enderInfo);
-    public static Item enderBody = new ItemArmorBase(EnumArmor.ENDER, EntityEquipmentSlot.CHEST, enderInfo);
-    public static Item enderLegs = new ItemArmorBase(EnumArmor.ENDER, EntityEquipmentSlot.LEGS, enderInfo);
-    public static Item enderBoots = new ItemArmorBase(EnumArmor.ENDER, EntityEquipmentSlot.FEET, enderInfo);
-    public static Item yellowEnderHelmet = new ItemArmorBase(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.HEAD,
+    public static Item enderHelmet = new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.HEAD, enderInfo);
+    public static Item enderBody = new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.CHEST, enderInfo);
+    public static Item enderLegs = new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.LEGS, enderInfo);
+    public static Item enderBoots = new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.FEET, enderInfo);
+    public static Item yellowEnderHelmet = new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.HEAD,
             enderInfo);
-    public static Item yellowEnderBody = new ItemArmorBase(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.CHEST,
+    public static Item yellowEnderBody = new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.CHEST,
             enderInfo);
-    public static Item yellowEnderLegs = new ItemArmorBase(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.LEGS, enderInfo);
-    public static Item yellowEnderBoots = new ItemArmorBase(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.FEET,
+    public static Item yellowEnderLegs = new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.LEGS, enderInfo);
+    public static Item yellowEnderBoots = new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.FEET,
             enderInfo);
-    public static Item redEnderHelmet = new ItemArmorBase(EnumArmor.ENDER_RED, EntityEquipmentSlot.HEAD, enderInfo);
-    public static Item redEnderBody = new ItemArmorBase(EnumArmor.ENDER_RED, EntityEquipmentSlot.CHEST, enderInfo);
-    public static Item redEnderLegs = new ItemArmorBase(EnumArmor.ENDER_RED, EntityEquipmentSlot.LEGS, enderInfo);
-    public static Item redEnderBoots = new ItemArmorBase(EnumArmor.ENDER_RED, EntityEquipmentSlot.FEET, enderInfo);
-    public static Item greenEnderHelmet = new ItemArmorBase(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.HEAD, enderInfo);
-    public static Item greenEnderBody = new ItemArmorBase(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.CHEST, enderInfo);
-    public static Item greenEnderLegs = new ItemArmorBase(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.LEGS, enderInfo);
-    public static Item greenEnderBoots = new ItemArmorBase(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.FEET, enderInfo);
-    public static Item blueEnderHelmet = new ItemArmorBase(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.HEAD, enderInfo);
-    public static Item blueEnderBody = new ItemArmorBase(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.CHEST, enderInfo);
-    public static Item blueEnderLegs = new ItemArmorBase(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.LEGS, enderInfo);
-    public static Item blueEnderBoots = new ItemArmorBase(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.FEET, enderInfo);
-    public static Item grayEnderHelmet = new ItemArmorBase(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.HEAD, enderInfo);
-    public static Item grayEnderBody = new ItemArmorBase(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.CHEST, enderInfo);
-    public static Item grayEnderLegs = new ItemArmorBase(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.LEGS, enderInfo);
-    public static Item grayEnderBoots = new ItemArmorBase(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.FEET, enderInfo);
+    public static Item redEnderHelmet = new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.HEAD, enderInfo);
+    public static Item redEnderBody = new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.CHEST, enderInfo);
+    public static Item redEnderLegs = new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.LEGS, enderInfo);
+    public static Item redEnderBoots = new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.FEET, enderInfo);
+    public static Item greenEnderHelmet = new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.HEAD, enderInfo);
+    public static Item greenEnderBody = new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.CHEST, enderInfo);
+    public static Item greenEnderLegs = new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.LEGS, enderInfo);
+    public static Item greenEnderBoots = new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.FEET, enderInfo);
+    public static Item blueEnderHelmet = new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.HEAD, enderInfo);
+    public static Item blueEnderBody = new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.CHEST, enderInfo);
+    public static Item blueEnderLegs = new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.LEGS, enderInfo);
+    public static Item blueEnderBoots = new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.FEET, enderInfo);
+    public static Item grayEnderHelmet = new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.HEAD, enderInfo);
+    public static Item grayEnderBody = new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.CHEST, enderInfo);
+    public static Item grayEnderLegs = new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.LEGS, enderInfo);
+    public static Item grayEnderBoots = new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.FEET, enderInfo);
 
     private static Object[] jungleInfo = new Object[] { ArmorInfo.POISON_PROTECTION };
-    public static Item jungleHelmet = new ItemArmorBase(EnumArmor.JUNGLE, EntityEquipmentSlot.HEAD, jungleInfo);
-    public static Item jungleBody = new ItemArmorBase(EnumArmor.JUNGLE, EntityEquipmentSlot.CHEST, jungleInfo);
-    public static Item jungleLegs = new ItemArmorBase(EnumArmor.JUNGLE, EntityEquipmentSlot.LEGS, jungleInfo);
-    public static Item jungleBoots = new ItemArmorBase(EnumArmor.JUNGLE, EntityEquipmentSlot.FEET, jungleInfo);
+    public static Item jungleHelmet = new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.HEAD, jungleInfo);
+    public static Item jungleBody = new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.CHEST, jungleInfo);
+    public static Item jungleLegs = new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.LEGS, jungleInfo);
+    public static Item jungleBoots = new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.FEET, jungleInfo);
 
     private static Object[] frozenInfo = new Object[] { ArmorInfo.FREEZE };
-    public static Item frozenHelmet = new ItemArmorBase(EnumArmor.FROZEN, EntityEquipmentSlot.HEAD, frozenInfo);
-    public static Item frozenBody = new ItemArmorBase(EnumArmor.FROZEN, EntityEquipmentSlot.CHEST, frozenInfo);
-    public static Item frozenLegs = new ItemArmorBase(EnumArmor.FROZEN, EntityEquipmentSlot.LEGS, frozenInfo);
-    public static Item frozenBoots = new ItemArmorBase(EnumArmor.FROZEN, EntityEquipmentSlot.FEET, frozenInfo);
+    public static Item frozenHelmet = new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.HEAD, frozenInfo);
+    public static Item frozenBody = new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.CHEST, frozenInfo);
+    public static Item frozenLegs = new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.LEGS, frozenInfo);
+    public static Item frozenBoots = new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.FEET, frozenInfo);
 
     private static Object[] corruptedInfo = new Object[] { 20, ArmorInfo.RANGED_DAMAGE };
-    public static Item corruptedHelmet = new ItemArmorBase(EnumArmor.CORRUPTED, EntityEquipmentSlot.HEAD,
+    public static Item corruptedHelmet = new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.HEAD,
             corruptedInfo);
-    public static Item corruptedBody = new ItemArmorBase(EnumArmor.CORRUPTED, EntityEquipmentSlot.CHEST, corruptedInfo);
-    public static Item corruptedLegs = new ItemArmorBase(EnumArmor.CORRUPTED, EntityEquipmentSlot.LEGS, corruptedInfo);
-    public static Item corruptedBoots = new ItemArmorBase(EnumArmor.CORRUPTED, EntityEquipmentSlot.FEET, corruptedInfo);
+    public static Item corruptedBody = new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.CHEST, corruptedInfo);
+    public static Item corruptedLegs = new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.LEGS, corruptedInfo);
+    public static Item corruptedBoots = new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.FEET, corruptedInfo);
 
     private static Object[] terranInfo = new Object[] { 20, ArmorInfo.HASTE };
-    public static Item terranHelmet = new ItemArmorBase(EnumArmor.TERRAN, EntityEquipmentSlot.HEAD, terranInfo);
-    public static Item terranBody = new ItemArmorBase(EnumArmor.TERRAN, EntityEquipmentSlot.CHEST, terranInfo);
-    public static Item terranLegs = new ItemArmorBase(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo);
-    public static Item terranBoots = new ItemArmorBase(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo);
+    public static Item terranHelmet = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.HEAD, terranInfo);
+    public static Item terranBody = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.CHEST, terranInfo);
+    public static Item terranLegs = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo);
+    public static Item terranBoots = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo);
 
-    public static Item diamondHelmet = new ItemArmorBase(EnumArmor.DIAMOND, EntityEquipmentSlot.HEAD);
-    public static Item diamondBody = new ItemArmorBase(EnumArmor.DIAMOND, EntityEquipmentSlot.CHEST);
-    public static Item diamondLegs = new ItemArmorBase(EnumArmor.DIAMOND, EntityEquipmentSlot.LEGS);
-    public static Item diamondBoots = new ItemArmorBase(EnumArmor.DIAMOND, EntityEquipmentSlot.FEET);
+    public static Item diamondHelmet = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.HEAD);
+    public static Item diamondBody = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.CHEST);
+    public static Item diamondLegs = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.LEGS);
+    public static Item diamondBoots = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.FEET);
 
-    public static Item ironHelmet = new ItemArmorBase(EnumArmor.IRON, EntityEquipmentSlot.HEAD);
-    public static Item ironBody = new ItemArmorBase(EnumArmor.IRON, EntityEquipmentSlot.CHEST);
-    public static Item ironLegs = new ItemArmorBase(EnumArmor.IRON, EntityEquipmentSlot.LEGS);
-    public static Item ironBoots = new ItemArmorBase(EnumArmor.IRON, EntityEquipmentSlot.FEET);
+    public static Item ironHelmet = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.HEAD);
+    public static Item ironBody = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.CHEST);
+    public static Item ironLegs = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.LEGS);
+    public static Item ironBoots = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.FEET);
 
-    public static Item goldHelmet = new ItemArmorBase(EnumArmor.GOLD, EntityEquipmentSlot.HEAD);
-    public static Item goldBody = new ItemArmorBase(EnumArmor.GOLD, EntityEquipmentSlot.CHEST);
-    public static Item goldLegs = new ItemArmorBase(EnumArmor.GOLD, EntityEquipmentSlot.LEGS);
-    public static Item goldBoots = new ItemArmorBase(EnumArmor.GOLD, EntityEquipmentSlot.FEET);
+    public static Item goldHelmet = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.HEAD);
+    public static Item goldBody = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.CHEST);
+    public static Item goldLegs = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.LEGS);
+    public static Item goldBoots = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.FEET);
 
     // Vanilla Tools
     public static Item rupeeShickaxe = new ItemShickaxeBase(ToolMaterialMod.RupeeShick, "rupee_shickaxe");
-    public static Item rupeePickaxe = new ItemPickaxeBase(ToolMaterialMod.RupeePick, "rupee_pickaxe");
-    public static Item rupeeAxe = new ItemAxeBase(ToolMaterialMod.RupeeAxe, "rupee_axe");
-    public static Item rupeeShovel = new ItemShovelBase(ToolMaterialMod.RupeeShovel, "rupee_shovel");
-    public static Item rupeeHoe = new ItemHoeBase(ToolMaterialMod.RupeePick, "rupee_hoe");
+    public static Item rupeePickaxe = new ItemModPickaxe(ToolMaterialMod.RupeePick, "rupee_pickaxe");
+    public static Item rupeeAxe = new ItemModAxe(ToolMaterialMod.RupeeAxe, "rupee_axe");
+    public static Item rupeeShovel = new ItemModShovel(ToolMaterialMod.RupeeShovel, "rupee_shovel");
+    public static Item rupeeHoe = new ItemModHoe(ToolMaterialMod.RupeePick, "rupee_hoe");
 
     public static Item arlemiteShickaxe = new ItemShickaxeBase(ToolMaterialMod.ArlemiteShick, "arlemite_shickaxe");
-    public static Item arlemitePickaxe = new ItemPickaxeBase(ToolMaterialMod.ArlemitePick, "arlemite_pickaxe");
-    public static Item arlemiteAxe = new ItemAxeBase(ToolMaterialMod.ArlemiteAxe, "arlemite_axe");
-    public static Item arlemiteShovel = new ItemShovelBase(ToolMaterialMod.ArlemiteShovel, "arlemite_shovel");
-    public static Item arlemiteHoe = new ItemHoeBase(ToolMaterialMod.ArlemitePick, "arlemite_hoe");
+    public static Item arlemitePickaxe = new ItemModPickaxe(ToolMaterialMod.ArlemitePick, "arlemite_pickaxe");
+    public static Item arlemiteAxe = new ItemModAxe(ToolMaterialMod.ArlemiteAxe, "arlemite_axe");
+    public static Item arlemiteShovel = new ItemModShovel(ToolMaterialMod.ArlemiteShovel, "arlemite_shovel");
+    public static Item arlemiteHoe = new ItemModHoe(ToolMaterialMod.ArlemitePick, "arlemite_hoe");
 
-    public static Item realmitePickaxe = new ItemPickaxeBase(ToolMaterialMod.RealmitePick, "realmite_pickaxe");
-    public static Item realmiteAxe = new ItemAxeBase(ToolMaterialMod.RealmiteAxe, "realmite_axe");
-    public static Item realmiteShovel = new ItemShovelBase(ToolMaterialMod.RealmiteShovel, "realmite_shovel");
-    public static Item realmiteHoe = new ItemHoeBase(ToolMaterialMod.RealmitePick, "realmite_hoe");
+    public static Item realmitePickaxe = new ItemModPickaxe(ToolMaterialMod.RealmitePick, "realmite_pickaxe");
+    public static Item realmiteAxe = new ItemModAxe(ToolMaterialMod.RealmiteAxe, "realmite_axe");
+    public static Item realmiteShovel = new ItemModShovel(ToolMaterialMod.RealmiteShovel, "realmite_shovel");
+    public static Item realmiteHoe = new ItemModHoe(ToolMaterialMod.RealmitePick, "realmite_hoe");
 
-    public static Item bedrockPickaxe = new ItemPickaxeBase(ToolMaterialMod.BedrockPick, "bedrock_pickaxe");
-    public static Item bedrockAxe = new ItemAxeBase(ToolMaterialMod.BedrockAxe, "bedrock_axe");
-    public static Item bedrockShovel = new ItemShovelBase(ToolMaterialMod.BedrockShovel, "bedrock_shovel");
+    public static Item bedrockPickaxe = new ItemModPickaxe(ToolMaterialMod.BedrockPick, "bedrock_pickaxe");
+    public static Item bedrockAxe = new ItemModAxe(ToolMaterialMod.BedrockAxe, "bedrock_axe");
+    public static Item bedrockShovel = new ItemModShovel(ToolMaterialMod.BedrockShovel, "bedrock_shovel");
 
-    public static Item corruptedPickaxe = new ItemPickaxeBase(ToolMaterialMod.CorruptedPick, "corrupted_pickaxe");
-    public static Item corruptedAxe = new ItemAxeBase(ToolMaterialMod.CorruptedAxe, "corrupted_axe");
-    public static Item corruptedShovel = new ItemShovelBase(ToolMaterialMod.CorruptedShovel, "corrupted_shovel");
+    public static Item corruptedPickaxe = new ItemModPickaxe(ToolMaterialMod.CorruptedPick, "corrupted_pickaxe");
+    public static Item corruptedAxe = new ItemModAxe(ToolMaterialMod.CorruptedAxe, "corrupted_axe");
+    public static Item corruptedShovel = new ItemModShovel(ToolMaterialMod.CorruptedShovel, "corrupted_shovel");
 
     public static Item divineShickaxe = new ItemShickaxeBase(ToolMaterialMod.DivineShick, "divine_shickaxe");
-    public static Item divinePickaxe = new ItemPickaxeBase(ToolMaterialMod.DivinePick, "divine_pickaxe");
-    public static Item divineAxe = new ItemAxeBase(ToolMaterialMod.DivineAxe, "divine_axe");
-    public static Item divineShovel = new ItemShovelBase(ToolMaterialMod.DivineShovel, "divine_shovel");
+    public static Item divinePickaxe = new ItemModPickaxe(ToolMaterialMod.DivinePick, "divine_pickaxe");
+    public static Item divineAxe = new ItemModAxe(ToolMaterialMod.DivineAxe, "divine_axe");
+    public static Item divineShovel = new ItemModShovel(ToolMaterialMod.DivineShovel, "divine_shovel");
 
     // Vanilla Other
     public static Item rupeeIngot = new ItemMod("rupee_ingot");
@@ -486,10 +486,10 @@ public class ModItems {
 
     private static Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6,
             ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
-    public static Item santaCap = new ItemArmorBase(EnumArmor.SANTA, EntityEquipmentSlot.HEAD, santaInfo);
-    public static Item santaTunic = new ItemArmorBase(EnumArmor.SANTA, EntityEquipmentSlot.CHEST, santaInfo);
-    public static Item santaPants = new ItemArmorBase(EnumArmor.SANTA, EntityEquipmentSlot.LEGS, santaInfo);
-    public static Item santaBoots = new ItemArmorBase(EnumArmor.SANTA, EntityEquipmentSlot.FEET, santaInfo);
+    public static Item santaCap = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.HEAD, santaInfo);
+    public static Item santaTunic = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.CHEST, santaInfo);
+    public static Item santaPants = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.LEGS, santaInfo);
+    public static Item santaBoots = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.FEET, santaInfo);
 
     public static Item snowGlobe = new ItemSnowGlobe("snow_globe");
 
@@ -620,60 +620,60 @@ public class ModItems {
     public static Item twilightBow = new ItemBowBase("twilight_bow", -1, 13, 25, 14400, furyArrow).setCreativeTab(null);
 
     // Twilight Tools
-    public static Item edenPickaxe = new ItemPickaxeBase(ToolMaterialMod.EdenPick, "eden_pickaxe");
-    public static Item wildwoodPickaxe = new ItemPickaxeBase(ToolMaterialMod.WildwoodPick, "wildwood_pickaxe");
-    public static Item apalachiaPickaxe = new ItemPickaxeBase(ToolMaterialMod.ApalachiaPick, "apalachia_pickaxe");
-    public static Item skythernPickaxe = new ItemPickaxeBase(ToolMaterialMod.SkythernPick, "skythern_pickaxe");
-    public static Item mortumPickaxe = new ItemPickaxeBase(ToolMaterialMod.MortumPick, "mortum_pickaxe");
+    public static Item edenPickaxe = new ItemModPickaxe(ToolMaterialMod.EdenPick, "eden_pickaxe");
+    public static Item wildwoodPickaxe = new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwood_pickaxe");
+    public static Item apalachiaPickaxe = new ItemModPickaxe(ToolMaterialMod.ApalachiaPick, "apalachia_pickaxe");
+    public static Item skythernPickaxe = new ItemModPickaxe(ToolMaterialMod.SkythernPick, "skythern_pickaxe");
+    public static Item mortumPickaxe = new ItemModPickaxe(ToolMaterialMod.MortumPick, "mortum_pickaxe");
 
-    public static Item edenAxe = new ItemAxeBase(ToolMaterialMod.EdenAxe, "eden_axe");
-    public static Item wildwoodAxe = new ItemAxeBase(ToolMaterialMod.WildwoodAxe, "wildwood_axe");
-    public static Item apalachiaAxe = new ItemAxeBase(ToolMaterialMod.ApalachiaAxe, "apalachia_axe");
-    public static Item skythernAxe = new ItemAxeBase(ToolMaterialMod.SkythernAxe, "skythern_axe");
-    public static Item mortumAxe = new ItemAxeBase(ToolMaterialMod.MortumAxe, "mortum_axe");
+    public static Item edenAxe = new ItemModAxe(ToolMaterialMod.EdenAxe, "eden_axe");
+    public static Item wildwoodAxe = new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildwood_axe");
+    public static Item apalachiaAxe = new ItemModAxe(ToolMaterialMod.ApalachiaAxe, "apalachia_axe");
+    public static Item skythernAxe = new ItemModAxe(ToolMaterialMod.SkythernAxe, "skythern_axe");
+    public static Item mortumAxe = new ItemModAxe(ToolMaterialMod.MortumAxe, "mortum_axe");
 
-    public static Item edenShovel = new ItemShovelBase(ToolMaterialMod.EdenShovel, "eden_shovel");
-    public static Item wildwoodShovel = new ItemShovelBase(ToolMaterialMod.WildwoodShovel, "wildwood_shovel");
-    public static Item apalachiaShovel = new ItemShovelBase(ToolMaterialMod.ApalachiaShovel, "apalachia_shovel");
-    public static Item skythernShovel = new ItemShovelBase(ToolMaterialMod.SkythernShovel, "skythern_shovel");
-    public static Item mortumShovel = new ItemShovelBase(ToolMaterialMod.MortumShovel, "mortum_shovel");
+    public static Item edenShovel = new ItemModShovel(ToolMaterialMod.EdenShovel, "eden_shovel");
+    public static Item wildwoodShovel = new ItemModShovel(ToolMaterialMod.WildwoodShovel, "wildwood_shovel");
+    public static Item apalachiaShovel = new ItemModShovel(ToolMaterialMod.ApalachiaShovel, "apalachia_shovel");
+    public static Item skythernShovel = new ItemModShovel(ToolMaterialMod.SkythernShovel, "skythern_shovel");
+    public static Item mortumShovel = new ItemModShovel(ToolMaterialMod.MortumShovel, "mortum_shovel");
 
     // Twilight Armor
     private static Object[] edenInfo = new Object[] { 3, ArmorInfo.ORE_DROPS };
-    public static Item edenHelmet = new ItemArmorBase(EnumArmor.EDEN, EntityEquipmentSlot.HEAD, edenInfo);
-    public static Item edenChestplate = new ItemArmorBase(EnumArmor.EDEN, EntityEquipmentSlot.CHEST, edenInfo);
-    public static Item edenLeggings = new ItemArmorBase(EnumArmor.EDEN, EntityEquipmentSlot.LEGS, edenInfo);
-    public static Item edenBoots = new ItemArmorBase(EnumArmor.EDEN, EntityEquipmentSlot.FEET, edenInfo);
+    public static Item edenHelmet = new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.HEAD, edenInfo);
+    public static Item edenChestplate = new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.CHEST, edenInfo);
+    public static Item edenLeggings = new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.LEGS, edenInfo);
+    public static Item edenBoots = new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.FEET, edenInfo);
 
     private static Object[] wildInfo = new Object[] { ArmorInfo.UNDERWATER_HEALTH_REGEN };
-    public static Item wildwoodHelmet = new ItemArmorBase(EnumArmor.WILD, EntityEquipmentSlot.HEAD, wildInfo);
-    public static Item wildwoodChestplate = new ItemArmorBase(EnumArmor.WILD, EntityEquipmentSlot.CHEST, wildInfo);
-    public static Item wildwoodLeggings = new ItemArmorBase(EnumArmor.WILD, EntityEquipmentSlot.LEGS, wildInfo);
-    public static Item wildwoodBoots = new ItemArmorBase(EnumArmor.WILD, EntityEquipmentSlot.FEET, wildInfo);
+    public static Item wildwoodHelmet = new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.HEAD, wildInfo);
+    public static Item wildwoodChestplate = new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.CHEST, wildInfo);
+    public static Item wildwoodLeggings = new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.LEGS, wildInfo);
+    public static Item wildwoodBoots = new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.FEET, wildInfo);
 
     private static Object[] apInfo = new Object[] { ArmorInfo.BLOCK_PROTECTION };
-    public static Item apalachiaHelmet = new ItemArmorBase(EnumArmor.APALACHIA, EntityEquipmentSlot.HEAD, apInfo);
-    public static Item apalachiaChestplate = new ItemArmorBase(EnumArmor.APALACHIA, EntityEquipmentSlot.CHEST, apInfo);
-    public static Item apalachiaLeggings = new ItemArmorBase(EnumArmor.APALACHIA, EntityEquipmentSlot.LEGS, apInfo);
-    public static Item apalachiaBoots = new ItemArmorBase(EnumArmor.APALACHIA, EntityEquipmentSlot.FEET, apInfo);
+    public static Item apalachiaHelmet = new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.HEAD, apInfo);
+    public static Item apalachiaChestplate = new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.CHEST, apInfo);
+    public static Item apalachiaLeggings = new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.LEGS, apInfo);
+    public static Item apalachiaBoots = new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.FEET, apInfo);
 
     private static Object[] skyInfo = new Object[] { 5, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
-    public static Item skythernHelmet = new ItemArmorBase(EnumArmor.SKYTHERN, EntityEquipmentSlot.HEAD, skyInfo);
-    public static Item skythernChestplate = new ItemArmorBase(EnumArmor.SKYTHERN, EntityEquipmentSlot.CHEST, skyInfo);
-    public static Item skythernLeggings = new ItemArmorBase(EnumArmor.SKYTHERN, EntityEquipmentSlot.LEGS, skyInfo);
-    public static Item skythernBoots = new ItemArmorBase(EnumArmor.SKYTHERN, EntityEquipmentSlot.FEET, skyInfo);
+    public static Item skythernHelmet = new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.HEAD, skyInfo);
+    public static Item skythernChestplate = new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.CHEST, skyInfo);
+    public static Item skythernLeggings = new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.LEGS, skyInfo);
+    public static Item skythernBoots = new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.FEET, skyInfo);
 
     private static Object[] mortInfo = new Object[] { ArmorInfo.NIGHT_VISION };
-    public static Item mortumHelmet = new ItemArmorBase(EnumArmor.MORTUM, EntityEquipmentSlot.HEAD, mortInfo);
-    public static Item mortumChestplate = new ItemArmorBase(EnumArmor.MORTUM, EntityEquipmentSlot.CHEST, mortInfo);
-    public static Item mortumLeggings = new ItemArmorBase(EnumArmor.MORTUM, EntityEquipmentSlot.LEGS, mortInfo);
-    public static Item mortumBoots = new ItemArmorBase(EnumArmor.MORTUM, EntityEquipmentSlot.FEET, mortInfo);
+    public static Item mortumHelmet = new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.HEAD, mortInfo);
+    public static Item mortumChestplate = new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.CHEST, mortInfo);
+    public static Item mortumLeggings = new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.LEGS, mortInfo);
+    public static Item mortumBoots = new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.FEET, mortInfo);
 
     private static Object[] halInfo = new Object[] { 16, ArmorInfo.MELEE_DAMAGE };
-    public static Item haliteHelmet = new ItemArmorBase(EnumArmor.HALITE, EntityEquipmentSlot.HEAD, halInfo);
-    public static Item haliteChestplate = new ItemArmorBase(EnumArmor.HALITE, EntityEquipmentSlot.CHEST, halInfo);
-    public static Item haliteLeggings = new ItemArmorBase(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo);
-    public static Item haliteBoots = new ItemArmorBase(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo);
+    public static Item haliteHelmet = new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.HEAD, halInfo);
+    public static Item haliteChestplate = new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.CHEST, halInfo);
+    public static Item haliteLeggings = new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo);
+    public static Item haliteBoots = new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo);
 
     // Twilight Crops
     public static Item moonbulb = new ItemFastFood(1, 5, false, "moonbulb");
@@ -814,16 +814,16 @@ public class ModItems {
     public static Item eucalyptusSeeds = new ItemNotReady("eucalyptus_root_seeds", DRPGCreativeTabs.items);
 
     private static Object[] kormInfo = new Object[] { ArmorInfo.ARCANA_REGEN };
-    public static Item kormaHelmet = new ItemArmorBase(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo);
-    public static Item kormaBody = new ItemArmorBase(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo);
-    public static Item kormaLegs = new ItemArmorBase(EnumArmor.KORMA, EntityEquipmentSlot.LEGS, kormInfo);
-    public static Item kormaBoots = new ItemArmorBase(EnumArmor.KORMA, EntityEquipmentSlot.FEET, kormInfo);
+    public static Item kormaHelmet = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo);
+    public static Item kormaBody = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo);
+    public static Item kormaLegs = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.LEGS, kormInfo);
+    public static Item kormaBoots = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.FEET, kormInfo);
 
     private static Object[] vemInfo = new Object[] { ArmorInfo.HEALTH_REGEN };
-    public static Item vemosHelmet = new ItemArmorBase(EnumArmor.VEMOS, EntityEquipmentSlot.HEAD, vemInfo);
-    public static Item vemosBody = new ItemArmorBase(EnumArmor.VEMOS, EntityEquipmentSlot.CHEST, vemInfo);
-    public static Item vemosLegs = new ItemArmorBase(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo);
-    public static Item vemosBoots = new ItemArmorBase(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo);
+    public static Item vemosHelmet = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.HEAD, vemInfo);
+    public static Item vemosBody = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.CHEST, vemInfo);
+    public static Item vemosLegs = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo);
+    public static Item vemosBoots = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo);
 
     // Vethea
     public static Item dirtyPearls = new ItemMod("dirty_pearls");
@@ -1102,55 +1102,55 @@ public class ModItems {
     private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT,
             ArmorInfo.NO_FALL };
 
-    public static Item degradedHelmet = new ItemArmorBase(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo,
+    public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo,
             true, "helmet");
-    public static Item degradedMask = new ItemArmorBase(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo,
+    public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo,
             true, "mask");
-    public static Item degradedHood = new ItemArmorBase(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo,
+    public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo,
             true, "hood");
-    public static Item degradedBody = new ItemArmorBase(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST, true);
-    public static Item degradedLegs = new ItemArmorBase(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS, true);
-    public static Item degradedBoots = new ItemArmorBase(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET, true);
+    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST, true);
+    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS, true);
+    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET, true);
 
-    public static Item finishedHelmet = new ItemArmorBase(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo,
+    public static Item finishedHelmet = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo,
             true, "helmet");
-    public static Item finishedMask = new ItemArmorBase(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo,
+    public static Item finishedMask = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo,
             true, "mask");
-    public static Item finishedHood = new ItemArmorBase(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo,
+    public static Item finishedHood = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo,
             true, "hood");
-    public static Item finishedBody = new ItemArmorBase(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST, true);
-    public static Item finishedLegs = new ItemArmorBase(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS, true);
-    public static Item finishedBoots = new ItemArmorBase(EnumArmor.FINISHED, EntityEquipmentSlot.FEET, true);
+    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST, true);
+    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS, true);
+    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET, true);
 
-    public static Item glisteningHelmet = new ItemArmorBase(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
+    public static Item glisteningHelmet = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
             glisteningHelmInfo, true, "helmet");
-    public static Item glisteningMask = new ItemArmorBase(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
+    public static Item glisteningMask = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
             glisteningMaskInfo, true, "mask");
-    public static Item glisteningHood = new ItemArmorBase(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
+    public static Item glisteningHood = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
             glisteningHoodInfo, true, "hood");
-    public static Item glisteningBody = new ItemArmorBase(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST, true);
-    public static Item glisteningLegs = new ItemArmorBase(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS, true);
-    public static Item glisteningBoots = new ItemArmorBase(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET, true);
+    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST, true);
+    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS, true);
+    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET, true);
 
-    public static Item demonizedHelmet = new ItemArmorBase(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
+    public static Item demonizedHelmet = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
             demonizedHelmInfo, true, "helmet");
-    public static Item demonizedMask = new ItemArmorBase(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
+    public static Item demonizedMask = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
             demonizedMaskInfo, true, "mask");
-    public static Item demonizedHood = new ItemArmorBase(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
+    public static Item demonizedHood = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
             demonizedHoodInfo, true, "hood");
-    public static Item demonizedBody = new ItemArmorBase(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST, true);
-    public static Item demonizedLegs = new ItemArmorBase(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS, true);
-    public static Item demonizedBoots = new ItemArmorBase(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET, true);
+    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST, true);
+    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS, true);
+    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET, true);
 
-    public static Item tormentedHelmet = new ItemArmorBase(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
+    public static Item tormentedHelmet = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
             tormentedHelmInfo, true, "helmet");
-    public static Item tormentedMask = new ItemArmorBase(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
+    public static Item tormentedMask = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
             tormentedMaskInfo, true, "mask");
-    public static Item tormentedHood = new ItemArmorBase(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
+    public static Item tormentedHood = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
             tormentedHoodInfo, true, "hood");
-    public static Item tormentedBody = new ItemArmorBase(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST, true);
-    public static Item tormentedLegs = new ItemArmorBase(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
-    public static Item tormentedBoots = new ItemArmorBase(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
+    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST, true);
+    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
+    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
 
     public static void CreateJSONs() {
         GenerateJSON.generateItemModelJSONs();

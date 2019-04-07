@@ -10,16 +10,17 @@ import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemPickaxeBase extends ItemPickaxe implements IHasModel {
+public class ItemModShovel extends ItemSpade implements IHasModel {
+
 	private String name;
 
-	public ItemPickaxeBase(ToolMaterial material, String name) {
+	public ItemModShovel(ToolMaterial material, String name) {
 		super(material);
 		this.name = name;
 		setRegistryName(name);
@@ -38,11 +39,11 @@ public class ItemPickaxeBase extends ItemPickaxe implements IHasModel {
 		} else {
 			infoList.add(TooltipLocalizer.infiniteUses());
 		}
-
 	}
 
 	@Override
 	public void registerModels() {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
+
 }

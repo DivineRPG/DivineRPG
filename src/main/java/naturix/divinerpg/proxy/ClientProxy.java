@@ -69,8 +69,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class ClientProxy extends CommonProxy {
     public static MusicTicker.MusicType Music_Iceika;
-
-    ArcanaHelper ah;
+    public static ArcanaHelper arcanaHelper;
 
     @Override
     public EntityPlayer getPlayer() {
@@ -80,7 +79,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        //DRPGSoundHandler.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
         Utils.setupCapes();
         Utils.updateCapeList();

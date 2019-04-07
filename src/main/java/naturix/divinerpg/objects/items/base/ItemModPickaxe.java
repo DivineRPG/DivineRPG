@@ -10,19 +10,17 @@ import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemAxeBase extends ItemAxe implements IHasModel {
-
+public class ItemModPickaxe extends ItemPickaxe implements IHasModel {
 	private String name;
 
-	public ItemAxeBase(ToolMaterial material, String name) {
-		// Eskl decided the speed multiplier (the / 5 thing)
-		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
+	public ItemModPickaxe(ToolMaterial material, String name) {
+		super(material);
 		this.name = name;
 		setRegistryName(name);
 		setUnlocalizedName(name);
@@ -40,6 +38,7 @@ public class ItemAxeBase extends ItemAxe implements IHasModel {
 		} else {
 			infoList.add(TooltipLocalizer.infiniteUses());
 		}
+
 	}
 
 	@Override
