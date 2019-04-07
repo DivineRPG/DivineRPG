@@ -1,5 +1,6 @@
 package naturix.divinerpg.events;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -134,6 +136,99 @@ public void onJump(LivingJumpEvent event) {
 }
 
 @SubscribeEvent
+public void onLivingHurtEvent(LivingHurtEvent e) {
+	if (e.getSource().getTrueSource() != null && e.getSource().getTrueSource() instanceof EntityPlayer) {
+		EntityPlayer player = (EntityPlayer) e.getSource().getTrueSource();
+
+		ItemStack stackBoots = player.inventory.armorItemInSlot(0);
+		ItemStack stackLegs = player.inventory.armorItemInSlot(1);
+		ItemStack stackBody = player.inventory.armorItemInSlot(2);
+		ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+
+		if (stackBoots != null) {
+			boots = stackBoots.getItem();
+		} else {
+			boots = null;
+		}
+
+		if (stackBody != null) {
+			body = stackBody.getItem();
+		} else {
+			body = null;
+		}
+
+		if (stackLegs != null) {
+			legs = stackLegs.getItem();
+		} else {
+			legs = null;
+		}
+
+		if (stackHelmet != null) {
+			helmet = stackHelmet.getItem();
+		} else {
+			helmet = null;
+		}
+	}
+
+	DamageSource s = e.getSource();
+
+	// Santa
+	if (boots == ModItems.santaBoots && body == ModItems.santaTunic && legs == ModItems.santaPants
+	        && helmet == ModItems.santaCap) {
+		if ((e.getEntityLiving().world.provider.getDimensionType().getId() == Config.iceikaDimensionId)
+		        && ((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+			e.setAmount(e.getAmount() + 6);
+		}
+	}
+
+	// Halite
+	if (boots == ModItems.haliteBoots && body == ModItems.haliteChestplate && legs == ModItems.haliteLeggings
+	        && helmet == ModItems.haliteHelmet) {
+		if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+			e.setAmount(e.getAmount() + 16);
+		}
+	}
+
+	// Divine
+	if (boots == ModItems.divineBoots && body == ModItems.divineBody && legs == ModItems.divineLegs
+	        && helmet == ModItems.divineHelmet) {
+		if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+			e.setAmount(e.getAmount() + 6);
+		}
+	}
+
+	// Corrupted
+	if (body == ModItems.corruptedBody && legs == ModItems.corruptedLegs && boots == ModItems.corruptedBoots
+	        && helmet == ModItems.corruptedHelmet) {
+		if (((s.getTrueSource() instanceof EntityPlayer) && s.isProjectile())) {
+			e.setAmount(e.getAmount() * 1.2F);
+		}
+	}
+
+	// Vethean
+	if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots
+	        && helmet == ModItems.glisteningHelmet) {
+		if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+			e.setAmount(e.getAmount() + 3);
+		}
+	}
+
+	if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots
+	        && helmet == ModItems.demonizedHelmet) {
+		if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+			e.setAmount(e.getAmount() + 6);
+		}
+	}
+
+	if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots
+	        && helmet == ModItems.tormentedHelmet) {
+		if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+			e.setAmount(e.getAmount() + 9);
+		}
+	}
+}
+
+@SubscribeEvent
 public void onPlayerAttackEvent(LivingAttackEvent e) {
 	// if(e.getEntityLiving().world.isRemote) {
 	if (e.getEntity() instanceof EntityPlayer) {
@@ -206,100 +301,4 @@ public void onPlayerAttackEvent(LivingAttackEvent e) {
 		}
 	}
 }
-//
-// @SubscribeEvent
-// public void onLivingHurtEvent(LivingHurtEvent e) {
-// if (e.source.getEntity() != null && e.source.getEntity() instanceof
-// EntityPlayer) {
-// EntityPlayer player = (EntityPlayer) e.source.getEntity();
-//
-// ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-// ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-// ItemStack stackBody = player.inventory.armorItemInSlot(2);
-// ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
-//
-// if (stackBoots != null) boots = stackBoots.getItem();
-// else boots = null;
-//
-// if (stackBody != null) body = stackBody.getItem();
-// else body = null;
-//
-// if (stackLegs != null) legs = stackLegs.getItem();
-// else legs = null;
-//
-// if (stackHelmet != null) helmet = stackHelmet.getItem();
-// else helmet = null;
-// }
-//
-// DamageSource s = e.source;
-//
-// //Santa
-// if (boots == IceikaItems.santaBoots && body == IceikaItems.santaTunic && legs
-// == IceikaItems.santaPants && helmet == IceikaItems.santaCap) {
-// if ((e.entityLiving.worldObj.provider.dimensionId ==
-// ConfigurationHelper.iceika) && ((s.getEntity() instanceof EntityPlayer) &&
-// !s.isProjectile() && !s.isMagicDamage())) {
-// e.ammount += 6;
-// }
-// }
-//
-// //Halite
-// if (boots == TwilightItemsArmor.haliteBoots && body ==
-// TwilightItemsArmor.haliteChestplate && legs ==
-// TwilightItemsArmor.haliteLeggings && helmet ==
-// TwilightItemsArmor.haliteHelmet) {
-// if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() &&
-// !s.isMagicDamage())) {
-// e.ammount += 16;
-// }
-// }
-//
-// //Divine
-// if (boots == VanillaItemsArmor.divineBoots && body ==
-// VanillaItemsArmor.divineBody && legs == VanillaItemsArmor.divineLegs &&
-// helmet == VanillaItemsArmor.divineHelmet) {
-// if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() &&
-// !s.isMagicDamage())) {
-// e.ammount += 6;
-// }
-// }
-//
-// //Corrupted
-// if(body == VanillaItemsArmor.corruptedBody && legs ==
-// VanillaItemsArmor.corruptedLegs && boots == VanillaItemsArmor.corruptedBoots
-// && helmet == VanillaItemsArmor.corruptedHelmet) {
-// if (((s.getEntity() instanceof EntityPlayer) && s.isProjectile())) {
-// e.ammount *= 1.2;
-// }
-// }
-//
-// //Vethean
-// if(body == VetheaItems.glisteningBody && legs == VetheaItems.glisteningLegs
-// && boots == VetheaItems.glisteningBoots && helmet ==
-// VetheaItems.glisteningHelmet) {
-// if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() &&
-// !s.isMagicDamage())) {
-// e.ammount += 3;
-// }
-// }
-//
-// if(body == VetheaItems.demonizedBody && legs == VetheaItems.demonizedLegs &&
-// boots == VetheaItems.demonizedBoots && helmet == VetheaItems.demonizedHelmet)
-// {
-// if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() &&
-// !s.isMagicDamage())) {
-// e.ammount += 6;
-// }
-// }
-//
-// if(body == VetheaItems.tormentedBody && legs == VetheaItems.tormentedLegs &&
-// boots == VetheaItems.tormentedBoots && helmet == VetheaItems.tormentedHelmet)
-// {
-// if (((s.getEntity() instanceof EntityPlayer) && !s.isProjectile() &&
-// !s.isMagicDamage())) {
-// e.ammount += 9;
-// }
-// }
-// }
-// }
 }
