@@ -14,5 +14,4 @@
 * Bows
 
 ## Bugs
-* Ores dont smelt on the Hexxit Updated server
 * ModSounds not working on server
