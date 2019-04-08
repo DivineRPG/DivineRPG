@@ -6,6 +6,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ModSounds {
 
     public static final SoundEvent ACID_HAG = createEvent("acid_hag");
