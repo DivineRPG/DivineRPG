@@ -12,6 +12,7 @@
 * Serenades (Ice/Death require entites)
 * Music Shooters (require entities)
 * Bows
+* Advancements (at least Vanilla + Iceika)
 
 ## Bugs
 * ModSounds not working on server
