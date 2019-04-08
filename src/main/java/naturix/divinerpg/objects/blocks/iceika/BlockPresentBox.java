@@ -13,10 +13,14 @@ import net.minecraft.world.World;
 public class BlockPresentBox extends BlockModChest {
 
     public BlockPresentBox(String name) {
-        super(name, Material.WOOD, GUIHandler.PRESENT_BOX_GUI_ID);
+        super(name, Material.WOOD);
         setSoundType(SoundType.STONE);
         setResistance(1000000);
         setHardness(2);
+    }
+
+    public int getGuiID() {
+        return GUIHandler.PRESENT_BOX_GUI_ID;
     }
 
     @Nullable

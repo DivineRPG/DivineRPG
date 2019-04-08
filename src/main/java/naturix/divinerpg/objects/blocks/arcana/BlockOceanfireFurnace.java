@@ -15,8 +15,12 @@ public class BlockOceanfireFurnace extends BlockModFurnace implements ITileEntit
     protected String name;
 
     public BlockOceanfireFurnace(String name, boolean isBurnging) {
-        super(name, isBurnging, GUIHandler.OCEANFIRE_FURNACE_GUI_ID);
+        super(name, isBurnging);
         this.name = name;
+    }
+
+    public int getGuiID() {
+        return GUIHandler.OCEANFIRE_FURNACE_GUI_ID;
     }
 
     public static void setState(boolean active, World worldIn, BlockPos pos) {

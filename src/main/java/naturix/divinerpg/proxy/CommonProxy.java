@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.File;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.blocks.tile.block.TEBed;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
@@ -23,6 +24,7 @@ import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.utils.DRPGParticleTypes;
+import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,6 +35,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
@@ -43,6 +46,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
+        NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
     }
 
     public void postInit(FMLPostInitializationEvent e) {

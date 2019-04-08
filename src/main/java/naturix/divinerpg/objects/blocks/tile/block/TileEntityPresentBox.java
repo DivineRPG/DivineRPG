@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 public class TileEntityPresentBox extends TileEntityModChest {
 
-    public TileEntityPresentBox() {
-        super("present_box");
+    public String getChestName() {
+        return "tile.present_box.name";
     }
 }

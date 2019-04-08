@@ -5,8 +5,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
 public class TileEntityDemonFurnace extends TileEntityInfiniteFurnace {
-    public TileEntityDemonFurnace() {
-        super("demon_furnace", 100);
+
+    public String getFuranceName() {
+        return "tile.demon_furnace.name";
+    }
+
+    int getFurnaceSpeed() {
+        return 100;
     }
 
     public void updateBlockState() {

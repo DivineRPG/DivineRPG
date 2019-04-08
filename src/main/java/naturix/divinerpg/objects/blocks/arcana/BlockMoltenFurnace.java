@@ -15,8 +15,12 @@ public class BlockMoltenFurnace extends BlockModFurnace implements ITileEntityPr
     protected String name;
 
     public BlockMoltenFurnace(String name, boolean isBurnging) {
-        super(name, isBurnging, GUIHandler.MOLTEN_FURNACE_GUI_ID);
+        super(name, isBurnging);
         this.name = name;
+    }
+
+    public int getGuiID() {
+        return GUIHandler.MOLTEN_FURNACE_GUI_ID;
     }
 
     public static void setState(boolean active, World worldIn, BlockPos pos) {

@@ -14,7 +14,11 @@ import net.minecraft.world.World;
 public class BlockCoalstoneFurnace extends BlockModFurnace implements ITileEntityProvider {
 
     public BlockCoalstoneFurnace(String name, boolean isBurnging) {
-        super(name, isBurnging, GUIHandler.COALSTONE_FURNACE_GUI_ID);
+        super(name, isBurnging);
+    }
+
+    public int getGuiID() {
+        return GUIHandler.COALSTONE_FURNACE_GUI_ID;
     }
 
     public static void setState(boolean active, World worldIn, BlockPos pos) {
@@ -24,9 +28,12 @@ public class BlockCoalstoneFurnace extends BlockModFurnace implements ITileEntit
 
         keepInventory = true;
         if (active) {
-            worldIn.setBlockState(pos, ModBlocks.coalstoneFurnaceOn.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos,
+                    ModBlocks.coalstoneFurnaceOn.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)),
+                    3);
         } else {
-            worldIn.setBlockState(pos, ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos,
+                    ModBlocks.coalstoneFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
         keepInventory = false;
 

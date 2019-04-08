@@ -19,23 +19,26 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
-public class TileEntityModChest extends TileEntityLockableLoot implements ITickable {
+public abstract class TileEntityModChest extends TileEntityLockableLoot implements ITickable {
     private NonNullList<ItemStack> chestContents = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
     public int numPlayersUsing, ticksSinceSync;
     public float lidAngle, prevLidAngle;
     private String customName;
 
-    public TileEntityModChest(String name) {
-        this.customName = "tile." + name + ".name";
-    }
+    abstract public String getChestName();
 
+    @Override
     public String getName() {
-        return this.customName;
+        return this.hasCustomName() ? this.customName : getChestName();
     }
 
     @Override
     public boolean hasCustomName() {
-        return true;
+        return this.customName != null && !this.customName.isEmpty();
+    }
+
+    public void setCustomName(String customName) {
+        this.customName = customName;
     }
 
     @Nullable

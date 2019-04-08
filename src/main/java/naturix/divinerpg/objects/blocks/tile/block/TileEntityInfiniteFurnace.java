@@ -22,23 +22,26 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     private static final int[] NO_SLOT = new int[] {};
     private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY); // 0 is input. 1 is
                                                                                                     // output.
-    private String customName;
     public int cookTime;
     public int totalCookTime;
-    public int speed;
+    public String customName;
 
-    public TileEntityInfiniteFurnace(String name, int speed) {
-        this.customName = "tile." + name + "_down.name";
-        this.speed = speed;
-    }
+    abstract public String getFuranceName();
 
+    abstract int getFurnaceSpeed();
+
+    @Override
     public String getName() {
-        return this.customName;
+        return this.hasCustomName() ? this.customName : getFuranceName();
     }
 
     @Override
     public boolean hasCustomName() {
-        return true;
+        return this.customName != null && !this.customName.isEmpty();
+    }
+
+    public void setCustomName(String customName) {
+        this.customName = customName;
     }
 
     @Nullable
@@ -90,7 +93,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
 
         if (index == 0 && !flag) {
             ItemStack stack1 = (ItemStack) this.inventory.get(index + 1);
-            this.totalCookTime = this.speed;
+            this.totalCookTime = this.getFurnaceSpeed();
             this.cookTime = 0;
             markDirty();
         }
@@ -103,7 +106,9 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
         ItemStackHelper.loadAllItems(compound, this.inventory);
         this.cookTime = compound.getInteger("CookTime");
         this.totalCookTime = compound.getInteger("CookTimeTotal");
-        this.customName = compound.getString("CustomName");
+        if (compound.hasKey("CustomName", 8)) {
+            this.customName = compound.getString("CustomName");
+        }
     }
 
     @Override
@@ -112,7 +117,9 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
         compound.setInteger("CookTime", (short) this.cookTime);
         compound.setInteger("CookTimeTotal", (short) this.totalCookTime);
         ItemStackHelper.saveAllItems(compound, this.inventory);
-        compound.setString("CustomName", this.customName);
+        if (compound.hasKey("CustomName", 8)) {
+            compound.setString("CustomName", this.customName);
+        }
         return compound;
     }
 
@@ -227,7 +234,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
                 }
                 if (cookTime == totalCookTime) {
                     this.cookTime = 0;
-                    this.totalCookTime = this.speed;
+                    this.totalCookTime = this.getFurnaceSpeed();
                     this.smeltItem();
                 }
             } else {

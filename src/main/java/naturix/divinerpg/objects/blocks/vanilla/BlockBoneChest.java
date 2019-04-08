@@ -13,9 +13,13 @@ import net.minecraft.world.World;
 public class BlockBoneChest extends BlockModChest {
 
     public BlockBoneChest(String name) {
-        super(name, Material.ROCK, GUIHandler.BONE_CHEST_GUI_ID);
+        super(name, Material.ROCK);
         setSoundType(SoundType.STONE);
         setHardness(4);
+    }
+
+    public int getGuiID() {
+        return GUIHandler.BONE_CHEST_GUI_ID;
     }
 
     @Nullable

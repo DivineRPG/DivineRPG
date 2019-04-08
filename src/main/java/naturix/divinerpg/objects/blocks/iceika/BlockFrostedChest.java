@@ -27,9 +27,13 @@ public class BlockFrostedChest extends BlockModChest {
     private boolean dropsSnowflake;
 
     public BlockFrostedChest(String name, boolean dropsSnowFlake) {
-        super(name, Material.WOOD, GUIHandler.FROSTED_CHEST_GUI_ID);
+        super(name, Material.WOOD);
         setSoundType(SoundType.GLASS);
         this.dropsSnowflake = dropsSnowFlake;
+    }
+
+    public int getGuiID() {
+        return GUIHandler.FROSTED_CHEST_GUI_ID;
     }
 
     @Nullable

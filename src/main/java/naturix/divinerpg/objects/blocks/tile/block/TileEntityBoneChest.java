@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 public class TileEntityBoneChest extends TileEntityModChest {
 
-    public TileEntityBoneChest() {
-        super("bone_chest");
+    public String getChestName() {
+        return "tile.bone_chest.name";
     }
 }

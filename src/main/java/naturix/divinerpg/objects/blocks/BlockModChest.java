@@ -32,11 +32,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class BlockModChest extends BlockContainer implements IHasModel {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    protected int guiID;
 
-    public BlockModChest(String name, Material material, int guiID) {
+    public BlockModChest(String name, Material material) {
         super(material);
-        this.guiID = guiID;
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
@@ -45,6 +43,8 @@ public abstract class BlockModChest extends BlockContainer implements IHasModel 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
+
+    abstract public int getGuiID();
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
@@ -102,7 +102,7 @@ public abstract class BlockModChest extends BlockContainer implements IHasModel 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
             EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(DivineRPG.instance, this.guiID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+            playerIn.openGui(DivineRPG.instance, this.getGuiID(), worldIn, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }
@@ -116,12 +116,6 @@ public abstract class BlockModChest extends BlockContainer implements IHasModel 
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
             ItemStack stack) {
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
-        if (stack.hasDisplayName()) {
-            TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if (tileEntity instanceof TileEntityLockableLoot) {
-                ((TileEntityLockableLoot) tileEntity).setCustomName(stack.getDisplayName());
-            }
-        }
     }
 
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {

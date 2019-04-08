@@ -16,8 +16,12 @@ public class BlockDemonFurnace extends BlockModFurnace implements ITileEntityPro
     protected String name;
 
     public BlockDemonFurnace(String name, boolean isBurning) {
-        super(name, isBurning, GUIHandler.DEMON_FURNACE_GUI_ID);
+        super(name, isBurning);
         this.name = name;
+    }
+
+    public int getGuiID() {
+        return GUIHandler.DEMON_FURNACE_GUI_ID;
     }
 
     public static void setState(boolean active, World worldIn, BlockPos pos) {

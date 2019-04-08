@@ -2,7 +2,6 @@ package naturix.divinerpg.proxy;
 
 import java.awt.Color;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
@@ -43,7 +42,6 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.DRPGParticleTypes;
-import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -65,7 +63,6 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class ClientProxy extends CommonProxy {
     public static MusicTicker.MusicType Music_Iceika;
@@ -79,7 +76,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
         Utils.setupCapes();
         Utils.updateCapeList();
 
