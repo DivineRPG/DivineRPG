@@ -15,3 +15,4 @@
 
 ## Bugs
 * ModSounds not working on server
+* Mobs need to cater for game rules such as mob greifing
