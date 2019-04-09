@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBowBase extends ItemBow implements IHasModel {
+public class ItemModBow extends ItemBow implements IHasModel {
 	public static final int DEFAULT_MAX_USE_DURATION = 72000;
 
 	protected String repairIngot = "";
@@ -45,11 +45,11 @@ public class ItemBowBase extends ItemBow implements IHasModel {
 
 	protected boolean showInCreative = true;
 
-	public ItemBowBase(String name, int uses, int damageMin, int damageMax, int maxUseDuraction) {
+	public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction) {
 		this(name, uses, damageMin, damageMax, maxUseDuraction, null);
 	}
 
-	public ItemBowBase(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow) {
+	public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow) {
 		this.name = name;
 		setMaxStackSize(1);
 		// setMaxDamage(toolMaterial.getMaxUses() + 325);
@@ -67,7 +67,7 @@ public class ItemBowBase extends ItemBow implements IHasModel {
 					return 0.0F;
 				} else {
 					ItemStack itemstack = entityIn.getActiveItemStack();
-					return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemBowBase
+					return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemModBow
 					        ? (stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F
 					        : 0.0F;
 				}
@@ -84,20 +84,20 @@ public class ItemBowBase extends ItemBow implements IHasModel {
 		});
 	}
 
-	public ItemBowBase(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow,
+	public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow,
 	        String arrowTex) {
 		this(name, uses, damageMin, damageMax, maxUseDuraction, arrow);
 	}
 
-	public ItemBowBase(String name, int uses, int damageMin, int damageMax, Item arrow) {
+	public ItemModBow(String name, int uses, int damageMin, int damageMax, Item arrow) {
 		this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, arrow);
 	}
 
-	public ItemBowBase(String name, int uses, int damageMin, int damageMax, Item arrow, String arrowTex) {
+	public ItemModBow(String name, int uses, int damageMin, int damageMax, Item arrow, String arrowTex) {
 		this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, arrow);
 	}
 
-	public ItemBowBase(String name, int uses, int damageMin, int damageMax, String arrowTex) {
+	public ItemModBow(String name, int uses, int damageMin, int damageMax, String arrowTex) {
 		this(name, uses, damageMin, damageMax, DEFAULT_MAX_USE_DURATION, null);
 	}
 
@@ -239,31 +239,31 @@ public class ItemBowBase extends ItemBow implements IHasModel {
 		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 
-	public ItemBowBase setArrowDamage(float multiplier) {
+	public ItemModBow setArrowDamage(float multiplier) {
 
 		arrowDamageMultiplier = multiplier;
 		return this;
 	}
 
-	public ItemBowBase setArrowSpeed(float multiplier) {
+	public ItemModBow setArrowSpeed(float multiplier) {
 
 		this.arrowSpeedMultiplier = multiplier;
 		return this;
 	}
 
-	public ItemBowBase setRepairIngot(String repairIngot) {
+	public ItemModBow setRepairIngot(String repairIngot) {
 
 		this.repairIngot = repairIngot;
 		return this;
 	}
 
-	public ItemBowBase setShowInCreative(boolean showInCreative) {
+	public ItemModBow setShowInCreative(boolean showInCreative) {
 
 		this.showInCreative = showInCreative;
 		return this;
 	}
 
-	public ItemBowBase setZoomMultiplier(float multiplier) {
+	public ItemModBow setZoomMultiplier(float multiplier) {
 
 		this.zoomMultiplier = multiplier;
 		return this;

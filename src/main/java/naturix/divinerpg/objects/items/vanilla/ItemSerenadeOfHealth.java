@@ -1,4 +1,4 @@
-package naturix.divinerpg.objects.items.iceika;
+package naturix.divinerpg.objects.items.vanilla;
 
 import java.util.List;
 
@@ -6,40 +6,38 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class SerenadeIce extends ItemMod {
+public class ItemSerenadeOfHealth extends ItemMod {
 
-	public SerenadeIce(String name) {
+	public ItemSerenadeOfHealth(String name) {
 		super(name);
-		this.setCreativeTab(DRPGCreativeTabs.ranged);
-		setMaxDamage(100);
+		this.setCreativeTab(DRPGCreativeTabs.utility);
+		setMaxDamage(7);
 		setMaxStackSize(1);
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add("Slows mobs for 5 seconds");
+		tooltip.add("Heals the user");
 		tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
 	}
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
+		entity.heal(entity.getMaxHealth());
+		entity.extinguish();
 
-		if (!world.isRemote) {
-			// worldgen.spawnEntity(new EntitySerenadeOfIce(worldgen, entity));
-			world.playSound(entity, entity.getPosition(), ModSounds.SERENADE, SoundCategory.MASTER, 1, 1);
+		getDefaultInstance();
+		entity.getFoodStats().addStats(20, 1);
 
-			entity.getHeldItem(hand).damageItem(1, entity);
-		}
+		entity.getHeldItem(hand).damageItem(1, entity);
 		return ar;
 	}
 }

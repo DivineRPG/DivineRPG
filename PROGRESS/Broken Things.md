@@ -15,4 +15,4 @@
 * Advancements (at least Vanilla + Iceika)
 
 ## Bugs
-* Mobs need to cater for game rules such as mob greifing
+

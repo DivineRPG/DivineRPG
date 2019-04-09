@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModShickaxe extends ItemTool implements IHasModel {
+public class ItemShickaxe extends ItemTool implements IHasModel {
     private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
             Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE,
             Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE,
@@ -47,7 +47,7 @@ public class ItemModShickaxe extends ItemTool implements IHasModel {
 
     protected String name;
 
-    public ItemModShickaxe(ToolMaterial toolMaterial, String name) {
+    public ItemShickaxe(ToolMaterial toolMaterial, String name) {
         super(toolMaterial.getAttackDamage(), -2.8F, toolMaterial, EFFECTIVE_ON);
         setCreativeTab(DRPGCreativeTabs.tools);
         setUnlocalizedName(name);

@@ -15,9 +15,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class SerenadeStrike extends ItemMod {
+public class ItemSerenadeStriker extends ItemMod {
 
-	public SerenadeStrike(String name) {
+	public ItemSerenadeStriker(String name) {
 		super(name);
 		this.setCreativeTab(DRPGCreativeTabs.ranged);
 		setMaxDamage(100);

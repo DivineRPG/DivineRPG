@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.EventArmorSet;
-import naturix.divinerpg.objects.items.base.ItemSpawnEgg;
+import naturix.divinerpg.objects.items.vanilla.ItemPetSpawnEgg;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -33,7 +33,7 @@ public class ModEvents {
 				DivineRPG.logger.info("Right clicking block with " + thePlayer.getHeldItem(event.getHand()));
 			}
 
-			if (thePlayer.getHeldItem(event.getHand()).getItem() instanceof ItemSpawnEgg) {
+			if (thePlayer.getHeldItem(event.getHand()).getItem() instanceof ItemPetSpawnEgg) {
 				ModTriggers.SPAWN_PET.trigger(thePlayerMP);
 			}
 			if (thePlayer.getHeldItem(event.getHand()).getItem() == ModItems.densosCrystal

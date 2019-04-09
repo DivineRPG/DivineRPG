@@ -30,56 +30,58 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, updateJSON = Reference.UPDATE_URL)
 public class DivineRPG {
-@Mod.Instance
-public static DivineRPG instance;
+    @Mod.Instance
+    public static DivineRPG instance;
 
-@SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
-public static CommonProxy proxy;
+    @SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
+    public static CommonProxy proxy;
 
-public static org.apache.logging.log4j.Logger logger;
+    public static org.apache.logging.log4j.Logger logger;
 
-public static SimpleNetworkWrapper network;
+    public static SimpleNetworkWrapper network;
 
-static {
-	FluidRegistry.enableUniversalBucket();
-}
+    static {
+        FluidRegistry.enableUniversalBucket();
+    }
 
-@Mod.EventHandler
-public void init(FMLInitializationEvent e) {
-	proxy.init(e);
-	ModTriggers.registerTriggers();
-	RenderFluids.registerCustomMeshesAndStates();
-	InitLog.init();
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent e) {
+        proxy.init(e);
+        ModTriggers.registerTriggers();
+        RenderFluids.registerCustomMeshesAndStates();
+        InitLog.init();
 
-	// 1.12.2 only
-	ModSmelting.init();
-}
+        // 1.12.2 only
+        if (!Config.genJSON) {
+            ModSmelting.init();
+        }
+    }
 
-@Mod.EventHandler
-public void postInit(FMLPostInitializationEvent e) {
-	proxy.postInit(e);
-	if (Loader.isModLoaded("projecte")) {
-		ProjectECompat.init();
-	}
-	PostInitLog.init();
-	IntenseDebug.init();
-}
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent e) {
+        proxy.postInit(e);
+        if (Loader.isModLoaded("projecte")) {
+            ProjectECompat.init();
+        }
+        PostInitLog.init();
+        IntenseDebug.init();
+    }
 
-/** Init Methods */
-@Mod.EventHandler
-public void preInit(FMLPreInitializationEvent event) {
-	RegistryHandler.preInitRegistries(event);
-	logger = event.getModLog();
-	proxy.preInit(event);
-	proxy.registerTileEntities();
-	proxy.RegisterTileEntityRender();
-	GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
-	ModEvents.preInit();
-	PreInitLog.init();
-}
+    /** Init Methods */
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        RegistryHandler.preInitRegistries(event);
+        logger = event.getModLog();
+        proxy.preInit(event);
+        proxy.registerTileEntities();
+        proxy.RegisterTileEntityRender();
+        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
+        ModEvents.preInit();
+        PreInitLog.init();
+    }
 
-/** For Registering Commands */
-@Mod.EventHandler
-public void serverLoad(FMLServerStartingEvent event) {
-}
+    /** For Registering Commands */
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+    }
 }

@@ -33,7 +33,8 @@ public class EntityWatcherShot extends EntityThrowable {
     @Override
     public void onImpact(RayTraceResult result) {
         if (!this.world.isRemote) {
-            this.world.createExplosion(null, this.posX, this.posY, this.posZ, 5.0F, true);
+            boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this);
+            this.world.createExplosion(null, this.posX, this.posY, this.posZ, 5.0F, flag);
         }
 
         if (result.entityHit != null) {
