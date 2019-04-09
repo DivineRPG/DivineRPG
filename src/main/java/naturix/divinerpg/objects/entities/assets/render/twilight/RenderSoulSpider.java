@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.twilight;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.twilight.model.ModelSoulSpider;
+import naturix.divinerpg.objects.entities.assets.model.twilight.ModelSoulSpider;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulSpider;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

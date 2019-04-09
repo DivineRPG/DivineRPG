@@ -2,7 +2,7 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.assets.model.iceika.model.RenderWorkshopTinkerer;
+import naturix.divinerpg.objects.entities.assets.model.iceika.RenderWorkshopTinkerer;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderApalachiaTomo;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;

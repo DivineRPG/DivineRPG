@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.arcana;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.twilight.model.ModelTomo;
+import naturix.divinerpg.objects.entities.assets.model.twilight.ModelTomo;
 import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaTomo;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

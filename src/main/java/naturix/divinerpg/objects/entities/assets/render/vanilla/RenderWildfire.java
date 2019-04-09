@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelWildfire;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelWildfire;
 import naturix.divinerpg.objects.entities.assets.render.MainHandLayerRenderWildfire;
 import naturix.divinerpg.objects.entities.entity.vanilla.Wildfire;
 import net.minecraft.client.model.ModelBase;

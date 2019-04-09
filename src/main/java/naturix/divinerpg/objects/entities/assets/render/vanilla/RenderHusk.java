@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelHusk;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelHusk;
 import naturix.divinerpg.objects.entities.entity.vanilla.Husk;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.arcana;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.arcana.model.ModelDungeonDemon;
+import naturix.divinerpg.objects.entities.assets.model.arcana.ModelDungeonDemon;
 import naturix.divinerpg.objects.entities.entity.arcana.DungeonDemon;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

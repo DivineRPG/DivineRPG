@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vethea;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vethea.model.ModelDissiment;
+import naturix.divinerpg.objects.entities.assets.model.vethea.ModelDissiment;
 import naturix.divinerpg.objects.entities.entity.vethea.Dissiment;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

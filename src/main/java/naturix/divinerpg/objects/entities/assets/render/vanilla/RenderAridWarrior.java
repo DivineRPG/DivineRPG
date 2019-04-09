@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelAridWarrior;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelAridWarrior;
 import naturix.divinerpg.objects.entities.assets.render.MainHandLayerRenderAridWarrior;
 import naturix.divinerpg.objects.entities.entity.vanilla.AridWarrior;
 import net.minecraft.client.model.ModelBase;

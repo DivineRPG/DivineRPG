@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.iceika;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.iceika.model.ModelHastreus;
+import naturix.divinerpg.objects.entities.assets.model.iceika.ModelHastreus;
 import naturix.divinerpg.objects.entities.entity.iceika.Hastreus;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.assets.render.projectile;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelSaguaroWormShot;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelSaguaroWormShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;

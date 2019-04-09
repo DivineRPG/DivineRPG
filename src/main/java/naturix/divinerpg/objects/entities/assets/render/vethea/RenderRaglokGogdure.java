@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vethea;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vethea.model.ModelRaglokGogdure;
+import naturix.divinerpg.objects.entities.assets.model.vethea.ModelRaglokGogdure;
 import naturix.divinerpg.objects.entities.entity.vethea.RaglokGogdure;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

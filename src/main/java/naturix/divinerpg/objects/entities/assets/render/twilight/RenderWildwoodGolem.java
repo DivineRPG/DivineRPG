@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.twilight;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.twilight.model.ModelTwilightGolem;
+import naturix.divinerpg.objects.entities.assets.model.twilight.ModelTwilightGolem;
 import naturix.divinerpg.objects.entities.entity.twilight.WildwoodGolem;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

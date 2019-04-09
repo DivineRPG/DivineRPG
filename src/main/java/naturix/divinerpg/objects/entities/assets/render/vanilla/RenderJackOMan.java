@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelJackOMan;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelJackOMan;
 import naturix.divinerpg.objects.entities.assets.render.MainHandLayerRenderJackOMan;
 import naturix.divinerpg.objects.entities.entity.vanilla.JackOMan;
 import net.minecraft.client.model.ModelBase;

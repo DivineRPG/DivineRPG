@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.arcana;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.arcana.model.ModelDeathcryx;
+import naturix.divinerpg.objects.entities.assets.model.arcana.ModelDeathcryx;
 import naturix.divinerpg.objects.entities.entity.arcana.Deathcryx;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

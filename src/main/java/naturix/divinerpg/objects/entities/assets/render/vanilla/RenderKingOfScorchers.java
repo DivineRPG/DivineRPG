@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.vanilla.model.ModelKingScorcher;
+import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelKingScorcher;
 import naturix.divinerpg.objects.entities.entity.vanilla.KingOfScorchers;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
