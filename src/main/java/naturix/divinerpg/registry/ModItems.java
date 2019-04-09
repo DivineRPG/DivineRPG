@@ -36,7 +36,6 @@ import naturix.divinerpg.objects.items.vanilla.ItemCorruptedCannon;
 import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
 import naturix.divinerpg.objects.items.vanilla.ItemInfernalFlame;
 import naturix.divinerpg.objects.items.vanilla.ItemMysteriousClock;
-import naturix.divinerpg.objects.items.vanilla.ItemPetSpawnEgg;
 import naturix.divinerpg.objects.items.vanilla.ItemScythe;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import naturix.divinerpg.objects.items.vanilla.ItemVileStorm;
@@ -445,8 +444,6 @@ public class ModItems {
     public static Item aquaticBlazeRod = new ItemMod("aquatic_blaze_rod");
     public static Item shadowCoins = new ItemMod("shadow_coins");
 
-    public static Item petSpawnEgg = new ItemPetSpawnEgg("pet_spawn_egg");
-
     public static Item greenDiamondChunk = new ItemMod("green_diamond_chunk");
     public static Item grayDiamondChunk = new ItemMod("gray_diamond_chunk");
     public static Item blueDiamondChunk = new ItemMod("blue_diamond_chunk");
@@ -806,10 +803,6 @@ public class ModItems {
     // public static Item seimerSpawner = new ItemArcanaSpawnEgg("seimerEgg");
     // public static Item paratikuSpawner = new ItemArcanaSpawnEgg("paratikuEgg");
     // public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryxEgg");
-    public static Item golemSpawner = new ItemNotReady("golem_egg", DRPGCreativeTabs.items);
-    public static Item seimerSpawner = new ItemNotReady("seimer_egg", DRPGCreativeTabs.items);
-    public static Item paratikuSpawner = new ItemNotReady("paratiku_egg", DRPGCreativeTabs.items);
-    public static Item fyracryxSpawner = new ItemNotReady("fyracryx_egg", DRPGCreativeTabs.items);
 
     public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
     // public static Item hitchakSeeds = new ItemArcanaSeeds("hitchakSeeds",

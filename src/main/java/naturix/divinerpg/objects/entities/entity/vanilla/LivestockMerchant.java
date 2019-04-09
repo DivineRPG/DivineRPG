@@ -2,17 +2,20 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
-import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
+import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
@@ -44,19 +47,26 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     @Override
     public void addRecipies(MerchantRecipeList list) {
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.shadowCoins, 4),
-                new ItemStack(ModItems.petSpawnEgg, 2, 0)));
+                getSpawnEggs("ehu", 2)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ModItems.shadowCoins, 7),
-                new ItemStack(ModItems.petSpawnEgg, 2, 1)));
+                getSpawnEggs("husk", 2)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.STONE, 64), new ItemStack(ModItems.shadowCoins, 3),
-                new ItemStack(ModItems.petSpawnEgg, 1, 2)));
+                getSpawnEggs("stone_golem", 1)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.NETHER_BRICK, 32), new ItemStack(ModItems.shadowCoins, 5),
-                new ItemStack(ModItems.petSpawnEgg, 1, 3)));
+                getSpawnEggs("smelter", 1)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.jungleStone, 2), new ItemStack(ModItems.shadowCoins, 4),
-                new ItemStack(ModItems.petSpawnEgg, 3, 4)));
+                getSpawnEggs("snapper", 3)));
         list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
-                new ItemStack(ModItems.petSpawnEgg, 2, 5)));
+                getSpawnEggs("grizzle_white", 2)));
         list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
-                new ItemStack(ModItems.petSpawnEgg, 2, 6)));
+                getSpawnEggs("grizzle", 2)));
+    }
+
+    private ItemStack getSpawnEggs(String name, int num) {
+        ItemStack spawnEggs = new ItemStack(Items.SPAWN_EGG, num);
+        name = Reference.MODID + "." + name;
+        ItemMonsterPlacer.applyEntityIdToItemStack(spawnEggs, new ResourceLocation(Reference.MODID, name));
+        return spawnEggs;
     }
 
     @Override
