@@ -327,6 +327,8 @@ import naturix.divinerpg.objects.entities.entity.vethea.WreckForm;
 import naturix.divinerpg.objects.entities.entity.vethea.Zone;
 import naturix.divinerpg.objects.entities.entity.vethea.Zoragon;
 import naturix.divinerpg.utils.Reference;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -340,623 +342,633 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModEntities {
-    public static int projectileID = 0;
-    public static int mobID = 500;
+public static int projectileID = 0;
+public static int mobID = 500;
 
-    public static void init() {
-        // Projectiles
-        registerProjectile(EntityEMP.class, "acid_arrow");
-        registerProjectile(EntityCaveRock.class, "cave_rock");
-        registerProjectile(EntityDeath.class, "death");
-        registerProjectile(EntityDisk.class, "disk_amthrimis");
-        registerProjectile(EntityDivineArrow.class, "divine_arrow");
-        registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
-        registerProjectile(EntityFractiteShot.class, "fractite_shot");
-        registerProjectile(EntityFrostShot.class, "frost_shot");
-        registerProjectile(EntityFrostCloud.class, "frost_cloud");
-        registerProjectile(EntityInfernoArrow.class, "inferno_arrow");
-        registerProjectile(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor");
-        registerProjectile(EntityKingOfScorchersShot.class, "king_of_scorchers_shot");
-        registerProjectile(EntitySaguaroWormShot.class, "saguaro_worm_shot");
-        registerProjectile(EntityScorcherShot.class, "scorcher_shot");
-        registerProjectile(EntityShuriken.class, "shuriken");
-        registerProjectile(EntitySparkler.class, "sparkler");
-        registerProjectile(EntityWatcherShot.class, "watcher_shot");
-        registerProjectile(EntityVileStorm.class, "vile_storm");
-        registerProjectile(EntitySnowflakeShuriken.class, "shuriken_snow");
-        registerProjectile(EntityShooterBullet.class, "shooter_bullet");
-        registerProjectile(EntityParticleBullet.class, "particle_bullet");
-        registerProjectile(EntityColoredBullet.class, "colored_bullet");
-        registerProjectile(EntityCorruptedBullet.class, "corrupted_bullet");
+public static void init() {
+	// Projectiles
+	registerProjectile(EntityEMP.class, "acid_arrow");
+	registerProjectile(EntityCaveRock.class, "cave_rock");
+	registerProjectile(EntityDeath.class, "death");
+	registerProjectile(EntityDisk.class, "disk_amthrimis");
+	registerProjectile(EntityDivineArrow.class, "divine_arrow");
+	registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
+	registerProjectile(EntityFractiteShot.class, "fractite_shot");
+	registerProjectile(EntityFrostShot.class, "frost_shot");
+	registerProjectile(EntityFrostCloud.class, "frost_cloud");
+	registerProjectile(EntityInfernoArrow.class, "inferno_arrow");
+	registerProjectile(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor");
+	registerProjectile(EntityKingOfScorchersShot.class, "king_of_scorchers_shot");
+	registerProjectile(EntitySaguaroWormShot.class, "saguaro_worm_shot");
+	registerProjectile(EntityScorcherShot.class, "scorcher_shot");
+	registerProjectile(EntityShuriken.class, "shuriken");
+	registerProjectile(EntitySparkler.class, "sparkler");
+	registerProjectile(EntityWatcherShot.class, "watcher_shot");
+	registerProjectile(EntityVileStorm.class, "vile_storm");
+	registerProjectile(EntitySnowflakeShuriken.class, "shuriken_snow");
+	registerProjectile(EntityShooterBullet.class, "shooter_bullet");
+	registerProjectile(EntityParticleBullet.class, "particle_bullet");
+	registerProjectile(EntityColoredBullet.class, "colored_bullet");
+	registerProjectile(EntityCorruptedBullet.class, "corrupted_bullet");
 
-        // Arcana
-        // registerMobWithEgg(CaptianMerik.class, "captian_merik");
-        // registerMobWithEgg(Constructor.class, "constructor");
-        // registerMobWithEgg(Datticon.class, "datticon");
-        registerMobWithEgg(Deathcryx.class, "deathcryx");
-        registerMobWithEgg(DeathHound.class, "death_hound");
-        registerMobWithEgg(Dramix.class, "dramix");
-        registerMobWithEgg(DungeonDemon.class, "dungeon_demon");
-        // registerMobWithEgg(DungeonPrisoner.class, "dungeon_prisoner");
-        registerMobWithEgg(Leorna.class, "leorna");
-        registerMobWithEgg(Parasecta.class, "parasecta");
-        registerMobWithEgg(Paratiku.class, "paratiku");
-        registerMobWithEgg(Razorback.class, "razorback");
-        registerMobWithEgg(RejuvGolem.class, "rejuv_golem");
-        registerMobWithEgg(Roamer.class, "roamer");
-        registerMobWithEgg(Seimer.class, "seimer");
-        registerMobWithEgg(Wraith.class, "wraith");
+	// Arcana
+	// registerMobWithEgg(CaptianMerik.class, "captian_merik");
+	// registerMobWithEgg(Constructor.class, "constructor");
+	// registerMobWithEgg(Datticon.class, "datticon");
+	registerMobWithEgg(Deathcryx.class, "deathcryx");
+	registerMobWithEgg(DeathHound.class, "death_hound");
+	registerMobWithEgg(Dramix.class, "dramix");
+	registerMobWithEgg(DungeonDemon.class, "dungeon_demon");
+	// registerMobWithEgg(DungeonPrisoner.class, "dungeon_prisoner");
+	registerMobWithEgg(Leorna.class, "leorna");
+	registerMobWithEgg(Parasecta.class, "parasecta");
+	registerMobWithEgg(Paratiku.class, "paratiku");
+	registerMobWithEgg(Razorback.class, "razorback");
+	registerMobWithEgg(RejuvGolem.class, "rejuv_golem");
+	registerMobWithEgg(Roamer.class, "roamer");
+	registerMobWithEgg(Seimer.class, "seimer");
+	registerMobWithEgg(Wraith.class, "wraith");
 
-        // Iceika
-        registerMobWithEgg(Alicanto.class, "alicanto");
-        registerMobWithEgg(Fractite.class, "fractite");
-        registerMobWithEgg(FrostArcher.class, "frost_archer");
-        registerMobWithEgg(Frosty.class, "frosty");
-        registerMobWithEgg(Glacide.class, "glacide");
-        registerMobWithEgg(Hastreus.class, "hastreus");
-        registerMobWithEgg(Rollum.class, "rollum");
-        registerMobWithEgg(WorkshopMerchant.class, "workshop_merchant");
-        registerMobWithEgg(WorkshopTinkerer.class, "workshop_tinkerer");
+	// Iceika
+	registerMobWithEgg(Alicanto.class, "alicanto");
+	registerMobWithEgg(Fractite.class, "fractite");
+	registerMobWithEgg(FrostArcher.class, "frost_archer");
+	registerMobWithEgg(Frosty.class, "frosty");
+	registerMobWithEgg(Glacide.class, "glacide");
+	registerMobWithEgg(Hastreus.class, "hastreus");
+	registerMobWithEgg(Rollum.class, "rollum");
+	registerMobWithEgg(WorkshopMerchant.class, "workshop_merchant");
+	registerMobWithEgg(WorkshopTinkerer.class, "workshop_tinkerer");
 
-        // Twilight
-        registerMobWithEgg(AngryBunny.class, "angry_bunny");
-        registerMobWithEgg(ApalachiaCadillion.class, "apalachia_cadillion");
-        registerMobWithEgg(ApalachiaGolem.class, "apalachia_golem");
-        registerMobWithEgg(ApalachiaTomo.class, "apalachia_tomo");
-        registerMobWithEgg(Basilisk.class, "basilisk");
-        registerMobWithEgg(Behemoth.class, "behemoth");
-        registerMobWithEgg(Bunny.class, "bunny");
-        registerMobWithEgg(DenseDemon.class, "dense_demon");
-        registerMobWithEgg(Densos.class, "densos");
-        registerMobWithEgg(EdenCadillion.class, "eden_cadillion");
-        registerMobWithEgg(EdenCori.class, "eden_cori");
-        registerMobWithEgg(EdenTomo.class, "eden_tomo");
-        registerMobWithEgg(EnchantedArcher.class, "enchanted_archer");
-        registerMobWithEgg(EnchantedWarrior.class, "enchanted_warrior");
-        registerMobWithEgg(Epiphite.class, "epiphite");
-        registerMobWithEgg(EternalArcher.class, "eternal_archer");
-        registerMobWithEgg(Greenfeet.class, "greenfeet");
-        registerMobWithEgg(Karot.class, "karot");
-        registerMobWithEgg(Madivel.class, "madivel");
-        registerMobWithEgg(Mage.class, "mage");
-        registerMobWithEgg(Megalith.class, "megalith");
-        registerMobWithEgg(MoonWolf.class, "moon_wolf");
-        registerMobWithEgg(MortumArcher.class, "mortum_archer");
-        registerMobWithEgg(MortumCadillion.class, "mortum_cadillion");
-        registerMobWithEgg(MortumDemon.class, "mortum_demon");
-        registerMobWithEgg(Mystic.class, "mystic");
-        registerMobWithEgg(Samek.class, "samek");
-        registerMobWithEgg(SkythernArcher.class, "skythern_archer");
-        registerMobWithEgg(SkythernCori.class, "skythern_cori");
-        registerMobWithEgg(SkythernFiend.class, "skythern_fiend");
-        registerMobWithEgg(SkythernGolem.class, "skythern_golem");
-        registerMobWithEgg(Sorcerer.class, "sorcerer");
-        registerMobWithEgg(SoulFiend.class, "soul_fiend");
-        registerMobWithEgg(SoulSpider.class, "soul_spider");
-        registerMobWithEgg(SoulStealer.class, "soul_stealer");
-        registerMobWithEgg(SunArcher.class, "sun_archer");
-        registerMobWithEgg(Reyvor.class, "reyvor");
-        registerMobWithEgg(TameAngryBunny.class, "tamed_angry_bunny");
-        registerMobWithEgg(TwilightArcher.class, "twilight_archer");
-        registerMobWithEgg(TwilightDemon.class, "twilight_demon");
-        registerMobWithEgg(Vamacheron.class, "vamacheron");
-        registerMobWithEgg(Verek.class, "varek");
-        registerMobWithEgg(WildwoodCadillion.class, "wildwood_cadillion");
-        registerMobWithEgg(WildwoodGolem.class, "wildwood_golem");
-        registerMobWithEgg(WildwoodTomo.class, "wildwood_tomo");
+	// Twilight
+	registerMobWithEgg(AngryBunny.class, "angry_bunny");
+	registerMobWithEgg(ApalachiaCadillion.class, "apalachia_cadillion");
+	registerMobWithEgg(ApalachiaGolem.class, "apalachia_golem");
+	registerMobWithEgg(ApalachiaTomo.class, "apalachia_tomo");
+	registerMobWithEgg(Basilisk.class, "basilisk");
+	registerMobWithEgg(Behemoth.class, "behemoth");
+	registerMobWithEgg(Bunny.class, "bunny");
+	registerMobWithEgg(DenseDemon.class, "dense_demon");
+	registerMobWithEgg(Densos.class, "densos");
+	registerMobWithEgg(EdenCadillion.class, "eden_cadillion");
+	registerMobWithEgg(EdenCori.class, "eden_cori");
+	registerMobWithEgg(EdenTomo.class, "eden_tomo");
+	registerMobWithEgg(EnchantedArcher.class, "enchanted_archer");
+	registerMobWithEgg(EnchantedWarrior.class, "enchanted_warrior");
+	registerMobWithEgg(Epiphite.class, "epiphite");
+	registerMobWithEgg(EternalArcher.class, "eternal_archer");
+	registerMobWithEgg(Greenfeet.class, "greenfeet");
+	registerMobWithEgg(Karot.class, "karot");
+	registerMobWithEgg(Madivel.class, "madivel");
+	registerMobWithEgg(Mage.class, "mage");
+	registerMobWithEgg(Megalith.class, "megalith");
+	registerMobWithEgg(MoonWolf.class, "moon_wolf");
+	registerMobWithEgg(MortumArcher.class, "mortum_archer");
+	registerMobWithEgg(MortumCadillion.class, "mortum_cadillion");
+	registerMobWithEgg(MortumDemon.class, "mortum_demon");
+	registerMobWithEgg(Mystic.class, "mystic");
+	registerMobWithEgg(Samek.class, "samek");
+	registerMobWithEgg(SkythernArcher.class, "skythern_archer");
+	registerMobWithEgg(SkythernCori.class, "skythern_cori");
+	registerMobWithEgg(SkythernFiend.class, "skythern_fiend");
+	registerMobWithEgg(SkythernGolem.class, "skythern_golem");
+	registerMobWithEgg(Sorcerer.class, "sorcerer");
+	registerMobWithEgg(SoulFiend.class, "soul_fiend");
+	registerMobWithEgg(SoulSpider.class, "soul_spider");
+	registerMobWithEgg(SoulStealer.class, "soul_stealer");
+	registerMobWithEgg(SunArcher.class, "sun_archer");
+	registerMobWithEgg(Reyvor.class, "reyvor");
+	registerMobWithEgg(TameAngryBunny.class, "tamed_angry_bunny");
+	registerMobWithEgg(TwilightArcher.class, "twilight_archer");
+	registerMobWithEgg(TwilightDemon.class, "twilight_demon");
+	registerMobWithEgg(Vamacheron.class, "vamacheron");
+	registerMobWithEgg(Verek.class, "varek");
+	registerMobWithEgg(WildwoodCadillion.class, "wildwood_cadillion");
+	registerMobWithEgg(WildwoodGolem.class, "wildwood_golem");
+	registerMobWithEgg(WildwoodTomo.class, "wildwood_tomo");
 
-        // Vanilla
-        registerMobWithEgg(AncientEntity.class, "ancient_entity");
-        registerMobWithEgg(AridWarrior.class, "arid_warrior");
-        registerMobWithEgg(AyeracoBlue.class, "ayeraco_blue");
-        registerMobWithEgg(AyeracoGreen.class, "ayeraco_green");
-        registerMobWithEgg(AyeracoPurple.class, "ayeraco_purple");
-        registerMobWithEgg(AyeracoRed.class, "ayeraco_red");
-        registerMobWithEgg(AyeracoYellow.class, "ayeraco_yellow");
-        registerMobWithEgg(CaveCrawler.class, "cave_crawler");
-        registerMobWithEgg(Caveclops.class, "caveclops");
-        registerMobWithEgg(Crab.class, "crab");
-        registerMobWithEgg(Cyclops.class, "cyclops");
-        registerMobWithEgg(DesertCrawler.class, "desert_crawler");
-        registerMobWithEgg(Ehu.class, "ehu");
-        registerMobWithEgg(EnderSpider.class, "ender_spider");
-        registerMobWithEgg(EnderTriplets.class, "ender_triplets");
-        registerMobWithEgg(EnderWatcher.class, "ender_watcher");
-        registerMobWithEgg(EnthralledDramcryx.class, "enthralled_dramcryx");
-        registerMobWithEgg(Frost.class, "frost");
-        registerMobWithEgg(Glacon.class, "glacon");
-        registerMobWithEgg(Grizzle.class, "grizzle");
-        registerMobWithEgg(GrizzleWhite.class, "grizzle_white");
-        registerMobWithEgg(HellPig.class, "hell_pig");
-        registerMobWithEgg(HellSpider.class, "hell_spider");
-        registerMobWithEgg(Husk.class, "husk");
-        registerMobWithEgg(JackOMan.class, "jackoman");
-        registerMobWithEgg(JungleBat.class, "jungle_bat");
-        registerMobWithEgg(JungleDramcryx.class, "jungle_dramcryx");
-        registerMobWithEgg(JungleSpider.class, "jungle_spider");
-        registerMobWithEgg(KingCrab.class, "king_crab");
-        registerMobWithEgg(KingOfScorchers.class, "king_of_scorchers");
-        registerMobWithEgg(Kobblin.class, "kobblin");
-        registerMobWithEgg(Liopleurodon.class, "liopleurodon");
-        registerMobWithEgg(LivestockMerchant.class, "livestock_merchant");
-        registerMobWithEgg(Miner.class, "miner");
-        registerMobWithEgg(PumpkinSpider.class, "pumpkin_spider");
-        registerMobWithEgg(Rainbour.class, "rainbour");
-        registerMobWithEgg(Rotatick.class, "rotatick");
-        registerMobWithEgg(SaguaroWorm.class, "saguaro_worm");
-        registerMobWithEgg(Scorcher.class, "scorcher");
-        registerMobWithEgg(Shark.class, "shark");
-        registerMobWithEgg(Smelter.class, "smelter");
-        registerMobWithEgg(Snapper.class, "snapper");
-        registerMobWithEgg(StoneGolem.class, "stone_golem");
-        registerMobWithEgg(TheEye.class, "the_eye");
-        registerMobWithEgg(TheGrue.class, "the_grue");
-        registerMobWithEgg(TheWatcher.class, "the_watcher");
-        registerMobWithEgg(Whale.class, "whale");
-        registerMobWithEgg(Wildfire.class, "wildfire");
+	// Vanilla
+	registerMobWithEgg(AncientEntity.class, "ancient_entity");
+	registerMobWithEgg(AridWarrior.class, "arid_warrior");
+	registerMobWithEgg(AyeracoBlue.class, "ayeraco_blue");
+	registerMobWithEgg(AyeracoGreen.class, "ayeraco_green");
+	registerMobWithEgg(AyeracoPurple.class, "ayeraco_purple");
+	registerMobWithEgg(AyeracoRed.class, "ayeraco_red");
+	registerMobWithEgg(AyeracoYellow.class, "ayeraco_yellow");
+	registerMobWithEgg(CaveCrawler.class, "cave_crawler");
+	registerMobWithEgg(Caveclops.class, "caveclops");
+	registerMobWithEgg(Crab.class, "crab");
+	registerMobWithEgg(Cyclops.class, "cyclops");
+	registerMobWithEgg(DesertCrawler.class, "desert_crawler");
+	registerMobWithEgg(Ehu.class, "ehu");
+	registerMobWithEgg(EnderSpider.class, "ender_spider");
+	registerMobWithEgg(EnderTriplets.class, "ender_triplets");
+	registerMobWithEgg(EnderWatcher.class, "ender_watcher");
+	registerMobWithEgg(EnthralledDramcryx.class, "enthralled_dramcryx");
+	registerMobWithEgg(Frost.class, "frost");
+	registerMobWithEgg(Glacon.class, "glacon");
+	registerMobWithEgg(Grizzle.class, "grizzle");
+	registerMobWithEgg(GrizzleWhite.class, "grizzle_white");
+	registerMobWithEgg(HellPig.class, "hell_pig");
+	registerMobWithEgg(HellSpider.class, "hell_spider");
+	registerMobWithEgg(Husk.class, "husk");
+	registerMobWithEgg(JackOMan.class, "jackoman");
+	registerMobWithEgg(JungleBat.class, "jungle_bat");
+	registerMobWithEgg(JungleDramcryx.class, "jungle_dramcryx");
+	registerMobWithEgg(JungleSpider.class, "jungle_spider");
+	registerMobWithEgg(KingCrab.class, "king_crab");
+	registerMobWithEgg(KingOfScorchers.class, "king_of_scorchers");
+	registerMobWithEgg(Kobblin.class, "kobblin");
+	registerMobWithEgg(Liopleurodon.class, "liopleurodon");
+	registerMobWithEgg(LivestockMerchant.class, "livestock_merchant");
+	registerMobWithEgg(Miner.class, "miner");
+	registerMobWithEgg(PumpkinSpider.class, "pumpkin_spider");
+	registerMobWithEgg(Rainbour.class, "rainbour");
+	registerMobWithEgg(Rotatick.class, "rotatick");
+	registerMobWithEgg(SaguaroWorm.class, "saguaro_worm");
+	registerMobWithEgg(Scorcher.class, "scorcher");
+	registerMobWithEgg(Shark.class, "shark");
+	registerMobWithEgg(Smelter.class, "smelter");
+	registerMobWithEgg(Snapper.class, "snapper");
+	registerMobWithEgg(StoneGolem.class, "stone_golem");
+	registerMobWithEgg(TheEye.class, "the_eye");
+	registerMobWithEgg(TheGrue.class, "the_grue");
+	registerMobWithEgg(TheWatcher.class, "the_watcher");
+	registerMobWithEgg(Whale.class, "whale");
+	registerMobWithEgg(Wildfire.class, "wildfire");
 
-        // Vethia
-        registerMobWithEgg(AcidHag.class, "acid_hag");
-        registerMobWithEgg(Biphron.class, "biphron");
-        registerMobWithEgg(Bohemite.class, "bohemite");
-        registerMobWithEgg(CryptKeeper.class, "crypt_keeper");
-        registerMobWithEgg(Cymesoid.class, "cymesoid");
-        registerMobWithEgg(Dissiment.class, "dissiment");
-        registerMobWithEgg(Dreamwrecker.class, "dreamwrecker");
-        registerMobWithEgg(Duo.class, "duo");
-        registerMobWithEgg(Ent.class, "ent");
-        registerMobWithEgg(Galroid.class, "galroid");
-        registerMobWithEgg(Gorgosion.class, "gorgosion");
-        registerMobWithEgg(Helio.class, "helio");
-        registerMobWithEgg(Herbomancer.class, "herbomancer");
-        registerMobWithEgg(HiveQueen.class, "hive_queen");
-        registerMobWithEgg(HiveSoldier.class, "hive_soldier");
-        registerMobWithEgg(HoverStinger.class, "hover_stinger");
-        registerMobWithEgg(Karos.class, "karos");
-        registerMobWithEgg(Kazrotic.class, "kazrotic");
-        registerMobWithEgg(LadyLuna.class, "lady_luna");
-        registerMobWithEgg(Lheiva.class, "lheiva");
-        registerMobWithEgg(Lorga.class, "lorga");
-        registerMobWithEgg(Lorgaflight.class, "lorga_flight");
-        registerMobWithEgg(Mandragora.class, "mandragora");
-        registerMobWithEgg(MysteriousMan.class, "mysterious_man");
-        registerMobWithEgg(Quadro.class, "quadro");
-        registerMobWithEgg(RaglokGogdure.class, "raglok_gogdure");
-        registerMobWithEgg(Shadahier.class, "shadahier");
-        registerMobWithEgg(Spinarus.class, "spinarus");
-        registerMobWithEgg(TheHunger.class, "the_hunger");
-        registerMobWithEgg(Tocaxin.class, "tocaxin");
-        registerMobWithEgg(Twins.class, "twins");
-        registerMobWithEgg(Vermenous.class, "vermenous");
-        registerMobWithEgg(Vhraak.class, "vhraak");
-        registerMobWithEgg(WreckForm.class, "wreck_form");
-        registerMobWithEgg(Zone.class, "zone");
-        registerMobWithEgg(Zoragon.class, "zoragon");
+	// Vethia
+	registerMobWithEgg(AcidHag.class, "acid_hag");
+	registerMobWithEgg(Biphron.class, "biphron");
+	registerMobWithEgg(Bohemite.class, "bohemite");
+	registerMobWithEgg(CryptKeeper.class, "crypt_keeper");
+	registerMobWithEgg(Cymesoid.class, "cymesoid");
+	registerMobWithEgg(Dissiment.class, "dissiment");
+	registerMobWithEgg(Dreamwrecker.class, "dreamwrecker");
+	registerMobWithEgg(Duo.class, "duo");
+	registerMobWithEgg(Ent.class, "ent");
+	registerMobWithEgg(Galroid.class, "galroid");
+	registerMobWithEgg(Gorgosion.class, "gorgosion");
+	registerMobWithEgg(Helio.class, "helio");
+	registerMobWithEgg(Herbomancer.class, "herbomancer");
+	registerMobWithEgg(HiveQueen.class, "hive_queen");
+	registerMobWithEgg(HiveSoldier.class, "hive_soldier");
+	registerMobWithEgg(HoverStinger.class, "hover_stinger");
+	registerMobWithEgg(Karos.class, "karos");
+	registerMobWithEgg(Kazrotic.class, "kazrotic");
+	registerMobWithEgg(LadyLuna.class, "lady_luna");
+	registerMobWithEgg(Lheiva.class, "lheiva");
+	registerMobWithEgg(Lorga.class, "lorga");
+	registerMobWithEgg(Lorgaflight.class, "lorga_flight");
+	registerMobWithEgg(Mandragora.class, "mandragora");
+	registerMobWithEgg(MysteriousMan.class, "mysterious_man");
+	registerMobWithEgg(Quadro.class, "quadro");
+	registerMobWithEgg(RaglokGogdure.class, "raglok_gogdure");
+	registerMobWithEgg(Shadahier.class, "shadahier");
+	registerMobWithEgg(Spinarus.class, "spinarus");
+	registerMobWithEgg(TheHunger.class, "the_hunger");
+	registerMobWithEgg(Tocaxin.class, "tocaxin");
+	registerMobWithEgg(Twins.class, "twins");
+	registerMobWithEgg(Vermenous.class, "vermenous");
+	registerMobWithEgg(Vhraak.class, "vhraak");
+	registerMobWithEgg(WreckForm.class, "wreck_form");
+	registerMobWithEgg(Zone.class, "zone");
+	registerMobWithEgg(Zoragon.class, "zoragon");
 
-        if (Config.debug) {
-            DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
-        }
-    }
+	if (Config.debug) {
+		DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
+	}
+}
 
-    public static void initLoot() {
-        LootTableList.register(AcidHag.LOOT);
-        LootTableList.register(Alicanto.LOOT);
-        LootTableList.register(AngryBunny.LOOT);
-        LootTableList.register(ApalachiaGolem.LOOT);
-        LootTableList.register(AridWarrior.LOOT);
-        LootTableList.register(AyeracoBlue.LOOT);
-        LootTableList.register(AyeracoGreen.LOOT);
-        LootTableList.register(AyeracoPurple.LOOT);
-        LootTableList.register(AyeracoRed.LOOT);
-        LootTableList.register(AyeracoYellow.LOOT);
-        LootTableList.register(Basilisk.LOOT);
-        LootTableList.register(Behemoth.LOOT);
-        LootTableList.register(Bunny.LOOT);
-        LootTableList.register(CaveCrawler.LOOT);
-        LootTableList.register(Caveclops.LOOT);
-        LootTableList.register(Crab.LOOT);
-        LootTableList.register(Cyclops.LOOT);
-        LootTableList.register(DenseDemon.LOOT);
-        LootTableList.register(Densos.LOOT);
-        LootTableList.register(DesertCrawler.LOOT);
-        LootTableList.register(EdenCadillion.LOOT);
-        LootTableList.register(EdenCori.LOOT);
-        LootTableList.register(EdenTomo.LOOT);
-        LootTableList.register(EnchantedArcher.LOOT);
-        LootTableList.register(EnchantedWarrior.LOOT);
-        LootTableList.register(EnderSpider.LOOT);
-        LootTableList.register(EnderTriplets.LOOT);
-        LootTableList.register(EnderWatcher.LOOT);
-        LootTableList.register(EnthralledDramcryx.LOOT);
-        LootTableList.register(Epiphite.LOOT);
-        LootTableList.register(EternalArcher.LOOT);
-        LootTableList.register(Fractite.LOOT);
-        LootTableList.register(Frost.LOOT);
-        LootTableList.register(Frosty.LOOT);
-        LootTableList.register(Glacide.LOOT);
-        LootTableList.register(Glacon.LOOT);
-        LootTableList.register(Greenfeet.LOOT);
-        LootTableList.register(Hastreus.LOOT);
-        LootTableList.register(HellSpider.LOOT);
-        LootTableList.register(JungleBat.LOOT);
-        LootTableList.register(JungleDramcryx.LOOT);
-        LootTableList.register(JungleSpider.LOOT);
-        LootTableList.register(Karot.LOOT);
-        LootTableList.register(KingCrab.LOOT);
-        LootTableList.register(KingOfScorchers.LOOT);
-        LootTableList.register(Kobblin.LOOT);
-        LootTableList.register(Leorna.LOOT);
-        LootTableList.register(Liopleurodon.LOOT);
-        LootTableList.register(Madivel.LOOT);
-        LootTableList.register(Mage.LOOT);
-        LootTableList.register(Megalith.LOOT);
-        LootTableList.register(Miner.LOOT);
-        LootTableList.register(MoonWolf.LOOT);
-        LootTableList.register(Mystic.LOOT);
-        LootTableList.register(Parasecta.LOOT);
-        LootTableList.register(Paratiku.LOOT);
-        LootTableList.register(PumpkinSpider.LOOT);
-        LootTableList.register(Rainbour.LOOT);
-        LootTableList.register(Razorback.LOOT);
-        LootTableList.register(RejuvGolem.LOOT);
-        LootTableList.register(Roamer.LOOT);
-        LootTableList.register(Reyvor.LOOT);
-        LootTableList.register(Rollum.LOOT);
-        LootTableList.register(Rotatick.LOOT);
-        LootTableList.register(Samek.LOOT);
-        LootTableList.register(Scorcher.LOOT);
-        LootTableList.register(Seimer.LOOT);
-        LootTableList.register(Shark.LOOT);
-        LootTableList.register(SkythernFiend.LOOT);
-        LootTableList.register(Sorcerer.LOOT);
-        LootTableList.register(SoulFiend.LOOT);
-        LootTableList.register(SoulSpider.LOOT);
-        LootTableList.register(SoulStealer.LOOT);
-        LootTableList.register(SunArcher.LOOT);
-        LootTableList.register(TameAngryBunny.LOOT);
-        LootTableList.register(TheEye.LOOT);
-        LootTableList.register(TheGrue.LOOT);
-        LootTableList.register(TheWatcher.LOOT);
-        LootTableList.register(TwilightArcher.LOOT);
-        LootTableList.register(TwilightDemon.LOOT);
-        LootTableList.register(Verek.LOOT);
-        LootTableList.register(Whale.LOOT);
-        LootTableList.register(Wildfire.LOOT);
-        LootTableList.register(Wraith.LOOT);
+public static void initLoot() {
+	LootTableList.register(AcidHag.LOOT);
+	LootTableList.register(Alicanto.LOOT);
+	LootTableList.register(AngryBunny.LOOT);
+	LootTableList.register(ApalachiaGolem.LOOT);
+	LootTableList.register(AridWarrior.LOOT);
+	LootTableList.register(AyeracoBlue.LOOT);
+	LootTableList.register(AyeracoGreen.LOOT);
+	LootTableList.register(AyeracoPurple.LOOT);
+	LootTableList.register(AyeracoRed.LOOT);
+	LootTableList.register(AyeracoYellow.LOOT);
+	LootTableList.register(Basilisk.LOOT);
+	LootTableList.register(Behemoth.LOOT);
+	LootTableList.register(Bunny.LOOT);
+	LootTableList.register(CaveCrawler.LOOT);
+	LootTableList.register(Caveclops.LOOT);
+	LootTableList.register(Crab.LOOT);
+	LootTableList.register(Cyclops.LOOT);
+	LootTableList.register(DenseDemon.LOOT);
+	LootTableList.register(Densos.LOOT);
+	LootTableList.register(DesertCrawler.LOOT);
+	LootTableList.register(EdenCadillion.LOOT);
+	LootTableList.register(EdenCori.LOOT);
+	LootTableList.register(EdenTomo.LOOT);
+	LootTableList.register(EnchantedArcher.LOOT);
+	LootTableList.register(EnchantedWarrior.LOOT);
+	LootTableList.register(EnderSpider.LOOT);
+	LootTableList.register(EnderTriplets.LOOT);
+	LootTableList.register(EnderWatcher.LOOT);
+	LootTableList.register(EnthralledDramcryx.LOOT);
+	LootTableList.register(Epiphite.LOOT);
+	LootTableList.register(EternalArcher.LOOT);
+	LootTableList.register(Fractite.LOOT);
+	LootTableList.register(Frost.LOOT);
+	LootTableList.register(Frosty.LOOT);
+	LootTableList.register(Glacide.LOOT);
+	LootTableList.register(Glacon.LOOT);
+	LootTableList.register(Greenfeet.LOOT);
+	LootTableList.register(Hastreus.LOOT);
+	LootTableList.register(HellSpider.LOOT);
+	LootTableList.register(JungleBat.LOOT);
+	LootTableList.register(JungleDramcryx.LOOT);
+	LootTableList.register(JungleSpider.LOOT);
+	LootTableList.register(Karot.LOOT);
+	LootTableList.register(KingCrab.LOOT);
+	LootTableList.register(KingOfScorchers.LOOT);
+	LootTableList.register(Kobblin.LOOT);
+	LootTableList.register(Leorna.LOOT);
+	LootTableList.register(Liopleurodon.LOOT);
+	LootTableList.register(Madivel.LOOT);
+	LootTableList.register(Mage.LOOT);
+	LootTableList.register(Megalith.LOOT);
+	LootTableList.register(Miner.LOOT);
+	LootTableList.register(MoonWolf.LOOT);
+	LootTableList.register(Mystic.LOOT);
+	LootTableList.register(Parasecta.LOOT);
+	LootTableList.register(Paratiku.LOOT);
+	LootTableList.register(PumpkinSpider.LOOT);
+	LootTableList.register(Rainbour.LOOT);
+	LootTableList.register(Razorback.LOOT);
+	LootTableList.register(RejuvGolem.LOOT);
+	LootTableList.register(Roamer.LOOT);
+	LootTableList.register(Reyvor.LOOT);
+	LootTableList.register(Rollum.LOOT);
+	LootTableList.register(Rotatick.LOOT);
+	LootTableList.register(Samek.LOOT);
+	LootTableList.register(Scorcher.LOOT);
+	LootTableList.register(Seimer.LOOT);
+	LootTableList.register(Shark.LOOT);
+	LootTableList.register(SkythernFiend.LOOT);
+	LootTableList.register(Sorcerer.LOOT);
+	LootTableList.register(SoulFiend.LOOT);
+	LootTableList.register(SoulSpider.LOOT);
+	LootTableList.register(SoulStealer.LOOT);
+	LootTableList.register(SunArcher.LOOT);
+	LootTableList.register(TameAngryBunny.LOOT);
+	LootTableList.register(TheEye.LOOT);
+	LootTableList.register(TheGrue.LOOT);
+	LootTableList.register(TheWatcher.LOOT);
+	LootTableList.register(TwilightArcher.LOOT);
+	LootTableList.register(TwilightDemon.LOOT);
+	LootTableList.register(Verek.LOOT);
+	LootTableList.register(Whale.LOOT);
+	LootTableList.register(Wildfire.LOOT);
+	LootTableList.register(Wraith.LOOT);
 
-        if (Config.debug) {
-            DivineRPG.logger.info(Reference.MODID + " loot has been loaded");
-        }
-    }
+	if (Config.debug) {
+		DivineRPG.logger.info(Reference.MODID + " loot has been loaded");
+	}
+}
 
-    @SideOnly(Side.CLIENT)
-    public static void initModels() {
-        // Projectiles
-        EntityCaveRock.renderMe();
-        EntityDivineArrow.renderMe();
-        EntityEnderTripletsFireball.renderMe();
-        EntityFractiteShot.renderMe();
-        EntityFrostShot.renderMe();
-        EntityFrostCloud.renderMe();
-        EntityInfernoArrow.renderMe();
-        EntityKingOfScorchersMeteor.renderMe();
-        EntityKingOfScorchersShot.renderMe();
-        EntitySaguaroWormShot.renderMe();
-        EntityScorcherShot.renderMe();
-        EntityEMP.renderMe();
-        EntityVileStorm.renderMe();
-        EntityWatcherShot.renderMe();
-        EntitySnowflakeShuriken.renderMe();
-        EntityShooterBullet.renderMe();
-        EntityCorruptedBullet.renderMe();
+@SideOnly(Side.CLIENT)
+public static void initModels() {
+	// Projectiles
+	EntityCaveRock.renderMe();
+	EntityDivineArrow.renderMe();
+	EntityEnderTripletsFireball.renderMe();
+	EntityFractiteShot.renderMe();
+	EntityFrostShot.renderMe();
+	EntityFrostCloud.renderMe();
+	EntityInfernoArrow.renderMe();
+	EntityKingOfScorchersMeteor.renderMe();
+	EntityKingOfScorchersShot.renderMe();
+	EntitySaguaroWormShot.renderMe();
+	EntityScorcherShot.renderMe();
+	EntityEMP.renderMe();
+	EntityVileStorm.renderMe();
+	EntityWatcherShot.renderMe();
+	EntitySnowflakeShuriken.renderMe();
+	EntityShooterBullet.renderMe();
+	EntityCorruptedBullet.renderMe();
 
-        // RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
-        // manager -> new RenderProjectile(ModItems.shuriken));
+	// RenderingRegistry.registerEntityRenderingHandler(EntityShuriken.class,
+	// manager -> new RenderProjectile(ModItems.shuriken));
 
-        // Arcana
-        RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(DeathHound.class, RenderDeathHound.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(DungeonDemon.class, RenderDungeonDemon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Dramix.class, RenderDramix.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Razorback.class, RenderRazorback.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(RejuvGolem.class, RenderRejuvGolem.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Roamer.class, RenderRoamer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Seimer.class, RenderSeimer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Wraith.class, RenderWraith.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
+	// Arcana
+	RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(DeathHound.class, RenderDeathHound.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(DungeonDemon.class, RenderDungeonDemon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Dramix.class, RenderDramix.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Razorback.class, RenderRazorback.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(RejuvGolem.class, RenderRejuvGolem.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Roamer.class, RenderRoamer.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Seimer.class, RenderSeimer.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Wraith.class, RenderWraith.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
 
-        // Iceika
-        RenderingRegistry.registerEntityRenderingHandler(Alicanto.class, RenderAlicanto.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(FrostArcher.class, RenderFrostArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Fractite.class, RenderFractite.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Frosty.class, RenderFrosty.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Glacide.class, RenderGlacide.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Hastreus.class, RenderHastreus.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Rollum.class, RenderRollum.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WorkshopTinkerer.class, RenderWorkshopTinkerer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WorkshopMerchant.class, RenderWorkshopMerchant.FACTORY);
+	// Iceika
+	RenderingRegistry.registerEntityRenderingHandler(Alicanto.class, RenderAlicanto.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(FrostArcher.class, RenderFrostArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Fractite.class, RenderFractite.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Frosty.class, RenderFrosty.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Glacide.class, RenderGlacide.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Hastreus.class, RenderHastreus.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Rollum.class, RenderRollum.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(WorkshopTinkerer.class, RenderWorkshopTinkerer.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(WorkshopMerchant.class, RenderWorkshopMerchant.FACTORY);
 
-        // Twilight
-        RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Behemoth.class, RenderBehemoth.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EdenCadillion.class, RenderEdenCadillion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EdenCori.class, RenderEdenCori.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(DenseDemon.class, RenderDenseDemon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Densos.class, RenderDensos.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Epiphite.class, RenderEpiphite.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EternalArcher.class, RenderEternalArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Greenfeet.class, RenderGreenfeet.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Karot.class, RenderKarot.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Madivel.class, RenderMadivel.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Mage.class, RenderMage.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Megalith.class, RenderMegalith.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(MoonWolf.class, RenderMoonWolf.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Mystic.class, RenderMystic.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Samek.class, RenderSamek.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SkythernFiend.class, RenderSkythernFiend.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Sorcerer.class, RenderSorcerer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SoulFiend.class, RenderSoulFiend.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SoulSpider.class, RenderSoulSpider.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SoulStealer.class, RenderSoulStealer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SunArcher.class, RenderSunArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EdenTomo.class, RenderEdenTomo.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TwilightArcher.class, RenderTwilightArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TwilightDemon.class, RenderTwilightDemon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(ApalachiaGolem.class, RenderApalachiaGolem.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Vamacheron.class, RenderVamacheron.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EnchantedArcher.class, RenderEnchantedArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(MortumArcher.class, RenderMortumArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SkythernArcher.class, RenderSkythernArcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(ApalachiaCadillion.class, RenderApalachiaCadillion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(MortumCadillion.class, RenderMortumCadillion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WildwoodCadillion.class, RenderWildwoodCadillion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SkythernCori.class, RenderSkythernCori.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(MortumDemon.class, RenderMortumDemon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SkythernGolem.class, RenderSkythernGolem.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WildwoodGolem.class, RenderWildwoodGolem.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(ApalachiaTomo.class, RenderApalachiaTomo.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WildwoodTomo.class, RenderWildwoodTomo.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Reyvor.class, RenderReyvor.FACTORY);
+	// Twilight
+	RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Behemoth.class, RenderBehemoth.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EdenCadillion.class, RenderEdenCadillion.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EdenCori.class, RenderEdenCori.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(DenseDemon.class, RenderDenseDemon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Densos.class, RenderDensos.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Epiphite.class, RenderEpiphite.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EternalArcher.class, RenderEternalArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Greenfeet.class, RenderGreenfeet.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Karot.class, RenderKarot.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Madivel.class, RenderMadivel.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Mage.class, RenderMage.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Megalith.class, RenderMegalith.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(MoonWolf.class, RenderMoonWolf.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Mystic.class, RenderMystic.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Samek.class, RenderSamek.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SkythernFiend.class, RenderSkythernFiend.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Sorcerer.class, RenderSorcerer.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SoulFiend.class, RenderSoulFiend.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SoulSpider.class, RenderSoulSpider.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SoulStealer.class, RenderSoulStealer.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SunArcher.class, RenderSunArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EdenTomo.class, RenderEdenTomo.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TwilightArcher.class, RenderTwilightArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TwilightDemon.class, RenderTwilightDemon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(ApalachiaGolem.class, RenderApalachiaGolem.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Vamacheron.class, RenderVamacheron.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EnchantedArcher.class, RenderEnchantedArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(MortumArcher.class, RenderMortumArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SkythernArcher.class, RenderSkythernArcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(ApalachiaCadillion.class, RenderApalachiaCadillion.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(MortumCadillion.class, RenderMortumCadillion.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(WildwoodCadillion.class, RenderWildwoodCadillion.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SkythernCori.class, RenderSkythernCori.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(MortumDemon.class, RenderMortumDemon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SkythernGolem.class, RenderSkythernGolem.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(WildwoodGolem.class, RenderWildwoodGolem.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(ApalachiaTomo.class, RenderApalachiaTomo.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(WildwoodTomo.class, RenderWildwoodTomo.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Reyvor.class, RenderReyvor.FACTORY);
 
-        // Vanilla
-        RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Shark.class, RenderShark.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Wildfire.class, RenderWildfire.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Rotatick.class, RenderRotatick.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TheEye.class, RenderTheEye.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EnderTriplets.class, RenderEnderTriplets.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TheWatcher.class, RenderTheWatcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AyeracoRed.class, RenderAyerecoRed.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AyeracoBlue.class, RenderAyeracoBlue.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AyeracoYellow.class, RenderAyeracoYellow.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AyeracoGreen.class, RenderAyeracoGreen.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AyeracoPurple.class, RenderAyeracoPurple.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(AridWarrior.class, RenderAridWarrior.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Crab.class, RenderCrab.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(KingCrab.class, RenderKingCrab.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(KingOfScorchers.class, RenderKingOfScorchers.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Ehu.class, RenderEhu.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Frost.class, RenderFrost.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(CaveCrawler.class, RenderCaveCrawler.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(DesertCrawler.class, RenderDesertCrawler.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Glacon.class, RenderGlacon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Grizzle.class, RenderGrizzle.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(GrizzleWhite.class, RenderGrizzleWhite.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TheGrue.class, RenderTheGrue.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HellSpider.class, RenderHellSpider.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Husk.class, RenderHusk.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Miner.class, RenderMiner.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(JackOMan.class, RenderJackOMan.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(JungleBat.class, RenderJungleBat.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(JungleSpider.class, RenderJungleSpider.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Kobblin.class, RenderKobblin.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Liopleurodon.class, RenderLiopleurodon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(LivestockMerchant.class, RenderLivestockMerchant.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(PumpkinSpider.class, RenderPumpkinSpider.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Rainbour.class, RenderRainbour.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Scorcher.class, RenderScorcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Snapper.class, RenderSnapper.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Smelter.class, RenderSmelter.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(StoneGolem.class, RenderStoneGolem.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Whale.class, RenderWhale.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EnderWatcher.class, RenderEnderWatcher.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Cyclops.class, RenderCyclops.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Caveclops.class, RenderCaveclops.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EnderSpider.class, RenderEnderSpider.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
+	// Vanilla
+	RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Shark.class, RenderShark.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Wildfire.class, RenderWildfire.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Rotatick.class, RenderRotatick.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TheEye.class, RenderTheEye.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EnderTriplets.class, RenderEnderTriplets.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TheWatcher.class, RenderTheWatcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AyeracoRed.class, RenderAyerecoRed.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AyeracoBlue.class, RenderAyeracoBlue.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AyeracoYellow.class, RenderAyeracoYellow.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AyeracoGreen.class, RenderAyeracoGreen.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AyeracoPurple.class, RenderAyeracoPurple.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(AridWarrior.class, RenderAridWarrior.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Crab.class, RenderCrab.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(KingCrab.class, RenderKingCrab.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(KingOfScorchers.class, RenderKingOfScorchers.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Ehu.class, RenderEhu.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Frost.class, RenderFrost.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(CaveCrawler.class, RenderCaveCrawler.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(DesertCrawler.class, RenderDesertCrawler.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Glacon.class, RenderGlacon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Grizzle.class, RenderGrizzle.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(GrizzleWhite.class, RenderGrizzleWhite.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TheGrue.class, RenderTheGrue.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(HellSpider.class, RenderHellSpider.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Husk.class, RenderHusk.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Miner.class, RenderMiner.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(JackOMan.class, RenderJackOMan.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(JungleBat.class, RenderJungleBat.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(JungleSpider.class, RenderJungleSpider.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Kobblin.class, RenderKobblin.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Liopleurodon.class, RenderLiopleurodon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(LivestockMerchant.class, RenderLivestockMerchant.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(PumpkinSpider.class, RenderPumpkinSpider.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Rainbour.class, RenderRainbour.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Scorcher.class, RenderScorcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Snapper.class, RenderSnapper.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Smelter.class, RenderSmelter.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(StoneGolem.class, RenderStoneGolem.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Whale.class, RenderWhale.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EnderWatcher.class, RenderEnderWatcher.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Cyclops.class, RenderCyclops.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Caveclops.class, RenderCaveclops.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(EnderSpider.class, RenderEnderSpider.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
 
-        // Vethia
-        RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Biphron.class, RenderBiphron.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Bohemite.class, RenderBohemite.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(CryptKeeper.class, RenderCryptKeeper.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Cymesoid.class, RenderCymesoid.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Dissiment.class, RenderDissiment.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Duo.class, RenderDuo.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Ent.class, RenderEnt.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Galroid.class, RenderGalroid.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Gorgosion.class, RenderGorgosion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Helio.class, RenderHelio.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Herbomancer.class, RenderHerbomancer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HiveQueen.class, RenderHiveQueen.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HiveSoldier.class, RenderHiveSoldier.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HoverStinger.class, RenderHoverStinger.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Karos.class, RenderKaros.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Kazrotic.class, RenderKazrotic.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(LadyLuna.class, RenderLadyLuna.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Lheiva.class, RenderLheiva.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Lorga.class, RenderLorga.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Lorgaflight.class, RenderLorgaFlight.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Mandragora.class, RenderMandragora.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(MysteriousMan.class, RenderMysteriousMan.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Quadro.class, RenderQuadro.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(RaglokGogdure.class, RenderRaglokGogdure.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Shadahier.class, RenderShadahier.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Spinarus.class, RenderSpinarus.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Tocaxin.class, RenderTocaxin.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Twins.class, RenderTwins.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Vermenous.class, RenderVermenous.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Vhraak.class, RenderVhraak.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WreckForm.class, RenderWreckForm.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TheHunger.class, RenderTheHunger.FACTORY);
+	// Vethia
+	RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Biphron.class, RenderBiphron.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Bohemite.class, RenderBohemite.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(CryptKeeper.class, RenderCryptKeeper.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Cymesoid.class, RenderCymesoid.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Dissiment.class, RenderDissiment.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Duo.class, RenderDuo.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Ent.class, RenderEnt.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Galroid.class, RenderGalroid.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Gorgosion.class, RenderGorgosion.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Helio.class, RenderHelio.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Herbomancer.class, RenderHerbomancer.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(HiveQueen.class, RenderHiveQueen.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(HiveSoldier.class, RenderHiveSoldier.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(HoverStinger.class, RenderHoverStinger.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Karos.class, RenderKaros.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Kazrotic.class, RenderKazrotic.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(LadyLuna.class, RenderLadyLuna.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Lheiva.class, RenderLheiva.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Lorga.class, RenderLorga.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Lorgaflight.class, RenderLorgaFlight.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Mandragora.class, RenderMandragora.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(MysteriousMan.class, RenderMysteriousMan.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Quadro.class, RenderQuadro.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(RaglokGogdure.class, RenderRaglokGogdure.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Shadahier.class, RenderShadahier.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Spinarus.class, RenderSpinarus.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Tocaxin.class, RenderTocaxin.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Twins.class, RenderTwins.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Vermenous.class, RenderVermenous.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Vhraak.class, RenderVhraak.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(WreckForm.class, RenderWreckForm.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
+	RenderingRegistry.registerEntityRenderingHandler(TheHunger.class, RenderTheHunger.FACTORY);
 
-        // Other
-        RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
+	// Other
+	RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
 
-    }
+}
 
-    @SuppressWarnings("deprecation")
-    public static void initSpawns() {
-        EntityRegistry.addSpawn(Alicanto.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
-        EntityRegistry.addSpawn(Fractite.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
-        EntityRegistry.addSpawn(Glacide.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
-        EntityRegistry.addSpawn(Hastreus.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
-        EntityRegistry.addSpawn(FrostArcher.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
-        EntityRegistry.addSpawn(Frosty.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
-        EntityRegistry.addSpawn(Rollum.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+@SuppressWarnings("deprecation")
+public static void initSpawns() {
+	EntityRegistry.addSpawn(Alicanto.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+	EntityRegistry.addSpawn(Fractite.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+	EntityRegistry.addSpawn(Glacide.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+	EntityRegistry.addSpawn(Hastreus.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+	EntityRegistry.addSpawn(FrostArcher.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+	EntityRegistry.addSpawn(Frosty.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
+	EntityRegistry.addSpawn(Rollum.class, 2, 1, 10, EnumCreatureType.MONSTER, ModBiomes.Iceika);
 
-        EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-        EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-        EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-        EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-        EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-        EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-        EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-        EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-        EntityRegistry.addSpawn(Greenfeet.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-        EntityRegistry.addSpawn(Madivel.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
-        EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
-        EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
+	EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
+	EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
+	EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
+	EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(Greenfeet.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(Madivel.class, 20, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
+	EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.CREATURE, ModBiomes.Eden);
+	EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Eden);
 
-        EntityRegistry.addSpawn(WildwoodCadillion.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(WildwoodCadillion.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.CREATURE, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(Behemoth.class, 1, 1, 1, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(Behemoth.class, 1, 1, 1, EnumCreatureType.CREATURE, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(WildwoodGolem.class, 3, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(Verek.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(Mage.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
-        EntityRegistry.addSpawn(MoonWolf.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(WildwoodCadillion.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(WildwoodCadillion.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(WildwoodTomo.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(Epiphite.class, 1, 2, 2, EnumCreatureType.CREATURE, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(Behemoth.class, 1, 1, 1, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(Behemoth.class, 1, 1, 1, EnumCreatureType.CREATURE, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(WildwoodGolem.class, 3, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(Verek.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(Mage.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.WildWood);
+	EntityRegistry.addSpawn(MoonWolf.class, 4, 4, 4, EnumCreatureType.CREATURE, ModBiomes.WildWood);
 
-        EntityRegistry.addSpawn(ApalachiaCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Apalachia);
-        EntityRegistry.addSpawn(ApalachiaGolem.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Apalachia);
-        EntityRegistry.addSpawn(ApalachiaTomo.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Apalachia);
-        // EntityRegistry.addSpawn(ApalachiaWarrior.class, 2, 4, 4,
-        // EnumCreatureType.monster, ModBiomes.Apalachia);
-        // EntityRegistry.addSpawn(ApalachiaArcher.class, 2, 4, 4,
-        // EnumCreatureType.monster, ModBiomes.Apalachia);
-        // EntityRegistry.addSpawn(Spellbinder.class, 1, 4, 4, EnumCreatureType.MONSTER,
-        // ModBiomes.Apalachia);
+	EntityRegistry.addSpawn(ApalachiaCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Apalachia);
+	EntityRegistry.addSpawn(ApalachiaGolem.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Apalachia);
+	EntityRegistry.addSpawn(ApalachiaTomo.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Apalachia);
+	// EntityRegistry.addSpawn(ApalachiaWarrior.class, 2, 4, 4,
+	// EnumCreatureType.monster, ModBiomes.Apalachia);
+	// EntityRegistry.addSpawn(ApalachiaArcher.class, 2, 4, 4,
+	// EnumCreatureType.monster, ModBiomes.Apalachia);
+	// EntityRegistry.addSpawn(Spellbinder.class, 1, 4, 4, EnumCreatureType.MONSTER,
+	// ModBiomes.Apalachia);
 
-        EntityRegistry.addSpawn(SkythernFiend.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
-        EntityRegistry.addSpawn(SkythernGolem.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
-        EntityRegistry.addSpawn(SkythernArcher.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
-        EntityRegistry.addSpawn(Samek.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
-        EntityRegistry.addSpawn(SkythernCori.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
-        EntityRegistry.addSpawn(Mystic.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
-        EntityRegistry.addSpawn(Megalith.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(SkythernFiend.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(SkythernGolem.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(SkythernArcher.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(Samek.class, 4, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(SkythernCori.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(Mystic.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
+	EntityRegistry.addSpawn(Megalith.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Skythern);
 
-        EntityRegistry.addSpawn(MortumDemon.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
-        EntityRegistry.addSpawn(Basilisk.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
-        EntityRegistry.addSpawn(SoulStealer.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
-        EntityRegistry.addSpawn(MortumCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
-        EntityRegistry.addSpawn(TwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
-        EntityRegistry.addSpawn(Sorcerer.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+	EntityRegistry.addSpawn(MortumDemon.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+	EntityRegistry.addSpawn(Basilisk.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+	EntityRegistry.addSpawn(SoulStealer.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+	EntityRegistry.addSpawn(MortumCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+	EntityRegistry.addSpawn(TwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
+	EntityRegistry.addSpawn(Sorcerer.class, 1, 4, 4, EnumCreatureType.MONSTER, ModBiomes.Mortum);
 
-        for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-            // all biomes
-            EntityRegistry.addSpawn(Miner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(JackOMan.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(CaveCrawler.class, 70, 2, 3, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(Rotatick.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(EnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(TheEye.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(TheGrue.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(Caveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(EnderSpider.class, 4, 1, 4, EnumCreatureType.MONSTER, biome);
-            EntityRegistry.addSpawn(Rainbour.class, 1, 1, 1, EnumCreatureType.AMBIENT, biome);
+	for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+		// all biomes
+		EntityRegistry.addSpawn(Miner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(JackOMan.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(CaveCrawler.class, 70, 2, 3, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(Rotatick.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(EnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(TheEye.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(TheGrue.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(Caveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(EnderSpider.class, 4, 1, 4, EnumCreatureType.MONSTER, biome);
+		EntityRegistry.addSpawn(Rainbour.class, 1, 1, 1, EnumCreatureType.AMBIENT, biome);
 
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.END)) {
-                EntityRegistry.addSpawn(EnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EnderWatcher.class, 10, 4, 4, EnumCreatureType.MONSTER, biome);
-            } else if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.NETHER)) {
-                // EntityRegistry.addSpawn(HellBat.class, 50, 1, 1, EnumCreatureType.MONSTER,
-                // biome);
-                EntityRegistry.addSpawn(HellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(HellSpider.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Scorcher.class, 7, 4, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Wildfire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.SNOWY)) {
-                EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(Frost.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.SANDY)) {
-                EntityRegistry.addSpawn(DesertCrawler.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(AridWarrior.class, 35, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(SaguaroWorm.class, 20, 1, 4, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.BEACH)) {
-                EntityRegistry.addSpawn(Crab.class, 100, 4, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(KingCrab.class, 40, 4, 4, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.JUNGLE)) {
-                EntityRegistry.addSpawn(JungleBat.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(JungleDramcryx.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(JungleSpider.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)) {
-                EntityRegistry.addSpawn(Kobblin.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)
-                    || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
-                EntityRegistry.addSpawn(Cyclops.class, 10, 2, 4, EnumCreatureType.MONSTER, biome);
-            }
-            if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.FOREST)) {
-                EntityRegistry.addSpawn(PumpkinSpider.class, 20, 1, 1, EnumCreatureType.MONSTER, biome);
-            }
-        }
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.END)) {
+			EntityRegistry.addSpawn(EnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(EnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(EnderWatcher.class, 10, 4, 4, EnumCreatureType.MONSTER, biome);
+		} else if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.NETHER)) {
+			// EntityRegistry.addSpawn(HellBat.class, 50, 1, 1, EnumCreatureType.MONSTER,
+			// biome);
+			EntityRegistry.addSpawn(HellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
+			EntityRegistry.addSpawn(HellSpider.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(Scorcher.class, 7, 4, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(Wildfire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.SNOWY)) {
+			EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.CREATURE, biome);
+			EntityRegistry.addSpawn(Frost.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.SANDY)) {
+			EntityRegistry.addSpawn(DesertCrawler.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(AridWarrior.class, 35, 1, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(SaguaroWorm.class, 20, 1, 4, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.BEACH)) {
+			EntityRegistry.addSpawn(Crab.class, 100, 4, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(KingCrab.class, 40, 4, 4, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.JUNGLE)) {
+			EntityRegistry.addSpawn(JungleBat.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(JungleDramcryx.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
+			EntityRegistry.addSpawn(JungleSpider.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)) {
+			EntityRegistry.addSpawn(Kobblin.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.PLAINS)
+		        || BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN)) {
+			EntityRegistry.addSpawn(Cyclops.class, 10, 2, 4, EnumCreatureType.MONSTER, biome);
+		}
+		if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.FOREST)) {
+			EntityRegistry.addSpawn(PumpkinSpider.class, 20, 1, 1, EnumCreatureType.MONSTER, biome);
+		}
+	}
 
-        if (Config.debug) {
-            DivineRPG.logger.info(Reference.MODID + " spawns have been loaded");
-        }
-    }
+	if (Config.debug) {
+		DivineRPG.logger.info(Reference.MODID + " spawns have been loaded");
+	}
+}
 
-    public static void registerMobWithEgg(Class entityClass, String entityName) {
-        entityName = Reference.MODID + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
-    }
+public static void registerMobWithEgg(Class entityClass, String entityName) {
+	entityName = Reference.MODID + "." + entityName;
+	EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
+	        mobID++, DivineRPG.instance, 128, 3, true);
+	mobID++;
+	EntityList.ENTITY_EGGS.put(new ResourceLocation(Reference.MODID, entityName),
+	        new EntityEggInfo(new ResourceLocation(Reference.MODID, entityName), 0x000000 * entityName.length(),
+	                0xFFFFFF * EntityList.ENTITY_EGGS.size()));
+}
 
-    public static void registerProjectile(Class entityClass, String entityName) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, Reference.MODID + "." + entityName),
-                entityClass, Reference.MODID + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
-                true);
-        projectileID++;
-    }
+// public static void registerMobWithEgg(Class entityClass, String entityName) {
+// entityName = Reference.MODID + "." + entityName;
+// EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID,
+// entityName), entityClass, entityName,
+// mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
+// }
 
-    public void registerEgglessMob(Class entityClass, String entityName) {
-        entityName = Reference.MODID + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true);
-    }
+public static void registerProjectile(Class entityClass, String entityName) {
+	EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, Reference.MODID + "." + entityName),
+	        entityClass, Reference.MODID + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5, true);
+	projectileID++;
+}
+
+public void registerEgglessMob(Class entityClass, String entityName) {
+	entityName = Reference.MODID + "." + entityName;
+	EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
+	        mobID++, DivineRPG.instance, 128, 3, true);
+}
 }
