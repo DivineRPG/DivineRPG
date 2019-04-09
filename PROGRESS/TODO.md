@@ -5,6 +5,7 @@
 - Final balancing
 - Fix bow damage values
 - Fix Statues and Altars
+- Spawn egg colors
 
 ### Dimensions
 
