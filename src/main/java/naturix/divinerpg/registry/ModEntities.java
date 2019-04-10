@@ -949,8 +949,8 @@ public static void registerMobWithEgg(Class entityClass, String entityName) {
 	        mobID++, DivineRPG.instance, 128, 3, true);
 	mobID++;
 	EntityList.ENTITY_EGGS.put(new ResourceLocation(Reference.MODID, entityName),
-	        new EntityEggInfo(new ResourceLocation(Reference.MODID, entityName), 0x000000 * entityName.length(),
-	                0xFFFFFF * EntityList.ENTITY_EGGS.size()));
+	        new EntityEggInfo(new ResourceLocation(Reference.MODID, entityName),
+	                0x000001 * EntityList.ENTITY_EGGS.size(), 0xFFFFFF * EntityList.ENTITY_EGGS.size()));
 }
 
 // public static void registerMobWithEgg(Class entityClass, String entityName) {
