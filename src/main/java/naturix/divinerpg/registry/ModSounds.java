@@ -53,7 +53,7 @@ public final class ModSounds {
     public static final SoundEvent DEATH_HOUND = createEvent("death_hound");
     public static final SoundEvent DEATH_HOUND_HURT = createEvent("death_hound_hurt");
     public static final SoundEvent DEEP_LAUGH = createEvent("deep_laugh");
-    public static final SoundEvent DEMON_DARKNESS = createEvent("demon_darkness");
+    public static final SoundEvent DEMON_OF_DARKNESS = createEvent("demon_of_darkness");
     public static final SoundEvent DENSOS = createEvent("densos");
     public static final SoundEvent DENSOS_HURT = createEvent("densos_hurt");
     public static final SoundEvent DESERT = createEvent("desert");
@@ -128,9 +128,7 @@ public final class ModSounds {
     public static final SoundEvent KING_OF_SCORCHERS = createEvent("king_of_scorchers");
     public static final SoundEvent KING_OF_SCORCHERS_HURT = createEvent("king_of_scorchers_hurt");
     public static final SoundEvent KOBBLIN = createEvent("kobblin");
-    public static final SoundEvent LADY_LUNA1 = createEvent("lady_luna1");
-    public static final SoundEvent LADY_LUNA2 = createEvent("lady_luna2");
-    public static final SoundEvent LADY_LUNA3 = createEvent("lady_luna3");
+    public static final SoundEvent LADY_LUNA = createEvent("lady_luna");
     public static final SoundEvent LADY_LUNA_HURT = createEvent("lady_luna_hurt");
     public static final SoundEvent LA_VEKOR = createEvent("la_vekor");
     public static final SoundEvent LHEVIA = createEvent("lhevia");
@@ -280,7 +278,7 @@ public final class ModSounds {
         evt.getRegistry().register(DEATH_HOUND);
         evt.getRegistry().register(DEATH_HOUND_HURT);
         evt.getRegistry().register(DEEP_LAUGH);
-        evt.getRegistry().register(DEMON_DARKNESS);
+        evt.getRegistry().register(DEMON_OF_DARKNESS);
         evt.getRegistry().register(DENSOS);
         evt.getRegistry().register(DENSOS_HURT);
         evt.getRegistry().register(DESERT);
@@ -355,9 +353,7 @@ public final class ModSounds {
         evt.getRegistry().register(KING_OF_SCORCHERS);
         evt.getRegistry().register(KING_OF_SCORCHERS_HURT);
         evt.getRegistry().register(KOBBLIN);
-        evt.getRegistry().register(LADY_LUNA1);
-        evt.getRegistry().register(LADY_LUNA2);
-        evt.getRegistry().register(LADY_LUNA3);
+        evt.getRegistry().register(LADY_LUNA);
         evt.getRegistry().register(LADY_LUNA_HURT);
         evt.getRegistry().register(LA_VEKOR);
         evt.getRegistry().register(LHEVIA);

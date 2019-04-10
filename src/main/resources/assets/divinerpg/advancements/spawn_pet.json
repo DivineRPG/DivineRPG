@@ -1,7 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "divinerpg:pet_spawn_egg"
+            "item": "divinerpg:boiled_egg"
         },
         "title": {
             "translate": "advancement.divinerpg.spawnpet"

@@ -3,8 +3,7 @@ package naturix.divinerpg.objects.blocks.tile.model;
 import naturix.divinerpg.utils.models.DivineModel;
 import net.minecraft.client.model.ModelRenderer;
 
-public class ModelAEStatue extends DivineModel
-{
+public class ModelAncientEntityStatue extends DivineModel {
     //fields
     ModelRenderer head;
     ModelRenderer legr;
@@ -33,10 +32,8 @@ public class ModelAEStatue extends DivineModel
     ModelRenderer body;
     ModelRenderer support1;
 
-    public ModelAEStatue()
-    {
-        super("TODO", 64, 32); //TODO
-
+    public ModelAncientEntityStatue() {
+        super("statueAnchient", 64, 32);
         head = new ModelRenderer(this, 0, 0);
         head.addBox(-4F, -4F, -6F, 8, 8, 6);
         head.setRotationPoint(0F, -13F, -19F);
@@ -194,5 +191,4 @@ public class ModelAEStatue extends DivineModel
         support1.mirror = true;
         setRotation(support1, 0F, 0F, 0F);
     }
-
 }
