@@ -1,10 +1,8 @@
 package naturix.divinerpg.objects.blocks.tile.model;
 
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
 
 public class DramixAltarModel extends ModelBase {
     //fields
@@ -17,7 +15,7 @@ public class DramixAltarModel extends ModelBase {
     ModelRenderer S2;
     ModelRenderer S3;
     ModelRenderer S4;
-    
+
     public DramixAltarModel() {
         textureWidth = 64;
         textureHeight = 32;
@@ -100,7 +98,7 @@ public class DramixAltarModel extends ModelBase {
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
-    
+
     public void render(float f5) {
         Base.render(f5);
         P1.render(f5);

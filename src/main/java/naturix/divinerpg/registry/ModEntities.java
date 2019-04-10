@@ -2,7 +2,6 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.assets.model.iceika.RenderWorkshopTinkerer;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderApalachiaTomo;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
@@ -25,6 +24,7 @@ import naturix.divinerpg.objects.entities.assets.render.iceika.RenderGlacide;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderHastreus;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderRollum;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderWorkshopMerchant;
+import naturix.divinerpg.objects.entities.assets.render.iceika.RenderWorkshopTinkerer;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaGolem;
