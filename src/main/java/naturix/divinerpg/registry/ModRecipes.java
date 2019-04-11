@@ -1,14 +1,29 @@
 package naturix.divinerpg.registry;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
+
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.WoodType;
+import naturix.divinerpg.utils.DummyRecipe;
 import naturix.divinerpg.utils.GenerateJSON;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModRecipes {
     public static void addOredictRecipe(Block result, Object... materials) {
@@ -230,36 +245,20 @@ public class ModRecipes {
 
         // armor
 
-        // FIXME - Remove Vanilla DIAMOND, GOLDEN and IRON armor and put the replacement
-        // in
+        addRecipe(ModItems.diamondHelmet, "III", "I I", 'I', Items.DIAMOND);
+        addRecipe(ModItems.diamondBody, "I I", "III", "III", 'I', Items.DIAMOND);
+        addRecipe(ModItems.diamondLegs, "III", "I I", "I I", 'I', Items.DIAMOND);
+        addRecipe(ModItems.diamondBoots, "I I", "I I", 'I', Items.DIAMOND);
 
-        // removeCraftingRecipe(Items.DIAMOND_CHESTPLATE);
-        // removeCraftingRecipe(Items.DIAMOND_LEGGINGS);
-        // removeCraftingRecipe(Items.DIAMOND_BOOTS);
-        // removeCraftingRecipe(Items.DIAMOND_HELMET);
-        // removeCraftingRecipe(Items.GOLDEN_CHESTPLATE);
-        // removeCraftingRecipe(Items.GOLDEN_LEGGINGS);
-        // removeCraftingRecipe(Items.GOLDEN_BOOTS);
-        // removeCraftingRecipe(Items.GOLDEN_HELMET);
-        // removeCraftingRecipe(Items.IRON_CHESTPLATE);
-        // removeCraftingRecipe(Items.IRON_LEGGINGS);
-        // removeCraftingRecipe(Items.IRON_BOOTS);
-        // removeCraftingRecipe(Items.IRON_HELMET);
+        addRecipe(ModItems.ironHelmet, "III", "I I", 'I', Items.IRON_INGOT);
+        addRecipe(ModItems.ironBody, "I I", "III", "III", 'I', Items.IRON_INGOT);
+        addRecipe(ModItems.ironLegs, "III", "I I", "I I", 'I', Items.IRON_INGOT);
+        addRecipe(ModItems.ironBoots, "I I", "I I", 'I', Items.IRON_INGOT);
 
-        // addRecipe(ModItems.diamondHelmet, "III", "I I", 'I', Items.DIAMOND);
-        // addRecipe(ModItems.diamondBody, "I I", "III", "III", 'I', Items.DIAMOND);
-        // addRecipe(ModItems.diamondLegs, "III", "I I", "I I", 'I', Items.DIAMOND);
-        // addRecipe(ModItems.diamondBoots, "I I", "I I", 'I', Items.DIAMOND);
-
-        // addRecipe(ModItems.ironHelmet, "III", "I I", 'I', Items.IRON_INGOT);
-        // addRecipe(ModItems.ironBody, "I I", "III", "III", 'I', Items.IRON_INGOT);
-        // addRecipe(ModItems.ironLegs, "III", "I I", "I I", 'I', Items.IRON_INGOT);
-        // addRecipe(ModItems.ironBoots, "I I", "I I", 'I', Items.IRON_INGOT);
-
-        // addRecipe(ModItems.goldHelmet, "III", "I I", 'I', Items.GOLD_INGOT);
-        // addRecipe(ModItems.goldBody, "I I", "III", "III", 'I', Items.GOLD_INGOT);
-        // addRecipe(ModItems.goldLegs, "III", "I I", "I I", 'I', Items.GOLD_INGOT);
-        // addRecipe(ModItems.goldBoots, "I I", "I I", 'I', Items.GOLD_INGOT);
+        addRecipe(ModItems.goldHelmet, "III", "I I", 'I', Items.GOLD_INGOT);
+        addRecipe(ModItems.goldBody, "I I", "III", "III", 'I', Items.GOLD_INGOT);
+        addRecipe(ModItems.goldLegs, "III", "I I", "I I", 'I', Items.GOLD_INGOT);
+        addRecipe(ModItems.goldBoots, "I I", "I I", 'I', Items.GOLD_INGOT);
 
         addRecipe(ModItems.realmiteHelmet, "III", "I I", 'I', ModItems.realmiteIngot);
         addRecipe(ModItems.realmiteBody, "I I", "III", "III", 'I', ModItems.realmiteIngot);
@@ -862,5 +861,76 @@ public class ModRecipes {
             }
         }
         return null;
+    }
+
+    @Mod.EventBusSubscriber(modid = Reference.MODID)
+    public static class RegistrationHandler {
+        /**
+         * Remove crafting recipes.
+         *
+         * @param event
+         *            The event
+         */
+        @SubscribeEvent(priority = EventPriority.LOWEST)
+        public static void removeRecipes(final RegistryEvent.Register<IRecipe> event) {
+            removeRecipes(Items.DIAMOND_CHESTPLATE);
+            removeRecipes(Items.DIAMOND_LEGGINGS);
+            removeRecipes(Items.DIAMOND_BOOTS);
+            removeRecipes(Items.DIAMOND_HELMET);
+            removeRecipes(Items.GOLDEN_CHESTPLATE);
+            removeRecipes(Items.GOLDEN_LEGGINGS);
+            removeRecipes(Items.GOLDEN_BOOTS);
+            removeRecipes(Items.GOLDEN_HELMET);
+            removeRecipes(Items.IRON_CHESTPLATE);
+            removeRecipes(Items.IRON_LEGGINGS);
+            removeRecipes(Items.IRON_BOOTS);
+            removeRecipes(Items.IRON_HELMET);
+        }
+
+        /**
+         * Remove all crafting recipes with the specified {@link Item} as their output.
+         *
+         * @param output
+         *            The output Item
+         */
+        private static void removeRecipes(final Item output) {
+            final int recipesRemoved = removeRecipes(recipe -> {
+                final ItemStack recipeOutput = recipe.getRecipeOutput();
+                return !recipeOutput.isEmpty() && recipeOutput.getItem() == output;
+            });
+
+            DivineRPG.logger.info("Removed {} recipe(s) for {}", recipesRemoved, output.getRegistryName());
+        }
+
+        /**
+         * Remove all crafting recipes that match the specified predicate.
+         *
+         * @param predicate
+         *            The predicate
+         * @return The number of recipes removed
+         */
+        private static int removeRecipes(final Predicate<IRecipe> predicate) {
+            int recipesRemoved = 0;
+
+            final IForgeRegistry<IRecipe> registry = ForgeRegistries.RECIPES;
+            final List<IRecipe> toRemove = new ArrayList<>();
+
+            for (final IRecipe recipe : registry) {
+                if (predicate.test(recipe)) {
+                    toRemove.add(recipe);
+                    recipesRemoved++;
+                }
+            }
+
+            DivineRPG.logger.info(
+                    "Overriding recipes with dummy recipes, please ignore the following \"Dangerous alternative prefix\" warnings.");
+            toRemove.forEach(recipe -> {
+                final ResourceLocation registryName = Objects.requireNonNull(recipe.getRegistryName());
+                final IRecipe replacement = new DummyRecipe().setRegistryName(registryName);
+                registry.register(replacement);
+            });
+
+            return recipesRemoved;
+        }
     }
 }

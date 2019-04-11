@@ -25,6 +25,7 @@ import naturix.divinerpg.objects.items.base.ItemSlowingSword;
 import naturix.divinerpg.objects.items.base.ItemThrowable;
 import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemMusicShooter;
+import naturix.divinerpg.objects.items.iceika.ItemSerenadeOfIce;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
 import naturix.divinerpg.objects.items.itemblock.ItemBlockDoor;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightBlitz;
@@ -37,6 +38,10 @@ import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
 import naturix.divinerpg.objects.items.vanilla.ItemInfernalFlame;
 import naturix.divinerpg.objects.items.vanilla.ItemMysteriousClock;
 import naturix.divinerpg.objects.items.vanilla.ItemScythe;
+import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfDeath;
+import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfHealth;
+import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
+import naturix.divinerpg.objects.items.vanilla.ItemSerenadeStriker;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import naturix.divinerpg.objects.items.vanilla.ItemVileStorm;
 import naturix.divinerpg.utils.ArmorInfo;
@@ -136,19 +141,10 @@ public class ModItems {
     public static Item bowheadCannon = new ItemProjectileShooter("bowhead_cannon", ProjectileType.BOWHEAD_CANNON_SHOT,
             ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 3);
 
-    // public static Item serenadeOfHealth = new
-    // ItemSerenadeOfHealth("serenade_of_health");
-    public static Item serenadeOfHealth = new ItemNotReady("serenade_of_health", DRPGCreativeTabs.items);
-    // public static Item serenadeStriker = new
-    // ItemSerenadeStriker("serenade_striker");
-    public static Item serenadeStriker = new ItemNotReady("serenade_striker", DRPGCreativeTabs.ranged);
-    // FIXME
-    // public static Item serenadeOfDeath = new
-    // ItemSerenadeOfDeath("serenade_of_death");
-    public static Item serenadeOfDeath = new ItemNotReady("serenade_of_death", DRPGCreativeTabs.ranged);
-    // public static Item serenadeOfInfusion = new
-    // ItemSerenadeOfInfusion("serenade_of_infusion");
-    public static Item serenadeOfInfusion = new ItemNotReady("serenade_of_infusion", DRPGCreativeTabs.items);
+    public static Item serenadeOfHealth = new ItemSerenadeOfHealth("serenade_of_health");
+    public static Item serenadeStriker = new ItemSerenadeStriker("serenade_striker");
+    public static Item serenadeOfDeath = new ItemSerenadeOfDeath("serenade_of_death");
+    public static Item serenadeOfInfusion = new ItemSerenadeOfInfusion("serenade_of_infusion");
 
     public static Item palavence = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5f);
     public static Item massivence = new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1);
@@ -479,7 +475,6 @@ public class ModItems {
     public static Item frozenMaul = new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozen_maul");
     public static Item frossivence = new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1);
 
-    // FIXME
     public static Item soundOfCarols = new ItemMusicShooter("sound_of_carols");
     public static Item soundOfMusic = new ItemMusicShooter("sound_of_music");
 
@@ -491,9 +486,7 @@ public class ModItems {
     public static Item snowflakeShuriken = new ItemThrowable("snowflake_shuriken",
             ProjectileType.SNOWFLAKE_SHURIKEN_SHOT);
 
-    // FIXME
-    // public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
-    public static Item serenadeOfIce = new ItemNotReady("serenade_of_ice", DRPGCreativeTabs.ranged);
+    public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
 
     public static Item eggNog = new ItemEggNog("egg_nog");
     public static Item peppermints = new ItemModFood(1, 0.3F, false, "peppermints");

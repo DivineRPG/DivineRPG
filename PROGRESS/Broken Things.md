@@ -8,9 +8,6 @@
 * Statues
 
 ## Additional Items to complete for Vanilla & Iceika Release
-* Vanilla Armor (change unlocalized domain to "minecraft:" and this is done)
-* Serenades (Ice/Death require entites)
-* Music Shooters (require entities)
 * Bows
 * Advancements (at least Vanilla + Iceika)
 
