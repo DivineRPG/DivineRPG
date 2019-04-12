@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:sound_of_music"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.off_key"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.off_key.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:root",
+  "criteria": {
+    "som": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:sound_of_music"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "som"
+    ]
+  ]
+}

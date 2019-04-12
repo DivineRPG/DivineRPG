@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:jungle_shard"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.dramcryx_death"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.dramcryx_death.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:root",
+  "criteria": {
+    "shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:jungle_shard"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "shard"
+    ]
+  ]
+}

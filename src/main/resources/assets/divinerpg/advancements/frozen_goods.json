@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:frozen_chest"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.frozen_goods"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.frozen_goods.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:iceika",
+  "criteria": {
+    "chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:frozen_chest"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "chest"
+    ]
+  ]
+}

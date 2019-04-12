@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:eden_soul"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.friend_foe"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.friend_foe.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:root",
+  "criteria": {
+    "soul": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:eden_soul"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "soul"
+    ]
+  ]
+}
