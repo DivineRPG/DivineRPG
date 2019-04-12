@@ -1247,7 +1247,7 @@ entity.Villager.divinerpg.workshop_merchant=Workshop Merchant
 entity.Villager.divinerpg.workshop_tinkerer=Workshop Tinkerer
 entity.Villager.divinerpg.the_hunger=The Hunger
 
-advancement.divinerpg.name=DivineRPG
+advancement.divinerpg.name=Eye of Evil
 advancement.divinerpg.mine_rupee.desc=Smelt 1 rupee ingot
 advancement.divinerpg.enter_eden=Possibilities
 advancement.divinerpg.enter_eden.desc=Enter the Eden dimension
