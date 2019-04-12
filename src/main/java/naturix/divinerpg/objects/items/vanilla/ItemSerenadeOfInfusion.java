@@ -13,8 +13,8 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class ItemSerenadeOfInfusion extends ItemMod {
@@ -33,13 +33,13 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {
-
-        ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
-
-        entity.getHeldItem(hand).damageItem(1, entity);
-        world.playSound(null, entity.getPosition(), ModSounds.HEAL, SoundCategory.MASTER, 1, 1);
-        entity.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 80, 2, true, false));
-        return ar;
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if (!player.capabilities.isCreativeMode) {
+            stack.damageItem(1, player);
+        }
+        player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 80, 2, true, false));
+        player.playSound(ModSounds.HEAL, 1, 1);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 }

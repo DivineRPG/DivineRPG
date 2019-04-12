@@ -14,7 +14,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderAyeracoSpawn extends TileEntitySpecialRenderer {
+public class RenderAyeracoSpawn extends TileEntitySpecialRenderer<TileEntityAyeracoSpawn> {
 
     private static ResourceLocation greenTexture = new ResourceLocation(
             Reference.MODID + ":textures/model/green_ayeraco_symbol.png");
@@ -23,11 +23,12 @@ public class RenderAyeracoSpawn extends TileEntitySpecialRenderer {
     private static ResourceLocation yellowTexture = new ResourceLocation(
             Reference.MODID + ":textures/model/yellow_ayeraco_symbol.png");
     private static ResourceLocation blueTexture = new ResourceLocation(
-            Reference.MODID + ":textures/model/blue_ayeraco_symbolBlue.png");
+            Reference.MODID + ":textures/model/blue_ayeraco_symbol.png");
     private static ResourceLocation purpleTexture = new ResourceLocation(
             Reference.MODID + ":textures/model/purple_ayeraco_symbol.png");
 
-    public void renderTileEntity(TileEntityAyeracoSpawn te, double x, double y, double z, float f) {
+    public void render(TileEntityAyeracoSpawn te, double x, double y, double z, float partialTicks, int destroyStage,
+            float alpha) {
         GL11.glPushMatrix();
         if (te.spawnTick > 430)
             Minecraft.getMinecraft().renderEngine.bindTexture(greenTexture);
@@ -57,15 +58,6 @@ public class RenderAyeracoSpawn extends TileEntitySpecialRenderer {
         GL11.glTranslatef(0, 0, 0.28125f);
         GL11.glRotatef(270, 1F, 0F, 0F);
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 0, 65536);
-
-        /*
-        tessellator.startDrawingQuads();
-        tessellator.setNormal(0.0F, 1.0F, 0.0F);
-        tessellator.addVertexWithUV(0.0F - f8, 0.0F - f9, 0.0D, minU, maxV);
-        tessellator.addVertexWithUV(f7 - f8, 0.0F - f9, 0.0D, maxU, maxV);
-        tessellator.addVertexWithUV(f7 - f8, 1.0F - f9, 0.0D, maxU, minV);
-        tessellator.addVertexWithUV(0.0F - f8, 1.0F - f9, 0.0D, minU, minV);
-        */
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
         bufferbuilder.pos(0.0F - f8, 0.0F - f9, 0.0D).tex(minU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
         bufferbuilder.pos(f7 - f8, 0.0F - f9, 0.0D).tex(maxU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
@@ -80,15 +72,6 @@ public class RenderAyeracoSpawn extends TileEntitySpecialRenderer {
         GL11.glTranslatef(0, 0, 0.28125f);
         GL11.glRotatef(270, 1F, 0F, 0F);
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 0, 65536);
-
-        /*
-        tessellator.startDrawingQuads();
-        tessellator.setNormal(0.0F, 1.0F, 0.0F);
-        tessellator.addVertexWithUV(0.0F - f8, 0.0F - f9, 0.0D, minU, maxV);
-        tessellator.addVertexWithUV(f7 - f8, 0.0F - f9, 0.0D, maxU, maxV);
-        tessellator.addVertexWithUV(f7 - f8, 1.0F - f9, 0.0D, maxU, minV);
-        tessellator.addVertexWithUV(0.0F - f8, 1.0F - f9, 0.0D, minU, minV);
-        */
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
         bufferbuilder.pos(0.0F - f8, 0.0F - f9, 0.0D).tex(minU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
         bufferbuilder.pos(f7 - f8, 0.0F - f9, 0.0D).tex(maxU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
@@ -100,9 +83,4 @@ public class RenderAyeracoSpawn extends TileEntitySpecialRenderer {
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
     }
-
-    //@Override
-    //public void renderTileEntityAt(TileEntity t, double x, double y, double z, float f) {
-    //    this.renderTileEntity((TileEntityAyeracoSpawn) t, x, y, z, f);
-    //}
 }

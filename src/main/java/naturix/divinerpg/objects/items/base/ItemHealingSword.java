@@ -26,12 +26,12 @@ public class ItemHealingSword extends ItemModSword {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-        float current = player.getHealth();
-        if ((current >= 0.0F) && (current < 20.0F)) {
-            ItemStack stack = new ItemStack(this.getContainerItem());
+        if (player.getHealth() < player.getMaxHealth()) {
+            ItemStack stack = player.getHeldItem(hand);
             if (!player.capabilities.isCreativeMode) {
-                stack.shrink(1);
+                stack.damageItem(1, player);
             }
+            player.heal(healAmount);
             player.playSound(ModSounds.HEAL, 1, 1);
         }
         return super.onItemRightClick(world, player, hand);

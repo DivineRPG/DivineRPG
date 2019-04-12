@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModItems;
@@ -11,6 +13,7 @@ import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -40,20 +43,25 @@ public class ItemMusicShooter extends ItemMod {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn) {
-        ItemStack stack = new ItemStack(this);
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+
         if (!world.isRemote) {
             if (this == ModItems.soundOfCarols) {
-                // world.spawnEntityInWorld(new EntityCarol(world, player));
-                world.playSound(null, player.getPosition(), ModSounds.SOUND_OF_CAROLS, SoundCategory.MUSIC, 1, 1);
+                EntityThrowable bullet = new EntitySoundOfCarols(world, player);
+                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+                world.spawnEntity(bullet);
+                world.playSound(null, player.getPosition(), ModSounds.SOUND_OF_CAROLS, SoundCategory.MASTER, 1, 1);
             } else {
-                // world.spawnEntityInWorld(new EntityMusic(world, player));
-                world.playSound(null, player.getPosition(), ModSounds.SOUND_OF_MUSIC, SoundCategory.MUSIC, 1, 1);
+                EntityThrowable bullet = new EntitySoundOfMusic(world, player);
+                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+                world.spawnEntity(bullet);
+                world.playSound(null, player.getPosition(), ModSounds.SOUND_OF_MUSIC, SoundCategory.MASTER, 1, 1);
             }
-            if (!player.isCreative()) {
+            if (!player.capabilities.isCreativeMode) {
                 stack.damageItem(1, player);
             }
         }
-        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(handIn));
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 }
