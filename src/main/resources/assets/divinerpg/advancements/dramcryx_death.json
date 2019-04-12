@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:jungle_shard"
+      "item": "divinerpg:jungle_shards"
     },
     "title": {
       "translate": "advancement.divinerpg.dramcryx_death"
@@ -19,7 +19,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:jungle_shard"
+            "item": "divinerpg:jungle_shards"
           }
         ]
       }

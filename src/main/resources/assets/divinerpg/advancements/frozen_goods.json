@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:frozen_chest"
+      "item": "divinerpg:frosted_chest"
     },
     "title": {
       "translate": "advancement.divinerpg.frozen_goods"
@@ -19,7 +19,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:frozen_chest"
+            "item": "divinerpg:frosted_chest"
           }
         ]
       }
