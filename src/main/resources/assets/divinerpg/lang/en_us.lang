@@ -1299,6 +1299,16 @@ advancement.divinerpg.dramcryx_death=Dramcryx Death
 advancement.divinerpg.dramcryx_death.desc=Kill A Jungle Dramcryx
 advancement.divinerpg.one_lamp_two_lamp_red_lamp_blue_lamp=One Lamp, Two Lamp, Red Lamp, Blue Lamp!
 advancement.divinerpg.one_lamp_two_lamp_red_lamp_blue_lamp.desc=Craft a DivineRPG Lamp
+advancement.divinerpg.what_lies_within=What Lies Within!
+advancement.divinerpg.what_lies_within.desc=Enter Arcana
+advancement.divinerpg.perfectly_corrupted=Perfectly Corrupted
+advancement.divinerpg.perfectly_corrupted.desc=Collect an Altar of Corruption
+advancement.divinerpg.total_demonization=Total Demonization
+advancement.divinerpg.total_demonization.desc=Obtain a Demon Furnace
+advancement.divinerpg.yuk=YUK!
+advancement.divinerpg.yuk.desc=Collect a Weak Arcana Potion
+advancement.divinerpg.enrichment=Enrichment
+advancement.divinerpg.enrichment.desc=Collect a Staff of Enrichment
 
 fluid.tar=Tar
 

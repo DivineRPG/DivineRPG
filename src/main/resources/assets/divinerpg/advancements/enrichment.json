@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:staff_of_enrichment"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.enrichment"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.enrichment.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:what_lies_within",
+  "criteria": {
+    "block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:staff_of_enrichment"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "block"
+    ]
+  ]
+}
