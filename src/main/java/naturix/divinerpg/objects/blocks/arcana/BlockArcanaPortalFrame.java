@@ -117,16 +117,17 @@ public class BlockArcanaPortalFrame extends BlockMod {
             /* Set portal blocks */
             if (validFrame) {
                 IBlockState portalState = portal.getDefaultState();
+                BlockPos inside = new BlockPos(startX, y, startZ);
 
-                world.setBlockState(pos.add(1, 0, 1), portalState);
-                world.setBlockState(pos.add(2, 0, 1), portalState);
-                world.setBlockState(pos.add(3, 0, 1), portalState);
-                world.setBlockState(pos.add(1, 0, 2), portalState);
-                world.setBlockState(pos.add(2, 0, 2), portalState);
-                world.setBlockState(pos.add(3, 0, 2), portalState);
-                world.setBlockState(pos.add(1, 0, 3), portalState);
-                world.setBlockState(pos.add(2, 0, 3), portalState);
-                world.setBlockState(pos.add(3, 0, 3), portalState);
+                world.setBlockState(inside.add(1, 0, 1), portalState);
+                world.setBlockState(inside.add(2, 0, 1), portalState);
+                world.setBlockState(inside.add(3, 0, 1), portalState);
+                world.setBlockState(inside.add(1, 0, 2), portalState);
+                world.setBlockState(inside.add(2, 0, 2), portalState);
+                world.setBlockState(inside.add(3, 0, 2), portalState);
+                world.setBlockState(inside.add(1, 0, 3), portalState);
+                world.setBlockState(inside.add(2, 0, 3), portalState);
+                world.setBlockState(inside.add(3, 0, 3), portalState);
             }
         }
     }
