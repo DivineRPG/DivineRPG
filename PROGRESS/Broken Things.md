@@ -9,7 +9,8 @@
 
 ## Additional Items to complete for Vanilla & Iceika Release
 * Bows
-* Advancements (at least Vanilla + Iceika)
 
 ## Bugs
 
+## Optional Items to complete for Vanilla & Iceika Release (Non-Essential)
+* Advancements (Arcana)
