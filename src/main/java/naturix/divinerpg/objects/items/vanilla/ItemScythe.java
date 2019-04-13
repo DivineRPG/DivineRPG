@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
@@ -44,7 +44,7 @@ public class ItemScythe extends ItemMod {
             boolean fullArmor = (boots != null && legs != null && body != null && helmet != null
                     && boots.getItem() == ModItems.jackOManBoots && body.getItem() == ModItems.jackOManBody
                     && legs.getItem() == ModItems.jackOManLegs && helmet.getItem() == ModItems.jackOManHelmet);
-            ProjectileType projectileType = fullArmor ? ProjectileType.MEGA_SCYTHE_SHOT : ProjectileType.SCYTHE_SHOT;
+            BulletType projectileType = fullArmor ? BulletType.MEGA_SCYTHE_SHOT : BulletType.SCYTHE_SHOT;
 
             EntityShooterBullet bullet = new EntityShooterBullet(world, player, projectileType);
             bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);

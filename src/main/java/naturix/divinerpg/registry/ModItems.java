@@ -3,7 +3,8 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.ArrowType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
@@ -107,38 +108,37 @@ public class ModItems {
     public static Item aquatoothSword = new ItemModSword(ToolMaterialMod.AquatoothSword, "aquatooth_sword");
     public static Item aquatoothMaul = new ItemModSword(ToolMaterialMod.AquatoothMaul, "aquatooth_maul");
 
-    public static Item hunterBow = new ItemModBow("hunter_bow", 2500, 2, 11, Items.ARROW, "hunter_arrow");
-    public static Item shadowBow = new ItemModBow("shadow_bow", 10000, 2, 11, 36000, Items.ARROW, "shadow_arrow");
-    public static Item enderBow = new ItemModBow("ender_bow", -1, 4, 16, "ender_arrow");
-    public static Item bluefireBow = new ItemModBow("bluefire_bow", -1, 2, 11, "bluefire_arrow");
-    public static Item infernoBow = new ItemModBow("inferno_bow", 10000, 2, 11, "inferno_arrow");
+    public static Item hunterBow = new ItemModBow("hunter_bow", ArrowType.HUNTER_ARROW, 2500, Items.ARROW);
+    public static Item shadowBow = new ItemModBow("shadow_bow", ArrowType.SHADOW_ARROW, 10000, 36000, Items.ARROW);
+    public static Item enderBow = new ItemModBow("ender_bow", ArrowType.ENDER_ARROW, -1);
+    public static Item bluefireBow = new ItemModBow("bluefire_bow", ArrowType.BLUEFIRE_ARROW, -1);
+    public static Item infernoBow = new ItemModBow("inferno_bow", ArrowType.INFERNO_ARROW, 10000);
 
-    public static Item shuriken = new ItemThrowable("shuriken", ProjectileType.SHURIKEN_SHOT);
+    public static Item shuriken = new ItemThrowable("shuriken", BulletType.SHURIKEN_SHOT);
     public static Item vileStorm = new ItemVileStorm("vile_storm");
     public static Item scythe = new ItemScythe("scythe");
 
-    public static Item frostCannon = new ItemProjectileShooter("frost_cannon", ProjectileType.FROST_CANNON_SHOT,
+    public static Item frostCannon = new ItemProjectileShooter("frost_cannon", BulletType.FROST_CANNON_SHOT,
             ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0);
-    public static Item cyclopsianStaff = new ItemProjectileShooter("cyclopsian_staff",
-            ProjectileType.CYCLOPSIAN_STAFF_SHOT, ModSounds.STAFF, 3000, 0);
-    public static Item maelstrom = new ItemProjectileShooter("maelstrom", ProjectileType.MAELSTROM_SHOT,
+    public static Item cyclopsianStaff = new ItemProjectileShooter("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT,
+            ModSounds.STAFF, 3000, 0);
+    public static Item maelstrom = new ItemProjectileShooter("maelstrom", BulletType.MAELSTROM_SHOT,
             ModSounds.GHAST_CANNON, 100, 0);
 
-    public static Item crabAnchor = new ItemAnchor("crab_anchor", ProjectileType.CRAB_ANCHOR_SHOT);
-    public static Item sharkAnchor = new ItemAnchor("shark_anchor", ProjectileType.SHARK_ANCHOR_SHOT);
-    public static Item bowheadAnchor = new ItemAnchor("bowhead_anchor", ProjectileType.BOWHEAD_ANCHOR_SHOT);
-    public static Item liopleurodonAnchor = new ItemAnchor("liopleurodon_anchor",
-            ProjectileType.LIOPLEURODON_ANCHOR_SHOT);
-    public static Item goldenFury = new ItemProjectileShooter("golden_fury", ProjectileType.GOLDEN_FURY_SHOT,
+    public static Item crabAnchor = new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT);
+    public static Item sharkAnchor = new ItemAnchor("shark_anchor", BulletType.SHARK_ANCHOR_SHOT);
+    public static Item bowheadAnchor = new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT);
+    public static Item liopleurodonAnchor = new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT);
+    public static Item goldenFury = new ItemProjectileShooter("golden_fury", BulletType.GOLDEN_FURY_SHOT,
             ModSounds.BLITZ, -1, 0);
 
     public static Item corruptedCannon = new ItemCorruptedCannon("corrupted_cannon");
 
-    public static Item ghastCannon = new ItemProjectileShooter("ghast_cannon", ProjectileType.GHAST_CANNON_SHOT,
+    public static Item ghastCannon = new ItemProjectileShooter("ghast_cannon", BulletType.GHAST_CANNON_SHOT,
             ModSounds.GHAST_CANNON, 100, 5);
-    public static Item crabclawCannon = new ItemProjectileShooter("crabclaw_cannon",
-            ProjectileType.CRABCLAW_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 3);
-    public static Item bowheadCannon = new ItemProjectileShooter("bowhead_cannon", ProjectileType.BOWHEAD_CANNON_SHOT,
+    public static Item crabclawCannon = new ItemProjectileShooter("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT,
+            ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 3);
+    public static Item bowheadCannon = new ItemProjectileShooter("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT,
             ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 3);
 
     public static Item serenadeOfHealth = new ItemSerenadeOfHealth("serenade_of_health");
@@ -478,13 +478,11 @@ public class ModItems {
     public static Item soundOfCarols = new ItemMusicShooter("sound_of_carols");
     public static Item soundOfMusic = new ItemMusicShooter("sound_of_music");
 
-    public static Item frostclawCannon = new ItemProjectileShooter("frostclaw_cannon",
-            ProjectileType.FROSTCLAW_CANNON_SHOT, ModSounds.FROSTCLAW_CANNON, Item.getItemFromBlock(Blocks.CACTUS),
-            10000, 0);
-    public static Item fractiteCannon = new ItemProjectileShooter("fractite_cannon",
-            ProjectileType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, iceShards, 10000, 0);
-    public static Item snowflakeShuriken = new ItemThrowable("snowflake_shuriken",
-            ProjectileType.SNOWFLAKE_SHURIKEN_SHOT);
+    public static Item frostclawCannon = new ItemProjectileShooter("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT,
+            ModSounds.FROSTCLAW_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 10000, 0);
+    public static Item fractiteCannon = new ItemProjectileShooter("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT,
+            ModSounds.FRACTITE_CANNON, iceShards, 10000, 0);
+    public static Item snowflakeShuriken = new ItemThrowable("snowflake_shuriken", BulletType.SNOWFLAKE_SHURIKEN_SHOT);
 
     public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
 
@@ -495,8 +493,8 @@ public class ModItems {
     public static Item fruitCake = new ItemModFood(16, 2.0F, false, "fruit_cake");
     public static Item winterberry = new ItemModFood(4, 1.0F, false, "winterberry");
 
-    public static Item icicleBow = new ItemModBow("icicle_bow", 10000, 2, 11, 24000, Items.ARROW, "icicle_arrow");
-    public static Item snowstormBow = new ItemModBow("snowstorm_bow", -1, 2, 11, "snowstorm_arrow");
+    public static Item icicleBow = new ItemModBow("icicle_bow", ArrowType.ICICLE_ARROW, 10000, 24000, Items.ARROW);
+    public static Item snowstormBow = new ItemModBow("snowstorm_bow", ArrowType.SNOWSTORM_ARROW, -1);
 
     private static Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6,
             ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
@@ -600,42 +598,44 @@ public class ModItems {
     public static Item mortumSlicer = new ItemNotReady("mortum_slicer", DRPGCreativeTabs.ranged);
     public static Item haliteSlicer = new ItemNotReady("halite_slicer", DRPGCreativeTabs.ranged);
 
-    public static Item edenBlitz = new ItemTwilightBlitz("eden_blitz", ProjectileType.EDEN_BLITZ_SHOT, edenDust);
-    public static Item wildwoodBlitz = new ItemTwilightBlitz("wildwood_blitz", ProjectileType.WILDWOOD_BLITZ_SHOT,
+    public static Item edenBlitz = new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, edenDust);
+    public static Item wildwoodBlitz = new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT,
             wildwoodDust);
-    public static Item apalachiaBlitz = new ItemTwilightBlitz("apalachia_blitz", ProjectileType.APALACHIA_BLITZ_SHOT,
+    public static Item apalachiaBlitz = new ItemTwilightBlitz("apalachia_blitz", BulletType.APALACHIA_BLITZ_SHOT,
             apalachiaDust);
-    public static Item skythernBlitz = new ItemTwilightBlitz("skythern_blitz", ProjectileType.SKYTHERN_BLITZ_SHOT,
+    public static Item skythernBlitz = new ItemTwilightBlitz("skythern_blitz", BulletType.SKYTHERN_BLITZ_SHOT,
             skythernDust);
-    public static Item mortumBlitz = new ItemTwilightBlitz("mortum_blitz", ProjectileType.MORTUM_BLITZ_SHOT,
-            mortumDust);
-    public static Item haliteBlitz = new ItemTwilightBlitz("halite_blitz", ProjectileType.HALITE_BLITZ_SHOT,
-            mortumDust);
+    public static Item mortumBlitz = new ItemTwilightBlitz("mortum_blitz", BulletType.MORTUM_BLITZ_SHOT, mortumDust);
+    public static Item haliteBlitz = new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, mortumDust);
 
-    public static Item edenPhaser = new ItemProjectileShooter("eden_phaser", ProjectileType.EDEN_PHASER_SHOT,
+    public static Item edenPhaser = new ItemProjectileShooter("eden_phaser", BulletType.EDEN_PHASER_SHOT,
             ModSounds.PHASER, 3000, 3);
-    public static Item wildwoodPhaser = new ItemProjectileShooter("wildwood_phaser",
-            ProjectileType.WILDWOOD_PHASER_SHOT, ModSounds.PHASER, 3000, 3);
-    public static Item apalachiaPhaser = new ItemProjectileShooter("apalachia_phaser",
-            ProjectileType.APALACHIA_PHASER_SHOT, ModSounds.PHASER, 3000, 3);
-    public static Item skythernPhaser = new ItemProjectileShooter("skythern_phaser",
-            ProjectileType.SKYTHERN_PHASER_SHOT, ModSounds.PHASER, 3000, 3);
-    public static Item mortumPhaser = new ItemProjectileShooter("mortum_phaser", ProjectileType.MORTUM_PHASER_SHOT,
+    public static Item wildwoodPhaser = new ItemProjectileShooter("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT,
             ModSounds.PHASER, 3000, 3);
-    public static Item halitePhaser = new ItemProjectileShooter("halite_phaser", ProjectileType.HALITE_PHASER_SHOT,
+    public static Item apalachiaPhaser = new ItemProjectileShooter("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT,
+            ModSounds.PHASER, 3000, 3);
+    public static Item skythernPhaser = new ItemProjectileShooter("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT,
+            ModSounds.PHASER, 3000, 3);
+    public static Item mortumPhaser = new ItemProjectileShooter("mortum_phaser", BulletType.MORTUM_PHASER_SHOT,
+            ModSounds.PHASER, 3000, 3);
+    public static Item halitePhaser = new ItemProjectileShooter("halite_phaser", BulletType.HALITE_PHASER_SHOT,
             ModSounds.PHASER, 3000, 3);
 
     public static Item edenArrow = new ItemMod("eden_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
     public static Item wildwoodArrow = new ItemMod("wildwood_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
     public static Item furyArrow = new ItemMod("fury_arrow").setCreativeTab(DRPGCreativeTabs.ranged);
 
-    public static Item edenBow = new ItemModBow("eden_bow", -1, 6, 16, edenArrow);
-    public static Item wildwoodBow = new ItemModBow("wildwood_bow", -1, 6, 16, 36000, wildwoodArrow);
-    public static Item apalachiaBow = new ItemModBow("apalachia_bow", -1, 10, 20, wildwoodArrow);
-    public static Item skythernBow = new ItemModBow("skythern_bow", -1, 10, 20, 36000, wildwoodArrow);
-    public static Item mortumBow = new ItemModBow("mortum_bow", -1, 13, 25, furyArrow);
-    public static Item haliteBow = new ItemModBow("halite_bow", -1, 13, 25, 36000, furyArrow);
-    public static Item twilightBow = new ItemModBow("twilight_bow", -1, 13, 25, 14400, furyArrow).setCreativeTab(null);
+    public static Item edenBow = new ItemModBow("eden_bow", ArrowType.EDEN_ARROW, -1, edenArrow);
+    public static Item wildwoodBow = new ItemModBow("wildwood_bow", ArrowType.LESSER_WILDWOOD_ARROW, -1, 36000,
+            wildwoodArrow);
+    public static Item apalachiaBow = new ItemModBow("apalachia_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1,
+            wildwoodArrow);
+    public static Item skythernBow = new ItemModBow("skythern_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, 36000,
+            wildwoodArrow);
+    public static Item mortumBow = new ItemModBow("mortum_bow", ArrowType.FURY_ARROW, -1, furyArrow);
+    public static Item haliteBow = new ItemModBow("halite_bow", ArrowType.FURY_ARROW, -1, 36000, furyArrow);
+    public static Item twilightBow = new ItemModBow("twilight_bow", ArrowType.FURY_ARROW, -1, 14400, furyArrow)
+            .setCreativeTab(null);
 
     // Twilight Tools
     public static Item edenPickaxe = new ItemModPickaxe(ToolMaterialMod.EdenPick, "eden_pickaxe");

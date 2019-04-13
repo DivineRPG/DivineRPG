@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemTwilightBlitz extends ItemProjectileShooter {
 
-    public ItemTwilightBlitz(String name, ProjectileType projectileType, Item ammo) {
+    public ItemTwilightBlitz(String name, BulletType projectileType, Item ammo) {
         super(name, projectileType, ModSounds.BLITZ, ammo, -1, 0);
     }
 

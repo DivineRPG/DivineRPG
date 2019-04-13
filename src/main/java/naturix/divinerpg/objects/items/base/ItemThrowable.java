@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -21,9 +21,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemThrowable extends ItemMod {
-    protected ProjectileType projectileType;
+    protected BulletType projectileType;
 
-    public ItemThrowable(String name, ProjectileType projectileType) {
+    public ItemThrowable(String name, BulletType projectileType) {
         super(name, DRPGCreativeTabs.ranged);
         this.projectileType = projectileType;
     }

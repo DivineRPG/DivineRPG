@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -13,7 +13,7 @@ public class EntityParticleBullet extends EntityShooterBullet {
         super(world);
     }
 
-    public EntityParticleBullet(World world, EntityLivingBase entity, ProjectileType projectileType) {
+    public EntityParticleBullet(World world, EntityLivingBase entity, BulletType projectileType) {
         super(world, entity, projectileType);
     }
 
@@ -25,7 +25,7 @@ public class EntityParticleBullet extends EntityShooterBullet {
             double x = this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
             double y = this.posY + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
             double z = this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
-            DivineRPG.proxy.spawnParticle(this.world, this.getProjectileType().getParticle(), x, y, z, 0, 0, 0);
+            DivineRPG.proxy.spawnParticle(this.world, this.getBulletType().getParticle(), x, y, z, 0, 0, 0);
         }
     }
 }

@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemAnchor extends ItemProjectileShooter {
 
-    public ItemAnchor(String name, ProjectileType projectileType) {
+    public ItemAnchor(String name, BulletType projectileType) {
         super(name, projectileType, ModSounds.BLITZ, -1, 0);
     }
 

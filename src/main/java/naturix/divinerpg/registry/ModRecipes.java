@@ -416,9 +416,8 @@ public class ModRecipes {
         addRecipe(ModBlocks.realmiteBlock, "III", "III", "III", 'I', ModItems.realmiteIngot);
         addRecipe(ModBlocks.netheriteBlock, "III", "III", "III", 'I', ModItems.netheriteIngot);
         addRecipe(ModBlocks.bloodgemBlock, "III", "III", "III", 'I', ModItems.bloodgem);
-        // FIXME - Need to add
-        // addRecipe(new ItemStack(ModBlocks.arcanaPortalFrame, 12), " c ", "iii", " c
-        // ", 'c', ModItems.bluefireStone, 'i', Blocks.IRON_BLOCK);
+        addRecipe(new ItemStack(ModBlocks.arcanaPortalFrame, 12), " c ", "iii", " c ", 'c', ModItems.bluefireStone, 'i',
+                Blocks.IRON_BLOCK);
 
         addRecipe(ModItems.twilightClock, "CCC", "CCC", "CCC", 'C', Items.CLOCK);
         addRecipe(ModItems.snowGlobe, " G ", "GSG", "DBD", 'G', Blocks.GLASS, 'S', Blocks.SNOW, 'D', Items.DIAMOND, 'B',
@@ -596,8 +595,7 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.chickenDinner, ModItems.advMushroomStew, Items.COOKED_CHICKEN, Items.BREAD);
 
         // FIXME - Need to add
-        // addRecipe(ModBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's',
-        // ModItems.corruptedStone, 'd', ModBlocks.darkstone);
+        // addRecipe(ModBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', ModItems.corruptedStone, 'd', ModBlocks.darkstone);
 
         addRecipe(ModBlocks.coalstoneStairs, "c  ", "cc ", "ccc", 'c', ModBlocks.coalstone);
 
@@ -637,8 +635,7 @@ public class ModRecipes {
         addOredictRecipe(new ItemStack(ModBlocks.aquaTorch, 4), "x", "y", 'y', "stickWood", 'x',
                 ModItems.aquaticBlazeRod);
         // FIXME - Need to add
-        // addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y',
-        // "stickWood", 'x', ModItems.edenFragments);
+        // addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.edenFragments);
 
         addRecipe(new ItemStack(ModBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.IRON_INGOT);
         addRecipe(new ItemStack(ModBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', ModItems.netheriteIngot);
@@ -821,12 +818,9 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.karotCrystal, ModItems.baseSpawnCrystal, ModItems.apalachiaSoul,
                 ModItems.mortumSoul, ModItems.mortumSoul, ModItems.skythernSoul);
 
-        // addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b',
-        // ModItems.edenFragments);
-        // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock,
-        // 'W', ModBlocks.mortumLogs);
-        // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F",
-        // 'F', ModItems.apalachiaFragments);
+        // addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b', ModItems.edenFragments);
+        // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock, 'W', ModBlocks.mortumLogs);
+        // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', ModItems.apalachiaFragments);
 
         AddWoodVariantsRecipes();
 

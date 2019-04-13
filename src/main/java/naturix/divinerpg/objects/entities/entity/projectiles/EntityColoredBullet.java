@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.entities.entity.projectiles;
 import java.awt.Color;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,7 +15,7 @@ public class EntityColoredBullet extends EntityShooterBullet {
         super(world);
     }
 
-    public EntityColoredBullet(World world, EntityLivingBase entity, ProjectileType projectileType) {
+    public EntityColoredBullet(World world, EntityLivingBase entity, BulletType projectileType) {
         super(world, entity, projectileType);
     }
 

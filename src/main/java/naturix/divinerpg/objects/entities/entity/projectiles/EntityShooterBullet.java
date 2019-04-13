@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderShooterBullet;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -17,24 +17,24 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityShooterBullet extends EntityThrowable {
-    private static final DataParameter<Byte> PROJECTILE_ID = EntityDataManager
-            .<Byte>createKey(EntityShooterBullet.class, DataSerializers.BYTE);
-    private ProjectileType projectileType;
+    private static final DataParameter<Byte> BULLET_ID = EntityDataManager.<Byte>createKey(EntityShooterBullet.class,
+            DataSerializers.BYTE);
+    private BulletType bulletType;
 
     public EntityShooterBullet(World world) {
         super(world);
     }
 
-    public EntityShooterBullet(World world, EntityLivingBase entity, ProjectileType projectileType) {
+    public EntityShooterBullet(World world, EntityLivingBase entity, BulletType bulletType) {
         super(world, entity);
-        this.projectileType = projectileType;
-        setProjectileId((byte) projectileType.getProjectileId());
+        this.bulletType = bulletType;
+        setBulletId((byte) bulletType.getBulletId());
     }
 
     @Override
     public void entityInit() {
         super.entityInit();
-        dataManager.register(PROJECTILE_ID, (byte) 0);
+        dataManager.register(BULLET_ID, (byte) 0);
     }
 
     @SideOnly(Side.CLIENT)
@@ -47,7 +47,7 @@ public class EntityShooterBullet extends EntityThrowable {
     public void onImpact(RayTraceResult result) {
         if (result.entityHit != null) {
             result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()),
-                    this.getProjectileType().getDamage());
+                    this.getBulletType().getDamage());
         }
         if (!this.world.isRemote) {
             this.setDead();
@@ -57,32 +57,32 @@ public class EntityShooterBullet extends EntityThrowable {
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setByte("projectileId", getProjectileId());
+        compound.setByte("projectileId", getBulletId());
     }
 
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        setProjectileId(compound.getByte("projectileId"));
-        this.projectileType = ProjectileType.getProjectileFromId(getProjectileId());
+        setBulletId(compound.getByte("projectileId"));
+        this.bulletType = BulletType.getBulletFromId(getBulletId());
     }
 
-    private byte getProjectileId() {
-        return ((Byte) this.dataManager.get(PROJECTILE_ID)).byteValue();
+    private byte getBulletId() {
+        return ((Byte) this.dataManager.get(BULLET_ID)).byteValue();
     }
 
-    private void setProjectileId(byte projectileId) {
-        dataManager.set(PROJECTILE_ID, Byte.valueOf(projectileId));
+    private void setBulletId(byte projectileId) {
+        dataManager.set(BULLET_ID, Byte.valueOf(projectileId));
     }
 
-    public ProjectileType getProjectileType() {
-        if (projectileType == null) {
-            projectileType = ProjectileType.getProjectileFromId(getProjectileId());
+    public BulletType getBulletType() {
+        if (bulletType == null) {
+            bulletType = BulletType.getBulletFromId(getBulletId());
         }
-        return projectileType;
+        return bulletType;
     }
 
     public ResourceLocation getTexture() {
-        return getProjectileType().getTexture();
+        return getBulletType().getTexture();
     }
 }

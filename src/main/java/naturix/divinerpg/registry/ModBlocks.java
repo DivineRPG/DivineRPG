@@ -20,6 +20,7 @@ import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockModVine;
 import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
@@ -363,16 +364,17 @@ public class ModBlocks {
     public static Block skythernBlock = new BlockMod("skythern_block", 9);
     public static Block mortumBlock = new BlockMod("mortum_block", 9);
 
-    // public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F,
-    // edenSapling);
-    // public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves",
-    // 0.5F, wildwoodSapling);
-    // public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves",
-    // 0.5F, apalachiaSapling).setLightLevel(0.5F);
-    // public static Block skythernLeaves = new BlockModLeaves("skythern_leaves",
-    // 0.5F, skythernSapling);
-    // public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F,
-    // mortumSapling);
+    //public static Block edenSapling      = new BlockTwilightSapling("edenSapling", edenGrass, edenDirt, new WorldGenEdenTree(true));
+    //public static Block wildwoodSapling  = new BlockTwilightSapling("wildwoodSapling", wildwoodGrass, wildwoodDirt, new WorldGenWildwoodTree3(true), 3, 3);
+    //public static Block apalachiaSapling = new BlockTwilightSapling("apalachiaSapling", apalachiaGrass, apalachiaDirt, new WorldGenApalachiaTree(true));
+    //public static Block skythernSapling  = new BlockTwilightSapling("skythernSapling", skythernGrass, skythernDirt, new WorldGenSkythernTree(true));
+    //public static Block mortumSapling    = new BlockTwilightSapling("mortumSapling", mortumGrass, mortumDirt, new WorldGenMortumTree(true));
+
+    // public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
+    // public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
+    // public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling).setLightLevel(0.5F);
+    // public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling);
+    // public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling);
     public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F);
     public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F);
     public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F).setLightLevel(0.5F);
@@ -386,6 +388,7 @@ public class ModBlocks {
     public static Block mortumLogs = new BlockModLog("mortum_log");
 
     public static Block twilightStone = new BlockMod("twilight_stone", 6.0F);
+    public static Block wildwoodVine = new BlockModVine("wildwood_vine");
     public static Block blueFire = new BlockModFire("blue_fire");
     public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(),
             blueFire, divineRock, DRPGParticleTypes.EDEN_PORTAL);
@@ -412,29 +415,26 @@ public class ModBlocks {
     public static Block stainedGlass7 = new BlockModGlass("stained_glass7", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass8 = new BlockModGlass("stained_glass8", 0.3F).setUnlocalizedName("stained_glass");
 
+    public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", Blocks.AIR);
+
     public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log");
 
-    // public static Block greenlightFurnace = new
-    // BlockGreenlightFurnace("greenlight_furnace", false);
-    // public static Block greenlightFurnaceOn = new
-    // BlockGreenlightFurnace("greenlight_furnace_on", true);
+    // public static Block greenlightFurnace = new BlockGreenlightFurnace("greenlight_furnace", false);
+    // public static Block greenlightFurnaceOn = new BlockGreenlightFurnace("greenlight_furnace_on", true);
     public static Block oceanfireFurnace = new BlockOceanfireFurnace("oceanfire_furnace", false);
     public static Block oceanfireFurnaceOn = new BlockOceanfireFurnace("oceanfire_furnace_on", true);
     public static Block moltenFurnace = new BlockMoltenFurnace("molten_furnace", false);
     public static Block moltenFurnaceOn = new BlockMoltenFurnace("molten_furnace_on", true);
     public static Block whitefireFurnace = new BlockWhitefireFurnace("whitefire_furnace", false);
     public static Block whitefireFurnaceOn = new BlockWhitefireFurnace("whitefire_furnace_on", true);
-    // public static Block moonlightFurnace = new
-    // BlockMoonlightFurnace("moonlight_furnace", false);
-    // public static Block moonlightFurnaceOn = new
-    // BlockMoonlightFurnace("moonlight_furnace_on", true);
+    // public static Block moonlightFurnace = new BlockMoonlightFurnace("moonlight_furnace", false);
+    // public static Block moonlightFurnaceOn = new BlockMoonlightFurnace("moonlight_furnace_on", true);
     public static Block demonFurnace = new BlockDemonFurnace("demon_furnace", false);
     public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
 
     //public static Block weedwoodVine = new BlockModVine("weedwood_vine");
     //public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
-    public static Block wildwoodVine = new BlockModVine("wildwood_vine");
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

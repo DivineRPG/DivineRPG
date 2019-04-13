@@ -5,7 +5,7 @@ import java.awt.Color;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.util.ResourceLocation;
 
-public enum ProjectileType {
+public enum BulletType {
     NONE(0, 0, null),
     FROST_CANNON_SHOT(1, 6, ProjectileLoc("frost_cannon")),
     CYCLOPSIAN_STAFF_SHOT(2, 6, ItemLoc("cyclops_eye_shards")),
@@ -53,7 +53,7 @@ public enum ProjectileType {
     private final DRPGParticleTypes particle;
     private final Color color;
 
-    ProjectileType(int id, float damage, ResourceLocation texture, DRPGParticleTypes particle) {
+    BulletType(int id, float damage, ResourceLocation texture, DRPGParticleTypes particle) {
         this.id = id;
         this.damage = damage;
         this.texture = texture;
@@ -61,7 +61,7 @@ public enum ProjectileType {
         this.color = null;
     }
 
-    ProjectileType(int id, float damage, ResourceLocation texture, Color color) {
+    BulletType(int id, float damage, ResourceLocation texture, Color color) {
         this.id = id;
         this.damage = damage;
         this.texture = texture;
@@ -69,7 +69,7 @@ public enum ProjectileType {
         this.color = color;
     }
 
-    ProjectileType(int id, float damage, ResourceLocation texture) {
+    BulletType(int id, float damage, ResourceLocation texture) {
         this.id = id;
         this.damage = damage;
         this.texture = texture;
@@ -93,14 +93,14 @@ public enum ProjectileType {
         return this.color;
     }
 
-    public int getProjectileId() {
+    public int getBulletId() {
         return this.id;
     }
 
-    public static ProjectileType getProjectileFromId(int id) {
-        for (ProjectileType projectile : ProjectileType.values()) {
-            if (projectile.getProjectileId() == id) {
-                return projectile;
+    public static BulletType getBulletFromId(int id) {
+        for (BulletType bullet : BulletType.values()) {
+            if (bullet.getBulletId() == id) {
+                return bullet;
             }
         }
         return NONE;

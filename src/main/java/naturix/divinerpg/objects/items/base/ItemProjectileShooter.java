@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.enums.ProjectileType;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
@@ -35,29 +35,29 @@ public class ItemProjectileShooter extends ItemMod {
     public static List<Item> gunList = new ArrayList<Item>();
     public static List<Item> phaserList = new ArrayList<Item>();
     protected SoundEvent shotSound;
-    protected ProjectileType projectileType;
+    protected BulletType projectileType;
     protected Item ammo;
     protected int uses;
     private int delay;
 
-    public ItemProjectileShooter(String name, ProjectileType projectileType, SoundEvent shotSound, Item ammo, int uses,
+    public ItemProjectileShooter(String name, BulletType projectileType, SoundEvent shotSound, Item ammo, int uses,
             int counter) {
         this(name, projectileType, ammo, uses, counter);
         this.shotSound = shotSound;
     }
 
-    public ItemProjectileShooter(String name, ProjectileType projectileType, Item ammo, int uses, int counter) {
+    public ItemProjectileShooter(String name, BulletType projectileType, Item ammo, int uses, int counter) {
         this(name, projectileType, uses, counter);
         this.ammo = ammo;
     }
 
-    public ItemProjectileShooter(String name, ProjectileType projectileType, SoundEvent shotSound, int uses,
+    public ItemProjectileShooter(String name, BulletType projectileType, SoundEvent shotSound, int uses,
             int counter) {
         this(name, projectileType, uses, counter);
         this.shotSound = shotSound;
     }
 
-    public ItemProjectileShooter(String name, ProjectileType projectileType, int uses, int counter) {
+    public ItemProjectileShooter(String name, BulletType projectileType, int uses, int counter) {
         super(name);
         setCreativeTab(DRPGCreativeTabs.ranged);
         setMaxStackSize(1);
