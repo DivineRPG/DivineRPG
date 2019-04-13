@@ -1297,6 +1297,8 @@ advancement.divinerpg.lil_gift=Lil` Gift
 advancement.divinerpg.lil_gift.desc=Collect a Present Box
 advancement.divinerpg.dramcryx_death=Dramcryx Death
 advancement.divinerpg.dramcryx_death.desc=Kill A Jungle Dramcryx
+advancement.divinerpg.one_lamp_two_lamp_red_lamp_blue_lamp=One Lamp, Two Lamp, Red Lamp, Blue Lamp!
+advancement.divinerpg.one_lamp_two_lamp_red_lamp_blue_lamp.desc=Craft a DivineRPG Lamp
 
 fluid.tar=Tar
 

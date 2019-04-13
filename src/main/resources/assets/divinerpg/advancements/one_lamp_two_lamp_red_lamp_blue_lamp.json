@@ -1,0 +1,133 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:eden_lamp"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.one_lamp_two_lamp_red_lamp_blue_lamp"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.one_lamp_two_lamp_red_lamp_blue_lamp.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:eden",
+  "criteria": {
+    "aqua": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:aqua_lamp"
+          }
+        ]
+      }
+    },
+    "arlemite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:arlemite_lamp"
+          }
+        ]
+      }
+    },
+    "blaze": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:blaze_lamp"
+          }
+        ]
+      }
+    },
+    "bluefire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:bluefire_lamp"
+          }
+        ]
+      }
+    },
+    "diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:diamond_lamp"
+          }
+        ]
+      }
+    },
+    "divine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:divine_lamp"
+          }
+        ]
+      }
+    },
+    "draken": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:draken_lamp"
+          }
+        ]
+      }
+    },
+    "eden": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:eden_lamp"
+          }
+        ]
+      }
+    },
+    "ender": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:ender_lamp"
+          }
+        ]
+      }
+    },
+    "ender_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:ender_stone_lamp"
+          }
+        ]
+      }
+    },
+    "gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:gold_lamp"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+	"aqua", "arlemite", "blaze", "bluefire", "diamond", "divine", "draken", "eden", "ender", "ender_stone", "gold"
+    ]
+  ]
+}
