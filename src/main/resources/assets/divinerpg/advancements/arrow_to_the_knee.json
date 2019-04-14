@@ -1,33 +1,20 @@
 {
-  "display": {
-    "icon": {
-      "item": "divinerpg:twilight_bow"
-    },
-    "title": {
-      "translate": "advancement.divinerpg.arrow_knee"
-    },
-    "frame": "challenge",
-    "description": {
-      "translate": "advancement.divinerpg.arrow_knee.desc"
-    },
-    "announce_to_chat": true
-  },
-  "parent": "divinerpg:dark_another_day",
-  "criteria": {
-    "bow": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
+    "display": {
+        "icon": {
             "item": "divinerpg:twilight_bow"
-          }
-        ]
-      }
+        },
+        "title": {
+            "translate": "advancement.divinerpg.arrow_knee"
+        },
+        "description": {
+            "translate": "advancement.divinerpg.arrow_knee.desc"
+        }
+    },
+
+    "parent": "divinerpg:root",
+    "criteria": {
+        "densos_crystal": {
+            "trigger": "arrow_knee"
+        }
     }
-  },
-  "requirements": [
-    [
-      "bow"
-    ]
-  ]
 }
