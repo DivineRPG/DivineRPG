@@ -9,6 +9,8 @@ import com.google.common.base.Predicates;
 
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderArrowShot;
+import naturix.divinerpg.objects.entities.entity.twilight.TwilightArcher;
+import naturix.divinerpg.registry.ModTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -289,9 +291,8 @@ public class EntityArrowShot extends EntityArrow {
             }
 
             if (entity.attackEntityFrom(damagesource, (float) i)) {
-                // FIXME
-                //if (entity instanceof EntityPlayer && this.shootingEntity instanceof TwilightArcher)
-                //    ((EntityPlayer) entity).triggerAchievement(DivineRPGAchievements.arrowToTheKnee);
+                if (entity instanceof EntityPlayerMP && this.shootingEntity instanceof TwilightArcher)
+                    ModTriggers.ARROW_KNEE.trigger((EntityPlayerMP) entity);
                 if (entity instanceof EntityLivingBase) {
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
 
