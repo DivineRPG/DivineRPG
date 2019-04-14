@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:arcana_portal_frame",
+    "count": 12
+  },
+  "pattern": [
+    " c ",
+    "iii",
+    " c "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": {
+      "item": "divinerpg:bluefire_stone"
+    },
+    "i": {
+      "item": "minecraft:iron_block"
+    }
+  }
+}

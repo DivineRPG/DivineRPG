@@ -3,29 +3,34 @@ package naturix.divinerpg.enums;
 import net.minecraft.util.ResourceLocation;
 
 public enum ArrowType {
-    NONE(0, 0, 0, null),
-    HUNTER_ARROW(1, 2, 11, ProjectileLoc("hunter_arrow")),
-    SHADOW_ARROW(2, 2, 11, ProjectileLoc("shadow_arrow")),
-    ENDER_ARROW(3, 4, 16, ProjectileLoc("ender_arrow")),
-    BLUEFIRE_ARROW(4, 2, 11, ProjectileLoc("bluefire_arrow")),
-    INFERNO_ARROW(5, 2, 11, ProjectileLoc("inferno_arrow")),
-    ICICLE_ARROW(6, 2, 11, ProjectileLoc("icicle_arrow")),
-    SNOWSTORM_ARROW(7, 2, 11, ProjectileLoc("snowstorm_arrow")),
-    EDEN_ARROW(8, 6, 16, ItemLoc("eden_arrow")),
-    LESSER_WILDWOOD_ARROW(9, 6, 16, ItemLoc("wildwood_arrow")),
-    GREATER_WILDWOOD_ARROW(10, 10, 20, ItemLoc("wildwood_arrow")),
-    FURY_ARROW(11, 13, 25, ItemLoc("fury_arrow"));
+    NONE(0, 0, null, false, false, false),
+    HUNTER_ARROW(2, 11, ProjectileLoc("hunter_arrow"), true, false, false),
+    SHADOW_ARROW(2, 11, ProjectileLoc("shadow_arrow"), false, false, false),
+    ENDER_ARROW(4, 16, ProjectileLoc("ender_arrow"), false, false, false),
+    BLUEFIRE_ARROW(2, 11, ProjectileLoc("bluefire_arrow"), false, false, true),
+    INFERNO_ARROW(2, 11, ProjectileLoc("inferno_arrow"), false, true, false),
+    ICICLE_ARROW(2, 11, ProjectileLoc("icicle_arrow"), false, false, false),
+    SNOWSTORM_ARROW(2, 11, ProjectileLoc("snowstorm_arrow"), false, false, true),
+    EDEN_ARROW(6, 16, ItemLoc("eden_arrow"), false, false, false),
+    LESSER_WILDWOOD_ARROW(6, 16, ItemLoc("wildwood_arrow"), false, false, false),
+    GREATER_WILDWOOD_ARROW(10, 20, ItemLoc("wildwood_arrow"), false, false, false),
+    FURY_ARROW(13, 25, ItemLoc("fury_arrow"), false, false, false);
 
-    private final int id;
     private final float minDamage;
     private final float maxDamage;
     private final ResourceLocation texture;
+    private boolean poisonDamage;
+    private boolean fireDamage;
+    private boolean explosionDamage;
 
-    ArrowType(int id, float minDamage, float maxDamage, ResourceLocation texture) {
-        this.id = id;
+    ArrowType(float minDamage, float maxDamage, ResourceLocation texture, boolean poisonDamage, boolean fireDamage,
+            boolean explosionDamage) {
         this.minDamage = minDamage;
         this.maxDamage = maxDamage;
         this.texture = texture;
+        this.poisonDamage = poisonDamage;
+        this.fireDamage = fireDamage;
+        this.explosionDamage = explosionDamage;
     }
 
     public float getMinDamage() {
@@ -40,17 +45,23 @@ public enum ArrowType {
         return this.texture;
     }
 
-    public int getArrowId() {
-        return this.id;
+    public boolean poisonDamage() {
+        return this.poisonDamage;
     }
 
-    public static ArrowType getArrowFromId(int id) {
-        for (ArrowType arrow : ArrowType.values()) {
-            if (arrow.getArrowId() == id) {
-                return arrow;
-            }
+    public boolean fireDamage() {
+        return this.fireDamage;
+    }
+
+    public boolean explosionDamage() {
+        return this.explosionDamage;
+    }
+
+    public static ArrowType getArrowFromId(int ordinal) {
+        if (ordinal < 0 || ordinal > values().length) {
+            ordinal = 0;
         }
-        return NONE;
+        return values()[ordinal];
     }
 
     private static ResourceLocation ItemLoc(String name) {

@@ -28,7 +28,7 @@ public class EntityShooterBullet extends EntityThrowable {
     public EntityShooterBullet(World world, EntityLivingBase entity, BulletType bulletType) {
         super(world, entity);
         this.bulletType = bulletType;
-        setBulletId((byte) bulletType.getBulletId());
+        setBulletId((byte) bulletType.ordinal());
     }
 
     @Override
@@ -64,7 +64,7 @@ public class EntityShooterBullet extends EntityThrowable {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         setBulletId(compound.getByte("projectileId"));
-        this.bulletType = BulletType.getBulletFromId(getBulletId());
+        this.bulletType = BulletType.getBulletFromOrdinal(getBulletId());
     }
 
     private byte getBulletId() {
@@ -77,7 +77,7 @@ public class EntityShooterBullet extends EntityThrowable {
 
     public BulletType getBulletType() {
         if (bulletType == null) {
-            bulletType = BulletType.getBulletFromId(getBulletId());
+            bulletType = BulletType.getBulletFromOrdinal(getBulletId());
         }
         return bulletType;
     }

@@ -177,6 +177,7 @@ import naturix.divinerpg.objects.entities.entity.iceika.Hastreus;
 import naturix.divinerpg.objects.entities.entity.iceika.Rollum;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityArrowShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
@@ -376,6 +377,7 @@ public class ModEntities {
         registerProjectile(EntityCorruptedBullet.class, "corrupted_bullet");
         registerProjectile(EntitySoundOfMusic.class, "sound_of_music");
         registerProjectile(EntitySoundOfCarols.class, "sound_of_carols");
+        registerProjectile(EntityArrowShot.class, "arrow_shot");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -658,10 +660,10 @@ public class ModEntities {
         EntityShooterBullet.renderMe();
         EntityCorruptedBullet.renderMe();
         EntitySerenadeOfDeath.renderMe();
-        // Displays a "blank" projectile, so why bother rendering?
-        //EntitySerenadeOfIce.renderMe();
+        EntitySerenadeOfIce.renderMe();
         EntitySoundOfMusic.renderMe();
         EntitySoundOfCarols.renderMe();
+        EntityArrowShot.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);

@@ -174,9 +174,9 @@ public class GenerateJSON {
 
                     Map<String, Object> pull_3 = new HashMap<>();
                     Map<String, Object> predicate_3 = new HashMap<>();
-                    predicate_2.put("pulling", 1);
-                    predicate_2.put("pull", 0.9);
-                    pull_3.put("predicate", predicate_2);
+                    predicate_3.put("pulling", 1);
+                    predicate_3.put("pull", 0.9);
+                    pull_3.put("predicate", predicate_3);
                     pull_3.put("model", Reference.MODID + ":item/" + registryName + "_3");
 
                     List<Map<String, Object>> overrides = new ArrayList<>();

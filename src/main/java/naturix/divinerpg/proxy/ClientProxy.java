@@ -9,6 +9,7 @@ import naturix.divinerpg.client.render.RenderItemBoneChest;
 import naturix.divinerpg.client.render.RenderItemDemonFurnace;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
+import naturix.divinerpg.events.EventBowZoom;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
@@ -59,6 +60,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -98,7 +100,7 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomStateMapper(ModBlocks.tar, new StateMap.Builder().ignore(BlockFluidBase.LEVEL).build());
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
-
+        MinecraftForge.EVENT_BUS.register(new EventBowZoom());
     }
 
     @Override
