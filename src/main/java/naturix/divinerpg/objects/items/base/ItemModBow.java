@@ -72,13 +72,14 @@ public class ItemModBow extends ItemBow implements IHasModel {
             @Override
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-
                 if (entityIn == null) {
                     return 0.0F;
                 } else {
                     ItemStack itemstack = entityIn.getActiveItemStack();
                     return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemModBow ?
-                            (stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F : 0.0F;
+                            ((stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F)
+                                    * (DEFAULT_MAX_USE_DURATION / stack.getMaxItemUseDuration()) :
+                            0.0F;
                 }
             }
         });
@@ -86,7 +87,6 @@ public class ItemModBow extends ItemBow implements IHasModel {
             @Override
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-
                 return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F :
                         0.0F;
             }
@@ -174,7 +174,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
                 return;
 
             if (!itemstack.isEmpty() || infiniteAmmo) {
-                float f = getArrowVelocity(charge);
+                float f = getScaledArrowVelocity(charge);
                 if ((double) f >= 0.1D) {
                     if (!worldIn.isRemote) {
                         EntityArrowShot entityarrow = new EntityArrowShot(worldIn, arrowType, entityplayer);
@@ -212,6 +212,18 @@ public class ItemModBow extends ItemBow implements IHasModel {
                 }
             }
         }
+    }
+
+    public float getScaledArrowVelocity(int charge) {
+        float timeRatio = ((float) DEFAULT_MAX_USE_DURATION / (float) this.maxUseDuration);
+        float f = ((float) charge / 20.0F) * timeRatio;
+        f = (f * f + f * 2.0F) / 3.0F;
+
+        if (f > 1.0F) {
+            f = 1.0F;
+        }
+
+        return f;
     }
 
     public ItemModBow setSound(net.minecraft.util.SoundEvent shootSound) {

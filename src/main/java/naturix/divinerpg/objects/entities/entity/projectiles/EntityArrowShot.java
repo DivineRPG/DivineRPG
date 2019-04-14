@@ -20,7 +20,6 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Enchantments;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -282,7 +281,7 @@ public class EntityArrowShot extends EntityArrow {
 
             // Fire Damage
             if (!(entity instanceof EntityEnderman)) {
-                if (this.arrowType.fireDamage()) {
+                if (this.getArrowType().fireDamage()) {
                     entity.setFire(12);
                 } else if (this.isBurning()) {
                     entity.setFire(5);
@@ -297,12 +296,12 @@ public class EntityArrowShot extends EntityArrow {
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
 
                     // Poison Damage
-                    if (this.arrowType.poisonDamage()) {
+                    if (this.getArrowType().poisonDamage()) {
                         ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 40, 2));
                     }
 
                     // Explosion Damage
-                    if (this.arrowType.explosionDamage()) {
+                    if (this.getArrowType().explosionDamage()) {
                         this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
                     }
 
@@ -374,7 +373,7 @@ public class EntityArrowShot extends EntityArrow {
                 this.inTile.onEntityCollidedWithBlock(this.world, blockpos, iblockstate, this);
             }
 
-            if (arrowType == ArrowType.SNOWSTORM_ARROW) {
+            if (getArrowType() == ArrowType.SNOWSTORM_ARROW) {
                 /*
                 IBlockState airState = Blocks.AIR.getDefaultState();
                 if (this.world.getBlockState(this.getPosition().add(0, -1, 0)) != airState
@@ -480,6 +479,7 @@ public class EntityArrowShot extends EntityArrow {
         this.setIsCritical(compound.getBoolean("crit"));
         setArrowId(compound.getByte("arrowId"));
         this.arrowType = ArrowType.getArrowFromId(getArrowId());
+        this.damageMax = this.arrowType.getMaxDamage();
     }
 
     public void onCollideWithPlayer(EntityPlayer entityIn) {
@@ -517,23 +517,8 @@ public class EntityArrowShot extends EntityArrow {
         return (b0 & 1) != 0;
     }
 
+    @Override
     public void setEnchantmentEffectsFromEntity(EntityLivingBase p_190547_1_, float p_190547_2_) {
-        int i = EnchantmentHelper.getMaxEnchantmentLevel(Enchantments.POWER, p_190547_1_);
-        int j = EnchantmentHelper.getMaxEnchantmentLevel(Enchantments.PUNCH, p_190547_1_);
-        this.setDamage((double) (p_190547_2_ * 2.0F) + this.rand.nextGaussian() * 0.25D
-                + (double) ((float) this.world.getDifficulty().getDifficultyId() * 0.11F));
-
-        if (i > 0) {
-            this.setDamage(this.getDamage() + (double) i * 0.5D + 0.5D);
-        }
-
-        if (j > 0) {
-            this.setKnockbackStrength(j);
-        }
-
-        if (EnchantmentHelper.getMaxEnchantmentLevel(Enchantments.FLAME, p_190547_1_) > 0) {
-            this.setFire(100);
-        }
     }
 
     public void setDamage(double damageIn) {

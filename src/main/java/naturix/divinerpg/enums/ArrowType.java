@@ -11,10 +11,10 @@ public enum ArrowType {
     INFERNO_ARROW(2, 11, ProjectileLoc("inferno_arrow"), false, true, false),
     ICICLE_ARROW(2, 11, ProjectileLoc("icicle_arrow"), false, false, false),
     SNOWSTORM_ARROW(2, 11, ProjectileLoc("snowstorm_arrow"), false, false, true),
-    EDEN_ARROW(6, 16, ItemLoc("eden_arrow"), false, false, false),
-    LESSER_WILDWOOD_ARROW(6, 16, ItemLoc("wildwood_arrow"), false, false, false),
-    GREATER_WILDWOOD_ARROW(10, 20, ItemLoc("wildwood_arrow"), false, false, false),
-    FURY_ARROW(13, 25, ItemLoc("fury_arrow"), false, false, false);
+    EDEN_ARROW(6, 16, ProjectileLoc("eden_arrow"), false, false, false),
+    LESSER_WILDWOOD_ARROW(6, 16, ProjectileLoc("wildwood_arrow"), false, false, false),
+    GREATER_WILDWOOD_ARROW(10, 20, ProjectileLoc("wildwood_arrow"), false, false, false),
+    FURY_ARROW(13, 25, ProjectileLoc("fury_arrow"), false, false, false);
 
     private final float minDamage;
     private final float maxDamage;
@@ -62,10 +62,6 @@ public enum ArrowType {
             ordinal = 0;
         }
         return values()[ordinal];
-    }
-
-    private static ResourceLocation ItemLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/items/" + name + ".png");
     }
 
     private static ResourceLocation ProjectileLoc(String name) {
