@@ -217,6 +217,48 @@ public class GenerateJSON {
                     Map<String, Object> textures = new HashMap<>();
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);
                     json.put("textures", textures);
+                } else if ((block instanceof BlockModFurnace && registryName.contains("demon"))
+                        || block instanceof BlockStatue || block instanceof BlockModChest) {
+                    json.put("parent", "builtin/entity");
+                    Map<String, Object> display = new HashMap<>();
+
+                    Map<String, Object> gui = new HashMap<>();
+                    gui.put("rotation", new int[] { 30, 45, 0 });
+                    gui.put("translation", new double[] { 0, 0, 0 });
+                    gui.put("scale", new double[] { 0.625, 0.625, 0.625 });
+                    display.put("gui", gui);
+
+                    Map<String, Object> ground = new HashMap<>();
+                    ground.put("rotation", new int[] { 0, 0, 0 });
+                    ground.put("translation", new double[] { 0, 3, 0 });
+                    ground.put("scale", new double[] { 0.25, 0.25, 0.25 });
+                    display.put("ground", ground);
+
+                    Map<String, Object> head = new HashMap<>();
+                    head.put("rotation", new int[] { 0, 180, 0 });
+                    head.put("translation", new double[] { 0, 0, 0 });
+                    head.put("scale", new double[] { 1, 1, 1 });
+                    display.put("head", head);
+
+                    Map<String, Object> fixed = new HashMap<>();
+                    fixed.put("rotation", new int[] { 0, 180, 0 });
+                    fixed.put("translation", new double[] { 0, 0, 0 });
+                    fixed.put("scale", new double[] { 0.5, 0.5, 0.5 });
+                    display.put("fixed", fixed);
+
+                    Map<String, Object> thirdperson_righthand = new HashMap<>();
+                    thirdperson_righthand.put("rotation", new int[] { 75, 315, 0 });
+                    thirdperson_righthand.put("translation", new double[] { 0, 2.5, 0 });
+                    thirdperson_righthand.put("scale", new double[] { 0.375, 0.375, 0.375 });
+                    display.put("thirdperson_righthand", thirdperson_righthand);
+
+                    Map<String, Object> firstperson_righthand = new HashMap<>();
+                    firstperson_righthand.put("rotation", new int[] { 0, 315, 0 });
+                    firstperson_righthand.put("translation", new double[] { 0, 0, 0 });
+                    firstperson_righthand.put("scale", new double[] { 0.4, 0.4, 0.4 });
+                    display.put("firstperson_righthand", firstperson_righthand);
+
+                    json.put("display", display);
                 } else {
                     json.put("parent", Reference.MODID + ":block/" + registryName);
                 }
