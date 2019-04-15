@@ -29,10 +29,12 @@ minecraft {
 
 repositories {
     maven { url = "https://minecraft.curseforge.com/api/maven/" }
-}
+	maven { url = "http://dvs1.progwml6.com/files/maven"}
+	}
 
 dependencies {
    deobfCompile "projecte:ProjectE:1.12.2:${projecte_version}"
+   runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
 processResources {
