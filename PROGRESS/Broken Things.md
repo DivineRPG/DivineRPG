@@ -4,10 +4,8 @@
 * Demon Furnace
 * Chests
 
-## Create special Item JSON Models (Not needed for release)
-* Statues
-
 ## Additional Blocks to complete for Vanilla & Iceika Release
+* Altar of Corruption
 * Statues
 
 ## Bugs

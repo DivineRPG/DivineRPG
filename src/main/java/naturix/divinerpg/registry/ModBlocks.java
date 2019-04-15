@@ -280,8 +280,7 @@ public class ModBlocks {
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
     // FIXME - Need to add
-    // public static Block altarOfCorruption = new
-    // BlockAltarOfCorruption("altar_of_corruption");
+    // public static Block altarOfCorruption = new BlockAltarOfCorruption("altar_of_corruption");
 
     public static Block boneChest = new BlockBoneChest("bone_chest");
 
