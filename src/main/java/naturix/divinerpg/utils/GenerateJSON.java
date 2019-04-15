@@ -900,7 +900,7 @@ public class GenerateJSON {
                 generateLogModelBlock(registryName);
             } else if (block instanceof BlockModFurnace) {
                 if (registryName.contains("demon")) {
-                    generateDummyModelBlock(registryName);
+                    generateBreakModelBlock(registryName, "demon_furnace");
                 } else {
                     generateFurnaceModelBlock(registryName);
                 }
@@ -922,8 +922,14 @@ public class GenerateJSON {
                 generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
             } else if (block instanceof BlockModSlab) {
                 generateSlabModelBlock(registryName, ((BlockModSlab) block).isDouble());
-            } else if (block instanceof BlockStatue || block instanceof BlockModChest) {
-                generateDummyModelBlock(registryName);
+            } else if (block instanceof BlockStatue) {
+                generateBreakModelBlock(registryName, "statue");
+            } else if (block instanceof BlockModChest) {
+                if (registryName.contains("frosted")) {
+                    generateBreakModelBlock(registryName, "frosted_chest");
+                } else {
+                    generateBreakModelBlock(registryName, registryName);
+                }
             } else if (block instanceof BlockSinglePlant) {
                 generateCrossModelBlock(registryName);
             } else if (block instanceof BlockChristmasLights) {
@@ -1123,11 +1129,11 @@ public class GenerateJSON {
         }
     }
 
-    private static void generateDummyModelBlock(String registryName) {
+    private static void generateBreakModelBlock(String registryName, String breakName) {
         Map<String, Object> json = new HashMap<>();
         json.put("parent", "block/cube_all");
         Map<String, Object> textures = new HashMap<>();
-        textures.put("all", "blocks/debug");
+        textures.put("all", Reference.MODID + ":" + "blocks/" + breakName + "_break");
         json.put("textures", textures);
 
         File f = new File(MODEL_BLOCK_DIR, registryName + ".json");

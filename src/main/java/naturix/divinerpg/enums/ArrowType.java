@@ -14,7 +14,17 @@ public enum ArrowType {
     EDEN_ARROW(6, 16, ProjectileLoc("eden_arrow"), false, false, false),
     LESSER_WILDWOOD_ARROW(6, 16, ProjectileLoc("wildwood_arrow"), false, false, false),
     GREATER_WILDWOOD_ARROW(10, 20, ProjectileLoc("wildwood_arrow"), false, false, false),
-    FURY_ARROW(13, 25, ProjectileLoc("fury_arrow"), false, false, false);
+    FURY_ARROW(13, 25, ProjectileLoc("fury_arrow"), false, false, false),
+    EVERFRIGHT(25, 46, ProjectileLoc("ever_arrow"), false, false, false),
+    TEAKER_ARROW(2, 5, ProjectileLoc("teaker_arrow"), false, false, false),
+    AMTHRIMIS_ARROW(2, 7, ProjectileLoc("teaker_arrow"), false, false, false),
+    DARVEN_ARROW(3, 11, ProjectileLoc("darven_arrow"), false, false, false),
+    CERMIL_ARROW(4, 14, ProjectileLoc("darven_arrow"), false, false, false),
+    PARDINAL_ARROW(5, 18, ProjectileLoc("pardimal_arrow"), false, false, false),
+    QUADROTIC_ARROW(6, 21, ProjectileLoc("pardimal_arrow"), false, false, false),
+    KAROS_ARROW(7, 23, ProjectileLoc("karos_arrow"), false, false, false),
+    HELIOSIS_ARROW(8, 28, ProjectileLoc("karos_arrow"), false, false, false),
+    ARKSIAN_ARROW(12, 36, ProjectileLoc("karos_arrow"), false, false, false);
 
     private final float minDamage;
     private final float maxDamage;
