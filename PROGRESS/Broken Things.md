@@ -11,6 +11,6 @@
 
 ## Bugs
 * Ayeraco lose contact with one another upon Save/Restore NTB
+* Advancements (Need to match 1.7.10)
 
 ## Optional Items to complete for Vanilla & Iceika Release (Non-Essential)
-* Advancements (Arcana)
