@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:altar_of_corruption"
+  },
+  "pattern": [
+    "sss",
+    "ddd",
+    "ddd"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:corrupted_stone"
+    },
+    "d": {
+      "item": "divinerpg:darkstone"
+    }
+  }
+}

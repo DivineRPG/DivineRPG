@@ -2,13 +2,16 @@ package naturix.divinerpg.utils;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
+import naturix.divinerpg.objects.blocks.tile.container.gui.AltarOfCorruptionGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.BoneChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
@@ -46,6 +49,7 @@ public class GUIHandler implements IGuiHandler {
     public static final int THE_HUNGER_GUI_ID = 10;
     public static final int PRESENT_BOX_GUI_ID = 11;
     public static final int BONE_CHEST_GUI_ID = 12;
+    public static final int ALTAR_OF_CORRUPTION_GUI_ID = 13;
 
     @Nullable
     @Override
@@ -84,6 +88,9 @@ public class GUIHandler implements IGuiHandler {
         } else if (ID == BONE_CHEST_GUI_ID) {
             return new BoneChestGUI(player.inventory, (TileEntityBoneChest) world.getTileEntity(new BlockPos(x, y, z)),
                     player);
+        } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
+            return new AltarOfCorruptionGUI(player.inventory, world,
+                    (TileEntityAltarOfCorruption) world.getTileEntity(new BlockPos(x, y, z)));
         }
         return null;
     }
@@ -101,6 +108,8 @@ public class GUIHandler implements IGuiHandler {
         } else if (ID == WORKSHOP_MERCHANT_GUI_ID || ID == WORKSHOP_TINKERER_GUI_ID || ID == JACK_O_MAN_GUI_ID
                 || ID == LIVESTOCK_MERCHANT_GUI_ID || ID == THE_HUNGER_GUI_ID) {
             return new ContainerDivineMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
+            return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));
         }
         return null;
     }

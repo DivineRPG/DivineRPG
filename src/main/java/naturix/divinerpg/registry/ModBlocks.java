@@ -33,6 +33,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.iceika.BlockPresentBox;
 import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import naturix.divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.vanilla.BlockBloodgemOre;
@@ -279,9 +280,7 @@ public class ModBlocks {
     public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
-    // FIXME - Need to add
-    // public static Block altarOfCorruption = new BlockAltarOfCorruption("altar_of_corruption");
-
+    public static Block altarOfCorruption = new BlockAltarOfCorruption("altar_of_corruption");
     public static Block boneChest = new BlockBoneChest("bone_chest");
 
     // Iceika

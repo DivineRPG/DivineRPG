@@ -4,7 +4,7 @@
     "head": {
       "rotation": [
         0,
-        180,
+        0,
         0
       ],
       "translation": [
@@ -21,7 +21,7 @@
     "firstperson_righthand": {
       "rotation": [
         0,
-        315,
+        135,
         0
       ],
       "translation": [
@@ -38,7 +38,7 @@
     "gui": {
       "rotation": [
         30,
-        45,
+        225,
         0
       ],
       "translation": [
@@ -55,7 +55,7 @@
     "ground": {
       "rotation": [
         0,
-        0,
+        180,
         0
       ],
       "translation": [
@@ -72,7 +72,7 @@
     "fixed": {
       "rotation": [
         0,
-        180,
+        0,
         0
       ],
       "translation": [
@@ -89,7 +89,7 @@
     "thirdperson_righthand": {
       "rotation": [
         75,
-        315,
+        225,
         0
       ],
       "translation": [

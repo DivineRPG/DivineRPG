@@ -4,9 +4,9 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -30,12 +30,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockMobPumpkin extends BlockHorizontal implements IHasModel {
-    protected String name;
     private Random rand = new Random();
 
     public BlockMobPumpkin(String name) {
         super(Material.GOURD);
-        this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
         setTickRandomly(true);

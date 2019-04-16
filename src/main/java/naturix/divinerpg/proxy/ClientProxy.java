@@ -10,6 +10,7 @@ import naturix.divinerpg.client.render.RenderItemDemonFurnace;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.events.EventBowZoom;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
@@ -19,6 +20,7 @@ import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
+import naturix.divinerpg.objects.blocks.tile.render.RenderAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.render.RenderBoneChest;
@@ -136,6 +138,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixStatue.class, new RenderDramixStatue());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
     }
 
     @Override

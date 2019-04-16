@@ -594,8 +594,8 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.advMushroomStew, ModItems.whiteMushroom, Items.MUSHROOM_STEW);
         addShapelessRecipe(ModItems.chickenDinner, ModItems.advMushroomStew, Items.COOKED_CHICKEN, Items.BREAD);
 
-        // FIXME - Need to add
-        // addRecipe(ModBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', ModItems.corruptedStone, 'd', ModBlocks.darkstone);
+        addRecipe(ModBlocks.altarOfCorruption, "sss", "ddd", "ddd", 's', ModItems.corruptedStone, 'd',
+                ModBlocks.darkstone);
 
         addRecipe(ModBlocks.coalstoneStairs, "c  ", "cc ", "ccc", 'c', ModBlocks.coalstone);
 
