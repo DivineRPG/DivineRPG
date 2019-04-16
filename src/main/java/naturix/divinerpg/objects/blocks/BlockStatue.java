@@ -2,6 +2,11 @@ package naturix.divinerpg.objects.blocks;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.log.Logging;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -32,7 +37,12 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return null;
+		 if (this == ModBlocks.dramixStatue) {
+		 return new TileEntityDramixStatue();
+		 }
+		 else {
+			 return null;
+		 }
 	}
 
 	@Override
@@ -61,5 +71,6 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
 	        ItemStack stack) {
 		// FIXME
 		// Set block to correct statue? This might be expanded to be
+		
 	}
 }

@@ -7,6 +7,7 @@ import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.render.RenderItemBoneChest;
 import naturix.divinerpg.client.render.RenderItemDemonFurnace;
+import naturix.divinerpg.client.render.RenderItemDramixStatue;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.events.EventBowZoom;
@@ -121,6 +122,9 @@ public class ClientProxy extends CommonProxy {
         }
         if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
             item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
+        }
+        if (item.equals(Item.getItemFromBlock(ModBlocks.dramixStatue))) {
+            item.setTileEntityItemStackRenderer(new RenderItemDramixStatue());
         }
     }
 
