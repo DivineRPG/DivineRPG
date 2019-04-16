@@ -121,22 +121,6 @@ public class ItemModBow extends ItemBow implements IHasModel {
             tooltip.add(TooltipLocalizer.vethean());
     }
 
-    public ItemStack findAmmo(EntityPlayer player) {
-        if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))) {
-            return player.getHeldItem(EnumHand.OFF_HAND);
-        } else if (this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND))) {
-            return player.getHeldItem(EnumHand.MAIN_HAND);
-        } else {
-            for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
-                ItemStack itemstack = player.inventory.getStackInSlot(i);
-                if (this.isArrow(itemstack)) {
-                    return itemstack;
-                }
-            }
-            return ItemStack.EMPTY;
-        }
-    }
-
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
         return this.maxUseDuration;

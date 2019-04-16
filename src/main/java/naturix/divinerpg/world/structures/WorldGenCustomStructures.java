@@ -58,7 +58,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
         }
         if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
-            generateStructure(HUT, world, random, chunkX, chunkZ, 10, Blocks.GRASS, 11, 11);
+            generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
         }
     }
 
