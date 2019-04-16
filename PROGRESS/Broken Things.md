@@ -1,10 +1,6 @@
-## Add to Block JSON Auto-Generate (Not needed for release)
-* Altar of Corruption
-* Arcana Portal Frame
-* Demon Furnace Rotations
-* Steel Door
-* Tar
-* Vines (Once we start on Twilight)
+## World Gen
+* Add Tar (Might want to make this configurable)
+* Add Divine Trees (Might want to make this configurable)
 
 ## Additional Blocks to complete for Vanilla & Iceika Release
 * Statues
@@ -13,4 +9,18 @@
 * Ayeraco lose contact with one another upon Save/Restore NTB
 * Advancements (Need to match 1.7.10)
 
-## Optional Items to complete for Vanilla & Iceika Release (Non-Essential)
+## Optional things to complete for Vanilla & Iceika Release (Non-Essential)
+### Add to Block JSON Auto-Generate
+* Altar of Corruption
+* Arcana Portal Frame
+* Demon Furnace Rotations
+* Steel Door
+* Tar
+* Vines (Once we start on Twilight)
+### Other Blocks and Items
+* Saplings ((At least for Divine Trees)
+## Tar
+* Make more viscous
+* Set you on fire (if it does not do so already)
+* Able to catch on and sustain fire
+* Slow spread of fire
