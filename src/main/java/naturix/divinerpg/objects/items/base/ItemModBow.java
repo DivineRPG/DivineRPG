@@ -121,7 +121,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
             tooltip.add(TooltipLocalizer.vethean());
     }
 
-    private ItemStack findAmmo(EntityPlayer player) {
+    public ItemStack findAmmo(EntityPlayer player) {
         if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))) {
             return player.getHeldItem(EnumHand.OFF_HAND);
         } else if (this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND))) {
