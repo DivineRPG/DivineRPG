@@ -10,7 +10,7 @@
 * Statues
 
 ## Bugs
-* Ayeraco loose contact with one another upon Save/Restore NTB
+* Ayeraco lose contact with one another upon Save/Restore NTB
 
 ## Optional Items to complete for Vanilla & Iceika Release (Non-Essential)
 * Advancements (Arcana)
