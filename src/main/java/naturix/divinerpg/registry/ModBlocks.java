@@ -115,7 +115,7 @@ public class ModBlocks {
 
     public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE)
             .setResistance(10F);
-    public static Block tar = new BlockFluid("tar", ModLiquids.tar, Material.WATER);
+    public static Block tar = new BlockFluid("tar", ModLiquids.tar, Material.LAVA);
 
     public static Block fancyWool = new VanillaBlock(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD);
 

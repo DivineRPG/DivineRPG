@@ -1,6 +1,6 @@
 ## World Gen
-* Add Tar (Might want to make this configurable)
-* Add Divine Trees (Might want to make this configurable)
+* Add Tar
+* Add Divine Trees
 
 ## Additional Blocks to complete for Vanilla & Iceika Release
 * Statues
