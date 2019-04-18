@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:the_watcher_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:the_watcher_statue"
+      }
     }
-  }
+  ]
 }

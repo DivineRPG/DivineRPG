@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:parasecta_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:parasecta_statue"
+      }
     }
-  }
+  ]
 }

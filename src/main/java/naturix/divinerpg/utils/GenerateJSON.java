@@ -331,7 +331,7 @@ public class GenerateJSON {
                 generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
             } else if (block instanceof BlockModSlab) {
                 generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
-            } else if (block instanceof BlockModChest) {
+            } else if (block instanceof BlockModChest || block instanceof BlockStatue) {
                 generateIgnoreVariantBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);

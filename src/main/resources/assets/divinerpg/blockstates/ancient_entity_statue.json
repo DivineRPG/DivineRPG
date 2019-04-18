@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:ancient_entity_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:ancient_entity_statue"
+      }
     }
-  }
+  ]
 }

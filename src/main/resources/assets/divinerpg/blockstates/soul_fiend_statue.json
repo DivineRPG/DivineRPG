@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:soul_fiend_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:soul_fiend_statue"
+      }
     }
-  }
+  ]
 }

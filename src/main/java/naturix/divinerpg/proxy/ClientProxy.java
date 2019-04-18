@@ -7,15 +7,17 @@ import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.render.RenderItemBoneChest;
 import naturix.divinerpg.client.render.RenderItemDemonFurnace;
-import naturix.divinerpg.client.render.RenderItemDramixStatue;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
+import naturix.divinerpg.client.render.RenderItemStatue;
 import naturix.divinerpg.events.EventBowZoom;
+import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
@@ -29,6 +31,7 @@ import naturix.divinerpg.objects.blocks.tile.render.RenderDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.render.RenderDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.render.RenderFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderPresentBox;
+import naturix.divinerpg.objects.blocks.tile.render.RenderStatue;
 import naturix.divinerpg.objects.blocks.tile.render.TileEntityDramixAltarRender;
 import naturix.divinerpg.objects.blocks.tile.render.TileEntityParasectaAltarRender;
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
@@ -58,6 +61,7 @@ import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.EnumHelperClient;
@@ -113,18 +117,14 @@ public class ClientProxy extends CommonProxy {
         if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))
                 || item.equals(Item.getItemFromBlock(ModBlocks.decorativeFrostedChest))) {
             item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-        }
-        if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
             item.setTileEntityItemStackRenderer(new RenderItemPresentBox());
-        }
-        if (item.equals(Item.getItemFromBlock(ModBlocks.boneChest))) {
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.boneChest))) {
             item.setTileEntityItemStackRenderer(new RenderItemBoneChest());
-        }
-        if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
             item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
-        }
-        if (item.equals(Item.getItemFromBlock(ModBlocks.dramixStatue))) {
-            item.setTileEntityItemStackRenderer(new RenderItemDramixStatue());
+        } else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockStatue) {
+            item.setTileEntityItemStackRenderer(new RenderItemStatue());
         }
     }
 
@@ -143,6 +143,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
     }
 
     @Override

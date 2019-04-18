@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:densos_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:densos_statue"
+      }
     }
-  }
+  ]
 }

@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:vamacheron_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:vamacheron_statue"
+      }
     }
-  }
+  ]
 }

@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:eternal_archer_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:eternal_archer_statue"
+      }
     }
-  }
+  ]
 }

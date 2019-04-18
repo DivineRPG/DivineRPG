@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:karot_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:karot_statue"
+      }
     }
-  }
+  ]
 }

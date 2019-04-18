@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:dramix_statue"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:dramix_statue"
+      }
     }
-  }
+  ]
 }
