@@ -1,11 +1,13 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -41,18 +43,18 @@ public class Ehu extends EntityDivineRPGTameable {
             if (!itemstack.isEmpty()) {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood food = (ItemFood) itemstack.getItem();
-                   /** if (food == Items.CARROT || food == Items.APPLE || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
+                    if (food == Items.CARROT || food == Items.APPLE
+                            || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
                         if (!player.capabilities.isCreativeMode) {
                             itemstack.shrink(1);
                         }
                         this.heal(food.getHealAmount(itemstack));
                         return true;
-                    }*/
+                    }
                 }
             }
         } else {
-            this.setTamed(true);
-            this.setOwnerId(player.getUniqueID());
+            setTamedBy(player);
         }
 
         return super.processInteract(player, hand);

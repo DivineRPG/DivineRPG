@@ -6,7 +6,7 @@
 * achievement.whenPigsFly.desc=Wear a full Angelic armor set [INVENTORY_CHANGED]
 * achievement.offKey.desc=Shoot a Sound of Music [DIVINERPG_ITEM]
 * achievement.enrichment.desc=Use a Staff of Enrichment on Arcanite Dirt [DIVINERPG_ITEM]
-* achievement.littleCreature.desc=Spawn a pet from Zelus [SUMMONED_ENTITY]
+* achievement.littleCreature.desc=Tame a pet from Zelus [TAME_ANIMAL]
 * achievement.halloweenSpirit.desc=Talk to a Jack-O-Man [VILLAGER_TRADE]
 * achievement.feedingOnTheFish.desc=Kill a Shark [PLAYER_KILLED_ENTITY]
 * achievement.frozenLand.desc=Enter the Iceika dimension [CHANGED_DIMENSION]
@@ -31,7 +31,7 @@
 * achievement.oneLampTwoLampRedLampBlueLamp.desc=Craft an Eden Lamp [INVENTORY_CHANGED]
 * achievement.sixInOne.desc=Spawn the Eternal Archer [CONSUME_ITEM]
 * achievement.arrowToTheKnee.desc=Get shot by a Twilight Archer [ENTITY_HURT_PLAYER]
-* achievement.petCollector.desc=Spawn a pet from the Livestock Merchant [SUMMONED_ENTITY]
+* achievement.petCollector.desc=Tame a pet from the Livestock Merchant [TAME_ANIMAL]
 
 ## Must be done before Release
 * Ayeraco lose contact with one another upon Save/Restore NTB

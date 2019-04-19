@@ -52,8 +52,7 @@ public class GrizzleWhite extends EntityDivineRPGTameable {
                 }
             }
         } else {
-            this.setTamed(true);
-            this.setOwnerId(player.getUniqueID());
+            setTamedBy(player);
         }
 
         return super.processInteract(player, hand);

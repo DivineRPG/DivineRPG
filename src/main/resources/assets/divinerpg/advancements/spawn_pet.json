@@ -1,20 +1,83 @@
 {
-    "display": {
-        "icon": {
-            "item": "divinerpg:boiled_egg"
-        },
-        "title": {
-            "translate": "advancement.divinerpg.spawnpet"
-        },
-        "description": {
-            "translate": "advancement.divinerpg.spawnpet.description"
-        }
-    },
-
-    "parent": "divinerpg:root",
-    "criteria": {
-        "spawn_pet": {
-            "trigger": "spawn_pet"
-        }
-    }
+   "display":{
+      "icon":{
+         "item":"minecraft:spawn_egg"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.spawnpet"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.spawnpet.description"
+      }
+   },
+   "parent":"divinerpg:root",
+   "criteria":{
+      "tame_ehu":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:ehu"
+            }
+         }
+      },
+      "tame_husk":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:husk"
+            }
+         }
+      },
+      "tame_stone_golem":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:stone_golem"
+            }
+         }
+      },
+      "tame_smelter":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:smelter"
+            }
+         }
+      },
+      "tame_snapper":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:snapper"
+            }
+         }
+      },
+      "tame_grizzle_white":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:grizzle_white"
+            }
+         }
+      },
+      "tame_grizzle":{
+         "trigger":"minecraft:tame_animal",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:grizzle"
+            }
+         }
+      }
+   },
+   "requirements":[
+      [
+         "tame_ehu",
+         "tame_husk",
+         "tame_stone_golem",
+         "tame_smelter",
+         "tame_snapper",
+         "tame_grizzle_white",
+         "tame_grizzle"
+      ]
+   ]
 }

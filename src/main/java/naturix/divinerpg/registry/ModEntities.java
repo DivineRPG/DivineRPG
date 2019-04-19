@@ -370,7 +370,7 @@ public class ModEntities {
         registerProjectile(EntitySparkler.class, "sparkler");
         registerProjectile(EntityWatcherShot.class, "watcher_shot");
         registerProjectile(EntityVileStorm.class, "vile_storm");
-        registerProjectile(EntitySnowflakeShuriken.class, "shuriken_snow");
+        registerProjectile(EntitySnowflakeShuriken.class, "snowflake_shuriken");
         registerProjectile(EntityShooterBullet.class, "shooter_bullet");
         registerProjectile(EntityParticleBullet.class, "particle_bullet");
         registerProjectile(EntityColoredBullet.class, "colored_bullet");
@@ -954,9 +954,8 @@ public class ModEntities {
     }
 
     public static void registerMobWithEgg(Class entityClass, String entityName) {
-        entityName = Reference.MODID + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass,
+                Reference.MODID + "." + entityName, mobID++, DivineRPG.instance, 128, 3, true);
         mobID++;
         EntityList.ENTITY_EGGS.put(new ResourceLocation(Reference.MODID, entityName),
                 new EntityEggInfo(new ResourceLocation(Reference.MODID, entityName),
@@ -971,15 +970,13 @@ public class ModEntities {
     // }
 
     public static void registerProjectile(Class entityClass, String entityName) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, Reference.MODID + "." + entityName),
-                entityClass, Reference.MODID + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
-                true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass,
+                Reference.MODID + "." + entityName, projectileID, DivineRPG.instance, 250, 5, true);
         projectileID++;
     }
 
     public void registerEgglessMob(Class entityClass, String entityName) {
-        entityName = Reference.MODID + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass,
+                Reference.MODID + "." + entityName, mobID++, DivineRPG.instance, 128, 3, true);
     }
 }

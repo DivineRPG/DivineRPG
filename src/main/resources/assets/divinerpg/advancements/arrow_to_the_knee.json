@@ -17,7 +17,7 @@
          "conditions":{
             "damage":{
                "source_entity":{
-                  "type":"divinerpg:divinerpg.twilight_archer"
+                  "type":"divinerpg:twilight_archer"
                }
             }
          }
