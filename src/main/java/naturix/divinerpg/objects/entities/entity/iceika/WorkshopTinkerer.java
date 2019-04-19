@@ -7,7 +7,9 @@ import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
 import naturix.divinerpg.utils.Utils;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
@@ -28,6 +30,7 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
             player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_TINKERER_GUI_ID, this.world, getEntityId(), 0, 0);
+            CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
             // player.triggerAchievement(DivineRPGAchievements.lilGift);
         }
         return super.processInteract(player, hand);

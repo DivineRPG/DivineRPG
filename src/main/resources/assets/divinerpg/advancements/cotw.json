@@ -15,7 +15,7 @@
   "parent": "divinerpg:root",
   "criteria": {
     "cotw": {
-      "trigger": "minecraft:inventory_changed",
+      "trigger": "minecraft:consume_item",
       "conditions": {
         "items": [
           {

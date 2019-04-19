@@ -2,12 +2,14 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
-import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.MessageLocalizer;
 import naturix.divinerpg.utils.Utils;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -33,6 +35,7 @@ public class JackOMan extends EntityDivineRPGVillager {
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
             player.openGui(DivineRPG.instance, GUIHandler.JACK_O_MAN_GUI_ID, this.world, getEntityId(), 0, 0);
+            CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
         }
         return super.processInteract(player, hand);
     }

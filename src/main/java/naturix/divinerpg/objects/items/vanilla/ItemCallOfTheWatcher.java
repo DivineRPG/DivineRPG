@@ -4,7 +4,9 @@ import naturix.divinerpg.objects.entities.entity.vanilla.TheWatcher;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.log.Logging;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -30,6 +32,7 @@ public class ItemCallOfTheWatcher extends ItemMod {
                 BlockPos pos = new BlockPos(player);
                 if (!player.capabilities.isCreativeMode) {
                     itemstack.shrink(1);
+                    CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP) player, itemstack);
                 }
                 TheWatcher entity = new TheWatcher(world);
                 entity.setPositionAndRotation(pos.getX() + 0.5D, (double) pos.getY() + 1, pos.getZ(),
