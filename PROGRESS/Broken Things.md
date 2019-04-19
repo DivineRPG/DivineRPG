@@ -34,7 +34,6 @@
 * achievement.petCollector.desc=Spawn a pet from the Livestock Merchant [SUMMONED_ENTITY]
 
 ## Must be done before Release
-* EventArmorTick
 * Ayeraco lose contact with one another upon Save/Restore NTB
 
 ## Optional things to complete for Vanilla & Iceika Release (Non-Essential)
