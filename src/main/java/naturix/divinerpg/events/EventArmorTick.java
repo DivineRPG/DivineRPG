@@ -57,13 +57,14 @@ public class EventArmorTick {
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;       
                 
-        if(boots != ModItems.angelicBoots && body != ModItems.angelicBody && legs != ModItems.angelicLegs && helmet != ModItems.angelicHelmet) {
+        if(boots == ModItems.angelicBoots && body == ModItems.angelicBody && legs == ModItems.angelicLegs && helmet == ModItems.angelicHelmet) {
             if (!player.capabilities.isCreativeMode) {
                 player.capabilities.allowFlying = true;
         }
-        else if(evt.player.capabilities.allowFlying && !evt.player.capabilities.isCreativeMode){
+        if(boots != ModItems.angelicBoots && body != ModItems.angelicBody && legs != ModItems.angelicLegs && helmet != ModItems.angelicHelmet) {
+        	if (!player.capabilities.isCreativeMode) {
         	evt.player.capabilities.isFlying = false;
-        	evt.player.capabilities.allowFlying = false;
+        }
         }
         
         //Elite Realmite
