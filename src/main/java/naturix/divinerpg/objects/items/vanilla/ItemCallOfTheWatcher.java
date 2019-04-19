@@ -31,8 +31,8 @@ public class ItemCallOfTheWatcher extends ItemMod {
             if (world.provider.getDimension() == -1) {
                 BlockPos pos = new BlockPos(player);
                 if (!player.capabilities.isCreativeMode) {
-                    itemstack.shrink(1);
                     CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP) player, itemstack);
+                    itemstack.shrink(1);
                 }
                 TheWatcher entity = new TheWatcher(world);
                 entity.setPositionAndRotation(pos.getX() + 0.5D, (double) pos.getY() + 1, pos.getZ(),
