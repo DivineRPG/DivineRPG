@@ -20,7 +20,6 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
-import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
@@ -89,7 +88,6 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityFrostedChest.class, Reference.MODID + ":te_iceika_chest");
         GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");
-        GameRegistry.registerTileEntity(TileEntityDramixStatue.class, Reference.MODID + ":te_statue_dramix");
         GameRegistry.registerTileEntity(TileEntityPresentBox.class, Reference.MODID + ":te_present_box");
         GameRegistry.registerTileEntity(TileEntityBoneChest.class, Reference.MODID + ":te_bone_chest");
         GameRegistry.registerTileEntity(TileEntityAltarOfCorruption.class, Reference.MODID + ":te_altar_of_corruption");
