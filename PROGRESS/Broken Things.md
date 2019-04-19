@@ -33,10 +33,9 @@
 * achievement.arrowToTheKnee.desc=Get shot by a Twilight Archer [ENTITY_HURT_PLAYER]
 * achievement.petCollector.desc=Spawn a pet from the Livestock Merchant [SUMMONED_ENTITY]
 
-## Bugs
+## Must be done before Release
+* EventArmorTick
 * Ayeraco lose contact with one another upon Save/Restore NTB
-* Advancements (Need to match 1.7.10)
-
 
 ## Optional things to complete for Vanilla & Iceika Release (Non-Essential)
 
