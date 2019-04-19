@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.events.EventArmorSet;
+import naturix.divinerpg.events.EventArmorTick;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
@@ -57,5 +58,6 @@ public static void postForgeEvent(Object o) {
 
 public static void preInit() {
 	postForgeEvent(new EventArmorSet());
+	postForgeEvent(new EventArmorTick());
 }
 }
