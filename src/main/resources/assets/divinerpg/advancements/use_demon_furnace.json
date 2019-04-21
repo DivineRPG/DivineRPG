@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:demon_furnace"
+    },
+    "title": {
+      "translate": "advancement.use_demon_furnace"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.use_demon_furnace.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:enter_arcana",
+   "criteria":{
+      "use_demon_furnace":{
+         "trigger":"divinerpg:divinerpg_block",
+         "conditions":{
+            "block":"divinerpg:demon_furnace"
+         }
+      }
+   }
+}

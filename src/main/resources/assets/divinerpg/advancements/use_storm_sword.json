@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:storm_sword"
+      },
+      "title":{
+         "translate":"advancement.use_storm_sword"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.use_storm_sword.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:enter_arcana",
+   "criteria":{
+      "use_storm_sword":{
+         "trigger":"divinerpg:divinerpg_item",
+         "conditions":{
+            "item":"divinerpg:storm_sword"
+         }
+      }
+   }
+}

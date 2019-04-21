@@ -1,0 +1,26 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:present_box"
+      },
+      "title":{
+         "translate":"advancement.talk_to_workshop_merchant"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.talk_to_workshop_merchant.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:destroy_frosted_chest",
+   "criteria":{
+      "talk_to_workshop_merchant":{
+         "trigger":"minecraft:villager_trade",
+         "conditions":{
+            "villager":{
+               "type":"divinerpg:workshop_merchant"
+            }
+         }
+      }
+   }
+}

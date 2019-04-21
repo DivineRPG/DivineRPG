@@ -1,32 +1,23 @@
 {
-  "display": {
-    "icon": {
-      "item": "divinerpg:rupee_ingot"
-    },
-    "title": {
-      "translate": "advancement.divinerpg.name"
-    },
-    "description": {
-      "translate": "advancement.divinerpg.mine_rupee.desc"
-    },
-    "background": "divinerpg:textures/blocks/divine_rock.png",
-    "announce_to_chat": true
-  },
-  "criteria": {
-    "mine_ingot": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "divinerpg:rupee_ingot"
-          }
-        ]
+   "display":{
+      "icon":{
+         "item":"divinerpg:rupee_shickaxe"
+      },
+      "title":{
+         "translate":"advancement.divinerpg"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.desc"
+      },
+      "background":"divinerpg:textures/blocks/divine_rock.png",
+      "announce_to_chat":true
+   },
+   "criteria":{
+      "divinerpg":{
+         "trigger":"minecraft:location",
+         "conditions":{
+            "dimension":"overworld"
+         }
       }
-    }
-  },
-  "requirements": [
-    [
-      "mine_ingot"
-    ]
-  ]
+   }
 }

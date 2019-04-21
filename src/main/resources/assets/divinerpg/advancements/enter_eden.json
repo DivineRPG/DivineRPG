@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:eden_block"
+    },
+    "title": {
+      "translate": "advancement.enter_eden"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.enter_eden.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:root",
+   "criteria":{
+      "enter_eden":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:eden"
+         }
+      }
+   }
+}

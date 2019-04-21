@@ -1,0 +1,23 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:eternal_archer_crystal"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.eternal_archer_crystal"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.eternal_archer_crystal.description"
+      }
+   },
+   "criteria":{
+      "spawn_the_watcher":{
+         "trigger":"minecraft:consume_item",
+         "conditions":{
+            "item":{
+               "item":"divinerpg:eternal_archer_crystal"
+            }
+         }
+      }
+   }
+}

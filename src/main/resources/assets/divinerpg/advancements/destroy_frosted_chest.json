@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:frosted_chest"
+      },
+      "title":{
+         "translate":"advancement.destroy_frosted_chest"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.destroy_frosted_chest.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:enter_iceika",
+   "criteria":{
+      "destroy_frosted_chest":{
+         "trigger":"divinerpg:divinerpg_block",
+         "conditions":{
+            "block":"divinerpg:frosted_chest"
+         }
+      }
+   }
+}

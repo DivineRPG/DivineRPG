@@ -1,0 +1,26 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:weak_arcana_potion"
+      },
+      "title":{
+         "translate":"advancement.drink_arcana_potion"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.drink_arcana_potion.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:enter_arcana",
+   "criteria":{
+      "drink_arcana_potion":{
+         "trigger":"minecraft:consume_item",
+         "conditions":{
+            "item":{
+               "item":"divinerpg:weak_arcana_potion"
+            }
+         }
+      }
+   }
+}

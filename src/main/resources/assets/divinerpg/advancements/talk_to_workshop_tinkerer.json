@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:frozen_maul"
+    },
+    "title": {
+      "translate": "advancement.talk_to_workshop_tinkerer"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.talk_to_workshop_tinkerer.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:destroy_frosted_chest",
+   "criteria":{
+      "talk_to_workshop_tinkerer":{
+         "trigger":"minecraft:villager_trade",
+         "conditions":{
+            "villager":{
+               "type":"divinerpg:workshop_tinkerer"
+            }
+         }
+      }
+   }
+}

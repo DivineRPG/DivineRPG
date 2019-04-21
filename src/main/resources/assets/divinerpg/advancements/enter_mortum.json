@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:mortum_block"
+      },
+      "title":{
+         "translate":"advancement.enter_mortum"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.enter_mortum.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:skythern",
+   "criteria":{
+      "enter_mortum":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:mortum"
+         }
+      }
+   }
+}

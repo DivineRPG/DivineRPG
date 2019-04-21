@@ -1,0 +1,23 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:densos_crystal"
+      },
+      "title":{
+         "translate":"advancement.spawn_densos_reyvor"
+      },
+      "description":{
+         "translate":"advancement.spawn_densos_reyvor.description"
+      }
+   },
+   "criteria":{
+      "spawn_the_watcher":{
+         "trigger":"minecraft:consume_item",
+         "conditions":{
+            "item":{
+               "item":"divinerpg:densos_crystal"
+            }
+         }
+      }
+   }
+}

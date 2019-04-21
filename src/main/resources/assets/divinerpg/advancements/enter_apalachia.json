@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:apalachia_block"
+      },
+      "title":{
+         "translate":"advancement.enter_apalachia"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.enter_apalachia.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:enter_wildwood",
+   "criteria":{
+      "enter_apalachia":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:apalachia"
+         }
+      }
+   }
+}

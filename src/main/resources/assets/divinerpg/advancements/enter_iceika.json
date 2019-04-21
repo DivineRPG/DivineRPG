@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:iceika_portal"
+      },
+      "title":{
+         "translate":"advancement.enter_iceika"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.enter_iceika.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:root",
+   "criteria":{
+      "enter_iceika":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:iceika"
+         }
+      }
+   }
+}

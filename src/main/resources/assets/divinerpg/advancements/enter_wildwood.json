@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:wildwood_block"
+      },
+      "title":{
+         "translate":"advancement.enter_wildwood"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.enter_wildwood.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:enter_eden",
+   "criteria":{
+      "enter_wildwood":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:wildwood"
+         }
+      }
+   }
+}
