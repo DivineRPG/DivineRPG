@@ -25,7 +25,6 @@ private final Random random;
 private final Long2ObjectMap<Teleporter.PortalPosition> destinationCoordinateCache = new Long2ObjectOpenHashMap(4096);
 private final Block portal;
 private final IBlockState frame;
-
 public DivineTeleporter(WorldServer par1WorldServer, Block portal, IBlockState frame) {
 	super(par1WorldServer);
 	worldServerInstance = par1WorldServer;
