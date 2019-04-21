@@ -3,12 +3,15 @@ package naturix.divinerpg.world.structures;
 import java.util.Random;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.DRPGLootTables;
 import naturix.divinerpg.utils.DRPGStructureHandler;
+import naturix.divinerpg.world.WorldGenDivineTree;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -69,13 +72,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                             || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
                 generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
             }
-            // FIXME - Not sure if this is the right place for this
-            if (Config.generateTrees && BiomeDictionary.hasType(biome, BiomeDictionary.Type.FOREST)
-                    && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.CONIFEROUS)
-                    && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.JUNGLE)
-                    && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.DENSE) && Biome.getIdForBiome(biome) != 27
-                    && Biome.getIdForBiome(biome) != 28) {
-            }
+
             // FIXME - Not sure if this is the right place for this
             if (Config.generateTar) {
                 /*
