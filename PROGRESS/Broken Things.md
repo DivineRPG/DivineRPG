@@ -48,7 +48,6 @@
 
 ### Other Blocks and Items
 * Add Tar Pools
-* Add Divine Trees
 * Saplings (At least for Divine Trees)
 
 ## Tar
