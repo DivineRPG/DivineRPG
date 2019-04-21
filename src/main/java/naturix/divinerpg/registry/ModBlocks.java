@@ -15,6 +15,7 @@ import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
 import naturix.divinerpg.objects.blocks.BlockModPlank;
 import naturix.divinerpg.objects.blocks.BlockModPortal;
+import naturix.divinerpg.objects.blocks.BlockModSapling;
 import naturix.divinerpg.objects.blocks.BlockModSlab;
 import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
@@ -372,7 +373,9 @@ public class ModBlocks {
     //public static Block apalachiaSapling = new BlockTwilightSapling("apalachiaSapling", apalachiaGrass, apalachiaDirt, new WorldGenApalachiaTree(true));
     //public static Block skythernSapling  = new BlockTwilightSapling("skythernSapling", skythernGrass, skythernDirt, new WorldGenSkythernTree(true));
     //public static Block mortumSapling    = new BlockTwilightSapling("mortumSapling", mortumGrass, mortumDirt, new WorldGenMortumTree(true));
+    public static Block divineSapling = new BlockModSapling("divine_sapling");
 
+    
     // public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
     // public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
     // public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling).setLightLevel(0.5F);
