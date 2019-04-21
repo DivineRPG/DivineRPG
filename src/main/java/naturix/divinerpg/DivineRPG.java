@@ -8,6 +8,7 @@ import naturix.divinerpg.client.render.RenderFluids;
 import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModEvents;
+import naturix.divinerpg.registry.ModOreDict;
 import naturix.divinerpg.registry.ModSmelting;
 import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.Reference;
@@ -47,6 +48,7 @@ public class DivineRPG {
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.init(e);
+        ModOreDict.init();
         ModTriggers.registerTriggers();
         RenderFluids.registerCustomMeshesAndStates();
         InitLog.init();
