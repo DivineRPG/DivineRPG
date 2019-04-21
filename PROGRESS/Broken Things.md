@@ -48,7 +48,7 @@
 
 ### Other Blocks and Items
 * Add Tar Pools
-* Saplings (At least for Divine Trees)
+* Saplings (Twilight)
 
 ## Tar
 * Make more viscous
