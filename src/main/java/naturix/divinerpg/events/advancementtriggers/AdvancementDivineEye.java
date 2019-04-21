@@ -16,7 +16,7 @@ import net.minecraft.advancements.critereon.AbstractCriterionInstance;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 
-public class AdvancementArrowKnee implements ICriterionTrigger<AdvancementArrowKnee.Instance> {
+public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivineEye.Instance> {
 public static class Instance extends AbstractCriterionInstance {
 
 public Instance(ResourceLocation parRL) {
@@ -30,13 +30,13 @@ public boolean test() {
 
 static class Listeners {
 private final PlayerAdvancements playerAdvancements;
-private final Set<ICriterionTrigger.Listener<AdvancementArrowKnee.Instance>> listeners = Sets.newHashSet();
+private final Set<ICriterionTrigger.Listener<AdvancementDivineEye.Instance>> listeners = Sets.newHashSet();
 
 public Listeners(PlayerAdvancements playerAdvancementsIn) {
 	playerAdvancements = playerAdvancementsIn;
 }
 
-public void add(ICriterionTrigger.Listener<AdvancementArrowKnee.Instance> listener) {
+public void add(ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
 	listeners.add(listener);
 }
 
@@ -44,14 +44,14 @@ public boolean isEmpty() {
 	return listeners.isEmpty();
 }
 
-public void remove(ICriterionTrigger.Listener<AdvancementArrowKnee.Instance> listener) {
+public void remove(ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
 	listeners.remove(listener);
 }
 
 public void trigger(EntityPlayerMP player) {
-	ArrayList<ICriterionTrigger.Listener<AdvancementArrowKnee.Instance>> list = null;
+	ArrayList<ICriterionTrigger.Listener<AdvancementDivineEye.Instance>> list = null;
 
-	for (ICriterionTrigger.Listener<AdvancementArrowKnee.Instance> listener : listeners) {
+	for (ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener : listeners) {
 		if (listener.getCriterionInstance().test()) {
 			if (list == null) {
 				list = Lists.newArrayList();
@@ -62,7 +62,7 @@ public void trigger(EntityPlayerMP player) {
 	}
 
 	if (list != null) {
-		for (ICriterionTrigger.Listener<AdvancementArrowKnee.Instance> listener1 : list) {
+		for (ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener1 : list) {
 			listener1.grantCriterion(playerAdvancements);
 		}
 	}
@@ -71,25 +71,25 @@ public void trigger(EntityPlayerMP player) {
 
 private final ResourceLocation RL;
 
-private final Map<PlayerAdvancements, AdvancementArrowKnee.Listeners> listeners = Maps.newHashMap();
+private final Map<PlayerAdvancements, AdvancementDivineEye.Listeners> listeners = Maps.newHashMap();
 
-public AdvancementArrowKnee(ResourceLocation parRL) {
+public AdvancementDivineEye(ResourceLocation parRL) {
 	super();
 	RL = parRL;
 }
 
-public AdvancementArrowKnee(String parString) {
+public AdvancementDivineEye(String parString) {
 	super();
 	RL = new ResourceLocation(parString);
 }
 
 @Override
 public void addListener(PlayerAdvancements playerAdvancementsIn,
-        ICriterionTrigger.Listener<AdvancementArrowKnee.Instance> listener) {
-	AdvancementArrowKnee.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
+        ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
+	AdvancementDivineEye.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
 
 	if (myCustomTrigger$listeners == null) {
-		myCustomTrigger$listeners = new AdvancementArrowKnee.Listeners(playerAdvancementsIn);
+		myCustomTrigger$listeners = new AdvancementDivineEye.Listeners(playerAdvancementsIn);
 		listeners.put(playerAdvancementsIn, myCustomTrigger$listeners);
 	}
 
@@ -97,8 +97,8 @@ public void addListener(PlayerAdvancements playerAdvancementsIn,
 }
 
 @Override
-public AdvancementArrowKnee.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
-	return new AdvancementArrowKnee.Instance(getId());
+public AdvancementDivineEye.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
+	return new AdvancementDivineEye.Instance(getId());
 }
 
 @Override
@@ -113,8 +113,8 @@ public void removeAllListeners(PlayerAdvancements playerAdvancementsIn) {
 
 @Override
 public void removeListener(PlayerAdvancements playerAdvancementsIn,
-        ICriterionTrigger.Listener<AdvancementArrowKnee.Instance> listener) {
-	AdvancementArrowKnee.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
+        ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
+	AdvancementDivineEye.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
 
 	if (tameanimaltrigger$listeners != null) {
 		tameanimaltrigger$listeners.remove(listener);
@@ -126,7 +126,7 @@ public void removeListener(PlayerAdvancements playerAdvancementsIn,
 }
 
 public void trigger(EntityPlayerMP parPlayer) {
-	AdvancementArrowKnee.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
+	AdvancementDivineEye.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
 
 	if (tameanimaltrigger$listeners != null) {
 		tameanimaltrigger$listeners.trigger(parPlayer);

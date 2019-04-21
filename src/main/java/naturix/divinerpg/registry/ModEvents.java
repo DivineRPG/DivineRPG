@@ -40,14 +40,14 @@ public static void onEvent(RightClickBlock event) {
 		// }
 		if (thePlayer.getHeldItem(event.getHand()).getItem() == ModItems.densosCrystal
 		        && thePlayer.world.provider.getDimensionType().getId() == Config.mortumDimensionId) {
-			ModTriggers.TEN_HEADS.trigger(thePlayerMP);
+			ModTriggers.DIVINERPG_ITEM.trigger(thePlayerMP);
 		}
 		if (thePlayer.getHeldItem(event.getHand()).getItem() == ModItems.eternalArcherCrystal
 		        && thePlayer.world.provider.getDimensionType().getId() == Config.mortumDimensionId) {
-			ModTriggers.SIX_ONE.trigger(thePlayerMP);
+			ModTriggers.DIVINERPG_BLOCK.trigger(thePlayerMP);
 		}
 		if (thePlayer.getAttackingEntity() instanceof TwilightArcher) {
-			ModTriggers.ARROW_KNEE.trigger(thePlayerMP);
+			ModTriggers.DIVINERPG_EYE.trigger(thePlayerMP);
 		}
 	}
 }

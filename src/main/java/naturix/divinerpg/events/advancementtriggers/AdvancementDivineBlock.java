@@ -16,7 +16,7 @@ import net.minecraft.advancements.critereon.AbstractCriterionInstance;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 
-public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHeads.Instance> {
+public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivineBlock.Instance> {
 	public static class Instance extends AbstractCriterionInstance {
 
 		public Instance(ResourceLocation parRL) {
@@ -30,13 +30,13 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 
 	static class Listeners {
 		private final PlayerAdvancements playerAdvancements;
-		private final Set<ICriterionTrigger.Listener<AdvancementTenHeads.Instance>> listeners = Sets.newHashSet();
+		private final Set<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> listeners = Sets.newHashSet();
 
 		public Listeners(PlayerAdvancements playerAdvancementsIn) {
 			playerAdvancements = playerAdvancementsIn;
 		}
 
-		public void add(ICriterionTrigger.Listener<AdvancementTenHeads.Instance> listener) {
+		public void add(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
 			listeners.add(listener);
 		}
 
@@ -44,14 +44,14 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 			return listeners.isEmpty();
 		}
 
-		public void remove(ICriterionTrigger.Listener<AdvancementTenHeads.Instance> listener) {
+		public void remove(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
 			listeners.remove(listener);
 		}
 
 		public void trigger(EntityPlayerMP player) {
-			ArrayList<ICriterionTrigger.Listener<AdvancementTenHeads.Instance>> list = null;
+			ArrayList<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> list = null;
 
-			for (ICriterionTrigger.Listener<AdvancementTenHeads.Instance> listener : listeners) {
+			for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener : listeners) {
 				if (listener.getCriterionInstance().test()) {
 					if (list == null) {
 						list = Lists.newArrayList();
@@ -62,7 +62,7 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 			}
 
 			if (list != null) {
-				for (ICriterionTrigger.Listener<AdvancementTenHeads.Instance> listener1 : list) {
+				for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener1 : list) {
 					listener1.grantCriterion(playerAdvancements);
 				}
 			}
@@ -71,25 +71,25 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 
 	private final ResourceLocation RL;
 
-	private final Map<PlayerAdvancements, AdvancementTenHeads.Listeners> listeners = Maps.newHashMap();
+	private final Map<PlayerAdvancements, AdvancementDivineBlock.Listeners> listeners = Maps.newHashMap();
 
-	public AdvancementTenHeads(ResourceLocation parRL) {
+	public AdvancementDivineBlock(ResourceLocation parRL) {
 		super();
 		RL = parRL;
 	}
 
-	public AdvancementTenHeads(String parString) {
+	public AdvancementDivineBlock(String parString) {
 		super();
 		RL = new ResourceLocation(parString);
 	}
 
 	@Override
 	public void addListener(PlayerAdvancements playerAdvancementsIn,
-	        ICriterionTrigger.Listener<AdvancementTenHeads.Instance> listener) {
-		AdvancementTenHeads.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
+	        ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+		AdvancementDivineBlock.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
 
 		if (myCustomTrigger$listeners == null) {
-			myCustomTrigger$listeners = new AdvancementTenHeads.Listeners(playerAdvancementsIn);
+			myCustomTrigger$listeners = new AdvancementDivineBlock.Listeners(playerAdvancementsIn);
 			listeners.put(playerAdvancementsIn, myCustomTrigger$listeners);
 		}
 
@@ -97,8 +97,8 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 	}
 
 	@Override
-	public AdvancementTenHeads.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
-		return new AdvancementTenHeads.Instance(getId());
+	public AdvancementDivineBlock.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
+		return new AdvancementDivineBlock.Instance(getId());
 	}
 
 	@Override
@@ -113,8 +113,8 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 
 	@Override
 	public void removeListener(PlayerAdvancements playerAdvancementsIn,
-	        ICriterionTrigger.Listener<AdvancementTenHeads.Instance> listener) {
-		AdvancementTenHeads.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
+	        ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+		AdvancementDivineBlock.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
 
 		if (tameanimaltrigger$listeners != null) {
 			tameanimaltrigger$listeners.remove(listener);
@@ -126,7 +126,7 @@ public class AdvancementTenHeads implements ICriterionTrigger<AdvancementTenHead
 	}
 
 	public void trigger(EntityPlayerMP parPlayer) {
-		AdvancementTenHeads.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
+		AdvancementDivineBlock.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
 
 		if (tameanimaltrigger$listeners != null) {
 			tameanimaltrigger$listeners.trigger(parPlayer);

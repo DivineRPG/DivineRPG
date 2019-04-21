@@ -16,7 +16,7 @@ import net.minecraft.advancements.critereon.AbstractCriterionInstance;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 
-public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPet.Instance> {
+public class AdvancementDivineItem implements ICriterionTrigger<AdvancementDivineItem.Instance> {
 	public static class Instance extends AbstractCriterionInstance {
 
 		public Instance(ResourceLocation parRL) {
@@ -30,13 +30,13 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 
 	static class Listeners {
 		private final PlayerAdvancements playerAdvancements;
-		private final Set<ICriterionTrigger.Listener<AdvancementSpawnPet.Instance>> listeners = Sets.newHashSet();
+		private final Set<ICriterionTrigger.Listener<AdvancementDivineItem.Instance>> listeners = Sets.newHashSet();
 
 		public Listeners(PlayerAdvancements playerAdvancementsIn) {
 			playerAdvancements = playerAdvancementsIn;
 		}
 
-		public void add(ICriterionTrigger.Listener<AdvancementSpawnPet.Instance> listener) {
+		public void add(ICriterionTrigger.Listener<AdvancementDivineItem.Instance> listener) {
 			listeners.add(listener);
 		}
 
@@ -44,14 +44,14 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 			return listeners.isEmpty();
 		}
 
-		public void remove(ICriterionTrigger.Listener<AdvancementSpawnPet.Instance> listener) {
+		public void remove(ICriterionTrigger.Listener<AdvancementDivineItem.Instance> listener) {
 			listeners.remove(listener);
 		}
 
 		public void trigger(EntityPlayerMP player) {
-			ArrayList<ICriterionTrigger.Listener<AdvancementSpawnPet.Instance>> list = null;
+			ArrayList<ICriterionTrigger.Listener<AdvancementDivineItem.Instance>> list = null;
 
-			for (ICriterionTrigger.Listener<AdvancementSpawnPet.Instance> listener : listeners) {
+			for (ICriterionTrigger.Listener<AdvancementDivineItem.Instance> listener : listeners) {
 				if (listener.getCriterionInstance().test()) {
 					if (list == null) {
 						list = Lists.newArrayList();
@@ -62,7 +62,7 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 			}
 
 			if (list != null) {
-				for (ICriterionTrigger.Listener<AdvancementSpawnPet.Instance> listener1 : list) {
+				for (ICriterionTrigger.Listener<AdvancementDivineItem.Instance> listener1 : list) {
 					listener1.grantCriterion(playerAdvancements);
 				}
 			}
@@ -71,25 +71,25 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 
 	private final ResourceLocation RL;
 
-	private final Map<PlayerAdvancements, AdvancementSpawnPet.Listeners> listeners = Maps.newHashMap();
+	private final Map<PlayerAdvancements, AdvancementDivineItem.Listeners> listeners = Maps.newHashMap();
 
-	public AdvancementSpawnPet(ResourceLocation parRL) {
+	public AdvancementDivineItem(ResourceLocation parRL) {
 		super();
 		RL = parRL;
 	}
 
-	public AdvancementSpawnPet(String parString) {
+	public AdvancementDivineItem(String parString) {
 		super();
 		RL = new ResourceLocation(parString);
 	}
 
 	@Override
 	public void addListener(PlayerAdvancements playerAdvancementsIn,
-	        ICriterionTrigger.Listener<AdvancementSpawnPet.Instance> listener) {
-		AdvancementSpawnPet.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
+	        ICriterionTrigger.Listener<AdvancementDivineItem.Instance> listener) {
+		AdvancementDivineItem.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
 
 		if (myCustomTrigger$listeners == null) {
-			myCustomTrigger$listeners = new AdvancementSpawnPet.Listeners(playerAdvancementsIn);
+			myCustomTrigger$listeners = new AdvancementDivineItem.Listeners(playerAdvancementsIn);
 			listeners.put(playerAdvancementsIn, myCustomTrigger$listeners);
 		}
 
@@ -97,8 +97,8 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 	}
 
 	@Override
-	public AdvancementSpawnPet.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
-		return new AdvancementSpawnPet.Instance(getId());
+	public AdvancementDivineItem.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
+		return new AdvancementDivineItem.Instance(getId());
 	}
 
 	@Override
@@ -113,8 +113,8 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 
 	@Override
 	public void removeListener(PlayerAdvancements playerAdvancementsIn,
-	        ICriterionTrigger.Listener<AdvancementSpawnPet.Instance> listener) {
-		AdvancementSpawnPet.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
+	        ICriterionTrigger.Listener<AdvancementDivineItem.Instance> listener) {
+		AdvancementDivineItem.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
 
 		if (tameanimaltrigger$listeners != null) {
 			tameanimaltrigger$listeners.remove(listener);
@@ -126,7 +126,7 @@ public class AdvancementSpawnPet implements ICriterionTrigger<AdvancementSpawnPe
 	}
 
 	public void trigger(EntityPlayerMP parPlayer) {
-		AdvancementSpawnPet.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
+		AdvancementDivineItem.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
 
 		if (tameanimaltrigger$listeners != null) {
 			tameanimaltrigger$listeners.trigger(parPlayer);

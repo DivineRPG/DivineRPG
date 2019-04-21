@@ -291,8 +291,8 @@ public class EntityArrowShot extends EntityArrow {
             }
 
             if (entity.attackEntityFrom(damagesource, (float) i)) {
-                if (entity instanceof EntityPlayerMP && this.shootingEntity instanceof TwilightArcher)
-                    ModTriggers.ARROW_KNEE.trigger((EntityPlayerMP) entity);
+//                if (entity instanceof EntityPlayerMP && this.shootingEntity instanceof TwilightArcher)
+//                    ModTriggers.ARROW_KNEE.trigger((EntityPlayerMP) entity);
                 if (entity instanceof EntityLivingBase) {
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
 
