@@ -51,6 +51,9 @@
 * Add Tar Pools
 * Saplings (Twilight)
 
+## Other
+* OreDict (i.e. "plankWood")
+
 ## Tar
 * Make more viscous
 * Set you on fire (if it does not do so already)
