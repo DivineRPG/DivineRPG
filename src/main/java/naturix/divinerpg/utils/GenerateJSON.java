@@ -334,8 +334,6 @@ public class GenerateJSON {
                 generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
             } else if (block instanceof BlockModChest || block instanceof BlockStatue) {
                 generateIgnoreVariantBlockstate(registryName);
-            } else if (block instanceof BlockModSapling) {
-                generateSaplingBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -718,27 +716,7 @@ public class GenerateJSON {
             e.printStackTrace();
         }
     }
-    private static void generateSaplingBlockstate(String registryName) {
-        String blockPath = Reference.MODID + ":" + registryName;
 
-        Map<String, Object> json = new HashMap<>();
-        json.put("forge_marker", 1);
-        Map<String, Object> variants = new HashMap<>();
-        Map<String, Object> axisZ = new HashMap<>();
-        axisZ.put("model", registryName);
-        variants.put("stage=0", axisZ);
-        Map<String, Object> axisX = new HashMap<>();
-        axisX.put("model",registryName);
-        variants.put("stage=1", axisX);
-        json.put("variants", variants);
-        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
-
-        try (FileWriter w = new FileWriter(f)) {
-            GSON.toJson(json, w);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private static void generateFireBlockstate(String registryName) {
         String blockPath = Reference.MODID + ":" + registryName;
@@ -1000,8 +978,6 @@ public class GenerateJSON {
                 generateCrossModelBlock(registryName);
             } else if (block instanceof BlockChristmasLights) {
                 generateLadderModelBlock(registryName);
-            } else if (block instanceof BlockModSapling) {
-                generateSaplingModelBlock(registryName);
             } else if (registryName.contains("workshop_bookcase")) {
                 generateWorkshopBookcaseModelBlock(registryName);
             } else {
@@ -1147,22 +1123,6 @@ public class GenerateJSON {
     private static void generateBasicModelBlock(String registryName) {
         Map<String, Object> json = new HashMap<>();
         json.put("parent", "block/cube_all");
-        Map<String, Object> textures = new HashMap<>();
-        textures.put("all", Reference.MODID + ":" + "blocks/" + registryName);
-        json.put("textures", textures);
-
-        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
-
-        try (FileWriter w = new FileWriter(f)) {
-            GSON.toJson(json, w);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private static void generateSaplingModelBlock(String registryName) {
-        Map<String, Object> json = new HashMap<>();
-        json.put("parent", "block/cross");
         Map<String, Object> textures = new HashMap<>();
         textures.put("all", Reference.MODID + ":" + "blocks/" + registryName);
         json.put("textures", textures);

@@ -1,11 +1,7 @@
 {
-  "forge_marker": 1,
-  "variants": {
-    "stage=1": {
-      "model": "divine_sapling"
-    },
-    "stage=0": {
-      "model": "divine_sapling"
+    "variants": {
+        "stage=0": { "model": "divinerpg:divine_sapling" },
+        "stage=1": { "model": "divinerpg:divine_sapling" },
+		"inventory": { "model": "divinerpg:divine_sapling" }
     }
-  }
 }
