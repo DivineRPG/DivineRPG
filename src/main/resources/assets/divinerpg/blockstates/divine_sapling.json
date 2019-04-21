@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "stage=1": {
+      "model": "divine_sapling"
+    },
+    "stage=0": {
+      "model": "divine_sapling"
+    }
+  }
+}
