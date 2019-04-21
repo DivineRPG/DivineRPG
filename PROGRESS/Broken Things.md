@@ -35,6 +35,7 @@
 
 ## Must be done before Release
 * Ayeraco lose contact with one another upon Save/Restore NTB
+* Armor doesnt enchant
 
 ## Optional things to complete for Vanilla & Iceika Release (Non-Essential)
 
