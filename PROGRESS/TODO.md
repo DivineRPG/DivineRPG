@@ -1,17 +1,34 @@
 ## Porting of DivineRPG 1.7.10
+
+## Must be done before Release
+* Add DIVINERPG_ITEM, DIVINERPG_BLOCK, DIVINERPG_EYE advancements
+* Ayeraco lose contact with one another upon Save/Restore NTB
+
+### Add to Block JSON Auto-Generate
+* Altar of Corruption
+* Arcana Portal Frame
+* Demon Furnace Rotations
+* Steel Door
+* Tar
+* Vines (Once we start on Twilight)
+
+### Other Blocks and Items
+* Add Tar Pools
+* Saplings (Twilight)
+
+### Tar
+* Make more viscous
+* Able to catch on and sustain fire
+* Slow spread of fire
+
 ### General
 - Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
-- Fix flight
 - Final balancing
-- Fix bow damage values
-- Fix Statues and Altars
-- Spawn egg colors
 
 ### Dimensions
 
 ### Vanilla
 #### Items
-- Fix Shickaxe
 - List Items left to do
 
 #### Blocks
@@ -71,9 +88,6 @@
 - List Entities left to do
 
 ## Enhancements over DivineRPG 1.7.10
-- More organized creative tabs
 - Rotate Weapons in hand
-- Tweak Foods
 - Add chickens/Mystical Crops/Magic crops support
 - Add HellBat - This was not in the 1.4.7 or 1.7.10 release
-- ProjectE EMC support
