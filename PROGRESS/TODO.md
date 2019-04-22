@@ -1,8 +1,10 @@
 ## Porting of DivineRPG 1.7.10
 
 ## Must be done before Release
-* Add DIVINERPG_ITEM, DIVINERPG_BLOCK, DIVINERPG_EYE advancements
+* Integrate DIVINERPG_ITEM, DIVINERPG_BLOCK, DIVINERPG_EYE advancements
 * Ayeraco lose contact with one another upon Save/Restore NTB
+* Review Saplings
+* Review WoodType
 
 ### Add to Block JSON Auto-Generate
 * Altar of Corruption
@@ -27,33 +29,6 @@
 - Final balancing
 
 ### Dimensions
-
-### Vanilla
-#### Items
-- List Items left to do
-
-#### Blocks
-- List Blocks left to do
-
-#### Entities
- - Ayeracos - (Needs TileEntityAyeracoBeam)
- - KingOfScorchers - (Needs small AI port and add EntityKingOfScorchersMeteor)
- - Scorcher - (Needs AI port and EntityScorcherShot)
- - The Watcher - (Needs a big AI port)
- - Wildfire - (Like AridWarrior)
- - JackOMan - (Requires port of Trading)
- - LivestockMerchant - (Requires port of Trading)
- - Rainbour (Needs port of AI and spawning plus add EntitySparkleFX)
-
-### Iceika
-#### Items
-- List Items left to do
-
-#### Blocks
-- Add facing values to Frosted Chest and Decorative Frosted Chest
-
-#### Entities
-- List Entities left to do
 
 ### Twilight
 #### Items
