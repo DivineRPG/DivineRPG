@@ -10,6 +10,7 @@
 * Demon Furnace Rotations
 * Steel Door
 * Tar
+* Saplings
 * Vines (Once we start on Twilight)
 
 ### Other Blocks and Items
