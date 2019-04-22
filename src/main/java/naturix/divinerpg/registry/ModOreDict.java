@@ -34,6 +34,9 @@ public class ModOreDict {
 		OreDictionary.registerOre("blockApalachia", ModBlocks.apalachiaBlock);
 		OreDictionary.registerOre("blockSkythern", ModBlocks.skythernBlock);
 		OreDictionary.registerOre("blockMortum", ModBlocks.mortumBlock);
+		OreDictionary.registerOre("blockNetherite", ModBlocks.netheriteBlock);
+		OreDictionary.registerOre("ingotNetherite", ModItems.netheriteIngot);
+		OreDictionary.registerOre("ingotAquatic", ModItems.aquaticIngot);
 
 		OreDictionary.registerOre("torch", ModBlocks.aquaTorch);
 		OreDictionary.registerOre("torch", ModBlocks.skeletonTorch);
@@ -89,6 +92,11 @@ public class ModOreDict {
 		OreDictionary.registerOre("soulApalachia", ModItems.apalachiaSoul);
 		OreDictionary.registerOre("soulSkythern", ModItems.skythernSoul);
 		OreDictionary.registerOre("soulMortum", ModItems.mortumSoul);
+		OreDictionary.registerOre("dustEden", ModItems.edenDust);
+		OreDictionary.registerOre("dustWildwood", ModItems.wildwoodDust);
+		OreDictionary.registerOre("dustApalachia", ModItems.apalachiaDust);
+		OreDictionary.registerOre("dustSkythern", ModItems.skythernDust);
+		OreDictionary.registerOre("dustMortum", ModItems.mortumDust);
 
 		OreDictionary.registerOre("shards", ModItems.corruptedShards);
 		OreDictionary.registerOre("shards", ModItems.divineShards);

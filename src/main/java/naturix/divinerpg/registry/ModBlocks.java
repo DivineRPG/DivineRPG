@@ -58,6 +58,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSlab;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -452,7 +453,7 @@ public class ModBlocks {
 
             BlockMod planks = new BlockModPlank(woodType);
             Block stairs = new BlockModStairs(planks, woodName + "_stairs");
-            Block singleSlab = new BlockModSlab(planks, null, woodType) {
+    		Block singleSlab = new BlockModSlab(planks, null, woodType) {
                 @Override
                 public boolean isDouble() {
                     return false;
