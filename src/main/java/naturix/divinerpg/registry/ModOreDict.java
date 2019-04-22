@@ -1,5 +1,10 @@
 package naturix.divinerpg.registry;
 
+import naturix.divinerpg.objects.blocks.BlockModPlank;
+import naturix.divinerpg.objects.blocks.BlockModSlab;
+import naturix.divinerpg.objects.blocks.BlockModStairs;
+import net.minecraft.block.Block;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ModOreDict {
@@ -106,5 +111,20 @@ public class ModOreDict {
 		OreDictionary.registerOre("shards", ModItems.moltenShards);
 		OreDictionary.registerOre("shards", ModItems.terranShards);
 		
+		
+		
+		
+		
+		for (Block block : ForgeRegistries.BLOCKS.getValues()) {
+            if(block instanceof BlockModPlank) {
+                OreDictionary.registerOre("plankWood", block);
+            }
+        }
+		for (Block block : ForgeRegistries.BLOCKS.getValues()) {
+            if(block instanceof BlockModSlab) {
+                OreDictionary.registerOre("slabWood", block);
+            }
+        }
+        
 		}
 }
