@@ -388,6 +388,9 @@ tile.firestock_plant.name=Firestock Plant
 tile.pinfly_plant.name=Pinfly Plant
 tile.eucalyptus.name=Eucalyptus
 tile.eucalyptus_planks.name=Eucalyptus Planks
+tile.eucalyptus_log.name=Eucalyptus Log
+tile.eucalyptus_stairs.name=Eucalyptus Stairs
+tile.eucalyptus_slab.name=Eucalyptus Slab
 tile.greenlight_furnace.name=Greenlight Furnace
 tile.greenlight_furnace_on.name=Greenlight Furnace On
 tile.oceanfire_furnace.name=Oceanfire Furnace
@@ -425,6 +428,7 @@ tile.apalachia_double_slab.name=Double Apalachia Slab
 tile.skythern_double_slab.name=Double Skythern Slab
 tile.mortum_double_slab.name=Double Mortum Slab
 tile.white_mushroom_plant.name=White Mushroom
+tile.steel_door.name=Steel Door
 
 container.iceika_chest=Iceika Chest
 
