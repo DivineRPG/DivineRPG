@@ -48,6 +48,7 @@ public class StarBridge extends BlockMod {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
+			    //FIXME
 				// world.setBlockState(new BlockPos(x, y, z),
 				// ModBlocks.starBridgeOn.getDefaultState(), 3);
 			}

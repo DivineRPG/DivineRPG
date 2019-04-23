@@ -62,6 +62,7 @@ public class BlockNetherite extends BlockMod implements IHasModel, IMetaName {
 		world.scheduleUpdate(pos, this, 5);
 	}
 
+    //FIXME
 	/**
 	 * @Override protected BlockStateContainer createBlockState() { return new
 	 *           BlockStateContainer(this, new IProperty[] { TYPE }); }

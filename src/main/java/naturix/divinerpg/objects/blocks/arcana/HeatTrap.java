@@ -21,6 +21,8 @@ public class HeatTrap extends BlockMod {
         AxisAlignedBB extendBB = new AxisAlignedBB(x - 0.1, y - 0.1, z - 0.1, x + 1.1, y + 1.1, z + 1.1);
         world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB);
         for (EntityLivingBase entity : world.getEntitiesWithinAABB(EntityLivingBase.class, extendBB)) {
+
+            //FIXME
             //if (entity instanceof EntityLivingBase && this == ModBlocks.heatTrapOn) {
             //    entity.attackEntityFrom(Utils.trapSource, 16);
             //    entity.setFire(15);

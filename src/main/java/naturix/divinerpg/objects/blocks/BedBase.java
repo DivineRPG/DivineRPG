@@ -124,6 +124,7 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 		this.setRegistryName(name);
 		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
 
+	    //FIXME
 		// ModBlocks.BLOCKS.add(this);
 		// ModItems.ITEMS.add(new
 		// ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
@@ -300,6 +301,7 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 
 	@Override
 	public String getSpecialName(ItemStack stack) {
+	    //FIXME
 		// return EnumFacing.values()[stack.getItemDamage()].getName();
 		return this.getUnlocalizedName();
 	}
@@ -490,6 +492,7 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 	// TODO fix
 	@Override
 	public void registerModels() {
+	    //FIXME
 		/**
 		 * for(int i = 0; i < EnumFacing.values().length; i++) {
 		 * DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i,

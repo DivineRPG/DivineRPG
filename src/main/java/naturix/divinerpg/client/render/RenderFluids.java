@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 
 public class RenderFluids {
+    //Fixme
+    //I dont think we need this anymore
     public static void registerCustomMeshesAndStates()
     {
         /*ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(ModBlocks.tar), new ItemMeshDefinition()

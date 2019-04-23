@@ -691,6 +691,7 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.edenDust, ModBlocks.sunbloom);
         addShapelessRecipe(ModItems.edenDust, ModBlocks.edenBrush);
         addShapelessRecipe(ModItems.edenDust, ModBlocks.sunBlossom);
+        //FIXME
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonlightFern);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonBud);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.wildwoodTallgrass);
@@ -818,6 +819,7 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.karotCrystal, ModItems.baseSpawnCrystal, ModItems.apalachiaSoul,
                 ModItems.mortumSoul, ModItems.mortumSoul, ModItems.skythernSoul);
 
+        //FIXME
         // addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b', ModItems.edenFragments);
         // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock, 'W', ModBlocks.mortumLogs);
         // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', ModItems.apalachiaFragments);

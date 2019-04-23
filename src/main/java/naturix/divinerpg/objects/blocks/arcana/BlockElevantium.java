@@ -55,6 +55,7 @@ public class BlockElevantium extends BlockMod {
 		entity.fallDistance = 0;
 		if (entity instanceof EntityPlayer) {
 			// ((EntityPlayer) entity).triggerAchievement(DivineRPGAchievements.skyHigh);
+		    //FIXME
 		}
 	}
 

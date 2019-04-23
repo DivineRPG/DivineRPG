@@ -58,6 +58,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.mortumGrass, 1, 0), 1);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.skythernGrass, 1, 0), 1);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.wildwoodGrass, 1, 0), 1);
-		}
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.infernoSword, 1, 0), 4740);
+        }
 
 }

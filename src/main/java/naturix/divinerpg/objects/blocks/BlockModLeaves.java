@@ -92,6 +92,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
         return new ItemStack(Item.getItemFromBlock(this));
     }
 
+    //FIXME
     // private boolean isFancy(IBlockAccess world, int x, int y, int z) {
     // if (Minecraft.getMinecraft().gameSettings.fancyGraphics || world.getBlock(x,
     // y, z) == VetheaBlocks.firewoodLeaves || world.getBlock(x, y, z) ==

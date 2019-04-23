@@ -2,7 +2,7 @@ package naturix.divinerpg.events;
 
 
 public class EventTooltip {
-//	
+//	FIXME
 //	@SubscribeEvent
 //	public void tooltip(ItemTooltipEvent evt) {
 //		for(int i = 0; i < evt.toolTip.size(); i++) {

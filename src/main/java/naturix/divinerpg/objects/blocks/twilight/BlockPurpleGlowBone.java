@@ -54,6 +54,7 @@ public class BlockPurpleGlowBone extends BlockMod implements IPlantable, IHasMod
 
 	public void onBlockAdded(World par1World, int par2, int par3, int par4) {
 	}
+    //FIXME
 	//
 	// @Override
 	// public void updateTick(World worldgen, BlockPos pos, IBlockState state,

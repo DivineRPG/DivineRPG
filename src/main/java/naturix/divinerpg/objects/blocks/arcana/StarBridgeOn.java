@@ -33,7 +33,7 @@ public class StarBridgeOn extends BlockMod {
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
-
+	//FIXME
 	/**
 	 * @Override public Item getItemDropped(IBlockState state, Random rand, int
 	 *           fortune) { return Item.getItemFromBlock(ModBlocks.starBridge); }
@@ -67,6 +67,7 @@ public class StarBridgeOn extends BlockMod {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
+			    //FIXME
 				// world.setBlockState(new BlockPos(x, y, z),
 				// ModBlocks.starBridgeOn.getDefaultState(), 3);
 			}

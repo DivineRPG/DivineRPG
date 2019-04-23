@@ -77,6 +77,8 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
+
+        //FIXME
         //if (this == ArcanaBlocks.arcanaGrass && plantable instanceof ItemArcanaSeeds)
         //    return true;
         return true;
