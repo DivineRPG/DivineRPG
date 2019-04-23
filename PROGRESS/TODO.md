@@ -2,7 +2,6 @@
 
 ## Must be done before Release
 * Ayeraco lose contact with one another upon Save/Restore NTB
-* Workshop Merchant and Tinkerer do not spawn in Iceika
 
 ### Add to Block JSON Auto-Generate
 * Altar of Corruption
