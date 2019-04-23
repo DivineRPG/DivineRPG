@@ -15,9 +15,11 @@
    "parent":"divinerpg:enter_arcana",
    "criteria":{
       "use_storm_sword":{
-         "trigger":"divinerpg:divinerpg_item",
+         "trigger":"divinerpg:item",
          "conditions":{
-            "item":"divinerpg:storm_sword"
+            "item":{
+               "item":"divinerpg:storm_sword"
+            }
          }
       }
    }

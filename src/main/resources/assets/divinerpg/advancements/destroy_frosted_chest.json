@@ -15,7 +15,7 @@
    "parent":"divinerpg:enter_iceika",
    "criteria":{
       "destroy_frosted_chest":{
-         "trigger":"divinerpg:divinerpg_block",
+         "trigger":"divinerpg:block",
          "conditions":{
             "block":"divinerpg:frosted_chest"
          }

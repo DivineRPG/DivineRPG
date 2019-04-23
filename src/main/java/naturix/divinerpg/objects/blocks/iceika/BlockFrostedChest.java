@@ -9,11 +9,14 @@ import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
@@ -40,6 +43,15 @@ public class BlockFrostedChest extends BlockModChest {
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
         return new TileEntityFrostedChest();
+    }
+
+    @Override
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te,
+            ItemStack stack) {
+        super.harvestBlock(world, player, pos, state, te, stack);
+        if (this.dropsSnowflake && player instanceof EntityPlayerMP) {
+            ModTriggers.DIVINERPG_BLOCK.trigger((EntityPlayerMP) player, this);
+        }
     }
 
     @Override

@@ -7,6 +7,7 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockContainer;
@@ -15,6 +16,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
@@ -107,6 +109,7 @@ public class BlockAltarOfCorruption extends BlockContainer implements IHasModel 
             if (tileentity instanceof TileEntityAltarOfCorruption) {
                 playerIn.openGui(DivineRPG.instance, GUIHandler.ALTAR_OF_CORRUPTION_GUI_ID, worldIn, pos.getX(),
                         pos.getY(), pos.getZ());
+                ModTriggers.DIVINERPG_BLOCK.trigger((EntityPlayerMP) playerIn, this);
             }
             return true;
         }

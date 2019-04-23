@@ -832,9 +832,9 @@ public class ModRecipes {
             String woodName = woodType.getName();
 
             Block log = getBlockFromName(woodName + "_log");
-            Block plank = getBlockFromName(woodName + "_planks");
-            Block stair = getBlockFromName(woodName + "_stairs");
-            Block slab = getBlockFromName(woodName + "_slab");
+            Block plank = woodType.getPlank();
+            Block stair = woodType.getStair();
+            Block slab = woodType.getSingleSlab();
 
             if (log != null && plank != null) {
                 addShapelessRecipe(new ItemStack(plank, 4), log);
