@@ -52,7 +52,7 @@ public class ItemModSword extends ItemSword implements IHasModel {
 
     @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-        // FIXME
+        // FIXME - Divine Sword Advancement
         //if (stack.getItem() == ModItems.divineSword)
         //    player.triggerAchievement(DivineRPGAchievements.divinePlan);
     }
