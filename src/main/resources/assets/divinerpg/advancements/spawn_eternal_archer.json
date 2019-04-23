@@ -4,14 +4,14 @@
          "item":"divinerpg:eternal_archer_crystal"
       },
       "title":{
-         "translate":"advancement.divinerpg.eternal_archer_crystal"
+         "translate":"advancement.spawn_eternal_archer"
       },
       "description":{
-         "translate":"advancement.divinerpg.eternal_archer_crystal.description"
+         "translate":"advancement.spawn_eternal_archer.desc"
       }
    },
    "criteria":{
-      "spawn_the_watcher":{
+      "spawn_eternal_archer":{
          "trigger":"minecraft:consume_item",
          "conditions":{
             "item":{

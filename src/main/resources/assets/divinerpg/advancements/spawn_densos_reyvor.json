@@ -7,11 +7,11 @@
          "translate":"advancement.spawn_densos_reyvor"
       },
       "description":{
-         "translate":"advancement.spawn_densos_reyvor.description"
+         "translate":"advancement.spawn_densos_reyvor.desc"
       }
    },
    "criteria":{
-      "spawn_the_watcher":{
+      "spawn_densos_reyvor":{
          "trigger":"minecraft:consume_item",
          "conditions":{
             "item":{
