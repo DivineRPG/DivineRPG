@@ -282,9 +282,11 @@ public class ModBlocks {
     public static Block tomatoPlant = new BlockModCrop("tomato_plant", 7, ModItems.tomatoSeeds, ModItems.tomato);
     public static Block whiteMushroomPlant = new BlockModCrop("white_mushroom_plant", 1, ModItems.whiteMushroomSeeds,
             ModItems.whiteMushroom);
-
+    
+    
+    public static Block divineSapling = new BlockModSapling("divine_sapling");
     public static Block divineLogs = new BlockModLog("divine_log");
-    public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F);
+    public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F, divineSapling);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
     public static Block altarOfCorruption = new BlockAltarOfCorruption("altar_of_corruption");
@@ -374,8 +376,7 @@ public class ModBlocks {
     //public static Block apalachiaSapling = new BlockTwilightSapling("apalachiaSapling", apalachiaGrass, apalachiaDirt, new WorldGenApalachiaTree(true));
     //public static Block skythernSapling  = new BlockTwilightSapling("skythernSapling", skythernGrass, skythernDirt, new WorldGenSkythernTree(true));
     //public static Block mortumSapling    = new BlockTwilightSapling("mortumSapling", mortumGrass, mortumDirt, new WorldGenMortumTree(true));
-    public static Block divineSapling = new BlockModSapling("divine_sapling");
-
+    
     
     // public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
     // public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
