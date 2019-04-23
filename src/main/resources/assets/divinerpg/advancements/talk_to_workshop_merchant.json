@@ -18,7 +18,7 @@
          "trigger":"minecraft:villager_trade",
          "conditions":{
             "villager":{
-               "type":"divinerpg:workshop_merchant"
+               "type":"divinerpg:divinerpg.workshop_merchant"
             }
          }
       }

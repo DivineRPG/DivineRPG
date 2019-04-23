@@ -16,7 +16,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:fyracryx"
+               "type":"divinerpg:divinerpg.fyracryx"
             }
          }
       },
@@ -24,7 +24,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:seimer"
+               "type":"divinerpg:divinerpg.seimer"
             }
          }
       },
@@ -32,7 +32,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:paratiku"
+               "type":"divinerpg:divinerpg.paratiku"
             }
          }
       },
@@ -40,7 +40,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:golem_of_rejuvenation"
+               "type":"divinerpg:divinerpg.golem_of_rejuvenation"
             }
          }
       }

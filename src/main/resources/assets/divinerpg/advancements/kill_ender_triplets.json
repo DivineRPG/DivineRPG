@@ -18,7 +18,7 @@
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:ender_triplets"
+               "type":"divinerpg:divinerpg.ender_triplets"
             }
          }
       }

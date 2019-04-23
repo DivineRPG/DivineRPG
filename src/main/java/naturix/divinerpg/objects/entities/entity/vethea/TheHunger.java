@@ -22,7 +22,7 @@ public class TheHunger extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.the_hunger.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.the_hunger.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 

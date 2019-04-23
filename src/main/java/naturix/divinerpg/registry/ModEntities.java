@@ -954,6 +954,7 @@ public class ModEntities {
     }
 
     public static void registerMobWithEgg(Class entityClass, String entityName) {
+        entityName = Reference.MODID + "." + entityName;
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
                 mobID++, DivineRPG.instance, 128, 3, true);
         mobID++;
@@ -970,12 +971,14 @@ public class ModEntities {
     // }
 
     public static void registerProjectile(Class entityClass, String entityName) {
+        entityName = Reference.MODID + "." + entityName;
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
                 projectileID, DivineRPG.instance, 250, 5, true);
         projectileID++;
     }
 
     public void registerEgglessMob(Class entityClass, String entityName) {
+        entityName = Reference.MODID + "." + entityName;
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
                 mobID++, DivineRPG.instance, 128, 3, true);
     }

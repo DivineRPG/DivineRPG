@@ -26,7 +26,7 @@ public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
 
     public BlockModSpawner(String name, String mobName) {
         this.name = name;
-        this.mobName = mobName;
+        this.mobName = Reference.MODID + "." + mobName;
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
