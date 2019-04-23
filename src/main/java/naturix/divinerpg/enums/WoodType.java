@@ -2,6 +2,7 @@ package naturix.divinerpg.enums;
 
 import java.util.Locale;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.util.IStringSerializable;
 
@@ -18,6 +19,10 @@ public enum WoodType implements IStringSerializable {
     private final String name;
     private final MapColor mapColor;
     private final float hardness;
+    private Block plank;
+    private Block stair;
+    private Block singleSlab;
+    private Block doubleSlab;
 
     WoodType(String name, MapColor mapColor, float hardness) {
         this.name = name;
@@ -36,5 +41,37 @@ public enum WoodType implements IStringSerializable {
 
     public float getHardness() {
         return hardness;
+    }
+
+    public Block getPlank() {
+        return this.plank;
+    }
+
+    public void setPlank(Block plank) {
+        this.plank = plank;
+    }
+
+    public Block getStair() {
+        return this.stair;
+    }
+
+    public void setStair(Block stair) {
+        this.stair = stair;
+    }
+
+    public Block getSingleSlab() {
+        return this.singleSlab;
+    }
+
+    public void setSingleSlab(Block singleSlab) {
+        this.singleSlab = singleSlab;
+    }
+
+    public Block getDoubleSlab() {
+        return this.doubleSlab;
+    }
+
+    public void setDoubleSlab(Block doubleSlab) {
+        this.doubleSlab = doubleSlab;
     }
 }

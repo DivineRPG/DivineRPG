@@ -42,7 +42,7 @@ public class JackOMan extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.jackoman.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.jack_o_man.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 

@@ -1,10 +1,8 @@
 ## Porting of DivineRPG 1.7.10
 
 ## Must be done before Release
-* Integrate DIVINERPG_ITEM, DIVINERPG_BLOCK, DIVINERPG_EYE advancements
 * Ayeraco lose contact with one another upon Save/Restore NTB
-* Review Saplings
-* Review WoodType
+* Workshop Merchant and Tinkerer do not spawn in Iceika
 
 ### Add to Block JSON Auto-Generate
 * Altar of Corruption

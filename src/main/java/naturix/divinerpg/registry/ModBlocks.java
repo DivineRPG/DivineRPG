@@ -58,7 +58,6 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSlab;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -282,8 +281,7 @@ public class ModBlocks {
     public static Block tomatoPlant = new BlockModCrop("tomato_plant", 7, ModItems.tomatoSeeds, ModItems.tomato);
     public static Block whiteMushroomPlant = new BlockModCrop("white_mushroom_plant", 1, ModItems.whiteMushroomSeeds,
             ModItems.whiteMushroom);
-    
-    
+
     public static Block divineSapling = new BlockModSapling("divine_sapling");
     public static Block divineLogs = new BlockModLog("divine_log");
     public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F, divineSapling);
@@ -376,8 +374,7 @@ public class ModBlocks {
     //public static Block apalachiaSapling = new BlockTwilightSapling("apalachiaSapling", apalachiaGrass, apalachiaDirt, new WorldGenApalachiaTree(true));
     //public static Block skythernSapling  = new BlockTwilightSapling("skythernSapling", skythernGrass, skythernDirt, new WorldGenSkythernTree(true));
     //public static Block mortumSapling    = new BlockTwilightSapling("mortumSapling", mortumGrass, mortumDirt, new WorldGenMortumTree(true));
-    
-    
+
     // public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
     // public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
     // public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling).setLightLevel(0.5F);
@@ -454,7 +451,7 @@ public class ModBlocks {
 
             BlockMod planks = new BlockModPlank(woodType);
             Block stairs = new BlockModStairs(planks, woodName + "_stairs");
-    		Block singleSlab = new BlockModSlab(planks, null, woodType) {
+            Block singleSlab = new BlockModSlab(planks, null, woodType) {
                 @Override
                 public boolean isDouble() {
                     return false;
@@ -485,6 +482,11 @@ public class ModBlocks {
                     return restrictedKey;
                 }
             };
+
+            woodType.setPlank((Block) planks);
+            woodType.setStair(stairs);
+            woodType.setSingleSlab(singleSlab);
+            woodType.setDoubleSlab(doubleSlab);
 
             ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
                     .setRegistryName(singleSlab.getRegistryName()));

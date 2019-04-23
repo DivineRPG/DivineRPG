@@ -40,8 +40,8 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.livestock_merchant.name")
-                + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.livestock_merchant.name") + ": "
+                + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override

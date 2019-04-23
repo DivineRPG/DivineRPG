@@ -15,7 +15,7 @@
    "parent":"divinerpg:root",
    "criteria":{
       "use_altar_of_corruption":{
-         "trigger":"divinerpg:divinerpg_block",
+         "trigger":"divinerpg:block",
          "conditions":{
             "block":"divinerpg:altar_of_corruption"
          }

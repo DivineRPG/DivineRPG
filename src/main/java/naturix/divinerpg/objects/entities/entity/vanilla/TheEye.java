@@ -2,9 +2,11 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -49,7 +51,9 @@ public class TheEye extends EntityDivineRPGMob {
             double var7 = lookVec.dotProduct(lookAtMeVec);
             if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 0, false, true));
-                // player.triggerAchievement(DivineRPGAchievements.eyeOfEvil);
+                if (player instanceof EntityPlayerMP) {
+                    ModTriggers.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
+                }
             }
         }
     }

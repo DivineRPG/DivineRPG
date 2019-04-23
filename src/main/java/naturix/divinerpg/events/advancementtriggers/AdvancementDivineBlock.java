@@ -4,132 +4,141 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Nullable;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 
 import net.minecraft.advancements.ICriterionTrigger;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.advancements.critereon.AbstractCriterionInstance;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
 
 public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivineBlock.Instance> {
-	public static class Instance extends AbstractCriterionInstance {
+    public static class Instance extends AbstractCriterionInstance {
+        private final Block block;
 
-		public Instance(ResourceLocation parRL) {
-			super(parRL);
-		}
+        public Instance(ResourceLocation parRL, @Nullable Block block) {
+            super(parRL);
+            this.block = block;
+        }
 
-		public boolean test() {
-			return true;
-		}
-	}
+        public boolean test(Block block) {
+            if (this.block != null && block != this.block) {
+                return false;
+            }
+            return true;
+        }
+    }
 
-	static class Listeners {
-		private final PlayerAdvancements playerAdvancements;
-		private final Set<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> listeners = Sets.newHashSet();
+    static class Listeners {
+        private final PlayerAdvancements playerAdvancements;
+        private final Set<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> listeners = Sets.newHashSet();
 
-		public Listeners(PlayerAdvancements playerAdvancementsIn) {
-			playerAdvancements = playerAdvancementsIn;
-		}
+        public Listeners(PlayerAdvancements playerAdvancementsIn) {
+            playerAdvancements = playerAdvancementsIn;
+        }
 
-		public void add(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
-			listeners.add(listener);
-		}
+        public void add(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+            listeners.add(listener);
+        }
 
-		public boolean isEmpty() {
-			return listeners.isEmpty();
-		}
+        public boolean isEmpty() {
+            return listeners.isEmpty();
+        }
 
-		public void remove(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
-			listeners.remove(listener);
-		}
+        public void remove(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+            listeners.remove(listener);
+        }
 
-		public void trigger(EntityPlayerMP player) {
-			ArrayList<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> list = null;
+        public void trigger(EntityPlayerMP player, Block block) {
+            ArrayList<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> list = null;
+            for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener : listeners) {
+                if (listener.getCriterionInstance().test(block)) {
+                    if (list == null) {
+                        list = Lists.newArrayList();
+                    }
+                    list.add(listener);
+                }
+            }
+            if (list != null) {
+                for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener1 : list) {
+                    listener1.grantCriterion(playerAdvancements);
+                }
+            }
+        }
+    }
 
-			for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener : listeners) {
-				if (listener.getCriterionInstance().test()) {
-					if (list == null) {
-						list = Lists.newArrayList();
-					}
+    private final ResourceLocation RL;
+    private final Map<PlayerAdvancements, AdvancementDivineBlock.Listeners> listeners = Maps.newHashMap();
 
-					list.add(listener);
-				}
-			}
+    public AdvancementDivineBlock(ResourceLocation parRL) {
+        super();
+        RL = parRL;
+    }
 
-			if (list != null) {
-				for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener1 : list) {
-					listener1.grantCriterion(playerAdvancements);
-				}
-			}
-		}
-	}
+    public AdvancementDivineBlock(String parString) {
+        super();
+        RL = new ResourceLocation(parString);
+    }
 
-	private final ResourceLocation RL;
+    @Override
+    public void addListener(PlayerAdvancements playerAdvancementsIn,
+            ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+        AdvancementDivineBlock.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
+        if (myCustomTrigger$listeners == null) {
+            myCustomTrigger$listeners = new AdvancementDivineBlock.Listeners(playerAdvancementsIn);
+            listeners.put(playerAdvancementsIn, myCustomTrigger$listeners);
+        }
+        myCustomTrigger$listeners.add(listener);
+    }
 
-	private final Map<PlayerAdvancements, AdvancementDivineBlock.Listeners> listeners = Maps.newHashMap();
+    @Override
+    public AdvancementDivineBlock.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
+        Block block = null;
+        if (json.has("block")) {
+            ResourceLocation resourcelocation = new ResourceLocation(JsonUtils.getString(json, "block"));
+            if (!Block.REGISTRY.containsKey(resourcelocation)) {
+                throw new JsonSyntaxException("Unknown block type '" + resourcelocation + "'");
+            }
+            block = Block.REGISTRY.getObject(resourcelocation);
+        }
+        return new AdvancementDivineBlock.Instance(getId(), block);
+    }
 
-	public AdvancementDivineBlock(ResourceLocation parRL) {
-		super();
-		RL = parRL;
-	}
+    @Override
+    public ResourceLocation getId() {
+        return RL;
+    }
 
-	public AdvancementDivineBlock(String parString) {
-		super();
-		RL = new ResourceLocation(parString);
-	}
+    @Override
+    public void removeAllListeners(PlayerAdvancements playerAdvancementsIn) {
+        listeners.remove(playerAdvancementsIn);
+    }
 
-	@Override
-	public void addListener(PlayerAdvancements playerAdvancementsIn,
-	        ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
-		AdvancementDivineBlock.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
+    @Override
+    public void removeListener(PlayerAdvancements playerAdvancementsIn,
+            ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+        AdvancementDivineBlock.Listeners myCustomTrigger$listeners = listeners.get(playerAdvancementsIn);
+        if (myCustomTrigger$listeners != null) {
+            myCustomTrigger$listeners.remove(listener);
+            if (myCustomTrigger$listeners.isEmpty()) {
+                listeners.remove(playerAdvancementsIn);
+            }
+        }
+    }
 
-		if (myCustomTrigger$listeners == null) {
-			myCustomTrigger$listeners = new AdvancementDivineBlock.Listeners(playerAdvancementsIn);
-			listeners.put(playerAdvancementsIn, myCustomTrigger$listeners);
-		}
-
-		myCustomTrigger$listeners.add(listener);
-	}
-
-	@Override
-	public AdvancementDivineBlock.Instance deserializeInstance(JsonObject json, JsonDeserializationContext context) {
-		return new AdvancementDivineBlock.Instance(getId());
-	}
-
-	@Override
-	public ResourceLocation getId() {
-		return RL;
-	}
-
-	@Override
-	public void removeAllListeners(PlayerAdvancements playerAdvancementsIn) {
-		listeners.remove(playerAdvancementsIn);
-	}
-
-	@Override
-	public void removeListener(PlayerAdvancements playerAdvancementsIn,
-	        ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
-		AdvancementDivineBlock.Listeners tameanimaltrigger$listeners = listeners.get(playerAdvancementsIn);
-
-		if (tameanimaltrigger$listeners != null) {
-			tameanimaltrigger$listeners.remove(listener);
-
-			if (tameanimaltrigger$listeners.isEmpty()) {
-				listeners.remove(playerAdvancementsIn);
-			}
-		}
-	}
-
-	public void trigger(EntityPlayerMP parPlayer) {
-		AdvancementDivineBlock.Listeners tameanimaltrigger$listeners = listeners.get(parPlayer.getAdvancements());
-
-		if (tameanimaltrigger$listeners != null) {
-			tameanimaltrigger$listeners.trigger(parPlayer);
-		}
-	}
+    public void trigger(EntityPlayerMP player, Block block) {
+        AdvancementDivineBlock.Listeners myCustomTrigger$listeners = listeners.get(player.getAdvancements());
+        if (myCustomTrigger$listeners != null) {
+            myCustomTrigger$listeners.trigger(player, block);
+        }
+    }
 }

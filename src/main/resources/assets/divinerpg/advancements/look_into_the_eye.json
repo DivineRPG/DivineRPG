@@ -15,7 +15,7 @@
    "parent":"divinerpg:root",
    "criteria":{
       "look_into_the_eye":{
-         "trigger":"divinerpg:divinerpg_eye"
+         "trigger":"divinerpg:eye"
       }
    }
 }

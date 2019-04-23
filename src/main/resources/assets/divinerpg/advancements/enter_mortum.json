@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:skythern",
+   "parent":"divinerpg:enter_skythern",
    "criteria":{
       "enter_mortum":{
          "trigger":"minecraft:changed_dimension",

@@ -25,15 +25,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class BlockModSapling extends BlockBush implements IGrowable, IHasModel
-{
+public class BlockModSapling extends BlockBush implements IGrowable, IHasModel {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
-    protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+    protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D,
+            0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
 
-    public BlockModSapling(String name)
-    {
-    	this.setUnlocalizedName(name);
-    	this.setRegistryName(name);
+    public BlockModSapling(String name) {
+        this.setUnlocalizedName(name);
+        this.setRegistryName(name);
         setCreativeTab(DRPGCreativeTabs.BlocksTab);
         setHardness(0.0F);
         setSoundType(SoundType.PLANT);
@@ -42,60 +41,52 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return SAPLING_AABB;
     }
 
     @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-    {
-        if (!worldIn.isRemote)
-        {
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (!worldIn.isRemote) {
             super.updateTick(worldIn, pos, state, rand);
 
-            if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0)
-            {
+            if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0) {
                 grow(worldIn, rand, pos, state);
             }
         }
     }
 
-    public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
-    {
-        if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = new WorldGenDivineTree(5, ModBlocks.divineLogs.getDefaultState(),ModBlocks.divineLeaves.getDefaultState(), false);
+    public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (!TerrainGen.saplingGrowTree(worldIn, rand, pos))
+            return;
+        WorldGenerator worldgenerator = new WorldGenDivineTree(5, ModBlocks.divineLogs.getDefaultState(),
+                ModBlocks.divineLeaves.getDefaultState(), false);
 
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
 
-        if(this==ModBlocks.divineSapling) {
-        worldgenerator.generate(worldIn, rand, pos);
-        }}
+        if (this == ModBlocks.divineSapling) {
+            worldgenerator.generate(worldIn, rand, pos);
+        }
+    }
 
     /**
      * Whether this IGrowable can grow
      */
     @Override
-    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
-    {
+    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         return worldIn.rand.nextFloat() < 0.45D;
     }
 
     @Override
-    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        if (state.getValue(STAGE).intValue() == 0)
-        {
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        if (state.getValue(STAGE).intValue() == 0) {
             worldIn.setBlockState(pos, state.cycleProperty(STAGE), 4);
-        }
-        else
-        {
+        } else {
             generateTree(worldIn, pos, state, rand);
         }
     }
@@ -104,8 +95,7 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel
      * Convert the given metadata into a BlockState for this Block
      */
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         return getDefaultState().withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
     }
 
@@ -113,33 +103,32 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel
      * Convert the BlockState into the correct metadata value
      */
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i = 0;
         i = i | state.getValue(STAGE).intValue() << 3;
         return i;
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {STAGE});
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, new IProperty[] { STAGE });
     }
+
     @Override
     public void registerModels() {
         DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-	}
-
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        IBlockState soil = worldIn.getBlockState(pos.down());
-        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
     }
 
     @Override
-    protected boolean canSustainBush(IBlockState state)
-    {
-        return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.FARMLAND;
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        IBlockState soil = worldIn.getBlockState(pos.down());
+        return super.canPlaceBlockAt(worldIn, pos)
+                && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+    }
+
+    @Override
+    protected boolean canSustainBush(IBlockState state) {
+        return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT
+                || state.getBlock() == Blocks.FARMLAND;
     }
 }
