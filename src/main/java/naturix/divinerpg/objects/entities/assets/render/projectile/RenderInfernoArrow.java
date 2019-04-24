@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderInfernoArrow extends RenderArrow<EntityInfernoArrow> {
     public static final ResourceLocation ARROW = new ResourceLocation(Reference.MODID,
-            "textures/projectiles/arrow_inferno.png");
+            "textures/projectiles/inferno_arrow.png");
 
     public RenderInfernoArrow(RenderManager manager) {
         super(manager);
