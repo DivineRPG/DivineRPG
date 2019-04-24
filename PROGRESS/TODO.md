@@ -1,8 +1,5 @@
 ## Porting of DivineRPG 1.7.10
 
-## Must be done before Release
-* Ayeraco lose contact with one another upon Save/Restore NTB
-
 ### Add to Block JSON Auto-Generate
 * Altar of Corruption
 * Arcana Portal Frame
