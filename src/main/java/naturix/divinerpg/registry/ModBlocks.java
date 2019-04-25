@@ -441,6 +441,10 @@ public class ModBlocks {
     //public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
+    public static Block lunicAltar = new BlockMod("lunic_altar",0.7F,DRPGCreativeTabs.spawner);
+
+    
+    
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();
