@@ -66,7 +66,7 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
-
+        this.setBlockUnbreakable();
         this.fireBlock = fireBlock;
         this.dimId = dimId;
         this.portalFrame = portalFrame;
