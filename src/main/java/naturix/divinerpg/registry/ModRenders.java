@@ -16,7 +16,7 @@ public class ModRenders {
 		if(stack != null) {
 			GL11.glTranslated(x, y, z);
 			scale(scale);
-		    //FIXME
+		    //FIXME - Dont believe this is needed anymore
 			//renderItem.renderItemModelForEntity(stack, null, null);
 		}
 	}

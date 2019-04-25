@@ -8,6 +8,7 @@ import naturix.divinerpg.client.render.RenderFluids;
 import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.events.EventArmorTick;
+import naturix.divinerpg.events.EventTooltip;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModOreDict;
 import naturix.divinerpg.registry.ModSmelting;

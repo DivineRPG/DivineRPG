@@ -25,7 +25,7 @@ public class ItemCaptainsSparkler extends ItemModRanged {
         list.add(TooltipLocalizer.arcanaConsumed(7));
     }
 
-    // FIXME
+    // FIXME - Needs to use arcana
     //@Override
     //protected boolean additionalRightClickChecks(EntityPlayer player) {
     //    return ArcanaHelper..getProperties(player)useBar(15);

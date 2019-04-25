@@ -635,7 +635,7 @@ public class ModRecipes {
         addOredictRecipe(new ItemStack(ModBlocks.aquaTorch, 4), "x", "y", 'y', "stickWood", 'x',
                 ModItems.aquaticBlazeRod);
         // FIXME - Need to add
-        // addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.edenFragments);
+//         addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.edenFragments);
 
         addRecipe(new ItemStack(ModBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.IRON_INGOT);
         addRecipe(new ItemStack(ModBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', ModItems.netheriteIngot);
@@ -691,7 +691,7 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.edenDust, ModBlocks.sunbloom);
         addShapelessRecipe(ModItems.edenDust, ModBlocks.edenBrush);
         addShapelessRecipe(ModItems.edenDust, ModBlocks.sunBlossom);
-        //FIXME
+        //FIXME - Need to add
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonlightFern);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonBud);
         // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.wildwoodTallgrass);
@@ -819,7 +819,7 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.karotCrystal, ModItems.baseSpawnCrystal, ModItems.apalachiaSoul,
                 ModItems.mortumSoul, ModItems.mortumSoul, ModItems.skythernSoul);
 
-        //FIXME
+        //FIXME - Need to add
         // addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b', ModItems.edenFragments);
         // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock, 'W', ModBlocks.mortumLogs);
         // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', ModItems.apalachiaFragments);

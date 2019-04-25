@@ -128,7 +128,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void RegisterTileEntityRender() {
-        //FIXME
+        //FIXME - Vase?
         // ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVase.class, new
         // TileEntityVaseRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new TileEntityDramixAltarRender());
@@ -236,7 +236,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void updateClientArcana(float amount) {
-        //FIXME
+        //FIXME - Update arcana bar?
         // ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount);
     }
 
