@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.ArrowType;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityArrowShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -161,7 +161,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
                 float f = getScaledArrowVelocity(charge);
                 if ((double) f >= 0.1D) {
                     if (!worldIn.isRemote) {
-                        EntityArrowShot entityarrow = new EntityArrowShot(worldIn, arrowType, entityplayer);
+                        EntityDivineArrow entityarrow = new EntityDivineArrow(worldIn, arrowType, entityplayer);
                         entityarrow.setAmmoItem(arrowAmmo);
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F,
                                 f * 3.0F, 1.0F);

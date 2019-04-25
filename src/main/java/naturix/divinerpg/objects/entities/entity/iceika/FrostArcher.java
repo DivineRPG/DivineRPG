@@ -1,5 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
+import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.utils.Reference;
@@ -49,7 +50,7 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-        EntityDivineArrow arrow = new EntityDivineArrow(this.world, this);
+        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.FROST_ARCHER_ARROW, this);
         double d0 = target.posX - this.posX;
         double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 3.0F) - arrow.posY;
         double d2 = target.posZ - this.posZ;

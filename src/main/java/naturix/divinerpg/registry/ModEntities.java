@@ -177,15 +177,13 @@ import naturix.divinerpg.objects.entities.entity.iceika.Hastreus;
 import naturix.divinerpg.objects.entities.entity.iceika.Rollum;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityArrowShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityInfernoArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
@@ -356,12 +354,10 @@ public class ModEntities {
         registerProjectile(EntitySerenadeOfDeath.class, "serenade_of_death");
         registerProjectile(EntitySerenadeOfIce.class, "serenade_of_ice");
         registerProjectile(EntityDisk.class, "disk_amthrimis");
-        registerProjectile(EntityDivineArrow.class, "divine_arrow");
         registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
         registerProjectile(EntityFractiteShot.class, "fractite_shot");
         registerProjectile(EntityFrostShot.class, "frost_shot");
         registerProjectile(EntityFrostCloud.class, "frost_cloud");
-        registerProjectile(EntityInfernoArrow.class, "inferno_arrow");
         registerProjectile(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor");
         registerProjectile(EntityKingOfScorchersShot.class, "king_of_scorchers_shot");
         registerProjectile(EntitySaguaroWormShot.class, "saguaro_worm_shot");
@@ -377,7 +373,7 @@ public class ModEntities {
         registerProjectile(EntityCorruptedBullet.class, "corrupted_bullet");
         registerProjectile(EntitySoundOfMusic.class, "sound_of_music");
         registerProjectile(EntitySoundOfCarols.class, "sound_of_carols");
-        registerProjectile(EntityArrowShot.class, "arrow_shot");
+        registerProjectile(EntityDivineArrow.class, "arrow_shot");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -643,12 +639,10 @@ public class ModEntities {
     public static void initModels() {
         // Projectiles
         EntityCaveRock.renderMe();
-        EntityDivineArrow.renderMe();
         EntityEnderTripletsFireball.renderMe();
         EntityFractiteShot.renderMe();
         EntityFrostShot.renderMe();
         EntityFrostCloud.renderMe();
-        EntityInfernoArrow.renderMe();
         EntityKingOfScorchersMeteor.renderMe();
         EntityKingOfScorchersShot.renderMe();
         EntitySaguaroWormShot.renderMe();
@@ -663,7 +657,7 @@ public class ModEntities {
         EntitySerenadeOfIce.renderMe();
         EntitySoundOfMusic.renderMe();
         EntitySoundOfCarols.renderMe();
-        EntityArrowShot.renderMe();
+        EntityDivineArrow.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);

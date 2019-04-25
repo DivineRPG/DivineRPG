@@ -20,65 +20,80 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class EventArmorTick {
-	
-	private float                flyTemp;
 
-    private Item                 boots          = null;
-    private Item                 body           = null;
-    private Item                 legs           = null;
-    private Item                 helmet         = null;
+    private float flyTemp;
+
+    private Item boots = null;
+    private Item body = null;
+    private Item legs = null;
+    private Item helmet = null;
 
     public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
-    public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
-    public static final String[] walkSpeed      = new String[] { "g", "field_75097_g", "walkSpeed" };
+    public static final String[] isJumping = new String[] { "bc", "field_70703_bu", "isJumping" };
+    public static final String[] walkSpeed = new String[] { "g", "field_75097_g", "walkSpeed" };
 
-    private World                world;
-    	
-	@SubscribeEvent
+    private World world;
+
+    @SubscribeEvent
     public void onTickEvent(PlayerTickEvent evt) {
-		EntityPlayer player = evt.player;
-		world = evt.player.world;
+        EntityPlayer player = evt.player;
+        world = evt.player.world;
         ItemStack stackBoots = evt.player.inventory.armorInventory.get(0);
         ItemStack stackLegs = evt.player.inventory.armorInventory.get(1);
         ItemStack stackBody = evt.player.inventory.armorInventory.get(2);
         ItemStack stackHelmet = evt.player.inventory.armorInventory.get(3);
-        
+
         float speedMultiplier = 1;
 
-        if (stackBoots != null) boots = stackBoots.getItem();
-        else boots = null;
+        if (stackBoots != null)
+            boots = stackBoots.getItem();
+        else
+            boots = null;
 
-        if (stackBody != null) body = stackBody.getItem();
-        else body = null;
+        if (stackBody != null)
+            body = stackBody.getItem();
+        else
+            body = null;
 
-        if (stackLegs != null) legs = stackLegs.getItem();
-        else legs = null;
+        if (stackLegs != null)
+            legs = stackLegs.getItem();
+        else
+            legs = null;
 
-        if (stackHelmet != null) helmet = stackHelmet.getItem();
-        else helmet = null;       
-                
-        if(boots == ModItems.angelicBoots && body == ModItems.angelicBody && legs == ModItems.angelicLegs && helmet == ModItems.angelicHelmet) {
+        if (stackHelmet != null)
+            helmet = stackHelmet.getItem();
+        else
+            helmet = null;
+
+        if (boots == ModItems.angelicBoots && body == ModItems.angelicBody && legs == ModItems.angelicLegs
+                && helmet == ModItems.angelicHelmet) {
             if (!player.capabilities.isCreativeMode) {
                 player.capabilities.allowFlying = true;
+            }
         }
-        if(boots != ModItems.angelicBoots && body != ModItems.angelicBody && legs != ModItems.angelicLegs && helmet != ModItems.angelicHelmet) {
-        	if (!player.capabilities.isCreativeMode) {
-        	evt.player.capabilities.isFlying = false;
+
+        if (boots != ModItems.angelicBoots && body != ModItems.angelicBody && legs != ModItems.angelicLegs
+                && helmet != ModItems.angelicHelmet) {
+            if (!player.capabilities.isCreativeMode) {
+                evt.player.capabilities.isFlying = false;
+            }
         }
-        }
-        
+
         //Elite Realmite
-        if (boots == ModItems.eliteRealmiteBoots && body == ModItems.eliteRealmiteBody && legs == ModItems.eliteRealmiteLegs && helmet == ModItems.eliteRealmiteHelmet) {
+        if (boots == ModItems.eliteRealmiteBoots && body == ModItems.eliteRealmiteBody
+                && legs == ModItems.eliteRealmiteLegs && helmet == ModItems.eliteRealmiteHelmet) {
             evt.player.fallDistance = -0.5F;
         }
 
         //Divine
-        if (boots == ModItems.divineBoots && body == ModItems.divineBody && legs == ModItems.divineLegs && helmet == ModItems.divineHelmet) {
+        if (boots == ModItems.divineBoots && body == ModItems.divineBody && legs == ModItems.divineLegs
+                && helmet == ModItems.divineHelmet) {
             evt.player.fallDistance = -0.5F;
         }
 
         //Wildwood
-        if (boots == ModItems.wildwoodBoots && body == ModItems.wildwoodChestplate && legs == ModItems.wildwoodLeggings && helmet == ModItems.wildwoodHelmet) {
+        if (boots == ModItems.wildwoodBoots && body == ModItems.wildwoodChestplate && legs == ModItems.wildwoodLeggings
+                && helmet == ModItems.wildwoodHelmet) {
             if (evt.player.isInsideOfMaterial(Material.WATER)) {
                 float current = evt.player.getHealth();
                 if ((current > 0.0F) && (current < 20.0F)) {
@@ -86,15 +101,17 @@ public class EventArmorTick {
                 }
             }
         }
-        
+
         //Korma
-        if (boots == ModItems.kormaBoots && body == ModItems.kormaBody && legs == ModItems.kormaLegs && helmet == ModItems.kormaHelmet) {
-//        	ArcanaHelper.getProperties(evt.player).regen(1);
-        	player.heal(1);
+        if (boots == ModItems.kormaBoots && body == ModItems.kormaBody && legs == ModItems.kormaLegs
+                && helmet == ModItems.kormaHelmet) {
+            //        	ArcanaHelper.getProperties(evt.player).regen(1);
+            player.heal(1);
         }
 
         //Vemos
-        if (boots == ModItems.vemosBoots && body == ModItems.vemosBody && legs == ModItems.vemosLegs && helmet == ModItems.vemosHelmet) {
+        if (boots == ModItems.vemosBoots && body == ModItems.vemosBody && legs == ModItems.vemosLegs
+                && helmet == ModItems.vemosHelmet) {
             float current = evt.player.getHealth();
             if ((current > 0.0F) && (current < 20.0F)) {
                 evt.player.setHealth(current + 0.1F);
@@ -102,30 +119,37 @@ public class EventArmorTick {
         }
 
         //Mortum
-        if (boots == ModItems.mortumBoots && body == ModItems.mortumChestplate && legs == ModItems.mortumLeggings && helmet == ModItems.mortumHelmet) {
+        if (boots == ModItems.mortumBoots && body == ModItems.mortumChestplate && legs == ModItems.mortumLeggings
+                && helmet == ModItems.mortumHelmet) {
             evt.player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 210, 10, true, false));
         }
 
         //Skythern
-        if (boots == ModItems.skythernBoots && body == ModItems.skythernChestplate && legs == ModItems.skythernLeggings && helmet == ModItems.skythernHelmet) {
+        if (boots == ModItems.skythernBoots && body == ModItems.skythernChestplate && legs == ModItems.skythernLeggings
+                && helmet == ModItems.skythernHelmet) {
             evt.player.fallDistance = -0.5F;
         }
 
         //Netherite, Inferno, and Bedrock
-        if ((boots == ModItems.netheriteBoots && legs == ModItems.netheriteLegs && body == ModItems.netheriteBody && helmet == ModItems.netheriteHelmet)
-                || (boots == ModItems.infernoBoots && legs == ModItems.infernoLegs && body == ModItems.infernoBody && helmet == ModItems.infernoHelmet)
-                || (boots == ModItems.bedrockBoots && legs == ModItems.bedrockLegs && body == ModItems.bedrockBody && helmet == ModItems.bedrockHelmet)) {
+        if ((boots == ModItems.netheriteBoots && legs == ModItems.netheriteLegs && body == ModItems.netheriteBody
+                && helmet == ModItems.netheriteHelmet)
+                || (boots == ModItems.infernoBoots && legs == ModItems.infernoLegs && body == ModItems.infernoBody
+                        && helmet == ModItems.infernoHelmet)
+                || (boots == ModItems.bedrockBoots && legs == ModItems.bedrockLegs && body == ModItems.bedrockBody
+                        && helmet == ModItems.bedrockHelmet)) {
             evt.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
         }
 
         //Aquastrive
-        if (boots == ModItems.aquastriveBoots && body == ModItems.aquastriveBody && legs == ModItems.aquastriveLegs && helmet == ModItems.aquastriveHelmet) {
+        if (boots == ModItems.aquastriveBoots && body == ModItems.aquastriveBody && legs == ModItems.aquastriveLegs
+                && helmet == ModItems.aquastriveHelmet) {
             float speed = 1.1F;
             boolean isJumping = false;
-            isJumping = (Boolean) ObfuscationReflectionHelper.getPrivateValue(EntityLivingBase.class, evt.player, EventArmorTick.isJumping);
+            isJumping = (Boolean) ObfuscationReflectionHelper.getPrivateValue(EntityLivingBase.class, evt.player,
+                    EventArmorTick.isJumping);
 
             if (evt.player.isInWater()) {
-            	
+
                 if (!evt.player.isSneaking() && !isJumping) {
                     if (evt.player.motionX > -speed && evt.player.motionX < speed) {
                         evt.player.motionX *= speed;
@@ -149,31 +173,37 @@ public class EventArmorTick {
         }
 
         //Shadow
-        if (boots == ModItems.shadowBoots && body == ModItems.shadowBody && legs == ModItems.shadowLegs && helmet == ModItems.shadowHelmet) {
+        if (boots == ModItems.shadowBoots && body == ModItems.shadowBody && legs == ModItems.shadowLegs
+                && helmet == ModItems.shadowHelmet) {
             speedMultiplier = 3;
         }
         //Frozen
-        if (boots == ModItems.frozenBoots && body == ModItems.frozenBody && legs == ModItems.frozenLegs && helmet == ModItems.frozenHelmet && !evt.player.world.isRemote && Ticker.tick % 10 == 0) {
-            List<Entity> entities = evt.player.world.getEntitiesWithinAABB(EntityMob.class, evt.player.getEntityBoundingBox().expand(6, 6, 6));
-            for(Entity e : entities) {
-            	((EntityMob)e).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 40, 1, true, false));
+        if (boots == ModItems.frozenBoots && body == ModItems.frozenBody && legs == ModItems.frozenLegs
+                && helmet == ModItems.frozenHelmet && !evt.player.world.isRemote && Ticker.tick % 10 == 0) {
+            List<Entity> entities = evt.player.world.getEntitiesWithinAABB(EntityMob.class,
+                    evt.player.getEntityBoundingBox().expand(6, 6, 6));
+            for (Entity e : entities) {
+                ((EntityMob) e).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 40, 1, true, false));
             }
         }
 
         //Terran
-        if (boots == ModItems.terranBoots && body == ModItems.terranBody && legs == ModItems.terranLegs && helmet == ModItems.terranHelmet) {
+        if (boots == ModItems.terranBoots && body == ModItems.terranBody && legs == ModItems.terranLegs
+                && helmet == ModItems.terranHelmet) {
             evt.player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 2, true, false));
         }
 
         //Skeleman
-        if (boots == ModItems.skelemanBoots && body == ModItems.skelemanBody && legs == ModItems.skelemanLegs && helmet == ModItems.skelemanHelmet) {
+        if (boots == ModItems.skelemanBoots && body == ModItems.skelemanBody && legs == ModItems.skelemanLegs
+                && helmet == ModItems.skelemanHelmet) {
             if (evt.player.getFoodStats().needFood()) {
                 evt.player.getFoodStats().addStats(1, 0);
             }
         }
 
         //Santa
-        if (boots == ModItems.santaBoots && body == ModItems.santaTunic && legs == ModItems.santaPants && helmet == ModItems.santaCap) {
+        if (boots == ModItems.santaBoots && body == ModItems.santaTunic && legs == ModItems.santaPants
+                && helmet == ModItems.santaCap) {
             if (evt.player.world.provider.getDimension() == Config.iceikaDimensionId) {
                 if (evt.player.getFoodStats().needFood()) {
                     evt.player.getFoodStats().addStats(1, 0);
@@ -181,37 +211,43 @@ public class EventArmorTick {
                 speedMultiplier = 2;
             }
         }
-        
-        //Vethean
-        
-        if(body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots && helmet == ModItems.glisteningMask) {
-        	speedMultiplier = 1.4f;
-        }
-        
-        if(body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots && helmet == ModItems.demonizedMask) {
-        	speedMultiplier = 1.8f;
-        }
-        
-        if(body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots && helmet == ModItems.tormentedMask) {
-        	speedMultiplier = 2.2f;
-        }
-        
-        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, evt.player.capabilities, 0.1f*speedMultiplier, walkSpeed);
-        
-        if(body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots && helmet == ModItems.glisteningHood) {
-        	evt.player.fallDistance = -0.5F;
-        }
-            
-        if(body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots && helmet == ModItems.demonizedHood) {
-        	evt.player.fallDistance = -0.5F;
-        }
-            
-        if(body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots && helmet == ModItems.tormentedHood) {
-        	evt.player.fallDistance = -0.5F;
-        }
-        
-        if(evt.player.inventory.hasItemStack(new ItemStack(ModItems.minersAmulet))) evt.player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 1, 2, true, false));
-    }
 
-}
+        //Vethean
+
+        if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots
+                && helmet == ModItems.glisteningMask) {
+            speedMultiplier = 1.4f;
+        }
+
+        if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots
+                && helmet == ModItems.demonizedMask) {
+            speedMultiplier = 1.8f;
+        }
+
+        if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots
+                && helmet == ModItems.tormentedMask) {
+            speedMultiplier = 2.2f;
+        }
+
+        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, evt.player.capabilities,
+                0.1f * speedMultiplier, walkSpeed);
+
+        if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots
+                && helmet == ModItems.glisteningHood) {
+            evt.player.fallDistance = -0.5F;
+        }
+
+        if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots
+                && helmet == ModItems.demonizedHood) {
+            evt.player.fallDistance = -0.5F;
+        }
+
+        if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots
+                && helmet == ModItems.tormentedHood) {
+            evt.player.fallDistance = -0.5F;
+        }
+
+        if (evt.player.inventory.hasItemStack(new ItemStack(ModItems.minersAmulet)))
+            evt.player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 1, 2, true, false));
+    }
 }
