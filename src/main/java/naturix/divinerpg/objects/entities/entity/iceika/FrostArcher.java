@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.objects.entities.entity.EntityStats;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,7 +36,7 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.frostArcherHealth);
     }
 
     @Override
