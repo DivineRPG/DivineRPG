@@ -547,7 +547,6 @@ public class ModEntities {
     public static void initLoot() {
         LootTableList.register(AcidHag.LOOT);
         LootTableList.register(Alicanto.LOOT);
-        LootTableList.register(AngryBunny.LOOT);
         LootTableList.register(ApalachiaGolem.LOOT);
         LootTableList.register(AridWarrior.LOOT);
         LootTableList.register(AyeracoBlue.LOOT);
@@ -557,7 +556,6 @@ public class ModEntities {
         LootTableList.register(AyeracoYellow.LOOT);
         LootTableList.register(Basilisk.LOOT);
         LootTableList.register(Behemoth.LOOT);
-        LootTableList.register(Bunny.LOOT);
         LootTableList.register(CaveCrawler.LOOT);
         LootTableList.register(Caveclops.LOOT);
         LootTableList.register(Crab.LOOT);
@@ -565,9 +563,7 @@ public class ModEntities {
         LootTableList.register(DenseDemon.LOOT);
         LootTableList.register(Densos.LOOT);
         LootTableList.register(DesertCrawler.LOOT);
-        LootTableList.register(EdenCadillion.LOOT);
         LootTableList.register(EdenCori.LOOT);
-        LootTableList.register(EdenTomo.LOOT);
         LootTableList.register(EnchantedArcher.LOOT);
         LootTableList.register(EnchantedWarrior.LOOT);
         LootTableList.register(EnderSpider.LOOT);
@@ -581,7 +577,6 @@ public class ModEntities {
         LootTableList.register(Frosty.LOOT);
         LootTableList.register(Glacide.LOOT);
         LootTableList.register(Glacon.LOOT);
-        LootTableList.register(Greenfeet.LOOT);
         LootTableList.register(Hastreus.LOOT);
         LootTableList.register(HellSpider.LOOT);
         LootTableList.register(JungleBat.LOOT);

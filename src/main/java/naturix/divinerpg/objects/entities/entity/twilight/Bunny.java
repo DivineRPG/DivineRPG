@@ -1,128 +1,176 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Bunny extends EntityMob {
+public class Bunny extends EntityDivineRPGTameable {
 
-    public Bunny(World worldIn) {
-		super(worldIn);
-		this.setSize(0.6F, 0.7f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/bunny");
-
-
-    protected boolean isMaster() {
-        return false;
+    public Bunny(World var1) {
+        super(var1);
+        this.setSize(0.5F, 0.5F);
+        this.experienceValue = 40;
     }
-
+    
     @Override
-    protected boolean canDespawn() {
-        return true;
+    public void entityInit() {
+        super.entityInit();
+//        this.dataWatcher.addObject(19, 0);
     }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+        if(!this.isTamed())this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
+        else this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27000000417232513);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
     }
 
-    protected void initEntityAI()
+    @Override
+    protected boolean canDespawn() {
+        return !this.isTamed();
+    }
+
+    @Override
+    public void onDeath(DamageSource var1) {
+        super.onDeath(var1);
+        if(!this.world.isRemote && !this.isTamed()) {
+            Entity var3 = var1.getTrueSource();
+            if(var3 instanceof EntityPlayerMP) {
+                //FIXME -Triger friend or foe
+            }
+            this.transform();
+        }
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity target) {
+        double i = 1;
+        if(this.isTamed()) {
+//            this.dataWatcher.updateObject(19, 1);
+        }
+        return target.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
+    }
+    
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if(!this.world.isRemote) {
+//            if(this.isTamed() && this.getAttackTarget() == null) this.dataWatcher.updateObject(19, 0);
+        }
+    }
+
+    private void transform()  {
+        if(!this.world.isRemote) {
+            AngryBunny e = new AngryBunny(this.world);
+            e.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
+            this.world.spawnEntity(e);
+            this.setDead();
+        }
+    }
+    @Override
+    public boolean processInteract(EntityPlayer player, EnumHand hand)
     {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Bunny.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
-    }
+        ItemStack held = player.inventory.getCurrentItem();
 
-    private void applyEntityAI() {
+        if(this.isTamed()) {
+            if(held != null && held.getItem() instanceof ItemFood) {
+                ItemFood food = (ItemFood)held.getItem();
+
+                if(food.isWolfsFavoriteMeat() && this.getHealth() < 20) {
+                    if(!player.capabilities.isCreativeMode) {
+                        held.shrink(1);
+                    }
+                    this.heal((float)food.getHealAmount(held));
+                    if(held.getCount() <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
+                    }
+                    return true;
+                }
+            }
+            //FIXME - Line below causes crash
+            if(player.getUniqueID().toString().equals(this.getOwnerId().toString()) && !this.world.isRemote) {
+                this.aiSit.setSitting(!this.isSitting());
+                this.isJumping = false;
+//                this.setPathToEntity((PathEntity)null);
+            }
         }
+        else if(held != null && held.getItem() == ModItems.edenSparkles) {
+            if(!player.capabilities.isCreativeMode) {
+                held.shrink(1);
+            }
 
+            if(held.getCount() <= 0) {
+                player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
+            }
 
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+            if(!this.world.isRemote) {
+                if(this.rand.nextInt(3) == 0) {
+                    this.setTamed(true);
+//                    this.setPathToEntity((PathEntity)null);
+                    this.setAttackTarget((EntityLiving)null);
+                    this.aiSit.setSitting(true);
+                    this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
+                    this.setHealth(20);
+                    this.setOwnerId(player.getUniqueID());
+                    this.playTameEffect(true);
+                    this.world.setEntityState(this, (byte)7);
+                } else {
+                    this.playTameEffect(false);
+                    this.world.setEntityState(this, (byte)6);
+                }
+            }
+            return true;
         }
+        return super.processInteract(player, hand);
     }
 
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return this.rand.nextInt(4) != 0 ? null : ModSounds.BUNNY;
     }
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.BUNNY_HURT;
+    }
+ 
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.BUNNY_HURT;
+    }
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/bunny");
+    
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 
     @Override
-    protected void onDeathUpdate()
-    {
-    	this.updateArmSwingProgress();
-        float f = this.getBrightness();
-
-        if (f > 0.5F)
-        {
-            this.idleTime += 2;
-        }
-
-        super.onLivingUpdate();
-        ++this.deathTime;
-
-        if (this.deathTime == 20)
-        {
-        	AngryBunny bunny = new AngryBunny(world);
-        	bunny.setLocationAndAngles(getPosition().getX(), getPosition().getY(), getPosition().getZ(), this.prevRotationYaw, this.rotationPitch);
-        	
-    		bunny.setPosition(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ());
-    		if(!world.isRemote) {
-    		world.spawnEntity(bunny);
-    		this.isDead = true;
-    		}
-        }
+    public EntityAgeable createChild(EntityAgeable var1) {
+        return null;
     }
-    /**protected Block spawnableBlock = ModBlocks.grassEden;
-
+    
     @Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.edenDimension.getId();
-    }*/
+    public EntityLivingBase getAttackTarget() {
+        EntityLivingBase e = super.getAttackTarget();
+        if(e != null && ((this.isTamed() && this.getDistanceSq(e) < 144) || !this.isTamed())) return e;
+        return null;
     }
+}
