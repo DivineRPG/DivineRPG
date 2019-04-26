@@ -54,7 +54,6 @@ public class DivineRPG {
         ModOreDict.init();
         ModTriggers.registerTriggers();
         RenderFluids.registerCustomMeshesAndStates();
-        InitLog.init();
 
         // 1.12.2 only
         if (!Config.genJSON) {
@@ -68,8 +67,6 @@ public class DivineRPG {
         if (Loader.isModLoaded("projecte")) {
             ProjectECompat.init();
         }
-        PostInitLog.init();
-        IntenseDebug.init();
     }
 
     /** Init Methods */
@@ -83,7 +80,6 @@ public class DivineRPG {
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
         MinecraftForge.EVENT_BUS.register(new EventArmorSet());
         MinecraftForge.EVENT_BUS.register(new EventArmorTick());
-        PreInitLog.init();
     }
 
     /** For Registering Commands */

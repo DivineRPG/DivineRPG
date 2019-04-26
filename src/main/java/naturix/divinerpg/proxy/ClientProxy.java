@@ -51,6 +51,10 @@ import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
+import naturix.divinerpg.utils.log.InitLog;
+import naturix.divinerpg.utils.log.IntenseDebug;
+import naturix.divinerpg.utils.log.PostInitLog;
+import naturix.divinerpg.utils.log.PreInitLog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.particle.Particle;
@@ -88,6 +92,7 @@ public class ClientProxy extends CommonProxy {
         Utils.setupCapes();
         Utils.updateCapeList();
 
+        InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }
 
@@ -97,6 +102,8 @@ public class ClientProxy extends CommonProxy {
         Utils.postFMLEvent(new ArcanaRenderer());
         Utils.postFMLEvent(new ClientTicker());
 
+        PostInitLog.init();
+        IntenseDebug.init();
     }
 
     @Override
@@ -106,6 +113,7 @@ public class ClientProxy extends CommonProxy {
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
+        PreInitLog.init();
     }
 
     @Override
