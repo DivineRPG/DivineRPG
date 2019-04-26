@@ -592,7 +592,6 @@ public class ModEntities {
         LootTableList.register(Mage.LOOT);
         LootTableList.register(Megalith.LOOT);
         LootTableList.register(Miner.LOOT);
-        LootTableList.register(MoonWolf.LOOT);
         LootTableList.register(Mystic.LOOT);
         LootTableList.register(Parasecta.LOOT);
         LootTableList.register(Paratiku.LOOT);
@@ -725,7 +724,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Reyvor.class, RenderReyvor.FACTORY);
-
+ 
         // Vanilla
         RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);

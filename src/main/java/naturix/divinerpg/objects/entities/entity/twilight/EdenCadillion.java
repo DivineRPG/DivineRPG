@@ -43,7 +43,7 @@ public class EdenCadillion extends EntityDivineRPGMob {
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_WOLF_DEATH;
     }
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eden_tomo");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eden_cadillion");
     
     @Override
     protected ResourceLocation getLootTable() {

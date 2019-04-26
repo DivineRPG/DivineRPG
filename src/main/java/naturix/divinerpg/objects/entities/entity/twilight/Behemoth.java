@@ -1,99 +1,116 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.objects.entities.entity.EntityStats;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Behemoth extends EntityMob {
+public class Behemoth extends EntityDivineRPGMob {
+    
+    public int eatX;
+    public int eatY;
+    public int eatZ;
+    private boolean shouldEat = false;
+    private int ability;
+    float moveSpeed = 1;
 
-    public Behemoth(World worldIn) {
-		super(worldIn);
-		this.setSize(1.4F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/behemoth");
-
-
-    protected boolean isMaster() {
-        return false;
+    public Behemoth(World var1) {
+        super(var1);
+        addAttackingAI();
+        this.setSize(1.2f, 1);
     }
-    /**@Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.wildWoodDimension.getId();
-    }*/
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.behemothHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.behemothDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.behemothSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.behemothFollowRange);
     }
 
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Behemoth.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
+    @Override
+    protected void updateAITasks() {
+        if (this.getHealth() < this.getMaxHealth() * 0.5 && !this.shouldEat) {
+            for (int i = (int)this.posX - 16; i < (int)this.posX + 16; i++) {
+                for (int j = (int)this.posZ - 16; j < (int)this.posZ + 16; j++) {
+                    for(int n = (int)this.posY - 2; n < (int)this.posY + 2; n++) {
+                        boolean var1 = this.world.getBlockState(new BlockPos(i, (int)this.posY, j)).getMaterial() == Material.WOOD;
+                        if (var1) {
+                            this.shouldEat = true;
+                            this.eatX = i;
+                            this.eatY = (int)this.posY;
+                            this.eatZ = j;
+                        }
+                    }
+                }
+            }
         }
-
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+        if(this.shouldEat && this.getHealth() >= this.getMaxHealth() * 0.5) this.shouldEat = false;
+        super.updateAITasks();
     }
-
+    
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        
+        if(this.shouldEat && this.world.getBlockState(new BlockPos(this.eatX, this.eatY, this.eatZ)).getMaterial() != Material.WOOD) this.shouldEat = false;
+
+        if(this.shouldEat && this.ability == 0) {
+            if (this.getDistance(eatX, eatY, eatZ) < 2) {
+                this.heal(70/8);
+                this.world.setBlockState(new BlockPos(eatX, eatY, eatZ), Blocks.AIR.getDefaultState());
+                this.shouldEat = false;
+                this.ability = 5;
+            } else {
+                this.getNavigator().tryMoveToXYZ(eatX, eatY, eatZ, moveSpeed);
+                this.getLookHelper().setLookPosition(eatX, eatY, eatZ, 15F, 15F);
+                this.setMoveForward(moveSpeed / 4);
+            }
+        }
+        else if (this.shouldEat && this.ability > 0) {
+            this.ability--;
         }
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    protected float getSoundVolume() {
+        return 0.7F;
     }
 
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return this.rand.nextInt(4) != 0 ? null : ModSounds.ENDIKU;
     }
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.ENDIKU_HURT;
+    }
+ 
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.ENDIKU_HURT;
+    }
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/behemoth");
+    
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 
-	}
+
+    @Override
+    public boolean isValidLightLevel() {
+        return true;
+    }
+
 }
