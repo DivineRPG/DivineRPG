@@ -56,6 +56,15 @@
 
 #### Entities
 - List Entities left to do
+- Cadillion sounds
+- Cori sounds
+- Cori projectile
+- Sun Archer (AI, Held item and Projectile sound)
+- Tomo sounds
+- Cori movement
+- Moon wolf (generally needs porting)
+- Bunny needs better taming methods
+- Basalisk doesnt avoid water
 
 ## Enhancements over DivineRPG 1.7.10
 - Rotate Weapons in hand
