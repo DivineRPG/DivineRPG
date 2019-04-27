@@ -1,98 +1,76 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.objects.entities.entity.EntityStats;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Sorcerer extends EntityMob {
+public class Sorcerer extends EntityDivineRPGMob {
 
-    public Sorcerer(World worldIn) {
-		super(worldIn);
-		this.setSize(0.8F, 2.3f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/sorcerer");
-
-    /**@Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.mortumDimension.getId();
-    }*/
-    protected boolean isMaster() {
-        return false;
+    public Sorcerer(World var1) {
+        super(var1);
+        this.setSize(0.5F, 2F);
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.sorcererHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.sorcererDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.sorcererSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.sorcererFollowRange);
     }
 
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Sorcerer.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        }
-
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return this.rand.nextInt(4) != 0 ? null : ModSounds.INSECT;
     }
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.INSECT;
+    }
+ 
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.INSECT;
+    }
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/sorcerer");
+    
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 
-	}
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (this.ticksExisted % 10 == 0) {
+            this.attackingPlayer = this.world.getClosestPlayerToEntity(this, 16D);
+            if (this.attackingPlayer != null && !this.world.isRemote) {
+                double tx = this.attackingPlayer.posX - this.posX;
+                double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
+                double tz = this.attackingPlayer.posZ - this.posZ;
+                //FIXME - Projectile
+//                EntityTwilightMageShot e = new EntityTwilightMageShot(this.world, this, 97, 31, 54);
+//                e.setThrowableHeading(tx, ty, tz, 1.6f, 0);
+//                this.world.spawnEntityInWorld(e);
+                this.world.playSound(attackingPlayer, attackingPlayer.getPosition(), ModSounds.MAGE_FIRE, SoundCategory.HOSTILE, 1, 1);
+            }
+        }
+    }
+    
+    @Override
+    public boolean isValidLightLevel() {
+        return true;
+    }
+
 }
