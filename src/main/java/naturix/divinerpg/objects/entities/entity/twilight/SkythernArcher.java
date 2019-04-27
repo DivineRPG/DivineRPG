@@ -19,7 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class SkythernArcher extends EntityMob {
-
+    //FIXME - The whole mob needs fixing
     public SkythernArcher(World worldIn) {
 		super(worldIn);
 		this.setSize(2F, 3f);
