@@ -28,12 +28,12 @@ public class ItemMoonClock extends ItemMod {
     {
         ItemStack stack = new ItemStack(this);
         if(!world.isRemote) {
-            DivineRPG.logger.info("the world isnt remote");
+            if(Config.debug) {DivineRPG.logger.info("the world isnt remote");}
             if(world.getBlockState(pos) == ModBlocks.lunicAltar.getDefaultState()) {
-                DivineRPG.logger.info("looking at the lunic altar");
-                   //FIXME - Needs to check top 2 blocks for air
+                if(Config.debug) {DivineRPG.logger.info("looking at the lunic altar");}
+                  //FIXME - Needs to check top 2 blocks for air
 //                if(world.getBlockState(pos.up()) == Blocks.AIR) {
-//                    DivineRPG.logger.info("top block is air");
+//                    if(Config.debug) {DivineRPG.logger.info("top blocks are air");}
 //                    if(world.getBlockState(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ())) == Blocks.AIR) {
                         LadyLuna entity = new LadyLuna(world);
                         entity.setPositionAndRotation(pos.getX(), (double) pos.getY() + 1, pos.getZ(),
