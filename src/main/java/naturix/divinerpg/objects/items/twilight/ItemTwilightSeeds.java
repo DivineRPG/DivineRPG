@@ -1,5 +1,8 @@
 package naturix.divinerpg.objects.items.twilight;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,14 +17,17 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
-public class ItemTwilightSeeds extends ItemSeeds {
+public class ItemTwilightSeeds extends ItemSeeds implements IHasModel {
     private Block grass, crop;
+    String name;
     public ItemTwilightSeeds(String name, Block block, Block grass) {
         super(block, grass);
         this.grass=grass;
         this.crop = block;
+        this.name=name;
         setUnlocalizedName(name);
         setRegistryName(name);
+        this.setCreativeTab(DRPGCreativeTabs.items);
     }
     
     @Override
@@ -45,5 +51,8 @@ public class ItemTwilightSeeds extends ItemSeeds {
     {
         return EnumActionResult.FAIL;
     }
+    }@Override
+    public void registerModels() {
+        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 }
