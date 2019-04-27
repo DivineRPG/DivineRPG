@@ -105,4 +105,5 @@ public class ArcanaHelper implements ICapabilitySerializable<NBTTagCompound> {
         regenDelay = tag.getInteger("ArcanaRegenDelay");
         player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
     }
+    
 }
