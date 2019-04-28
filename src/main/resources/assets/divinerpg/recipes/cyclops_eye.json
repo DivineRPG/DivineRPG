@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:cyclops_eye"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:cyclops_eye_shards",
+      "count": 9
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -409,6 +409,7 @@ public class ModRecipes {
         // misc
         addRecipe(ModItems.netheriteChunk, " I ", "III", " I ", 'I', ModItems.netheriteIngot);
         addShapelessRecipe(new ItemStack(ModItems.cyclopsEyeShards, 9), ModItems.cyclopsEye);
+        addShapelessRecipe(ModItems.cyclopsEye, new ItemStack(ModItems.cyclopsEyeShards, 9));
         addShapelessRecipe(new ItemStack(ModItems.corruptedBullet, 16), ModItems.corruptedShards);
 
         addRecipe(ModBlocks.arlemiteBlock, "III", "III", "III", 'I', ModItems.arlemiteIngot);
@@ -635,7 +636,7 @@ public class ModRecipes {
         addOredictRecipe(new ItemStack(ModBlocks.aquaTorch, 4), "x", "y", 'y', "stickWood", 'x',
                 ModItems.aquaticBlazeRod);
         // FIXME - Need to add
-//         addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.edenFragments);
+        //         addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.edenFragments);
 
         addRecipe(new ItemStack(ModBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.IRON_INGOT);
         addRecipe(new ItemStack(ModBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', ModItems.netheriteIngot);
