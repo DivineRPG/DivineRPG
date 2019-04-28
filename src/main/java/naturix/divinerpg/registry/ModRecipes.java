@@ -409,7 +409,7 @@ public class ModRecipes {
         // misc
         addRecipe(ModItems.netheriteChunk, " I ", "III", " I ", 'I', ModItems.netheriteIngot);
         addShapelessRecipe(new ItemStack(ModItems.cyclopsEyeShards, 9), ModItems.cyclopsEye);
-        addShapelessRecipe(ModItems.cyclopsEye, new ItemStack(ModItems.cyclopsEyeShards, 9));
+        addRecipe(ModItems.cyclopsEye, "III", "III", "III", 'I', ModItems.cyclopsEyeShards);
         addShapelessRecipe(new ItemStack(ModItems.corruptedBullet, 16), ModItems.corruptedShards);
 
         addRecipe(ModBlocks.arlemiteBlock, "III", "III", "III", 'I', ModItems.arlemiteIngot);

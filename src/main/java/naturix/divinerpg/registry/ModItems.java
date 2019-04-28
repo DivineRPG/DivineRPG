@@ -122,7 +122,7 @@ public class ModItems {
     public static Item frostCannon = new ItemProjectileShooter("frost_cannon", BulletType.FROST_CANNON_SHOT,
             ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0);
     public static Item cyclopsianStaff = new ItemProjectileShooter("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT,
-            ModSounds.STAFF, 300, 0);
+            ModSounds.STAFF, 600, 0);
     public static Item maelstrom = new ItemProjectileShooter("maelstrom", BulletType.MAELSTROM_SHOT,
             ModSounds.GHAST_CANNON, 100, 0);
 
