@@ -1090,7 +1090,7 @@ death.attack.arcana=%1$s was killed by magic
 
 entity.divinerpg.acid_hag.name=Acid Hag
 entity.divinerpg.alicanto.name=Alicanto
-entity.divinerpg.ancient_entity.divinerpg.name=Ancient Entity
+entity.divinerpg.ancient_entity.name=Ancient Entity
 entity.divinerpg.angry_bunny.name=Angry Bunny
 entity.divinerpg.apalachia_cadillion.name=Apalachia Cadillion
 entity.divinerpg.apalachia_golem.name=Apalachia Golem
