@@ -1,7 +1,5 @@
 package naturix.divinerpg.objects.blocks;
 
-import java.util.Random;
-
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -20,11 +18,6 @@ public class BlockModCrop extends BlockCrops implements IHasModel {
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
-
-    @Override
-    public int quantityDropped(Random r) {
-        return r.nextInt(2) + 1;
     }
 
     @Override
