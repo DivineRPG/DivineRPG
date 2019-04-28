@@ -48,6 +48,9 @@ public class ItemSerenadeStriker extends ItemMod {
             world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
             world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
             world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
+            if (!player.capabilities.isCreativeMode) {
+                stack.damageItem(1, player);
+            }
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
