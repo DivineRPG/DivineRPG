@@ -53,11 +53,11 @@ public class ItemArcanaPotion extends ItemMod {
         return 10;
     }
 
-    @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (ArcanaHelper.getProperties(player).getBarValue() != 200 || ArcanaRenderer.value != 200) player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-        return stack;
-    }
+//    @Override
+//    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+//        if (ArcanaHelper.getProperties(player).getBarValue() != 200 || ArcanaRenderer.value != 200) player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+//        return stack;
+//    }
 
     @Override
     public boolean hasEffect(ItemStack stack) {
