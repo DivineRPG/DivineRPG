@@ -50,23 +50,23 @@ public class Mystic extends EntityDivineRPGMob {
         return this.LOOT;
     }
 
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
-        if (this.ticksExisted % 10 == 0) {
-            this.attackingPlayer = this.world.getClosestPlayerToEntity(this, 16D);
-            if (this.getAttackTarget() != null && !this.world.isRemote) {
-                double tx = this.attackingPlayer.posX - this.posX;
-                double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
-                double tz = this.attackingPlayer.posZ - this.posZ;
+//    @Override
+//    public void onUpdate() {
+//        super.onUpdate();
+//        if (this.ticksExisted % 10 == 0) {
+//            this.attackingPlayer = this.world.getClosestPlayerToEntity(this, 16D);
+//            if (this.getAttackTarget() != null && !this.world.isRemote) {
+//                double tx = this.attackingPlayer.posX - this.posX;
+//                double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
+//                double tz = this.attackingPlayer.posZ - this.posZ;
                 //FIXME -Sound and projectlie
 //                EntityTwilightMageShot e = new EntityTwilightMageShot(this.world, this, 234, 223, 228);
 //                e.setThrowableHeading(tx, ty, tz, 1.6f, 0);
 //                this.world.spawnEntityInWorld(e);
 //                this.world.playSoundAtEntity(this.entityToAttack, Sounds.mageFire.getPrefixedName(), 1, 1);
-            }
-        }
-    }
+//            }
+//        }
+//    }
     
     @Override
     public boolean isValidLightLevel() {
