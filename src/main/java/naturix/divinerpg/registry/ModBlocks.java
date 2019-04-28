@@ -3,11 +3,15 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
+import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTree;
+import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
+import naturix.divinerpg.dimensions.mortum.worldgen.trees.MortumTree;
+import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTree;
+import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
 import naturix.divinerpg.enums.StatueType;
 import naturix.divinerpg.enums.WoodType;
 import naturix.divinerpg.objects.blocks.BlockDoorBase;
 import naturix.divinerpg.objects.blocks.BlockMod;
-import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
@@ -46,10 +50,13 @@ import naturix.divinerpg.objects.blocks.vanilla.BlockLightFence;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.objects.blocks.vanilla.BlockSlimeLight;
 import naturix.divinerpg.objects.blocks.vanilla.BlockSpike;
+import naturix.divinerpg.objects.blocks.vanilla.BlockTomatoPlant;
+import naturix.divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
 import naturix.divinerpg.objects.blocks.vanilla.VanillaBlock;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GenerateJSON;
 import naturix.divinerpg.utils.material.EnumBlockType;
+import naturix.divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
@@ -278,11 +285,11 @@ public class ModBlocks {
             StatueType.ETERNAL_ARCHER_STATUE);
     public static BlockStatue karotStatue = new BlockStatue("karot_statue", StatueType.KAROT_STATUE);
 
-    public static Block tomatoPlant = new BlockModCrop("tomato_plant", 7, ModItems.tomatoSeeds, ModItems.tomato);
-    public static Block whiteMushroomPlant = new BlockModCrop("white_mushroom_plant", 1, ModItems.whiteMushroomSeeds,
-            ModItems.whiteMushroom);
+    public static Block tomatoPlant = new BlockTomatoPlant();
+    public static Block whiteMushroomPlant = new BlockWhiteMushroomPlant();
 
-    public static Block divineSapling = new BlockModSapling("divine_sapling");
+    public static Block divineSapling = new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT,
+            new DivineTree(true));
     public static Block divineLogs = new BlockModLog("divine_log");
     public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F, divineSapling);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
@@ -369,22 +376,22 @@ public class ModBlocks {
     public static Block skythernBlock = new BlockMod("skythern_block", 9);
     public static Block mortumBlock = new BlockMod("mortum_block", 9);
 
-    //public static Block edenSapling      = new BlockTwilightSapling("edenSapling", edenGrass, edenDirt, new WorldGenEdenTree(true));
-    //public static Block wildwoodSapling  = new BlockTwilightSapling("wildwoodSapling", wildwoodGrass, wildwoodDirt, new WorldGenWildwoodTree3(true), 3, 3);
-    //public static Block apalachiaSapling = new BlockTwilightSapling("apalachiaSapling", apalachiaGrass, apalachiaDirt, new WorldGenApalachiaTree(true));
-    //public static Block skythernSapling  = new BlockTwilightSapling("skythernSapling", skythernGrass, skythernDirt, new WorldGenSkythernTree(true));
-    //public static Block mortumSapling    = new BlockTwilightSapling("mortumSapling", mortumGrass, mortumDirt, new WorldGenMortumTree(true));
+    public static Block edenSapling = new BlockModSapling("eden_sapling", edenGrass, edenDirt, new EdenTree(true));
+    public static Block wildwoodSapling = new BlockModSapling("wildwood_sapling", wildwoodGrass, wildwoodDirt,
+            new WildWoodTree(true));
+    public static Block apalachiaSapling = new BlockModSapling("apalachia_sapling", apalachiaGrass, apalachiaDirt,
+            new ApalachiaTree(true));
+    public static Block skythernSapling = new BlockModSapling("skythern_sapling", skythernGrass, skythernDirt,
+            new SkythernTree(true));
+    public static Block mortumSapling = new BlockModSapling("mortum_sapling", mortumGrass, mortumDirt,
+            new MortumTree(true));
 
-    // public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
-    // public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
-    // public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling).setLightLevel(0.5F);
-    // public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling);
-    // public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling);
-    public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F);
-    public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F);
-    public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F).setLightLevel(0.5F);
-    public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F);
-    public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F);
+    public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
+    public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
+    public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling)
+            .setLightLevel(0.5F);
+    public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling);
+    public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling);
 
     public static Block edenLogs = new BlockModLog("eden_log");
     public static Block wildwoodLogs = new BlockModLog("wildwood_log");
@@ -441,10 +448,8 @@ public class ModBlocks {
     //public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
-    public static Block lunicAltar = new BlockMod("lunic_altar",0.7F,DRPGCreativeTabs.spawner);
+    public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DRPGCreativeTabs.spawner);
 
-    
-    
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();
@@ -497,6 +502,9 @@ public class ModBlocks {
             ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
                     .setRegistryName(doubleSlab.getRegistryName()));
         }
+    }
+
+    public static void init() {
     }
 
     public static void CreateJSONs() {

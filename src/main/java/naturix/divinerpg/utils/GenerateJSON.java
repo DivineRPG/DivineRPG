@@ -334,6 +334,8 @@ public class GenerateJSON {
                 generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
             } else if (block instanceof BlockModChest || block instanceof BlockStatue) {
                 generateIgnoreVariantBlockstate(registryName);
+            } else if (block instanceof BlockModSapling) {
+                generateSaplingBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -717,7 +719,6 @@ public class GenerateJSON {
         }
     }
 
-
     private static void generateFireBlockstate(String registryName) {
         String blockPath = Reference.MODID + ":" + registryName;
 
@@ -929,6 +930,25 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateSaplingBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> normal = new HashMap<>();
+        normal.put("model", blockPath);
+        variants.put("stage=0", normal);
+        variants.put("stage=1", normal);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -974,7 +994,7 @@ public class GenerateJSON {
                 } else {
                     generateBreakModelBlock(registryName, registryName);
                 }
-            } else if (block instanceof BlockSinglePlant) {
+            } else if (block instanceof BlockSinglePlant || block instanceof BlockModSapling) {
                 generateCrossModelBlock(registryName);
             } else if (block instanceof BlockChristmasLights) {
                 generateLadderModelBlock(registryName);

@@ -1089,7 +1089,7 @@ public class ModItems {
             .setSound(ModSounds.VETHEA_BOW).setVethean();
 
     // public static Item dreamFlint = new ItemDreamFlint();
-     public static Item moonClock = new ItemMoonClock("moon_clock");
+    public static Item moonClock = new ItemMoonClock("moon_clock");
     public static Item dreamFlint = new ItemNotReady("dream_flint", DRPGCreativeTabs.items);
     public static Item rockChunks = new ItemMod("rock_chunks");
     // public static Item nightmareBed = new ItemNightmareBed();
@@ -1160,6 +1160,9 @@ public class ModItems {
     public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST, true);
     public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
     public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
+
+    public static void init() {
+    }
 
     public static void CreateJSONs() {
         GenerateJSON.generateItemModelJSONs();

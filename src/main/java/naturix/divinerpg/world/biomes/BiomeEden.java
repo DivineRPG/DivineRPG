@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.util.Random;
 
 import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenAbstractTree;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenAbstractTree;
+import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
+import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenTree;
 import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
 import naturix.divinerpg.objects.entities.entity.twilight.EdenCadillion;
 import naturix.divinerpg.objects.entities.entity.twilight.EdenCori;
@@ -59,8 +59,8 @@ public class BiomeEden extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-        EdenAbstractTree genTree = new EdenAbstractTree(false, 3);
-        LargeEdenAbstractTree genLargeTree = new LargeEdenAbstractTree(false, 7, ModBlocks.edenLogs.getDefaultState(),
+        EdenTree genTree = new EdenTree(false, 3);
+        LargeEdenTree genLargeTree = new LargeEdenTree(false, 7, ModBlocks.edenLogs.getDefaultState(),
                 ModBlocks.edenLeaves.getDefaultState());
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);

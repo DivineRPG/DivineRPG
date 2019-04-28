@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=1": {
+      "model": "divinerpg:wildwood_sapling"
+    },
+    "stage=0": {
+      "model": "divinerpg:wildwood_sapling"
+    }
+  }
+}

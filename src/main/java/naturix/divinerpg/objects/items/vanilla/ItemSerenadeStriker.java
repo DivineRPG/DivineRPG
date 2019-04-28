@@ -14,6 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ItemSerenadeStriker extends ItemMod {
@@ -34,13 +35,16 @@ public class ItemSerenadeStriker extends ItemMod {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        RayTraceResult pos = player.rayTrace(300, 20);
+        Vec3d pos = new Vec3d(player.posX, player.posY + player.getEyeHeight(), player.posZ);
+        Vec3d look = player.getLook(1);
+        Vec3d vec32 = pos.addVector(look.x * 100, look.y * 100, look.z * 100);
+        RayTraceResult result = player.world.rayTraceBlocks(pos, vec32, false, false, true);
 
-        double i = pos.getBlockPos().getX();
-        double j = pos.getBlockPos().getY();
-        double k = pos.getBlockPos().getZ();
+        double i = result.getBlockPos().getX();
+        double j = result.getBlockPos().getY();
+        double k = result.getBlockPos().getZ();
 
-        if (world.getBlockState(pos.getBlockPos()) != null) {
+        if (world.getBlockState(result.getBlockPos()) != null) {
             world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
             world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
             world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));

@@ -2,7 +2,6 @@ package naturix.divinerpg.events;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.objects.blocks.BlockMod;
-import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
@@ -19,9 +18,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class EventArmorSet {
-
-    private ModItems item = new ModItems();
-    private ModBlocks block = new ModBlocks();
     private Item boots = null, body = null, legs = null, helmet = null;
 
     @SubscribeEvent

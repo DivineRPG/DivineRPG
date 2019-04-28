@@ -10,20 +10,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class EdenAbstractTree extends WorldGenAbstractTree {
+public class EdenTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    protected IBlockState log = ModBlocks.edenLogs.getDefaultState();
-    protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
 
-    public EdenAbstractTree(boolean notify) {
+    public EdenTree(boolean notify) {
         this(notify, 13);
     }
 
-    public EdenAbstractTree(boolean notify, int minTreeHeightIn) {
+    public EdenTree(boolean notify, int minTreeHeightIn) {
         super(notify);
         this.minTreeHeight = minTreeHeightIn;
-        log = ModBlocks.edenLogs.getDefaultState();
-        leaves = ModBlocks.edenLeaves.getDefaultState();
     }
 
     @Override
@@ -32,13 +28,17 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         int randBranchNum = 0;
         Material materialBelow = worldIn.getBlockState(position.down()).getMaterial();
 
-        if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256 || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.edenGrass || position.getY() >= 256 - treeHeight - 1) {
+        if (position.getY() < 1 || position.getY() + treeHeight + 1 > 256
+                || worldIn.getBlockState(position.down()).getBlock() != ModBlocks.edenGrass
+                || position.getY() >= 256 - treeHeight - 1) {
             return false;
         }
         for (int x = -2; x <= 2; x++) {
             for (int z = -2; z <= 2; z++) {
                 for (int y = 0; y <= treeHeight; y++) {
-                    if (worldIn.getBlockState(new BlockPos(position.getX() + x, position.getY() + y, position.getZ() + z)).getBlock() != Blocks.AIR) {
+                    if (worldIn
+                            .getBlockState(new BlockPos(position.getX() + x, position.getY() + y, position.getZ() + z))
+                            .getBlock() != Blocks.AIR) {
                         return false;
                     }
                 }
@@ -50,6 +50,8 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
+        IBlockState log = ModBlocks.edenLogs.getDefaultState();
+        IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
@@ -70,7 +72,7 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
         }
     }
 
-    private void drawLeafCircle(World world, BlockPos pos, int rad, IBlockState baseState) {
+    private void drawLeafCircle(World world, BlockPos pos, int rad, IBlockState leaves) {
         for (byte dx = 0; dx <= rad; dx++) {
             for (byte dz = 0; dz <= rad; dz++) {
                 int dist = (int) (Math.max(dx, dz) + (Math.min(dx, dz) * 0.5));
@@ -80,8 +82,8 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
                 if (dx == 0) {
                     // two!
                     if (dz < rad) {
-                        setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), baseState);
-                        setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), baseState);
+                        setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), leaves);
+                        setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), leaves);
                     } else {
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), leaves);
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), leaves);
@@ -89,18 +91,18 @@ public class EdenAbstractTree extends WorldGenAbstractTree {
                 } else if (dz == 0) {
                     // two!
                     if (dx < rad) {
-                        setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), baseState);
-                        setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), baseState);
+                        setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), leaves);
+                        setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), leaves);
                     } else {
                         setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), leaves);
                         setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), leaves);
                     }
                 } else if (dist < rad) {
                     // do four at a time for easiness!
-                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), baseState);
-                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, -dz), baseState);
-                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, dz), baseState);
-                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), baseState);
+                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), leaves);
+                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, -dz), leaves);
+                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, dz), leaves);
+                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), leaves);
                 } else if (dist == rad) {
                     // do four at a time for easiness!
                     setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), leaves);

@@ -59,7 +59,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -70,7 +69,6 @@ import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -109,7 +107,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-        ModelLoader.setCustomStateMapper(ModBlocks.tar, new StateMap.Builder().ignore(BlockFluidBase.LEVEL).build());
+        //ModelLoader.setCustomStateMapper(ModBlocks.tar, new StateMap.Builder().ignore(BlockFluidBase.LEVEL).build());
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());

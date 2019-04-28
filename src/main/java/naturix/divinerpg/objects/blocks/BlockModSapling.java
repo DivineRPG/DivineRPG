@@ -7,7 +7,7 @@ import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
-import naturix.divinerpg.world.WorldGenDivineTree;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -29,15 +29,27 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D,
             0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+    private Block grass, dirt;
+    private WorldGenerator tree;
+    private int xOff, zOff;
 
-    public BlockModSapling(String name) {
+    public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree) {
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
+        this.grass = grass;
+        this.dirt = dirt;
+        this.tree = tree;
         setCreativeTab(DRPGCreativeTabs.BlocksTab);
         setHardness(0.0F);
         setSoundType(SoundType.PLANT);
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
+
+    public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree, int xOff, int zOff) {
+        this(name, grass, dirt, tree);
+        this.xOff = xOff;
+        this.zOff = zOff;
     }
 
     @Override
@@ -59,14 +71,8 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel {
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (!TerrainGen.saplingGrowTree(worldIn, rand, pos))
             return;
-        WorldGenerator worldgenerator = new WorldGenDivineTree(5, ModBlocks.divineLogs.getDefaultState(),
-                ModBlocks.divineLeaves.getDefaultState(), false);
-
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-
-        if (this == ModBlocks.divineSapling) {
-            worldgenerator.generate(worldIn, rand, pos);
-        }
+        tree.generate(worldIn, rand, pos.add(xOff, 0, zOff));
     }
 
     /**
@@ -122,13 +128,11 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel {
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        return super.canPlaceBlockAt(worldIn, pos)
-                && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+        return soil.getBlock() == grass || soil.getBlock() == dirt;
     }
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT
-                || state.getBlock() == Blocks.FARMLAND;
+        return state.getBlock() == grass || state.getBlock() == dirt;
     }
 }

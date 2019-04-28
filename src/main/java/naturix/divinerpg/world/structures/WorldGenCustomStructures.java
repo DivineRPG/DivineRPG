@@ -9,7 +9,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.utils.DRPGLootTables;
 import naturix.divinerpg.utils.DRPGStructureHandler;
-import naturix.divinerpg.world.WorldGenDivineTree;
+import naturix.divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

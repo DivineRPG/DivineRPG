@@ -13,12 +13,12 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 /**
  * Created by LiteWolf101 on 10/8/2018.
  */
-public class LargeEdenAbstractTree extends WorldGenAbstractTree {
+public class LargeEdenTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
     protected IBlockState log = ModBlocks.edenLogs.getDefaultState();
     protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
 
-    public LargeEdenAbstractTree(boolean notify, int minTrunkHeight, IBlockState log, IBlockState leaves) {
+    public LargeEdenTree(boolean notify, int minTrunkHeight, IBlockState log, IBlockState leaves) {
         super(notify);
         this.minTrunkHeight = minTrunkHeight;
         this.log = log;

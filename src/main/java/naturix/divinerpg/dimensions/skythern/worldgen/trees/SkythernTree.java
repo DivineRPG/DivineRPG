@@ -11,8 +11,6 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class SkythernTree extends WorldGenAbstractTree {
     private int minTreeHeight;
-    protected IBlockState log = ModBlocks.skythernLogs.getDefaultState();
-    protected IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
 
     public SkythernTree(boolean notify) {
         this(notify, 13);
@@ -39,6 +37,8 @@ public class SkythernTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
+        IBlockState log = ModBlocks.skythernLogs.getDefaultState();
+        IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;
@@ -56,7 +56,7 @@ public class SkythernTree extends WorldGenAbstractTree {
         }
     }
 
-    private void drawLeafCircle(World world, BlockPos pos, int rad, IBlockState baseState) {
+    private void drawLeafCircle(World world, BlockPos pos, int rad, IBlockState leaves) {
         for (byte dx = 0; dx <= rad; dx++) {
             for (byte dz = 0; dz <= rad; dz++) {
                 int dist = (int) (Math.max(dx, dz) + (Math.min(dx, dz) * 0.5));
@@ -66,8 +66,8 @@ public class SkythernTree extends WorldGenAbstractTree {
                 if (dx == 0) {
                     // two!
                     if (dz < rad) {
-                        setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), baseState);
-                        setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), baseState);
+                        setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), leaves);
+                        setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), leaves);
                     } else {
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, dz), leaves);
                         setBlockAndNotifyAdequately(world, pos.add(0, 0, -dz), leaves);
@@ -75,18 +75,18 @@ public class SkythernTree extends WorldGenAbstractTree {
                 } else if (dz == 0) {
                     // two!
                     if (dx < rad) {
-                        setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), baseState);
-                        setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), baseState);
+                        setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), leaves);
+                        setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), leaves);
                     } else {
                         setBlockAndNotifyAdequately(world, pos.add(dx, 0, 0), leaves);
                         setBlockAndNotifyAdequately(world, pos.add(-dx, 0, 0), leaves);
                     }
                 } else if (dist < rad) {
                     // do four at a time for easiness!
-                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), baseState);
-                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, -dz), baseState);
-                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, dz), baseState);
-                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), baseState);
+                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), leaves);
+                    setBlockAndNotifyAdequately(world, pos.add(dx, 0, -dz), leaves);
+                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, dz), leaves);
+                    setBlockAndNotifyAdequately(world, pos.add(-dx, 0, -dz), leaves);
                 } else if (dist == rad) {
                     // do four at a time for easiness!
                     setBlockAndNotifyAdequately(world, pos.add(dx, 0, dz), leaves);

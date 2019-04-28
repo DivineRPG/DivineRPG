@@ -8,17 +8,12 @@ import naturix.divinerpg.client.render.RenderFluids;
 import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.events.EventArmorTick;
-import naturix.divinerpg.events.EventTooltip;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModOreDict;
 import naturix.divinerpg.registry.ModSmelting;
 import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.handlers.RegistryHandler;
-import naturix.divinerpg.utils.log.InitLog;
-import naturix.divinerpg.utils.log.IntenseDebug;
-import naturix.divinerpg.utils.log.PostInitLog;
-import naturix.divinerpg.utils.log.PreInitLog;
 import naturix.divinerpg.world.WorldGenCustomOres;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -77,6 +72,7 @@ public class DivineRPG {
         proxy.preInit(event);
         proxy.registerTileEntities();
         proxy.RegisterTileEntityRender();
+
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
         MinecraftForge.EVENT_BUS.register(new EventArmorSet());
         MinecraftForge.EVENT_BUS.register(new EventArmorTick());

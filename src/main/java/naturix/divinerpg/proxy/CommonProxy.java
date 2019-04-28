@@ -21,8 +21,10 @@ import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
+import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
@@ -65,6 +67,8 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         ModDimensions.init();
         ModEntities.init();
+        ModItems.init();
+        ModBlocks.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenTreeGenerator(), 0);
         ModEntities.initLoot();
