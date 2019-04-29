@@ -140,8 +140,8 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
                 if (output.isEmpty()) {
                     return true;
                 }
-                if (output.isItemEqual(result)) {
-                    return true;
+                if (!output.isItemEqual(result)) {
+                    return false;
                 }
                 int res = output.getCount() + result.getCount();
                 return res <= getInventoryStackLimit() && res <= output.getMaxStackSize();
