@@ -12,10 +12,20 @@ import com.google.common.collect.Maps;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrostCloud;
+import naturix.divinerpg.objects.entities.entity.iceika.Alicanto;
+import naturix.divinerpg.objects.entities.entity.iceika.Fractite;
+import naturix.divinerpg.objects.entities.entity.iceika.FrostArcher;
+import naturix.divinerpg.objects.entities.entity.iceika.Frosty;
+import naturix.divinerpg.objects.entities.entity.iceika.Glacide;
+import naturix.divinerpg.objects.entities.entity.iceika.Hastreus;
+import naturix.divinerpg.objects.entities.entity.iceika.Rollum;
+import naturix.divinerpg.objects.entities.entity.vanilla.Frost;
+import naturix.divinerpg.objects.entities.entity.vanilla.Glacon;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -148,23 +158,24 @@ public class EntityFrostCloud extends Entity {
                         this.getEntityBoundingBox());
 
                 if (!list.isEmpty()) {
-                    for (EntityLivingBase entitylivingbase : list) {
-                        if (!this.reapplicationDelayMap.containsKey(entitylivingbase)
-                                && entitylivingbase.canBeHitWithPotion()) {
-                            double d0 = entitylivingbase.posX - this.posX;
-                            double d1 = entitylivingbase.posZ - this.posZ;
+                    for (EntityLivingBase entity : list) {
+                        if (!this.reapplicationDelayMap.containsKey(entity) && entity.canBeHitWithPotion()) {
+                            double d0 = entity.posX - this.posX;
+                            double d1 = entity.posZ - this.posZ;
                             double d2 = d0 * d0 + d1 * d1;
-
                             if (d2 <= f * f) {
-                                this.reapplicationDelayMap.put(entitylivingbase,
+                                this.reapplicationDelayMap.put(entity,
                                         Integer.valueOf(this.ticksExisted + this.reapplicationDelay));
-
-                                if (!entitylivingbase.isEntityUndead()) {
-                                    entitylivingbase.attackEntityFrom(DamageSource.MAGIC, 1.0F);
+                                if (!(entity.isEntityUndead() || entity instanceof EntitySnowman
+                                        || entity instanceof Glacon || entity instanceof Frost
+                                        || entity instanceof Alicanto || entity instanceof Fractite
+                                        || entity instanceof FrostArcher || entity instanceof Frosty
+                                        || entity instanceof Glacide || entity instanceof Hastreus
+                                        || entity instanceof Rollum)) {
+                                    entity.attackEntityFrom(DamageSource.MAGIC, 1.0F);
                                 }
                             }
                         }
-
                     }
                 }
             }

@@ -16,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -121,8 +122,10 @@ public class Fractite extends EntityDivineRPGFlying {
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20) {
-                    if (!this.world.isRemote)
-                        this.playSound(ModSounds.FRACTITE_ATTACK, 1.0F, 1.0F);
+                    if (!this.world.isRemote) {
+                        this.world.playSound((EntityPlayer) null, this.targetedEntity.posX, this.targetedEntity.posY,
+                                this.targetedEntity.posZ, ModSounds.FRACTITE_ATTACK, SoundCategory.HOSTILE, 1.0F, 1.0F);
+                    }
                     EntityFractiteShot shot = new EntityFractiteShot(this.world, this, var11, var13, var15);
                     double var18 = 4.0D;
                     Vec3d var20 = this.getLook(1.0F);
