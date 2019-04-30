@@ -8,10 +8,11 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderFrostShot;
 import naturix.divinerpg.objects.entities.entity.EntityFrostCloud;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityFireball;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.datafix.DataFixer;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -19,10 +20,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFrostShot extends EntityFireball {
-    public static void registerFixesDragonFireball(DataFixer fixer) {
-        EntityFireball.registerFixesFireball(fixer, "FrostShot");
-    }
-
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
         RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class,
@@ -88,7 +85,9 @@ public class EntityFrostShot extends EntityFireball {
                     }
                 }
 
-                this.world.playEvent(2006, new BlockPos(this.posX, this.posY, this.posZ), 0);
+                this.world.playSound((EntityPlayer) null, this.posX, this.posY, this.posZ,
+                        SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F,
+                        (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
                 this.world.spawnEntity(frostCloud);
                 this.setDead();
             }
