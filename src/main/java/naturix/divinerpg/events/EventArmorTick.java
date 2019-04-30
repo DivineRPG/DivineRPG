@@ -28,8 +28,8 @@ public class EventArmorTick {
     private Item legs = null;
     private Item helmet = null;
 
-    public static final String[] isJumping = new String[] { "bc", "field_70703_bu", "isJumping" };
-    public static final String[] walkSpeed = new String[] { "g", "field_75097_g", "walkSpeed" };
+    public static final String[] isJumping = new String[] { "field_70703_bu", "isJumping" };
+    public static final String[] walkSpeed = new String[] { "field_75097_g", "walkSpeed" };
 
     private World world;
 
