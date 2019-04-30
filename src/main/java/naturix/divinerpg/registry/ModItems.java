@@ -131,10 +131,8 @@ public class ModItems {
     public static Item bowheadAnchor = new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT);
     public static Item liopleurodonAnchor = new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT);
     public static Item goldenFury = new ItemProjectileShooter("golden_fury", BulletType.GOLDEN_FURY_SHOT,
-            ModSounds.BLITZ, -1, 0);
-
+            ModSounds.BLITZ, Items.GOLD_NUGGET, -1, 0);
     public static Item corruptedCannon = new ItemCorruptedCannon("corrupted_cannon");
-
     public static Item ghastCannon = new ItemProjectileShooter("ghast_cannon", BulletType.GHAST_CANNON_SHOT,
             ModSounds.GHAST_CANNON, 100, 5);
     public static Item crabclawCannon = new ItemProjectileShooter("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT,
