@@ -25,12 +25,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBiomes {
 	public static ArrayList<Biome> BIOME_LIST = new ArrayList<Biome>();
 
-	/**public static final Biome Eden = new BiomeEden("biome_eden");
-	public static final Biome WildWood = new BiomeWildWood("biome_wildwood");
-	public static final Biome Apalachia = new BiomeApalachia("biome_apalachia");
-	public static final Biome Skythern = new BiomeSkythern("biome_skythern");
-	public static final Biome Mortum = new BiomeMortum("biome_mortum");
-	public static final Biome Iceika = new BiomeIceika("biome_iceika");*/
 	public static final Biome Eden = new BiomeEden();
 	public static final Biome WildWood = new BiomeWildWood();
 	public static final Biome Apalachia = new BiomeApalachia();
