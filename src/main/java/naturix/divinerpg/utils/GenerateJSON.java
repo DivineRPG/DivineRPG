@@ -17,7 +17,7 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.BlockDoorBase;
+import naturix.divinerpg.objects.blocks.BlockModDoor;
 import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModFence;
@@ -213,7 +213,7 @@ public class GenerateJSON {
                     Map<String, Object> textures = new HashMap<>();
                     textures.put("layer0", Reference.MODID + ":blocks/" + registryName);
                     json.put("textures", textures);
-                } else if (block instanceof BlockDoorBase) {
+                } else if (block instanceof BlockModDoor) {
                     json.put("parent", "item/generated");
                     Map<String, Object> textures = new HashMap<>();
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);

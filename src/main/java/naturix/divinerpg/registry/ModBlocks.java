@@ -10,7 +10,7 @@ import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTree;
 import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
 import naturix.divinerpg.enums.StatueType;
 import naturix.divinerpg.enums.WoodType;
-import naturix.divinerpg.objects.blocks.BlockDoorBase;
+import naturix.divinerpg.objects.blocks.BlockModDoor;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
@@ -323,7 +323,7 @@ public class ModBlocks {
     public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",
             DRPGCreativeTabs.BlocksTab).setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
-    public static Block steelDoor = new BlockDoorBase("steel_door", Material.ANVIL);
+    public static Block steelDoor = new BlockModDoor("steel_door", Material.ANVIL, 7.0f);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
     public static Block coalstoneFurnaceOn = new BlockCoalstoneFurnace("coalstone_furnace_on", true);
 
