@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.utils.Reference;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
@@ -20,7 +21,8 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class PumpkinSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/pumpkin_spider");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/vanilla/pumpkin_spider");
     private static final DataParameter<Boolean> CLIMBING = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
             DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
@@ -67,8 +69,9 @@ public class PumpkinSpider extends EntityDivineRPGMob {
         if (!getProvoked()) {
             EntityPlayer player = this.world.getNearestAttackablePlayer(this, 6.0D, 6.0D);
             this.renderYawOffset = 0;
-            if (player != null)
-                this.setProvoked();
+            if (player != null) {
+                this.setProvoked(player);
+            }
         } else {
             if (!this.world.isRemote) {
                 this.setBesideClimbableBlock(this.collidedHorizontally);
@@ -113,18 +116,31 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     public void readEntityFromNBT(NBTTagCompound tag) {
         super.readEntityFromNBT(tag);
         if (tag.getBoolean("Provoked"))
-            setProvoked();
+            setProvoked(null);
     }
 
     public boolean getProvoked() {
         return ((Boolean) this.dataManager.get(PROVOKED)).booleanValue();
     }
 
-    public void setProvoked() {
+    public void setProvoked(EntityPlayer player) {
         dataManager.set(PROVOKED, Boolean.valueOf(true));
         addBasicAI();
         addAttackingAI();
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
+        if (player != null && !player.capabilities.isCreativeMode) {
+            this.setAttackTarget(player);
+        }
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        Entity entity = source.getTrueSource();
+        if (entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            this.setProvoked(player);
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override

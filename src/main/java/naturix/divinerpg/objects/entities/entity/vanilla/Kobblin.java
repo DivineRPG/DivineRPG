@@ -4,6 +4,7 @@ import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -62,7 +63,7 @@ public class Kobblin extends EntityDivineRPGMob {
             this.renderYawOffset = 0;
             EntityPlayer player = this.world.getNearestAttackablePlayer(this, 4.0D, 4.0D);
             if (player != null) {
-                this.setProvoked();
+                this.setProvoked(player);
                 this.motionY = 0.6;
             }
         }
@@ -78,17 +79,31 @@ public class Kobblin extends EntityDivineRPGMob {
     public void readEntityFromNBT(NBTTagCompound tag) {
         super.readEntityFromNBT(tag);
         if (tag.getBoolean("Provoked"))
-            setProvoked();
+            setProvoked(null);
     }
 
     public boolean getProvoked() {
         return dataManager.get(PROVOKED).booleanValue();
     }
 
-    public void setProvoked() {
+    public void setProvoked(EntityPlayer player) {
         dataManager.set(PROVOKED, Boolean.valueOf(true));
         addBasicAI();
         addAttackingAI();
+        if (player != null && !player.capabilities.isCreativeMode) {
+            this.setAttackTarget(player);
+        }
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        Entity entity = source.getTrueSource();
+        if (entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            this.setProvoked(player);
+            this.motionY = 0.6;
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override
