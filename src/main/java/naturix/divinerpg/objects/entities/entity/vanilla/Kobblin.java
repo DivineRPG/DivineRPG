@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.vanilla;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
@@ -86,6 +88,7 @@ public class Kobblin extends EntityDivineRPGMob {
         return dataManager.get(PROVOKED).booleanValue();
     }
 
+    @Nullable
     public void setProvoked(EntityPlayer player) {
         dataManager.set(PROVOKED, Boolean.valueOf(true));
         addBasicAI();
