@@ -18,7 +18,9 @@ public class ModSpawns {
         if (entity.world.getGameRules().getBoolean("doMobSpawning") && entity.world.provider.getDimension() == 0
                 && entity instanceof EntityWaterMob && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL
                 && !entity.world.isRemote
-                && entity.world.getBlockState(entity.getPosition()) == Blocks.WATER.getDefaultState()) {
+                && entity.world.getBlockState(entity.getPosition()) == Blocks.WATER.getDefaultState()
+                && (entity.world.getBiome(entity.getPosition()) == Biomes.OCEAN
+                        || entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN)) {
 
             if (entity.getRNG().nextInt(2500) == 0) {
                 Shark shark = new Shark(entity.world);
@@ -38,8 +40,7 @@ public class ModSpawns {
                 if (Config.debug == true) {
                     DivineRPG.logger.info(whale.getName() + " just spawned at " + entity.getPosition());
                 }
-            } else if (entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN
-                    && entity.getRNG().nextInt(10000) == 0) {
+            } else if (entity.getRNG().nextInt(5000) == 0) {
                 Liopleurodon liopleurodon = new Liopleurodon(entity.world);
                 liopleurodon.copyLocationAndAnglesFrom(entity);
                 entity.world.spawnEntity(liopleurodon);
