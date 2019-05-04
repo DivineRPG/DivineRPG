@@ -2,6 +2,7 @@ package naturix.divinerpg.registry;
 
 import java.util.ArrayList;
 
+import naturix.divinerpg.Config;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.world.biomes.BiomeApalachia;
 import naturix.divinerpg.world.biomes.BiomeEden;
@@ -51,9 +52,10 @@ public class ModBiomes {
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);
         BiomeDictionary.addTypes(biome, types);
-        BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 1024));          //set to large spread
-//      BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 10));            //set to general biome spread
-        
+        //Only use this for debug purposes
+//        if(Config.debug) {
+//        BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 1024));
+//        }
         
         return biome;
     }
