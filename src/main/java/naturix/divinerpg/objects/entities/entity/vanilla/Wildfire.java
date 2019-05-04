@@ -14,7 +14,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
@@ -30,6 +29,17 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+    }
+
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+        this.tasks.addTask(0, new EntityAIAttackRanged(this, 0.25F, 15, 10.0F));
+    }
+
+    @Override
+    public void setSwingingArms(boolean swingingArms) {
     }
 
     @Override
@@ -51,11 +61,6 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == -1;
-    }
-
-    @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.WILDFIRE_HURT;
     }
@@ -68,16 +73,5 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
-    }
-
-    @Override
-    protected void initEntityAI() {
-        super.initEntityAI();
-        addAttackingAI();
-        this.tasks.addTask(0, new EntityAIAttackRanged(this, 0.25F, 15, 10.0F));
-    }
-
-    @Override
-    public void setSwingingArms(boolean swingingArms) {
     }
 }

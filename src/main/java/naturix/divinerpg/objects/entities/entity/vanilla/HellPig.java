@@ -6,6 +6,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -19,6 +22,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class HellPig extends EntityDivineRPGTameable {
@@ -161,19 +165,25 @@ public class HellPig extends EntityDivineRPGTameable {
         this.playSound(SoundEvents.ENTITY_WOLF_STEP, 0.15F, 1.0F);
     }
 
-    /*
-     * @Override public boolean shouldAttackEntity(EntityLivingBase target,
-     * EntityLivingBase owner) { if (!(target instanceof EntityCreeper) && !(target
-     * instanceof EntityGhast)) { if (target instanceof HellPig) { HellPig pig =
-     * (HellPig) target; if (pig.isTamed() && pig.getOwner() == owner) return false;
-     * } return target instanceof EntityPlayer && owner instanceof EntityPlayer &&
-     * !((EntityPlayer) owner).canAttackPlayer((EntityPlayer) target) ? false :
-     * !(target instanceof EntityHorse) || !((EntityHorse) target).isTame(); } else
-     * return false; }
-     */
+    @Override
+    public boolean shouldAttackEntity(EntityLivingBase target, EntityLivingBase owner) {
+        if (!(target instanceof EntityCreeper) && !(target instanceof EntityGhast)) {
+            if (target instanceof HellPig) {
+                HellPig pig = (HellPig) target;
+                if (pig.isTamed() && pig.getOwner() == owner)
+                    return false;
+            }
+            return target instanceof EntityPlayer && owner instanceof EntityPlayer
+                    && !((EntityPlayer) owner).canAttackPlayer((EntityPlayer) target) ? false :
+                            !(target instanceof EntityHorse) || !((EntityHorse) target).isTame();
+        } else {
+            return false;
+        }
+    }
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getBlockState(getPosition().down()).getBlock() == Blocks.SOUL_SAND && super.getCanSpawnHere();
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL
+                && this.world.getBlockState(getPosition().down()).getBlock() == Blocks.SOUL_SAND;
     }
 }

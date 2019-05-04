@@ -13,12 +13,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderFrostArcher extends RenderLiving<FrostArcher> {
-
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frost_archer.png");
 
     public RenderFrostArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelBiped(), 1F);
+        super(rendermanagerIn, new ModelBiped(), shadowsizeIn);
         addLayer(new MainHandLayerRenderFrostArcher(this));
     }
 
@@ -34,5 +33,4 @@ public class RenderFrostArcher extends RenderLiving<FrostArcher> {
             return new RenderFrostArcher(manager, new ModelBiped(), 1F);
         }
     }
-
 }

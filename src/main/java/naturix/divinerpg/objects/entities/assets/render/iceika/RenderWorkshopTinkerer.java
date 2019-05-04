@@ -12,31 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderWorkshopTinkerer extends RenderLiving<WorkshopTinkerer> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/workshop_tinkerer.png");
-	private final ModelWorkshop modelEntity;
-    
-	public RenderWorkshopTinkerer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWorkshop(), 1F);
-        modelEntity = (ModelWorkshop) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/workshop_tinkerer.png");
 
+    public RenderWorkshopTinkerer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelWorkshop(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(WorkshopTinkerer entity) {
-
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<WorkshopTinkerer> {
-
-	        @Override
-	        public Render<? super WorkshopTinkerer> createRenderFor(RenderManager manager) {
-	            return new RenderWorkshopTinkerer(manager, new ModelWorkshop(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<WorkshopTinkerer> {
+        @Override
+        public Render<? super WorkshopTinkerer> createRenderFor(RenderManager manager) {
+            return new RenderWorkshopTinkerer(manager, new ModelWorkshop(), 0F);
+        }
+    }
+}

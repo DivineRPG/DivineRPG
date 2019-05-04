@@ -12,31 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderWorkshopMerchant extends RenderLiving<WorkshopMerchant> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/workshop_merchant.png");
-	private final ModelWorkshop modelEntity;
-    
-	public RenderWorkshopMerchant(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWorkshop(), 1F);
-        modelEntity = (ModelWorkshop) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/workshop_merchant.png");
 
+    public RenderWorkshopMerchant(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelWorkshop(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(WorkshopMerchant entity) {
-
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<WorkshopMerchant> {
-
-	        @Override
-	        public Render<? super WorkshopMerchant> createRenderFor(RenderManager manager) {
-	            return new RenderWorkshopMerchant(manager, new ModelWorkshop(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<WorkshopMerchant> {
+        @Override
+        public Render<? super WorkshopMerchant> createRenderFor(RenderManager manager) {
+            return new RenderWorkshopMerchant(manager, new ModelWorkshop(), 0F);
+        }
+    }
+}

@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderFractite extends RenderLiving<Fractite> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/fractite.png");
-	private final ModelFractite modelEntity;
-    
-	public RenderFractite(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelFractite(), 1F);
-        modelEntity = (ModelFractite) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/fractite.png");
 
+    public RenderFractite(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelFractite(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Fractite entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Fractite> {
-
-	        @Override
-	        public Render<? super Fractite> createRenderFor(RenderManager manager) {
-	            return new RenderFractite(manager, new ModelFractite(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Fractite> {
+        @Override
+        public Render<? super Fractite> createRenderFor(RenderManager manager) {
+            return new RenderFractite(manager, new ModelFractite(), 0.5F);
+        }
+    }
+}

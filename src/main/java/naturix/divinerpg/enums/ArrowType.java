@@ -28,7 +28,8 @@ public enum ArrowType {
 
     ARID_WARRIOR_ARROW(1.5F, 1.5F, VanillaLoc(), false, false, false),
     WILDFIRE_ARROW(5, 5, ProjectileLoc("inferno_arrow"), false, true, false),
-    FROST_ARCHER_ARROW(2, 2, ProjectileLoc("snowstorm_arrow"), false, false, false);
+    FROST_ARCHER_ARROW(2, 2, ProjectileLoc("snowstorm_arrow"), false, false, false),
+    SUN_ARCHER_ARROW(9, 9, VanillaLoc(), false, false, false);
 
     private final float minDamage;
     private final float maxDamage;
@@ -83,6 +84,6 @@ public enum ArrowType {
     }
 
     private static ResourceLocation VanillaLoc() {
-        return new ResourceLocation("minecraft:textures/projectiles/arrow.png");
+        return new ResourceLocation("minecraft:textures/entity/projectiles/arrow.png");
     }
 }

@@ -1,11 +1,12 @@
 package naturix.divinerpg.objects.entities.assets.model.twilight;
 
+import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
-public class ModelBunny extends ModelBase
-{
+public class ModelBunny extends ModelBase {
     ModelRenderer Head;
     ModelRenderer Body;
     ModelRenderer Leg1;
@@ -16,8 +17,7 @@ public class ModelBunny extends ModelBase
     ModelRenderer Ear2;
     ModelRenderer tail;
 
-    public ModelBunny()
-    {
+    public ModelBunny() {
         textureWidth = 64;
         textureHeight = 32;
 
@@ -92,8 +92,7 @@ public class ModelBunny extends ModelBase
         Ear2.render(f5);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
@@ -102,21 +101,21 @@ public class ModelBunny extends ModelBase
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
-        //if ((e instanceof EntityBunny && ((EntityBunny) e).isSitting())) {
-          //  Body.rotateAngleX = 0.95993f;
-            //Leg1.rotateAngleX = Leg2.rotateAngleX = -1.5708f;
-            //Leg3.rotateAngleX = Leg4.rotateAngleX = -0.2818f;
-            //Leg1.rotationPointY = Leg2.rotationPointY = 23;
-            //Leg1.rotationPointZ = Leg2.rotationPointZ = 2;
-        //} else {
-          //  Leg1.rotationPointY = Leg2.rotationPointY = 19;
-            //Leg1.rotationPointZ = Leg2.rotationPointZ = 3;
-            //this.Body.rotateAngleX = ((float) Math.PI / 2F);
-            //this.Leg1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-            //this.Leg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
-           // this.Leg3.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
-            //this.Leg4.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-        //}
+        if ((e instanceof Bunny && ((Bunny) e).isSitting())) {
+            Body.rotateAngleX = 0.95993f;
+            Leg1.rotateAngleX = Leg2.rotateAngleX = -1.5708f;
+            Leg3.rotateAngleX = Leg4.rotateAngleX = -0.2818f;
+            Leg1.rotationPointY = Leg2.rotationPointY = 23;
+            Leg1.rotationPointZ = Leg2.rotationPointZ = 2;
+        } else {
+            Leg1.rotationPointY = Leg2.rotationPointY = 19;
+            Leg1.rotationPointZ = Leg2.rotationPointZ = 3;
+            this.Body.rotateAngleX = ((float) Math.PI / 2F);
+            this.Leg1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+            this.Leg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
+            this.Leg3.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
+            this.Leg4.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+        }
         this.Head.rotateAngleX = f4 / (180F / (float) Math.PI);
         this.Head.rotateAngleY = f3 / (180F / (float) Math.PI);
         this.Ear1.rotateAngleX = f4 / (180F / (float) Math.PI);

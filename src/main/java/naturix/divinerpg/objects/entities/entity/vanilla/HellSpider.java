@@ -134,9 +134,4 @@ public class HellSpider extends EntityDivineRPGMob {
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == -1 && super.getCanSpawnHere();
-    }
 }

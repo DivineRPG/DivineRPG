@@ -72,16 +72,16 @@ public class Ehu extends EntityDivineRPGTameable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.EHU;
+        return ModSounds.GROWL;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.EHU_HURT;
+        return ModSounds.GROWL_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.EHU_HURT;
+        return ModSounds.GROWL_HURT;
     }
 }

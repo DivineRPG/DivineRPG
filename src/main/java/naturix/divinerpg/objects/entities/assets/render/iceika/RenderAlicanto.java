@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderAlicanto extends RenderLiving<Alicanto> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/alicanto.png");
-	private final ModelAlicanto modelEntity;
-    
-	public RenderAlicanto(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelAlicanto(), 1F);
-        modelEntity = (ModelAlicanto) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/alicanto.png");
 
+    public RenderAlicanto(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelAlicanto(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Alicanto entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Alicanto> {
-
-	        @Override
-	        public Render<? super Alicanto> createRenderFor(RenderManager manager) {
-	            return new RenderAlicanto(manager, new ModelAlicanto(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Alicanto> {
+        @Override
+        public Render<? super Alicanto> createRenderFor(RenderManager manager) {
+            return new RenderAlicanto(manager, new ModelAlicanto(), 0F);
+        }
+    }
+}

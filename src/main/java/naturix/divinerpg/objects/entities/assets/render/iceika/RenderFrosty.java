@@ -12,26 +12,24 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderFrosty extends RenderLiving<Frosty> {
-
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frosty.png");
-    private final ModelFrosty modelEntity;
+    ResourceLocation frostyLoc = new ResourceLocation("divinerpg:textures/entity/frosty.png");
+    ResourceLocation angryFrostyLoc = new ResourceLocation("divinerpg:textures/entity/angry_frosty.png");
 
     public RenderFrosty(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelFrosty(), 1F);
-        modelEntity = (ModelFrosty) super.mainModel;
+        super(rendermanagerIn, new ModelFrosty(), shadowsizeIn);
     }
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Frosty entity) {
-        return texture;
+    protected ResourceLocation getEntityTexture(Frosty frosty) {
+        return (frosty.angerLevel > 0) ? angryFrostyLoc : frostyLoc;
     }
 
     public static class Factory implements IRenderFactory<Frosty> {
         @Override
         public Render<? super Frosty> createRenderFor(RenderManager manager) {
-            return new RenderFrosty(manager, new ModelFrosty(), 1F);
+            return new RenderFrosty(manager, new ModelFrosty(), 0F);
         }
     }
 }

@@ -22,7 +22,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class Scorcher extends EntityDivineRPGMob {
@@ -217,10 +216,5 @@ public class Scorcher extends EntityDivineRPGMob {
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == -1;
     }
 }

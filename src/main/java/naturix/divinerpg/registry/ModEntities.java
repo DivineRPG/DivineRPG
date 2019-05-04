@@ -179,6 +179,7 @@ import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
@@ -374,6 +375,7 @@ public class ModEntities {
         registerProjectile(EntitySoundOfMusic.class, "sound_of_music");
         registerProjectile(EntitySoundOfCarols.class, "sound_of_carols");
         registerProjectile(EntityDivineArrow.class, "arrow_shot");
+        registerProjectile(EntityCoriShot.class, "cori_shot");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -652,6 +654,7 @@ public class ModEntities {
         EntitySoundOfMusic.renderMe();
         EntitySoundOfCarols.renderMe();
         EntityDivineArrow.renderMe();
+        EntityCoriShot.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
@@ -724,7 +727,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Verek.class, RenderVerek.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Reyvor.class, RenderReyvor.FACTORY);
- 
+
         // Vanilla
         RenderingRegistry.registerEntityRenderingHandler(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(AncientEntity.class, RenderAncientEntity.FACTORY);

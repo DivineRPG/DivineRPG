@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderRollum extends RenderLiving<Rollum> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rollum.png");
-	private final ModelRollum modelEntity;
-    
-	public RenderRollum(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelRollum(), 1F);
-        modelEntity = (ModelRollum) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rollum.png");
 
+    public RenderRollum(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelRollum(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Rollum entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Rollum> {
-
-	        @Override
-	        public Render<? super Rollum> createRenderFor(RenderManager manager) {
-	            return new RenderRollum(manager, new ModelRollum(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Rollum> {
+        @Override
+        public Render<? super Rollum> createRenderFor(RenderManager manager) {
+            return new RenderRollum(manager, new ModelRollum(), 0F);
+        }
+    }
+}

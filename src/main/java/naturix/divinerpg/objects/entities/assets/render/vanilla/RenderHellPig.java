@@ -13,7 +13,9 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHellPig extends RenderLiving<HellPig> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/hell_pig.png");
+    ResourceLocation hellPigLoc = new ResourceLocation("divinerpg:textures/entity/hell_pig.png");
+    ResourceLocation madHellPigLoc = new ResourceLocation("divinerpg:textures/entity/mad_hell_pig.png");
+    ResourceLocation tamedHellPigLoc = new ResourceLocation("divinerpg:textures/entity/tamed_hell_pig.png");
 
     public RenderHellPig(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelPig(), shadowsizeIn);
@@ -21,8 +23,8 @@ public class RenderHellPig extends RenderLiving<HellPig> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(HellPig entity) {
-        return texture;
+    protected ResourceLocation getEntityTexture(HellPig hellPig) {
+        return hellPig.isTamed() ? tamedHellPigLoc : (hellPig.isAngry() ? madHellPigLoc : hellPigLoc);
     }
 
     public static class Factory implements IRenderFactory<HellPig> {

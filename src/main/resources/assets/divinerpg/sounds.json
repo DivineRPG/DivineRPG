@@ -479,16 +479,16 @@
          "divinerpg:grizzle_hurt"
       ]
    },
-   "ehu":{
+   "growl":{
       "category":"master",
       "sounds":[
-         "divinerpg:ehu"
+         "divinerpg:growl"
       ]
    },
-   "ehu_hurt":{
+   "growl_hurt":{
       "category":"master",
       "sounds":[
-         "divinerpg:ehu_hurt"
+         "divinerpg:growl_hurt"
       ]
    },
    "hastreus":{

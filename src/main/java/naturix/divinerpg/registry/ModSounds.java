@@ -99,8 +99,8 @@ public final class ModSounds {
     public static final SoundEvent GRASS = createEvent("grass");
     public static final SoundEvent GRIZZLE = createEvent("grizzle");
     public static final SoundEvent GRIZZLE_HURT = createEvent("grizzle_hurt");
-    public static final SoundEvent EHU = createEvent("EHU");
-    public static final SoundEvent EHU_HURT = createEvent("EHU_hurt");
+    public static final SoundEvent GROWL = createEvent("growl");
+    public static final SoundEvent GROWL_HURT = createEvent("growl_hurt");
     public static final SoundEvent HASTREUS = createEvent("hastreus");
     public static final SoundEvent HASTREUS_HURT = createEvent("hastreus_hurt");
     public static final SoundEvent HEAL = createEvent("heal");
@@ -324,8 +324,8 @@ public final class ModSounds {
         evt.getRegistry().register(GRASS);
         evt.getRegistry().register(GRIZZLE);
         evt.getRegistry().register(GRIZZLE_HURT);
-        evt.getRegistry().register(EHU);
-        evt.getRegistry().register(EHU_HURT);
+        evt.getRegistry().register(GROWL);
+        evt.getRegistry().register(GROWL_HURT);
         evt.getRegistry().register(HASTREUS);
         evt.getRegistry().register(HASTREUS_HURT);
         evt.getRegistry().register(HEAL);
