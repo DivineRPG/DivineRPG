@@ -26,6 +26,7 @@ import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModRecipes;
+import naturix.divinerpg.registry.ModSeeds;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GUIHandler;
 import naturix.divinerpg.utils.Reference;
@@ -69,6 +70,7 @@ public class CommonProxy {
         ModEntities.init();
         ModItems.init();
         ModBlocks.init();
+        ModSeeds.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenTreeGenerator(), 0);
         ModEntities.initLoot();

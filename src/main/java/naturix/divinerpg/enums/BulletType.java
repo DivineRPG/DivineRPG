@@ -13,7 +13,7 @@ public enum BulletType {
     CRAB_ANCHOR_SHOT(3, ProjectileLoc("crab_anchor")),
     SHARK_ANCHOR_SHOT(4, ProjectileLoc("bowhead_anchor")),
     BOWHEAD_ANCHOR_SHOT(5, ProjectileLoc("bowhead_anchor")),
-    LIOPLEURODON_ANCHOR_SHOT(6, ProjectileLoc("lioleurodon_anchor")),
+    LIOPLEURODON_ANCHOR_SHOT(6, ProjectileLoc("liopleurodon_anchor")),
     GOLDEN_FURY_SHOT(30, ItemLoc("gold_nugget")),
     GHAST_CANNON_SHOT(16, ProjectileLoc("ghast_cannon")),
     CRABCLAW_CANNON_SHOT(12, ProjectileLoc("crab_anchor")),

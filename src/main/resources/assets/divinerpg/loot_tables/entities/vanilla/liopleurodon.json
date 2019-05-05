@@ -4,8 +4,9 @@
          "name":"divinerpg:liopleurodon",
          "conditions":[
             {
-               "condition":"random_chance",
-               "chance":0.143
+               "condition":"random_chance_with_looting",
+               "chance":0.25,
+			   "looting_multiplier":0.05
             }
          ],
          "rolls":1,

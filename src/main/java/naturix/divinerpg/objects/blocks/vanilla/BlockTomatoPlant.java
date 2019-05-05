@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.blocks.vanilla;
 
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSeeds;
 import net.minecraft.item.Item;
 
 public class BlockTomatoPlant extends BlockModCrop {
@@ -16,7 +17,7 @@ public class BlockTomatoPlant extends BlockModCrop {
 
     @Override
     protected Item getSeed() {
-        return ModItems.tomatoSeeds;
+        return ModSeeds.tomatoSeeds;
     }
 
     @Override

@@ -641,8 +641,8 @@ public class ModRecipes {
         addRecipe(new ItemStack(ModBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.IRON_INGOT);
         addRecipe(new ItemStack(ModBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', ModItems.netheriteIngot);
 
-        addShapelessRecipe(new ItemStack(ModItems.whiteMushroomSeeds, 4), ModItems.whiteMushroom);
-        addShapelessRecipe(new ItemStack(ModItems.tomatoSeeds, 4), ModItems.tomato);
+        addShapelessRecipe(new ItemStack(ModSeeds.whiteMushroomSeeds, 4), ModItems.whiteMushroom);
+        addShapelessRecipe(new ItemStack(ModSeeds.tomatoSeeds, 4), ModItems.tomato);
 
         addRecipe(new ItemStack(ModBlocks.blueVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.DYE, 4), 'O',
                 Blocks.OBSIDIAN);

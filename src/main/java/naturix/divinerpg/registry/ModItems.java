@@ -5,7 +5,6 @@ import java.util.List;
 
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.enums.BulletType;
-import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -16,7 +15,6 @@ import naturix.divinerpg.objects.items.base.ItemModBow;
 import naturix.divinerpg.objects.items.base.ItemModFood;
 import naturix.divinerpg.objects.items.base.ItemModHoe;
 import naturix.divinerpg.objects.items.base.ItemModPickaxe;
-import naturix.divinerpg.objects.items.base.ItemModSeeds;
 import naturix.divinerpg.objects.items.base.ItemModShovel;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.objects.items.base.ItemPoisonousSword;
@@ -28,7 +26,6 @@ import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemMusicShooter;
 import naturix.divinerpg.objects.items.iceika.ItemSerenadeOfIce;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
-import naturix.divinerpg.objects.items.itemblock.ItemBlockDoor;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightClock;
 import naturix.divinerpg.objects.items.vanilla.ItemAnchor;
@@ -451,16 +448,12 @@ public class ModItems {
     public static Item infernalFlame = new ItemInfernalFlame("infernal_flame");
     public static Item hordeHorn = new ItemHordeHorn("horde_horn");
 
-    public static Item whiteMushroomSeeds = new ItemModSeeds("white_mushroom_seeds",
-            (BlockModCrop) ModBlocks.whiteMushroomPlant);
-    public static Item tomatoSeeds = new ItemModSeeds("tomato_seeds", (BlockModCrop) ModBlocks.tomatoPlant);
     public static Item krakenSkin = new ItemMod("kraken_skin");
     public static Item krakenScale = new ItemMod("kraken_scale");
 
     public static Item teleportationCrystal = new ItemTeleportationCrystal("teleportation_crystal");
 
     // Iceika
-    public static Item steelDoor = new ItemBlockDoor(ModBlocks.steelDoor);
     public static Item snowflake = new ItemMod("snowflake");
     public static Item iceShards = new ItemMod("ice_shards");
     public static Item iceStone = new ItemMod("ice_stone");
@@ -695,24 +688,10 @@ public class ModItems {
 
     // Twilight Crops
     public static Item moonbulb = new ItemFastFood(1, 5, false, "moonbulb");
-    // public static Item moonbulbSeeds = new ItemTwilightSeeds("moonbulb_seeds",
-    // ModBlocks.moonbulb, Blocks.GRASS);
-    public static Item moonbulbSeeds = new ItemNotReady("moonbulb_seeds", DRPGCreativeTabs.items);
     public static Item purpleGlowbone = new ItemFastFood(3, 5, false, "purple_glowbone");
-    // public static Item purpleGlowboneSeeds = new
-    // ItemTwilightSeeds("purple_glowbone_seeds", ModBlocks.purpleGlowbone,
-    // Blocks.GRASS);
-    public static Item purpleGlowboneSeeds = new ItemNotReady("purple_glowbone_seeds", DRPGCreativeTabs.items);
     public static Item pinkGlowbone = new ItemFastFood(3, 5, false, "pink_glowbone");
-    // public static Item pinkGlowboneSeeds = new
-    // ItemTwilightSeeds("pink_glowbone_seeds", ModBlocks.pinkGlowbone,
-    // Blocks.GRASS);
-    public static Item pinkGlowboneSeeds = new ItemNotReady("pink_glowbone_seeds", DRPGCreativeTabs.items);
     // public static Item skyFlower = new ItemSkyFlower();
     public static Item skyFlower = new ItemNotReady("sky_flower", DRPGCreativeTabs.items);
-    // public static Item skyPlantSeeds = new ItemTwilightSeeds("sky_plant_seeds",
-    // ModBlocks.skyPlant, Blocks.GRASS);
-    public static Item skyPlantSeeds = new ItemNotReady("sky_plant_seeds", DRPGCreativeTabs.items);
 
     // Arcana
     public static Item dungeonTokens = new ItemMod("dungeon_tokens");
@@ -797,40 +776,15 @@ public class ModItems {
     // public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryxEgg");
 
     public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
-    // public static Item hitchakSeeds = new ItemArcanaSeeds("hitchakSeeds",
-    // (BlockModCrop) ArcanaBlocks.hitchak);
-    public static Item hitchakSeeds = new ItemNotReady("hitchak_seeds", DRPGCreativeTabs.items);
     public static Item veilo = new ItemMod("veilo");
-    // public static Item veiloSeeds = new ItemArcanaSeeds("veiloSeeds",
-    // (BlockModCrop) ArcanaBlocks.veilo);
-    public static Item veiloSeeds = new ItemNotReady("veilo_seeds", DRPGCreativeTabs.items);
     public static Item marsine = new ItemMod("marsine");
-    // public static Item marsineSeeds = new ItemArcanaSeeds("marsineSeeds",
-    // (BlockModCrop) ArcanaBlocks.marsine);
     // public static Item lamona = new ItemLamona();
-    // public static Item lamonaSeeds = new ItemArcanaSeeds("lamonaSeeds",
-    // (BlockModCrop) ArcanaBlocks.lamona);
-    public static Item marsineSeeds = new ItemNotReady("marsine_seeds", DRPGCreativeTabs.items);
     public static Item lamona = new ItemNotReady("lamona", DRPGCreativeTabs.items);
-    public static Item lamonaSeeds = new ItemNotReady("lamona_seeds", DRPGCreativeTabs.items);
     public static Item firestock = new ItemMod("firestock");
-    // public static Item firestockSeeds = new ItemTwilightSeeds("firestockSeeds",
-    // ArcanaBlocks.firestock, ArcanaBlocks.arcanaGrass);
-    public static Item firestockSeeds = new ItemNotReady("firestock_seeds", DRPGCreativeTabs.items);
     public static Item pinfly = new ItemModFood(2, 0.3F, false, "pinfly")
             .setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F);
-    // public static Item pinflySeeds = new ItemTwilightSeeds("pinflySeeds",
-    // ArcanaBlocks.pinfly, ArcanaBlocks.arcanaGrass);
     // public static Item aquamarine = new ItemAquamarine("aquamarine");
-    // public static Item aquamarineSeeds = new ItemArcanaSeeds("aquamarineSeeds",
-    // (BlockModCrop) ArcanaBlocks.aquamarine);
-    // public static Item eucalyptusSeeds = new
-    // ItemArcanaSeeds("eucalyptusRootSeeds", (BlockModCrop)
-    // ArcanaBlocks.eucalyptusRoot);
-    public static Item pinflySeeds = new ItemNotReady("pinfly_seeds", DRPGCreativeTabs.items);
     public static Item aquamarine = new ItemNotReady("aquamarine", DRPGCreativeTabs.items);
-    public static Item aquamarineSeeds = new ItemNotReady("aquamarine_seeds", DRPGCreativeTabs.items);
-    public static Item eucalyptusSeeds = new ItemNotReady("eucalyptus_root_seeds", DRPGCreativeTabs.items);
 
     private static Object[] kormInfo = new Object[] { ArmorInfo.ARCANA_REGEN };
     public static Item kormaHelmet = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo);
