@@ -3,7 +3,6 @@ package naturix.divinerpg.objects.entities.container.gui;
 import java.io.IOException;
 
 import io.netty.buffer.Unpooled;
-import naturix.divinerpg.objects.entities.container.ContainerDivineMerchant;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -12,6 +11,7 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ContainerMerchant;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.client.CPacketCustomPayload;
@@ -32,7 +32,7 @@ public abstract class GuiDivineMerchant extends GuiContainer {
     private int selectedMerchantRecipe;
 
     public GuiDivineMerchant(InventoryPlayer playerInventory, IMerchant merchant, World world) {
-        super(new ContainerDivineMerchant(playerInventory, merchant, world));
+        super(new ContainerMerchant(playerInventory, merchant, world));
         this.merchant = merchant;
     }
 
@@ -97,7 +97,7 @@ public abstract class GuiDivineMerchant extends GuiContainer {
         }
 
         if (flag) {
-            ((ContainerDivineMerchant) this.inventorySlots).setCurrentRecipeIndex(this.selectedMerchantRecipe);
+            ((ContainerMerchant) this.inventorySlots).setCurrentRecipeIndex(this.selectedMerchantRecipe);
             PacketBuffer packetbuffer = new PacketBuffer(Unpooled.buffer());
             packetbuffer.writeInt(this.selectedMerchantRecipe);
             this.mc.getConnection().sendPacket(new CPacketCustomPayload("MC|TrSel", packetbuffer));

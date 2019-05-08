@@ -20,7 +20,6 @@ import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.PresentBoxGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
-import naturix.divinerpg.objects.entities.container.ContainerDivineMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;
 import naturix.divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiTheHunger;
@@ -28,6 +27,7 @@ import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopTinkerer;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ContainerMerchant;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
@@ -107,7 +107,7 @@ public class GUIHandler implements IGuiHandler {
                     (TileEntityModChest) world.getTileEntity(new BlockPos(x, y, z)), player);
         } else if (ID == WORKSHOP_MERCHANT_GUI_ID || ID == WORKSHOP_TINKERER_GUI_ID || ID == JACK_O_MAN_GUI_ID
                 || ID == LIVESTOCK_MERCHANT_GUI_ID || ID == THE_HUNGER_GUI_ID) {
-            return new ContainerDivineMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
+            return new ContainerMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
             return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));
         }
