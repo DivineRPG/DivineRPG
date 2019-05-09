@@ -110,6 +110,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
 
     @Override
     public void update() {
+        ++this.ticksSinceSync;
         if (!this.world.isRemote && this.numPlayersUsing != 0
                 && (this.ticksSinceSync + pos.getX() + pos.getY() + pos.getZ()) % 200 == 0) {
             this.numPlayersUsing = 0;
