@@ -11,7 +11,6 @@
 
 ### Other Blocks and Items
 * Add Tar Pools
-* Saplings (Twilight)
 
 ### Tar
 * Make more viscous
@@ -26,14 +25,30 @@
 
 ### Twilight
 #### Items
-- List Items left to do
+- Densos Crystal
+- Karot Crystal
+- Reyvor Crystal
+- Soul Fiend Crystal
+- Twilight Demon Crystal
+- Vamacheron Crystal
+- Eternal Archer Crystal
+- Eden Slicer
+- Wildwood Slicer
+- Apalachia Slicer
+- Skythern Slicer
+- Mortum Slicer
+- Halite Slicer
+- Sky Flower
 
 #### Blocks
+- Saplings (Merge with Worldgen for tree growth)
 - List Blocks left to do
 
 #### Entities
-- List Entities left to do
-- Traders
+- All twilight dimensions Eden need review
+- Sun Archer (Bow redenering)
+- Moon wolf (generally needs porting)
+- Basalisk doesnt avoid water
 
 ### Arcana
 #### Items
@@ -56,15 +71,6 @@
 
 #### Entities
 - List Entities left to do
-- Cadillion sounds
-- Cori sounds
-- Cori projectile
-- Sun Archer (AI, Held item and Projectile sound)
-- Tomo sounds
-- Cori movement
-- Moon wolf (generally needs porting)
-- Bunny needs better taming methods
-- Basalisk doesnt avoid water
 
 ## Enhancements over DivineRPG 1.7.10
 - Rotate Weapons in hand
