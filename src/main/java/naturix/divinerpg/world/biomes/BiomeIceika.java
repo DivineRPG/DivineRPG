@@ -22,18 +22,18 @@ public class BiomeIceika extends Biome {
     private static BiomeProperties properties = new BiomeProperties("Iceika").setTemperature(0.0f).setRainfall(0.5f)
             .setSnowEnabled().setHeightVariation(0.5F);
 
-	public BiomeIceika() {
-	super(properties);
-	this.topBlock = ModBlocks.frozenGrass.getDefaultState();
-	this.fillerBlock = ModBlocks.frozenDirt.getDefaultState();
-    this.spawnableCreatureList.clear();
-    this.spawnableMonsterList.clear();
-    this.spawnableCaveCreatureList.clear();
-    this.spawnableWaterCreatureList.clear();
-    this.flowers.clear();
-    this.decorator.flowersPerChunk = 0;	
-    this.decorator.grassPerChunk = 0;
-}
+    public BiomeIceika() {
+        super(properties);
+        this.topBlock = ModBlocks.frozenGrass.getDefaultState();
+        this.fillerBlock = ModBlocks.frozenDirt.getDefaultState();
+        this.spawnableCreatureList.clear();
+        this.spawnableMonsterList.clear();
+        this.spawnableCaveCreatureList.clear();
+        this.spawnableWaterCreatureList.clear();
+        this.flowers.clear();
+        this.decorator.flowersPerChunk = 0;
+        this.decorator.grassPerChunk = 0;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -143,13 +143,14 @@ public class BiomeIceika extends Biome {
                         --j;
                         chunkPrimerIn.setBlockState(chunkZ, currentY, chunkX, fillerBlock);
 
-						if (j == 0 && fillerBlock.getBlock() == Blocks.SAND && k > 1) {
-							j = rand.nextInt(4) + Math.max(0, currentY - 63);
-							fillerBlock = fillerBlock.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ? RED_SANDSTONE : SANDSTONE;
-						}
-					}
-				}
-			}
-		}
-	}
+                        if (j == 0 && fillerBlock.getBlock() == Blocks.SAND && k > 1) {
+                            j = rand.nextInt(4) + Math.max(0, currentY - 63);
+                            fillerBlock = fillerBlock.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ?
+                                    RED_SANDSTONE : SANDSTONE;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

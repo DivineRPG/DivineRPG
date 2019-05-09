@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class EdenTree extends WorldGenAbstractTree {
     private int minTreeHeight;
+    private boolean isSapling;
 
     public EdenTree(boolean notify) {
         this(notify, 13);
@@ -19,6 +20,7 @@ public class EdenTree extends WorldGenAbstractTree {
 
     public EdenTree(boolean notify, int minTreeHeightIn) {
         super(notify);
+        this.isSapling = notify;
         this.minTreeHeight = minTreeHeightIn;
     }
 

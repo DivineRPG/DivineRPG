@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class WildWoodTree extends WorldGenAbstractTree {
     private int minTreeHeight;
+    private boolean isSapling;
 
     public WildWoodTree(boolean notify) {
         this(notify, 13);
@@ -20,6 +21,7 @@ public class WildWoodTree extends WorldGenAbstractTree {
 
     public WildWoodTree(boolean notify, int minTreeHeightIn) {
         super(notify);
+        this.isSapling = notify;
         this.minTreeHeight = minTreeHeightIn;
     }
 

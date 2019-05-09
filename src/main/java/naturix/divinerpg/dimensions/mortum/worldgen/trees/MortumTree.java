@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class MortumTree extends WorldGenAbstractTree {
     private int minTreeHeight;
+    private boolean isSapling;
 
     public MortumTree(boolean notify) {
         this(notify, 13);
@@ -18,6 +19,7 @@ public class MortumTree extends WorldGenAbstractTree {
 
     public MortumTree(boolean notify, int minTreeHeightIn) {
         super(notify);
+        this.isSapling = notify;
         this.minTreeHeight = minTreeHeightIn;
     }
 

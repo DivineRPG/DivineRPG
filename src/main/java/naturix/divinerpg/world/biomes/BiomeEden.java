@@ -6,13 +6,6 @@ import java.util.Random;
 import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenTree;
-import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
-import naturix.divinerpg.objects.entities.entity.twilight.EdenCadillion;
-import naturix.divinerpg.objects.entities.entity.twilight.EdenCori;
-import naturix.divinerpg.objects.entities.entity.twilight.EdenTomo;
-import naturix.divinerpg.objects.entities.entity.twilight.Greenfeet;
-import naturix.divinerpg.objects.entities.entity.twilight.Madivel;
-import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenEdenPlants;
 import net.minecraft.init.Blocks;
@@ -41,14 +34,6 @@ public class BiomeEden extends Biome {
         this.flowers.clear();
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 0;
-
-        this.spawnableMonsterList.add(new SpawnListEntry(EdenCadillion.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(EdenTomo.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Bunny.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(EdenCori.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Greenfeet.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));
     }
 
     @Override
@@ -106,14 +91,12 @@ public class BiomeEden extends Biome {
             mutPos.setPos(rx, ry, rz);
             genLakes.generate(worldIn, rand, mutPos);
         }
-
         for (int i = 0; i < 1; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 55 + rand.nextInt(20);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             genConeUp.generate(worldIn, rand, mutPos);
-
         }
     }
 }

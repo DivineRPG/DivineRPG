@@ -5,13 +5,6 @@ import java.util.Random;
 
 import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTree;
 import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTreeLarge;
-import naturix.divinerpg.objects.entities.entity.twilight.ApalachiaGolem;
-import naturix.divinerpg.objects.entities.entity.twilight.Bunny;
-import naturix.divinerpg.objects.entities.entity.twilight.EnchantedArcher;
-import naturix.divinerpg.objects.entities.entity.twilight.EnchantedWarrior;
-import naturix.divinerpg.objects.entities.entity.twilight.Greenfeet;
-import naturix.divinerpg.objects.entities.entity.twilight.Madivel;
-import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -38,14 +31,6 @@ public class BiomeApalachia extends Biome {
         this.flowers.clear();
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 0;
-
-        this.spawnableMonsterList.add(new SpawnListEntry(EnchantedWarrior.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(ApalachiaGolem.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Bunny.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(EnchantedArcher.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Greenfeet.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(Madivel.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(SunArcher.class, 1, 1, 1));
     }
 
     @Override
@@ -61,7 +46,5 @@ public class BiomeApalachia extends Biome {
         } else {
             return new ApalachiaTreeLarge(true, 5);
         }
-
     }
-
 }
