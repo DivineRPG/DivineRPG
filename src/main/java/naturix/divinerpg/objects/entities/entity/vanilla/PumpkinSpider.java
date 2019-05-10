@@ -139,7 +139,7 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
         Entity entity = source.getTrueSource();
-        if (entity instanceof EntityPlayer) {
+        if (entity instanceof EntityPlayer && !getProvoked()) {
             EntityPlayer player = (EntityPlayer) entity;
             this.setProvoked(player);
         }

@@ -101,7 +101,7 @@ public class Kobblin extends EntityDivineRPGMob {
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
         Entity entity = source.getTrueSource();
-        if (entity instanceof EntityPlayer) {
+        if (entity instanceof EntityPlayer && !getProvoked()) {
             EntityPlayer player = (EntityPlayer) entity;
             this.setProvoked(player);
             this.motionY = 0.6;
