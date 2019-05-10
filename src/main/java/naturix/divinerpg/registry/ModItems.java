@@ -26,8 +26,10 @@ import naturix.divinerpg.objects.items.iceika.ItemEggNog;
 import naturix.divinerpg.objects.items.iceika.ItemMusicShooter;
 import naturix.divinerpg.objects.items.iceika.ItemSerenadeOfIce;
 import naturix.divinerpg.objects.items.iceika.ItemSnowGlobe;
+import naturix.divinerpg.objects.items.twilight.ItemSkyFlower;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import naturix.divinerpg.objects.items.twilight.ItemTwilightClock;
+import naturix.divinerpg.objects.items.twilight.ItemTwilightSpawner;
 import naturix.divinerpg.objects.items.vanilla.ItemAnchor;
 import naturix.divinerpg.objects.items.vanilla.ItemBurningSword;
 import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
@@ -549,24 +551,13 @@ public class ModItems {
 
     public static Item baseSpawnCrystal = new ItemMod("base_spawn_crystal");
 
-    // public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
-    // public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
-    // public static Item reyvorCrystal = new ItemTwilightSpawner("reyvor_crystal");
-    // public static Item soulFiendCrystal = new
-    // ItemTwilightSpawner("soul_fiend_crystal");
-    // public static Item twilightDemonCrystal = new
-    // ItemTwilightSpawner("twilight_demon_crystal");
-    // public static Item vamacheronCrystal = new
-    // ItemTwilightSpawner("vamacheron_crystal");
-    // public static Item eternalArcherCrystal = new
-    // ItemTwilightSpawner("eternal_archer_crystal");
-    public static Item densosCrystal = new ItemNotReady("densos_crystal", DRPGCreativeTabs.items);
-    public static Item karotCrystal = new ItemNotReady("karot_crystal", DRPGCreativeTabs.items);
-    public static Item reyvorCrystal = new ItemNotReady("reyvor_crystal", DRPGCreativeTabs.items);
-    public static Item soulFiendCrystal = new ItemNotReady("soul_fiend_crystal", DRPGCreativeTabs.items);
-    public static Item twilightDemonCrystal = new ItemNotReady("twilight_demon_crystal", DRPGCreativeTabs.items);
-    public static Item vamacheronCrystal = new ItemNotReady("vamacheron_crystal", DRPGCreativeTabs.items);
-    public static Item eternalArcherCrystal = new ItemNotReady("eternal_archer_crystal", DRPGCreativeTabs.items);
+     public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
+     public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
+     public static Item reyvorCrystal = new ItemTwilightSpawner("reyvor_crystal");
+     public static Item soulFiendCrystal = new ItemTwilightSpawner("soul_fiend_crystal");
+     public static Item twilightDemonCrystal = new ItemTwilightSpawner("twilight_demon_crystal");
+     public static Item vamacheronCrystal = new ItemTwilightSpawner("vamacheron_crystal");
+     public static Item eternalArcherCrystal = new ItemTwilightSpawner("eternal_archer_crystal");
 
     // Twilight Weapons
     public static Item edenBlade = new ItemModSword(ToolMaterialMod.Eden, "eden_blade");
@@ -576,19 +567,12 @@ public class ModItems {
     public static Item mortumBlade = new ItemModSword(ToolMaterialMod.Mortum, "mortum_blade");
     public static Item haliteBlade = new ItemModSword(ToolMaterialMod.Halite, "halite_blade");
 
-    // public static Item edenSlicer = new ItemThrowable("eden_slicer", 8);
-    // public static Item wildwoodSlicer = new ItemThrowable("wildwood_slicer", 10);
-    // public static Item apalachiaSlicer = new ItemThrowable("apalachia_slicer",
-    // 12);
-    // public static Item skythernSlicer = new ItemThrowable("skythern_slicer", 14);
-    // public static Item mortumSlicer = new ItemThrowable("mortum_slicer", 16);
-    // public static Item haliteSlicer = new ItemThrowable("halite_slicer", 22);
-    public static Item edenSlicer = new ItemNotReady("eden_slicer", DRPGCreativeTabs.ranged);
-    public static Item wildwoodSlicer = new ItemNotReady("wildwood_slicer", DRPGCreativeTabs.ranged);
-    public static Item apalachiaSlicer = new ItemNotReady("apalachia_slicer", DRPGCreativeTabs.ranged);
-    public static Item skythernSlicer = new ItemNotReady("skythern_slicer", DRPGCreativeTabs.ranged);
-    public static Item mortumSlicer = new ItemNotReady("mortum_slicer", DRPGCreativeTabs.ranged);
-    public static Item haliteSlicer = new ItemNotReady("halite_slicer", DRPGCreativeTabs.ranged);
+     public static Item edenSlicer = new ItemThrowable("eden_slicer", BulletType.EDEN_SLICER);
+     public static Item wildwoodSlicer = new ItemThrowable("wildwood_slicer", BulletType.WILDWOOD_SLICER);
+     public static Item apalachiaSlicer = new ItemThrowable("apalachia_slicer", BulletType.APALACHIA_SLICER);
+     public static Item skythernSlicer = new ItemThrowable("skythern_slicer", BulletType.SKYTHERN_SLICER);
+     public static Item mortumSlicer = new ItemThrowable("mortum_slicer", BulletType.MORTUM_SLICER);
+     public static Item haliteSlicer = new ItemThrowable("halite_slicer", BulletType.HALITE_SLICER);
 
     public static Item edenBlitz = new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, edenDust);
     public static Item wildwoodBlitz = new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT,
@@ -690,8 +674,7 @@ public class ModItems {
     public static Item moonbulb = new ItemFastFood(1, 5, false, "moonbulb");
     public static Item purpleGlowbone = new ItemFastFood(3, 5, false, "purple_glowbone");
     public static Item pinkGlowbone = new ItemFastFood(3, 5, false, "pink_glowbone");
-    // public static Item skyFlower = new ItemSkyFlower();
-    public static Item skyFlower = new ItemNotReady("sky_flower", DRPGCreativeTabs.items);
+     public static Item skyFlower = new ItemSkyFlower("sky_flower");
 
     // Arcana
     public static Item dungeonTokens = new ItemMod("dungeon_tokens");

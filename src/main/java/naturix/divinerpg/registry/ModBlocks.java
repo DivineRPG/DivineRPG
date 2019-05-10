@@ -10,8 +10,8 @@ import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTree;
 import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
 import naturix.divinerpg.enums.StatueType;
 import naturix.divinerpg.enums.WoodType;
-import naturix.divinerpg.objects.blocks.BlockModDoor;
 import naturix.divinerpg.objects.blocks.BlockMod;
+import naturix.divinerpg.objects.blocks.BlockModDoor;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
@@ -39,6 +39,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.iceika.BlockPresentBox;
 import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import naturix.divinerpg.objects.blocks.twilight.BlockSkyPlant;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
@@ -449,6 +450,7 @@ public class ModBlocks {
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
     public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DRPGCreativeTabs.spawner);
+    public static Block skyPlant = new BlockSkyPlant();
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

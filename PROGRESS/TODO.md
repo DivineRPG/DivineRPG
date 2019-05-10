@@ -25,23 +25,10 @@
 
 ### Twilight
 #### Items
-- Densos Crystal
-- Karot Crystal
-- Reyvor Crystal
-- Soul Fiend Crystal
-- Twilight Demon Crystal
-- Vamacheron Crystal
-- Eternal Archer Crystal
-- Eden Slicer
-- Wildwood Slicer
-- Apalachia Slicer
-- Skythern Slicer
-- Mortum Slicer
-- Halite Slicer
-- Sky Flower
 
 #### Blocks
 - Saplings (Merge with Worldgen for tree growth)
+- Sky crop textures
 - List Blocks left to do
 
 #### Entities
@@ -49,6 +36,7 @@
 - Sun Archer (Bow redenering)
 - Moon wolf (generally needs porting)
 - Basalisk doesnt avoid water
+- Scale up Twilight Demon
 
 ### Arcana
 #### Items

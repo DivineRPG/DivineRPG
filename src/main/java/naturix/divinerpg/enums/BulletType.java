@@ -45,6 +45,12 @@ public enum BulletType {
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
+    EDEN_SLICER(8, ItemLoc("eden_slicer")),
+    WILDWOOD_SLICER(10, ItemLoc("wildwood_slicer")),
+    APALACHIA_SLICER(12, ItemLoc("apalachia_slicer")),
+    SKYTHERN_SLICER(14, ItemLoc("skythern_slicer")),
+    MORTUM_SLICER(16, ItemLoc("mortum_slicer")),
+    HALITE_SLICER(22, ItemLoc("halite_slicer")),
     SNOWFLAKE_SHURIKEN_SHOT(7, ItemLoc("snowflake_shuriken"));
 
     private final float damage;
