@@ -1,0 +1,6 @@
+{
+  "parent": "block/torch",
+  "textures": {
+    "torch": "divinerpg:blocks/eden_torch"
+  }
+}

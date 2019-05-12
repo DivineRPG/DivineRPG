@@ -45,13 +45,18 @@ public enum BulletType {
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
-    EDEN_SLICER(8, ItemLoc("eden_slicer")),
-    WILDWOOD_SLICER(10, ItemLoc("wildwood_slicer")),
-    APALACHIA_SLICER(12, ItemLoc("apalachia_slicer")),
-    SKYTHERN_SLICER(14, ItemLoc("skythern_slicer")),
-    MORTUM_SLICER(16, ItemLoc("mortum_slicer")),
-    HALITE_SLICER(22, ItemLoc("halite_slicer")),
-    SNOWFLAKE_SHURIKEN_SHOT(7, ItemLoc("snowflake_shuriken"));
+    SNOWFLAKE_SHURIKEN_SHOT(7, ItemLoc("snowflake_shuriken")),
+    EDEN_SLICER_SHOT(8, ItemLoc("eden_slicer")),
+    WILDWOOD_SLICER_SHOT(10, ItemLoc("wildwood_slicer")),
+    APALACHIA_SLICER_SHOT(12, ItemLoc("apalachia_slicer")),
+    SKYTHERN_SLICER_SHOT(14, ItemLoc("skythern_slicer")),
+    MORTUM_SLICER_SHOT(16, ItemLoc("mortum_slicer")),
+    HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
+
+    MAGE_SHOT(5, ProjectileLoc("blank"), new Color(62, 212, 254)),
+    MYSTIC_SHOT(7, ProjectileLoc("blank"), new Color(234, 223, 228)),
+    SORCERER_SHOT(10, ProjectileLoc("blank"), new Color(97, 31, 54)),
+    SPELLBINDER_SHOT(12, ProjectileLoc("blank"), new Color(234, 158, 253));
 
     private final float damage;
     private final ResourceLocation texture;

@@ -6,7 +6,6 @@
 * Demon Furnace Rotations
 * Steel Door
 * Tar
-* Saplings
 * Vines (Once we start on Twilight)
 
 ### Other Blocks and Items
@@ -25,16 +24,33 @@
 
 ### Twilight
 #### Items
+- Moonbulb Seeds (Needs Plant Block)
+- Purple Glowbone Seeds (Needs Plant Block)
+- Pink Glowbone Seeds (Needs Plant Block)
 
 #### Blocks
+- Eden Chest
+- Apalachia Rails
+- Moonbulb Plant
+- Purple Glowbone Plant
+- Pink Glowbone Plant
 - Saplings (Merge with Worldgen for tree growth)
-- Sky crop textures
-- List Blocks left to do
+- Moonlight Fern
+- Moon Bud
+- Wildwood Tallgrass
+- Dusk Flower
+- Dusk Bloom
+- Apalachia Tallgrass
+- Skythern Brush
+- Dust Lily
+- Dust Brambles
+- Demon Brambles
+- Eye Plant
+- Mortum Brush
 
 #### Entities
-- All twilight dimensions Eden need review
-- Sun Archer (Bow redenering)
-- Moon wolf (generally needs porting)
+- Apalachia, Skythern and Mortum need review
+- Sun Archer (Bow rendering)
 - Basalisk doesnt avoid water
 - Scale up Twilight Demon
 

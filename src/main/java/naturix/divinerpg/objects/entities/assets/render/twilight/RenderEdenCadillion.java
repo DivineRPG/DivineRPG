@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderEdenCadillion extends RenderLiving<EdenCadillion> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eden_cadillion.png");
-	private final ModelCadillion ModelCadillion;
-    
-	public RenderEdenCadillion(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelCadillion(), 1F);
-        ModelCadillion = (ModelCadillion) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eden_cadillion.png");
 
+    public RenderEdenCadillion(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelCadillion(), 1F);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EdenCadillion entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<EdenCadillion> {
-
-	        @Override
-	        public Render<? super EdenCadillion> createRenderFor(RenderManager manager) {
-	            return new RenderEdenCadillion(manager, new ModelCadillion(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<EdenCadillion> {
+        @Override
+        public Render<? super EdenCadillion> createRenderFor(RenderManager manager) {
+            return new RenderEdenCadillion(manager, new ModelCadillion(), 0.5F);
+        }
+    }
+}

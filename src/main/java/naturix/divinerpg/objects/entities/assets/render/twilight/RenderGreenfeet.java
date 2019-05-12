@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderGreenfeet extends RenderLiving<Greenfeet> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/greenfeet.png");
-	private final ModelGreenfeet ModelGreenfeet;
-    
-	public RenderGreenfeet(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelGreenfeet(), 1F);
-        ModelGreenfeet = (ModelGreenfeet) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/greenfeet.png");
 
+    public RenderGreenfeet(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelGreenfeet(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Greenfeet entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Greenfeet> {
-
-	        @Override
-	        public Render<? super Greenfeet> createRenderFor(RenderManager manager) {
-	            return new RenderGreenfeet(manager, new ModelGreenfeet(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Greenfeet> {
+        @Override
+        public Render<? super Greenfeet> createRenderFor(RenderManager manager) {
+            return new RenderGreenfeet(manager, new ModelGreenfeet(), 0);
+        }
+    }
+}

@@ -13,8 +13,8 @@ public class EntityParticleBullet extends EntityShooterBullet {
         super(world);
     }
 
-    public EntityParticleBullet(World world, EntityLivingBase entity, BulletType projectileType) {
-        super(world, entity, projectileType);
+    public EntityParticleBullet(World world, EntityLivingBase entity, BulletType bulletType) {
+        super(world, entity, bulletType);
     }
 
     @SideOnly(Side.CLIENT)

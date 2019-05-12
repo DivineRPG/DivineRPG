@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderWildwoodTomo extends RenderLiving<WildwoodTomo> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildwood_tomo.png");
-	private final ModelTomo ModelTomo;
-    
-	public RenderWildwoodTomo(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelTomo(), 1F);
-        ModelTomo = (ModelTomo) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildwood_tomo.png");
 
+    public RenderWildwoodTomo(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelTomo(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(WildwoodTomo entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<WildwoodTomo> {
-
-	        @Override
-	        public Render<? super WildwoodTomo> createRenderFor(RenderManager manager) {
-	            return new RenderWildwoodTomo(manager, new ModelTomo(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<WildwoodTomo> {
+        @Override
+        public Render<? super WildwoodTomo> createRenderFor(RenderManager manager) {
+            return new RenderWildwoodTomo(manager, new ModelTomo(), 0);
+        }
+    }
+}

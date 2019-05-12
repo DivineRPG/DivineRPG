@@ -551,13 +551,13 @@ public class ModItems {
 
     public static Item baseSpawnCrystal = new ItemMod("base_spawn_crystal");
 
-     public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
-     public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
-     public static Item reyvorCrystal = new ItemTwilightSpawner("reyvor_crystal");
-     public static Item soulFiendCrystal = new ItemTwilightSpawner("soul_fiend_crystal");
-     public static Item twilightDemonCrystal = new ItemTwilightSpawner("twilight_demon_crystal");
-     public static Item vamacheronCrystal = new ItemTwilightSpawner("vamacheron_crystal");
-     public static Item eternalArcherCrystal = new ItemTwilightSpawner("eternal_archer_crystal");
+    public static Item densosCrystal = new ItemTwilightSpawner("densos_crystal");
+    public static Item karotCrystal = new ItemTwilightSpawner("karot_crystal");
+    public static Item reyvorCrystal = new ItemTwilightSpawner("reyvor_crystal");
+    public static Item soulFiendCrystal = new ItemTwilightSpawner("soul_fiend_crystal");
+    public static Item twilightDemonCrystal = new ItemTwilightSpawner("twilight_demon_crystal");
+    public static Item vamacheronCrystal = new ItemTwilightSpawner("vamacheron_crystal");
+    public static Item eternalArcherCrystal = new ItemTwilightSpawner("eternal_archer_crystal");
 
     // Twilight Weapons
     public static Item edenBlade = new ItemModSword(ToolMaterialMod.Eden, "eden_blade");
@@ -567,12 +567,12 @@ public class ModItems {
     public static Item mortumBlade = new ItemModSword(ToolMaterialMod.Mortum, "mortum_blade");
     public static Item haliteBlade = new ItemModSword(ToolMaterialMod.Halite, "halite_blade");
 
-     public static Item edenSlicer = new ItemThrowable("eden_slicer", BulletType.EDEN_SLICER);
-     public static Item wildwoodSlicer = new ItemThrowable("wildwood_slicer", BulletType.WILDWOOD_SLICER);
-     public static Item apalachiaSlicer = new ItemThrowable("apalachia_slicer", BulletType.APALACHIA_SLICER);
-     public static Item skythernSlicer = new ItemThrowable("skythern_slicer", BulletType.SKYTHERN_SLICER);
-     public static Item mortumSlicer = new ItemThrowable("mortum_slicer", BulletType.MORTUM_SLICER);
-     public static Item haliteSlicer = new ItemThrowable("halite_slicer", BulletType.HALITE_SLICER);
+    public static Item edenSlicer = new ItemThrowable("eden_slicer", BulletType.EDEN_SLICER_SHOT);
+    public static Item wildwoodSlicer = new ItemThrowable("wildwood_slicer", BulletType.WILDWOOD_SLICER_SHOT);
+    public static Item apalachiaSlicer = new ItemThrowable("apalachia_slicer", BulletType.APALACHIA_SLICER_SHOT);
+    public static Item skythernSlicer = new ItemThrowable("skythern_slicer", BulletType.SKYTHERN_SLICER_SHOT);
+    public static Item mortumSlicer = new ItemThrowable("mortum_slicer", BulletType.MORTUM_SLICER_SHOT);
+    public static Item haliteSlicer = new ItemThrowable("halite_slicer", BulletType.HALITE_SLICER_SHOT);
 
     public static Item edenBlitz = new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, edenDust);
     public static Item wildwoodBlitz = new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT,
@@ -674,49 +674,38 @@ public class ModItems {
     public static Item moonbulb = new ItemFastFood(1, 5, false, "moonbulb");
     public static Item purpleGlowbone = new ItemFastFood(3, 5, false, "purple_glowbone");
     public static Item pinkGlowbone = new ItemFastFood(3, 5, false, "pink_glowbone");
-     public static Item skyFlower = new ItemSkyFlower("sky_flower");
+    public static Item skyFlower = new ItemSkyFlower("sky_flower");
 
     // Arcana
     public static Item dungeonTokens = new ItemMod("dungeon_tokens");
     public static Item arcanium = new ItemMod("arcanium");
-    // public static Item staffStarlight = new
-    // ItemStaffStarlight("staffOfStarlight");
+    // public static Item staffStarlight = new ItemStaffStarlight("staffOfStarlight");
     // public static Item starlight = new ItemStaffStarlight("starlight");
-    // public static Item stormSword = new ItemStormSword("stormSword",
-    // ToolMaterialMod.Storm);
+    // public static Item stormSword = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
     public static Item staffStarlight = new ItemNotReady("staff_of_starlight", DRPGCreativeTabs.items);
     public static Item starlight = new ItemNotReady("starlight", DRPGCreativeTabs.items);
     public static Item stormSword = new ItemNotReady("storm_sword", DRPGCreativeTabs.ranged);
-    // public static Item captainsSparkler = new
-    // ItemCaptainsSparkler("captains_sparkler");
+    // public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
     public static Item captainsSparkler = new ItemNotReady("captains_sparkler", DRPGCreativeTabs.ranged);
-    // public static Item strongArcanaPotion = new
-    // ItemArcanaPotion("strongArcanaPotion", 200);
-    // public static Item weakArcanaPotion = new
-    // ItemArcanaPotion("weakArcanaPotion", 100);
+    // public static Item strongArcanaPotion = new ItemArcanaPotion("strongArcanaPotion", 200);
+    // public static Item weakArcanaPotion = new ItemArcanaPotion("weakArcanaPotion", 100);
     public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DRPGCreativeTabs.items);
     public static Item weakArcanaPotion = new ItemNotReady("weak_arcana_potion", DRPGCreativeTabs.items);
     public static Item collector = new ItemMod("collector");
-    // public static Item chargedCollector = new
-    // ItemChargedCollector("chargedCollector");
+    // public static Item chargedCollector = new ItemChargedCollector("chargedCollector");
     // public static Item wizardBook = new ItemWizardsBook("wizardsBook");
-    // public static Item staffOfEnrichment = new
-    // ItemStaffEnrichment("staffOfEnrichment");
+    // public static Item staffOfEnrichment = new ItemStaffEnrichment("staffOfEnrichment");
     // public static Item orbOfLight = new ItemOrbOfLight();
-    // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1,
-    // -1, 50);
+    // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     // public static Item grenade = new ItemGrenade("grenade");
     // public static Item firefly = new ItemFirefly();
     // public static Item laVekor = new ItemLaVekor();
     // public static Item enderScepter = new ItemEnderScepter("enderScepter");
-    // public static Item arcaniumSaber = new ItemArcaniumSaber("arcaniumSaber",
-    // ToolMaterialMod.Saber);
+    // public static Item arcaniumSaber = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
     // public static Item ghostbane = new ItemGhostbane();
     // public static Item arcaniumReflector = new ItemReflector();
-    // public static Item shadowSword = new ItemShadowSword("shadowSaber",
-    // ToolMaterialMod.ShadowSaber);
-    // public static Item liviciaSword = new
-    // ItemSwordBase(ToolMaterialMod.LiviciaSword, "liviciaSword");
+    // public static Item shadowSword = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
+    // public static Item liviciaSword = new ItemSwordBase(ToolMaterialMod.LiviciaSword, "liviciaSword");
     // public static Item meteorMash = new ItemMeteorMash();
     // public static Item divineAccumulator = new ItemDivineAccumulator();
     // public static Item arcaniteBlaster = new ItemArcaniteBlaster();
@@ -787,10 +776,8 @@ public class ModItems {
     public static Item polishedPearls = new ItemMod("polished_pearls");
     public static Item shinyPearls = new ItemMod("shiny_pearls");
 
-    // public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor,
-    // "barred_door");
-    // public static Item barredDoor = new ItemNotReady("barred_door",
-    // DRPGCreativeTabs.items);
+    // public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barred_door");
+    public static Item barredDoor = new ItemNotReady("barred_door", DRPGCreativeTabs.items);
 
     public static Item teakerLump = new ItemMod("teaker_lump");
     public static Item amthirmisLump = new ItemMod("amthirmis_lump");
@@ -826,13 +813,10 @@ public class ModItems {
     // public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
     // public static Item cermileStaff = new ItemStaff(12, 10, "cermile_staff");
     // public static Item pardimalStaff = new ItemStaff(15, 10, "pardimal_staff");
-    // public static Item quadroticStaff = new ItemStaff(19, 10,
-    // "quadrotic_warstaff");
+    // public static Item quadroticStaff = new ItemStaff(19, 10, "quadrotic_warstaff");
     // public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
-    // public static Item heliosisStaff = new ItemStaff(28, 10,
-    // "heliosis_wrathstaff");
-    // public static Item arksianeStaff = new ItemStaff(36, 10,
-    // "arksiane_wrathstaff");
+    // public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
+    // public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
     public static Item teakerStaff = new ItemNotReady("teaker_staff", DRPGCreativeTabs.ranged);
     public static Item amthrimisStaff = new ItemNotReady("amthirmis_staff", DRPGCreativeTabs.ranged);
     public static Item darvenStaff = new ItemNotReady("darven_staff", DRPGCreativeTabs.ranged);
@@ -845,15 +829,12 @@ public class ModItems {
 
     // public static Item honeysuckle = new ItemVetheanFood(1, 0.2F, "honeysuckle");
     // public static Item honeychunk = new ItemVetheanFood(1, 0.2F, "honeychunk");
-    // public static Item dreamCarrot = new ItemVetheanFood(3, 0.4F,
-    // "dream_carrot");
+    // public static Item dreamCarrot = new ItemVetheanFood(3, 0.4F, "dream_carrot");
     // public static Item dreamMelon = new ItemVetheanFood(6, 0.6F, "dream_melon");
     // public static Item dreamPie = new ItemVetheanFood(4, 0.8F, "dream_pie");
     // public static Item dreamCake = new ItemVetheanFood(8, 0.8F, "dream_cake");
-    // public static Item dreamSweets = new ItemVetheanHealingFood(0, 0F, false, 2,
-    // "dream_sweets");
-    // public static Item dreamSours = new ItemVetheanHealingFood(0, 0F, false, 8,
-    // "dream_sours");
+    // public static Item dreamSweets = new ItemVetheanHealingFood(0, 0F, false, 2, "dream_sweets");
+    // public static Item dreamSours = new ItemVetheanHealingFood(0, 0F, false, 8, "dream_sours");
     public static Item honeysuckle = new ItemNotReady("honeysuckle", DRPGCreativeTabs.items);
     public static Item honeychunk = new ItemNotReady("honeychunk", DRPGCreativeTabs.items);
     public static Item dreamCarrot = new ItemNotReady("dream_carrot", DRPGCreativeTabs.items);
@@ -880,21 +861,14 @@ public class ModItems {
     public static Item tormentedTemplate = new ItemMod("tormented_template");
 
     // public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", 3);
-    // public static Item amthrimisCannon = new
-    // ItemVetheanCannon("amthirmis_cannon", 5);
+    // public static Item amthrimisCannon = new ItemVetheanCannon("amthirmis_cannon", 5);
     // public static Item darvenCannon = new ItemVetheanCannon("darven_cannon", 8);
-    // public static Item cermileCannon = new ItemVetheanCannon("cermile_cannon",
-    // 12);
-    // public static Item pardimalCannon = new ItemVetheanCannon("pardimal_cannon",
-    // 15);
-    // public static Item quadroticCannon = new
-    // ItemVetheanCannon("quadrotic_warcannon", 19);
-    // public static Item karosCannon = new ItemVetheanCannon("karos_warcannon",
-    // 21);
-    // public static Item heliosisCannon = new
-    // ItemVetheanCannon("heliosis_wrathcannon", 28);
-    // public static Item arksianeCannon = new
-    // ItemVetheanCannon("arksiane_wrathcannon", 36);
+    // public static Item cermileCannon = new ItemVetheanCannon("cermile_cannon", 12);
+    // public static Item pardimalCannon = new ItemVetheanCannon("pardimal_cannon", 15);
+    // public static Item quadroticCannon = new ItemVetheanCannon("quadrotic_warcannon", 19);
+    // public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", 21);
+    // public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon", 28);
+    // public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon", 36);
     public static Item teakerCannon = new ItemNotReady("teaker_cannon", DRPGCreativeTabs.ranged);
     public static Item amthrimisCannon = new ItemNotReady("amthirmis_cannon", DRPGCreativeTabs.ranged);
     public static Item darvenCannon = new ItemNotReady("darven_cannon", DRPGCreativeTabs.ranged);
@@ -905,24 +879,15 @@ public class ModItems {
     public static Item heliosisCannon = new ItemNotReady("heliosis_wrathcannon", DRPGCreativeTabs.ranged);
     public static Item arksianeCannon = new ItemNotReady("arksiane_wrathcannon", DRPGCreativeTabs.ranged);
 
-    // public static Item teakerHammer = new ItemVetheanSword("teaker_hammer",
-    // Util.addHammerMaterial(6));
-    // public static Item amthrimisHammer = new ItemVetheanSword("amthirmis_hammer",
-    // Util.addHammerMaterial(8));
-    // public static Item darvenHammer = new ItemVetheanSword("darven_hammer",
-    // Util.addHammerMaterial(12));
-    // public static Item cermileHammer = new ItemVetheanSword("cermile_hammer",
-    // Util.addHammerMaterial(15));
-    // public static Item pardimalHammer = new ItemVetheanSword("pardimal_hammer",
-    // Util.addHammerMaterial(19));
-    // public static Item quadroticHammer = new
-    // ItemVetheanSword("quadrotic_warhammer", Util.addHammerMaterial(24));
-    // public static Item karosHammer = new ItemVetheanSword("karos_warhammer",
-    // Util.addHammerMaterial(26));
-    // public static Item heliosisHammer = new
-    // ItemVetheanSword("heliosis_wrathhammer", Util.addHammerMaterial(33));
-    // public static Item arksianeHammer = new
-    // ItemVetheanSword("arksiane_wrathhammer", Util.addHammerMaterial(39));
+    // public static Item teakerHammer = new ItemVetheanSword("teaker_hammer", Util.addHammerMaterial(6));
+    // public static Item amthrimisHammer = new ItemVetheanSword("amthirmis_hammer", Util.addHammerMaterial(8));
+    // public static Item darvenHammer = new ItemVetheanSword("darven_hammer", Util.addHammerMaterial(12));
+    // public static Item cermileHammer = new ItemVetheanSword("cermile_hammer", Util.addHammerMaterial(15));
+    // public static Item pardimalHammer = new ItemVetheanSword("pardimal_hammer", Util.addHammerMaterial(19));
+    // public static Item quadroticHammer = new ItemVetheanSword("quadrotic_warhammer", Util.addHammerMaterial(24));
+    // public static Item karosHammer = new ItemVetheanSword("karos_warhammer", Util.addHammerMaterial(26));
+    // public static Item heliosisHammer = new ItemVetheanSword("heliosis_wrathhammer", Util.addHammerMaterial(33));
+    // public static Item arksianeHammer = new ItemVetheanSword("arksiane_wrathhammer", Util.addHammerMaterial(39));
     public static Item teakerHammer = new ItemNotReady("teaker_hammer", DRPGCreativeTabs.ranged);
     public static Item amthrimisHammer = new ItemNotReady("amthirmis_hammer", DRPGCreativeTabs.ranged);
     public static Item darvenHammer = new ItemNotReady("darven_hammer", DRPGCreativeTabs.ranged);
@@ -933,24 +898,15 @@ public class ModItems {
     public static Item heliosisHammer = new ItemNotReady("heliosis_wrathhammer", DRPGCreativeTabs.ranged);
     public static Item arksianeHammer = new ItemNotReady("arksiane_wrathhammer", DRPGCreativeTabs.ranged);
 
-    // public static Item teakerSword = new ItemVetheanSword("teaker_backsword",
-    // Util.addHammerMaterial(4));
-    // public static Item amthrimisSword = new
-    // ItemVetheanSword("amthirmis_backsword", Util.addHammerMaterial(6));
-    // public static Item darvenSword = new ItemVetheanSword("darven_backsword",
-    // Util.addHammerMaterial(9));
-    // public static Item cermileSword = new ItemVetheanSword("cermile_backsword",
-    // Util.addHammerMaterial(13));
-    // public static Item pardimalSword = new ItemVetheanSword("pardimal_backsword",
-    // Util.addHammerMaterial(16));
-    // public static Item quadroticSword = new
-    // ItemVetheanSword("quadrotic_warsword", Util.addHammerMaterial(20));
-    // public static Item karosSword = new ItemVetheanSword("karos_warsword",
-    // Util.addHammerMaterial(22));
-    // public static Item heliosisSword = new
-    // ItemVetheanSword("heliosis_wrathsword", Util.addHammerMaterial(29));
-    // public static Item arksianeSword = new
-    // ItemVetheanSword("arksiane_wrathsword", Util.addHammerMaterial(37));
+    // public static Item teakerSword = new ItemVetheanSword("teaker_backsword", Util.addHammerMaterial(4));
+    // public static Item amthrimisSword = new ItemVetheanSword("amthirmis_backsword", Util.addHammerMaterial(6));
+    // public static Item darvenSword = new ItemVetheanSword("darven_backsword", Util.addHammerMaterial(9));
+    // public static Item cermileSword = new ItemVetheanSword("cermile_backsword", Util.addHammerMaterial(13));
+    // public static Item pardimalSword = new ItemVetheanSword("pardimal_backsword", Util.addHammerMaterial(16));
+    // public static Item quadroticSword = new ItemVetheanSword("quadrotic_warsword", Util.addHammerMaterial(20));
+    // public static Item karosSword = new ItemVetheanSword("karos_warsword", Util.addHammerMaterial(22));
+    // public static Item heliosisSword = new ItemVetheanSword("heliosis_wrathsword", Util.addHammerMaterial(29));
+    // public static Item arksianeSword = new ItemVetheanSword("arksiane_wrathsword", Util.addHammerMaterial(37));
     public static Item teakerSword = new ItemNotReady("teaker_backsword", DRPGCreativeTabs.ranged);
     public static Item amthrimisSword = new ItemNotReady("amthirmis_backsword", DRPGCreativeTabs.ranged);
     public static Item darvenSword = new ItemNotReady("darven_backsword", DRPGCreativeTabs.ranged);
@@ -966,13 +922,10 @@ public class ModItems {
     // public static Item darvenClaw = new ItemVetheanClaw(7, "darven_claw");
     // public static Item cermileClaw = new ItemVetheanClaw(8, "cermile_claw");
     // public static Item pardimalClaw = new ItemVetheanClaw(12, "pardimal_claw");
-    // public static Item quadroticClaw = new ItemVetheanClaw(14,
-    // "quadrotic_warclaw");
+    // public static Item quadroticClaw = new ItemVetheanClaw(14, "quadrotic_warclaw");
     // public static Item karosClaw = new ItemVetheanClaw(19, "karos_warclaw");
-    // public static Item heliosisClaw = new ItemVetheanClaw(26,
-    // "heliosis_wrathclaw");
-    // public static Item arksianeClaw = new ItemVetheanClaw(35,
-    // "arksiane_wrathclaw");
+    // public static Item heliosisClaw = new ItemVetheanClaw(26, "heliosis_wrathclaw");
+    // public static Item arksianeClaw = new ItemVetheanClaw(35, "arksiane_wrathclaw");
     public static Item teakerClaw = new ItemNotReady("teaker_claw", DRPGCreativeTabs.ranged);
     public static Item amthrimisClaw = new ItemNotReady("amthirmis_claw", DRPGCreativeTabs.ranged);
     public static Item darvenClaw = new ItemNotReady("darven_claw", DRPGCreativeTabs.ranged);
@@ -984,8 +937,7 @@ public class ModItems {
     public static Item arksianeClaw = new ItemNotReady("arksiane_wrathclaw", DRPGCreativeTabs.ranged);
 
     // public static Item eversight = new ItemVetheanEversight("eversight");
-    // public static Item everlight = new ItemVetheanSword("everlight",
-    // Util.addHammerMaterial(44));
+    // public static Item everlight = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
     // public static Item everbright = new ItemVetheanClaw(42, "everbright");
     public static Item eversight = new ItemNotReady("eversight", DRPGCreativeTabs.ranged);
     public static Item everlight = new ItemNotReady("everlight", DRPGCreativeTabs.ranged);

@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderWildwoodCadillion extends RenderLiving<WildwoodCadillion> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildwood_cadillion.png");
-	private final ModelCadillion ModelCadillion;
-    
-	public RenderWildwoodCadillion(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelCadillion(), 1F);
-        ModelCadillion = (ModelCadillion) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildwood_cadillion.png");
 
+    public RenderWildwoodCadillion(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelCadillion(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(WildwoodCadillion entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<WildwoodCadillion> {
-
-	        @Override
-	        public Render<? super WildwoodCadillion> createRenderFor(RenderManager manager) {
-	            return new RenderWildwoodCadillion(manager, new ModelCadillion(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<WildwoodCadillion> {
+        @Override
+        public Render<? super WildwoodCadillion> createRenderFor(RenderManager manager) {
+            return new RenderWildwoodCadillion(manager, new ModelCadillion(), 0);
+        }
+    }
+}

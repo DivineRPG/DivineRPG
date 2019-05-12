@@ -414,8 +414,34 @@ public class ModBlocks {
     public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal",
             ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
 
-    public static Block edenBrush = new BlockSinglePlant("eden_brush");
+    public static Block edenTorch = new BlockModTorch("eden_torch", DRPGParticleTypes.GREEN_FLAME);
+    //public static Block edenChest      = new BlockEdenChest("edenChest");
+    //public static Block apalachiaRails = new BlockRedstonelessRails("apalachiaRails");
+
+    //public static Block moonbulb = new BlockMoonbulb();
+    //public static Block purpleGlowbone = new BlockPurpleGlowbone();
+    //public static Block pinkGlowbone = new BlockPinkGlowbone();
+    public static Block skyPlant = new BlockSkyPlant();
+
+    /*
+    public static Block sunbloom           = new BlockTwilightFlower("sunbloom", edenGrass);
+    public static Block edenBrush          = new BlockTwilightGrass("edenBrush", edenGrass);
+    public static Block sunBlossom         = new BlockTwilightFlower("sunBlossom", edenGrass);
+    public static Block moonlightFern      = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
+    public static Block moonBud            = new BlockTwilightFlower("moonBud", wildwoodGrass);
+    public static Block wildwoodTallgrass  = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
+    public static Block duskFlower         = new BlockModDoublePlant("duskFlower", apalachiaGrass);
+    public static Block duskBloom          = new BlockTwilightFlower("duskBloom", apalachiaGrass);
+    public static Block apalachiaTallgrass = new BlockTwilightGrass("apalachiaTallgrass", apalachiaGrass);
+    public static Block skythernBrush      = new BlockTwilightGrass("skythernBrush", skythernGrass);
+    public static Block dustLily           = new BlockTwilightFlower("dustLily", skythernGrass);
+    public static Block dustBrambles       = new BlockBrambles("dustBrambles", skythernGrass);
+    public static Block demonBrambles      = new BlockBrambles("demonBrambles", mortumGrass);
+    public static Block eyePlant           = new BlockTwilightFlower("eyePlant", mortumGrass);
+    public static Block mortumBrush        = new BlockTwilightGrass("mortumBrush", mortumGrass);
+    */
     public static Block sunbloom = new BlockSinglePlant("sunbloom");
+    public static Block edenBrush = new BlockSinglePlant("eden_brush");
     public static Block sunBlossom = new BlockSinglePlant("sun_blossom");
 
     // Arcana
@@ -450,7 +476,6 @@ public class ModBlocks {
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
     public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DRPGCreativeTabs.spawner);
-    public static Block skyPlant = new BlockSkyPlant();
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

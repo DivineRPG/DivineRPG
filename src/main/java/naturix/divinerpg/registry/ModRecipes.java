@@ -635,8 +635,8 @@ public class ModRecipes {
         addRecipe(new ItemStack(ModBlocks.skeletonTorch, 4), "x", "y", 'y', Items.BONE, 'x', Items.COAL);
         addOredictRecipe(new ItemStack(ModBlocks.aquaTorch, 4), "x", "y", 'y', "stickWood", 'x',
                 ModItems.aquaticBlazeRod);
-        // FIXME - Need to add
-        //         addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.edenFragments);
+        addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x',
+                ModItems.edenFragments);
 
         addRecipe(new ItemStack(ModBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.IRON_INGOT);
         addRecipe(new ItemStack(ModBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', ModItems.netheriteIngot);

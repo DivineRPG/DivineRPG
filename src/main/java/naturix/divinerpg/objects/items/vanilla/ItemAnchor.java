@@ -28,7 +28,7 @@ public class ItemAnchor extends ItemProjectileShooter {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(this.projectileType.getDamage()));
+        list.add(TooltipLocalizer.rangedDam(this.bulletType.getDamage()));
         list.add(TooltipLocalizer.infiniteAmmo());
         list.add(TooltipLocalizer.infiniteUses());
     }

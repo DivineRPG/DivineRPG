@@ -198,6 +198,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntitySnowflakeShur
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
 import naturix.divinerpg.objects.entities.entity.twilight.AngryBunny;
@@ -376,6 +377,7 @@ public class ModEntities {
         registerProjectile(EntitySoundOfCarols.class, "sound_of_carols");
         registerProjectile(EntityDivineArrow.class, "arrow_shot");
         registerProjectile(EntityCoriShot.class, "cori_shot");
+        registerProjectile(EntityTwilightMageShot.class, "twilight_mage_shot");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");

@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderBehemoth extends RenderLiving<Behemoth> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/behemoth.png");
-	private final ModelBehemoth ModelBehemoth;
-    
-	public RenderBehemoth(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelBehemoth(), 1F);
-        ModelBehemoth = (ModelBehemoth) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/behemoth.png");
 
+    public RenderBehemoth(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelBehemoth(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Behemoth entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Behemoth> {
-
-	        @Override
-	        public Render<? super Behemoth> createRenderFor(RenderManager manager) {
-	            return new RenderBehemoth(manager, new ModelBehemoth(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Behemoth> {
+        @Override
+        public Render<? super Behemoth> createRenderFor(RenderManager manager) {
+            return new RenderBehemoth(manager, new ModelBehemoth(), 0);
+        }
+    }
+}

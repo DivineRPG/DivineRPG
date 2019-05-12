@@ -29,10 +29,10 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(this.projectileType.getDamage()));
+        list.add(TooltipLocalizer.rangedDam(this.bulletType.getDamage()));
         list.add(TooltipLocalizer.ammo(this.ammo));
-        list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses()
-                : TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+        list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses() :
+                TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 
     @Override
@@ -41,7 +41,7 @@ public class ItemTwilightBlitz extends ItemProjectileShooter {
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER,
-                    "Weapon modifier", this.projectileType.getDamage() - 1, 0));
+                    "Weapon modifier", this.bulletType.getDamage() - 1, 0));
         }
 
         return multimap;

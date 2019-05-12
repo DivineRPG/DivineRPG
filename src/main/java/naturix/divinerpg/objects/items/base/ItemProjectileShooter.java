@@ -35,33 +35,32 @@ public class ItemProjectileShooter extends ItemMod {
     public static List<Item> gunList = new ArrayList<Item>();
     public static List<Item> phaserList = new ArrayList<Item>();
     protected SoundEvent shotSound;
-    protected BulletType projectileType;
+    protected BulletType bulletType;
     protected Item ammo;
     protected int uses;
     private int delay;
 
-    public ItemProjectileShooter(String name, BulletType projectileType, SoundEvent shotSound, Item ammo, int uses,
+    public ItemProjectileShooter(String name, BulletType bulletType, SoundEvent shotSound, Item ammo, int uses,
             int counter) {
-        this(name, projectileType, ammo, uses, counter);
+        this(name, bulletType, ammo, uses, counter);
         this.shotSound = shotSound;
     }
 
-    public ItemProjectileShooter(String name, BulletType projectileType, Item ammo, int uses, int counter) {
-        this(name, projectileType, uses, counter);
+    public ItemProjectileShooter(String name, BulletType bulletType, Item ammo, int uses, int counter) {
+        this(name, bulletType, uses, counter);
         this.ammo = ammo;
     }
 
-    public ItemProjectileShooter(String name, BulletType projectileType, SoundEvent shotSound, int uses,
-            int counter) {
-        this(name, projectileType, uses, counter);
+    public ItemProjectileShooter(String name, BulletType bulletType, SoundEvent shotSound, int uses, int counter) {
+        this(name, bulletType, uses, counter);
         this.shotSound = shotSound;
     }
 
-    public ItemProjectileShooter(String name, BulletType projectileType, int uses, int counter) {
+    public ItemProjectileShooter(String name, BulletType bulletType, int uses, int counter) {
         super(name);
         setCreativeTab(DRPGCreativeTabs.ranged);
         setMaxStackSize(1);
-        this.projectileType = projectileType;
+        this.bulletType = bulletType;
         this.uses = uses;
         this.delay = counter;
         this.setMaxDamage(uses);
@@ -77,10 +76,10 @@ public class ItemProjectileShooter extends ItemMod {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(projectileType.getDamage()));
+        list.add(TooltipLocalizer.rangedDam(bulletType.getDamage()));
         list.add(this.ammo == null ? TooltipLocalizer.infiniteAmmo() : TooltipLocalizer.ammo(this.ammo));
-        list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses()
-                : TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+        list.add(this.uses == -1 ? TooltipLocalizer.infiniteUses() :
+                TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 
     @Override
@@ -115,12 +114,12 @@ public class ItemProjectileShooter extends ItemMod {
                             this.shotSound != null ? this.shotSound : SoundEvents.ENTITY_ARROW_SHOOT,
                             SoundCategory.MASTER, 1, 1);
                     EntityThrowable bullet;
-                    if (projectileType.getParticle() != DRPGParticleTypes.NONE) {
-                        bullet = new EntityParticleBullet(world, player, projectileType);
-                    } else if (projectileType.getColor() != null) {
-                        bullet = new EntityColoredBullet(world, player, projectileType);
+                    if (bulletType.getParticle() != DRPGParticleTypes.NONE) {
+                        bullet = new EntityParticleBullet(world, player, bulletType);
+                    } else if (bulletType.getColor() != null) {
+                        bullet = new EntityColoredBullet(world, player, bulletType);
                     } else {
-                        bullet = new EntityShooterBullet(world, player, projectileType);
+                        bullet = new EntityShooterBullet(world, player, bulletType);
                     }
                     bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
                     world.spawnEntity(bullet);
