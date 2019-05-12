@@ -34,7 +34,6 @@
 - Moonbulb Plant
 - Purple Glowbone Plant
 - Pink Glowbone Plant
-- Saplings (Merge with Worldgen for tree growth)
 - Moonlight Fern
 - Moon Bud
 - Wildwood Tallgrass

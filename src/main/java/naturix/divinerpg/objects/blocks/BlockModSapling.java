@@ -72,7 +72,9 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel {
         if (!TerrainGen.saplingGrowTree(worldIn, rand, pos))
             return;
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-        tree.generate(worldIn, rand, pos.add(xOff, 0, zOff));
+        if (!tree.generate(worldIn, rand, pos.add(xOff, 0, zOff))) {
+            worldIn.setBlockState(pos, this.getDefaultState(), 4);
+        }
     }
 
     /**

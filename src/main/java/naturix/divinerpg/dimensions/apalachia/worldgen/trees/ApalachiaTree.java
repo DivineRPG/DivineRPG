@@ -2,8 +2,8 @@ package naturix.divinerpg.dimensions.apalachia.worldgen.trees;
 
 import java.util.Random;
 
+import naturix.divinerpg.objects.blocks.BlockModSapling;
 import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -14,7 +14,7 @@ public class ApalachiaTree extends WorldGenAbstractTree {
     private boolean isSapling;
 
     public ApalachiaTree(boolean notify) {
-        this(notify, 13);
+        this(notify, 5);
     }
 
     public ApalachiaTree(boolean notify, int minTreeHeightIn) {
@@ -25,13 +25,33 @@ public class ApalachiaTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
+        boolean isSoil = ((BlockModSapling) ModBlocks.apalachiaSapling).canPlaceBlockAt(worldIn, position);
         int treeHeight = rand.nextInt(3) + minTreeHeight;
-        int randBranchNum = 0;
-        Material materialBelow = worldIn.getBlockState(position.down()).getMaterial();
+        int treeTopPos = position.getY() + treeHeight;
 
-        if (position.getY() <= 13 && position.getY() + treeHeight + 1 >= worldIn.getHeight()
-                || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
+        if (position.getY() < 1 || treeTopPos + 1 > 256 || !isSoil) {
             return false;
+        }
+
+        // Check if tree would fit and can be generated
+        if (isSapling) {
+            final BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
+            for (int iPosY = position.getY(); iPosY <= treeTopPos + 1; ++iPosY) {
+                int k = 2;
+                for (int iPosX = position.getX() - k, halflength = position.getX() + k; iPosX <= halflength
+                        + k; ++iPosX) {
+                    for (int iPosZ = position.getZ() - k, halfLength = position.getZ() + k; iPosZ <= halfLength
+                            + k; ++iPosZ) {
+                        if (iPosY >= 0 && iPosY < 256) {
+                            if (!this.isReplaceable(worldIn, mutableBlockPos.setPos(iPosX, iPosY, iPosZ))) {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+            }
         }
 
         buildTrunk(worldIn, position, treeHeight);

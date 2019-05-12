@@ -44,7 +44,7 @@ public class Mage extends EntityDivineRPGMob {
     public void onUpdate() {
         super.onUpdate();
         if (this.ticksExisted % 10 == 0) {
-            this.attackingPlayer = this.world.getClosestPlayerToEntity(this, 16D);
+            this.attackingPlayer = this.world.getNearestAttackablePlayer(this, 16D, 16D);
             if (this.attackingPlayer != null && !this.world.isRemote) {
                 double tx = this.attackingPlayer.posX - this.posX;
                 double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
