@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
@@ -110,16 +111,18 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
 
     @Override
     public void update() {
+        int i = this.pos.getX();
+        int j = this.pos.getY();
+        int k = this.pos.getZ();
         ++this.ticksSinceSync;
-        if (!this.world.isRemote && this.numPlayersUsing != 0
-                && (this.ticksSinceSync + pos.getX() + pos.getY() + pos.getZ()) % 200 == 0) {
+
+        if (!this.world.isRemote && this.numPlayersUsing != 0 && (this.ticksSinceSync + i + j + k) % 200 == 0) {
             this.numPlayersUsing = 0;
             float f = 5.0F;
-
             for (EntityPlayer entityplayer : this.world.getEntitiesWithinAABB(EntityPlayer.class,
-                    new AxisAlignedBB((double) ((float) pos.getX() - 5.0F), (double) ((float) pos.getY() - 5.0F),
-                            (double) ((float) pos.getZ() - 5.0F), (double) ((float) (pos.getX() + 1) + 5.0F),
-                            (double) ((float) (pos.getY() + 1) + 5.0F), (double) ((float) (pos.getZ() + 1) + 5.0F)))) {
+                    new AxisAlignedBB((double) ((float) i - 5.0F), (double) ((float) j - 5.0F),
+                            (double) ((float) k - 5.0F), (double) ((float) (i + 1) + 5.0F),
+                            (double) ((float) (j + 1) + 5.0F), (double) ((float) (k + 1) + 5.0F)))) {
                 if (entityplayer.openContainer instanceof ContainerModChest) {
                     if (((ContainerModChest) entityplayer.openContainer).getChestInventory() == this) {
                         ++this.numPlayersUsing;
@@ -139,7 +142,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
                     this.world.rand.nextFloat() * 0.1F + 0.9F);
         }
 
-        if (this.numPlayersUsing == 0 && this.lidAngle > 0.0F || this.numPlayersUsing > 0 && this.lidAngle < 1.0F) {
+        if ((this.numPlayersUsing == 0 && this.lidAngle > 0.0F) || (this.numPlayersUsing > 0 && this.lidAngle < 1.0F)) {
             float f2 = this.lidAngle;
 
             if (this.numPlayersUsing > 0) {
@@ -169,16 +172,33 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
     }
 
     @Override
+    public boolean receiveClientEvent(int id, int type) {
+        if (id == 1) {
+            this.numPlayersUsing = type;
+            return true;
+        } else {
+            return super.receiveClientEvent(id, type);
+        }
+    }
+
+    @Override
     public void openInventory(EntityPlayer player) {
-        ++this.numPlayersUsing;
-        this.world.addBlockEvent(pos, this.getBlockType(), 1, this.numPlayersUsing);
-        this.world.notifyNeighborsOfStateChange(pos, this.getBlockType(), false);
+        if (!player.isSpectator()) {
+            if (this.numPlayersUsing < 0) {
+                this.numPlayersUsing = 0;
+            }
+            ++this.numPlayersUsing;
+            this.world.addBlockEvent(this.pos, this.getBlockType(), 1, this.numPlayersUsing);
+            this.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);
+        }
     }
 
     @Override
     public void closeInventory(EntityPlayer player) {
-        --this.numPlayersUsing;
-        this.world.addBlockEvent(pos, this.getBlockType(), 1, this.numPlayersUsing);
-        this.world.notifyNeighborsOfStateChange(pos, this.getBlockType(), false);
+        if (!player.isSpectator() && this.getBlockType() instanceof BlockModChest) {
+            --this.numPlayersUsing;
+            this.world.addBlockEvent(this.pos, this.getBlockType(), 1, this.numPlayersUsing);
+            this.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);
+        }
     }
 }
