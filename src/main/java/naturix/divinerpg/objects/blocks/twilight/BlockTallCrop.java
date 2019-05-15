@@ -7,12 +7,12 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -49,7 +49,7 @@ public abstract class BlockTallCrop extends BlockMod implements IPlantable {
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (worldIn.isAirBlock(pos.up()) && ((Integer) state.getValue(AGE)).intValue() == 0
-                && worldIn.getBlockState(pos.down()).getBlock() == Blocks.GRASS) {
+                && worldIn.getBlockState(pos.down()).getMaterial() == Material.GRASS) {
             if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
                 worldIn.setBlockState(pos.up(), state.withProperty(AGE, Integer.valueOf(2)));
                 worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(1)));
@@ -62,7 +62,7 @@ public abstract class BlockTallCrop extends BlockMod implements IPlantable {
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState state = worldIn.getBlockState(pos.down());
         Block block = state.getBlock();
-        return block == this || block == Blocks.GRASS;
+        return block == this || state.getMaterial() == Material.GRASS;
     }
 
     @Override
