@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 public class MainHandLayerRenderSunArcher implements LayerRenderer<SunArcher> {
 
     public MainHandLayerRenderSunArcher(RenderSunArcher renderSunArcherIn) {
+        
     }
 
     @Override
@@ -19,9 +20,8 @@ public class MainHandLayerRenderSunArcher implements LayerRenderer<SunArcher> {
             float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         GlStateManager.enableRescaleNormal();
         GlStateManager.pushMatrix();
-        GlStateManager.translate(-0.8f, 0.4f, 0);
-        GlStateManager.rotate(90, 0, 1, 0);
-        GlStateManager.rotate(45, 0, 0, -1);
+        GlStateManager.translate(-0.375f, -0.125f, -0.5f);
+        GlStateManager.rotate(-90, 0, 1.75f, 0);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         Minecraft.getMinecraft().getItemRenderer().renderItem(entitylivingbaseIn, new ItemStack(ModItems.edenBow),
                 ItemCameraTransforms.TransformType.NONE);
