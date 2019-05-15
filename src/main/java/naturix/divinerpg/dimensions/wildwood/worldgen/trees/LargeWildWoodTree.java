@@ -18,7 +18,6 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
     protected IBlockState log = ModBlocks.wildwoodLogs.getDefaultState();
     protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
-    //protected IBlockState vines = ModBlocks.vineWild.getDefaultState();
 
     public LargeWildWoodTree(boolean notify, int minTrunkHeight) {
         super(notify);
@@ -106,10 +105,10 @@ public class LargeWildWoodTree extends WorldGenAbstractTree {
         return true;
     }
 
-    private void placeVine(World p_181632_1_, Random p_181632_2_, BlockPos p_181632_3_, PropertyBool p_181632_4_) {
-        if (p_181632_2_.nextInt(3) > 0 && p_181632_1_.isAirBlock(p_181632_3_)) {
-            //this.setBlockAndNotifyAdequately(p_181632_1_, p_181632_3_,
-            //        ModBlocks.vineWild.getDefaultState().withProperty(p_181632_4_, Boolean.valueOf(true)));
+    private void placeVine(World world, Random rand, BlockPos pos, PropertyBool property) {
+        if (rand.nextInt(3) > 0 && world.isAirBlock(pos)) {
+            this.setBlockAndNotifyAdequately(world, pos,
+                    ModBlocks.wildwoodVine.getDefaultState().withProperty(property, Boolean.valueOf(true)));
         }
     }
 

@@ -41,7 +41,7 @@ public class WildWoodTree extends WorldGenAbstractTree {
         if (isSapling) {
             final BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
             for (int iPosY = position.getY(); iPosY <= treeTopPos + 1; ++iPosY) {
-                int k = 2;
+                int k = (iPosY > (position.getY() + 1)) ? 0 : (iPosY == position.getY()) ? 2 : 1;
                 for (int iPosX = position.getX() - k, halflength = position.getX() + k; iPosX <= halflength
                         + k; ++iPosX) {
                     for (int iPosZ = position.getZ() - k, halfLength = position.getZ() + k; iPosZ <= halfLength
@@ -106,10 +106,10 @@ public class WildWoodTree extends WorldGenAbstractTree {
         return true;
     }
 
-    private void placeVine(World p_181632_1_, Random p_181632_2_, BlockPos p_181632_3_, PropertyBool p_181632_4_) {
-        if (p_181632_2_.nextInt(3) > 0 && p_181632_1_.isAirBlock(p_181632_3_)) {
-            //this.setBlockAndNotifyAdequately(p_181632_1_, p_181632_3_,
-            //        ModBlocks.vineWild.getDefaultState().withProperty(p_181632_4_, Boolean.valueOf(true)));
+    private void placeVine(World world, Random rand, BlockPos pos, PropertyBool property) {
+        if (!isSapling && rand.nextInt(3) > 0 && world.isAirBlock(pos)) {
+            this.setBlockAndNotifyAdequately(world, pos,
+                    ModBlocks.wildwoodVine.getDefaultState().withProperty(property, Boolean.valueOf(true)));
         }
     }
 

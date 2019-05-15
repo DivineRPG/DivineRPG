@@ -37,7 +37,7 @@ public class MortumTree extends WorldGenAbstractTree {
         if (isSapling) {
             final BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
             for (int iPosY = position.getY(); iPosY <= treeTopPos + 1; ++iPosY) {
-                int k = 2;
+                int k = (iPosY > (position.getY() + 1)) ? 0 : (iPosY == position.getY()) ? 2 : 1;
                 for (int iPosX = position.getX() - k, halflength = position.getX() + k; iPosX <= halflength
                         + k; ++iPosX) {
                     for (int iPosZ = position.getZ() - k, halfLength = position.getZ() + k; iPosZ <= halfLength

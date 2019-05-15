@@ -427,9 +427,6 @@ public class ModBlocks {
     public static Block skyPlant = new BlockSkyPlant();
 
     /*
-    public static Block sunbloom           = new BlockTwilightFlower("sunbloom", edenGrass);
-    public static Block edenBrush          = new BlockTwilightGrass("edenBrush", edenGrass);
-    public static Block sunBlossom         = new BlockTwilightFlower("sunBlossom", edenGrass);
     public static Block moonlightFern      = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
     public static Block moonBud            = new BlockTwilightFlower("moonBud", wildwoodGrass);
     public static Block wildwoodTallgrass  = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
