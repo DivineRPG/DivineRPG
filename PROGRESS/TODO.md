@@ -23,17 +23,9 @@
 ### Dimensions
 
 ### Twilight
-#### Items
-- Moonbulb Seeds (Needs Plant Block)
-- Purple Glowbone Seeds (Needs Plant Block)
-- Pink Glowbone Seeds (Needs Plant Block)
-
 #### Blocks
 - Eden Chest
 - Apalachia Rails
-- Moonbulb Plant
-- Purple Glowbone Plant
-- Pink Glowbone Plant
 - Moonlight Fern
 - Moon Bud
 - Wildwood Tallgrass

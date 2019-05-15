@@ -17,9 +17,9 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.BlockModDoor;
 import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
+import naturix.divinerpg.objects.blocks.BlockModDoor;
 import naturix.divinerpg.objects.blocks.BlockModFence;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModFurnace;
@@ -35,6 +35,7 @@ import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
+import naturix.divinerpg.objects.blocks.twilight.BlockTallCrop;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
@@ -204,6 +205,8 @@ public class GenerateJSON {
                     json.put("parent", Reference.MODID + ":block/" + registryName + "_inventory");
                 } else if (block instanceof BlockModCrop) {
                     json.put("parent", Reference.MODID + ":block/" + registryName + "_stage_0");
+                } else if (block instanceof BlockTallCrop) {
+                    json.put("parent", Reference.MODID + ":block/" + registryName + "_top");
                 } else if (registryName.endsWith("_double_slab")) {
                     json.put("parent", Reference.MODID + ":block/" + registryName.replace("_double_slab", "_planks"));
                 } else if (registryName.endsWith("_slab")) {
@@ -330,6 +333,8 @@ public class GenerateJSON {
                 generateFenceBlockstate(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
+            } else if (block instanceof BlockTallCrop) {
+                generateTallCropBlockstate(registryName);
             } else if (block instanceof BlockModSlab) {
                 generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
             } else if (block instanceof BlockModChest || block instanceof BlockStatue) {
@@ -887,6 +892,32 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateTallCropBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> ageNode = new HashMap<>();
+        ageNode.put("model", blockPath + "_top");
+        variants.put("age=0", ageNode);
+        ageNode = new HashMap<>();
+        ageNode.put("model", blockPath + "_bottom");
+        variants.put("age=1", ageNode);
+        ageNode = new HashMap<>();
+        ageNode.put("model", blockPath + "_top");
+        variants.put("age=2", ageNode);
+
+        json.put("variants", variants);
+
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void generateSlabBlockstate(String registryName, boolean isDouble) {
         Map<String, Object> json = new HashMap<>();
         List<Map<String, Object>> multipart = new ArrayList<>();
@@ -984,6 +1015,9 @@ public class GenerateJSON {
                 generateFenceModelBlock(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
+            } else if (block instanceof BlockTallCrop) {
+                generateCrossModelBlock(registryName + "_top");
+                generateCrossModelBlock(registryName + "_bottom");
             } else if (block instanceof BlockModSlab) {
                 generateSlabModelBlock(registryName, ((BlockModSlab) block).isDouble());
             } else if (block instanceof BlockStatue) {

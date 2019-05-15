@@ -6,21 +6,21 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockPurpleGlowbone extends BlockTallCrop {
-    public BlockPurpleGlowbone() {
-        super("purple_glowbone_plant");
+public class BlockPinkGlowbone extends BlockTallCrop {
+    public BlockPinkGlowbone() {
+        super("pink_glowbone_plant");
     }
 
     public Item getSeedDrop() {
-        return ModSeeds.purpleGlowboneSeeds;
+        return ModSeeds.pinkGlowboneSeeds;
     }
 
     public Item getFlowerDrop() {
-        return ModItems.purpleGlowbone;
+        return ModItems.pinkGlowbone;
     }
 
     @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
-        return net.minecraftforge.common.EnumPlantType.Beach;
+        return net.minecraftforge.common.EnumPlantType.Plains;
     }
 }

@@ -40,8 +40,6 @@ public class BlockMod extends Block implements IHasModel {
             setBlockUnbreakable();
             setResistance(6000000F);
         }
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     public BlockMod(EnumBlockType blockType, String name, CreativeTabs tab) {

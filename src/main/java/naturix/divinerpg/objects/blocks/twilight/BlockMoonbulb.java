@@ -6,17 +6,17 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockPurpleGlowbone extends BlockTallCrop {
-    public BlockPurpleGlowbone() {
-        super("purple_glowbone_plant");
+public class BlockMoonbulb extends BlockTallCrop {
+    public BlockMoonbulb() {
+        super("moonbulb_plant");
     }
 
     public Item getSeedDrop() {
-        return ModSeeds.purpleGlowboneSeeds;
+        return ModSeeds.moonbulbSeeds;
     }
 
     public Item getFlowerDrop() {
-        return ModItems.purpleGlowbone;
+        return ModItems.moonbulb;
     }
 
     @Override

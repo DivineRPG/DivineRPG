@@ -1,24 +1,20 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 public class ModSeeds {
-    public static Item whiteMushroomSeeds = new ItemModSeeds("white_mushroom_seeds",
-            (BlockModCrop) ModBlocks.whiteMushroomPlant);
-    public static Item tomatoSeeds = new ItemModSeeds("tomato_seeds", (BlockModCrop) ModBlocks.tomatoPlant);
+    public static Item whiteMushroomSeeds = new ItemModSeeds("white_mushroom_seeds", ModBlocks.whiteMushroomPlant);
+    public static Item tomatoSeeds = new ItemModSeeds("tomato_seeds", ModBlocks.tomatoPlant);
 
-    //public static Item moonbulbSeeds = new ItemModSeeds("moonbulb_seeds", ModBlocks.moonbulb, Blocks.GRASS);
-    //public static Item purpleGlowboneSeeds = new ItemModSeeds("purple_glowbone_seeds", ModBlocks.purpleGlowbone, Blocks.GRASS);
-    //public static Item pinkGlowboneSeeds = new ItemModSeeds("pink_glowbone_seeds", ModBlocks.pinkGlowbone, Blocks.GRASS);
-    public static Item moonbulbSeeds = new ItemNotReady("moonbulb_seeds", DRPGCreativeTabs.items);
-    public static Item purpleGlowboneSeeds = new ItemNotReady("purple_glowbone_seeds", DRPGCreativeTabs.items);
-    public static Item pinkGlowboneSeeds = new ItemNotReady("pink_glowbone_seeds", DRPGCreativeTabs.items);
-    public static Item skyPlantSeeds = new ItemModSeeds("sky_plant_seeds", (BlockModCrop) ModBlocks.skyPlant,
+    public static Item moonbulbSeeds = new ItemModSeeds("moonbulb_seeds", ModBlocks.moonbulb, Blocks.GRASS);
+    public static Item purpleGlowboneSeeds = new ItemModSeeds("purple_glowbone_seeds", ModBlocks.purpleGlowbone,
             Blocks.GRASS);
+    public static Item pinkGlowboneSeeds = new ItemModSeeds("pink_glowbone_seeds", ModBlocks.pinkGlowbone,
+            Blocks.GRASS);
+    public static Item skyPlantSeeds = new ItemModSeeds("sky_plant_seeds", ModBlocks.skyPlant, Blocks.GRASS);
 
     // public static Item hitchakSeeds = new ItemArcanaSeeds("hitchakSeeds", (BlockModCrop) ArcanaBlocks.hitchak);
     public static Item hitchakSeeds = new ItemNotReady("hitchak_seeds", DRPGCreativeTabs.items);

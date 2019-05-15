@@ -39,6 +39,9 @@ import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.iceika.BlockPresentBox;
 import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import naturix.divinerpg.objects.blocks.twilight.BlockMoonbulb;
+import naturix.divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
+import naturix.divinerpg.objects.blocks.twilight.BlockPurpleGlowbone;
 import naturix.divinerpg.objects.blocks.twilight.BlockSkyPlant;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
@@ -418,9 +421,9 @@ public class ModBlocks {
     //public static Block edenChest      = new BlockEdenChest("edenChest");
     //public static Block apalachiaRails = new BlockRedstonelessRails("apalachiaRails");
 
-    //public static Block moonbulb = new BlockMoonbulb();
-    //public static Block purpleGlowbone = new BlockPurpleGlowbone();
-    //public static Block pinkGlowbone = new BlockPinkGlowbone();
+    public static Block moonbulb = new BlockMoonbulb();
+    public static Block purpleGlowbone = new BlockPurpleGlowbone();
+    public static Block pinkGlowbone = new BlockPinkGlowbone();
     public static Block skyPlant = new BlockSkyPlant();
 
     /*
