@@ -22,5 +22,10 @@
             }
          }
       }
+   },
+   "rewards":{
+      "loot":[
+         "divinerpg:kill_boss/parasecta"
+      ]
    }
 }
