@@ -8,6 +8,7 @@ import naturix.divinerpg.objects.blocks.tile.model.ModelDramixStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelEternalArcherStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelKarotStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelKingOfScorchersStatue;
+import naturix.divinerpg.objects.blocks.tile.model.ModelParasectaStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelReyvorStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelSoulFiendStatue;
 import naturix.divinerpg.objects.blocks.tile.model.ModelTheWatcherStatue;
@@ -26,7 +27,7 @@ public enum StatueType {
     ETERNAL_ARCHER_STATUE(new ModelEternalArcherStatue(), StatueLoc("eternal_archer_statue")),
     KAROT_STATUE(new ModelKarotStatue(), StatueLoc("karot_statue")),
     KING_OF_SCORCHERS_STATUE(new ModelKingOfScorchersStatue(), StatueLoc("king_of_scorchers_statue")),
-    PARASECTA_STATUE(new ModelKarotStatue(), StatueLoc("parasecta_statue")),
+    PARASECTA_STATUE(new ModelParasectaStatue(), StatueLoc("parasecta_statue")),
     REYVOR_STATUE(new ModelReyvorStatue(), StatueLoc("reyvor_statue")),
     SOUL_FIEND_STATUE(new ModelSoulFiendStatue(), StatueLoc("soul_fiend_statue")),
     THE_WATCHER_STATUE(new ModelTheWatcherStatue(), StatueLoc("the_watcher_statue")),

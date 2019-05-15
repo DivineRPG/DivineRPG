@@ -282,7 +282,7 @@ public class ModBlocks {
     public static BlockStatue densosStatue = new BlockStatue("densos_statue", StatueType.DENSOS_STATUE);
     public static BlockStatue reyvorStatue = new BlockStatue("reyvor_statue", StatueType.REYVOR_STATUE);
     public static BlockStatue dramixStatue = new BlockStatue("dramix_statue", StatueType.DRAMIX_STATUE);
-    //public static BlockStatue parasectaStatue = new BlockStatue("parasecta_statue", StatueType.PARASECTA_STATUE);
+    public static BlockStatue parasectaStatue = new BlockStatue("parasecta_statue", StatueType.PARASECTA_STATUE);
     public static BlockStatue soulFiendStatue = new BlockStatue("soul_fiend_statue", StatueType.SOUL_FIEND_STATUE);
     public static BlockStatue theWatcherStatue = new BlockStatue("the_watcher_statue", StatueType.THE_WATCHER_STATUE);
     public static BlockStatue eternalArcherStatue = new BlockStatue("eternal_archer_statue",
