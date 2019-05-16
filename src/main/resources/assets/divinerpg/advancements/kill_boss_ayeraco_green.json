@@ -1,0 +1,31 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:ayeraco_fragment_green"
+      },
+      "title":{
+         "translate":"advancement.kill_boss_ayeraco_green"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.kill_boss_ayeraco_green.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:root",
+   "criteria":{
+      "kill_boss_ayeraco_green":{
+         "trigger":"minecraft:player_killed_entity",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:divinerpg.ayeraco_green"
+            }
+         }
+      }
+   },
+   "rewards":{
+      "loot":[
+         "divinerpg:kill_boss/ayeraco_green"
+      ]
+   }
+}

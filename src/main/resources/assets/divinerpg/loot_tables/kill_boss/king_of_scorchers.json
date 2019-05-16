@@ -1,0 +1,15 @@
+{
+   "pools":[
+      {
+         "name":"divinerpg:king_of_scorchers_statue",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:king_of_scorchers_statue",
+               "weight":1
+            }
+         ]
+      }
+   ]
+}

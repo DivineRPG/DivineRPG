@@ -1048,6 +1048,14 @@ public class ModItems {
     public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
     public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
 
+    
+    
+    //Ayeraco additions
+    public static Item ayeracoFragmentB = new ItemMod("ayeraco_fragment_blue");
+    public static Item ayeracoFragmentG = new ItemMod("ayeraco_fragment_green");
+    public static Item ayeracoFragmentP = new ItemMod("ayeraco_fragment_purple");
+    public static Item ayeracoFragmentR = new ItemMod("ayeraco_fragment_red");
+    public static Item ayeracoFragmentY = new ItemMod("ayeraco_fragment_yellow");
     public static void init() {
     }
 

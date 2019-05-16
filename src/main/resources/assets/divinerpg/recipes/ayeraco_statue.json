@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:ayeraco_statue"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:ayeraco_fragment_blue"
+    },
+    {
+      "item": "divinerpg:ayeraco_fragment_green"
+    },
+    {
+      "item": "divinerpg:ayeraco_fragment_purple"
+    },
+    {
+      "item": "divinerpg:ayeraco_fragment_red"
+    },
+    {
+      "item": "divinerpg:ayeraco_fragment_yellow"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

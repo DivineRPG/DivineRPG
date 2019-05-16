@@ -1,0 +1,15 @@
+{
+   "pools":[
+      {
+         "name":"divinerpg:ayeraco_fragment_green",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:ayeraco_fragment_green",
+               "weight":1
+            }
+         ]
+      }
+   ]
+}

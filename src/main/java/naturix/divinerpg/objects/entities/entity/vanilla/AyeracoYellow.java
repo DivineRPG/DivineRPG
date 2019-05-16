@@ -35,7 +35,9 @@ public class AyeracoYellow extends Ayeraco {
     @Override
     public void onDeath(DamageSource par1DamageSource) {
         super.onDeath(par1DamageSource);
+        if(world.isBlockLoaded(beamLocation)) {
         world.setBlockState(beamLocation, Blocks.AIR.getDefaultState());
+    }
     }
 
     @Override
