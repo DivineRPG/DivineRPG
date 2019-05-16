@@ -421,9 +421,9 @@ public class ModBlocks {
     //public static Block edenChest      = new BlockEdenChest("edenChest");
     //public static Block apalachiaRails = new BlockRedstonelessRails("apalachiaRails");
 
-    public static Block moonbulb = new BlockMoonbulb();
-    public static Block purpleGlowbone = new BlockPurpleGlowbone();
-    public static Block pinkGlowbone = new BlockPinkGlowbone();
+    public static Block moonbulb = new BlockMoonbulb().setLightLevel(0.6f);
+    public static Block purpleGlowbone = new BlockPurpleGlowbone().setLightLevel(0.6f);
+    public static Block pinkGlowbone = new BlockPinkGlowbone().setLightLevel(0.6f);
     public static Block skyPlant = new BlockSkyPlant();
 
     /*
