@@ -24,7 +24,6 @@
 
 ### Twilight
 #### Blocks
-- Eden Chest
 - Apalachia Rails
 - Moonlight Fern
 - Moon Bud
