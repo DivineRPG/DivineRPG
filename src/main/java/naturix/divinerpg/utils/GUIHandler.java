@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
@@ -15,6 +16,7 @@ import naturix.divinerpg.objects.blocks.tile.container.gui.AltarOfCorruptionGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.BoneChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.EdenChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.FrostedChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
@@ -50,6 +52,7 @@ public class GUIHandler implements IGuiHandler {
     public static final int PRESENT_BOX_GUI_ID = 11;
     public static final int BONE_CHEST_GUI_ID = 12;
     public static final int ALTAR_OF_CORRUPTION_GUI_ID = 13;
+    public static final int EDEN_CHEST_GUI_ID = 14;
 
     @Nullable
     @Override
@@ -91,6 +94,9 @@ public class GUIHandler implements IGuiHandler {
         } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
             return new AltarOfCorruptionGUI(player.inventory, world,
                     (TileEntityAltarOfCorruption) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == EDEN_CHEST_GUI_ID) {
+            return new EdenChestGUI(player.inventory, (TileEntityEdenChest) world.getTileEntity(new BlockPos(x, y, z)),
+                    player);
         }
         return null;
     }
@@ -102,7 +108,8 @@ public class GUIHandler implements IGuiHandler {
                 || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID) {
             return new ContainerInfiniteFurnace(player.inventory,
                     (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == FROSTED_CHEST_GUI_ID || ID == PRESENT_BOX_GUI_ID || ID == BONE_CHEST_GUI_ID) {
+        } else if (ID == FROSTED_CHEST_GUI_ID || ID == PRESENT_BOX_GUI_ID || ID == BONE_CHEST_GUI_ID
+                || ID == EDEN_CHEST_GUI_ID) {
             return new ContainerModChest(player.inventory,
                     (TileEntityModChest) world.getTileEntity(new BlockPos(x, y, z)), player);
         } else if (ID == WORKSHOP_MERCHANT_GUI_ID || ID == WORKSHOP_TINKERER_GUI_ID || ID == JACK_O_MAN_GUI_ID

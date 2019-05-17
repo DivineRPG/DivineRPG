@@ -820,16 +820,13 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.karotCrystal, ModItems.baseSpawnCrystal, ModItems.apalachiaSoul,
                 ModItems.mortumSoul, ModItems.mortumSoul, ModItems.skythernSoul);
 
-        
         //Ayeraco Addition
         addShapelessRecipe(ModBlocks.ayeracoStatue, ModItems.ayeracoFragmentB, ModItems.ayeracoFragmentG,
                 ModItems.ayeracoFragmentP, ModItems.ayeracoFragmentR, ModItems.ayeracoFragmentY);
 
-         
-        
-        
+        addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b', ModItems.edenFragments);
+
         //FIXME - Need to add
-        // addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b', ModItems.edenFragments);
         // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock, 'W', ModBlocks.mortumLogs);
         // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', ModItems.apalachiaFragments);
 

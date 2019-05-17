@@ -9,7 +9,8 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class AyeracoPurple extends Ayeraco {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ayeraco_purple");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/vanilla/ayeraco_purple");
     private Ayeraco aGreen;
     private Ayeraco aBlue;
     private Ayeraco aRed;
@@ -33,10 +34,11 @@ public class AyeracoPurple extends Ayeraco {
     @Override
     public void onDeath(DamageSource par1DamageSource) {
         super.onDeath(par1DamageSource);
-        if(world.isBlockLoaded(beamLocation)) {
-        world.setBlockState(beamLocation, Blocks.AIR.getDefaultState());
+        if (world.isBlockLoaded(beamLocation)) {
+            world.setBlockState(beamLocation, Blocks.AIR.getDefaultState());
+        }
     }
-    }
+
     @Override
     protected boolean canBlockProjectiles() {
         if (this.aGreen != null && this.aGreen.abilityActive()) {

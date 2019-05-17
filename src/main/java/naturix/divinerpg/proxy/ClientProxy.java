@@ -7,6 +7,7 @@ import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.render.RenderItemBoneChest;
 import naturix.divinerpg.client.render.RenderItemDemonFurnace;
+import naturix.divinerpg.client.render.RenderItemEdenChest;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.client.render.RenderItemStatue;
@@ -15,6 +16,7 @@ import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
@@ -27,6 +29,7 @@ import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.render.RenderBoneChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.render.RenderEdenChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderPresentBox;
 import naturix.divinerpg.objects.blocks.tile.render.RenderStatue;
@@ -129,6 +132,8 @@ public class ClientProxy extends CommonProxy {
             item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
         } else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockStatue) {
             item.setTileEntityItemStackRenderer(new RenderItemStatue());
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.edenChest))) {
+            item.setTileEntityItemStackRenderer(new RenderItemEdenChest());
         }
     }
 
@@ -148,6 +153,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEdenChest.class, new RenderEdenChest());
     }
 
     @Override

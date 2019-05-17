@@ -53,6 +53,10 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
         return 27;
     }
 
+    public void initChestContents() {
+        this.chestContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+    }
+
     @Override
     public int getInventoryStackLimit() {
         return 64;
@@ -71,7 +75,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
-        this.chestContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+        this.initChestContents();
 
         if (!this.checkLootAndRead(compound)) {
             ItemStackHelper.loadAllItems(compound, chestContents);

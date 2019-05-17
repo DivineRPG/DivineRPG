@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.container.gui;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -9,21 +9,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-/**
- * Created by LiteWolf101 on Feb /01/2019
- */
-public class PresentBoxGUI extends GuiContainer {
-    private static final ResourceLocation GUI_PRESENT_BOX = new ResourceLocation(
-            Reference.MODID + ":textures/gui/present_box_gui.png");
+public class EdenChestGUI extends GuiContainer {
+    private static final ResourceLocation GUI_EDEN_CHEST = new ResourceLocation(
+            Reference.MODID + ":textures/gui/eden_chest_gui.png");
     private final InventoryPlayer playerInventory;
-    private final TileEntityModChest te;
+    private final TileEntityEdenChest te;
 
-    public PresentBoxGUI(InventoryPlayer playerInventory, TileEntityModChest chestInventory, EntityPlayer player) {
+    public EdenChestGUI(InventoryPlayer playerInventory, TileEntityEdenChest chestInventory, EntityPlayer player) {
         super(new ContainerModChest(playerInventory, chestInventory, player));
         this.playerInventory = playerInventory;
         this.te = chestInventory;
 
-        this.ySize = 168;
+        this.ySize = 222;
         this.xSize = 176;
     }
 
@@ -38,15 +35,15 @@ public class PresentBoxGUI extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String tileName = this.te.getDisplayName().getUnformattedComponentText();
         this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2) + 0, 6,
-                704255);
+                4210752);
         this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 94,
-                704255);
+                4210752);
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.color(1, 1, 1, 1);
-        this.mc.getTextureManager().bindTexture(GUI_PRESENT_BOX);
+        this.mc.getTextureManager().bindTexture(GUI_EDEN_CHEST);
         drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
     }
 }

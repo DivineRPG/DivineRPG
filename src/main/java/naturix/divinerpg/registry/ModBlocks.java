@@ -39,6 +39,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.iceika.BlockPresentBox;
 import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import naturix.divinerpg.objects.blocks.twilight.BlockEdenChest;
 import naturix.divinerpg.objects.blocks.twilight.BlockMoonbulb;
 import naturix.divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
 import naturix.divinerpg.objects.blocks.twilight.BlockPurpleGlowbone;
@@ -418,8 +419,8 @@ public class ModBlocks {
             ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
 
     public static Block edenTorch = new BlockModTorch("eden_torch", DRPGParticleTypes.GREEN_FLAME);
-    //public static Block edenChest      = new BlockEdenChest("edenChest");
-    //public static Block apalachiaRails = new BlockRedstonelessRails("apalachiaRails");
+    public static Block edenChest = new BlockEdenChest("eden_chest");
+    //public static Block apalachiaRails = new BlockRedstonelessRails("apalachia_rails");
 
     public static Block moonbulb = new BlockMoonbulb().setLightLevel(0.6f);
     public static Block purpleGlowbone = new BlockPurpleGlowbone().setLightLevel(0.6f);

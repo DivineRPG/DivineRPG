@@ -16,23 +16,31 @@ public class ContainerModChest extends Container {
         this.numRows = chestInventory.getSizeInventory() / 9;
         chestInventory.openInventory(player);
 
+        int iY = 18;
+
         //chest inv
         for (int i = 0; i < this.numRows; ++i) {
             for (int j = 0; j < 9; ++j) {
-                this.addSlotToContainer(new Slot(chestInventory, j + i * 9, 8 + j * 18, 18 + i * 18));
+                this.addSlotToContainer(new Slot(chestInventory, j + i * 9, 8 + j * 18, iY));
             }
+            iY += 18;
         }
+
+        iY += 14;
 
         //player inv
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
-                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + 2));
+                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, iY));
             }
+            iY += 18;
         }
+
+        iY += 4;
 
         //player hotbar
         for (int k = 0; k < 9; ++k) {
-            this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 144));
+            this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, iY));
         }
     }
 

@@ -11,6 +11,7 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityMoltenFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityOceanfireFurnace;
@@ -101,6 +102,7 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityBoneChest.class, Reference.MODID + ":te_bone_chest");
         GameRegistry.registerTileEntity(TileEntityAltarOfCorruption.class, Reference.MODID + ":te_altar_of_corruption");
         GameRegistry.registerTileEntity(TileEntityStatue.class, Reference.MODID + ":te_statue");
+        GameRegistry.registerTileEntity(TileEntityEdenChest.class, Reference.MODID + ":te_eden_chest");
     }
 
     public void RegisterTileEntityRender() {

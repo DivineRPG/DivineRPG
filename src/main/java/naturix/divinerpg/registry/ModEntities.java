@@ -61,7 +61,6 @@ import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSoulFiend
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSoulSpider;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSoulStealer;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSunArcher;
-import naturix.divinerpg.objects.entities.assets.render.twilight.RenderTameAngryBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderTwilightArcher;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderTwilightDemon;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderVamacheron;
@@ -238,7 +237,6 @@ import naturix.divinerpg.objects.entities.entity.twilight.SoulFiend;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulSpider;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulStealer;
 import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
-import naturix.divinerpg.objects.entities.entity.twilight.TameAngryBunny;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightDemon;
 import naturix.divinerpg.objects.entities.entity.twilight.Vamacheron;
@@ -446,7 +444,6 @@ public class ModEntities {
         registerMobWithEgg(SoulStealer.class, "soul_stealer");
         registerMobWithEgg(SunArcher.class, "sun_archer");
         registerMobWithEgg(Reyvor.class, "reyvor");
-        registerMobWithEgg(TameAngryBunny.class, "tamed_angry_bunny");
         registerMobWithEgg(TwilightArcher.class, "twilight_archer");
         registerMobWithEgg(TwilightDemon.class, "twilight_demon");
         registerMobWithEgg(Vamacheron.class, "vamacheron");
@@ -617,7 +614,6 @@ public class ModEntities {
         LootTableList.register(SoulSpider.LOOT);
         LootTableList.register(SoulStealer.LOOT);
         LootTableList.register(SunArcher.LOOT);
-        LootTableList.register(TameAngryBunny.LOOT);
         LootTableList.register(TheEye.LOOT);
         LootTableList.register(TheGrue.LOOT);
         LootTableList.register(TheWatcher.LOOT);
@@ -685,7 +681,6 @@ public class ModEntities {
 
         // Twilight
         RenderingRegistry.registerEntityRenderingHandler(AngryBunny.class, RenderAngryBunny.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TameAngryBunny.class, RenderTameAngryBunny.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Behemoth.class, RenderBehemoth.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);

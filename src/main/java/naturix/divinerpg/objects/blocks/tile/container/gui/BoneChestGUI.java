@@ -36,7 +36,7 @@ public class BoneChestGUI extends GuiContainer {
         String tileName = this.te.getDisplayName().getUnformattedComponentText();
         this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2) + 0, 6,
                 16777215);
-        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 92,
+        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 94,
                 16777215);
     }
 

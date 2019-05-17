@@ -62,6 +62,27 @@
                ]
             }
          ]
+      },
+      {
+         "name":"divinerpg:the_watcher",
+         "conditions":[
+            {
+               "condition":"killed_by_player"
+            },
+            {
+               "condition":"random_chance_with_looting",
+               "chance":0.025,
+               "looting_multiplier":0.01
+            }
+         ],
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:the_watcher_statue",
+               "weight":1
+            }
+         ]
       }
    ]
 }
