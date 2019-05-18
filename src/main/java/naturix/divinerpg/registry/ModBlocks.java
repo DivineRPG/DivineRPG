@@ -420,7 +420,6 @@ public class ModBlocks {
 
     public static Block edenTorch = new BlockModTorch("eden_torch", DRPGParticleTypes.GREEN_FLAME);
     public static Block edenChest = new BlockEdenChest("eden_chest");
-    //public static Block apalachiaRails = new BlockRedstonelessRails("apalachia_rails");
 
     public static Block moonbulb = new BlockMoonbulb().setLightLevel(0.6f);
     public static Block purpleGlowbone = new BlockPurpleGlowbone().setLightLevel(0.6f);

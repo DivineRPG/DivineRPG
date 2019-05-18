@@ -828,7 +828,6 @@ public class ModRecipes {
 
         //FIXME - Need to add
         // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock, 'W', ModBlocks.mortumLogs);
-        // addRecipe(new ItemStack(ModBlocks.apalachiaRails, 8), "F F", "FFF", "F F", 'F', ModItems.apalachiaFragments);
 
         AddWoodVariantsRecipes();
 

@@ -24,7 +24,6 @@
 
 ### Twilight
 #### Blocks
-- Apalachia Rails
 - Moonlight Fern
 - Moon Bud
 - Wildwood Tallgrass
