@@ -9,7 +9,6 @@
 * Vines (Once we start on Twilight)
 
 ### Other Blocks and Items
-* Add Tar Pools
 
 ### Tar
 * Make more viscous
