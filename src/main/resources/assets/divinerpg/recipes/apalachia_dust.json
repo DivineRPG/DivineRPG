@@ -1,10 +1,10 @@
 {
   "result": {
-    "item": "divinerpg:eden_dust"
+    "item": "divinerpg:apalachia_dust"
   },
   "ingredients": [
     {
-      "item": "divinerpg:sunbloom"
+      "item": "divinerpg:dusk_flower"
     }
   ],
   "type": "minecraft:crafting_shapeless"

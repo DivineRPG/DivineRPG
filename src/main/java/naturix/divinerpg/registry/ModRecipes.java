@@ -693,17 +693,17 @@ public class ModRecipes {
         addShapelessRecipe(ModItems.edenDust, ModBlocks.edenBrush);
         addShapelessRecipe(ModItems.edenDust, ModBlocks.sunBlossom);
         //FIXME - Need to add
-        // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonlightFern);
-        // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonBud);
-        // addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.wildwoodTallgrass);
-        // addShapelessRecipe(ModItems.apalachiaDust, ModBlocks.duskFlower);
-        // addShapelessRecipe(ModItems.apalachiaDust, ModBlocks.apalachiaTallgrass);
-        // addShapelessRecipe(ModItems.skythernDust, ModBlocks.skythernBrush);
-        // addShapelessRecipe(ModItems.skythernDust, ModBlocks.dustBrambles);
-        // addShapelessRecipe(ModItems.skythernDust, ModBlocks.dustLily);
-        // addShapelessRecipe(ModItems.mortumDust, ModBlocks.eyePlant);
-        // addShapelessRecipe(ModItems.mortumDust, ModBlocks.mortumBrush);
-        // addShapelessRecipe(ModItems.mortumDust, ModBlocks.demonBrambles);
+        addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonlightFern);
+        addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.moonBud);
+        addShapelessRecipe(ModItems.wildwoodDust, ModBlocks.wildwoodTallgrass);
+        addShapelessRecipe(ModItems.apalachiaDust, ModBlocks.duskFlower);
+        addShapelessRecipe(ModItems.apalachiaDust, ModBlocks.apalachiaTallgrass);
+        addShapelessRecipe(ModItems.skythernDust, ModBlocks.skythernBrush);
+        //addShapelessRecipe(ModItems.skythernDust, ModBlocks.dustBrambles);
+        addShapelessRecipe(ModItems.skythernDust, ModBlocks.dustLily);
+        addShapelessRecipe(ModItems.mortumDust, ModBlocks.eyePlant);
+        addShapelessRecipe(ModItems.mortumDust, ModBlocks.mortumBrush);
+        //addShapelessRecipe(ModItems.mortumDust, ModBlocks.demonBrambles);
 
         /* Armor */
 

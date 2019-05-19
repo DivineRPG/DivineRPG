@@ -12,6 +12,7 @@ import naturix.divinerpg.enums.StatueType;
 import naturix.divinerpg.enums.WoodType;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.objects.blocks.BlockModDoor;
+import naturix.divinerpg.objects.blocks.BlockModDoublePlant;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
@@ -31,7 +32,6 @@ import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
-import naturix.divinerpg.objects.blocks.eden.BlockSinglePlant;
 import naturix.divinerpg.objects.blocks.fluid.BlockFluid;
 import naturix.divinerpg.objects.blocks.iceika.BlockCandyCane;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
@@ -44,6 +44,8 @@ import naturix.divinerpg.objects.blocks.twilight.BlockMoonbulb;
 import naturix.divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
 import naturix.divinerpg.objects.blocks.twilight.BlockPurpleGlowbone;
 import naturix.divinerpg.objects.blocks.twilight.BlockSkyPlant;
+import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
+import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import naturix.divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
@@ -426,23 +428,21 @@ public class ModBlocks {
     public static Block pinkGlowbone = new BlockPinkGlowbone().setLightLevel(0.6f);
     public static Block skyPlant = new BlockSkyPlant();
 
-    /*
-    public static Block moonlightFern      = new BlockTwilightFlower("moonlightFern", wildwoodGrass);
-    public static Block moonBud            = new BlockTwilightFlower("moonBud", wildwoodGrass);
-    public static Block wildwoodTallgrass  = new BlockModDoublePlant("wildwoodTallgrass", wildwoodGrass);
-    public static Block duskFlower         = new BlockModDoublePlant("duskFlower", apalachiaGrass);
-    public static Block duskBloom          = new BlockTwilightFlower("duskBloom", apalachiaGrass);
-    public static Block apalachiaTallgrass = new BlockTwilightGrass("apalachiaTallgrass", apalachiaGrass);
-    public static Block skythernBrush      = new BlockTwilightGrass("skythernBrush", skythernGrass);
-    public static Block dustLily           = new BlockTwilightFlower("dustLily", skythernGrass);
-    public static Block dustBrambles       = new BlockBrambles("dustBrambles", skythernGrass);
-    public static Block demonBrambles      = new BlockBrambles("demonBrambles", mortumGrass);
-    public static Block eyePlant           = new BlockTwilightFlower("eyePlant", mortumGrass);
-    public static Block mortumBrush        = new BlockTwilightGrass("mortumBrush", mortumGrass);
-    */
-    public static Block sunbloom = new BlockSinglePlant("sunbloom");
-    public static Block edenBrush = new BlockSinglePlant("eden_brush");
-    public static Block sunBlossom = new BlockSinglePlant("sun_blossom");
+    public static Block sunbloom = new BlockTwilightFlower("sunbloom", edenGrass);
+    public static Block edenBrush = new BlockTwilightGrass("eden_brush", edenGrass);
+    public static Block sunBlossom = new BlockTwilightFlower("sun_blossom", edenGrass);
+    public static Block moonlightFern = new BlockTwilightFlower("moonlight_fern", wildwoodGrass);
+    public static Block moonBud = new BlockTwilightFlower("moon_bud", wildwoodGrass);
+    public static Block wildwoodTallgrass = new BlockModDoublePlant("wildwood_tallgrass", wildwoodGrass);
+    public static Block duskFlower = new BlockModDoublePlant("dusk_flower", apalachiaGrass);
+    public static Block duskBloom = new BlockTwilightFlower("dusk_bloom", apalachiaGrass);
+    public static Block apalachiaTallgrass = new BlockTwilightGrass("apalachia_tallgrass", apalachiaGrass);
+    public static Block skythernBrush = new BlockTwilightGrass("skythern_brush", skythernGrass);
+    public static Block dustLily = new BlockTwilightFlower("dust_lily", skythernGrass);
+    //public static Block dustBrambles       = new BlockBrambles("dust_brambles", skythernGrass);
+    //public static Block demonBrambles      = new BlockBrambles("demon_brambles", mortumGrass);
+    public static Block eyePlant = new BlockTwilightFlower("eye_plant", mortumGrass);
+    public static Block mortumBrush = new BlockTwilightGrass("mortum_brush", mortumGrass);
 
     // Arcana
     public static Block stainedGlass = new BlockModGlass("stained_glass", 0.3F).setUnlocalizedName("stained_glass");

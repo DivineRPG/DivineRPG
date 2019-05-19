@@ -1,10 +1,10 @@
 {
   "result": {
-    "item": "divinerpg:eden_dust"
+    "item": "divinerpg:skythern_dust"
   },
   "ingredients": [
     {
-      "item": "divinerpg:sunbloom"
+      "item": "divinerpg:skythern_brush"
     }
   ],
   "type": "minecraft:crafting_shapeless"
