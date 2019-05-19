@@ -8,13 +8,6 @@ import net.minecraftforge.common.config.Configuration;
 public class Config {
 
 	private static final String CATEGORY_GENERAL = "general";
-	public static int edenDimensionId = 420;
-	public static int wildWoodDimensionId = 421;
-	public static int apalachiaDimensionId = 422;
-	public static int skythernDimensionId = 423;
-	public static int mortumDimensionId = 424;
-	public static int iceikaDimensionId = 7;
-	public static int arcanaDimensionId = 426;
 	public static int mobSpawnMultiplier = 5;
 	public static boolean isBeaconBase = true;
 	public static boolean UpdateChecker = true;
@@ -26,7 +19,6 @@ public class Config {
 	public static int arcanaX, arcanaY;
 
 	private static final String CATEGORY_WORLD_GEN = "World Gen";
-	private static final String CATEGORY_DIMENSION = "Dimension";
 	public static int realmiteMin = 1;
 	public static int realmiteMax = 48;
 	public static int realmiteVein = 4;
@@ -42,6 +34,15 @@ public class Config {
 	public static boolean generateHuts = true;
 	public static boolean generateTrees = true;
 	public static boolean generateTar = true;
+	
+    private static final String CATEGORY_DIMENSION = "Dimension";
+    public static int edenDimensionId = 420;
+    public static int wildWoodDimensionId = 421;
+    public static int apalachiaDimensionId = 422;
+    public static int skythernDimensionId = 423;
+    public static int mortumDimensionId = 424;
+    public static int iceikaDimensionId = 7;
+    public static int arcanaDimensionId = 426;
 
 	private static void initGeneralConfig(Configuration cfg) {
 		cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
