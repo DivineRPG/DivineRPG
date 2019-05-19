@@ -5,6 +5,7 @@ import java.util.Random;
 import com.google.common.base.Predicate;
 
 import naturix.divinerpg.Config;
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;
@@ -14,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -90,7 +92,18 @@ public class WorldGenCustomOres implements IWorldGenerator {
                 Config.rupeeTries, Config.rupeeMin, Config.rupeeMax, BlockMatcher.forBlock(Blocks.STONE));
         addOreSpawn(ModBlocks.arlemiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, Config.arlemiteVein,
                 Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax, BlockMatcher.forBlock(Blocks.STONE));
-
+        
+        
+        
+        if(random.nextInt(8) == 0) {
+            int posX = chunkX + random.nextInt(16) + 8;
+            int posY = random.nextInt(150);
+            int posZ = chunkZ + random.nextInt(16) + 8;
+            BlockPos pos = new BlockPos(posX, posY, posZ);
+            if(Config.generateTar && (random.nextInt(10) == 0 || posY < 60)) {
+                (new WorldGenLakes(ModBlocks.tar)).generate(world, random, pos);
+            }
+        }
     }
 
     private void genNether(World world, Random random, int chunkX, int chunkZ) {
