@@ -1,10 +1,10 @@
 {
   "result": {
-    "item": "divinerpg:skythern_dust"
+    "item": "divinerpg:mortum_dust"
   },
   "ingredients": [
     {
-      "item": "divinerpg:dust_brambles"
+      "item": "divinerpg:demon_brambles"
     }
   ],
   "type": "minecraft:crafting_shapeless"

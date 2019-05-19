@@ -22,20 +22,6 @@
 ### Dimensions
 
 ### Twilight
-#### Blocks
-- Moonlight Fern
-- Moon Bud
-- Wildwood Tallgrass
-- Dusk Flower
-- Dusk Bloom
-- Apalachia Tallgrass
-- Skythern Brush
-- Dust Lily
-- Dust Brambles
-- Demon Brambles
-- Eye Plant
-- Mortum Brush
-
 #### Entities
 - Apalachia, Skythern and Mortum need review
 - Sun Archer (Bow rendering)

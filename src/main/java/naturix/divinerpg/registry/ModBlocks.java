@@ -39,6 +39,7 @@ import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.iceika.BlockFrostedChest;
 import naturix.divinerpg.objects.blocks.iceika.BlockPresentBox;
 import naturix.divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import naturix.divinerpg.objects.blocks.twilight.BlockBrambles;
 import naturix.divinerpg.objects.blocks.twilight.BlockEdenChest;
 import naturix.divinerpg.objects.blocks.twilight.BlockMoonbulb;
 import naturix.divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
@@ -439,8 +440,8 @@ public class ModBlocks {
     public static Block apalachiaTallgrass = new BlockTwilightGrass("apalachia_tallgrass", apalachiaGrass);
     public static Block skythernBrush = new BlockTwilightGrass("skythern_brush", skythernGrass);
     public static Block dustLily = new BlockTwilightFlower("dust_lily", skythernGrass);
-    //public static Block dustBrambles       = new BlockBrambles("dust_brambles", skythernGrass);
-    //public static Block demonBrambles      = new BlockBrambles("demon_brambles", mortumGrass);
+    public static Block dustBrambles = new BlockBrambles("dust_brambles", skythernGrass);
+    public static Block demonBrambles = new BlockBrambles("demon_brambles", mortumGrass);
     public static Block eyePlant = new BlockTwilightFlower("eye_plant", mortumGrass);
     public static Block mortumBrush = new BlockTwilightGrass("mortum_brush", mortumGrass);
 
