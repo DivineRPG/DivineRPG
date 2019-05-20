@@ -19,6 +19,11 @@ public class JEICompat extends BlankModPlugin{
     public void register(IModRegistry registry) {
         IIngredientBlacklist blacklist = registry.getJeiHelpers().getIngredientBlacklist();
         blacklist.addIngredientToBlacklist(new ItemStack(ModBlocks.tar));
+        blacklist.addIngredientToBlacklist(new ItemStack(ModBlocks.coalstoneFurnaceOn));
+        blacklist.addIngredientToBlacklist(new ItemStack(ModBlocks.demonFurnaceOn));
+        blacklist.addIngredientToBlacklist(new ItemStack(ModBlocks.moltenFurnaceOn));
+        blacklist.addIngredientToBlacklist(new ItemStack(ModBlocks.oceanfireFurnaceOn));
+        blacklist.addIngredientToBlacklist(new ItemStack(ModBlocks.whitefireFurnaceOn));
         
     }
 
