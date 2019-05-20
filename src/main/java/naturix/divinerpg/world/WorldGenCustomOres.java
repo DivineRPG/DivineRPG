@@ -128,6 +128,13 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private void genApalachia(World world, Random random, int chunkX, int chunkZ) {
         addOreSpawn(ModBlocks.apalachiaOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
                 BlockMatcher.forBlock(ModBlocks.twilightStone));
+        if(random.nextInt(16) == 0) {
+            int posX = chunkX + random.nextInt(16) + 8;
+            int posY = random.nextInt(150);
+            int posZ = chunkZ + random.nextInt(16) + 8;
+            BlockPos pos = new BlockPos(posX, posY, posZ);
+            (new WorldGenLakes(Blocks.WATER)).generate(world, random, pos);
+        }
     }
 
     private void genSkythern(World world, Random random, int chunkX, int chunkZ) {
