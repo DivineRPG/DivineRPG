@@ -6,7 +6,6 @@ import java.util.Random;
 import naturix.divinerpg.dimensions.apalachia.worldgen.WorldGenApalachiaPlants;
 import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTree;
 import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTreeLarge;
-import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.init.Blocks;
@@ -47,10 +46,10 @@ public class BiomeApalachia extends Biome {
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         ApalachiaTree genTree = new ApalachiaTree(false, 5);
         ApalachiaTreeLarge genLargeTree = new ApalachiaTreeLarge(true, 5);
-        WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
         WorldGenApalachiaPlants brush = new WorldGenApalachiaPlants(ModBlocks.duskFlower);
-        WorldGenTwilightDoublePlants bloom = new WorldGenTwilightDoublePlants(ModBlocks.apalachiaTallgrass, ModBlocks.apalachiaGrass);
+        WorldGenTwilightDoublePlants bloom = new WorldGenTwilightDoublePlants(ModBlocks.apalachiaTallgrass,
+                ModBlocks.apalachiaGrass);
         WorldGenApalachiaPlants blossom = new WorldGenApalachiaPlants(ModBlocks.duskBloom);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
@@ -91,13 +90,5 @@ public class BiomeApalachia extends Biome {
             mutPos.setPos(rx, ry, rz);
             genLakes.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 1; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genConeUp.generate(worldIn, rand, mutPos);
-        }
-        
     }
 }

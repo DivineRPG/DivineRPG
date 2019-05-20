@@ -55,6 +55,10 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
     }
 
     @Override
+    protected void dropEquipment(boolean wasRecentlyHit, int lootingModifier) {
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
         return ModSounds.ARID_WARRIOR;
     }
