@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderApalachiaGolem extends RenderLiving<ApalachiaGolem> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/apalachia_golem.png");
-	private final ModelTwilightGolem ModelTwilightGolem;
-    
-	public RenderApalachiaGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelTwilightGolem(), 1F);
-        ModelTwilightGolem = (ModelTwilightGolem) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/apalachia_golem.png");
 
+    public RenderApalachiaGolem(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelTwilightGolem(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(ApalachiaGolem entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<ApalachiaGolem> {
-
-	        @Override
-	        public Render<? super ApalachiaGolem> createRenderFor(RenderManager manager) {
-	            return new RenderApalachiaGolem(manager, new ModelTwilightGolem(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<ApalachiaGolem> {
+        @Override
+        public Render<? super ApalachiaGolem> createRenderFor(RenderManager manager) {
+            return new RenderApalachiaGolem(manager, new ModelTwilightGolem(), 0);
+        }
+    }
+}

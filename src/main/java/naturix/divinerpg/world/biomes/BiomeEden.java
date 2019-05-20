@@ -7,7 +7,7 @@ import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
 import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenTree;
 import naturix.divinerpg.registry.ModBlocks;
-import naturix.divinerpg.world.features.WorldGenEdenPlants;
+import naturix.divinerpg.world.features.WorldGenTwilightSinglePlants;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -49,9 +49,10 @@ public class BiomeEden extends Biome {
                 ModBlocks.edenLeaves.getDefaultState());
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
-        WorldGenEdenPlants brush = new WorldGenEdenPlants(ModBlocks.edenBrush);
-        WorldGenEdenPlants bloom = new WorldGenEdenPlants(ModBlocks.sunbloom);
-        WorldGenEdenPlants blossom = new WorldGenEdenPlants(ModBlocks.sunBlossom);
+        WorldGenTwilightSinglePlants brush = new WorldGenTwilightSinglePlants(ModBlocks.edenBrush, ModBlocks.edenGrass);
+        WorldGenTwilightSinglePlants bloom = new WorldGenTwilightSinglePlants(ModBlocks.sunbloom, ModBlocks.edenGrass);
+        WorldGenTwilightSinglePlants blossom = new WorldGenTwilightSinglePlants(ModBlocks.sunBlossom,
+                ModBlocks.edenGrass);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
         for (int i = 0; i < 40; i++) {

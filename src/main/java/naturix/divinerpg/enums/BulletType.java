@@ -54,9 +54,9 @@ public enum BulletType {
     HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
 
     MAGE_SHOT(5, ProjectileLoc("blank"), new Color(62, 212, 254)),
-    MYSTIC_SHOT(7, ProjectileLoc("blank"), new Color(234, 223, 228)),
-    SORCERER_SHOT(10, ProjectileLoc("blank"), new Color(97, 31, 54)),
-    SPELLBINDER_SHOT(12, ProjectileLoc("blank"), new Color(234, 158, 253));
+    SPELLBINDER_SHOT(7, ProjectileLoc("blank"), new Color(234, 158, 253)),
+    MYSTIC_SHOT(10, ProjectileLoc("blank"), new Color(234, 223, 228)),
+    SORCERER_SHOT(12, ProjectileLoc("blank"), new Color(97, 31, 54));
 
     private final float damage;
     private final ResourceLocation texture;

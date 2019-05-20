@@ -3,7 +3,6 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
-import naturix.divinerpg.objects.entities.assets.render.arcana.RenderApalachiaTomo;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathcryx;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDramix;
@@ -28,6 +27,7 @@ import naturix.divinerpg.objects.entities.assets.render.iceika.RenderWorkshopTin
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaGolem;
+import naturix.divinerpg.objects.entities.assets.render.twilight.RenderApalachiaTomo;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBasilisk;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBehemoth;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderBunny;
@@ -60,6 +60,7 @@ import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSorcerer;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSoulFiend;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSoulSpider;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSoulStealer;
+import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSpellbinder;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderSunArcher;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderTwilightArcher;
 import naturix.divinerpg.objects.entities.assets.render.twilight.RenderTwilightDemon;
@@ -236,6 +237,7 @@ import naturix.divinerpg.objects.entities.entity.twilight.Sorcerer;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulFiend;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulSpider;
 import naturix.divinerpg.objects.entities.entity.twilight.SoulStealer;
+import naturix.divinerpg.objects.entities.entity.twilight.Spellbinder;
 import naturix.divinerpg.objects.entities.entity.twilight.SunArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightDemon;
@@ -442,6 +444,7 @@ public class ModEntities {
         registerMobWithEgg(SoulFiend.class, "soul_fiend");
         registerMobWithEgg(SoulSpider.class, "soul_spider");
         registerMobWithEgg(SoulStealer.class, "soul_stealer");
+        registerMobWithEgg(Spellbinder.class, "spellbinder");
         registerMobWithEgg(SunArcher.class, "sun_archer");
         registerMobWithEgg(Reyvor.class, "reyvor");
         registerMobWithEgg(TwilightArcher.class, "twilight_archer");
@@ -613,6 +616,7 @@ public class ModEntities {
         LootTableList.register(SoulFiend.LOOT);
         LootTableList.register(SoulSpider.LOOT);
         LootTableList.register(SoulStealer.LOOT);
+        LootTableList.register(Spellbinder.LOOT);
         LootTableList.register(SunArcher.LOOT);
         LootTableList.register(TheEye.LOOT);
         LootTableList.register(TheGrue.LOOT);
@@ -703,6 +707,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(SoulFiend.class, RenderSoulFiend.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SoulSpider.class, RenderSoulSpider.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SoulStealer.class, RenderSoulStealer.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(Spellbinder.class, RenderSpellbinder.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SunArcher.class, RenderSunArcher.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EdenTomo.class, RenderEdenTomo.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TwilightArcher.class, RenderTwilightArcher.FACTORY);
@@ -860,9 +865,9 @@ public class ModEntities {
                 EntityRegistry.addSpawn(ApalachiaCadillion.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(ApalachiaGolem.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(ApalachiaTomo.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
-                // EntityRegistry.addSpawn(ApalachiaWarrior.class, 2, 4, 4, EnumCreatureType.monster, biome);
-                // EntityRegistry.addSpawn(ApalachiaArcher.class, 2, 4, 4, EnumCreatureType.monster, biome);
-                // EntityRegistry.addSpawn(Spellbinder.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EnchantedWarrior.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EnchantedArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(Spellbinder.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(ModBiomes.Skythern)) {
                 EntityRegistry.addSpawn(SkythernFiend.class, 4, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(SkythernGolem.class, 4, 4, 4, EnumCreatureType.MONSTER, biome);

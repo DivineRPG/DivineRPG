@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderEnchantedArcher extends RenderLiving<EnchantedArcher> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_archer.png");
-	private final ModelEnchantedArcher ModelEnchantedArcher;
-    
-	public RenderEnchantedArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelEnchantedArcher(), 1F);
-        ModelEnchantedArcher = (ModelEnchantedArcher) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_archer.png");
 
+    public RenderEnchantedArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelEnchantedArcher(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EnchantedArcher entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<EnchantedArcher> {
-
-	        @Override
-	        public Render<? super EnchantedArcher> createRenderFor(RenderManager manager) {
-	            return new RenderEnchantedArcher(manager, new ModelEnchantedArcher(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<EnchantedArcher> {
+        @Override
+        public Render<? super EnchantedArcher> createRenderFor(RenderManager manager) {
+            return new RenderEnchantedArcher(manager, new ModelEnchantedArcher(), 0);
+        }
+    }
+}
