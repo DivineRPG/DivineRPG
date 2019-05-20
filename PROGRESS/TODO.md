@@ -54,3 +54,4 @@
 - Rotate Weapons in hand
 - Add chickens/Mystical Crops/Magic crops support
 - Add HellBat - This was not in the 1.4.7 or 1.7.10 release
+- JEI support for custom tile entities
