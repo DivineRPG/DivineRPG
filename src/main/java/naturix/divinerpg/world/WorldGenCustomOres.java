@@ -6,6 +6,7 @@ import com.google.common.base.Predicate;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.dimensions.mortum.worldgen.WorldGenMortumStone;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;
@@ -145,6 +146,14 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private void genMortum(World world, Random random, int chunkX, int chunkZ) {
         addOreSpawn(ModBlocks.mortumOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 4, 5, 15, 100,
                 BlockMatcher.forBlock(ModBlocks.twilightStone));
+        
+      for (int i = 0; i < 2; ++i) {
+          int posX = chunkX + random.nextInt(16);
+          int posY = random.nextInt(128);
+          int posZ = chunkZ + random.nextInt(16);
+          BlockPos pos = new BlockPos(posX, posY, posZ);
+      (new WorldGenMortumStone(50)).generate(world, random, pos);
+      }
     }
 
 }
