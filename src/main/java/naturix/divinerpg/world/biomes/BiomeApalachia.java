@@ -7,14 +7,12 @@ import naturix.divinerpg.dimensions.apalachia.worldgen.WorldGenApalachiaPlants;
 import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTree;
 import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTreeLarge;
 import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenTree;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -52,7 +50,7 @@ public class BiomeApalachia extends Biome {
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
         WorldGenApalachiaPlants brush = new WorldGenApalachiaPlants(ModBlocks.duskFlower);
-        WorldGenApalachiaPlants bloom = new WorldGenApalachiaPlants(ModBlocks.apalachiaTallgrass);
+        WorldGenTwilightDoublePlants bloom = new WorldGenTwilightDoublePlants(ModBlocks.apalachiaTallgrass, ModBlocks.apalachiaGrass);
         WorldGenApalachiaPlants blossom = new WorldGenApalachiaPlants(ModBlocks.duskBloom);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);

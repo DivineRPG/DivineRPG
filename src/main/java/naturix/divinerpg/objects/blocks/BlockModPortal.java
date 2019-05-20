@@ -195,10 +195,12 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
                 thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
                         new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
                                 portalFrame.getDefaultState()));
+                thePlayer.addExperience(0);
             } else {
                 thePlayer.timeUntilPortal = 40;
                 thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
                         new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrame.getDefaultState()));
+            thePlayer.addExperience(0);
             }
         }
     }
