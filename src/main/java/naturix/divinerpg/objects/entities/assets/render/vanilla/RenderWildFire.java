@@ -57,7 +57,7 @@ public class RenderWildfire extends RenderLiving<Wildfire> {
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModItems.shadowBow),
+            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModItems.infernoBow),
                     ItemCameraTransforms.TransformType.NONE);
             GlStateManager.popMatrix();
             GlStateManager.disableRescaleNormal();
