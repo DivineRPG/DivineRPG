@@ -53,7 +53,7 @@ public class RenderEnchantedWarrior extends RenderLiving<EnchantedWarrior> {
             GlStateManager.pushMatrix();
             ((ModelEnchantedWarrior) this.renderEnchantedWarrior.getMainModel()).bipedRightArm.postRender(0.0625F);
             GlStateManager.translate(-0.0625F, 0.4375F, 0.0625F);
-            GlStateManager.translate(-0.2F, 0, 0);
+            GlStateManager.translate(-0F, 0, -0.55f);
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
