@@ -60,27 +60,6 @@ public class BiomeWildWood extends Biome {
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            genMoonlightFern.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 40; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genMoonBud.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 40; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genWildwoodTallgrass.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 40; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
             genLargeTree.generate(worldIn, rand, mutPos);
         }
         for (int i = 0; i < 30; i++) {
@@ -96,6 +75,27 @@ public class BiomeWildWood extends Biome {
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             genLakes.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 18; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genMoonlightFern.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 18; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genMoonBud.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 18; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genWildwoodTallgrass.generate(worldIn, rand, mutPos);
         }
     }
 }

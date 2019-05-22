@@ -17,16 +17,14 @@ public class WorldGenTwilightSinglePlants extends WorldGenerator {
     }
 
     @Override
-    public boolean generate(World worldIn, Random rand, BlockPos position) {
+    public boolean generate(World worldIn, Random rand, BlockPos pos) {
         for (int i = 0; i < 128; ++i) {
-            BlockPos blockpos = position.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4),
+            BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4),
                     rand.nextInt(8) - rand.nextInt(8));
-
             if (worldIn.getBlockState(blockpos.down()).getBlock() == this.grassBlock && worldIn.isAirBlock(blockpos)) {
                 worldIn.setBlockState(blockpos, plantBlock.getDefaultState());
-                return true;
             }
         }
-        return false;
+        return true;
     }
 }
