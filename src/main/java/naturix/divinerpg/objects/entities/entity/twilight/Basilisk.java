@@ -4,7 +4,6 @@ import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -12,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Basilisk extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/basalisk");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/basilisk");
 
     public Basilisk(World worldIn) {
         super(worldIn);
@@ -44,12 +43,12 @@ public class Basilisk extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_WOLF_GROWL;
+        return ModSounds.GROWL_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_WOLF_GROWL;
+        return ModSounds.GROWL_HURT;
     }
 
     @Override
