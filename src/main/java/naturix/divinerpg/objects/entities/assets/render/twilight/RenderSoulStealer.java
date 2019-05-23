@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderSoulStealer extends RenderLiving<SoulStealer> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_stealer.png");
-	private final ModelSoulStealer ModelSoulStealer;
-    
-	public RenderSoulStealer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSoulStealer(), 1F);
-        ModelSoulStealer = (ModelSoulStealer) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_stealer.png");
 
+    public RenderSoulStealer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelSoulStealer(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(SoulStealer entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<SoulStealer> {
-
-	        @Override
-	        public Render<? super SoulStealer> createRenderFor(RenderManager manager) {
-	            return new RenderSoulStealer(manager, new ModelSoulStealer(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<SoulStealer> {
+        @Override
+        public Render<? super SoulStealer> createRenderFor(RenderManager manager) {
+            return new RenderSoulStealer(manager, new ModelSoulStealer(), 0);
+        }
+    }
+}

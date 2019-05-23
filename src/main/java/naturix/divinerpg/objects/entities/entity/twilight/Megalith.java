@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
@@ -16,29 +15,38 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Megalith extends EntityDivineRPGMob {
-    
-    public Megalith(World var1) {
-        super(var1);
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/megalith");
+
+    public Megalith(World worldIn) {
+        super(worldIn);
         this.setSize(1F, 3.2F);
-        addAttackingAI();
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.megalithHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.megalithDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.megalithSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.megalithFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(350);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(20);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27 * 0.9);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1);
     }
-    
+
     @Override
-    public boolean attackEntityAsMob(Entity e) {
-        boolean attack = super.attackEntityAsMob(e);
-        if(attack) {
-            if(e instanceof EntityLivingBase)((EntityLivingBase)e).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 2, false, false));
-            e.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * 1.5f, 0.1D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * 1.5f);
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        boolean attack = super.attackEntityAsMob(entity);
+        if (attack) {
+            if (entity instanceof EntityLivingBase) {
+                ((EntityLivingBase) entity)
+                        .addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 2, false, false));
+            }
+            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * 1.5f, 0.1D,
+                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F) * 1.5f);
         }
         return attack;
     }
@@ -50,22 +58,21 @@ public class Megalith extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : ModSounds.MEGALITH;
+        return ModSounds.MEGALITH;
     }
+
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return ModSounds.MEGALITH_HURT;
     }
- 
+
     @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.MEGALITH_HURT;
     }
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/megalith");
-    
+
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
-
 }

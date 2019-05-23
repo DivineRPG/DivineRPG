@@ -1,68 +1,58 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class SkythernGolem extends EntityDivineRPGMob {
-    
-    public SkythernGolem(World var1) {
-        super(var1);
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/twilight/skythern_golem");
+
+    public SkythernGolem(World worldIn) {
+        super(worldIn);
         this.setSize(1F, 2.8F);
-        addAttackingAI();
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.skythernGolemHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.skythernGolemDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.skythernGolemSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.skythernGolemFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(18);
+    }
+
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
     }
 
     @Override
     public int getTotalArmorValue() {
         return 10;
     }
-  //FIXME - Use correct sounds
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : SoundEvents.ENTITY_WOLF_GROWL;
+        return ModSounds.GROWL_HURT;
     }
+
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_WOLF_GROWL;
+        return ModSounds.GROWL_HURT;
     }
- 
+
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_WOLF_GROWL;
+        return ModSounds.GROWL_HURT;
     }
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/skythern_golem");
-    
+
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
- 
-
 }

@@ -1,99 +1,82 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.enums.ArrowType;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.ai.EntityAIAttackRanged;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class TwilightArcher extends EntityMob {
-    //FIXME - Twilight Archer needs porting
+public class TwilightArcher extends EntityDivineRPGMob implements IRangedAttackMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/twilight/twilight_archer");
+
     public TwilightArcher(World worldIn) {
-		super(worldIn);
-		this.setSize(2F, 3f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/twilight_archer");
-
-
-    /**@Override
-    public boolean getCanSpawnHere()
-    {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.provider.getDimension() == ModDimensions.mortumDimension.getId();
-    }*/
-    protected boolean isMaster() {
-        return false;
+        super(worldIn);
+        this.setSize(2.0F, 3.0F);
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    }
-
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, TwilightArcher.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        }
-
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+        this.tasks.addTask(0, new EntityAIAttackRanged(this, 1, 15, 60, 15));
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getTotalArmorValue() {
+        return 10;
     }
 
-    @Nullable
+    @Override
+    public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.MORTUM_ARCHER_ARROW, this);
+        double d0 = target.posX - this.posX;
+        double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 3.0F) - arrow.posY;
+        double d2 = target.posZ - this.posZ;
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
+        this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+        this.world.spawnEntity(arrow);
+    }
+
+    @Override
+    public void setSwingingArms(boolean swingingArms) {
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.ARCHER;
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
 
-	}
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.HIGH_HIT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.HIGH_HIT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }

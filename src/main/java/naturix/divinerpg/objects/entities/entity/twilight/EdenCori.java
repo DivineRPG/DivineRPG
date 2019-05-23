@@ -137,6 +137,11 @@ public class EdenCori extends EntityDivineRPGFlying {
     }
 
     @Override
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
         return ModSounds.CORI_IDLE;
     }
@@ -154,9 +159,5 @@ public class EdenCori extends EntityDivineRPGFlying {
     @Override
     protected ResourceLocation getLootTable() {
         return this.LOOT;
-    }
-
-    public int getMaxSpawnedInChunk() {
-        return 1;
     }
 }

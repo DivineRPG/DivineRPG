@@ -1,7 +1,8 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,63 +15,61 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Sorcerer extends EntityDivineRPGMob {
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/sorcerer");
 
-    public Sorcerer(World var1) {
-        super(var1);
+    public Sorcerer(World worldIn) {
+        super(worldIn);
         this.setSize(0.5F, 2F);
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.sorcererHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.sorcererDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.sorcererSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.sorcererFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12);
     }
 
     @Override
-    protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : ModSounds.INSECT;
+    protected void initEntityAI() {
+        super.initEntityAI();
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
+
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.INSECT;
-    }
- 
-    @Override
-    protected SoundEvent getDeathSound() {
-        return ModSounds.INSECT;
-    }
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/sorcerer");
-    
-    @Override
-    protected ResourceLocation getLootTable() {
-        return this.LOOT;
+    public boolean isValidLightLevel() {
+        return true;
     }
 
     @Override
     public void onUpdate() {
         super.onUpdate();
         if (this.ticksExisted % 10 == 0) {
-            this.attackingPlayer = this.world.getClosestPlayerToEntity(this, 16D);
+            this.attackingPlayer = this.world.getNearestAttackablePlayer(this, 16D, 16D);
             if (this.attackingPlayer != null && !this.world.isRemote) {
                 double tx = this.attackingPlayer.posX - this.posX;
                 double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
                 double tz = this.attackingPlayer.posZ - this.posZ;
-                //FIXME - Projectile
-//                EntityTwilightMageShot e = new EntityTwilightMageShot(this.world, this, 97, 31, 54);
-//                e.setThrowableHeading(tx, ty, tz, 1.6f, 0);
-//                this.world.spawnEntityInWorld(e);
-                this.world.playSound(attackingPlayer, attackingPlayer.getPosition(), ModSounds.MAGE_FIRE, SoundCategory.HOSTILE, 1, 1);
+                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.SORCERER_SHOT);
+                shot.shoot(tx, ty, tz, 1.6f, 0);
+                this.world.spawnEntity(shot);
+                this.world.playSound((EntityPlayer) null, this.attackingPlayer.posX, this.attackingPlayer.posY,
+                        this.attackingPlayer.posZ, ModSounds.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
             }
         }
     }
-    
+
     @Override
-    public boolean isValidLightLevel() {
-        return true;
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.INSECT;
     }
 
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.INSECT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }

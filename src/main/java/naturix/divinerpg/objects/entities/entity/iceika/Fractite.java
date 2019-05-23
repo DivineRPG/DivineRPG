@@ -218,6 +218,11 @@ public class Fractite extends EntityDivineRPGFlying {
     }
 
     @Override
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
         return ModSounds.FRACTITE;
     }
@@ -236,10 +241,4 @@ public class Fractite extends EntityDivineRPGFlying {
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
-
-    /**
-     * @Override public boolean getCanSpawnHere() { return
-     *           world.provider.getDimension() ==
-     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
-     */
 }
