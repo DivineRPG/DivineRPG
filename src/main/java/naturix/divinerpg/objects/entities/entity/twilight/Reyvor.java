@@ -18,6 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
@@ -66,6 +67,11 @@ public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return ModSounds.REYVOR_HURT;
+    }
+
+    @Override
+    public Color getBarColor() {
+        return Color.YELLOW;
     }
 
     @Override

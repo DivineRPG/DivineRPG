@@ -7,6 +7,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class Densos extends EntityDivineRPGBoss {
@@ -42,6 +43,11 @@ public class Densos extends EntityDivineRPGBoss {
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return ModSounds.DENSOS_HURT;
+    }
+
+    @Override
+    public Color getBarColor() {
+        return Color.RED;
     }
 
     @Override

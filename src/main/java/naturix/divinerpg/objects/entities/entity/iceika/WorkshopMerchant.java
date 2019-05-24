@@ -45,31 +45,31 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaCap, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaTunic, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaPants, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.santaBoots, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.eggNog, 2, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.chocolateLog, 5, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.peppermints, 15, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.fruitCake, 3, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaCap, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaTunic, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaPants, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaBoots, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.eggNog, 2, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.chocolateLog, 5, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.peppermints, 15, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.fruitCake, 3, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 20), new ItemStack(ModItems.icicleBane, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
                 new ItemStack(ModBlocks.greenChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
                 new ItemStack(ModBlocks.redChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
                 new ItemStack(ModBlocks.blueChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
                 new ItemStack(ModBlocks.yellowChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1),
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
                 new ItemStack(ModBlocks.purpleChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 3), new ItemStack(ModBlocks.presentBox, 1)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.blueCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.greenCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.pinkCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.redCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModBlocks.yellowCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 9), new ItemStack(ModBlocks.presentBox, 1)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.blueCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.greenCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.pinkCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.redCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.yellowCandyCane, 4)));
     }
 
     @Override
