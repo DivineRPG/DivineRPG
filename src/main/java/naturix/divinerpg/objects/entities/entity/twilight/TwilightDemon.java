@@ -1,94 +1,90 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.enums.BulletType;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
+import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class TwilightDemon extends EntityMob {
+public class TwilightDemon extends EntityDivineRPGBoss {
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/twilight/twilight_demon");
+    int shooting;
 
     public TwilightDemon(World worldIn) {
-		super(worldIn);
-		this.setSize(0.6F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/twilight_demon");
-
-
-    protected boolean isMaster() {
-        return false;
+        super(worldIn);
+        this.setSize(2.0F, 4.0F);
     }
 
     @Override
-    protected boolean canDespawn() {
-        return true;
+    protected void initEntityAI() {
+        super.initEntityAI();
+        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 40.0F, 50));
     }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1600);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(30);
     }
 
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, TwilightDemon.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
+    @Override
+    public int getTotalArmorValue() {
+        return 10;
     }
 
-    private void applyEntityAI() {
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (!this.world.isRemote) {
+            if (this.ticksExisted % 160 == 0)
+                this.shooting = 100;
+            this.setAttackTarget(this.world.getNearestAttackablePlayer(this, 40.0D, 40.0D));
+            if (this.getAttackTarget() != null && this.shooting > 0) {
+                double tx = this.getAttackTarget().posX - this.posX;
+                double ty = this.getAttackTarget().getEntityBoundingBox().minY - this.posY - 2;
+                double tz = this.getAttackTarget().posZ - this.posZ;
+                double angle = Math.atan(-(tx) / (tz));
+                EntityTwilightDemonShot e = new EntityTwilightDemonShot(this.world, this, this.rand.nextInt(50) == 0 ?
+                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
+                e.posZ += Math.sin(angle);
+                e.posX += Math.cos(angle);
+                e.shoot(tx - Math.cos(angle), ty, tz - Math.sin(angle), 1.6f, 0);
+                this.world.spawnEntity(e);
+
+                EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(this.world, this, this.rand.nextInt(50) == 0 ?
+                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
+                e1.posZ -= Math.sin(angle);
+                e1.posX -= Math.cos(angle);
+                e1.shoot(tx + Math.cos(angle), ty, tz + Math.sin(angle), 1.6f, 0);
+                this.world.spawnEntity(e1);
+            }
+            if (this.shooting > 0) {
+                this.shooting--;
+            }
         }
-
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
     }
 
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.INSECT;
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
 
-	}
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.INSECT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }

@@ -2,15 +2,21 @@ package naturix.divinerpg.objects.entities.entity.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.utils.Reference;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class AncientEntity extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ancient_entity");
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/vanilla/ancient_entity");
 
     public AncientEntity(World worldIn) {
         super(worldIn);
@@ -28,6 +34,20 @@ public class AncientEntity extends EntityDivineRPGBoss {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        super.attackEntityAsMob(entity);
+        if (this.getAttackTarget() != null) {
+            this.getAttackTarget().addVelocity(this.motionX * 10.0D, 2.0D, this.motionZ * 10.0D);
+            if (this.getAttackTarget() instanceof EntityPlayer) {
+                ((EntityLivingBase) getAttackTarget()).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 0));
+                playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+            }
+            return true;
+        }
+        return false;
     }
 
     @Override

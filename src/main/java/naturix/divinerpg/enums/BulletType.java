@@ -56,7 +56,9 @@ public enum BulletType {
     MAGE_SHOT(5, ProjectileLoc("blank"), new Color(62, 212, 254)),
     SPELLBINDER_SHOT(7, ProjectileLoc("blank"), new Color(234, 158, 253)),
     MYSTIC_SHOT(10, ProjectileLoc("blank"), new Color(234, 223, 228)),
-    SORCERER_SHOT(12, ProjectileLoc("blank"), new Color(97, 31, 54));
+    SORCERER_SHOT(12, ProjectileLoc("blank"), new Color(97, 31, 54)),
+    TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(0, 0, 0)),
+    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(255, 0, 0));
 
     private final float damage;
     private final ResourceLocation texture;

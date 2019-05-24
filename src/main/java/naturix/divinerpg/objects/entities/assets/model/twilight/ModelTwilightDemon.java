@@ -5,9 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-
-public class ModelTwilightDemon extends ModelBase
-{
+public class ModelTwilightDemon extends ModelBase {
     ModelRenderer head;
     ModelRenderer body;
     ModelRenderer rightarm;
@@ -22,8 +20,7 @@ public class ModelTwilightDemon extends ModelBase
     ModelRenderer connector1;
     ModelRenderer connector2;
 
-    public ModelTwilightDemon()
-    {
+    public ModelTwilightDemon() {
         this.textureWidth = 64;
         this.textureHeight = 32;
         this.head = new ModelRenderer(this, 0, 0);
@@ -79,13 +76,13 @@ public class ModelTwilightDemon extends ModelBase
         this.Spear2.setRotationPoint(5.5F, 10.0F, -1.0F);
         this.Spear2.setTextureSize(64, 32);
         this.Spear2.mirror = true;
-        this.setRotation(this.Spear2, (float)Math.PI, 0.0F, 0.0F);
+        this.setRotation(this.Spear2, (float) Math.PI, 0.0F, 0.0F);
         this.Shape1 = new ModelRenderer(this, 0, 0);
         this.Shape1.addBox(0.0F, 0.0F, 0.0F, 1, 1, 13);
         this.Shape1.setRotationPoint(-7.0F, 10.0F, -1.0F);
         this.Shape1.setTextureSize(64, 32);
         this.Shape1.mirror = true;
-        this.setRotation(this.Shape1, (float)Math.PI, 0.0F, 0.0F);
+        this.setRotation(this.Shape1, (float) Math.PI, 0.0F, 0.0F);
         this.head3 = new ModelRenderer(this, 32, 0);
         this.head3.addBox(0.0F, 0.0F, 0.0F, 8, 8, 8);
         this.head3.setRotationPoint(-11.4F, -8.0F, -16.0F);
@@ -110,8 +107,7 @@ public class ModelTwilightDemon extends ModelBase
      * Sets the models various rotation angles then renders the model.
      */
     @Override
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
-    {
+    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7) {
         super.render(var1, var2, var3, var4, var5, var6, var7);
         this.setRotationAngles(var2, var3, var4, var5, var6, var7);
         this.head.render(var7);
@@ -129,29 +125,27 @@ public class ModelTwilightDemon extends ModelBase
         this.connector2.render(var7);
     }
 
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4)
-    {
+    private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {
         var1.rotateAngleX = var2;
         var1.rotateAngleY = var3;
         var1.rotateAngleZ = var4;
     }
 
-    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6)
-    {
-        this.head2.rotateAngleY = var4 / (180F / (float)Math.PI);
-        this.head2.rotateAngleX = var5 / (180F / (float)Math.PI);
-        this.head3.rotateAngleY = var4 / (180F / (float)Math.PI);
-        this.head3.rotateAngleX = var5 / (180F / (float)Math.PI);
-        this.rightarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
+    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6) {
+        this.head2.rotateAngleY = var4 / (180F / (float) Math.PI);
+        this.head2.rotateAngleX = var5 / (180F / (float) Math.PI);
+        this.head3.rotateAngleY = var4 / (180F / (float) Math.PI);
+        this.head3.rotateAngleX = var5 / (180F / (float) Math.PI);
+        this.rightarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float) Math.PI) * 2.0F * var2 * 0.5F;
         this.leftarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
         this.rightarm.rotateAngleZ = 0.0F;
         this.leftarm.rotateAngleZ = 0.0F;
-        this.Spear2.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
+        this.Spear2.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float) Math.PI) * 2.0F * var2 * 0.5F;
         this.Shape1.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
         this.Spear2.rotateAngleZ = 0.0F;
         this.Shape1.rotateAngleZ = 0.0F;
         this.rightleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-        this.leftleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
+        this.leftleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float) Math.PI) * 1.4F * var2;
         this.rightleg.rotateAngleY = 0.0F;
         this.leftleg.rotateAngleY = 0.0F;
     }
