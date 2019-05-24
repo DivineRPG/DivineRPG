@@ -2,7 +2,6 @@ package naturix.divinerpg.objects.entities.assets.render.twilight;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.entities.assets.model.twilight.ModelEnchantedArcher;
 import naturix.divinerpg.objects.entities.assets.model.twilight.ModelTwilightArcher;
 import naturix.divinerpg.objects.entities.entity.twilight.TwilightArcher;
 import naturix.divinerpg.registry.ModItems;
@@ -52,7 +51,7 @@ public class RenderTwilightArcher extends RenderLiving<TwilightArcher> {
                 float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
-            ((ModelEnchantedArcher) this.renderTwilightArcher.getMainModel()).rightarm.postRender(0.0625F);
+            ((ModelTwilightArcher) this.renderTwilightArcher.getMainModel()).rightarm.postRender(0.0625F);
             GlStateManager.translate(-0.0625F, 0.4375F, 0.0625F);
             GlStateManager.translate(-0.55F, 0.4375F, 0F);
             GlStateManager.rotate(90, 0, 1, 0);

@@ -558,6 +558,7 @@ public class ModEntities {
         LootTableList.register(Caveclops.LOOT);
         LootTableList.register(Crab.LOOT);
         LootTableList.register(Cyclops.LOOT);
+        LootTableList.register(DemonOfDarkness.LOOT);
         LootTableList.register(Densos.LOOT);
         LootTableList.register(DesertCrawler.LOOT);
         LootTableList.register(EdenCori.LOOT);

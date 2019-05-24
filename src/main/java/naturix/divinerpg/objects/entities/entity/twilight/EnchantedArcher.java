@@ -28,8 +28,8 @@ public class EnchantedArcher extends EntityDivineRPGMob implements IRangedAttack
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12);
     }
 
     @Override

@@ -32,7 +32,7 @@ public enum ArrowType {
     SUN_ARCHER_ARROW(9, 9, ProjectileLoc("eden_arrow"), false, false, false),
     ENCHANTED_ARCHER_ARROW(12, 12, ProjectileLoc("wildwood_arrow"), false, false, false),
     SKYTHERN_ARCHER_ARROW(14, 14, ProjectileLoc("wildwood_arrow"), false, false, false),
-    MORTUM_ARCHER_ARROW(16, 16, ProjectileLoc("fury_arrow"), false, false, false);
+    TWILIGHT_ARCHER_ARROW(16, 16, ProjectileLoc("fury_arrow"), false, false, false);
 
     private final float minDamage;
     private final float maxDamage;

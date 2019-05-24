@@ -26,8 +26,8 @@ public class SunArcher extends EntityDivineRPGMob implements IRangedAttackMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(9);
     }
 
     @Override

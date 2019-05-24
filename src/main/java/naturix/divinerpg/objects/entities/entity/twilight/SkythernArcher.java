@@ -28,8 +28,8 @@ public class SkythernArcher extends EntityDivineRPGMob implements IRangedAttackM
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14);
     }
 
     @Override

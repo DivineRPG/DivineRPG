@@ -28,8 +28,8 @@ public class TwilightArcher extends EntityDivineRPGMob implements IRangedAttackM
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(140);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class TwilightArcher extends EntityDivineRPGMob implements IRangedAttackM
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.MORTUM_ARCHER_ARROW, this);
+        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.TWILIGHT_ARCHER_ARROW, this);
         double d0 = target.posX - this.posX;
         double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 3.0F) - arrow.posY;
         double d2 = target.posZ - this.posZ;
