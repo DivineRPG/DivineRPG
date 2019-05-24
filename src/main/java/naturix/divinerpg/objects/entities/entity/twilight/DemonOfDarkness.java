@@ -9,11 +9,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class MortumDemon extends EntityDivineRPGMob {
+public class DemonOfDarkness extends EntityDivineRPGMob {
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
             "entities/twilight/demon_of_darkness");
 
-    public MortumDemon(World worldIn) {
+    public DemonOfDarkness(World worldIn) {
         super(worldIn);
     }
 

@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderSoulSpider extends RenderLiving<SoulSpider> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_spider.png");
-	private final ModelSoulSpider ModelSoulSpider;
-    
-	public RenderSoulSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSoulSpider(), 1F);
-        ModelSoulSpider = (ModelSoulSpider) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/soul_spider.png");
 
+    public RenderSoulSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelSoulSpider(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(SoulSpider entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<SoulSpider> {
-
-	        @Override
-	        public Render<? super SoulSpider> createRenderFor(RenderManager manager) {
-	            return new RenderSoulSpider(manager, new ModelSoulSpider(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<SoulSpider> {
+        @Override
+        public Render<? super SoulSpider> createRenderFor(RenderManager manager) {
+            return new RenderSoulSpider(manager, new ModelSoulSpider(), 0);
+        }
+    }
+}

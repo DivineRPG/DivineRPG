@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelDenseDemon extends ModelBase
+public class ModelDemonOfDarkness extends ModelBase
 {
     //fields
     ModelRenderer Main_Body;
@@ -37,7 +37,7 @@ public class ModelDenseDemon extends ModelBase
     ModelRenderer Legbottom24;
     ModelRenderer Legbottom25;
 
-    public ModelDenseDemon()
+    public ModelDemonOfDarkness()
     {
         textureWidth = 64;
         textureHeight = 32;
