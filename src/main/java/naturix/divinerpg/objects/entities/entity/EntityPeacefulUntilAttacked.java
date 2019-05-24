@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity;
 
+import com.google.common.base.Predicate;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -10,45 +12,49 @@ import net.minecraft.world.World;
 
 public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 
-	public EntityPeacefulUntilAttacked(World w) {
-		super(w);
-		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1F, true));
-	}
+    public EntityPeacefulUntilAttacked(World w) {
+        super(w);
+        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1F, true));
+    }
 
-	public int angerLevel = 0;
-	public void writeEntityToNBT(NBTTagCompound tag) {
-		super.writeEntityToNBT(tag);
-		tag.setShort("Anger", (short)this.angerLevel);
-	}
+    public int angerLevel = 0;
 
-	public void readEntityFromNBT(NBTTagCompound tag) {
-		super.readEntityFromNBT(tag);
-		this.angerLevel = tag.getShort("Anger");
-	}
-	
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
+    public void writeEntityToNBT(NBTTagCompound tag) {
+        super.writeEntityToNBT(tag);
+        tag.setShort("Anger", (short) this.angerLevel);
+    }
+
+    public void readEntityFromNBT(NBTTagCompound tag) {
+        super.readEntityFromNBT(tag);
+        this.angerLevel = tag.getShort("Anger");
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
         Entity entity = source.getTrueSource();
-		if(entity instanceof EntityPlayer) this.makeAngryAt((EntityPlayer)entity);
-		return super.attackEntityFrom(source, amount);
-	}
+        if (entity instanceof EntityPlayer)
+            this.makeAngryAt((EntityPlayer) entity);
+        return super.attackEntityFrom(source, amount);
+    }
 
     public void makeAngryAt(EntityPlayer p) {
-	    if(!p.capabilities.isCreativeMode) {
-	        angerLevel = 400;
-	        this.setAttackTarget(p);
-	        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-	    }
-	}
+        if (!p.capabilities.isCreativeMode) {
+            angerLevel = 400;
+            this.setAttackTarget(p);
+            this.targetTasks.addTask(1,
+                    new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+        }
+    }
 
-	@Override
-	public boolean isValidLightLevel() {
-		return true;
-	}
-	
-	@Override
-	public boolean attackEntityAsMob(Entity entity) {
-		if(this.angerLevel > 0)return super.attackEntityAsMob(entity);
-		return false;
-	}
+    @Override
+    public boolean isValidLightLevel() {
+        return true;
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        if (this.angerLevel > 0)
+            return super.attackEntityAsMob(entity);
+        return false;
+    }
 }

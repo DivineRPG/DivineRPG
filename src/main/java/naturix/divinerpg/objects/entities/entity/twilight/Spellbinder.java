@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
+import com.google.common.base.Predicate;
+
 import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
@@ -32,7 +34,8 @@ public class Spellbinder extends EntityDivineRPGMob {
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(2,
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
     }
 
     @Override

@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
+import com.google.common.base.Predicate;
+
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.EntityStats;
@@ -46,7 +48,8 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 32.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 1.0F));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(2,
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
     }
 
     @Override

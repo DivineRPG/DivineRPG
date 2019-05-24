@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity;
 
+import com.google.common.base.Predicate;
+
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -47,7 +49,8 @@ public abstract class EntityDivineRPGMob extends EntityMob {
 
     protected void addAttackingAI() {
         this.tasks.addTask(1, new EntityAIAttackMelee(this, 1, true));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(1,
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
     }
 
     @Override

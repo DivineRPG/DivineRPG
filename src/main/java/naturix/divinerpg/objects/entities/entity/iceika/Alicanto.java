@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
+import com.google.common.base.Predicate;
+
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.EntityStats;
 import naturix.divinerpg.registry.ModSounds;
@@ -40,7 +42,8 @@ public class Alicanto extends EntityDivineRPGMob {
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 32.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 0.27F));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(2,
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
     }
 

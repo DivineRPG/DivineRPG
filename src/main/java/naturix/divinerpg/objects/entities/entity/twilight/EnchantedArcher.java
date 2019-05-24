@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
+import com.google.common.base.Predicate;
+
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
@@ -9,6 +11,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -36,7 +40,9 @@ public class EnchantedArcher extends EntityDivineRPGMob implements IRangedAttack
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();
-        this.tasks.addTask(0, new EntityAIAttackRanged(this, 1, 15, 60, 15));
+        this.targetTasks.addTask(2,
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+        this.tasks.addTask(7, new EntityAIAttackRanged(this, 1, 15, 60, 15));
     }
 
     @Override
