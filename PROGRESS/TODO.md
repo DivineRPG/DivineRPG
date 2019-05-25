@@ -21,13 +21,6 @@
 
 ### Dimensions
 
-### Twilight
-#### Entities
-- Apalachia, Skythern and Mortum need review
-- Sun Archer (Bow rendering)
-- Basalisk doesnt avoid water
-- Scale up Twilight Demon
-
 ### Arcana
 #### Items
 - Divine Accumulator
