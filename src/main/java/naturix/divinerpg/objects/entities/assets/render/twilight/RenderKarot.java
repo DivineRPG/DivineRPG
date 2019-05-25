@@ -2,6 +2,8 @@ package naturix.divinerpg.objects.entities.assets.render.twilight;
 
 import javax.annotation.Nullable;
 
+import org.lwjgl.opengl.GL11;
+
 import naturix.divinerpg.objects.entities.assets.model.twilight.ModelKarot;
 import naturix.divinerpg.objects.entities.entity.twilight.Karot;
 import net.minecraft.client.model.ModelBase;
@@ -12,30 +14,28 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderKarot extends RenderLiving<Karot> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/karot.png");
-	private final ModelKarot ModelKarot;
-    
-	public RenderKarot(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelKarot(), 1F);
-        ModelKarot = (ModelKarot) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/karot.png");
 
+    public RenderKarot(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelKarot(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Karot entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Karot> {
+    @Override
+    public void preRenderCallback(Karot entity, float f) {
+        GL11.glScalef(5, 5, 5);
+    }
 
-	        @Override
-	        public Render<? super Karot> createRenderFor(RenderManager manager) {
-	            return new RenderKarot(manager, new ModelKarot(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Karot> {
+        @Override
+        public Render<? super Karot> createRenderFor(RenderManager manager) {
+            return new RenderKarot(manager, new ModelKarot(), 0);
+        }
+    }
+}

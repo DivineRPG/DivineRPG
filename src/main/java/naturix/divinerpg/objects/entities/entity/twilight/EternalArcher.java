@@ -1,94 +1,81 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.enums.ArrowType;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class EternalArcher extends EntityMob {
+public class EternalArcher extends EntityDivineRPGBoss {
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/twilight/eternal_archer");
+
+    private int armSelected;
+    private int abilityTick;
 
     public EternalArcher(World worldIn) {
-		super(worldIn);
-		this.setSize(1.6F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eternal_archer");
-
-
-    protected boolean isMaster() {
-        return false;
+        super(worldIn);
+        this.setSize(3, 5);
+        this.experienceValue = 250;
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1550);
     }
 
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, EternalArcher.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 80));
     }
 
-    private void applyEntityAI() {
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+
+        if (this.getAttackTarget() != null) {
+            this.getLookHelper().setLookPosition(this.getAttackTarget().posX,
+                    this.getAttackTarget().posY + (double) this.getAttackTarget().getEyeHeight(),
+                    this.getAttackTarget().posZ, 10.0F, 5);
         }
 
+        if (this.getAttackTarget() == null || this.rand.nextInt(200) == 0) {
+            this.setAttackTarget(this.world.getNearestAttackablePlayer(this, 48D, 48D));
+        }
+        if (this.getAttackTarget() != null && ((this.getAttackTarget() instanceof EntityPlayer
+                && ((EntityPlayer) this.getAttackTarget()).capabilities.isCreativeMode)
+                || this.getAttackTarget().isDead)) {
+            this.setAttackTarget(null);
+        }
+        if (this.abilityTick > 0)
+            this.abilityTick--;
+        if (this.abilityTick == 0) {
+            if (this.armSelected < 5)
+                this.armSelected++;
+            else if (this.armSelected == 5)
+                this.armSelected = 0;
+            this.abilityTick = 400;
+        }
 
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+        if (this.abilityTick % 30 == 0 && this.getAttackTarget() != null && !this.world.isRemote) {
+            this.world.spawnEntity(new EntityDivineArrow(this.world,
+                    ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + this.armSelected), this,
+                    this.getAttackTarget(), 1.6F, 5.0F));
         }
     }
 
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getSelectedArm() {
+        return this.armSelected;
     }
 
-    @Nullable
     @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
 }

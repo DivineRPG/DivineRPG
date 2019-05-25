@@ -193,6 +193,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfIce
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShuriken;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySnowflakeShuriken;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
@@ -374,6 +375,7 @@ public class ModEntities {
         registerProjectile(EntityDivineArrow.class, "arrow_shot");
         registerProjectile(EntityCoriShot.class, "cori_shot");
         registerProjectile(EntityTwilightMageShot.class, "twilight_mage_shot");
+        registerProjectile(EntitySoulFiendShot.class, "soul_fiend_shot");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -616,6 +618,7 @@ public class ModEntities {
         LootTableList.register(TheWatcher.LOOT);
         LootTableList.register(TwilightArcher.LOOT);
         LootTableList.register(TwilightDemon.LOOT);
+        LootTableList.register(Vamacheron.LOOT);
         LootTableList.register(Verek.LOOT);
         LootTableList.register(Whale.LOOT);
         LootTableList.register(Wildfire.LOOT);

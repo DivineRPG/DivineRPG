@@ -53,7 +53,7 @@ public class RenderSkythernArcher extends RenderLiving<SkythernArcher> {
             GlStateManager.pushMatrix();
             ((ModelEnchantedArcher) this.renderSkythernArcher.getMainModel()).rightarm.postRender(0.0625F);
             GlStateManager.translate(-0.0625F, 0.4375F, 0.0625F);
-            GlStateManager.translate(-0.55F, 0.4375F, 0F);
+            GlStateManager.translate(-0.45F, 0.35F, -0.05F);
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);

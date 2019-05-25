@@ -7,8 +7,11 @@ import javax.annotation.Nullable;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.ArrowType;
+import naturix.divinerpg.enums.ArrowType.ArrowSpecial;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderDivineArrow;
+import naturix.divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -102,6 +105,17 @@ public class EntityDivineArrow extends EntityArrow {
         }
     }
 
+    public EntityDivineArrow(World worldIn, ArrowType arrowType, EntityLivingBase shooter, EntityLivingBase target,
+            float velocity, float inaccuracy) {
+        this(worldIn, arrowType, shooter);
+        double d0 = target.posX - this.posX;
+        double d1 = target.getEntityBoundingBox().minY + target.height / 3.0F - this.posY;
+        double d2 = target.posZ - this.posZ;
+        double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
+        this.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, velocity, inaccuracy);
+        this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
+    }
+
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
         RenderingRegistry.registerEntityRenderingHandler(EntityDivineArrow.class,
@@ -139,6 +153,17 @@ public class EntityDivineArrow extends EntityArrow {
     @Override
     public void onUpdate() {
         super.onEntityUpdate();
+        if (getArrowType() == ArrowType.ETERNAL_ARCHER_FLAME_ARROW) {
+            double x = this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
+            double y = this.posY + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
+            double z = this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
+            this.world.spawnParticle(EnumParticleTypes.FLAME, x, y, z, 0, 0, 0);
+        } else if (getArrowType() == ArrowType.ETERNAL_ARCHER_WITHER_ARROW) {
+            double x = this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
+            double y = this.posY + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
+            double z = this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
+            DivineRPG.proxy.spawnParticle(this.world, DRPGParticleTypes.BLACK_FLAME, x, y, z, 0, 0, 0);
+        }
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ) * (180D / Math.PI));
@@ -280,9 +305,20 @@ public class EntityDivineArrow extends EntityArrow {
                 damagesource = DamageSource.causeArrowDamage(this, this.shootingEntity);
             }
 
+            if (entity instanceof EntityLivingBase) {
+                if (this.getArrowType().getArrowSpecial() == ArrowSpecial.WITHER)
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.WITHER, 100, 2));
+                else if (this.getArrowType().getArrowSpecial() == ArrowSpecial.SLOW)
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 2));
+                else if (this.getArrowType().getArrowSpecial() == ArrowSpecial.BLIND)
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 0));
+                else if (this.getArrowType().getArrowSpecial() == ArrowSpecial.NAUSEA)
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 200, 0));
+            }
+
             // Fire Damage
             if (!(entity instanceof EntityEnderman)) {
-                if (this.getArrowType().fireDamage()) {
+                if (this.getArrowType().getArrowSpecial() == ArrowSpecial.FLAME) {
                     entity.setFire(12);
                 } else if (this.isBurning()) {
                     entity.setFire(5);
@@ -294,12 +330,12 @@ public class EntityDivineArrow extends EntityArrow {
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
 
                     // Poison Damage
-                    if (this.getArrowType().poisonDamage()) {
+                    if (this.getArrowType().getArrowSpecial() == ArrowSpecial.POSION) {
                         ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 40, 2));
                     }
 
                     // Explosion Damage
-                    if (this.getArrowType().explosionDamage()) {
+                    if (this.getArrowType().getArrowSpecial() == ArrowSpecial.EXPLODE) {
                         this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
                     }
 
@@ -372,18 +408,6 @@ public class EntityDivineArrow extends EntityArrow {
             }
 
             if (getArrowType() == ArrowType.SNOWSTORM_ARROW) {
-                /*
-                IBlockState airState = Blocks.AIR.getDefaultState();
-                if (this.world.getBlockState(this.getPosition().add(0, -1, 0)) != airState
-                        || this.world.getBlockState(this.getPosition().add(0, 0, 0)) != airState
-                        || this.world.getBlockState(this.getPosition().add(1, 0, 0)) != airState
-                        || this.world.getBlockState(this.getPosition().add(-1, 0, 0)) != airState
-                        || this.world.getBlockState(this.getPosition().add(0, 0, 1)) != airState
-                        || this.world.getBlockState(this.getPosition().add(0, 0, -1)) != airState
-                        || this.world.getBlockState(this.getPosition().add(0, 1, 0)) != airState) {
-                    this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
-                    this.setDead();
-                }*/
                 this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
                 this.setDead();
             }

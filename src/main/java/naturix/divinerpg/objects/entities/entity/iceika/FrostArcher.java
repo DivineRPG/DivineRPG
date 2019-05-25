@@ -23,7 +23,6 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
@@ -54,14 +53,8 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.FROST_ARCHER_ARROW, this);
-        double d0 = target.posX - this.posX;
-        double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 3.0F) - arrow.posY;
-        double d2 = target.posZ - this.posZ;
-        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
-        this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-        this.world.spawnEntity(arrow);
+        this.world.spawnEntity(
+                new EntityDivineArrow(this.world, ArrowType.FROST_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override
@@ -92,10 +85,4 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
-
-    /**
-     * @Override public boolean getCanSpawnHere() { return
-     *           world.provider.getDimension() ==
-     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
-     */
 }

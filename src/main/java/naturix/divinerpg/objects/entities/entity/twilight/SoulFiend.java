@@ -1,94 +1,75 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class SoulFiend extends EntityMob {
-
-    public SoulFiend(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
+public class SoulFiend extends EntityDivineRPGBoss {
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/soul_fiend");
 
-
-    protected boolean isMaster() {
-        return false;
+    public SoulFiend(World worldIn) {
+        super(worldIn);
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    }
-
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, SoulFiend.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        }
-
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1100);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(24);
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+    }
+
+    @Override
+    public int getTotalArmorValue() {
+        return 10;
+    }
+
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (!this.world.isRemote && this.ticksExisted % 300 == 0) {
+            for (int i = 0; i < 4; i++) {
+                EntitySoulFiendShot shot = new EntitySoulFiendShot(this.world, this);
+                shot.shoot(this.rand.nextDouble() - this.rand.nextDouble(), -0.25,
+                        this.rand.nextDouble() - this.rand.nextDouble(), 0.5f, 12);
+                this.world.spawnEntity(shot);
+            }
         }
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public boolean attackEntityAsMob(Entity entity) {
+        if (super.attackEntityAsMob(entity)) {
+            if (entity instanceof EntityPlayer) {
+                ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 12 * 20, 0));
+                ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 12 * 20, 0));
+            }
+            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * 2.5, 0.4D,
+                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F) * 2.5);
+            this.motionX *= 0.6D;
+            this.motionZ *= 0.6D;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    @Nullable
     @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
 }

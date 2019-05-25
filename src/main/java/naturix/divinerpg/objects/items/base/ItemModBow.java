@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.ArrowType;
+import naturix.divinerpg.enums.ArrowType.ArrowSpecial;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModItems;
@@ -110,11 +111,11 @@ public class ItemModBow extends ItemBow implements IHasModel {
             tooltip.add((1 / speed) + " Times Slower");
         tooltip.add(!unbreakable ? TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) :
                 TooltipLocalizer.infiniteUses());
-        if (arrowType.poisonDamage())
+        if (arrowType.getArrowSpecial() == ArrowSpecial.POSION)
             tooltip.add(TooltipLocalizer.poison(2));
-        if (arrowType.fireDamage())
+        if (arrowType.getArrowSpecial() == ArrowSpecial.FLAME)
             tooltip.add(TooltipLocalizer.burn(12));
-        if (arrowType.explosionDamage())
+        if (arrowType.getArrowSpecial() == ArrowSpecial.EXPLODE)
             tooltip.add(TooltipLocalizer.explosiveShots());
         tooltip.add(this.needArrow ? TooltipLocalizer.ammo(this.arrowAmmo) : TooltipLocalizer.infiniteAmmo());
         if (this.vethean)

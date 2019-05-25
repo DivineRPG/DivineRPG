@@ -2,93 +2,92 @@ package naturix.divinerpg.objects.entities.entity.twilight;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFindEntityNearest;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Karot extends EntityMob {
+public class Karot extends EntityDivineRPGBoss {
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/karot");
+    private int spawnTick;
 
     public Karot(World worldIn) {
-		super(worldIn);
-		this.setSize(.6F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/karot");
-
-
-    protected boolean isMaster() {
-        return false;
+        super(worldIn);
+        this.spawnTick = 240;
+        this.setSize(3.25F, 4F);
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.1D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(55.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1250);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(32);
     }
 
-    protected void initEntityAI()
-    {
-    	this.tasks.addTask(4, new EntityAIFindEntityNearest(this, Karot.class));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.tasks.addTask(10, new EntityAISwimming(this));
-        this.applyEntityAI();
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
     }
 
-    private void applyEntityAI() {
+    @Override
+    public int getTotalArmorValue() {
+        return 10;
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        if (this.spawnTick == 0 && !this.world.isRemote) {
+            AngryBunny angryBunny = new AngryBunny(this.world);
+            angryBunny.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+            this.world.spawnEntity(angryBunny);
+            this.world.spawnParticle(EnumParticleTypes.REDSTONE, angryBunny.posX, angryBunny.posY + 0.5D,
+                    angryBunny.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D,
+                    this.rand.nextGaussian() * 2.0D - 1.0D);
+            this.spawnTick = 240;
         }
 
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+        this.spawnTick--;
+        super.onLivingUpdate();
     }
 
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return null;
     }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
 
-	}
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return null;
+    }
+
+    @Override
+    public void onDeath(DamageSource source) {
+        super.onDeath(source);
+        if (!this.world.isRemote) {
+            for (int i = 0; i < 5; i++) {
+                AngryBunny angryBunny = new AngryBunny(this.world);
+                angryBunny.setPosition(this.posX, this.posY, this.posZ);
+                this.world.spawnEntity(angryBunny);
+            }
+        }
+        super.setDead();
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
 }

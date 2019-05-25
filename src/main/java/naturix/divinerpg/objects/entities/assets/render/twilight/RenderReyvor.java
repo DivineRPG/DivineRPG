@@ -53,7 +53,7 @@ public class RenderReyvor extends RenderLiving<Reyvor> {
             GlStateManager.pushMatrix();
             ((ModelDensos) this.renderReyvor.getMainModel()).rightarm.postRender(0.0625F);
             GlStateManager.translate(-0.0625F, 0.4375F, 0.0625F);
-            GlStateManager.translate(-0.55F, 0.4375F, 0F);
+            GlStateManager.translate(0.05F, 0.4375F, 0F);
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
