@@ -33,7 +33,7 @@ public class ItemTeleportationCrystal extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add("Teleport to spawn point");
+        list.add("Teleport to bed or spawn point");
         list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 
@@ -48,7 +48,9 @@ public class ItemTeleportationCrystal extends ItemMod {
             if (worldIn.provider.getDimension() != 0) {
                 teleportToDimension(player, 0, teleportPos);
             } else {
-                teleportPos = worldIn.getTopSolidOrLiquidBlock(teleportPos);
+                if (player.getBedSpawnLocation(worldIn, teleportPos, true) == null) {
+                    teleportPos = worldIn.getTopSolidOrLiquidBlock(teleportPos);
+                }
                 player.setPositionAndUpdate(teleportPos.getX(), teleportPos.getY(), teleportPos.getZ());
             }
         }
@@ -65,10 +67,12 @@ public class ItemTeleportationCrystal extends ItemMod {
         WorldServer worldServer = server.getWorld(dimension);
         player.addExperienceLevel(0);
 
-        BlockPos teleportPos = worldServer.getTopSolidOrLiquidBlock(pos);
-        double x = teleportPos.getX();
-        double y = teleportPos.getY();
-        double z = teleportPos.getZ();
+        if (player.getBedSpawnLocation(worldServer, pos, true) == null) {
+            pos = worldServer.getTopSolidOrLiquidBlock(pos);
+        }
+        double x = pos.getX();
+        double y = pos.getY();
+        double z = pos.getZ();
         worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension,
                 new SecondaryTeleporter(worldServer, x, y, z));
         player.setPositionAndUpdate(x, y, z);
