@@ -23,7 +23,7 @@ public class RenderFrosty extends RenderLiving<Frosty> {
     @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Frosty frosty) {
-        return (frosty.angerLevel > 0) ? angryFrostyLoc : frostyLoc;
+        return frosty.isAngry() ? angryFrostyLoc : frostyLoc;
     }
 
     public static class Factory implements IRenderFactory<Frosty> {

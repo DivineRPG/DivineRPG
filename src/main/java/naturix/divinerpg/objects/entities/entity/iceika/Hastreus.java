@@ -45,8 +45,6 @@ public class Hastreus extends EntityDivineRPGMob {
         for (Entity entity : e) {
             if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) {
                 ((EntityPlayer) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 12, 18, true, false));
-                // DivineRPG.logger.info("Hastreus has slowed player at " +
-                // entity.getPosition());
             }
         }
 
@@ -72,10 +70,4 @@ public class Hastreus extends EntityDivineRPGMob {
     protected ResourceLocation getLootTable() {
         return this.LOOT;
     }
-
-    /**
-     * @Override public boolean getCanSpawnHere() { return
-     *           world.provider.getDimension() ==
-     *           ModDimensions.iceikaDimension.getId() && super.getCanSpawnHere(); }
-     */
 }

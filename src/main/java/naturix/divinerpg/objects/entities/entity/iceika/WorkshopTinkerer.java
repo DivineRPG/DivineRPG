@@ -31,7 +31,6 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
         if (!this.world.isRemote) {
             player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_TINKERER_GUI_ID, this.world, getEntityId(), 0, 0);
             CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
-            // player.triggerAchievement(DivineRPGAchievements.lilGift);
         }
         return super.processInteract(player, hand);
     }

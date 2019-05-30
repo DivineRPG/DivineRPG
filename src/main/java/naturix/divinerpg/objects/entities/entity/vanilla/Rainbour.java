@@ -37,7 +37,7 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    protected void entityInit() {
+    public void entityInit() {
         super.entityInit();
         this.dataManager.register(HANGING, Boolean.valueOf(false));
     }
