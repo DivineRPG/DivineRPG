@@ -13,7 +13,8 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderCyclops extends RenderLiving<Cyclops> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/cyclops.png");
+    ResourceLocation cyclopsLoc = new ResourceLocation("divinerpg:textures/entity/cyclops.png");
+    ResourceLocation angryCyclopsLoc = new ResourceLocation("divinerpg:textures/entity/angry_cyclops.png");
 
     public RenderCyclops(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelCyclops(), shadowsizeIn);
@@ -21,8 +22,8 @@ public class RenderCyclops extends RenderLiving<Cyclops> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Cyclops entity) {
-        return texture;
+    protected ResourceLocation getEntityTexture(Cyclops cyclops) {
+        return cyclops.isAngry() ? angryCyclopsLoc : cyclopsLoc;
     }
 
     public static class Factory implements IRenderFactory<Cyclops> {

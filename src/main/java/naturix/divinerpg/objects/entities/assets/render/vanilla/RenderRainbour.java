@@ -13,7 +13,8 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderRainbour extends RenderLiving<Rainbour> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/rainbour.png");
+    ResourceLocation rainbourLoc = new ResourceLocation("divinerpg:textures/entity/rainbour.png");
+    ResourceLocation angryRainbourLoc = new ResourceLocation("divinerpg:textures/entity/angry_rainbour.png");
 
     public RenderRainbour(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelRainbour(), shadowsizeIn);
@@ -21,8 +22,8 @@ public class RenderRainbour extends RenderLiving<Rainbour> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Rainbour entity) {
-        return texture;
+    protected ResourceLocation getEntityTexture(Rainbour rainbour) {
+        return rainbour.isAngry() ? angryRainbourLoc : rainbourLoc;
     }
 
     public static class Factory implements IRenderFactory<Rainbour> {

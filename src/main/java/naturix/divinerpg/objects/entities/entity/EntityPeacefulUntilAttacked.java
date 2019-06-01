@@ -85,6 +85,11 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
     }
 
     @Override
+    public boolean isPreventingPlayerRest(EntityPlayer playerIn) {
+        return this.isAngry();
+    }
+
+    @Override
     public boolean attackEntityAsMob(Entity entity) {
         if (this.isAngry()) {
             return super.attackEntityAsMob(entity);
