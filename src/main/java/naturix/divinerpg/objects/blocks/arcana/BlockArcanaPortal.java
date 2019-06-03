@@ -28,16 +28,19 @@ public class BlockArcanaPortal extends BlockMod {
     private int firetick;
     private int firemax = 200;
     private int dimId;
-
+    public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+    
     public BlockArcanaPortal(String name, int dimId) {
         super(EnumBlockType.PORTAL, name, 5.0F);
         setLightLevel(1.0F);
         setBlockUnbreakable();
         setResistance(6000000F);
         this.dimId = dimId;
-//        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
     }
-
+    @Override
+       public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+           return BLOCK_AABB;
+       }
     public boolean isOpaqueCube() {
         return false;
     }
