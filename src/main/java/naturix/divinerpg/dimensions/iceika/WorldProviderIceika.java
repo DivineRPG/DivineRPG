@@ -2,8 +2,6 @@ package naturix.divinerpg.dimensions.iceika;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.dimensions.iceika.biome.BiomeProviderIceika;
-import naturix.divinerpg.dimensions.iceika.chunk.ChunkProviderIceika;
 import naturix.divinerpg.proxy.ClientProxy;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;

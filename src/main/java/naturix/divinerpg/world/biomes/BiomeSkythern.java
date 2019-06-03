@@ -3,11 +3,11 @@ package naturix.divinerpg.world.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
-import naturix.divinerpg.dimensions.skythern.worldgen.WorldGenSkythernPlants;
-import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTree;
-import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTreeLarge;
-import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTreeLargeTruffle;
+import naturix.divinerpg.dimensions.eden.WorldGenConeUp;
+import naturix.divinerpg.dimensions.skythern.SkythernTree;
+import naturix.divinerpg.dimensions.skythern.SkythernTreeLarge;
+import naturix.divinerpg.dimensions.skythern.SkythernTreeLargeTruffle;
+import naturix.divinerpg.dimensions.skythern.WorldGenSkythernPlants;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.util.math.BlockPos;
@@ -41,7 +41,7 @@ public class BiomeSkythern extends Biome {
     public int getSkyColorByTemp(float par1) {
         return Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB();
     }
-    
+
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         SkythernTree genTree = new SkythernTree(false, 5);
@@ -50,7 +50,8 @@ public class BiomeSkythern extends Biome {
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenSkythernPlants brush = new WorldGenSkythernPlants(ModBlocks.skythernBrush);
         WorldGenSkythernPlants bloom = new WorldGenSkythernPlants(ModBlocks.dustLily);
-        WorldGenTwilightDoublePlants blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles, ModBlocks.skythernGrass);
+        WorldGenTwilightDoublePlants blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles,
+                ModBlocks.skythernGrass);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
         for (int i = 0; i < 40; i++) {
@@ -98,6 +99,6 @@ public class BiomeSkythern extends Biome {
             mutPos.setPos(rx, ry, rz);
             genConeUp.generate(worldIn, rand, mutPos);
         }
-        
+
     }
 }

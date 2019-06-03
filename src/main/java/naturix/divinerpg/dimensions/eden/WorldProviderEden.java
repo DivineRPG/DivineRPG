@@ -2,8 +2,6 @@ package naturix.divinerpg.dimensions.eden;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.dimensions.eden.biome.BiomeProviderEden;
-import naturix.divinerpg.dimensions.eden.chunk.ChunkGeneratorEden;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.util.math.Vec3d;

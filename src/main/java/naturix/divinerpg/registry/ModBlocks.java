@@ -3,11 +3,11 @@ package naturix.divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTree;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
-import naturix.divinerpg.dimensions.mortum.worldgen.trees.MortumTree;
-import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTree;
-import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
+import naturix.divinerpg.dimensions.apalachia.ApalachiaTree;
+import naturix.divinerpg.dimensions.eden.EdenTree;
+import naturix.divinerpg.dimensions.mortum.MortumTree;
+import naturix.divinerpg.dimensions.skythern.SkythernTree;
+import naturix.divinerpg.dimensions.wildwood.WildWoodTree;
 import naturix.divinerpg.enums.StatueType;
 import naturix.divinerpg.enums.WoodType;
 import naturix.divinerpg.objects.blocks.BlockMod;
@@ -482,15 +482,16 @@ public class ModBlocks {
     public static Block truffle = new BlockMod(Material.PLANTS, "truffle");
 
     //Arcana
-                                                                     //FIXME - Dim ID to match arcana
+    //FIXME - Dim ID to match arcana
     public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", 0);
     public static Block dungenLamp = new BlockMod("dungeon_lamp", false).setLightLevel(1.0F);
-    public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal).setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null);
+    public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal)
+            .setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null);
     public static Block degradedBrick = new BlockMod("degraded_brick", false);
     public static Block ancientBrick = new BlockMod("ancient_brick", false);
     public static Block ancientTile = new BlockMod("ancient_tile", false);
     public static Block arcaniumPower = new BlockMod("arcanium_power", false);
-    
+
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();

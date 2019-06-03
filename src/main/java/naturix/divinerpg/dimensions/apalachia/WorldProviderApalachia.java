@@ -2,8 +2,6 @@ package naturix.divinerpg.dimensions.apalachia;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.dimensions.apalachia.biome.BiomeProviderApalachia;
-import naturix.divinerpg.dimensions.apalachia.chunk.ChunkProviderApalachia;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;

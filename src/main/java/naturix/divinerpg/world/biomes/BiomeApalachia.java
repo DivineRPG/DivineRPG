@@ -3,8 +3,8 @@ package naturix.divinerpg.world.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTree;
-import naturix.divinerpg.dimensions.apalachia.worldgen.trees.ApalachiaTreeLarge;
+import naturix.divinerpg.dimensions.apalachia.ApalachiaTree;
+import naturix.divinerpg.dimensions.apalachia.ApalachiaTreeLarge;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import naturix.divinerpg.world.features.WorldGenTwilightSinglePlants;

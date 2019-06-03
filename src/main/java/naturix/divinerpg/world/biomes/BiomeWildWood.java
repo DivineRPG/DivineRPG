@@ -3,8 +3,8 @@ package naturix.divinerpg.world.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.wildwood.worldgen.trees.LargeWildWoodTree;
-import naturix.divinerpg.dimensions.wildwood.worldgen.trees.WildWoodTree;
+import naturix.divinerpg.dimensions.wildwood.LargeWildWoodTree;
+import naturix.divinerpg.dimensions.wildwood.WildWoodTree;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import naturix.divinerpg.world.features.WorldGenTwilightSinglePlants;

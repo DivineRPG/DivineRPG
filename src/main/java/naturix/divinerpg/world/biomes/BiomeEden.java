@@ -3,9 +3,9 @@ package naturix.divinerpg.world.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.EdenTree;
-import naturix.divinerpg.dimensions.eden.worldgen.trees.LargeEdenTree;
+import naturix.divinerpg.dimensions.eden.EdenTree;
+import naturix.divinerpg.dimensions.eden.LargeEdenTree;
+import naturix.divinerpg.dimensions.eden.WorldGenConeUp;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightSinglePlants;
 import net.minecraft.init.Blocks;

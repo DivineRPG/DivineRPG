@@ -6,7 +6,7 @@ import com.google.common.base.Predicate;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.dimensions.mortum.worldgen.WorldGenMortumStone;
+import naturix.divinerpg.dimensions.mortum.WorldGenMortumStone;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;

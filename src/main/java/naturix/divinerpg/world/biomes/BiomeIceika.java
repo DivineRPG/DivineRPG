@@ -2,7 +2,7 @@ package naturix.divinerpg.world.biomes;
 
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.iceika.worldgen.trees.WorldGenIceTree;
+import naturix.divinerpg.dimensions.iceika.WorldGenIceTree;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;

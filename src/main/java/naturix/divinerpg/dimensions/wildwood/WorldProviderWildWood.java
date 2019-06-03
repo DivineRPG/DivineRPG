@@ -2,8 +2,6 @@ package naturix.divinerpg.dimensions.wildwood;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.dimensions.wildwood.biome.BiomeProviderWildWood;
-import naturix.divinerpg.dimensions.wildwood.chunk.ChunkGeneratorWildWood;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;

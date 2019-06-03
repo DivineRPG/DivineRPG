@@ -2,8 +2,6 @@ package naturix.divinerpg.dimensions.skythern;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.dimensions.skythern.biome.BiomeProviderSkythern;
-import naturix.divinerpg.dimensions.skythern.chunk.ChunkGeneratorSkythern;
 import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
