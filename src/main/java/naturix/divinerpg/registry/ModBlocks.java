@@ -27,6 +27,7 @@ import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockModVine;
 import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
@@ -480,6 +481,16 @@ public class ModBlocks {
 
     public static Block truffle = new BlockMod(Material.PLANTS, "truffle");
 
+    //Arcana
+                                                                     //FIXME - Dim ID to match arcana
+    public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", 0);
+    public static Block dungenLamp = new BlockMod("dungeon_lamp", false).setLightLevel(1.0F);
+    public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal).setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null);
+    public static Block degradedBrick = new BlockMod("degraded_brick", false);
+    public static Block ancientBrick = new BlockMod("ancient_brick", false);
+    public static Block ancientTile = new BlockMod("ancient_tile", false);
+    public static Block arcaniumPower = new BlockMod("arcanium_power", false);
+    
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();
