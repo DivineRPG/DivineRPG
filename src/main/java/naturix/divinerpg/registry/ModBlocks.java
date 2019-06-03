@@ -478,6 +478,8 @@ public class ModBlocks {
 
     public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DRPGCreativeTabs.spawner);
 
+    public static Block truffle = new BlockMod(Material.PLANTS, "truffle");
+
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();

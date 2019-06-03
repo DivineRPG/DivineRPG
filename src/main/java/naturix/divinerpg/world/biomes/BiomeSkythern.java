@@ -7,6 +7,7 @@ import naturix.divinerpg.dimensions.eden.worldgen.features.WorldGenConeUp;
 import naturix.divinerpg.dimensions.skythern.worldgen.WorldGenSkythernPlants;
 import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTree;
 import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTreeLarge;
+import naturix.divinerpg.dimensions.skythern.worldgen.trees.SkythernTreeLargeTruffle;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.util.math.BlockPos;
@@ -45,6 +46,7 @@ public class BiomeSkythern extends Biome {
     public void decorate(World worldIn, Random rand, BlockPos pos) {
         SkythernTree genTree = new SkythernTree(false, 5);
         SkythernTreeLarge genLargeTree = new SkythernTreeLarge(true, 5);
+        SkythernTreeLargeTruffle genLargeTreeTruffle = new SkythernTreeLargeTruffle(true, 5);
         WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
         WorldGenSkythernPlants brush = new WorldGenSkythernPlants(ModBlocks.skythernBrush);
         WorldGenSkythernPlants bloom = new WorldGenSkythernPlants(ModBlocks.dustLily);
@@ -58,6 +60,14 @@ public class BiomeSkythern extends Biome {
             mutPos.setPos(rx, ry, rz);
             bloom.generate(worldIn, rand, mutPos);
             genLargeTree.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 5; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            bloom.generate(worldIn, rand, mutPos);
+            genLargeTreeTruffle.generate(worldIn, rand, mutPos);
         }
         for (int i = 0; i < 100; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;

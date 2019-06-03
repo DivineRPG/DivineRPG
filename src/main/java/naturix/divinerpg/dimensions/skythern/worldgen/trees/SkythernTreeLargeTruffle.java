@@ -12,12 +12,13 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 /**
  * Created by LiteWolf101 on 10/8/2018.
  */
-public class SkythernTreeLarge extends WorldGenAbstractTree {
+public class SkythernTreeLargeTruffle extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
     protected IBlockState log = ModBlocks.skythernLogs.getDefaultState();
     protected IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
+    protected IBlockState truffle = ModBlocks.truffle.getDefaultState();
     
-    public SkythernTreeLarge(boolean notify, int minTrunkHeight) {
+    public SkythernTreeLargeTruffle(boolean notify, int minTrunkHeight) {
         super(notify);
         this.minTrunkHeight = minTrunkHeight;
 
@@ -51,6 +52,7 @@ public class SkythernTreeLarge extends WorldGenAbstractTree {
         buildBranchBase(world, blockPos, trunkHeight + 4);
         buildBranches2(world, blockPos, trunkHeight + 6);
         setTreeHeight(world, blockPos, treeHeight);
+        buildTruffle(world, blockPos, treeHeight);
         return true;
     }
 
@@ -206,6 +208,10 @@ public class SkythernTreeLarge extends WorldGenAbstractTree {
             this.setBlockAndNotifyAdequately(world, blockPos.add(0, dy, 0), log);
         }
     }
+    private void buildTruffle(World world, BlockPos blockPos, int treeHeight) {
+        this.setBlockAndNotifyAdequately(world, blockPos.add(0, -1, -0), truffle);
+    }
+
     private int setTreeHeight(World world, BlockPos pos, int treeHeight) {
         return treeHeight;
     }
