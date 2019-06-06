@@ -9,15 +9,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Created by LiteWolf101 on Feb
- * /04/2019
+ * Created by LiteWolf101 on Feb /04/2019
  */
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 public class CustomTextureStitchHandler {
     @SubscribeEvent
-    public static void pre (TextureStitchEvent.Pre event){
+    public static void pre(TextureStitchEvent.Pre event) {
         TextureMap map = event.getMap();
         map.registerSprite(new ResourceLocation(Reference.MODID, "particle/frost"));
+        map.registerSprite(new ResourceLocation(Reference.MODID, "particle/flame"));
     }
 }

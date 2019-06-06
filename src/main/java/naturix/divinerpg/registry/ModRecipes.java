@@ -637,6 +637,7 @@ public class ModRecipes {
                 ModItems.aquaticBlazeRod);
         addOredictRecipe(new ItemStack(ModBlocks.edenTorch, 4), "x", "y", 'y', "stickWood", 'x',
                 ModItems.edenFragments);
+        addOredictRecipe(new ItemStack(ModBlocks.arcaniumTorch, 4), "x", "y", 'y', "stickWood", 'x', ModItems.arcanium);
 
         addRecipe(new ItemStack(ModBlocks.spikeBlock), "x x", " x ", "x x", 'x', Items.IRON_INGOT);
         addRecipe(new ItemStack(ModBlocks.hotSpikeBlock), "x x", " x ", "x x", 'x', ModItems.netheriteIngot);

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:arcanium_torch",
+    "count": 4
+  },
+  "pattern": [
+    "x",
+    "y"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "x": {
+      "item": "divinerpg:arcanium"
+    },
+    "y": {
+      "item": "#STICKWOOD"
+    }
+  }
+}

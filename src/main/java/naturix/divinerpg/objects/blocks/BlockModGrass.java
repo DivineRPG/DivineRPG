@@ -3,10 +3,8 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.utils.material.EnumBlockType;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -16,12 +14,10 @@ import net.minecraftforge.common.IPlantable;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected BlockMod dirt;
-    protected String dirtName;
 
-    public BlockModGrass(BlockMod dirt, String name, String dirtName, float hardness) {
+    public BlockModGrass(BlockMod dirt, String name, float hardness) {
         super(EnumBlockType.GRASS, name, hardness);
         this.dirt = dirt;
-        this.dirtName = dirtName;
         setTickRandomly(true);
         setHarvestLevel("shovel", 3);
     }
@@ -36,7 +32,8 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         if (!world.isRemote) {
             if (!world.isAreaLoaded(pos, 3))
                 return;
-            if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
+            if (world.getLightFromNeighbors(pos.up()) < 4
+                    && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
                 world.setBlockState(pos, dirt.getDefaultState());
             } else {
                 for (int l = 0; l < 4; ++l) {
@@ -48,7 +45,8 @@ public class BlockModGrass extends BlockMod implements IGrowable {
                     IBlockState iblockstate = world.getBlockState(blockpos.up());
                     IBlockState iblockstate1 = world.getBlockState(blockpos);
 
-                    if (iblockstate1.getBlock() == dirt && world.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(world, pos.up()) <= 2) {
+                    if (iblockstate1.getBlock() == dirt && world.getLightFromNeighbors(blockpos.up()) >= 4
+                            && iblockstate.getLightOpacity(world, pos.up()) <= 2) {
                         world.setBlockState(blockpos, this.getDefaultState());
                     }
                 }
@@ -56,27 +54,21 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         }
     }
 
-    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
-    {
+    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
         return true;
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         return true;
     }
 
-    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
 
-    }
-
-    public String getDirtName() {
-        return dirtName;
     }
 
     @Override
-    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
+            IPlantable plantable) {
 
         //FIXME
         //if (this == ArcanaBlocks.arcanaGrass && plantable instanceof ItemArcanaSeeds)

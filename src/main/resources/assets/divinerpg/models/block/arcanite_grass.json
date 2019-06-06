@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/arcanite_grass_side",
+    "south": "divinerpg:blocks/arcanite_grass_side",
+    "north": "divinerpg:blocks/arcanite_grass_side",
+    "west": "divinerpg:blocks/arcanite_grass_side",
+    "particle": "divinerpg:blocks/arcanite_dirt",
+    "up": "divinerpg:blocks/arcanite_grass_top",
+    "down": "divinerpg:blocks/arcanite_dirt"
+  }
+}

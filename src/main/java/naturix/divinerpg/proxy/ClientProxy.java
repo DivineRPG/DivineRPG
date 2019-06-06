@@ -36,13 +36,11 @@ import naturix.divinerpg.objects.blocks.tile.render.RenderStatue;
 import naturix.divinerpg.objects.blocks.tile.render.TileEntityDramixAltarRender;
 import naturix.divinerpg.objects.blocks.tile.render.TileEntityParasectaAltarRender;
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
-import naturix.divinerpg.particle.ParticleBlackFlame;
-import naturix.divinerpg.particle.ParticleBlueFlame;
 import naturix.divinerpg.particle.ParticleColored;
+import naturix.divinerpg.particle.ParticleColoredFlame;
 import naturix.divinerpg.particle.ParticleEdenPortal;
 import naturix.divinerpg.particle.ParticleEnderTriplet;
 import naturix.divinerpg.particle.ParticleFrost;
-import naturix.divinerpg.particle.ParticleGreenFlame;
 import naturix.divinerpg.particle.ParticleGreenPortal;
 import naturix.divinerpg.particle.ParticleMortumPortal;
 import naturix.divinerpg.particle.ParticleSkythernPortal;
@@ -190,13 +188,16 @@ public class ClientProxy extends CommonProxy {
                 particle = new ParticleGreenPortal(world, x, y, z, velX, velY, velZ);
                 break;
             case BLACK_FLAME:
-                particle = new ParticleBlackFlame(world, x, y, z, velX, velY, velZ);
+                particle = new ParticleColoredFlame(world, x, y, z, velX, velY, velZ, 0, 0, 0);
                 break;
             case BLUE_FLAME:
-                particle = new ParticleBlueFlame(world, x, y, z, velX, velY, velZ);
+                particle = new ParticleColoredFlame(world, x, y, z, velX, velY, velZ, 0.3f, 0.7f, 1);
                 break;
             case GREEN_FLAME:
-                particle = new ParticleGreenFlame(world, x, y, z, velX, velY, velZ);
+                particle = new ParticleColoredFlame(world, x, y, z, velX, velY, velZ, 0, 1, 0);
+                break;
+            case PURPLE_FLAME:
+                particle = new ParticleColoredFlame(world, x, y, z, velX, velY, velZ, 1, 0, 1);
                 break;
             case FROST:
                 particle = new ParticleFrost(world, x, y, z, velX, velY, velZ);

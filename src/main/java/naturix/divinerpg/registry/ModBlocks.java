@@ -30,6 +30,7 @@ import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockHeatTrap;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
@@ -308,7 +309,7 @@ public class ModBlocks {
 
     // Iceika
     public static Block frozenDirt = new BlockMod(EnumBlockType.DIRT, "frozen_dirt", 2.5F);
-    public static Block frozenGrass = new BlockModGrass((BlockMod) frozenDirt, "frozen_grass", "frozen_dirt", 2.5F);
+    public static Block frozenGrass = new BlockModGrass((BlockMod) frozenDirt, "frozen_grass", 2.5F);
     public static Block frozenStone = new BlockMod("frozen_stone", 6.0F);
     public static Block frozenLogs = new BlockModLog("frozen_log").setHardness(5.0F);
     public static Block brittleLeaves = new BlockModLeaves("brittle_leaves", 0.1F);
@@ -359,14 +360,11 @@ public class ModBlocks {
     public static Block apalachiaDirt = new BlockMod(EnumBlockType.DIRT, "apalachia_dirt", 5.0F);
     public static Block skythernDirt = new BlockMod(EnumBlockType.DIRT, "skythern_dirt", 5.0F);
     public static Block mortumDirt = new BlockMod(EnumBlockType.DIRT, "mortum_dirt", 5.0F);
-    public static Block edenGrass = new BlockModGrass((BlockMod) edenDirt, "eden_grass", "eden_dirt", 5.0F);
-    public static Block wildwoodGrass = new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", "wildwood_dirt",
-            5.0F);
-    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass",
-            "apalachia_dirt", 5.0F);
-    public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", "skythern_dirt",
-            5.0F);
-    public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", "mortum_dirt", 5.0F);
+    public static Block edenGrass = new BlockModGrass((BlockMod) edenDirt, "eden_grass", 5.0F);
+    public static Block wildwoodGrass = new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", 5.0F);
+    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass", 5.0F);
+    public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", 5.0F);
+    public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", 5.0F);
 
     public static Block edenOre = new BlockMod("eden_ore", 9).toggleExp(true).setTwilightOre(true)
             .setDropItem(ModItems.edenFragments);
@@ -446,7 +444,25 @@ public class ModBlocks {
     public static Block eyePlant = new BlockTwilightFlower("eye_plant", mortumGrass);
     public static Block mortumBrush = new BlockTwilightGrass("mortum_brush", mortumGrass);
 
+    public static Block truffle = new BlockMod(Material.PLANTS, "truffle");
+
     // Arcana
+    public static Block arcanaDirt = new BlockMod(EnumBlockType.DIRT, "arcanite_dirt", 0.5F);
+    public static Block arcanaGrass = new BlockModGrass((BlockMod) arcanaDirt, "arcanite_grass", 0.5F);
+    public static Block arcaniumOre = new BlockMod("arcanium_ore", 3.0F);
+    public static Block arcaniumMetal = new BlockMod("arcanium_metal", false);
+    //public static Block arcanitetubes = new BlockModLadder("arcanite_tubes");
+    public static Block arcaniumPower = new BlockMod("arcanium_power", false);
+    public static Block dungenLamp = new BlockMod("dungeon_lamp", false).setLightLevel(1.0F);
+    public static Block heatTrap = new BlockHeatTrap("heat_trap", -1F);
+    public static Block heatTrapOn = new BlockHeatTrap("heat_trap_on", -1F);
+    public static Block soulStone = new BlockMod("soul_stone", false);
+    public static Block soulSludge = new BlockMod("soul_sludge", false);
+    public static Block degradedBrick = new BlockMod("degraded_brick", false);
+    public static Block darkDegradedBrick = new BlockMod("dark_degraded_brick", false);
+    public static Block ancientBrick = new BlockMod("ancient_brick", false);
+    public static Block ancientStone = new BlockMod("ancient_stone", false);
+    public static Block lightDegradedBrick = new BlockMod("light_degraded_brick", false);
     public static Block stainedGlass = new BlockModGlass("stained_glass", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass2 = new BlockModGlass("stained_glass2", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass3 = new BlockModGlass("stained_glass3", 0.3F).setUnlocalizedName("stained_glass");
@@ -455,8 +471,38 @@ public class ModBlocks {
     public static Block stainedGlass6 = new BlockModGlass("stained_glass6", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass7 = new BlockModGlass("stained_glass7", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass8 = new BlockModGlass("stained_glass8", 0.3F).setUnlocalizedName("stained_glass");
+    //public static Block dungenSpawnerPrisoner = new BlockStupidSpawner("dungeonPrisonerSpawner", "DungeonPrisoner", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    //public static Block razorbackSpawner = new BlockStupidSpawner("razorbackSpawner", "Razorback", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    //public static Block deathHoundSpawner = new BlockStupidSpawner("deathHoundSpawner", "DeathHound", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    //public static Block deathcryxSpawner = new BlockStupidSpawner("deathcryxSpawner", "Deathcryx", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    //public static Block livingStatueSpawner = new BlockStupidSpawner("livingStatueSpawner", "LivingStatue", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    //public static Block roamerSpawner = new BlockStupidSpawner("roamerSpawner", "Roamer", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    public static Block ancientTile = new BlockMod("ancient_tile", false);
+    //public static Block starBridge = new BlockStarBridge("star_bridge", false);
+    //public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
+    //public static Block soulSludgeDoor = new BlockModDoor(EnumBlockType.IRON, "soul_sludge_door", -1F, false);
+    //public static Block ancientBrickDoor = new BlockModDoor(EnumBlockType.IRON, "ancient_brick_door", -1F, false);
+    //public static Block soulStoneDoor = new BlockModDoor(EnumBlockType.IRON, "soul_stone_door", -1F, false);
+    //public static Block degradedBrickDoor = new BlockModDoor(EnumBlockType.IRON, "degraded_brick_door", -1F, false);
 
-    public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", Blocks.AIR);
+    //public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
+    //public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
+    //public static Block arcanaExtractor = new BlockExtractor("arcana_extractor");
+
+    //FIXME - Dim ID to match arcana
+    public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", 0);
+    public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal);
+    public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal)
+            .setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null);
+
+    //public static Block aquamarine = new BlockAquaMarine("aquamarine_plant");
+    //public static Block eucalyptusRoot = new BlockEucalyptusRoot("eucalyptus_plant");
+    //public static Block hitchak = new BlockHitchak("hitchak_plant");
+    //public static Block veilo = new BlockVeilo("veilo_plant");
+    //public static Block lamona = new BlockLamona("lamona_plant");
+    //public static Block marsine = new BlockMarsine("marsine_plant");
+    //public static Block firestock = new BlockStackPlant("firestock_plant");
+    //public static Block pinfly = new BlockStackPlant("pinfly_plant");
 
     public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log");
 
@@ -473,24 +519,17 @@ public class ModBlocks {
     public static Block demonFurnace = new BlockDemonFurnace("demon_furnace", false);
     public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
 
+    public static Block arcaniumTorch = new BlockModTorch("arcanium_torch", DRPGParticleTypes.PURPLE_FLAME);
+    //public static Block elevantium = new BlockElevantium("elevantium");
+    //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
+    //public static Block acceleron = new BlockAcceleron();
+
+    // Vethea
     //public static Block weedwoodVine = new BlockModVine("weedwood_vine");
     //public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
     public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DRPGCreativeTabs.spawner);
-
-    public static Block truffle = new BlockMod(Material.PLANTS, "truffle");
-
-    //Arcana
-    //FIXME - Dim ID to match arcana
-    public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", 0);
-    public static Block dungenLamp = new BlockMod("dungeon_lamp", false).setLightLevel(1.0F);
-    public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal)
-            .setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null);
-    public static Block degradedBrick = new BlockMod("degraded_brick", false);
-    public static Block ancientBrick = new BlockMod("ancient_brick", false);
-    public static Block ancientTile = new BlockMod("ancient_tile", false);
-    public static Block arcaniumPower = new BlockMod("arcanium_power", false);
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

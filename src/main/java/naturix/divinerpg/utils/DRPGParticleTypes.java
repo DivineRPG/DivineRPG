@@ -14,6 +14,7 @@ public enum DRPGParticleTypes {
     BLACK_FLAME,
     BLUE_FLAME,
     GREEN_FLAME,
+    PURPLE_FLAME,
     FROST,
     SPARKLER,
     ENDER_TRIPLET
