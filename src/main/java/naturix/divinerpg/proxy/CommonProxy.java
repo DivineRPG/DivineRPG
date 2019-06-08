@@ -17,6 +17,7 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityMoltenFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityStupidSpawner;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
@@ -103,6 +104,7 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityAltarOfCorruption.class, Reference.MODID + ":te_altar_of_corruption");
         GameRegistry.registerTileEntity(TileEntityStatue.class, Reference.MODID + ":te_statue");
         GameRegistry.registerTileEntity(TileEntityEdenChest.class, Reference.MODID + ":te_eden_chest");
+        GameRegistry.registerTileEntity(TileEntityStupidSpawner.class, Reference.MODID + ":te_stupid_spawner");
     }
 
     public void RegisterTileEntityRender() {
@@ -111,7 +113,7 @@ public class CommonProxy {
     public void registerVariantRenderer(Item item, int meta, String filename, String id) {
     }
 
-    public void spawnParticle(World world, DRPGParticleTypes particle, double x, double y, double z, double velX,
+    public void spawnParticle(World world, DRPGParticleTypes particle, double z, double x, double y, double velX,
             double velY, double velZ) {
     }
 

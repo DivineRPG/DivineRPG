@@ -34,6 +34,8 @@ import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
 import naturix.divinerpg.objects.blocks.twilight.BlockTallCrop;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
@@ -312,7 +314,7 @@ public class GenerateJSON {
         ModBlocks.BLOCKS.forEach((block) -> {
             String registryName = block.getRegistryName().getResourcePath();
             if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin
-                    || block instanceof BlockChristmasLights) {
+                    || block instanceof BlockChristmasLights || block instanceof BlockArcanaPortalFrame) {
                 if (registryName.contains("demon")) {
                     generateIgnoreVariantBlockstate(registryName);
                 } else {
@@ -1063,6 +1065,8 @@ public class GenerateJSON {
                 generateLadderModelBlock(registryName);
             } else if (registryName.contains("workshop_bookcase")) {
                 generateWorkshopBookcaseModelBlock(registryName);
+            } else if (block instanceof BlockArcanaSpawner) {
+                generateBasicModelBlock(registryName, "arcana_spawner");
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1208,6 +1212,22 @@ public class GenerateJSON {
         json.put("parent", "block/cube_all");
         Map<String, Object> textures = new HashMap<>();
         textures.put("all", Reference.MODID + ":" + "blocks/" + registryName);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateBasicModelBlock(String registryName, String texture) {
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("all", Reference.MODID + ":" + "blocks/" + texture);
         json.put("textures", textures);
 
         File f = new File(MODEL_BLOCK_DIR, registryName + ".json");

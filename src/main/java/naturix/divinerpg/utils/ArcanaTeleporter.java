@@ -1,11 +1,11 @@
 package naturix.divinerpg.utils;
 
-import naturix.divinerpg.Config;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.registry.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 public class ArcanaTeleporter extends Teleporter {
-    
+
     protected WorldServer myWorld;
 
     public ArcanaTeleporter(WorldServer var1) {
@@ -22,27 +22,28 @@ public class ArcanaTeleporter extends Teleporter {
     }
 
     @Override
-    public boolean placeInExistingPortal(Entity entity, float rotationYaw)
-    {
+    public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
         //FIXME - Change Dimension ID to match arcana dimension
-        if (entity.dimension == 0) {        
+        if (entity.dimension == 0) {
             int chunkX = (MathHelper.floor(entity.posX) & ~0xf);
             int chunkZ = (MathHelper.floor(entity.posZ) & ~0xf);
             int y;
 
-             
             // Find existing portal
             for (y = 9; y < 40; y += 8) {
-                if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) == ModBlocks.arcanaPortal.getDefaultState()) {
+                if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) == ModBlocks.arcanaPortal
+                        .getDefaultState()) {
                     entity.setLocationAndAngles(chunkX + 7.5D, y + 0.5D, chunkZ + 7.5D, entity.rotationYaw, 0.0F);
-                    entity.motionX = entity.motionY = entity.motionZ = 0.0D;            
+                    entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                     return true;
                 }
             }
-            
+
             // Find a location to create a new portal room, avoiding double high rooms
             for (y = 8; y < 40; y += 8) {
-                if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) != Blocks.AIR.getDefaultState() && this.myWorld.getBlockState(new BlockPos(chunkX + 7, y + 8, chunkZ + 7)) != Blocks.AIR.getDefaultState()) {
+                if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) != Blocks.AIR.getDefaultState()
+                        && this.myWorld.getBlockState(new BlockPos(chunkX + 7, y + 8, chunkZ + 7)) != Blocks.AIR
+                                .getDefaultState()) {
                     generatePortalRoom(this.myWorld, new BlockPos(chunkX, y, chunkZ));
                     entity.setLocationAndAngles(chunkX + 7.5D, y + 1.5D, chunkZ + 7.5D, entity.rotationYaw, 0.0F);
                     entity.motionX = entity.motionY = entity.motionZ = 0.0D;
@@ -50,26 +51,32 @@ public class ArcanaTeleporter extends Teleporter {
                 }
             }
         } else {
-            entity.motionX = entity.motionY = entity.motionZ = 0.0D;            
+            entity.motionX = entity.motionY = entity.motionZ = 0.0D;
             return true;
         }
-        
+
         return false;
     }
 
     private void generatePortalRoom(World world, BlockPos pos) {
         int x = pos.getX(), y = pos.getY(), z = pos.getZ();
         IBlockState arcanaPortal = ModBlocks.arcanaPortal.getDefaultState();
-        IBlockState arcanaHardPortalFrame = ModBlocks.arcanaHardPortalFrame.getDefaultState();
+        IBlockState arcanaHardPortalFrameNorth = ModBlocks.arcanaHardPortalFrame.getDefaultState();
+        IBlockState arcanaHardPortalFrameSouth = ModBlocks.arcanaHardPortalFrame.getDefaultState()
+                .withProperty(BlockArcanaPortalFrame.FACING, EnumFacing.SOUTH);
+        IBlockState arcanaHardPortalFrameEast = ModBlocks.arcanaHardPortalFrame.getDefaultState()
+                .withProperty(BlockArcanaPortalFrame.FACING, EnumFacing.EAST);
+        IBlockState arcanaHardPortalFrameWest = ModBlocks.arcanaHardPortalFrame.getDefaultState()
+                .withProperty(BlockArcanaPortalFrame.FACING, EnumFacing.WEST);
         IBlockState dungeonBricks = ModBlocks.degradedBrick.getDefaultState();
         IBlockState ancientbricks = ModBlocks.ancientBrick.getDefaultState();
         IBlockState ancientTile = ModBlocks.ancientTile.getDefaultState();
         IBlockState arcanaPower = ModBlocks.arcaniumPower.getDefaultState();
 
-        for(int n = 0; n < 16; n++) {
-            for(int m = 0; m < 16; m++) {
-                for(int o = 1; o < 8; o++) {
-                    world.setBlockState(new BlockPos(x+n, y+o, z+m), Blocks.AIR.getDefaultState());
+        for (int n = 0; n < 16; n++) {
+            for (int m = 0; m < 16; m++) {
+                for (int o = 1; o < 8; o++) {
+                    world.setBlockState(new BlockPos(x + n, y + o, z + m), Blocks.AIR.getDefaultState());
                 }
             }
         }
@@ -335,10 +342,10 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 5, y + 0, z + 14), dungeonBricks);
         world.setBlockState(new BlockPos(x + 5, y + 0, z + 15), ancientbricks);
         world.setBlockState(new BlockPos(x + 5, y + 1, z + 0), dungeonBricks);
-        world.setBlockState(new BlockPos(x + 5, y + 1, z + 6), arcanaHardPortalFrame);
-        world.setBlockState(new BlockPos(x + 5, y + 1, z + 7), arcanaHardPortalFrame);
-        world.setBlockState(new BlockPos(x + 5, y + 1, z + 8), arcanaHardPortalFrame);
-        world.setBlockState(new BlockPos(x + 5, y + 1, z + 9), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 5, y + 1, z + 6), arcanaHardPortalFrameWest);
+        world.setBlockState(new BlockPos(x + 5, y + 1, z + 7), arcanaHardPortalFrameWest);
+        world.setBlockState(new BlockPos(x + 5, y + 1, z + 8), arcanaHardPortalFrameWest);
+        world.setBlockState(new BlockPos(x + 5, y + 1, z + 9), arcanaHardPortalFrameWest);
         world.setBlockState(new BlockPos(x + 5, y + 1, z + 15), dungeonBricks);
         world.setBlockState(new BlockPos(x + 5, y + 2, z + 0), ancientTile);
         world.setBlockState(new BlockPos(x + 5, y + 2, z + 15), ancientTile);
@@ -369,12 +376,12 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 6, y + 0, z + 14), dungeonBricks);
         world.setBlockState(new BlockPos(x + 6, y + 0, z + 15), ancientbricks);
         world.setBlockState(new BlockPos(x + 6, y + 1, z + 0), dungeonBricks);
-        world.setBlockState(new BlockPos(x + 6, y + 1, z + 5), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 6, y + 1, z + 5), arcanaHardPortalFrameNorth);
         world.setBlockState(new BlockPos(x + 6, y + 1, z + 6), arcanaPortal);
         world.setBlockState(new BlockPos(x + 6, y + 1, z + 7), arcanaPortal);
         world.setBlockState(new BlockPos(x + 6, y + 1, z + 8), arcanaPortal);
         world.setBlockState(new BlockPos(x + 6, y + 1, z + 9), arcanaPortal);
-        world.setBlockState(new BlockPos(x + 6, y + 1, z + 10), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 6, y + 1, z + 10), arcanaHardPortalFrameSouth);
         world.setBlockState(new BlockPos(x + 6, y + 1, z + 15), dungeonBricks);
         world.setBlockState(new BlockPos(x + 6, y + 2, z + 0), dungeonBricks);
         world.setBlockState(new BlockPos(x + 6, y + 2, z + 15), dungeonBricks);
@@ -404,12 +411,12 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 7, y + 0, z + 13), ancientbricks);
         world.setBlockState(new BlockPos(x + 7, y + 0, z + 14), ancientbricks);
         world.setBlockState(new BlockPos(x + 7, y + 0, z + 15), ancientbricks);
-        world.setBlockState(new BlockPos(x + 7, y + 1, z + 5), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 7, y + 1, z + 5), arcanaHardPortalFrameNorth);
         world.setBlockState(new BlockPos(x + 7, y + 1, z + 6), arcanaPortal);
         world.setBlockState(new BlockPos(x + 7, y + 1, z + 7), arcanaPortal);
         world.setBlockState(new BlockPos(x + 7, y + 1, z + 8), arcanaPortal);
         world.setBlockState(new BlockPos(x + 7, y + 1, z + 9), arcanaPortal);
-        world.setBlockState(new BlockPos(x + 7, y + 1, z + 10), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 7, y + 1, z + 10), arcanaHardPortalFrameSouth);
         world.setBlockState(new BlockPos(x + 7, y + 3, z + 0), arcanaPower);
         world.setBlockState(new BlockPos(x + 7, y + 3, z + 15), arcanaPower);
         world.setBlockState(new BlockPos(x + 7, y + 4, z + 0), ancientbricks);
@@ -436,12 +443,12 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 8, y + 0, z + 13), ancientbricks);
         world.setBlockState(new BlockPos(x + 8, y + 0, z + 14), ancientbricks);
         world.setBlockState(new BlockPos(x + 8, y + 0, z + 15), ancientbricks);
-        world.setBlockState(new BlockPos(x + 8, y + 1, z + 5), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 8, y + 1, z + 5), arcanaHardPortalFrameNorth);
         world.setBlockState(new BlockPos(x + 8, y + 1, z + 6), arcanaPortal);
         world.setBlockState(new BlockPos(x + 8, y + 1, z + 7), arcanaPortal);
         world.setBlockState(new BlockPos(x + 8, y + 1, z + 8), arcanaPortal);
         world.setBlockState(new BlockPos(x + 8, y + 1, z + 9), arcanaPortal);
-        world.setBlockState(new BlockPos(x + 8, y + 1, z + 10), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 8, y + 1, z + 10), arcanaHardPortalFrameSouth);
         world.setBlockState(new BlockPos(x + 8, y + 3, z + 0), arcanaPower);
         world.setBlockState(new BlockPos(x + 8, y + 3, z + 15), arcanaPower);
         world.setBlockState(new BlockPos(x + 8, y + 4, z + 0), ancientbricks);
@@ -469,12 +476,12 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 9, y + 0, z + 14), dungeonBricks);
         world.setBlockState(new BlockPos(x + 9, y + 0, z + 15), ancientbricks);
         world.setBlockState(new BlockPos(x + 9, y + 1, z + 0), dungeonBricks);
-        world.setBlockState(new BlockPos(x + 9, y + 1, z + 5), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 9, y + 1, z + 5), arcanaHardPortalFrameNorth);
         world.setBlockState(new BlockPos(x + 9, y + 1, z + 6), arcanaPortal);
         world.setBlockState(new BlockPos(x + 9, y + 1, z + 7), arcanaPortal);
         world.setBlockState(new BlockPos(x + 9, y + 1, z + 8), arcanaPortal);
         world.setBlockState(new BlockPos(x + 9, y + 1, z + 9), arcanaPortal);
-        world.setBlockState(new BlockPos(x + 9, y + 1, z + 10), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 9, y + 1, z + 10), arcanaHardPortalFrameSouth);
         world.setBlockState(new BlockPos(x + 9, y + 1, z + 15), dungeonBricks);
         world.setBlockState(new BlockPos(x + 9, y + 2, z + 0), dungeonBricks);
         world.setBlockState(new BlockPos(x + 9, y + 2, z + 15), dungeonBricks);
@@ -505,10 +512,10 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 10, y + 0, z + 14), dungeonBricks);
         world.setBlockState(new BlockPos(x + 10, y + 0, z + 15), ancientbricks);
         world.setBlockState(new BlockPos(x + 10, y + 1, z + 0), dungeonBricks);
-        world.setBlockState(new BlockPos(x + 10, y + 1, z + 6), arcanaHardPortalFrame);
-        world.setBlockState(new BlockPos(x + 10, y + 1, z + 7), arcanaHardPortalFrame);
-        world.setBlockState(new BlockPos(x + 10, y + 1, z + 8), arcanaHardPortalFrame);
-        world.setBlockState(new BlockPos(x + 10, y + 1, z + 9), arcanaHardPortalFrame);
+        world.setBlockState(new BlockPos(x + 10, y + 1, z + 6), arcanaHardPortalFrameEast);
+        world.setBlockState(new BlockPos(x + 10, y + 1, z + 7), arcanaHardPortalFrameEast);
+        world.setBlockState(new BlockPos(x + 10, y + 1, z + 8), arcanaHardPortalFrameEast);
+        world.setBlockState(new BlockPos(x + 10, y + 1, z + 9), arcanaHardPortalFrameEast);
         world.setBlockState(new BlockPos(x + 10, y + 1, z + 15), dungeonBricks);
         world.setBlockState(new BlockPos(x + 10, y + 2, z + 0), ancientTile);
         world.setBlockState(new BlockPos(x + 10, y + 2, z + 15), ancientTile);
@@ -767,7 +774,7 @@ public class ArcanaTeleporter extends Teleporter {
         world.setBlockState(new BlockPos(x + 15, y + 7, z + 14), dungeonBricks);
         world.setBlockState(new BlockPos(x + 15, y + 7, z + 15), dungeonBricks);
     }
-    
+
     @Override
     public boolean makePortal(Entity entity) {
         return false;

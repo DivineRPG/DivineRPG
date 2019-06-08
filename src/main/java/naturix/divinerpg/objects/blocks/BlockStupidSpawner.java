@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityStupidSpawner;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -9,18 +10,18 @@ import naturix.divinerpg.utils.Reference;
 import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 
-public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
+public class BlockStupidSpawner extends BlockMobSpawner implements IHasModel {
     protected String name;
     protected String mobName;
+    protected boolean spawnParticles;
 
-    public BlockModSpawner(String name, String mobName) {
+    public BlockStupidSpawner(String name, String mobName, boolean spawnParticles) {
         this.name = name;
         this.mobName = Reference.MODID + "." + mobName;
+        this.spawnParticles = spawnParticles;
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
@@ -33,17 +34,18 @@ public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
 
     @Override
     public TileEntity createNewTileEntity(World world, int par1) {
-        TileEntityMobSpawner spawner = new TileEntityMobSpawner();
-        NBTTagCompound compound = new NBTTagCompound();
-        NBTTagCompound compound2 = new NBTTagCompound();
-        spawner.writeToNBT(compound);
-        compound2.setString("id", Reference.MODID + ":" + mobName);
-        compound.setTag("SpawnData", compound2);
-        compound.setString("SpawnPotentials", mobName);
-        spawner.readFromNBT(compound);
-        spawner.readFromNBT(compound2);
-        spawner.markDirty();
+        TileEntityStupidSpawner spawner = new TileEntityStupidSpawner();
+        setEntityName(spawner);
+        setSpawnParticles(spawner);
         return spawner;
+    }
+
+    protected void setEntityName(TileEntityStupidSpawner spawner) {
+        spawner.setEntityName(mobName);
+    }
+
+    protected void setSpawnParticles(TileEntityStupidSpawner spawner) {
+        spawner.setSpawnParticles(spawnParticles);
     }
 
     @Override

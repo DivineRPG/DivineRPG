@@ -29,7 +29,9 @@ import naturix.divinerpg.objects.blocks.BlockModVine;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockHeatTrap;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
@@ -322,9 +324,8 @@ public class ModBlocks {
     public static Block frostedChest = new BlockFrostedChest("frosted_chest", true).setHardness(2.5F);
     public static Block decorativeFrostedChest = new BlockFrostedChest("decorative_frosted_chest", false)
             .setHardness(2.5F);
-    public static Block rollumSpawner = new BlockModSpawner("rollum_spawner", "rollum").setHardness(5.0F);
-    public static Block frostArcherSpawner = new BlockModSpawner("frost_archer_spawner", "frost_archer")
-            .setHardness(5.0F);
+    public static Block rollumSpawner = new BlockModSpawner("rollum_spawner", "rollum");
+    public static Block frostArcherSpawner = new BlockModSpawner("frost_archer_spawner", "frost_archer");
     public static Block snowBricks = new BlockMod("snow_bricks", 6.0F);
     public static Block coalstone = new BlockMod("coalstone", 3.0F);
     public static Block coalstoneStairs = new BlockModStairs(coalstone, "coalstone_stairs");
@@ -471,12 +472,12 @@ public class ModBlocks {
     public static Block stainedGlass6 = new BlockModGlass("stained_glass6", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass7 = new BlockModGlass("stained_glass7", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass8 = new BlockModGlass("stained_glass8", 0.3F).setUnlocalizedName("stained_glass");
-    //public static Block dungenSpawnerPrisoner = new BlockStupidSpawner("dungeonPrisonerSpawner", "DungeonPrisoner", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
-    //public static Block razorbackSpawner = new BlockStupidSpawner("razorbackSpawner", "Razorback", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
-    //public static Block deathHoundSpawner = new BlockStupidSpawner("deathHoundSpawner", "DeathHound", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
-    //public static Block deathcryxSpawner = new BlockStupidSpawner("deathcryxSpawner", "Deathcryx", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
-    //public static Block livingStatueSpawner = new BlockStupidSpawner("livingStatueSpawner", "LivingStatue", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
-    //public static Block roamerSpawner = new BlockStupidSpawner("roamerSpawner", "Roamer", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
+    public static Block dungenSpawnerPrisoner = new BlockArcanaSpawner("dungeon_prisoner_spawner", "dungeon_prisoner");
+    public static Block razorbackSpawner = new BlockArcanaSpawner("razorback_spawner", "razorback");
+    public static Block deathHoundSpawner = new BlockArcanaSpawner("death_hound_spawner", "death_hound");
+    public static Block deathcryxSpawner = new BlockArcanaSpawner("deathcryx_spawner", "deathcryx");
+    public static Block livingStatueSpawner = new BlockArcanaSpawner("living_statue_spawner", "living_statue");
+    public static Block roamerSpawner = new BlockArcanaSpawner("roamer_spawner", "roamer");
     public static Block ancientTile = new BlockMod("ancient_tile", false);
     //public static Block starBridge = new BlockStarBridge("star_bridge", false);
     //public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
@@ -520,7 +521,7 @@ public class ModBlocks {
     public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
 
     public static Block arcaniumTorch = new BlockModTorch("arcanium_torch", DRPGParticleTypes.PURPLE_FLAME);
-    //public static Block elevantium = new BlockElevantium("elevantium");
+    public static Block elevantium = new BlockElevantium("elevantium");
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
     //public static Block acceleron = new BlockAcceleron();
 
