@@ -1,32 +1,30 @@
-package naturix.divinerpg.world.biomes;
+package naturix.divinerpg.dimensions.wildwood;
 
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.eden.WorldGenConeUp;
-import naturix.divinerpg.dimensions.skythern.SkythernTree;
-import naturix.divinerpg.dimensions.skythern.SkythernTreeLarge;
-import naturix.divinerpg.dimensions.skythern.SkythernTreeLargeTruffle;
-import naturix.divinerpg.dimensions.skythern.WorldGenSkythernPlants;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
+import naturix.divinerpg.world.features.WorldGenTwilightSinglePlants;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BiomeSkythern extends Biome {
+public class BiomeWildWood extends Biome {
 
-    private static BiomeProperties properties = new BiomeProperties("Skythern");
+    private static BiomeProperties properties = new BiomeProperties("WildWood");
     private World world;
     private Random rand;
     private BlockPos pos;
 
-    public BiomeSkythern() {
+    public BiomeWildWood() {
         super(properties);
-        this.topBlock = ModBlocks.skythernGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.skythernDirt.getDefaultState();
+        this.topBlock = ModBlocks.wildwoodGrass.getDefaultState();
+        this.fillerBlock = ModBlocks.wildwoodDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();
@@ -44,14 +42,15 @@ public class BiomeSkythern extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-        SkythernTree genTree = new SkythernTree(false, 5);
-        SkythernTreeLarge genLargeTree = new SkythernTreeLarge(true, 5);
-        SkythernTreeLargeTruffle genLargeTreeTruffle = new SkythernTreeLargeTruffle(true, 5);
-        WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
-        WorldGenSkythernPlants brush = new WorldGenSkythernPlants(ModBlocks.skythernBrush);
-        WorldGenSkythernPlants bloom = new WorldGenSkythernPlants(ModBlocks.dustLily);
-        WorldGenTwilightDoublePlants blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles,
-                ModBlocks.skythernGrass);
+        WildWoodTree genTree = new WildWoodTree(false, 5);
+        LargeWildWoodTree genLargeTree = new LargeWildWoodTree(true, 5);
+        WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
+        WorldGenTwilightSinglePlants genMoonlightFern = new WorldGenTwilightSinglePlants(ModBlocks.moonlightFern,
+                ModBlocks.wildwoodGrass);
+        WorldGenTwilightSinglePlants genMoonBud = new WorldGenTwilightSinglePlants(ModBlocks.moonBud,
+                ModBlocks.wildwoodGrass);
+        WorldGenTwilightDoublePlants genWildwoodTallgrass = new WorldGenTwilightDoublePlants(
+                ModBlocks.wildwoodTallgrass, ModBlocks.wildwoodGrass);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
         for (int i = 0; i < 40; i++) {
@@ -59,35 +58,11 @@ public class BiomeSkythern extends Biome {
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            bloom.generate(worldIn, rand, mutPos);
             genLargeTree.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 30; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            bloom.generate(worldIn, rand, mutPos);
-            genLargeTreeTruffle.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 100; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            brush.generate(worldIn, rand, mutPos);
-            blossom.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 1000; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            brush.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 10; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             genTree.generate(worldIn, rand, mutPos);
@@ -97,8 +72,28 @@ public class BiomeSkythern extends Biome {
             int ry = 55 + rand.nextInt(20);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            genConeUp.generate(worldIn, rand, mutPos);
+            genLakes.generate(worldIn, rand, mutPos);
         }
-
+        for (int i = 0; i < 18; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genMoonlightFern.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 18; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genMoonBud.generate(worldIn, rand, mutPos);
+        }
+        for (int i = 0; i < 18; i++) {
+            int rx = pos.getX() + rand.nextInt(16) + 8;
+            int ry = 13 + rand.nextInt(80);
+            int rz = pos.getZ() + rand.nextInt(16) + 8;
+            mutPos.setPos(rx, ry, rz);
+            genWildwoodTallgrass.generate(worldIn, rand, mutPos);
+        }
     }
 }

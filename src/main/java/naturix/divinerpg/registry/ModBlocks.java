@@ -16,6 +16,7 @@ import naturix.divinerpg.objects.blocks.BlockModDoublePlant;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModGlass;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
+import naturix.divinerpg.objects.blocks.BlockModLadder;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
 import naturix.divinerpg.objects.blocks.BlockModPlank;
@@ -452,7 +453,7 @@ public class ModBlocks {
     public static Block arcanaGrass = new BlockModGrass((BlockMod) arcanaDirt, "arcanite_grass", 0.5F);
     public static Block arcaniumOre = new BlockMod("arcanium_ore", 3.0F);
     public static Block arcaniumMetal = new BlockMod("arcanium_metal", false);
-    //public static Block arcanitetubes = new BlockModLadder("arcanite_tubes");
+    public static Block arcaniteTubes = new BlockModLadder("arcanite_tubes");
     public static Block arcaniumPower = new BlockMod("arcanium_power", false);
     public static Block dungenLamp = new BlockMod("dungeon_lamp", false).setLightLevel(1.0F);
     public static Block heatTrap = new BlockHeatTrap("heat_trap", -1F);
@@ -491,7 +492,7 @@ public class ModBlocks {
     //public static Block arcanaExtractor = new BlockExtractor("arcana_extractor");
 
     //FIXME - Dim ID to match arcana
-    public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", 0);
+    public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId());
     public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal);
     public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal)
             .setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null);

@@ -1,13 +1,9 @@
-package naturix.divinerpg.world.biomes;
+package naturix.divinerpg.dimensions.mortum;
 
 import java.awt.Color;
 import java.util.Random;
 
 import naturix.divinerpg.dimensions.eden.WorldGenConeUp;
-import naturix.divinerpg.dimensions.mortum.MortumTree;
-import naturix.divinerpg.dimensions.mortum.MortumTreeLarge;
-import naturix.divinerpg.dimensions.mortum.WorldGenMortumPlants;
-import naturix.divinerpg.dimensions.mortum.WorldGenMortumStone;
 import naturix.divinerpg.dimensions.skythern.SkythernTree;
 import naturix.divinerpg.dimensions.skythern.SkythernTreeLarge;
 import naturix.divinerpg.dimensions.skythern.WorldGenSkythernPlants;

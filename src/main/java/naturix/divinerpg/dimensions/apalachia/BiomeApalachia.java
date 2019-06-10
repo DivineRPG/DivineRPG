@@ -1,10 +1,8 @@
-package naturix.divinerpg.world.biomes;
+package naturix.divinerpg.dimensions.apalachia;
 
 import java.awt.Color;
 import java.util.Random;
 
-import naturix.divinerpg.dimensions.wildwood.LargeWildWoodTree;
-import naturix.divinerpg.dimensions.wildwood.WildWoodTree;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.world.features.WorldGenTwilightDoublePlants;
 import naturix.divinerpg.world.features.WorldGenTwilightSinglePlants;
@@ -16,17 +14,17 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BiomeWildWood extends Biome {
+public class BiomeApalachia extends Biome {
 
-    private static BiomeProperties properties = new BiomeProperties("WildWood");
+    private static BiomeProperties properties = new BiomeProperties("Apalachia");
     private World world;
     private Random rand;
     private BlockPos pos;
 
-    public BiomeWildWood() {
+    public BiomeApalachia() {
         super(properties);
-        this.topBlock = ModBlocks.wildwoodGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.wildwoodDirt.getDefaultState();
+        this.topBlock = ModBlocks.apalachiaGrass.getDefaultState();
+        this.fillerBlock = ModBlocks.apalachiaDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();
@@ -44,15 +42,15 @@ public class BiomeWildWood extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-        WildWoodTree genTree = new WildWoodTree(false, 5);
-        LargeWildWoodTree genLargeTree = new LargeWildWoodTree(true, 5);
+        ApalachiaTree genTree = new ApalachiaTree(false, 5);
+        ApalachiaTreeLarge genLargeTree = new ApalachiaTreeLarge(true, 5);
         WorldGenLakes genLakes = new WorldGenLakes(Blocks.WATER);
-        WorldGenTwilightSinglePlants genMoonlightFern = new WorldGenTwilightSinglePlants(ModBlocks.moonlightFern,
-                ModBlocks.wildwoodGrass);
-        WorldGenTwilightSinglePlants genMoonBud = new WorldGenTwilightSinglePlants(ModBlocks.moonBud,
-                ModBlocks.wildwoodGrass);
-        WorldGenTwilightDoublePlants genWildwoodTallgrass = new WorldGenTwilightDoublePlants(
-                ModBlocks.wildwoodTallgrass, ModBlocks.wildwoodGrass);
+        WorldGenTwilightDoublePlants genDuskFlower = new WorldGenTwilightDoublePlants(ModBlocks.duskFlower,
+                ModBlocks.apalachiaGrass);
+        WorldGenTwilightSinglePlants genTallGrass = new WorldGenTwilightSinglePlants(ModBlocks.apalachiaTallgrass,
+                ModBlocks.apalachiaGrass);
+        WorldGenTwilightSinglePlants genDuskBloom = new WorldGenTwilightSinglePlants(ModBlocks.duskBloom,
+                ModBlocks.apalachiaGrass);
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
         for (int i = 0; i < 40; i++) {
@@ -76,26 +74,26 @@ public class BiomeWildWood extends Biome {
             mutPos.setPos(rx, ry, rz);
             genLakes.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 12; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            genMoonlightFern.generate(worldIn, rand, mutPos);
+            genDuskFlower.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 20; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            genMoonBud.generate(worldIn, rand, mutPos);
+            genTallGrass.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 12; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
-            genWildwoodTallgrass.generate(worldIn, rand, mutPos);
+            genDuskBloom.generate(worldIn, rand, mutPos);
         }
     }
 }
