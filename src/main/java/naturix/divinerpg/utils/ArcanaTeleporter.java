@@ -39,10 +39,8 @@ public class ArcanaTeleporter extends Teleporter {
                 }
             }
 
-            // FIXME - Comment out test till worldgen is farther along.
-
             // Find a location to create a new portal room, avoiding double high rooms
-            /*for (y = 8; y < 40; y += 8) {
+            for (y = 8; y < 40; y += 8) {
                 if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) != Blocks.AIR.getDefaultState()
                         && this.myWorld.getBlockState(new BlockPos(chunkX + 7, y + 8, chunkZ + 7)) != Blocks.AIR
                                 .getDefaultState()) {
@@ -51,18 +49,13 @@ public class ArcanaTeleporter extends Teleporter {
                     entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                     return true;
                 }
-            }*/
-            y = 20;
-            generatePortalRoom(this.myWorld, new BlockPos(chunkX, y, chunkZ));
-            entity.setLocationAndAngles(chunkX + 7.5D, y + 1.5D, chunkZ + 7.5D, entity.rotationYaw, 0.0F);
-            entity.motionX = entity.motionY = entity.motionZ = 0.0D;
-            return true;
+            }
         } else {
             entity.motionX = entity.motionY = entity.motionZ = 0.0D;
             return true;
         }
 
-        //return false;
+        return false;
     }
 
     private void generatePortalRoom(World world, BlockPos pos) {
