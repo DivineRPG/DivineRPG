@@ -22,8 +22,9 @@ public class Acceleron extends BlockMod {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
 	public Acceleron(String name) {
-		super(EnumBlockType.ROCK, name, DRPGCreativeTabs.BlocksTab);
+		super(EnumBlockType.ROCK, name, DRPGCreativeTabs.utility);
 		slipperiness = 1.2f;
+		this.setHardness(3.0F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
 	}
