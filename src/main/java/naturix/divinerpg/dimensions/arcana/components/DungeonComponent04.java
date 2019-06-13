@@ -6,7 +6,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.chunk.Chunk;
 
-public class DungeonComponent4 extends DungeonComponentBase {
+public class DungeonComponent04 extends DungeonComponentBase {
     @Override
     public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
         Block dungeonBricks = ModBlocks.degradedBrick;

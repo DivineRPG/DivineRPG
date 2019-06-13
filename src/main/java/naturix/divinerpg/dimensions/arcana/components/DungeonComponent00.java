@@ -6,7 +6,7 @@ import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.chunk.Chunk;
 
-public class DungeonComponent extends DungeonComponentBase {
+public class DungeonComponent00 extends DungeonComponentBase {
     @Override
     public boolean generate(Chunk chunk, Random rand, int x, int y, int z) {
         Block heatTraps = ModBlocks.heatTrap;

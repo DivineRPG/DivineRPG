@@ -5,10 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 import naturix.divinerpg.dimensions.arcana.components.DungeonCeiling;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponenet18;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponenet19;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent1;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent00;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent01;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponent10;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponent11;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponent12;
@@ -17,15 +15,17 @@ import naturix.divinerpg.dimensions.arcana.components.DungeonComponent14;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponent15;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponent16;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponent17;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent2;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent22;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent3;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent4;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent5;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent6;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent7;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent8;
-import naturix.divinerpg.dimensions.arcana.components.DungeonComponent9;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent18;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent19;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent02;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent20;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent03;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent04;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent05;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent06;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent07;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent08;
+import naturix.divinerpg.dimensions.arcana.components.DungeonComponent09;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponentBase;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponentDramix;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponentParasecta;
@@ -57,15 +57,15 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         Rooms = new ArrayList(21);
         BossRooms = new ArrayList(2);
 
-        Rooms.add(new DungeonComponent());
-        Rooms.add(new DungeonComponent1());
-        Rooms.add(new DungeonComponent2());
-        Rooms.add(new DungeonComponent3());
-        Rooms.add(new DungeonComponent4());
-        Rooms.add(new DungeonComponent5());
-        Rooms.add(new DungeonComponent6());
-        Rooms.add(new DungeonComponent7());
-        Rooms.add(new DungeonComponent9());
+        Rooms.add(new DungeonComponent00());
+        Rooms.add(new DungeonComponent01());
+        Rooms.add(new DungeonComponent02());
+        Rooms.add(new DungeonComponent03());
+        Rooms.add(new DungeonComponent04());
+        Rooms.add(new DungeonComponent05());
+        Rooms.add(new DungeonComponent06());
+        Rooms.add(new DungeonComponent07());
+        Rooms.add(new DungeonComponent09());
         Rooms.add(new DungeonComponent10());
         Rooms.add(new DungeonComponent11());
         Rooms.add(new DungeonComponent12());
@@ -74,10 +74,10 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         Rooms.add(new DungeonComponent15());
         Rooms.add(new DungeonComponent16());
         Rooms.add(new DungeonComponent17());
-        Rooms.add(new DungeonComponent22());
-        Rooms.add(new DungeonComponenet18());
-        Rooms.add(new DungeonComponenet19());
-        Rooms.add(new DungeonComponent8());
+        Rooms.add(new DungeonComponent20());
+        Rooms.add(new DungeonComponent18());
+        Rooms.add(new DungeonComponent19());
+        Rooms.add(new DungeonComponent08());
         BossRooms.add(new DungeonComponentParasecta());
         BossRooms.add(new DungeonComponentDramix());
         Ceiling = new DungeonCeiling();
@@ -99,7 +99,7 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
 
         for (int i = 4; i > 0; i--) {
             DungeonComponentBase room = (DungeonComponentBase) (Rooms.get(rand.nextInt(21)));
-            if (room instanceof DungeonComponent8 && i >= 3)
+            if (room instanceof DungeonComponent08 && i >= 3)
                 room = (DungeonComponentBase) (Rooms.get(this.rand.nextInt(10) + 10));
 
             room.generate(chunk, rand, 0, i * 8, 0);

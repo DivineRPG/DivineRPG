@@ -348,6 +348,8 @@ public class GenerateJSON {
                 generateSaplingBlockstate(registryName);
             } else if (block instanceof BlockModDoublePlant) {
                 generateDoublePlantBlockstate(registryName);
+            } else if (block instanceof BlockModDoor) {
+                generateDoorBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -1010,6 +1012,85 @@ public class GenerateJSON {
         }
     }
 
+    private static void generateDoorBlockstate(String registryName) {
+        String door = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> variants = new HashMap<>();
+
+        for (int half = 0; half < 2; half++) {
+            for (int hinge = 0; hinge < 2; hinge++) {
+                for (int open = 0; open < 2; open++) {
+                    for (int powered = 0; powered < 2; powered++) {
+                        String props = (half == 0 ? ",half=lower" : ",half=upper")
+                                + (hinge == 0 ? ",hinge=left" : ",hinge=right")
+                                + (open == 0 ? ",open=false" : ",open=true")
+                                + (powered == 0 ? ",powered=false" : ",powered=true");
+                        String model = door + (half == 0 ? "_bottom" : "_top") + (hinge == 0 ? "" : "_rh");
+                        if (open == 0) {
+                            Map<String, Object> variant = new HashMap<>();
+                            variant.put("model", model);
+                            variants.put("facing=east" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 90);
+                            variants.put("facing=south" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 180);
+                            variants.put("facing=west" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 270);
+                            variants.put("facing=north" + props, variant);
+                        } else if (hinge == 0) {
+                            Map<String, Object> variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 90);
+                            variants.put("facing=east" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 180);
+                            variants.put("facing=south" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 270);
+                            variants.put("facing=west" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variants.put("facing=north" + props, variant);
+                        } else {
+                            Map<String, Object> variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 270);
+                            variants.put("facing=east" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variants.put("facing=south" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 90);
+                            variants.put("facing=west" + props, variant);
+                            variant = new HashMap<>();
+                            variant.put("model", model);
+                            variant.put("y", 180);
+                            variants.put("facing=north" + props, variant);
+                        }
+                    }
+                }
+            }
+        }
+
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateModelBlockJSONs() {
         setupModelBlockDir();
 
@@ -1067,6 +1148,8 @@ public class GenerateJSON {
                 generateWorkshopBookcaseModelBlock(registryName);
             } else if (block instanceof BlockArcanaSpawner) {
                 generateBasicModelBlock(registryName, "arcana_spawner");
+            } else if (block instanceof BlockModDoor) {
+                generateDoorModelBlock(registryName);
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1580,6 +1663,61 @@ public class GenerateJSON {
         json.put("elements", elements);
 
         File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateDoorModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/door_bottom");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("bottom", texturePath + "_bottom");
+        textures.put("top", texturePath + "_top");
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + "_bottom.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/door_bottom_rh");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_bottom_rh.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/door_top");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_top.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        json = new HashMap<>();
+        json.put("parent", "block/door_top_rh");
+        json.put("textures", textures);
+
+        f = new File(MODEL_BLOCK_DIR, registryName + "_top_rh.json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);

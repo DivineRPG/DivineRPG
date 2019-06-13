@@ -1,8 +1,7 @@
 {
   "parent": "block/door_bottom",
-  "textures":
-  {
-    "bottom": "divinerpg:blocks/steel_door_block_bottom",
-    "top": "divinerpg:blocks/steel_door_block_top"
+  "textures": {
+    "top": "divinerpg:blocks/steel_door_top",
+    "bottom": "divinerpg:blocks/steel_door_bottom"
   }
 }

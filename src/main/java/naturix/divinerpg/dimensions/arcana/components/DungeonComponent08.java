@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.chunk.Chunk;
 
-public class DungeonComponent8 extends DungeonComponentBase {
+public class DungeonComponent08 extends DungeonComponentBase {
     @Override
     public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
         Block dungeonBricks = ModBlocks.degradedBrick;

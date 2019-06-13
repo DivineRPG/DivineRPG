@@ -335,7 +335,7 @@ public class ModBlocks {
     public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",
             DRPGCreativeTabs.BlocksTab).setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
-    public static Block steelDoor = new BlockModDoor("steel_door", Material.ANVIL, 7.0f);
+    public static Block steelDoor = new BlockModDoor("steel_door", Material.IRON, 7.0f, true);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
     public static Block coalstoneFurnaceOn = new BlockCoalstoneFurnace("coalstone_furnace_on", true);
 
@@ -482,16 +482,15 @@ public class ModBlocks {
     public static Block ancientTile = new BlockMod("ancient_tile", false);
     //public static Block starBridge = new BlockStarBridge("star_bridge", false);
     //public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
-    //public static Block soulSludgeDoor = new BlockModDoor(EnumBlockType.IRON, "soul_sludge_door", -1F, false);
-    //public static Block ancientBrickDoor = new BlockModDoor(EnumBlockType.IRON, "ancient_brick_door", -1F, false);
-    //public static Block soulStoneDoor = new BlockModDoor(EnumBlockType.IRON, "soul_stone_door", -1F, false);
-    //public static Block degradedBrickDoor = new BlockModDoor(EnumBlockType.IRON, "degraded_brick_door", -1F, false);
+    public static Block soulSludgeDoor = new BlockModDoor("soul_sludge_door", Material.IRON, -1F, false);
+    public static Block ancientBrickDoor = new BlockModDoor("ancient_brick_door", Material.IRON, -1F, false);
+    public static Block soulStoneDoor = new BlockModDoor("soul_stone_door", Material.IRON, -1F, false);
+    public static Block degradedBrickDoor = new BlockModDoor("degraded_brick_door", Material.IRON, -1F, false);
 
     //public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
     //public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
     //public static Block arcanaExtractor = new BlockExtractor("arcana_extractor");
 
-    //FIXME - Dim ID to match arcana
     public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId());
     public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal);
     public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal)
