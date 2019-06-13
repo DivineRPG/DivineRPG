@@ -151,7 +151,6 @@ import naturix.divinerpg.objects.entities.assets.render.vethea.RenderVhraak;
 import naturix.divinerpg.objects.entities.assets.render.vethea.RenderWreckForm;
 import naturix.divinerpg.objects.entities.assets.render.vethea.RenderZone;
 import naturix.divinerpg.objects.entities.assets.render.vethea.RenderZoragon;
-import naturix.divinerpg.objects.entities.entity.EntityDisk;
 import naturix.divinerpg.objects.entities.entity.EntityEMP;
 import naturix.divinerpg.objects.entities.entity.EntityFrostCloud;
 import naturix.divinerpg.objects.entities.entity.arcana.DeathHound;
@@ -179,6 +178,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityDisk;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
@@ -376,6 +376,7 @@ public class ModEntities {
         registerProjectile(EntityCoriShot.class, "cori_shot");
         registerProjectile(EntityTwilightMageShot.class, "twilight_mage_shot");
         registerProjectile(EntitySoulFiendShot.class, "soul_fiend_shot");
+        registerProjectile(EntityDisk.class, "disk");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -646,6 +647,7 @@ public class ModEntities {
         EntityWatcherShot.renderMe();
         EntitySnowflakeShuriken.renderMe();
         EntityShooterBullet.renderMe();
+        EntityDisk.renderMe();
         EntityCorruptedBullet.renderMe();
         EntitySerenadeOfDeath.renderMe();
         EntitySerenadeOfIce.renderMe();
