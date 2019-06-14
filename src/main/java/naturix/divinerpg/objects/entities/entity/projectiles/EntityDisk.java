@@ -1,6 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.enums.BulletType;
+import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderDisk;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class EntityDisk extends EntityThrowable {
     private static final DataParameter<Byte> BULLET_ID = EntityDataManager.<Byte>createKey(EntityDisk.class,
             DataSerializers.BYTE);
-    private BulletType bulletType;
+    private DiskType bulletType;
     public float damage;
     public int counter;
     public int icon;
@@ -32,7 +33,7 @@ public class EntityDisk extends EntityThrowable {
         super(world);
     }
 
-    public EntityDisk(World world, EntityLivingBase entity, BulletType bulletType, Item i) {
+    public EntityDisk(World world, EntityLivingBase entity, DiskType bulletType, Item i) {
         super(world, entity);
         this.bulletType = bulletType;
         setBulletId((byte) bulletType.ordinal());
@@ -119,7 +120,7 @@ public class EntityDisk extends EntityThrowable {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         setBulletId(compound.getByte("projectileId"));
-        this.bulletType = BulletType.getBulletFromOrdinal(getBulletId());
+        this.bulletType = DiskType.getBulletFromOrdinal(getBulletId());
     }
 
     private byte getBulletId() {
@@ -130,9 +131,9 @@ public class EntityDisk extends EntityThrowable {
         dataManager.set(BULLET_ID, Byte.valueOf(projectileId));
     }
 
-    public BulletType getBulletType() {
+    public DiskType getBulletType() {
         if (bulletType == null) {
-            bulletType = BulletType.getBulletFromOrdinal(getBulletId());
+            bulletType = DiskType.getBulletFromOrdinal(getBulletId());
         }
         return bulletType;
     }

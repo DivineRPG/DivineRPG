@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.enums.BulletType;
+import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.base.ItemThrowable;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -15,8 +16,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemVetheanDisk extends ItemThrowable  {
-    BulletType projectileType;
-    public ItemVetheanDisk(String name, BulletType projectileType) {
+    DiskType projectileType;
+    public ItemVetheanDisk(String name, DiskType projectileType) {
         super(name, projectileType);
         this.setCreativeTab(DRPGCreativeTabs.vethea);
         this.projectileType=projectileType;

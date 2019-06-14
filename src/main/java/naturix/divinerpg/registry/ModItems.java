@@ -5,6 +5,7 @@ import java.util.List;
 
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.enums.BulletType;
+import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -790,15 +791,15 @@ public class ModItems {
     public static Item heliosisLump = new ItemMod("heliosis_lump");
     public static Item arksianeLump = new ItemMod("arksiane_lump");
 
-    public static Item teakerDisk = new ItemVetheanDisk("teaker_disk", BulletType.TEAKER_DISK);
-    public static Item amthrimisDisk = new ItemVetheanDisk("amthirmis_disk", BulletType.AMTHRIMIS_DISK);
-    public static Item darvenDisk = new ItemVetheanDisk("darven_disk", BulletType.DARVEN_DISK);
-    public static Item cermileDisk = new ItemVetheanDisk("cermile_disk", BulletType.CERMILE_DISK);
-    public static Item pardimalDisk = new ItemVetheanDisk("pardimal_disk", BulletType.PARDIMAL_DISK);
-    public static Item quadroticDisk = new ItemVetheanDisk("quadrotic_wardisk", BulletType.QUADROTIC_DISK);
-    public static Item karosDisk = new ItemVetheanDisk("karos_wardisk", BulletType.KAROS_DISK);
-    public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", BulletType.HELIOSIS_DISK);
-    public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", BulletType.ARKSIANE_DISK);
+    public static Item teakerDisk = new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK);
+    public static Item amthrimisDisk = new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK);
+    public static Item darvenDisk = new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK);
+    public static Item cermileDisk = new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK);
+    public static Item pardimalDisk = new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK);
+    public static Item quadroticDisk = new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK);
+    public static Item karosDisk = new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK);
+    public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK);
+    public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK);
 
     // public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
     // public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");

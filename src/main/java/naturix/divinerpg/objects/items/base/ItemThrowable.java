@@ -5,10 +5,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.enums.BulletType;
+import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDisk;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,10 +24,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemThrowable extends ItemMod {
     protected BulletType projectileType;
-
+    protected DiskType disk;
+    public boolean isDisk;
     public ItemThrowable(String name, BulletType projectileType) {
         super(name, DRPGCreativeTabs.ranged);
         this.projectileType = projectileType;
+        this.isDisk=false;
+    }
+    public ItemThrowable(String name, DiskType disk) {
+        super(name, DRPGCreativeTabs.ranged);
+        this.disk = disk;
+        this.isDisk=true;
     }
 
     @Override
@@ -46,48 +53,15 @@ public class ItemThrowable extends ItemMod {
 
         world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1, 1);
 
-        if (!world.isRemote) {
-            if(this == ModItems.amthrimisDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.amthrimisDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet);
-            }   else if(this == ModItems.arksianeDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.arksianeDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet);
-            }   else if(this == ModItems.cermileDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.cermileDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet); 
-            }   else if(this == ModItems.darvenDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.darvenDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet);  
-            }   else if(this == ModItems.heliosisDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.heliosisDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet);   
-            }   else if(this == ModItems.karosDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.karosDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet); 
-            }   else if(this == ModItems.pardimalDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.pardimalDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet); 
-            }   else if(this == ModItems.quadroticDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.quadroticDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet); 
-            }   else if(this == ModItems.teakerDisk) {
-                EntityDisk bullet = new EntityDisk(world, player, projectileType, ModItems.teakerDisk);
-                bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(bullet);
-            }   else {
+        if (!world.isRemote && isDisk == false) {
             EntityShooterBullet bullet = new EntityShooterBullet(world, player, projectileType);
             bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(bullet);
         }
+        if (!world.isRemote && isDisk == true) {
+            EntityDisk bullet = new EntityDisk(world, player, this.disk, itemstack.getItem()); 
+            bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+            world.spawnEntity(bullet);
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
