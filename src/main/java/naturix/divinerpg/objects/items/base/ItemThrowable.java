@@ -5,8 +5,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.enums.BulletType;
-import naturix.divinerpg.enums.DiskType;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityDisk;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -23,24 +21,17 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemThrowable extends ItemMod {
-    protected BulletType projectileType;
-    protected DiskType disk;
-    public boolean isDisk;
-    public ItemThrowable(String name, BulletType projectileType) {
+    protected BulletType bulletType;
+
+    public ItemThrowable(String name, BulletType bulletType) {
         super(name, DRPGCreativeTabs.ranged);
-        this.projectileType = projectileType;
-        this.isDisk=false;
-    }
-    public ItemThrowable(String name, DiskType disk) {
-        super(name, DRPGCreativeTabs.ranged);
-        this.disk = disk;
-        this.isDisk=true;
+        this.bulletType = bulletType;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(projectileType.getDamage()));
+        list.add(TooltipLocalizer.rangedDam(bulletType.getDamage()));
     }
 
     @Override
@@ -53,13 +44,8 @@ public class ItemThrowable extends ItemMod {
 
         world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1, 1);
 
-        if (!world.isRemote && isDisk == false) {
-            EntityShooterBullet bullet = new EntityShooterBullet(world, player, projectileType);
-            bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            world.spawnEntity(bullet);
-        }
-        if (!world.isRemote && isDisk == true) {
-            EntityDisk bullet = new EntityDisk(world, player, this.disk, itemstack.getItem()); 
+        if (!world.isRemote) {
+            EntityShooterBullet bullet = new EntityShooterBullet(world, player, bulletType);
             bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(bullet);
         }

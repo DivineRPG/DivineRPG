@@ -1,6 +1,5 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderDisk;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,26 +17,27 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly; 
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityDisk extends EntityThrowable {
-    private static final DataParameter<Byte> BULLET_ID = EntityDataManager.<Byte>createKey(EntityDisk.class,
+    private static final DataParameter<Byte> DISK_ID = EntityDataManager.<Byte>createKey(EntityDisk.class,
             DataSerializers.BYTE);
-    private DiskType bulletType;
+    private DiskType diskType;
     public float damage;
     public int counter;
     public int icon;
     public Item item;
     private int bounces;
+
     public EntityDisk(World world) {
         super(world);
     }
 
-    public EntityDisk(World world, EntityLivingBase entity, DiskType bulletType, Item i) {
+    public EntityDisk(World world, EntityLivingBase entity, DiskType diskType, Item i) {
         super(world, entity);
-        this.bulletType = bulletType;
-        setBulletId((byte) bulletType.ordinal());
-        this.damage = bulletType.getDamage();
+        this.diskType = diskType;
+        setDiskId((byte) diskType.ordinal());
+        this.damage = diskType.getDamage();
         this.counter = 30;
         this.item = i;
     }
@@ -45,105 +45,94 @@ public class EntityDisk extends EntityThrowable {
     @Override
     public void entityInit() {
         super.entityInit();
-        dataManager.register(BULLET_ID, (byte) 0);
+        dataManager.register(DISK_ID, (byte) 0);
     }
 
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class,
-                manager -> new RenderDisk(manager));
+        RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class, manager -> new RenderDisk(manager));
     }
+
     @Override
-    public void onUpdate()
-    {
+    public void onUpdate() {
         super.onUpdate();
-        this.motionX  = this.motionX / 0.99D;
-        this.motionY  = this.motionY / 0.99D;
-        this.motionZ  = this.motionZ / 0.99D;
-        if (this.counter == 0 && this.getThrower() != null)
-        {
+        this.motionX = this.motionX / 0.99D;
+        this.motionY = this.motionY / 0.99D;
+        this.motionZ = this.motionZ / 0.99D;
+        if (this.counter == 0 && this.getThrower() != null) {
             this.motionX *= -1;
             this.motionY *= -1;
             this.motionZ *= -1;
             this.bounces++;
             this.counter = 30;
-        }
-        else if (this.counter > 0)
-        {
+        } else if (this.counter > 0) {
             this.counter--;
         }
         if (this.bounces == 12 && !this.world.isRemote) {
-                this.setDead();
-        }
-    }
-
-    @Override
-    public void onImpact(RayTraceResult par1MovingObjectPosition) {
-        if (this.getThrower() != null)
-        {
-            if (par1MovingObjectPosition.entityHit != null && par1MovingObjectPosition.entityHit != this.getThrower())
-            {
-                par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), this.damage);
-            }
-            else if (par1MovingObjectPosition.entityHit == this.getThrower() && this.getThrower() instanceof EntityPlayer && this.bounces > 0)
-            {
-                if (!((EntityPlayer)this.getThrower()).capabilities.isCreativeMode)
-                {
-                    ((EntityPlayer)this.getThrower()).inventory.addItemStackToInventory(new ItemStack(this.item));
-                }
-                if (!this.world.isRemote)
-                {
-                    this.setDead();
-                }
-            }
-
-            if (this.bounces == 0)
-            {
-                this.counter = 0;
-
-                this.bounces++;
-            }
-        }
-        else if (!this.world.isRemote)
-        {
             this.setDead();
         }
     }
 
     @Override
+    public void onImpact(RayTraceResult par1MovingObjectPosition) {
+        if (this.getThrower() != null) {
+            if (par1MovingObjectPosition.entityHit != null && par1MovingObjectPosition.entityHit != this.getThrower()) {
+                par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), this.damage);
+            } else if (par1MovingObjectPosition.entityHit == this.getThrower()
+                    && this.getThrower() instanceof EntityPlayer && this.bounces > 0) {
+                if (!((EntityPlayer) this.getThrower()).capabilities.isCreativeMode) {
+                    ((EntityPlayer) this.getThrower()).inventory.addItemStackToInventory(new ItemStack(this.item));
+                }
+                if (!this.world.isRemote) {
+                    this.setDead();
+                }
+            }
+
+            if (this.bounces == 0) {
+                this.counter = 0;
+
+                this.bounces++;
+            }
+        } else if (!this.world.isRemote) {
+            this.setDead();
+        }
+    }
+
+    @Override
+    public float getGravityVelocity() {
+        return 0F;
+    }
+
+    @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setByte("projectileId", getBulletId());
+        compound.setByte("projectileId", getDiskId());
     }
 
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        setBulletId(compound.getByte("projectileId"));
-        this.bulletType = DiskType.getBulletFromOrdinal(getBulletId());
+        setDiskId(compound.getByte("projectileId"));
+        this.diskType = DiskType.getDiskFromOrdinal(getDiskId());
     }
 
-    private byte getBulletId() {
-        return ((Byte) this.dataManager.get(BULLET_ID)).byteValue();
+    private byte getDiskId() {
+        return ((Byte) this.dataManager.get(DISK_ID)).byteValue();
     }
 
-    private void setBulletId(byte projectileId) {
-        dataManager.set(BULLET_ID, Byte.valueOf(projectileId));
+    private void setDiskId(byte projectileId) {
+        dataManager.set(DISK_ID, Byte.valueOf(projectileId));
     }
 
-    public DiskType getBulletType() {
-        if (bulletType == null) {
-            bulletType = DiskType.getBulletFromOrdinal(getBulletId());
+    public DiskType getDiskType() {
+        if (diskType == null) {
+            diskType = DiskType.getDiskFromOrdinal(getDiskId());
         }
-        return bulletType;
+        return diskType;
     }
 
     public ResourceLocation getTexture() {
-        return getBulletType().getTexture();
-    }
-    @Override
-    public float getGravityVelocity()
-    {
-        return 0F;
+        return getDiskType().getTexture();
     }
 }

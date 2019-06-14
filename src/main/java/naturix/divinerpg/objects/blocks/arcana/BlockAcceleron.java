@@ -17,11 +17,11 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Acceleron extends BlockMod {
+public class BlockAcceleron extends BlockMod {
 
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-	public Acceleron(String name) {
+	public BlockAcceleron(String name) {
 		super(EnumBlockType.ROCK, name, DRPGCreativeTabs.utility);
 		slipperiness = 1.2f;
 		this.setHardness(3.0F);

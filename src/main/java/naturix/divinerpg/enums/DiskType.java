@@ -1,8 +1,5 @@
 package naturix.divinerpg.enums;
 
-import java.awt.Color;
-
-import naturix.divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.util.ResourceLocation;
 
 public enum DiskType {
@@ -15,40 +12,14 @@ public enum DiskType {
     QUADROTIC_DISK(20, ItemLoc("quadrotic_wardisk")),
     KAROS_DISK(22, ItemLoc("karos_wardisk")),
     HELIOSIS_DISK(29, ItemLoc("heliosis_wrathdisk")),
-    ARKSIANE_DISK(37, ItemLoc("arksiane_wrathdisk")),
-
-    MAGE_SHOT(5, ProjectileLoc("blank"), new Color(62, 212, 254)),
-    SPELLBINDER_SHOT(7, ProjectileLoc("blank"), new Color(234, 158, 253)),
-    MYSTIC_SHOT(10, ProjectileLoc("blank"), new Color(234, 223, 228)),
-    SORCERER_SHOT(12, ProjectileLoc("blank"), new Color(97, 31, 54)),
-    TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(0, 0, 0)),
-    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(255, 0, 0)),
-    SOUL_FIEND_SHOT(0, ProjectileLoc("blank"));
+    ARKSIANE_DISK(37, ItemLoc("arksiane_wrathdisk"));
 
     private final float damage;
     private final ResourceLocation texture;
-    private final DRPGParticleTypes particle;
-    private final Color color;
-
-    DiskType(float damage, ResourceLocation texture, DRPGParticleTypes particle) {
-        this.damage = damage;
-        this.texture = texture;
-        this.particle = particle;
-        this.color = null;
-    }
-
-    DiskType(float damage, ResourceLocation texture, Color color) {
-        this.damage = damage;
-        this.texture = texture;
-        this.particle = DRPGParticleTypes.NONE;
-        this.color = color;
-    }
 
     DiskType(float damage, ResourceLocation texture) {
         this.damage = damage;
         this.texture = texture;
-        this.particle = DRPGParticleTypes.NONE;
-        this.color = null;
     }
 
     public float getDamage() {
@@ -59,15 +30,7 @@ public enum DiskType {
         return this.texture;
     }
 
-    public DRPGParticleTypes getParticle() {
-        return this.particle;
-    }
-
-    public Color getColor() {
-        return this.color;
-    }
-
-    public static DiskType getBulletFromOrdinal(int ordinal) {
+    public static DiskType getDiskFromOrdinal(int ordinal) {
         if (ordinal < 0 || ordinal > values().length) {
             ordinal = 0;
         }

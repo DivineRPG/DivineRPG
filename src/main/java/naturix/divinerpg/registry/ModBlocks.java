@@ -28,7 +28,7 @@ import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockModVine;
 import naturix.divinerpg.objects.blocks.BlockStatue;
-import naturix.divinerpg.objects.blocks.arcana.Acceleron;
+import naturix.divinerpg.objects.blocks.arcana.BlockAcceleron;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
@@ -524,7 +524,7 @@ public class ModBlocks {
     public static Block arcaniumTorch = new BlockModTorch("arcanium_torch", DRPGParticleTypes.PURPLE_FLAME);
     public static Block elevantium = new BlockElevantium("elevantium");
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
-    public static Block acceleron = new Acceleron("acceleron");
+    public static Block acceleron = new BlockAcceleron("acceleron");
 
     // Vethea
     //public static Block weedwoodVine = new BlockModVine("weedwood_vine");

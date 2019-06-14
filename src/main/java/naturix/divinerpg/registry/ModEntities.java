@@ -352,7 +352,6 @@ public class ModEntities {
         registerProjectile(EntityCaveRock.class, "cave_rock");
         registerProjectile(EntitySerenadeOfDeath.class, "serenade_of_death");
         registerProjectile(EntitySerenadeOfIce.class, "serenade_of_ice");
-        registerProjectile(EntityDisk.class, "disk_amthrimis");
         registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
         registerProjectile(EntityFractiteShot.class, "fractite_shot");
         registerProjectile(EntityFrostShot.class, "frost_shot");
