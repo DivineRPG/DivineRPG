@@ -33,13 +33,13 @@ public class EntityDisk extends EntityThrowable {
         super(world);
     }
 
-    public EntityDisk(World world, EntityLivingBase entity, DiskType diskType, Item i) {
+    public EntityDisk(World world, EntityLivingBase entity, DiskType diskType, Item item) {
         super(world, entity);
         this.diskType = diskType;
         setDiskId((byte) diskType.ordinal());
         this.damage = diskType.getDamage();
         this.counter = 30;
-        this.item = i;
+        this.item = item;
     }
 
     @Override
@@ -74,13 +74,12 @@ public class EntityDisk extends EntityThrowable {
     }
 
     @Override
-    public void onImpact(RayTraceResult par1MovingObjectPosition) {
+    public void onImpact(RayTraceResult result) {
         if (this.getThrower() != null) {
-            if (par1MovingObjectPosition.entityHit != null && par1MovingObjectPosition.entityHit != this.getThrower()) {
-                par1MovingObjectPosition.entityHit
-                        .attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), this.damage);
-            } else if (par1MovingObjectPosition.entityHit == this.getThrower()
-                    && this.getThrower() instanceof EntityPlayer && this.bounces > 0) {
+            if (result.entityHit != null && result.entityHit != this.getThrower()) {
+                result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), this.damage);
+            } else if (result.entityHit == this.getThrower() && this.getThrower() instanceof EntityPlayer
+                    && this.bounces > 0) {
                 if (!((EntityPlayer) this.getThrower()).capabilities.isCreativeMode) {
                     ((EntityPlayer) this.getThrower()).inventory.addItemStackToInventory(new ItemStack(this.item));
                 }

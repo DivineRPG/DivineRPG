@@ -43,16 +43,16 @@ public class ItemVetheanDisk extends ItemMod {
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
 
-        if (!player.capabilities.isCreativeMode) {
-            itemstack.shrink(1);
-        }
-
         world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1, 1);
 
         if (!world.isRemote) {
             EntityDisk disk = new EntityDisk(world, player, this.diskType, itemstack.getItem());
             disk.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(disk);
+        }
+
+        if (!player.capabilities.isCreativeMode) {
+            itemstack.shrink(1);
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
