@@ -3,10 +3,8 @@ package naturix.divinerpg.objects.items.twilight;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.IHasModel;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -20,38 +18,40 @@ import net.minecraftforge.common.EnumPlantType;
 public class ItemTwilightSeeds extends ItemSeeds implements IHasModel {
     private Block grass, crop;
     String name;
+
     public ItemTwilightSeeds(String name, Block block, Block grass) {
         super(block, grass);
-        this.grass=grass;
+        this.grass = grass;
         this.crop = block;
-        this.name=name;
+        this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setCreativeTab(DRPGCreativeTabs.items);
     }
-    
+
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
         return EnumPlantType.Plains;
     }
-    
-    @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {    
-        ItemStack itemstack = player.getHeldItem(hand);
-    net.minecraft.block.state.IBlockState state = worldIn.getBlockState(pos);
-    if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
-    {
-        worldIn.setBlockState(pos.up(), this.crop.getDefaultState());
 
-        itemstack.shrink(1);
-        return EnumActionResult.SUCCESS;
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+            EnumFacing facing, float hitX, float hitY, float hitZ) {
+        ItemStack itemstack = player.getHeldItem(hand);
+        net.minecraft.block.state.IBlockState state = worldIn.getBlockState(pos);
+        if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
+                && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this)
+                && worldIn.isAirBlock(pos.up())) {
+            worldIn.setBlockState(pos.up(), this.crop.getDefaultState());
+
+            itemstack.shrink(1);
+            return EnumActionResult.SUCCESS;
+        } else {
+            return EnumActionResult.FAIL;
+        }
     }
-    else
-    {
-        return EnumActionResult.FAIL;
-    }
-    }@Override
+
+    @Override
     public void registerModels() {
         DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }

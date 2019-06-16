@@ -15,8 +15,10 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -37,6 +39,12 @@ public class ItemVetheanDisk extends ItemMod {
         list.add(TooltipLocalizer.rangedDam(diskType.getDamage()));
         list.add("Returns to sender");
         list.add(TooltipLocalizer.vethean());
+    }
+
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
+            EnumFacing side, float hitX, float hitY, float hitZ) {
+        return EnumActionResult.SUCCESS;
     }
 
     @Override

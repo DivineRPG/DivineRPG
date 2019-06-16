@@ -68,7 +68,7 @@ public class EntityDisk extends EntityThrowable {
         } else if (this.counter > 0) {
             this.counter--;
         }
-        if (this.bounces == 12 && !this.world.isRemote) {
+        if (this.bounces >= 12 && !this.world.isRemote) {
             this.setDead();
         }
     }
@@ -87,10 +87,8 @@ public class EntityDisk extends EntityThrowable {
                     this.setDead();
                 }
             }
-
             if (this.bounces == 0) {
                 this.counter = 0;
-
                 this.bounces++;
             }
         } else if (!this.world.isRemote) {
