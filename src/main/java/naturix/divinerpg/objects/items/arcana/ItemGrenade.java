@@ -38,7 +38,7 @@ public class ItemGrenade extends ItemMod {
 					projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 	                
 					world.spawnEntity(projectile);
-					world.playSound(player, player.getPosition(), SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.PLAYERS, 1, 1);
+					world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1);
 				}
 				if(!player.capabilities.isCreativeMode) stack.shrink(1);
 			}
