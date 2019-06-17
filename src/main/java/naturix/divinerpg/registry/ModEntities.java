@@ -183,6 +183,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
@@ -376,6 +377,7 @@ public class ModEntities {
         registerProjectile(EntityTwilightMageShot.class, "twilight_mage_shot");
         registerProjectile(EntitySoulFiendShot.class, "soul_fiend_shot");
         registerProjectile(EntityDisk.class, "disk");
+        registerProjectile(EntityGrenade.class, "grenade");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -647,6 +649,7 @@ public class ModEntities {
         EntitySnowflakeShuriken.renderMe();
         EntityShooterBullet.renderMe();
         EntityDisk.renderMe();
+        EntityGrenade.renderMe();
         EntityCorruptedBullet.renderMe();
         EntitySerenadeOfDeath.renderMe();
         EntitySerenadeOfIce.renderMe();

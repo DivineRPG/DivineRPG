@@ -7,6 +7,7 @@ import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.ItemNotReady;
+import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
 import naturix.divinerpg.objects.items.base.ItemHealingSword;
@@ -699,7 +700,7 @@ public class ModItems {
     // public static Item staffOfEnrichment = new ItemStaffEnrichment("staffOfEnrichment");
     // public static Item orbOfLight = new ItemOrbOfLight();
     // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
-    // public static Item grenade = new ItemGrenade("grenade");
+    public static Item grenade = new ItemGrenade("grenade");
     // public static Item firefly = new ItemFirefly();
     // public static Item laVekor = new ItemLaVekor();
     // public static Item enderScepter = new ItemEnderScepter("enderScepter");
@@ -719,7 +720,6 @@ public class ModItems {
     public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DRPGCreativeTabs.tools);
     public static Item orbOfLight = new ItemNotReady("orb_of_light", DRPGCreativeTabs.items);
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DRPGCreativeTabs.ranged);
-    public static Item grenade = new ItemNotReady("grenade", DRPGCreativeTabs.ranged);
     public static Item firefly = new ItemNotReady("firefly", DRPGCreativeTabs.ranged);
     public static Item laVekor = new ItemNotReady("la_vekor", DRPGCreativeTabs.ranged);
     public static Item enderScepter = new ItemNotReady("ender_scepter", DRPGCreativeTabs.items);
