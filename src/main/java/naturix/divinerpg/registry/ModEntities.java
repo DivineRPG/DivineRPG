@@ -174,6 +174,7 @@ import naturix.divinerpg.objects.entities.entity.iceika.Hastreus;
 import naturix.divinerpg.objects.entities.entity.iceika.Rollum;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
@@ -378,6 +379,7 @@ public class ModEntities {
         registerProjectile(EntitySoulFiendShot.class, "soul_fiend_shot");
         registerProjectile(EntityDisk.class, "disk");
         registerProjectile(EntityGrenade.class, "grenade");
+        registerProjectile(EntityAttractor.class, "attractor");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -657,6 +659,7 @@ public class ModEntities {
         EntitySoundOfCarols.renderMe();
         EntityDivineArrow.renderMe();
         EntityCoriShot.renderMe();
+        EntityAttractor.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);

@@ -11,6 +11,7 @@ import naturix.divinerpg.objects.items.arcana.ItemAquamarine;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlade;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniumSaber;
+import naturix.divinerpg.objects.items.arcana.ItemAttractor;
 import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -718,7 +719,7 @@ public class ModItems {
      public static Item arcaniteBlaster = new ItemArcaniteBlaster();
      public static Item arcaniteBlade = new ItemArcaniteBlade();
     // public static Item generalsStaff = new ItemGeneralsStaff();
-    // public static Item arcaniumAttractor = new ItemAttractor();
+    public static Item arcaniumAttractor = new ItemAttractor();
     public static Item chargedCollector = new ItemNotReady("charged_collector", DRPGCreativeTabs.items);
     public static Item wizardBook = new ItemNotReady("wizards_book", DRPGCreativeTabs.items);
     public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DRPGCreativeTabs.tools);
@@ -734,8 +735,7 @@ public class ModItems {
     public static Item meteorMash = new ItemNotReady("meteor_mash", DRPGCreativeTabs.ranged);
     public static Item divineAccumulator = new ItemNotReady("divine_accumulator", DRPGCreativeTabs.ranged);
     public static Item generalsStaff = new ItemNotReady("generals_staff", DRPGCreativeTabs.ranged);
-    public static Item arcaniumAttractor = new ItemNotReady("arcanium_attractor", DRPGCreativeTabs.ranged);
-
+    
     // public static Item sludgeKey = new ItemKey("sludgeKey");
     // public static Item ancientKey = new ItemKey("ancientKey");
     // public static Item soulKey = new ItemKey("soulKey");
