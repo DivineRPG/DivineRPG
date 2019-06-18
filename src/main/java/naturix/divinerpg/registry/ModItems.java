@@ -7,6 +7,10 @@ import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.ItemNotReady;
+import naturix.divinerpg.objects.items.arcana.ItemAquamarine;
+import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlade;
+import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
+import naturix.divinerpg.objects.items.arcana.ItemArcaniumSaber;
 import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -704,15 +708,15 @@ public class ModItems {
     // public static Item firefly = new ItemFirefly();
     // public static Item laVekor = new ItemLaVekor();
     // public static Item enderScepter = new ItemEnderScepter("enderScepter");
-    // public static Item arcaniumSaber = new ItemArcaniumSaber("arcaniumSaber", ToolMaterialMod.Saber);
+     public static Item arcaniumSaber = new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber);
     // public static Item ghostbane = new ItemGhostbane();
     // public static Item arcaniumReflector = new ItemReflector();
     // public static Item shadowSword = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
     // public static Item liviciaSword = new ItemSwordBase(ToolMaterialMod.LiviciaSword, "liviciaSword");
     // public static Item meteorMash = new ItemMeteorMash();
     // public static Item divineAccumulator = new ItemDivineAccumulator();
-    // public static Item arcaniteBlaster = new ItemArcaniteBlaster();
-    // public static Item arcaniteBlade = new ItemArcaniteBlade();
+     public static Item arcaniteBlaster = new ItemArcaniteBlaster();
+     public static Item arcaniteBlade = new ItemArcaniteBlade();
     // public static Item generalsStaff = new ItemGeneralsStaff();
     // public static Item arcaniumAttractor = new ItemAttractor();
     public static Item chargedCollector = new ItemNotReady("charged_collector", DRPGCreativeTabs.items);
@@ -723,15 +727,12 @@ public class ModItems {
     public static Item firefly = new ItemNotReady("firefly", DRPGCreativeTabs.ranged);
     public static Item laVekor = new ItemNotReady("la_vekor", DRPGCreativeTabs.ranged);
     public static Item enderScepter = new ItemNotReady("ender_scepter", DRPGCreativeTabs.items);
-    public static Item arcaniumSaber = new ItemNotReady("arcanium_saber", DRPGCreativeTabs.ranged);
     public static Item ghostbane = new ItemNotReady("ghostbane", DRPGCreativeTabs.ranged);
     public static Item arcaniumReflector = new ItemNotReady("arcanium_reflector", DRPGCreativeTabs.ranged);
     public static Item shadowSword = new ItemNotReady("shadow_saber", DRPGCreativeTabs.ranged);
     public static Item liviciaSword = new ItemNotReady("livicia_sword", DRPGCreativeTabs.ranged);
     public static Item meteorMash = new ItemNotReady("meteor_mash", DRPGCreativeTabs.ranged);
     public static Item divineAccumulator = new ItemNotReady("divine_accumulator", DRPGCreativeTabs.ranged);
-    public static Item arcaniteBlaster = new ItemNotReady("arcanite_blaster", DRPGCreativeTabs.ranged);
-    public static Item arcaniteBlade = new ItemNotReady("arcanite_blade", DRPGCreativeTabs.ranged);
     public static Item generalsStaff = new ItemNotReady("generals_staff", DRPGCreativeTabs.ranged);
     public static Item arcaniumAttractor = new ItemNotReady("arcanium_attractor", DRPGCreativeTabs.ranged);
 
@@ -757,9 +758,8 @@ public class ModItems {
     public static Item firestock = new ItemMod("firestock");
     public static Item pinfly = new ItemModFood(2, 0.3F, false, "pinfly")
             .setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F);
-    // public static Item aquamarine = new ItemAquamarine("aquamarine");
-    public static Item aquamarine = new ItemNotReady("aquamarine", DRPGCreativeTabs.items);
-
+    public static Item aquamarine = new ItemAquamarine("aquamarine");
+     
     private static Object[] kormInfo = new Object[] { ArmorInfo.ARCANA_REGEN };
     public static Item kormaHelmet = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo);
     public static Item kormaBody = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo);
