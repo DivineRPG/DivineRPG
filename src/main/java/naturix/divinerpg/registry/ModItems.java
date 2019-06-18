@@ -12,6 +12,7 @@ import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlade;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniumSaber;
 import naturix.divinerpg.objects.items.arcana.ItemAttractor;
+import naturix.divinerpg.objects.items.arcana.ItemCaptainsSparkler;
 import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -693,8 +694,7 @@ public class ModItems {
     public static Item staffStarlight = new ItemNotReady("staff_of_starlight", DRPGCreativeTabs.items);
     public static Item starlight = new ItemNotReady("starlight", DRPGCreativeTabs.items);
     public static Item stormSword = new ItemNotReady("storm_sword", DRPGCreativeTabs.ranged);
-    // public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
-    public static Item captainsSparkler = new ItemNotReady("captains_sparkler", DRPGCreativeTabs.ranged);
+    public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
     // public static Item strongArcanaPotion = new ItemArcanaPotion("strongArcanaPotion", 200);
     // public static Item weakArcanaPotion = new ItemArcanaPotion("weakArcanaPotion", 100);
     public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DRPGCreativeTabs.items);
