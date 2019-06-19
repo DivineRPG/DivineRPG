@@ -1407,3 +1407,5 @@ tooltip.noblock=Cannot Block
 tooltip.effect.poisons=Poisons mobs for |seconds| seconds
 tooltip.effect.burns=Burns mobs for |seconds| seconds
 tooltip.effect.slows=Slows mobs for |seconds| seconds
+tooltip.divine_accumulator.launch=Lauches you into the air
+tooltip.divine_accumulator.fall=Does not prevent fall damage

@@ -13,6 +13,8 @@ import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniumSaber;
 import naturix.divinerpg.objects.items.arcana.ItemAttractor;
 import naturix.divinerpg.objects.items.arcana.ItemCaptainsSparkler;
+import naturix.divinerpg.objects.items.arcana.ItemChargedCollector;
+import naturix.divinerpg.objects.items.arcana.ItemDivineAccumulator;
 import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -700,7 +702,7 @@ public class ModItems {
     public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DRPGCreativeTabs.items);
     public static Item weakArcanaPotion = new ItemNotReady("weak_arcana_potion", DRPGCreativeTabs.items);
     public static Item collector = new ItemMod("collector");
-    // public static Item chargedCollector = new ItemChargedCollector("chargedCollector");
+     public static Item chargedCollector = new ItemChargedCollector("charged_collector");
     // public static Item wizardBook = new ItemWizardsBook("wizardsBook");
     // public static Item staffOfEnrichment = new ItemStaffEnrichment("staffOfEnrichment");
     // public static Item orbOfLight = new ItemOrbOfLight();
@@ -715,12 +717,11 @@ public class ModItems {
     // public static Item shadowSword = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
     // public static Item liviciaSword = new ItemSwordBase(ToolMaterialMod.LiviciaSword, "liviciaSword");
     // public static Item meteorMash = new ItemMeteorMash();
-    // public static Item divineAccumulator = new ItemDivineAccumulator();
+     public static Item divineAccumulator = new ItemDivineAccumulator();
      public static Item arcaniteBlaster = new ItemArcaniteBlaster();
      public static Item arcaniteBlade = new ItemArcaniteBlade();
     // public static Item generalsStaff = new ItemGeneralsStaff();
     public static Item arcaniumAttractor = new ItemAttractor();
-    public static Item chargedCollector = new ItemNotReady("charged_collector", DRPGCreativeTabs.items);
     public static Item wizardBook = new ItemNotReady("wizards_book", DRPGCreativeTabs.items);
     public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DRPGCreativeTabs.tools);
     public static Item orbOfLight = new ItemNotReady("orb_of_light", DRPGCreativeTabs.items);
@@ -733,7 +734,6 @@ public class ModItems {
     public static Item shadowSword = new ItemNotReady("shadow_saber", DRPGCreativeTabs.ranged);
     public static Item liviciaSword = new ItemNotReady("livicia_sword", DRPGCreativeTabs.ranged);
     public static Item meteorMash = new ItemNotReady("meteor_mash", DRPGCreativeTabs.ranged);
-    public static Item divineAccumulator = new ItemNotReady("divine_accumulator", DRPGCreativeTabs.ranged);
     public static Item generalsStaff = new ItemNotReady("generals_staff", DRPGCreativeTabs.ranged);
     
     // public static Item sludgeKey = new ItemKey("sludgeKey");

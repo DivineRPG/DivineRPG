@@ -117,6 +117,7 @@ public class CommonProxy {
             double velY, double velZ) {
     }
 
+	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
     public void spawnColoredParticle(World world, double x, double y, double z, Color color, boolean bigger,
             boolean shortLived) {
     }

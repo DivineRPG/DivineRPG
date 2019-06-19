@@ -159,7 +159,10 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(item, meta,
                 new ModelResourceLocation(new ResourceLocation(Reference.MODID, filename), id));
     }
-
+    @Override
+    public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {
+    	this.spawnParticle(w, x, y, z, particle, random);
+    }
     @Override
     public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX,
             double velY, double velZ) {
