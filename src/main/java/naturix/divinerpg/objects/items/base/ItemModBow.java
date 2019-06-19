@@ -103,7 +103,8 @@ public class ItemModBow extends ItemBow implements IHasModel {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipLocalizer.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
+    	//FIXME - Add translate for faster slower text
+    	tooltip.add(TooltipLocalizer.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1)
             tooltip.add(speed + " Times Faster");

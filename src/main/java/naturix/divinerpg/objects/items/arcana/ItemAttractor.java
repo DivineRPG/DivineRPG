@@ -10,6 +10,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -47,7 +48,7 @@ public class ItemAttractor extends ItemMod {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
 	{
-		tooltip.add("Pulls mobs toward you");
+		tooltip.add(TooltipHelper.getInfoText("tooltip.arcanium_attractor"));
 		tooltip.add(TooltipLocalizer.arcanaConsumed(20));
 		tooltip.add(TooltipLocalizer.infiniteUses());
 	}

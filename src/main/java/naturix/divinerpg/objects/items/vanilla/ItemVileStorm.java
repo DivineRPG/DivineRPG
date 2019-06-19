@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +32,7 @@ public class ItemVileStorm extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TooltipLocalizer.rangedDam(4));
-        tooltip.add("Poisons Enemies");
+        tooltip.add(TooltipHelper.getInfoText("tooltip.vilestorm"));
     }
 
     @Override

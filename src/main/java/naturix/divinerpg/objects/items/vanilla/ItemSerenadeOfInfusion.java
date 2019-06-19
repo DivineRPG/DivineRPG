@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -28,7 +29,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("Gives the user Regeneration");
+        tooltip.add(TooltipHelper.getInfoText("tooltip.serenade_of_infusion"));
         tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
     }
 

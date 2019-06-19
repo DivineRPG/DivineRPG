@@ -33,6 +33,7 @@ public class ItemModFood extends ItemFood implements IHasModel {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+		//FIXME - Add ability to translate
 		list.add("Fills " + (double) getHealAmount(item) / 2 + " Hunger Bars");
 		list.add(getSaturationModifier(item) + " Saturation");
 		list.add(!isWolfsFavoriteMeat() ? ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " false"

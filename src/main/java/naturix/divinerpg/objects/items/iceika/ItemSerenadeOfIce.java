@@ -8,6 +8,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfIce
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -29,7 +30,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("Slows mobs for 5 seconds");
+        tooltip.add(TooltipHelper.getInfoText("tooltip.serenade_of_ice"));
         tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
     }
 

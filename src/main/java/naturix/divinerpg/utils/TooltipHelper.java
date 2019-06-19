@@ -18,7 +18,7 @@ public class TooltipHelper {
 	}
 	public static String getInfoText(String key) {
 
-		return BRIGHT_GREEN + localize(key) + END;
+		return GRAY + localize(key) + END;
 	}
 	
 	

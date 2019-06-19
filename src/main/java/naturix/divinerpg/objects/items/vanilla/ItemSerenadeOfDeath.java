@@ -8,6 +8,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfDea
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,7 +31,7 @@ public class ItemSerenadeOfDeath extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("Poisons enemies for 2 seconds");
+        tooltip.add(TooltipHelper.getInfoText("tooltip.serenade_of_death"));
         tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
         tooltip.add(TooltipLocalizer.rangedDam(14));
     }

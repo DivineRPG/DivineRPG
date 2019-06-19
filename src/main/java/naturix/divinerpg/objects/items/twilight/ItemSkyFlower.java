@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemFastFood;
+import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -32,6 +33,6 @@ public class ItemSkyFlower extends ItemFastFood {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         super.addInformation(item, worldIn, list, flagIn);
-        list.add("Gives Speed and Water Breathing for 30 seconds.");
+        list.add(TooltipHelper.getInfoText("tooltip.sky_flower.breath"));
     }
 }

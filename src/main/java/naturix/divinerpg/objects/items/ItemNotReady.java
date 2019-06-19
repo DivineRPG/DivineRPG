@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
+import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -18,6 +19,6 @@ public class ItemNotReady extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("Not yet finished");
+        tooltip.add(TooltipHelper.getInfoText("tooltip.not_done"));
     }
 }

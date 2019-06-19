@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.utils.SecondaryTeleporter;
+import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,7 @@ public class ItemTeleportationCrystal extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add("Teleport to bed or spawn point");
+        list.add(TooltipHelper.getInfoText("tooltip.teleport_bed_spawn"));
         list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 

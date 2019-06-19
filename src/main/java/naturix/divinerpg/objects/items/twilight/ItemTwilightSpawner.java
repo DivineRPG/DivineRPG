@@ -11,6 +11,7 @@ import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DRPGCreativeTabs;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -101,7 +102,7 @@ public class ItemTwilightSpawner extends ItemMod {
                     }
                 }
             } else {
-                Logging.message(player, TextFormatting.AQUA + "This item can only be used in Mortum.");
+                Logging.message(player, TextFormatting.AQUA + TooltipHelper.getInfoText("tooltip.mortum_only"));
             }
         }
         return EnumActionResult.FAIL;
