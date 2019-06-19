@@ -660,6 +660,7 @@ public class ModEntities {
         EntityDivineArrow.renderMe();
         EntityCoriShot.renderMe();
         EntityAttractor.renderMe();
+        EntitySparkler.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
