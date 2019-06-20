@@ -15,6 +15,7 @@ import naturix.divinerpg.objects.items.arcana.ItemAttractor;
 import naturix.divinerpg.objects.items.arcana.ItemCaptainsSparkler;
 import naturix.divinerpg.objects.items.arcana.ItemChargedCollector;
 import naturix.divinerpg.objects.items.arcana.ItemDivineAccumulator;
+import naturix.divinerpg.objects.items.arcana.ItemEnderScepter;
 import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -710,7 +711,7 @@ public class ModItems {
     public static Item grenade = new ItemGrenade("grenade");
     // public static Item firefly = new ItemFirefly();
     // public static Item laVekor = new ItemLaVekor();
-    // public static Item enderScepter = new ItemEnderScepter("enderScepter");
+     public static Item enderScepter = new ItemEnderScepter("ender_scepter");
      public static Item arcaniumSaber = new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber);
     // public static Item ghostbane = new ItemGhostbane();
     // public static Item arcaniumReflector = new ItemReflector();
@@ -728,7 +729,6 @@ public class ModItems {
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DRPGCreativeTabs.ranged);
     public static Item firefly = new ItemNotReady("firefly", DRPGCreativeTabs.ranged);
     public static Item laVekor = new ItemNotReady("la_vekor", DRPGCreativeTabs.ranged);
-    public static Item enderScepter = new ItemNotReady("ender_scepter", DRPGCreativeTabs.items);
     public static Item ghostbane = new ItemNotReady("ghostbane", DRPGCreativeTabs.ranged);
     public static Item arcaniumReflector = new ItemNotReady("arcanium_reflector", DRPGCreativeTabs.ranged);
     public static Item shadowSword = new ItemNotReady("shadow_saber", DRPGCreativeTabs.ranged);

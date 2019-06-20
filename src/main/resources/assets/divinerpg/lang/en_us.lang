@@ -1421,3 +1421,4 @@ tooltip.serenade_of_health=Heals the user
 tooltip.serenade_of_death=Poisons enemies for 2 seconds
 tooltip.vethean_return=Returns to sender
 tooltip.not_done=This item is not yet complete
+tooltip.ender_scepter=On use: Teleports the player
