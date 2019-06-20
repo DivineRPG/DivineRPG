@@ -16,6 +16,7 @@ import naturix.divinerpg.objects.items.arcana.ItemCaptainsSparkler;
 import naturix.divinerpg.objects.items.arcana.ItemChargedCollector;
 import naturix.divinerpg.objects.items.arcana.ItemDivineAccumulator;
 import naturix.divinerpg.objects.items.arcana.ItemEnderScepter;
+import naturix.divinerpg.objects.items.arcana.ItemFirefly;
 import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -709,7 +710,7 @@ public class ModItems {
     // public static Item orbOfLight = new ItemOrbOfLight();
     // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     public static Item grenade = new ItemGrenade("grenade");
-    // public static Item firefly = new ItemFirefly();
+     public static Item firefly = new ItemFirefly();
     // public static Item laVekor = new ItemLaVekor();
      public static Item enderScepter = new ItemEnderScepter("ender_scepter");
      public static Item arcaniumSaber = new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber);
@@ -723,11 +724,11 @@ public class ModItems {
      public static Item arcaniteBlade = new ItemArcaniteBlade();
     // public static Item generalsStaff = new ItemGeneralsStaff();
     public static Item arcaniumAttractor = new ItemAttractor();
+    
     public static Item wizardBook = new ItemNotReady("wizards_book", DRPGCreativeTabs.items);
     public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DRPGCreativeTabs.tools);
     public static Item orbOfLight = new ItemNotReady("orb_of_light", DRPGCreativeTabs.items);
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DRPGCreativeTabs.ranged);
-    public static Item firefly = new ItemNotReady("firefly", DRPGCreativeTabs.ranged);
     public static Item laVekor = new ItemNotReady("la_vekor", DRPGCreativeTabs.ranged);
     public static Item ghostbane = new ItemNotReady("ghostbane", DRPGCreativeTabs.ranged);
     public static Item arcaniumReflector = new ItemNotReady("arcanium_reflector", DRPGCreativeTabs.ranged);
