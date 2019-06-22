@@ -36,6 +36,8 @@ public class Utils {
 	public static DamageSource trapSource = new DamageSource("trap");
 	public static DamageSource acidSource = new DamageSource("acid");
 	public static DamageSource spikeSource = new DamageSource("spike");
+	public static DamageSource arcanaSource = new DamageSource("arcana");
+	
 	private static String str;
 
 	private static Object args;
