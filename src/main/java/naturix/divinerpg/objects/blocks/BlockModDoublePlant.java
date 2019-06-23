@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -40,7 +40,7 @@ public class BlockModDoublePlant extends BlockBush
         setRegistryName(name);
         setUnlocalizedName(name);
         this.grass = grass;
-        setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
         this.setDefaultState(

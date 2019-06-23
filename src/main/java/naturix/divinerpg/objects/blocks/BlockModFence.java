@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -21,7 +21,7 @@ public class BlockModFence extends BlockFence implements IHasModel {
 		super(Material.WOOD, mapColor);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}

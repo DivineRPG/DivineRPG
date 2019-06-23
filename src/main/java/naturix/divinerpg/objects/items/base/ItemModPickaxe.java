@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -24,7 +24,7 @@ public class ItemModPickaxe extends ItemPickaxe implements IHasModel {
 		this.name = name;
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setCreativeTab(DRPGCreativeTabs.tools);
+		setCreativeTab(DivineRPGTabs.tools);
 
 		ModItems.ITEMS.add(this);
 	}

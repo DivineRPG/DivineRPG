@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.twilight;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +19,7 @@ public class ItemTwilightClock extends ItemMod {
 
     public ItemTwilightClock(String name) {
         super(name);
-        setCreativeTab(DRPGCreativeTabs.utility);
+        setCreativeTab(DivineRPGTabs.utility);
         setMaxStackSize(1);
     }
 

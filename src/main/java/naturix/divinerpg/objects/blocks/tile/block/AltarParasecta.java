@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -25,7 +25,7 @@ public class AltarParasecta extends BlockContainer {
 		super(Material.ROCK);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		setBlockUnbreakable();
 		setResistance(6000000F);
 		this.name = name;

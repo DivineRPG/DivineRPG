@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -26,7 +26,7 @@ public class ItemAttractor extends ItemMod {
 	private Random rand = new Random();
 	public ItemAttractor() {
 		super("arcanium_attractor");
-		setCreativeTab(DRPGCreativeTabs.utility);
+		setCreativeTab(DivineRPGTabs.utility);
 		setMaxStackSize(1);
 		setFull3D();
 	}

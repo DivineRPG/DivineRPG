@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.iceika;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -27,7 +27,7 @@ public class BlockChristmasLights extends BlockLadder implements IHasModel {
 		setRegistryName(name);
 		setHardness(3f);
 		setResistance(5f);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		setLightLevel(1);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 

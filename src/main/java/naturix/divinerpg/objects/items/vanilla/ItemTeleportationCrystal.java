@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.SecondaryTeleporter;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -27,7 +27,7 @@ public class ItemTeleportationCrystal extends ItemMod {
 
     public ItemTeleportationCrystal(String name) {
         super(name);
-        setCreativeTab(DRPGCreativeTabs.utility);
+        setCreativeTab(DivineRPGTabs.utility);
         setMaxDamage(10);
         setMaxStackSize(1);
     }

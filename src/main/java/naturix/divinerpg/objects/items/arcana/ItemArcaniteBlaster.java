@@ -11,7 +11,7 @@ import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -32,7 +32,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 	private Random rand = new Random();
 	public ItemArcaniteBlaster() {
 		super("arcanite_blaster");
-		setCreativeTab(DRPGCreativeTabs.ranged);
+		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
 		setMaxDamage(6500);
 	}

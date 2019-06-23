@@ -8,7 +8,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.ChatFormats;
 import naturix.divinerpg.utils.IHasModel;
@@ -105,7 +105,7 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
 		setArmorType(this.armorMaterial.getType(), slot, vethean, helmType);
 		setRegistryName(this.name);
 		setUnlocalizedName(this.name);
-		this.setCreativeTab(DRPGCreativeTabs.armor);
+		this.setCreativeTab(DivineRPGTabs.armor);
 		ModItems.ITEMS.add(this);
 	}
 

@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -18,7 +18,7 @@ public class BlockModVine extends BlockVine implements IHasModel {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		this.setHardness(2);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false))
 		        .withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false))

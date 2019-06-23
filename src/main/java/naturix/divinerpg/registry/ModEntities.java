@@ -188,6 +188,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
@@ -382,6 +383,7 @@ public class ModEntities {
         registerProjectile(EntityGrenade.class, "grenade");
         registerProjectile(EntityAttractor.class, "attractor");
         registerProjectile(EntityGeneralsStaff.class, "generals_staff");
+        registerProjectile(EntityMeteor.class, "meteor");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");

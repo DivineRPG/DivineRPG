@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -31,7 +31,7 @@ public class BlockMod extends Block implements IHasModel {
     protected float hardness = 2.0f;
 
     public BlockMod(EnumBlockType blockType, String name, boolean breakable) {
-        this(blockType, name, breakable, DRPGCreativeTabs.BlocksTab);
+        this(blockType, name, breakable, DivineRPGTabs.BlocksTab);
     }
 
     public BlockMod(EnumBlockType blockType, String name, boolean breakable, CreativeTabs tab) {
@@ -56,7 +56,7 @@ public class BlockMod extends Block implements IHasModel {
     }
 
     public BlockMod(EnumBlockType blockType, String name, float hardness) {
-        this(blockType, name, hardness, DRPGCreativeTabs.BlocksTab);
+        this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
         if (blockType == EnumBlockType.DIRT) {
             setHarvestLevel("shovel", 3);
         }
@@ -106,7 +106,7 @@ public class BlockMod extends Block implements IHasModel {
     }
 
     public BlockMod(Material rock, String name2) {
-        this(EnumBlockType.ROCK, name2, 1, DRPGCreativeTabs.BlocksTab);
+        this(EnumBlockType.ROCK, name2, 1, DivineRPGTabs.BlocksTab);
     }
 
     public BlockMod(String name, boolean breakable) {
@@ -118,7 +118,7 @@ public class BlockMod extends Block implements IHasModel {
     }
 
     public BlockMod(String name, float hardness) {
-        this(EnumBlockType.ROCK, name, hardness, DRPGCreativeTabs.BlocksTab);
+        this(EnumBlockType.ROCK, name, hardness, DivineRPGTabs.BlocksTab);
     }
 
     public BlockMod(String name, float hardness, CreativeTabs tab) {

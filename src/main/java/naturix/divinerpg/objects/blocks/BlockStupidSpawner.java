@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityStupidSpawner;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -24,7 +24,7 @@ public class BlockStupidSpawner extends BlockMobSpawner implements IHasModel {
         this.spawnParticles = spawnParticles;
         setUnlocalizedName(name);
         setRegistryName(name);
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(5.0F);
         this.setTickRandomly(true);
 

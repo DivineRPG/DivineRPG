@@ -4,7 +4,7 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.items.itemblock.ItemBlockDoor;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -33,7 +33,7 @@ public class BlockModDoor extends BlockDoor implements IHasModel {
             setBlockUnbreakable();
             setResistance(6000000F);
         }
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.canOpenByHand = canOpenByHand;
 
         ModBlocks.BLOCKS.add(this);

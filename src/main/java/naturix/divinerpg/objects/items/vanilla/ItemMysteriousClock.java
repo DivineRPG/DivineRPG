@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.items.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.vanilla.AncientEntity;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +18,7 @@ public class ItemMysteriousClock extends ItemMod {
 
     public ItemMysteriousClock(String name) {
         super(name);
-        this.setCreativeTab(DRPGCreativeTabs.spawner);
+        this.setCreativeTab(DivineRPGTabs.spawner);
     }
 
     @Override

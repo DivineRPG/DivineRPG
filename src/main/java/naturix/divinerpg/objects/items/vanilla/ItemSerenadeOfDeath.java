@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfDeath;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -24,7 +24,7 @@ public class ItemSerenadeOfDeath extends ItemMod {
 
     public ItemSerenadeOfDeath(String name) {
         super(name);
-        this.setCreativeTab(DRPGCreativeTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.ranged);
         setMaxDamage(500);
         setMaxStackSize(1);
     }

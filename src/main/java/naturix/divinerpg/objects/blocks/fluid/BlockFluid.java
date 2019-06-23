@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.fluid;
 
 import naturix.divinerpg.Config;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModLiquids;

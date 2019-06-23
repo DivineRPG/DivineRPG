@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.base;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -29,7 +29,7 @@ public class ItemModSeeds extends Item implements IPlantable, IHasModel {
         setRegistryName(name);
         this.crop = block;
         this.soil = Blocks.FARMLAND;
-        this.setCreativeTab(DRPGCreativeTabs.food);
+        this.setCreativeTab(DivineRPGTabs.food);
         ModItems.ITEMS.add(this);
     }
 
@@ -39,7 +39,7 @@ public class ItemModSeeds extends Item implements IPlantable, IHasModel {
         setRegistryName(name);
         this.crop = crop;
         this.soil = soil;
-        setCreativeTab(DRPGCreativeTabs.food);
+        setCreativeTab(DivineRPGTabs.food);
         ModItems.ITEMS.add(this);
     }
 

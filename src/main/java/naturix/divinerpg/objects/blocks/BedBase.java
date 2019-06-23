@@ -5,7 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
@@ -122,7 +122,7 @@ public class BedBase extends BlockHorizontal implements ITileEntityProvider, IHa
 		this.hasTileEntity = true;
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 
 	    //FIXME
 		// ModBlocks.BLOCKS.add(this);

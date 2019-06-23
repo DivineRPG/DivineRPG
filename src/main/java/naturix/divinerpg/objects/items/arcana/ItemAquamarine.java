@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.arcana;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class ItemAquamarine extends ItemMod{
 
 	public ItemAquamarine(String name) {
-		super(name, DRPGCreativeTabs.utility);
+		super(name, DivineRPGTabs.utility);
 		setMaxDamage(10);
 	}
 	

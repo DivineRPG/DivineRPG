@@ -4,7 +4,7 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -48,7 +48,7 @@ public abstract class BlockModFurnace extends Block implements IHasModel {
         if (isBurning) {
             setLightLevel(0.875F);
         } else {
-            this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+            this.setCreativeTab(DivineRPGTabs.BlocksTab);
         }
         this.isBurning = isBurning;
         setHardness(3.5F);

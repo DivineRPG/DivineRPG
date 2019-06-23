@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -39,7 +39,7 @@ public class BlockModSapling extends BlockBush implements IGrowable, IHasModel {
         this.grass = grass;
         this.dirt = dirt;
         this.tree = tree;
-        setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(0.0F);
         setSoundType(SoundType.PLANT);
         ModBlocks.BLOCKS.add(this);

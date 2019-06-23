@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.iceika;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +21,7 @@ public class ItemSnowGlobe extends ItemMod {
 	public ItemSnowGlobe(String name) {
 		super(name);
 		setMaxStackSize(1);
-		this.setCreativeTab(DRPGCreativeTabs.utility);
+		this.setCreativeTab(DivineRPGTabs.utility);
 	}
 
 	@Override

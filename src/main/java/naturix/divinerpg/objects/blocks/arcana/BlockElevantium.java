@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
 import naturix.divinerpg.objects.blocks.BlockMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockFaceShape;
@@ -20,7 +20,7 @@ public class BlockElevantium extends BlockMod {
             0.9375F);
 
     public BlockElevantium(String name) {
-        super(EnumBlockType.IRON, name, 3f, DRPGCreativeTabs.utility);
+        super(EnumBlockType.IRON, name, 3f, DivineRPGTabs.utility);
         this.setTickRandomly(true);
         setResistance(20);
     }

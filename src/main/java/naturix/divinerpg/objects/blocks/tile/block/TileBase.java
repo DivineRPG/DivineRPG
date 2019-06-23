@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +17,7 @@ public abstract class TileBase<TE extends TileEntity> extends BlockContainer {
 		super(material);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		this.setTickRandomly(true);
 	}
 

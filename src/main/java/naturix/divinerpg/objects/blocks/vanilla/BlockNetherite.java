@@ -5,7 +5,7 @@ import java.util.Random;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.objects.blocks.itemblock.IMetaName;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -30,7 +30,7 @@ public class BlockNetherite extends BlockMod implements IHasModel, IMetaName {
 
 		setHardness(3f);
 		setResistance(5f);
-		this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}

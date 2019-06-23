@@ -4,7 +4,7 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.WoodType;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
@@ -46,7 +46,7 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
             useNeighborBrightness = true;
             setDefaultState(this.blockState.getBaseState().withProperty(this.getVariantProperty(), woodType)
                     .withProperty(HALF, EnumBlockHalf.BOTTOM));
-            setCreativeTab(DRPGCreativeTabs.BlocksTab);
+            setCreativeTab(DivineRPGTabs.BlocksTab);
         }
 
         ModBlocks.BLOCKS.add(this);

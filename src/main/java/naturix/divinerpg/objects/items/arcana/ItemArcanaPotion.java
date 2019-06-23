@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +23,7 @@ public class ItemArcanaPotion extends ItemMod {
     protected int amountToAdd;
 
     public ItemArcanaPotion(String name, int amountToAdd) {
-        super(name, DRPGCreativeTabs.utility);
+        super(name, DivineRPGTabs.utility);
         this.amountToAdd = amountToAdd;
     }
 

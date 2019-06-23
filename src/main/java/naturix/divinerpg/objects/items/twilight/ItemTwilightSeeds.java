@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.twilight;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +26,7 @@ public class ItemTwilightSeeds extends ItemSeeds implements IHasModel {
         this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
-        this.setCreativeTab(DRPGCreativeTabs.items);
+        this.setCreativeTab(DivineRPGTabs.items);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.vanilla;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.log.Logging;
@@ -22,7 +22,7 @@ public class ItemHordeHorn extends ItemMod {
         super(name);
         this.setMaxDamage(1);
         this.setMaxStackSize(1);
-        this.setCreativeTab(DRPGCreativeTabs.spawner);
+        this.setCreativeTab(DivineRPGTabs.spawner);
     }
 
     @Override

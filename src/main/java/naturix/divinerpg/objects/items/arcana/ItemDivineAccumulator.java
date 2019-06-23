@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.networking.message.MessageDivineAccumulator;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemDivineAccumulator extends ItemMod {
 
     public ItemDivineAccumulator() {
-        super("divine_accumulator", DRPGCreativeTabs.utility);
+        super("divine_accumulator", DivineRPGTabs.utility);
         setMaxStackSize(1);
         this.setFull3D();
     }

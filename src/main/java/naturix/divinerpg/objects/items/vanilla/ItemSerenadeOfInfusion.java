@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,7 +22,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
 
     public ItemSerenadeOfInfusion(String name) {
         super(name);
-        this.setCreativeTab(DRPGCreativeTabs.utility);
+        this.setCreativeTab(DivineRPGTabs.utility);
         setMaxDamage(15);
         setMaxStackSize(1);
     }

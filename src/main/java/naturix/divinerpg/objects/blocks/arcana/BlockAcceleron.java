@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
 import naturix.divinerpg.objects.blocks.BlockMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.IProperty;
@@ -22,7 +22,7 @@ public class BlockAcceleron extends BlockMod {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
 	public BlockAcceleron(String name) {
-		super(EnumBlockType.ROCK, name, DRPGCreativeTabs.utility);
+		super(EnumBlockType.ROCK, name, DivineRPGTabs.utility);
 		slipperiness = 1.2f;
 		this.setHardness(3.0F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));

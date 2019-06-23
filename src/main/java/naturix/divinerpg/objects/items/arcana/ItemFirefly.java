@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,7 +26,7 @@ public class ItemFirefly extends ItemMod {
     private int arcana = 5;
 
     public ItemFirefly() {
-        super("firefly", DRPGCreativeTabs.ranged);
+        super("firefly", DivineRPGTabs.ranged);
         setMaxStackSize(1);
         setFull3D();
     }

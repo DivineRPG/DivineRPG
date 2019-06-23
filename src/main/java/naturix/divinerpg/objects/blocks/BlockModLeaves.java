@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -28,7 +28,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setHardness(hardness);
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);
         this.leavesFancy = true;
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));

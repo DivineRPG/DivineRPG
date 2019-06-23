@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDisk;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -31,7 +31,7 @@ public class ItemVetheanDisk extends ItemMod {
         super(name);
         this.diskType = diskType;
         this.maxStackSize = 1;
-        this.setCreativeTab(DRPGCreativeTabs.vethea);
+        this.setCreativeTab(DivineRPGTabs.vethea);
     }
 
     @Override

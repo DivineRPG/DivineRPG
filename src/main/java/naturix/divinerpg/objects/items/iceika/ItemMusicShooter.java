@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -26,7 +26,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemMusicShooter extends ItemMod {
 
     public ItemMusicShooter(String name) {
-        super(name, DRPGCreativeTabs.ranged);
+        super(name, DivineRPGTabs.ranged);
         setMaxStackSize(1);
         setMaxDamage(4000);
     }

@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +24,7 @@ public class ItemThrowable extends ItemMod {
     protected BulletType bulletType;
 
     public ItemThrowable(String name, BulletType bulletType) {
-        super(name, DRPGCreativeTabs.ranged);
+        super(name, DivineRPGTabs.ranged);
         this.bulletType = bulletType;
     }
 

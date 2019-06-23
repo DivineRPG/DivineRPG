@@ -4,7 +4,7 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.vethea.LadyLuna;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class ItemMoonClock extends ItemMod {
 
     public ItemMoonClock(String name) {
-        super(name, DRPGCreativeTabs.spawner);
+        super(name, DivineRPGTabs.spawner);
         setMaxStackSize(1);
     }
     //FIXME - Doesnt spawn

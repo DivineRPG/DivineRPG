@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -29,7 +29,7 @@ public class ItemLaVekor extends ItemMod {
 	private int arcana = 5;
 
 	public ItemLaVekor() {
-		super("la_vekor", DRPGCreativeTabs.ranged);
+		super("la_vekor", DivineRPGTabs.ranged);
 		setMaxStackSize(1);
 		setFull3D();
 	}

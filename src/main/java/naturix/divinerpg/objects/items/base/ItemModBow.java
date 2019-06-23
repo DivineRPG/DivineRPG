@@ -8,7 +8,7 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.ArrowType;
 import naturix.divinerpg.enums.ArrowType.ArrowSpecial;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -64,7 +64,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
         this.arrowAmmo = arrowAmmo;
         if (arrowAmmo == null)
             needArrow = false;
-        this.setCreativeTab(DRPGCreativeTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.ranged);
         this.maxUseDuration = maxUseDuration;
         unbreakable = true;
         this.maxStackSize = 1;
@@ -218,7 +218,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
     }
 
     public ItemModBow setVethean() {
-        this.setCreativeTab(DRPGCreativeTabs.vethea);
+        this.setCreativeTab(DivineRPGTabs.vethea);
         this.vethean = true;
         return this;
     }

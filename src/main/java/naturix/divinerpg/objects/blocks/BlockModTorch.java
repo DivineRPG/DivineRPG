@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DRPGParticleTypes;
@@ -23,7 +23,7 @@ public class BlockModTorch extends BlockTorch implements IHasModel {
 
     public BlockModTorch(String name, DRPGParticleTypes particle) {
         super();
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setUnlocalizedName(name);
         setRegistryName(name);
         this.setLightLevel(1);

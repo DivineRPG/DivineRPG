@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +24,7 @@ public class ItemGrenade extends ItemMod {
 	private int counter = 0;
 
 	public ItemGrenade(String name) {
-		super(name, DRPGCreativeTabs.ranged);
+		super(name, DivineRPGTabs.ranged);
 		
 	}
 

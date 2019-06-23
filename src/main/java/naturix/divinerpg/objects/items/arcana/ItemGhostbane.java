@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class ItemGhostbane extends ItemMod {
 
 	public ItemGhostbane() {
-		super("ghostbane", DRPGCreativeTabs.spawner);
+		super("ghostbane", DivineRPGTabs.spawner);
 		setMaxStackSize(1);
 	}
 

@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemScythe extends ItemMod {
     public ItemScythe(String name) {
         super(name);
-        setCreativeTab(DRPGCreativeTabs.ranged);
+        setCreativeTab(DivineRPGTabs.ranged);
         setMaxStackSize(1);
     }
 

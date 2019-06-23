@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfIce;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,7 +23,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 
     public ItemSerenadeOfIce(String name) {
         super(name);
-        this.setCreativeTab(DRPGCreativeTabs.utility);
+        this.setCreativeTab(DivineRPGTabs.utility);
         setMaxDamage(100);
         setMaxStackSize(1);
     }

@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Sets;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -49,7 +49,7 @@ public class ItemShickaxe extends ItemTool implements IHasModel {
 
     public ItemShickaxe(ToolMaterial toolMaterial, String name) {
         super(toolMaterial.getAttackDamage(), -2.8F, toolMaterial, EFFECTIVE_ON);
-        setCreativeTab(DRPGCreativeTabs.tools);
+        setCreativeTab(DivineRPGTabs.tools);
         setUnlocalizedName(name);
         setRegistryName(name);
         this.name = name;

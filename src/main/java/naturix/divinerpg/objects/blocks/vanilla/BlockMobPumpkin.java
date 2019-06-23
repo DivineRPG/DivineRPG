@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks.vanilla;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
@@ -38,7 +38,7 @@ public class BlockMobPumpkin extends BlockHorizontal implements IHasModel {
         setRegistryName(name);
         setTickRandomly(true);
         setHardness(1.0F);
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setSoundType(SoundType.WOOD);
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

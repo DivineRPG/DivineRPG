@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.items.vanilla;
 
 import naturix.divinerpg.objects.entities.entity.vanilla.KingOfScorchers;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class ItemInfernalFlame extends ItemMod {
 
     public ItemInfernalFlame(String name) {
-        super(name, DRPGCreativeTabs.spawner);
+        super(name, DivineRPGTabs.spawner);
         setMaxStackSize(1);
     }
 

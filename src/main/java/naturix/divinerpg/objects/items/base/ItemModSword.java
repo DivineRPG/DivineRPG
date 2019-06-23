@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -31,7 +31,7 @@ public class ItemModSword extends ItemSword implements IHasModel {
         this.material = material;
         setRegistryName(name);
         setUnlocalizedName(name);
-        setCreativeTab(DRPGCreativeTabs.swords);
+        setCreativeTab(DivineRPGTabs.swords);
 
         ModItems.ITEMS.add(this);
     }

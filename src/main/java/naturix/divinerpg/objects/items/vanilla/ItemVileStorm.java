@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -25,7 +25,7 @@ public class ItemVileStorm extends ItemMod {
 
     public ItemVileStorm(String name) {
         super(name);
-        this.setCreativeTab(DRPGCreativeTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.ranged);
     }
 
     @Override

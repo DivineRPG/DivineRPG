@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.twilight;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
@@ -22,7 +22,7 @@ public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlanta
         setRegistryName(name);
         setUnlocalizedName(name);
         this.grass = grass;
-        setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BlocksTab);
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
 

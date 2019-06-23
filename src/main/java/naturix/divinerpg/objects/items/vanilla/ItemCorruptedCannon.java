@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -31,7 +31,7 @@ public class ItemCorruptedCannon extends ItemMod {
 
     public ItemCorruptedCannon(String name) {
         super(name);
-        setCreativeTab(DRPGCreativeTabs.ranged);
+        setCreativeTab(DivineRPGTabs.ranged);
         setMaxStackSize(1);
     }
 

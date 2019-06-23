@@ -11,7 +11,7 @@ import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.vethea.ItemStaff;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -32,7 +32,7 @@ public class ItemGeneralsStaff extends ItemMod {
 	private Random rand = new Random();
 	public ItemGeneralsStaff() {
 		super("generals_staff");
-		setCreativeTab(DRPGCreativeTabs.ranged);
+		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
 		ItemStaff.staffList.add(this);
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.ChatFormats;
 import naturix.divinerpg.utils.IHasModel;
@@ -26,7 +26,7 @@ public class ItemModFood extends ItemFood implements IHasModel {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.setCreativeTab(DRPGCreativeTabs.food);
+		this.setCreativeTab(DivineRPGTabs.food);
 		ModItems.ITEMS.add(this);
 	}
 

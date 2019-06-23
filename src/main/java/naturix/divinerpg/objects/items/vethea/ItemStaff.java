@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
@@ -37,7 +37,7 @@ public class ItemStaff extends ItemMod {
 		this.maxStackSize = 1;
 		this.damage = dam;
 		this.cost = cos;
-		this.setCreativeTab(DRPGCreativeTabs.vethea);
+		this.setCreativeTab(DivineRPGTabs.vethea);
 		this.setFull3D();
 		staffList.add(this);
 	}

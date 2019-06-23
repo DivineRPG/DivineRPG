@@ -334,7 +334,7 @@ public class ModBlocks {
     public static Block workshopCarpet = new BlockMod(EnumBlockType.WOOL, "workshop_carpet", 0.1F);
     public static Block frostedGlass = new BlockModGlass("frosted_glass", 1.0F);
     public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",
-            DRPGCreativeTabs.BlocksTab).setHardness(1.5F);
+            DivineRPGTabs.BlocksTab).setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
     public static Block steelDoor = new BlockModDoor("steel_door", Material.IRON, 7.0f, true);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
@@ -531,7 +531,7 @@ public class ModBlocks {
     //public static Block blossomedWeedWoodVine = new BlockModVine("blossomed_weedwood_vine");
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
-    public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DRPGCreativeTabs.spawner);
+    public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DivineRPGTabs.spawner);
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

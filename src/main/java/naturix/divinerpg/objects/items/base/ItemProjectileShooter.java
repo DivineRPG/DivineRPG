@@ -10,7 +10,7 @@ import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -58,7 +58,7 @@ public class ItemProjectileShooter extends ItemMod {
 
     public ItemProjectileShooter(String name, BulletType bulletType, int uses, int counter) {
         super(name);
-        setCreativeTab(DRPGCreativeTabs.ranged);
+        setCreativeTab(DivineRPGTabs.ranged);
         setMaxStackSize(1);
         this.bulletType = bulletType;
         this.uses = uses;

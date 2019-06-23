@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -22,7 +22,7 @@ public class ItemSerenadeStriker extends ItemMod {
 
     public ItemSerenadeStriker(String name) {
         super(name);
-        this.setCreativeTab(DRPGCreativeTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.ranged);
         setMaxDamage(100);
         setMaxStackSize(1);
     }

@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.items.base;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,7 +18,7 @@ public class ItemMod extends Item implements IHasModel {
     protected String name;
 
     public ItemMod(String name) {
-        this(name, DRPGCreativeTabs.items);
+        this(name, DivineRPGTabs.items);
     }
 
     public ItemMod(String name, CreativeTabs tab) {

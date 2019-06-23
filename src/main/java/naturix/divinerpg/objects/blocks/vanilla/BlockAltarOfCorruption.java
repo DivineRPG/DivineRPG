@@ -4,7 +4,7 @@ import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModTriggers;
@@ -38,7 +38,7 @@ public class BlockAltarOfCorruption extends BlockContainer implements IHasModel 
         super(Material.ROCK, MapColor.BLUE);
         setUnlocalizedName(name);
         setRegistryName(name);
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setLightOpacity(0);
         setHardness(5.0F);
         setResistance(2000.0F);

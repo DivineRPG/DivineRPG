@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.registry.DRPGCreativeTabs;
+import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.DRPGParticleTypes;
@@ -65,7 +65,7 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
-        this.setCreativeTab(DRPGCreativeTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setBlockUnbreakable();
         this.fireBlock = fireBlock;
         this.dimId = dimId;
