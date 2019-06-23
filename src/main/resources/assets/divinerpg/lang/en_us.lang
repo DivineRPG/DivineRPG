@@ -1429,5 +1429,5 @@ tooltip.ghostbane.spawn=Spawns a friendly Wraith
 tooltip.ghostbane.damage=13 Attack Damage
 tooltip.ghostbane.health=20 Health
 tooltip.ghostbane.despawn=Despawns after a short time
-"tooltip.lamona.light=Casts light when thrown
-"tooltip.meteormash=Drops an explosive meteor from the sky
+tooltip.lamona.light=Casts light when thrown
+tooltip.meteormash=Drops an explosive meteor from the sky

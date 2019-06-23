@@ -1,10 +1,14 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
+import naturix.divinerpg.objects.entities.assets.render.projectile.RenderMeteor;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityMeteor extends EntityThrowable {
     
@@ -47,4 +51,8 @@ protected void onImpact(RayTraceResult result) {
         this.setDead();
     }
 }
+	@SideOnly(Side.CLIENT)
+	public static void renderMe() {
+    RenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, manager -> new RenderMeteor(manager));
+	}
 }

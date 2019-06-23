@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.client.ArcanaHelper;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.vethea.ItemStaff;
@@ -14,6 +15,7 @@ import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -55,7 +57,9 @@ public class ItemMeteorMash extends ItemMod {
                 if (!world.isRemote) {
                 	//FIXME - needs to consume arcana and spawn meteor
 //                	&& ArcanaHelper.getProperties(player).useBar(35)) {
-//                    world.spawnEntity(new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                	EntityThrowable entity = new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D);
+        			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+        			world.spawnEntity(entity);
                     player.playSound(ModSounds.STARLIGHT, 1, 1);
                 }
             player.getLook(1);
