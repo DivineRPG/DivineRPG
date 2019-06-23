@@ -1425,3 +1425,7 @@ tooltip.ender_scepter=On use: Teleports the player
 tooltip.staff.bounce=Bouncing Projectile
 tooltip.staff.evernight.damage=Deals 20 Damage to Player
 tooltip.generals_staff.split=Projectile splits into 5 on impact
+tooltip.ghostbane.spawn=Spawns a friendly Wraith
+tooltip.ghostbane.damage=13 Attack Damage
+tooltip.ghostbane.health=20 Health
+tooltip.ghostbane.despawn=Despawns after a short time
