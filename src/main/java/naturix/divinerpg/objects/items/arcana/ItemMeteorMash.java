@@ -55,7 +55,7 @@ public class ItemMeteorMash extends ItemMod {
             if (side == EnumFacing.NORTH) ++blockX;
 
                 if (!world.isRemote) {
-                	//FIXME - needs to consume arcana and spawn meteor
+                	//FIXME - needs to consume arcana
 //                	&& ArcanaHelper.getProperties(player).useBar(35)) {
                 	EntityThrowable entity = new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D);
         			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
