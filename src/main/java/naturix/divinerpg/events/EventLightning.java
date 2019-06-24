@@ -1,9 +1,11 @@
 package naturix.divinerpg.events;
 
 import naturix.divinerpg.objects.entities.entity.twilight.Epiphite;
+import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -16,10 +18,10 @@ public class EventLightning {
 		Entity entity = evt.getEntity();
 		if(entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)entity;
-			//FIXME
-			//if(player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.stormSword) {
-			//	evt.setCanceled(true);
-			//}
+			//FIXME - may need fixing still but i dont think so
+			if(player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.stormSword) {
+				evt.setCanceled(true);
+			}
 		} else if(entity instanceof Epiphite) {
 			evt.setCanceled(true);
 		}

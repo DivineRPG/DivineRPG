@@ -27,6 +27,8 @@ import naturix.divinerpg.objects.items.arcana.ItemMeteorMash;
 import naturix.divinerpg.objects.items.arcana.ItemOrbOfLight;
 import naturix.divinerpg.objects.items.arcana.ItemReflector;
 import naturix.divinerpg.objects.items.arcana.ItemShadowSword;
+import naturix.divinerpg.objects.items.arcana.ItemStaffEnrichment;
+import naturix.divinerpg.objects.items.arcana.ItemStormSword;
 import naturix.divinerpg.objects.items.arcana.ItemWizardsBook;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
@@ -704,16 +706,16 @@ public class ModItems {
     public static Item arcanium = new ItemMod("arcanium");
     // public static Item staffStarlight = new ItemStaffStarlight("staffOfStarlight");
     // public static Item starlight = new ItemStaffStarlight("starlight");
-    // public static Item stormSword = new ItemStormSword("stormSword", ToolMaterialMod.Storm);
+     public static Item stormSword = new ItemStormSword("storm_sword", ToolMaterialMod.Storm);
     
-   public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
+    public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
     // public static Item strongArcanaPotion = new ItemArcanaPotion("strongArcanaPotion", 200);
     // public static Item weakArcanaPotion = new ItemArcanaPotion("weakArcanaPotion", 100);
-   public static Item collector = new ItemMod("collector");
-   public static Item chargedCollector = new ItemChargedCollector("charged_collector");
+   	public static Item collector = new ItemMod("collector");
+   	public static Item chargedCollector = new ItemChargedCollector("charged_collector");
     public static Item wizardBook = new ItemWizardsBook("wizards_book");
-    // public static Item staffOfEnrichment = new ItemStaffEnrichment("staffOfEnrichment");
-     public static Item orbOfLight = new ItemOrbOfLight();
+    public static Item staffOfEnrichment = new ItemStaffEnrichment("staff_of_enrichment");
+    public static Item orbOfLight = new ItemOrbOfLight();
     //FIXME - Too much going on with Meriks Missile for me
     // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     public static Item grenade = new ItemGrenade("grenade");
@@ -732,13 +734,11 @@ public class ModItems {
     public static Item generalsStaff = new ItemGeneralsStaff();
     public static Item arcaniumAttractor = new ItemAttractor();
     
-    public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DivineRPGTabs.tools);
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
     public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DivineRPGTabs.items);
     public static Item weakArcanaPotion = new ItemNotReady("weak_arcana_potion", DivineRPGTabs.items);
     public static Item staffStarlight = new ItemNotReady("staff_of_starlight", DivineRPGTabs.items);
     public static Item starlight = new ItemNotReady("starlight", DivineRPGTabs.items);
-    public static Item stormSword = new ItemNotReady("storm_sword", DivineRPGTabs.ranged);
     
      public static Item sludgeKey = new ItemKey("sludge_key");
      public static Item ancientKey = new ItemKey("ancient_key");
