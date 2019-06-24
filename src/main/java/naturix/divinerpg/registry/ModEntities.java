@@ -201,6 +201,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityStar;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
@@ -384,6 +385,7 @@ public class ModEntities {
         registerProjectile(EntityAttractor.class, "attractor");
         registerProjectile(EntityGeneralsStaff.class, "generals_staff");
         registerProjectile(EntityMeteor.class, "meteor");
+        registerProjectile(EntityStar.class, "star");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -667,6 +669,7 @@ public class ModEntities {
         EntitySparkler.renderMe();
         EntityGeneralsStaff.renderMe();
         EntityMeteor.renderMe();
+        EntityStar.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
