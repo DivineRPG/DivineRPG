@@ -10,9 +10,6 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-configurations {
-    embedNoCompile
-}
 version = "1.12.2.0.20"
 group = "naturix.divinerpg" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "divinerpg"
@@ -32,13 +29,11 @@ minecraft {
 repositories {
     maven { url = "https://minecraft.curseforge.com/api/maven/" }
 	maven { url = "http://dvs1.progwml6.com/files/maven"}
-	maven { url = "https://mvn.stopmodreposts.org/"}
 	}
 
 dependencies {
    deobfCompile "projecte:ProjectE:1.12.2:${projecte_version}"
    runtime "mezz.jei:jei_${mc_version}:${jei_version}"
-   embedNoCompile "org.stopmodreposts:stopmodreposts:${mc_version}-${stopmodreposts_version}"
 }
 
 processResources {
@@ -54,15 +49,4 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-}
-jar{
-	into('META-INF/libraries'){
-		from configurations.embedNoCompile
-	}
-
-	manifest {
-		attributes([
-            'ContainedDeps': configurations.embedNoCompile.collect { it.getName() }.join(' ')
-		])
-	}
 }
