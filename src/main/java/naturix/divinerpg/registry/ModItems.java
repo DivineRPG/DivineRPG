@@ -24,6 +24,7 @@ import naturix.divinerpg.objects.items.arcana.ItemKey;
 import naturix.divinerpg.objects.items.arcana.ItemLaVekor;
 import naturix.divinerpg.objects.items.arcana.ItemLamona;
 import naturix.divinerpg.objects.items.arcana.ItemMeteorMash;
+import naturix.divinerpg.objects.items.arcana.ItemOrbOfLight;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
 import naturix.divinerpg.objects.items.base.ItemHealingSword;
@@ -709,15 +710,15 @@ public class ModItems {
    public static Item chargedCollector = new ItemChargedCollector("charged_collector");
     // public static Item wizardBook = new ItemWizardsBook("wizardsBook");
     // public static Item staffOfEnrichment = new ItemStaffEnrichment("staffOfEnrichment");
-    // public static Item orbOfLight = new ItemOrbOfLight();
-   //FIXME - Too much going on with Meriks Missile for me
+     public static Item orbOfLight = new ItemOrbOfLight();
+    //FIXME - Too much going on with Meriks Missile for me
     // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
     public static Item grenade = new ItemGrenade("grenade");
     public static Item firefly = new ItemFirefly();
-     public static Item laVekor = new ItemLaVekor();
+    public static Item laVekor = new ItemLaVekor();
     public static Item enderScepter = new ItemEnderScepter("ender_scepter");
     public static Item arcaniumSaber = new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber);
-     public static Item ghostbane = new ItemGhostbane();
+    public static Item ghostbane = new ItemGhostbane();
     // public static Item arcaniumReflector = new ItemReflector();
     // public static Item shadowSword = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
     // public static Item liviciaSword = new ItemSwordBase(ToolMaterialMod.LiviciaSword, "liviciaSword");
@@ -730,7 +731,6 @@ public class ModItems {
     
     public static Item wizardBook = new ItemNotReady("wizards_book", DivineRPGTabs.items);
     public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DivineRPGTabs.tools);
-    public static Item orbOfLight = new ItemNotReady("orb_of_light", DivineRPGTabs.items);
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
     public static Item arcaniumReflector = new ItemNotReady("arcanium_reflector", DivineRPGTabs.ranged);
     public static Item shadowSword = new ItemNotReady("shadow_saber", DivineRPGTabs.ranged);
