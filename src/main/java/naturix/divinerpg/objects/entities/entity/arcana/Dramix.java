@@ -30,7 +30,12 @@ import net.minecraft.world.World;
 
 public class Dramix extends EntityMob {
 
-    public Dramix(World worldIn) {
+	public Dramix(World worldIn) {
+		super(worldIn);
+		this.setSize(0.8F, 2.6f);
+		this.setHealth(this.getMaxHealth());
+	}
+	public Dramix(World worldIn, EntityPlayer player) {
 		super(worldIn);
 		this.setSize(0.8F, 2.6f);
 		this.setHealth(this.getMaxHealth());

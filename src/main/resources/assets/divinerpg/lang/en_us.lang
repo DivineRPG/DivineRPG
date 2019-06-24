@@ -1431,3 +1431,5 @@ tooltip.ghostbane.health=20 Health
 tooltip.ghostbane.despawn=Despawns after a short time
 tooltip.lamona.light=Casts light when thrown
 tooltip.meteormash=Drops an explosive meteor from the sky
+tooltip.refector.push=Knocks mobs away
+tooltip.shadow_saber=Speeds up player when used

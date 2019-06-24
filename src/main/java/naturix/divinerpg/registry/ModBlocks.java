@@ -27,6 +27,7 @@ import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockModVine;
+import naturix.divinerpg.objects.blocks.BlockNotReady;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.arcana.BlockAcceleron;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
@@ -532,7 +533,9 @@ public class ModBlocks {
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
     public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DivineRPGTabs.spawner);
-
+    public static Block parasectaAltar = new BlockNotReady("parasecta_altar");
+    public static Block dramixAltar = new BlockNotReady("dramix_altar");
+    
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();

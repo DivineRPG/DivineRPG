@@ -25,6 +25,9 @@ import naturix.divinerpg.objects.items.arcana.ItemLaVekor;
 import naturix.divinerpg.objects.items.arcana.ItemLamona;
 import naturix.divinerpg.objects.items.arcana.ItemMeteorMash;
 import naturix.divinerpg.objects.items.arcana.ItemOrbOfLight;
+import naturix.divinerpg.objects.items.arcana.ItemReflector;
+import naturix.divinerpg.objects.items.arcana.ItemShadowSword;
+import naturix.divinerpg.objects.items.arcana.ItemWizardsBook;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
 import naturix.divinerpg.objects.items.base.ItemHealingSword;
@@ -708,7 +711,7 @@ public class ModItems {
     // public static Item weakArcanaPotion = new ItemArcanaPotion("weakArcanaPotion", 100);
    public static Item collector = new ItemMod("collector");
    public static Item chargedCollector = new ItemChargedCollector("charged_collector");
-    // public static Item wizardBook = new ItemWizardsBook("wizardsBook");
+    public static Item wizardBook = new ItemWizardsBook("wizards_book");
     // public static Item staffOfEnrichment = new ItemStaffEnrichment("staffOfEnrichment");
      public static Item orbOfLight = new ItemOrbOfLight();
     //FIXME - Too much going on with Meriks Missile for me
@@ -719,9 +722,9 @@ public class ModItems {
     public static Item enderScepter = new ItemEnderScepter("ender_scepter");
     public static Item arcaniumSaber = new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber);
     public static Item ghostbane = new ItemGhostbane();
-    // public static Item arcaniumReflector = new ItemReflector();
-    // public static Item shadowSword = new ItemShadowSword("shadowSaber", ToolMaterialMod.ShadowSaber);
-    // public static Item liviciaSword = new ItemSwordBase(ToolMaterialMod.LiviciaSword, "liviciaSword");
+    public static Item arcaniumReflector = new ItemReflector();
+    public static Item shadowSword = new ItemShadowSword("shadow_saber", ToolMaterialMod.ShadowSaber);
+    public static Item liviciaSword = new ItemModSword(ToolMaterialMod.LiviciaSword, "livicia_sword");
     public static Item meteorMash = new ItemMeteorMash();
     public static Item divineAccumulator = new ItemDivineAccumulator();
     public static Item arcaniteBlaster = new ItemArcaniteBlaster();
@@ -729,12 +732,8 @@ public class ModItems {
     public static Item generalsStaff = new ItemGeneralsStaff();
     public static Item arcaniumAttractor = new ItemAttractor();
     
-    public static Item wizardBook = new ItemNotReady("wizards_book", DivineRPGTabs.items);
     public static Item staffOfEnrichment = new ItemNotReady("staff_of_enrichment", DivineRPGTabs.tools);
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
-    public static Item arcaniumReflector = new ItemNotReady("arcanium_reflector", DivineRPGTabs.ranged);
-    public static Item shadowSword = new ItemNotReady("shadow_saber", DivineRPGTabs.ranged);
-    public static Item liviciaSword = new ItemNotReady("livicia_sword", DivineRPGTabs.ranged);
     public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DivineRPGTabs.items);
     public static Item weakArcanaPotion = new ItemNotReady("weak_arcana_potion", DivineRPGTabs.items);
     public static Item staffStarlight = new ItemNotReady("staff_of_starlight", DivineRPGTabs.items);

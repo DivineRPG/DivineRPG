@@ -32,7 +32,12 @@ import net.minecraft.world.World;
 
 public class Parasecta extends EntityMob {
 
-    public Parasecta(World worldIn) {
+	public Parasecta(World worldIn) {
+		super(worldIn);
+		this.setSize(1F, 2f);
+		this.setHealth(this.getMaxHealth());
+	}
+	public Parasecta(World worldIn, EntityPlayer player) {
 		super(worldIn);
 		this.setSize(1F, 2f);
 		this.setHealth(this.getMaxHealth());
