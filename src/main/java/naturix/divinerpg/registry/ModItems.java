@@ -8,6 +8,7 @@ import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.arcana.ItemAquamarine;
+import naturix.divinerpg.objects.items.arcana.ItemArcanaSpawnEgg;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlade;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniumSaber;
@@ -744,10 +745,10 @@ public class ModItems {
      public static Item soulKey = new ItemKey("soul_key");
      public static Item degradedKey = new ItemKey("degraded_key");
 
-    // public static Item golemSpawner = new ItemArcanaSpawnEgg("golemEgg");
-    // public static Item seimerSpawner = new ItemArcanaSpawnEgg("seimerEgg");
-    // public static Item paratikuSpawner = new ItemArcanaSpawnEgg("paratikuEgg");
-    // public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryxEgg");
+     public static Item golemSpawner = new ItemArcanaSpawnEgg("golem_egg");
+     public static Item seimerSpawner = new ItemArcanaSpawnEgg("seimer_egg");
+     public static Item paratikuSpawner = new ItemArcanaSpawnEgg("paratiku_egg");
+     public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryx_egg");
 
     public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
     public static Item veilo = new ItemMod("veilo");

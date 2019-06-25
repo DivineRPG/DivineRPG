@@ -1434,3 +1434,7 @@ tooltip.meteormash=Drops an explosive meteor from the sky
 tooltip.refector.push=Knocks mobs away
 tooltip.shadow_saber=Speeds up player when used
 tooltip.staff_of_enrichment=Use on arcanite dirt to purify.
+tooltip.arcana_spawn.fyracryx=Spawns a pet Fyracryx
+tooltip.arcana_spawn.seimer=Spawns a pet Seimer
+tooltip.arcana_spawn.golem=Spawns a pet Golem Of Rejuvenation
+tooltip.arcana_spawn.paratiku=Spawns a pet Paratiku

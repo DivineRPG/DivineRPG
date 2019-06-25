@@ -25,7 +25,12 @@ import net.minecraft.world.World;
 
 public class Seimer extends EntityMob {
 
-    public Seimer(World worldIn) {
+	public Seimer(World worldIn) {
+		super(worldIn);
+		this.setSize(1F, 1f);
+		this.setHealth(this.getMaxHealth());
+	}
+	public Seimer(World worldIn, EntityPlayer player) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());

@@ -41,6 +41,11 @@ public class Paratiku extends EntityTameable {
 		this.setSize(0.8F, 2f);
 		this.setHealth(this.getMaxHealth());
 	}
+	public Paratiku(World worldIn, EntityPlayer player) {
+		super(worldIn);
+		this.setSize(0.8F, 2f);
+		this.setHealth(this.getMaxHealth());
+	}
 	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/paratiku");
 
 
