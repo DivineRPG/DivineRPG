@@ -20,7 +20,9 @@ import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
@@ -253,4 +255,8 @@ public class Utils {
 			}
 		}
 	}
+
+	public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
+        return new EntityDamageSourceIndirect("arrow", projectile, shooter).setMagicDamage();
+    }
 }

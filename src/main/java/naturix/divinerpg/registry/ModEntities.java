@@ -175,6 +175,7 @@ import naturix.divinerpg.objects.entities.entity.iceika.Rollum;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
@@ -182,6 +183,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityCorruptedBull
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDisk;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityEvernightProjectile;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
@@ -386,6 +388,8 @@ public class ModEntities {
         registerProjectile(EntityGeneralsStaff.class, "generals_staff");
         registerProjectile(EntityMeteor.class, "meteor");
         registerProjectile(EntityStar.class, "star");
+        registerProjectile(EntityBouncingProjectile.class, "bouncing");
+        registerProjectile(EntityEvernightProjectile.class, "evernight");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -670,6 +674,8 @@ public class ModEntities {
         EntityGeneralsStaff.renderMe();
         EntityMeteor.renderMe();
         EntityStar.renderMe();
+        EntityBouncingProjectile.renderMe();
+        EntityEvernightProjectile.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);

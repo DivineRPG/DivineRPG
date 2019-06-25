@@ -929,9 +929,8 @@ public class ModItems {
     public static Item everArrow = new ItemMod("ever_arrow").setCreativeTab(DivineRPGTabs.ranged);
     public static Item everfrightBow = new ItemModBow("everfright_bow", ArrowType.EVERFRIGHT, -1, everArrow)
             .setSound(ModSounds.VETHEA_BOW).setVethean();
-    // public static Item evernight = new ItemStaff(115, 80, "evernight");
-    public static Item evernight = new ItemNotReady("evernight", DivineRPGTabs.ranged);
-
+    public static Item evernight = new ItemStaff(115, 80, "evernight");
+    
     // public static Item karosRockmaul = new ItemVetheanSword("karos_rockmaul", Util.addHammerMaterial(46));
     public static Item karosRockmaul = new ItemNotReady("karos_rockmaul", DivineRPGTabs.ranged);
 

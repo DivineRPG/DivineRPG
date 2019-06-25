@@ -5,7 +5,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.client.ArcanaHelper;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityEvernightProjectile;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
@@ -15,6 +16,7 @@ import naturix.divinerpg.utils.TooltipLocalizer;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -60,10 +62,13 @@ public class ItemStaff extends ItemMod {
 //			 && ArcanaHelper.getProperties(player).useBar(this.cost)) {		
 			if(par1.getItem() == ModItems.evernight){
 				player.attackEntityFrom(Utils.arcanaSource, 20);
-//				world.spawnEntityInWorld(new EntityEvernightProjectile(world, player, this.damage));
-			} else {
-				//FIXME - staff needs entities
-//				world.spawnEntityInWorld(new EntityBouncingProjectile(world, player, this.damage));
+				EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);
+				projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);
+	            world.spawnEntity(projectile);
+			} else { 
+				EntityThrowable projectile = new EntityBouncingProjectile(world, player, this.damage);
+				projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);
+	            world.spawnEntity(projectile);
 			}
 			world.playSound(player, player.getPosition(), ModSounds.STAFF, SoundCategory.PLAYERS, 1, 1);
 		}
