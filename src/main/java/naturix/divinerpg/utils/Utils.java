@@ -18,6 +18,7 @@ import org.apache.commons.io.IOUtils;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
+import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.Entity;
@@ -25,9 +26,11 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -263,5 +266,32 @@ public class Utils {
     }
 	public static ToolMaterial addHammerMaterial(float damage) {
         return EnumHelper.addToolMaterial("sword", 0, -1, 0, damage - 4, 22);
+    }
+	public static boolean bordersTar(World w, int x, int y, int z) {
+        for (int i = x - 4; i <= x + 4; ++i) {
+            for (int j = y; j <= y + 1; ++j) {
+                for (int k = z - 4; k <= z + 4; ++k) {
+                    if (w.getBlockState(new BlockPos(i, j, k)) == ModBlocks.tar) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+	public static boolean bordersTar(World w, BlockPos pos) {
+		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
+        for (int i = x - 4; i <= x + 4; ++i) {
+            for (int j = y; j <= y + 1; ++j) {
+                for (int k = z - 4; k <= z + 4; ++k) {
+                    if (w.getBlockState(new BlockPos(i, j, k)) == ModBlocks.tar) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }
