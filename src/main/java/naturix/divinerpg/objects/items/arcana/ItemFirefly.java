@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.client.ArcanaHelper;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityFirefly;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
@@ -37,9 +37,9 @@ public class ItemFirefly extends ItemMod {
     	if(!world.isRemote) {
 //    		&& ArcanaHelper.getProperties(player).useBar(arcana)){
             world.playSound(player, player.getPosition(), ModSounds.FIREFLY, SoundCategory.PLAYERS, 1, 1);
-            //FIXME - needs firefly entity
-//            EntityFirefly e = new EntityFirefly(world, player);
-//            world.spawnEntity(e);
+            EntityFirefly e = new EntityFirefly(world, player);
+            e.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+            world.spawnEntity(e);
             
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
 		}

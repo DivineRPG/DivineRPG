@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.client.ArcanaHelper;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityReflector;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
@@ -37,11 +38,10 @@ public class ItemReflector extends ItemMod {
 //					&& ArcanaHelper.getProperties(player).useBar(20)) {
 
 				player.playSound(ModSounds.REFLECTOR, 1, 1);
-				//FIXME - needs entity
-//			EntityThrowable entity = new EntityReflector(world, player);
-//			world.spawnEntityInWorld(entity);
-				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
-				
+			EntityThrowable entity = new EntityReflector(world, player);
+			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+            world.spawnEntity(entity);
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());	
 		}
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
 	}
