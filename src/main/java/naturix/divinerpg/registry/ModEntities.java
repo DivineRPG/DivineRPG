@@ -3,6 +3,7 @@ package naturix.divinerpg.registry;
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderConstructor;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathcryx;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDramix;
@@ -157,6 +158,7 @@ import naturix.divinerpg.objects.entities.entity.arcana.DeathHound;
 import naturix.divinerpg.objects.entities.entity.arcana.Deathcryx;
 import naturix.divinerpg.objects.entities.entity.arcana.Dramix;
 import naturix.divinerpg.objects.entities.entity.arcana.DungeonDemon;
+import naturix.divinerpg.objects.entities.entity.arcana.EntityConstructor;
 import naturix.divinerpg.objects.entities.entity.arcana.Leorna;
 import naturix.divinerpg.objects.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.objects.entities.entity.arcana.Paratiku;
@@ -395,7 +397,7 @@ public class ModEntities {
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
-        // registerMobWithEgg(Constructor.class, "constructor");
+        registerMobWithEgg(EntityConstructor.class, "constructor");
         // registerMobWithEgg(Datticon.class, "datticon");
         registerMobWithEgg(Deathcryx.class, "deathcryx");
         registerMobWithEgg(DeathHound.class, "death_hound");
@@ -693,6 +695,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityConstructor.class, RenderConstructor.FACTORY);
 
         // Iceika
         RenderingRegistry.registerEntityRenderingHandler(Alicanto.class, RenderAlicanto.FACTORY);

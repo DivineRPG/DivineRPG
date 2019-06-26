@@ -1,5 +1,6 @@
 package naturix.divinerpg.objects.items.arcana;
 
+import naturix.divinerpg.objects.entities.entity.arcana.EntityConstructor;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
@@ -22,20 +23,18 @@ public class ItemChargedCollector extends ItemMod {
     {
 		ItemStack stack = new ItemStack(player.getHeldItemMainhand().getItem());
 		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-		//FIXME - needs constructor mob
-//        EntityConstructor con = new EntityConstructor(world);
+        EntityConstructor con = new EntityConstructor(world);
 		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(!world.isRemote){
-//			FIXME - Also needs dramix altar
-//			if(block == ModBlocks.dramixAltar){
-//				con.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
-//				if(world.getCollidingBoundingBoxes(con, con.boundingBox).isEmpty()) { 
-//                    world.spawnEntityInWorld(con);
+			if(block == ModBlocks.dramixAltar){
+				con.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
+				if(world.getCollisionBoxes(con, con.getCollisionBoundingBox()).isEmpty()) { 
+                    world.spawnEntity(con);
                     if(!player.capabilities.isCreativeMode)stack.shrink(1);
                 }
-//				return EnumActionResult.PASS;
-//			}
-//		}
+				return EnumActionResult.PASS;
+			}
+		}
 		return EnumActionResult.FAIL;
 	}
 		
