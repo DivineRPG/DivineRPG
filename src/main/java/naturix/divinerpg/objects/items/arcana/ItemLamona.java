@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityLamona;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipHelper;
@@ -32,9 +33,10 @@ public class ItemLamona extends ItemMod {
 		if(!player.capabilities.isCreativeMode) stack.shrink(1);
 		if(!world.isRemote) {
 		player.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1, 1);
-		//FIXME - Lamona needs entity
-//		EntityThrowable bullet = new EntityLamona(world, player);
-//		world.spawnEntityInWorld(bullet);
+		
+		EntityThrowable bullet = new EntityLamona(world, player);
+		bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+		world.spawnEntity(bullet);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	}
         return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(hand));

@@ -28,7 +28,6 @@ public class ItemAquamarine extends ItemMod{
         if (block == Blocks.SNOW_LAYER) facing = facing.DOWN;
         
         else {
-        	//FIXME - Directions may be incorrect however i believe them to be correct
             if(facing == facing.UP) --j;
 
             else if(facing == facing.DOWN) ++j;

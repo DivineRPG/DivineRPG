@@ -190,6 +190,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityLamona;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
@@ -390,6 +391,7 @@ public class ModEntities {
         registerProjectile(EntityStar.class, "star");
         registerProjectile(EntityBouncingProjectile.class, "bouncing");
         registerProjectile(EntityEvernightProjectile.class, "evernight");
+        registerProjectile(EntityLamona.class, "lamona");
 
         // Arcana
         // registerMobWithEgg(CaptianMerik.class, "captian_merik");
@@ -676,6 +678,7 @@ public class ModEntities {
         EntityStar.renderMe();
         EntityBouncingProjectile.renderMe();
         EntityEvernightProjectile.renderMe();
+        EntityLamona.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(Deathcryx.class, RenderDeathcryx.FACTORY);
