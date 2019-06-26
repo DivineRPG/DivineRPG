@@ -21,6 +21,7 @@ import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.ResourceLocation;
@@ -28,6 +29,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -258,5 +260,8 @@ public class Utils {
 
 	public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
         return new EntityDamageSourceIndirect("arrow", projectile, shooter).setMagicDamage();
+    }
+	public static ToolMaterial addHammerMaterial(float damage) {
+        return EnumHelper.addToolMaterial("sword", 0, -1, 0, damage - 4, 22);
     }
 }
