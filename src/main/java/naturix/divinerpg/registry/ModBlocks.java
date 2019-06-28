@@ -38,6 +38,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockHeatTrap;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockVeilo;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.fluid.BlockFluid;
 import naturix.divinerpg.objects.blocks.iceika.BlockCandyCane;
@@ -501,7 +502,7 @@ public class ModBlocks {
     //public static Block aquamarine = new BlockAquaMarine("aquamarine_plant");
     //public static Block eucalyptusRoot = new BlockEucalyptusRoot("eucalyptus_plant");
     //public static Block hitchak = new BlockHitchak("hitchak_plant");
-    //public static Block veilo = new BlockVeilo("veilo_plant");
+    public static Block veilo = new BlockVeilo("veilo_plant");
     //public static Block lamona = new BlockLamona("lamona_plant");
     //public static Block marsine = new BlockMarsine("marsine_plant");
     //public static Block firestock = new BlockStackPlant("firestock_plant");

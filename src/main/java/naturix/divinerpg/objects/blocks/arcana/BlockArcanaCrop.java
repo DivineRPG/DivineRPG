@@ -4,15 +4,15 @@ import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockArcanaCrop extends BlockModCrop {
-
-    public BlockArcanaCrop(String name, int stages, String crop) {
-    	//FIXME - Staging needs work
-//        super(name, stages, crop);
-    	super(name);
+	
+    public BlockArcanaCrop(String name, int stages) {
+        super(name, stages);
     }
     
     @Override
