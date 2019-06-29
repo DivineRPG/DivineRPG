@@ -1,7 +1,9 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.objects.items.ItemNotReady;
+import naturix.divinerpg.objects.blocks.BlockModCrop;
+import naturix.divinerpg.objects.items.arcana.ItemArcanaSeeds;
 import naturix.divinerpg.objects.items.base.ItemModSeeds;
+import naturix.divinerpg.objects.items.twilight.ItemTwilightSeeds;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
@@ -16,23 +18,15 @@ public class ModSeeds {
             Blocks.GRASS);
     public static Item skyPlantSeeds = new ItemModSeeds("sky_plant_seeds", ModBlocks.skyPlant, Blocks.GRASS);
 
-    // public static Item hitchakSeeds = new ItemArcanaSeeds("hitchakSeeds", (BlockModCrop) ArcanaBlocks.hitchak);
-    public static Item hitchakSeeds = new ItemNotReady("hitchak_seeds", DivineRPGTabs.items);
-    // public static Item veiloSeeds = new ItemArcanaSeeds("veiloSeeds", (BlockModCrop) ArcanaBlocks.veilo);
-    public static Item veiloSeeds = new ItemNotReady("veilo_seeds", DivineRPGTabs.items);
-    // public static Item marsineSeeds = new ItemArcanaSeeds("marsineSeeds", (BlockModCrop) ArcanaBlocks.marsine);
-    public static Item marsineSeeds = new ItemNotReady("marsine_seeds", DivineRPGTabs.items);
-    // public static Item lamonaSeeds = new ItemArcanaSeeds("lamonaSeeds", (BlockModCrop) ArcanaBlocks.lamona);
-    public static Item lamonaSeeds = new ItemNotReady("lamona_seeds", DivineRPGTabs.items);
-    // public static Item firestockSeeds = new ItemTwilightSeeds("firestockSeeds", ArcanaBlocks.firestock, ArcanaBlocks.arcanaGrass);
-    public static Item firestockSeeds = new ItemNotReady("firestock_seeds", DivineRPGTabs.items);
-    // public static Item pinflySeeds = new ItemTwilightSeeds("pinflySeeds", ArcanaBlocks.pinfly, ArcanaBlocks.arcanaGrass);
-    public static Item pinflySeeds = new ItemNotReady("pinfly_seeds", DivineRPGTabs.items);
-    // public static Item aquamarineSeeds = new ItemArcanaSeeds("aquamarineSeeds", (BlockModCrop) ArcanaBlocks.aquamarine);
-    // public static Item eucalyptusSeeds = new ItemArcanaSeeds("eucalyptusRootSeeds", (BlockModCrop) ArcanaBlocks.eucalyptusRoot);
-    public static Item aquamarineSeeds = new ItemNotReady("aquamarine_seeds", DivineRPGTabs.items);
-    public static Item eucalyptusSeeds = new ItemNotReady("eucalyptus_root_seeds", DivineRPGTabs.items);
-
+     public static Item hitchakSeeds = new ItemArcanaSeeds("hitchak_seeds", (BlockModCrop) ModBlocks.hitchak);
+     public static Item veiloSeeds = new ItemArcanaSeeds("veilo_seeds", (BlockModCrop) ModBlocks.veilo);
+     public static Item marsineSeeds = new ItemArcanaSeeds("marsine_seeds", (BlockModCrop) ModBlocks.marsine);
+     public static Item lamonaSeeds = new ItemArcanaSeeds("lamona_seeds", (BlockModCrop) ModBlocks.lamona);
+     public static Item firestockSeeds = new ItemTwilightSeeds("firestock_seeds", ModBlocks.firestock, ModBlocks.arcanaGrass);
+     public static Item pinflySeeds = new ItemTwilightSeeds("pinfly_seeds", ModBlocks.pinfly, ModBlocks.arcanaGrass);
+     public static Item aquamarineSeeds = new ItemArcanaSeeds("aquamarine_seeds", (BlockModCrop) ModBlocks.aquamarine);
+     public static Item eucalyptusSeeds = new ItemArcanaSeeds("eucalyptus_root_seeds", (BlockModCrop) ModBlocks.eucalyptusRoot);
+    
     public static void init() {
     }
 }
