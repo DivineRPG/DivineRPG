@@ -494,7 +494,9 @@ public class ModBlocks {
     //public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
     //public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
     //public static Block arcanaExtractor = new BlockExtractor("arcana_extractor");
-
+    public static Block parasectaAltar = new BlockNotReady("parasecta_altar");
+    public static Block dramixAltar = new BlockNotReady("dramix_altar");
+    
     public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId());
     public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal);
     public static Block arcanaHardPortalFrame = new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal)
@@ -535,8 +537,6 @@ public class ModBlocks {
     //public static Block hyrewoodVine = new BlockModVine("hyrewood_vine");
 
     public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DivineRPGTabs.spawner);
-    public static Block parasectaAltar = new BlockNotReady("parasecta_altar");
-    public static Block dramixAltar = new BlockNotReady("dramix_altar");
     
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
