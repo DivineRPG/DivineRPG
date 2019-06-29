@@ -1,65 +1,67 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
+import java.util.Random;
+
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.blocks.BlockMod;
+import naturix.divinerpg.registry.DivineRPGTabs;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockStarBridge extends BlockMod {
-	private boolean red = false;
 
-	public BlockStarBridge(String name) {
-		super(Material.ROCK, name);
-		this.setHardness(2);
-		setTickRandomly(true);
+	private final boolean powered;
+	public BlockStarBridge(String name, boolean powered) {
+		super(EnumBlockType.GLASS, name, false, !powered ? DivineRPGTabs.BlocksTab : null);
+		this.powered = powered;
+		if(powered) this.setLightLevel(1.0F);
+		this.setTickRandomly(true);
 	}
 
 	@Override
-	public boolean canConnectRedstone(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-		return true;
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess w, BlockPos pos)
+    {
+		return w.getBlockState(pos) == ModBlocks.starBridge.getDefaultState() ? null : super.getCollisionBoundingBox(blockState, w, pos);
 	}
 
 	@Override
-	public int getStrongPower(IBlockState state, IBlockAccess baccess, BlockPos pos, EnumFacing side) {
-		return red ? 15 : 0;
+	@Deprecated
+    public boolean isOpaqueCube(IBlockState state)
+    {	return false;
 	}
 
 	@Override
-	public int getWeakPower(IBlockState state, IBlockAccess baccess, BlockPos pos, EnumFacing side) {
-		return red ? 15 : 0;
-	}
-
-	@Override
-	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock, BlockPos fromPos) {
-		super.neighborChanged(state, world, pos, neighborBlock, fromPos);
-		int x = pos.getX();
-		int y = pos.getY();
-		int z = pos.getZ();
-		Minecraft.getMinecraft();
-		if (world.isBlockIndirectlyGettingPowered(new BlockPos(x, y, z)) > 0) {
-			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-			    //FIXME
-				// world.setBlockState(new BlockPos(x, y, z),
-				// ModBlocks.starBridgeOn.getDefaultState(), 3);
-			}
-		} else {
-			// world.setBlockState(new BlockPos(x, y, z),
-			// ModBlocks.starBridge.getDefaultState(), 3);
+	public void onBlockAdded(World w, BlockPos pos, IBlockState state)
+    {w.scheduleUpdate(pos, this, 5);
+		if(!w.isRemote) {
+			if(this.powered && w.isBlockIndirectlyGettingPowered(pos) < 1)
+				w.scheduleBlockUpdate(pos, this, 4, 1);
+			else if (!this.powered && w.isBlockIndirectlyGettingPowered(pos)> 0)
+				w.setBlockState(pos, ModBlocks.starBridgeOn.getDefaultState());
 		}
 	}
 
 	@Override
-	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-		world.scheduleUpdate(pos, this, 5);
+	public void neighborChanged(IBlockState state, World w, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {	w.scheduleUpdate(pos, this, 5);
+		if(!w.isRemote) {
+			if(this.powered && w.isBlockIndirectlyGettingPowered(pos) < 1)
+				w.scheduleBlockUpdate(pos, this, 4, 1);
+			else if (!this.powered && w.isBlockIndirectlyGettingPowered(pos)> 0)
+				w.setBlockState(pos, ModBlocks.starBridgeOn.getDefaultState());
+		}
+	}
+
+	@Override
+	public void updateTick(World w, BlockPos pos, IBlockState state, Random rand)
+    {	
+		if(!w.isRemote && this.powered && w.isBlockIndirectlyGettingPowered(pos)< 1)
+			w.setBlockState(pos, ModBlocks.starBridge.getDefaultState());
 	}
 }

@@ -38,6 +38,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockHeatTrap;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockStarBridge;
 import naturix.divinerpg.objects.blocks.arcana.BlockVeilo;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
 import naturix.divinerpg.objects.blocks.fluid.BlockFluid;
@@ -483,8 +484,8 @@ public class ModBlocks {
     public static Block livingStatueSpawner = new BlockArcanaSpawner("living_statue_spawner", "living_statue");
     public static Block roamerSpawner = new BlockArcanaSpawner("roamer_spawner", "roamer");
     public static Block ancientTile = new BlockMod("ancient_tile", false);
-    //public static Block starBridge = new BlockStarBridge("star_bridge", false);
-    //public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
+    public static Block starBridge = new BlockStarBridge("star_bridge", false);
+    public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
     public static Block soulSludgeDoor = new BlockModDoor("soul_sludge_door", Material.IRON, -1F, false);
     public static Block ancientBrickDoor = new BlockModDoor("ancient_brick_door", Material.IRON, -1F, false);
     public static Block soulStoneDoor = new BlockModDoor("soul_stone_door", Material.IRON, -1F, false);
