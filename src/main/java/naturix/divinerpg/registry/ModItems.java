@@ -38,6 +38,7 @@ import naturix.divinerpg.objects.items.base.ItemHealingSword;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.base.ItemModAxe;
 import naturix.divinerpg.objects.items.base.ItemModBow;
+import naturix.divinerpg.objects.items.base.ItemModDoor;
 import naturix.divinerpg.objects.items.base.ItemModFood;
 import naturix.divinerpg.objects.items.base.ItemModHoe;
 import naturix.divinerpg.objects.items.base.ItemModPickaxe;
@@ -785,8 +786,7 @@ public class ModItems {
     public static Item polishedPearls = new ItemMod("polished_pearls");
     public static Item shinyPearls = new ItemMod("shiny_pearls");
 
-    // public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barred_door");
-    public static Item barredDoor = new ItemNotReady("barred_door", DivineRPGTabs.items);
+     public static Item barredDoor = new ItemModDoor(ModBlocks.barredDoor, "barred_door");
 
     public static Item teakerLump = new ItemMod("teaker_lump");
     public static Item amthirmisLump = new ItemMod("amthirmis_lump");
