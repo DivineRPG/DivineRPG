@@ -70,6 +70,7 @@ import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
 import naturix.divinerpg.objects.items.vanilla.ItemSerenadeStriker;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import naturix.divinerpg.objects.items.vanilla.ItemVileStorm;
+import naturix.divinerpg.objects.items.vethea.ItemDreamFlint;
 import naturix.divinerpg.objects.items.vethea.ItemMoonClock;
 import naturix.divinerpg.objects.items.vethea.ItemStaff;
 import naturix.divinerpg.objects.items.vethea.ItemVetheanCannon;
@@ -917,9 +918,8 @@ public class ModItems {
     public static Item arksianeBow = new ItemModBow("arksiane_wrathbow", ArrowType.ARKSIAN_ARROW, 1, karosArrow)
             .setSound(ModSounds.VETHEA_BOW).setVethean();
 
-    // public static Item dreamFlint = new ItemDreamFlint();
+    public static Item dreamFlint = new ItemDreamFlint();
     public static Item moonClock = new ItemMoonClock("moon_clock");
-    public static Item dreamFlint = new ItemNotReady("dream_flint", DivineRPGTabs.items);
     public static Item rockChunks = new ItemMod("rock_chunks");
     // public static Item nightmareBed = new ItemNightmareBed();
     public static Item nightmareBed = new ItemNotReady("nightmare_bed", DivineRPGTabs.items);
