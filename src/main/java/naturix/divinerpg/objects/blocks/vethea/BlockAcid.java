@@ -20,12 +20,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Acid extends BlockMod {
+public class BlockAcid extends BlockMod {
 	public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 	private boolean decays, poison;
 	private EntityLivingBase e;
 
-	public Acid(String name, boolean decays, boolean poison) {
+	public BlockAcid(String name, boolean decays, boolean poison) {
 		super(Material.SNOW, name);
 		this.setTickRandomly(true);
 		this.decays = decays;
