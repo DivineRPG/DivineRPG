@@ -77,6 +77,7 @@ import naturix.divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
 import naturix.divinerpg.objects.blocks.vanilla.VanillaBlock;
 import naturix.divinerpg.objects.blocks.vethea.BlockAcid;
 import naturix.divinerpg.objects.blocks.vethea.BlockVetheaLog;
+import naturix.divinerpg.objects.blocks.vethea.BlockVetheaPortal;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GenerateJSON;
 import naturix.divinerpg.utils.material.EnumBlockType;
@@ -543,7 +544,7 @@ public class ModBlocks {
     public static Block acceleron = new BlockAcceleron("acceleron");
 
     // Vethea
-//  public static Block vetheaPortal = new BlockVetheaPortal();
+//  public static Block vetheaPortal = new BlockVetheaPortal("vethea_portal", 0, Blocks.DIRT);
 //	public static Block dreamwreckerSpawner = new BlockStupidSpawner("dreamWreckerSpawner", "Dreamwrecker", "fireCrystal", true);
 //	public static Block vermenousSpawner = new BlockStupidSpawner("vermenousSpawner", "Vermenous", "fireCrystal", true);
 //	public static Block twinsSpawner = new BlockStupidSpawner("twinsSpawner", "Twins", "fireCrystal", true);

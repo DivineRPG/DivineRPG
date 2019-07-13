@@ -78,11 +78,6 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("Dimensions are all WIP");
-    }
-
-    @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, new IProperty[] { AXIS });
     }
