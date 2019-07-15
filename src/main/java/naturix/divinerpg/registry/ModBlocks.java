@@ -77,7 +77,6 @@ import naturix.divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
 import naturix.divinerpg.objects.blocks.vanilla.VanillaBlock;
 import naturix.divinerpg.objects.blocks.vethea.BlockAcid;
 import naturix.divinerpg.objects.blocks.vethea.BlockVetheaLog;
-import naturix.divinerpg.objects.blocks.vethea.BlockVetheaPortal;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.GenerateJSON;
 import naturix.divinerpg.utils.material.EnumBlockType;
