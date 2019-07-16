@@ -1251,6 +1251,13 @@ entity.divinerpg.wreck_form_1.name=Wreck
 entity.divinerpg.zelus.name=Zelus
 entity.divinerpg.zone.name=Zone
 entity.divinerpg.zoragon.name=Zoragon
+entity.divinerpg.captain_merik.name=Captain Merik
+entity.divinerpg.dungeon_prisoner.name=Dungeon Prisoner
+entity.divinerpg.living_statue.name=Living Statue
+entity.divinerpg.war_general.name=War General
+entity.divinerpg.bohemite.name=Bohemite
+entity.divinerpg.spinarus.name=Spinarus
+entity.divinerpg.wreck_form.name=Wreck
 
 advancement.craft_divine_sword=A Divine Plan
 advancement.craft_divine_sword.desc=Craft a Divine Sword
@@ -1390,6 +1397,9 @@ message.vatticus.noend=I hear there's no end to this place, there's no end to me
 message.vatticus.strength=Arcana come upon me, give me the ultimate strength!
 message.vatticus.discover=I've discovered how to awake the ancient leader of the dungeon.
 message.vatticus.magic=Hurr drah drah, magic.
+message.general.weapons=My weapons will conquer any foe.
+message.general.1=Do not buy from Captain Merik. He does not care about quality.
+message.general.2=The Arcanite Blade is incredibly powerful.
 
 tooltip.uses=# Uses Remaining
 tooltip.harvest=Harvest Level: +

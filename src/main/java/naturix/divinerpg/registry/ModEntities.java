@@ -21,7 +21,9 @@ import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRejuvGolem;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRoamer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderSeimer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderVatticus;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWarGeneral;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWraith;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderZelus;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderAlicanto;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFractite;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFrostArcher;
@@ -178,7 +180,9 @@ import naturix.divinerpg.objects.entities.entity.arcana.Razorback;
 import naturix.divinerpg.objects.entities.entity.arcana.Roamer;
 import naturix.divinerpg.objects.entities.entity.arcana.Seimer;
 import naturix.divinerpg.objects.entities.entity.arcana.Vatticus;
+import naturix.divinerpg.objects.entities.entity.arcana.WarGeneral;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
+import naturix.divinerpg.objects.entities.entity.arcana.Zelus;
 import naturix.divinerpg.objects.entities.entity.iceika.Alicanto;
 import naturix.divinerpg.objects.entities.entity.iceika.Fractite;
 import naturix.divinerpg.objects.entities.entity.iceika.FrostArcher;
@@ -414,7 +418,7 @@ public class ModEntities {
         registerProjectile(EntityFyracryxFireball.class, "fyracryx_fireball");
 
         // Arcana
-        registerMobWithEgg(CaptainMerik.class, "captian_merik");
+        registerMobWithEgg(CaptainMerik.class, "captain_merik");
         registerMobWithEgg(EntityConstructor.class, "constructor");
         registerMobWithEgg(Datticon.class, "datticon");
         registerMobWithEgg(Deathcryx.class, "deathcryx");
@@ -432,7 +436,10 @@ public class ModEntities {
         registerMobWithEgg(Roamer.class, "roamer");
         registerMobWithEgg(Seimer.class, "seimer");
         registerMobWithEgg(Vatticus.class, "lord_vatticus");
+//        registerMobWithEgg(Vermsillion.class, "vermsillion");
+        registerMobWithEgg(WarGeneral.class, "war_general");
         registerMobWithEgg(Wraith.class, "wraith");
+        registerMobWithEgg(Zelus.class, "zelus");
 
         // Iceika
         registerMobWithEgg(Alicanto.class, "alicanto");
@@ -711,12 +718,14 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(GolemOfRejuv.class, RenderRejuvGolem.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Roamer.class, RenderRoamer.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Seimer.class, RenderSeimer.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(Zelus.class, RenderZelus.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Wraith.class, RenderWraith.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(LivingStatue.class, RenderLivingStatue.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Vatticus.class, RenderVatticus.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(WarGeneral.class, RenderWarGeneral.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityConstructor.class, RenderConstructor.FACTORY);
 
         // Iceika
@@ -931,10 +940,10 @@ public class ModEntities {
             } else if (biome.equals(ModBiomes.Arcana)) {
                 EntityRegistry.addSpawn(Leorna.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(Datticon.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                //EntityRegistry.addSpawn(Zelus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                //EntityRegistry.addSpawn(Vatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(Zelus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(Vatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(CaptainMerik.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                //EntityRegistry.addSpawn(WarGeneral.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(WarGeneral.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
             } else if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.END)) {
                 EntityRegistry.addSpawn(EnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
