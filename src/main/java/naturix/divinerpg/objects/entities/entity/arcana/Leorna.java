@@ -1,112 +1,70 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSeeds;
+import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.ItemStack;
+import net.minecraft.village.MerchantRecipe;
+import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class Leorna extends EntityMob{
+public class Leorna extends EntityDivineRPGVillager {
 
-    public Leorna(World worldIn) {
-		super(worldIn);
-		this.setSize(0.8F, 2f);
-		this.setHealth(this.getMaxHealth());
-
+	public Leorna(World Util) {
+		super(Util);
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/leorna");
 
-
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
-    }
-
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
+	@Override
+	public boolean getCanSpawnHere() {
+		return this.posY < 40.0D && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.containsAnyLiquid(this.getEntityBoundingBox());
 	}
-    private int explosionStrength = 1;
 
-    public int getFireballStrength()
-    {
-        return this.explosionStrength;
-    }
-    
-    }
+	@Override
+	public void extraInteract(EntityPlayer var2) {
+		switch (this.rand.nextInt(5)) {
+		case 0:
+			var2.sendMessage(Utils.getChatComponent("Leorna: Could you imagine if the whole world was covered in plants?"));
+			break;
+		case 1:
+			var2.sendMessage(Utils.getChatComponent("Leorna: Embracing nature is part of the importance of life."));
+			break;
+		case 2:
+			var2.sendMessage(Utils.getChatComponent("Leorna: Have you tried throwing Lamona? It is mighty handy for finding my way."));
+			break;
+		case 3:
+			var2.sendMessage(Utils.getChatComponent("Leorna: Hitchak sure is tasty."));
+			break;
+		case 4:
+			var2.sendMessage(Utils.getChatComponent("Leorna: Zelus won't stop looking at me."));
+			break;
+		}
+	}
+//FIXME - Leorna GUI
+//	@Override
+//	public int guiID() {
+//		return GuiHandler.leorna;
+//	}
+	
+	@Override
+	protected boolean canDespawn() {
+		return true;
+	}
+
+	@Override
+	public void addRecipies(MerchantRecipeList var2) {
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1, 1), new ItemStack(ModSeeds.eucalyptusSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2, 1), new ItemStack(ModSeeds.marsineSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2, 1), new ItemStack(ModSeeds.firestockSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3, 1), new ItemStack(ModSeeds.pinflySeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4, 1), new ItemStack(ModSeeds.aquamarineSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5, 1), new ItemStack(ModSeeds.hitchakSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7, 1), new ItemStack(ModSeeds.veiloSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9, 1), new ItemStack(ModSeeds.lamonaSeeds, 1, 0)));
+		var2.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2, 1), new ItemStack(ModBlocks.arcanaDirt, 9, 0)));
+	}
+
+
+}

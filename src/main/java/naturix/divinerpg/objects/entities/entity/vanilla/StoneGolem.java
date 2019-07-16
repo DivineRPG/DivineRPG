@@ -74,6 +74,7 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
             }
         } else {
             setTamedBy(player);
+            this.playTameEffect(true);
         }
 
         return super.processInteract(player, hand);

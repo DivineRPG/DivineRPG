@@ -13,12 +13,14 @@ import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDungeonDemo
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDungeonPrisoner;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderFyracryx;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderLeorna;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderLivingStatue;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderParasecta;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderParatiku;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRazorback;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRejuvGolem;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRoamer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderSeimer;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderVatticus;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWraith;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderAlicanto;
 import naturix.divinerpg.objects.entities.assets.render.iceika.RenderFractite;
@@ -167,13 +169,15 @@ import naturix.divinerpg.objects.entities.entity.arcana.DungeonDemon;
 import naturix.divinerpg.objects.entities.entity.arcana.DungeonPrisoner;
 import naturix.divinerpg.objects.entities.entity.arcana.EntityConstructor;
 import naturix.divinerpg.objects.entities.entity.arcana.Fyracryx;
+import naturix.divinerpg.objects.entities.entity.arcana.GolemOfRejuv;
 import naturix.divinerpg.objects.entities.entity.arcana.Leorna;
+import naturix.divinerpg.objects.entities.entity.arcana.LivingStatue;
 import naturix.divinerpg.objects.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.objects.entities.entity.arcana.Paratiku;
 import naturix.divinerpg.objects.entities.entity.arcana.Razorback;
-import naturix.divinerpg.objects.entities.entity.arcana.RejuvGolem;
 import naturix.divinerpg.objects.entities.entity.arcana.Roamer;
 import naturix.divinerpg.objects.entities.entity.arcana.Seimer;
+import naturix.divinerpg.objects.entities.entity.arcana.Vatticus;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
 import naturix.divinerpg.objects.entities.entity.iceika.Alicanto;
 import naturix.divinerpg.objects.entities.entity.iceika.Fractite;
@@ -420,12 +424,14 @@ public class ModEntities {
         registerMobWithEgg(DungeonPrisoner.class, "dungeon_prisoner");
         registerMobWithEgg(Fyracryx.class, "fyracryx");
         registerMobWithEgg(Leorna.class, "leorna");
+        registerMobWithEgg(LivingStatue.class, "living_statue");
         registerMobWithEgg(Parasecta.class, "parasecta");
         registerMobWithEgg(Paratiku.class, "paratiku");
         registerMobWithEgg(Razorback.class, "razorback");
-        registerMobWithEgg(RejuvGolem.class, "rejuv_golem");
+        registerMobWithEgg(GolemOfRejuv.class, "rejuv_golem");
         registerMobWithEgg(Roamer.class, "roamer");
         registerMobWithEgg(Seimer.class, "seimer");
+        registerMobWithEgg(Vatticus.class, "lord_vatticus");
         registerMobWithEgg(Wraith.class, "wraith");
 
         // Iceika
@@ -619,27 +625,20 @@ public class ModEntities {
         LootTableList.register(KingCrab.LOOT);
         LootTableList.register(KingOfScorchers.LOOT);
         LootTableList.register(Kobblin.LOOT);
-        LootTableList.register(Leorna.LOOT);
         LootTableList.register(Liopleurodon.LOOT);
         LootTableList.register(Madivel.LOOT);
         LootTableList.register(Mage.LOOT);
         LootTableList.register(Megalith.LOOT);
         LootTableList.register(Miner.LOOT);
         LootTableList.register(Mystic.LOOT);
-        LootTableList.register(Parasecta.LOOT);
-        LootTableList.register(Paratiku.LOOT);
         LootTableList.register(PumpkinSpider.LOOT);
         LootTableList.register(Rainbour.LOOT);
-        LootTableList.register(Razorback.LOOT);
-        LootTableList.register(RejuvGolem.LOOT);
-        LootTableList.register(Roamer.LOOT);
         LootTableList.register(Reyvor.LOOT);
         LootTableList.register(Rollum.LOOT);
         LootTableList.register(Rotatick.LOOT);
         LootTableList.register(Samek.LOOT);
         LootTableList.register(Scorcher.LOOT);
-        LootTableList.register(Seimer.LOOT);
-        LootTableList.register(Shark.LOOT);
+        LootTableList.register(Shark.LOOT); 
         LootTableList.register(SkythernFiend.LOOT);
         LootTableList.register(Sorcerer.LOOT);
         LootTableList.register(SoulFiend.LOOT);
@@ -655,7 +654,6 @@ public class ModEntities {
         LootTableList.register(Verek.LOOT);
         LootTableList.register(Whale.LOOT);
         LootTableList.register(Wildfire.LOOT);
-        LootTableList.register(Wraith.LOOT);
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " loot has been loaded");
@@ -710,13 +708,15 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Dramix.class, RenderDramix.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Fyracryx.class, RenderFyracryx.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Razorback.class, RenderRazorback.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(RejuvGolem.class, RenderRejuvGolem.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(GolemOfRejuv.class, RenderRejuvGolem.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Roamer.class, RenderRoamer.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Seimer.class, RenderSeimer.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Wraith.class, RenderWraith.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Leorna.class, RenderLeorna.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(LivingStatue.class, RenderLivingStatue.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(Vatticus.class, RenderVatticus.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityConstructor.class, RenderConstructor.FACTORY);
 
         // Iceika

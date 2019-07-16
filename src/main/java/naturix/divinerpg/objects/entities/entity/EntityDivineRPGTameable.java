@@ -16,6 +16,7 @@ import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
@@ -69,5 +70,23 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
     @Override
     public boolean getCanSpawnHere() {
         return (this.world.getDifficulty() != EnumDifficulty.PEACEFUL);
+    }
+    
+    protected void playTameEffect(boolean play)
+    {
+        EnumParticleTypes enumparticletypes = EnumParticleTypes.HEART;
+
+        if (!play)
+        {
+            enumparticletypes = EnumParticleTypes.SMOKE_NORMAL;
+        }
+
+        for (int i = 0; i < 7; ++i)
+        {
+            double d0 = this.rand.nextGaussian() * 0.02D;
+            double d1 = this.rand.nextGaussian() * 0.02D;
+            double d2 = this.rand.nextGaussian() * 0.02D;
+            this.world.spawnParticle(enumparticletypes, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + 0.5D + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, d0, d1, d2);
+        }
     }
 }

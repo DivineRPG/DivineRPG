@@ -1,113 +1,121 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import naturix.divinerpg.registry.ModSounds;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Wraith extends EntityMob {
+public class Wraith extends Paratiku {
+    private int age;
+    private BlockPos currentFlightTarget;
 
-    public Wraith(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/wraith");
+    public Wraith(World par1World, EntityPlayer owner) {
+        super(par1World);
+        this.age = 120;
+        this.setTamed(true);
+        this.setOwnerId(owner.getUniqueID());
+    }
 
+    public Wraith(World par1World) {
+        super(par1World);
+        this.age = 120;
+    }
 
-    protected boolean isMaster() {
+    @Override
+    protected float getSoundVolume() {
+        return 0.1F;
+    }
+
+    @Override
+    protected float getSoundPitch() {
+        return super.getSoundPitch() * 0.95F;
+    }
+
+    @Override
+	public SoundEvent getAmbientSound() {
+        return this.getIsBatHanging() && this.rand.nextInt(4) != 0 ? null : ModSounds.WRAITH;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource s) {
+        return ModSounds.WRAITH_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.WRAITH_HURT;
+    }
+
+    @Override
+    public boolean canBePushed() {
         return false;
     }
 
     @Override
-    protected boolean canDespawn() {
-        return true;
-    }
+    public void onUpdate() {
+        super.onUpdate();
 
-    private ResourceLocation deathLootTable = LOOT;
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
+        if (this.getIsBatHanging()) {
+            this.motionX = this.motionY = this.motionZ = 0.0D;
+            this.posY = MathHelper.floor(this.posY) + 1.0D - this.height;
         } else {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-            }
-    }
+            this.motionY *= 0.6000000238418579D;
+        }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+        this.age--;
+        if (this.age == 0) {
+            this.setDead();
         }
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
+    protected void updateAITasks() {
+        super.updateAITasks();
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+        if (this.getAttackTarget() != null) {
+            int var1 = (int) this.getAttackTarget().posX;
+            int var2 = (int) this.getAttackTarget().posY;
+            int var3 = (int) this.getAttackTarget().posZ;
+            this.currentFlightTarget = new BlockPos(var1, var2, var3);
+        }
+        else if (this.getOwner() != null) {
+            this.currentFlightTarget = this.world.getPlayerEntityByName(this.getOwner().getName()).getPosition();
+        }
 
-	}
+        if (this.getIsBatHanging()) {
+            if (!this.world.getBlockState(new BlockPos(MathHelper.floor(this.posX), (int)this.posY + 1, MathHelper.floor(this.posZ))).isNormalCube())
+            {
+                this.setIsBatHanging(false);
+                this.world.playEvent((EntityPlayer)null, 1015, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
+            } else {
+                if (this.rand.nextInt(200) == 0) {
+                    this.rotationYawHead = this.rand.nextInt(360);
+                }
+
+                if (this.world.getClosestPlayerToEntity(this, 4.0D) != null) {
+                    this.setIsBatHanging(false);
+                    this.world.playEvent((EntityPlayer)null, 1015, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
+                }
+            }
+        } else {
+            if (this.currentFlightTarget != null) {
+                double var1 = this.currentFlightTarget.getX() - this.posX;
+                double var3 = this.currentFlightTarget.getY() - this.posY;
+                double var5 = this.currentFlightTarget.getZ() - this.posZ;
+
+                if (Math.signum(var1) != 0 || Math.signum(var3) != 0 || Math.signum(var5) != 0) {
+                    this.motionX += (Math.signum(var1) * 0.5D - this.motionX) * 0.10000000149011612D;
+                    this.motionY += (Math.signum(var3) * 1.699999988079071D - this.motionY) * 0.10000000149011612D;
+                    this.motionZ += (Math.signum(var5) * 0.5D - this.motionZ) * 0.10000000149011612D;
+                    float var7 = (float)(Math.atan2(this.motionZ, this.motionX) * 180.0D / Math.PI) - 90.0F;
+                    float var8 = MathHelper.wrapDegrees(var7 - this.rotationYaw);
+                    this.moveForward = 0.5F;
+                    this.rotationYaw += var8;
+                }
+            }
+        }
+    }
 }

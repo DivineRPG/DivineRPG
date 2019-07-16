@@ -54,6 +54,7 @@ public class Husk extends EntityDivineRPGTameable {
             }
         } else {
             setTamedBy(player);
+            this.playTameEffect(true);
         }
 
         return super.processInteract(player, hand);

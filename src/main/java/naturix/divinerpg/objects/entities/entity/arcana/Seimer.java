@@ -1,118 +1,86 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import naturix.divinerpg.objects.entities.entity.EntityStats;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class Seimer extends EntityMob {
+public class Seimer extends EntityDivineRPGTameable {
+	
 
-	public Seimer(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-	public Seimer(World worldIn, EntityPlayer player) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/seimer");
-
-
-    protected boolean isMaster() {
-        return false;
+    public Seimer(World par1World, EntityPlayer p) {
+        this(par1World);
+        setTamed(true);
+        setOwnerId(p.getUniqueID());
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+    
+    public Seimer(World par1World) {
+        super(par1World);
+        this.setSize(1.2f, 1);
     }
-
-    private ResourceLocation deathLootTable = LOOT;
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        if (isMaster()) {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
-        } else {
-            this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.seimerHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.seimerSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.seimerFollowRange);
+    }
+
+    @Override
+    public boolean processInteract(EntityPlayer par1EntityPlayer, EnumHand hand) {
+        ItemStack var2 = par1EntityPlayer.inventory.getCurrentItem();
+
+        if (this.isTamed()) {
+            if (var2 != null) {
+                if (var2.getItem() instanceof ItemFood) {
+                    ItemFood var3 = (ItemFood)var2.getItem();
+
+                    if (var3.isWolfsFavoriteMeat()) {
+                    	//FIXME - data watcher
+//                    		&& this.dataWatcher.getWatchableObjectInt(18) < 20) {
+                        if (!par1EntityPlayer.capabilities.isCreativeMode) {
+                            var2.shrink(1);
+                        }
+
+                        this.heal(var3.getHealAmount(var2));
+                        return true;
+                    }
+                }
             }
-    }
+        } else {
+            this.setTamed(true);
+            this.setOwnerId(par1EntityPlayer.getUniqueID());
+            this.playTameEffect(true);
+        }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        return super.processInteract(par1EntityPlayer, hand);
     }
 
     @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
+    public void onUpdate() {
+        super.onUpdate();
+        if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
+        	//FIXME - Arcana needed
+        	//            ArcanaHelper.getProperties((EntityPlayer)this.getOwner()).regen(1);
         }
     }
-
+    
     @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public boolean attackEntityAsMob(Entity e) {
+    	return e.attackEntityFrom(DamageSource.causeMobDamage(this), 6);
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
-    }
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
 
+	@Override
+	public EntityAgeable createChild(EntityAgeable var1) {
+		return null;
 	}
 }

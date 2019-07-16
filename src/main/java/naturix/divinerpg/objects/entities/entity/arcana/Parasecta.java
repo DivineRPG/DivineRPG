@@ -1,164 +1,121 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.utils.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import naturix.divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import naturix.divinerpg.objects.entities.entity.EntityStats;
+import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.registry.ModSounds;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.pathfinding.PathFinder;
+import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
-public class Parasecta extends EntityMob {
+public class Parasecta extends EntityDivineRPGBoss {
+	
+    private EntityCreature theEntity;
+    private BlockPos currentFlightTarget;
+    private float farSpeed;
+    private float nearSpeed;
+    private Entity closestLivingEntity;
+    private float distanceFromEntity;
+    private PathFinder entityPathEntity;
+    private PathNavigate entityPathNavigate;
+    private Class targetEntityClass;
 
-	public Parasecta(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-	public Parasecta(World worldIn, EntityPlayer player) {
-		super(worldIn);
-		this.setSize(1F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/parasecta");
-
-
-    protected boolean isMaster() {
-        return false;
+    public Parasecta(World var1) {
+        super(var1);
+        this.setSize(1.0F, 2.0F);
+        targetEntityClass = EntityPlayerMP.class;
+        addAttackingAI();
     }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    private ResourceLocation deathLootTable = LOOT;
-
+    
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(950.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(59.0D);
-    }
-    @Override
-    protected void initEntityAI()
-    {
-            this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-            this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-            this.tasks.addTask(8, new EntityAILookIdle(this));
-            this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
-            this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-            this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
-            this.applyEntityAI();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.parasectaHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.parasectaDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.parasectaSpeed);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.parasectaFollowRange);
     }
 
-    private void applyEntityAI() {
-        }
-
+ 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 1;
+    protected float getSoundVolume() {
+        return 0.1F;
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    protected float getSoundPitch() {
+        return super.getSoundPitch() * 0.95F;
     }
 
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
-
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return this.rand.nextInt(4) != 0 ? null : ModSounds.PARASECTA;
     }
+
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
+    protected SoundEvent getHurtSound(DamageSource s) {
+        return ModSounds.PARASECTA_HURT;
+    }
 
-	}
     @Override
-	public boolean isNonBoss() {
-		return false;
-	}
+    protected SoundEvent getDeathSound() {
+        return ModSounds.PARASECTA_HURT;
+    }
 
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
-			BossInfo.Overlay.PROGRESS));
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        this.motionY *= 0.6000000238418579D;
+    }
 
-	@Override
-	public void addTrackingPlayer(EntityPlayerMP player) {
-		super.addTrackingPlayer(player);
-		this.bossInfo.addPlayer(player);
-	}
+    @Override
+    protected void updateAITasks() {
+        super.updateAITasks();
 
-	@Override
-	public void removeTrackingPlayer(EntityPlayerMP player) {
-		super.removeTrackingPlayer(player);
-		this.bossInfo.removePlayer(player);
-	}
+        if (this.getAttackTarget() != null) {
+            int var1 = (int) this.getAttackTarget().posX;
+            int var2 = (int) this.getAttackTarget().posY;
+            int var3 = (int) this.getAttackTarget().posZ;
+            this.currentFlightTarget = new BlockPos(var1, var2, var3);
+        }
 
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
-	}
-	@Override
-	public void fall(float distance, float damageMultiplier)
-    {
-		damageMultiplier=0;
-        float[] ret = net.minecraftforge.common.ForgeHooks.onLivingFall(this, distance, damageMultiplier);
-        if (ret == null) return;
-        distance = ret[0]; damageMultiplier = ret[1];
-        super.fall(distance, damageMultiplier);
-        PotionEffect potioneffect = this.getActivePotionEffect(MobEffects.JUMP_BOOST);
-        float f = potioneffect == null ? 0.0F : (float)(potioneffect.getAmplifier() + 1);
-        int i = MathHelper.ceil((distance - 3.0F - f) * damageMultiplier);
+        this.motionY = 0;
 
-        if (i > 0)
-        {
-            this.playSound(this.getFallSound(i), 1.0F, 1.0F);
-            this.attackEntityFrom(DamageSource.FALL, (float)i);
-            int j = MathHelper.floor(this.posX);
-            int k = MathHelper.floor(this.posY - 0.20000000298023224D);
-            int l = MathHelper.floor(this.posZ);
-            IBlockState iblockstate = this.world.getBlockState(new BlockPos(j, k, l));
+        if (this.currentFlightTarget != null) {
+            double var1 = this.currentFlightTarget.getX() - this.posX;
+            double var3 = this.currentFlightTarget.getY() - this.posY;
+            double var5 = this.currentFlightTarget.getZ() - this.posZ;
 
-            if (iblockstate.getMaterial() != Material.AIR)
-            {
-                SoundType soundtype = iblockstate.getBlock().getSoundType(iblockstate, world, new BlockPos(j, k, l), this);
-                this.playSound(soundtype.getFallSound(), soundtype.getVolume() * 0.5F, soundtype.getPitch() * 0.75F);
+            if (Math.signum(var1) != 0 || Math.signum(var3) != 0 || Math.signum(var5) != 0) {
+                this.motionX += (Math.signum(var1) * 0.5D - this.motionX) * 0.10000000149011612D;
+                this.motionY += (Math.signum(var3) * 1.699999988079071D - this.motionY) * 0.10000000149011612D;
+                this.motionZ += (Math.signum(var5) * 0.5D - this.motionZ) * 0.10000000149011612D;
+                float var7 = (float)(Math.atan2(this.motionZ, this.motionX) * 180.0D / Math.PI) - 90.0F;
+                float var8 = MathHelper.wrapDegrees(var7 - this.rotationYaw);
+                this.moveForward = 0.5F;
+                this.rotationYaw += var8;
             }
         }
+
+    }
+
+    @Override
+    protected void dropFewItems(boolean var1, int var2) {
+        this.dropItem(ModItems.dungeonTokens, 8);
+    }
+
+    @Override
+    public Color getBarColor() {
+        return Color.YELLOW;
     }
 }

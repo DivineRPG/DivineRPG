@@ -27,7 +27,7 @@ public class ItemWizardsBook extends ItemMod {
     {
 		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
 		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
-        Parasecta parasecta = new Parasecta(world, player);
+        Parasecta parasecta = new Parasecta(world);
 		Dramix dramix = new Dramix(world);
 		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		RayTraceResult rtr = player.rayTrace(4, 1);

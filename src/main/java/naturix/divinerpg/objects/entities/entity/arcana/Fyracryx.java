@@ -77,6 +77,7 @@ public class Fyracryx extends EntityDivineRPGTameable implements IRangedAttackMo
         } else {
             this.setTamed(true);
             this.setOwnerId(par1EntityPlayer.getUniqueID());
+            this.playTameEffect(true);
         }
         return super.processInitialInteract(par1EntityPlayer, hand);
     }
