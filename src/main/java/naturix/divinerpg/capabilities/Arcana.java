@@ -1,5 +1,9 @@
 package naturix.divinerpg.capabilities;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.networking.message.MessageArcanaBar;
+import net.minecraft.entity.player.EntityPlayerMP;
+
 public class Arcana implements IArcana
 {
     private float arcana = 200.0F; 
@@ -29,5 +33,15 @@ public class Arcana implements IArcana
     {
         return this.arcana;
     }
-
+    @Override
+    public void updateAllBars() {
+		if(getArcana() != 200F){
+			fill(1);
+		} else {
+			fill(0);
+		}
+		if(getArcana() >= 200F){
+			arcana = 200F;
+		}
+		}            
 }

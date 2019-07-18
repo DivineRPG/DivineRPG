@@ -9,4 +9,6 @@ public interface IArcana
     public void set(float points);
     
     public float getArcana();
+    
+    public void updateAllBars();            
 }

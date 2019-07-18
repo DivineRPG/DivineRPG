@@ -721,8 +721,8 @@ public class ModItems {
      public static Item stormSword = new ItemStormSword("storm_sword", ToolMaterialMod.Storm);
     
     public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
-     public static Item strongArcanaPotion = new ItemArcanaPotion("strong_arcana_potion", 200);
-     public static Item weakArcanaPotion = new ItemArcanaPotion("weak_arcana_potion", 100);
+    public static Item strongArcanaPotion = new ItemArcanaPotion("strong_arcana_potion", 200);
+    public static Item weakArcanaPotion = new ItemArcanaPotion("weak_arcana_potion", 100);
    	public static Item collector = new ItemMod("collector");
    	public static Item chargedCollector = new ItemChargedCollector("charged_collector");
     public static Item wizardBook = new ItemWizardsBook("wizards_book");
