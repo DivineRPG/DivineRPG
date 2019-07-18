@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
@@ -61,8 +60,11 @@ public class ItemStaff extends ItemMod {
 	 public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 	       	ItemStack par1 = new ItemStack(player.getHeldItem(hand).getItem());
 	       	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-    		if (!world.isRemote && arcana.getArcana() >= cost) {
-			 arcana.consume(cost);
+	       	
+	       	player.sendMessage(Utils.addChatMessage("you have "+arcana.getArcana()+" remaining and this costs "+cost));
+    		if (!world.isRemote) {
+    				if(arcana.getArcana() >= cost) {
+    			arcana.consume(cost);
 			if(par1.getItem() == ModItems.evernight){
 				player.attackEntityFrom(Utils.arcanaSource, 20);
 				EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);
@@ -74,7 +76,7 @@ public class ItemStaff extends ItemMod {
 	            world.spawnEntity(projectile);
 			}
 			world.playSound(player, player.getPosition(), ModSounds.STAFF, SoundCategory.PLAYERS, 1, 1);
-		}
+		}}
 	       	return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	        }
 }

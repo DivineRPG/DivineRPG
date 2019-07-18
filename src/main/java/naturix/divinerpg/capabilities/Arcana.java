@@ -19,7 +19,7 @@ public class Arcana implements IArcana
     @Override
     public void fill(float points)
     {
-        this.arcana += points;
+        this.arcana = points + getArcana();
     }
 
     @Override
@@ -43,5 +43,5 @@ public class Arcana implements IArcana
 		if(getArcana() >= 200F){
 			arcana = 200F;
 		}
-		}            
+		}
 }

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
-public class EventHandler
+public class EventArcana
 {
 	@SubscribeEvent
 	public void onTick(PlayerTickEvent event){
@@ -25,7 +25,8 @@ public class EventHandler
 		if(player.world.isRemote) {
 			
 		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.getArcana();
+//        arcana.getArcana();
+        arcana.updateAllBars();
 		}
 	}
 
