@@ -8,6 +8,7 @@ import naturix.divinerpg.client.render.RenderFluids;
 import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.events.EventArmorTick;
+import naturix.divinerpg.events.EventHandler;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModOreDict;
 import naturix.divinerpg.registry.ModSmelting;
@@ -76,10 +77,12 @@ public class DivineRPG {
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
         MinecraftForge.EVENT_BUS.register(new EventArmorSet());
         MinecraftForge.EVENT_BUS.register(new EventArmorTick());
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
 
     /** For Registering Commands */
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
     }
+    
 }

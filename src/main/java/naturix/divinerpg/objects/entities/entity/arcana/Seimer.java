@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import naturix.divinerpg.objects.entities.entity.EntityStats;
 import net.minecraft.entity.Entity;
@@ -68,8 +70,8 @@ public class Seimer extends EntityDivineRPGTameable {
     public void onUpdate() {
         super.onUpdate();
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
-        	//FIXME - Arcana needed
-        	//            ArcanaHelper.getProperties((EntityPlayer)this.getOwner()).regen(1);
+            IArcana arcana = this.getOwner().getCapability(ArcanaProvider.ARCANA_CAP, null);
+        	arcana.consume(20);
         }
     }
     

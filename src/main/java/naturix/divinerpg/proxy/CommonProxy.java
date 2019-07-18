@@ -5,6 +5,10 @@ import java.io.File;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.capabilities.Arcana;
+import naturix.divinerpg.capabilities.CapabilityArcana;
+import naturix.divinerpg.capabilities.CapabilityHandler;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.blocks.tile.block.TEBed;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
@@ -38,6 +42,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -55,6 +60,9 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent e) {
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
+        CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana.class);
+
+        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
     }
 
     public void postInit(FMLPostInitializationEvent e) {

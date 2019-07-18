@@ -8,6 +8,7 @@ import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.arcana.ItemAquamarine;
+import naturix.divinerpg.objects.items.arcana.ItemArcanaPotion;
 import naturix.divinerpg.objects.items.arcana.ItemArcanaSpawnEgg;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlade;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
@@ -720,8 +721,8 @@ public class ModItems {
      public static Item stormSword = new ItemStormSword("storm_sword", ToolMaterialMod.Storm);
     
     public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
-    // public static Item strongArcanaPotion = new ItemArcanaPotion("strongArcanaPotion", 200);
-    // public static Item weakArcanaPotion = new ItemArcanaPotion("weakArcanaPotion", 100);
+     public static Item strongArcanaPotion = new ItemArcanaPotion("strong_arcana_potion", 200);
+     public static Item weakArcanaPotion = new ItemArcanaPotion("weak_arcana_potion", 100);
    	public static Item collector = new ItemMod("collector");
    	public static Item chargedCollector = new ItemChargedCollector("charged_collector");
     public static Item wizardBook = new ItemWizardsBook("wizards_book");
@@ -746,8 +747,6 @@ public class ModItems {
     public static Item arcaniumAttractor = new ItemAttractor();
     
     public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
-    public static Item strongArcanaPotion = new ItemNotReady("strong_arcana_potion", DivineRPGTabs.items);
-    public static Item weakArcanaPotion = new ItemNotReady("weak_arcana_potion", DivineRPGTabs.items);
     
      public static Item sludgeKey = new ItemKey("sludge_key");
      public static Item ancientKey = new ItemKey("ancient_key");

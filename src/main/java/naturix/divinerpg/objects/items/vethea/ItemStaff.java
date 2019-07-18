@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityEvernightProjectile;
 import naturix.divinerpg.objects.items.base.ItemMod;
@@ -57,9 +60,9 @@ public class ItemStaff extends ItemMod {
 	 @Override
 	 public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 	       	ItemStack par1 = new ItemStack(player.getHeldItem(hand).getItem());
-	       	//FIXME - needs to consume arcana
-		 if (!world.isRemote) {
-//			 && ArcanaHelper.getProperties(player).useBar(this.cost)) {		
+	       	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+    		if (!world.isRemote && arcana.getArcana() >= cost) {
+			 arcana.consume(cost);
 			if(par1.getItem() == ModItems.evernight){
 				player.attackEntityFrom(Utils.arcanaSource, 20);
 				EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);

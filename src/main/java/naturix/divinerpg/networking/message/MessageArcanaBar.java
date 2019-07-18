@@ -2,6 +2,8 @@ package naturix.divinerpg.networking.message;
 
 import io.netty.buffer.ByteBuf;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaRenderer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -35,9 +37,12 @@ public class MessageArcanaBar implements IMessage {
 
 		@Override
 		public IMessage onMessage(MessageArcanaBar msg, MessageContext ctx) {
-			ArcanaRenderer.value = msg.value;
+			IArcana arcana = DivineRPG.proxy.getPlayer().getCapability(ArcanaProvider.ARCANA_CAP, null);
+    		
+			ArcanaRenderer.value = arcana.getArcana();
 			ArcanaRenderer.regen = msg.shouldRegen;
-			DivineRPG.proxy.updateClientArcana(msg.value); 
+			DivineRPG.proxy.updateClientArcana(arcana.getArcana()); 
+			
 			return null;
 		}
 		
