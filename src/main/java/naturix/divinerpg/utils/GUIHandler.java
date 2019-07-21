@@ -22,11 +22,17 @@ import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.PresentBoxGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
+import naturix.divinerpg.objects.entities.container.gui.GuiCaptainMerik;
+import naturix.divinerpg.objects.entities.container.gui.GuiDatticon;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;
+import naturix.divinerpg.objects.entities.container.gui.GuiLeorna;
 import naturix.divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiTheHunger;
+import naturix.divinerpg.objects.entities.container.gui.GuiLordVatticus;
+import naturix.divinerpg.objects.entities.container.gui.GuiWarGeneral;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopTinkerer;
+import naturix.divinerpg.objects.entities.container.gui.GuiZelus;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerMerchant;
@@ -53,6 +59,12 @@ public class GUIHandler implements IGuiHandler {
     public static final int BONE_CHEST_GUI_ID = 12;
     public static final int ALTAR_OF_CORRUPTION_GUI_ID = 13;
     public static final int EDEN_CHEST_GUI_ID = 14;
+    public static final int CAPTAIN_MERIK_GUI_ID = 15;
+    public static final int DATTICON_GUI_ID = 16;
+    public static final int LEORNA_GUI_ID = 17;
+    public static final int VATICUS_GUI_ID = 18;
+    public static final int WAR_GENERAL_GUI_ID = 19;
+    public static final int ZELUS_GUI_ID = 20;
 
     @Nullable
     @Override
@@ -97,6 +109,18 @@ public class GUIHandler implements IGuiHandler {
         } else if (ID == EDEN_CHEST_GUI_ID) {
             return new EdenChestGUI(player.inventory, (TileEntityEdenChest) world.getTileEntity(new BlockPos(x, y, z)),
                     player);
+        } else if (ID == CAPTAIN_MERIK_GUI_ID) {
+            return new GuiCaptainMerik(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == DATTICON_GUI_ID) {
+            return new GuiDatticon(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == LEORNA_GUI_ID) {
+            return new GuiLeorna(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == VATICUS_GUI_ID) {
+            return new GuiLordVatticus(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == WAR_GENERAL_GUI_ID) {
+            return new GuiWarGeneral(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == ZELUS_GUI_ID) {
+            return new GuiZelus(player.inventory, (IMerchant) world.getEntityByID(x), world);
         }
         return null;
     }
@@ -113,7 +137,9 @@ public class GUIHandler implements IGuiHandler {
             return new ContainerModChest(player.inventory,
                     (TileEntityModChest) world.getTileEntity(new BlockPos(x, y, z)), player);
         } else if (ID == WORKSHOP_MERCHANT_GUI_ID || ID == WORKSHOP_TINKERER_GUI_ID || ID == JACK_O_MAN_GUI_ID
-                || ID == LIVESTOCK_MERCHANT_GUI_ID || ID == THE_HUNGER_GUI_ID) {
+                || ID == LIVESTOCK_MERCHANT_GUI_ID || ID == CAPTAIN_MERIK_GUI_ID || ID == DATTICON_GUI_ID
+                || ID == LEORNA_GUI_ID || ID == VATICUS_GUI_ID || ID == WAR_GENERAL_GUI_ID || ID == ZELUS_GUI_ID
+                || ID == THE_HUNGER_GUI_ID) {
             return new ContainerMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
             return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));

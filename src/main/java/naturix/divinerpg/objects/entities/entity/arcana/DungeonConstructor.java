@@ -13,13 +13,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityConstructor extends EntityDivineRPGMob {
+public class DungeonConstructor extends EntityDivineRPGMob {
 	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/constructor");
 
     private int angerLevel;
     private float moveSpeed = 0.23F;
     
-    public EntityConstructor(World par1World) {
+    public DungeonConstructor(World par1World) {
         super(par1World);
         this.setSize(0.5F, 1.0F);
         addAttackingAI();

@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.items.arcana;
 
-import naturix.divinerpg.objects.entities.entity.arcana.EntityConstructor;
+import naturix.divinerpg.objects.entities.entity.arcana.DungeonConstructor;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
@@ -23,7 +23,7 @@ public class ItemChargedCollector extends ItemMod {
     {
 		ItemStack stack = new ItemStack(player.getHeldItemMainhand().getItem());
 		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-        EntityConstructor con = new EntityConstructor(world);
+        DungeonConstructor con = new DungeonConstructor(world);
 		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		if(!world.isRemote){
 			if(block == ModBlocks.dramixAltar){

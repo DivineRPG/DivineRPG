@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.assets.model.arcana.ModelDramix;
 import naturix.divinerpg.objects.entities.entity.arcana.Dramix;
-import naturix.divinerpg.objects.entities.entity.arcana.EntityConstructor;
+import naturix.divinerpg.objects.entities.entity.arcana.DungeonConstructor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,13 +12,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderConstructor extends RenderLiving<EntityConstructor> {
+public class RenderDungeonConstructor extends RenderLiving<DungeonConstructor> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/constructor.png");
 	private final ModelDramix modelEntity;
     
-	public RenderConstructor(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderDungeonConstructor(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelDramix(), 0.4F);
         //FIXME - Constructor will need scaling
         modelEntity = (ModelDramix) super.mainModel;
@@ -28,15 +28,15 @@ public class RenderConstructor extends RenderLiving<EntityConstructor> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EntityConstructor entity) {
+    protected ResourceLocation getEntityTexture(DungeonConstructor entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<EntityConstructor> {
+	 public static class Factory implements IRenderFactory<DungeonConstructor> {
 
 	        @Override
-	        public Render<? super EntityConstructor> createRenderFor(RenderManager manager) {
-	            return new RenderConstructor(manager, new ModelDramix(), 0.4F);
+	        public Render<? super DungeonConstructor> createRenderFor(RenderManager manager) {
+	            return new RenderDungeonConstructor(manager, new ModelDramix(), 0.4F);
 	        }
 	    }
 

@@ -2,6 +2,8 @@ package naturix.divinerpg.objects.entities.entity;
 
 import java.util.UUID;
 
+import javax.annotation.Nullable;
+
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import naturix.divinerpg.objects.entities.entity.vethea.TheHunger;
@@ -25,7 +27,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
@@ -170,5 +174,23 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
         for (int var3 = 0; var3 < par1 && var3 < rec.size(); ++var3) {
             this.buyingList.add((MerchantRecipe) rec.get(var3));
         }
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return null;
     }
 }

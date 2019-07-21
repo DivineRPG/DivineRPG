@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderDatticon extends RenderLiving<Datticon> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/datticon.png");
-	private final ModelSamek modelEntity;
-    
-	public RenderDatticon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSamek(), 1F);
-        modelEntity = (ModelSamek) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/datticon.png");
 
+    public RenderDatticon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelSamek(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Datticon entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Datticon> {
-
-	        @Override
-	        public Render<? super Datticon> createRenderFor(RenderManager manager) {
-	            return new RenderDatticon(manager, new ModelSamek(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Datticon> {
+        @Override
+        public Render<? super Datticon> createRenderFor(RenderManager manager) {
+            return new RenderDatticon(manager, new ModelSamek(), 0F);
+        }
+    }
+}

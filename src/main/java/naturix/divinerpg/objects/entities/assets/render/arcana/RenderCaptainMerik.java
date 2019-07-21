@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderCaptainMerik extends RenderLiving<CaptainMerik> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/captain_merik.png");
-	private final ModelSamek modelEntity;
-    
-	public RenderCaptainMerik(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelSamek(), 1F);
-        modelEntity = (ModelSamek) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/captain_merik.png");
 
+    public RenderCaptainMerik(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelSamek(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(CaptainMerik entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<CaptainMerik> {
-
-	        @Override
-	        public Render<? super CaptainMerik> createRenderFor(RenderManager manager) {
-	            return new RenderCaptainMerik(manager, new ModelSamek(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<CaptainMerik> {
+        @Override
+        public Render<? super CaptainMerik> createRenderFor(RenderManager manager) {
+            return new RenderCaptainMerik(manager, new ModelSamek(), 0F);
+        }
+    }
+}

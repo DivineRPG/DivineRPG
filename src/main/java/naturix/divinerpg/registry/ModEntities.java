@@ -4,7 +4,7 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderCaptainMerik;
-import naturix.divinerpg.objects.entities.assets.render.arcana.RenderConstructor;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDungeonConstructor;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDatticon;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathcryx;
@@ -20,7 +20,7 @@ import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRazorback;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRejuvGolem;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderRoamer;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderSeimer;
-import naturix.divinerpg.objects.entities.assets.render.arcana.RenderVatticus;
+import naturix.divinerpg.objects.entities.assets.render.arcana.RenderLordVatticus;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWarGeneral;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderWraith;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderZelus;
@@ -169,7 +169,7 @@ import naturix.divinerpg.objects.entities.entity.arcana.Deathcryx;
 import naturix.divinerpg.objects.entities.entity.arcana.Dramix;
 import naturix.divinerpg.objects.entities.entity.arcana.DungeonDemon;
 import naturix.divinerpg.objects.entities.entity.arcana.DungeonPrisoner;
-import naturix.divinerpg.objects.entities.entity.arcana.EntityConstructor;
+import naturix.divinerpg.objects.entities.entity.arcana.DungeonConstructor;
 import naturix.divinerpg.objects.entities.entity.arcana.Fyracryx;
 import naturix.divinerpg.objects.entities.entity.arcana.GolemOfRejuv;
 import naturix.divinerpg.objects.entities.entity.arcana.Leorna;
@@ -179,7 +179,7 @@ import naturix.divinerpg.objects.entities.entity.arcana.Paratiku;
 import naturix.divinerpg.objects.entities.entity.arcana.Razorback;
 import naturix.divinerpg.objects.entities.entity.arcana.Roamer;
 import naturix.divinerpg.objects.entities.entity.arcana.Seimer;
-import naturix.divinerpg.objects.entities.entity.arcana.Vatticus;
+import naturix.divinerpg.objects.entities.entity.arcana.LordVatticus;
 import naturix.divinerpg.objects.entities.entity.arcana.WarGeneral;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
 import naturix.divinerpg.objects.entities.entity.arcana.Zelus;
@@ -419,7 +419,7 @@ public class ModEntities {
 
         // Arcana
         registerMobWithEgg(CaptainMerik.class, "captain_merik");
-        registerMobWithEgg(EntityConstructor.class, "constructor");
+        registerMobWithEgg(DungeonConstructor.class, "constructor");
         registerMobWithEgg(Datticon.class, "datticon");
         registerMobWithEgg(Deathcryx.class, "deathcryx");
         registerMobWithEgg(DeathHound.class, "death_hound");
@@ -435,7 +435,7 @@ public class ModEntities {
         registerMobWithEgg(GolemOfRejuv.class, "rejuv_golem");
         registerMobWithEgg(Roamer.class, "roamer");
         registerMobWithEgg(Seimer.class, "seimer");
-        registerMobWithEgg(Vatticus.class, "lord_vatticus");
+        registerMobWithEgg(LordVatticus.class, "lord_vatticus");
 //        registerMobWithEgg(Vermsillion.class, "vermsillion");
         registerMobWithEgg(WarGeneral.class, "war_general");
         registerMobWithEgg(Wraith.class, "wraith");
@@ -724,9 +724,9 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(LivingStatue.class, RenderLivingStatue.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Parasecta.class, RenderParasecta.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Paratiku.class, RenderParatiku.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Vatticus.class, RenderVatticus.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(LordVatticus.class, RenderLordVatticus.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(WarGeneral.class, RenderWarGeneral.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EntityConstructor.class, RenderConstructor.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(DungeonConstructor.class, RenderDungeonConstructor.FACTORY);
 
         // Iceika
         RenderingRegistry.registerEntityRenderingHandler(Alicanto.class, RenderAlicanto.FACTORY);
@@ -941,7 +941,7 @@ public class ModEntities {
                 EntityRegistry.addSpawn(Leorna.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(Datticon.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(Zelus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(Vatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(LordVatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(CaptainMerik.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(WarGeneral.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
             } else if (BiomeDictionary.hasType(biome, net.minecraftforge.common.BiomeDictionary.Type.END)) {
