@@ -1,36 +1,42 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class DungeonPrisoner extends EntityDivineRPGMob {
-	
-    public DungeonPrisoner(World var1) {
-        super(var1);
-        addAttackingAI();
-    }
-    
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.dungeonPrisonerHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.dungeonPrisonerSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.dungeonPrisonerFollowRange);
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
+            "entities/arcana/dungeon_prisoner");
+
+    public DungeonPrisoner(World world) {
+        super(world);
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity par1Entity) {
-        DungeonDemon var4 = new DungeonDemon(this.world);
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(85.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(17.0D);
+    }
+
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        DungeonDemon demon = new DungeonDemon(this.world);
         this.playSound(ModSounds.DUNGEON_PRISONER_CHANGE, 1, 1);
-        var4.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-        this.world.spawnEntity(var4);
+        demon.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+        this.world.spawnEntity(demon);
         this.setDead();
         return true;
     }
@@ -49,15 +55,14 @@ public class DungeonPrisoner extends EntityDivineRPGMob {
     protected SoundEvent getDeathSound() {
         return ModSounds.DUNGEON_PRISONER_HURT;
     }
-    
+
     @Override
-    protected void dropFewItems(boolean var1, int var2) {
-        this.dropItem(ModItems.collector, 1);
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
     }
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.containsAnyLiquid(this.getEntityBoundingBox());
+        return this.posY < 40.0D && super.getCanSpawnHere();
     }
-
 }

@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.iceika;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGFlying;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
@@ -53,7 +52,7 @@ public class Fractite extends EntityDivineRPGFlying {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.fractiteHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0);
     }
 
     @Override

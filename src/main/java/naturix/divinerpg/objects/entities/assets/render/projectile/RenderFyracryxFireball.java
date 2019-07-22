@@ -1,17 +1,16 @@
 package naturix.divinerpg.objects.entities.assets.render.projectile;
 
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityFyracryxFireball;
-import naturix.divinerpg.registry.ModItems;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderFyracryxFireball extends Render<EntityFyracryxFireball> {
+    public static ResourceLocation TEXTURE = new ResourceLocation("minecraft:textures/items/fireball.png");
 
     public RenderFyracryxFireball(RenderManager manager) {
         super(manager);
@@ -57,9 +56,8 @@ public class RenderFyracryxFireball extends Render<EntityFyracryxFireball> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityFyracryxFireball entity) {
-        return new ResourceLocation("minecraft:textures/items/fireball.png");
-	}
-    
+    @Override
+    protected ResourceLocation getEntityTexture(EntityFyracryxFireball entity) {
+        return TEXTURE;
+    }
 }

@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderDeathHound extends RenderLiving<DeathHound> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/death_hound.png");
-	private final ModelDeathHound ModelDeathHound;
-    
-	public RenderDeathHound(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelDeathHound(), 1F);
-        ModelDeathHound = (ModelDeathHound) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/death_hound.png");
 
+    public RenderDeathHound(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelDeathHound(), 1F);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(DeathHound entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<DeathHound> {
-
-	        @Override
-	        public Render<? super DeathHound> createRenderFor(RenderManager manager) {
-	            return new RenderDeathHound(manager, new ModelDeathHound(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<DeathHound> {
+        @Override
+        public Render<? super DeathHound> createRenderFor(RenderManager manager) {
+            return new RenderDeathHound(manager, new ModelDeathHound(), 0);
+        }
+    }
+}

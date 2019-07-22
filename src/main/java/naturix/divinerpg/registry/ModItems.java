@@ -716,15 +716,15 @@ public class ModItems {
     // Arcana
     public static Item dungeonTokens = new ItemMod("dungeon_tokens");
     public static Item arcanium = new ItemMod("arcanium");
-     public static Item staffStarlight = new ItemStaffStarlight("staff_of_starlight");
-     public static Item starlight = new ItemStaffStarlight("starlight");
-     public static Item stormSword = new ItemStormSword("storm_sword", ToolMaterialMod.Storm);
-    
+    public static Item staffStarlight = new ItemStaffStarlight("staff_of_starlight");
+    public static Item starlight = new ItemStaffStarlight("starlight");
+    public static Item stormSword = new ItemStormSword("storm_sword", ToolMaterialMod.Storm);
+
     public static Item captainsSparkler = new ItemCaptainsSparkler("captains_sparkler");
     public static Item strongArcanaPotion = new ItemArcanaPotion("strong_arcana_potion", 200);
     public static Item weakArcanaPotion = new ItemArcanaPotion("weak_arcana_potion", 100);
-   	public static Item collector = new ItemMod("collector");
-   	public static Item chargedCollector = new ItemChargedCollector("charged_collector");
+    public static Item collector = new ItemMod("collector");
+    public static Item chargedCollector = new ItemChargedCollector("charged_collector");
     public static Item wizardBook = new ItemWizardsBook("wizards_book");
     public static Item staffOfEnrichment = new ItemStaffEnrichment("staff_of_enrichment");
     public static Item orbOfLight = new ItemOrbOfLight();
@@ -745,18 +745,18 @@ public class ModItems {
     public static Item arcaniteBlade = new ItemArcaniteBlade();
     public static Item generalsStaff = new ItemGeneralsStaff();
     public static Item arcaniumAttractor = new ItemAttractor();
-    
-    public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
-    
-     public static Item sludgeKey = new ItemKey("sludge_key");
-     public static Item ancientKey = new ItemKey("ancient_key");
-     public static Item soulKey = new ItemKey("soul_key");
-     public static Item degradedKey = new ItemKey("degraded_key");
 
-     public static Item golemSpawner = new ItemArcanaSpawnEgg("golem_egg");
-     public static Item seimerSpawner = new ItemArcanaSpawnEgg("seimer_egg");
-     public static Item paratikuSpawner = new ItemArcanaSpawnEgg("paratiku_egg");
-     public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryx_egg");
+    public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
+
+    public static Item sludgeKey = new ItemKey("sludge_key");
+    public static Item ancientKey = new ItemKey("ancient_key");
+    public static Item soulKey = new ItemKey("soul_key");
+    public static Item degradedKey = new ItemKey("degraded_key");
+
+    public static Item golemSpawner = new ItemArcanaSpawnEgg("golem_egg");
+    public static Item seimerSpawner = new ItemArcanaSpawnEgg("seimer_egg");
+    public static Item paratikuSpawner = new ItemArcanaSpawnEgg("paratiku_egg");
+    public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryx_egg");
 
     public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
     public static Item veilo = new ItemMod("veilo");
@@ -766,7 +766,7 @@ public class ModItems {
     public static Item pinfly = new ItemModFood(2, 0.3F, false, "pinfly")
             .setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F);
     public static Item aquamarine = new ItemAquamarine("aquamarine");
-     
+
     private static Object[] kormInfo = new Object[] { ArmorInfo.ARCANA_REGEN };
     public static Item kormaHelmet = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo);
     public static Item kormaBody = new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo);
@@ -785,7 +785,7 @@ public class ModItems {
     public static Item polishedPearls = new ItemMod("polished_pearls");
     public static Item shinyPearls = new ItemMod("shiny_pearls");
 
-     public static Item barredDoor = new ItemModDoor(ModBlocks.barredDoor, "barred_door");
+    public static Item barredDoor = new ItemModDoor(ModBlocks.barredDoor, "barred_door");
 
     public static Item teakerLump = new ItemMod("teaker_lump");
     public static Item amthirmisLump = new ItemMod("amthirmis_lump");
@@ -807,25 +807,25 @@ public class ModItems {
     public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK);
     public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK);
 
-     public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
-     public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
-     public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
-     public static Item cermileStaff = new ItemStaff(12, 10, "cermile_staff");
-     public static Item pardimalStaff = new ItemStaff(15, 10, "pardimal_staff");
-     public static Item quadroticStaff = new ItemStaff(19, 10, "quadrotic_warstaff");
-     public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
-     public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
-     public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
+    public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
+    public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
+    public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
+    public static Item cermileStaff = new ItemStaff(12, 10, "cermile_staff");
+    public static Item pardimalStaff = new ItemStaff(15, 10, "pardimal_staff");
+    public static Item quadroticStaff = new ItemStaff(19, 10, "quadrotic_warstaff");
+    public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
+    public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
+    public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
 
-     public static Item honeysuckle = new ItemVetheanFood(1, 0.2F, "honeysuckle");
-     public static Item honeychunk = new ItemVetheanFood(1, 0.2F, "honeychunk");
-     public static Item dreamCarrot = new ItemVetheanFood(3, 0.4F, "dream_carrot");
-     public static Item dreamMelon = new ItemVetheanFood(6, 0.6F, "dream_melon");
-     public static Item dreamPie = new ItemVetheanFood(4, 0.8F, "dream_pie");
-     public static Item dreamCake = new ItemVetheanFood(8, 0.8F, "dream_cake");
-     public static Item dreamSweets = new ItemVetheanHealingFood(0, 0F, false, 2, "dream_sweets");
-     public static Item dreamSours = new ItemVetheanHealingFood(0, 0F, false, 8, "dream_sours");
-    
+    public static Item honeysuckle = new ItemVetheanFood(1, 0.2F, "honeysuckle");
+    public static Item honeychunk = new ItemVetheanFood(1, 0.2F, "honeychunk");
+    public static Item dreamCarrot = new ItemVetheanFood(3, 0.4F, "dream_carrot");
+    public static Item dreamMelon = new ItemVetheanFood(6, 0.6F, "dream_melon");
+    public static Item dreamPie = new ItemVetheanFood(4, 0.8F, "dream_pie");
+    public static Item dreamCake = new ItemVetheanFood(8, 0.8F, "dream_cake");
+    public static Item dreamSweets = new ItemVetheanHealingFood(0, 0F, false, 2, "dream_sweets");
+    public static Item dreamSours = new ItemVetheanHealingFood(0, 0F, false, 8, "dream_sours");
+
     public static Item acid = new ItemMod("acid");
     public static Item heivaBelt = new ItemMod("band_of_heiva_hunting");
     public static Item minersAmulet = new ItemMod("miners_amulet");
@@ -848,11 +848,14 @@ public class ModItems {
     public static Item darvenCannon = new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT);
     public static Item cermileCannon = new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT);
     public static Item pardimalCannon = new ItemVetheanCannon("pardimal_cannon", BulletType.PARDINMAL_CANNON_SHOT);
-    public static Item quadroticCannon = new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_WAR_CANNON_SHOT);
+    public static Item quadroticCannon = new ItemVetheanCannon("quadrotic_warcannon",
+            BulletType.QUADROTIC_WAR_CANNON_SHOT);
     public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_WAR_CANNON_SHOT);
-    public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HALIOSIS_WRATH_CANNON_SHOT);
-    public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_WRATH_CANNON_SHOT);
-    
+    public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon",
+            BulletType.HALIOSIS_WRATH_CANNON_SHOT);
+    public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon",
+            BulletType.ARKSIANE_WRATH_CANNON_SHOT);
+
     public static Item teakerHammer = new ItemVetheanSword("teaker_hammer", Utils.addHammerMaterial(6));
     public static Item amthrimisHammer = new ItemVetheanSword("amthirmis_hammer", Utils.addHammerMaterial(8));
     public static Item darvenHammer = new ItemVetheanSword("darven_hammer", Utils.addHammerMaterial(12));
@@ -862,7 +865,7 @@ public class ModItems {
     public static Item karosHammer = new ItemVetheanSword("karos_warhammer", Utils.addHammerMaterial(26));
     public static Item heliosisHammer = new ItemVetheanSword("heliosis_wrathhammer", Utils.addHammerMaterial(33));
     public static Item arksianeHammer = new ItemVetheanSword("arksiane_wrathhammer", Utils.addHammerMaterial(39));
-     
+
     public static Item teakerSword = new ItemVetheanSword("teaker_backsword", Utils.addHammerMaterial(4));
     public static Item amthrimisSword = new ItemVetheanSword("amthirmis_backsword", Utils.addHammerMaterial(6));
     public static Item darvenSword = new ItemVetheanSword("darven_backsword", Utils.addHammerMaterial(9));
@@ -872,7 +875,7 @@ public class ModItems {
     public static Item karosSword = new ItemVetheanSword("karos_warsword", Utils.addHammerMaterial(22));
     public static Item heliosisSword = new ItemVetheanSword("heliosis_wrathsword", Utils.addHammerMaterial(29));
     public static Item arksianeSword = new ItemVetheanSword("arksiane_wrathsword", Utils.addHammerMaterial(37));
-    
+
     public static Item teakerClaw = new ItemVetheanClaw(3, "teaker_claw");
     public static Item amthrimisClaw = new ItemVetheanClaw(5, "amthirmis_claw");
     public static Item darvenClaw = new ItemVetheanClaw(7, "darven_claw");
@@ -882,7 +885,7 @@ public class ModItems {
     public static Item karosClaw = new ItemVetheanClaw(19, "karos_warclaw");
     public static Item heliosisClaw = new ItemVetheanClaw(26, "heliosis_wrathclaw");
     public static Item arksianeClaw = new ItemVetheanClaw(35, "arksiane_wrathclaw");
-    
+
     public static Item eversight = new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT);
     public static Item everlight = new ItemVetheanSword("everlight", Utils.addHammerMaterial(44));
     public static Item everbright = new ItemVetheanClaw(42, "everbright");
@@ -890,7 +893,7 @@ public class ModItems {
     public static Item everfrightBow = new ItemModBow("everfright_bow", ArrowType.EVERFRIGHT, -1, everArrow)
             .setSound(ModSounds.VETHEA_BOW).setVethean();
     public static Item evernight = new ItemStaff(115, 80, "evernight");
-    
+
     public static Item karosRockmaul = new ItemVetheanSword("karos_rockmaul", Utils.addHammerMaterial(46));
 
     public static Item teakerArrow = new ItemMod("teaker_arrow").setCreativeTab(DivineRPGTabs.ranged);;
@@ -989,14 +992,13 @@ public class ModItems {
     public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
     public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
 
-    
-    
     //Ayeraco additions
     public static Item ayeracoFragmentB = new ItemMod("ayeraco_fragment_blue");
     public static Item ayeracoFragmentG = new ItemMod("ayeraco_fragment_green");
     public static Item ayeracoFragmentP = new ItemMod("ayeraco_fragment_purple");
     public static Item ayeracoFragmentR = new ItemMod("ayeraco_fragment_red");
     public static Item ayeracoFragmentY = new ItemMod("ayeraco_fragment_yellow");
+
     public static void init() {
     }
 

@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderDeathcryx extends RenderLiving<Deathcryx> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/deathcryx.png");
-	private final ModelDeathcryx modelEntity;
-    
-	public RenderDeathcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelDeathcryx(), 1F);
-        modelEntity = (ModelDeathcryx) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/deathcryx.png");
 
+    public RenderDeathcryx(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelDeathcryx(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Deathcryx entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Deathcryx> {
-
-	        @Override
-	        public Render<? super Deathcryx> createRenderFor(RenderManager manager) {
-	            return new RenderDeathcryx(manager, new ModelDeathcryx(), 1F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Deathcryx> {
+        @Override
+        public Render<? super Deathcryx> createRenderFor(RenderManager manager) {
+            return new RenderDeathcryx(manager, new ModelDeathcryx(), 0);
+        }
+    }
+}

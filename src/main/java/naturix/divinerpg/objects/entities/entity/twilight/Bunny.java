@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.entities.entity.twilight;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.Reference;
@@ -43,11 +42,9 @@ public class Bunny extends EntityDivineRPGTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         if (!this.isTamed())
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.bunnyHealth);
+            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
         else
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.bunnyHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.bunnySpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.bunnyFollowRange);
+            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
     }
 
     @Override
