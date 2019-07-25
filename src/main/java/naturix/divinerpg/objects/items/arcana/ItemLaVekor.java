@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.items.base.ItemMod;
@@ -26,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemLaVekor extends ItemMod {
 
-	private int arcana = 5;
+	private float cost = 5;
 
 	public ItemLaVekor() {
 		super("la_vekor", DivineRPGTabs.ranged);
@@ -37,14 +39,13 @@ public class ItemLaVekor extends ItemMod {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 	    		if((player.inventory.hasItemStack(new ItemStack(ModItems.grenade)) || player.capabilities.isCreativeMode)) {
-    	//FIXME - Needs to consume arcana
-    	//    		&& ArcanaHelper.getProperties(player).useBar(arcana)) {
-				
-				if(!world.isRemote){
+	        	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+				if(!world.isRemote && arcana.getArcana()>=cost){
 				    player.playSound(ModSounds.LA_VEKOR, 1, 1);
 				    EntityThrowable projectile = new EntityGrenade(world, player);
 				    projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 	                world.spawnEntity(projectile);
+	                arcana.consume(cost);
 	                if(!player.capabilities.isCreativeMode)
 					{
 						
@@ -63,7 +64,7 @@ public class ItemLaVekor extends ItemMod {
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
     {	list.add(TooltipLocalizer.explosiveShots());
 		list.add(TooltipLocalizer.ammo(ModItems.grenade));
-		list.add(TooltipLocalizer.arcanaConsumed(arcana));
+		list.add(TooltipLocalizer.arcanaConsumed(cost));
 		list.add(TooltipLocalizer.infiniteUses());
 	}
 }

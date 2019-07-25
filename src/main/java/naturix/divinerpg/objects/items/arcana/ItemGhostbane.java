@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
 import naturix.divinerpg.objects.items.base.ItemMod;
@@ -29,14 +31,12 @@ public class ItemGhostbane extends ItemMod {
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World w, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {	Wraith wraith = new Wraith(w);
-		if(!w.isRemote){
-			//FIXME - Needs to consume arcana
-//			if(ArcanaHelper.getProperties(p).useBar(200)) {
+	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+		if(!w.isRemote && arcana.getArcana() >=200){
 				wraith.setLocationAndAngles(pos.getX(), pos.getY() + 1, pos.getZ(), 0.0F, 0.0F);
-				//FIXME - Wraith attacks player in survival
 				w.spawnEntity(wraith);
+				arcana.consume(200);
 				return EnumActionResult.PASS;
-//			}
 		}
 		return EnumActionResult.FAIL;
 	}

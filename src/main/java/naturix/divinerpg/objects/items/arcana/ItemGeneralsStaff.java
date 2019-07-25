@@ -6,6 +6,8 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
@@ -39,18 +41,16 @@ public class ItemGeneralsStaff extends ItemMod {
 	
 	@Override
 	public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player, @Nonnull EnumHand hand) {
-		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());	
+		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
+		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);	
 		if (!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		
 		if(Ticker.tick >= stack.getTagCompound().getLong("CanShootTime")) {
-			if(!world.isRemote) {
-				//FIXME - needs to consume arcana
-//				&& ArcanaHelper.getProperties(player).useBar(20)) {
-			
-
+			if(!world.isRemote && arcana.getArcana()>=20) {
 		        player.playSound(ModSounds.STARLIGHT, 1, 1);
 				EntityThrowable entity = new EntityGeneralsStaff(world, player);
 				world.spawnEntity(entity);
+				arcana.consume(20);
 				stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 12);
 			}
 		}

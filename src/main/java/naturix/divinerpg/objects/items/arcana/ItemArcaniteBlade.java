@@ -2,6 +2,8 @@ package naturix.divinerpg.objects.items.arcana;
 
 import java.util.List;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -18,9 +20,10 @@ public class ItemArcaniteBlade extends ItemModSword {
 	
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		//FIXME - needs to consume arcana
-		//		if(!player.world.isRemote && !ArcanaHelper.getProperties(player).useBar(12)) return true;
-        return false;
+		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+       			if(!player.world.isRemote && arcana.getArcana() >= 12) 
+       				arcana.consume(12);
+       				return true;
     }
 	
 	@Override

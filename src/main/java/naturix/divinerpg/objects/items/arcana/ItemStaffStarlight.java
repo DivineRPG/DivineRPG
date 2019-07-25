@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityStar;
 import naturix.divinerpg.objects.items.base.ItemModRanged;
@@ -51,19 +53,18 @@ public class ItemStaffStarlight extends ItemModRanged {
             if (side == EnumFacing.SOUTH) --blockX;
             if (side == EnumFacing.NORTH) ++blockX;
 
+    		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
             if (stack.getItem() == ModItems.staffStarlight) {
-                if (!world.isRemote) {
-                	//FIXME - needs to consume arcana
-//                		&& ArcanaHelper.getProperties(player).useBar(25)) {
+                if (!world.isRemote && arcana.getArcana() >=25) {
                     for (int i = 0; i < 8; i++)
-                        world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                    world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                    arcana.consume(25);
                     player.playSound(ModSounds.STARLIGHT, 1, 0.5f);
                 }
             } else {
-            	if (!world.isRemote) {
-                	//FIXME - needs to consume arcana
-//                		&& ArcanaHelper.getProperties(player).useBar(5)) {
+            	if (!world.isRemote && arcana.getArcana() >= 5) {
                     world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                    arcana.consume(5);
                     player.playSound(ModSounds.STARLIGHT, 1, 1);
                 }
             }

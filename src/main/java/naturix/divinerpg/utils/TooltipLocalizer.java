@@ -22,6 +22,10 @@ public class TooltipLocalizer {
 		return I18n.translateToLocal(ARCANA).replace("#", String.valueOf(ar));
 	}
 
+	public static String arcanaConsumed(float ar) {
+		return I18n.translateToLocal(ARCANA).replace("#", String.valueOf(ar));
+	}
+
 	public static String arcanaDam(double dam) {
 		return I18n.translateToLocal(ARCANADAM).replace("#", String.valueOf(dam));
 	}

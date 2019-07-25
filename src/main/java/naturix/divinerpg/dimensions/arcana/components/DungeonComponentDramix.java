@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-//FIXME - Commented out Blocks that are not complete yet below
 
 public class DungeonComponentDramix extends WorldGenerator {
     @Override
@@ -1605,8 +1604,8 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 15, j + 3, k + 18, ModBlocks.degradedBrick);
         this.setBlock(world, i + 15, j + 3, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 15, j + 4, k + 0, ModBlocks.soulStone);
-        //this.setBlock(world, i + 15, j + 4, k + 15, ModBlocks.dramixAltar);
-        //this.setBlock(world, i + 15, j + 4, k + 16, ModBlocks.dramixAltar);
+        this.setBlock(world, i + 15, j + 4, k + 15, ModBlocks.dramixAltar);
+        this.setBlock(world, i + 15, j + 4, k + 16, ModBlocks.dramixAltar);
         this.setBlock(world, i + 15, j + 4, k + 31, ModBlocks.soulStone);
         this.setBlock(world, i + 15, j + 5, k + 0, ModBlocks.soulStone);
         this.setBlock(world, i + 15, j + 5, k + 31, ModBlocks.soulStone);
@@ -1695,8 +1694,8 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 16, j + 3, k + 18, ModBlocks.degradedBrick);
         this.setBlock(world, i + 16, j + 3, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 16, j + 4, k + 0, ModBlocks.soulStone);
-        //this.setBlock(world, i + 16, j + 4, k + 15, ModBlocks.dramixAltar);
-        //this.setBlock(world, i + 16, j + 4, k + 16, ModBlocks.dramixAltar);
+        this.setBlock(world, i + 16, j + 4, k + 15, ModBlocks.dramixAltar);
+        this.setBlock(world, i + 16, j + 4, k + 16, ModBlocks.dramixAltar);
         this.setBlock(world, i + 16, j + 4, k + 31, ModBlocks.soulStone);
         this.setBlock(world, i + 16, j + 5, k + 0, ModBlocks.soulStone);
         this.setBlock(world, i + 16, j + 5, k + 31, ModBlocks.soulStone);

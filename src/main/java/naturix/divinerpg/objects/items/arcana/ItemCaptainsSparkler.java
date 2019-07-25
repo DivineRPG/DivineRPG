@@ -4,11 +4,15 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
+import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.items.base.ItemModRanged;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -25,9 +29,14 @@ public class ItemCaptainsSparkler extends ItemModRanged {
         list.add(TooltipLocalizer.arcanaConsumed(7));
     }
 
-    // FIXME - Needs to use arcana
-    //@Override
-    //protected boolean additionalRightClickChecks(EntityPlayer player) {
-    //    return ArcanaHelper..getProperties(player)useBar(15);
-    //}
+    @Override
+    protected boolean additionalRightClickChecks(EntityPlayer player) {
+    	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        if(arcana.getArcana()>=7) {
+        	arcana.consume(7);
+        	return true;
+        }else {
+        	return false;
+        }
+    }
 }

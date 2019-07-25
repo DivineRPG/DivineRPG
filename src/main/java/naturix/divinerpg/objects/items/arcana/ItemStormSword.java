@@ -1,5 +1,7 @@
 package naturix.divinerpg.objects.items.arcana;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -15,9 +17,13 @@ public class ItemStormSword extends ItemModSword {
 
     @Override
     protected boolean canUseSpecialEffect(EntityPlayer player) {
-    	//FIXME - needs to consume arcana
-//        return ArcanaHelper.getProperties(player).useBar(20);
+		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+		if(arcana.getArcana()>=20) {
+		arcana.consume(20);
     	return true;
+		}else {
+			return false;
+		}
     }
 
     @Override

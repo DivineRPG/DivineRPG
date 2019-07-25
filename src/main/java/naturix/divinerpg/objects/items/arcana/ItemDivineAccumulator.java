@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.networking.message.MessageDivineAccumulator;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -33,14 +35,13 @@ public class ItemDivineAccumulator extends ItemMod {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
             int x = (int) player.posX, y = (int) player.posY, z = (int) player.posZ;
-          //FIXME - needs to consume arcana
-//        if (ArcanaHelper.getProperties(player).useBar(80)) {
-            if (!world.isRemote) {
+    		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            if (!world.isRemote && arcana.getArcana()>=80) {
                 DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
                 world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
+                arcana.consume(80);
             }
             player.motionY = 2;
-//        }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
     }
 

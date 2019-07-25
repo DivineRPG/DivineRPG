@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-//FIXME - Commented out Blocks that are not complete yet below
 
 public class DungeonComponentParasecta extends WorldGenerator {
     @Override
@@ -1599,8 +1598,8 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 16, j + 2, k + 16, ModBlocks.degradedBrick);
         this.setBlock(world, i + 16, j + 2, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 16, j + 3, k + 0, ModBlocks.ancientBrick);
-        //this.setBlock(world, i + 16, j + 3, k + 15, ModBlocks.parasectaAltar);
-        //this.setBlock(world, i + 16, j + 3, k + 16, ModBlocks.parasectaAltar);
+        this.setBlock(world, i + 16, j + 3, k + 15, ModBlocks.parasectaAltar);
+        this.setBlock(world, i + 16, j + 3, k + 16, ModBlocks.parasectaAltar);
         this.setBlock(world, i + 16, j + 3, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 16, j + 4, k + 0, ModBlocks.ancientBrick);
         this.setBlock(world, i + 16, j + 4, k + 31, ModBlocks.ancientBrick);
@@ -1671,8 +1670,8 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 17, j + 2, k + 16, ModBlocks.degradedBrick);
         this.setBlock(world, i + 17, j + 2, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 17, j + 3, k + 0, ModBlocks.ancientBrick);
-        //this.setBlock(world, i + 17, j + 3, k + 15, ModBlocks.parasectaAltar);
-        //this.setBlock(world, i + 17, j + 3, k + 16, ModBlocks.parasectaAltar);
+        this.setBlock(world, i + 17, j + 3, k + 15, ModBlocks.parasectaAltar);
+        this.setBlock(world, i + 17, j + 3, k + 16, ModBlocks.parasectaAltar);
         this.setBlock(world, i + 17, j + 3, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 17, j + 4, k + 0, ModBlocks.ancientBrick);
         this.setBlock(world, i + 17, j + 4, k + 31, ModBlocks.ancientBrick);
