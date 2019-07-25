@@ -60,9 +60,7 @@ public class ItemStaff extends ItemMod {
 	 public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 	       	ItemStack par1 = new ItemStack(player.getHeldItem(hand).getItem());
 	       	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-	       	
-	       	player.sendMessage(Utils.addChatMessage("you have "+arcana.getArcana()+" remaining and this costs "+cost));
-    		if (!world.isRemote) {
+	       	if (!world.isRemote) {
     				if(arcana.getArcana() >= cost) {
     			arcana.consume(cost);
 			if(par1.getItem() == ModItems.evernight){
