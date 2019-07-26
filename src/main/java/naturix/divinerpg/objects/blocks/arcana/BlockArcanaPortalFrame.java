@@ -35,7 +35,7 @@ public class BlockArcanaPortalFrame extends BlockMod {
 
     public BlockArcanaPortalFrame(String name, Block portal) {
         super(EnumBlockType.ROCK, name, 5.0F);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.WEST));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.portal = portal;
     }
 
