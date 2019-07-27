@@ -785,8 +785,6 @@ public class ModItems {
     public static Item polishedPearls = new ItemMod("polished_pearls");
     public static Item shinyPearls = new ItemMod("shiny_pearls");
 
-//    public static Item barredDoor = new ItemModDoor(ModBlocks.barredDoor, "barred_door");
-
     public static Item teakerLump = new ItemMod("teaker_lump");
     public static Item amthirmisLump = new ItemMod("amthirmis_lump");
     public static Item darvenLump = new ItemMod("darven_lump");
