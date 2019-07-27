@@ -6,8 +6,6 @@ import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.chunk.Chunk;
 
-// FIXME - Needs extractor
-
 public class DungeonComponent06 extends DungeonComponentBase {
     @Override
     public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
@@ -393,8 +391,8 @@ public class DungeonComponent06 extends DungeonComponentBase {
         this.setBlock(chunk, i + 7, j + 1, k + 11, heatTraps);
         this.setBlock(chunk, i + 7, j + 1, k + 12, heatTraps);
         this.setBlock(chunk, i + 7, j + 1, k + 13, ancientbricks);
-        //this.setBlock(chunk, i + 7, j + 2, k + 7, ModBlocks.arcanaExtractor);
-        //this.setBlock(chunk, i + 7, j + 2, k + 8, ModBlocks.arcanaExtractor);
+        this.setBlock(chunk, i + 7, j + 2, k + 7, ModBlocks.arcanaExtractor);
+        this.setBlock(chunk, i + 7, j + 2, k + 8, ModBlocks.arcanaExtractor);
         this.setBlock(chunk, i + 7, j + 3, k + 0, arcanaPower);
         this.setBlock(chunk, i + 7, j + 3, k + 15, arcanaPower);
         this.setBlock(chunk, i + 7, j + 4, k + 0, ancientbricks);
@@ -433,8 +431,8 @@ public class DungeonComponent06 extends DungeonComponentBase {
         this.setBlock(chunk, i + 8, j + 1, k + 11, heatTraps);
         this.setBlock(chunk, i + 8, j + 1, k + 12, heatTraps);
         this.setBlock(chunk, i + 8, j + 1, k + 13, ancientbricks);
-        //this.setBlock(chunk, i + 8, j + 2, k + 7, ModBlocks.arcanaExtractor);
-        //this.setBlock(chunk, i + 8, j + 2, k + 8, ModBlocks.arcanaExtractor);
+        this.setBlock(chunk, i + 8, j + 2, k + 7, ModBlocks.arcanaExtractor);
+        this.setBlock(chunk, i + 8, j + 2, k + 8, ModBlocks.arcanaExtractor);
         this.setBlock(chunk, i + 8, j + 3, k + 0, arcanaPower);
         this.setBlock(chunk, i + 8, j + 3, k + 15, arcanaPower);
         this.setBlock(chunk, i + 8, j + 4, k + 0, ancientbricks);

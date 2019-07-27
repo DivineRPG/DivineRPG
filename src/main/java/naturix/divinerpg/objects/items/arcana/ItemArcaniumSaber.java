@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.registry.ModSounds;
@@ -27,11 +29,11 @@ public class ItemArcaniumSaber extends ItemModSword {
 
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		//FIXME - Needs to consume arcana
-		//		if (ArcanaHelper.getProperties(player).useBar(12)) {
+		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+		if(arcana.getArcana()>=12) {
 		player.playSound(ModSounds.ARCANIUM_SABER, 1, 1);
-//			return false;
-//		}
+			return false;
+		}
 		return true;
 	}
 

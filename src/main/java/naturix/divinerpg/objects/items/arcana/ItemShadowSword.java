@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.registry.ModSounds;
@@ -31,11 +33,12 @@ public class ItemShadowSword extends ItemModSword {
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase hitter) {
-    	//FIXME - needs to consume arcana
-    	//        if(ArcanaHelper.getProperties((EntityPlayer)hitter).useBar(12)) {
+		IArcana arcana = target.getCapability(ArcanaProvider.ARCANA_CAP, null);
+    	        if(arcana.getArcana()>=12) {
     	target.playSound(ModSounds.SHADOW_SABER, 1, 1);
         hitter.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));
-//        }
+        arcana.consume(12);
+    	        }
         return true;
     }
 

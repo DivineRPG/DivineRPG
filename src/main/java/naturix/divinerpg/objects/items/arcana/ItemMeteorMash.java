@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityMeteor;
@@ -39,6 +41,7 @@ public class ItemMeteorMash extends ItemMod {
 		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());    float rotationPitch = player.rotationPitch;
 		RayTraceResult pos = player.rayTrace(30, 1);
 		int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY()+1, z = pos.getBlockPos().getZ();
+		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 		
 		
         if (pos.typeOfHit == RayTraceResult.Type.BLOCK) {
@@ -54,13 +57,12 @@ public class ItemMeteorMash extends ItemMod {
             if (side == EnumFacing.SOUTH) --blockX;
             if (side == EnumFacing.NORTH) ++blockX;
 
-                if (!world.isRemote) {
-                	//FIXME - needs to consume arcana
-//                	&& ArcanaHelper.getProperties(player).useBar(35)) {
+                if (!world.isRemote && arcana.getArcana()>=35) {
                 	EntityThrowable entity = new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D);
         			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
         			world.spawnEntity(entity);
                     player.playSound(ModSounds.STARLIGHT, 1, 1);
+                    arcana.consume(35);
                 }
             player.getLook(1);
         }

@@ -6,7 +6,6 @@ import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.chunk.Chunk;
 
-//FIXME - Commented out Blocks that are not complete yet below
 
 public class DungeonComponent16 extends DungeonComponentBase {
     @Override
@@ -160,7 +159,7 @@ public class DungeonComponent16 extends DungeonComponentBase {
         this.setBlock(chunk, i + 1, j + 1, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 1, k + 6, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 1, k + 9, dungeonBricks);
-        //this.setBlock(chunk, i + 1, j + 1, k + 14, ModBlocks.arcanaExtractor);
+        this.setBlock(chunk, i + 1, j + 1, k + 14, ModBlocks.arcanaExtractor);
         this.setBlock(chunk, i + 1, j + 1, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 2, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 2, k + 5, ModBlocks.dungenLamp);
@@ -1075,7 +1074,7 @@ public class DungeonComponent16 extends DungeonComponentBase {
         this.setBlock(chunk, i + 14, j + 1, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 1, k + 6, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 1, k + 9, dungeonBricks);
-        //this.setBlock(chunk, i + 14, j + 1, k + 14, ModBlocks.arcanaExtractor);
+        this.setBlock(chunk, i + 14, j + 1, k + 14, ModBlocks.arcanaExtractor);
         this.setBlock(chunk, i + 14, j + 1, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 2, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 2, k + 5, ModBlocks.dungenLamp);

@@ -5,6 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.EntityResourceLocation;
 import naturix.divinerpg.enums.BulletType;
@@ -40,15 +42,14 @@ public class ItemArcaniteBlaster extends ItemMod {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
      {
+       	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 		ItemStack stack = new ItemStack(this);
 		if (!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		
 		if(Ticker.tick >= stack.getTagCompound().getLong("CanShootTime")) {
-			//FIXME - needs to consume arcana
-			//			if(ArcanaHelper.getProperties(player).useBar(20)) {
+			if(arcana.getArcana() >= 80) {
 			if(!world.isRemote)world.playSound(player, player.getPosition(), ModSounds.GHAST_CANNON, SoundCategory.PLAYERS, 1, 1);
 				for(int i = 0; i < 30; i++) {
-					//FIXME - the projectile isnt quite right
 					EntityThrowable entity = new EntityShooterBullet(world, player, BulletType.ARCANITE_BLASTER);
 					entity.posX += (this.rand.nextDouble()-this.rand.nextDouble())*1.5;
 					entity.posY += (this.rand.nextDouble()-this.rand.nextDouble())*1.5;
@@ -60,8 +61,9 @@ public class ItemArcaniteBlaster extends ItemMod {
 						stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 7);
 					}
 				}
+				arcana.consume(20);
 				stack.damageItem(1, player);
-//			}
+			}
 		}
 		if(player instanceof EntityPlayerMP)((EntityPlayerMP)player).sendContainerToPlayer(player.inventoryContainer);
 		if (stack.getTagCompound().getLong("CanShootTime") >= 100000 || stack.getTagCompound().getLong("CanShootTime") > Ticker.tick + 141)stack.getTagCompound().setLong("CanShootTime", 0);

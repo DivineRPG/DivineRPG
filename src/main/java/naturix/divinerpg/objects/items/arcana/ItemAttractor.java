@@ -5,6 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.items.base.ItemMod;
@@ -35,13 +37,15 @@ public class ItemAttractor extends ItemMod {
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
 		ItemStack stack = new ItemStack(player.getHeldItemMainhand().getItem());
-		//FIXME - Needs to consume arcana
-		//		if(!world.isRemote && ArcanaHelper.getProperties(player).useBar(20)) {
-			if(!world.isRemote)world.playSound(player, player.getPosition(), ModSounds.REFLECTOR, SoundCategory.PLAYERS, 1, 1);
+		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+		
+			if(!world.isRemote && arcana.getArcana()>=20) {
+			world.playSound(player, player.getPosition(), ModSounds.REFLECTOR, SoundCategory.PLAYERS, 1, 1);
 			EntityThrowable entity = new EntityAttractor(world, player);
 			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 			world.spawnEntity(entity);
-//		}
+			arcana.consume(20);
+			}
 			return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 	}
 	

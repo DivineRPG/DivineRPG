@@ -1,6 +1,8 @@
 package naturix.divinerpg.client;
 
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.networking.message.MessageArcanaBar;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -12,11 +14,14 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 public class ArcanaHelper implements ICapabilitySerializable<NBTTagCompound> {
     private final EntityPlayer player;
     public static final String NAME = "Arcana";
+    IArcana arcana;
     private float barValue;
     public int regenDelay;
 
     public ArcanaHelper(EntityPlayer player) {
         this.player = player;
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        barValue = arcana.getArcana();
     }
 
     public void updateAllBars() {
