@@ -3,7 +3,6 @@ package naturix.divinerpg.objects.entities.entity.arcana;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -29,39 +28,32 @@ public class Seimer extends EntityDivineRPGTameable {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.seimerHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.seimerSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.seimerFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150.0D);
     }
 
     @Override
-    public boolean processInteract(EntityPlayer par1EntityPlayer, EnumHand hand) {
-        ItemStack var2 = par1EntityPlayer.inventory.getCurrentItem();
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        ItemStack itemstack = player.getHeldItem(hand);
 
         if (this.isTamed()) {
-            if (var2 != null) {
-                if (var2.getItem() instanceof ItemFood) {
-                    ItemFood var3 = (ItemFood) var2.getItem();
-
-                    if (var3.isWolfsFavoriteMeat()) {
-                        //FIXME - data watcher
-                        //                    		&& this.dataWatcher.getWatchableObjectInt(18) < 20) {
-                        if (!par1EntityPlayer.capabilities.isCreativeMode) {
-                            var2.shrink(1);
+            if (!itemstack.isEmpty()) {
+                if (itemstack.getItem() instanceof ItemFood) {
+                    ItemFood food = (ItemFood) itemstack.getItem();
+                    if (food.isWolfsFavoriteMeat() && this.getHealth() < 20) {
+                        if (!player.capabilities.isCreativeMode) {
+                            itemstack.shrink(1);
                         }
-
-                        this.heal(var3.getHealAmount(var2));
+                        this.heal(food.getHealAmount(itemstack));
                         return true;
                     }
                 }
             }
         } else {
-            this.setTamed(true);
-            this.setOwnerId(par1EntityPlayer.getUniqueID());
+            setTamedBy(player);
             this.playTameEffect(true);
         }
 
-        return super.processInteract(par1EntityPlayer, hand);
+        return super.processInteract(player, hand);
     }
 
     @Override
@@ -69,13 +61,14 @@ public class Seimer extends EntityDivineRPGTameable {
         super.onUpdate();
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
             IArcana arcana = this.getOwner().getCapability(ArcanaProvider.ARCANA_CAP, null);
-            arcana.consume(20);
+            // FIXME regen()? Need to double check Arcana regen
+            arcana.fill(1);
         }
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity e) {
-        return e.attackEntityFrom(DamageSource.causeMobDamage(this), 6);
+    public boolean attackEntityAsMob(Entity entity) {
+        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 6);
     }
 
     @Override

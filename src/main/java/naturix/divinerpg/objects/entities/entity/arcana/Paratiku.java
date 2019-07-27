@@ -172,6 +172,7 @@ public class Paratiku extends EntityDivineRPGTameable {
         }
     }
 
+    // FIXME - Need to debug movement, does no behave like 1.7.10
     @Override
     protected void updateAITasks() {
         super.updateAITasks();

@@ -1,31 +1,34 @@
 package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import naturix.divinerpg.objects.entities.entity.EntityStats;
-import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Razorback extends EntityDivineRPGMob {
-	
-    public Razorback(World var1) {
-        super(var1);
-        addAttackingAI();
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/razorback");
+
+    public Razorback(World world) {
+        super(world);
         this.height = 0.5F;
+    }
+
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EntityStats.razorbackHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EntityStats.razorbackDamage);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EntityStats.razorbackSpeed);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(EntityStats.razorbackFollowRange);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
     }
-
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -38,17 +41,17 @@ public class Razorback extends EntityDivineRPGMob {
     }
 
     @Override
-    protected void dropFewItems(boolean var1, int var2) {
-        this.dropItem(ModItems.collector, 1);
-    }
-
-    @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.RAZORBACK_HURT;
     }
 
     @Override
+    protected ResourceLocation getLootTable() {
+        return this.LOOT;
+    }
+
+    @Override
     public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.containsAnyLiquid(this.getEntityBoundingBox());
+        return this.posY < 40.0D && super.getCanSpawnHere();
     }
 }
