@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.entities.assets.model.vanilla.ModelGrizzle;
-import naturix.divinerpg.objects.entities.entity.vanilla.Grizzle;
+import naturix.divinerpg.objects.entities.entity.vanilla.BrownGrizzle;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,24 +11,24 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderGrizzle extends RenderLiving<Grizzle> {
+public class RenderBrownGrizzle extends RenderLiving<BrownGrizzle> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/grizzle.png");
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/brown_grizzle.png");
 
-    public RenderGrizzle(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+    public RenderBrownGrizzle(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelGrizzle(), shadowsizeIn);
     }
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Grizzle entity) {
+    protected ResourceLocation getEntityTexture(BrownGrizzle entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Grizzle> {
+    public static class Factory implements IRenderFactory<BrownGrizzle> {
         @Override
-        public Render<? super Grizzle> createRenderFor(RenderManager manager) {
-            return new RenderGrizzle(manager, new ModelGrizzle(), 0F);
+        public Render<? super BrownGrizzle> createRenderFor(RenderManager manager) {
+            return new RenderBrownGrizzle(manager, new ModelGrizzle(), 0F);
         }
     }
 }

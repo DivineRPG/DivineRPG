@@ -45,7 +45,8 @@ public class Zelus extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.fyracryxSpawner)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.seimerSpawner)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModItems.paratikuSpawner)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.golemSpawner)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5),
+                new ItemStack(ModItems.golemOfRejuvenationSpawner)));
     }
 
     @Override

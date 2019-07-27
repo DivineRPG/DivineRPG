@@ -20,16 +20,15 @@ public class Smelter extends EntityDivineRPGTameable implements IAttackTimer {
     private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.<Integer>createKey(Smelter.class,
             DataSerializers.VARINT);
 
-    public Smelter(World worldIn, EntityPlayer player) {
-        this(worldIn);
-        setTamed(true);
-        setOwnerId(player.getUniqueID());
-    }
-
     public Smelter(World worldIn) {
         super(worldIn);
         this.setSize(1.3F, 2.5F);
         this.isImmuneToFire = true;
+    }
+
+    public Smelter(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamedBy(player);
     }
 
     @Override

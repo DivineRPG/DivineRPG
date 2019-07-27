@@ -21,15 +21,14 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
     private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.<Integer>createKey(StoneGolem.class,
             DataSerializers.VARINT);
 
-    public StoneGolem(World worldIn, EntityPlayer player) {
-        this(worldIn);
-        setTamed(true);
-        setOwnerId(player.getUniqueID());
-    }
-
     public StoneGolem(World worldIn) {
         super(worldIn);
         this.setSize(1.3F, 2.5F);
+    }
+
+    public StoneGolem(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamedBy(player);
     }
 
     @Override

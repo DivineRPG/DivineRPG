@@ -9,7 +9,6 @@ import naturix.divinerpg.enums.DiskType;
 import naturix.divinerpg.objects.items.ItemNotReady;
 import naturix.divinerpg.objects.items.arcana.ItemAquamarine;
 import naturix.divinerpg.objects.items.arcana.ItemArcanaPotion;
-import naturix.divinerpg.objects.items.arcana.ItemArcanaSpawnEgg;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlade;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
 import naturix.divinerpg.objects.items.arcana.ItemArcaniumSaber;
@@ -33,6 +32,7 @@ import naturix.divinerpg.objects.items.arcana.ItemStaffEnrichment;
 import naturix.divinerpg.objects.items.arcana.ItemStaffStarlight;
 import naturix.divinerpg.objects.items.arcana.ItemStormSword;
 import naturix.divinerpg.objects.items.arcana.ItemWizardsBook;
+import naturix.divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemFastFood;
 import naturix.divinerpg.objects.items.base.ItemHealingSword;
@@ -64,6 +64,7 @@ import naturix.divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
 import naturix.divinerpg.objects.items.vanilla.ItemCorruptedCannon;
 import naturix.divinerpg.objects.items.vanilla.ItemHordeHorn;
 import naturix.divinerpg.objects.items.vanilla.ItemInfernalFlame;
+import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
 import naturix.divinerpg.objects.items.vanilla.ItemMysteriousClock;
 import naturix.divinerpg.objects.items.vanilla.ItemScythe;
 import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfDeath;
@@ -475,6 +476,14 @@ public class ModItems {
     public static Item aquaticBlazeRod = new ItemMod("aquatic_blaze_rod");
     public static Item shadowCoins = new ItemMod("shadow_coins");
 
+    public static Item ehuSpawner = new ItemLivestockSpawnEgg("ehu_egg");
+    public static Item huskSpawner = new ItemLivestockSpawnEgg("husk_egg");
+    public static Item stoneGolemSpawner = new ItemLivestockSpawnEgg("stone_golem_egg");
+    public static Item smelterSpawner = new ItemLivestockSpawnEgg("smelter_egg");
+    public static Item snapperSpawner = new ItemLivestockSpawnEgg("snapper_egg");
+    public static Item whiteGrizzleSpawner = new ItemLivestockSpawnEgg("white_grizzle_egg");
+    public static Item brownGrizzleSpawner = new ItemLivestockSpawnEgg("brown_grizzle_egg");
+
     public static Item greenDiamondChunk = new ItemMod("green_diamond_chunk");
     public static Item grayDiamondChunk = new ItemMod("gray_diamond_chunk");
     public static Item blueDiamondChunk = new ItemMod("blue_diamond_chunk");
@@ -753,10 +762,10 @@ public class ModItems {
     public static Item soulKey = new ItemKey("soul_key");
     public static Item degradedKey = new ItemKey("degraded_key");
 
-    public static Item golemSpawner = new ItemArcanaSpawnEgg("golem_egg");
-    public static Item seimerSpawner = new ItemArcanaSpawnEgg("seimer_egg");
-    public static Item paratikuSpawner = new ItemArcanaSpawnEgg("paratiku_egg");
-    public static Item fyracryxSpawner = new ItemArcanaSpawnEgg("fyracryx_egg");
+    public static Item golemOfRejuvenationSpawner = new ItemZelusSpawnEgg("golem_of_rejuvenation_egg");
+    public static Item seimerSpawner = new ItemZelusSpawnEgg("seimer_egg");
+    public static Item paratikuSpawner = new ItemZelusSpawnEgg("paratiku_egg");
+    public static Item fyracryxSpawner = new ItemZelusSpawnEgg("fyracryx_egg");
 
     public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
     public static Item veilo = new ItemMod("veilo");

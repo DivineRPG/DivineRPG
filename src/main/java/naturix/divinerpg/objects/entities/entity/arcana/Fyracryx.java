@@ -18,16 +18,16 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Fyracryx extends EntityDivineRPGTameable implements IRangedAttackMob {
-    public Fyracryx(World world, EntityPlayer player) {
-        this(world);
-        this.setTamed(true);
-        this.isImmuneToFire = true;
-        setOwnerId(player.getUniqueID());
-    }
 
     public Fyracryx(World par1World) {
         super(par1World);
         this.setSize(2F, 2F);
+        this.isImmuneToFire = true;
+    }
+
+    public Fyracryx(World world, EntityPlayer player) {
+        this(world);
+        setTamedBy(player);
     }
 
     @Override

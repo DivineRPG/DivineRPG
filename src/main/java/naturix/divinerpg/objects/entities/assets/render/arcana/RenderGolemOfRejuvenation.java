@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import org.lwjgl.opengl.GL11;
 
 import naturix.divinerpg.objects.entities.assets.model.arcana.ModelRejuvGolem;
-import naturix.divinerpg.objects.entities.entity.arcana.GolemOfRejuvination;
+import naturix.divinerpg.objects.entities.entity.arcana.GolemOfRejuvenation;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -13,29 +13,29 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderGolemOfRejuvination extends RenderLiving<GolemOfRejuvination> {
+public class RenderGolemOfRejuvenation extends RenderLiving<GolemOfRejuvenation> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_of_rejuvination.png");
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/golem_of_rejuvenation.png");
 
-    public RenderGolemOfRejuvination(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+    public RenderGolemOfRejuvenation(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelRejuvGolem(), shadowsizeIn);
     }
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(GolemOfRejuvination entity) {
+    protected ResourceLocation getEntityTexture(GolemOfRejuvenation entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<GolemOfRejuvination> {
+    public static class Factory implements IRenderFactory<GolemOfRejuvenation> {
         @Override
-        public Render<? super GolemOfRejuvination> createRenderFor(RenderManager manager) {
-            return new RenderGolemOfRejuvination(manager, new ModelRejuvGolem(), 0.5F);
+        public Render<? super GolemOfRejuvenation> createRenderFor(RenderManager manager) {
+            return new RenderGolemOfRejuvenation(manager, new ModelRejuvGolem(), 0.5F);
         }
     }
 
     @Override
-    public void preRenderCallback(GolemOfRejuvination entity, float f) {
+    public void preRenderCallback(GolemOfRejuvenation entity, float f) {
         GL11.glScalef(1.5f, 1.5f, 1.5f);
     }
 }

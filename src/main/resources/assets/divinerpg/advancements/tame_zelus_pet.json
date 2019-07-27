@@ -1,7 +1,7 @@
 {
    "display":{
       "icon":{
-         "item":"minecraft:spawn_egg"
+         "item":"divinerpg:seimer_egg"
       },
       "title":{
          "translate":"advancement.tame_zelus_pet"

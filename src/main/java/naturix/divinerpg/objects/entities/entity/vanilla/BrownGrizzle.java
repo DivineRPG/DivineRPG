@@ -13,18 +13,17 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class Grizzle extends EntityDivineRPGTameable {
+public class BrownGrizzle extends EntityDivineRPGTameable {
 
-    public Grizzle(World worldIn, EntityPlayer player) {
-        this(worldIn);
-        setTamed(true);
-        setOwnerId(player.getUniqueID());
-    }
-
-    public Grizzle(World worldIn) {
+    public BrownGrizzle(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 1.2F);
         this.setHealth(this.getMaxHealth());
+    }
+
+    public BrownGrizzle(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamedBy(player);
     }
 
     @Override

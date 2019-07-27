@@ -17,15 +17,14 @@ import net.minecraft.world.World;
 
 public class Husk extends EntityDivineRPGTameable {
 
-    public Husk(World worldIn, EntityPlayer player) {
-        this(worldIn);
-        setTamed(true);
-        setOwnerId(player.getUniqueID());
-    }
-
     public Husk(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 1.4F);
+    }
+
+    public Husk(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamedBy(player);
     }
 
     @Override

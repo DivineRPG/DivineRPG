@@ -40,7 +40,7 @@ public enum ArrowType {
     ETERNAL_ARCHER_SLOW_ARROW(26, 26, ProjectileLoc("fury_arrow"), ArrowSpecial.SLOW),
     ETERNAL_ARCHER_NAUSEA_ARROW(26, 26, ProjectileLoc("fury_arrow"), ArrowSpecial.NAUSEA),
     ETERNAL_ARCHER_BLIND_ARROW(26, 26, ProjectileLoc("fury_arrow"), ArrowSpecial.BLIND),
-	LIVING_STATUE_ARROW(26, 26, ProjectileLoc("living_statue_arrow"));
+    LIVING_STATUE_ARROW(6, 6, VanillaLoc());
 
     private final float minDamage;
     private final float maxDamage;

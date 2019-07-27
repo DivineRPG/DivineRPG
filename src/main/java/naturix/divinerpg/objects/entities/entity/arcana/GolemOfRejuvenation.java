@@ -1,37 +1,34 @@
-package naturix.divinerpg.objects.entities.entity.vanilla;
+package naturix.divinerpg.objects.entities.entity.arcana;
 
 import naturix.divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import naturix.divinerpg.registry.ModSounds;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class GrizzleWhite extends EntityDivineRPGTameable {
+public class GolemOfRejuvenation extends EntityDivineRPGTameable {
+    private int healTimer;
 
-    public GrizzleWhite(World worldIn, EntityPlayer player) {
-        this(worldIn);
-        setTamed(true);
-        setOwnerId(player.getUniqueID());
+    public GolemOfRejuvenation(World world) {
+        super(world);
+        this.setSize(1F, 2.2F);
+        this.healTimer = 0;
     }
 
-    public GrizzleWhite(World worldIn) {
-        super(worldIn);
-        this.setSize(0.8F, 1.2F);
-        this.setHealth(this.getMaxHealth());
+    public GolemOfRejuvenation(World world, EntityPlayer player) {
+        this(world);
+        setTamedBy(player);
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D * 1.3D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
 
     @Override
@@ -42,7 +39,7 @@ public class GrizzleWhite extends EntityDivineRPGTameable {
             if (!itemstack.isEmpty()) {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood food = (ItemFood) itemstack.getItem();
-                    if (food.isWolfsFavoriteMeat() && this.getHealth() < this.getMaxHealth()) {
+                    if (food.isWolfsFavoriteMeat() && this.getHealth() < 30) {
                         if (!player.capabilities.isCreativeMode) {
                             itemstack.shrink(1);
                         }
@@ -60,27 +57,25 @@ public class GrizzleWhite extends EntityDivineRPGTameable {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 9.0F);
+    public void onUpdate() {
+        super.onUpdate();
+        if (this.getOwner() != null) {
+            if (this.healTimer == 16) {
+                this.getOwner().heal(1);
+                this.healTimer = 0;
+            } else {
+                this.healTimer++;
+            }
+        }
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.GOLEM;
     }
 
     @Override
     public EntityAgeable createChild(EntityAgeable var1) {
         return null;
-    }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return ModSounds.GRIZZLE;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GRIZZLE_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return ModSounds.GRIZZLE_HURT;
     }
 }

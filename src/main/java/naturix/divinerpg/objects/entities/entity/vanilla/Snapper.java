@@ -16,15 +16,14 @@ import net.minecraft.world.World;
 
 public class Snapper extends EntityDivineRPGTameable {
 
-    public Snapper(World worldIn, EntityPlayer player) {
-        this(worldIn);
-        setTamed(true);
-        setOwnerId(player.getUniqueID());
-    }
-
     public Snapper(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 0.5F);
+    }
+
+    public Snapper(World worldIn, EntityPlayer player) {
+        this(worldIn);
+        setTamedBy(player);
     }
 
     @Override

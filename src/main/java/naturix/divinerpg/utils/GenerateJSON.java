@@ -41,6 +41,7 @@ import naturix.divinerpg.objects.blocks.twilight.BlockTallCrop;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
+import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -191,7 +192,11 @@ public class GenerateJSON {
                     overrides.add(pull_3);
                     json.put("overrides", overrides);
                 } else if (isEgg) {
-                    textures.put("layer0", Reference.MODID + ":items/pet_spawn_egg");
+                    if (item instanceof ItemLivestockSpawnEgg) {
+                        textures.put("layer0", Reference.MODID + ":items/livestock_pet_spawn_egg");
+                    } else {
+                        textures.put("layer0", Reference.MODID + ":items/zelus_pet_spawn_egg");
+                    }
                     json.put("textures", textures);
                 } else {
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);
