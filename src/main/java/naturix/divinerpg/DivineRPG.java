@@ -14,6 +14,7 @@ import naturix.divinerpg.registry.ModOreDict;
 import naturix.divinerpg.registry.ModSmelting;
 import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.Reference;
+import naturix.divinerpg.utils.Utils;
 import naturix.divinerpg.utils.handlers.RegistryHandler;
 import naturix.divinerpg.world.WorldGenCustomOres;
 import net.minecraftforge.common.MinecraftForge;
@@ -83,6 +84,7 @@ public class DivineRPG {
     /** For Registering Commands */
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
+    	Utils.addDevsToList();
     }
     
 }

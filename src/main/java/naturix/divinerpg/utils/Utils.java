@@ -292,4 +292,21 @@ public class Utils {
 
         return false;
     }
+	
+	public static void addDevsToList() {
+		DEV_LIST.add("RadioactiveStud");
+		DEV_LIST.add("Eternaldoom1");
+		DEV_LIST.add("BossLetsPlays");
+		DEV_LIST.add("Xolova");
+		DEV_LIST.add("sheenrox82");
+		DEV_LIST.add("The_SlayerMC");
+		DEV_LIST.add("insanity414all");
+		DEV_LIST.add("deathman12e3");
+		DEV_LIST.add("Fire_Sight");
+		DEV_LIST.add("krwminer");
+		DEV_LIST.add("NicosaurusRex99");
+		DEV_LIST.add("LiteWolf101");
+		
+		
+	}
 }
