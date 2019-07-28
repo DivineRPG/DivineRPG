@@ -35,8 +35,8 @@ public class EventClientLogin {
                     	}
                 }
             }else {Logging.message(p, TextFormatting.AQUA + p.getDisplayName().getFormattedText() + " has the most recent version of DivineRPG installed!");}
-            if (Utils.isDeveloperName(p.getCommandSenderEntity().getDisplayName())) {
-            	Logging.message(p, TextFormatting.WHITE +	MessageLocalizer.normal("message.developer" + " is on the DivineRPG dev team"));
+            if(Utils.DEV_LIST.contains(p.getName())) {
+    			Logging.message(p, TextFormatting.WHITE +	MessageLocalizer.normal("Welcome DivineRPG developer! "+p.getName()+" is on the DivineRPG dev team"));
                 Logging.message(p, "Welcome " + p.getDisplayName().getFormattedText());
             } else {
                 Logging.message(p, "Welcome " + p.getDisplayName().getFormattedText());

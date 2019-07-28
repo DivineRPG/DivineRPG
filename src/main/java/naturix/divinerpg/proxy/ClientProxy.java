@@ -12,6 +12,7 @@ import naturix.divinerpg.client.render.RenderItemFrostedChest;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.client.render.RenderItemStatue;
 import naturix.divinerpg.events.EventBowZoom;
+import naturix.divinerpg.events.EventClientLogin;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
@@ -100,6 +101,7 @@ public class ClientProxy extends CommonProxy {
         super.postInit(e);
         Utils.postFMLEvent(new ArcanaRenderer());
         Utils.postFMLEvent(new ClientTicker());
+        MinecraftForge.EVENT_BUS.register(new EventClientLogin());
 
         PostInitLog.init();
         IntenseDebug.init();

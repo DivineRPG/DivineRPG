@@ -1426,6 +1426,11 @@ message.ayeraco.red=The Red Ayeraco has been called upon
 message.ayeraco.yellow=The Yellow Ayeraco has been called upon
 message.ayeraco.purple=The Purple Ayeraco has been called upon
 message.ayeraco.spawn=The Ayeraco Horde has arrived!
+message.developer=Welcome DivineRPG developer!
+message.standard=Thank you # for downloading and playing &!
+message.internet=Unable to check for latest version, you may want to check your internet connection!
+message.update=A DivineRPG update is avaliable.
+message.version=[New Version: #]
 
 tooltip.uses=# Uses Remaining
 tooltip.harvest=Harvest Level: +

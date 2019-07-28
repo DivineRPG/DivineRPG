@@ -56,9 +56,7 @@ public class Utils {
 	        YELLOW = "\u00a7e";
 	public static String WHITE = "\u00a7f";
 
-	public static final String[] devs = { "RadioactiveStud", "Eternaldoom1", "BossLetsPlays", "Xolova", "sheenrox82",
-	        "The_SlayerMC", "insanity414all", "deathman12e3", "Fire_Sight", "krwminer", "NicosaurusRex99",
-	        "LiteWolf101" };
+	public static List<String> DEV_LIST = new ArrayList<String>();
 	public static Map<AbstractClientPlayer, RenderHat.Type> REGISTRY = new LinkedHashMap<>();
 	private static List<String> PATRON_LIST = new ArrayList<String>();
 	public static Map<String, ResourceLocation> capeMap = new HashMap<>();
@@ -163,8 +161,8 @@ public class Utils {
 
 	@SuppressWarnings("unlikely-arg-type")
 	public static boolean isDeveloperName(ITextComponent iTextComponent) {
-		for (int i = 0; i < devs.length; i++) {
-			if (iTextComponent.equals(devs[i])) {
+		for (int i = 0; i < DEV_LIST.size(); i++) {
+			if (iTextComponent.equals(DEV_LIST.toArray())){
 				return true;
 			}
 		}
