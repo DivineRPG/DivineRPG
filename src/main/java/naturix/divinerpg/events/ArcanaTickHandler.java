@@ -52,5 +52,7 @@ public class ArcanaTickHandler {
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event){
 		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 		arcana.set(200);
+		
+		event.player.addExperienceLevel(0);
 	}
 }
