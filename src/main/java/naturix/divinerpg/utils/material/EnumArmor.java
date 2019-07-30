@@ -51,7 +51,7 @@ public enum EnumArmor {
     VEMOS("Vemos", "vemos", 0, 22, 65),
     DIAMOND("Diamond", "diamond", 3000, 10, 55),
     IRON("Iron", "iron", 2000, 12, 30),
-    GOLD("Gold", "gold", 1000, 10, 22),
+    GOLD("Golden", "golden", 1000, 10, 22),
     
     DEGRADED("Degraded", "degraded", 0, 0, 17),
     FINISHED("Finished", "finished", 0, 0, 33),
