@@ -49,9 +49,9 @@ public class Datticon extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModBlocks.starBridge, 16)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.arcaniteTubes, 16)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.moltenFurnace)));
-        //list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.greenlightFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.greenlightFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4), new ItemStack(ModBlocks.oceanfireFurnace)));
-        //list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModBlocks.moonlightFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModBlocks.moonlightFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModBlocks.whitefireFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModBlocks.demonFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.elevantium, 9)));

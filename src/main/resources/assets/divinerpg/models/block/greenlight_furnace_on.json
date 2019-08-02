@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/greenlight_furnace_side",
+    "south": "divinerpg:blocks/greenlight_furnace_side",
+    "north": "divinerpg:blocks/greenlight_furnace_front_on",
+    "west": "divinerpg:blocks/greenlight_furnace_side",
+    "particle": "divinerpg:blocks/greenlight_furnace_front_on",
+    "up": "divinerpg:blocks/greenlight_furnace_top",
+    "down": "divinerpg:blocks/greenlight_furnace_top"
+  }
+}

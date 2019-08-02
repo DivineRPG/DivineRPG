@@ -5,11 +5,11 @@ import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class MoltenFurnaceGUI extends ModFurnaceGUI {
+public class MoonlightFurnaceGUI extends ModFurnaceGUI {
     private static final ResourceLocation TEXTURES = new ResourceLocation(
-            Reference.MODID + ":textures/gui/molten_furnace.png");
+            Reference.MODID + ":textures/gui/moonlight_furnace.png");
 
-    public MoltenFurnaceGUI(InventoryPlayer player, TileEntityModFurnace tileEntity) {
+    public MoonlightFurnaceGUI(InventoryPlayer player, TileEntityModFurnace tileEntity) {
         super(player, tileEntity);
     }
 

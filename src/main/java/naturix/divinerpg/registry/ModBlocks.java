@@ -37,11 +37,13 @@ import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
+import naturix.divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockHeatTrap;
 import naturix.divinerpg.objects.blocks.arcana.BlockHitchak;
 import naturix.divinerpg.objects.blocks.arcana.BlockLamona;
 import naturix.divinerpg.objects.blocks.arcana.BlockMarsine;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockStarBridge;
 import naturix.divinerpg.objects.blocks.arcana.BlockVeilo;
@@ -523,16 +525,16 @@ public class ModBlocks {
 
     public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log");
 
-    // public static Block greenlightFurnace = new BlockGreenlightFurnace("greenlight_furnace", false);
-    // public static Block greenlightFurnaceOn = new BlockGreenlightFurnace("greenlight_furnace_on", true);
+    public static Block greenlightFurnace = new BlockGreenlightFurnace("greenlight_furnace", false);
+    public static Block greenlightFurnaceOn = new BlockGreenlightFurnace("greenlight_furnace_on", true);
     public static Block oceanfireFurnace = new BlockOceanfireFurnace("oceanfire_furnace", false);
     public static Block oceanfireFurnaceOn = new BlockOceanfireFurnace("oceanfire_furnace_on", true);
     public static Block moltenFurnace = new BlockMoltenFurnace("molten_furnace", false);
     public static Block moltenFurnaceOn = new BlockMoltenFurnace("molten_furnace_on", true);
     public static Block whitefireFurnace = new BlockWhitefireFurnace("whitefire_furnace", false);
     public static Block whitefireFurnaceOn = new BlockWhitefireFurnace("whitefire_furnace_on", true);
-    // public static Block moonlightFurnace = new BlockMoonlightFurnace("moonlight_furnace", false);
-    // public static Block moonlightFurnaceOn = new BlockMoonlightFurnace("moonlight_furnace_on", true);
+    public static Block moonlightFurnace = new BlockMoonlightFurnace("moonlight_furnace", false);
+    public static Block moonlightFurnaceOn = new BlockMoonlightFurnace("moonlight_furnace_on", true);
     public static Block demonFurnace = new BlockDemonFurnace("demon_furnace", false);
     public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
 

@@ -17,7 +17,9 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityGreenlightFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityMoltenFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityMoonlightFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
@@ -104,6 +106,8 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityOceanfireFurnace.class, Reference.MODID + ":te_oceanfire_furnace");
         GameRegistry.registerTileEntity(TileEntityWhitefireFurnace.class, Reference.MODID + ":te_whitefire_furnace");
         GameRegistry.registerTileEntity(TileEntityDemonFurnace.class, Reference.MODID + ":te_demon_furnace");
+        GameRegistry.registerTileEntity(TileEntityGreenlightFurnace.class, Reference.MODID + ":te_greenlight_furnace");
+        GameRegistry.registerTileEntity(TileEntityMoonlightFurnace.class, Reference.MODID + ":te_moonlight_furnace");
         GameRegistry.registerTileEntity(TileEntityFrostedChest.class, Reference.MODID + ":te_iceika_chest");
         GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");
@@ -125,7 +129,9 @@ public class CommonProxy {
             double velY, double velZ) {
     }
 
-	public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {}
+    public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {
+    }
+
     public void spawnColoredParticle(World world, double x, double y, double z, Color color, boolean bigger,
             boolean shortLived) {
     }

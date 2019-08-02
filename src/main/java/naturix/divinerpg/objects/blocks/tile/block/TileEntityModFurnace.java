@@ -5,10 +5,12 @@ import javax.annotation.Nullable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
@@ -16,19 +18,24 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
-public abstract class TileEntityInfiniteFurnace extends TileEntity implements ISidedInventory, ITickable {
-    private static final int[] INPUT_SLOT = new int[] { 0 };
-    private static final int[] OUTPUT_SLOT = new int[] { 1 };
-    private static final int[] NO_SLOT = new int[] {};
-    private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY); // 0 is input. 1 is
-                                                                                                    // output.
+public abstract class TileEntityModFurnace extends TileEntity implements ISidedInventory, ITickable {
+    private static final int[] SLOTS_TOP = new int[] { 0 };
+    private static final int[] SLOTS_BOTTOM = new int[] { 2, 1 };
+    private static final int[] SLOTS_SIDES = new int[] { 1 };
+    // 0 is input. 1 is fuel and 2 is output.
+    private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
+    private int furnaceBurnTime;
+    private int currentItemBurnTime;
     public int cookTime;
     public int totalCookTime;
     public String customName;
+    public boolean wasBurning;
 
     abstract public String getFuranceName();
 
     abstract int getFurnaceSpeed();
+
+    abstract public boolean needsFuel();
 
     @Override
     public String getName() {
@@ -104,8 +111,10 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
         super.readFromNBT(compound);
         this.inventory = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(compound, this.inventory);
+        this.furnaceBurnTime = compound.getInteger("BurnTime");
         this.cookTime = compound.getInteger("CookTime");
         this.totalCookTime = compound.getInteger("CookTimeTotal");
+        this.currentItemBurnTime = TileEntityFurnace.getItemBurnTime(this.inventory.get(1));
         if (compound.hasKey("CustomName", 8)) {
             this.customName = compound.getString("CustomName");
         }
@@ -114,6 +123,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
+        compound.setInteger("BurnTime", (short) this.furnaceBurnTime);
         compound.setInteger("CookTime", (short) this.cookTime);
         compound.setInteger("CookTimeTotal", (short) this.totalCookTime);
         ItemStackHelper.saveAllItems(compound, this.inventory);
@@ -136,7 +146,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
             if (result.isEmpty()) {
                 return false;
             } else {
-                ItemStack output = ((ItemStack) this.inventory.get(1));
+                ItemStack output = ((ItemStack) this.inventory.get(2));
                 if (output.isEmpty()) {
                     return true;
                 }
@@ -152,11 +162,11 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     public void smeltItem() {
         if (this.canSmelt()) {
             ItemStack input = (ItemStack) this.inventory.get(0);
-            ItemStack output = (ItemStack) this.inventory.get(1);
+            ItemStack output = (ItemStack) this.inventory.get(2);
             ItemStack result = FurnaceRecipes.instance().getSmeltingResult(input);
 
             if (output.isEmpty()) {
-                this.inventory.set(1, result.copy());
+                this.inventory.set(2, result.copy());
             } else if (output.getItem() == result.getItem()) {
                 output.grow(result.getCount());
             }
@@ -185,15 +195,19 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
-        return index == 0;
+        return index == 0 || (this.needsFuel() && index == 1 && TileEntityFurnace.isItemFuel(stack));
     }
 
     @Override
     public int getField(int id) {
         switch (id) {
         case 0:
-            return this.cookTime;
+            return this.furnaceBurnTime;
         case 1:
+            return this.currentItemBurnTime;
+        case 2:
+            return this.cookTime;
+        case 3:
             return this.totalCookTime;
         default:
             return 0;
@@ -204,16 +218,22 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     public void setField(int id, int value) {
         switch (id) {
         case 0:
-            this.cookTime = value;
+            this.furnaceBurnTime = value;
             break;
         case 1:
+            this.currentItemBurnTime = value;
+            break;
+        case 2:
+            this.cookTime = value;
+            break;
+        case 3:
             this.totalCookTime = value;
         }
     }
 
     @Override
     public int getFieldCount() {
-        return 2;
+        return 4;
     }
 
     @Override
@@ -221,45 +241,83 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
         this.inventory.clear();
     }
 
-    public abstract void updateBlockState();
+    public abstract void updateBlockState(boolean isBurning);
 
     @Override
     public void update() {
-        boolean flag1 = false;
+
         if (!this.world.isRemote) {
-            if (this.canSmelt()) {
-                ++cookTime;
-                if (cookTime < totalCookTime) {
-                    flag1 = true;
+            boolean isDirty = false;
+            boolean isBurning = false;
+
+            if (this.needsFuel()) {
+                ItemStack itemstack = this.inventory.get(1);
+
+                if (this.furnaceBurnTime > 0) {
+                    --this.furnaceBurnTime;
+                    if (!(this.furnaceBurnTime > 0)) {
+                        isDirty = true;
+                    } else {
+                        isBurning = true;
+                    }
                 }
-                if (cookTime == totalCookTime) {
-                    this.cookTime = 0;
-                    this.totalCookTime = this.getFurnaceSpeed();
-                    this.smeltItem();
+
+                if ((isBurning || !itemstack.isEmpty()) && !((ItemStack) this.inventory.get(0)).isEmpty()) {
+                    if (!isBurning && this.canSmelt()) {
+                        this.furnaceBurnTime = TileEntityFurnace.getItemBurnTime(itemstack);
+                        this.currentItemBurnTime = this.furnaceBurnTime;
+
+                        if (this.furnaceBurnTime > 0) {
+                            isDirty = true;
+                            isBurning = true;
+
+                            if (!itemstack.isEmpty()) {
+                                Item item = itemstack.getItem();
+                                itemstack.shrink(1);
+
+                                if (itemstack.isEmpty()) {
+                                    ItemStack item1 = item.getContainerItem(itemstack);
+                                    this.inventory.set(1, item1);
+                                }
+                            }
+                        }
+                    }
                 }
             } else {
-                this.cookTime = 0;
+                isBurning = this.canSmelt();
             }
-            if (this.cookTime < 0) {
+
+            if (isBurning) {
+                if (this.canSmelt()) {
+                    ++this.cookTime;
+
+                    if (this.cookTime == this.totalCookTime) {
+                        this.cookTime = 0;
+                        this.totalCookTime = this.getFurnaceSpeed();
+                        this.smeltItem();
+                        isDirty = true;
+                    }
+                }
+            } else if (this.cookTime > 0) {
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
             }
-            if (flag1 == this.canSmelt()) {
-                updateBlockState();
+
+            if (this.wasBurning != isBurning) {
+                updateBlockState(isBurning);
+            }
+            this.wasBurning = isBurning;
+
+            if (isDirty) {
                 this.markDirty();
             }
         }
     }
 
     public int[] getSlotsForFace(EnumFacing side) {
-        switch (side) {
-        case NORTH:
-        case UP:
-            return INPUT_SLOT;
-        case SOUTH:
-        case DOWN:
-            return OUTPUT_SLOT;
-        default:
-            return NO_SLOT;
+        if (side == EnumFacing.DOWN) {
+            return SLOTS_BOTTOM;
+        } else {
+            return side == EnumFacing.UP ? SLOTS_TOP : SLOTS_SIDES;
         }
     }
 

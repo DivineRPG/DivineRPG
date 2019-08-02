@@ -1,15 +1,15 @@
 package naturix.divinerpg.objects.blocks.tile.container.gui;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class WhitefireFurnaceGUI extends InfiniteFurnaceGUI {
+public class WhitefireFurnaceGUI extends ModFurnaceGUI {
     private static final ResourceLocation TEXTURES = new ResourceLocation(
             Reference.MODID + ":textures/gui/whitefire_furnace.png");
 
-    public WhitefireFurnaceGUI(InventoryPlayer player, TileEntityInfiniteFurnace tileEntity) {
+    public WhitefireFurnaceGUI(InventoryPlayer player, TileEntityModFurnace tileEntity) {
         super(player, tileEntity);
     }
 

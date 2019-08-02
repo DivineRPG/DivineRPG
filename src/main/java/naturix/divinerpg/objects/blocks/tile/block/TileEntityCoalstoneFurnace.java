@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 import naturix.divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
 
-public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {
+public class TileEntityCoalstoneFurnace extends TileEntityModFurnace {
 
     public String getFuranceName() {
         return "tile.coalstone_furnace.name";
@@ -12,7 +12,11 @@ public class TileEntityCoalstoneFurnace extends TileEntityInfiniteFurnace {
         return 300;
     }
 
-    public void updateBlockState() {
-        BlockCoalstoneFurnace.setState(this.canSmelt(), world, pos);
+    public boolean needsFuel() {
+        return false;
+    }
+
+    public void updateBlockState(boolean isBurning) {
+        BlockCoalstoneFurnace.setState(isBurning, world, pos);
     }
 }

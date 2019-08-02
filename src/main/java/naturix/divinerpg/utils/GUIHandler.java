@@ -6,19 +6,21 @@ import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruption;
-import naturix.divinerpg.objects.blocks.tile.container.ContainerInfiniteFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
+import naturix.divinerpg.objects.blocks.tile.container.ContainerModFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.gui.AltarOfCorruptionGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.BoneChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.EdenChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.FrostedChestGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.GreenlightFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.MoonlightFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.PresentBoxGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
@@ -27,8 +29,8 @@ import naturix.divinerpg.objects.entities.container.gui.GuiDatticon;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;
 import naturix.divinerpg.objects.entities.container.gui.GuiLeorna;
 import naturix.divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
-import naturix.divinerpg.objects.entities.container.gui.GuiTheHunger;
 import naturix.divinerpg.objects.entities.container.gui.GuiLordVatticus;
+import naturix.divinerpg.objects.entities.container.gui.GuiTheHunger;
 import naturix.divinerpg.objects.entities.container.gui.GuiWarGeneral;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopMerchant;
 import naturix.divinerpg.objects.entities.container.gui.GuiWorkshopTinkerer;
@@ -40,9 +42,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
-/**
- * Created by LiteWolf101 on Jan /31/2019
- */
 public class GUIHandler implements IGuiHandler {
     public static final int COALSTONE_FURNACE_GUI_ID = 0;
     public static final int MOLTEN_FURNACE_GUI_ID = 1;
@@ -65,25 +64,27 @@ public class GUIHandler implements IGuiHandler {
     public static final int VATICUS_GUI_ID = 18;
     public static final int WAR_GENERAL_GUI_ID = 19;
     public static final int ZELUS_GUI_ID = 20;
+    public static final int GREENLIGHT_FURNACE_GUI_ID = 21;
+    public static final int MOONLIGHT_FURNACE_GUI_ID = 22;
 
     @Nullable
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == COALSTONE_FURNACE_GUI_ID) {
             return new CoalstoneFurnaceGUI(player.inventory,
-                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == MOLTEN_FURNACE_GUI_ID) {
             return new MoltenFurnaceGUI(player.inventory,
-                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == OCEANFIRE_FURNACE_GUI_ID) {
             return new OceanfireFurnaceGUI(player.inventory,
-                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == WHITEFIRE_FURNACE_GUI_ID) {
             return new WhitefireFurnaceGUI(player.inventory,
-                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == DEMON_FURNACE_GUI_ID) {
             return new DemonFurnaceGUI(player.inventory,
-                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == FROSTED_CHEST_GUI_ID) {
             return new FrostedChestGUI(player.inventory,
                     (TileEntityFrostedChest) world.getTileEntity(new BlockPos(x, y, z)), player);
@@ -121,6 +122,12 @@ public class GUIHandler implements IGuiHandler {
             return new GuiWarGeneral(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == ZELUS_GUI_ID) {
             return new GuiZelus(player.inventory, (IMerchant) world.getEntityByID(x), world);
+        } else if (ID == GREENLIGHT_FURNACE_GUI_ID) {
+            return new GreenlightFurnaceGUI(player.inventory,
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == MOONLIGHT_FURNACE_GUI_ID) {
+            return new MoonlightFurnaceGUI(player.inventory,
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         }
         return null;
     }
@@ -129,9 +136,10 @@ public class GUIHandler implements IGuiHandler {
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == COALSTONE_FURNACE_GUI_ID || ID == MOLTEN_FURNACE_GUI_ID || ID == OCEANFIRE_FURNACE_GUI_ID
-                || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID) {
-            return new ContainerInfiniteFurnace(player.inventory,
-                    (TileEntityInfiniteFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+                || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID || ID == GREENLIGHT_FURNACE_GUI_ID
+                || ID == MOONLIGHT_FURNACE_GUI_ID) {
+            return new ContainerModFurnace(player.inventory,
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == FROSTED_CHEST_GUI_ID || ID == PRESENT_BOX_GUI_ID || ID == BONE_CHEST_GUI_ID
                 || ID == EDEN_CHEST_GUI_ID) {
             return new ContainerModChest(player.inventory,

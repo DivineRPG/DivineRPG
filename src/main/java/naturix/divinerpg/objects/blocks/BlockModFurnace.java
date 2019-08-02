@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityInfiniteFurnace;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -63,9 +63,9 @@ public abstract class BlockModFurnace extends Block implements IHasModel {
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         if (!keepInventory) {
-            TileEntityInfiniteFurnace tileentity = (TileEntityInfiniteFurnace) worldIn.getTileEntity(pos);
+            TileEntityModFurnace tileentity = (TileEntityModFurnace) worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntityInfiniteFurnace) {
+            if (tileentity instanceof TileEntityModFurnace) {
                 InventoryHelper.dropInventoryItems(worldIn, pos, tileentity);
             }
         }

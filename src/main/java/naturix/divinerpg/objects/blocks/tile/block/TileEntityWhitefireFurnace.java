@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.block;
 
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
 
-public class TileEntityWhitefireFurnace extends TileEntityInfiniteFurnace {
+public class TileEntityWhitefireFurnace extends TileEntityModFurnace {
 
     public String getFuranceName() {
         return "tile.whitefire_furnace.name";
@@ -12,7 +12,11 @@ public class TileEntityWhitefireFurnace extends TileEntityInfiniteFurnace {
         return 150;
     }
 
-    public void updateBlockState() {
-        BlockWhitefireFurnace.setState(this.canSmelt(), world, pos);
+    public boolean needsFuel() {
+        return false;
+    }
+
+    public void updateBlockState(boolean isBurning) {
+        BlockWhitefireFurnace.setState(isBurning, world, pos);
     }
 }
