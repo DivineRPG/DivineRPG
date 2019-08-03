@@ -34,6 +34,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockAquaMarine;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
@@ -502,10 +503,9 @@ public class ModBlocks {
 
     //public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
     //public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
-    //public static Block arcanaExtractor = new BlockExtractor("arcana_extractor");
+    public static Block arcaniumExtractor = new BlockArcaniumExtractor("arcanium_extractor");
     public static Block parasectaAltar = new BlockNotReady("parasecta_altar");
     public static Block dramixAltar = new BlockNotReady("dramix_altar");
-    public static Block arcanaExtractor = new BlockNotReady("arcana_extractor");
 
     public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId());
     public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal);

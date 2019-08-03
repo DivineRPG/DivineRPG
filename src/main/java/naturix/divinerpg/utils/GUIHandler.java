@@ -13,6 +13,7 @@ import naturix.divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruptio
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.gui.AltarOfCorruptionGUI;
+import naturix.divinerpg.objects.blocks.tile.container.gui.ArcaniumExtractorGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.BoneChestGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
@@ -66,6 +67,7 @@ public class GUIHandler implements IGuiHandler {
     public static final int ZELUS_GUI_ID = 20;
     public static final int GREENLIGHT_FURNACE_GUI_ID = 21;
     public static final int MOONLIGHT_FURNACE_GUI_ID = 22;
+    public static final int ARCANIUM_EXTRACTOR_GUI_ID = 23;
 
     @Nullable
     @Override
@@ -128,6 +130,9 @@ public class GUIHandler implements IGuiHandler {
         } else if (ID == MOONLIGHT_FURNACE_GUI_ID) {
             return new MoonlightFurnaceGUI(player.inventory,
                     (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == ARCANIUM_EXTRACTOR_GUI_ID) {
+            return new ArcaniumExtractorGUI(player.inventory,
+                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         }
         return null;
     }
@@ -137,7 +142,7 @@ public class GUIHandler implements IGuiHandler {
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == COALSTONE_FURNACE_GUI_ID || ID == MOLTEN_FURNACE_GUI_ID || ID == OCEANFIRE_FURNACE_GUI_ID
                 || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID || ID == GREENLIGHT_FURNACE_GUI_ID
-                || ID == MOONLIGHT_FURNACE_GUI_ID) {
+                || ID == MOONLIGHT_FURNACE_GUI_ID || ID == ARCANIUM_EXTRACTOR_GUI_ID) {
             return new ContainerModFurnace(player.inventory,
                     (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == FROSTED_CHEST_GUI_ID || ID == PRESENT_BOX_GUI_ID || ID == BONE_CHEST_GUI_ID

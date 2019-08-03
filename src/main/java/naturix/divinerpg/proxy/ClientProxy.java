@@ -5,6 +5,7 @@ import java.awt.Color;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
+import naturix.divinerpg.client.render.RenderItemArcaniumExtractor;
 import naturix.divinerpg.client.render.RenderItemBoneChest;
 import naturix.divinerpg.client.render.RenderItemDemonFurnace;
 import naturix.divinerpg.client.render.RenderItemEdenChest;
@@ -15,6 +16,7 @@ import naturix.divinerpg.events.EventBowZoom;
 import naturix.divinerpg.events.EventClientLogin;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
@@ -26,6 +28,7 @@ import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.render.RenderArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.render.RenderBoneChest;
@@ -134,6 +137,8 @@ public class ClientProxy extends CommonProxy {
             item.setTileEntityItemStackRenderer(new RenderItemStatue());
         } else if (item.equals(Item.getItemFromBlock(ModBlocks.edenChest))) {
             item.setTileEntityItemStackRenderer(new RenderItemEdenChest());
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.arcaniumExtractor))) {
+            item.setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
         }
     }
 
@@ -149,6 +154,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoSpawn.class, new RenderAyeracoSpawn());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonFurnace.class, new RenderDemonFurnace());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityArcaniumExtractor.class, new RenderArcaniumExtractor());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
@@ -161,10 +167,12 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(item, meta,
                 new ModelResourceLocation(new ResourceLocation(Reference.MODID, filename), id));
     }
+
     @Override
     public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {
-    	this.spawnParticle(w, x, y, z, particle, random);
+        this.spawnParticle(w, x, y, z, particle, random);
     }
+
     @Override
     public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX,
             double velY, double velZ) {

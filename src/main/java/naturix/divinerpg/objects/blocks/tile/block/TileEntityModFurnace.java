@@ -19,13 +19,13 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
 public abstract class TileEntityModFurnace extends TileEntity implements ISidedInventory, ITickable {
+    // 0 is input. 1 is fuel and 2 is output.
     private static final int[] SLOTS_TOP = new int[] { 0 };
     private static final int[] SLOTS_BOTTOM = new int[] { 2, 1 };
     private static final int[] SLOTS_SIDES = new int[] { 1 };
-    // 0 is input. 1 is fuel and 2 is output.
     private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
-    private int furnaceBurnTime;
-    private int currentItemBurnTime;
+    public int furnaceBurnTime;
+    public int currentItemBurnTime;
     public int cookTime;
     public int totalCookTime;
     public String customName;
@@ -142,7 +142,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
         if (((ItemStack) this.inventory.get(0)).isEmpty()) {
             return false;
         } else {
-            ItemStack result = FurnaceRecipes.instance().getSmeltingResult((ItemStack) this.inventory.get(0));
+            ItemStack result = this.getSmeltingResult((ItemStack) this.inventory.get(0));
             if (result.isEmpty()) {
                 return false;
             } else {
@@ -163,7 +163,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
         if (this.canSmelt()) {
             ItemStack input = (ItemStack) this.inventory.get(0);
             ItemStack output = (ItemStack) this.inventory.get(2);
-            ItemStack result = FurnaceRecipes.instance().getSmeltingResult(input);
+            ItemStack result = this.getSmeltingResult(input);
 
             if (output.isEmpty()) {
                 this.inventory.set(2, result.copy());
@@ -264,8 +264,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
 
                 if ((isBurning || !itemstack.isEmpty()) && !((ItemStack) this.inventory.get(0)).isEmpty()) {
                     if (!isBurning && this.canSmelt()) {
-                        this.furnaceBurnTime = TileEntityFurnace.getItemBurnTime(itemstack);
-                        this.currentItemBurnTime = this.furnaceBurnTime;
+                        this.furnaceBurnTime = this.currentItemBurnTime = this.getItemBurnTime(itemstack);
 
                         if (this.furnaceBurnTime > 0) {
                             isDirty = true;
@@ -313,6 +312,7 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
         }
     }
 
+    @Override
     public int[] getSlotsForFace(EnumFacing side) {
         if (side == EnumFacing.DOWN) {
             return SLOTS_BOTTOM;
@@ -321,14 +321,24 @@ public abstract class TileEntityModFurnace extends TileEntity implements ISidedI
         }
     }
 
+    @Override
     public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
         return this.isItemValidForSlot(index, itemStackIn);
     }
 
+    @Override
     public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
         if (index == 1) {
             return true;
         }
         return false;
+    }
+
+    public int getItemBurnTime(ItemStack stack) {
+        return TileEntityFurnace.getItemBurnTime(stack);
+    }
+
+    public ItemStack getSmeltingResult(ItemStack stack) {
+        return FurnaceRecipes.instance().getSmeltingResult(stack);
     }
 }

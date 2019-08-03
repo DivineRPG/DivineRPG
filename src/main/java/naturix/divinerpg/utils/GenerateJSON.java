@@ -231,7 +231,8 @@ public class GenerateJSON {
                     Map<String, Object> textures = new HashMap<>();
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);
                     json.put("textures", textures);
-                } else if ((block instanceof BlockModFurnace && registryName.contains("demon"))
+                } else if ((block instanceof BlockModFurnace
+                        && (registryName.contains("demon") || registryName.contains("extractor")))
                         || block instanceof BlockStatue || block instanceof BlockModChest) {
                     json.put("parent", "builtin/entity");
                     Map<String, Object> display = new HashMap<>();
@@ -320,7 +321,7 @@ public class GenerateJSON {
             String registryName = block.getRegistryName().getResourcePath();
             if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin
                     || block instanceof BlockChristmasLights || block instanceof BlockArcanaPortalFrame) {
-                if (registryName.contains("demon")) {
+                if (registryName.contains("demon") || registryName.contains("extractor")) {
                     generateIgnoreVariantBlockstate(registryName);
                 } else {
                     generateFacingBlockstate(registryName);
@@ -1112,6 +1113,8 @@ public class GenerateJSON {
             } else if (block instanceof BlockModFurnace) {
                 if (registryName.contains("demon")) {
                     generateBreakModelBlock(registryName, "demon_furnace");
+                } else if (registryName.contains("extractor")) {
+                    generateBreakModelBlock(registryName, "arcanium_extractor");
                 } else {
                     generateFurnaceModelBlock(registryName);
                 }

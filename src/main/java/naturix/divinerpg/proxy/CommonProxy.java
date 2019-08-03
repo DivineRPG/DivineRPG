@@ -12,6 +12,7 @@ import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.blocks.tile.block.TEBed;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.block.TileEntityArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
@@ -108,6 +109,7 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityDemonFurnace.class, Reference.MODID + ":te_demon_furnace");
         GameRegistry.registerTileEntity(TileEntityGreenlightFurnace.class, Reference.MODID + ":te_greenlight_furnace");
         GameRegistry.registerTileEntity(TileEntityMoonlightFurnace.class, Reference.MODID + ":te_moonlight_furnace");
+        GameRegistry.registerTileEntity(TileEntityArcaniumExtractor.class, Reference.MODID + ":te_arcanium_extractor");
         GameRegistry.registerTileEntity(TileEntityFrostedChest.class, Reference.MODID + ":te_iceika_chest");
         GameRegistry.registerTileEntity(TileEntityAyeracoBeam.class, Reference.MODID + ":te_ayeraco_beam");
         GameRegistry.registerTileEntity(TileEntityAyeracoSpawn.class, Reference.MODID + ":te_ayeraco_spawn");

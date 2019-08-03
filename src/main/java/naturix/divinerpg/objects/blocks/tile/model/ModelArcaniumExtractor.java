@@ -4,7 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelExtractor extends ModelBase
+public class ModelArcaniumExtractor extends ModelBase
 {
     //fields
     ModelRenderer P2;
@@ -29,7 +29,7 @@ public class ModelExtractor extends ModelBase
     ModelRenderer P4;
     ModelRenderer P3;
 
-    public ModelExtractor() {
+    public ModelArcaniumExtractor() {
         textureWidth = 64;
         textureHeight = 32;
         P2 = new ModelRenderer(this, 0, 16);

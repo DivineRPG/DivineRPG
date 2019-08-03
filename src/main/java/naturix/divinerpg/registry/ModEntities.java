@@ -432,11 +432,10 @@ public class ModEntities {
         registerMobWithEgg(Parasecta.class, "parasecta");
         registerMobWithEgg(Paratiku.class, "paratiku");
         registerMobWithEgg(Razorback.class, "razorback");
-        registerMobWithEgg(GolemOfRejuvenation.class, "golem_of_rejuvination");
+        registerMobWithEgg(GolemOfRejuvenation.class, "golem_of_rejuvenation");
         registerMobWithEgg(Roamer.class, "roamer");
         registerMobWithEgg(Seimer.class, "seimer");
         registerMobWithEgg(LordVatticus.class, "lord_vatticus");
-        //        registerMobWithEgg(Vermsillion.class, "vermsillion");
         registerMobWithEgg(WarGeneral.class, "war_general");
         registerMobWithEgg(Wraith.class, "wraith");
         registerMobWithEgg(Zelus.class, "zelus");
