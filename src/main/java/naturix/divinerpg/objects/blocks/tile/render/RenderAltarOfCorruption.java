@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.StatueType;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityStatue;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;

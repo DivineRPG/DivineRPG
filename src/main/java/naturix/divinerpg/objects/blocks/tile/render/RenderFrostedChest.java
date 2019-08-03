@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.model.ModelFrostedChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;

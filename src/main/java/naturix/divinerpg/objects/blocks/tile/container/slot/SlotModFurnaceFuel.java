@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.container.slot;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

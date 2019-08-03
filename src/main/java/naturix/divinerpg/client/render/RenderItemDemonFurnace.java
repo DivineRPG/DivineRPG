@@ -1,7 +1,5 @@
 package naturix.divinerpg.client.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
@@ -10,6 +8,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 
 @SideOnly(Side.CLIENT)
 public class RenderItemDemonFurnace extends TileEntityItemStackRenderer {

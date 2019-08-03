@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
 import naturix.divinerpg.objects.blocks.BlockModFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityArcaniumExtractor;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;

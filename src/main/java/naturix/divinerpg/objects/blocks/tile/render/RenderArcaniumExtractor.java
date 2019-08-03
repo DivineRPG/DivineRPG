@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityArcaniumExtractor;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.tile.model.ModelArcaniumExtractor;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

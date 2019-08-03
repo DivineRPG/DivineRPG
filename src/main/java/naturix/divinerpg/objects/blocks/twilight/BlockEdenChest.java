@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks.twilight;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.blocks.BlockModChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

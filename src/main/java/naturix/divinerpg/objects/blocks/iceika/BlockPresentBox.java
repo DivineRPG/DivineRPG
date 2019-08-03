@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks.iceika;
 import javax.annotation.Nullable;
 
 import naturix.divinerpg.objects.blocks.BlockModChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

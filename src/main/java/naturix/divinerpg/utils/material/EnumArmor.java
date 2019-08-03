@@ -49,10 +49,11 @@ public enum EnumArmor {
     SANTA("Santa", "santa", 0, 10, 0, true),
     KORMA("Korma", "korma", 0, 22, 78),
     VEMOS("Vemos", "vemos", 0, 22, 65),
-    DIAMOND("Diamond", "diamond", 3000, 10, 55),
-    IRON("Iron", "iron", 2000, 12, 30),
-    GOLD("Golden", "golden", 1000, 10, 22),
-    
+
+    DIAMOND(true, "Diamond", "diamond", 3000, 10, 55, false),
+    IRON(true, "Iron", "iron", 2000, 12, 30, false),
+    GOLD(true, "Golden", "golden", 1000, 10, 22, false),
+
     DEGRADED("Degraded", "degraded", 0, 0, 17),
     FINISHED("Finished", "finished", 0, 0, 33),
     GLISTENING("Glistening", "glistening", 0, 0, 50),
@@ -69,9 +70,10 @@ public enum EnumArmor {
         this(name, textureName, durability, enchantability, damageReduction, false);
     }
 
-    private EnumArmor(String name, String textureName, int durability, int enchantability, Item repair, int damageReduction) {
+    private EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
+            int damageReduction) {
         this.armorMaterial = EnumHelper.addArmorMaterial(name, Reference.MODID + ":" + textureName,
-                (int) Math.round(durability / 13.75), new int[] {0, 0, 0, 0}, enchantability,
+                (int) Math.round(durability / 13.75), new int[] { 0, 0, 0, 0 }, enchantability,
                 SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
         this.armorMaterial.setRepairItem(new ItemStack(repair, 1));
         this.type = textureName;
@@ -80,9 +82,21 @@ public enum EnumArmor {
         this.clothing = false;
     }
 
-    private EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction, boolean clothing) {
+    private EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction,
+            boolean clothing) {
         this.armorMaterial = EnumHelper.addArmorMaterial(name, Reference.MODID + ":" + textureName,
-                (int) Math.round(durability / 13.75), new int[] {0, 0, 0, 0}, enchantability,
+                (int) Math.round(durability / 13.75), new int[] { 0, 0, 0, 0 }, enchantability,
+                SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
+        this.type = textureName;
+        this.undamageable = (durability == 0);
+        this.damageReduction = damageReduction;
+        this.clothing = clothing;
+    }
+
+    private EnumArmor(boolean vanilla, String name, String textureName, int durability, int enchantability,
+            int damageReduction, boolean clothing) {
+        this.armorMaterial = EnumHelper.addArmorMaterial(name, "minecraft:" + textureName,
+                (int) Math.round(durability / 13.75), new int[] { 0, 0, 0, 0 }, enchantability,
                 SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
         this.type = textureName;
         this.undamageable = (durability == 0);

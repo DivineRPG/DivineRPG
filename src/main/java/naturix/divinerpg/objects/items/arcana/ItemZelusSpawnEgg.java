@@ -32,25 +32,24 @@ public class ItemZelusSpawnEgg extends ItemMod {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
             float hitX, float hitY, float hitZ) {
-        ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
-        Item item = stack.getItem();
-        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-
-        Fyracryx fyracryx = new Fyracryx(world, player);
-        Seimer seimer = new Seimer(world, player);
-        GolemOfRejuvenation golem = new GolemOfRejuvenation(world, player);
-        Paratiku paratiku = new Paratiku(world, player);
         if (!world.isRemote) {
+            ItemStack stack = player.getHeldItem(hand);
+            Item item = stack.getItem();
+            int x = pos.getX(), y = pos.getY(), z = pos.getZ();
             if (item == ModItems.fyracryxSpawner) {
+                Fyracryx fyracryx = new Fyracryx(world, player);
                 fyracryx.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(fyracryx);
             } else if (item == ModItems.seimerSpawner) {
+                Seimer seimer = new Seimer(world, player);
                 seimer.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(seimer);
             } else if (item == ModItems.golemOfRejuvenationSpawner) {
+                GolemOfRejuvenation golem = new GolemOfRejuvenation(world, player);
                 golem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(golem);
             } else if (item == ModItems.paratikuSpawner) {
+                Paratiku paratiku = new Paratiku(world, player);
                 paratiku.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(paratiku);
             }

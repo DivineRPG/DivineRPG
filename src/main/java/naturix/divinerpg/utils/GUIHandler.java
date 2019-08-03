@@ -2,13 +2,6 @@ package naturix.divinerpg.utils;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModFurnace;
@@ -25,6 +18,13 @@ import naturix.divinerpg.objects.blocks.tile.container.gui.MoonlightFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.PresentBoxGUI;
 import naturix.divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
 import naturix.divinerpg.objects.entities.container.gui.GuiCaptainMerik;
 import naturix.divinerpg.objects.entities.container.gui.GuiDatticon;
 import naturix.divinerpg.objects.entities.container.gui.GuiJackOMan;

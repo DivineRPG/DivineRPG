@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
 import naturix.divinerpg.objects.blocks.tile.model.ModelPresentBox;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;

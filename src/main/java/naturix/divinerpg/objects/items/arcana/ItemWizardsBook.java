@@ -17,35 +17,40 @@ import net.minecraft.world.World;
 
 public class ItemWizardsBook extends ItemMod {
 
-	public ItemWizardsBook(String name) {
-		super(name, DivineRPGTabs.spawner);
-		setMaxStackSize(1);
-	} 
+    public ItemWizardsBook(String name) {
+        super(name, DivineRPGTabs.spawner);
+        setMaxStackSize(1);
+    }
 
-	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
-		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
-        Parasecta parasecta = new Parasecta(world);
-		Dramix dramix = new Dramix(world);
-		Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
-		RayTraceResult rtr = player.rayTrace(4, 1);
-		int x2 = rtr.getBlockPos().getX(), y2 = rtr.getBlockPos().getY(), z2 = rtr.getBlockPos().getZ();
-		if(!world.isRemote){
-			if(block == ModBlocks.parasectaAltar){
-				parasecta.setLocationAndAngles(x2 + 0.5F, y2 + 1, z2 + 0.5F, 0.0F, 0.0F);
-				    world.spawnEntity(parasecta);
-				    if(!player.capabilities.isCreativeMode) stack.shrink(1);
-				return EnumActionResult.PASS;
-			} 
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
+            float hitX, float hitY, float hitZ) {
+        if (!world.isRemote) {
+            ItemStack stack = player.getHeldItem(hand);
+            Block block = world.getBlockState(pos).getBlock();
+            RayTraceResult rtr = player.rayTrace(4, 1);
+            double spawnX = rtr.getBlockPos().getX() + 0.5F;
+            double spawnY = rtr.getBlockPos().getY() + 1;
+            double spawnZ = rtr.getBlockPos().getZ() + 0.5F;
 
-			if(block == ModBlocks.dramixAltar){
-				dramix.setLocationAndAngles(x2 + 0.5F, y2 + 1, z2 + 0.5F, 0.0F, 0.0F);
-				    world.spawnEntity(dramix);
-				    if(!player.capabilities.isCreativeMode) stack.shrink(1);
-				return EnumActionResult.PASS;
-			}
-		}return EnumActionResult.FAIL;
-	}
+            if (block == ModBlocks.parasectaAltar) {
+                Parasecta parasecta = new Parasecta(world);
+                parasecta.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
+                world.spawnEntity(parasecta);
+                if (!player.capabilities.isCreativeMode)
+                    stack.shrink(1);
+                return EnumActionResult.PASS;
+            }
+
+            if (block == ModBlocks.dramixAltar) {
+                Dramix dramix = new Dramix(world);
+                dramix.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
+                world.spawnEntity(dramix);
+                if (!player.capabilities.isCreativeMode)
+                    stack.shrink(1);
+                return EnumActionResult.PASS;
+            }
+        }
+        return EnumActionResult.FAIL;
+    }
 }

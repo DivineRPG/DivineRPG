@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.tile.container.gui;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;

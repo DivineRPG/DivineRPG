@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
 import naturix.divinerpg.objects.blocks.BlockModFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.Block;

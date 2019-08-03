@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.tile.container.gui;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.ContainerModFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;

@@ -3,7 +3,7 @@ package naturix.divinerpg.client.render;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;

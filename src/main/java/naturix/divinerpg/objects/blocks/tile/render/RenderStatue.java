@@ -2,7 +2,7 @@ package naturix.divinerpg.objects.blocks.tile.render;
 
 import org.lwjgl.opengl.GL11;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityStatue;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;

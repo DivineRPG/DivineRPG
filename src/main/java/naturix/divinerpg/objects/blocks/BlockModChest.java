@@ -25,12 +25,16 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class BlockModChest extends BlockContainer implements IHasModel {
+    protected static final AxisAlignedBB AABB_BLOCK = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D,
+            0.9375D);
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
     public BlockModChest(String name, Material material) {
@@ -45,6 +49,11 @@ public abstract class BlockModChest extends BlockContainer implements IHasModel 
     }
 
     abstract public int getGuiID();
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return AABB_BLOCK;
+    }
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {

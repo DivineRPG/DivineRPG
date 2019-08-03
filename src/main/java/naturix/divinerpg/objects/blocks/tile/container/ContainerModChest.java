@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.container;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.tile.container;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
 import naturix.divinerpg.objects.blocks.tile.container.slot.SlotModFurnaceFuel;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

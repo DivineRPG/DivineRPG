@@ -17,6 +17,7 @@ import com.google.gson.GsonBuilder;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.blocks.BlockModAltar;
 import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModDoor;
@@ -42,6 +43,7 @@ import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
+import naturix.divinerpg.objects.items.vanilla.ItemVanillaArmor;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -127,6 +129,11 @@ public class GenerateJSON {
             boolean isBow = registryName.endsWith("bow");
             boolean isEgg = registryName.endsWith("_egg") && !registryName.equals("boiled_egg");
             boolean isMeriks = registryName.equals("meriks_missile");
+
+            // Skip Vanilla Armor Overrides
+            if (item instanceof ItemVanillaArmor) {
+                return;
+            }
 
             Map<String, Object> json = new HashMap<>();
             if (item instanceof IHasModel) {
@@ -233,7 +240,8 @@ public class GenerateJSON {
                     json.put("textures", textures);
                 } else if ((block instanceof BlockModFurnace
                         && (registryName.contains("demon") || registryName.contains("extractor")))
-                        || block instanceof BlockStatue || block instanceof BlockModChest) {
+                        || block instanceof BlockStatue || block instanceof BlockModChest
+                        || block instanceof BlockModAltar) {
                     json.put("parent", "builtin/entity");
                     Map<String, Object> display = new HashMap<>();
 
@@ -332,7 +340,7 @@ public class GenerateJSON {
                 generateStairsBlockstate(registryName);
             } else if (block instanceof BlockModSpawner) {
                 generateSpawnerBlockstate(registryName);
-            } else if (block instanceof BlockModLeaves) {
+            } else if (block instanceof BlockModLeaves || block instanceof BlockModAltar) {
                 generateIgnoreVariantBlockstate(registryName);
             } else if (block instanceof BlockModPortal) {
                 generatePortalBlockstate(registryName);
@@ -1114,7 +1122,7 @@ public class GenerateJSON {
                 if (registryName.contains("demon")) {
                     generateBreakModelBlock(registryName, "demon_furnace");
                 } else if (registryName.contains("extractor")) {
-                    generateBreakModelBlock(registryName, "arcanium_extractor");
+                    generateBreakModelBlock(registryName, "blank");
                 } else {
                     generateFurnaceModelBlock(registryName);
                 }
@@ -1158,6 +1166,8 @@ public class GenerateJSON {
                 generateBasicModelBlock(registryName, "arcana_spawner");
             } else if (block instanceof BlockModDoor) {
                 generateDoorModelBlock(registryName);
+            } else if (block instanceof BlockModAltar) {
+                generateBreakModelBlock(registryName, "blank");
             } else {
                 generateBasicModelBlock(registryName);
             }

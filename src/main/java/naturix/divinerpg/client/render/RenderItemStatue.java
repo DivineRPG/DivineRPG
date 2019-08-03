@@ -4,7 +4,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import naturix.divinerpg.objects.blocks.BlockStatue;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityStatue;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;

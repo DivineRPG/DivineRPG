@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.model.ModelDemonFurnace;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockHorizontal;

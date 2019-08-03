@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityStupidSpawner;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;

@@ -35,41 +35,39 @@ public class ItemLivestockSpawnEgg extends ItemMod {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
             float hitX, float hitY, float hitZ) {
-        ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
-        Item item = stack.getItem();
-        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-
-        Ehu ehu = new Ehu(world, player);
-        Husk husk = new Husk(world, player);
-        StoneGolem stoneGolem = new StoneGolem(world, player);
-        Smelter smelter = new Smelter(world, player);
-        Snapper snapper = new Snapper(world, player);
-        WhiteGrizzle whiteGrizzle = new WhiteGrizzle(world, player);
-        BrownGrizzle brownGrizzle = new BrownGrizzle(world, player);
         if (!world.isRemote) {
+            ItemStack stack = player.getHeldItem(hand);
+            Item item = stack.getItem();
+            int x = pos.getX(), y = pos.getY(), z = pos.getZ();
             if (item == ModItems.ehuSpawner) {
+                Ehu ehu = new Ehu(world, player);
                 ehu.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(ehu);
             } else if (item == ModItems.huskSpawner) {
+                Husk husk = new Husk(world, player);
                 husk.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(husk);
             } else if (item == ModItems.stoneGolemSpawner) {
+                StoneGolem stoneGolem = new StoneGolem(world, player);
                 stoneGolem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(stoneGolem);
             } else if (item == ModItems.smelterSpawner) {
+                Smelter smelter = new Smelter(world, player);
                 smelter.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(smelter);
             } else if (item == ModItems.snapperSpawner) {
+                Snapper snapper = new Snapper(world, player);
                 snapper.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(snapper);
             } else if (item == ModItems.whiteGrizzleSpawner) {
+                WhiteGrizzle whiteGrizzle = new WhiteGrizzle(world, player);
                 whiteGrizzle.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(whiteGrizzle);
             } else if (item == ModItems.brownGrizzleSpawner) {
+                BrownGrizzle brownGrizzle = new BrownGrizzle(world, player);
                 brownGrizzle.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(brownGrizzle);
             }
-            //			player.triggerAchievement(DivineRPGAchievements.littleCreature);
             stack.shrink(1);
             return EnumActionResult.PASS;
         }

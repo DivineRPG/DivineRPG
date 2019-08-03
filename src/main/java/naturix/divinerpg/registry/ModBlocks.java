@@ -36,6 +36,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockDramixAltar;
 import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
 import naturix.divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
@@ -46,6 +47,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockMarsine;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
+import naturix.divinerpg.objects.blocks.arcana.BlockParasectaAltar;
 import naturix.divinerpg.objects.blocks.arcana.BlockStarBridge;
 import naturix.divinerpg.objects.blocks.arcana.BlockVeilo;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
@@ -501,11 +503,9 @@ public class ModBlocks {
     public static Block soulStoneDoor = new BlockModDoor("soul_stone_door", Material.IRON, -1F, false);
     public static Block degradedBrickDoor = new BlockModDoor("degraded_brick_door", Material.IRON, -1F, false);
 
-    //public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
-    //public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
+    public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
+    public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
     public static Block arcaniumExtractor = new BlockArcaniumExtractor("arcanium_extractor");
-    public static Block parasectaAltar = new BlockNotReady("parasecta_altar");
-    public static Block dramixAltar = new BlockNotReady("dramix_altar");
 
     public static Block arcanaPortal = new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId());
     public static Block arcanaPortalFrame = new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal);

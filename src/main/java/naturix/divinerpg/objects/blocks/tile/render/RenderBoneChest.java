@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.render;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
 import naturix.divinerpg.objects.blocks.tile.model.ModelBoneChest;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;

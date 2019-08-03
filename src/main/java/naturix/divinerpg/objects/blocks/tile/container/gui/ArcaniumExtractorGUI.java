@@ -1,6 +1,6 @@
 package naturix.divinerpg.objects.blocks.tile.container.gui;
 
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityModFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

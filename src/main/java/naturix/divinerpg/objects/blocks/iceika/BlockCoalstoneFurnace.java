@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.blocks.iceika;
 
 import naturix.divinerpg.objects.blocks.BlockModFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityCoalstoneFurnace;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityCoalstoneFurnace;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.GUIHandler;
 import net.minecraft.block.Block;

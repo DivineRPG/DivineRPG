@@ -230,21 +230,6 @@ public class ModRecipes {
 
         // armor
 
-        addRecipe(ModItems.diamondHelmet, "III", "I I", 'I', Items.DIAMOND);
-        addRecipe(ModItems.diamondBody, "I I", "III", "III", 'I', Items.DIAMOND);
-        addRecipe(ModItems.diamondLegs, "III", "I I", "I I", 'I', Items.DIAMOND);
-        addRecipe(ModItems.diamondBoots, "I I", "I I", 'I', Items.DIAMOND);
-
-        addRecipe(ModItems.ironHelmet, "III", "I I", 'I', Items.IRON_INGOT);
-        addRecipe(ModItems.ironBody, "I I", "III", "III", 'I', Items.IRON_INGOT);
-        addRecipe(ModItems.ironLegs, "III", "I I", "I I", 'I', Items.IRON_INGOT);
-        addRecipe(ModItems.ironBoots, "I I", "I I", 'I', Items.IRON_INGOT);
-
-        addRecipe(ModItems.goldHelmet, "III", "I I", 'I', Items.GOLD_INGOT);
-        addRecipe(ModItems.goldBody, "I I", "III", "III", 'I', Items.GOLD_INGOT);
-        addRecipe(ModItems.goldLegs, "III", "I I", "I I", 'I', Items.GOLD_INGOT);
-        addRecipe(ModItems.goldBoots, "I I", "I I", 'I', Items.GOLD_INGOT);
-
         addRecipe(ModItems.realmiteHelmet, "III", "I I", 'I', ModItems.realmiteIngot);
         addRecipe(ModItems.realmiteBody, "I I", "III", "III", 'I', ModItems.realmiteIngot);
         addRecipe(ModItems.realmiteLegs, "III", "I I", "I I", 'I', ModItems.realmiteIngot);

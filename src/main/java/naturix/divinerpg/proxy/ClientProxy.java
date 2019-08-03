@@ -8,37 +8,39 @@ import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.render.RenderItemArcaniumExtractor;
 import naturix.divinerpg.client.render.RenderItemBoneChest;
 import naturix.divinerpg.client.render.RenderItemDemonFurnace;
+import naturix.divinerpg.client.render.RenderItemDramixAltar;
 import naturix.divinerpg.client.render.RenderItemEdenChest;
 import naturix.divinerpg.client.render.RenderItemFrostedChest;
+import naturix.divinerpg.client.render.RenderItemParasectaAltar;
 import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.client.render.RenderItemStatue;
 import naturix.divinerpg.events.EventBowZoom;
 import naturix.divinerpg.events.EventClientLogin;
 import naturix.divinerpg.objects.blocks.BlockStatue;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityArcaniumExtractor;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityBoneChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityDemonFurnace;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityEdenChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityFrostedChest;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityPresentBox;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityStatue;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityStatue;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.render.RenderArcaniumExtractor;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoBeam;
 import naturix.divinerpg.objects.blocks.tile.render.RenderAyeracoSpawn;
 import naturix.divinerpg.objects.blocks.tile.render.RenderBoneChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderDemonFurnace;
+import naturix.divinerpg.objects.blocks.tile.render.RenderDramixAltar;
 import naturix.divinerpg.objects.blocks.tile.render.RenderEdenChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderFrostedChest;
+import naturix.divinerpg.objects.blocks.tile.render.RenderParasectaAltar;
 import naturix.divinerpg.objects.blocks.tile.render.RenderPresentBox;
 import naturix.divinerpg.objects.blocks.tile.render.RenderStatue;
-import naturix.divinerpg.objects.blocks.tile.render.TileEntityDramixAltarRender;
-import naturix.divinerpg.objects.blocks.tile.render.TileEntityParasectaAltarRender;
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
 import naturix.divinerpg.particle.ParticleColored;
 import naturix.divinerpg.particle.ParticleColoredFlame;
@@ -139,6 +141,10 @@ public class ClientProxy extends CommonProxy {
             item.setTileEntityItemStackRenderer(new RenderItemEdenChest());
         } else if (item.equals(Item.getItemFromBlock(ModBlocks.arcaniumExtractor))) {
             item.setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.dramixAltar))) {
+            item.setTileEntityItemStackRenderer(new RenderItemDramixAltar());
+        } else if (item.equals(Item.getItemFromBlock(ModBlocks.parasectaAltar))) {
+            item.setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
         }
     }
 
@@ -147,9 +153,8 @@ public class ClientProxy extends CommonProxy {
         //FIXME - Vase?
         // ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVase.class, new
         // TileEntityVaseRenderer());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new TileEntityDramixAltarRender());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class,
-                new TileEntityParasectaAltarRender());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoSpawn.class, new RenderAyeracoSpawn());

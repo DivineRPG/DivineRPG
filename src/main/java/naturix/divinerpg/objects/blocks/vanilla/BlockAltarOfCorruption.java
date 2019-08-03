@@ -3,7 +3,7 @@ package naturix.divinerpg.objects.blocks.vanilla;
 import java.util.Random;
 
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.blocks.tile.block.TileEntityAltarOfCorruption;
+import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
