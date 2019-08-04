@@ -39,7 +39,6 @@ import naturix.divinerpg.objects.items.base.ItemHealingSword;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.base.ItemModAxe;
 import naturix.divinerpg.objects.items.base.ItemModBow;
-import naturix.divinerpg.objects.items.base.ItemModDoor;
 import naturix.divinerpg.objects.items.base.ItemModFood;
 import naturix.divinerpg.objects.items.base.ItemModHoe;
 import naturix.divinerpg.objects.items.base.ItemModPickaxe;
@@ -72,7 +71,6 @@ import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfHealth;
 import naturix.divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
 import naturix.divinerpg.objects.items.vanilla.ItemSerenadeStriker;
 import naturix.divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
-import naturix.divinerpg.objects.items.vanilla.ItemVanillaArmor;
 import naturix.divinerpg.objects.items.vanilla.ItemVileStorm;
 import naturix.divinerpg.objects.items.vethea.ItemDreamFlint;
 import naturix.divinerpg.objects.items.vethea.ItemMoonClock;
@@ -385,20 +383,20 @@ public class ModItems {
     public static Item terranLegs = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo);
     public static Item terranBoots = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo);
 
-    public static Item diamondHelmet = new ItemVanillaArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.HEAD);
-    public static Item diamondBody = new ItemVanillaArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.CHEST);
-    public static Item diamondLegs = new ItemVanillaArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.LEGS);
-    public static Item diamondBoots = new ItemVanillaArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.FEET);
+    public static Item diamondHelmet = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.HEAD);
+    public static Item diamondBody = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.CHEST);
+    public static Item diamondLegs = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.LEGS);
+    public static Item diamondBoots = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.FEET);
 
-    public static Item ironHelmet = new ItemVanillaArmor(EnumArmor.IRON, EntityEquipmentSlot.HEAD);
-    public static Item ironBody = new ItemVanillaArmor(EnumArmor.IRON, EntityEquipmentSlot.CHEST);
-    public static Item ironLegs = new ItemVanillaArmor(EnumArmor.IRON, EntityEquipmentSlot.LEGS);
-    public static Item ironBoots = new ItemVanillaArmor(EnumArmor.IRON, EntityEquipmentSlot.FEET);
+    public static Item ironHelmet = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.HEAD);
+    public static Item ironBody = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.CHEST);
+    public static Item ironLegs = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.LEGS);
+    public static Item ironBoots = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.FEET);
 
-    public static Item goldHelmet = new ItemVanillaArmor(EnumArmor.GOLD, EntityEquipmentSlot.HEAD);
-    public static Item goldBody = new ItemVanillaArmor(EnumArmor.GOLD, EntityEquipmentSlot.CHEST);
-    public static Item goldLegs = new ItemVanillaArmor(EnumArmor.GOLD, EntityEquipmentSlot.LEGS);
-    public static Item goldBoots = new ItemVanillaArmor(EnumArmor.GOLD, EntityEquipmentSlot.FEET);
+    public static Item goldHelmet = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.HEAD);
+    public static Item goldBody = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.CHEST);
+    public static Item goldLegs = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.LEGS);
+    public static Item goldBoots = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.FEET);
 
     // Vanilla Tools
     public static Item rupeeShickaxe = new ItemShickaxe(ToolMaterialMod.RupeeShick, "rupee_shickaxe");

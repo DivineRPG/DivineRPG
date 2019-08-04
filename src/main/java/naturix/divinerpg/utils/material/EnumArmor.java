@@ -46,13 +46,13 @@ public enum EnumArmor {
     SKYTHERN("Skythern", "skythern", 0, 10, 78),
     MORTUM("Mortum", "mortum", 0, 10, 80),
     HALITE("Halite", "halite", 0, 12, 83),
-    SANTA("Santa", "santa", 0, 10, 0, true),
+    SANTA("Santa", "santa", 0, 10, 0, true, false),
     KORMA("Korma", "korma", 0, 22, 78),
     VEMOS("Vemos", "vemos", 0, 22, 65),
 
-    DIAMOND(true, "Diamond", "diamond", 3000, 10, 55, false),
-    IRON(true, "Iron", "iron", 2000, 12, 30, false),
-    GOLD(true, "Golden", "golden", 1000, 10, 22, false),
+    DIAMOND("Diamond", "diamond", 3000, 10, 55, false, true),
+    IRON("Iron", "iron", 2000, 12, 30, false, true),
+    GOLD("Golden", "golden", 1000, 10, 22, false, true),
 
     DEGRADED("Degraded", "degraded", 0, 0, 17),
     FINISHED("Finished", "finished", 0, 0, 33),
@@ -65,43 +65,36 @@ public enum EnumArmor {
     private boolean undamageable;
     private int damageReduction;
     private boolean clothing;
+    private boolean override;
 
     private EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction) {
-        this(name, textureName, durability, enchantability, damageReduction, false);
+        this(name, textureName, durability, enchantability, null, damageReduction, false, false);
     }
 
     private EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
             int damageReduction) {
-        this.armorMaterial = EnumHelper.addArmorMaterial(name, Reference.MODID + ":" + textureName,
-                (int) Math.round(durability / 13.75), new int[] { 0, 0, 0, 0 }, enchantability,
-                SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
-        this.armorMaterial.setRepairItem(new ItemStack(repair, 1));
-        this.type = textureName;
-        this.undamageable = (durability == 0);
-        this.damageReduction = damageReduction;
-        this.clothing = false;
+        this(name, textureName, durability, enchantability, repair, damageReduction, false, false);
     }
 
     private EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction,
-            boolean clothing) {
-        this.armorMaterial = EnumHelper.addArmorMaterial(name, Reference.MODID + ":" + textureName,
-                (int) Math.round(durability / 13.75), new int[] { 0, 0, 0, 0 }, enchantability,
-                SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
-        this.type = textureName;
-        this.undamageable = (durability == 0);
-        this.damageReduction = damageReduction;
-        this.clothing = clothing;
+            boolean clothing, boolean override) {
+        this(name, textureName, durability, enchantability, null, damageReduction, clothing, override);
     }
 
-    private EnumArmor(boolean vanilla, String name, String textureName, int durability, int enchantability,
-            int damageReduction, boolean clothing) {
-        this.armorMaterial = EnumHelper.addArmorMaterial(name, "minecraft:" + textureName,
-                (int) Math.round(durability / 13.75), new int[] { 0, 0, 0, 0 }, enchantability,
-                SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
+    private EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
+            int damageReduction, boolean clothing, boolean override) {
+        this.armorMaterial = EnumHelper.addArmorMaterial(name,
+                (override ? "minecraft:" : (Reference.MODID + ":")) + textureName, (int) Math.round(durability / 13.75),
+                new int[] { 0, 0, 0, 0 }, enchantability,
+                clothing ? SoundEvents.ITEM_ARMOR_EQUIP_LEATHER : SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
+        if (repair != null) {
+            this.armorMaterial.setRepairItem(new ItemStack(repair, 1));
+        }
         this.type = textureName;
         this.undamageable = (durability == 0);
         this.damageReduction = damageReduction;
         this.clothing = clothing;
+        this.override = override;
     }
 
     public ArmorMaterial getArmorMaterial() {
@@ -122,5 +115,9 @@ public enum EnumArmor {
 
     public boolean isClothing() {
         return clothing;
+    }
+
+    public boolean isOverriden() {
+        return override;
     }
 }
