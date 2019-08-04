@@ -42,8 +42,8 @@ import naturix.divinerpg.objects.blocks.twilight.BlockTallCrop;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
+import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
-import naturix.divinerpg.objects.items.vanilla.ItemVanillaArmor;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -131,7 +131,7 @@ public class GenerateJSON {
             boolean isMeriks = registryName.equals("meriks_missile");
 
             // Skip Vanilla Armor Overrides
-            if (item instanceof ItemVanillaArmor) {
+            if (item instanceof ItemDivineArmor && item.getRegistryName().toString().startsWith("minecraft")) {
                 return;
             }
 
