@@ -140,12 +140,12 @@ public class ModRecipes {
         addOredictRecipe(ModItems.aquaton, "III", "III", " S ", 'I', ModItems.aquaticIngot, 'S', "stickWood");
         addRecipe(ModItems.sharkSword, " I ", " I ", " S ", 'I', ModItems.sharkFin, 'S', ModItems.aquaticIngot);
         addOredictRecipe(ModItems.crabclawMaul, "III", "ISI", " S ", 'I', ModItems.crabClaw, 'S', "stickWood");
-        addOredictRecipe(ModItems.bedrockSword, " B ", " B ", " S ", 'B', Blocks.BEDROCK, 'S', "stickWood");
+        addOredictRecipe(ModItems.bedrockSword, " B ", " B ", " S ", 'B', ModItems.bedrockChunk, 'S', "stickWood");
         addOredictRecipe(ModItems.divineSword, " I ", "III", " S ", 'I', ModItems.divineStone, 'S', "stickWood");
-        addRecipe(ModItems.furyMaul, "OBO", "BBB", "OBO", 'B', Blocks.BEDROCK, 'O', Blocks.DIAMOND_ORE);
+        addRecipe(ModItems.furyMaul, "OBO", "BBB", "OBO", 'B', ModItems.bedrockChunk, 'O', Blocks.DIAMOND_ORE);
         addOredictRecipe(ModItems.deathBringer, " I ", "ISI", " S ", 'I', ModItems.corruptedStone, 'S', "stickWood");
         addOredictRecipe(ModItems.corruptedMaul, "III", "ISI", " S ", 'I', ModItems.corruptedStone, 'S', "stickWood");
-        addOredictRecipe(ModItems.bedrockMaul, " B ", "BBB", " I ", 'B', Blocks.BEDROCK, 'I', "stickWood");
+        addOredictRecipe(ModItems.bedrockMaul, " B ", "BBB", " I ", 'B', ModItems.bedrockChunk, 'I', "stickWood");
         addOredictRecipe(ModItems.jungleKnife, " I ", " I ", " S ", 'I', ModItems.jungleStone, 'S', "stickWood");
         addOredictRecipe(ModItems.cyclopsianSword, " E ", " E ", " S ", 'E', ModItems.cyclopsEye, 'S', "stickWood");
         addOredictRecipe(ModItems.cyclopsianStaff, " E ", " S ", " S ", 'E', ModItems.cyclopsEye, 'S', "stickWood");
@@ -200,9 +200,9 @@ public class ModRecipes {
         addOredictRecipe(ModItems.corruptedShovel, " I ", " S ", " S ", 'I', ModItems.corruptedStone, 'S', "stickWood");
         addOredictRecipe(ModItems.corruptedAxe, "II ", "IS ", " S ", 'I', ModItems.corruptedStone, 'S', "stickWood");
 
-        addOredictRecipe(ModItems.bedrockPickaxe, "III", " S ", " S ", 'I', Blocks.BEDROCK, 'S', "stickWood");
-        addOredictRecipe(ModItems.bedrockShovel, " I ", " S ", " S ", 'I', Blocks.BEDROCK, 'S', "stickWood");
-        addOredictRecipe(ModItems.bedrockAxe, "II ", "IS ", " S ", 'I', Blocks.BEDROCK, 'S', "stickWood");
+        addOredictRecipe(ModItems.bedrockPickaxe, "III", " S ", " S ", 'I', ModItems.bedrockChunk, 'S', "stickWood");
+        addOredictRecipe(ModItems.bedrockShovel, " I ", " S ", " S ", 'I', ModItems.bedrockChunk, 'S', "stickWood");
+        addOredictRecipe(ModItems.bedrockAxe, "II ", "IS ", " S ", 'I', ModItems.bedrockChunk, 'S', "stickWood");
 
         addOredictRecipe(ModItems.arlemitePickaxe, "III", " S ", " S ", 'I', ModItems.arlemiteIngot, 'S', "stickWood");
         addOredictRecipe(ModItems.arlemiteShovel, " I ", " S ", " S ", 'I', ModItems.arlemiteIngot, 'S', "stickWood");
@@ -240,10 +240,10 @@ public class ModRecipes {
         addRecipe(ModItems.eliteRealmiteLegs, "III", "I I", "I I", 'I', ModBlocks.realmiteBlock);
         addRecipe(ModItems.eliteRealmiteBoots, "I I", "I I", 'I', ModBlocks.realmiteBlock);
 
-        addRecipe(ModItems.bedrockHelmet, "III", "I I", 'I', Blocks.BEDROCK);
-        addRecipe(ModItems.bedrockBody, "I I", "III", "III", 'I', Blocks.BEDROCK);
-        addRecipe(ModItems.bedrockLegs, "III", "I I", "I I", 'I', Blocks.BEDROCK);
-        addRecipe(ModItems.bedrockBoots, "I I", "I I", 'I', Blocks.BEDROCK);
+        addRecipe(ModItems.bedrockHelmet, "III", "I I", 'I', ModItems.bedrockChunk);
+        addRecipe(ModItems.bedrockBody, "I I", "III", "III", 'I', ModItems.bedrockChunk);
+        addRecipe(ModItems.bedrockLegs, "III", "I I", "I I", 'I', ModItems.bedrockChunk);
+        addRecipe(ModItems.bedrockBoots, "I I", "I I", 'I', ModItems.bedrockChunk);
 
         addRecipe(ModItems.rupeeHelmet, "III", "I I", 'I', ModItems.rupeeIngot);
         addRecipe(ModItems.rupeeBody, "I I", "III", "III", 'I', ModItems.rupeeIngot);
@@ -461,7 +461,7 @@ public class ModRecipes {
         addRecipe(ModBlocks.bloodgemMinibricks, "XXX", "XCX", "XXX", 'X', ModBlocks.minibricks, 'C', ModItems.bloodgem);
         addRecipe(ModBlocks.netheriteMinibricks, "XXX", "XCX", "XXX", 'X', ModBlocks.minibricks, 'C',
                 ModItems.netheriteIngot);
-        addRecipe(ModBlocks.bedrockMinibricks, "XXX", "XCX", "XXX", 'X', ModBlocks.minibricks, 'C', Blocks.BEDROCK);
+        addRecipe(ModBlocks.bedrockMinibricks, "XXX", "XCX", "XXX", 'X', ModBlocks.minibricks, 'C', ModItems.bedrockChunk);
 
         addShapelessRecipe(new ItemStack(ModBlocks.darkstone, 10), Blocks.OBSIDIAN, Blocks.GLOWSTONE);
 
@@ -518,7 +518,7 @@ public class ModRecipes {
 
         addRecipe(ModBlocks.boneChest, "bbb", "b b", "bbb", 'b', Items.BONE);
 
-        addRecipe(new ItemStack(Blocks.BEDROCK, 3), "OOO", "OBO", " OO", 'O', Blocks.OBSIDIAN, 'B',
+        addRecipe(new ItemStack(ModItems.bedrockChunk, 3), "OOO", "OBO", " OO", 'O', Blocks.OBSIDIAN, 'B',
                 ModBlocks.rupeeBlock);
         addSmelting(ModBlocks.realmiteOre, ModItems.realmiteIngot, 0.7F);
         addSmelting(ModBlocks.arlemiteOre, ModItems.arlemiteIngot, 1.0F);
