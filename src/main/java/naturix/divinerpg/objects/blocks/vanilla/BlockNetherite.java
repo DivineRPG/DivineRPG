@@ -62,32 +62,6 @@ public class BlockNetherite extends BlockMod implements IHasModel, IMetaName {
 		world.scheduleUpdate(pos, this, 5);
 	}
 
-    //FIXME
-	/**
-	 * @Override protected BlockStateContainer createBlockState() { return new
-	 *           BlockStateContainer(this, new IProperty[] { TYPE }); }
-	 *
-	 * @Override public int damageDropped(IBlockState state) { return
-	 *           getMetaFromState(state); }
-	 *
-	 * @Override public int getMetaFromState(IBlockState state) { OreType type =
-	 *           (OreType) state.getValue(TYPE); return type.getID(); }
-	 *
-	 * @Override public ItemStack getPickBlock(IBlockState state, RayTraceResult
-	 *           target, World world, BlockPos pos, EntityPlayer player) { return
-	 *           new ItemStack(Item.getItemFromBlock(this), 1,
-	 *           getMetaFromState(state)); }
-	 *
-	 * @Override public IBlockState getStateFromMeta(int meta) { return
-	 *           this.getDefaultState().withProperty(TYPE, OreType.values()[meta]);
-	 *           }
-	 *
-	 *           public void getSubBlocks(Item itemIn, CreativeTabs tab,
-	 *           NonNullList<ItemStack> list) { for (int i = 0; i <
-	 *           OreType.values().length; i++) { list.add(new ItemStack(itemIn, 1,
-	 *           i)); } }
-	 */
-
 	@Override
 	public void registerModels() {
 		for (int i = 0; i < OreType.values().length; i++) {

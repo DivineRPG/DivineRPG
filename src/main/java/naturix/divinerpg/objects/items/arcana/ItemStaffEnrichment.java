@@ -43,8 +43,6 @@ public class ItemStaffEnrichment extends ItemMod {
 			if(var11 == ModBlocks.arcanaDirt) {
 				Block var13 = ModBlocks.arcanaGrass;
 				player.playSound(SoundEvents.BLOCK_METAL_STEP, 0.8f, 0.8f);
-				//FIXME - Achievement
-//				player.triggerAchievement(DivineRPGAchievements.enrichment);
 				if (world.isRemote) {
 					return EnumActionResult.PASS;
 				} else {

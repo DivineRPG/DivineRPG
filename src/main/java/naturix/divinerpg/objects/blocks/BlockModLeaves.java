@@ -13,12 +13,20 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel {
     private Block sapling;
@@ -30,9 +38,8 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
         this.setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);
-        this.leavesFancy = true;
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
-
+        
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
@@ -92,19 +99,19 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
         return new ItemStack(Item.getItemFromBlock(this));
     }
 
-    //FIXME - Add fancy variant
-    // private boolean isFancy(IBlockAccess world, int x, int y, int z) {
-    // if (Minecraft.getMinecraft().gameSettings.fancyGraphics || world.getBlock(x,
-    // y, z) == VetheaBlocks.firewoodLeaves || world.getBlock(x, y, z) ==
-    // VetheaBlocks.hyrewoodLeaves || world.getBlock(x, y, z) ==
-    // VetheaBlocks.dreamWoodLeaves || world.getBlock(x, y, z) ==
-    // VetheaBlocks.mintwoodLeaves)
-    // return true;
-    // return false;
-    // }
-
     @Override
     public void registerModels() {
         DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {	
+    	if(leavesFancy) {
+    		return BlockRenderLayer.CUTOUT_MIPPED;
+    		}else {
+    		return BlockRenderLayer.SOLID;
+    	}
     }
 }

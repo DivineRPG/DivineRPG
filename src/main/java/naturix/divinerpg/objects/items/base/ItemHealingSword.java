@@ -40,7 +40,6 @@ public class ItemHealingSword extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        //FIXME - add translate
     	list.add("Heals " + this.healAmount / 2 + " hearts on use");
         list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
     }

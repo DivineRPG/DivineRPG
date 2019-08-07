@@ -51,13 +51,6 @@ public class ItemModSword extends ItemSword implements IHasModel {
     }
 
     @Override
-    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-        // FIXME - Divine Sword Advancement
-        //if (stack.getItem() == ModItems.divineSword)
-        //    player.triggerAchievement(DivineRPGAchievements.divinePlan);
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(TooltipLocalizer.meleeDam(material.getAttackDamage() + 5));

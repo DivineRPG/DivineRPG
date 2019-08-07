@@ -2,13 +2,20 @@ package naturix.divinerpg.objects.blocks.arcana;
 
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.registry.ModTriggers;
 import naturix.divinerpg.utils.material.EnumBlockType;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -72,10 +79,6 @@ public class BlockElevantium extends BlockMod {
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
         entity.motionY += 0.75;
         entity.fallDistance = 0;
-        if (entity instanceof EntityPlayer) {
-            // ((EntityPlayer) entity).triggerAchievement(DivineRPGAchievements.skyHigh);
-            //FIXME
-        }
     }
 
     @Override

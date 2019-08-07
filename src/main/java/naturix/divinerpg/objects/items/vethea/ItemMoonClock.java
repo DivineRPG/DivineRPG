@@ -2,10 +2,12 @@ package naturix.divinerpg.objects.items.vethea;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.objects.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.objects.entities.entity.vethea.LadyLuna;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -22,36 +24,29 @@ public class ItemMoonClock extends ItemMod {
         super(name, DivineRPGTabs.spawner);
         setMaxStackSize(1);
     }
-    //FIXME - Doesnt spawn
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        ItemStack stack = new ItemStack(this);
-        if(!world.isRemote) {
-            if(Config.debug) {DivineRPG.logger.info("the world isnt remote");}
-            if(world.getBlockState(pos) == ModBlocks.lunicAltar.getDefaultState()) {
-                if(Config.debug) {DivineRPG.logger.info("looking at the lunic altar");}
-                  //FIXME - Needs to check top 2 blocks for air
-//                if(world.getBlockState(pos.up()) == Blocks.AIR) {
-//                    if(Config.debug) {DivineRPG.logger.info("top blocks are air");}
-//                    if(world.getBlockState(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ())) == Blocks.AIR) {
-                        LadyLuna entity = new LadyLuna(world);
-                        entity.setPositionAndRotation(pos.getX(), (double) pos.getY() + 1, pos.getZ(),
-                                player.rotationYaw, player.rotationPitch);
-                        world.spawnEntity(entity);if(Config.debug) {
-                            DivineRPG.logger.info(player.getDisplayNameString()+ " tried to use the "+ stack.getDisplayName()+ " at " + pos);
-                        }
-                            if(!player.capabilities.isCreativeMode)stack.shrink(1);
+        if (!world.isRemote) {
+            ItemStack stack = player.getHeldItem(hand);
+            Block block = world.getBlockState(pos).getBlock();
+            RayTraceResult rtr = player.rayTrace(4, 1);
+            double spawnX = rtr.getBlockPos().getX() + 0.5F;
+            double spawnY = rtr.getBlockPos().getY() + 1;
+            double spawnZ = rtr.getBlockPos().getZ() + 0.5F;
+
+            if (block == ModBlocks.lunicAltar) {
+                LadyLuna ladyluna = new LadyLuna(world);
+                ladyluna.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
+                world.spawnEntity(ladyluna);
+                if (!player.capabilities.isCreativeMode)
+                    stack.shrink(1);
+                return EnumActionResult.PASS;
+            }if(!player.capabilities.isCreativeMode)stack.shrink(1);
                             return EnumActionResult.PASS;
                             
-//                    }
-//                }
-            }
-        }
-        
-        if(Config.debug) {
-            DivineRPG.logger.info(player.getDisplayNameString()+ " tried to use the "+ stack.getDisplayName()+ " at " + pos+" but it failed, that block is "+ world.getBlockState(pos).getBlock().getLocalizedName());
-        }
+                    }
+
     return EnumActionResult.FAIL;
     }
 

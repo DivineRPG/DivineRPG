@@ -41,12 +41,6 @@ public class RenderSpecialProjectile extends Render {
 		GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		tessellator.draw();
-		//FIXME
-		// tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		// tessellator.addVertexWithUV(0.0F - f8, 0.0F - f9, 0.0D, minU, maxV);
-		// tessellator.addVertexWithUV(f7 - f8, 0.0F - f9, 0.0D, maxU, maxV);
-		// tessellator.addVertexWithUV(f7 - f8, 1.0F - f9, 0.0D, maxU, minV);
-		// tessellator.addVertexWithUV(0.0F - f8, 1.0F - f9, 0.0D, minU, minV);
 		tessellator.draw();
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 		GL11.glPopMatrix();

@@ -2,6 +2,8 @@ package naturix.divinerpg.objects.blocks;
 
 import java.util.Random;
 
+import naturix.divinerpg.objects.items.arcana.ItemArcanaSeeds;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
@@ -70,9 +72,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
             IPlantable plantable) {
 
-        //FIXME
-        //if (this == ArcanaBlocks.arcanaGrass && plantable instanceof ItemArcanaSeeds)
-        //    return true;
-        return true;
+    	if(this == ModBlocks.arcanaGrass && plantable instanceof ItemArcanaSeeds) return true;
+        return false;
     }
 }
