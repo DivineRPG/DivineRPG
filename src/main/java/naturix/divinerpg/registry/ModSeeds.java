@@ -1,9 +1,7 @@
 package naturix.divinerpg.registry;
 
-import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.items.arcana.ItemArcanaSeeds;
 import naturix.divinerpg.objects.items.base.ItemModSeeds;
-import naturix.divinerpg.objects.items.twilight.ItemTwilightSeeds;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
@@ -18,15 +16,15 @@ public class ModSeeds {
             Blocks.GRASS);
     public static Item skyPlantSeeds = new ItemModSeeds("sky_plant_seeds", ModBlocks.skyPlant, Blocks.GRASS);
 
-     public static Item hitchakSeeds = new ItemArcanaSeeds("hitchak_seeds", (BlockModCrop) ModBlocks.hitchak);
-     public static Item veiloSeeds = new ItemArcanaSeeds("veilo_seeds", (BlockModCrop) ModBlocks.veilo);
-     public static Item marsineSeeds = new ItemArcanaSeeds("marsine_seeds", (BlockModCrop) ModBlocks.marsine);
-     public static Item lamonaSeeds = new ItemArcanaSeeds("lamona_seeds", (BlockModCrop) ModBlocks.lamona);
-     public static Item firestockSeeds = new ItemTwilightSeeds("firestock_seeds", ModBlocks.firestock, ModBlocks.arcanaGrass);
-     public static Item pinflySeeds = new ItemTwilightSeeds("pinfly_seeds", ModBlocks.pinfly, ModBlocks.arcanaGrass);
-     public static Item aquamarineSeeds = new ItemArcanaSeeds("aquamarine_seeds", (BlockModCrop) ModBlocks.aquamarine);
-     public static Item eucalyptusSeeds = new ItemArcanaSeeds("eucalyptus_root_seeds", (BlockModCrop) ModBlocks.eucalyptusRoot);
-    
+    public static Item hitchakSeeds = new ItemArcanaSeeds("hitchak_seeds", ModBlocks.hitchak);
+    public static Item veiloSeeds = new ItemArcanaSeeds("veilo_seeds", ModBlocks.veilo);
+    public static Item marsineSeeds = new ItemArcanaSeeds("marsine_seeds", ModBlocks.marsine);
+    public static Item lamonaSeeds = new ItemArcanaSeeds("lamona_seeds", ModBlocks.lamona);
+    public static Item firestockSeeds = new ItemArcanaSeeds("firestock_seeds", ModBlocks.firestock);
+    public static Item pinflySeeds = new ItemArcanaSeeds("pinfly_seeds", ModBlocks.pinfly);
+    public static Item aquamarineSeeds = new ItemArcanaSeeds("aquamarine_seeds", ModBlocks.aquamarine);
+    public static Item eucalyptusSeeds = new ItemArcanaSeeds("eucalyptus_root_seeds", ModBlocks.eucalyptusRoot);
+
     public static void init() {
     }
 }

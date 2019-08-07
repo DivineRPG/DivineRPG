@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "divinerpg:blocks/firestock_plant_bottom"
+  }
+}

@@ -1,7 +1,13 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:pinfly_plant"
+    "age=2": {
+      "model": "divinerpg:pinfly_plant_top"
+    },
+    "age=1": {
+      "model": "divinerpg:pinfly_plant_bottom"
+    },
+    "age=0": {
+      "model": "divinerpg:pinfly_plant_top"
     }
   }
 }

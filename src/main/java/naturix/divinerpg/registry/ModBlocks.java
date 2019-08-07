@@ -27,7 +27,6 @@ import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockModVine;
-import naturix.divinerpg.objects.blocks.BlockNotReady;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.arcana.BlockAcceleron;
 import naturix.divinerpg.objects.blocks.arcana.BlockAquaMarine;
@@ -39,6 +38,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockDemonFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockDramixAltar;
 import naturix.divinerpg.objects.blocks.arcana.BlockElevantium;
 import naturix.divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
+import naturix.divinerpg.objects.blocks.arcana.BlockFirestock;
 import naturix.divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockHeatTrap;
 import naturix.divinerpg.objects.blocks.arcana.BlockHitchak;
@@ -48,6 +48,7 @@ import naturix.divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
 import naturix.divinerpg.objects.blocks.arcana.BlockParasectaAltar;
+import naturix.divinerpg.objects.blocks.arcana.BlockPinfly;
 import naturix.divinerpg.objects.blocks.arcana.BlockStarBridge;
 import naturix.divinerpg.objects.blocks.arcana.BlockVeilo;
 import naturix.divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
@@ -518,11 +519,8 @@ public class ModBlocks {
     public static Block veilo = new BlockVeilo("veilo_plant");
     public static Block lamona = new BlockLamona("lamona_plant");
     public static Block marsine = new BlockMarsine("marsine_plant");
-    //  public static Block firestock = new BlockStackPlant("firestock_plant");
-    //  public static Block pinfly = new BlockStackPlant("pinfly_plant");
-    public static Block firestock = new BlockNotReady("firestock_plant");
-    public static Block pinfly = new BlockNotReady("pinfly_plant");
-
+    public static Block firestock = new BlockFirestock();
+    public static Block pinfly = new BlockPinfly();
     public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log");
 
     public static Block greenlightFurnace = new BlockGreenlightFurnace("greenlight_furnace", false);

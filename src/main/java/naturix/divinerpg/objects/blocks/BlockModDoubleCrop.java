@@ -1,10 +1,9 @@
-package naturix.divinerpg.objects.blocks.twilight;
+package naturix.divinerpg.objects.blocks;
 
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -26,11 +25,11 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockTallCrop extends BlockMod implements IPlantable {
+public abstract class BlockModDoubleCrop extends BlockMod implements IPlantable {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 2);
     protected static final AxisAlignedBB TALL_CROP_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
 
-    public BlockTallCrop(String name) {
+    public BlockModDoubleCrop(String name) {
         super(EnumBlockType.PLANT, name, true);
         this.setTickRandomly(true);
         setCreativeTab(null);
@@ -74,6 +73,10 @@ public abstract class BlockTallCrop extends BlockMod implements IPlantable {
                 this.spawnAsEntity(worldIn, pos, new ItemStack(getSeedDrop()));
             }
             worldIn.destroyBlock(pos, false);
+        } else {
+            if (((Integer) state.getValue(AGE)).intValue() == 1 && pos.up().equals(fromPos)) {
+                worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(0)));
+            }
         }
     }
 
@@ -96,11 +99,13 @@ public abstract class BlockTallCrop extends BlockMod implements IPlantable {
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state,
             int fortune) {
-        if (((Integer) state.getValue(AGE)).intValue() == 2) {
-            drops.add(new ItemStack(getFlowerDrop(), 1));
-            drops.add(new ItemStack(this.getItemDropped(state, this.rand, 0), this.quantityDropped(this.rand)));
-        } else {
+        int age = ((Integer) state.getValue(AGE)).intValue();
+        if (age == 0) {
             drops.add(new ItemStack(this.getItemDropped(state, this.rand, 0), 1));
+        } else if (age == 1) {
+            drops.add(new ItemStack(this.getItemDropped(state, this.rand, 0), this.quantityDropped(this.rand)));
+        } else if (age == 2) {
+            drops.add(new ItemStack(getFlowerDrop(), 1));
         }
     }
 

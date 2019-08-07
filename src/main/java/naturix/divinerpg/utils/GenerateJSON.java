@@ -35,10 +35,10 @@ import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.BlockModDoubleCrop;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
-import naturix.divinerpg.objects.blocks.twilight.BlockTallCrop;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
@@ -221,7 +221,7 @@ public class GenerateJSON {
                     json.put("parent", Reference.MODID + ":block/" + registryName + "_inventory");
                 } else if (block instanceof BlockModCrop) {
                     json.put("parent", Reference.MODID + ":block/" + registryName + "_stage_0");
-                } else if (block instanceof BlockTallCrop || block instanceof BlockModDoublePlant) {
+                } else if (block instanceof BlockModDoubleCrop || block instanceof BlockModDoublePlant) {
                     json.put("parent", Reference.MODID + ":block/" + registryName + "_top");
                 } else if (registryName.endsWith("_double_slab")) {
                     json.put("parent", Reference.MODID + ":block/" + registryName.replace("_double_slab", "_planks"));
@@ -352,7 +352,7 @@ public class GenerateJSON {
                 generateFenceBlockstate(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropBlockstate(registryName, ((BlockModCrop) block).getMaxAge());
-            } else if (block instanceof BlockTallCrop) {
+            } else if (block instanceof BlockModDoubleCrop) {
                 generateTallCropBlockstate(registryName);
             } else if (block instanceof BlockModSlab) {
                 generateSlabBlockstate(registryName, ((BlockModSlab) block).isDouble());
@@ -1142,7 +1142,7 @@ public class GenerateJSON {
                 generateFenceModelBlock(registryName);
             } else if (block instanceof BlockModCrop) {
                 generateCropModelBlock(registryName, ((BlockModCrop) block).getMaxAge());
-            } else if (block instanceof BlockTallCrop || block instanceof BlockModDoublePlant) {
+            } else if (block instanceof BlockModDoubleCrop || block instanceof BlockModDoublePlant) {
                 generateCrossModelBlock(registryName + "_top");
                 generateCrossModelBlock(registryName + "_bottom");
             } else if (block instanceof BlockModSlab) {

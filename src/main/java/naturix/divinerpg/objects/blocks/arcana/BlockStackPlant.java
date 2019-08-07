@@ -1,12 +1,29 @@
 package naturix.divinerpg.objects.blocks.arcana;
 
-import naturix.divinerpg.objects.blocks.BlockMod;
-import net.minecraft.block.material.Material;
+import naturix.divinerpg.objects.blocks.BlockModDoubleCrop;
+import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.Utils;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
-public class BlockStackPlant extends BlockMod {
-	//FIXME - need to add stack plant
-	public BlockStackPlant(String name) {
-		super(Material.PLANTS, name);
-	}
+public abstract class BlockStackPlant extends BlockModDoubleCrop {
+    public BlockStackPlant(String name) {
+        super(name);
+    }
 
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        IBlockState state = worldIn.getBlockState(pos.down());
+        Block block = state.getBlock();
+        return block == this || (block == ModBlocks.arcanaGrass
+                && Utils.bordersTar(worldIn, pos.getX(), pos.getY() - 1, pos.getZ()));
+    }
+
+    @Override
+    public net.minecraftforge.common.EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
+        return net.minecraftforge.common.EnumPlantType.Beach;
+    }
 }
