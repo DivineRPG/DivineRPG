@@ -2,6 +2,8 @@ package naturix.divinerpg.proxy;
 
 import java.awt.Color;
 
+import naturix.divinerpg.capabilities.ArcanaProvider;
+import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
@@ -16,6 +18,7 @@ import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.client.render.RenderItemStatue;
 import naturix.divinerpg.events.EventBowZoom;
 import naturix.divinerpg.events.EventClientLogin;
+import naturix.divinerpg.events.EventTooltip;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
@@ -107,6 +110,7 @@ public class ClientProxy extends CommonProxy {
         Utils.postFMLEvent(new ArcanaRenderer());
         Utils.postFMLEvent(new ClientTicker());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
+        MinecraftForge.EVENT_BUS.register(new EventTooltip());
 
         PostInitLog.init();
         IntenseDebug.init();
@@ -150,9 +154,6 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void RegisterTileEntityRender() {
-        //FIXME - Vase?
-        // ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVase.class, new
-        // TileEntityVaseRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
@@ -267,8 +268,8 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void updateClientArcana(float amount) {
-        //FIXME - Update arcana bar?
-        // ArcanaHelper.getProperties(Minecraft.getMinecraft().player).setBarValue(amount);
+        IArcana arcana = Minecraft.getMinecraft().player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana.set(amount);
     }
 
 }

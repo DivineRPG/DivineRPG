@@ -30,8 +30,6 @@ public class ItemVetheanSword extends ItemModSword {
         if (item.getMaxDamage() != -1) list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
         else list.add(TooltipLocalizer.infiniteUses());
     	list.add(TooltipLocalizer.meleeDam(this.mat.getAttackDamage()+5));
-    	//FIXME - Nothing can block anymore. you decide
-//        if(this instanceof ItemVetheanClaw) list.add(TooltipLocalizer.cantBlock());
         list.add(TooltipLocalizer.vethean());
     }
 }

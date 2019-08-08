@@ -87,7 +87,6 @@ public class ItemStaffStarlight extends ItemModRanged {
             stars = false;
         }
         list.add(TooltipLocalizer.arcanaConsumed(25));
-        //FIXME - needs to allow for translation
         list.add(stars ? "Drops several stars from the sky" : "Drops a star from the sky");
         list.add(TooltipLocalizer.rangedDam(20));
     }

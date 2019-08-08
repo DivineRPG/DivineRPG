@@ -37,7 +37,5 @@ public class ItemStormSword extends ItemModSword {
                 angle += Math.PI / 8.0D;
             }
         }
-        //FIXME - Probably wanna make the achievement trigger at some point
-//        player.triggerAchievement(DivineRPGAchievements.allHellLoose);
     }
 }

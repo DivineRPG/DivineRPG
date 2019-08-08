@@ -796,9 +796,6 @@ public class ModRecipes {
 
         addRecipe(ModBlocks.edenChest, "bbb", "b b", "bbb", 'b', ModItems.edenFragments);
 
-        //FIXME - Need to add
-        // addRecipe(ModBlocks.nightmareBed, "MMM", "WWW", 'M', ModBlocks.mortumBlock, 'W', ModBlocks.mortumLogs);
-
         AddWoodVariantsRecipes();
 
         GenerateJSON.generateConstants();

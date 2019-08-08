@@ -538,7 +538,7 @@ public class ModBlocks {
 
     public static Block arcaniumTorch = new BlockModTorch("arcanium_torch", DRPGParticleTypes.PURPLE_FLAME);
     public static Block elevantium = new BlockElevantium("elevantium");
-    //FIXME - We decided against rails? i think
+    //We are avoiding rails for now
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
     public static Block acceleron = new BlockAcceleron("acceleron");
 

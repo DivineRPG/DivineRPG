@@ -24,6 +24,7 @@ import naturix.divinerpg.objects.items.arcana.ItemGrenade;
 import naturix.divinerpg.objects.items.arcana.ItemKey;
 import naturix.divinerpg.objects.items.arcana.ItemLaVekor;
 import naturix.divinerpg.objects.items.arcana.ItemLamona;
+import naturix.divinerpg.objects.items.arcana.ItemMeriksMissile;
 import naturix.divinerpg.objects.items.arcana.ItemMeteorMash;
 import naturix.divinerpg.objects.items.arcana.ItemOrbOfLight;
 import naturix.divinerpg.objects.items.arcana.ItemReflector;
@@ -736,8 +737,7 @@ public class ModItems {
     public static Item wizardBook = new ItemWizardsBook("wizards_book");
     public static Item staffOfEnrichment = new ItemStaffEnrichment("staff_of_enrichment");
     public static Item orbOfLight = new ItemOrbOfLight();
-    //FIXME - Too much going on with Meriks Missile for me
-    // public static Item meriksMissile = new ItemMeriksMissile("meriksMissile", 1, -1, 50);
+    public static Item meriksMissile = new ItemMeriksMissile("meriks_missile");
     public static Item grenade = new ItemGrenade("grenade");
     public static Item firefly = new ItemFirefly();
     public static Item laVekor = new ItemLaVekor();
@@ -753,8 +753,6 @@ public class ModItems {
     public static Item arcaniteBlade = new ItemArcaniteBlade();
     public static Item generalsStaff = new ItemGeneralsStaff();
     public static Item arcaniumAttractor = new ItemAttractor();
-
-    public static Item meriksMissile = new ItemNotReady("meriks_missile", DivineRPGTabs.ranged);
 
     public static Item sludgeKey = new ItemKey("sludge_key");
     public static Item ancientKey = new ItemKey("ancient_key");

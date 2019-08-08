@@ -211,6 +211,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityLamona;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityReflector;
@@ -416,6 +417,7 @@ public class ModEntities {
         registerProjectile(EntityFirefly.class, "firefly");
         registerProjectile(EntityReflector.class, "reflector");
         registerProjectile(EntityFyracryxFireball.class, "fyracryx_fireball");
+        registerProjectile(EntityMerikMissile.class, "meriks_missile");
 
         // Arcana
         registerMobWithEgg(CaptainMerik.class, "captain_merik");
@@ -710,6 +712,7 @@ public class ModEntities {
         EntityFirefly.renderMe();
         EntityReflector.renderMe();
         EntityFyracryxFireball.renderMe();
+        EntityMerikMissile.renderMe();
 
         // Arcana
         RenderingRegistry.registerEntityRenderingHandler(CaptainMerik.class, RenderCaptainMerik.FACTORY);

@@ -73,7 +73,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
             }
 
-            // FIXME - Not sure if this is the right place for this
+            // FIXME - I believe Wufflez would prefer this be done via the DRPGStuctureHandler
             if (Config.generateTar) {
                 /*
                 if (random.nextInt(8) == 0) {

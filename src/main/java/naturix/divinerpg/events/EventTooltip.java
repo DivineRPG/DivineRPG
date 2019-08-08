@@ -9,25 +9,24 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventTooltip {
-//	FIXME - Need to add
-//	@SubscribeEvent
-//	public void tooltip(ItemTooltipEvent evt) {
-//		for(int i = 0; i < evt.getToolTip().size(); i++) {
-//			if(evt.getToolTip().get(i).contains("Attack Damage") && evt.getToolTip().get(i).contains("+") && (evt.getItemStack().getItem() instanceof ItemSword || evt.getItemStack().getItem() instanceof ItemProjectileShooter)) {
-//				evt.getToolTip().remove(i);
-//				evt.getToolTip().remove(i-1);
-//			}
-//		}
-//		 
+	@SubscribeEvent
+	public void tooltip(ItemTooltipEvent evt) {
+		for(int i = 0; i < evt.getToolTip().size(); i++) {
+			if(evt.getToolTip().get(i).contains("Attack Damage") && evt.getToolTip().get(i).contains("+") && (evt.getItemStack().getItem() instanceof ItemSword || evt.getItemStack().getItem() instanceof ItemProjectileShooter)) {
+				evt.getToolTip().remove(i);
+				evt.getToolTip().remove(i-1);
+			}
+		}
+		 
 //		if(!(evt.getItemStack().getItem() instanceof ItemModSword) && evt.getItemStack().getItem() instanceof ItemSword) {
-//			evt.getToolTip().add(TooltipLocalizer.meleeDam(((ItemSword)evt.getItemStack().getItem()).getAttackDamage()+5));
+//			evt.getToolTip().add(TooltipLocalizer.meleeDam(((ItemSword)evt.getItemStack().getItem()).getAttackDamage()+4));
 //		}
-//		
-//		if(evt.getItemStack().getItem() instanceof ItemHealingSword) {
-//			for(int i = 0; i < evt.getToolTip().size(); i++) {
-//				if(evt.getToolTip().get(i).isEmpty()) evt.getToolTip().remove(i);
-//			}
-//		}
-//	}
+		
+		if(evt.getItemStack().getItem() instanceof ItemHealingSword) {
+			for(int i = 0; i < evt.getToolTip().size(); i++) {
+				if(evt.getToolTip().get(i).isEmpty()) evt.getToolTip().remove(i);
+			}
+		}
+	}
 
 }

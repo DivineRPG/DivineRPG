@@ -43,19 +43,6 @@ public class VanillaBlock extends BlockMod {
 		}
 	}
 
-	// FIXME - Extend collision box of Netherite Ore?
-	// @Override
-	// public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int
-	// y, int z)
-	// {
-	// float f = 0.0625F;
-	// return this == VanillaBlocks.netheriteOre ?
-	// AxisAlignedBB.getBoundingBox((double)((float)x + f), (double)y,
-	// (double)((float)z + f), (double)((float)(x + 1) - f), (double)((float)(y + 1)
-	// - f), (double)((float)(z + 1) - f)) :
-	// super.getCollisionBoundingBoxFromPool(world, x, y, z);
-	// }
-
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0
