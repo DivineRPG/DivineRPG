@@ -6,17 +6,22 @@ import net.minecraft.item.Item;
 
 public class BlockEucalyptusRoot extends BlockArcanaCrop {
 
-	public BlockEucalyptusRoot(String name) {
-		super(name, 3);
-	}
+    public BlockEucalyptusRoot(String name) {
+        super(name);
+    }
 
-	@Override
-	public Item getSeed() {
-		return ModSeeds.eucalyptusSeeds;
-	}
-	
-	@Override
-	public Item getCrop() {
-		return Item.getItemFromBlock(ModBlocks.eucalyptusLogs);
-	}
+    @Override
+    public int getMaxAge() {
+        return 3;
+    }
+
+    @Override
+    public Item getSeed() {
+        return ModSeeds.eucalyptusSeeds;
+    }
+
+    @Override
+    public Item getCrop() {
+        return Item.getItemFromBlock(ModBlocks.eucalyptusLogs);
+    }
 }

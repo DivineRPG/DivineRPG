@@ -6,17 +6,22 @@ import net.minecraft.item.Item;
 
 public class BlockLamona extends BlockArcanaCrop {
 
-	public BlockLamona(String name) {
-		super(name, 3);
-	}
+    public BlockLamona(String name) {
+        super(name);
+    }
 
-	@Override
-	public Item getSeed() {
-		return ModSeeds.lamonaSeeds;
-	}
-	
-	@Override
-	public Item getCrop() {
-		return ModItems.lamona;
-	}
+    @Override
+    public int getMaxAge() {
+        return 3;
+    }
+
+    @Override
+    public Item getSeed() {
+        return ModSeeds.lamonaSeeds;
+    }
+
+    @Override
+    public Item getCrop() {
+        return ModItems.lamona;
+    }
 }

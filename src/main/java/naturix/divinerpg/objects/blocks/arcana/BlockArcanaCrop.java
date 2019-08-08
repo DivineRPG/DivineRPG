@@ -9,8 +9,8 @@ import net.minecraft.world.World;
 
 public class BlockArcanaCrop extends BlockModCrop {
 
-    public BlockArcanaCrop(String name, int stages) {
-        super(name, stages);
+    public BlockArcanaCrop(String name) {
+        super(name);
     }
 
     @Override
@@ -19,14 +19,14 @@ public class BlockArcanaCrop extends BlockModCrop {
     }
 
     @Override
-    public boolean canPlaceBlockAt(World w, BlockPos pos) {
-        return Utils.bordersTar(w, new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ()));
+    public boolean canPlaceBlockAt(World world, BlockPos pos) {
+        return Utils.bordersTar(world, pos.down());
     }
 
-    public boolean canBlockStay(World w, int x, int y, int z) {
+    public boolean canBlockStay(World world, int x, int y, int z) {
         BlockPos pos = new BlockPos(x, y, z);
-        IBlockState soil = w.getBlockState(pos.down());
+        IBlockState soil = world.getBlockState(pos.down());
 
-        return super.canBlockStay(w, new BlockPos(x, y, z), soil) && Utils.bordersTar(w, new BlockPos(x, y - 1, z));
+        return super.canBlockStay(world, pos, soil) && Utils.bordersTar(world, pos.down());
     }
 }

@@ -6,17 +6,22 @@ import net.minecraft.item.Item;
 
 public class BlockMarsine extends BlockArcanaCrop {
 
-	public BlockMarsine(String name) {
-		super(name, 2);
-	}
+    public BlockMarsine(String name) {
+        super(name);
+    }
 
-	@Override
-	public Item getSeed() {
-		return ModSeeds.marsineSeeds;
-	}
-	
-	@Override
-	public Item getCrop() {
-		return ModItems.marsine;
-	}
+    @Override
+    public int getMaxAge() {
+        return 2;
+    }
+
+    @Override
+    public Item getSeed() {
+        return ModSeeds.marsineSeeds;
+    }
+
+    @Override
+    public Item getCrop() {
+        return ModItems.marsine;
+    }
 }

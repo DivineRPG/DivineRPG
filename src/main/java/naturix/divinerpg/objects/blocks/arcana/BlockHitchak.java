@@ -6,17 +6,22 @@ import net.minecraft.item.Item;
 
 public class BlockHitchak extends BlockArcanaCrop {
 
-	public BlockHitchak(String name) {
-		super(name, 3);
-	}
+    public BlockHitchak(String name) {
+        super(name);
+    }
 
-	@Override
-	public Item getSeed() {
-		return ModSeeds.hitchakSeeds;
-	}
-	
-	@Override
-	public Item getCrop() {
-		return ModItems.hitchak;
-	}
+    @Override
+    public int getMaxAge() {
+        return 3;
+    }
+
+    @Override
+    public Item getSeed() {
+        return ModSeeds.hitchakSeeds;
+    }
+
+    @Override
+    public Item getCrop() {
+        return ModItems.hitchak;
+    }
 }
