@@ -18,7 +18,6 @@ public class EventLightning {
 		Entity entity = evt.getEntity();
 		if(entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)entity;
-			//FIXME - may need fixing still but i dont think so
 			if(player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.stormSword) {
 				evt.setCanceled(true);
 			}

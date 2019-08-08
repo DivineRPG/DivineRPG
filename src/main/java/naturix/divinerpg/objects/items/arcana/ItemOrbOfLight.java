@@ -15,7 +15,6 @@ public class ItemOrbOfLight extends ItemMod {
 		super("orb_of_light");
 		setCreativeTab(DivineRPGTabs.utility);
 	}
-	//FIXME - May want to consider canceling this item as it is highly laggy due to the nature of its ability
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int var4, boolean var5) {
 		if(Ticker.tick%2 == 0) {

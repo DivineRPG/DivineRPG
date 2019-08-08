@@ -108,10 +108,22 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()
     {	
-    	if(leavesFancy) {
+    	if(Minecraft.isFancyGraphicsEnabled()) {
     		return BlockRenderLayer.CUTOUT_MIPPED;
     		}else {
     		return BlockRenderLayer.SOLID;
     	}
     }
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return !Minecraft.isFancyGraphicsEnabled();
+    }
+    @Override
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
+
 }
