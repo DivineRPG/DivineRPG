@@ -14,7 +14,6 @@ public class DungeonComponent00 extends DungeonComponentBase {
         Block ancientbricks = ModBlocks.ancientBrick;
         Block soulStone = ModBlocks.soulStone;
         Block ancientStone = ModBlocks.ancientStone;
-        Block arcaniteTubes = ModBlocks.arcaniteTubes;
 
         this.setBlock(chunk, x + 0, y + 0, z + 0, heatTraps);
         this.setBlock(chunk, x + 0, y + 0, z + 1, heatTraps);
@@ -387,8 +386,8 @@ public class DungeonComponent00 extends DungeonComponentBase {
         this.setBlock(chunk, x + 7, y + 0, z + 4, dungeonBricks);
         this.setBlock(chunk, x + 7, y + 0, z + 5, dungeonBricks);
         this.setBlock(chunk, x + 7, y + 0, z + 6, heatTraps);
-        this.setBlock(chunk, x + 7, y + 0, z + 7, arcaniteTubes);
-        this.setBlock(chunk, x + 7, y + 0, z + 8, arcaniteTubes);
+        this.setBlock(chunk, x + 7, y + 0, z + 7, heatTraps);
+        this.setBlock(chunk, x + 7, y + 0, z + 8, heatTraps);
         this.setBlock(chunk, x + 7, y + 0, z + 9, heatTraps);
         this.setBlock(chunk, x + 7, y + 0, z + 10, dungeonBricks);
         this.setBlock(chunk, x + 7, y + 0, z + 11, dungeonBricks);
@@ -443,8 +442,8 @@ public class DungeonComponent00 extends DungeonComponentBase {
         this.setBlock(chunk, x + 8, y + 0, z + 4, dungeonBricks);
         this.setBlock(chunk, x + 8, y + 0, z + 5, dungeonBricks);
         this.setBlock(chunk, x + 8, y + 0, z + 6, heatTraps);
-        this.setBlock(chunk, x + 8, y + 0, z + 7, arcaniteTubes);
-        this.setBlock(chunk, x + 8, y + 0, z + 8, arcaniteTubes);
+        this.setBlock(chunk, x + 8, y + 0, z + 7, heatTraps);
+        this.setBlock(chunk, x + 8, y + 0, z + 8, heatTraps);
         this.setBlock(chunk, x + 8, y + 0, z + 9, heatTraps);
         this.setBlock(chunk, x + 8, y + 0, z + 10, dungeonBricks);
         this.setBlock(chunk, x + 8, y + 0, z + 11, dungeonBricks);

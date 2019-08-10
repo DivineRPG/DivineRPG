@@ -855,6 +855,7 @@ public class DungeonComponent01 extends DungeonComponentBase {
 
         IBlockState southTubes = arcaniteTubes.getDefaultState().withProperty(BlockLadder.FACING, EnumFacing.SOUTH);
         chunk.setBlockState(new BlockPos(i + 13, j + 2, k + 5), southTubes);
+        chunk.setBlockState(new BlockPos(i + 11, j + 2, k + 5), southTubes);
         chunk.setBlockState(new BlockPos(i + 9, j + 2, k + 5), southTubes);
         chunk.setBlockState(new BlockPos(i + 6, j + 2, k + 5), southTubes);
         chunk.setBlockState(new BlockPos(i + 4, j + 2, k + 5), southTubes);

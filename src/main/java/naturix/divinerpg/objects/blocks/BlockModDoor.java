@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 
 public class BlockModDoor extends BlockDoor implements IHasModel {
     protected boolean canOpenByHand;
+    protected boolean unbreakable;
 
     public BlockModDoor(String name, Material materialIn, float hardness, boolean canOpenByHand) {
         super(materialIn);
@@ -30,7 +31,7 @@ public class BlockModDoor extends BlockDoor implements IHasModel {
         setRegistryName(name);
         setHardness(hardness);
         if (hardness == -1F) {
-            setBlockUnbreakable();
+            unbreakable = true;
             setResistance(6000000F);
         }
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
@@ -72,7 +73,8 @@ public class BlockModDoor extends BlockDoor implements IHasModel {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return state.getValue(HALF) == BlockDoor.EnumDoorHalf.UPPER ? Items.AIR : Item.getItemFromBlock(this);
+        return (state.getValue(HALF) == BlockDoor.EnumDoorHalf.LOWER && !unbreakable) ? Item.getItemFromBlock(this) :
+                Items.AIR;
     }
 
     @Override

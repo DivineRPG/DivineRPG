@@ -21,11 +21,13 @@ import naturix.divinerpg.objects.blocks.BlockModAltar;
 import naturix.divinerpg.objects.blocks.BlockModChest;
 import naturix.divinerpg.objects.blocks.BlockModCrop;
 import naturix.divinerpg.objects.blocks.BlockModDoor;
+import naturix.divinerpg.objects.blocks.BlockModDoubleCrop;
 import naturix.divinerpg.objects.blocks.BlockModDoublePlant;
 import naturix.divinerpg.objects.blocks.BlockModFence;
 import naturix.divinerpg.objects.blocks.BlockModFire;
 import naturix.divinerpg.objects.blocks.BlockModFurnace;
 import naturix.divinerpg.objects.blocks.BlockModGrass;
+import naturix.divinerpg.objects.blocks.BlockModLadder;
 import naturix.divinerpg.objects.blocks.BlockModLeaves;
 import naturix.divinerpg.objects.blocks.BlockModLog;
 import naturix.divinerpg.objects.blocks.BlockModPortal;
@@ -35,10 +37,8 @@ import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockStatue;
-import naturix.divinerpg.objects.blocks.BlockModDoubleCrop;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
-import naturix.divinerpg.objects.blocks.iceika.BlockChristmasLights;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
@@ -227,7 +227,7 @@ public class GenerateJSON {
                     json.put("parent", Reference.MODID + ":block/" + registryName.replace("_double_slab", "_planks"));
                 } else if (registryName.endsWith("_slab")) {
                     json.put("parent", Reference.MODID + ":block/" + registryName.replace("_slab", "_half_slab"));
-                } else if (block instanceof BlockChristmasLights || block instanceof BlockTwilightFlower
+                } else if (block instanceof BlockModLadder || block instanceof BlockTwilightFlower
                         || block instanceof BlockTwilightGrass) {
                     json.put("parent", "item/generated");
                     Map<String, Object> textures = new HashMap<>();
@@ -327,8 +327,8 @@ public class GenerateJSON {
         }
         ModBlocks.BLOCKS.forEach((block) -> {
             String registryName = block.getRegistryName().getResourcePath();
-            if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin
-                    || block instanceof BlockChristmasLights || block instanceof BlockArcanaPortalFrame) {
+            if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin || block instanceof BlockModLadder
+                    || block instanceof BlockArcanaPortalFrame) {
                 if (registryName.contains("demon") || registryName.contains("extractor")) {
                     generateIgnoreVariantBlockstate(registryName);
                 } else {
@@ -1158,7 +1158,7 @@ public class GenerateJSON {
             } else if (block instanceof BlockTwilightFlower || block instanceof BlockTwilightGrass
                     || block instanceof BlockModSapling) {
                 generateCrossModelBlock(registryName);
-            } else if (block instanceof BlockChristmasLights) {
+            } else if (block instanceof BlockModLadder) {
                 generateLadderModelBlock(registryName);
             } else if (registryName.contains("workshop_bookcase")) {
                 generateWorkshopBookcaseModelBlock(registryName);

@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/arcanite_tubes"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/arcanite_tubes"
+  }
 }
