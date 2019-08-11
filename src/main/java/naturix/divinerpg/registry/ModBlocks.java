@@ -573,9 +573,9 @@ public class ModBlocks {
     public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
     //	public static Block dreamLampOn = new BlockDreamLamp("dream_lamp_on", true);
     //	public static Block dreamLamp = new BlockDreamLamp("dreamLampOff", false);
-    public static Block weedwoodVine = new BlockModVine("weed_wood_vine").setCreativeTab(DivineRPGTabs.vethea);
-    public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weed_wood_vine")
-            .setCreativeTab(DivineRPGTabs.vethea);
+    //public static Block weedwoodVine = new BlockModVine("weed_wood_vine").setCreativeTab(DivineRPGTabs.vethea);
+    //public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weed_wood_vine")
+    //        .setCreativeTab(DivineRPGTabs.vethea);
     public static Block cryptWall = new BlockMod("crypt_wall", 1.0F, DivineRPGTabs.vethea);
     public static Block smoothGlass = new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
     public static Block villageLamp = new BlockMod(EnumBlockType.GLASS, "village_lamp", 1.0F, DivineRPGTabs.vethea)
@@ -615,7 +615,7 @@ public class ModBlocks {
     public static Block hiveWall = new BlockMod(EnumBlockType.GLASS, "hive_walls", 1.0F, DivineRPGTabs.vethea)
             .setLightLevel(0.533F);
     //	public static Block dreamglow = new BlockVetheaPlant("dreamglow").setLightLevel(0.4F);
-    public static Block hyrewoodVine = new BlockModVine("hyre_wood_vine").setCreativeTab(DivineRPGTabs.vethea);
+    //public static Block hyrewoodVine = new BlockModVine("hyre_wood_vine").setCreativeTab(DivineRPGTabs.vethea);
     public static Block chamberWall = new BlockMod(EnumBlockType.ROCK, "chamber_wall1", false, DivineRPGTabs.vethea)
             .setUnlocalizedName("chamber_wall");
     public static Block chamberWall1 = new BlockMod(EnumBlockType.ROCK, "chamber_wall2", false, DivineRPGTabs.vethea)

@@ -37,6 +37,8 @@ import naturix.divinerpg.objects.blocks.BlockModSpawner;
 import naturix.divinerpg.objects.blocks.BlockModStairs;
 import naturix.divinerpg.objects.blocks.BlockModTorch;
 import naturix.divinerpg.objects.blocks.BlockStatue;
+import naturix.divinerpg.objects.blocks.arcana.BlockAcceleron;
+import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
@@ -328,7 +330,7 @@ public class GenerateJSON {
         ModBlocks.BLOCKS.forEach((block) -> {
             String registryName = block.getRegistryName().getResourcePath();
             if (block instanceof BlockModFurnace || block instanceof BlockMobPumpkin || block instanceof BlockModLadder
-                    || block instanceof BlockArcanaPortalFrame) {
+                    || block instanceof BlockArcanaPortalFrame || block instanceof BlockAcceleron) {
                 if (registryName.contains("demon") || registryName.contains("extractor")) {
                     generateIgnoreVariantBlockstate(registryName);
                 } else {
@@ -1168,6 +1170,10 @@ public class GenerateJSON {
                 generateDoorModelBlock(registryName);
             } else if (block instanceof BlockModAltar) {
                 generateBreakModelBlock(registryName, "blank");
+            } else if (block instanceof BlockArcanaPortal) {
+                generateArcanaPortalModelBlock(registryName);
+            } else if (block instanceof BlockAcceleron) {
+                generateAcceleronModelBlock(registryName);
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1281,6 +1287,30 @@ public class GenerateJSON {
         textures.put("west", pumpkinSide);
         textures.put("north", pumpkinFront);
         textures.put("south", pumpkinSide);
+        json.put("textures", textures);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateAcceleronModelBlock(String registryName) {
+        String blockPath = Reference.MODID + ":" + "blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        json.put("parent", "block/cube_all");
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", blockPath);
+        textures.put("down", blockPath + "_bottom");
+        textures.put("up", blockPath + "_top");
+        textures.put("east", blockPath);
+        textures.put("west", blockPath);
+        textures.put("north", blockPath);
+        textures.put("south", blockPath);
         json.put("textures", textures);
 
         File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
@@ -1489,6 +1519,37 @@ public class GenerateJSON {
         json.put("elements", elements);
 
         f = new File(MODEL_BLOCK_DIR, registryName + "_ns.json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateArcanaPortalModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", texturePath);
+        textures.put("portal", texturePath);
+        json.put("textures", textures);
+        List<Map<String, Object>> elements = new ArrayList<>();
+        Map<String, Object> element = new HashMap<>();
+        element.put("from", new int[] { 0, 0, 0 });
+        element.put("to", new int[] { 16, 2, 16 });
+        Map<String, Object> faces = new HashMap<>();
+        Map<String, Object> direction = new HashMap<>();
+        direction.put("uv", new int[] { 0, 0, 16, 16 });
+        direction.put("texture", "#portal");
+        faces.put("down", direction);
+        faces.put("up", direction);
+        element.put("faces", faces);
+        elements.add(element);
+        json.put("elements", elements);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
 
         try (FileWriter w = new FileWriter(f)) {
             GSON.toJson(json, w);
