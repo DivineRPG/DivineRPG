@@ -32,7 +32,7 @@ public class Arcana implements IArcana {
 
     @Override
     public void set(float points) {
-        this.arcana = MathHelper.clamp(points,0,max);
+        this.arcana = MathHelper.clamp(points,0, max);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Arcana implements IArcana {
 
     @Override
     public void setColDown(float number) {
-        this.cooldown = MathHelper.clamp(number, 0, max);
+        this.cooldown = MathHelper.clamp(number, 0, 50);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class Arcana implements IArcana {
 
     @Override
     public void setMax(float number) {
-        this.max = number > 0
+        this.max = number < 0
                 ? 0
                 : number;
     }
