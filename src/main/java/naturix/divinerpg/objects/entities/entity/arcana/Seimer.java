@@ -62,7 +62,7 @@ public class Seimer extends EntityDivineRPGTameable {
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
             IArcana arcana = this.getOwner().getCapability(ArcanaProvider.ARCANA_CAP, null);
             // FIXME regen()? Need to double check Arcana regen
-            arcana.fill(1);
+            arcana.fill(this.getOwner(), 1);
         }
     }
 

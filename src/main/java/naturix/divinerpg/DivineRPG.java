@@ -10,6 +10,7 @@ import naturix.divinerpg.events.ArcanaTickHandler;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.events.EventArmorTick;
 import naturix.divinerpg.proxy.CommonProxy;
+import naturix.divinerpg.registry.ModMessages;
 import naturix.divinerpg.registry.ModOreDict;
 import naturix.divinerpg.registry.ModSmelting;
 import naturix.divinerpg.registry.ModTriggers;
@@ -39,7 +40,7 @@ public class DivineRPG {
 
     public static org.apache.logging.log4j.Logger logger;
 
-    public static SimpleNetworkWrapper network;
+    public static SimpleNetworkWrapper network = new SimpleNetworkWrapper(Reference.MODID);
 
     static {
         FluidRegistry.enableUniversalBucket();
@@ -79,6 +80,8 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.register(new EventArmorSet());
         MinecraftForge.EVENT_BUS.register(new EventArmorTick());
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
+
+        ModMessages.init();
     }
 
     /** For Registering Commands */

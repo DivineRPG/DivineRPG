@@ -6,8 +6,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.objects.items.vethea.ItemStaff;
@@ -23,7 +21,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -62,7 +59,7 @@ public class ItemMeteorMash extends ItemMod {
         			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
         			world.spawnEntity(entity);
                     player.playSound(ModSounds.STARLIGHT, 1, 1);
-                    arcana.consume(35);
+                    arcana.consume(player, 35);
                 }
             player.getLook(1);
         }

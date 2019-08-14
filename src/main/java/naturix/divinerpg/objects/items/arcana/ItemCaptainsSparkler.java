@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.items.base.ItemModRanged;
 import naturix.divinerpg.registry.ModSounds;
@@ -33,7 +32,7 @@ public class ItemCaptainsSparkler extends ItemModRanged {
     protected boolean additionalRightClickChecks(EntityPlayer player) {
     	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
         if(arcana.getArcana()>=7) {
-        	arcana.consume(7);
+        	arcana.consume(player, 7);
         	return true;
         }else {
         	return false;

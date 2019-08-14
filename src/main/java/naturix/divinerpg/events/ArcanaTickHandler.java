@@ -1,14 +1,8 @@
 package naturix.divinerpg.events;
 
-import java.util.Arrays;
-
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.utils.Utils;
-import naturix.divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
@@ -28,7 +22,7 @@ public class ArcanaTickHandler {
 
 	private void onTickEnd(EntityPlayer player) {
 		arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.updateAllBars();
+		arcana.regen(player);
 	}
 
 	private void onTickStart(EntityPlayer player) {

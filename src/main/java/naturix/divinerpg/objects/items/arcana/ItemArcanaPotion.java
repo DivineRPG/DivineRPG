@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -44,7 +43,7 @@ public class ItemArcanaPotion extends ItemMod {
     {
         if (!player.capabilities.isCreativeMode) stack.shrink(1);
         IArcana arcana = DivineRPG.proxy.getPlayer().getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(amountToAdd + arcana.getArcana());
+        arcana.fill(player, arcana.getArcana() + amountToAdd);
 //        player.triggerAchievement(DivineRPGAchievements.yuk);
         return stack;
     }
