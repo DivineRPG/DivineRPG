@@ -10,26 +10,36 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.storage.loot.LootPool;
 
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 
 /**
  * Created by LiteWolf101 on Jan
  * /27/2019
  */
 public class DRPGStructureHandler extends WorldGenerator implements IStructure {
-    public String structureName;
-    public ResourceLocation lootTable;
+    protected String structureName;
+    protected Function<TileEntityChestArgs,ResourceLocation> lootTableFunc;
 
     public DRPGStructureHandler(String name) {
-        this(name, null);
+        this(name, (ResourceLocation) null);
     }
 
     public DRPGStructureHandler(String name, ResourceLocation lootTable) {
+        this(name, lootTable == null ? null : blockInfo -> lootTable);
+    }
+
+    /*
+        For special needs whateber i need to put special loot tables for special chests
+     */
+    public DRPGStructureHandler(String name, Function<TileEntityChestArgs,ResourceLocation> lootTableFunc) {
         this.structureName = name;
-        this.lootTable = lootTable;
+        this.lootTableFunc = lootTableFunc;
     }
 
     @Override
@@ -53,7 +63,7 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     }
 
     public void generateLoot(Template template, BlockPos pos) {
-        if (lootTable == null)
+        if (lootTableFunc == null)
             return;
 
         List<Template.BlockInfo> allBlocks;
@@ -91,9 +101,41 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
                     TileEntity tileEntity = worldServer.getTileEntity(correct);
 
                     if (tileEntity instanceof TileEntityLockableLoot){
-                        ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, worldServer.rand.nextLong());
+                        // Getting loot table from current chest
+                        ResourceLocation lootTable = lootTableFunc.apply(new TileEntityChestArgs(worldServer, (TileEntityLockableLoot)tileEntity, correct));
+
+                        if (lootTable != null)
+                            ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, worldServer.rand.nextLong());
+                        else {
+                            System.out.println("Can't find loot table for tile entity :" + correct.toString());
+                        }
                     }
                 });
 
+    }
+
+    public class TileEntityChestArgs{
+
+        private World world;
+        private TileEntityLockableLoot tileEntity;
+        private BlockPos pos;
+
+        public TileEntityChestArgs(World world, TileEntityLockableLoot tileEntity, BlockPos pos){
+            this.world = world;
+            this.tileEntity = tileEntity;
+            this.pos = pos;
+        }
+
+        public BlockPos getPos() {
+            return pos;
+        }
+
+        public World getWorld() {
+            return world;
+        }
+
+        public TileEntityLockableLoot getTileEntity() {
+            return tileEntity;
+        }
     }
 }
