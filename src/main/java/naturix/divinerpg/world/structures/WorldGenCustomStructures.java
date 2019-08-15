@@ -32,19 +32,19 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     //Iceika
     public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon", DRPGLootTables.ICEIKA_CHEST);
     public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum", DRPGLootTables.ICEIKA_CHEST);
-    public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("coalstone_lamp_1", null);
-    public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("coalstone_lamp_2", null);
-    public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3", null);
+    public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("coalstone_lamp_1");
+    public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("coalstone_lamp_2");
+    public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1", DRPGLootTables.ICEIKA_CHEST);
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_2 = new DRPGStructureHandler("workshop_house_2", null);
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_3 = new DRPGStructureHandler("workshop_house_3", null);
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("workshop_house_4", null);
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("workshop_house_5",null);
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("workshop_house_6",null);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_2 = new DRPGStructureHandler("workshop_house_2");
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_3 = new DRPGStructureHandler("workshop_house_3");
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("workshop_house_4");
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("workshop_house_5");
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("workshop_house_6");
     public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",DRPGLootTables.ICEIKA_CHEST);
 
     //vanilla
-    public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut", null);
+    public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut");
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
