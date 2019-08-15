@@ -56,7 +56,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
-            //TODO Add loot to houses with chests
             generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
             generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 13, 12);
             generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 11, 11);
