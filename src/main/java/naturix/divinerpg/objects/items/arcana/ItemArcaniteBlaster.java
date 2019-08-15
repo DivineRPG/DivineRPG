@@ -7,8 +7,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
-import naturix.divinerpg.client.EntityResourceLocation;
 import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
@@ -61,7 +59,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 						stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 7);
 					}
 				}
-				arcana.consume(20);
+				arcana.consume(player, 20);
 				stack.damageItem(1, player);
 			}
 		}

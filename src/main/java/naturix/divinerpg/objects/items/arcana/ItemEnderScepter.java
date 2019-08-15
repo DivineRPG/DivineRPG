@@ -14,7 +14,6 @@ import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -43,7 +42,7 @@ public class ItemEnderScepter extends ItemMod {
 		player.dismountRidingEntity();
         ((EntityPlayer)player).setPosition(x, y, z);
         player.playSound(SoundEvents.BLOCK_PORTAL_TRAVEL, 1, 1);
-        arcana.consume(75);
+        arcana.consume(player, 75);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
 		}
         return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());

@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.events.Ticker;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
 import naturix.divinerpg.objects.items.base.ItemMod;
@@ -20,7 +19,6 @@ import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
@@ -50,7 +48,7 @@ public class ItemGeneralsStaff extends ItemMod {
 		        player.playSound(ModSounds.STARLIGHT, 1, 1);
 				EntityThrowable entity = new EntityGeneralsStaff(world, player);
 				world.spawnEntity(entity);
-				arcana.consume(20);
+				arcana.consume(player, 20);
 				stack.getTagCompound().setLong("CanShootTime", Ticker.tick + 12);
 			}
 		}

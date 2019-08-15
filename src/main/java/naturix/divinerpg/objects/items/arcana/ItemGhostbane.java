@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.arcana.Wraith;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -35,7 +34,7 @@ public class ItemGhostbane extends ItemMod {
 		if(!w.isRemote && arcana.getArcana() >=200){
 				wraith.setLocationAndAngles(pos.getX(), pos.getY() + 1, pos.getZ(), 0.0F, 0.0F);
 				w.spawnEntity(wraith);
-				arcana.consume(200);
+				arcana.consume(player, 200);
 				return EnumActionResult.PASS;
 		}
 		return EnumActionResult.FAIL;

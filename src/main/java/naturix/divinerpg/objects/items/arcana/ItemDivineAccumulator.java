@@ -39,7 +39,7 @@ public class ItemDivineAccumulator extends ItemMod {
             if (!world.isRemote && arcana.getArcana()>=80) {
                 DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
                 world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
-                arcana.consume(80);
+                arcana.consume(player, 80);
             }
             player.motionY = 2;
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));

@@ -4,6 +4,7 @@ import naturix.divinerpg.Config;
 import naturix.divinerpg.objects.blocks.BlockMod;
 import naturix.divinerpg.registry.ModDimensions;
 import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.utils.FullSetArmorHelper;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,84 +20,56 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class EventArmorSet {
-    private Item boots = null, body = null, legs = null, helmet = null;
 
     @SubscribeEvent
     public void onPlayerHurtEvent(LivingHurtEvent evt) {
         if (evt.getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
 
-            ItemStack stackBoots = player.inventory.armorInventory.get(0);
-            ItemStack stackLegs = player.inventory.armorInventory.get(1);
-            ItemStack stackBody = player.inventory.armorInventory.get(2);
-            ItemStack stackHelmet = player.inventory.armorInventory.get(3);
-
-            boots = stackBoots != null ? stackBoots.getItem() : null;
-            body = stackBody != null ? stackBody.getItem() : null;
-            legs = stackLegs != null ? stackLegs.getItem() : null;
-            helmet = stackHelmet != null ? stackHelmet.getItem() : null;
+            FullSetArmorHelper armorHelper = new FullSetArmorHelper(player);
+            if (!armorHelper.isFullEquipped()){
+                return;
+            }
 
             DamageSource s = evt.getSource();
 
-            //Bedrock
-            if ((boots == ModItems.bedrockBoots && legs == ModItems.bedrockLegs && body == ModItems.bedrockBody
-                    && helmet == ModItems.bedrockHelmet)) {
-                if (s.isExplosion()) {
+            if (armorHelper.isBedrock()){
+                if (s.isExplosion())
                     evt.setCanceled(true);
-                }
             }
 
-            //Ender
-            if ((boots == ModItems.enderBoots || boots == ModItems.redEnderBoots || boots == ModItems.yellowEnderBoots
-                    || boots == ModItems.greenEnderBoots || boots == ModItems.blueEnderBoots
-                    || boots == ModItems.grayEnderBoots)
-                    && (legs == ModItems.enderLegs || legs == ModItems.redEnderLegs || legs == ModItems.yellowEnderLegs
-                            || legs == ModItems.greenEnderLegs || legs == ModItems.blueEnderLegs
-                            || legs == ModItems.grayEnderLegs)
-                    && (body == ModItems.enderBody || body == ModItems.redEnderBody || body == ModItems.yellowEnderBody
-                            || body == ModItems.greenEnderBody || body == ModItems.blueEnderBody
-                            || body == ModItems.grayEnderBody)
-                    && (helmet == ModItems.enderHelmet || helmet == ModItems.redEnderHelmet
-                            || helmet == ModItems.yellowEnderHelmet || helmet == ModItems.greenEnderHelmet
-                            || helmet == ModItems.blueEnderHelmet || helmet == ModItems.grayEnderHelmet)) {
+            if (armorHelper.isEnder()) {
                 if (s.isExplosion()) {
                     evt.setCanceled(true);
                 }
             }
 
             //Arlemite
-            if (boots == ModItems.arlemiteBoots && legs == ModItems.arlemiteLegs && body == ModItems.arlemiteBody
-                    && helmet == ModItems.arlemiteHelmet) {
-                if (s.isProjectile() || s.damageType.equals("thrown")) {
+            if (armorHelper.isArlemit()) {
+                if (s.isProjectile()
+                        || s.damageType.equals("thrown")) {
                     evt.setAmount(evt.getAmount() * 0.3f);
                 }
             }
 
             //Rupee
-            if ((boots == ModItems.rupeeBoots || boots == ModItems.redRupeeBoots || boots == ModItems.yellowRupeeBoots
-                    || boots == ModItems.greenRupeeBoots || boots == ModItems.blueRupeeBoots
-                    || boots == ModItems.grayRupeeBoots)
-                    && (legs == ModItems.rupeeLegs || legs == ModItems.redRupeeLegs || legs == ModItems.yellowRupeeLegs
-                            || legs == ModItems.greenRupeeLegs || legs == ModItems.blueRupeeLegs
-                            || legs == ModItems.grayRupeeLegs)
-                    && (body == ModItems.rupeeBody || body == ModItems.redRupeeBody || body == ModItems.yellowRupeeBody
-                            || body == ModItems.greenRupeeBody || body == ModItems.blueRupeeBody
-                            || body == ModItems.grayRupeeBody)
-                    && (helmet == ModItems.rupeeHelmet || helmet == ModItems.redRupeeHelmet
-                            || helmet == ModItems.yellowRupeeHelmet || helmet == ModItems.greenRupeeHelmet
-                            || helmet == ModItems.blueRupeeHelmet || helmet == ModItems.grayRupeeHelmet)) {
+            if (armorHelper.isRupee()) {
                 if ((s.damageType.equals("mob")) && !s.isProjectile()) {
                     evt.setAmount(evt.getAmount() * 0.3f);
                 }
             }
 
             //Santa
-            if (boots == ModItems.santaBoots && legs == ModItems.santaPants && body == ModItems.santaTunic
-                    && helmet == ModItems.santaCap) {
+            if (armorHelper.isSanta()) {
                 if (player.world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
                     evt.setAmount(evt.getAmount() * 0.2f);
                 }
             }
+
+            Item body = armorHelper.getBody();
+            Item legs = armorHelper.getLegs();
+            Item boots = armorHelper.getBoots();
+            Item helmet = armorHelper.getHelmet();
 
             //Vethean
             if (body == ModItems.degradedBody && legs == ModItems.degradedLegs && boots == ModItems.degradedBoots) {
@@ -138,21 +111,11 @@ public class EventArmorSet {
         if (event.getState().getBlock() != null && event.getState().getBlock() instanceof BlockMod
                 && ((BlockMod) event.getState().getBlock()).isTwilightOre()) {
             if (event.getHarvester() != null && event.getHarvester() instanceof EntityPlayer) {
-                EntityPlayer player = event.getHarvester();
 
-                ItemStack stackBoots = player.inventory.armorInventory.get(0);
-                ItemStack stackLegs = player.inventory.armorInventory.get(1);
-                ItemStack stackBody = player.inventory.armorInventory.get(2);
-                ItemStack stackHelmet = player.inventory.armorInventory.get(3);
-
-                boots = stackBoots != null ? stackBoots.getItem() : null;
-                body = stackBody != null ? stackBody.getItem() : null;
-                legs = stackLegs != null ? stackLegs.getItem() : null;
-                helmet = stackHelmet != null ? stackHelmet.getItem() : null;
+                FullSetArmorHelper armorHelper = new FullSetArmorHelper(event.getHarvester());
 
                 // Eden
-                if (boots == ModItems.edenBoots && body == ModItems.edenChestplate && legs == ModItems.edenLeggings
-                        && helmet == ModItems.edenHelmet) {
+                if (armorHelper.isEden()) {
                     if (!event.isSilkTouching()) {
                         ItemStack fragment = event.getDrops().get(0);
                         event.getDrops().add(fragment.copy());
@@ -169,39 +132,24 @@ public class EventArmorSet {
         if (event.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 
-            ItemStack stackBoots = player.inventory.armorInventory.get(0);
-            ItemStack stackLegs = player.inventory.armorInventory.get(1);
-            ItemStack stackBody = player.inventory.armorInventory.get(2);
-            ItemStack stackHelmet = player.inventory.armorInventory.get(3);
+            FullSetArmorHelper armorHelper = new FullSetArmorHelper(player);
 
-            boots = stackBoots != null ? stackBoots.getItem() : null;
-            body = stackBody != null ? stackBody.getItem() : null;
-            legs = stackLegs != null ? stackLegs.getItem() : null;
-            helmet = stackHelmet != null ? stackHelmet.getItem() : null;
-
-            // Divine
-            if (boots == ModItems.divineBoots && body == ModItems.divineBody && legs == ModItems.divineLegs
-                    && helmet == ModItems.divineHelmet) {
+            // Divine or Vethea
+            if (armorHelper.isDivine()
+                    || armorHelper.isGlistening(ModItems.glisteningHood)) {
                 player.addVelocity(0, 0.2D, 0);
             }
 
             // Skythern
-            if (boots == ModItems.skythernBoots && body == ModItems.skythernChestplate
-                    && legs == ModItems.skythernLeggings && helmet == ModItems.skythernHelmet) {
+            if (armorHelper.isSkythern()) {
                 player.addVelocity(0, 0.5D, 0);
             }
 
             // Vethean
-            if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots
-                    && helmet == ModItems.glisteningHood) {
-                player.addVelocity(0, 0.2D, 0);
-            }
-            if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots
-                    && helmet == ModItems.demonizedHood) {
+            if (armorHelper.isDemonised(ModItems.demonizedHood)) {
                 player.addVelocity(0, 0.3D, 0);
             }
-            if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots
-                    && helmet == ModItems.tormentedHood) {
+            if (armorHelper.isTormented(ModItems.tormentedHood)) {
                 player.addVelocity(0, 0.4D, 0);
             }
 
@@ -213,21 +161,14 @@ public class EventArmorSet {
         if (e.getSource().getTrueSource() != null && e.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) e.getSource().getTrueSource();
 
-            ItemStack stackBoots = player.inventory.armorInventory.get(0);
-            ItemStack stackLegs = player.inventory.armorInventory.get(1);
-            ItemStack stackBody = player.inventory.armorInventory.get(2);
-            ItemStack stackHelmet = player.inventory.armorInventory.get(3);
-
-            boots = stackBoots != null ? stackBoots.getItem() : null;
-            body = stackBody != null ? stackBody.getItem() : null;
-            legs = stackLegs != null ? stackLegs.getItem() : null;
-            helmet = stackHelmet != null ? stackHelmet.getItem() : null;
+            FullSetArmorHelper armorHelper = new FullSetArmorHelper(player);
 
             DamageSource s = e.getSource();
 
-            // Santa
-            if (boots == ModItems.santaBoots && body == ModItems.santaTunic && legs == ModItems.santaPants
-                    && helmet == ModItems.santaCap) {
+            // Santa or Divine or Demonized
+            if (armorHelper.isSanta()
+                || armorHelper.isDivine()
+                || armorHelper.isDemonised(null)) {
                 if ((e.getEntityLiving().world.provider.getDimensionType().getId() == Config.iceikaDimensionId)
                         && ((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.setAmount(e.getAmount() + 6);
@@ -235,44 +176,26 @@ public class EventArmorSet {
             }
 
             // Halite
-            if (boots == ModItems.haliteBoots && body == ModItems.haliteChestplate && legs == ModItems.haliteLeggings
-                    && helmet == ModItems.haliteHelmet) {
+            if (armorHelper.isHalite()) {
                 if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.setAmount(e.getAmount() + 16);
                 }
             }
 
-            // Divine
-            if (boots == ModItems.divineBoots && body == ModItems.divineBody && legs == ModItems.divineLegs
-                    && helmet == ModItems.divineHelmet) {
-                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.setAmount(e.getAmount() + 6);
-                }
-            }
-
             // Corrupted
-            if (body == ModItems.corruptedBody && legs == ModItems.corruptedLegs && boots == ModItems.corruptedBoots
-                    && helmet == ModItems.corruptedHelmet) {
+            if (armorHelper.isCorrupted()) {
                 if (((s.getTrueSource() instanceof EntityPlayer) && s.isProjectile())) {
                     e.setAmount(e.getAmount() * 1.2F);
                 }
             }
 
             // Vethean
-            if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs && boots == ModItems.glisteningBoots
-                    && helmet == ModItems.glisteningHelmet) {
+            if (armorHelper.isGlistening(null)) {
                 if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.setAmount(e.getAmount() + 3);
                 }
             }
-            if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots
-                    && helmet == ModItems.demonizedHelmet) {
-                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.setAmount(e.getAmount() + 6);
-                }
-            }
-            if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots
-                    && helmet == ModItems.tormentedHelmet) {
+            if (armorHelper.isTormented(null)) {
                 if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.setAmount(e.getAmount() + 9);
                 }
@@ -284,50 +207,38 @@ public class EventArmorSet {
     public void onPlayerAttackEvent(LivingAttackEvent e) {
         if (e.getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) e.getEntityLiving();
-
-            ItemStack stackBoots = player.inventory.armorInventory.get(0);
-            ItemStack stackLegs = player.inventory.armorInventory.get(1);
-            ItemStack stackBody = player.inventory.armorInventory.get(2);
-            ItemStack stackHelmet = player.inventory.armorInventory.get(3);
-
-            boots = stackBoots != null ? stackBoots.getItem() : null;
-            body = stackBody != null ? stackBody.getItem() : null;
-            legs = stackLegs != null ? stackLegs.getItem() : null;
-            helmet = stackHelmet != null ? stackHelmet.getItem() : null;
+            FullSetArmorHelper armorHelper = new FullSetArmorHelper(player);
 
             DamageSource s = e.getSource();
 
             // Kraken and Aquastrive
-            if ((boots == ModItems.aquastriveBoots && body == ModItems.aquastriveBody && legs == ModItems.aquastriveLegs
-                    && helmet == ModItems.aquastriveHelmet)
-                    || (boots == ModItems.krakenBoots && body == ModItems.krakenBody && legs == ModItems.krakenLegs
-                            && helmet == ModItems.krakenHelmet)) {
+            if (armorHelper.isAquastrive()
+                    || (armorHelper.isKraken())) {
                 if (s.equals(DamageSource.DROWN)) {
                     e.setCanceled(true);
                 }
             }
 
             // Uvite
-            if (boots == ModItems.apalachiaBoots && legs == ModItems.apalachiaLeggings
-                    && body == ModItems.apalachiaChestplate && helmet == ModItems.apalachiaHelmet) {
-                if (s.equals(DamageSource.CACTUS) || s.equals(DamageSource.FALLING_BLOCK)
-                        || s.equals(DamageSource.ANVIL) || s.equals(DamageSource.IN_WALL)
+            if (armorHelper.isUvite()) {
+                if (s.equals(DamageSource.CACTUS)
+                        || s.equals(DamageSource.FALLING_BLOCK)
+                        || s.equals(DamageSource.ANVIL)
+                        || s.equals(DamageSource.IN_WALL)
                         || s.equals(Utils.trapSource)) {
                     e.setCanceled(true);
                 }
             }
 
             // Wither Reaper
-            if (boots == ModItems.witherReaperBoots && legs == ModItems.witherReaperLegs
-                    && body == ModItems.witherReaperBody && helmet == ModItems.witherReaperHelmet) {
+            if (armorHelper.isWither() ) {
                 if (s.equals(DamageSource.WITHER)) {
                     e.setCanceled(true);
                 }
             }
 
             // Jungle
-            if (boots == ModItems.jungleBoots && legs == ModItems.jungleLegs && body == ModItems.jungleBody
-                    && helmet == ModItems.jungleHelmet) {
+            if (armorHelper.isJungle()) {
                 if (s.equals(DamageSource.MAGIC)) {
                     e.setCanceled(true);
                 }

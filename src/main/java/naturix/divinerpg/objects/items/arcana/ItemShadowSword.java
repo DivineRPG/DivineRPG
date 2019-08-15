@@ -6,18 +6,14 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -37,7 +33,7 @@ public class ItemShadowSword extends ItemModSword {
     	        if(arcana.getArcana()>=12) {
     	target.playSound(ModSounds.SHADOW_SABER, 1, 1);
         hitter.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));
-        arcana.consume(12);
+        arcana.consume(target, 12);
     	        }
         return true;
     }

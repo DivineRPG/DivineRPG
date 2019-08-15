@@ -1,23 +1,21 @@
 package naturix.divinerpg.dimensions.eden;
 
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.registry.ModBiomes;
 import naturix.divinerpg.registry.ModDimensions;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class WorldProviderEden extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(ModBiomes.Eden);
+		this.biomeProvider = new BiomeProviderEden();
 		this.nether = false;
 		this.hasSkyLight = true;
 	}
@@ -29,7 +27,7 @@ public class WorldProviderEden extends WorldProvider {
 	
 	@Override
     public BiomeProvider getBiomeProvider() {
-		return this.biomeProvider = new BiomeProviderEden();
+		return this.biomeProvider;
 	}
 
     @Override

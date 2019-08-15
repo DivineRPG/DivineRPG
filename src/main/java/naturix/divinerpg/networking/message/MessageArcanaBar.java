@@ -37,11 +37,12 @@ public class MessageArcanaBar implements IMessage {
 
 		@Override
 		public IMessage onMessage(MessageArcanaBar msg, MessageContext ctx) {
-			IArcana arcana = DivineRPG.proxy.getPlayer().getCapability(ArcanaProvider.ARCANA_CAP, null);
-    		
-			ArcanaRenderer.value = arcana.getArcana();
+
+			// Using value from message!!!
+			ArcanaRenderer.value = msg.value;
 			ArcanaRenderer.regen = msg.shouldRegen;
-			DivineRPG.proxy.updateClientArcana(arcana.getArcana()); 
+
+			DivineRPG.proxy.updateClientArcana(msg.value);
 			
 			return null;
 		}

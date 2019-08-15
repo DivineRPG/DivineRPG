@@ -2,11 +2,9 @@ package naturix.divinerpg.objects.items.arcana;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.world.World;
 
 public class ItemStormSword extends ItemModSword {
@@ -19,7 +17,7 @@ public class ItemStormSword extends ItemModSword {
     protected boolean canUseSpecialEffect(EntityPlayer player) {
 		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 		if(arcana.getArcana()>=20) {
-		arcana.consume(20);
+		arcana.consume(player, 20);
     	return true;
 		}else {
 			return false;

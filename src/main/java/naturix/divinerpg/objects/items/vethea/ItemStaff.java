@@ -62,7 +62,7 @@ public class ItemStaff extends ItemMod {
 	       	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 	       	if (!world.isRemote) {
     				if(arcana.getArcana() >= cost) {
-    			arcana.consume(cost);
+    			arcana.consume(player, cost);
 			if(par1.getItem() == ModItems.evernight){
 				player.attackEntityFrom(Utils.arcanaSource, 20);
 				EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);

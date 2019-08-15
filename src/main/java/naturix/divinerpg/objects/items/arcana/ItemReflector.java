@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityReflector;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -41,7 +40,7 @@ public class ItemReflector extends ItemMod {
 			EntityThrowable entity = new EntityReflector(world, player);
 			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(entity);
-            arcana.consume(20);
+            arcana.consume(player, 20);
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());	
 		}
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());

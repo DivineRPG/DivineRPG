@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -44,7 +43,7 @@ public class ItemAttractor extends ItemMod {
 			EntityThrowable entity = new EntityAttractor(world, player);
 			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 			world.spawnEntity(entity);
-			arcana.consume(20);
+			arcana.consume(player, 20);
 			}
 			return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 	}

@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -38,14 +37,21 @@ public class ItemArcanaPotion extends ItemMod {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
     {    list.add(TooltipLocalizer.arcanaRegen(amountToAdd));
     }
-    EntityPlayer player;
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
     {
-        if (!player.capabilities.isCreativeMode) stack.shrink(1);
-        IArcana arcana = DivineRPG.proxy.getPlayer().getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(amountToAdd + arcana.getArcana());
-//        player.triggerAchievement(DivineRPGAchievements.yuk);
+        EntityPlayer player = (EntityPlayer) entityLiving;
+        if (player != null){
+
+            // Shrink stack
+            if (!player.capabilities.isCreativeMode) {
+                stack.shrink(1);
+            }
+
+            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            arcana.fill(entityLiving, amountToAdd);
+        }
+
         return stack;
     }
 
@@ -61,11 +67,16 @@ public class ItemArcanaPotion extends ItemMod {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-    	IArcana arcana = DivineRPG.proxy.getPlayer().getCapability(ArcanaProvider.ARCANA_CAP, null);
-    	ItemStack stack = player.getHeldItem(hand);
-    	if (arcana.getArcana() != 200 || ArcanaRenderer.value != 200);
-        
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+
+        player.setActiveHand(hand);
+
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+
+        EnumActionResult result = arcana.getArcana() < arcana.getMax()
+                ? EnumActionResult.SUCCESS
+                : EnumActionResult.FAIL;
+
+        return new ActionResult<>(result, player.getHeldItem(hand));
     }
 
     @Override

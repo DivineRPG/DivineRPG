@@ -6,15 +6,12 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -46,7 +43,7 @@ public class ItemMeriksMissile extends ItemMod{
 			boolean var5 = player.capabilities.isCreativeMode;
 	    	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 			if(arcana.getArcana() >= this.arcana) {
-				arcana.consume(this.arcana);
+				arcana.consume(player, this.arcana);
 				float var7 = (float)var6 / 20.0F;
 				var7 = (var7 * var7 + var7 * 2.0F) / 3.0F;
 				if ((double)var7 < 0.1D) return EnumActionResult.FAIL;

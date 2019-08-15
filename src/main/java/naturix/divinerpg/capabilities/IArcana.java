@@ -1,14 +1,29 @@
 package naturix.divinerpg.capabilities;
 
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+
 public interface IArcana
 {
-    public void consume(float points);
+    /*
+        Consumes arcana and sends packet
+     */
+    public void consume(EntityLivingBase player, float points);
 
-    public void fill(float points);
+    /*
+        Restoring arcana and send packet
+     */
+    public void fill(EntityLivingBase player, float points);
 
     public void set(float points);
     
     public float getArcana();
+
+    public float getCoolDown();
+    public void setColDown(float number);
+
+    public float getMax();
+    public void setMax(float number);
     
-    public void updateAllBars();            
+    public void regen(EntityPlayer player);
 }
