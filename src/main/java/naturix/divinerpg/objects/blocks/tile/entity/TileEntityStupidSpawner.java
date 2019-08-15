@@ -20,6 +20,10 @@ public class TileEntityStupidSpawner extends TileEntity implements ITickable {
     private boolean spawnParticles = false;
     private Random rand = new Random();
 
+    public TileEntityStupidSpawner() {
+        spawnParticles = false;
+    }
+
     @Override
     public void readFromNBT(NBTTagCompound tag) {
         super.readFromNBT(tag);

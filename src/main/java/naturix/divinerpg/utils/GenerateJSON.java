@@ -1174,6 +1174,8 @@ public class GenerateJSON {
                 generateArcanaPortalModelBlock(registryName);
             } else if (block instanceof BlockAcceleron) {
                 generateAcceleronModelBlock(registryName);
+            } else if (block instanceof BlockArcanaPortalFrame) {
+                generateArcanaPortalFrameModelBlock(registryName);
             } else {
                 generateBasicModelBlock(registryName);
             }
@@ -1545,6 +1547,48 @@ public class GenerateJSON {
         direction.put("texture", "#portal");
         faces.put("down", direction);
         faces.put("up", direction);
+        element.put("faces", faces);
+        elements.add(element);
+        json.put("elements", elements);
+
+        File f = new File(MODEL_BLOCK_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateArcanaPortalFrameModelBlock(String registryName) {
+        String texturePath = Reference.MODID + ":blocks/arcana_portal_frame";
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", texturePath);
+        textures.put("outer", texturePath + "_outer");
+        textures.put("portal", texturePath);
+        json.put("textures", textures);
+        List<Map<String, Object>> elements = new ArrayList<>();
+        Map<String, Object> element = new HashMap<>();
+        element.put("from", new int[] { 0, 0, 0 });
+        element.put("to", new int[] { 16, 13, 16 });
+        Map<String, Object> faces = new HashMap<>();
+        Map<String, Object> direction = new HashMap<>();
+        direction.put("uv", new int[] { 0, 0, 16, 16 });
+        direction.put("texture", "#portal");
+        faces.put("down", direction);
+        faces.put("up", direction);
+        direction = new HashMap<>();
+        direction.put("uv", new int[] { 0, 3, 16, 16 });
+        direction.put("texture", "#outer");
+        faces.put("north", direction);
+        direction = new HashMap<>();
+        direction.put("uv", new int[] { 0, 3, 16, 16 });
+        direction.put("texture", "#portal");
+        faces.put("south", direction);
+        faces.put("west", direction);
+        faces.put("east", direction);
         element.put("faces", faces);
         elements.add(element);
         json.put("elements", elements);

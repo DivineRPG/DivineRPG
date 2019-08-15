@@ -2,18 +2,17 @@ package naturix.divinerpg.dimensions.arcana.components;
 
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.arcana.ArcanaChunkPrimer;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLadder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.chunk.Chunk;
 
 public class DungeonComponent01 extends DungeonComponentBase {
     @Override
-    public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
+    public boolean generate(ArcanaChunkPrimer chunk, Random rand, int i, int j, int k) {
         Block dungeonBricks = ModBlocks.degradedBrick;
         Block ancientbricks = ModBlocks.ancientBrick;
         Block soulStone = ModBlocks.soulStone;
@@ -854,12 +853,12 @@ public class DungeonComponent01 extends DungeonComponentBase {
         this.setBlock(chunk, i + 15, j + 7, k + 15, dungeonBricks);
 
         IBlockState southTubes = arcaniteTubes.getDefaultState().withProperty(BlockLadder.FACING, EnumFacing.SOUTH);
-        chunk.setBlockState(new BlockPos(i + 13, j + 2, k + 5), southTubes);
-        chunk.setBlockState(new BlockPos(i + 11, j + 2, k + 5), southTubes);
-        chunk.setBlockState(new BlockPos(i + 9, j + 2, k + 5), southTubes);
-        chunk.setBlockState(new BlockPos(i + 6, j + 2, k + 5), southTubes);
-        chunk.setBlockState(new BlockPos(i + 4, j + 2, k + 5), southTubes);
-        chunk.setBlockState(new BlockPos(i + 2, j + 2, k + 5), southTubes);
+        this.setBlockState(chunk, i + 13, j + 2, k + 5, southTubes);
+        this.setBlockState(chunk, i + 11, j + 2, k + 5, southTubes);
+        this.setBlockState(chunk, i + 9, j + 2, k + 5, southTubes);
+        this.setBlockState(chunk, i + 6, j + 2, k + 5, southTubes);
+        this.setBlockState(chunk, i + 4, j + 2, k + 5, southTubes);
+        this.setBlockState(chunk, i + 2, j + 2, k + 5, southTubes);
         return true;
     }
 }

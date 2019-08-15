@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderWraith extends RenderLiving<Wraith> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wraith.png");
-	private final ModelWraith ModelWraith;
-    
-	public RenderWraith(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWraith(), 1F);
-        ModelWraith = (ModelWraith) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wraith.png");
 
+    public RenderWraith(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelWraith(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Wraith entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Wraith> {
-
-	        @Override
-	        public Render<? super Wraith> createRenderFor(RenderManager manager) {
-	            return new RenderWraith(manager, new ModelWraith(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Wraith> {
+        @Override
+        public Render<? super Wraith> createRenderFor(RenderManager manager) {
+            return new RenderWraith(manager, new ModelWraith(), 0);
+        }
+    }
+}

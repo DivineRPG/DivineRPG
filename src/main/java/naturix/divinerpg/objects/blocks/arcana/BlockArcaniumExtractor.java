@@ -42,7 +42,7 @@ public class BlockArcaniumExtractor extends BlockModFurnace implements ITileEnti
 
     @Override
     public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.INVISIBLE;
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
     public TileEntity createNewTileEntity(World worldIn, int meta) {

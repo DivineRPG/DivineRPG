@@ -2,18 +2,17 @@ package naturix.divinerpg.dimensions.arcana.components;
 
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.arcana.ArcanaChunkPrimer;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockDoor.EnumDoorHalf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.chunk.Chunk;
 
 public class DungeonComponent14 extends DungeonComponentBase {
     @Override
-    public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
+    public boolean generate(ArcanaChunkPrimer chunk, Random rand, int i, int j, int k) {
         Block dungeonBricks = ModBlocks.degradedBrick;
         Block ancientbricks = ModBlocks.ancientBrick;
         Block soulStone = ModBlocks.soulStone;
@@ -164,11 +163,11 @@ public class DungeonComponent14 extends DungeonComponentBase {
         this.setBlock(chunk, i + 1, j + 0, k + 15, ancientbricks);
         this.setBlock(chunk, i + 1, j + 1, k + 0, dungeonBricks);
         doorState = ModBlocks.ancientBrickDoor.getDefaultState().withProperty(BlockDoor.FACING, EnumFacing.SOUTH);
-        chunk.setBlockState(new BlockPos(i + 1, j + 1, k + 12), doorState);
+        this.setBlockState(chunk, i + 1, j + 1, k + 12, doorState);
         this.setBlock(chunk, i + 1, j + 1, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 2, k + 0, ancientbricks);
         doorState = doorState.withProperty(BlockDoor.HALF, EnumDoorHalf.UPPER);
-        chunk.setBlockState(new BlockPos(i + 1, j + 2, k + 12), doorState);
+        this.setBlockState(chunk, i + 1, j + 2, k + 12, doorState);
         this.setBlock(chunk, i + 1, j + 2, k + 15, ancientbricks);
         this.setBlock(chunk, i + 1, j + 3, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 3, k + 12, ancientbricks);
@@ -359,15 +358,15 @@ public class DungeonComponent14 extends DungeonComponentBase {
         this.setBlock(chunk, i + 5, j + 1, k + 5, dungeonBricks);
         this.setBlock(chunk, i + 5, j + 1, k + 12, ancientbricks);
         doorState = ModBlocks.soulSludgeDoor.getDefaultState().withProperty(BlockDoor.FACING, EnumFacing.EAST);
-        chunk.setBlockState(new BlockPos(i + 5, j + 1, k + 13), doorState);
-        chunk.setBlockState(new BlockPos(i + 5, j + 1, k + 14),
+        this.setBlockState(chunk, i + 5, j + 1, k + 13, doorState);
+        this.setBlockState(chunk, i + 5, j + 1, k + 14,
                 doorState.withProperty(BlockDoor.HINGE, BlockDoor.EnumHingePosition.RIGHT));
         this.setBlock(chunk, i + 5, j + 1, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 5, j + 2, k + 0, ancientbricks);
         this.setBlock(chunk, i + 5, j + 2, k + 12, ancientbricks);
         doorState = doorState.withProperty(BlockDoor.HALF, EnumDoorHalf.UPPER);
-        chunk.setBlockState(new BlockPos(i + 5, j + 2, k + 13), doorState);
-        chunk.setBlockState(new BlockPos(i + 5, j + 2, k + 14),
+        this.setBlockState(chunk, i + 5, j + 2, k + 13, doorState);
+        this.setBlockState(chunk, i + 5, j + 2, k + 14,
                 doorState.withProperty(BlockDoor.HINGE, BlockDoor.EnumHingePosition.RIGHT));
         this.setBlock(chunk, i + 5, j + 2, k + 15, ancientbricks);
         this.setBlock(chunk, i + 5, j + 3, k + 0, dungeonBricks);
@@ -466,7 +465,7 @@ public class DungeonComponent14 extends DungeonComponentBase {
         this.setBlock(chunk, i + 8, j + 0, k + 5, soulStone);
         this.setBlock(chunk, i + 8, j + 0, k + 6, soulStone);
         this.setBlock(chunk, i + 8, j + 0, k + 7, soulStone);
-        this.setBlock(chunk, i + 8, j + 0, k + 8, ModBlocks.deathHoundSpawner);
+        this.setBlockState(chunk, i + 8, j + 0, k + 8, ModBlocks.deathHoundSpawner.getDefaultState());
         this.setBlock(chunk, i + 8, j + 0, k + 9, soulStone);
         this.setBlock(chunk, i + 8, j + 0, k + 10, soulStone);
         this.setBlock(chunk, i + 8, j + 0, k + 11, soulStone);
@@ -578,18 +577,18 @@ public class DungeonComponent14 extends DungeonComponentBase {
         this.setBlock(chunk, i + 10, j + 1, k + 8, dungeonBricks);
         this.setBlock(chunk, i + 10, j + 1, k + 12, ancientbricks);
         doorState = ModBlocks.soulSludgeDoor.getDefaultState().withProperty(BlockDoor.FACING, EnumFacing.WEST);
-        chunk.setBlockState(new BlockPos(i + 10, j + 1, k + 13),
+        this.setBlockState(chunk, i + 10, j + 1, k + 13,
                 doorState.withProperty(BlockDoor.HINGE, BlockDoor.EnumHingePosition.RIGHT));
-        chunk.setBlockState(new BlockPos(i + 10, j + 1, k + 14), doorState);
+        this.setBlockState(chunk, i + 10, j + 1, k + 14, doorState);
         this.setBlock(chunk, i + 10, j + 1, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 10, j + 2, k + 0, ancientbricks);
         this.setBlock(chunk, i + 10, j + 2, k + 6, ancientbricks);
         this.setBlock(chunk, i + 10, j + 2, k + 7, ancientbricks);
         this.setBlock(chunk, i + 10, j + 2, k + 12, ancientbricks);
         doorState = doorState.withProperty(BlockDoor.HALF, EnumDoorHalf.UPPER);
-        chunk.setBlockState(new BlockPos(i + 10, j + 2, k + 13),
+        this.setBlockState(chunk, i + 10, j + 2, k + 13,
                 doorState.withProperty(BlockDoor.HINGE, BlockDoor.EnumHingePosition.RIGHT));
-        chunk.setBlockState(new BlockPos(i + 10, j + 2, k + 14), doorState);
+        this.setBlockState(chunk, i + 10, j + 2, k + 14, doorState);
         this.setBlock(chunk, i + 10, j + 2, k + 15, ancientbricks);
         this.setBlock(chunk, i + 10, j + 3, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 10, j + 3, k + 6, ancientbricks);
@@ -718,14 +717,14 @@ public class DungeonComponent14 extends DungeonComponentBase {
         this.setBlock(chunk, i + 13, j + 1, k + 9, ancientbricks);
         this.setBlock(chunk, i + 13, j + 1, k + 10, ancientbricks);
         doorState = ModBlocks.ancientBrickDoor.getDefaultState().withProperty(BlockDoor.FACING, EnumFacing.EAST);
-        chunk.setBlockState(new BlockPos(i + 13, j + 1, k + 11), doorState);
+        this.setBlockState(chunk, i + 13, j + 1, k + 11, doorState);
         this.setBlock(chunk, i + 13, j + 1, k + 12, arcaniteMetal);
         this.setBlock(chunk, i + 13, j + 1, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 13, j + 2, k + 0, ancientbricks);
         this.setBlock(chunk, i + 13, j + 2, k + 9, ancientbricks);
         this.setBlock(chunk, i + 13, j + 2, k + 10, ancientbricks);
         doorState = doorState.withProperty(BlockDoor.HALF, EnumDoorHalf.UPPER);
-        chunk.setBlockState(new BlockPos(i + 13, j + 2, k + 11), doorState);
+        this.setBlockState(chunk, i + 13, j + 2, k + 11, doorState);
         this.setBlock(chunk, i + 13, j + 2, k + 12, arcaniteMetal);
         this.setBlock(chunk, i + 13, j + 2, k + 15, ancientbricks);
         this.setBlock(chunk, i + 13, j + 3, k + 0, dungeonBricks);

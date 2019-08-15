@@ -2,13 +2,13 @@ package naturix.divinerpg.dimensions.arcana.components;
 
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.arcana.ArcanaChunkPrimer;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.world.chunk.Chunk;
 
 public class DungeonComponent09 extends DungeonComponentBase {
     @Override
-    public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
+    public boolean generate(ArcanaChunkPrimer chunk, Random rand, int i, int j, int k) {
         Block heatTraps = ModBlocks.heatTrap;
         Block dungeonBricks = ModBlocks.degradedBrick;
         Block arcanaPower = ModBlocks.arcaniumPower;

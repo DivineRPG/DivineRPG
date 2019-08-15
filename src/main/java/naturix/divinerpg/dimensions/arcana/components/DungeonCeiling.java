@@ -2,14 +2,14 @@ package naturix.divinerpg.dimensions.arcana.components;
 
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.arcana.ArcanaChunkPrimer;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.world.chunk.Chunk;
 
 public class DungeonCeiling extends DungeonComponentBase {
 
     @Override
-    public boolean generate(Chunk chunk, Random rand, int x, int y, int z) {
+    public boolean generate(ArcanaChunkPrimer chunk, Random rand, int x, int y, int z) {
         Block dungeonBricks = ModBlocks.degradedBrick;
         int scanX, scanZ;
 

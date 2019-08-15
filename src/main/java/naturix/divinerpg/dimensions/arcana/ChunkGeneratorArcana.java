@@ -1,7 +1,9 @@
 package naturix.divinerpg.dimensions.arcana;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import naturix.divinerpg.dimensions.arcana.components.DungeonCeiling;
@@ -29,7 +31,9 @@ import naturix.divinerpg.dimensions.arcana.components.DungeonComponent20;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponentBase;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponentDramix;
 import naturix.divinerpg.dimensions.arcana.components.DungeonComponentParasecta;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -37,7 +41,6 @@ import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -51,6 +54,7 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
     private Biome[] biomesForGeneration;
     private int chunkX = 0;
     private int chunkZ = 0;
+    private Map chunkTileEntityMap;
 
     public ChunkGeneratorArcana(World world, long seed) {
         this.world = world;
@@ -82,31 +86,36 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         BossRooms.add(new DungeonComponentParasecta());
         BossRooms.add(new DungeonComponentDramix());
         Ceiling = new DungeonCeiling();
+        this.chunkTileEntityMap = new HashMap();
     }
 
     public Chunk generateChunk(int x, int z) {
         this.chunkX = x;
         this.chunkZ = z;
         this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
-        ChunkPrimer chunkprimer = new ChunkPrimer();
         this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16,
                 16);
-        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
-        byte[] abyte = chunk.getBiomeArray();
 
-        for (int i = 0; i < abyte.length; ++i) {
-            abyte[i] = (byte) Biome.getIdForBiome(this.biomesForGeneration[i]);
-        }
+        ArcanaChunkPrimer chunkprimer = new ArcanaChunkPrimer();
 
         for (int i = 4; i > 0; i--) {
             DungeonComponentBase room = (DungeonComponentBase) (Rooms.get(rand.nextInt(21)));
             if (room instanceof DungeonComponent08 && i >= 3)
                 room = (DungeonComponentBase) (Rooms.get(this.rand.nextInt(10) + 10));
 
-            room.generate(chunk, rand, 0, i * 8, 0);
+            room.generate(chunkprimer, rand, 0, i * 8, 0);
         }
 
-        Ceiling.generate(chunk, rand, 0, 40, 0);
+        Ceiling.generate(chunkprimer, rand, 0, 40, 0);
+
+        chunkTileEntityMap.put(new ChunkPos(chunkX, chunkZ), chunkprimer.chunkTileEntityPositions);
+
+        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
+        byte[] abyte = chunk.getBiomeArray();
+
+        for (int i = 0; i < abyte.length; ++i) {
+            abyte[i] = (byte) Biome.getIdForBiome(this.biomesForGeneration[i]);
+        }
 
         chunk.generateSkylightMap();
         return chunk;
@@ -155,16 +164,24 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         this.rand.setSeed((long) chunkX * k + (long) chunkZ * l ^ this.world.getSeed());
         //biome.decorate(this.world, this.rand, pos);
 
-        if ((chunkX & 1) == 1 && (chunkZ & 1) == 1) {
-            for (int i = 1; i < 4; i++) {
-                if (this.rand.nextInt(30) == 0 || this.rand.nextInt(30) == 0 || this.rand.nextInt(30) == 0) {
-                    int roomToGenerate = rand.nextInt(2);
-                    ((WorldGenerator) (BossRooms.get(roomToGenerate))).generate(this.world, rand,
-                            new BlockPos(x, i * 8, z));
-                    this.rand.setSeed((long) chunkX * k + (long) chunkZ * l ^ this.world.getSeed() * i << 2 | l);
-                    break;
-                }
+        List<BlockPos> chunkTileEntityPositions = (List<BlockPos>) chunkTileEntityMap.get(chunkpos);
+        if (chunkTileEntityPositions != null) {
+            Chunk chunk = this.world.getChunkFromChunkCoords(chunkX, chunkZ);
+            for (int i = 0; i < chunkTileEntityPositions.size(); i++) {
+                BlockPos chunkPosition = chunkTileEntityPositions.get(i);
+                IBlockState state = chunk.getBlockState(chunkPosition.getX(), chunkPosition.getY(),
+                        chunkPosition.getZ());
+                TileEntity te = state.getBlock().createTileEntity(this.world, state);
+                this.world.setTileEntity(chunkPosition.add(x, 0, z), te);
             }
+            chunkTileEntityMap.remove(chunkpos);
+        }
+
+        if ((chunkX & 1) == 1 && (chunkZ & 1) == 1 && this.rand.nextInt(500) == 0) {
+            int roomToGenerate = rand.nextInt(2);
+            int i = this.rand.nextInt(4) + 1;
+            ((WorldGenerator) (BossRooms.get(roomToGenerate))).generate(this.world, rand, new BlockPos(x, i * 8, z));
+            this.rand.setSeed((long) chunkX * k + (long) chunkZ * l ^ this.world.getSeed() * i << 2 | l);
         }
 
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, x + 8, z + 8, 16, 16, this.rand);

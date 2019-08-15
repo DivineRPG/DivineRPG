@@ -2,13 +2,13 @@ package naturix.divinerpg.dimensions.arcana.components;
 
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.arcana.ArcanaChunkPrimer;
 import naturix.divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.world.chunk.Chunk;
 
 public class DungeonComponent11 extends DungeonComponentBase {
     @Override
-    public boolean generate(Chunk chunk, Random rand, int i, int j, int k) {
+    public boolean generate(ArcanaChunkPrimer chunk, Random rand, int i, int j, int k) {
         Block dungeonBricks = ModBlocks.degradedBrick;
         Block ancientbricks = ModBlocks.ancientBrick;
         Block ancientstone = ModBlocks.ancientStone;
@@ -470,7 +470,7 @@ public class DungeonComponent11 extends DungeonComponentBase {
         this.setBlock(chunk, i + 8, j + 0, k + 6, ancientbricks);
         this.setBlock(chunk, i + 8, j + 0, k + 7, ancientbricks);
         this.setBlock(chunk, i + 8, j + 0, k + 8, ancientbricks);
-        this.setBlock(chunk, i + 8, j + 0, k + 9, ModBlocks.razorbackSpawner);
+        this.setBlockState(chunk, i + 8, j + 0, k + 9, ModBlocks.razorbackSpawner.getDefaultState());
         this.setBlock(chunk, i + 8, j + 0, k + 10, ancientbricks);
         this.setBlock(chunk, i + 8, j + 0, k + 11, ancientbricks);
         this.setBlock(chunk, i + 8, j + 0, k + 12, ancientbricks);

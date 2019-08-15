@@ -12,30 +12,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderRoamer extends RenderLiving<Roamer> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/roamer.png");
-	private final ModelRoamer ModelRoamer;
-    
-	public RenderRoamer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelRoamer(), 1F);
-        ModelRoamer = (ModelRoamer) super.mainModel;
+    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/roamer.png");
 
+    public RenderRoamer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+        super(rendermanagerIn, new ModelRoamer(), shadowsizeIn);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(Roamer entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Roamer> {
-
-	        @Override
-	        public Render<? super Roamer> createRenderFor(RenderManager manager) {
-	            return new RenderRoamer(manager, new ModelRoamer(), 0.5F);
-	        }
-	    }
-
-	}
+    public static class Factory implements IRenderFactory<Roamer> {
+        @Override
+        public Render<? super Roamer> createRenderFor(RenderManager manager) {
+            return new RenderRoamer(manager, new ModelRoamer(), 0);
+        }
+    }
+}

@@ -2,14 +2,18 @@ package naturix.divinerpg.dimensions.arcana.components;
 
 import java.util.Random;
 
+import naturix.divinerpg.dimensions.arcana.ArcanaChunkPrimer;
 import net.minecraft.block.Block;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.chunk.Chunk;
+import net.minecraft.block.state.IBlockState;
 
 public abstract class DungeonComponentBase {
-    public abstract boolean generate(Chunk chunk, Random rand, int x, int y, int z);
+    public abstract boolean generate(ArcanaChunkPrimer chunk, Random rand, int x, int y, int z);
 
-    public void setBlock(Chunk chunk, int x, int y, int z, Block block) {
-        chunk.setBlockState(new BlockPos(x, y, z), block.getDefaultState());
+    public void setBlock(ArcanaChunkPrimer chunk, int x, int y, int z, Block block) {
+        chunk.setBlockState(x, y, z, block.getDefaultState());
+    }
+
+    public void setBlockState(ArcanaChunkPrimer chunk, int x, int y, int z, IBlockState state) {
+        chunk.setBlockState(x, y, z, state);
     }
 }
