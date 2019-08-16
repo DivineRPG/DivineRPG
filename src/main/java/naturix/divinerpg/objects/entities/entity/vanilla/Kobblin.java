@@ -31,6 +31,11 @@ public class Kobblin extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 0.9F;
+    }
+
+    @Override
     public void entityInit() {
         super.entityInit();
         dataManager.register(PROVOKED, Boolean.valueOf(false));

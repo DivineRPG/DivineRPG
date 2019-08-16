@@ -36,6 +36,11 @@ public class PumpkinSpider extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 0.5F;
+    }
+
+    @Override
     public void entityInit() {
         super.entityInit();
         dataManager.register(CLIMBING, Boolean.valueOf(false));

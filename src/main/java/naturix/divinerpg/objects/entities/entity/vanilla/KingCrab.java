@@ -14,8 +14,13 @@ public class KingCrab extends EntityPeacefulUntilAttacked {
 
     public KingCrab(World worldIn) {
         super(worldIn);
-        this.setSize(1.55F, 1.25F);
+        this.setSize(1.8F, 1.7F);
         this.experienceValue = 40;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.4F;
     }
 
     @Override

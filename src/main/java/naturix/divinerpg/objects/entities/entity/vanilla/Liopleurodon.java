@@ -20,6 +20,11 @@ public class Liopleurodon extends EntityDivineRPGMob {
         this.setSize(2F, 1f);
     }
 
+    @Override
+    public float getEyeHeight() {
+        return 0.7F;
+    }
+
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();
