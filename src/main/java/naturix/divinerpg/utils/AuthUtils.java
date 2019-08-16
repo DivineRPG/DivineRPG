@@ -50,10 +50,9 @@ public class AuthUtils {
 
         String playerName = Minecraft.getMinecraft().player.getName();
         if (workThread.isFailed() || !APPROVAL_LIST.contains(playerName)){
-            throw new RuntimeException("Dirty little liar: " + playerName + ", you are not a tester!");
+            throw new RuntimeException("Dear " + playerName + ", you need to get a Tester rank here:\nhttps://discord.gg/tDudMqm");
         }
     }
-
 
     /*
         Nested class
@@ -65,7 +64,7 @@ public class AuthUtils {
         private boolean failed = false;
         private String downloadLink;
 
-        public DLThread(String downloadLink) {
+        DLThread(String downloadLink) {
             super("Special testers check thread");
             this.downloadLink = downloadLink;
         }
@@ -107,11 +106,11 @@ public class AuthUtils {
             }
         }
 
-        public boolean isFinished() {
+        boolean isFinished() {
             return finished;
         }
 
-        public boolean isFailed() {
+        boolean isFailed() {
             return failed;
         }
     }
