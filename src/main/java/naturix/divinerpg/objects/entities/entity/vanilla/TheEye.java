@@ -21,7 +21,12 @@ public class TheEye extends EntityDivineRPGMob {
 
     public TheEye(World worldIn) {
         super(worldIn);
-        this.setSize(1.6F, 1.6f);
+        this.setSize(1.3F, 2F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.75F;
     }
 
     @Override

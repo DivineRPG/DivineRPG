@@ -14,8 +14,14 @@ public class Whale extends EntityDivineRPGSwimming {
 
     public Whale(World worldIn) {
         super(worldIn);
-        this.setSize(4F, 2f);
+        this.setSize(3F, 0.8F);
     }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.4F;
+    }
+
 
     @Override
     protected void applyEntityAttributes() {

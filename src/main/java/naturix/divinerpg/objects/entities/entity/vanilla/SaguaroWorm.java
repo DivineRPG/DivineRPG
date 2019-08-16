@@ -24,8 +24,13 @@ public class SaguaroWorm extends EntityDivineRPGMob {
 
     public SaguaroWorm(World par1World) {
         super(par1World);
-        this.setSize(0.5F, 3F);
+        this.setSize(1F, 3F);
         addAttackingAI();
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.5F;
     }
 
     @Override

@@ -27,6 +27,11 @@ public class Snapper extends EntityDivineRPGTameable {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 0.4F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D / 1.4D);

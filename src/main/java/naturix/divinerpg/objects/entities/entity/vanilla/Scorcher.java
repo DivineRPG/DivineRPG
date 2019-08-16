@@ -32,10 +32,15 @@ public class Scorcher extends EntityDivineRPGMob {
 
     public Scorcher(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 1f);
+        this.setSize(1.2F, 2F);
         this.isImmuneToFire = true;
         this.experienceValue = 20;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.6F;
     }
 
     @Override

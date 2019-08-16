@@ -20,9 +20,14 @@ public class KingOfScorchers extends EntityDivineRPGBoss {
 
     public KingOfScorchers(World worldIn) {
         super(worldIn);
-        this.setSize(2.0F, 3.9F);
+        this.setSize(2.0F, 2.5F);
         this.special = 0;
         this.isImmuneToFire = true;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1F;
     }
 
     @Override

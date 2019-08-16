@@ -17,7 +17,7 @@ public class WhiteGrizzle extends EntityDivineRPGTameable {
 
     public WhiteGrizzle(World worldIn) {
         super(worldIn);
-        this.setSize(0.8F, 1.2F);
+        this.setSize(0.8F, 1.4F);
         this.setHealth(this.getMaxHealth());
     }
 
@@ -25,6 +25,12 @@ public class WhiteGrizzle extends EntityDivineRPGTameable {
         this(worldIn);
         setTamedBy(player);
     }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.2F;
+    }
+
 
     @Override
     protected void applyEntityAttributes() {

@@ -23,7 +23,13 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
 
     public Wildfire(World worldIn) {
         super(worldIn);
+        this.setSize(0.8F, 2.2F);
         this.isImmuneToFire = true;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.75F;
     }
 
     @Override
