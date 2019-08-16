@@ -33,7 +33,12 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
 
     public Rainbour(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 1f);
+        this.setSize(1F, 1F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.6F;
     }
 
     @Override

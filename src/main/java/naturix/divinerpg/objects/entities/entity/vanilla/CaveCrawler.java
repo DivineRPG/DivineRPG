@@ -14,7 +14,12 @@ public class CaveCrawler extends EntityDivineRPGMob {
 
     public CaveCrawler(World worldIn) {
         super(worldIn);
-        this.setSize(1.5F, 2.0F);
+        this.setSize(1.0F, 1.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.15F;
     }
 
     @Override

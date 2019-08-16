@@ -18,6 +18,11 @@ public class Glacon extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 1.3F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D * 1.6D);

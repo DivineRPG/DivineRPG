@@ -22,13 +22,18 @@ public class Smelter extends EntityDivineRPGTameable implements IAttackTimer {
 
     public Smelter(World worldIn) {
         super(worldIn);
-        this.setSize(1.3F, 2.5F);
+        this.setSize(1.5F, 3.5F);
         this.isImmuneToFire = true;
     }
 
     public Smelter(World worldIn, EntityPlayer player) {
         this(worldIn);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 3.2F;
     }
 
     @Override

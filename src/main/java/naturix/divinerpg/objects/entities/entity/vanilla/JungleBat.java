@@ -27,6 +27,12 @@ public class JungleBat extends EntityDivineRPGMob {
 
     public JungleBat(World worldIn) {
         super(worldIn);
+        this.setSize(0.7F, 1F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.6F;
     }
 
     @Override

@@ -17,13 +17,18 @@ public class BrownGrizzle extends EntityDivineRPGTameable {
 
     public BrownGrizzle(World worldIn) {
         super(worldIn);
-        this.setSize(0.8F, 1.2F);
+        this.setSize(0.8F, 1.4F);
         this.setHealth(this.getMaxHealth());
     }
 
     public BrownGrizzle(World worldIn, EntityPlayer player) {
         this(worldIn);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.2F;
     }
 
     @Override

@@ -35,6 +35,11 @@ public class EnderTriplets extends EntityDivineRPGFlying {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 1.0F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);

@@ -19,7 +19,12 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
 
     public AridWarrior(World worldIn) {
         super(worldIn);
-        this.setSize(1.6F, 1.6f);
+        this.setSize(1.4F, 2.8f);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.25F;
     }
 
     @Override

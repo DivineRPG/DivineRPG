@@ -14,7 +14,12 @@ public class Shark extends EntityDivineRPGSwimming {
 
     public Shark(World worldIn) {
         super(worldIn);
-        this.setSize(1.4F, 0.6f);
+        this.setSize(1F, 0.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.3F;
     }
 
     @Override

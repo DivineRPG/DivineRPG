@@ -14,7 +14,12 @@ public class EnthralledDramcryx extends EntityDivineRPGMob {
 
     public EnthralledDramcryx(World worldIn) {
         super(worldIn);
-        this.setSize(1.25F, 1.25F);
+        this.setSize(1.35F, 1.75F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.25F;
     }
 
     @Override
