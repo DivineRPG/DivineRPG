@@ -58,6 +58,7 @@ import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.AuthUtils;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
@@ -114,6 +115,11 @@ public class ClientProxy extends CommonProxy {
 
         PostInitLog.init();
         IntenseDebug.init();
+
+        /*
+            TODO PRE ALFA PROTECTION!
+         */
+        AuthUtils.init("https://raw.githubusercontent.com/Oshi41/DivineRPG/1.12.2/PROGRESS/Trusted");
     }
 
     @Override
