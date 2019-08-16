@@ -15,38 +15,28 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventArmorTick {
 
     // private float flyTemp;
 
-    public static final String[] isJumping = new String[] { "field_70703_bu", "isJumping" };
-    public static final String[] walkSpeed = new String[] { "field_75097_g", "walkSpeed" };
+    private static final String[] isJumping = new String[] { "field_70703_bu", "isJumping" };
+    private static final String[] walkSpeed = new String[] { "field_75097_g", "walkSpeed" };
 
-    //private World world;
+    // list of players who can fly
+    private final List<EntityPlayer> flyingPlayers = new ArrayList<>();
 
     @SubscribeEvent
     public void onTickEvent(PlayerTickEvent evt) {
         EntityPlayer player = evt.player;
-        //world = player.world;
 
         FullSetArmorHelper armorHelper = new FullSetArmorHelper(player);
 
         float speedMultiplier = 1;
 
-
-        if (armorHelper.isAngelic()) {
-            if (!player.capabilities.isCreativeMode) {
-                player.capabilities.allowFlying = true;
-            }
-        } else if (!player.capabilities.isCreativeMode && player.capabilities.allowFlying) {
-            if (!armorHelper.isAngelic()) {
-                player.capabilities.allowFlying = false;
-                player.capabilities.isFlying = false;
-            }
-        }
+        checkFlying(player, armorHelper);
 
         //Elite Realmite
         if (armorHelper.isEliteRealmite()
@@ -102,8 +92,7 @@ public class EventArmorTick {
         //Aquastrive
         if (armorHelper.isAquastrive()) {
             float speed = 1.1F;
-            boolean isJumping = false;
-            isJumping = (Boolean) ObfuscationReflectionHelper.getPrivateValue(EntityLivingBase.class, player,
+            boolean isJumping = (Boolean) ObfuscationReflectionHelper.getPrivateValue(EntityLivingBase.class, player,
                     EventArmorTick.isJumping);
 
             if (player.isInWater()) {
@@ -180,8 +169,10 @@ public class EventArmorTick {
             speedMultiplier = 2.2f;
         }
 
-        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities,
-                0.1f * speedMultiplier, walkSpeed);
+        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class,
+                player.capabilities,
+                0.1f * speedMultiplier,
+                walkSpeed);
 
         if (armorHelper.isGlistening(ModItems.glisteningHood)) {
             player.fallDistance = -0.5F;
@@ -197,5 +188,34 @@ public class EventArmorTick {
 
         if (player.inventory.hasItemStack(new ItemStack(ModItems.minersAmulet)))
             player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 1, 2, true, false));
+    }
+
+    /*
+        Carefully checks for equipped angelic armor
+     */
+    private void checkFlying(EntityPlayer player, FullSetArmorHelper armorHelper){
+        // in creative mode we do not need any checks
+        if (player.capabilities.isCreativeMode){
+            return;
+        }
+
+        // check if we can fly
+        boolean canFly = armorHelper.isAngelic();
+        // check if we flying
+        boolean wasFlying = flyingPlayers.contains(player);
+
+        // apply armor or take it off
+        if (canFly != wasFlying){
+            // set it only one time
+            player.capabilities.allowFlying = canFly;
+
+            // removing player from flying map
+            if (canFly){
+                flyingPlayers.add(player);
+            }
+            else {
+                flyingPlayers.remove(player);
+            }
+        }
     }
 }
