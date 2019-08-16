@@ -30,8 +30,14 @@ public class Alicanto extends EntityDivineRPGMob {
 
     public Alicanto(World worldIn) {
         super(worldIn);
+        this.setSize(1.2F, 1.6F);
         this.flyTimer = 0;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.3F;
     }
 
     @Override

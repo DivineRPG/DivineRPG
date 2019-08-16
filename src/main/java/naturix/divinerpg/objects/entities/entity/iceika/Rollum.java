@@ -15,7 +15,12 @@ public class Rollum extends EntityDivineRPGMob {
 
     public Rollum(World worldIn) {
         super(worldIn);
-        setSize(1.3F, 2.0F);
+        setSize(1.2F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.4F;
     }
 
     @Override

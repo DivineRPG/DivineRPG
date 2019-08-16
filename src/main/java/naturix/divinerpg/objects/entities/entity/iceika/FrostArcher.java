@@ -29,8 +29,13 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
 
     public FrostArcher(World worldIn) {
         super(worldIn);
-        this.setSize(1.7f, 1.3f);
+        this.setSize(0.6f, 2.0f);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.725F;
     }
 
     @Override
