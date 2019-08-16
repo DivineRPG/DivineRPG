@@ -32,7 +32,7 @@ public class ArcanaTickHandler {
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event){ 
 		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(0);
+		arcana.set(arcana.getMax());
 	}
 
 	@SubscribeEvent
@@ -44,13 +44,13 @@ public class ArcanaTickHandler {
 	@SubscribeEvent
 	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event){ 
 		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(200);
+		arcana.set(arcana.getMax());
 	}
 	
 	@SubscribeEvent
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event){
 		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(200);
+		arcana.set(arcana.getMax());
 		
 		event.player.addExperienceLevel(0);
 	}
