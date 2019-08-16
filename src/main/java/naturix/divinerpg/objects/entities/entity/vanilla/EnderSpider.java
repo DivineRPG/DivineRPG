@@ -13,8 +13,13 @@ public class EnderSpider extends EntityEnderman {
 
     public EnderSpider(World worldIn) {
         super(worldIn);
-        this.setSize(0.9F, 0.9F);
+        this.setSize(0.5F, 0.55F);
         this.experienceValue = 20;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.45F;
     }
 
     @Override

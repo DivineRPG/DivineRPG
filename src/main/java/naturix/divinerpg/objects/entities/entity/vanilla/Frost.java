@@ -30,9 +30,14 @@ public class Frost extends EntityDivineRPGMob {
 
     public Frost(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 1f);
+        this.setSize(1F, 1F);
         this.experienceValue = 20;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.6F;
     }
 
     @Override

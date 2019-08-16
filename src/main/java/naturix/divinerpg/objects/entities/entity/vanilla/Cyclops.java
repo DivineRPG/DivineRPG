@@ -16,8 +16,13 @@ public class Cyclops extends EntityPeacefulUntilAttacked {
 
     public Cyclops(World worldIn) {
         super(worldIn);
-        this.setSize(1.5F, 3.9F);
+        this.setSize(1.2F, 4.0F);
         this.experienceValue = 40;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 3.5F;
     }
 
     @Override
