@@ -15,7 +15,12 @@ public class TheGrue extends EntityDivineRPGMob {
 
     public TheGrue(World worldIn) {
         super(worldIn);
-        this.setSize(0.8F, 2.0F);
+        this.setSize(0.8F, 1.9F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.4F;
     }
 
     @Override

@@ -20,8 +20,14 @@ public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
 
     public Caveclops(World worldIn) {
         super(worldIn);
-        this.setSize(1.0F, 2.9F);
+        this.setSize(1.2F, 4.0F);
     }
+
+    @Override
+    public float getEyeHeight() {
+        return 3.5F;
+    }
+
 
     @Override
     protected void applyEntityAttributes() {

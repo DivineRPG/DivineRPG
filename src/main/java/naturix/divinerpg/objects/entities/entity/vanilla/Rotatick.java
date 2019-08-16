@@ -14,7 +14,12 @@ public class Rotatick extends EntityDivineRPGMob {
 
     public Rotatick(World worldIn) {
         super(worldIn);
-        this.setSize(1.15F, 1F);
+        this.setSize(0.85F, 1F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.75F;
     }
 
     @Override

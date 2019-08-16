@@ -38,7 +38,12 @@ public class HellPig extends EntityDivineRPGTameable {
 
     public HellPig(World worldIn) {
         super(worldIn);
-        this.setSize(0.7F, 0.5F);
+        this.setSize(1F, 0.9F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.8F;
     }
 
     @Override

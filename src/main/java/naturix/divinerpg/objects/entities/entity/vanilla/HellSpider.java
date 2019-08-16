@@ -31,6 +31,11 @@ public class HellSpider extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 0.6F;
+    }
+
+    @Override
     public void entityInit() {
         super.entityInit();
         dataManager.register(CLIMBING, (byte) 0);

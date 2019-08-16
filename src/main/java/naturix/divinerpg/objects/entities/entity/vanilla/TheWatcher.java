@@ -36,6 +36,12 @@ public class TheWatcher extends EntityDivineRPGBoss {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 2.6F;
+    }
+
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(950.0D);

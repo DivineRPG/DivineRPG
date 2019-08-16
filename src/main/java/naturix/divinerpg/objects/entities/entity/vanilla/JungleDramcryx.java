@@ -14,7 +14,12 @@ public class JungleDramcryx extends EntityDivineRPGMob {
 
     public JungleDramcryx(World worldIn) {
         super(worldIn);
-        this.setSize(1.2F, 1.3f);
+        this.setSize(1F, 1.3f);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.8F;
     }
 
     @Override

@@ -14,7 +14,12 @@ public class DesertCrawler extends EntityDivineRPGMob {
 
     public DesertCrawler(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 1f);
+        this.setSize(1.0F, 1.5f);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.15F;
     }
 
     @Override

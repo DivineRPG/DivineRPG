@@ -19,12 +19,17 @@ public class Husk extends EntityDivineRPGTameable {
 
     public Husk(World worldIn) {
         super(worldIn);
-        this.setSize(0.8F, 1.4F);
+        this.setSize(0.8F, 1.5F);
     }
 
     public Husk(World worldIn, EntityPlayer player) {
         this(worldIn);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.3F;
     }
 
     @Override

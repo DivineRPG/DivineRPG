@@ -19,13 +19,18 @@ public class Ehu extends EntityDivineRPGTameable {
 
     public Ehu(World worldIn) {
         super(worldIn);
-        this.setSize(0.6F, 0.8F);
+        this.setSize(0.6F, 1.0F);
         this.setHealth(this.getMaxHealth());
     }
 
     public Ehu(World worldIn, EntityPlayer player) {
         this(worldIn);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.6F;
     }
 
     @Override

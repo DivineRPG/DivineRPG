@@ -12,7 +12,12 @@ public class EnderWatcher extends EntityEnderman {
 
     public EnderWatcher(World worldIn) {
         super(worldIn);
-        this.setSize(0.6F, 0.6F);
+        this.setSize(0.7F, 0.9F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.5F;
     }
 
     @Override

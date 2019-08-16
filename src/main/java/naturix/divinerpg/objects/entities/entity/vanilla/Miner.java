@@ -26,7 +26,12 @@ public class Miner extends EntityDivineRPGMob {
 
     public Miner(World worldIn) {
         super(worldIn);
-        this.setSize(0.6F, 1.9F);
+        this.setSize(0.6F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.725F;
     }
 
     @Override
