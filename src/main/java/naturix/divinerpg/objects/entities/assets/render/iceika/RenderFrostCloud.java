@@ -10,17 +10,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Created by LiteWolf101 on Feb
- * /08/2019
+ * Created by LiteWolf101 on Feb /08/2019
  */
 @SideOnly(Side.CLIENT)
 public class RenderFrostCloud extends Render<EntityFrostCloud> {
     public RenderFrostCloud(RenderManager manager) {
         super(manager);
     }
+
     @Nullable
-    protected ResourceLocation getEntityTexture(EntityFrostCloud entity)
-    {
+    protected ResourceLocation getEntityTexture(EntityFrostCloud entity) {
         return null;
     }
 }

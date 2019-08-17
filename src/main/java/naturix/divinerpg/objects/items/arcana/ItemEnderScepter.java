@@ -26,33 +26,34 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEnderScepter extends ItemMod {
 
-	private Random rand = new Random();
-	
-	public ItemEnderScepter(String name) {
-		super(name, DivineRPGTabs.swords);
-		setMaxStackSize(1);
-	}
+    private Random rand = new Random();
 
-	@Override
-	  public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player, @Nonnull EnumHand hand) {
-		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		if(world.isRemote && arcana.getArcana()>=75) {
-		RayTraceResult pos = player.rayTrace(32, 1);
-		int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY()+1, z = pos.getBlockPos().getZ();
-		player.dismountRidingEntity();
-        ((EntityPlayer)player).setPosition(x, y, z);
-        player.playSound(SoundEvents.BLOCK_PORTAL_TRAVEL, 1, 1);
-        arcana.consume(player, 75);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
-		}
+    public ItemEnderScepter(String name) {
+        super(name, DivineRPGTabs.swords);
+        setMaxStackSize(1);
+    }
+
+    @Override
+    public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
+            @Nonnull EnumHand hand) {
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        if (world.isRemote && arcana.getArcana() >= 75) {
+            RayTraceResult pos = player.rayTrace(32, 1);
+            int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
+            player.dismountRidingEntity();
+            ((EntityPlayer) player).setPosition(x, y, z);
+            player.playSound(SoundEvents.BLOCK_PORTAL_TRAVEL, 1, 1);
+            arcana.consume(player, 75);
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
+        }
         return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
-	}
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {	list.add(TooltipLocalizer.arcanaConsumed(75));
-		list.add(TooltipHelper.getInfoText("tooltip.ender_scepter"));
-		list.add(TooltipLocalizer.infiniteUses());
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipLocalizer.arcanaConsumed(75));
+        list.add(TooltipHelper.getInfoText("tooltip.ender_scepter"));
+        list.add(TooltipLocalizer.infiniteUses());
+    }
 }

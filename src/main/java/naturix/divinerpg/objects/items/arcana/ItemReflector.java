@@ -22,34 +22,42 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemReflector extends ItemMod {
-	private Random rand = new Random();
-	public ItemReflector() {
-		super("arcanium_reflector");
-		setCreativeTab(DivineRPGTabs.utility);
-		setMaxStackSize(1);
-		setFull3D();
-	}
-	
-	@Override
-	  public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player, @Nonnull EnumHand hand) {
-		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-			if(!world.isRemote && arcana.getArcana()>=20) {
-				player.playSound(ModSounds.REFLECTOR, 1, 1);
-			EntityThrowable entity = new EntityReflector(world, player);
-			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+    private Random rand = new Random();
+
+    public ItemReflector() {
+        super("arcanium_reflector");
+        setCreativeTab(DivineRPGTabs.utility);
+        setMaxStackSize(1);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
+    }
+
+    @Override
+    public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
+            @Nonnull EnumHand hand) {
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        if (!world.isRemote && arcana.getArcana() >= 20) {
+            player.playSound(ModSounds.REFLECTOR, 1, 1);
+            EntityThrowable entity = new EntityReflector(world, player);
+            entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(entity);
             arcana.consume(player, 20);
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());	
-		}
-			return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
-	}
-	
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {	list.add(TooltipHelper.getInfoText("tooltip.refector.push"));
-		list.add(TooltipLocalizer.arcanaConsumed(20));
-		list.add(TooltipLocalizer.infiniteUses());
-	}
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
+        }
+        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipHelper.getInfoText("tooltip.refector.push"));
+        list.add(TooltipLocalizer.arcanaConsumed(20));
+        list.add(TooltipLocalizer.infiniteUses());
+    }
 }

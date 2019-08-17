@@ -23,53 +23,65 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemMeteorMash extends ItemMod {
 
     public ItemMeteorMash() {
         super("meteor_mash", DivineRPGTabs.ranged);
         setMaxStackSize(1);
-        this.setFull3D();
         ItemStaff.staffList.add(this);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());    float rotationPitch = player.rotationPitch;
-		RayTraceResult pos = player.rayTrace(30, 1);
-		int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY()+1, z = pos.getBlockPos().getZ();
-		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		
-		
+        ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
+        float rotationPitch = player.rotationPitch;
+        RayTraceResult pos = player.rayTrace(30, 1);
+        int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+
         if (pos.typeOfHit == RayTraceResult.Type.BLOCK) {
             int blockX = pos.getBlockPos().getX();
             int blockY = pos.getBlockPos().getY();
             int blockZ = pos.getBlockPos().getZ();
             EnumFacing side = pos.sideHit;
 
-            if (side == EnumFacing.DOWN) --blockY;
-            if (side == EnumFacing.UP) ++blockY;
-            if (side == EnumFacing.EAST) --blockZ;
-            if (side == EnumFacing.WEST) ++blockZ;
-            if (side == EnumFacing.SOUTH) --blockX;
-            if (side == EnumFacing.NORTH) ++blockX;
+            if (side == EnumFacing.DOWN)
+                --blockY;
+            if (side == EnumFacing.UP)
+                ++blockY;
+            if (side == EnumFacing.EAST)
+                --blockZ;
+            if (side == EnumFacing.WEST)
+                ++blockZ;
+            if (side == EnumFacing.SOUTH)
+                --blockX;
+            if (side == EnumFacing.NORTH)
+                ++blockX;
 
-                if (!world.isRemote && arcana.getArcana()>=35) {
-                	EntityThrowable entity = new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D);
-        			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-        			world.spawnEntity(entity);
-                    player.playSound(ModSounds.STARLIGHT, 1, 1);
-                    arcana.consume(player, 35);
-                }
+            if (!world.isRemote && arcana.getArcana() >= 35) {
+                EntityThrowable entity = new EntityMeteor(world, (double) blockX + 0.5D, (double) blockY + 25D,
+                        (double) blockZ + 0.5D);
+                entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+                world.spawnEntity(entity);
+                player.playSound(ModSounds.STARLIGHT, 1, 1);
+                arcana.consume(player, 35);
+            }
             player.getLook(1);
         }
         return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(hand));
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {
-    	list.add(TooltipHelper.getInfoText("tooltip.meteormash"));
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipHelper.getInfoText("tooltip.meteormash"));
         list.add(TooltipLocalizer.arcanaConsumed(35));
         list.add(TooltipLocalizer.infiniteUses());
     }

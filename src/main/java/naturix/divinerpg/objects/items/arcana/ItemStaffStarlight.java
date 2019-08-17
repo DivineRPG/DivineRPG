@@ -23,46 +23,61 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemStaffStarlight extends ItemModRanged {
 
     public ItemStaffStarlight(String name) {
         super(name, -1, ModSounds.STARLIGHT, EntityStar.class);
         ItemProjectileShooter.gunList.add(this);
-        this.setFull3D();
         ItemStaff.staffList.add(this);
     }
 
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
+    }
+
     @Override
-	public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player, @Nonnull EnumHand hand) {
-		RayTraceResult pos = player.rayTrace(32, 1);
-		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
-		int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY()+1, z = pos.getBlockPos().getZ();
-		
+    public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
+            @Nonnull EnumHand hand) {
+        RayTraceResult pos = player.rayTrace(32, 1);
+        ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
+        int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
+
         if (pos.typeOfHit == RayTraceResult.Type.BLOCK) {
             int blockX = pos.getBlockPos().getX();
             int blockY = pos.getBlockPos().getY();
             int blockZ = pos.getBlockPos().getZ();
             EnumFacing side = pos.sideHit;
 
-            if (side == EnumFacing.DOWN) --blockY;
-            if (side == EnumFacing.UP) ++blockY;
-            if (side == EnumFacing.EAST) --blockZ;
-            if (side == EnumFacing.WEST) ++blockZ;
-            if (side == EnumFacing.SOUTH) --blockX;
-            if (side == EnumFacing.NORTH) ++blockX;
+            if (side == EnumFacing.DOWN)
+                --blockY;
+            if (side == EnumFacing.UP)
+                ++blockY;
+            if (side == EnumFacing.EAST)
+                --blockZ;
+            if (side == EnumFacing.WEST)
+                ++blockZ;
+            if (side == EnumFacing.SOUTH)
+                --blockX;
+            if (side == EnumFacing.NORTH)
+                ++blockX;
 
-    		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
             if (stack.getItem() == ModItems.staffStarlight) {
-                if (!world.isRemote && arcana.getArcana() >=25) {
+                if (!world.isRemote && arcana.getArcana() >= 25) {
                     for (int i = 0; i < 8; i++)
-                    world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                        world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
+                                (double) blockZ + 0.5D));
                     arcana.consume(player, 25);
                     player.playSound(ModSounds.STARLIGHT, 1, 0.5f);
                 }
             } else {
-            	if (!world.isRemote && arcana.getArcana() >= 5) {
-                    world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
+                if (!world.isRemote && arcana.getArcana() >= 5) {
+                    world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
+                            (double) blockZ + 0.5D));
                     arcana.consume(player, 5);
                     player.playSound(ModSounds.STARLIGHT, 1, 1);
                 }

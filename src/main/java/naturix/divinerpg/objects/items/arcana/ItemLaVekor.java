@@ -25,43 +25,45 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemLaVekor extends ItemMod {
 
-	private float cost = 5;
+    private float cost = 5;
 
-	public ItemLaVekor() {
-		super("la_vekor", DivineRPGTabs.ranged);
-		setMaxStackSize(1);
-		setFull3D();
-	}
+    public ItemLaVekor() {
+        super("la_vekor", DivineRPGTabs.ranged);
+        setMaxStackSize(1);
+    }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-	    		if((player.inventory.hasItemStack(new ItemStack(ModItems.grenade)) || player.capabilities.isCreativeMode)) {
-	        	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-				if(!world.isRemote && arcana.getArcana()>=cost){
-				    player.playSound(ModSounds.LA_VEKOR, 1, 1);
-				    EntityThrowable projectile = new EntityGrenade(world, player);
-				    projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-	                world.spawnEntity(projectile);
-	                arcana.consume(player, cost);
-	                if(!player.capabilities.isCreativeMode)
-					{
-						
-	                ItemStack stack = new ItemStack(ModItems.grenade);
-					stack.shrink(1);
-				}
-			    }
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
+    }
 
-		        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
-			}
-	            return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(hand));
-	}
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        if ((player.inventory.hasItemStack(new ItemStack(ModItems.grenade)) || player.capabilities.isCreativeMode)) {
+            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            if (!world.isRemote && arcana.getArcana() >= cost) {
+                player.playSound(ModSounds.LA_VEKOR, 1, 1);
+                EntityThrowable projectile = new EntityGrenade(world, player);
+                projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+                world.spawnEntity(projectile);
+                arcana.consume(player, cost);
+                if (!player.capabilities.isCreativeMode) {
+                    ItemStack stack = new ItemStack(ModItems.grenade);
+                    stack.shrink(1);
+                }
+            }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {	list.add(TooltipLocalizer.explosiveShots());
-		list.add(TooltipLocalizer.ammo(ModItems.grenade));
-		list.add(TooltipLocalizer.arcanaConsumed(cost));
-		list.add(TooltipLocalizer.infiniteUses());
-	}
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+        }
+        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItem(hand));
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipLocalizer.explosiveShots());
+        list.add(TooltipLocalizer.ammo(ModItems.grenade));
+        list.add(TooltipLocalizer.arcanaConsumed(cost));
+        list.add(TooltipLocalizer.infiniteUses());
+    }
 }

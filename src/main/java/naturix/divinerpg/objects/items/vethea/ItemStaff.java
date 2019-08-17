@@ -30,51 +30,57 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemStaff extends ItemMod {
-	
-	public static List<Item> staffList = new ArrayList<Item>();
-	
-	protected int damage;
-	protected int cost;
 
-	public ItemStaff(int dam, int cos, String name) {
-		super(name);
-		this.maxStackSize = 1;
-		this.damage = dam;
-		this.cost = cos;
-		this.setCreativeTab(DivineRPGTabs.vethea);
-		this.setFull3D();
-		staffList.add(this);
-	}
+    public static List<Item> staffList = new ArrayList<Item>();
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-	    	list.add(TooltipLocalizer.arcanaDam(damage));
-		list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
-		if(stack.getItem() == ModItems.evernight) list.add(TooltipHelper.getInfoText("tooltip.staff.evernight.damage"));
-		list.add(TooltipLocalizer.arcanaConsumed(cost));
-		list.add(TooltipLocalizer.vethean());
-	}
+    protected int damage;
+    protected int cost;
 
-	 @Override
-	 public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-	       	ItemStack par1 = new ItemStack(player.getHeldItem(hand).getItem());
-	       	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-	       	if (!world.isRemote) {
-    				if(arcana.getArcana() >= cost) {
-    			arcana.consume(player, cost);
-			if(par1.getItem() == ModItems.evernight){
-				player.attackEntityFrom(Utils.arcanaSource, 20);
-				EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);
-				projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);
-	            world.spawnEntity(projectile);
-			} else { 
-				EntityThrowable projectile = new EntityBouncingProjectile(world, player, this.damage);
-				projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);
-	            world.spawnEntity(projectile);
-			}
-			world.playSound(player, player.getPosition(), ModSounds.STAFF, SoundCategory.PLAYERS, 1, 1);
-		}}
-	       	return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
-	        }
+    public ItemStaff(int dam, int cos, String name) {
+        super(name);
+        this.maxStackSize = 1;
+        this.damage = dam;
+        this.cost = cos;
+        this.setCreativeTab(DivineRPGTabs.vethea);
+        staffList.add(this);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipLocalizer.arcanaDam(damage));
+        list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
+        if (stack.getItem() == ModItems.evernight)
+            list.add(TooltipHelper.getInfoText("tooltip.staff.evernight.damage"));
+        list.add(TooltipLocalizer.arcanaConsumed(cost));
+        list.add(TooltipLocalizer.vethean());
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack par1 = new ItemStack(player.getHeldItem(hand).getItem());
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        if (!world.isRemote) {
+            if (arcana.getArcana() >= cost) {
+                arcana.consume(player, cost);
+                if (par1.getItem() == ModItems.evernight) {
+                    player.attackEntityFrom(Utils.arcanaSource, 20);
+                    EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);
+                    projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);
+                    world.spawnEntity(projectile);
+                } else {
+                    EntityThrowable projectile = new EntityBouncingProjectile(world, player, this.damage);
+                    projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);
+                    world.spawnEntity(projectile);
+                }
+                world.playSound(player, player.getPosition(), ModSounds.STAFF, SoundCategory.PLAYERS, 1, 1);
+            }
+        }
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+    }
 }

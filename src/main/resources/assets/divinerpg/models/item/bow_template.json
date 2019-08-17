@@ -1,5 +1,5 @@
 {
-  "parent": "item/bow",
+  "parent": "item/generated",
   "textures": {
     "layer0": "divinerpg:items/bow_template"
   }
