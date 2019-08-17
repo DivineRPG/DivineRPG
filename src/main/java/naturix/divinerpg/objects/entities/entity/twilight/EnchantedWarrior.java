@@ -17,6 +17,12 @@ public class EnchantedWarrior extends EntityDivineRPGMob {
 
     public EnchantedWarrior(World worldIn) {
         super(worldIn);
+        this.setSize(0.6F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.7F;
     }
 
     @Override

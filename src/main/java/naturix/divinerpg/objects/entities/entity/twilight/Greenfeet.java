@@ -20,6 +20,11 @@ public class Greenfeet extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 1.75F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200);

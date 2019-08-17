@@ -24,6 +24,12 @@ public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
 
     public Reyvor(World worldIn) {
         super(worldIn);
+        this.setSize(1.0F, 2.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.0F;
     }
 
     @Override
