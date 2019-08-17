@@ -14,17 +14,17 @@ import org.lwjgl.opengl.GL11;
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 	public class EventDevHat {
 		
-	private static ModelHat hat = new ModelHat();
+	private ModelHat hat = new ModelHat();
 	
 	@SubscribeEvent
 	public void playerRender(RenderPlayerEvent.Post evt) {
-//		if(Utils.isDeveloperName(evt.getEntityPlayer().getDisplayName())) {
+		if(Utils.isDeveloperName(evt.getEntityPlayer().getDisplayName())) {
 			GL11.glPushMatrix();
 			float height = evt.getEntity().height;
 			GL11.glTranslatef(-0.5f, height, -0.5f);
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhats/hat_red.png"));
 			hat.renderAll();
 			GL11.glPopMatrix();
-//		}
+		}
 	}
 }

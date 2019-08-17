@@ -2,6 +2,8 @@ package naturix.divinerpg.networking.message;
 
 import io.netty.buffer.ByteBuf;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.utils.DRPGParticleTypes;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -38,7 +40,16 @@ public class MessageDivineAccumulator implements IMessage{
         public IMessage onMessage(MessageDivineAccumulator msg, MessageContext ctx) {
             for(double r = 0; r < 4; r += 0.1) {
                 for(double theta = 0; theta < 2*Math.PI; theta += (Math.PI/24)) {
-                    DivineRPG.proxy.spawnParticle(null, msg.x+(r*Math.cos(theta)), msg.y, msg.z+(r*Math.sin(theta)), "eden", true);
+                    DivineRPG.proxy.spawnParticle(Minecraft.getMinecraft().world,
+                            DRPGParticleTypes.EDEN_PORTAL,
+                            msg.z+(r*Math.sin(theta)),
+                            msg.x+(r*Math.cos(theta)),
+                            msg.y,
+                            Math.random(),
+                            Math.random(),
+                            Math.random()
+                    );
+
                 }
             }
             return null;

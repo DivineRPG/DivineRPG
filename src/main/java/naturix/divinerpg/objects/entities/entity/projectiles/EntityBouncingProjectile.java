@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,6 +26,9 @@ public class EntityBouncingProjectile extends EntityThrowable
         super(par1, par2);
         this.damage = par3;
         this.thrower = par2;
+
+        Vec3d vector = par2.getLookVec().scale(1.5);
+        this.setPosition(posX + vector.x, posY + vector.y, posZ + vector.z);
     }
 
     public EntityBouncingProjectile(World par1, double par2, double par4, double par6) {

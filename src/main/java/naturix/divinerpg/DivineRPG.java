@@ -9,7 +9,6 @@ import naturix.divinerpg.compat.ProjectECompat;
 import naturix.divinerpg.events.ArcanaTickHandler;
 import naturix.divinerpg.events.EventArmorSet;
 import naturix.divinerpg.events.EventArmorTick;
-import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModMessages;
 import naturix.divinerpg.registry.ModOreDict;
@@ -81,7 +80,6 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.register(new EventArmorSet());
         MinecraftForge.EVENT_BUS.register(new EventArmorTick());
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
-        MinecraftForge.EVENT_BUS.register(new EventDevHat());
 
         ModMessages.init();
     }

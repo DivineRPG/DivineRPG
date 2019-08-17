@@ -18,6 +18,7 @@ import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.client.render.RenderItemStatue;
 import naturix.divinerpg.events.EventBowZoom;
 import naturix.divinerpg.events.EventClientLogin;
+import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.events.EventTooltip;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
@@ -129,6 +130,7 @@ public class ClientProxy extends CommonProxy {
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
+        MinecraftForge.EVENT_BUS.register(new EventDevHat());
         PreInitLog.init();
     }
 
