@@ -18,6 +18,7 @@ import naturix.divinerpg.client.render.RenderItemPresentBox;
 import naturix.divinerpg.client.render.RenderItemStatue;
 import naturix.divinerpg.events.EventBowZoom;
 import naturix.divinerpg.events.EventClientLogin;
+import naturix.divinerpg.events.EventDevHat;
 import naturix.divinerpg.events.EventTooltip;
 import naturix.divinerpg.objects.blocks.BlockStatue;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
@@ -44,6 +45,7 @@ import naturix.divinerpg.objects.blocks.tile.render.RenderFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderParasectaAltar;
 import naturix.divinerpg.objects.blocks.tile.render.RenderPresentBox;
 import naturix.divinerpg.objects.blocks.tile.render.RenderStatue;
+import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
 import naturix.divinerpg.particle.ParticleColored;
 import naturix.divinerpg.particle.ParticleColoredFlame;
@@ -81,6 +83,7 @@ import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -97,8 +100,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        Utils.setupCapes();
-        Utils.updateCapeList();
 
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
@@ -111,7 +112,7 @@ public class ClientProxy extends CommonProxy {
         Utils.postFMLEvent(new ClientTicker());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
         MinecraftForge.EVENT_BUS.register(new EventTooltip());
-
+        MinecraftForge.EVENT_BUS.register(new EventDevHat());
         PostInitLog.init();
         IntenseDebug.init();
     }

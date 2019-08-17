@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.Side;
 			evt.getRenderer().getMainModel().bipedHead.postRender(0.0625f);
 			GL11.glRotatef(180, 0, 0, 1);
 			GL11.glTranslatef(-0.5f, 0.5f, -0.5f);
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhat.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhats/hat_red.png"));
 			hat.renderAll();
 			GL11.glPopMatrix();
 		}
