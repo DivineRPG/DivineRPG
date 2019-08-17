@@ -24,6 +24,11 @@ public class Hastreus extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 1.3F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80.0D);
@@ -43,7 +48,11 @@ public class Hastreus extends EntityDivineRPGMob {
 
         for (Entity entity : e) {
             if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) {
-                ((EntityPlayer) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 12, 18, true, false));
+                EntityPlayer player = (EntityPlayer)entity;
+
+                if(!player.isCreative() && !player.isSpectator()) {
+                    player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 12, 18, true, false));
+                }
             }
         }
 
