@@ -30,18 +30,18 @@ import net.minecraftforge.fml.common.IWorldGenerator;
  */
 public class WorldGenCustomStructures implements IWorldGenerator {
     //Iceika
-    public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon");
-    public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum");
+    public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon", DRPGLootTables.ICEIKA_CHEST);
+    public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum", DRPGLootTables.ICEIKA_CHEST);
     public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("coalstone_lamp_1");
     public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("coalstone_lamp_2");
     public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3");
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1");
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1", DRPGLootTables.ICEIKA_CHEST);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_2 = new DRPGStructureHandler("workshop_house_2");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_3 = new DRPGStructureHandler("workshop_house_3");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("workshop_house_4");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("workshop_house_5");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("workshop_house_6");
-    public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library");
+    public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",DRPGLootTables.ICEIKA_CHEST);
 
     //vanilla
     public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut");
@@ -51,12 +51,11 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             IChunkProvider chunkProvider) {
 
         if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
-            generateIceikaDungeon(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
-            generateIceikaRollumDungeon(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
+            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
+            generateStructure(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
             generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
-            //TODO Add loot to houses with chests
             generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
             generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 13, 12);
             generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 11, 11);
@@ -113,39 +112,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    /** Generates an Iceika Dungeon with the specified loot */
-    private void generateIceikaDungeon(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
-            int chance) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
-        int y = random.nextInt(43) + 13;
-        BlockPos pos = new BlockPos(x, y, z);
-        if (random.nextInt(chance) == 0) {
-            generator.generate(world, random, pos);
-            generateIceikaLoot(world, pos.add(18, 1, 1), random);
-            generateIceikaLoot(world, pos.add(23, 1, 1), random);
-        }
-    }
-
-    /** Generates an Iceika Rollum Dungeon with the specified loot */
-    private void generateIceikaRollumDungeon(WorldGenerator generator, World world, Random random, int chunkX,
-            int chunkZ, int chance) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
-        int y = random.nextInt(43) + 13;
-        BlockPos pos = new BlockPos(x, y, z);
-        if (random.nextInt(chance) == 0) {
-            generator.generate(world, random, pos);
-            generateIceikaLoot(world, pos.add(1, 1, 9), random);
-            generateIceikaLoot(world, pos.add(23, 1, 10), random);
-            generateIceikaLoot(world, pos.add(24, 1, 10), random);
-            generateIceikaLoot(world, pos.add(28, 1, 11), random);
-            generateIceikaLoot(world, pos.add(29, 1, 11), random);
-            generateIceikaLoot(world, pos.add(26, 1, 17), random);
-            generateIceikaLoot(world, pos.add(26, 1, 18), random);
-        }
-    }
-
     /** Generates a structure with the specified blocks in a given area */
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
             int chance, Block topBlock, int xCheckDist, int zCheckDist) {
@@ -157,14 +123,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             if (locationIsValidSpawn(world, x, y, z, xCheckDist, zCheckDist, topBlock)) {
                 generator.generate(world, random, pos);
             }
-        }
-    }
-
-    private void generateIceikaLoot(World world, BlockPos pos, Random random) {
-        TileEntity tileEntity = world.getTileEntity(pos);
-
-        if (tileEntity instanceof TileEntityFrostedChest) {
-            ((TileEntityFrostedChest) tileEntity).setLootTable(DRPGLootTables.ICEIKA_CHEST, random.nextLong());
         }
     }
 

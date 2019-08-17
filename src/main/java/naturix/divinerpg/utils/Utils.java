@@ -170,7 +170,7 @@ public class Utils {
     }
 
     public static void postFMLEvent(Object o) {
-        FMLCommonHandler.instance().bus().register(o);
+        MinecraftForge.EVENT_BUS.register(o);
     }
 
     public static void postForgeEvent(Object o) {
@@ -310,6 +310,6 @@ public class Utils {
         DEV_LIST.add("krwminer");
         DEV_LIST.add("NicosaurusRex99");
         DEV_LIST.add("LiteWolf101");
-
+        DEV_LIST.add("Dash");
     }
 }

@@ -1,10 +1,5 @@
 package naturix.divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
@@ -19,6 +14,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemGrenade extends ItemMod {
 	
 	private int counter = 0;
@@ -29,22 +27,22 @@ public class ItemGrenade extends ItemMod {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
-	{
-		ItemStack stack = new ItemStack(player.getHeldItemMainhand().getItem());
-	if(counter == 0) {
-			if(!world.isRemote) {
-					EntityGrenade projectile = new EntityGrenade(world, player);
-					projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-	                
-					world.spawnEntity(projectile);
-					world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1);
-				}
-				if(!player.capabilities.isCreativeMode) stack.shrink(1);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		// GEtting the reference, not creting new ItemStack
+		ItemStack stack = player.getHeldItemMainhand();
+		if (counter == 0) {
+			if (!world.isRemote) {
+				EntityGrenade projectile = new EntityGrenade(world, player);
+				projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+
+				world.spawnEntity(projectile);
+				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1);
 			}
-		if(counter < 3) counter++;
-		if(counter == 3) counter = 0;
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+			if (!player.capabilities.isCreativeMode) stack.shrink(1);
+		}
+		if (counter < 3) counter++;
+		if (counter == 3) counter = 0;
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 	}
 
 	@Override

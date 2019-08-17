@@ -10,11 +10,6 @@
 
 ### Other Blocks and Items
 
-### Tar
-* Make more viscous
-* Able to catch on and sustain fire
-* Slow spread of fire
-
 ### General
 - Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
 - Final balancing

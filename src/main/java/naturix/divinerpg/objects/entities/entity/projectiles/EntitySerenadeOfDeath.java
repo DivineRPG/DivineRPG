@@ -7,6 +7,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -30,6 +31,9 @@ public class EntitySerenadeOfDeath extends EntityThrowable {
 
     public EntitySerenadeOfDeath(World var1, EntityLivingBase var2) {
         super(var1, var2);
+
+        Vec3d vector = var2.getLookVec().scale(1.5);
+        this.setPosition(posX + vector.x, posY + vector.y, posZ + vector.z);
     }
 
     @Override

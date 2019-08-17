@@ -29,7 +29,7 @@ public class ItemLamona extends ItemMod {
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
+		ItemStack stack = player.getHeldItem(hand);
 		if(!player.capabilities.isCreativeMode) stack.shrink(1);
 		if(!world.isRemote) {
 		player.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1, 1);

@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.render.RenderItemArcaniumExtractor;
@@ -45,7 +44,6 @@ import naturix.divinerpg.objects.blocks.tile.render.RenderFrostedChest;
 import naturix.divinerpg.objects.blocks.tile.render.RenderParasectaAltar;
 import naturix.divinerpg.objects.blocks.tile.render.RenderPresentBox;
 import naturix.divinerpg.objects.blocks.tile.render.RenderStatue;
-import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import naturix.divinerpg.particle.ParticleApalachiaPortal;
 import naturix.divinerpg.particle.ParticleColored;
 import naturix.divinerpg.particle.ParticleColoredFlame;
@@ -60,6 +58,7 @@ import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEntities;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.AuthUtils;
 import naturix.divinerpg.utils.DRPGParticleTypes;
 import naturix.divinerpg.utils.Reference;
 import naturix.divinerpg.utils.Utils;
@@ -83,14 +82,12 @@ import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
     public static MusicTicker.MusicType Music_Iceika;
-    public static ArcanaHelper arcanaHelper;
 
     @Override
     public EntityPlayer getPlayer() {
@@ -100,6 +97,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
+        Utils.setupCapes();
+        Utils.updateCapeList();
 
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
@@ -112,9 +111,14 @@ public class ClientProxy extends CommonProxy {
         Utils.postFMLEvent(new ClientTicker());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
         MinecraftForge.EVENT_BUS.register(new EventTooltip());
-        MinecraftForge.EVENT_BUS.register(new EventDevHat());
+
         PostInitLog.init();
         IntenseDebug.init();
+
+        /*
+            TODO PRE ALFA PROTECTION!
+         */
+        AuthUtils.init("https://raw.githubusercontent.com/Oshi41/DivineRPG/1.12.2/PROGRESS/Trusted");
     }
 
     @Override
@@ -124,6 +128,7 @@ public class ClientProxy extends CommonProxy {
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
+        MinecraftForge.EVENT_BUS.register(new EventDevHat());
         PreInitLog.init();
     }
 
