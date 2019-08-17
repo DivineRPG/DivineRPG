@@ -14,6 +14,12 @@ public class Verek extends EntityDivineRPGMob {
 
     public Verek(World worldIn) {
         super(worldIn);
+        this.setSize(0.8F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.8F;
     }
 
     @Override

@@ -20,7 +20,12 @@ public class SkythernArcher extends EntityDivineRPGMob implements IRangedAttackM
 
     public SkythernArcher(World worldIn) {
         super(worldIn);
-        this.setSize(2F, 3f);
+        this.setSize(1.8F, 3.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.9F;
     }
 
     @Override

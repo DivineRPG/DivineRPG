@@ -14,6 +14,12 @@ public class Madivel extends EntityDivineRPGMob {
 
     public Madivel(World worldIn) {
         super(worldIn);
+        this.setSize(0.6F, 2.9F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.6F;
     }
 
     @Override

@@ -17,6 +17,12 @@ public class SoulStealer extends EntityDivineRPGMob {
 
     public SoulStealer(World worldIn) {
         super(worldIn);
+        this.setSize(0.8F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.75F;
     }
 
     @Override

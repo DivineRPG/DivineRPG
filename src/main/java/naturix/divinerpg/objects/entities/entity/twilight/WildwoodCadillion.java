@@ -15,8 +15,13 @@ public class WildwoodCadillion extends EntityDivineRPGMob {
 
     public WildwoodCadillion(World worldIn) {
         super(worldIn);
-        this.setSize(1.0F, 1.3F);
+        this.setSize(1.0F, 1.5F);
         this.experienceValue = 40;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.3F;
     }
 
     @Override

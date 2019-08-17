@@ -24,6 +24,11 @@ public class TwilightDemon extends EntityDivineRPGBoss {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 3.5F;
+    }
+
+    @Override
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 40.0F, 50));

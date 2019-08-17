@@ -10,7 +10,12 @@ import net.minecraft.world.World;
 public class SoulSpider extends EntityDivineRPGMob {
     public SoulSpider(World worldIn) {
         super(worldIn);
-        this.setSize(0.3F, 0.3F);
+        this.setSize(0.3F, 0.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.35F;
     }
 
     @Override

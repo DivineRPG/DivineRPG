@@ -11,7 +11,12 @@ public class Vamacheron extends EntityDivineRPGBoss {
 
     public Vamacheron(World worldIn) {
         super(worldIn);
-        this.setSize(1.25F, 2F);
+        this.setSize(1.45F, 2.2F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.0F;
     }
 
     @Override
