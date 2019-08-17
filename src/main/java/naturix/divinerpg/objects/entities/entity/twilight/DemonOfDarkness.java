@@ -15,6 +15,12 @@ public class DemonOfDarkness extends EntityDivineRPGMob {
 
     public DemonOfDarkness(World worldIn) {
         super(worldIn);
+        this.setSize(0.8F, 1.6F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.95F;
     }
 
     @Override

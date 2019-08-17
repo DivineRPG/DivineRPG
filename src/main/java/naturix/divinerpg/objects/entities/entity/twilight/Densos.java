@@ -15,6 +15,12 @@ public class Densos extends EntityDivineRPGBoss {
 
     public Densos(World worldIn) {
         super(worldIn);
+        this.setSize(1.0F, 2.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.0F;
     }
 
     @Override

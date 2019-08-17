@@ -11,8 +11,13 @@ import net.minecraft.world.World;
 public class AngryBunny extends EntityDivineRPGMob {
     public AngryBunny(World worldIn) {
         super(worldIn);
-        this.setSize(1.5F, 2F);
+        this.setSize(1.1F, 1.8F);
         this.experienceValue = 40;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.4F;
     }
 
     @Override
