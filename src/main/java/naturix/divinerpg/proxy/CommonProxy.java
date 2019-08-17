@@ -63,9 +63,8 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent e) {
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
-        CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana.class);
-
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+        CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
     }
 
     public void postInit(FMLPostInitializationEvent e) {

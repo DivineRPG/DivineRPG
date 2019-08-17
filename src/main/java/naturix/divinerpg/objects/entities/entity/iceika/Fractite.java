@@ -43,6 +43,11 @@ public class Fractite extends EntityDivineRPGFlying {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 0.7F;
+    }
+
+    @Override
     protected void initEntityAI() {
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 32.0F));

@@ -30,7 +30,7 @@ public class ItemDreamFlint extends ItemMod {
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {	
-		ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
+		ItemStack stack = player.getHeldItem(hand);
         WreckForm wreckform = new WreckForm(world);
         RaglokGogdure raglok = new RaglokGogdure(world);
         Karos karos = new Karos(world);

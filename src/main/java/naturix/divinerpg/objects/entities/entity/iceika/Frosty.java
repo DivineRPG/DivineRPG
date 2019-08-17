@@ -19,7 +19,12 @@ public class Frosty extends EntityPeacefulUntilAttacked {
 
     public Frosty(World worldIn) {
         super(worldIn);
-        this.setSize(1.0F, 2.5F);
+        this.setSize(0.9F, 2.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.85F;
     }
 
     @Override

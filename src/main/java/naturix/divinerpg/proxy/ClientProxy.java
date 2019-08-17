@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.client.ClientTicker;
 import naturix.divinerpg.client.render.RenderItemArcaniumExtractor;
@@ -89,7 +88,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
     public static MusicTicker.MusicType Music_Iceika;
-    public static ArcanaHelper arcanaHelper;
 
     @Override
     public EntityPlayer getPlayer() {

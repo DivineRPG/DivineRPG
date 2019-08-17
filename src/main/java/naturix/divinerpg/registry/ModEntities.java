@@ -2,7 +2,6 @@ package naturix.divinerpg.registry;
 
 import naturix.divinerpg.Config;
 import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.assets.render.RenderHat;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderCaptainMerik;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDatticon;
 import naturix.divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
@@ -361,7 +360,6 @@ import naturix.divinerpg.utils.Reference;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
@@ -882,8 +880,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TheHunger.class, RenderTheHunger.FACTORY);
 
-        // Other
-        RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, RenderHat.FACTORY);
+        
 
     }
 
