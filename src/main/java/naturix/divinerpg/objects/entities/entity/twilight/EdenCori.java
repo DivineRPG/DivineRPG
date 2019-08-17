@@ -32,6 +32,12 @@ public class EdenCori extends EntityDivineRPGFlying {
 
     public EdenCori(World worldIn) {
         super(worldIn);
+        this.setSize(0.6F, 1.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.8F;
     }
 
     @Override

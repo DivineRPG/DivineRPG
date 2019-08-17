@@ -19,7 +19,12 @@ public class Megalith extends EntityDivineRPGMob {
 
     public Megalith(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 3.2F);
+        this.setSize(1.2F, 4F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 3.6F;
     }
 
     @Override

@@ -15,8 +15,13 @@ public class WildwoodTomo extends EntityPeacefulUntilAttacked {
 
     public WildwoodTomo(World worldIn) {
         super(worldIn);
-        this.setSize(1.1F, 1.0F);
+        this.setSize(1.0F, 1.0F);
         this.experienceValue = 40;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.6F;
     }
 
     @Override

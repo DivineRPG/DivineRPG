@@ -14,8 +14,13 @@ public class Samek extends EntityPeacefulUntilAttacked {
 
     public Samek(World worldIn) {
         super(worldIn);
-        this.setSize(0.6F, 1.8F);
+        this.setSize(0.8F, 2.0F);
         this.experienceValue = 40;
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.7F;
     }
 
     @Override

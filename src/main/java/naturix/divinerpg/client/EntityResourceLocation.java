@@ -138,7 +138,7 @@ public class EntityResourceLocation {
 	public static ResourceLocation spellbinder = addMob("spellbinder");
 	public static ResourceLocation mystic = addMob("mystic");
 	public static ResourceLocation sorcerer = addMob("sorcerer");
-	public static ResourceLocation varek = addMob("varek");
+	public static ResourceLocation verek = addMob("verek");
 	public static ResourceLocation wildwoodWolf = addMob("wildwoodWolf");
 	public static ResourceLocation wildwoodCadillion = addMob("wildwoodCadillion");
 	public static ResourceLocation apalachiaCadillion = addMob("apalachiaCadillion");

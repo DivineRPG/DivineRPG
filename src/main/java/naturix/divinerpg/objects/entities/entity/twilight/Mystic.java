@@ -21,7 +21,12 @@ public class Mystic extends EntityDivineRPGMob {
 
     public Mystic(World worldIn) {
         super(worldIn);
-        this.setSize(0.5F, 2F);
+        this.setSize(0.5F, 2.2F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.0F;
     }
 
     @Override

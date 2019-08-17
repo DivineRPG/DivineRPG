@@ -15,7 +15,12 @@ public class SkythernGolem extends EntityDivineRPGMob {
 
     public SkythernGolem(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 2.8F);
+        this.setSize(1.3F, 2.9F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.65F;
     }
 
     @Override

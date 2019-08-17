@@ -33,7 +33,14 @@ public class SkythernCori extends EntityDivineRPGFlying {
 
     public SkythernCori(World worldIn) {
         super(worldIn);
+        this.setSize(0.6F, 1.5F);
     }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.8F;
+    }
+
 
     @Override
     protected void applyEntityAttributes() {

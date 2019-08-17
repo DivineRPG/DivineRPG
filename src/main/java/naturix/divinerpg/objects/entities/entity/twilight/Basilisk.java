@@ -15,7 +15,13 @@ public class Basilisk extends EntityDivineRPGMob {
 
     public Basilisk(World worldIn) {
         super(worldIn);
+        this.setSize(0.7F, 0.8F);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.55F;
     }
 
     @Override

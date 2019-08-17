@@ -20,7 +20,12 @@ public class TwilightArcher extends EntityDivineRPGMob implements IRangedAttackM
 
     public TwilightArcher(World worldIn) {
         super(worldIn);
-        this.setSize(2.0F, 3.0F);
+        this.setSize(1.8F, 3.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.9F;
     }
 
     @Override

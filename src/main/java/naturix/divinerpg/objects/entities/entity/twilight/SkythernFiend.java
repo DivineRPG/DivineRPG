@@ -14,6 +14,12 @@ public class SkythernFiend extends EntityDivineRPGMob {
 
     public SkythernFiend(World worldIn) {
         super(worldIn);
+        this.setSize(0.6F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.75F;
     }
 
     @Override

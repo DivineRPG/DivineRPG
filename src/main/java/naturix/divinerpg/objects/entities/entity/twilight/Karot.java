@@ -22,6 +22,11 @@ public class Karot extends EntityDivineRPGBoss {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 3.7F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1250);

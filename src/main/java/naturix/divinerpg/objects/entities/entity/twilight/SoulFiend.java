@@ -18,6 +18,12 @@ public class SoulFiend extends EntityDivineRPGBoss {
 
     public SoulFiend(World worldIn) {
         super(worldIn);
+        this.setSize(0.8F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.725F;
     }
 
     @Override

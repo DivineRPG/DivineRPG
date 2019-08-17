@@ -23,7 +23,12 @@ public class Behemoth extends EntityDivineRPGMob {
 
     public Behemoth(World worldIn) {
         super(worldIn);
-        this.setSize(1.2f, 1);
+        this.setSize(1F, 1.2F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.7F;
     }
 
     @Override

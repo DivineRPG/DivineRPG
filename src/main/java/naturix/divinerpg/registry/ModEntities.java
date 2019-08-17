@@ -491,7 +491,7 @@ public class ModEntities {
         registerMobWithEgg(TwilightArcher.class, "twilight_archer");
         registerMobWithEgg(TwilightDemon.class, "twilight_demon");
         registerMobWithEgg(Vamacheron.class, "vamacheron");
-        registerMobWithEgg(Verek.class, "varek");
+        registerMobWithEgg(Verek.class, "verek");
         registerMobWithEgg(WildwoodCadillion.class, "wildwood_cadillion");
         registerMobWithEgg(WildwoodGolem.class, "wildwood_golem");
         registerMobWithEgg(WildwoodTomo.class, "wildwood_tomo");

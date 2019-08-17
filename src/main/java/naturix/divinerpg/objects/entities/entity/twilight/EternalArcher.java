@@ -24,6 +24,11 @@ public class EternalArcher extends EntityDivineRPGBoss {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 4.5F;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1550);
