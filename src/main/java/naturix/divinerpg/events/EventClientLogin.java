@@ -21,8 +21,10 @@ public class EventClientLogin {
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt) {
         EntityPlayer p = evt.player;
+        
         if (!p.world.isRemote) {
-            if (Config.UpdateChecker) {
+
+        	if (Config.UpdateChecker) {
                 if (!UpdateChecker.isOnline() && !Config.canShowOverlay) {
                 	Logging.message(p, TextFormatting.LIGHT_PURPLE + MessageLocalizer.normal("message.version.internet"));
                 			

@@ -14,7 +14,12 @@ public class Glacide extends EntityDivineRPGMob {
 
     public Glacide(World worldIn) {
         super(worldIn);
-        this.setSize(0.8F, 1.8F);
+        this.setSize(0.9F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.8F;
     }
 
     @Override
