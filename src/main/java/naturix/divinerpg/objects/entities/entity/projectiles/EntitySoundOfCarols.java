@@ -1,9 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import java.util.Random;
-
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderSoundOfCarols;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -12,6 +10,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class EntitySoundOfCarols extends EntityThrowable {
     Random r = new Random();
@@ -31,7 +31,7 @@ public class EntitySoundOfCarols extends EntityThrowable {
         super(var1, var2, var4, var6);
     }
 
-    public EntitySoundOfCarols(World var1, EntityLivingBase var2) {
+    public EntitySoundOfCarols(World var1, EntityPlayer var2) {
         super(var1, var2);
     }
 

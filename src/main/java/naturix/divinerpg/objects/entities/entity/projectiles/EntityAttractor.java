@@ -1,7 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderAttractor;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -17,7 +17,7 @@ public class EntityAttractor extends EntityThrowable {
 		super(w);
 	}
 	
-	public EntityAttractor(World w, EntityLivingBase e) {
+	public EntityAttractor(World w, EntityPlayer e) {
 		super(w, e);
 		this.motionX*=3;
 		this.motionY*=3;

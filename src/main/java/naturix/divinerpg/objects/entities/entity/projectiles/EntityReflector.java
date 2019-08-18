@@ -1,8 +1,7 @@
 package naturix.divinerpg.objects.entities.entity.projectiles;
 
-import naturix.divinerpg.objects.entities.assets.render.projectile.RenderFirefly;
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderReflector;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -18,7 +17,7 @@ public class EntityReflector extends EntityThrowable {
         super(w);
     }
     
-    public EntityReflector(World w, EntityLivingBase e) {
+    public EntityReflector(World w, EntityPlayer e) {
         super(w, e);
         this.motionX*=3;
         this.motionY*=3;
@@ -47,6 +46,6 @@ public class EntityReflector extends EntityThrowable {
     }
     @SideOnly(Side.CLIENT)
 	public static void renderMe() {
-    RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, manager -> new RenderReflector(manager));
+        RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, manager -> new RenderReflector(manager));
 	}
 }

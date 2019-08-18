@@ -10,6 +10,7 @@ import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
+import naturix.divinerpg.utils.PositionHelper;
 import naturix.divinerpg.utils.TooltipHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,10 +27,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEnderScepter extends ItemMod {
 
-    private Random rand = new Random();
-
     public ItemEnderScepter(String name) {
-        super(name, DivineRPGTabs.swords);
+		super(name, DivineRPGTabs.swords);
         setMaxStackSize(1);
     }
 
@@ -37,14 +36,14 @@ public class ItemEnderScepter extends ItemMod {
     public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
             @Nonnull EnumHand hand) {
         IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        if (world.isRemote && arcana.getArcana() >= 75) {
-            RayTraceResult pos = player.rayTrace(32, 1);
+        if (!world.isRemote && arcana.getArcana() >= 75) {
+		RayTraceResult pos = PositionHelper.rayTrace(player,32, 1);
             int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
             player.dismountRidingEntity();
-            ((EntityPlayer) player).setPosition(x, y, z);
+            player.setPosition(x, y, z);
             player.playSound(SoundEvents.BLOCK_PORTAL_TRAVEL, 1, 1);
             arcana.consume(player, 75);
-            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
+            return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());
         }
         return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
     }

@@ -58,8 +58,7 @@ import naturix.divinerpg.objects.items.arcana.ItemStaffStarlight;
 import naturix.divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemModBow;
-import naturix.divinerpg.objects.items.base.ItemModRanged;
-import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.objects.items.vanilla.ItemCorruptedCannon;
 import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
 import naturix.divinerpg.objects.items.vanilla.ItemScythe;
@@ -227,15 +226,12 @@ public class GenerateJSON {
                         textures.put("layer0", Reference.MODID + ":items/zelus_pet_spawn_egg");
                     }
                     json.put("textures", textures);
-                } else if (item instanceof ItemTool || item instanceof ItemHoe || item instanceof ItemSword
-                        || item instanceof ItemArcaniteBlaster || item instanceof ItemAttractor
-                        || item instanceof ItemDivineAccumulator || item instanceof ItemFirefly
-                        || item instanceof ItemGeneralsStaff || item instanceof ItemLaVekor
-                        || item instanceof ItemMeteorMash || item instanceof ItemReflector
-                        || item instanceof ItemStaffEnrichment || item instanceof ItemStaffStarlight
-                        || item instanceof ItemModRanged || item instanceof ItemProjectileShooter
-                        || item instanceof ItemCorruptedCannon || item instanceof ItemScythe
-                        || item instanceof ItemStaff) {
+                } else if ((item instanceof ItemTool)
+                        || (item instanceof ItemHoe)
+                        || (item instanceof ItemSword)
+                        || (item instanceof ItemDivineAccumulator)
+                        || (item instanceof ItemStaffEnrichment)
+                        || (item instanceof RangedWeaponBase)) {
                     json.put("parent", "item/handheld");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);
                     json.put("textures", textures);

@@ -2,6 +2,7 @@ package naturix.divinerpg.objects.entities.entity.projectiles;
 
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderFirefly;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -15,7 +16,7 @@ public class EntityFirefly extends EntityHeatSeekingProjectile {
         super(w);
     }
     
-    public EntityFirefly(World w, EntityLivingBase e) {
+    public EntityFirefly(World w, EntityPlayer e) {
         super(w, e);
     }
     

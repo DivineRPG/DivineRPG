@@ -2,49 +2,64 @@ package naturix.divinerpg.objects.items.arcana;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.capabilities.ArcanaProvider;
-import naturix.divinerpg.capabilities.IArcana;
+import naturix.divinerpg.enums.BulletType;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityStar;
-import naturix.divinerpg.objects.items.base.ItemModRanged;
-import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.objects.items.vethea.ItemStaff;
 import naturix.divinerpg.registry.ModItems;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.PositionHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemStaffStarlight extends ItemModRanged {
+public class ItemStaffStarlight extends RangedWeaponBase {
 
-    public ItemStaffStarlight(String name) {
-        super(name, -1, ModSounds.STARLIGHT, EntityStar.class);
-        ItemProjectileShooter.gunList.add(this);
+    public ItemStaffStarlight(String name, int arcana) {
+        super(name,
+                EntityStar.class,
+                null,
+                ModSounds.STARLIGHT,
+                SoundCategory.MASTER,
+                -1,
+                0,
+                null,
+                arcana);
+        // ItemProjectileShooter.gunList.add(this);
+        this.setFull3D();
         ItemStaff.staffList.add(this);
     }
 
-    @SideOnly(Side.CLIENT)
-    public boolean isFull3D() {
-        return true;
+    @Override
+    protected ActionResult<ItemStack> canUseCannon(EntityPlayer player, ItemStack stack) {
+
+        if (!player.world.isRemote){
+            RayTraceResult pos = PositionHelper.rayTrace(player,32, 1);
+            if (pos.typeOfHit != RayTraceResult.Type.BLOCK){
+                return new ActionResult<>(EnumActionResult.FAIL, stack);
+            }
+        }
+
+        return super.canUseCannon(player, stack);
     }
 
     @Override
-    public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
-            @Nonnull EnumHand hand) {
-        RayTraceResult pos = player.rayTrace(32, 1);
-        ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
-        int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
+    protected void spawnEntity(World world,
+                               EntityPlayer player,
+                               ItemStack stack,
+                               BulletType bulletType,
+                               Class<? extends EntityThrowable> clazz) {
+        RayTraceResult pos = PositionHelper.rayTrace(player,32, 1);
+        int x = pos.getBlockPos().getX(),
+                y = pos.getBlockPos().getY()+1,
+                z = pos.getBlockPos().getZ();
 
         if (pos.typeOfHit == RayTraceResult.Type.BLOCK) {
             int blockX = pos.getBlockPos().getX();
@@ -52,56 +67,38 @@ public class ItemStaffStarlight extends ItemModRanged {
             int blockZ = pos.getBlockPos().getZ();
             EnumFacing side = pos.sideHit;
 
-            if (side == EnumFacing.DOWN)
-                --blockY;
-            if (side == EnumFacing.UP)
-                ++blockY;
-            if (side == EnumFacing.EAST)
-                --blockZ;
-            if (side == EnumFacing.WEST)
-                ++blockZ;
-            if (side == EnumFacing.SOUTH)
-                --blockX;
-            if (side == EnumFacing.NORTH)
-                ++blockX;
+            if (side == EnumFacing.DOWN) --blockY;
+            if (side == EnumFacing.UP) ++blockY;
+            if (side == EnumFacing.EAST) --blockZ;
+            if (side == EnumFacing.WEST) ++blockZ;
+            if (side == EnumFacing.SOUTH) --blockX;
+            if (side == EnumFacing.NORTH) ++blockX;
 
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-            if (stack.getItem() == ModItems.staffStarlight) {
-                if (!world.isRemote && arcana.getArcana() >= 25) {
+            if (!world.isRemote){
+
+                if (stack.getItem() == ModItems.staffStarlight){
                     for (int i = 0; i < 8; i++)
-                        world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
-                                (double) blockZ + 0.5D));
-                    arcana.consume(player, 25);
-                    player.playSound(ModSounds.STARLIGHT, 1, 0.5f);
+                        world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
                 }
-            } else {
-                if (!world.isRemote && arcana.getArcana() >= 5) {
-                    world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
-                            (double) blockZ + 0.5D));
-                    arcana.consume(player, 5);
-                    player.playSound(ModSounds.STARLIGHT, 1, 1);
+                else {
+                    world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D, (double) blockZ + 0.5D));
                 }
             }
             player.getLook(1);
         }
-        return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
     }
 
     @Override
-    protected void addAdditionalInformation(ItemStack stack, @Nullable World worldIn, List<String> list,
-            ITooltipFlag flagIn) {
-        int damage = 0;
-        int arcana = 0;
-        boolean stars = false;
-        if (stack.getItem() == ModItems.staffStarlight) {
-            arcana = 25;
-            stars = true;
-        } else {
-            arcana = 5;
-            stars = false;
-        }
-        list.add(TooltipLocalizer.arcanaConsumed(25));
-        list.add(stars ? "Drops several stars from the sky" : "Drops a star from the sky");
-        list.add(TooltipLocalizer.rangedDam(20));
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+
+        tooltip.add(TooltipLocalizer.rangedDam(20));
+
+        super.addInformation(stack,worldIn,tooltip,flagIn);
+
+        tooltip.add(stack.getItem() == ModItems.staffStarlight
+                ? "Drops several stars from the sky"
+                : "Drops a star from the sky");
     }
+
+
 }

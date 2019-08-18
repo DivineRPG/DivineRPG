@@ -13,10 +13,15 @@ public class FullSetArmorHelper {
     private Item helmet = null;
 
     public FullSetArmorHelper(EntityPlayer player){
-        boots = getItem(player.inventory.armorInventory.get(0));
-        legs = getItem(player.inventory.armorInventory.get(1));
-        body = getItem(player.inventory.armorInventory.get(2));
-        helmet = getItem(player.inventory.armorInventory.get(3));
+        if (player != null
+                && player.inventory != null
+                && player.inventory.armorInventory != null)
+        {
+            boots = getItem(player.inventory.armorInventory.get(0));
+            legs = getItem(player.inventory.armorInventory.get(1));
+            body = getItem(player.inventory.armorInventory.get(2));
+            helmet = getItem(player.inventory.armorInventory.get(3));
+        }
     }
 
     private Item getItem(ItemStack stack){
@@ -318,5 +323,12 @@ public class FullSetArmorHelper {
                 && legs == ModItems.jungleLegs
                 && body == ModItems.jungleBody
                 && helmet == ModItems.jungleHelmet;
+    }
+
+    public boolean isJackoMan(){
+        return boots == ModItems.jackOManBoots
+                && legs == ModItems.jackOManLegs
+                && body == ModItems.jackOManBody
+                && helmet == ModItems.jackOManHelmet;
     }
 }

@@ -1,69 +1,53 @@
 package naturix.divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.BulletType;
-import naturix.divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
-import naturix.divinerpg.objects.items.base.ItemMod;
-import naturix.divinerpg.registry.DivineRPGTabs;
-import naturix.divinerpg.registry.ModItems;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.registry.ModSounds;
+import naturix.divinerpg.utils.FullSetArmorHelper;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemScythe extends ItemMod {
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class ItemScythe extends RangedWeaponBase {
     public ItemScythe(String name) {
-        super(name);
-        setCreativeTab(DivineRPGTabs.ranged);
-        setMaxStackSize(1);
+        super(name,
+                null,
+                BulletType.SCYTHE_SHOT,
+                ModSounds.DEEP_LAUGH,
+                SoundCategory.MASTER,
+                -1,
+                0,
+                null,
+                0);
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn) {
-        ItemStack stack = player.getHeldItem(handIn);
-
-        if (!world.isRemote) {
-            world.playSound(null, player.getPosition(), ModSounds.DEEP_LAUGH, SoundCategory.MASTER, 1, 1);
-
-            ItemStack boots = player.inventory.armorItemInSlot(0);
-            ItemStack legs = player.inventory.armorItemInSlot(1);
-            ItemStack body = player.inventory.armorItemInSlot(2);
-            ItemStack helmet = player.inventory.armorItemInSlot(3);
-
-            boolean fullArmor = (boots != null && legs != null && body != null && helmet != null
-                    && boots.getItem() == ModItems.jackOManBoots && body.getItem() == ModItems.jackOManBody
-                    && legs.getItem() == ModItems.jackOManLegs && helmet.getItem() == ModItems.jackOManHelmet);
-            BulletType projectileType = fullArmor ? BulletType.MEGA_SCYTHE_SHOT : BulletType.SCYTHE_SHOT;
-
-            EntityShooterBullet bullet = new EntityShooterBullet(world, player, projectileType);
-            bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            world.spawnEntity(bullet);
-        }
-
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public boolean isFull3D() {
-        return true;
+    protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType, Class<? extends EntityThrowable> clazz) {
+        FullSetArmorHelper helper = new FullSetArmorHelper(player);
+        super.spawnEntity(world, player, stack, helper.isJackoMan()
+                        ? BulletType.MEGA_SCYTHE_SHOT
+                        : BulletType.SCYTHE_SHOT,
+                null);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(6));
-        list.add(TooltipLocalizer.infiniteAmmo());
-        list.add(TooltipLocalizer.infiniteUses());
+        FullSetArmorHelper helper = new FullSetArmorHelper(DivineRPG.proxy.getPlayer());
+        list.add(TooltipLocalizer.rangedDam(helper.isJackoMan()
+                ? BulletType.MEGA_SCYTHE_SHOT.getDamage()
+                : BulletType.SCYTHE_SHOT.getDamage()));
+
+        super.addInformation(stack, worldIn, list, flagIn);
     }
 }

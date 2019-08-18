@@ -1,36 +1,27 @@
 package naturix.divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Multimap;
-
 import naturix.divinerpg.enums.BulletType;
-import naturix.divinerpg.objects.items.base.ItemProjectileShooter;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.registry.ModSounds;
-import naturix.divinerpg.utils.TooltipLocalizer;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.util.SoundCategory;
 
-public class ItemAnchor extends ItemProjectileShooter {
+public class ItemAnchor extends RangedWeaponBase {
 
     public ItemAnchor(String name, BulletType projectileType) {
-        super(name, projectileType, ModSounds.BLITZ, -1, 0);
-    }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(this.bulletType.getDamage()));
-        list.add(TooltipLocalizer.infiniteAmmo());
-        list.add(TooltipLocalizer.infiniteUses());
+        super(name,
+                null,
+                projectileType,
+                ModSounds.BLITZ,
+                SoundCategory.MASTER,
+                -1,
+                0,
+                null,
+                0);
     }
 
     @Override
