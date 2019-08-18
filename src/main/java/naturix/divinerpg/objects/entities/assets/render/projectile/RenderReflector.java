@@ -59,7 +59,7 @@ public class RenderReflector extends Render<EntityReflector> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityReflector entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/reflector.png");
+        return new ResourceLocation("divinerpg:textures/projectiles/blank.png");
 	}
     
 }

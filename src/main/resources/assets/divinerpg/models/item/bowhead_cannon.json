@@ -1,5 +1,5 @@
 {
-  "parent": "item/bow",
+  "parent": "item/handheld",
   "textures": {
     "layer0": "divinerpg:items/bowhead_cannon"
   }

@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaRenderer;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.utils.TooltipLocalizer;
@@ -34,20 +32,17 @@ public class ItemArcanaPotion extends ItemMod {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {    list.add(TooltipLocalizer.arcanaRegen(amountToAdd));
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipLocalizer.arcanaRegen(amountToAdd));
     }
-    @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
-    {
-        EntityPlayer player = (EntityPlayer) entityLiving;
-        if (player != null){
 
-            // Shrink stack
+    @Override
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+        EntityPlayer player = (EntityPlayer) entityLiving;
+        if (player != null) {
             if (!player.capabilities.isCreativeMode) {
                 stack.shrink(1);
             }
-
             IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
             arcana.fill(entityLiving, amountToAdd);
         }
@@ -72,9 +67,8 @@ public class ItemArcanaPotion extends ItemMod {
 
         IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 
-        EnumActionResult result = arcana.getArcana() < arcana.getMax()
-                ? EnumActionResult.SUCCESS
-                : EnumActionResult.FAIL;
+        EnumActionResult result = arcana.getArcana() < arcana.getMax() ? EnumActionResult.SUCCESS :
+                EnumActionResult.FAIL;
 
         return new ActionResult<>(result, player.getHeldItem(hand));
     }

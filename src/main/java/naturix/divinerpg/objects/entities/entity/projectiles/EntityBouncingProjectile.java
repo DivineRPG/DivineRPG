@@ -12,12 +12,11 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityBouncingProjectile extends EntityThrowable
-{
+public class EntityBouncingProjectile extends EntityThrowable {
     public int damage;
     public EntityLivingBase thrower;
     protected int bounces;
-    
+
     public EntityBouncingProjectile(World par1) {
         super(par1);
     }
@@ -37,40 +36,33 @@ public class EntityBouncingProjectile extends EntityThrowable
     }
 
     @Override
-    protected void onImpact(RayTraceResult par1)
-    {
-        if (par1.entityHit != null && par1.entityHit != this.thrower)
-        {
+    protected void onImpact(RayTraceResult par1) {
+        if (par1.entityHit != null && par1.entityHit != this.thrower) {
             par1.entityHit.attackEntityFrom(Utils.causeArcanaDamage(this, this.thrower), this.damage);
 
-            if (!this.world.isRemote)
-            {
+            if (!this.world.isRemote) {
                 this.setDead();
             }
             return;
         }
 
-        if (par1.sideHit == EnumFacing.DOWN || par1.sideHit == EnumFacing.UP)
-        {
+        if (par1.sideHit == EnumFacing.DOWN || par1.sideHit == EnumFacing.UP) {
             this.motionY *= -1.0D;
-        }      
-        else if (par1.sideHit == EnumFacing.EAST || par1.sideHit == EnumFacing.WEST)
-        {
+        } else if (par1.sideHit == EnumFacing.EAST || par1.sideHit == EnumFacing.WEST) {
             this.motionZ *= -1.0D;
-        }      
-        else if (par1.sideHit == EnumFacing.NORTH || par1.sideHit == EnumFacing.SOUTH)
-        {
+        } else if (par1.sideHit == EnumFacing.NORTH || par1.sideHit == EnumFacing.SOUTH) {
             this.motionX *= -1.0D;
         }
         this.bounces++;
 
-        if (this.bounces == 7)
-        {
+        if (this.bounces == 7) {
             this.setDead();
         }
     }
+
     @SideOnly(Side.CLIENT)
-	public static void renderMe() {
-    RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class, manager -> new RenderBouncingProjectile(manager));
-	}
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class,
+                manager -> new RenderBouncingProjectile(manager));
+    }
 }

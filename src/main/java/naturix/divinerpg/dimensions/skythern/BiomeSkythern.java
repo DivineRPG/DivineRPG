@@ -66,7 +66,7 @@ public class BiomeSkythern extends Biome {
             bloom.generate(worldIn, rand, mutPos);
             genLargeTreeTruffle.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
@@ -74,7 +74,7 @@ public class BiomeSkythern extends Biome {
             brush.generate(worldIn, rand, mutPos);
             blossom.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 13 + rand.nextInt(80);
             int rz = pos.getZ() + rand.nextInt(16) + 8;

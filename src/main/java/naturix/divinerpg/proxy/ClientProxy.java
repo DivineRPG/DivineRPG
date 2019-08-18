@@ -2,6 +2,7 @@ package naturix.divinerpg.proxy;
 
 import java.awt.Color;
 
+import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.client.ArcanaRenderer;
@@ -274,8 +275,14 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void updateClientArcana(float amount) {
-        IArcana arcana = Minecraft.getMinecraft().player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(amount);
+        EntityPlayer player = DivineRPG.proxy.getPlayer();
+
+        if (player != null){
+            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            if (arcana != null){
+                arcana.set(amount);
+            }
+        }
     }
 
 }

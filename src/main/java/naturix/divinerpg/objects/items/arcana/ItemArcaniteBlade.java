@@ -22,7 +22,7 @@ public class ItemArcaniteBlade extends ItemModSword {
 		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
        			if(!player.world.isRemote && arcana.getArcana() >= 12) 
        				arcana.consume(player, 12);
-       				return true;
+       				return super.onLeftClickEntity(stack, player, entity);
     }
 	
 	@Override

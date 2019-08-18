@@ -16,7 +16,7 @@ public class RenderDeathHound extends RenderLiving<DeathHound> {
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/death_hound.png");
 
     public RenderDeathHound(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelDeathHound(), 1F);
+        super(rendermanagerIn, new ModelDeathHound(), shadowsizeIn);
     }
 
     @Nullable

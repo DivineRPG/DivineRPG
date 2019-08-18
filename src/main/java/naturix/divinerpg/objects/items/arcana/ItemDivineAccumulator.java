@@ -29,19 +29,23 @@ public class ItemDivineAccumulator extends ItemMod {
     public ItemDivineAccumulator() {
         super("divine_accumulator", DivineRPGTabs.utility);
         setMaxStackSize(1);
-        this.setFull3D();
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-            int x = (int) player.posX, y = (int) player.posY, z = (int) player.posZ;
-    		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-            if (!world.isRemote && arcana.getArcana()>=80) {
-                DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
-                world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
-                arcana.consume(player, 80);
-            }
-            player.motionY = 2;
+        int x = (int) player.posX, y = (int) player.posY, z = (int) player.posZ;
+        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        if (!world.isRemote && arcana.getArcana() >= 80) {
+            DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
+            world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
+            arcana.consume(player, 80);
+        }
+        player.motionY = 2;
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
     }
 
@@ -53,5 +57,4 @@ public class ItemDivineAccumulator extends ItemMod {
         list.add(TooltipLocalizer.arcanaConsumed(80));
         list.add(TooltipLocalizer.infiniteUses());
     }
-
 }

@@ -44,14 +44,35 @@ import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
+import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
+import naturix.divinerpg.objects.items.arcana.ItemAttractor;
+import naturix.divinerpg.objects.items.arcana.ItemDivineAccumulator;
+import naturix.divinerpg.objects.items.arcana.ItemFirefly;
+import naturix.divinerpg.objects.items.arcana.ItemGeneralsStaff;
+import naturix.divinerpg.objects.items.arcana.ItemLaVekor;
+import naturix.divinerpg.objects.items.arcana.ItemMeriksMissile;
+import naturix.divinerpg.objects.items.arcana.ItemMeteorMash;
+import naturix.divinerpg.objects.items.arcana.ItemReflector;
+import naturix.divinerpg.objects.items.arcana.ItemStaffEnrichment;
+import naturix.divinerpg.objects.items.arcana.ItemStaffStarlight;
+import naturix.divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
+import naturix.divinerpg.objects.items.base.ItemModBow;
 import naturix.divinerpg.objects.items.base.RangedWeaponBase;
+import naturix.divinerpg.objects.items.vanilla.ItemCorruptedCannon;
 import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
+import naturix.divinerpg.objects.items.vanilla.ItemScythe;
+import naturix.divinerpg.objects.items.vethea.ItemStaff;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class GenerateJSON {
@@ -127,9 +148,6 @@ public class GenerateJSON {
         }
         ModItems.ITEMS.forEach((item) -> {
             String registryName = item.getRegistryName().getResourcePath();
-            boolean isBow = registryName.endsWith("bow");
-            boolean isEgg = registryName.endsWith("_egg") && !registryName.equals("boiled_egg");
-            boolean isMeriks = registryName.equals("meriks_missile");
 
             // Skip Vanilla Armor Overrides
             if (item instanceof ItemDivineArmor && item.getRegistryName().toString().startsWith("minecraft")) {
@@ -138,12 +156,13 @@ public class GenerateJSON {
 
             Map<String, Object> json = new HashMap<>();
             if (item instanceof IHasModel) {
-                json.put("parent", "item/" + getItemModelParent(item, registryName));
                 Map<String, Object> textures = new HashMap<>();
-                if (isMeriks) {
+                if (item instanceof ItemMeriksMissile) {
+                    json.put("parent", "item/handheld");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
                     json.put("textures", textures);
-                } else if (isBow) {
+                } else if (item instanceof ItemModBow) {
+                    json.put("parent", "item/bow");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
                     json.put("textures", textures);
                     Map<String, Object> display = new HashMap<>();
@@ -199,14 +218,25 @@ public class GenerateJSON {
                     overrides.add(pull_2);
                     overrides.add(pull_3);
                     json.put("overrides", overrides);
-                } else if (isEgg) {
+                } else if (item instanceof ItemLivestockSpawnEgg || item instanceof ItemZelusSpawnEgg) {
+                    json.put("parent", "item/generated");
                     if (item instanceof ItemLivestockSpawnEgg) {
                         textures.put("layer0", Reference.MODID + ":items/livestock_pet_spawn_egg");
                     } else {
                         textures.put("layer0", Reference.MODID + ":items/zelus_pet_spawn_egg");
                     }
                     json.put("textures", textures);
+                } else if ((item instanceof ItemTool)
+                        || (item instanceof ItemHoe)
+                        || (item instanceof ItemSword)
+                        || (item instanceof ItemDivineAccumulator)
+                        || (item instanceof ItemStaffEnrichment)
+                        || (item instanceof RangedWeaponBase)) {
+                    json.put("parent", "item/handheld");
+                    textures.put("layer0", Reference.MODID + ":items/" + registryName);
+                    json.put("textures", textures);
                 } else {
+                    json.put("parent", "item/generated");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);
                     json.put("textures", textures);
                 }
@@ -296,16 +326,16 @@ public class GenerateJSON {
                 e.printStackTrace();
             }
 
-            if (isMeriks || isBow) {
-                creatAdditionalModelItemJSONs(registryName);
+            if (item instanceof ItemMeriksMissile || item instanceof ItemModBow) {
+                creatAdditionalModelItemJSONs(registryName, item instanceof ItemModBow);
             }
         });
     }
 
-    private static void creatAdditionalModelItemJSONs(String registryName) {
+    private static void creatAdditionalModelItemJSONs(String registryName, boolean isBow) {
         for (int i = 1; i < 4; i++) {
             Map<String, Object> json = new HashMap<>();
-            json.put("parent", "item/generated");
+            json.put("parent", isBow ? "item/bow" : "item/handheld");
             Map<String, Object> textures = new HashMap<>();
             textures.put("layer0", Reference.MODID + ":items/" + registryName + "_" + i);
             json.put("textures", textures);
@@ -2028,18 +2058,5 @@ public class GenerateJSON {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private static String getItemModelParent(Item item, String registryName){
-        if (registryName.endsWith("bow"))
-            return "bow";
-
-        if (item instanceof ItemTool
-        || item instanceof RangedWeaponBase
-        || item instanceof ItemSword){
-            return "handheld";
-        }
-
-        return "generated";
     }
 }

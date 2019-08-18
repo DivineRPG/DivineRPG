@@ -29,11 +29,11 @@ public class ItemShadowSword extends ItemModSword {
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase hitter) {
-		IArcana arcana = target.getCapability(ArcanaProvider.ARCANA_CAP, null);
+		IArcana arcana = hitter.getCapability(ArcanaProvider.ARCANA_CAP, null);
     	        if(arcana.getArcana()>=12) {
-    	target.playSound(ModSounds.SHADOW_SABER, 1, 1);
-        hitter.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));
-        arcana.consume(target, 12);
+                    hitter.playSound(ModSounds.SHADOW_SABER, 1, 1);
+                    hitter.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));
+                    arcana.consume(target, 12);
     	        }
         return true;
     }

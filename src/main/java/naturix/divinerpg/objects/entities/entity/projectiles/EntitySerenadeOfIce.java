@@ -4,6 +4,7 @@ import java.util.List;
 
 import naturix.divinerpg.objects.entities.assets.render.projectile.RenderSerenadeOfIce;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -31,14 +32,11 @@ public class EntitySerenadeOfIce extends EntityThrowable {
         super(var1, var2, var4, var6);
     }
 
-    public EntitySerenadeOfIce(World var1, EntityLivingBase var2) {
+    public EntitySerenadeOfIce(World var1, EntityPlayer var2) {
         super(var1, var2);
         this.motionX *= 3;
         this.motionY *= 3;
         this.motionZ *= 3;
-
-        Vec3d vector = var2.getLookVec().scale(1.5);
-        this.setPosition(posX + vector.x, posY + vector.y, posZ + vector.z);
     }
 
     @Override

@@ -28,11 +28,14 @@ public class ItemArcaniumSaber extends ItemModSword {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		if(arcana.getArcana()>=12) {
-		player.playSound(ModSounds.ARCANIUM_SABER, 1, 1);
+		if(arcana.getArcana()<12) {
 			return false;
 		}
-		return true;
+		else {
+			player.playSound(ModSounds.ARCANIUM_SABER, 1, 1);
+			arcana.consume(player, 12);
+			return true;
+		}
 	}
 
 	@Override

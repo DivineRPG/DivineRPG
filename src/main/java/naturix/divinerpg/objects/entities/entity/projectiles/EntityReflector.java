@@ -46,6 +46,6 @@ public class EntityReflector extends EntityThrowable {
     }
     @SideOnly(Side.CLIENT)
 	public static void renderMe() {
-    RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, manager -> new RenderReflector(manager));
+        RenderingRegistry.registerEntityRenderingHandler(EntityReflector.class, manager -> new RenderReflector(manager));
 	}
 }
