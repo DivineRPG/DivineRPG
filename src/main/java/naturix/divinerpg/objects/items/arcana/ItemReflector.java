@@ -1,55 +1,36 @@
 package naturix.divinerpg.objects.items.arcana;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import naturix.divinerpg.capabilities.ArcanaProvider;
-import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityReflector;
-import naturix.divinerpg.objects.items.base.ItemMod;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipHelper;
-import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class ItemReflector extends ItemMod {
-	private Random rand = new Random();
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class ItemReflector extends RangedWeaponBase {
 	public ItemReflector() {
-		super("arcanium_reflector");
+		super("arcanium_reflector",
+				EntityReflector.class,
+				null,
+				ModSounds.REFLECTOR,
+				SoundCategory.MASTER,
+				-1,
+				0,
+				null,
+				20);
 		setCreativeTab(DivineRPGTabs.utility);
-		setMaxStackSize(1);
 		setFull3D();
 	}
-	
+
 	@Override
-	  public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player, @Nonnull EnumHand hand) {
-		IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-			if(!world.isRemote && arcana.getArcana()>=20) {
-				player.playSound(ModSounds.REFLECTOR, 1, 1);
-			EntityThrowable entity = new EntityReflector(world, player);
-			entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            world.spawnEntity(entity);
-            arcana.consume(player, 20);
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItemMainhand());	
-		}
-			return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.getHeldItemMainhand());
-	}
-	
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {	list.add(TooltipHelper.getInfoText("tooltip.refector.push"));
-		list.add(TooltipLocalizer.arcanaConsumed(20));
-		list.add(TooltipLocalizer.infiniteUses());
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		tooltip.add(TooltipHelper.getInfoText("tooltip.refector.push"));
+		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 }

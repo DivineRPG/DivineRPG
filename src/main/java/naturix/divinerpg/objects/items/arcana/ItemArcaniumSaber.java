@@ -6,14 +6,12 @@ import javax.annotation.Nullable;
 
 import naturix.divinerpg.capabilities.ArcanaProvider;
 import naturix.divinerpg.capabilities.IArcana;
-import naturix.divinerpg.client.ArcanaHelper;
 import naturix.divinerpg.objects.items.base.ItemModSword;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.world.World;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

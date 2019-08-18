@@ -45,14 +45,13 @@ import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class GenerateJSON {
@@ -139,7 +138,7 @@ public class GenerateJSON {
 
             Map<String, Object> json = new HashMap<>();
             if (item instanceof IHasModel) {
-                json.put("parent", "item/generated");
+                json.put("parent", "item/" + getItemModelParent(item, registryName));
                 Map<String, Object> textures = new HashMap<>();
                 if (isMeriks) {
                     textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
@@ -2029,5 +2028,18 @@ public class GenerateJSON {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String getItemModelParent(Item item, String registryName){
+        if (registryName.endsWith("bow"))
+            return "bow";
+
+        if (item instanceof ItemTool
+        || item instanceof RangedWeaponBase
+        || item instanceof ItemSword){
+            return "handheld";
+        }
+
+        return "generated";
     }
 }

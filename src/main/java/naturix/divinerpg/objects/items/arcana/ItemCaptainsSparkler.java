@@ -4,38 +4,33 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import naturix.divinerpg.capabilities.ArcanaProvider;
-import naturix.divinerpg.capabilities.IArcana;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
-import naturix.divinerpg.objects.items.base.ItemModRanged;
+import naturix.divinerpg.objects.items.base.RangedWeaponBase;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class ItemCaptainsSparkler extends ItemModRanged {
+public class ItemCaptainsSparkler extends RangedWeaponBase {
 
     public ItemCaptainsSparkler(String name) {
-        super(name, -1, ModSounds.SPARKLER, EntitySparkler.class);
+
+        super(name,
+                EntitySparkler.class,
+                null,
+                ModSounds.SPARKLER,
+                SoundCategory.MASTER,
+                -1,
+                4,
+                null,
+                7);
     }
 
     @Override
-    protected void addAdditionalInformation(ItemStack stack, @Nullable World worldIn, List<String> list,
-            ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(20));
-        list.add(TooltipLocalizer.arcanaConsumed(7));
-    }
-
-    @Override
-    protected boolean additionalRightClickChecks(EntityPlayer player) {
-    	IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        if(arcana.getArcana()>=7) {
-        	arcana.consume(player, 7);
-        	return true;
-        }else {
-        	return false;
-        }
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(TooltipLocalizer.rangedDam(20));
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

@@ -1,7 +1,5 @@
 package naturix.divinerpg.objects.items.vethea;
 
-import naturix.divinerpg.objects.entities.entity.arcana.Dramix;
-import naturix.divinerpg.objects.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.objects.entities.entity.vethea.Karos;
 import naturix.divinerpg.objects.entities.entity.vethea.Quadro;
 import naturix.divinerpg.objects.entities.entity.vethea.RaglokGogdure;
@@ -9,6 +7,7 @@ import naturix.divinerpg.objects.entities.entity.vethea.WreckForm;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.PositionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -36,7 +35,7 @@ public class ItemDreamFlint extends ItemMod {
         Karos karos = new Karos(world);
         Quadro quadro = new Quadro(world);
 		Block block = world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ())).getBlock();
-		RayTraceResult rtr = player.rayTrace(4, 1);
+		RayTraceResult rtr = PositionHelper.rayTrace(player,4, 1);
 		int x2 = rtr.getBlockPos().getX(), y2 = rtr.getBlockPos().getY(), z2 = rtr.getBlockPos().getZ();
 		if(world.getBlockState(pos.up())==Blocks.AIR.getDefaultState());{
 		if(!world.isRemote){

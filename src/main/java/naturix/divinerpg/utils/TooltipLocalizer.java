@@ -18,6 +18,17 @@ public class TooltipLocalizer {
 		        I18n.translateToLocal(ammo.getUnlocalizedName() + ".name"));
 	}
 
+	/**
+	 * Writes ammo with color indicating if ammo is present
+	 * @param ammo - ammo for cannon
+	 * @param isPresent - if present print green else - red
+	 * @return
+	 */
+	public static String ammo(Item ammo, boolean isPresent) {
+		return I18n.translateToLocal(AMMO).replace("|item|", (isPresent ? Utils.GREEN : Utils.RED) +
+				I18n.translateToLocal( ammo.getUnlocalizedName() + ".name"));
+	}
+
 	public static String arcanaConsumed(int ar) {
 		return I18n.translateToLocal(ARCANA).replace("#", String.valueOf(ar));
 	}

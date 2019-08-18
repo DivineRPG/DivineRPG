@@ -1,15 +1,12 @@
 package naturix.divinerpg.objects.items.vethea;
 
-import naturix.divinerpg.Config;
-import naturix.divinerpg.DivineRPG;
-import naturix.divinerpg.objects.entities.entity.arcana.Parasecta;
 import naturix.divinerpg.objects.entities.entity.vethea.LadyLuna;
 import naturix.divinerpg.objects.items.base.ItemMod;
 import naturix.divinerpg.registry.DivineRPGTabs;
 import naturix.divinerpg.registry.ModBlocks;
+import naturix.divinerpg.utils.PositionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -30,7 +27,7 @@ public class ItemMoonClock extends ItemMod {
         if (!world.isRemote) {
             ItemStack stack = player.getHeldItem(hand);
             Block block = world.getBlockState(pos).getBlock();
-            RayTraceResult rtr = player.rayTrace(4, 1);
+            RayTraceResult rtr = PositionHelper.rayTrace(player,4, 1);
             double spawnX = rtr.getBlockPos().getX() + 0.5F;
             double spawnY = rtr.getBlockPos().getY() + 1;
             double spawnZ = rtr.getBlockPos().getZ() + 0.5F;
