@@ -20,6 +20,11 @@ public class Arcana implements IArcana {
 
     @Override
     public void consume(EntityLivingBase player, float points) {
+        if (player instanceof EntityPlayer
+                && ((EntityPlayer) player).capabilities.isCreativeMode) {
+            return;
+        }
+
         set(getArcana() - points);
         sendPacket(player);
     }
