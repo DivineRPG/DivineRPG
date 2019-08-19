@@ -78,8 +78,8 @@ public class CommonProxy {
     }
 
     public void preInit(FMLPreInitializationEvent e) {
+        MinecraftForge.EVENT_BUS.register(new ModEntities());
         ModDimensions.init();
-        ModEntities.init();
         ModItems.init();
         ModBlocks.init();
         ModSeeds.init();
