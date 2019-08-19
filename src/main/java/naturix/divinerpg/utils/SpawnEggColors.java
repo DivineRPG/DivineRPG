@@ -3,7 +3,7 @@ package naturix.divinerpg.utils;
 public class SpawnEggColors {
 
     public enum Dimension {
-        OVERWORLD, NETHER, END, EDEN, WILDWOOD, APALACHIA, SKYTHERN, MORTUM, ICEIKA, ARCANA, VETHEA
+        OVERWORLD, NETHER, END, EDEN, WILDWOOD, APALACHIA, SKYTHERN, MORTUM, ICEIKA, ARCANA, VETHEA, BOSS
     }
 
     private final int primaryColor, secondaryColor;
@@ -21,8 +21,8 @@ public class SpawnEggColors {
         return this.secondaryColor;
     }
 
-    public static SpawnEggColors getColorsForDimension(Dimension dim) {
-        switch (dim) {
+    public static SpawnEggColors getColorsForDimension(Dimension dimension) {
+        switch (dimension) {
             case OVERWORLD:
                 return new SpawnEggColors(5240, 30740);
 
@@ -55,6 +55,9 @@ public class SpawnEggColors {
 
             case VETHEA:
                 return new SpawnEggColors(18012, 1504400);
+
+            case BOSS:
+                return new SpawnEggColors(11801600, 1315860);
 
             default:
                 return new SpawnEggColors(16448250, 328965);

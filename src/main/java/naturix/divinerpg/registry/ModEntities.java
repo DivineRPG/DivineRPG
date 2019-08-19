@@ -391,6 +391,7 @@ public class ModEntities {
     public static void registerEnities(RegistryEvent.Register<EntityEntry> event) {
         IForgeRegistry<EntityEntry> registry = event.getRegistry();
 
+        registry.registerAll(initProjectiles());
         registry.registerAll(initMobs());
     }
 
@@ -406,29 +407,62 @@ public class ModEntities {
                 .build();
     }
 
+    public static EntityEntry buildProjectileEntry(Class entityClass, String entityID) {
+        return EntityEntryBuilder.create()
+                .entity(entityClass)
+                .id(new ResourceLocation(Reference.MODID, entityID), projectileID++)
+                .name(entityID)
+                .tracker(250, 5, true)
+                .build();
+    }
+
     public static EntityEntry[] initMobs() {
         EntityEntry[] divineMobs = {
-                buildEntityEntry(CaptainMerik.class, "captain_merik", ARCANA),
-                buildEntityEntry(Datticon.class, "datticon", ARCANA),
-                buildEntityEntry(Deathcryx.class, "deathcryx", ARCANA),
-                buildEntityEntry(DeathHound.class, "death_hound", ARCANA),
-                buildEntityEntry(Dramix.class, "dramix", ARCANA),
-                buildEntityEntry(DungeonConstructor.class, "dungeon_constructor", ARCANA),
-                buildEntityEntry(DungeonDemon.class, "dungeon_demon", ARCANA),
-                buildEntityEntry(DungeonPrisoner.class, "dungeon_prisoner", ARCANA),
-                buildEntityEntry(Fyracryx.class, "fyracryx", ARCANA),
-                buildEntityEntry(Leorna.class, "leorna", ARCANA),
-                buildEntityEntry(LivingStatue.class, "living_statue", ARCANA),
-                buildEntityEntry(Parasecta.class, "parasecta", ARCANA),
-                buildEntityEntry(Paratiku.class, "paratiku", ARCANA),
-                buildEntityEntry(Razorback.class, "razorback", ARCANA),
-                buildEntityEntry(GolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
-                buildEntityEntry(Roamer.class, "roamer", ARCANA),
-                buildEntityEntry(Seimer.class, "seimer", ARCANA),
-                buildEntityEntry(LordVatticus.class, "lord_vatticus", ARCANA),
-                buildEntityEntry(WarGeneral.class, "war_general", ARCANA),
-                buildEntityEntry(Wraith.class, "wraith", ARCANA),
-                buildEntityEntry(Zelus.class, "zelus", ARCANA),
+                // Overworld
+                buildEntityEntry(AridWarrior.class, "arid_warrior", OVERWORLD),
+                buildEntityEntry(CaveCrawler.class, "cave_crawler", OVERWORLD),
+                buildEntityEntry(Caveclops.class, "caveclops", OVERWORLD),
+                buildEntityEntry(Crab.class, "crab", OVERWORLD),
+                buildEntityEntry(Cyclops.class, "cyclops", OVERWORLD),
+                buildEntityEntry(DesertCrawler.class, "desert_crawler", OVERWORLD),
+                buildEntityEntry(Ehu.class, "ehu", OVERWORLD),
+                buildEntityEntry(EnthralledDramcryx.class, "enthralled_dramcryx", OVERWORLD),
+                buildEntityEntry(Frost.class, "frost", OVERWORLD),
+                buildEntityEntry(Glacon.class, "glacon", OVERWORLD),
+                buildEntityEntry(BrownGrizzle.class, "brown_grizzle", OVERWORLD),
+                buildEntityEntry(WhiteGrizzle.class, "white_grizzle", OVERWORLD),
+                buildEntityEntry(Husk.class, "husk", OVERWORLD),
+                buildEntityEntry(JackOMan.class, "jack_o_man", OVERWORLD),
+                buildEntityEntry(JungleBat.class, "jungle_bat", OVERWORLD),
+                buildEntityEntry(JungleDramcryx.class, "jungle_dramcryx", OVERWORLD),
+                buildEntityEntry(JungleSpider.class, "jungle_spider", OVERWORLD),
+                buildEntityEntry(KingCrab.class, "king_crab", OVERWORLD),
+                buildEntityEntry(Kobblin.class, "kobblin", OVERWORLD),
+                buildEntityEntry(Liopleurodon.class, "liopleurodon", OVERWORLD),
+                buildEntityEntry(LivestockMerchant.class, "livestock_merchant", OVERWORLD),
+                buildEntityEntry(Miner.class, "miner", OVERWORLD),
+                buildEntityEntry(PumpkinSpider.class, "pumpkin_spider", OVERWORLD),
+                buildEntityEntry(Rainbour.class, "rainbour", OVERWORLD),
+                buildEntityEntry(Rotatick.class, "rotatick", OVERWORLD),
+                buildEntityEntry(SaguaroWorm.class, "saguaro_worm", OVERWORLD),
+                buildEntityEntry(Shark.class, "shark", OVERWORLD),
+                buildEntityEntry(Smelter.class, "smelter", OVERWORLD),
+                buildEntityEntry(Snapper.class, "snapper", OVERWORLD),
+                buildEntityEntry(StoneGolem.class, "stone_golem", OVERWORLD),
+                buildEntityEntry(TheEye.class, "the_eye", OVERWORLD),
+                buildEntityEntry(TheGrue.class, "the_grue", OVERWORLD),
+                buildEntityEntry(Whale.class, "whale", OVERWORLD),
+
+                // Nether
+                buildEntityEntry(HellPig.class, "hell_pig", NETHER),
+                buildEntityEntry(HellSpider.class, "hell_spider", NETHER),
+                buildEntityEntry(Scorcher.class, "scorcher", NETHER),
+                buildEntityEntry(Wildfire.class, "wildfire", NETHER),
+
+                // End
+                buildEntityEntry(EnderSpider.class, "ender_spider", END),
+                buildEntityEntry(EnderTriplets.class, "ender_triplets", END),
+                buildEntityEntry(EnderWatcher.class, "ender_watcher", END),
 
                 // Iceika
                 buildEntityEntry(Alicanto.class, "alicanto", ICEIKA),
@@ -469,7 +503,6 @@ public class ModEntities {
                 buildEntityEntry(Spellbinder.class, "spellbinder", APALACHIA),
 
                 // Skythern
-
                 buildEntityEntry(Megalith.class, "megalith", SKYTHERN),
                 buildEntityEntry(Mystic.class, "mystic", SKYTHERN),
                 buildEntityEntry(Samek.class, "samek", SKYTHERN),
@@ -485,69 +518,31 @@ public class ModEntities {
                 buildEntityEntry(MortumCadillion.class, "mortum_cadillion", MORTUM),
                 buildEntityEntry(Sorcerer.class, "sorcerer", MORTUM),
                 buildEntityEntry(SoulStealer.class, "soul_stealer", MORTUM),
+                buildEntityEntry(SoulSpider.class, "soul_spider", MORTUM),
                 buildEntityEntry(TwilightArcher.class, "twilight_archer", MORTUM),
 
-                // Mortum Boss
-                buildEntityEntry(Densos.class, "densos", MORTUM),
-                buildEntityEntry(EternalArcher.class, "eternal_archer", MORTUM),
-                buildEntityEntry(Karot.class, "karot", MORTUM),
-                buildEntityEntry(SoulFiend.class, "soul_fiend", MORTUM),
-                buildEntityEntry(SoulSpider.class, "soul_spider", MORTUM),
-                buildEntityEntry(Reyvor.class, "reyvor", MORTUM),
-                buildEntityEntry(TwilightDemon.class, "twilight_demon", MORTUM),
-                buildEntityEntry(Vamacheron.class, "vamacheron", MORTUM),
+                // Arcana
+                buildEntityEntry(CaptainMerik.class, "captain_merik", ARCANA),
+                buildEntityEntry(Datticon.class, "datticon", ARCANA),
+                buildEntityEntry(Deathcryx.class, "deathcryx", ARCANA),
+                buildEntityEntry(DeathHound.class, "death_hound", ARCANA),
+                buildEntityEntry(DungeonConstructor.class, "dungeon_constructor", ARCANA),
+                buildEntityEntry(DungeonDemon.class, "dungeon_demon", ARCANA),
+                buildEntityEntry(DungeonPrisoner.class, "dungeon_prisoner", ARCANA),
+                buildEntityEntry(Fyracryx.class, "fyracryx", ARCANA),
+                buildEntityEntry(Leorna.class, "leorna", ARCANA),
+                buildEntityEntry(LivingStatue.class, "living_statue", ARCANA),
+                buildEntityEntry(Paratiku.class, "paratiku", ARCANA),
+                buildEntityEntry(Razorback.class, "razorback", ARCANA),
+                buildEntityEntry(GolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
+                buildEntityEntry(Roamer.class, "roamer", ARCANA),
+                buildEntityEntry(Seimer.class, "seimer", ARCANA),
+                buildEntityEntry(LordVatticus.class, "lord_vatticus", ARCANA),
+                buildEntityEntry(WarGeneral.class, "war_general", ARCANA),
+                buildEntityEntry(Wraith.class, "wraith", ARCANA),
+                buildEntityEntry(Zelus.class, "zelus", ARCANA),
 
-                // Vanilla
-                buildEntityEntry(AncientEntity.class, "ancient_entity", OVERWORLD),
-                buildEntityEntry(AridWarrior.class, "arid_warrior", OVERWORLD),
-                buildEntityEntry(AyeracoBlue.class, "ayeraco_blue", OVERWORLD),
-                buildEntityEntry(AyeracoGreen.class, "ayeraco_green", OVERWORLD),
-                buildEntityEntry(AyeracoPurple.class, "ayeraco_purple", OVERWORLD),
-                buildEntityEntry(AyeracoRed.class, "ayeraco_red", OVERWORLD),
-                buildEntityEntry(AyeracoYellow.class, "ayeraco_yellow", OVERWORLD),
-                buildEntityEntry(CaveCrawler.class, "cave_crawler", OVERWORLD),
-                buildEntityEntry(Caveclops.class, "caveclops", OVERWORLD),
-                buildEntityEntry(Crab.class, "crab", OVERWORLD),
-                buildEntityEntry(Cyclops.class, "cyclops", OVERWORLD),
-                buildEntityEntry(DesertCrawler.class, "desert_crawler", OVERWORLD),
-                buildEntityEntry(Ehu.class, "ehu", OVERWORLD),
-                buildEntityEntry(EnderSpider.class, "ender_spider", OVERWORLD),
-                buildEntityEntry(EnderTriplets.class, "ender_triplets", OVERWORLD),
-                buildEntityEntry(EnderWatcher.class, "ender_watcher", OVERWORLD),
-                buildEntityEntry(EnthralledDramcryx.class, "enthralled_dramcryx", OVERWORLD),
-                buildEntityEntry(Frost.class, "frost", OVERWORLD),
-                buildEntityEntry(Glacon.class, "glacon", OVERWORLD),
-                buildEntityEntry(BrownGrizzle.class, "brown_grizzle", OVERWORLD),
-                buildEntityEntry(WhiteGrizzle.class, "white_grizzle", OVERWORLD),
-                buildEntityEntry(HellPig.class, "hell_pig", OVERWORLD),
-                buildEntityEntry(HellSpider.class, "hell_spider", OVERWORLD),
-                buildEntityEntry(Husk.class, "husk", OVERWORLD),
-                buildEntityEntry(JackOMan.class, "jack_o_man", OVERWORLD),
-                buildEntityEntry(JungleBat.class, "jungle_bat", OVERWORLD),
-                buildEntityEntry(JungleDramcryx.class, "jungle_dramcryx", OVERWORLD),
-                buildEntityEntry(JungleSpider.class, "jungle_spider", OVERWORLD),
-                buildEntityEntry(KingCrab.class, "king_crab", OVERWORLD),
-                buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", OVERWORLD),
-                buildEntityEntry(Kobblin.class, "kobblin", OVERWORLD),
-                buildEntityEntry(Liopleurodon.class, "liopleurodon", OVERWORLD),
-                buildEntityEntry(LivestockMerchant.class, "livestock_merchant", OVERWORLD),
-                buildEntityEntry(Miner.class, "miner", OVERWORLD),
-                buildEntityEntry(PumpkinSpider.class, "pumpkin_spider", OVERWORLD),
-                buildEntityEntry(Rainbour.class, "rainbour", OVERWORLD),
-                buildEntityEntry(Rotatick.class, "rotatick", OVERWORLD),
-                buildEntityEntry(SaguaroWorm.class, "saguaro_worm", OVERWORLD),
-                buildEntityEntry(Scorcher.class, "scorcher", OVERWORLD),
-                buildEntityEntry(Shark.class, "shark", OVERWORLD),
-                buildEntityEntry(Smelter.class, "smelter", OVERWORLD),
-                buildEntityEntry(Snapper.class, "snapper", OVERWORLD),
-                buildEntityEntry(StoneGolem.class, "stone_golem", OVERWORLD),
-                buildEntityEntry(TheEye.class, "the_eye", OVERWORLD),
-                buildEntityEntry(TheGrue.class, "the_grue", OVERWORLD),
-                buildEntityEntry(TheWatcher.class, "the_watcher", OVERWORLD),
-                buildEntityEntry(Whale.class, "whale", OVERWORLD),
-                buildEntityEntry(Wildfire.class, "wildfire", OVERWORLD),
-
-                // Vethia
+                // Vethea
                 buildEntityEntry(AcidHag.class, "acid_hag", VETHEA),
                 buildEntityEntry(Biphron.class, "biphron", VETHEA),
                 buildEntityEntry(Bohemite.class, "bohemite", VETHEA),
@@ -561,82 +556,103 @@ public class ModEntities {
                 buildEntityEntry(Gorgosion.class, "gorgosion", VETHEA),
                 buildEntityEntry(Helio.class, "helio", VETHEA),
                 buildEntityEntry(Herbomancer.class, "herbomancer", VETHEA),
-                buildEntityEntry(HiveQueen.class, "hive_queen", VETHEA),
                 buildEntityEntry(HiveSoldier.class, "hive_soldier", VETHEA),
                 buildEntityEntry(HoverStinger.class, "hover_stinger", VETHEA),
-                buildEntityEntry(Karos.class, "karos", VETHEA),
                 buildEntityEntry(Kazrotic.class, "kazrotic", VETHEA),
-                buildEntityEntry(LadyLuna.class, "lady_luna", VETHEA),
                 buildEntityEntry(Lheiva.class, "lheiva", VETHEA),
                 buildEntityEntry(Lorga.class, "lorga", VETHEA),
                 buildEntityEntry(Lorgaflight.class, "lorga_flight", VETHEA),
                 buildEntityEntry(Mandragora.class, "mandragora", VETHEA),
                 buildEntityEntry(MysteriousMan.class, "mysterious_man", VETHEA),
-                buildEntityEntry(Quadro.class, "quadro", VETHEA),
-                buildEntityEntry(RaglokGogdure.class, "raglok_gogdure", VETHEA),
                 buildEntityEntry(Shadahier.class, "shadahier", VETHEA),
-                buildEntityEntry(Spinarus.class, "spinarus", VETHEA),
                 buildEntityEntry(TheHunger.class, "the_hunger", VETHEA),
                 buildEntityEntry(Tocaxin.class, "tocaxin", VETHEA),
                 buildEntityEntry(Twins.class, "twins", VETHEA),
                 buildEntityEntry(Vermenous.class, "vermenous", VETHEA),
                 buildEntityEntry(Vhraak.class, "vhraak", VETHEA),
-                buildEntityEntry(WreckForm.class, "wreck_form", VETHEA),
                 buildEntityEntry(Zone.class, "zone", VETHEA),
-                buildEntityEntry(Zoragon.class, "zoragon", VETHEA)
+                buildEntityEntry(Zoragon.class, "zoragon", VETHEA),
+
+                // Boss
+                buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
+                buildEntityEntry(AyeracoBlue.class, "ayeraco_blue", BOSS),
+                buildEntityEntry(AyeracoGreen.class, "ayeraco_green", BOSS),
+                buildEntityEntry(AyeracoPurple.class, "ayeraco_purple", BOSS),
+                buildEntityEntry(AyeracoRed.class, "ayeraco_red", BOSS),
+                buildEntityEntry(AyeracoYellow.class, "ayeraco_yellow", BOSS),
+                buildEntityEntry(Densos.class, "densos", BOSS),
+                buildEntityEntry(Dramix.class, "dramix", BOSS),
+                buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
+                buildEntityEntry(HiveQueen.class, "hive_queen", BOSS),
+                buildEntityEntry(Karos.class, "karos", BOSS),
+                buildEntityEntry(Karot.class, "karot", BOSS),
+                buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
+                buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
+                buildEntityEntry(Parasecta.class, "parasecta", BOSS),
+                buildEntityEntry(Quadro.class, "quadro", BOSS),
+                buildEntityEntry(RaglokGogdure.class, "raglok_gogdure", BOSS),
+                buildEntityEntry(Reyvor.class, "reyvor", BOSS),
+                buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
+                buildEntityEntry(Spinarus.class, "spinarus", BOSS),
+                buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
+                buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
+                buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
+                buildEntityEntry(WreckForm.class, "wreck_form", BOSS)
         };
 
         return divineMobs;
     }
 
-    public static void init() {
+    public static EntityEntry[] initProjectiles() {
         // Projectiles
-        registerProjectile(EntityEMP.class, "acid_arrow");
-        registerProjectile(EntityCaveRock.class, "cave_rock");
-        registerProjectile(EntitySerenadeOfDeath.class, "serenade_of_death");
-        registerProjectile(EntitySerenadeOfIce.class, "serenade_of_ice");
-        registerProjectile(EntityEnderTripletsFireball.class, "ender_triplets_fireball");
-        registerProjectile(EntityFractiteShot.class, "fractite_shot");
-        registerProjectile(EntityFrostShot.class, "frost_shot");
-        registerProjectile(EntityFrostCloud.class, "frost_cloud");
-        registerProjectile(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor");
-        registerProjectile(EntityKingOfScorchersShot.class, "king_of_scorchers_shot");
-        registerProjectile(EntitySaguaroWormShot.class, "saguaro_worm_shot");
-        registerProjectile(EntityScorcherShot.class, "scorcher_shot");
-        registerProjectile(EntityShuriken.class, "shuriken");
-        registerProjectile(EntitySparkler.class, "sparkler");
-        registerProjectile(EntityWatcherShot.class, "watcher_shot");
-        registerProjectile(EntityVileStorm.class, "vile_storm");
-        registerProjectile(EntitySnowflakeShuriken.class, "snowflake_shuriken");
-        registerProjectile(EntityShooterBullet.class, "shooter_bullet");
-        registerProjectile(EntityParticleBullet.class, "particle_bullet");
-        registerProjectile(EntityColoredBullet.class, "colored_bullet");
-        registerProjectile(EntityCorruptedBullet.class, "corrupted_bullet");
-        registerProjectile(EntitySoundOfMusic.class, "sound_of_music");
-        registerProjectile(EntitySoundOfCarols.class, "sound_of_carols");
-        registerProjectile(EntityDivineArrow.class, "arrow_shot");
-        registerProjectile(EntityCoriShot.class, "cori_shot");
-        registerProjectile(EntityTwilightMageShot.class, "twilight_mage_shot");
-        registerProjectile(EntitySoulFiendShot.class, "soul_fiend_shot");
-        registerProjectile(EntityDisk.class, "disk");
-        registerProjectile(EntityGrenade.class, "grenade");
-        registerProjectile(EntityAttractor.class, "attractor");
-        registerProjectile(EntityGeneralsStaff.class, "generals_staff");
-        registerProjectile(EntityMeteor.class, "meteor");
-        registerProjectile(EntityStar.class, "star");
-        registerProjectile(EntityBouncingProjectile.class, "bouncing");
-        registerProjectile(EntityEvernightProjectile.class, "evernight");
-        registerProjectile(EntityLamona.class, "lamona");
-        registerProjectile(EntityFirefly.class, "firefly");
-        registerProjectile(EntityReflector.class, "reflector");
-        registerProjectile(EntityFyracryxFireball.class, "fyracryx_fireball");
-        registerProjectile(EntityMerikMissile.class, "meriks_missile");
-
-        
+        EntityEntry[] divineProjectiles = {
+                buildProjectileEntry(EntityEMP.class, "acid_arrow"),
+                buildProjectileEntry(EntityCaveRock.class, "cave_rock"),
+                buildProjectileEntry(EntitySerenadeOfDeath.class, "serenade_of_death"),
+                buildProjectileEntry(EntitySerenadeOfIce.class, "serenade_of_ice"),
+                buildProjectileEntry(EntityEnderTripletsFireball.class, "ender_triplets_fireball"),
+                buildProjectileEntry(EntityFractiteShot.class, "fractite_shot"),
+                buildProjectileEntry(EntityFrostShot.class, "frost_shot"),
+                buildProjectileEntry(EntityFrostCloud.class, "frost_cloud"),
+                buildProjectileEntry(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor"),
+                buildProjectileEntry(EntityKingOfScorchersShot.class, "king_of_scorchers_shot"),
+                buildProjectileEntry(EntitySaguaroWormShot.class, "saguaro_worm_shot"),
+                buildProjectileEntry(EntityScorcherShot.class, "scorcher_shot"),
+                buildProjectileEntry(EntityShuriken.class, "shuriken"),
+                buildProjectileEntry(EntitySparkler.class, "sparkler"),
+                buildProjectileEntry(EntityWatcherShot.class, "watcher_shot"),
+                buildProjectileEntry(EntityVileStorm.class, "vile_storm"),
+                buildProjectileEntry(EntitySnowflakeShuriken.class, "snowflake_shuriken"),
+                buildProjectileEntry(EntityShooterBullet.class, "shooter_bullet"),
+                buildProjectileEntry(EntityParticleBullet.class, "particle_bullet"),
+                buildProjectileEntry(EntityColoredBullet.class, "colored_bullet"),
+                buildProjectileEntry(EntityCorruptedBullet.class, "corrupted_bullet"),
+                buildProjectileEntry(EntitySoundOfMusic.class, "sound_of_music"),
+                buildProjectileEntry(EntitySoundOfCarols.class, "sound_of_carols"),
+                buildProjectileEntry(EntityDivineArrow.class, "arrow_shot"),
+                buildProjectileEntry(EntityCoriShot.class, "cori_shot"),
+                buildProjectileEntry(EntityTwilightMageShot.class, "twilight_mage_shot"),
+                buildProjectileEntry(EntitySoulFiendShot.class, "soul_fiend_shot"),
+                buildProjectileEntry(EntityDisk.class, "disk"),
+                buildProjectileEntry(EntityGrenade.class, "grenade"),
+                buildProjectileEntry(EntityAttractor.class, "attractor"),
+                buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
+                buildProjectileEntry(EntityMeteor.class, "meteor"),
+                buildProjectileEntry(EntityStar.class, "star"),
+                buildProjectileEntry(EntityBouncingProjectile.class, "bouncing"),
+                buildProjectileEntry(EntityEvernightProjectile.class, "evernight"),
+                buildProjectileEntry(EntityLamona.class, "lamona"),
+                buildProjectileEntry(EntityFirefly.class, "firefly"),
+                buildProjectileEntry(EntityReflector.class, "reflector"),
+                buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),
+                buildProjectileEntry(EntityMerikMissile.class, "meriks_missile")
+        };
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
         }
+
+        return divineProjectiles;
     }
 
     public static void initLoot() {
@@ -1074,13 +1090,6 @@ public class ModEntities {
     // entityName), entityClass, entityName,
     // mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
     // }
-
-    public static void registerProjectile(Class entityClass, String entityName) {
-        entityName = Reference.MODID + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
-                projectileID, DivineRPG.instance, 250, 5, true);
-        projectileID++;
-    }
 
     public void registerEgglessMob(Class entityClass, String entityName) {
         entityName = Reference.MODID + "." + entityName;
