@@ -570,8 +570,12 @@ public class EntityDivineArrow extends EntityArrow {
         return getArrowType().getTexture();
     }
 
-    public void setAmmoItem(Item ammo) {
+    public void setAmmoItem(Item ammo, boolean infiniteAmmo) {
         this.ammoItem = ammo;
+
+        if (infiniteAmmo){
+            this.pickupStatus = PickupStatus.DISALLOWED;
+        }
     }
 
     protected ItemStack getArrowStack() {

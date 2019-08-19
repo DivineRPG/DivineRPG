@@ -163,7 +163,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
                 if ((double) f >= 0.1D) {
                     if (!worldIn.isRemote) {
                         EntityDivineArrow entityarrow = new EntityDivineArrow(worldIn, arrowType, entityplayer);
-                        entityarrow.setAmmoItem(arrowAmmo);
+                        entityarrow.setAmmoItem(arrowAmmo, infiniteAmmo);
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F,
                                 f * 3.0F, 1.0F);
                         if (f == 1.0F) {
