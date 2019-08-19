@@ -58,6 +58,7 @@ import naturix.divinerpg.particle.ParticleSparkler;
 import naturix.divinerpg.particle.ParticleWildWoodPortal;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModEntities;
+import naturix.divinerpg.registry.ModMessages;
 import naturix.divinerpg.registry.ModSounds;
 import naturix.divinerpg.utils.AuthUtils;
 import naturix.divinerpg.utils.DRPGParticleTypes;
@@ -131,6 +132,7 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
         MinecraftForge.EVENT_BUS.register(new EventDevHat());
         PreInitLog.init();
+        ModMessages.initClient();
     }
 
     @Override

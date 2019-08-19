@@ -81,7 +81,7 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.register(new EventArmorTick());
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
 
-        ModMessages.init();
+        ModMessages.initServer();
     }
 
     /** For Registering Commands */
