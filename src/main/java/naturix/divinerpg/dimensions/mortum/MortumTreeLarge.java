@@ -27,11 +27,12 @@ public class MortumTreeLarge extends WorldGenAbstractTree {
     public boolean generate(World world, Random random, BlockPos blockPos) {
         int trunkHeight = random.nextInt(4) + minTrunkHeight;
         int treeHeight = 10 + trunkHeight;
-        Material materialBelow = world.getBlockState(blockPos.down()).getMaterial();
+        IBlockState groundState = world.getBlockState(blockPos.down());
 
         //return false if these conditions are met
+        // Spawns only on grass
         if (blockPos.getY() <= 13 && blockPos.getY() + treeHeight + 1 >= world.getHeight()
-                || materialBelow != Material.GRASS && materialBelow != Material.GROUND) {
+                || groundState.getBlock() != ModBlocks.mortumGrass) {
             return false;
         }
 

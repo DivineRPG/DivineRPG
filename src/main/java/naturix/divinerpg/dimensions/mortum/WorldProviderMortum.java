@@ -20,7 +20,7 @@ public class WorldProviderMortum extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkGeneratorMortum(this.world, this.world.getSeed() + this.getDimension());
+		return new MortumChunkGenerator(this.world, this.world.getSeed() + this.getDimension());
 	}
 	
     @Override

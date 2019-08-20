@@ -58,7 +58,7 @@ public class BiomeMortum extends Biome {
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             bloom.generate(worldIn, rand, mutPos);
-            genLargeTree.generate(worldIn, rand, mutPos);
+
         }
         for (int i = 0; i < 10; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
@@ -75,12 +75,15 @@ public class BiomeMortum extends Biome {
             mutPos.setPos(rx, ry, rz);
             brush.generate(worldIn, rand, mutPos);
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = 55 + rand.nextInt(20);
             int rz = pos.getZ() + rand.nextInt(16) + 8;
             mutPos.setPos(rx, ry, rz);
             genTree.generate(worldIn, rand, mutPos);
+
+            if (i == 0)
+                genLargeTree.generate(worldIn, rand, mutPos);
         }
         for (int i = 0; i < 1; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
