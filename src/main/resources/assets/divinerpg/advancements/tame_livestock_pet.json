@@ -16,7 +16,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.ehu"
+               "type":"divinerpg:ehu"
             }
          }
       },
@@ -24,7 +24,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.husk"
+               "type":"divinerpg:husk"
             }
          }
       },
@@ -32,7 +32,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.stone_golem"
+               "type":"divinerpg:stone_golem"
             }
          }
       },
@@ -40,7 +40,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.smelter"
+               "type":"divinerpg:smelter"
             }
          }
       },
@@ -48,7 +48,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.snapper"
+               "type":"divinerpg:snapper"
             }
          }
       },
@@ -56,7 +56,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.white_grizzle"
+               "type":"divinerpg:white_grizzle"
             }
          }
       },
@@ -64,7 +64,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.brown_grizzle"
+               "type":"divinerpg:brown_grizzle"
             }
          }
       }

@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GuiCaptainMerik extends GuiDivineMerchant {
     private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/captain_merik.png");
-    private static String merchantName = new TextComponentTranslation("entity.divinerpg.captain_merik.name")
+    private static String merchantName = new TextComponentTranslation("entity.captain_merik.name")
             .getFormattedText();
 
     public GuiCaptainMerik(InventoryPlayer playerInventory, IMerchant merchant, World world) {
