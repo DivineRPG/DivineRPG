@@ -22,12 +22,20 @@ public class WorldProviderMortum extends WorldProvider {
 	public IChunkGenerator createChunkGenerator() {
 		return new MortumChunkGenerator(this.world, this.world.getSeed() + this.getDimension());
 	}
-	
-    @Override
-	public int getMoonPhase(long s) {
-        return (int)(s / 24000L % 8L + 8L) % 8;
+	@Override
+    protected void generateLightBrightnessTable() {
+        float var1 = 0.1F;
+        for (int var2 = 0; var2 <= 15; ++var2) {
+            float var3 = 1.0F - var2 / 15.0F;
+            this.lightBrightnessTable[var2] = (1.0F - var3) / (var3 * 3.0F + 1.0F) * (1.0F - var1) + var1;
+        }
     }
-    
+	
+	@Override
+    public float calculateCelestialAngle(long var1, float var3) {
+        return 0.5F;
+    }
+	
 	@Override
     public boolean canRespawnHere() {
         return false;
@@ -41,7 +49,7 @@ public class WorldProviderMortum extends WorldProvider {
 	@Override
     @SideOnly(Side.CLIENT)
     public float getCloudHeight() {
-        return 8.0F;
+        return 128.0F;
     }
 
 	@Override
