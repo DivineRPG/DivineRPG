@@ -3,6 +3,7 @@ package naturix.divinerpg.objects.blocks;
 import naturix.divinerpg.DivineRPG;
 import naturix.divinerpg.enums.StatueType;
 import naturix.divinerpg.objects.blocks.tile.entity.TileEntityStatue;
+import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -18,7 +19,9 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockStatue extends BlockMod implements ITileEntityProvider {
@@ -131,4 +134,31 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
     public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
+    
+    
+
+	public static final AxisAlignedBB WATCHER_AABB = new AxisAlignedBB(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
+	public static final AxisAlignedBB AYERACO_AABB = new AxisAlignedBB(0.2F, 0.0F, 0.20F, 0.8F, 0.4F, 0.8F);
+	public static final AxisAlignedBB TWILIGHT_DEMON_AABB = new AxisAlignedBB(0.2F, 0.0F, 0.20F, 0.8F, 1.0F, 0.8F);
+	public static final AxisAlignedBB VAMACHERON_AABB = new AxisAlignedBB(0.2F, 0.0F, 0.20F, 0.8F, 0.7F, 0.8F);
+	public static final AxisAlignedBB PARASECTA_AABB = new AxisAlignedBB(0.2F, 0.2F, 0.20F, 0.8F, 1.0F, 0.8F);
+	public static final AxisAlignedBB SOUL_FIEND_AABB = new AxisAlignedBB(0.2F, 0.0F, 0.20F, 0.8F, 1.0F, 0.8F);
+	@Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		if(this == ModBlocks.theWatcherStatue) {
+			return WATCHER_AABB;
+		}else if(this == ModBlocks.ayeracoStatue) {
+			return AYERACO_AABB;
+		}else if(this == ModBlocks.twilightDemonStatue) {
+			return TWILIGHT_DEMON_AABB;
+		}else if(this == ModBlocks.vamacheronStatue) {
+			return VAMACHERON_AABB;
+		}else if(this == ModBlocks.parasectaStatue) {
+			return PARASECTA_AABB;
+		}else if(this == ModBlocks.soulFiendStatue) {
+			return SOUL_FIEND_AABB;
+		}else {
+		return FULL_BLOCK_AABB;
+    }
+	}
 }
