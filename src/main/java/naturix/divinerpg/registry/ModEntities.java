@@ -943,9 +943,6 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(TheHunger.class, RenderTheHunger.FACTORY);
-
-        
-
     }
 
     @SuppressWarnings("deprecation")
@@ -1072,25 +1069,5 @@ public class ModEntities {
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " spawns have been loaded");
         }
-    }
-
-    /*
-    EntityList.ENTITY_EGGS.put(new ResourceLocation(Reference.MODID, entityName),
-                new EntityEggInfo(new ResourceLocation(Reference.MODID, entityName),
-                        0x000001 * EntityList.ENTITY_EGGS.size(), 0xFFFFFF * EntityList.ENTITY_EGGS.size()));
-    }
-     */
-
-    // public static void buildEntityEntry(Class entityClass, String entityName) {
-    // entityName = Reference.MODID + "." + entityName;
-    // EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID,
-    // entityName), entityClass, entityName,
-    // mobID++, DivineRPG.instance, 128, 3, true, 0x00000, 0xff0000);
-    // }
-
-    public void registerEgglessMob(Class entityClass, String entityName) {
-        entityName = Reference.MODID + "." + entityName;
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, entityName), entityClass, entityName,
-                mobID++, DivineRPG.instance, 128, 3, true);
     }
 }

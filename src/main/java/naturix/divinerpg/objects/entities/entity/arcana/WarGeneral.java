@@ -32,7 +32,7 @@ public class WarGeneral extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.war_general.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.war_general.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 

@@ -37,7 +37,7 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.workshop_tinkerer.name")
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.workshop_tinkerer.name")
                 + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
     }
 

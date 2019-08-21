@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GuiLeorna extends GuiDivineMerchant {
     private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/leorna.png");
-    private static String merchantName = new TextComponentTranslation("entity.divinerpg.leorna.name")
+    private static String merchantName = new TextComponentTranslation("entity.leorna.name")
             .getFormattedText();
 
     public GuiLeorna(InventoryPlayer playerInventory, IMerchant merchant, World world) {

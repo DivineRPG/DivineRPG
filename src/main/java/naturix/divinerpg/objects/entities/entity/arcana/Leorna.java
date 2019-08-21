@@ -33,7 +33,7 @@ public class Leorna extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.leorna.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.leorna.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 

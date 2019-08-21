@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GuiZelus extends GuiDivineMerchant {
     private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/zelus.png");
-    private static String merchantName = new TextComponentTranslation("entity.divinerpg.zelus.name").getFormattedText();
+    private static String merchantName = new TextComponentTranslation("entity.zelus.name").getFormattedText();
 
     public GuiZelus(InventoryPlayer playerInventory, IMerchant merchant, World world) {
         super(playerInventory, merchant, world);
