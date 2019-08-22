@@ -42,6 +42,11 @@ public class LordVatticus extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static MerchantRecipeList getAllRecipies(){
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.collector, 16), new ItemStack(ModItems.chargedCollector)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaHelmet)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaBody)));
@@ -57,6 +62,7 @@ public class LordVatticus extends EntityDivineRPGVillager {
         list.add(
                 new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.strongArcanaPotion, 4)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 20), new ItemStack(ModItems.orbOfLight)));
+        return list;
     }
 
     @Override

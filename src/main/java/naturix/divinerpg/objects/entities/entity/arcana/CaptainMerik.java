@@ -13,6 +13,9 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CaptainMerik extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.merik.sword", "message.merik.datticon", "message.merik.hurry",
             "message.merik.battles", "message.merik.phoenix" };
@@ -42,6 +45,11 @@ public class CaptainMerik extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static List<MerchantRecipe> getAllRecipies(){
+        List<MerchantRecipe> list = new ArrayList<>();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.stormSword)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 12), new ItemStack(ModItems.enderScepter)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 20), new ItemStack(ModItems.ghostbane)));
@@ -55,6 +63,7 @@ public class CaptainMerik extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 30), new ItemStack(ModItems.liviciaSword)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 6), new ItemStack(ModItems.laVekor)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.grenade, 10)));
+        return list;
     }
 
     @Override

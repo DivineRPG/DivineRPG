@@ -8,7 +8,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class GuiLeorna extends GuiDivineMerchant {
-    private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
+    public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/leorna.png");
     private static String merchantName = new TextComponentTranslation("entity.leorna.name")
             .getFormattedText();

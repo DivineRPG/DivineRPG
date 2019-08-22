@@ -43,6 +43,11 @@ public class Datticon extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static MerchantRecipeList getAllRecipies(){
+        MerchantRecipeList list = new MerchantRecipeList();
         //FIXME
         //list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.arcaniumBucket)));
         //list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModBlocks.arcaniteRails, 8)));
@@ -56,6 +61,8 @@ public class Datticon extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModBlocks.demonFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.elevantium, 9)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.acceleron, 3)));
+
+        return list;
     }
 
     @Override

@@ -22,6 +22,9 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JackOMan extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah",
             "message.jackoman.seen" };
@@ -46,8 +49,9 @@ public class JackOMan extends EntityDivineRPGVillager {
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
-    @Override
-    public void addRecipies(MerchantRecipeList list) {
+    public static List<MerchantRecipe> getAllRecipies() {
+        List<MerchantRecipe> list = new ArrayList<>();
+
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
                 new ItemStack(ModItems.skelemanHelmet, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
@@ -70,6 +74,13 @@ public class JackOMan extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ModItems.witherReaperBoots)));
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new ItemStack(Items.ENDER_EYE, 60),
                 new ItemStack(ModItems.scythe)));
+
+        return list;
+    }
+
+    @Override
+    public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
     }
 
     public boolean isValidLightLevel() {
