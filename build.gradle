@@ -33,7 +33,11 @@ repositories {
 
 dependencies {
    deobfCompile "projecte:ProjectE:1.12.2:${projecte_version}"
-   runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+
+    // compile against the JEI API but do not include it at runtime
+    deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
+    // at runtime, use the full JEI jar
+    runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
 processResources {
