@@ -44,25 +44,14 @@ import naturix.divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import naturix.divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import naturix.divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
-import naturix.divinerpg.objects.items.arcana.ItemArcaniteBlaster;
-import naturix.divinerpg.objects.items.arcana.ItemAttractor;
 import naturix.divinerpg.objects.items.arcana.ItemDivineAccumulator;
-import naturix.divinerpg.objects.items.arcana.ItemFirefly;
-import naturix.divinerpg.objects.items.arcana.ItemGeneralsStaff;
-import naturix.divinerpg.objects.items.arcana.ItemLaVekor;
 import naturix.divinerpg.objects.items.arcana.ItemMeriksMissile;
-import naturix.divinerpg.objects.items.arcana.ItemMeteorMash;
-import naturix.divinerpg.objects.items.arcana.ItemReflector;
 import naturix.divinerpg.objects.items.arcana.ItemStaffEnrichment;
-import naturix.divinerpg.objects.items.arcana.ItemStaffStarlight;
 import naturix.divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
 import naturix.divinerpg.objects.items.base.ItemDivineArmor;
 import naturix.divinerpg.objects.items.base.ItemModBow;
 import naturix.divinerpg.objects.items.base.RangedWeaponBase;
-import naturix.divinerpg.objects.items.vanilla.ItemCorruptedCannon;
 import naturix.divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
-import naturix.divinerpg.objects.items.vanilla.ItemScythe;
-import naturix.divinerpg.objects.items.vethea.ItemStaff;
 import naturix.divinerpg.proxy.CommonProxy;
 import naturix.divinerpg.registry.ModBlocks;
 import naturix.divinerpg.registry.ModItems;
@@ -226,11 +215,8 @@ public class GenerateJSON {
                         textures.put("layer0", Reference.MODID + ":items/zelus_pet_spawn_egg");
                     }
                     json.put("textures", textures);
-                } else if ((item instanceof ItemTool)
-                        || (item instanceof ItemHoe)
-                        || (item instanceof ItemSword)
-                        || (item instanceof ItemDivineAccumulator)
-                        || (item instanceof ItemStaffEnrichment)
+                } else if ((item instanceof ItemTool) || (item instanceof ItemHoe) || (item instanceof ItemSword)
+                        || (item instanceof ItemDivineAccumulator) || (item instanceof ItemStaffEnrichment)
                         || (item instanceof RangedWeaponBase)) {
                     json.put("parent", "item/handheld");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName);
@@ -1405,6 +1391,7 @@ public class GenerateJSON {
         Map<String, Object> json = new HashMap<>();
         json.put("parent", "block/cube");
         Map<String, Object> textures = new HashMap<>();
+        textures.put("particle", "divinerpg:blocks/workshop_bookcase");
         textures.put("north", "divinerpg:blocks/workshop_bookcase");
         textures.put("east", "divinerpg:blocks/workshop_bookcase");
         textures.put("south", "divinerpg:blocks/workshop_bookcase");
@@ -1594,6 +1581,7 @@ public class GenerateJSON {
 
         Map<String, Object> json = new HashMap<>();
         Map<String, Object> textures = new HashMap<>();
+        json.put("parent", "block/block");
         textures.put("particle", texturePath);
         textures.put("outer", texturePath + "_outer");
         textures.put("portal", texturePath);

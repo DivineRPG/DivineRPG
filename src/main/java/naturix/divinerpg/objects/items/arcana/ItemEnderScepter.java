@@ -1,7 +1,6 @@
 package naturix.divinerpg.objects.items.arcana;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemEnderScepter extends ItemMod {
 
     public ItemEnderScepter(String name) {
-		super(name, DivineRPGTabs.swords);
+        super(name, DivineRPGTabs.swords);
         setMaxStackSize(1);
     }
 
@@ -37,7 +36,7 @@ public class ItemEnderScepter extends ItemMod {
             @Nonnull EnumHand hand) {
         IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
         if (!world.isRemote && arcana.getArcana() >= 75) {
-		RayTraceResult pos = PositionHelper.rayTrace(player,32, 1);
+            RayTraceResult pos = PositionHelper.rayTrace(player, 32, 1);
             int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
             player.dismountRidingEntity();
             player.setPosition(x, y, z);

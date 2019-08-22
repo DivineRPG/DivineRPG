@@ -16,16 +16,7 @@ import net.minecraft.world.World;
 public class ItemCaptainsSparkler extends RangedWeaponBase {
 
     public ItemCaptainsSparkler(String name) {
-
-        super(name,
-                EntitySparkler.class,
-                null,
-                ModSounds.SPARKLER,
-                SoundCategory.MASTER,
-                -1,
-                4,
-                null,
-                7);
+        super(name, EntitySparkler.class, null, ModSounds.SPARKLER, SoundCategory.MASTER, -1, 4, null, 7);
     }
 
     @Override
