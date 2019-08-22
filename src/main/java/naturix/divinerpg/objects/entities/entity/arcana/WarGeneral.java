@@ -43,6 +43,11 @@ public class WarGeneral extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static MerchantRecipeList getAllRecipies(){
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 6), new ItemStack(ModItems.divineAccumulator)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 17), new ItemStack(ModItems.meteorMash)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 18), new ItemStack(ModItems.arcaniteBlaster)));
@@ -50,6 +55,7 @@ public class WarGeneral extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 18), new ItemStack(ModItems.generalsStaff)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.arcaniumReflector)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.arcaniumAttractor)));
+        return list;
     }
 
     @Override

@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class GuiWorkshopTinkerer extends GuiDivineMerchant {
-    private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
+    public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/workshop_worker.png");
 
     public GuiWorkshopTinkerer(InventoryPlayer playerInventory, IMerchant merchant, World world) {

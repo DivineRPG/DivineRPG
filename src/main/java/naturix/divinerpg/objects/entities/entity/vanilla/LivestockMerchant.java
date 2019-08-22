@@ -43,6 +43,11 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static MerchantRecipeList getAllRecipies(){
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.shadowCoins, 4),
                 new ItemStack(ModItems.ehuSpawner, 2)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ModItems.shadowCoins, 7),
@@ -57,6 +62,7 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
                 new ItemStack(ModItems.whiteGrizzleSpawner, 2)));
         list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
                 new ItemStack(ModItems.brownGrizzleSpawner, 2)));
+        return list;
     }
 
     @Override

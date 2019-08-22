@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class GuiLivestockMerchant extends GuiDivineMerchant {
-    private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
+    public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/livestock_merchant.png");
 
     public GuiLivestockMerchant(InventoryPlayer playerInventory, IMerchant merchant, World world) {

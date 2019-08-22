@@ -14,8 +14,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkshopTinkerer extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in",
@@ -43,6 +47,11 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static List<MerchantRecipe> getAllRecipies(){
+        ArrayList<MerchantRecipe> list = new ArrayList<>();
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModItems.shuriken, 16, 0),
                 new ItemStack(ModItems.snowflakeShuriken, 16, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModItems.serenadeStriker, 1, 0),
@@ -71,6 +80,7 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
                 new ItemStack(ModItems.icineSword, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 15), new ItemStack(ModItems.sandslash, 1, 0),
                 new ItemStack(ModItems.snowSlash, 1, 0)));
+        return list;
     }
 
     @Override

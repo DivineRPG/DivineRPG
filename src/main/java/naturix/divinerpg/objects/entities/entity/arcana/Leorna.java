@@ -44,6 +44,11 @@ public class Leorna extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static MerchantRecipeList getAllRecipies(){
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModSeeds.eucalyptusSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModSeeds.marsineSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModSeeds.firestockSeeds)));
@@ -53,6 +58,7 @@ public class Leorna extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModSeeds.veiloSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModSeeds.lamonaSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.arcanaDirt, 9)));
+        return list;
     }
 
     @Override

@@ -49,7 +49,7 @@ public class JackOMan extends EntityDivineRPGVillager {
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
-    public static List<MerchantRecipe> getAllRecepies() {
+    public static List<MerchantRecipe> getAllRecipies() {
         List<MerchantRecipe> list = new ArrayList<>();
 
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
@@ -80,7 +80,7 @@ public class JackOMan extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
-        list.addAll(getAllRecepies());
+        list.addAll(getAllRecipies());
     }
 
     public boolean isValidLightLevel() {

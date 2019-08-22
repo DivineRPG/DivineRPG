@@ -15,8 +15,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkshopMerchant extends EntityDivineRPGVillager {
 
@@ -44,6 +48,11 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void addRecipies(MerchantRecipeList list) {
+        list.addAll(getAllRecipies());
+    }
+
+    public static List<MerchantRecipe> getAllRecipies(){
+        List<MerchantRecipe> list = new ArrayList<>();
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaCap, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaTunic, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaPants, 1, 0)));
@@ -69,6 +78,7 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.pinkCandyCane, 4)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.redCandyCane, 4)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModBlocks.yellowCandyCane, 4)));
+        return list;
     }
 
     @Override
