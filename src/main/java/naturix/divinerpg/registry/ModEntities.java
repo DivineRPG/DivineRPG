@@ -226,6 +226,7 @@ import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityStar;
+import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import naturix.divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
@@ -643,6 +644,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityFirefly.class, "firefly"),
                 buildProjectileEntry(EntityReflector.class, "reflector"),
                 buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),
+                buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
                 buildProjectileEntry(EntityMerikMissile.class, "meriks_missile")
         };
 
