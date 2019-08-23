@@ -6,8 +6,10 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import naturix.divinerpg.DivineRPG;
+import naturix.divinerpg.compat.jei.base.SmelterCategory;
+import naturix.divinerpg.compat.jei.base.TrippleRecipeWrapper;
 import naturix.divinerpg.compat.jei.base.VillagerCategory;
-import naturix.divinerpg.compat.jei.base.VillagerWrapper;
+import naturix.divinerpg.objects.blocks.tile.container.gui.ArcaniumExtractorGUI;
 import naturix.divinerpg.objects.entities.container.gui.*;
 import naturix.divinerpg.objects.entities.entity.arcana.*;
 import naturix.divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
@@ -21,6 +23,7 @@ import naturix.divinerpg.utils.MessageLocalizer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -90,6 +93,12 @@ public class JEICompat implements IModPlugin {
                 JeiReferences.ZELUS_CATEGORY,
                 MessageLocalizer.normal("entity.zelus.name"),
                 ModItems.golemOfRejuvenationSpawner));
+
+        registry.addRecipeCategories(new SmelterCategory(guiHelper,
+                ArcaniumExtractorGUI.TEXTURES,
+                JeiReferences.ARCANA_EXTRACTOR_CATEGORY,
+                "Arcana Extractor",
+                new ItemStack(ModItems.chargedCollector)));
     }
 
     @Override
@@ -106,12 +115,14 @@ public class JEICompat implements IModPlugin {
         registerVillagerRecepies(registry, Datticon.getAllRecipies(), JeiReferences.DATTICON_CATEGORY);
         registerVillagerRecepies(registry, LordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
         registerVillagerRecepies(registry, Zelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);
+        registry.addRecipes(Arrays.asList(new TrippleRecipeWrapper(new ItemStack(ModBlocks.arcaniumOre),
+                new ItemStack(ModItems.chargedCollector), new ItemStack(ModItems.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
     }
 
     private void registerVillagerRecepies(IModRegistry registry, List<MerchantRecipe> receipes, String name){
         registry.addRecipes(receipes
         .stream()
-        .map(VillagerWrapper::new)
+                .map(TrippleRecipeWrapper::new)
         .collect(Collectors.toList()), name);
     }
 }

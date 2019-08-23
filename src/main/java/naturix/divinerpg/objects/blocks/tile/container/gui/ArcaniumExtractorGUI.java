@@ -6,7 +6,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class ArcaniumExtractorGUI extends ModFurnaceGUI {
-    private static final ResourceLocation TEXTURES = new ResourceLocation(
+    public static final ResourceLocation TEXTURES = new ResourceLocation(
             Reference.MODID + ":textures/gui/arcanium_extractor.png");
 
     public ArcaniumExtractorGUI(InventoryPlayer player, TileEntityModFurnace tileEntity) {
