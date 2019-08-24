@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/pinfly_plant_top"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/pinfly_plant_top"
+  }
 }

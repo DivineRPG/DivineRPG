@@ -1,42 +1,11 @@
 package divinerpg.utils;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import divinerpg.Config;
 import divinerpg.DivineRPG;
-import divinerpg.objects.blocks.BlockModAltar;
-import divinerpg.objects.blocks.BlockModChest;
-import divinerpg.objects.blocks.BlockModCrop;
-import divinerpg.objects.blocks.BlockModDoor;
-import divinerpg.objects.blocks.BlockModDoubleCrop;
-import divinerpg.objects.blocks.BlockModDoublePlant;
-import divinerpg.objects.blocks.BlockModFence;
-import divinerpg.objects.blocks.BlockModFire;
-import divinerpg.objects.blocks.BlockModFurnace;
-import divinerpg.objects.blocks.BlockModGrass;
-import divinerpg.objects.blocks.BlockModLadder;
-import divinerpg.objects.blocks.BlockModLeaves;
-import divinerpg.objects.blocks.BlockModLog;
-import divinerpg.objects.blocks.BlockModPortal;
-import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.objects.blocks.BlockModSlab;
-import divinerpg.objects.blocks.BlockModSpawner;
-import divinerpg.objects.blocks.BlockModStairs;
-import divinerpg.objects.blocks.BlockModTorch;
-import divinerpg.objects.blocks.BlockStatue;
+import divinerpg.objects.blocks.*;
 import divinerpg.objects.blocks.arcana.BlockAcceleron;
 import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
@@ -56,13 +25,13 @@ import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemHoe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 public class GenerateJSON {
     // You can include this in your mod/a pack/whatever you want, as long as that work follows the Mojang EULA.
@@ -239,7 +208,11 @@ public class GenerateJSON {
                 } else if (block instanceof BlockModCrop) {
                     json.put("parent", Reference.MODID + ":block/" + registryName + "_stage_0");
                 } else if (block instanceof BlockModDoubleCrop || block instanceof BlockModDoublePlant) {
-                    json.put("parent", Reference.MODID + ":block/" + registryName + "_top");
+                    json.put("parent", "item/generated");
+                    Map<String, Object> textures = new HashMap<>();
+                    textures.put("layer0", Reference.MODID + ":blocks/" + registryName + "_top");
+                    json.put("textures", textures);
+
                 } else if (registryName.endsWith("_double_slab")) {
                     json.put("parent", Reference.MODID + ":block/" + registryName.replace("_double_slab", "_planks"));
                 } else if (registryName.endsWith("_slab")) {
