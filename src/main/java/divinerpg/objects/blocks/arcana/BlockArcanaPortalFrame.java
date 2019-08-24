@@ -5,8 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import divinerpg.Config;
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.IProperty;

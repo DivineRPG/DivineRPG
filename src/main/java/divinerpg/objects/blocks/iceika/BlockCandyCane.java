@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.iceika;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.vanilla.VanillaBlock;
-import divinerpg.utils.material.EnumBlockType;
 
 public class BlockCandyCane extends VanillaBlock {
     protected String name;

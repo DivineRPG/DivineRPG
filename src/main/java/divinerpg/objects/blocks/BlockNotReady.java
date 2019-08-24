@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.WoodType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;

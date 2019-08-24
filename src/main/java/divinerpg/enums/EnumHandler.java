@@ -1,4 +1,4 @@
-package divinerpg.utils.handlers;
+package divinerpg.enums;
 
 import net.minecraft.util.IStringSerializable;
 

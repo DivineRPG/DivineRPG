@@ -5,9 +5,9 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;

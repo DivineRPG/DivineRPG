@@ -1,4 +1,4 @@
-package divinerpg.utils.material;
+package divinerpg.utils;
 
 import divinerpg.registry.ModItems;
 import net.minecraft.init.Blocks;

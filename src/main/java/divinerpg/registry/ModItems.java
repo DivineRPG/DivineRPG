@@ -3,16 +3,84 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import divinerpg.enums.*;
-import divinerpg.objects.entities.entity.projectiles.*;
-import divinerpg.objects.items.arcana.*;
-import divinerpg.objects.items.base.*;
-import divinerpg.objects.items.iceika.*;
-import divinerpg.objects.items.twilight.*;
-import divinerpg.objects.items.vanilla.*;
-import divinerpg.utils.*;
-import divinerpg.utils.material.*;
-import net.minecraft.init.*;
+import divinerpg.enums.ArrowType;
+import divinerpg.enums.BulletType;
+import divinerpg.enums.EnumArmor;
+import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
+import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
+import divinerpg.objects.items.arcana.ItemAquamarine;
+import divinerpg.objects.items.arcana.ItemArcanaPotion;
+import divinerpg.objects.items.arcana.ItemArcaniteBlade;
+import divinerpg.objects.items.arcana.ItemArcaniteBlaster;
+import divinerpg.objects.items.arcana.ItemArcaniumSaber;
+import divinerpg.objects.items.arcana.ItemAttractor;
+import divinerpg.objects.items.arcana.ItemCaptainsSparkler;
+import divinerpg.objects.items.arcana.ItemChargedCollector;
+import divinerpg.objects.items.arcana.ItemDivineAccumulator;
+import divinerpg.objects.items.arcana.ItemEnderScepter;
+import divinerpg.objects.items.arcana.ItemFirefly;
+import divinerpg.objects.items.arcana.ItemGeneralsStaff;
+import divinerpg.objects.items.arcana.ItemGhostbane;
+import divinerpg.objects.items.arcana.ItemGrenade;
+import divinerpg.objects.items.arcana.ItemKey;
+import divinerpg.objects.items.arcana.ItemLaVekor;
+import divinerpg.objects.items.arcana.ItemLamona;
+import divinerpg.objects.items.arcana.ItemMeriksMissile;
+import divinerpg.objects.items.arcana.ItemMeteorMash;
+import divinerpg.objects.items.arcana.ItemOrbOfLight;
+import divinerpg.objects.items.arcana.ItemReflector;
+import divinerpg.objects.items.arcana.ItemShadowSword;
+import divinerpg.objects.items.arcana.ItemStaffEnrichment;
+import divinerpg.objects.items.arcana.ItemStaffStarlight;
+import divinerpg.objects.items.arcana.ItemStormSword;
+import divinerpg.objects.items.arcana.ItemWizardsBook;
+import divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
+import divinerpg.objects.items.base.ItemDivineArmor;
+import divinerpg.objects.items.base.ItemFastFood;
+import divinerpg.objects.items.base.ItemHealingSword;
+import divinerpg.objects.items.base.ItemMod;
+import divinerpg.objects.items.base.ItemModAxe;
+import divinerpg.objects.items.base.ItemModBow;
+import divinerpg.objects.items.base.ItemModFood;
+import divinerpg.objects.items.base.ItemModHoe;
+import divinerpg.objects.items.base.ItemModPickaxe;
+import divinerpg.objects.items.base.ItemModShovel;
+import divinerpg.objects.items.base.ItemModSword;
+import divinerpg.objects.items.base.ItemPoisonousSword;
+import divinerpg.objects.items.base.ItemShickaxe;
+import divinerpg.objects.items.base.ItemSlowingSword;
+import divinerpg.objects.items.base.ItemThrowable;
+import divinerpg.objects.items.base.RangedWeaponBase;
+import divinerpg.objects.items.iceika.ItemEggNog;
+import divinerpg.objects.items.iceika.ItemMusicShooter;
+import divinerpg.objects.items.iceika.ItemSerenadeOfIce;
+import divinerpg.objects.items.iceika.ItemSnowGlobe;
+import divinerpg.objects.items.twilight.ItemSkyFlower;
+import divinerpg.objects.items.twilight.ItemTwilightBlitz;
+import divinerpg.objects.items.twilight.ItemTwilightClock;
+import divinerpg.objects.items.twilight.ItemTwilightSpawner;
+import divinerpg.objects.items.vanilla.ItemAnchor;
+import divinerpg.objects.items.vanilla.ItemBurningSword;
+import divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
+import divinerpg.objects.items.vanilla.ItemCorruptedCannon;
+import divinerpg.objects.items.vanilla.ItemHordeHorn;
+import divinerpg.objects.items.vanilla.ItemInfernalFlame;
+import divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
+import divinerpg.objects.items.vanilla.ItemMysteriousClock;
+import divinerpg.objects.items.vanilla.ItemScythe;
+import divinerpg.objects.items.vanilla.ItemSerenadeOfDeath;
+import divinerpg.objects.items.vanilla.ItemSerenadeOfHealth;
+import divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
+import divinerpg.objects.items.vanilla.ItemSerenadeStriker;
+import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
+import divinerpg.objects.items.vanilla.ItemVileStorm;
+import divinerpg.utils.ArmorInfo;
+import divinerpg.utils.ChatFormats;
+import divinerpg.utils.GenerateJSON;
+import divinerpg.utils.ToolMaterialMod;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
@@ -82,15 +150,15 @@ public class ModItems {
             ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0);
     public static Item cyclopsianStaff = new RangedWeaponBase("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT,
             ModSounds.STAFF, 600, 0);
-    public static Item maelstrom = new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT,
-            ModSounds.GHAST_CANNON, 100, 0);
+    public static Item maelstrom = new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT, ModSounds.GHAST_CANNON,
+            100, 0);
 
     public static Item crabAnchor = new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT);
     public static Item sharkAnchor = new ItemAnchor("shark_anchor", BulletType.SHARK_ANCHOR_SHOT);
     public static Item bowheadAnchor = new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT);
     public static Item liopleurodonAnchor = new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT);
-    public static Item goldenFury = new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT,
-            ModSounds.BLITZ, Items.GOLD_NUGGET, -1, 0);
+    public static Item goldenFury = new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, ModSounds.BLITZ,
+            Items.GOLD_NUGGET, -1, 0);
     // Bullets is using at cannon below, need to declare here
     public static Item corruptedBullet = new ItemMod("corrupted_bullet");
     public static Item corruptedCannon = new ItemCorruptedCannon("corrupted_cannon");
@@ -437,10 +505,10 @@ public class ModItems {
     public static Item frozenMaul = new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozen_maul");
     public static Item frossivence = new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1);
 
-    public static Item soundOfCarols = new ItemMusicShooter("sound_of_carols",
-            ModSounds.SOUND_OF_CAROLS, EntitySoundOfCarols.class);
-    public static Item soundOfMusic = new ItemMusicShooter("sound_of_music",
-            ModSounds.SOUND_OF_MUSIC, EntitySoundOfMusic.class);
+    public static Item soundOfCarols = new ItemMusicShooter("sound_of_carols", ModSounds.SOUND_OF_CAROLS,
+            EntitySoundOfCarols.class);
+    public static Item soundOfMusic = new ItemMusicShooter("sound_of_music", ModSounds.SOUND_OF_MUSIC,
+            EntitySoundOfMusic.class);
 
     public static Item frostclawCannon = new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT,
             ModSounds.FROSTCLAW_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 10000, 0);
@@ -554,8 +622,8 @@ public class ModItems {
     public static Item mortumBlitz = new ItemTwilightBlitz("mortum_blitz", BulletType.MORTUM_BLITZ_SHOT, mortumDust);
     public static Item haliteBlitz = new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, mortumDust);
 
-    public static Item edenPhaser = new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT,
-            ModSounds.PHASER, 3000, 3);
+    public static Item edenPhaser = new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, ModSounds.PHASER,
+            3000, 3);
     public static Item wildwoodPhaser = new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT,
             ModSounds.PHASER, 3000, 3);
     public static Item apalachiaPhaser = new RangedWeaponBase("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT,
@@ -709,7 +777,6 @@ public class ModItems {
     public static Item vemosLegs = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo);
     public static Item vemosBoots = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo);
 
-    
     //New additions
     public static Item ayeracoFragmentB = new ItemMod("ayeraco_fragment_blue");
     public static Item ayeracoFragmentG = new ItemMod("ayeraco_fragment_green");

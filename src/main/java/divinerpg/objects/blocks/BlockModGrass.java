@@ -2,9 +2,9 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.items.arcana.ItemArcanaSeeds;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;

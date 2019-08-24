@@ -1,5 +1,6 @@
 package divinerpg.enums;
 
+import divinerpg.client.render.DivineModel;
 import divinerpg.objects.blocks.tile.model.ModelAncientEntityStatue;
 import divinerpg.objects.blocks.tile.model.ModelAyeracoStatue;
 import divinerpg.objects.blocks.tile.model.ModelDensosStatue;
@@ -14,7 +15,6 @@ import divinerpg.objects.blocks.tile.model.ModelSoulFiendStatue;
 import divinerpg.objects.blocks.tile.model.ModelTheWatcherStatue;
 import divinerpg.objects.blocks.tile.model.ModelTwilightDemonStatue;
 import divinerpg.objects.blocks.tile.model.ModelVamacheronStatue;
-import divinerpg.utils.models.DivineModel;
 import net.minecraft.util.ResourceLocation;
 
 public enum StatueType {

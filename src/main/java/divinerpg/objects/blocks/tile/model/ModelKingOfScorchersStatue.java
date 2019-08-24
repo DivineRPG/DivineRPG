@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.model;
 
-import divinerpg.utils.models.DivineModel;
-import divinerpg.utils.models.DivineRenderer;
+import divinerpg.client.render.DivineModel;
+import divinerpg.client.render.DivineRenderer;
 
 public class ModelKingOfScorchersStatue extends DivineModel {
 

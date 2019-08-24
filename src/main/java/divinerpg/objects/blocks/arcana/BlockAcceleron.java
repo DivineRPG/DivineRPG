@@ -1,8 +1,8 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;

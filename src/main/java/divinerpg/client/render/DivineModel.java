@@ -1,4 +1,4 @@
-package divinerpg.utils.models;
+package divinerpg.client.render;
 
 import java.util.ArrayList;
 

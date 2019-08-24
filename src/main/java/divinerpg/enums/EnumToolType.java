@@ -1,4 +1,4 @@
-package divinerpg.utils.material;
+package divinerpg.enums;
 
 import net.minecraft.item.Item;
 

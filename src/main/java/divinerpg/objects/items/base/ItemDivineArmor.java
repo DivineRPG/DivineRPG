@@ -8,13 +8,13 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.EnumArmor;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.IHasModel;
 import divinerpg.utils.TokenHelper;
 import divinerpg.utils.TooltipLocalizer;
-import divinerpg.utils.material.EnumArmor;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;

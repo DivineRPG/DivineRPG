@@ -3,13 +3,13 @@ package divinerpg.objects.blocks.vanilla;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.EnumHandler.OreType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.objects.blocks.itemblock.IMetaName;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.IHasModel;
-import divinerpg.utils.handlers.EnumHandler.OreType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.utils.material.EnumBlockType;
+import divinerpg.enums.EnumBlockType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.fml.relauncher.Side;

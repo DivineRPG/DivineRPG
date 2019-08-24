@@ -1,4 +1,4 @@
-package divinerpg.utils.handlers;
+package divinerpg.events;
 
 import divinerpg.Config;
 import divinerpg.registry.ModBlocks;

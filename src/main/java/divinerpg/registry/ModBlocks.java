@@ -16,7 +16,6 @@ import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.*;
 import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.utils.*;
-import divinerpg.utils.material.EnumBlockType;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
