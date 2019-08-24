@@ -1,4 +1,4 @@
-package divinerpg.objects.items.vethea;
+package divinerpg.objects.items.base;
 
 //public class ItemStaff extends RangedWeaponBase {
 //

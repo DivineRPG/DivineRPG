@@ -6,7 +6,6 @@ import divinerpg.objects.entities.assets.render.arcana.*;
 import divinerpg.objects.entities.assets.render.iceika.*;
 import divinerpg.objects.entities.assets.render.twilight.*;
 import divinerpg.objects.entities.assets.render.vanilla.*;
-import divinerpg.objects.entities.assets.render.vethea.*;
 import divinerpg.objects.entities.entity.EntityEMP;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
 import divinerpg.objects.entities.entity.arcana.*;
@@ -14,7 +13,6 @@ import divinerpg.objects.entities.entity.iceika.*;
 import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.twilight.*;
 import divinerpg.objects.entities.entity.vanilla.*;
-import divinerpg.objects.entities.entity.vethea.*;
 import divinerpg.utils.Reference;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.EnumCreatureType;
@@ -197,36 +195,7 @@ public class ModEntities {
                 buildEntityEntry(Wraith.class, "wraith", ARCANA),
                 buildEntityEntry(Zelus.class, "zelus", ARCANA),
 
-                // Vethea
-//                buildEntityEntry(AcidHag.class, "acid_hag", VETHEA),
-//                buildEntityEntry(Biphron.class, "biphron", VETHEA),
-//                buildEntityEntry(Bohemite.class, "bohemite", VETHEA),
-//                buildEntityEntry(CryptKeeper.class, "crypt_keeper", VETHEA),
-//                buildEntityEntry(Cymesoid.class, "cymesoid", VETHEA),
-//                buildEntityEntry(Dissiment.class, "dissiment", VETHEA),
-//                buildEntityEntry(Dreamwrecker.class, "dreamwrecker", VETHEA),
-//                buildEntityEntry(Duo.class, "duo", VETHEA),
-//                buildEntityEntry(Ent.class, "ent", VETHEA),
-//                buildEntityEntry(Galroid.class, "galroid", VETHEA),
-//                buildEntityEntry(Gorgosion.class, "gorgosion", VETHEA),
-//                buildEntityEntry(Helio.class, "helio", VETHEA),
-//                buildEntityEntry(Herbomancer.class, "herbomancer", VETHEA),
-//                buildEntityEntry(HiveSoldier.class, "hive_soldier", VETHEA),
-//                buildEntityEntry(HoverStinger.class, "hover_stinger", VETHEA),
-//                buildEntityEntry(Kazrotic.class, "kazrotic", VETHEA),
-//                buildEntityEntry(Lheiva.class, "lheiva", VETHEA),
-//                buildEntityEntry(Lorga.class, "lorga", VETHEA),
-//                buildEntityEntry(Lorgaflight.class, "lorga_flight", VETHEA),
-//                buildEntityEntry(Mandragora.class, "mandragora", VETHEA),
-//                buildEntityEntry(MysteriousMan.class, "mysterious_man", VETHEA),
-//                buildEntityEntry(Shadahier.class, "shadahier", VETHEA),
-//                buildEntityEntry(TheHunger.class, "the_hunger", VETHEA),
-//                buildEntityEntry(Tocaxin.class, "tocaxin", VETHEA),
-//                buildEntityEntry(Twins.class, "twins", VETHEA),
-//                buildEntityEntry(Vermenous.class, "vermenous", VETHEA),
-//                buildEntityEntry(Vhraak.class, "vhraak", VETHEA),
-//                buildEntityEntry(Zone.class, "zone", VETHEA),
-//                buildEntityEntry(Zoragon.class, "zoragon", VETHEA),
+
 
                 // Boss
                 buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
@@ -245,16 +214,9 @@ public class ModEntities {
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
-                buildEntityEntry(Parasecta.class, "parasecta", BOSS),
+                buildEntityEntry(Parasecta.class, "parasecta", BOSS)
 
-                // Vethea
-//                buildEntityEntry(WreckForm.class, "wreck_form", BOSS),
-//                buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
-//                buildEntityEntry(Quadro.class, "quadro", BOSS),
-//                buildEntityEntry(RaglokGogdure.class, "raglok_gogdure", BOSS),
-//                buildEntityEntry(HiveQueen.class, "hive_queen", BOSS),
-//                buildEntityEntry(Karos.class, "karos", BOSS),
-//                buildEntityEntry(Spinarus.class, "spinarus", BOSS),
+
         };
 
         return divineMobs;
@@ -314,7 +276,6 @@ public class ModEntities {
     }
 
     public static void initLoot() {
-        LootTableList.register(AcidHag.LOOT);
         LootTableList.register(Alicanto.LOOT);
         LootTableList.register(ApalachiaGolem.LOOT);
         LootTableList.register(AridWarrior.LOOT);
@@ -565,44 +526,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
 
-        // Vethea
-        RenderingRegistry.registerEntityRenderingHandler(AcidHag.class, RenderAcidHag.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Basilisk.class, RenderBasilisk.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Biphron.class, RenderBiphron.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Bohemite.class, RenderBohemite.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(CryptKeeper.class, RenderCryptKeeper.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Cymesoid.class, RenderCymesoid.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Dissiment.class, RenderDissiment.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Duo.class, RenderDuo.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Ent.class, RenderEnt.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Galroid.class, RenderGalroid.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Gorgosion.class, RenderGorgosion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Helio.class, RenderHelio.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Herbomancer.class, RenderHerbomancer.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HiveQueen.class, RenderHiveQueen.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HiveSoldier.class, RenderHiveSoldier.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(HoverStinger.class, RenderHoverStinger.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Karos.class, RenderKaros.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Kazrotic.class, RenderKazrotic.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(LadyLuna.class, RenderLadyLuna.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Lheiva.class, RenderLheiva.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Lorga.class, RenderLorga.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Lorgaflight.class, RenderLorgaFlight.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Mandragora.class, RenderMandragora.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(MysteriousMan.class, RenderMysteriousMan.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Quadro.class, RenderQuadro.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(RaglokGogdure.class, RenderRaglokGogdure.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Shadahier.class, RenderShadahier.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Spinarus.class, RenderSpinarus.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Tocaxin.class, RenderTocaxin.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Twins.class, RenderTwins.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Vermenous.class, RenderVermenous.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Vhraak.class, RenderVhraak.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(WreckForm.class, RenderWreckForm.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Zone.class, RenderZone.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(Zoragon.class, RenderZoragon.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(TheHunger.class, RenderTheHunger.FACTORY);
+        
     }
 
     @SuppressWarnings("deprecation")
