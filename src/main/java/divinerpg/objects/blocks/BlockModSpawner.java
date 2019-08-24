@@ -1,0 +1,53 @@
+package divinerpg.objects.blocks;
+
+import divinerpg.DivineRPG;
+import divinerpg.registry.DivineRPGTabs;
+import divinerpg.registry.ModBlocks;
+import divinerpg.registry.ModItems;
+import divinerpg.utils.IHasModel;
+import divinerpg.utils.Reference;
+import net.minecraft.block.BlockMobSpawner;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.world.World;
+
+public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
+    protected String name;
+    protected String mobName;
+
+    public BlockModSpawner(String name, String mobName) {
+        this.name = name;
+        this.mobName = Reference.MODID + "." + mobName;
+        setUnlocalizedName(name);
+        setRegistryName(name);
+        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        setHardness(5.0F);
+        this.setTickRandomly(true);
+
+        ModBlocks.BLOCKS.add(this);
+        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world, int par1) {
+        TileEntityMobSpawner spawner = new TileEntityMobSpawner();
+        NBTTagCompound compound = new NBTTagCompound();
+        NBTTagCompound compound2 = new NBTTagCompound();
+        spawner.writeToNBT(compound);
+        compound2.setString("id", Reference.MODID + ":" + mobName);
+        compound.setTag("SpawnData", compound2);
+        compound.setString("SpawnPotentials", mobName);
+        spawner.readFromNBT(compound);
+        spawner.readFromNBT(compound2);
+        spawner.markDirty();
+        return spawner;
+    }
+
+    @Override
+    public void registerModels() {
+        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
+}
