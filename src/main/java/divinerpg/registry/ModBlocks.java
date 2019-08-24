@@ -1,8 +1,5 @@
 package divinerpg.registry;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.mortum.MortumTree;
@@ -10,79 +7,12 @@ import divinerpg.dimensions.skythern.SkythernTree;
 import divinerpg.dimensions.wildwood.WildWoodTree;
 import divinerpg.enums.StatueType;
 import divinerpg.enums.WoodType;
-import divinerpg.objects.blocks.BlockMod;
-import divinerpg.objects.blocks.BlockModDoor;
-import divinerpg.objects.blocks.BlockModDoublePlant;
-import divinerpg.objects.blocks.BlockModFire;
-import divinerpg.objects.blocks.BlockModGlass;
-import divinerpg.objects.blocks.BlockModGrass;
-import divinerpg.objects.blocks.BlockModLadder;
-import divinerpg.objects.blocks.BlockModLeaves;
-import divinerpg.objects.blocks.BlockModLog;
-import divinerpg.objects.blocks.BlockModPlank;
-import divinerpg.objects.blocks.BlockModPortal;
-import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.objects.blocks.BlockModSlab;
-import divinerpg.objects.blocks.BlockModSpawner;
-import divinerpg.objects.blocks.BlockModStairs;
-import divinerpg.objects.blocks.BlockModTorch;
-import divinerpg.objects.blocks.BlockModVine;
-import divinerpg.objects.blocks.BlockStatue;
-import divinerpg.objects.blocks.arcana.BlockAcceleron;
-import divinerpg.objects.blocks.arcana.BlockAquaMarine;
-import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
-import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
-import divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
-import divinerpg.objects.blocks.arcana.BlockArcaniumExtractor;
-import divinerpg.objects.blocks.arcana.BlockDemonFurnace;
-import divinerpg.objects.blocks.arcana.BlockDramixAltar;
-import divinerpg.objects.blocks.arcana.BlockElevantium;
-import divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
-import divinerpg.objects.blocks.arcana.BlockFirestock;
-import divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
-import divinerpg.objects.blocks.arcana.BlockHeatTrap;
-import divinerpg.objects.blocks.arcana.BlockHitchak;
-import divinerpg.objects.blocks.arcana.BlockLamona;
-import divinerpg.objects.blocks.arcana.BlockMarsine;
-import divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
-import divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
-import divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
-import divinerpg.objects.blocks.arcana.BlockParasectaAltar;
-import divinerpg.objects.blocks.arcana.BlockPinfly;
-import divinerpg.objects.blocks.arcana.BlockStarBridge;
-import divinerpg.objects.blocks.arcana.BlockVeilo;
-import divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
+import divinerpg.objects.blocks.*;
+import divinerpg.objects.blocks.arcana.*;
 import divinerpg.objects.blocks.fluid.BlockFluid;
-import divinerpg.objects.blocks.iceika.BlockCandyCane;
-import divinerpg.objects.blocks.iceika.BlockChristmasLights;
-import divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
-import divinerpg.objects.blocks.iceika.BlockFrostedChest;
-import divinerpg.objects.blocks.iceika.BlockPresentBox;
-import divinerpg.objects.blocks.iceika.BlockWinterberryBush;
-import divinerpg.objects.blocks.twilight.BlockBrambles;
-import divinerpg.objects.blocks.twilight.BlockEdenChest;
-import divinerpg.objects.blocks.twilight.BlockMoonbulb;
-import divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
-import divinerpg.objects.blocks.twilight.BlockPurpleGlowbone;
-import divinerpg.objects.blocks.twilight.BlockSkyPlant;
-import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
-import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
-import divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
-import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
-import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
-import divinerpg.objects.blocks.vanilla.BlockBloodgemOre;
-import divinerpg.objects.blocks.vanilla.BlockBoneChest;
-import divinerpg.objects.blocks.vanilla.BlockDarkBridge;
-import divinerpg.objects.blocks.vanilla.BlockHotSpike;
-import divinerpg.objects.blocks.vanilla.BlockLightFence;
-import divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
-import divinerpg.objects.blocks.vanilla.BlockSlimeLight;
-import divinerpg.objects.blocks.vanilla.BlockSpike;
-import divinerpg.objects.blocks.vanilla.BlockTomatoPlant;
-import divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
-import divinerpg.objects.blocks.vanilla.VanillaBlock;
-import divinerpg.objects.blocks.vethea.BlockAcid;
-import divinerpg.objects.blocks.vethea.BlockVetheaLog;
+import divinerpg.objects.blocks.iceika.*;
+import divinerpg.objects.blocks.twilight.*;
+import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.utils.DRPGParticleTypes;
 import divinerpg.utils.GenerateJSON;
 import divinerpg.utils.material.EnumBlockType;
@@ -95,6 +25,9 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSlab;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -550,91 +483,91 @@ public class ModBlocks {
     //	public static Block biphronSpawner = new BlockStupidSpawner("biphronSpawner", "Biphron", "fireCrystal", true);
     //	public static Block gorgosionSpawner = new BlockStupidSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal", true);
 
-    public static Block wreckAltar = new BlockMod("wreck_altar", 0.7F, DivineRPGTabs.spawner);
-    public static Block quadroticAltar = new BlockMod("quadrotic_altar", 0.7F, DivineRPGTabs.spawner);
-    public static Block karosAltar = new BlockMod("karos_altar", 0.7F, DivineRPGTabs.spawner);
-    public static Block raglokAltar = new BlockMod("raglok_altar", 0.7F, DivineRPGTabs.spawner);
-    public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DivineRPGTabs.spawner);
-
-    public static Block dreamStone = new BlockMod("dream_stone", 0.25F, DivineRPGTabs.vethea);
-    public static Block dreamDirt = new BlockMod(EnumBlockType.DIRT, "dream_dirt", 0.3F, DivineRPGTabs.vethea);
-    public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 0.3F)
-            .setCreativeTab(DivineRPGTabs.vethea);
-    public static Block fireCrystal = new BlockMod(EnumBlockType.GLASS, "fire_crystal", 1.0F, DivineRPGTabs.vethea)
-            .setLightLevel(0.7F);
-
-    public static Block dreamWoodLog = new BlockVetheaLog("dreamwood_log");
-    public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.3F)
-            .setCreativeTab(DivineRPGTabs.vethea);
-    public static Block lightDreamBricks = new BlockMod("light_dream_bricks", 1.0F, DivineRPGTabs.vethea);
-    public static Block darkDreamBricks = new BlockMod("dark_dream_bricks", 1.0F, DivineRPGTabs.vethea);
-    public static Block lunaStone = new BlockMod("luna_stone", 1.0F, DivineRPGTabs.vethea);
-    public static Block lunaBricks = new BlockMod("luna_brick", 1.0F, DivineRPGTabs.vethea);
-    public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block wreckAltar = new BlockMod("wreck_altar", 0.7F, DivineRPGTabs.spawner);
+//    public static Block quadroticAltar = new BlockMod("quadrotic_altar", 0.7F, DivineRPGTabs.spawner);
+//    public static Block karosAltar = new BlockMod("karos_altar", 0.7F, DivineRPGTabs.spawner);
+//    public static Block raglokAltar = new BlockMod("raglok_altar", 0.7F, DivineRPGTabs.spawner);
+//    public static Block lunicAltar = new BlockMod("lunic_altar", 0.7F, DivineRPGTabs.spawner);
+//
+//    public static Block dreamStone = new BlockMod("dream_stone", 0.25F, DivineRPGTabs.vethea);
+//    public static Block dreamDirt = new BlockMod(EnumBlockType.DIRT, "dream_dirt", 0.3F, DivineRPGTabs.vethea);
+//    public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 0.3F)
+//            .setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block fireCrystal = new BlockMod(EnumBlockType.GLASS, "fire_crystal", 1.0F, DivineRPGTabs.vethea)
+//            .setLightLevel(0.7F);
+//
+//    public static Block dreamWoodLog = new BlockVetheaLog("dreamwood_log");
+//    public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.3F)
+//            .setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block lightDreamBricks = new BlockMod("light_dream_bricks", 1.0F, DivineRPGTabs.vethea);
+//    public static Block darkDreamBricks = new BlockMod("dark_dream_bricks", 1.0F, DivineRPGTabs.vethea);
+//    public static Block lunaStone = new BlockMod("luna_stone", 1.0F, DivineRPGTabs.vethea);
+//    public static Block lunaBricks = new BlockMod("luna_brick", 1.0F, DivineRPGTabs.vethea);
+//    public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
     //	public static Block dreamLampOn = new BlockDreamLamp("dream_lamp_on", true);
     //	public static Block dreamLamp = new BlockDreamLamp("dreamLampOff", false);
     //public static Block weedwoodVine = new BlockModVine("weed_wood_vine").setCreativeTab(DivineRPGTabs.vethea);
     //public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weed_wood_vine")
     //        .setCreativeTab(DivineRPGTabs.vethea);
-    public static Block cryptWall = new BlockMod("crypt_wall", 1.0F, DivineRPGTabs.vethea);
-    public static Block smoothGlass = new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
-    public static Block villageLamp = new BlockMod(EnumBlockType.GLASS, "village_lamp", 1.0F, DivineRPGTabs.vethea)
-            .setLightLevel(1);
-    public static Block cellLamp = new BlockMod(EnumBlockType.GLASS, "cell_lamp", 1.0F, DivineRPGTabs.vethea)
-            .setLightLevel(1);
-    public static Block barredDoor = new BlockModDoor("barred_door_block", Material.IRON, 0.5F, true);
-    public static Block firelight = new BlockMod(EnumBlockType.GLASS, "firelight", 1.0F, DivineRPGTabs.vethea)
-            .setLightLevel(1).setResistance(1);
-    public static Block hyrewood = new BlockVetheaLog("hyrewood_log");
-    public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.3F)
-            .setCreativeTab(DivineRPGTabs.vethea);
-    public static Block redDreamBricks = new BlockMod("red_dream_bricks", 1.0F, DivineRPGTabs.vethea);
-    public static Block karosHeatTileGreen = new BlockMod(EnumBlockType.GLASS, "karos_heat_tile_green", false,
-            DivineRPGTabs.vethea);
-    //	public static Block karosHeatTileRed = new BlockKarosHeatTile();
-    public static Block firewood = new BlockVetheaLog("firewood_log");
-    public static Block bacterialAcid = new BlockAcid("bacterial_acid", false, false);
-    public static Block blockAcid = new BlockAcid("acid_block", true, false);
-    public static Block everstone = new BlockMod("green_everstone", 3.0F, DivineRPGTabs.vethea);
-    public static Block lunicAcid = new BlockAcid("lunic_acid", true, true);
-    public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.3F)
-            .setCreativeTab(DivineRPGTabs.vethea);
-    public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.3F)
-            .setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block cryptWall = new BlockMod("crypt_wall", 1.0F, DivineRPGTabs.vethea);
+//    public static Block smoothGlass = new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block villageLamp = new BlockMod(EnumBlockType.GLASS, "village_lamp", 1.0F, DivineRPGTabs.vethea)
+//            .setLightLevel(1);
+//    public static Block cellLamp = new BlockMod(EnumBlockType.GLASS, "cell_lamp", 1.0F, DivineRPGTabs.vethea)
+//            .setLightLevel(1);
+//    public static Block barredDoor = new BlockModDoor("barred_door_block", Material.IRON, 0.5F, true);
+//    public static Block firelight = new BlockMod(EnumBlockType.GLASS, "firelight", 1.0F, DivineRPGTabs.vethea)
+//            .setLightLevel(1).setResistance(1);
+//    public static Block hyrewood = new BlockVetheaLog("hyrewood_log");
+//    public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.3F)
+//            .setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block redDreamBricks = new BlockMod("red_dream_bricks", 1.0F, DivineRPGTabs.vethea);
+//    public static Block karosHeatTileGreen = new BlockMod(EnumBlockType.GLASS, "karos_heat_tile_green", false,
+//            DivineRPGTabs.vethea);
+//    //	public static Block karosHeatTileRed = new BlockKarosHeatTile();
+//    public static Block firewood = new BlockVetheaLog("firewood_log");
+//    public static Block bacterialAcid = new BlockAcid("bacterial_acid", false, false);
+//    public static Block blockAcid = new BlockAcid("acid_block", true, false);
+//    public static Block everstone = new BlockMod("green_everstone", 3.0F, DivineRPGTabs.vethea);
+//    public static Block lunicAcid = new BlockAcid("lunic_acid", true, true);
+//    public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.3F)
+//            .setCreativeTab(DivineRPGTabs.vethea);
+//    public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.3F)
+//            .setCreativeTab(DivineRPGTabs.vethea);
     //	public static Block gemtopGreen = new BlockVetheaPlant("greenGemTop");
     //	public static Block gemtopPurple = new BlockVetheaPlant("purpleGemTop");
     //	public static Block purpleDulah = new BlockVetheaPlant("purpleDulah");
     //	public static Block yellowDulah = new BlockVetheaPlant("yellowDulah");
     //	public static Block greenDulah = new BlockVetheaPlant("greenDulah");
-    public static Block mintwood = new BlockVetheaLog("mintwood_log");
+//    public static Block mintwood = new BlockVetheaLog("mintwood_log");
     //	public static Block cracklespike = new BlockVetheaPlant("crackleSpike");
     //	public static Block fernite = new BlockVetheaPlant("fernite");
     //	public static Block bulatobe = new BlockVetheaPlant("bulbatobe");
     //	public static Block shineGrass = new BlockVetheaPlant("shineGrass").setLightLevel(0.4F);
     //	public static Block shimmer = new BlockShimmer("shimmer").setLightLevel(0.4F);
-    public static Block hiveWall = new BlockMod(EnumBlockType.GLASS, "hive_walls", 1.0F, DivineRPGTabs.vethea)
-            .setLightLevel(0.533F);
+//    public static Block hiveWall = new BlockMod(EnumBlockType.GLASS, "hive_walls", 1.0F, DivineRPGTabs.vethea)
+//            .setLightLevel(0.533F);
     //	public static Block dreamglow = new BlockVetheaPlant("dreamglow").setLightLevel(0.4F);
     //public static Block hyrewoodVine = new BlockModVine("hyre_wood_vine").setCreativeTab(DivineRPGTabs.vethea);
-    public static Block chamberWall = new BlockMod(EnumBlockType.ROCK, "chamber_wall1", false, DivineRPGTabs.vethea)
-            .setUnlocalizedName("chamber_wall");
-    public static Block chamberWall1 = new BlockMod(EnumBlockType.ROCK, "chamber_wall2", false, DivineRPGTabs.vethea)
-            .setUnlocalizedName("chamber_wall");
-    public static Block chamberWall2 = new BlockMod(EnumBlockType.ROCK, "chamber_wall3", false, DivineRPGTabs.vethea)
-            .setUnlocalizedName("chamber_wall");
-    public static Block whiteEverstone = new BlockMod(EnumBlockType.ROCK, "white_everstone", false,
-            DivineRPGTabs.vethea);
-    public static Block darkEverstone = new BlockMod(EnumBlockType.ROCK, "dark_everstone", false, DivineRPGTabs.vethea);
-    public static Block blackHungerstone = new BlockMod(EnumBlockType.ROCK, "black_hungerstone", false,
-            DivineRPGTabs.vethea);
-    public static Block greenHungerstone = new BlockMod(EnumBlockType.ROCK, "green_hungerstone", false,
-            DivineRPGTabs.vethea);
-    public static Block cryptFloor = new BlockMod(EnumBlockType.ROCK, "crypt_floor", false, DivineRPGTabs.vethea);
-    public static Block hallWall = new BlockMod(EnumBlockType.ROCK, "hall_wall", false, DivineRPGTabs.vethea);
-    public static Block blueKarosBricks = new BlockMod(EnumBlockType.ROCK, "blue_karos_bricks", false,
-            DivineRPGTabs.vethea);
-    public static Block blackKarosBricks = new BlockMod(EnumBlockType.ROCK, "black_karos_bricks", false,
-            DivineRPGTabs.vethea);
+//    public static Block chamberWall = new BlockMod(EnumBlockType.ROCK, "chamber_wall1", false, DivineRPGTabs.vethea)
+//            .setUnlocalizedName("chamber_wall");
+//    public static Block chamberWall1 = new BlockMod(EnumBlockType.ROCK, "chamber_wall2", false, DivineRPGTabs.vethea)
+//            .setUnlocalizedName("chamber_wall");
+//    public static Block chamberWall2 = new BlockMod(EnumBlockType.ROCK, "chamber_wall3", false, DivineRPGTabs.vethea)
+//            .setUnlocalizedName("chamber_wall");
+//    public static Block whiteEverstone = new BlockMod(EnumBlockType.ROCK, "white_everstone", false,
+//            DivineRPGTabs.vethea);
+//    public static Block darkEverstone = new BlockMod(EnumBlockType.ROCK, "dark_everstone", false, DivineRPGTabs.vethea);
+//    public static Block blackHungerstone = new BlockMod(EnumBlockType.ROCK, "black_hungerstone", false,
+//            DivineRPGTabs.vethea);
+//    public static Block greenHungerstone = new BlockMod(EnumBlockType.ROCK, "green_hungerstone", false,
+//            DivineRPGTabs.vethea);
+//    public static Block cryptFloor = new BlockMod(EnumBlockType.ROCK, "crypt_floor", false, DivineRPGTabs.vethea);
+//    public static Block hallWall = new BlockMod(EnumBlockType.ROCK, "hall_wall", false, DivineRPGTabs.vethea);
+//    public static Block blueKarosBricks = new BlockMod(EnumBlockType.ROCK, "blue_karos_bricks", false,
+//            DivineRPGTabs.vethea);
+//    public static Block blackKarosBricks = new BlockMod(EnumBlockType.ROCK, "black_karos_bricks", false,
+//            DivineRPGTabs.vethea);
     //	public static Block infusionTable = new BlockInfusionTable().setName("infusionTable").setBlockUnbreakable();
     //	public static BlockHelioticBeam helioticBeam = (BlockHelioticBeam) new BlockHelioticBeam("helioticBeam");
     //	public static BlockKarosCannon karosCannon = (BlockKarosCannon) new BlockKarosCannon(Material.rock).register();
@@ -682,7 +615,7 @@ public class ModBlocks {
                 }
             };
 
-            woodType.setPlank((Block) planks);
+            woodType.setPlank(planks);
             woodType.setStair(stairs);
             woodType.setSingleSlab(singleSlab);
             woodType.setDoubleSlab(doubleSlab);

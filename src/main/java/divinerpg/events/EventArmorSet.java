@@ -3,12 +3,10 @@ package divinerpg.events;
 import divinerpg.Config;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModDimensions;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.FullSetArmorHelper;
 import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -66,43 +64,43 @@ public class EventArmorSet {
                 }
             }
 
-            Item body = armorHelper.getBody();
-            Item legs = armorHelper.getLegs();
-            Item boots = armorHelper.getBoots();
-            Item helmet = armorHelper.getHelmet();
+//            Item body = armorHelper.getBody();
+//            Item legs = armorHelper.getLegs();
+//            Item boots = armorHelper.getBoots();
+//            Item helmet = armorHelper.getHelmet();
 
             //Vethean
-            if (body == ModItems.degradedBody && legs == ModItems.degradedLegs && boots == ModItems.degradedBoots) {
-                if ((helmet == ModItems.degradedHelmet && !s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.degradedMask && s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.degradedHood && s.isMagicDamage()))
-                    evt.setAmount(evt.getAmount() * 0.82f);
-            }
-            if (body == ModItems.finishedBody && legs == ModItems.finishedLegs && boots == ModItems.finishedBoots) {
-                if ((helmet == ModItems.finishedHelmet && !s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.finishedMask && s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.finishedHood && s.isMagicDamage()))
-                    evt.setAmount(evt.getAmount() * 0.773f);
-            }
-            if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs
-                    && boots == ModItems.glisteningBoots) {
-                if ((helmet == ModItems.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.glisteningMask && s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.glisteningHood && s.isMagicDamage()))
-                    evt.setAmount(evt.getAmount() * 0.7f);
-            }
-            if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots) {
-                if ((helmet == ModItems.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.demonizedMask && s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.demonizedHood && s.isMagicDamage()))
-                    evt.setAmount(evt.getAmount() * 0.625f);
-            }
-            if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots) {
-                if ((helmet == ModItems.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.tormentedMask && s.isProjectile() && !s.isMagicDamage())
-                        || (helmet == ModItems.tormentedHood && s.isMagicDamage()))
-                    evt.setAmount(evt.getAmount() * 0.348f);
-            }
+//            if (body == ModItems.degradedBody && legs == ModItems.degradedLegs && boots == ModItems.degradedBoots) {
+//                if ((helmet == ModItems.degradedHelmet && !s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.degradedMask && s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.degradedHood && s.isMagicDamage()))
+//                    evt.setAmount(evt.getAmount() * 0.82f);
+//            }
+//            if (body == ModItems.finishedBody && legs == ModItems.finishedLegs && boots == ModItems.finishedBoots) {
+//                if ((helmet == ModItems.finishedHelmet && !s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.finishedMask && s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.finishedHood && s.isMagicDamage()))
+//                    evt.setAmount(evt.getAmount() * 0.773f);
+//            }
+//            if (body == ModItems.glisteningBody && legs == ModItems.glisteningLegs
+//                    && boots == ModItems.glisteningBoots) {
+//                if ((helmet == ModItems.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.glisteningMask && s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.glisteningHood && s.isMagicDamage()))
+//                    evt.setAmount(evt.getAmount() * 0.7f);
+//            }
+//            if (body == ModItems.demonizedBody && legs == ModItems.demonizedLegs && boots == ModItems.demonizedBoots) {
+//                if ((helmet == ModItems.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.demonizedMask && s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.demonizedHood && s.isMagicDamage()))
+//                    evt.setAmount(evt.getAmount() * 0.625f);
+//            }
+//            if (body == ModItems.tormentedBody && legs == ModItems.tormentedLegs && boots == ModItems.tormentedBoots) {
+//                if ((helmet == ModItems.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.tormentedMask && s.isProjectile() && !s.isMagicDamage())
+//                        || (helmet == ModItems.tormentedHood && s.isMagicDamage()))
+//                    evt.setAmount(evt.getAmount() * 0.348f);
+//            }
         }
     }
 
@@ -136,7 +134,7 @@ public class EventArmorSet {
 
             // Divine or Vethea
             if (armorHelper.isDivine()
-                    || armorHelper.isGlistening(ModItems.glisteningHood)) {
+                    /*|| armorHelper.isGlistening(ModItems.glisteningHood)*/) {
                 player.addVelocity(0, 0.2D, 0);
             }
 
@@ -146,12 +144,12 @@ public class EventArmorSet {
             }
 
             // Vethean
-            if (armorHelper.isDemonised(ModItems.demonizedHood)) {
-                player.addVelocity(0, 0.3D, 0);
-            }
-            if (armorHelper.isTormented(ModItems.tormentedHood)) {
-                player.addVelocity(0, 0.4D, 0);
-            }
+//            if (armorHelper.isDemonised(ModItems.demonizedHood)) {
+//                player.addVelocity(0, 0.3D, 0);
+//            }
+//            if (armorHelper.isTormented(ModItems.tormentedHood)) {
+//                player.addVelocity(0, 0.4D, 0);
+//            }
 
         }
     }
@@ -168,7 +166,7 @@ public class EventArmorSet {
             // Santa or Divine or Demonized
             if (armorHelper.isSanta()
                 || armorHelper.isDivine()
-                || armorHelper.isDemonised(null)) {
+                /* || armorHelper.isDemonised(null)*/) {
                 if ((e.getEntityLiving().world.provider.getDimensionType().getId() == Config.iceikaDimensionId)
                         && ((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
                     e.setAmount(e.getAmount() + 6);
@@ -190,16 +188,16 @@ public class EventArmorSet {
             }
 
             // Vethean
-            if (armorHelper.isGlistening(null)) {
-                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.setAmount(e.getAmount() + 3);
-                }
-            }
-            if (armorHelper.isTormented(null)) {
-                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.setAmount(e.getAmount() + 9);
-                }
-            }
+//            if (armorHelper.isGlistening(null)) {
+//                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+//                    e.setAmount(e.getAmount() + 3);
+//                }
+//            }
+//            if (armorHelper.isTormented(null)) {
+//                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+//                    e.setAmount(e.getAmount() + 9);
+//                }
+//            }
         }
     }
 

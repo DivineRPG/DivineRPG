@@ -1,9 +1,5 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
@@ -23,14 +19,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemModBow extends ItemBow implements IHasModel {
     private net.minecraft.util.SoundEvent shootSound = SoundEvents.ENTITY_ARROW_SHOOT;
@@ -184,7 +179,7 @@ public class ItemModBow extends ItemBow implements IHasModel {
                             stack.damageItem(1, entityplayer);
                         worldIn.spawnEntity(entityarrow);
                     }
-                    worldIn.playSound((EntityPlayer) null, entityplayer.posX, entityplayer.posY, entityplayer.posZ,
+                    worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ,
                             this.shootSound, SoundCategory.MASTER, 1.0F,
                             1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     if (!infiniteAmmo) {
@@ -216,11 +211,11 @@ public class ItemModBow extends ItemBow implements IHasModel {
         return this;
     }
 
-    public ItemModBow setVethean() {
-        this.setCreativeTab(DivineRPGTabs.vethea);
-        this.vethean = true;
-        return this;
-    }
+//    public ItemModBow setVethean() {
+//        this.setCreativeTab(DivineRPGTabs.vethea);
+//        this.vethean = true;
+//        return this;
+//    }
 
     @Override
     public void registerModels() {

@@ -1,26 +1,22 @@
 package divinerpg.objects.items.vethea;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.world.World;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemVetheanSword extends ItemModSword {
 	ToolMaterial mat;
     public ItemVetheanSword(String name, ToolMaterial toolMaterial) {
         super(toolMaterial, name);
         setMaxDamage(-1);
-        setCreativeTab(DivineRPGTabs.vethea);
+//        setCreativeTab(DivineRPGTabs.vethea);
         mat = toolMaterial;
     }
 

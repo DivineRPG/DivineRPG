@@ -1,41 +1,10 @@
 package divinerpg.registry;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.BulletType;
-import divinerpg.enums.DiskType;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
-import divinerpg.objects.items.ItemNotReady;
-import divinerpg.objects.items.arcana.ItemAquamarine;
-import divinerpg.objects.items.arcana.ItemArcanaPotion;
-import divinerpg.objects.items.arcana.ItemArcaniteBlade;
-import divinerpg.objects.items.arcana.ItemArcaniteBlaster;
-import divinerpg.objects.items.arcana.ItemArcaniumSaber;
-import divinerpg.objects.items.arcana.ItemAttractor;
-import divinerpg.objects.items.arcana.ItemCaptainsSparkler;
-import divinerpg.objects.items.arcana.ItemChargedCollector;
-import divinerpg.objects.items.arcana.ItemDivineAccumulator;
-import divinerpg.objects.items.arcana.ItemEnderScepter;
-import divinerpg.objects.items.arcana.ItemFirefly;
-import divinerpg.objects.items.arcana.ItemGeneralsStaff;
-import divinerpg.objects.items.arcana.ItemGhostbane;
-import divinerpg.objects.items.arcana.ItemGrenade;
-import divinerpg.objects.items.arcana.ItemKey;
-import divinerpg.objects.items.arcana.ItemLaVekor;
-import divinerpg.objects.items.arcana.ItemLamona;
-import divinerpg.objects.items.arcana.ItemMeriksMissile;
-import divinerpg.objects.items.arcana.ItemMeteorMash;
-import divinerpg.objects.items.arcana.ItemOrbOfLight;
-import divinerpg.objects.items.arcana.ItemReflector;
-import divinerpg.objects.items.arcana.ItemShadowSword;
-import divinerpg.objects.items.arcana.ItemStaffEnrichment;
-import divinerpg.objects.items.arcana.ItemStaffStarlight;
-import divinerpg.objects.items.arcana.ItemStormSword;
-import divinerpg.objects.items.arcana.ItemWizardsBook;
-import divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
+import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemMusicShooter;
@@ -45,34 +14,10 @@ import divinerpg.objects.items.twilight.ItemSkyFlower;
 import divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import divinerpg.objects.items.twilight.ItemTwilightClock;
 import divinerpg.objects.items.twilight.ItemTwilightSpawner;
-import divinerpg.objects.items.vanilla.ItemAnchor;
-import divinerpg.objects.items.vanilla.ItemBurningSword;
-import divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
-import divinerpg.objects.items.vanilla.ItemCorruptedCannon;
-import divinerpg.objects.items.vanilla.ItemHordeHorn;
-import divinerpg.objects.items.vanilla.ItemInfernalFlame;
-import divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
-import divinerpg.objects.items.vanilla.ItemMysteriousClock;
-import divinerpg.objects.items.vanilla.ItemScythe;
-import divinerpg.objects.items.vanilla.ItemSerenadeOfDeath;
-import divinerpg.objects.items.vanilla.ItemSerenadeOfHealth;
-import divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
-import divinerpg.objects.items.vanilla.ItemSerenadeStriker;
-import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
-import divinerpg.objects.items.vanilla.ItemVileStorm;
-import divinerpg.objects.items.vethea.ItemDreamFlint;
-import divinerpg.objects.items.vethea.ItemMoonClock;
-import divinerpg.objects.items.vethea.ItemStaff;
-import divinerpg.objects.items.vethea.ItemVetheanCannon;
-import divinerpg.objects.items.vethea.ItemVetheanClaw;
-import divinerpg.objects.items.vethea.ItemVetheanDisk;
-import divinerpg.objects.items.vethea.ItemVetheanFood;
-import divinerpg.objects.items.vethea.ItemVetheanHealingFood;
-import divinerpg.objects.items.vethea.ItemVetheanSword;
+import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ArmorInfo;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.GenerateJSON;
-import divinerpg.utils.Utils;
 import divinerpg.utils.material.EnumArmor;
 import divinerpg.utils.material.ToolMaterialMod;
 import net.minecraft.init.Blocks;
@@ -81,6 +26,9 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModItems {
     public static final List<Item> ITEMS = new ArrayList<Item>();
@@ -775,215 +723,215 @@ public class ModItems {
     public static Item vemosBoots = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo);
 
     // Vethea
-    public static Item dirtyPearls = new ItemMod("dirty_pearls");
-    public static Item cleanPearls = new ItemMod("clean_pearls");
-    public static Item polishedPearls = new ItemMod("polished_pearls");
-    public static Item shinyPearls = new ItemMod("shiny_pearls");
-
-    public static Item teakerLump = new ItemMod("teaker_lump");
-    public static Item amthirmisLump = new ItemMod("amthirmis_lump");
-    public static Item darvenLump = new ItemMod("darven_lump");
-    public static Item cermileLump = new ItemMod("cermile_lump");
-    public static Item pardimalLump = new ItemMod("pardimal_lump");
-    public static Item quadroticLump = new ItemMod("quadrotic_lump");
-    public static Item karosLump = new ItemMod("karos_lump");
-    public static Item heliosisLump = new ItemMod("heliosis_lump");
-    public static Item arksianeLump = new ItemMod("arksiane_lump");
-
-    public static Item teakerDisk = new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK);
-    public static Item amthrimisDisk = new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK);
-    public static Item darvenDisk = new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK);
-    public static Item cermileDisk = new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK);
-    public static Item pardimalDisk = new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK);
-    public static Item quadroticDisk = new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK);
-    public static Item karosDisk = new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK);
-    public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK);
-    public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK);
-
-    public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
-    public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
-    public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
-    public static Item cermileStaff = new ItemStaff(12, 10, "cermile_staff");
-    public static Item pardimalStaff = new ItemStaff(15, 10, "pardimal_staff");
-    public static Item quadroticStaff = new ItemStaff(19, 10, "quadrotic_warstaff");
-    public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
-    public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
-    public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
-
-    public static Item honeysuckle = new ItemVetheanFood(1, 0.2F, "honeysuckle");
-    public static Item honeychunk = new ItemVetheanFood(1, 0.2F, "honeychunk");
-    public static Item dreamCarrot = new ItemVetheanFood(3, 0.4F, "dream_carrot");
-    public static Item dreamMelon = new ItemVetheanFood(6, 0.6F, "dream_melon");
-    public static Item dreamPie = new ItemVetheanFood(4, 0.8F, "dream_pie");
-    public static Item dreamCake = new ItemVetheanFood(8, 0.8F, "dream_cake");
-    public static Item dreamSweets = new ItemVetheanHealingFood(0, 0F, false, 2, "dream_sweets");
-    public static Item dreamSours = new ItemVetheanHealingFood(0, 0F, false, 8, "dream_sours");
-
-    public static Item acid = new ItemMod("acid");
-    public static Item heivaBelt = new ItemMod("band_of_heiva_hunting");
-    public static Item minersAmulet = new ItemMod("miners_amulet");
-
-    public static Item hammerTemplate = new ItemMod("hammer_template");
-    public static Item backswordTemplate = new ItemMod("backsword_template");
-    public static Item bowTemplate = new ItemMod("bow_template");
-    public static Item cannonTemplate = new ItemMod("cannon_template");
-    public static Item clawTemplate = new ItemMod("claw_template");
-    public static Item diskTemplate = new ItemMod("disk_template");
-    public static Item staffTemplate = new ItemMod("staff_template");
-    public static Item degradedTemplate = new ItemMod("degraded_template");
-    public static Item finishedTemplate = new ItemMod("finished_template");
-    public static Item glisteningTemplate = new ItemMod("glistening_template");
-    public static Item demonizedTemplate = new ItemMod("demonized_template");
-    public static Item tormentedTemplate = new ItemMod("tormented_template");
-
-    public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT);
-    public static Item amthrimisCannon = new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT);
-    public static Item darvenCannon = new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT);
-    public static Item cermileCannon = new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT);
-    public static Item pardimalCannon = new ItemVetheanCannon("pardimal_cannon", BulletType.PARDINMAL_CANNON_SHOT);
-    public static Item quadroticCannon = new ItemVetheanCannon("quadrotic_warcannon",
-            BulletType.QUADROTIC_WAR_CANNON_SHOT);
-    public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_WAR_CANNON_SHOT);
-    public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon",
-            BulletType.HALIOSIS_WRATH_CANNON_SHOT);
-    public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon",
-            BulletType.ARKSIANE_WRATH_CANNON_SHOT);
-
-    public static Item teakerHammer = new ItemVetheanSword("teaker_hammer", Utils.addHammerMaterial(6));
-    public static Item amthrimisHammer = new ItemVetheanSword("amthirmis_hammer", Utils.addHammerMaterial(8));
-    public static Item darvenHammer = new ItemVetheanSword("darven_hammer", Utils.addHammerMaterial(12));
-    public static Item cermileHammer = new ItemVetheanSword("cermile_hammer", Utils.addHammerMaterial(15));
-    public static Item pardimalHammer = new ItemVetheanSword("pardimal_hammer", Utils.addHammerMaterial(19));
-    public static Item quadroticHammer = new ItemVetheanSword("quadrotic_warhammer", Utils.addHammerMaterial(24));
-    public static Item karosHammer = new ItemVetheanSword("karos_warhammer", Utils.addHammerMaterial(26));
-    public static Item heliosisHammer = new ItemVetheanSword("heliosis_wrathhammer", Utils.addHammerMaterial(33));
-    public static Item arksianeHammer = new ItemVetheanSword("arksiane_wrathhammer", Utils.addHammerMaterial(39));
-
-    public static Item teakerSword = new ItemVetheanSword("teaker_backsword", Utils.addHammerMaterial(4));
-    public static Item amthrimisSword = new ItemVetheanSword("amthirmis_backsword", Utils.addHammerMaterial(6));
-    public static Item darvenSword = new ItemVetheanSword("darven_backsword", Utils.addHammerMaterial(9));
-    public static Item cermileSword = new ItemVetheanSword("cermile_backsword", Utils.addHammerMaterial(13));
-    public static Item pardimalSword = new ItemVetheanSword("pardimal_backsword", Utils.addHammerMaterial(16));
-    public static Item quadroticSword = new ItemVetheanSword("quadrotic_warsword", Utils.addHammerMaterial(20));
-    public static Item karosSword = new ItemVetheanSword("karos_warsword", Utils.addHammerMaterial(22));
-    public static Item heliosisSword = new ItemVetheanSword("heliosis_wrathsword", Utils.addHammerMaterial(29));
-    public static Item arksianeSword = new ItemVetheanSword("arksiane_wrathsword", Utils.addHammerMaterial(37));
-
-    public static Item teakerClaw = new ItemVetheanClaw(3, "teaker_claw");
-    public static Item amthrimisClaw = new ItemVetheanClaw(5, "amthirmis_claw");
-    public static Item darvenClaw = new ItemVetheanClaw(7, "darven_claw");
-    public static Item cermileClaw = new ItemVetheanClaw(8, "cermile_claw");
-    public static Item pardimalClaw = new ItemVetheanClaw(12, "pardimal_claw");
-    public static Item quadroticClaw = new ItemVetheanClaw(14, "quadrotic_warclaw");
-    public static Item karosClaw = new ItemVetheanClaw(19, "karos_warclaw");
-    public static Item heliosisClaw = new ItemVetheanClaw(26, "heliosis_wrathclaw");
-    public static Item arksianeClaw = new ItemVetheanClaw(35, "arksiane_wrathclaw");
-
-    public static Item eversight = new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT);
-    public static Item everlight = new ItemVetheanSword("everlight", Utils.addHammerMaterial(44));
-    public static Item everbright = new ItemVetheanClaw(42, "everbright");
-    public static Item everArrow = new ItemMod("ever_arrow").setCreativeTab(DivineRPGTabs.ranged);
-    public static Item everfrightBow = new ItemModBow("everfright_bow", ArrowType.EVERFRIGHT, -1, everArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item evernight = new ItemStaff(115, 80, "evernight");
-
-    public static Item karosRockmaul = new ItemVetheanSword("karos_rockmaul", Utils.addHammerMaterial(46));
-
-    public static Item teakerArrow = new ItemMod("teaker_arrow").setCreativeTab(DivineRPGTabs.ranged);;
-    public static Item darvenArrow = new ItemMod("darven_arrow").setCreativeTab(DivineRPGTabs.ranged);;
-    public static Item pardimalArrow = new ItemMod("pardimal_arrow").setCreativeTab(DivineRPGTabs.ranged);;
-    public static Item karosArrow = new ItemMod("karos_arrow").setCreativeTab(DivineRPGTabs.ranged);;
-
-    public static Item teakerBow = new ItemModBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item amthrimisBow = new ItemModBow("amthirmis_bow", ArrowType.AMTHRIMIS_ARROW, -1, teakerArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item darvenBow = new ItemModBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item cermileBow = new ItemModBow("cermile_bow", ArrowType.CERMIL_ARROW, -1, darvenArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item pardimalBow = new ItemModBow("pardimal_bow", ArrowType.PARDINAL_ARROW, -1, pardimalArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item quadroticBow = new ItemModBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item karosBow = new ItemModBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item heliosisBow = new ItemModBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-    public static Item arksianeBow = new ItemModBow("arksiane_wrathbow", ArrowType.ARKSIAN_ARROW, 1, karosArrow)
-            .setSound(ModSounds.VETHEA_BOW).setVethean();
-
-    public static Item dreamFlint = new ItemDreamFlint();
-    public static Item moonClock = new ItemMoonClock("moon_clock");
-    public static Item rockChunks = new ItemMod("rock_chunks");
-    // public static Item nightmareBed = new ItemNightmareBed();
-    public static Item nightmareBed = new ItemNotReady("nightmare_bed", DivineRPGTabs.items);
-
-    private static Object[] basicHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION };
-    private static Object[] basicMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION };
-    private static Object[] basicHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION };
-    private static Object[] glisteningHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 3, ArmorInfo.MELEE_DAMAGE };
-    private static Object[] glisteningMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.4, ArmorInfo.SPEED };
-    private static Object[] glisteningHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT,
-            ArmorInfo.NO_FALL };
-    private static Object[] demonizedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 6, ArmorInfo.MELEE_DAMAGE };
-    private static Object[] demonizedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.8, ArmorInfo.SPEED };
-    private static Object[] demonizedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT,
-            ArmorInfo.NO_FALL };
-    private static Object[] tormentedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE };
-    private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
-    private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT,
-            ArmorInfo.NO_FALL };
-
-    public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo,
-            true, "helmet");
-    public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo,
-            true, "mask");
-    public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo,
-            true, "hood");
-    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST, true);
-    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS, true);
-    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET, true);
-
-    public static Item finishedHelmet = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo,
-            true, "helmet");
-    public static Item finishedMask = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo,
-            true, "mask");
-    public static Item finishedHood = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo,
-            true, "hood");
-    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST, true);
-    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS, true);
-    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET, true);
-
-    public static Item glisteningHelmet = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
-            glisteningHelmInfo, true, "helmet");
-    public static Item glisteningMask = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
-            glisteningMaskInfo, true, "mask");
-    public static Item glisteningHood = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
-            glisteningHoodInfo, true, "hood");
-    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST, true);
-    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS, true);
-    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET, true);
-
-    public static Item demonizedHelmet = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
-            demonizedHelmInfo, true, "helmet");
-    public static Item demonizedMask = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
-            demonizedMaskInfo, true, "mask");
-    public static Item demonizedHood = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
-            demonizedHoodInfo, true, "hood");
-    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST, true);
-    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS, true);
-    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET, true);
-
-    public static Item tormentedHelmet = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
-            tormentedHelmInfo, true, "helmet");
-    public static Item tormentedMask = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
-            tormentedMaskInfo, true, "mask");
-    public static Item tormentedHood = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
-            tormentedHoodInfo, true, "hood");
-    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST, true);
-    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
-    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
+//    public static Item dirtyPearls = new ItemMod("dirty_pearls");
+//    public static Item cleanPearls = new ItemMod("clean_pearls");
+//    public static Item polishedPearls = new ItemMod("polished_pearls");
+//    public static Item shinyPearls = new ItemMod("shiny_pearls");
+//
+//    public static Item teakerLump = new ItemMod("teaker_lump");
+//    public static Item amthirmisLump = new ItemMod("amthirmis_lump");
+//    public static Item darvenLump = new ItemMod("darven_lump");
+//    public static Item cermileLump = new ItemMod("cermile_lump");
+//    public static Item pardimalLump = new ItemMod("pardimal_lump");
+//    public static Item quadroticLump = new ItemMod("quadrotic_lump");
+//    public static Item karosLump = new ItemMod("karos_lump");
+//    public static Item heliosisLump = new ItemMod("heliosis_lump");
+//    public static Item arksianeLump = new ItemMod("arksiane_lump");
+//
+//    public static Item teakerDisk = new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK);
+//    public static Item amthrimisDisk = new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK);
+//    public static Item darvenDisk = new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK);
+//    public static Item cermileDisk = new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK);
+//    public static Item pardimalDisk = new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK);
+//    public static Item quadroticDisk = new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK);
+//    public static Item karosDisk = new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK);
+//    public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK);
+//    public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK);
+//
+//    public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
+//    public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
+//    public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
+//    public static Item cermileStaff = new ItemStaff(12, 10, "cermile_staff");
+//    public static Item pardimalStaff = new ItemStaff(15, 10, "pardimal_staff");
+//    public static Item quadroticStaff = new ItemStaff(19, 10, "quadrotic_warstaff");
+//    public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
+//    public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
+//    public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
+//
+//    public static Item honeysuckle = new ItemVetheanFood(1, 0.2F, "honeysuckle");
+//    public static Item honeychunk = new ItemVetheanFood(1, 0.2F, "honeychunk");
+//    public static Item dreamCarrot = new ItemVetheanFood(3, 0.4F, "dream_carrot");
+//    public static Item dreamMelon = new ItemVetheanFood(6, 0.6F, "dream_melon");
+//    public static Item dreamPie = new ItemVetheanFood(4, 0.8F, "dream_pie");
+//    public static Item dreamCake = new ItemVetheanFood(8, 0.8F, "dream_cake");
+//    public static Item dreamSweets = new ItemVetheanHealingFood(0, 0F, false, 2, "dream_sweets");
+//    public static Item dreamSours = new ItemVetheanHealingFood(0, 0F, false, 8, "dream_sours");
+//
+//    public static Item acid = new ItemMod("acid");
+//    public static Item heivaBelt = new ItemMod("band_of_heiva_hunting");
+//    public static Item minersAmulet = new ItemMod("miners_amulet");
+//
+//    public static Item hammerTemplate = new ItemMod("hammer_template");
+//    public static Item backswordTemplate = new ItemMod("backsword_template");
+//    public static Item bowTemplate = new ItemMod("bow_template");
+//    public static Item cannonTemplate = new ItemMod("cannon_template");
+//    public static Item clawTemplate = new ItemMod("claw_template");
+//    public static Item diskTemplate = new ItemMod("disk_template");
+//    public static Item staffTemplate = new ItemMod("staff_template");
+//    public static Item degradedTemplate = new ItemMod("degraded_template");
+//    public static Item finishedTemplate = new ItemMod("finished_template");
+//    public static Item glisteningTemplate = new ItemMod("glistening_template");
+//    public static Item demonizedTemplate = new ItemMod("demonized_template");
+//    public static Item tormentedTemplate = new ItemMod("tormented_template");
+//
+//    public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT);
+//    public static Item amthrimisCannon = new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT);
+//    public static Item darvenCannon = new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT);
+//    public static Item cermileCannon = new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT);
+//    public static Item pardimalCannon = new ItemVetheanCannon("pardimal_cannon", BulletType.PARDINMAL_CANNON_SHOT);
+//    public static Item quadroticCannon = new ItemVetheanCannon("quadrotic_warcannon",
+//            BulletType.QUADROTIC_WAR_CANNON_SHOT);
+//    public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_WAR_CANNON_SHOT);
+//    public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon",
+//            BulletType.HALIOSIS_WRATH_CANNON_SHOT);
+//    public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon",
+//            BulletType.ARKSIANE_WRATH_CANNON_SHOT);
+//
+//    public static Item teakerHammer = new ItemVetheanSword("teaker_hammer", Utils.addHammerMaterial(6));
+//    public static Item amthrimisHammer = new ItemVetheanSword("amthirmis_hammer", Utils.addHammerMaterial(8));
+//    public static Item darvenHammer = new ItemVetheanSword("darven_hammer", Utils.addHammerMaterial(12));
+//    public static Item cermileHammer = new ItemVetheanSword("cermile_hammer", Utils.addHammerMaterial(15));
+//    public static Item pardimalHammer = new ItemVetheanSword("pardimal_hammer", Utils.addHammerMaterial(19));
+//    public static Item quadroticHammer = new ItemVetheanSword("quadrotic_warhammer", Utils.addHammerMaterial(24));
+//    public static Item karosHammer = new ItemVetheanSword("karos_warhammer", Utils.addHammerMaterial(26));
+//    public static Item heliosisHammer = new ItemVetheanSword("heliosis_wrathhammer", Utils.addHammerMaterial(33));
+//    public static Item arksianeHammer = new ItemVetheanSword("arksiane_wrathhammer", Utils.addHammerMaterial(39));
+//
+//    public static Item teakerSword = new ItemVetheanSword("teaker_backsword", Utils.addHammerMaterial(4));
+//    public static Item amthrimisSword = new ItemVetheanSword("amthirmis_backsword", Utils.addHammerMaterial(6));
+//    public static Item darvenSword = new ItemVetheanSword("darven_backsword", Utils.addHammerMaterial(9));
+//    public static Item cermileSword = new ItemVetheanSword("cermile_backsword", Utils.addHammerMaterial(13));
+//    public static Item pardimalSword = new ItemVetheanSword("pardimal_backsword", Utils.addHammerMaterial(16));
+//    public static Item quadroticSword = new ItemVetheanSword("quadrotic_warsword", Utils.addHammerMaterial(20));
+//    public static Item karosSword = new ItemVetheanSword("karos_warsword", Utils.addHammerMaterial(22));
+//    public static Item heliosisSword = new ItemVetheanSword("heliosis_wrathsword", Utils.addHammerMaterial(29));
+//    public static Item arksianeSword = new ItemVetheanSword("arksiane_wrathsword", Utils.addHammerMaterial(37));
+//
+//    public static Item teakerClaw = new ItemVetheanClaw(3, "teaker_claw");
+//    public static Item amthrimisClaw = new ItemVetheanClaw(5, "amthirmis_claw");
+//    public static Item darvenClaw = new ItemVetheanClaw(7, "darven_claw");
+//    public static Item cermileClaw = new ItemVetheanClaw(8, "cermile_claw");
+//    public static Item pardimalClaw = new ItemVetheanClaw(12, "pardimal_claw");
+//    public static Item quadroticClaw = new ItemVetheanClaw(14, "quadrotic_warclaw");
+//    public static Item karosClaw = new ItemVetheanClaw(19, "karos_warclaw");
+//    public static Item heliosisClaw = new ItemVetheanClaw(26, "heliosis_wrathclaw");
+//    public static Item arksianeClaw = new ItemVetheanClaw(35, "arksiane_wrathclaw");
+//
+//    public static Item eversight = new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT);
+//    public static Item everlight = new ItemVetheanSword("everlight", Utils.addHammerMaterial(44));
+//    public static Item everbright = new ItemVetheanClaw(42, "everbright");
+//    public static Item everArrow = new ItemMod("ever_arrow").setCreativeTab(DivineRPGTabs.ranged);
+//    public static Item everfrightBow = new ItemModBow("everfright_bow", ArrowType.EVERFRIGHT, -1, everArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item evernight = new ItemStaff(115, 80, "evernight");
+//
+//    public static Item karosRockmaul = new ItemVetheanSword("karos_rockmaul", Utils.addHammerMaterial(46));
+//
+//    public static Item teakerArrow = new ItemMod("teaker_arrow").setCreativeTab(DivineRPGTabs.ranged);;
+//    public static Item darvenArrow = new ItemMod("darven_arrow").setCreativeTab(DivineRPGTabs.ranged);;
+//    public static Item pardimalArrow = new ItemMod("pardimal_arrow").setCreativeTab(DivineRPGTabs.ranged);;
+//    public static Item karosArrow = new ItemMod("karos_arrow").setCreativeTab(DivineRPGTabs.ranged);;
+//
+//    public static Item teakerBow = new ItemModBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item amthrimisBow = new ItemModBow("amthirmis_bow", ArrowType.AMTHRIMIS_ARROW, -1, teakerArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item darvenBow = new ItemModBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item cermileBow = new ItemModBow("cermile_bow", ArrowType.CERMIL_ARROW, -1, darvenArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item pardimalBow = new ItemModBow("pardimal_bow", ArrowType.PARDINAL_ARROW, -1, pardimalArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item quadroticBow = new ItemModBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item karosBow = new ItemModBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item heliosisBow = new ItemModBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//    public static Item arksianeBow = new ItemModBow("arksiane_wrathbow", ArrowType.ARKSIAN_ARROW, 1, karosArrow)
+//            .setSound(ModSounds.VETHEA_BOW).setVethean();
+//
+//    public static Item dreamFlint = new ItemDreamFlint();
+//    public static Item moonClock = new ItemMoonClock("moon_clock");
+//    public static Item rockChunks = new ItemMod("rock_chunks");
+//    // public static Item nightmareBed = new ItemNightmareBed();
+//    public static Item nightmareBed = new ItemNotReady("nightmare_bed", DivineRPGTabs.items);
+//
+//    private static Object[] basicHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION };
+//    private static Object[] basicMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION };
+//    private static Object[] basicHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION };
+//    private static Object[] glisteningHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 3, ArmorInfo.MELEE_DAMAGE };
+//    private static Object[] glisteningMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.4, ArmorInfo.SPEED };
+//    private static Object[] glisteningHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT,
+//            ArmorInfo.NO_FALL };
+//    private static Object[] demonizedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 6, ArmorInfo.MELEE_DAMAGE };
+//    private static Object[] demonizedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.8, ArmorInfo.SPEED };
+//    private static Object[] demonizedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT,
+//            ArmorInfo.NO_FALL };
+//    private static Object[] tormentedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE };
+//    private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
+//    private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT,
+//            ArmorInfo.NO_FALL };
+//
+//    public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo,
+//            true, "helmet");
+//    public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo,
+//            true, "mask");
+//    public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo,
+//            true, "hood");
+//    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST, true);
+//    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS, true);
+//    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET, true);
+//
+//    public static Item finishedHelmet = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo,
+//            true, "helmet");
+//    public static Item finishedMask = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo,
+//            true, "mask");
+//    public static Item finishedHood = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo,
+//            true, "hood");
+//    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST, true);
+//    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS, true);
+//    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET, true);
+//
+//    public static Item glisteningHelmet = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
+//            glisteningHelmInfo, true, "helmet");
+//    public static Item glisteningMask = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
+//            glisteningMaskInfo, true, "mask");
+//    public static Item glisteningHood = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD,
+//            glisteningHoodInfo, true, "hood");
+//    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST, true);
+//    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS, true);
+//    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET, true);
+//
+//    public static Item demonizedHelmet = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
+//            demonizedHelmInfo, true, "helmet");
+//    public static Item demonizedMask = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
+//            demonizedMaskInfo, true, "mask");
+//    public static Item demonizedHood = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD,
+//            demonizedHoodInfo, true, "hood");
+//    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST, true);
+//    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS, true);
+//    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET, true);
+//
+//    public static Item tormentedHelmet = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
+//            tormentedHelmInfo, true, "helmet");
+//    public static Item tormentedMask = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
+//            tormentedMaskInfo, true, "mask");
+//    public static Item tormentedHood = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD,
+//            tormentedHoodInfo, true, "hood");
+//    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST, true);
+//    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
+//    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);
 
     //New additions
     public static Item ayeracoFragmentB = new ItemMod("ayeraco_fragment_blue");

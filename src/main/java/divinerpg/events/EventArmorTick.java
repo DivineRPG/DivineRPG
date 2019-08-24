@@ -1,5 +1,7 @@
 package divinerpg.events;
 
+import divinerpg.Config;
+import divinerpg.utils.FullSetArmorHelper;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -7,17 +9,13 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import divinerpg.Config;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.FullSetArmorHelper;
 
 public class EventArmorTick {
 
@@ -57,7 +55,7 @@ public class EventArmorTick {
         if (armorHelper.isWildwood()) {
             if (player.isInsideOfMaterial(Material.WATER)) {
                 float current = player.getHealth();
-                if ((current > 0.0F) && (current < 20.0F)) {
+                if ((current > 0.0F) && (current < player.getMaxHealth())) {
                     player.heal(0.25f);
                 }
             }
@@ -72,8 +70,8 @@ public class EventArmorTick {
         //Vemos
         if (armorHelper.isVemos()) {
             float current = player.getHealth();
-            if ((current > 0.0F) && (current < 20.0F)) {
-                player.setHealth(current + 0.1F);
+            if ((current > 0.0F) && (current < player.getMaxHealth())) {
+                player.heal(0.1F);
             }
         }
 
@@ -93,7 +91,7 @@ public class EventArmorTick {
         //Aquastrive
         if (armorHelper.isAquastrive()) {
             float speed = 1.1F;
-            boolean isJumping = (Boolean) ObfuscationReflectionHelper.getPrivateValue(EntityLivingBase.class, player,
+            boolean isJumping = ObfuscationReflectionHelper.getPrivateValue(EntityLivingBase.class, player,
                     EventArmorTick.isJumping);
 
             if (player.isInWater()) {
@@ -158,37 +156,37 @@ public class EventArmorTick {
         }
 
         //Vethean
-        if (armorHelper.isGlistening(ModItems.glisteningMask)) {
-            speedMultiplier = 1.4f;
-        }
-
-        if (armorHelper.isDemonised(ModItems.demonizedMask)) {
-            speedMultiplier = 1.8f;
-        }
-
-        if (armorHelper.isTormented(ModItems.tormentedMask)) {
-            speedMultiplier = 2.2f;
-        }
+//        if (armorHelper.isGlistening(ModItems.glisteningMask)) {
+//            speedMultiplier = 1.4f;
+//        }
+//
+//        if (armorHelper.isDemonised(ModItems.demonizedMask)) {
+//            speedMultiplier = 1.8f;
+//        }
+//
+//        if (armorHelper.isTormented(ModItems.tormentedMask)) {
+//            speedMultiplier = 2.2f;
+//        }
 
         ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class,
                 player.capabilities,
                 0.1f * speedMultiplier,
                 walkSpeed);
 
-        if (armorHelper.isGlistening(ModItems.glisteningHood)) {
-            player.fallDistance = -0.5F;
-        }
-
-        if (armorHelper.isDemonised(ModItems.demonizedHood)) {
-            player.fallDistance = -0.5F;
-        }
-
-        if (armorHelper.isTormented(ModItems.tormentedHood)) {
-            player.fallDistance = -0.5F;
-        }
-
-        if (player.inventory.hasItemStack(new ItemStack(ModItems.minersAmulet)))
-            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 1, 2, true, false));
+//        if (armorHelper.isGlistening(ModItems.glisteningHood)) {
+//            player.fallDistance = -0.5F;
+//        }
+//
+//        if (armorHelper.isDemonised(ModItems.demonizedHood)) {
+//            player.fallDistance = -0.5F;
+//        }
+//
+//        if (armorHelper.isTormented(ModItems.tormentedHood)) {
+//            player.fallDistance = -0.5F;
+//        }
+//
+//        if (player.inventory.hasItemStack(new ItemStack(ModItems.minersAmulet)))
+//            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 1, 2, true, false));
     }
 
     /*

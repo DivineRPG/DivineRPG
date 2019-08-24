@@ -179,35 +179,35 @@ public class FullSetArmorHelper {
                 && helmet == ModItems.santaCap;
     }
 
-    public boolean isGlistening(Item specialHelmet){
-        if (specialHelmet == null)
-            specialHelmet = ModItems.glisteningHelmet;
-
-        return body == ModItems.glisteningBody
-                && legs == ModItems.glisteningLegs
-                && boots == ModItems.glisteningBoots
-                && helmet == specialHelmet;
-    }
-
-    public boolean isDemonised(Item specialHelmet){
-        if (specialHelmet == null)
-            specialHelmet = ModItems.demonizedHelmet;
-
-        return body == ModItems.demonizedBody
-                && legs == ModItems.demonizedLegs
-                && boots == ModItems.demonizedBoots
-                && helmet == specialHelmet;
-    }
-
-    public boolean isTormented(Item specialHelmet){
-        if (specialHelmet == null)
-            specialHelmet = ModItems.tormentedHelmet;
-
-        return body == ModItems.tormentedBody
-                && legs == ModItems.tormentedLegs
-                && boots == ModItems.tormentedBoots
-                && helmet == specialHelmet;
-    }
+//    public boolean isGlistening(Item specialHelmet){
+//        if (specialHelmet == null)
+//            specialHelmet = ModItems.glisteningHelmet;
+//
+//        return body == ModItems.glisteningBody
+//                && legs == ModItems.glisteningLegs
+//                && boots == ModItems.glisteningBoots
+//                && helmet == specialHelmet;
+//    }
+//
+//    public boolean isDemonised(Item specialHelmet){
+//        if (specialHelmet == null)
+//            specialHelmet = ModItems.demonizedHelmet;
+//
+//        return body == ModItems.demonizedBody
+//                && legs == ModItems.demonizedLegs
+//                && boots == ModItems.demonizedBoots
+//                && helmet == specialHelmet;
+//    }
+//
+//    public boolean isTormented(Item specialHelmet){
+//        if (specialHelmet == null)
+//            specialHelmet = ModItems.tormentedHelmet;
+//
+//        return body == ModItems.tormentedBody
+//                && legs == ModItems.tormentedLegs
+//                && boots == ModItems.tormentedBoots
+//                && helmet == specialHelmet;
+//    }
 
     public boolean isEnder(){
         return (boots == ModItems.enderBoots

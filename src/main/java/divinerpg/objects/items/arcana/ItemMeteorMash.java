@@ -1,13 +1,8 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.objects.items.vethea.ItemStaff;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.PositionHelper;
 import divinerpg.utils.TooltipHelper;
@@ -15,9 +10,15 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemMeteorMash extends RangedWeaponBase {
 
@@ -31,7 +32,7 @@ public class ItemMeteorMash extends RangedWeaponBase {
                 0,
                 null,
                 35);
-        ItemStaff.staffList.add(this);
+//        ItemStaff.staffList.add(this);
     }
 
     @Override

@@ -1,13 +1,12 @@
 package divinerpg.objects.blocks.vethea;
 
-import java.util.Random;
-
 import divinerpg.objects.blocks.BlockModLog;
 import divinerpg.objects.entities.entity.vethea.Ent;
-import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class BlockVetheaLog extends BlockModLog {
 
@@ -15,7 +14,7 @@ public class BlockVetheaLog extends BlockModLog {
     
     public BlockVetheaLog(String name) {
         super(name);
-        setCreativeTab(DivineRPGTabs.vethea);
+//        setCreativeTab(DivineRPGTabs.vethea);
     }
     
     @Override

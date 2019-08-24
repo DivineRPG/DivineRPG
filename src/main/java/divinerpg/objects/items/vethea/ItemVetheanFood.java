@@ -1,16 +1,13 @@
 package divinerpg.objects.items.vethea;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.items.base.ItemModFood;
-import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemVetheanFood extends ItemModFood {
 	
@@ -22,7 +19,7 @@ public class ItemVetheanFood extends ItemModFood {
 		super(par2, par3, false, name);
 		food = par2;
 		saturation = par3;
-		this.setCreativeTab(DivineRPGTabs.vethea);
+//		this.setCreativeTab(DivineRPGTabs.vethea);
 	}
 
 	@Override

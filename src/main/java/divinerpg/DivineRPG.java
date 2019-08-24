@@ -35,7 +35,7 @@ public class DivineRPG {
     @Mod.Instance
     public static DivineRPG instance;
 
-    @SidedProxy(serverSide = "naturix.divinerpg.proxy.CommonProxy", clientSide = "naturix.divinerpg.proxy.ClientProxy")
+    @SidedProxy(serverSide = "divinerpg.proxy.CommonProxy", clientSide = "divinerpg.proxy.ClientProxy")
     public static CommonProxy proxy;
 
     public static org.apache.logging.log4j.Logger logger;

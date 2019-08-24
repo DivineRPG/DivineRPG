@@ -1,21 +1,17 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.EntityStats;
-import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.Reference;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -30,9 +26,9 @@ public class AcidHag extends VetheaMob {
     public void onLivingUpdate() {
         super.onLivingUpdate();
         
-        if (this.world.getBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY) - 1, (int)Math.round(this.posZ)-1)).isOpaqueCube() && this.world.getBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY), (int)Math.round(this.posZ)-1)) == Blocks.AIR) {
-            this.world.setBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY), (int)Math.round(this.posZ)-1), ModBlocks.blockAcid.getDefaultState());
-        }
+//        if (this.world.getBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY) - 1, (int)Math.round(this.posZ)-1)).isOpaqueCube() && this.world.getBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY), (int)Math.round(this.posZ)-1)) == Blocks.AIR) {
+//            this.world.setBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY), (int)Math.round(this.posZ)-1), ModBlocks.blockAcid.getDefaultState());
+//        }
     }
 
     @Override
@@ -113,7 +109,7 @@ public class AcidHag extends VetheaMob {
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
+		return LOOT;
 
 	}
 }
