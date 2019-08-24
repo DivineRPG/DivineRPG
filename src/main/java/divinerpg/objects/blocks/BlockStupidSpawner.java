@@ -20,7 +20,7 @@ public class BlockStupidSpawner extends BlockMobSpawner implements IHasModel {
 
     public BlockStupidSpawner(String name, String mobName, boolean spawnParticles) {
         this.name = name;
-        this.mobName = Reference.MODID + "." + mobName;
+        this.mobName = mobName;
         this.spawnParticles = spawnParticles;
         setUnlocalizedName(name);
         setRegistryName(name);

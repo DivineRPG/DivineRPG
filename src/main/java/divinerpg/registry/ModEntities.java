@@ -133,11 +133,11 @@ public class ModEntities {
                 // Eden
                 buildEntityEntry(Bunny.class, "bunny", EDEN),
                 buildEntityEntry(EdenCadillion.class, "eden_cadillion", EDEN),
-                buildEntityEntry(EdenCori.class, "eden_cori", EDEN),
                 buildEntityEntry(EdenTomo.class, "eden_tomo", EDEN),
                 buildEntityEntry(Greenfeet.class, "greenfeet", EDEN),
                 buildEntityEntry(Madivel.class, "madivel", EDEN),
                 buildEntityEntry(SunArcher.class, "sun_archer", EDEN),
+                buildEntityEntry(WeakCori.class, "weak_cori", EDEN),
 
                 // Wildwood
                 buildEntityEntry(Behemoth.class, "behemoth", WILDWOOD),
@@ -158,11 +158,11 @@ public class ModEntities {
                 buildEntityEntry(Spellbinder.class, "spellbinder", APALACHIA),
 
                 // Skythern
+                buildEntityEntry(AdvancedCori.class, "advanced_cori", SKYTHERN),
                 buildEntityEntry(Megalith.class, "megalith", SKYTHERN),
                 buildEntityEntry(Mystic.class, "mystic", SKYTHERN),
                 buildEntityEntry(Samek.class, "samek", SKYTHERN),
                 buildEntityEntry(SkythernArcher.class, "skythern_archer", SKYTHERN),
-                buildEntityEntry(SkythernCori.class, "skythern_cori", SKYTHERN),
                 buildEntityEntry(SkythernFiend.class, "skythern_fiend", SKYTHERN),
                 buildEntityEntry(SkythernGolem.class, "skythern_golem", SKYTHERN),
 
@@ -338,7 +338,6 @@ public class ModEntities {
         LootTableList.register(DungeonConstructor.LOOT);
         LootTableList.register(DungeonDemon.LOOT);
         LootTableList.register(DungeonPrisoner.LOOT);
-        LootTableList.register(EdenCori.LOOT);
         LootTableList.register(EnchantedArcher.LOOT);
         LootTableList.register(EnchantedWarrior.LOOT);
         LootTableList.register(EnderSpider.LOOT);
@@ -389,6 +388,7 @@ public class ModEntities {
         LootTableList.register(TwilightDemon.LOOT);
         LootTableList.register(Vamacheron.LOOT);
         LootTableList.register(Verek.LOOT);
+        LootTableList.register(WeakCori.LOOT);
         LootTableList.register(Whale.LOOT);
         LootTableList.register(Wildfire.LOOT);
 
@@ -476,7 +476,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(Behemoth.class, RenderBehemoth.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Bunny.class, RenderBunny.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EdenCadillion.class, RenderEdenCadillion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(EdenCori.class, RenderEdenCori.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(WeakCori.class, RenderWeakCori.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Densos.class, RenderDensos.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(Epiphite.class, RenderEpiphite.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EternalArcher.class, RenderEternalArcher.FACTORY);
@@ -505,7 +505,7 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(ApalachiaCadillion.class, RenderApalachiaCadillion.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(MortumCadillion.class, RenderMortumCadillion.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(WildwoodCadillion.class, RenderWildwoodCadillion.FACTORY);
-        RenderingRegistry.registerEntityRenderingHandler(SkythernCori.class, RenderSkythernCori.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(AdvancedCori.class, RenderAdvancedCori.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(DemonOfDarkness.class, RenderDemonOfDarkness.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SkythernGolem.class, RenderSkythernGolem.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(WildwoodGolem.class, RenderWildwoodGolem.FACTORY);
@@ -623,8 +623,8 @@ public class ModEntities {
                 EntityRegistry.addSpawn(EdenTomo.class, 20, 4, 4, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(EdenCadillion.class, 20, 4, 4, EnumCreatureType.CREATURE, biome);
                 EntityRegistry.addSpawn(Bunny.class, 20, 4, 4, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EdenCori.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(WeakCori.class, 1, 4, 4, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(WeakCori.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(Greenfeet.class, 20, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(Madivel.class, 20, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(SunArcher.class, 6, 4, 4, EnumCreatureType.CREATURE, biome);
@@ -654,7 +654,7 @@ public class ModEntities {
                 EntityRegistry.addSpawn(SkythernGolem.class, 4, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(SkythernArcher.class, 4, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(Samek.class, 4, 4, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(SkythernCori.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(AdvancedCori.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(Mystic.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(Megalith.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(ModBiomes.Mortum)) {

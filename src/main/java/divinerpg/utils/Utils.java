@@ -177,13 +177,6 @@ public class Utils {
         MinecraftForge.EVENT_BUS.register(o);
     }
 
-    public static void registerProjectile(Class entityClass, String entityName) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, Reference.MODID + "." + entityName),
-                entityClass, Reference.MODID + entityName + "Projectile", projectileID, DivineRPG.instance, 250, 5,
-                true);
-        projectileID++;
-    }
-
     public static void setupCapes() {
         try {
             Utils.updateCapeList();

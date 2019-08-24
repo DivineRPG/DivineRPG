@@ -1,12 +1,12 @@
 {
    "pools":[
       {
-         "name":"divinerpg:eden_cori",
+         "name":"divinerpg:advanced_cori",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:eden_soul",
+               "name":"divinerpg:skythern_soul",
                "weight":1,
                "functions":[
                   {

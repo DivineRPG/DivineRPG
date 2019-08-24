@@ -17,9 +17,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class SkythernCori extends EntityDivineRPGFlying {
+public class AdvancedCori extends EntityDivineRPGFlying {
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/twilight/skythern_cori");
+            "entities/twilight/advanced_cori");
 
     public int courseChangeCooldown = 0;
     public double waypointX;
@@ -31,7 +31,7 @@ public class SkythernCori extends EntityDivineRPGFlying {
     public int attackCounter = 0;
     private BlockPos currentFlightTarget;
 
-    public SkythernCori(World worldIn) {
+    public AdvancedCori(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.5F);
     }
