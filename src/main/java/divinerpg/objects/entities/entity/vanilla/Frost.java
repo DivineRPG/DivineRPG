@@ -1,9 +1,9 @@
 package divinerpg.objects.entities.entity.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;

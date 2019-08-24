@@ -7,10 +7,10 @@ import javax.annotation.Nullable;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.DRPGParticleTypes;
 import divinerpg.utils.DivineTeleporter;
 import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
@@ -55,11 +55,11 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
     }
 
     protected Block fireBlock, portalFrame, portalBlock = this;
-    DRPGParticleTypes portalParticle;
+    ParticleType portalParticle;
     protected String name;
     protected int dimId;
 
-    public BlockModPortal(String name, int dimId, Block fireBlock, Block portalFrame, DRPGParticleTypes particle) {
+    public BlockModPortal(String name, int dimId, Block fireBlock, Block portalFrame, ParticleType particle) {
         super(Material.PORTAL, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
         this.setRegistryName(name);

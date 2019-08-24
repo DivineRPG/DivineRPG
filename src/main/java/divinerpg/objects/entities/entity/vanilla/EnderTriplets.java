@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;

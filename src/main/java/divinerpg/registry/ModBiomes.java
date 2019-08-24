@@ -2,6 +2,7 @@ package divinerpg.registry;
 
 import java.util.ArrayList;
 
+import divinerpg.Reference;
 import divinerpg.dimensions.apalachia.BiomeApalachia;
 import divinerpg.dimensions.arcana.BiomeArcana;
 import divinerpg.dimensions.eden.BiomeEden;
@@ -9,7 +10,6 @@ import divinerpg.dimensions.iceika.BiomeIceika;
 import divinerpg.dimensions.mortum.BiomeMortum;
 import divinerpg.dimensions.skythern.BiomeSkythern;
 import divinerpg.dimensions.wildwood.BiomeWildWood;
-import divinerpg.utils.Reference;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.ResourceLocation;

@@ -1,4 +1,4 @@
-package divinerpg.utils;
+package divinerpg.proxy;
 
 import javax.annotation.Nullable;
 

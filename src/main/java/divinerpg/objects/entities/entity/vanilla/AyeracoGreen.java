@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;

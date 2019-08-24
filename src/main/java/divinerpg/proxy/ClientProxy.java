@@ -3,6 +3,7 @@ package divinerpg.proxy;
 import java.awt.Color;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.capabilities.IArcana;
 import divinerpg.client.ArcanaRenderer;
@@ -16,6 +17,7 @@ import divinerpg.client.render.RenderItemFrostedChest;
 import divinerpg.client.render.RenderItemParasectaAltar;
 import divinerpg.client.render.RenderItemPresentBox;
 import divinerpg.client.render.RenderItemStatue;
+import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
 import divinerpg.events.EventDevHat;
@@ -61,8 +63,6 @@ import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.AuthUtils;
-import divinerpg.utils.DRPGParticleTypes;
-import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.InitLog;
 import divinerpg.utils.log.IntenseDebug;
@@ -189,7 +189,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void spawnParticle(World world, DRPGParticleTypes particletype, double x, double y, double z, double velX,
+    public void spawnParticle(World world, ParticleType particletype, double x, double y, double z, double velX,
             double velY, double velZ) {
         if (canSpawnParticle(world, x, y, z)) {
             Particle particle = null;

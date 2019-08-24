@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
+import divinerpg.Reference;
+
 /**
  * Created by LiteWolf101 on Jan
  * /27/2019

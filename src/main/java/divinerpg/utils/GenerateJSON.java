@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.objects.blocks.*;
 import divinerpg.objects.blocks.arcana.BlockAcceleron;
 import divinerpg.objects.blocks.arcana.BlockArcanaPortal;

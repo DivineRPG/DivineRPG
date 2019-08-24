@@ -63,8 +63,8 @@ public class ModBlocks {
     public static Block jungleSpiderPumpkin = new BlockMobPumpkin("jungle_spider_pumpkin");
     public static Block hellspiderPumpkin = new BlockMobPumpkin("hellspider_pumpkin");
 
-    public static Block aquaTorch = new BlockModTorch("aqua_torch", DRPGParticleTypes.BLUE_FLAME);
-    public static Block skeletonTorch = new BlockModTorch("skeleton_torch", DRPGParticleTypes.BLACK_FLAME);
+    public static Block aquaTorch = new BlockModTorch("aqua_torch", ParticleType.BLUE_FLAME);
+    public static Block skeletonTorch = new BlockModTorch("skeleton_torch", ParticleType.BLACK_FLAME);
 
     public static Block checker = new VanillaBlock(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD);
     public static Block rainbowWool = new VanillaBlock(EnumBlockType.WOOL, "rainbow_wool", 0.8F, WOOD_GOLD);
@@ -298,7 +298,7 @@ public class ModBlocks {
 
     public static Block iceikaFire = new BlockModFire("iceika_fire");
     public static BlockModPortal iceikaPortal = new BlockModPortal("iceika_portal",
-            ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, DRPGParticleTypes.FROST);
+            ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, ParticleType.FROST);
 
     // Twilight
     public static Block edenDirt = new BlockMod(EnumBlockType.DIRT, "eden_dirt", 5.0F);
@@ -356,17 +356,17 @@ public class ModBlocks {
     public static Block wildwoodVine = new BlockModVine("wildwood_vine");
     public static Block blueFire = new BlockModFire("blue_fire");
     public static BlockModPortal edenPortal = new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(),
-            blueFire, divineRock, DRPGParticleTypes.EDEN_PORTAL);
+            blueFire, divineRock, ParticleType.EDEN_PORTAL);
     public static BlockModPortal wildwoodPortal = new BlockModPortal("wildwood_portal",
-            ModDimensions.wildWoodDimension.getId(), blueFire, edenBlock, DRPGParticleTypes.WILDWOOD_PORTAL);
+            ModDimensions.wildWoodDimension.getId(), blueFire, edenBlock, ParticleType.WILDWOOD_PORTAL);
     public static BlockModPortal apalachiaPortal = new BlockModPortal("apalachia_portal",
-            ModDimensions.apalachiaDimension.getId(), blueFire, wildwoodBlock, DRPGParticleTypes.APALACHIA_PORTAL);
+            ModDimensions.apalachiaDimension.getId(), blueFire, wildwoodBlock, ParticleType.APALACHIA_PORTAL);
     public static BlockModPortal skythernPortal = new BlockModPortal("skythern_portal",
-            ModDimensions.skythernDimension.getId(), blueFire, apalachiaBlock, DRPGParticleTypes.SKYTHERN_PORTAL);
+            ModDimensions.skythernDimension.getId(), blueFire, apalachiaBlock, ParticleType.SKYTHERN_PORTAL);
     public static BlockModPortal mortumPortal = new BlockModPortal("mortum_portal",
-            ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, DRPGParticleTypes.MORTUM_PORTAL);
+            ModDimensions.mortumDimension.getId(), blueFire, skythernBlock, ParticleType.MORTUM_PORTAL);
 
-    public static Block edenTorch = new BlockModTorch("eden_torch", DRPGParticleTypes.GREEN_FLAME);
+    public static Block edenTorch = new BlockModTorch("eden_torch", ParticleType.GREEN_FLAME);
     public static Block edenChest = new BlockEdenChest("eden_chest");
 
     public static Block moonbulb = new BlockMoonbulb().setLightLevel(0.6f);
@@ -463,7 +463,7 @@ public class ModBlocks {
     public static Block demonFurnace = new BlockDemonFurnace("demon_furnace", false);
     public static Block demonFurnaceOn = new BlockDemonFurnace("demon_furnace_on", true);
 
-    public static Block arcaniumTorch = new BlockModTorch("arcanium_torch", DRPGParticleTypes.PURPLE_FLAME);
+    public static Block arcaniumTorch = new BlockModTorch("arcanium_torch", ParticleType.PURPLE_FLAME);
     public static Block elevantium = new BlockElevantium("elevantium");
     //We are avoiding rails for now
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");

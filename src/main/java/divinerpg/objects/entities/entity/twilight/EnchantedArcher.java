@@ -2,11 +2,11 @@ package divinerpg.objects.entities.entity.twilight;
 
 import com.google.common.base.Predicate;
 
+import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;

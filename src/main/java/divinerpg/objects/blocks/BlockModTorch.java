@@ -3,10 +3,10 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.DRPGParticleTypes;
 import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
@@ -19,9 +19,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModTorch extends BlockTorch implements IHasModel {
-    private DRPGParticleTypes flameParticle;
+    private ParticleType flameParticle;
 
-    public BlockModTorch(String name, DRPGParticleTypes particle) {
+    public BlockModTorch(String name, ParticleType particle) {
         super();
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setUnlocalizedName(name);

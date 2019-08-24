@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
-import divinerpg.utils.Reference;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

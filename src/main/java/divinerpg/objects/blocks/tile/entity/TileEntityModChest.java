@@ -2,9 +2,9 @@ package divinerpg.objects.blocks.tile.entity;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.SoundEvents;

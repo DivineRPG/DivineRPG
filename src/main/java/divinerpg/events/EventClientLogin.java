@@ -11,8 +11,8 @@ import java.util.concurrent.CompletableFuture;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.Logging;
 

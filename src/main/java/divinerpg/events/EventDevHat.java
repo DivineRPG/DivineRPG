@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.lwjgl.opengl.GL11;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.assets.model.ModelHat;
-import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)

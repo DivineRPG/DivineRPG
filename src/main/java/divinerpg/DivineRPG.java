@@ -15,7 +15,6 @@ import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModOreDict;
 import divinerpg.registry.ModSmelting;
 import divinerpg.registry.ModTriggers;
-import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 import divinerpg.world.WorldGenCustomOres;
 import net.minecraftforge.common.MinecraftForge;

@@ -1,6 +1,6 @@
 package divinerpg.compat.jei;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 
 public class JeiReferences {
     public static final String JACK_O_MAN_CATEGORY = Reference.MODID + ":jack_o_man";

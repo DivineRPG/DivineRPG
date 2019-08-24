@@ -5,10 +5,12 @@ import java.io.File;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.capabilities.Arcana;
 import divinerpg.capabilities.CapabilityArcana;
 import divinerpg.capabilities.CapabilityHandler;
 import divinerpg.capabilities.IArcana;
+import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
 import divinerpg.objects.blocks.tile.entity.TEBed;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
@@ -36,9 +38,6 @@ import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModRecipes;
 import divinerpg.registry.ModSeeds;
-import divinerpg.utils.DRPGParticleTypes;
-import divinerpg.utils.GUIHandler;
-import divinerpg.utils.Reference;
 import divinerpg.world.WorldGenTreeGenerator;
 import divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
@@ -126,7 +125,7 @@ public class CommonProxy {
     public void registerVariantRenderer(Item item, int meta, String filename, String id) {
     }
 
-    public void spawnParticle(World world, DRPGParticleTypes particle, double z, double x, double y, double velX,
+    public void spawnParticle(World world, ParticleType particle, double z, double x, double y, double velX,
             double velY, double velZ) {
     }
 

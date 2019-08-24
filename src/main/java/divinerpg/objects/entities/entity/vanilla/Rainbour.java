@@ -3,10 +3,10 @@ package divinerpg.objects.entities.entity.vanilla;
 import java.util.Calendar;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
+import divinerpg.enums.ParticleType;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.DRPGParticleTypes;
-import divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -148,7 +148,7 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
     public void onLivingUpdate() {
         super.onLivingUpdate();
         for (int var3 = 0; var3 < 8; ++var3) {
-            DivineRPG.proxy.spawnParticle(this.world, DRPGParticleTypes.SPARKLER,
+            DivineRPG.proxy.spawnParticle(this.world, ParticleType.SPARKLER,
                     this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width,
                     this.posY + this.rand.nextDouble() * (double) this.height - 0.25D,
                     this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width,

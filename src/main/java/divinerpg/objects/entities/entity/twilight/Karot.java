@@ -2,8 +2,8 @@ package divinerpg.objects.entities.entity.twilight;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;

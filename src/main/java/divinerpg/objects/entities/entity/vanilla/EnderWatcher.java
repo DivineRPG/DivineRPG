@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.ResourceLocation;

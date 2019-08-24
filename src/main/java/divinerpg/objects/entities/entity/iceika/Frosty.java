@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.iceika;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;

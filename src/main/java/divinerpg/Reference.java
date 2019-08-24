@@ -1,4 +1,4 @@
-package divinerpg.utils;
+package divinerpg;
 
 /**
  * Created by LiteWolf101 on Feb

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.utils.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;

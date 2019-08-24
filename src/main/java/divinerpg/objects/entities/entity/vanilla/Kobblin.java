@@ -2,9 +2,9 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;

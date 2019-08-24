@@ -1,4 +1,4 @@
-package divinerpg.utils;
+package divinerpg.dimensions.arcana;
 
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import divinerpg.registry.ModBlocks;

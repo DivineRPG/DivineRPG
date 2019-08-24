@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.arcana;
 
 import divinerpg.objects.blocks.BlockModFurnace;
 import divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
-import divinerpg.utils.GUIHandler;
+import divinerpg.proxy.GUIHandler;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;

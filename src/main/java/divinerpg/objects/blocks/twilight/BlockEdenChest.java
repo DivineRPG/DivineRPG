@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
-import divinerpg.utils.GUIHandler;
+import divinerpg.proxy.GUIHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;

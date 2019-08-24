@@ -1,7 +1,7 @@
 package divinerpg.networking.message;
 
 import divinerpg.DivineRPG;
-import divinerpg.utils.DRPGParticleTypes;
+import divinerpg.enums.ParticleType;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -41,7 +41,7 @@ public class MessageDivineAccumulator implements IMessage{
             for(double r = 0; r < 4; r += 0.1) {
                 for(double theta = 0; theta < 2*Math.PI; theta += (Math.PI/24)) {
                     DivineRPG.proxy.spawnParticle(Minecraft.getMinecraft().world,
-                            DRPGParticleTypes.EDEN_PORTAL,
+                            ParticleType.EDEN_PORTAL,
                             msg.z+(r*Math.sin(theta)),
                             msg.x+(r*Math.cos(theta)),
                             msg.y,

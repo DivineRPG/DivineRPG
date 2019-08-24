@@ -17,6 +17,7 @@ import org.apache.commons.io.IOUtils;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.objects.entities.assets.render.RenderHat;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;

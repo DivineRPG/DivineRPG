@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import javax.annotation.Nullable;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;

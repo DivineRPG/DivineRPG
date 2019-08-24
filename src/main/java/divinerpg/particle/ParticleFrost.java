@@ -1,6 +1,6 @@
 package divinerpg.particle;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;

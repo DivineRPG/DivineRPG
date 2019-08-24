@@ -1,9 +1,9 @@
 package divinerpg.objects.entities.entity.twilight;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.container.gui;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

@@ -8,12 +8,12 @@ import divinerpg.DivineRPG;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.capabilities.IArcana;
 import divinerpg.enums.BulletType;
+import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
 import divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.DRPGParticleTypes;
 import divinerpg.utils.PositionHelper;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -284,7 +284,7 @@ public class RangedWeaponBase extends ItemMod {
             }
         }
         // In other cases we look to a BulletType field
-        else if (bulletType.getParticle() != DRPGParticleTypes.NONE) {
+        else if (bulletType.getParticle() != ParticleType.NONE) {
             bullet = new EntityParticleBullet(world, player, bulletType);
         } else if (bulletType.getColor() != null) {
             bullet = new EntityColoredBullet(world, player, bulletType);

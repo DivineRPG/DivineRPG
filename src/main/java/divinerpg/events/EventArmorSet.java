@@ -1,10 +1,10 @@
 package divinerpg.events;
 
 import divinerpg.Config;
+import divinerpg.Reference;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.FullSetArmorHelper;
-import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

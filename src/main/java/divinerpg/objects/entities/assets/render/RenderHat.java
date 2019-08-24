@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.assets.render;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.assets.model.ModelHat;
-import divinerpg.utils.Reference;
 import divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;

@@ -20,9 +20,9 @@ import java.util.List;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.GUIHandler;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
 

@@ -2,7 +2,6 @@ package divinerpg.enums;
 
 import java.awt.Color;
 
-import divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.util.ResourceLocation;
 
 public enum BulletType {
@@ -20,18 +19,18 @@ public enum BulletType {
     BOWHEAD_CANNON_SHOT(12, ProjectileLoc("bowhead_anchor")),
     FROSTCLAW_CANNON_SHOT(16, ProjectileLoc("frostclaw_cannon")),
     FRACTITE_CANNON_SHOT(14, ProjectileLoc("fractite_cannon")),
-    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), DRPGParticleTypes.EDEN_PORTAL),
-    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), DRPGParticleTypes.WILDWOOD_PORTAL),
-    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), DRPGParticleTypes.APALACHIA_PORTAL),
-    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), DRPGParticleTypes.SKYTHERN_PORTAL),
-    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), DRPGParticleTypes.MORTUM_PORTAL),
-    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), DRPGParticleTypes.GREEN_PORTAL),
-    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), DRPGParticleTypes.EDEN_PORTAL),
-    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), DRPGParticleTypes.WILDWOOD_PORTAL),
-    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), DRPGParticleTypes.APALACHIA_PORTAL),
-    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), DRPGParticleTypes.SKYTHERN_PORTAL),
-    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), DRPGParticleTypes.MORTUM_PORTAL),
-    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), DRPGParticleTypes.GREEN_PORTAL),
+    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleType.EDEN_PORTAL),
+    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleType.WILDWOOD_PORTAL),
+    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleType.APALACHIA_PORTAL),
+    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleType.SKYTHERN_PORTAL),
+    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleType.MORTUM_PORTAL),
+    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleType.GREEN_PORTAL),
+    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleType.EDEN_PORTAL),
+    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleType.WILDWOOD_PORTAL),
+    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleType.APALACHIA_PORTAL),
+    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleType.SKYTHERN_PORTAL),
+    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleType.MORTUM_PORTAL),
+    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleType.GREEN_PORTAL),
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
     AMTHIRMIS_CANNON_SHOT(5, ProjectileLoc("cannon")),
     DARVEN_CANNON_SHOT(8, ProjectileLoc("cannon")),
@@ -65,10 +64,10 @@ public enum BulletType {
 
     private final float damage;
     private final ResourceLocation texture;
-    private final DRPGParticleTypes particle;
+    private final ParticleType particle;
     private final Color color;
 
-    BulletType(float damage, ResourceLocation texture, DRPGParticleTypes particle) {
+    BulletType(float damage, ResourceLocation texture, ParticleType particle) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
@@ -78,14 +77,14 @@ public enum BulletType {
     BulletType(float damage, ResourceLocation texture, Color color) {
         this.damage = damage;
         this.texture = texture;
-        this.particle = DRPGParticleTypes.NONE;
+        this.particle = ParticleType.NONE;
         this.color = color;
     }
 
     BulletType(float damage, ResourceLocation texture) {
         this.damage = damage;
         this.texture = texture;
-        this.particle = DRPGParticleTypes.NONE;
+        this.particle = ParticleType.NONE;
         this.color = null;
     }
 
@@ -97,7 +96,7 @@ public enum BulletType {
         return this.texture;
     }
 
-    public DRPGParticleTypes getParticle() {
+    public ParticleType getParticle() {
         return this.particle;
     }
 

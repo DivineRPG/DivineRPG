@@ -4,11 +4,11 @@ import java.util.Random;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
+import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModTriggers;
-import divinerpg.utils.GUIHandler;
 import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
