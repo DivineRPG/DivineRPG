@@ -42,10 +42,15 @@ public class BlockArcanaPortal extends BlockMod {
         return BLOCK_AABB;
     }
 
-    public boolean isOpaqueCube() {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
     @Override
     public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
         return false;
