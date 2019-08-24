@@ -1,8 +1,8 @@
 package divinerpg.events;
 
+import divinerpg.Reference;
 import divinerpg.objects.entities.entity.twilight.Epiphite;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;

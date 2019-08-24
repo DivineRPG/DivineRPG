@@ -1,6 +1,7 @@
 package divinerpg.registry;
 
 import divinerpg.Config;
+import divinerpg.Reference;
 import divinerpg.dimensions.apalachia.WorldProviderApalachia;
 import divinerpg.dimensions.arcana.WorldProviderArcana;
 import divinerpg.dimensions.eden.WorldProviderEden;
@@ -8,7 +9,6 @@ import divinerpg.dimensions.iceika.WorldProviderIceika;
 import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
-import divinerpg.utils.Reference;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 

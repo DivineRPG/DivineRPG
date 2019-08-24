@@ -3,8 +3,8 @@ package divinerpg.objects.blocks.tile.entity;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.utils.DRPGParticleTypes;
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
+import divinerpg.enums.ParticleType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
@@ -45,7 +45,7 @@ public class TileEntityStupidSpawner extends TileEntity implements ITickable {
                     double x = this.pos.getX() + 0.5 + (this.rand.nextDouble() - this.rand.nextDouble());
                     double y = this.pos.getY() + 0.5 + (this.rand.nextDouble() - this.rand.nextDouble());
                     double z = this.pos.getZ() + 0.5 + (this.rand.nextDouble() - this.rand.nextDouble());
-                    DivineRPG.proxy.spawnParticle(this.world, DRPGParticleTypes.BLACK_FLAME, x, y, z, 0, 0, 0);
+                    DivineRPG.proxy.spawnParticle(this.world, ParticleType.BLACK_FLAME, x, y, z, 0, 0, 0);
                 }
             }
         } else if (this.world.getClosestPlayer(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D,

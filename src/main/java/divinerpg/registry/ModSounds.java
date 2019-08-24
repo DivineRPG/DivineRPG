@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;

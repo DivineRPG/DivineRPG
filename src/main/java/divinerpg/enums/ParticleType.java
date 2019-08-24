@@ -1,9 +1,9 @@
-package divinerpg.utils;
+package divinerpg.enums;
 
 /**
  * Created by LiteWolf101 on Feb /07/2019
  */
-public enum DRPGParticleTypes {
+public enum ParticleType {
     NONE,
     APALACHIA_PORTAL,
     EDEN_PORTAL,

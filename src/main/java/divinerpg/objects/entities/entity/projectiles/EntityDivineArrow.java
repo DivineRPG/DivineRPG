@@ -9,9 +9,9 @@ import com.google.common.base.Predicates;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
+import divinerpg.enums.ParticleType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.assets.render.projectile.RenderDivineArrow;
-import divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -162,7 +162,7 @@ public class EntityDivineArrow extends EntityArrow {
             double x = this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
             double y = this.posY + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
             double z = this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
-            DivineRPG.proxy.spawnParticle(this.world, DRPGParticleTypes.BLACK_FLAME, x, y, z, 0, 0, 0);
+            DivineRPG.proxy.spawnParticle(this.world, ParticleType.BLACK_FLAME, x, y, z, 0, 0, 0);
         }
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);

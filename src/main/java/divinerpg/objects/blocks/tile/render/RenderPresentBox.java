@@ -1,8 +1,8 @@
 package divinerpg.objects.blocks.tile.render;
 
+import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
 import divinerpg.objects.blocks.tile.model.ModelPresentBox;
-import divinerpg.utils.Reference;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;

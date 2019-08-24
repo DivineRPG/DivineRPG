@@ -5,13 +5,13 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.ParticleType;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
+import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModTriggers;
-import divinerpg.utils.DRPGParticleTypes;
-import divinerpg.utils.GUIHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -105,7 +105,7 @@ public class BlockFrostedChest extends BlockModChest {
             if (d1 < pos.getX() || d1 > pos.getX() + 1 || d2 < 0.0D || d2 > pos.getY() + 1 || d3 < pos.getZ()
                     || d3 > pos.getZ() + 1) {
                 if (rand.nextInt(10) <= 5) {
-                    DivineRPG.proxy.spawnParticle(worldIn, DRPGParticleTypes.FROST, d1, d2, d3, 0.0D, 0.5D, 0.0D);
+                    DivineRPG.proxy.spawnParticle(worldIn, ParticleType.FROST, d1, d2, d3, 0.0D, 0.5D, 0.0D);
                 }
             }
         }

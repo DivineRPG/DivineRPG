@@ -8,6 +8,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.commons.io.IOUtils;
 
+import divinerpg.Reference;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;

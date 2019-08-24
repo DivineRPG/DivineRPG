@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Maps;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.ParticleType;
 import divinerpg.objects.entities.assets.render.iceika.RenderFrostCloud;
 import divinerpg.objects.entities.entity.iceika.Alicanto;
 import divinerpg.objects.entities.entity.iceika.Fractite;
@@ -21,7 +22,6 @@ import divinerpg.objects.entities.entity.iceika.Hastreus;
 import divinerpg.objects.entities.entity.iceika.Rollum;
 import divinerpg.objects.entities.entity.vanilla.Frost;
 import divinerpg.objects.entities.entity.vanilla.Glacon;
-import divinerpg.utils.DRPGParticleTypes;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -122,7 +122,7 @@ public class EntityFrostCloud extends Entity {
                 float f8 = MathHelper.cos(f6) * f7;
                 float f9 = MathHelper.sin(f6) * f7;
 
-                DivineRPG.proxy.spawnParticle(world, DRPGParticleTypes.FROST, this.posX + f8, this.posY, this.posZ + f9,
+                DivineRPG.proxy.spawnParticle(world, ParticleType.FROST, this.posX + f8, this.posY, this.posZ + f9,
                         (0.5D - this.rand.nextDouble()) * 0.15D, 0.009999999776482582D,
                         (0.5D - this.rand.nextDouble()) * 0.15D);
             }

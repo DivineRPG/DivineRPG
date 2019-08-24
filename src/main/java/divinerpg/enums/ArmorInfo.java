@@ -1,4 +1,4 @@
-package divinerpg.utils;
+package divinerpg.enums;
 
 public enum ArmorInfo {
 

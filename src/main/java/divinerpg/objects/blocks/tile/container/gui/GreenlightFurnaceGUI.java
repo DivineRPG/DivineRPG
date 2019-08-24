@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
+import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
-import divinerpg.utils.Reference;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 

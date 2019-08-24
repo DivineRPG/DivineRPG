@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import static divinerpg.utils.DRPGParticleTypes.FROST;
+import static divinerpg.enums.ParticleType.FROST;
 
 import java.util.List;
 

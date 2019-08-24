@@ -1,5 +1,6 @@
-package divinerpg.utils;
+package divinerpg.events;
 
+import divinerpg.Reference;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;

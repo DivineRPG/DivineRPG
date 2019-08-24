@@ -2,6 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.objects.entities.assets.render.arcana.*;
 import divinerpg.objects.entities.assets.render.iceika.*;
 import divinerpg.objects.entities.assets.render.twilight.*;
@@ -13,7 +14,6 @@ import divinerpg.objects.entities.entity.iceika.*;
 import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.twilight.*;
 import divinerpg.objects.entities.entity.vanilla.*;
-import divinerpg.utils.Reference;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;

@@ -1,7 +1,7 @@
 package divinerpg.enums;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -52,7 +52,7 @@ public enum EnumArmor {
 
     DIAMOND("Diamond", "diamond", 3000, 10, 55, false, true),
     IRON("Iron", "iron", 2000, 12, 30, false, true),
-    GOLD("Golden", "golden", 1000, 10, 22, false, true),
+    GOLD("Gold", "gold", 1000, 10, 22, false, true),
 
     DEGRADED("Degraded", "degraded", 0, 0, 17),
     FINISHED("Finished", "finished", 0, 0, 33),

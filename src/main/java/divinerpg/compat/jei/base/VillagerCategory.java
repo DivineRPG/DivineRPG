@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
 
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 
 public class VillagerCategory implements IRecipeCategory {
 

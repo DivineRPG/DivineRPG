@@ -3,6 +3,7 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
+import divinerpg.enums.ArmorInfo;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.EnumArmor;
@@ -74,7 +75,6 @@ import divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
 import divinerpg.objects.items.vanilla.ItemSerenadeStriker;
 import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import divinerpg.objects.items.vanilla.ItemVileStorm;
-import divinerpg.utils.ArmorInfo;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.GenerateJSON;
 import divinerpg.utils.ToolMaterialMod;
@@ -258,14 +258,10 @@ public class ModItems {
     public static Item krakenBoots = new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.FEET, krakenInfo);
 
     private static Object[] jackomanInfo = new Object[] { 3, ArmorInfo.SCYTHE_DAMAGE };
-    public static Item jackOManHelmet = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, "jackOMan",
-            jackomanInfo);
-    public static Item jackOManBody = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, "jackOMan",
-            jackomanInfo);
-    public static Item jackOManLegs = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, "jackOMan",
-            jackomanInfo);
-    public static Item jackOManBoots = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, "jackOMan",
-            jackomanInfo);
+    public static Item jackOManHelmet = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, jackomanInfo);
+    public static Item jackOManBody = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, jackomanInfo);
+    public static Item jackOManLegs = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, jackomanInfo);
+    public static Item jackOManBoots = new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, jackomanInfo);
 
     private static Object[] infernoInfo = new Object[] { ArmorInfo.FIRE_PROTECTION };
     public static Item infernoHelmet = new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.HEAD, infernoInfo);
@@ -386,10 +382,10 @@ public class ModItems {
     public static Item ironLegs = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.LEGS);
     public static Item ironBoots = new ItemDivineArmor(EnumArmor.IRON, EntityEquipmentSlot.FEET);
 
-    public static Item goldHelmet = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.HEAD);
-    public static Item goldBody = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.CHEST);
-    public static Item goldLegs = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.LEGS);
-    public static Item goldBoots = new ItemDivineArmor(EnumArmor.GOLD, EntityEquipmentSlot.FEET);
+    public static Item goldHelmet = new ItemDivineArmor("golden_helmet", EnumArmor.GOLD, EntityEquipmentSlot.HEAD);
+    public static Item goldBody = new ItemDivineArmor("golden_chestplate", EnumArmor.GOLD, EntityEquipmentSlot.CHEST);
+    public static Item goldLegs = new ItemDivineArmor("golden_leggings", EnumArmor.GOLD, EntityEquipmentSlot.LEGS);
+    public static Item goldBoots = new ItemDivineArmor("golden_boots", EnumArmor.GOLD, EntityEquipmentSlot.FEET);
 
     // Vanilla Tools
     public static Item rupeeShickaxe = new ItemShickaxe(ToolMaterialMod.RupeeShick, "rupee_shickaxe");
@@ -530,10 +526,14 @@ public class ModItems {
 
     private static Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6,
             ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
-    public static Item santaCap = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.HEAD, santaInfo);
-    public static Item santaTunic = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.CHEST, santaInfo);
-    public static Item santaPants = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.LEGS, santaInfo);
-    public static Item santaBoots = new ItemDivineArmor(EnumArmor.SANTA, EntityEquipmentSlot.FEET, santaInfo);
+    public static Item santaCap = new ItemDivineArmor("santa_cap", EnumArmor.SANTA, EntityEquipmentSlot.HEAD,
+            santaInfo);
+    public static Item santaTunic = new ItemDivineArmor("santa_tunic", EnumArmor.SANTA, EntityEquipmentSlot.CHEST,
+            santaInfo);
+    public static Item santaPants = new ItemDivineArmor("santa_pants", EnumArmor.SANTA, EntityEquipmentSlot.LEGS,
+            santaInfo);
+    public static Item santaBoots = new ItemDivineArmor("santa_boots", EnumArmor.SANTA, EntityEquipmentSlot.FEET,
+            santaInfo);
 
     public static Item snowGlobe = new ItemSnowGlobe("snow_globe");
 

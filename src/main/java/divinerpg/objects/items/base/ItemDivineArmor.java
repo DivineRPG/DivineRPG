@@ -38,30 +38,21 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
     protected StringBuilder infoBuilder;
 
     public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot) {
-        this(armorMaterial, slot, armorMaterial.getType());
+        this(null, armorMaterial, slot);
     }
 
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, boolean vethean) {
-        this(armorMaterial, slot, armorMaterial.getType(), vethean);
+    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info) {
+        this(null, armorMaterial, slot, info);
     }
 
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR) {
-        this(armorMaterial, slot, dR, armorMaterial.getType(), new Object[] { "null", "null" }, false, null);
+    public ItemDivineArmor(String itemName, EnumArmor armorMaterial, EntityEquipmentSlot slot) {
+        this(itemName, armorMaterial, slot, new Object[] { "null", "null" });
     }
 
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, Object[] info) {
-        this(armorMaterial, slot, dR, armorMaterial.getType(), info, false, null);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, String name) {
-        this(armorMaterial, slot, dR, name, new Object[] { "null", "null" }, false, null);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, int dR, String name, Object[] info,
-            boolean vethean, String helmType) {
+    public ItemDivineArmor(String itemName, EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info) {
         super(armorMaterial.getArmorMaterial(), 0, slot);
         this.armorMaterial = armorMaterial;
-        this.fullReduction = dR;
+        this.fullReduction = armorMaterial.getDamageReduction();
         this.armorInfo = info;
 
         if (slot == EntityEquipmentSlot.HEAD) {
@@ -103,7 +94,7 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
 
         this.unbreakable = armorMaterial.isUndamageable();
 
-        setArmorType(this.armorMaterial.getType(), slot, vethean, helmType);
+        this.name = itemName != null ? itemName : getDefaultItemName(this.armorMaterial.getType(), slot);
         setUnlocalizedName(this.name);
         if (armorMaterial.isOverriden()) {
             setRegistryName("minecraft", this.name);
@@ -113,39 +104,6 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
             this.setCreativeTab(DivineRPGTabs.armor);
         }
         ModItems.ITEMS.add(this);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info) {
-        this(armorMaterial, slot, armorMaterial.getType(), info);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, Object[] info, boolean vethean,
-            String helmType) {
-        this(armorMaterial, slot, armorMaterial.getType(), info, vethean, helmType);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name) {
-        this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" }, false,
-                null);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, boolean vethean) {
-        this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, new Object[] { "null", "null" }, vethean,
-                null);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info) {
-        this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, info, false, null);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info,
-            boolean vethean) {
-        this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, info, vethean, null);
-    }
-
-    public ItemDivineArmor(EnumArmor armorMaterial, EntityEquipmentSlot slot, String name, Object[] info,
-            boolean vethean, String helmType) {
-        this(armorMaterial, slot, armorMaterial.getDamageReduction(), name, info, vethean, helmType);
     }
 
     @Override
@@ -214,21 +172,17 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
         }
     }
 
-    protected void setArmorType(String material, EntityEquipmentSlot slot, boolean vethean, String helmType) {
+    protected String getDefaultItemName(String material, EntityEquipmentSlot slot) {
         if (slot == EntityEquipmentSlot.FEET) {
-            this.name = material + "_boots";
+            return material + "_boots";
         } else if (slot == EntityEquipmentSlot.LEGS) {
-            this.name = material + (armorMaterial.isClothing() ? "_pants" : "_leggings");
+            return material + "_leggings";
         } else if (slot == EntityEquipmentSlot.CHEST) {
-            this.name = material + (armorMaterial.isClothing() ? "_tunic" : "_chestplate");
+            return material + "_chestplate";
         } else if (slot == EntityEquipmentSlot.HEAD) {
-            if (armorMaterial.isClothing()) {
-                this.name = material + "_cap";
-            } else {
-                this.name = material + (vethean ? "_" + helmType : "_helmet");
-            }
+            return material + "_helmet";
         } else {
-            this.name = material + "_unknown";
+            return material + "_unknown";
         }
     }
 }

@@ -1,11 +1,11 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.IHasModel;
-import divinerpg.utils.Reference;
 import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

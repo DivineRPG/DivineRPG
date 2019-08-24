@@ -2,8 +2,8 @@ package divinerpg.objects.blocks.iceika;
 
 import divinerpg.objects.blocks.BlockModFurnace;
 import divinerpg.objects.blocks.tile.entity.TileEntityCoalstoneFurnace;
+import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.GUIHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;

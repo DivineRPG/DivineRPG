@@ -2,7 +2,7 @@ package divinerpg.utils.log;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
-import divinerpg.utils.Reference;
+import divinerpg.Reference;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
