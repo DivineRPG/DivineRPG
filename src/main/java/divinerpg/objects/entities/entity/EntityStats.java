@@ -77,8 +77,8 @@ public class EntityStats {
     public static double epiphiteHealth         = 100.0D, epiphiteDamage = 14.0D, epiphiteSpeed = normalSpeed, epiphiteFollowRange = follow;
     public static double wildwoodTomoHealth     = 110.0D, wildwoodTomoDamage = 10.0D, wildwoodTomoSpeed = normalSpeed, wildwoodTomoFollowRange = follow;
     public static double behemothHealth         = 180.0D, behemothDamage = 9.0D, behemothSpeed = normalSpeed, behemothFollowRange = follow;
-    public static double edenCoriHealth         = 10.0D, edenCoriDamage = 30.0D, edenCoriSpeed = normalSpeed, edenCoriFollowRange = follow;
-    public static double skythernCoriHealth     = 35.0D, skythernCoriDamage = 100.0D, skythernCoriSpeed = normalSpeed, skythernCoriFollowRange = follow;
+    public static double weakCoriHealth         = 10.0D, weakCoriDamage = 30.0D, weakCoriSpeed = normalSpeed, weakCoriFollowRange = follow;
+    public static double advancedCoriHealth     = 35.0D, advancedCoriDamage = 100.0D, advancedCoriSpeed = normalSpeed, advancedCoriFollowRange = follow;
     public static double reyvorHealth           = 1000.0D, reyvorDamage = 20.0D, reyvorSpeed = normalSpeed, reyvorFollowRange = follow;
     public static double soulSpiderHealth       = 35.0D, soulSpiderDamage = 12.0D, soulSpiderSpeed = normalSpeed, soulSpiderFollowRange = follow;
     public static double mageHealth             = 90.0D, mageDamage = 5.0D, mageSpeed = normalSpeed, mageFollowRange = follow;

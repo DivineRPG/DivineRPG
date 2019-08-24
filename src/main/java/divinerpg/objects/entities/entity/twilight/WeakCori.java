@@ -17,8 +17,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EdenCori extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/eden_cori");
+public class WeakCori extends EntityDivineRPGFlying {
+    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/weak_cori");
 
     public int courseChangeCooldown = 0;
     public double waypointX;
@@ -30,7 +30,7 @@ public class EdenCori extends EntityDivineRPGFlying {
     public int attackCounter = 0;
     private BlockPos currentFlightTarget;
 
-    public EdenCori(World worldIn) {
+    public WeakCori(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.5F);
     }
