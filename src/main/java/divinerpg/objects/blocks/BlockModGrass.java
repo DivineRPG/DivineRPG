@@ -1,10 +1,7 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
-import divinerpg.objects.items.arcana.ItemArcanaSeeds;
-import divinerpg.registry.ModBlocks;
-import divinerpg.utils.material.EnumBlockType;
+import divinerpg.enums.EnumBlockType;
+import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -13,6 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+
+import java.util.Random;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected BlockMod dirt;
@@ -72,7 +71,15 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
             IPlantable plantable) {
 
-    	if(this == ModBlocks.arcanaGrass && plantable instanceof ItemArcanaSeeds) return true;
+    	if (plantable instanceof BlockModDoublePlant)
+        {
+            return ((BlockModDoublePlant) plantable).getGrass() == this;
+        }
+
+    	if (plantable instanceof ItemModSeeds){
+            return  ((ItemModSeeds) plantable).soil == this;
+        }
+
         return false;
     }
 }

@@ -1,8 +1,8 @@
 package divinerpg.objects.blocks;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.WoodType;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.material.EnumBlockType;
 
 public class BlockModPlank extends BlockMod {
 

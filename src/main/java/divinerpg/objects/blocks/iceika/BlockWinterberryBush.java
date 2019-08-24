@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;

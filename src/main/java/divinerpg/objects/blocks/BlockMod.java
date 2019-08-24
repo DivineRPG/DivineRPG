@@ -3,12 +3,12 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.EnumBlockType;
+import divinerpg.enums.EnumToolType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.IHasModel;
-import divinerpg.utils.material.EnumBlockType;
-import divinerpg.utils.material.EnumToolType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

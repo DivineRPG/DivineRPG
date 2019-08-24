@@ -5,10 +5,10 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.ArcanaTeleporter;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -42,10 +42,15 @@ public class BlockArcanaPortal extends BlockMod {
         return BLOCK_AABB;
     }
 
-    public boolean isOpaqueCube() {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
     @Override
     public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
         return false;

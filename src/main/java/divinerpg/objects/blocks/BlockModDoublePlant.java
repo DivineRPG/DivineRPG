@@ -1,7 +1,5 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
 import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -11,7 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -28,9 +25,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
+import java.util.Random;
+
 public class BlockModDoublePlant extends BlockBush
         implements IHasModel, IPlantable, net.minecraftforge.common.IShearable {
-    public static final PropertyEnum<BlockModDoublePlant.EnumBlockHalf> HALF = PropertyEnum.<BlockModDoublePlant.EnumBlockHalf>create(
+    public static final PropertyEnum<BlockModDoublePlant.EnumBlockHalf> HALF = PropertyEnum.create(
             "half", BlockModDoublePlant.EnumBlockHalf.class);
     protected static final AxisAlignedBB DOUBLE_PLANT_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
     private Block grass;
@@ -69,13 +68,8 @@ public class BlockModDoublePlant extends BlockBush
     @Override
     protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
         if (!this.canBlockStay(worldIn, pos, state)) {
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 2);
-            if (state.getValue(HALF) == BlockModDoublePlant.EnumBlockHalf.UPPER) {
-                worldIn.setBlockState(pos.down(), Blocks.AIR.getDefaultState(), 2);
-            } else {
-                worldIn.setBlockState(pos.up(), Blocks.AIR.getDefaultState(), 2);
-            }
-            this.spawnAsEntity(worldIn, pos, new ItemStack(Item.getItemFromBlock(this)));
+            breakBlock(worldIn, pos, state);
+            spawnAsEntity(worldIn, pos, new ItemStack(Item.getItemFromBlock(this)));
         }
     }
 
@@ -145,10 +139,10 @@ public class BlockModDoublePlant extends BlockBush
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { HALF });
+        return new BlockStateContainer(this, HALF);
     }
 
-    public static enum EnumBlockHalf implements IStringSerializable {
+    public enum EnumBlockHalf implements IStringSerializable {
         UPPER, LOWER;
         public String toString() {
             return this.getName();
@@ -162,5 +156,9 @@ public class BlockModDoublePlant extends BlockBush
     @Override
     public void registerModels() {
         DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
+
+    public Block getGrass(){
+        return this.grass;
     }
 }

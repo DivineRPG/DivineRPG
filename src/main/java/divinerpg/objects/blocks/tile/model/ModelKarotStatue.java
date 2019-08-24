@@ -2,8 +2,8 @@ package divinerpg.objects.blocks.tile.model;
 
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.utils.models.DivineModel;
-import divinerpg.utils.models.DivineRenderer;
+import divinerpg.client.render.DivineModel;
+import divinerpg.client.render.DivineRenderer;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 

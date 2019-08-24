@@ -1,8 +1,8 @@
 package divinerpg.objects.blocks.vanilla;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.utils.Utils;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

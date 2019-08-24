@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/demon_brambles_top"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/demon_brambles_top"
+  }
 }

@@ -1,10 +1,10 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModTriggers;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockFaceShape;

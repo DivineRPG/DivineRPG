@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/moonbulb_plant_top"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/moonbulb_plant_top"
+  }
 }

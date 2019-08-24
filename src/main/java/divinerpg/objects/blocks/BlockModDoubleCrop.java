@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import divinerpg.utils.material.EnumBlockType;
+import divinerpg.enums.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

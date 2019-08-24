@@ -1,10 +1,10 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.StatueType;
 import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.material.EnumBlockType;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.properties.IProperty;

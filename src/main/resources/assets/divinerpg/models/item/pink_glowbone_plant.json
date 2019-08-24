@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/pink_glowbone_plant_top"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/pink_glowbone_plant_top"
+  }
 }
