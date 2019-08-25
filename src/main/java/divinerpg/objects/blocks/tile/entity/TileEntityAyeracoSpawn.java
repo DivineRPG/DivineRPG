@@ -1,10 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import divinerpg.objects.entities.entity.vanilla.AyeracoBlue;
-import divinerpg.objects.entities.entity.vanilla.AyeracoGreen;
-import divinerpg.objects.entities.entity.vanilla.AyeracoPurple;
-import divinerpg.objects.entities.entity.vanilla.AyeracoRed;
-import divinerpg.objects.entities.entity.vanilla.AyeracoYellow;
+import com.google.common.collect.Lists;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.log.Logging;
@@ -14,6 +11,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
+
+import java.util.ArrayList;
 
 public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
     private BlockPos greenBeam;
@@ -52,40 +51,19 @@ public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.purple", TextFormatting.DARK_PURPLE));
                 this.world.setBlockState(purpleBeam, ModBlocks.ayeracoBeamPurple.getDefaultState());
             } else if (this.spawnTick == 0) {
-                AyeracoGreen ayercoGreen = new AyeracoGreen(this.world);
-                AyeracoBlue ayercoBlue = new AyeracoBlue(this.world);
-                AyeracoRed ayercoRed = new AyeracoRed(this.world);
-                AyeracoYellow ayercoYellow = new AyeracoYellow(this.world);
-                AyeracoPurple ayercoPurple = new AyeracoPurple(this.world);
 
-                ayercoGreen.setLocationAndAngles(greenBeam.getX(), greenBeam.getY() + 4, greenBeam.getZ(),
-                        this.world.rand.nextFloat() * 360.0F, 0.0F);
-                ayercoBlue.setLocationAndAngles(blueBeam.getX(), blueBeam.getY() + 4, blueBeam.getZ(),
-                        this.world.rand.nextFloat() * 360.0F, 0.0F);
-                ayercoRed.setLocationAndAngles(redBeam.getX(), redBeam.getY() + 4, redBeam.getZ(),
-                        this.world.rand.nextFloat() * 360.0F, 0.0F);
-                ayercoYellow.setLocationAndAngles(yellowBeam.getX(), yellowBeam.getY() + 4, yellowBeam.getZ(),
-                        this.world.rand.nextFloat() * 360.0F, 0.0F);
-                ayercoPurple.setLocationAndAngles(purpleBeam.getX(), purpleBeam.getY() + 4, purpleBeam.getZ(),
-                        this.world.rand.nextFloat() * 360.0F, 0.0F);
+                // Order is important!
+                ArrayList<Ayeraco> ayeracos = Lists.newArrayList(
+                        new AyeracoRed(this.world, redBeam),
+                        new AyeracoGreen(this.world, greenBeam),
+                        new AyeracoBlue(this.world, blueBeam),
+                        new AyeracoYellow(this.world, yellowBeam),
+                        new AyeracoPurple(this.world, purpleBeam));
 
-                ayercoGreen.initOthers(ayercoBlue, ayercoRed, ayercoYellow, ayercoPurple);
-                ayercoBlue.initOthers(ayercoGreen, ayercoRed, ayercoYellow, ayercoPurple);
-                ayercoRed.initOthers(ayercoBlue, ayercoGreen, ayercoYellow, ayercoPurple);
-                ayercoYellow.initOthers(ayercoBlue, ayercoGreen, ayercoRed, ayercoPurple);
-                ayercoPurple.initOthers(ayercoBlue, ayercoGreen, ayercoRed, ayercoYellow);
+                AyeracoGroup ayeracoGroup = new AyeracoGroup(ayeracos);
 
-                ayercoGreen.setBeamLocation(greenBeam.getX(), greenBeam.getY(), greenBeam.getZ());
-                ayercoBlue.setBeamLocation(blueBeam.getX(), blueBeam.getY(), blueBeam.getZ());
-                ayercoRed.setBeamLocation(redBeam.getX(), redBeam.getY(), redBeam.getZ());
-                ayercoYellow.setBeamLocation(yellowBeam.getX(), yellowBeam.getY(), yellowBeam.getZ());
-                ayercoPurple.setBeamLocation(purpleBeam.getX(), purpleBeam.getY(), purpleBeam.getZ());
-
-                this.world.spawnEntity(ayercoGreen);
-                this.world.spawnEntity(ayercoBlue);
-                this.world.spawnEntity(ayercoRed);
-                this.world.spawnEntity(ayercoYellow);
-                this.world.spawnEntity(ayercoPurple);
+                ayeracos.forEach(x -> x.initGroup(ayeracoGroup));
+                ayeracos.forEach(x -> world.spawnEntity(x));
 
                 Logging.broadcast(MessageLocalizer.normal("message.ayeraco.spawn", TextFormatting.AQUA));
             }

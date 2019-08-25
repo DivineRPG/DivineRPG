@@ -1,15 +1,15 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.assets.model.vanilla.ModelAyeraco;
-import divinerpg.objects.entities.entity.vanilla.AyeracoPurple;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoPurple;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderAyeracoPurple extends RenderLiving<AyeracoPurple> {
 

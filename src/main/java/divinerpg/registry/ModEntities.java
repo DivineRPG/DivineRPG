@@ -14,6 +14,7 @@ import divinerpg.objects.entities.entity.iceika.*;
 import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.twilight.*;
 import divinerpg.objects.entities.entity.vanilla.*;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
