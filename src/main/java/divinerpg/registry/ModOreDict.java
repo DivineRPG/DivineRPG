@@ -59,6 +59,7 @@ public class ModOreDict {
         OreDictionary.registerOre("treeSapling", ModBlocks.apalachiaSapling);
         OreDictionary.registerOre("treeSapling", ModBlocks.skythernSapling);
         OreDictionary.registerOre("treeSapling", ModBlocks.mortumSapling);
+        OreDictionary.registerOre("treeSapling", ModBlocks.wildwoodSapling);
 
         OreDictionary.registerOre("blockGlass", ModBlocks.frostedGlass);
         OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass);

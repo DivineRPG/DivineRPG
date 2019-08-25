@@ -39,7 +39,6 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonSkull, 1, 0), 13945);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.liopleurodonTeeth, 1, 0), 300);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.cyclopsEye, 1, 0), 415);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(Blocks.BEDROCK), 0);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.aquaticPellets, 1, 0), 800);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.snowflake, 1, 0), 99);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eggNog, 1, 0), 302);
@@ -59,6 +58,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.skythernGrass, 1, 0), 1);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.wildwoodGrass, 1, 0), 1);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.infernoSword, 1, 0), 4740);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.arcaniumOre, 1, 0), 10304);
         }
 
 }
