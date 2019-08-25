@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockArcanaDoor extends BlockModDoor {
-    protected Item keyItem;
+    private Item keyItem;
 
     public BlockArcanaDoor(String name, Material materialIn, float hardness, Item key) {
         super(name, materialIn, hardness);
