@@ -4,11 +4,11 @@
          "item":"divinerpg:arcana_portal_frame"
       },
       "title":{
-         "translate":"advancement.divinerpg.enter_arcana"
+         "translate":"advancement.enter_arcana"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.enter_arcana.desc"
+         "translate":"advancement.enter_arcana.desc"
       },
       "announce_to_chat":true
    },
