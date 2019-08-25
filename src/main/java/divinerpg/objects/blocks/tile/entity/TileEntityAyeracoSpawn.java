@@ -5,6 +5,7 @@ import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.log.Logging;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -28,51 +29,60 @@ public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
 
     @Override
     public void update() {
-        if (!this.world.isRemote) {
-            if (this.spawnTick == 600) {
+        switch (spawnTick) {
+            case 600:
                 greenBeam = getBeamLocation(8, 8);
                 blueBeam = getBeamLocation(15, 0);
                 redBeam = getBeamLocation(5, -12);
                 yellowBeam = getBeamLocation(-5, -12);
                 purpleBeam = getBeamLocation(-8, 8);
+                setBlock(greenBeam, ModBlocks.ayeracoBeamGreen);
+                logAyeracoSpawn(TextFormatting.GREEN);
+                break;
 
-                Logging.broadcast(MessageLocalizer.normal("message.ayeraco.green", TextFormatting.GREEN));
-                this.world.setBlockState(greenBeam, ModBlocks.ayeracoBeamGreen.getDefaultState());
-            } else if (this.spawnTick == 430) {
-                Logging.broadcast(MessageLocalizer.normal("message.ayeraco.blue", TextFormatting.BLUE));
-                this.world.setBlockState(blueBeam, ModBlocks.ayeracoBeamBlue.getDefaultState());
-            } else if (this.spawnTick == 300) {
-                Logging.broadcast(MessageLocalizer.normal("message.ayeraco.red", TextFormatting.RED));
-                this.world.setBlockState(redBeam, ModBlocks.ayeracoBeamRed.getDefaultState());
-            } else if (this.spawnTick == 210) {
-                Logging.broadcast(MessageLocalizer.normal("message.ayeraco.yellow", TextFormatting.YELLOW));
-                this.world.setBlockState(yellowBeam, ModBlocks.ayeracoBeamYellow.getDefaultState());
-            } else if (this.spawnTick == 145) {
-                Logging.broadcast(MessageLocalizer.normal("message.ayeraco.purple", TextFormatting.DARK_PURPLE));
-                this.world.setBlockState(purpleBeam, ModBlocks.ayeracoBeamPurple.getDefaultState());
-            } else if (this.spawnTick == 0) {
+            case 430:
+                setBlock(blueBeam, ModBlocks.ayeracoBeamBlue);
+                logAyeracoSpawn(TextFormatting.BLUE);
+                break;
 
-                // Order is important!
-                ArrayList<Ayeraco> ayeracos = Lists.newArrayList(
-                        new AyeracoRed(this.world, redBeam),
-                        new AyeracoGreen(this.world, greenBeam),
-                        new AyeracoBlue(this.world, blueBeam),
-                        new AyeracoYellow(this.world, yellowBeam),
-                        new AyeracoPurple(this.world, purpleBeam));
+            case 300:
+                setBlock(redBeam, ModBlocks.ayeracoBeamRed);
+                logAyeracoSpawn(TextFormatting.RED);
+                break;
 
-                AyeracoGroup ayeracoGroup = new AyeracoGroup(ayeracos);
+            case 210:
+                setBlock(yellowBeam, ModBlocks.ayeracoBeamYellow);
+                logAyeracoSpawn(TextFormatting.YELLOW);
+                break;
 
-                ayeracos.forEach(x -> x.initGroup(ayeracoGroup));
-                ayeracos.forEach(x -> world.spawnEntity(x));
+            case 145:
+                setBlock(purpleBeam, ModBlocks.ayeracoBeamPurple);
+                logAyeracoSpawn(TextFormatting.DARK_PURPLE, "purple");
+                break;
 
-                Logging.broadcast(MessageLocalizer.normal("message.ayeraco.spawn", TextFormatting.AQUA));
-            }
-            if (spawnTick == 0)
-                this.world.setBlockState(this.pos, Blocks.AIR.getDefaultState());
+            case 0:
+                // Spawn entities only on server
+                if (!world.isRemote) {
+                    // Order is important!
+                    ArrayList<Ayeraco> ayeracos = Lists.newArrayList(
+                            new AyeracoRed(this.world, redBeam),
+                            new AyeracoGreen(this.world, greenBeam),
+                            new AyeracoBlue(this.world, blueBeam),
+                            new AyeracoYellow(this.world, yellowBeam),
+                            new AyeracoPurple(this.world, purpleBeam));
+
+                    AyeracoGroup ayeracoGroup = new AyeracoGroup(ayeracos);
+
+                    ayeracos.forEach(x -> x.initGroup(ayeracoGroup));
+                    ayeracos.forEach(x -> world.spawnEntity(x));
+                }
+
+                setBlock(this.pos, Blocks.AIR);
+                logAyeracoSpawn(TextFormatting.AQUA, "spawn");
+                break;
         }
-        if (this.spawnTick > 0) {
-            this.spawnTick--;
-        }
+
+        spawnTick--;
     }
 
     private BlockPos getBeamLocation(int x, int z) {
@@ -130,5 +140,34 @@ public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
         tag.setInteger("purpleBeamY", purpleBeam.getY());
         tag.setInteger("purpleBeamZ", purpleBeam.getZ());
         return tag;
+    }
+
+    /**
+     * Prevent from double logging on client
+     * @param formatting - format of message
+     */
+    private void logAyeracoSpawn(TextFormatting formatting){
+        logAyeracoSpawn(formatting, null);
+    }
+
+    /**
+     * Log ayeraco spawn, prevent from double client logging
+     * @param formatting - message format
+     * @param name - special name
+     */
+    private void logAyeracoSpawn(TextFormatting formatting, String name){
+        if (world.isRemote)
+            return;
+
+        if (name == null){
+            name = formatting.name().toLowerCase();
+        }
+
+        // Here creating the key like "message.ayeraco.blue"
+        Logging.broadcast(MessageLocalizer.normal("message.ayeraco." + name, formatting));
+    }
+
+    private void setBlock(BlockPos pos, Block block) {
+        this.world.setBlockState(pos, block.getDefaultState());
     }
 }

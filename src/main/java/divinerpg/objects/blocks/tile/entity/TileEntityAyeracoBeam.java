@@ -1,14 +1,13 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class TileEntityAyeracoBeam extends TileEntity {
     @SideOnly(Side.CLIENT)
@@ -24,6 +23,7 @@ public class TileEntityAyeracoBeam extends TileEntity {
     public TileEntityAyeracoBeam() {
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public double getMaxRenderDistanceSquared() {
         return 65536.0D;
@@ -33,22 +33,15 @@ public class TileEntityAyeracoBeam extends TileEntity {
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
-    }
+    }//
 
-    @Nullable
-    public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(this.pos, 3, this.getUpdateTag());
-    }
-
-    public NBTTagCompound getUpdateTag() {
-        return this.writeToNBT(new NBTTagCompound());
-    }
-
+    @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         texture = new ResourceLocation(compound.getString("texture"));
     }
 
+    @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
         compound.setString("texture", this.texture.toString());
@@ -72,5 +65,11 @@ public class TileEntityAyeracoBeam extends TileEntity {
             this.beam = 1.0F;
 
         return this.beam;
+    }
+
+    @Override
+    @Nullable
+    public NBTTagCompound getUpdateTag() {
+        return writeToNBT(new NBTTagCompound());
     }
 }
