@@ -28,12 +28,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public abstract class BlockModDoubleCrop extends BlockMod implements IPlantable {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 2);
     protected static final AxisAlignedBB TALL_CROP_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
+    private Random rand;
 
     public BlockModDoubleCrop(String name) {
-        super(EnumBlockType.PLANT, name, true);
+        super(EnumBlockType.PLANT, name, 0F);
         this.setTickRandomly(true);
         setCreativeTab(null);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));
+
+        this.rand = new Random();
     }
 
     abstract public Item getSeedDrop();

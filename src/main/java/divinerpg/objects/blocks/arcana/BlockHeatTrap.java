@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.blocks.BlockMod;
+import divinerpg.objects.blocks.BlockModUnbreakable;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
@@ -18,12 +19,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockHeatTrap extends BlockMod {
+public class BlockHeatTrap extends BlockModUnbreakable {
     protected static final AxisAlignedBB HEAT_TRAP_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
             0.9375D);
 
-    public BlockHeatTrap(String name, float hardness) {
-        super(name, hardness);
+    public BlockHeatTrap(String name) {
+        super(name);
         this.setTickRandomly(true);
     }
 

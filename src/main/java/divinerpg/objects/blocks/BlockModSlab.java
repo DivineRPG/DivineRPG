@@ -29,9 +29,9 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
     private Block single;
     private WoodType woodType;
 
-    public BlockModSlab(BlockMod plank, Block single, WoodType woodType) {
+    public BlockModSlab(BlockModPlank plank, Block single, WoodType woodType) {
         super(Material.WOOD, woodType.getMapColor());
-        setHardness(plank.getBlockModHardness());
+        setHardness(plank.getWoodType().getHardness());
         setResistance(5);
 
         NAME = plank.name.replace("_planks", "_") + (isDouble() ? "double_slab" : "slab");

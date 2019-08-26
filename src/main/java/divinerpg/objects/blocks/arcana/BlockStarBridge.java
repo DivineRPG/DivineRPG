@@ -18,7 +18,7 @@ public class BlockStarBridge extends BlockMod {
 
 	private final boolean powered;
 	public BlockStarBridge(String name, boolean powered) {
-		super(EnumBlockType.GLASS, name, false, !powered ? DivineRPGTabs.BlocksTab : null);
+		super(EnumBlockType.GLASS, name, 1.0F, !powered ? DivineRPGTabs.BlocksTab : null);
 		this.powered = powered;
 		if(powered) this.setLightLevel(1.0F);
 		this.setTickRandomly(true);

@@ -28,8 +28,8 @@ public class ModBlocks {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
 
     // Vanilla
-    public static Block rupeeOre = new VanillaBlock(EnumBlockType.ROCK, "rupee_ore", 3.0F, DIAMOND)
-            .setResistance(2000.0F);
+    public static Block rupeeOre = new BlockModOre("rupee_ore", 3.0F, 2000F, DIAMOND, null);
+
     public static Block arlemiteOre = new VanillaBlock(EnumBlockType.ROCK, "arlemite_ore", 3.0F, DIAMOND)
             .setResistance(2000.0F);
     public static Block realmiteOre = new VanillaBlock(EnumBlockType.ROCK, "realmite_ore", 3.0F, IRON)
@@ -264,8 +264,8 @@ public class ModBlocks {
     public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
     public static Block ripeWinterberryBush = new BlockWinterberryBush(true, "ripe_winterberry_bush");
 
-    public static Block icyStone = new BlockMod("icy_stone", -1F);
-    public static Block icyBricks = new BlockMod("icy_bricks", -1F);
+    public static Block icyStone = new BlockModUnbreakable("icy_stone");
+    public static Block icyBricks = new BlockModUnbreakable("icy_bricks");
     public static Block frostedChest = new BlockFrostedChest("frosted_chest", true).setHardness(2.5F);
     public static Block decorativeFrostedChest = new BlockFrostedChest("decorative_frosted_chest", false)
             .setHardness(2.5F);
@@ -276,8 +276,7 @@ public class ModBlocks {
     public static Block coalstoneStairs = new BlockModStairs(coalstone, "coalstone_stairs");
     public static Block workshopCarpet = new BlockMod(EnumBlockType.WOOL, "workshop_carpet", 0.1F);
     public static Block frostedGlass = new BlockModGlass("frosted_glass", 1.0F);
-    public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",
-            DivineRPGTabs.BlocksTab).setHardness(1.5F);
+    public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
     public static Block steelDoor = new BlockModDoor("steel_door", Material.IRON, 7.0f);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
@@ -312,16 +311,11 @@ public class ModBlocks {
     public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", 5.0F);
     public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", 5.0F);
 
-    public static Block edenOre = new BlockMod("eden_ore", 9).toggleExp(true).setTwilightOre(true)
-            .setDropItem(ModItems.edenFragments);
-    public static Block wildwoodOre = new BlockMod("wildwood_ore", 9).setTwilightOre(true)
-            .setDropItem(ModItems.wildwoodFragments);
-    public static Block apalachiaOre = new BlockMod("apalachia_ore", 9).setTwilightOre(true)
-            .setDropItem(ModItems.apalachiaFragments);
-    public static Block skythernOre = new BlockMod("skythern_ore", 9).setTwilightOre(true)
-            .setDropItem(ModItems.skythernFragments);
-    public static Block mortumOre = new BlockMod("mortum_ore", 9).setTwilightOre(true)
-            .setDropItem(ModItems.mortumFragments);
+    public static Block edenOre = new BlockModOre("eden_ore", 9, 2000F, DIAMOND, ModItems.edenFragments);
+    public static Block wildwoodOre = new BlockModOre("wildwood_ore", 9, 2000F, DIAMOND, ModItems.wildwoodFragments);
+    public static Block apalachiaOre = new BlockModOre("apalachia_ore", 9, 2000F, DIAMOND, ModItems.apalachiaFragments);
+    public static Block skythernOre = new BlockModOre("skythern_ore", 9, 2000F, DIAMOND, ModItems.skythernFragments);
+    public static Block mortumOre = new BlockModOre("mortum_ore", 9, 2000F, DIAMOND, ModItems.mortumFragments);
 
     public static Block edenBlock = new BlockMod("eden_block", 9);
     public static Block wildwoodBlock = new BlockMod("wildwood_block", 9);
@@ -389,26 +383,26 @@ public class ModBlocks {
     public static Block demonBrambles = new BlockBrambles("demon_brambles", mortumGrass);
     public static Block eyePlant = new BlockTwilightFlower("eye_plant", mortumGrass);
     public static Block mortumBrush = new BlockTwilightGrass("mortum_brush", mortumGrass);
-
-    public static Block truffle = new BlockMod(Material.PLANTS, "truffle");
+    public static Block truffle = new BlockMod(EnumBlockType.PLANT, "truffle", 1.0F);
 
     // Arcana
     public static Block arcanaDirt = new BlockMod(EnumBlockType.DIRT, "arcanite_dirt", 0.5F);
     public static Block arcanaGrass = new BlockModGrass((BlockMod) arcanaDirt, "arcanite_grass", 0.5F);
+    public static Block ancientTile = new BlockModUnbreakable("ancient_tile");
     public static Block arcaniumOre = new BlockMod("arcanium_ore", 3.0F);
-    public static Block arcaniumMetal = new BlockMod("arcanium_metal", false);
+    public static Block arcaniumMetal = new BlockModUnbreakable("arcanium_metal");
     public static Block arcaniteTubes = new BlockModLadder("arcanite_tubes");
-    public static Block arcaniumPower = new BlockMod("arcanium_power", false);
-    public static Block dungenLamp = new BlockMod("dungeon_lamp", false).setLightLevel(1.0F);
-    public static Block heatTrap = new BlockHeatTrap("heat_trap", -1F);
-    public static Block heatTrapOn = new BlockHeatTrap("heat_trap_on", -1F);
-    public static Block soulStone = new BlockMod("soul_stone", false);
-    public static Block soulSludge = new BlockMod("soul_sludge", false);
-    public static Block degradedBrick = new BlockMod("degraded_brick", false);
-    public static Block darkDegradedBrick = new BlockMod("dark_degraded_brick", false);
-    public static Block ancientBrick = new BlockMod("ancient_brick", false);
-    public static Block ancientStone = new BlockMod("ancient_stone", false);
-    public static Block lightDegradedBrick = new BlockMod("light_degraded_brick", false);
+    public static Block arcaniumPower = new BlockModUnbreakable("arcanium_power");
+    public static Block dungenLamp = new BlockModUnbreakable("dungeon_lamp").setLightLevel(1.0F);
+    public static Block heatTrap = new BlockHeatTrap("heat_trap");
+    public static Block heatTrapOn = new BlockHeatTrap("heat_trap_on");
+    public static Block soulStone = new BlockModUnbreakable("soul_stone");
+    public static Block soulSludge = new BlockModUnbreakable("soul_sludge");
+    public static Block degradedBrick = new BlockModUnbreakable("degraded_brick");
+    public static Block darkDegradedBrick = new BlockModUnbreakable("dark_degraded_brick");
+    public static Block ancientBrick = new BlockModUnbreakable("ancient_brick");
+    public static Block ancientStone = new BlockModUnbreakable("ancient_stone");
+    public static Block lightDegradedBrick = new BlockModUnbreakable("light_degraded_brick");
     public static Block stainedGlass = new BlockModGlass("stained_glass", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass2 = new BlockModGlass("stained_glass2", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass3 = new BlockModGlass("stained_glass3", 0.3F).setUnlocalizedName("stained_glass");
@@ -423,7 +417,6 @@ public class ModBlocks {
     public static Block deathcryxSpawner = new BlockArcanaSpawner("deathcryx_spawner", "deathcryx");
     public static Block livingStatueSpawner = new BlockArcanaSpawner("living_statue_spawner", "living_statue");
     public static Block roamerSpawner = new BlockArcanaSpawner("roamer_spawner", "roamer");
-    public static Block ancientTile = new BlockMod("ancient_tile", false);
     public static Block starBridge = new BlockStarBridge("star_bridge", false);
     public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
     public static Block soulSludgeDoor = new BlockArcanaDoor("soul_sludge_door", Material.IRON, -1F, ModItems.sludgeKey);
@@ -478,7 +471,7 @@ public class ModBlocks {
             final PropertyEnum<WoodType> restrictedKey = PropertyEnum.create("variant", WoodType.class,
                     input -> input == woodType);
 
-            BlockMod planks = new BlockModPlank(woodType);
+            BlockModPlank planks = new BlockModPlank(woodType);
             Block stairs = new BlockModStairs(planks, woodName + "_stairs");
             Block singleSlab = new BlockModSlab(planks, null, woodType) {
                 @Override

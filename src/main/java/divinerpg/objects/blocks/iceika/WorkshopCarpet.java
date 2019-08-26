@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.iceika;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.SoundType;
@@ -11,10 +12,9 @@ import net.minecraft.block.material.Material;
 public class WorkshopCarpet extends BlockMod {
 
 	public WorkshopCarpet(String name) {
-		super(Material.CARPET, name);
+		super(EnumBlockType.WOOL, name, 1.5F);
 		setSoundType(SoundType.CLOTH);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
-		this.setHardness(1.5f);
 	}
 
 }

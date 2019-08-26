@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
@@ -24,8 +25,7 @@ public class BlockStarBridgeOn extends BlockMod {
 	private boolean red = false;
 
 	public BlockStarBridgeOn(String name) {
-		super(Material.ROCK, name);
-		this.setHardness(2);
+		super(EnumBlockType.ROCK, name, 2F);
 		setTickRandomly(true);
 	}
 

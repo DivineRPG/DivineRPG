@@ -3,6 +3,7 @@ package divinerpg.objects.blocks.vanilla;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.OreType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.objects.blocks.itemblock.IMetaName;
@@ -25,10 +26,9 @@ import net.minecraft.world.World;
 public class BlockNetherite extends BlockMod implements IHasModel, IMetaName {
 
     public BlockNetherite(String name) {
-        super(Material.ROCK, name);
+        super(EnumBlockType.ROCK, name, 3F);
         setTickRandomly(true);
 
-        setHardness(3f);
         setResistance(5f);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         ModBlocks.BLOCKS.add(this);
@@ -66,7 +66,7 @@ public class BlockNetherite extends BlockMod implements IHasModel, IMetaName {
     public void registerModels() {
         for (int i = 0; i < OreType.values().length; i++) {
             DivineRPG.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i,
-                    this.name + "_" + OreType.values()[i].getName(), "inventory");
+                    "netherite_ore_" + OreType.values()[i].getName(), "inventory");
         }
     }
 
