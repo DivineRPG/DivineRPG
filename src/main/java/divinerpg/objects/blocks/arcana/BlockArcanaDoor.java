@@ -50,6 +50,30 @@ public class BlockArcanaDoor extends BlockModDoor {
             worldIn.setBlockState(blockpos, state, 10);
             worldIn.markBlockRangeForRenderUpdate(blockpos, pos);
             worldIn.playEvent(player, ((Boolean) state.getValue(OPEN)).booleanValue() ? 1005 : 1011, pos, 0);
+
+            BlockPos[] adjacent = {
+                    blockpos.north(),
+                    blockpos.east(),
+                    blockpos.south(),
+                    blockpos.west()
+            };
+
+            for(BlockPos adjacentPos: adjacent) {
+                IBlockState adjacentBlockState =  worldIn.getBlockState(adjacentPos);
+                if (adjacentBlockState.getBlock() != this) {
+                    continue;
+                }
+                else if(!player.capabilities.isCreativeMode && adjacentBlockState.getProperties().get(OPEN).equals(true)) {
+                    break;
+                }
+                else {
+                    adjacentBlockState = iblockstate.cycleProperty(OPEN);
+                    worldIn.setBlockState(adjacentPos, adjacentBlockState, 10);
+                    worldIn.markBlockRangeForRenderUpdate(adjacentPos, adjacentPos);
+                    worldIn.playEvent(player, ((Boolean) state.getValue(OPEN)).booleanValue() ? 1005 : 1011, adjacentPos, 0);
+                    return true;
+                }
+            }
             return true;
         }
     }
