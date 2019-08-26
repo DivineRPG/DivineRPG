@@ -6,6 +6,7 @@ import divinerpg.DivineRPG;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.OreType;
 import divinerpg.objects.blocks.BlockMod;
+import divinerpg.objects.blocks.BlockModOre;
 import divinerpg.objects.blocks.itemblock.IMetaName;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -23,16 +24,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockNetherite extends BlockMod implements IHasModel, IMetaName {
+public class BlockNetheriteOre extends BlockModOre implements IHasModel, IMetaName {
 
-    public BlockNetherite(String name) {
-        super(EnumBlockType.ROCK, name, 3F);
+    public BlockNetheriteOre(String name, float hardness, float resistance, int harvest, Item item) {
+        super(name, hardness, resistance, harvest, item);
         setTickRandomly(true);
-
-        setResistance(5f);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     public void detectInBB(BlockPos pos, World world) {

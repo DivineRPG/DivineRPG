@@ -30,6 +30,11 @@ public class BlockMod extends Block implements IHasModel {
         this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
     }
 
+    public BlockMod(EnumBlockType blockType, String name, float hardness, int harvest) {
+        this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
+        setHarvestLevel("pickaxe", harvest);
+    }
+
     public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab) {
         super(blockType.getMaterial());
         this.setSoundType(blockType.getSound());
