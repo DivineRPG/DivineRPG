@@ -144,52 +144,52 @@ public class ModBlocks {
     public static Block bedrockMinibricks = new BlockMod(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON)
             .setResistance(30.0F);
 
-    public static Block aquaLamp = new BlockMod(EnumBlockType.GLASS, "aqua_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block arlemiteLamp = new BlockMod(EnumBlockType.GLASS, "arlemite_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block blazeLamp = new BlockMod(EnumBlockType.GLASS, "blaze_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block bluefireLamp = new BlockMod(EnumBlockType.GLASS, "bluefire_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block diamondLamp = new BlockMod(EnumBlockType.GLASS, "diamond_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block divineLamp = new BlockMod(EnumBlockType.GLASS, "divine_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block drakenLamp = new BlockMod(EnumBlockType.GLASS, "draken_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block edenLamp = new BlockMod(EnumBlockType.GLASS, "eden_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block enderLamp = new BlockMod(EnumBlockType.GLASS, "ender_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block enderStoneLamp = new BlockMod(EnumBlockType.GLASS, "ender_stone_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block goldLamp = new BlockMod(EnumBlockType.GLASS, "gold_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block iceLamp = new BlockMod(EnumBlockType.GLASS, "ice_lamp", 3.0F, DIAMOND).setResistance(30.0F)
-            .setLightLevel(1);
-    public static Block jungleLamp = new BlockMod(EnumBlockType.GLASS, "jungle_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block krakenLamp = new BlockMod(EnumBlockType.GLASS, "kraken_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block lapisLazuliLamp = new BlockMod(EnumBlockType.GLASS, "lapis_lazuli_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block lavaLamp = new BlockMod(EnumBlockType.GLASS, "lava_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block milkyLamp = new BlockMod(EnumBlockType.GLASS, "milky_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block moltenLamp = new BlockMod(EnumBlockType.GLASS, "molten_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block netheriteLamp = new BlockMod(EnumBlockType.GLASS, "netherite_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block realmiteLamp = new BlockMod(EnumBlockType.GLASS, "realmite_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block redstoneOrekLamp = new BlockMod(EnumBlockType.GLASS, "redstone_ore_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block rupeeLamp = new BlockMod(EnumBlockType.GLASS, "rupee_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
-    public static Block terranLamp = new BlockMod(EnumBlockType.GLASS, "terran_lamp", 3.0F, DIAMOND)
-            .setResistance(30.0F).setLightLevel(1);
+    public static Block aquaLamp = new BlockModLamp(EnumBlockType.GLASS, "aqua_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block arlemiteLamp = new BlockModLamp(EnumBlockType.GLASS, "arlemite_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block blazeLamp = new BlockModLamp(EnumBlockType.GLASS, "blaze_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block bluefireLamp = new BlockModLamp(EnumBlockType.GLASS, "bluefire_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block diamondLamp = new BlockModLamp(EnumBlockType.GLASS, "diamond_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block divineLamp = new BlockModLamp(EnumBlockType.GLASS, "divine_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block drakenLamp = new BlockModLamp(EnumBlockType.GLASS, "draken_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block edenLamp = new BlockModLamp(EnumBlockType.GLASS, "eden_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block enderLamp = new BlockModLamp(EnumBlockType.GLASS, "ender_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block enderStoneLamp = new BlockModLamp(EnumBlockType.GLASS, "ender_stone_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block goldLamp = new BlockModLamp(EnumBlockType.GLASS, "gold_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block iceLamp = new BlockModLamp(EnumBlockType.GLASS, "ice_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block jungleLamp = new BlockModLamp(EnumBlockType.GLASS, "jungle_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block krakenLamp = new BlockModLamp(EnumBlockType.GLASS, "kraken_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block lapisLazuliLamp = new BlockModLamp(EnumBlockType.GLASS, "lapis_lazuli_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block lavaLamp = new BlockModLamp(EnumBlockType.GLASS, "lava_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block milkyLamp = new BlockModLamp(EnumBlockType.GLASS, "milky_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block moltenLamp = new BlockModLamp(EnumBlockType.GLASS, "molten_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block netheriteLamp = new BlockModLamp(EnumBlockType.GLASS, "netherite_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block realmiteLamp = new BlockModLamp(EnumBlockType.GLASS, "realmite_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block redstoneOrekLamp = new BlockModLamp(EnumBlockType.GLASS, "redstone_ore_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block rupeeLamp = new BlockModLamp(EnumBlockType.GLASS, "rupee_lamp", 3.0F)
+            .setResistance(30.0F);
+    public static Block terranLamp = new BlockModLamp(EnumBlockType.GLASS, "terran_lamp", 3.0F)
+            .setResistance(30.0F);
 
     public static Block milkStone = new BlockMod(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD)
             .setResistance(10F);
@@ -269,7 +269,7 @@ public class ModBlocks {
     public static Block workshopCarpet = new BlockMod(EnumBlockType.WOOL, "workshop_carpet", 0.1F);
     public static Block frostedGlass = new BlockModGlass("frosted_glass", 1.0F);
     public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",1.5F);
-    public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
+    public static Block workshopLamp = new BlockModLamp(EnumBlockType.GLASS, "workshop_lamp", 0.3F);
     public static Block steelDoor = new BlockModDoor("steel_door", Material.IRON, 7.0f);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
     public static Block coalstoneFurnaceOn = new BlockCoalstoneFurnace("coalstone_furnace_on", true);
