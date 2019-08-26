@@ -10,7 +10,8 @@
 
 ### General
 - FIXMEs
-- Hitboxes
+- Arcana Mob hitboxes
+- All block hitboxes (including plant stages)
 - Final balancing
 
 ### Dimensions
