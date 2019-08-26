@@ -1,13 +1,7 @@
-package divinerpg.objects.blocks;
-
-import java.util.Random;
+package divinerpg.objects.blocks.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.items.itemblock.ItemBlockDoor;
-import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
+import divinerpg.objects.blocks.BlockModDoor;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,31 +15,37 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockModDoor extends BlockDoor implements IHasModel {
+import java.util.Random;
 
-    public BlockModDoor(String name, Material materialIn, float hardness) {
-        super(materialIn);
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setHardness(hardness);
-        if (hardness == -1F) {
-            setResistance(6000000F);
-        }
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+public class BlockArcanaDoor extends BlockModDoor {
+    private Item keyItem;
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlockDoor(this).setRegistryName(this.getRegistryName()));
+    public BlockArcanaDoor(String name, Material materialIn, float hardness, Item key) {
+        super(name, materialIn, hardness);
+        this.keyItem = key;
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
-            EnumFacing facing, float hitX, float hitY, float hitZ) {
+                                    EnumFacing facing, float hitX, float hitY, float hitZ) {
         BlockPos blockpos = state.getValue(HALF) == BlockDoor.EnumDoorHalf.LOWER ? pos : pos.down();
         IBlockState iblockstate = pos.equals(blockpos) ? state : worldIn.getBlockState(blockpos);
 
         if (iblockstate.getBlock() != this) {
             return false;
-        } else {
+        }
+        else {
+            if(!player.capabilities.isCreativeMode) {
+                if(iblockstate.getProperties().get(OPEN).equals(true)) {
+                    return false;
+                }
+                Item key = this.keyItem;
+                ItemStack itemstack = player.getHeldItem(hand);
+                if (itemstack == null || itemstack.getItem() != key) {
+                    return false;
+                }
+                itemstack.shrink(1);
+            }
             state = iblockstate.cycleProperty(OPEN);
             worldIn.setBlockState(blockpos, state, 10);
             worldIn.markBlockRangeForRenderUpdate(blockpos, pos);
@@ -56,13 +56,12 @@ public class BlockModDoor extends BlockDoor implements IHasModel {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return (state.getValue(HALF) == BlockDoor.EnumDoorHalf.LOWER) ? Item.getItemFromBlock(this) :
-                Items.AIR;
+        return Items.AIR;
     }
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
-            EntityPlayer player) {
+                                  EntityPlayer player) {
         return new ItemStack(this);
     }
 

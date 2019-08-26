@@ -279,7 +279,7 @@ public class ModBlocks {
     public static Block workshopBookcase = new BlockMod(EnumBlockType.ROCK, "workshop_bookcase",
             DivineRPGTabs.BlocksTab).setHardness(1.5F);
     public static Block workshopLamp = new BlockMod(EnumBlockType.GLASS, "workshop_lamp", 0.3F).setLightLevel(1);
-    public static Block steelDoor = new BlockModDoor("steel_door", Material.IRON, 7.0f, true);
+    public static Block steelDoor = new BlockModDoor("steel_door", Material.IRON, 7.0f);
     public static Block coalstoneFurnace = new BlockCoalstoneFurnace("coalstone_furnace", false);
     public static Block coalstoneFurnaceOn = new BlockCoalstoneFurnace("coalstone_furnace_on", true);
 
@@ -426,10 +426,10 @@ public class ModBlocks {
     public static Block ancientTile = new BlockMod("ancient_tile", false);
     public static Block starBridge = new BlockStarBridge("star_bridge", false);
     public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
-    public static Block soulSludgeDoor = new BlockModDoor("soul_sludge_door", Material.IRON, -1F, false);
-    public static Block ancientBrickDoor = new BlockModDoor("ancient_brick_door", Material.IRON, -1F, false);
-    public static Block soulStoneDoor = new BlockModDoor("soul_stone_door", Material.IRON, -1F, false);
-    public static Block degradedBrickDoor = new BlockModDoor("degraded_brick_door", Material.IRON, -1F, false);
+    public static Block soulSludgeDoor = new BlockArcanaDoor("soul_sludge_door", Material.IRON, -1F, ModItems.sludgeKey);
+    public static Block ancientBrickDoor = new BlockArcanaDoor("ancient_brick_door", Material.IRON, -1F, ModItems.ancientKey);
+    public static Block soulStoneDoor = new BlockArcanaDoor("soul_stone_door", Material.IRON, -1F, ModItems.soulKey);
+    public static Block degradedBrickDoor = new BlockArcanaDoor("degraded_brick_door", Material.IRON, -1F, ModItems.degradedKey);
 
     public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
     public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
