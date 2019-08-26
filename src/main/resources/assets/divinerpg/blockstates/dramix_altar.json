@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:dramix_altar"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:dramix_altar"
+      }
     }
-  }
+  ]
 }

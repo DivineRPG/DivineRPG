@@ -10,7 +10,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "B": {
-      "item": "minecraft:bedrock"
+      "item": "divinerpg:bedrock_chunk"
     },
     "O": {
       "item": "minecraft:diamond_ore"

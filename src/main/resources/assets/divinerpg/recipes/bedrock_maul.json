@@ -10,7 +10,7 @@
   "type": "forge:ore_shaped",
   "key": {
     "B": {
-      "item": "minecraft:bedrock"
+      "item": "divinerpg:bedrock_chunk"
     },
     "I": {
       "item": "#STICKWOOD"

@@ -1,7 +1,7 @@
 {
    "display":{
       "icon":{
-         "item":"minecraft:spawn_egg"
+         "item":"divinerpg:ehu_egg"
       },
       "title":{
          "translate":"advancement.tame_livestock_pet"
@@ -16,7 +16,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.ehu"
+               "type":"divinerpg:ehu"
             }
          }
       },
@@ -24,7 +24,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.husk"
+               "type":"divinerpg:husk"
             }
          }
       },
@@ -32,7 +32,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.stone_golem"
+               "type":"divinerpg:stone_golem"
             }
          }
       },
@@ -40,7 +40,7 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.smelter"
+               "type":"divinerpg:smelter"
             }
          }
       },
@@ -48,23 +48,23 @@
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.snapper"
+               "type":"divinerpg:snapper"
             }
          }
       },
-      "tame_grizzle_white":{
+      "tame_white_grizzle":{
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.grizzle_white"
+               "type":"divinerpg:white_grizzle"
             }
          }
       },
-      "tame_grizzle":{
+      "tame_brown_grizzle":{
          "trigger":"minecraft:tame_animal",
          "conditions":{
             "entity":{
-               "type":"divinerpg:divinerpg.grizzle"
+               "type":"divinerpg:brown_grizzle"
             }
          }
       }
@@ -76,8 +76,8 @@
          "tame_stone_golem",
          "tame_smelter",
          "tame_snapper",
-         "tame_grizzle_white",
-         "tame_grizzle"
+         "tame_white_grizzle",
+         "tame_brown_grizzle"
       ]
    ]
 }

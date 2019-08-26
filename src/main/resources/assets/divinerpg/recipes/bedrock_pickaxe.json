@@ -13,7 +13,7 @@
       "item": "#STICKWOOD"
     },
     "I": {
-      "item": "minecraft:bedrock"
+      "item": "divinerpg:bedrock_chunk"
     }
   }
 }

@@ -1,0 +1,15 @@
+{
+   "pools":[
+      {
+         "name":"divinerpg:living_statue",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:collector",
+               "weight":1
+            }
+         ]
+      }
+   ]
+}

@@ -1,22 +1,78 @@
-{   "parent": "block/block",
-    "textures": {
-        "particle": "divinerpg:blocks/arcana_portal_frame",
-        "bottom": "divinerpg:blocks/arcana_portal_frame",
-        "top": "divinerpg:blocks/arcana_portal_frame",
-        "side": "divinerpg:blocks/arcana_portal_frame",
-        "outer": "divinerpg:blocks/arcana_portal_frame_outer"
-    },
-    "elements": [
-        {   "from": [ 0, 0, 0 ],
-            "to": [ 16, 13, 16 ],
-            "faces": {
-                "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom" },
-                "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#top" },
-                "north": { "uv": [ 0, 3, 16, 16 ], "texture": "#outer" },
-                "south": { "uv": [ 0, 3, 16, 16 ], "texture": "#side" },
-                "west":  { "uv": [ 0, 3, 16, 16 ], "texture": "#side" },
-                "east":  { "uv": [ 0, 3, 16, 16 ], "texture": "#side" }
-            }
+{
+  "parent": "block/block",
+  "textures": {
+    "outer": "divinerpg:blocks/arcana_portal_frame_outer",
+    "particle": "divinerpg:blocks/arcana_portal_frame",
+    "portal": "divinerpg:blocks/arcana_portal_frame"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        13,
+        16
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            3,
+            16,
+            16
+          ],
+          "texture": "#portal"
+        },
+        "south": {
+          "uv": [
+            0,
+            3,
+            16,
+            16
+          ],
+          "texture": "#portal"
+        },
+        "north": {
+          "uv": [
+            0,
+            3,
+            16,
+            16
+          ],
+          "texture": "#outer"
+        },
+        "west": {
+          "uv": [
+            0,
+            3,
+            16,
+            16
+          ],
+          "texture": "#portal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#portal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#portal"
         }
-    ]
+      }
+    }
+  ]
 }

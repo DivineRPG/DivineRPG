@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_chunk",
+    "count": 3
+  },
+  "pattern": [
+    "OOO",
+    "OBO",
+    " OO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "divinerpg:rupee_block"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  }
+}

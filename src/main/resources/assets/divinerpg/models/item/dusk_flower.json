@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/dusk_flower_top"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/dusk_flower_top"
+  }
 }

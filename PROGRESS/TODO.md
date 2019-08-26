@@ -2,39 +2,34 @@
 
 ### Add to Block JSON Auto-Generate
 * Altar of Corruption
-* Arcana Portal Frame
 * Demon Furnace Rotations
-* Steel Door
 * Tar
 * Vines (Once we start on Twilight)
 
 ### Other Blocks and Items
 
-### Tar
-* Make more viscous
-* Able to catch on and sustain fire
-* Slow spread of fire
-
 ### General
-- Make Events https://github.com/DivineRPG/DivineRPG/tree/master/java/net/divinerpg/utils/events
+- FIXMEs
+- Hitboxes
 - Final balancing
 
 ### Dimensions
 
 ### Arcana
+
 #### Items
-- Divine Accumulator
-- List Items left to do
+- Arcanium Buckets
 
-#### Blocks
-- List Blocks left to do
-
-#### Entities
-- List Entities left to do
+#### Worldgen
+- Generate 64x64 Dimension Maze ()
+- Put Portal Room in the center of the Maze
+- Add a single Dramix Room attched to wall of Maze
+- Add a single Parasecta Room attached to wall of Maze
 
 ### Vethea
+- Seperate into add-on module for DivineRPG
+
 #### Items
-- Divine Accumulator
 - List Items left to do
 
 #### Blocks

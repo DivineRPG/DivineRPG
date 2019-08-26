@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/pet_spawn_egg"
+    "layer0": "divinerpg:items/zelus_pet_spawn_egg"
   }
 }
