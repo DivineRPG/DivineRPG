@@ -91,9 +91,4 @@ public class BlockDarkBridge extends BlockMod {
     public boolean isFullCube(IBlockState state) {
         return !isOn;
     }
-
-    //@Override
-    //protected ItemStack createStackedBlock(int meta) {
-    //return new ItemStack(VanillaBlocks.darkBridge);
-    //}
 }

@@ -22,9 +22,8 @@ public class BlockAcceleron extends BlockMod {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
 	public BlockAcceleron(String name) {
-		super(EnumBlockType.ROCK, name, DivineRPGTabs.utility);
+		super(EnumBlockType.ROCK, name, 3.0F, DivineRPGTabs.utility);
 		slipperiness = 1.2f;
-		this.setHardness(3.0F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
 	}

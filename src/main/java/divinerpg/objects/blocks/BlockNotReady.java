@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockNotReady extends BlockMod {
 
     public BlockNotReady(String name) {
-        super(Material.ROCK, name);
+        super(EnumBlockType.ROCK, name, 2.0F);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
     }
     @Override
