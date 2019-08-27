@@ -14,7 +14,7 @@ public class RenderFluids {
     //I dont think we need this anymore
     public static void registerCustomMeshesAndStates()
     {
-        /*ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(ModBlocks.tar), new ItemMeshDefinition()
+        ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(ModBlocks.tar), new ItemMeshDefinition()
         {
             @Override
             public ModelResourceLocation getModelLocation(ItemStack stack)
@@ -22,15 +22,6 @@ public class RenderFluids {
                 return new ModelResourceLocation("divinerpg:tar", "fluid");
             }
         });
-
-        ModelLoader.setCustomStateMapper(ModBlocks.tar, new StateMapperBase()
-        {
-            @Override
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-            {
-                return new ModelResourceLocation("divinerpg:tar", "fluid");
-            }
-        });*/
     }
 
 }
