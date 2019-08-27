@@ -2,6 +2,7 @@ package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
+import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,6 +21,10 @@ public class BlockAyeracoBeam extends BlockContainer {
         this.setLightOpacity(0);
         setResistance(6000000.0F);
         this.tex = tex;
+
+        // Need to register it!
+        setRegistryName(name);
+        ModBlocks.BLOCKS.add(this);
     }
 
     @Override

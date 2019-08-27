@@ -1,15 +1,13 @@
 package divinerpg.objects.blocks.tile.entity;
 
+import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
-
-public class TileEntityAyeracoBeam extends TileEntity {
+public class TileEntityAyeracoBeam extends ModUpdatableTileEntity {
     @SideOnly(Side.CLIENT)
     private long time;
     @SideOnly(Side.CLIENT)
@@ -65,11 +63,5 @@ public class TileEntityAyeracoBeam extends TileEntity {
             this.beam = 1.0F;
 
         return this.beam;
-    }
-
-    @Override
-    @Nullable
-    public NBTTagCompound getUpdateTag() {
-        return writeToNBT(new NBTTagCompound());
     }
 }

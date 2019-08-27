@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
+import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,6 +17,10 @@ public class BlockAyeracoSpawn extends BlockContainer {
         super(Material.FIRE);
         this.setLightOpacity(0);
         setResistance(6000000.0F);
+
+        // Need to register it!
+        setRegistryName("ayeraco_spawner");
+        ModBlocks.BLOCKS.add(this);
     }
 
     @Override
