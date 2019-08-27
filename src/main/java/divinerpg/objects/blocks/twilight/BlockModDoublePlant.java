@@ -1,4 +1,4 @@
-package divinerpg.objects.blocks;
+package divinerpg.objects.blocks.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;

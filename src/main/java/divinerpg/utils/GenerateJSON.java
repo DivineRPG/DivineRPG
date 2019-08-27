@@ -12,6 +12,7 @@ import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
 import divinerpg.objects.blocks.arcana.BlockModAltar;
+import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
