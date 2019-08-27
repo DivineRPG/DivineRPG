@@ -303,11 +303,11 @@ public class ModBlocks {
     public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", 5.0F);
     public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", 5.0F);
 
-    public static Block edenOre = new BlockModOre("eden_ore", 9, 2000F, DIAMOND, ModItems.edenFragments);
-    public static Block wildwoodOre = new BlockModOre("wildwood_ore", 9, 2000F, DIAMOND, ModItems.wildwoodFragments);
-    public static Block apalachiaOre = new BlockModOre("apalachia_ore", 9, 2000F, DIAMOND, ModItems.apalachiaFragments);
-    public static Block skythernOre = new BlockModOre("skythern_ore", 9, 2000F, DIAMOND, ModItems.skythernFragments);
-    public static Block mortumOre = new BlockModOre("mortum_ore", 9, 2000F, DIAMOND, ModItems.mortumFragments);
+    public static Block edenOre = new BlockTwilightOre("eden_ore", 9, 2000F, DIAMOND, ModItems.edenFragments);
+    public static Block wildwoodOre = new BlockTwilightOre("wildwood_ore", 9, 2000F, DIAMOND, ModItems.wildwoodFragments);
+    public static Block apalachiaOre = new BlockTwilightOre("apalachia_ore", 9, 2000F, DIAMOND, ModItems.apalachiaFragments);
+    public static Block skythernOre = new BlockTwilightOre("skythern_ore", 9, 2000F, DIAMOND, ModItems.skythernFragments);
+    public static Block mortumOre = new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, ModItems.mortumFragments);
 
     public static Block edenBlock = new BlockMod("eden_block", 9);
     public static Block wildwoodBlock = new BlockMod("wildwood_block", 9);

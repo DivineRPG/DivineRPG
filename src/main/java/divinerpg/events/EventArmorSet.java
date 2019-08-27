@@ -4,6 +4,7 @@ import divinerpg.Config;
 import divinerpg.Reference;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.objects.blocks.BlockModOre;
+import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.FullSetArmorHelper;
 import divinerpg.utils.Utils;
@@ -107,7 +108,7 @@ public class EventArmorSet {
 
     @SubscribeEvent
     public void onBlockDrops(HarvestDropsEvent event) {
-        if (event.getState().getBlock() != null && event.getState().getBlock() instanceof BlockModOre) {
+        if (event.getState().getBlock() != null && event.getState().getBlock() instanceof BlockTwilightOre) {
             if (event.getHarvester() != null && event.getHarvester() instanceof EntityPlayer) {
 
                 FullSetArmorHelper armorHelper = new FullSetArmorHelper(event.getHarvester());
