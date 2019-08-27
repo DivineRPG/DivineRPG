@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import java.util.List;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderKingofScorchersMeteor;
+import divinerpg.objects.entities.assets.render.projectiles.RenderKingofScorchersMeteor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

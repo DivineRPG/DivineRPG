@@ -1,20 +1,302 @@
 package divinerpg.registry;
 
+import static divinerpg.utils.SpawnEggColors.Dimension.APALACHIA;
+import static divinerpg.utils.SpawnEggColors.Dimension.ARCANA;
+import static divinerpg.utils.SpawnEggColors.Dimension.BOSS;
+import static divinerpg.utils.SpawnEggColors.Dimension.EDEN;
+import static divinerpg.utils.SpawnEggColors.Dimension.END;
+import static divinerpg.utils.SpawnEggColors.Dimension.ICEIKA;
+import static divinerpg.utils.SpawnEggColors.Dimension.MORTUM;
+import static divinerpg.utils.SpawnEggColors.Dimension.NETHER;
+import static divinerpg.utils.SpawnEggColors.Dimension.OVERWORLD;
+import static divinerpg.utils.SpawnEggColors.Dimension.SKYTHERN;
+import static divinerpg.utils.SpawnEggColors.Dimension.WILDWOOD;
+
 import divinerpg.Config;
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
-import divinerpg.objects.entities.assets.render.arcana.*;
-import divinerpg.objects.entities.assets.render.iceika.*;
-import divinerpg.objects.entities.assets.render.twilight.*;
-import divinerpg.objects.entities.assets.render.vanilla.*;
-import divinerpg.objects.entities.entity.EntityEMP;
+import divinerpg.objects.entities.assets.render.arcana.RenderCaptainMerik;
+import divinerpg.objects.entities.assets.render.arcana.RenderDatticon;
+import divinerpg.objects.entities.assets.render.arcana.RenderDeathHound;
+import divinerpg.objects.entities.assets.render.arcana.RenderDeathcryx;
+import divinerpg.objects.entities.assets.render.arcana.RenderDramix;
+import divinerpg.objects.entities.assets.render.arcana.RenderDungeonConstructor;
+import divinerpg.objects.entities.assets.render.arcana.RenderDungeonDemon;
+import divinerpg.objects.entities.assets.render.arcana.RenderDungeonPrisoner;
+import divinerpg.objects.entities.assets.render.arcana.RenderFyracryx;
+import divinerpg.objects.entities.assets.render.arcana.RenderGolemOfRejuvenation;
+import divinerpg.objects.entities.assets.render.arcana.RenderLeorna;
+import divinerpg.objects.entities.assets.render.arcana.RenderLivingStatue;
+import divinerpg.objects.entities.assets.render.arcana.RenderLordVatticus;
+import divinerpg.objects.entities.assets.render.arcana.RenderParasecta;
+import divinerpg.objects.entities.assets.render.arcana.RenderParatiku;
+import divinerpg.objects.entities.assets.render.arcana.RenderRazorback;
+import divinerpg.objects.entities.assets.render.arcana.RenderRoamer;
+import divinerpg.objects.entities.assets.render.arcana.RenderSeimer;
+import divinerpg.objects.entities.assets.render.arcana.RenderWarGeneral;
+import divinerpg.objects.entities.assets.render.arcana.RenderWraith;
+import divinerpg.objects.entities.assets.render.arcana.RenderZelus;
+import divinerpg.objects.entities.assets.render.iceika.RenderAlicanto;
+import divinerpg.objects.entities.assets.render.iceika.RenderFractite;
+import divinerpg.objects.entities.assets.render.iceika.RenderFrostArcher;
+import divinerpg.objects.entities.assets.render.iceika.RenderFrosty;
+import divinerpg.objects.entities.assets.render.iceika.RenderGlacide;
+import divinerpg.objects.entities.assets.render.iceika.RenderHastreus;
+import divinerpg.objects.entities.assets.render.iceika.RenderRollum;
+import divinerpg.objects.entities.assets.render.iceika.RenderWorkshopMerchant;
+import divinerpg.objects.entities.assets.render.iceika.RenderWorkshopTinkerer;
+import divinerpg.objects.entities.assets.render.twilight.RenderAdvancedCori;
+import divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
+import divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
+import divinerpg.objects.entities.assets.render.twilight.RenderApalachiaGolem;
+import divinerpg.objects.entities.assets.render.twilight.RenderApalachiaTomo;
+import divinerpg.objects.entities.assets.render.twilight.RenderBasilisk;
+import divinerpg.objects.entities.assets.render.twilight.RenderBehemoth;
+import divinerpg.objects.entities.assets.render.twilight.RenderBunny;
+import divinerpg.objects.entities.assets.render.twilight.RenderDemonOfDarkness;
+import divinerpg.objects.entities.assets.render.twilight.RenderDensos;
+import divinerpg.objects.entities.assets.render.twilight.RenderEdenCadillion;
+import divinerpg.objects.entities.assets.render.twilight.RenderEdenTomo;
+import divinerpg.objects.entities.assets.render.twilight.RenderEnchantedArcher;
+import divinerpg.objects.entities.assets.render.twilight.RenderEnchantedWarrior;
+import divinerpg.objects.entities.assets.render.twilight.RenderEpiphite;
+import divinerpg.objects.entities.assets.render.twilight.RenderEternalArcher;
+import divinerpg.objects.entities.assets.render.twilight.RenderGreenfeet;
+import divinerpg.objects.entities.assets.render.twilight.RenderKarot;
+import divinerpg.objects.entities.assets.render.twilight.RenderMadivel;
+import divinerpg.objects.entities.assets.render.twilight.RenderMage;
+import divinerpg.objects.entities.assets.render.twilight.RenderMegalith;
+import divinerpg.objects.entities.assets.render.twilight.RenderMoonWolf;
+import divinerpg.objects.entities.assets.render.twilight.RenderMortumCadillion;
+import divinerpg.objects.entities.assets.render.twilight.RenderMystic;
+import divinerpg.objects.entities.assets.render.twilight.RenderReyvor;
+import divinerpg.objects.entities.assets.render.twilight.RenderSamek;
+import divinerpg.objects.entities.assets.render.twilight.RenderSkythernArcher;
+import divinerpg.objects.entities.assets.render.twilight.RenderSkythernFiend;
+import divinerpg.objects.entities.assets.render.twilight.RenderSkythernGolem;
+import divinerpg.objects.entities.assets.render.twilight.RenderSorcerer;
+import divinerpg.objects.entities.assets.render.twilight.RenderSoulFiend;
+import divinerpg.objects.entities.assets.render.twilight.RenderSoulSpider;
+import divinerpg.objects.entities.assets.render.twilight.RenderSoulStealer;
+import divinerpg.objects.entities.assets.render.twilight.RenderSpellbinder;
+import divinerpg.objects.entities.assets.render.twilight.RenderSunArcher;
+import divinerpg.objects.entities.assets.render.twilight.RenderTwilightArcher;
+import divinerpg.objects.entities.assets.render.twilight.RenderTwilightDemon;
+import divinerpg.objects.entities.assets.render.twilight.RenderVamacheron;
+import divinerpg.objects.entities.assets.render.twilight.RenderVerek;
+import divinerpg.objects.entities.assets.render.twilight.RenderWeakCori;
+import divinerpg.objects.entities.assets.render.twilight.RenderWildwoodCadillion;
+import divinerpg.objects.entities.assets.render.twilight.RenderWildwoodGolem;
+import divinerpg.objects.entities.assets.render.twilight.RenderWildwoodTomo;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAncientEntity;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAridWarrior;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAyeracoBlue;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAyeracoGreen;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAyeracoPurple;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAyeracoYellow;
+import divinerpg.objects.entities.assets.render.vanilla.RenderAyerecoRed;
+import divinerpg.objects.entities.assets.render.vanilla.RenderBrownGrizzle;
+import divinerpg.objects.entities.assets.render.vanilla.RenderCaveCrawler;
+import divinerpg.objects.entities.assets.render.vanilla.RenderCaveclops;
+import divinerpg.objects.entities.assets.render.vanilla.RenderCrab;
+import divinerpg.objects.entities.assets.render.vanilla.RenderCyclops;
+import divinerpg.objects.entities.assets.render.vanilla.RenderDesertCrawler;
+import divinerpg.objects.entities.assets.render.vanilla.RenderEhu;
+import divinerpg.objects.entities.assets.render.vanilla.RenderEnderSpider;
+import divinerpg.objects.entities.assets.render.vanilla.RenderEnderTriplets;
+import divinerpg.objects.entities.assets.render.vanilla.RenderEnderWatcher;
+import divinerpg.objects.entities.assets.render.vanilla.RenderEnthralledDramcryx;
+import divinerpg.objects.entities.assets.render.vanilla.RenderFrost;
+import divinerpg.objects.entities.assets.render.vanilla.RenderGlacon;
+import divinerpg.objects.entities.assets.render.vanilla.RenderHellPig;
+import divinerpg.objects.entities.assets.render.vanilla.RenderHellSpider;
+import divinerpg.objects.entities.assets.render.vanilla.RenderHusk;
+import divinerpg.objects.entities.assets.render.vanilla.RenderJackOMan;
+import divinerpg.objects.entities.assets.render.vanilla.RenderJungleBat;
+import divinerpg.objects.entities.assets.render.vanilla.RenderJungleDramcryx;
+import divinerpg.objects.entities.assets.render.vanilla.RenderJungleSpider;
+import divinerpg.objects.entities.assets.render.vanilla.RenderKingCrab;
+import divinerpg.objects.entities.assets.render.vanilla.RenderKingOfScorchers;
+import divinerpg.objects.entities.assets.render.vanilla.RenderKobblin;
+import divinerpg.objects.entities.assets.render.vanilla.RenderLiopleurodon;
+import divinerpg.objects.entities.assets.render.vanilla.RenderLivestockMerchant;
+import divinerpg.objects.entities.assets.render.vanilla.RenderMiner;
+import divinerpg.objects.entities.assets.render.vanilla.RenderPumpkinSpider;
+import divinerpg.objects.entities.assets.render.vanilla.RenderRainbour;
+import divinerpg.objects.entities.assets.render.vanilla.RenderRotatick;
+import divinerpg.objects.entities.assets.render.vanilla.RenderSaguaroWorm;
+import divinerpg.objects.entities.assets.render.vanilla.RenderScorcher;
+import divinerpg.objects.entities.assets.render.vanilla.RenderShark;
+import divinerpg.objects.entities.assets.render.vanilla.RenderSmelter;
+import divinerpg.objects.entities.assets.render.vanilla.RenderSnapper;
+import divinerpg.objects.entities.assets.render.vanilla.RenderStoneGolem;
+import divinerpg.objects.entities.assets.render.vanilla.RenderTheEye;
+import divinerpg.objects.entities.assets.render.vanilla.RenderTheGrue;
+import divinerpg.objects.entities.assets.render.vanilla.RenderTheWatcher;
+import divinerpg.objects.entities.assets.render.vanilla.RenderWhale;
+import divinerpg.objects.entities.assets.render.vanilla.RenderWhiteGrizzle;
+import divinerpg.objects.entities.assets.render.vanilla.RenderWildfire;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
-import divinerpg.objects.entities.entity.arcana.*;
-import divinerpg.objects.entities.entity.iceika.*;
-import divinerpg.objects.entities.entity.projectiles.*;
-import divinerpg.objects.entities.entity.twilight.*;
-import divinerpg.objects.entities.entity.vanilla.*;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
+import divinerpg.objects.entities.entity.arcana.CaptainMerik;
+import divinerpg.objects.entities.entity.arcana.Datticon;
+import divinerpg.objects.entities.entity.arcana.DeathHound;
+import divinerpg.objects.entities.entity.arcana.Deathcryx;
+import divinerpg.objects.entities.entity.arcana.Dramix;
+import divinerpg.objects.entities.entity.arcana.DungeonConstructor;
+import divinerpg.objects.entities.entity.arcana.DungeonDemon;
+import divinerpg.objects.entities.entity.arcana.DungeonPrisoner;
+import divinerpg.objects.entities.entity.arcana.Fyracryx;
+import divinerpg.objects.entities.entity.arcana.GolemOfRejuvenation;
+import divinerpg.objects.entities.entity.arcana.Leorna;
+import divinerpg.objects.entities.entity.arcana.LivingStatue;
+import divinerpg.objects.entities.entity.arcana.LordVatticus;
+import divinerpg.objects.entities.entity.arcana.Parasecta;
+import divinerpg.objects.entities.entity.arcana.Paratiku;
+import divinerpg.objects.entities.entity.arcana.Razorback;
+import divinerpg.objects.entities.entity.arcana.Roamer;
+import divinerpg.objects.entities.entity.arcana.Seimer;
+import divinerpg.objects.entities.entity.arcana.WarGeneral;
+import divinerpg.objects.entities.entity.arcana.Wraith;
+import divinerpg.objects.entities.entity.arcana.Zelus;
+import divinerpg.objects.entities.entity.iceika.Alicanto;
+import divinerpg.objects.entities.entity.iceika.Fractite;
+import divinerpg.objects.entities.entity.iceika.FrostArcher;
+import divinerpg.objects.entities.entity.iceika.Frosty;
+import divinerpg.objects.entities.entity.iceika.Glacide;
+import divinerpg.objects.entities.entity.iceika.Hastreus;
+import divinerpg.objects.entities.entity.iceika.Rollum;
+import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
+import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
+import divinerpg.objects.entities.entity.projectiles.EntityAttractor;
+import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
+import divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
+import divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
+import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
+import divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
+import divinerpg.objects.entities.entity.projectiles.EntityDisk;
+import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
+import divinerpg.objects.entities.entity.projectiles.EntityEvernightProjectile;
+import divinerpg.objects.entities.entity.projectiles.EntityFirefly;
+import divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
+import divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
+import divinerpg.objects.entities.entity.projectiles.EntityFyracryxFireball;
+import divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
+import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
+import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
+import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import divinerpg.objects.entities.entity.projectiles.EntityLamona;
+import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
+import divinerpg.objects.entities.entity.projectiles.EntityMeteor;
+import divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
+import divinerpg.objects.entities.entity.projectiles.EntityReflector;
+import divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
+import divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
+import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfDeath;
+import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfIce;
+import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
+import divinerpg.objects.entities.entity.projectiles.EntityShuriken;
+import divinerpg.objects.entities.entity.projectiles.EntitySnowflakeShuriken;
+import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
+import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
+import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
+import divinerpg.objects.entities.entity.projectiles.EntitySparkler;
+import divinerpg.objects.entities.entity.projectiles.EntityStar;
+import divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
+import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
+import divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
+import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
+import divinerpg.objects.entities.entity.twilight.AdvancedCori;
+import divinerpg.objects.entities.entity.twilight.AngryBunny;
+import divinerpg.objects.entities.entity.twilight.ApalachiaCadillion;
+import divinerpg.objects.entities.entity.twilight.ApalachiaGolem;
+import divinerpg.objects.entities.entity.twilight.ApalachiaTomo;
+import divinerpg.objects.entities.entity.twilight.Basilisk;
+import divinerpg.objects.entities.entity.twilight.Behemoth;
+import divinerpg.objects.entities.entity.twilight.Bunny;
+import divinerpg.objects.entities.entity.twilight.DemonOfDarkness;
+import divinerpg.objects.entities.entity.twilight.Densos;
+import divinerpg.objects.entities.entity.twilight.EdenCadillion;
+import divinerpg.objects.entities.entity.twilight.EdenTomo;
+import divinerpg.objects.entities.entity.twilight.EnchantedArcher;
+import divinerpg.objects.entities.entity.twilight.EnchantedWarrior;
+import divinerpg.objects.entities.entity.twilight.Epiphite;
+import divinerpg.objects.entities.entity.twilight.EternalArcher;
+import divinerpg.objects.entities.entity.twilight.Greenfeet;
+import divinerpg.objects.entities.entity.twilight.Karot;
+import divinerpg.objects.entities.entity.twilight.Madivel;
+import divinerpg.objects.entities.entity.twilight.Mage;
+import divinerpg.objects.entities.entity.twilight.Megalith;
+import divinerpg.objects.entities.entity.twilight.MoonWolf;
+import divinerpg.objects.entities.entity.twilight.MortumCadillion;
+import divinerpg.objects.entities.entity.twilight.Mystic;
+import divinerpg.objects.entities.entity.twilight.Reyvor;
+import divinerpg.objects.entities.entity.twilight.Samek;
+import divinerpg.objects.entities.entity.twilight.SkythernArcher;
+import divinerpg.objects.entities.entity.twilight.SkythernFiend;
+import divinerpg.objects.entities.entity.twilight.SkythernGolem;
+import divinerpg.objects.entities.entity.twilight.Sorcerer;
+import divinerpg.objects.entities.entity.twilight.SoulFiend;
+import divinerpg.objects.entities.entity.twilight.SoulSpider;
+import divinerpg.objects.entities.entity.twilight.SoulStealer;
+import divinerpg.objects.entities.entity.twilight.Spellbinder;
+import divinerpg.objects.entities.entity.twilight.SunArcher;
+import divinerpg.objects.entities.entity.twilight.TwilightArcher;
+import divinerpg.objects.entities.entity.twilight.TwilightDemon;
+import divinerpg.objects.entities.entity.twilight.Vamacheron;
+import divinerpg.objects.entities.entity.twilight.Verek;
+import divinerpg.objects.entities.entity.twilight.WeakCori;
+import divinerpg.objects.entities.entity.twilight.WildwoodCadillion;
+import divinerpg.objects.entities.entity.twilight.WildwoodGolem;
+import divinerpg.objects.entities.entity.twilight.WildwoodTomo;
+import divinerpg.objects.entities.entity.vanilla.AncientEntity;
+import divinerpg.objects.entities.entity.vanilla.AridWarrior;
+import divinerpg.objects.entities.entity.vanilla.BrownGrizzle;
+import divinerpg.objects.entities.entity.vanilla.CaveCrawler;
+import divinerpg.objects.entities.entity.vanilla.Caveclops;
+import divinerpg.objects.entities.entity.vanilla.Crab;
+import divinerpg.objects.entities.entity.vanilla.Cyclops;
+import divinerpg.objects.entities.entity.vanilla.DesertCrawler;
+import divinerpg.objects.entities.entity.vanilla.Ehu;
+import divinerpg.objects.entities.entity.vanilla.EnderSpider;
+import divinerpg.objects.entities.entity.vanilla.EnderTriplets;
+import divinerpg.objects.entities.entity.vanilla.EnderWatcher;
+import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
+import divinerpg.objects.entities.entity.vanilla.Frost;
+import divinerpg.objects.entities.entity.vanilla.Glacon;
+import divinerpg.objects.entities.entity.vanilla.HellPig;
+import divinerpg.objects.entities.entity.vanilla.HellSpider;
+import divinerpg.objects.entities.entity.vanilla.Husk;
+import divinerpg.objects.entities.entity.vanilla.JackOMan;
+import divinerpg.objects.entities.entity.vanilla.JungleBat;
+import divinerpg.objects.entities.entity.vanilla.JungleDramcryx;
+import divinerpg.objects.entities.entity.vanilla.JungleSpider;
+import divinerpg.objects.entities.entity.vanilla.KingCrab;
+import divinerpg.objects.entities.entity.vanilla.KingOfScorchers;
+import divinerpg.objects.entities.entity.vanilla.Kobblin;
+import divinerpg.objects.entities.entity.vanilla.Liopleurodon;
+import divinerpg.objects.entities.entity.vanilla.LivestockMerchant;
+import divinerpg.objects.entities.entity.vanilla.Miner;
+import divinerpg.objects.entities.entity.vanilla.PumpkinSpider;
+import divinerpg.objects.entities.entity.vanilla.Rainbour;
+import divinerpg.objects.entities.entity.vanilla.Rotatick;
+import divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
+import divinerpg.objects.entities.entity.vanilla.Scorcher;
+import divinerpg.objects.entities.entity.vanilla.Shark;
+import divinerpg.objects.entities.entity.vanilla.Smelter;
+import divinerpg.objects.entities.entity.vanilla.Snapper;
+import divinerpg.objects.entities.entity.vanilla.StoneGolem;
+import divinerpg.objects.entities.entity.vanilla.TheEye;
+import divinerpg.objects.entities.entity.vanilla.TheGrue;
+import divinerpg.objects.entities.entity.vanilla.TheWatcher;
+import divinerpg.objects.entities.entity.vanilla.Whale;
+import divinerpg.objects.entities.entity.vanilla.WhiteGrizzle;
+import divinerpg.objects.entities.entity.vanilla.Wildfire;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoBlue;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoGreen;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoPurple;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoRed;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoYellow;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
@@ -33,8 +315,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import static divinerpg.utils.SpawnEggColors.Dimension.*;
-
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ModEntities {
 
@@ -52,22 +332,15 @@ public class ModEntities {
     public static EntityEntry buildEntityEntry(Class entityClass, String entityID, SpawnEggColors.Dimension dimension) {
         SpawnEggColors colors = SpawnEggColors.getColorsForDimension(dimension);
 
-        return EntityEntryBuilder.create()
-                .entity(entityClass)
-                .id(new ResourceLocation(Reference.MODID, entityID), mobID++)
-                .name(entityID)
-                .tracker(128, 3, true)
-                .egg(colors.getPrimaryColor(), colors.getSecondaryColor())
-                .build();
+        return EntityEntryBuilder.create().entity(entityClass)
+                .id(new ResourceLocation(Reference.MODID, entityID), mobID++).name(entityID).tracker(128, 3, true)
+                .egg(colors.getPrimaryColor(), colors.getSecondaryColor()).build();
     }
 
     public static EntityEntry buildProjectileEntry(Class entityClass, String entityID) {
-        return EntityEntryBuilder.create()
-                .entity(entityClass)
-                .id(new ResourceLocation(Reference.MODID, entityID), projectileID++)
-                .name(entityID)
-                .tracker(250, 5, true)
-                .build();
+        return EntityEntryBuilder.create().entity(entityClass)
+                .id(new ResourceLocation(Reference.MODID, entityID), projectileID++).name(entityID)
+                .tracker(250, 5, true).build();
     }
 
     public static EntityEntry[] initMobs() {
@@ -76,13 +349,11 @@ public class ModEntities {
                 buildEntityEntry(AridWarrior.class, "arid_warrior", OVERWORLD),
                 buildEntityEntry(CaveCrawler.class, "cave_crawler", OVERWORLD),
                 buildEntityEntry(Caveclops.class, "caveclops", OVERWORLD),
-                buildEntityEntry(Crab.class, "crab", OVERWORLD),
-                buildEntityEntry(Cyclops.class, "cyclops", OVERWORLD),
+                buildEntityEntry(Crab.class, "crab", OVERWORLD), buildEntityEntry(Cyclops.class, "cyclops", OVERWORLD),
                 buildEntityEntry(DesertCrawler.class, "desert_crawler", OVERWORLD),
                 buildEntityEntry(Ehu.class, "ehu", OVERWORLD),
                 buildEntityEntry(EnthralledDramcryx.class, "enthralled_dramcryx", OVERWORLD),
-                buildEntityEntry(Frost.class, "frost", OVERWORLD),
-                buildEntityEntry(Glacon.class, "glacon", OVERWORLD),
+                buildEntityEntry(Frost.class, "frost", OVERWORLD), buildEntityEntry(Glacon.class, "glacon", OVERWORLD),
                 buildEntityEntry(BrownGrizzle.class, "brown_grizzle", OVERWORLD),
                 buildEntityEntry(WhiteGrizzle.class, "white_grizzle", OVERWORLD),
                 buildEntityEntry(Husk.class, "husk", OVERWORLD),
@@ -122,10 +393,8 @@ public class ModEntities {
                 buildEntityEntry(Alicanto.class, "alicanto", ICEIKA),
                 buildEntityEntry(Fractite.class, "fractite", ICEIKA),
                 buildEntityEntry(FrostArcher.class, "frost_archer", ICEIKA),
-                buildEntityEntry(Frosty.class, "frosty", ICEIKA),
-                buildEntityEntry(Glacide.class, "glacide", ICEIKA),
-                buildEntityEntry(Hastreus.class, "hastreus", ICEIKA),
-                buildEntityEntry(Rollum.class, "rollum", ICEIKA),
+                buildEntityEntry(Frosty.class, "frosty", ICEIKA), buildEntityEntry(Glacide.class, "glacide", ICEIKA),
+                buildEntityEntry(Hastreus.class, "hastreus", ICEIKA), buildEntityEntry(Rollum.class, "rollum", ICEIKA),
                 buildEntityEntry(WorkshopMerchant.class, "workshop_merchant", ICEIKA),
                 buildEntityEntry(WorkshopTinkerer.class, "workshop_tinkerer", ICEIKA),
 
@@ -133,15 +402,13 @@ public class ModEntities {
                 buildEntityEntry(Bunny.class, "bunny", EDEN),
                 buildEntityEntry(EdenCadillion.class, "eden_cadillion", EDEN),
                 buildEntityEntry(EdenTomo.class, "eden_tomo", EDEN),
-                buildEntityEntry(Greenfeet.class, "greenfeet", EDEN),
-                buildEntityEntry(Madivel.class, "madivel", EDEN),
+                buildEntityEntry(Greenfeet.class, "greenfeet", EDEN), buildEntityEntry(Madivel.class, "madivel", EDEN),
                 buildEntityEntry(SunArcher.class, "sun_archer", EDEN),
                 buildEntityEntry(WeakCori.class, "weak_cori", EDEN),
 
                 // Wildwood
                 buildEntityEntry(Behemoth.class, "behemoth", WILDWOOD),
-                buildEntityEntry(Epiphite.class, "epiphite", WILDWOOD),
-                buildEntityEntry(Mage.class, "mage", WILDWOOD),
+                buildEntityEntry(Epiphite.class, "epiphite", WILDWOOD), buildEntityEntry(Mage.class, "mage", WILDWOOD),
                 buildEntityEntry(MoonWolf.class, "moon_wolf", WILDWOOD),
                 buildEntityEntry(Verek.class, "verek", WILDWOOD),
                 buildEntityEntry(WildwoodCadillion.class, "wildwood_cadillion", WILDWOOD),
@@ -159,8 +426,7 @@ public class ModEntities {
                 // Skythern
                 buildEntityEntry(AdvancedCori.class, "advanced_cori", SKYTHERN),
                 buildEntityEntry(Megalith.class, "megalith", SKYTHERN),
-                buildEntityEntry(Mystic.class, "mystic", SKYTHERN),
-                buildEntityEntry(Samek.class, "samek", SKYTHERN),
+                buildEntityEntry(Mystic.class, "mystic", SKYTHERN), buildEntityEntry(Samek.class, "samek", SKYTHERN),
                 buildEntityEntry(SkythernArcher.class, "skythern_archer", SKYTHERN),
                 buildEntityEntry(SkythernFiend.class, "skythern_fiend", SKYTHERN),
                 buildEntityEntry(SkythernGolem.class, "skythern_golem", SKYTHERN),
@@ -183,20 +449,15 @@ public class ModEntities {
                 buildEntityEntry(DungeonConstructor.class, "dungeon_constructor", ARCANA),
                 buildEntityEntry(DungeonDemon.class, "dungeon_demon", ARCANA),
                 buildEntityEntry(DungeonPrisoner.class, "dungeon_prisoner", ARCANA),
-                buildEntityEntry(Fyracryx.class, "fyracryx", ARCANA),
-                buildEntityEntry(Leorna.class, "leorna", ARCANA),
+                buildEntityEntry(Fyracryx.class, "fyracryx", ARCANA), buildEntityEntry(Leorna.class, "leorna", ARCANA),
                 buildEntityEntry(LivingStatue.class, "living_statue", ARCANA),
                 buildEntityEntry(Paratiku.class, "paratiku", ARCANA),
                 buildEntityEntry(Razorback.class, "razorback", ARCANA),
                 buildEntityEntry(GolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
-                buildEntityEntry(Roamer.class, "roamer", ARCANA),
-                buildEntityEntry(Seimer.class, "seimer", ARCANA),
+                buildEntityEntry(Roamer.class, "roamer", ARCANA), buildEntityEntry(Seimer.class, "seimer", ARCANA),
                 buildEntityEntry(LordVatticus.class, "lord_vatticus", ARCANA),
                 buildEntityEntry(WarGeneral.class, "war_general", ARCANA),
-                buildEntityEntry(Wraith.class, "wraith", ARCANA),
-                buildEntityEntry(Zelus.class, "zelus", ARCANA),
-
-
+                buildEntityEntry(Wraith.class, "wraith", ARCANA), buildEntityEntry(Zelus.class, "zelus", ARCANA),
 
                 // Boss
                 buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
@@ -205,18 +466,15 @@ public class ModEntities {
                 buildEntityEntry(AyeracoPurple.class, "ayeraco_purple", BOSS),
                 buildEntityEntry(AyeracoRed.class, "ayeraco_red", BOSS),
                 buildEntityEntry(AyeracoYellow.class, "ayeraco_yellow", BOSS),
-                buildEntityEntry(Densos.class, "densos", BOSS),
-                buildEntityEntry(Dramix.class, "dramix", BOSS),
+                buildEntityEntry(Densos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
                 buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
                 buildEntityEntry(Karot.class, "karot", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
-                buildEntityEntry(Reyvor.class, "reyvor", BOSS),
-                buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
+                buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
                 buildEntityEntry(Parasecta.class, "parasecta", BOSS)
-
 
         };
 
@@ -225,9 +483,7 @@ public class ModEntities {
 
     public static EntityEntry[] initProjectiles() {
         // Projectiles
-        EntityEntry[] divineProjectiles = {
-                buildProjectileEntry(EntityEMP.class, "acid_arrow"),
-                buildProjectileEntry(EntityCaveRock.class, "cave_rock"),
+        EntityEntry[] divineProjectiles = { buildProjectileEntry(EntityCaveRock.class, "cave_rock"),
                 buildProjectileEntry(EntitySerenadeOfDeath.class, "serenade_of_death"),
                 buildProjectileEntry(EntitySerenadeOfIce.class, "serenade_of_ice"),
                 buildProjectileEntry(EntityEnderTripletsFireball.class, "ender_triplets_fireball"),
@@ -253,12 +509,10 @@ public class ModEntities {
                 buildProjectileEntry(EntityCoriShot.class, "cori_shot"),
                 buildProjectileEntry(EntityTwilightMageShot.class, "twilight_mage_shot"),
                 buildProjectileEntry(EntitySoulFiendShot.class, "soul_fiend_shot"),
-                buildProjectileEntry(EntityDisk.class, "disk"),
-                buildProjectileEntry(EntityGrenade.class, "grenade"),
+                buildProjectileEntry(EntityDisk.class, "disk"), buildProjectileEntry(EntityGrenade.class, "grenade"),
                 buildProjectileEntry(EntityAttractor.class, "attractor"),
                 buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
-                buildProjectileEntry(EntityMeteor.class, "meteor"),
-                buildProjectileEntry(EntityStar.class, "star"),
+                buildProjectileEntry(EntityMeteor.class, "meteor"), buildProjectileEntry(EntityStar.class, "star"),
                 buildProjectileEntry(EntityBouncingProjectile.class, "bouncing"),
                 buildProjectileEntry(EntityEvernightProjectile.class, "evernight"),
                 buildProjectileEntry(EntityLamona.class, "lamona"),
@@ -266,8 +520,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityReflector.class, "reflector"),
                 buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),
                 buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
-                buildProjectileEntry(EntityMerikMissile.class, "meriks_missile")
-        };
+                buildProjectileEntry(EntityMerikMissile.class, "meriks_missile") };
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
@@ -371,7 +624,6 @@ public class ModEntities {
         EntityKingOfScorchersShot.renderMe();
         EntitySaguaroWormShot.renderMe();
         EntityScorcherShot.renderMe();
-        EntityEMP.renderMe();
         EntityVileStorm.renderMe();
         EntityWatcherShot.renderMe();
         EntitySnowflakeShuriken.renderMe();
@@ -527,7 +779,6 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(HellPig.class, RenderHellPig.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
 
-        
     }
 
     @SuppressWarnings("deprecation")

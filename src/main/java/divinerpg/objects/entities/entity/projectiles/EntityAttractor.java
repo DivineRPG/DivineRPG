@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderAttractor;
+import divinerpg.objects.entities.assets.render.projectiles.RenderAttractor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.math.RayTraceResult;

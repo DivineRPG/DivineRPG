@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import java.awt.Color;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderStar;
+import divinerpg.objects.entities.assets.render.projectiles.RenderStar;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;

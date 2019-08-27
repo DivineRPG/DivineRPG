@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderMerikMissile;
+import divinerpg.objects.entities.assets.render.projectiles.RenderMerikMissile;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;

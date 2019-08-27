@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.projectiles;
 import java.util.ArrayList;
 import java.util.List;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderCorruptedBullet;
+import divinerpg.objects.entities.assets.render.projectiles.RenderCorruptedBullet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;

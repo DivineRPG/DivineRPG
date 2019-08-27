@@ -3,7 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.items.itemblock.ItemBlockDoor;
+import divinerpg.objects.items.base.ItemBlockDoor;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;

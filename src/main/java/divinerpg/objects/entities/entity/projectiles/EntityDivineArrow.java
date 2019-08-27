@@ -11,7 +11,7 @@ import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
-import divinerpg.objects.entities.assets.render.projectile.RenderDivineArrow;
+import divinerpg.objects.entities.assets.render.projectiles.RenderDivineArrow;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

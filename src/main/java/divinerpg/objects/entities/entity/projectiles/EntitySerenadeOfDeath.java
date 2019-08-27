@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderSerenadeOfDeath;
+import divinerpg.objects.entities.assets.render.projectiles.RenderSerenadeOfDeath;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.MobEffects;
