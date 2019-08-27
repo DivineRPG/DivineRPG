@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderVileStorm;
+import divinerpg.objects.entities.assets.render.projectiles.RenderVileStorm;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;

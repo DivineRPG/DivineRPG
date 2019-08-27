@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.assets.render.projectile.RenderSparkler;
+import divinerpg.objects.entities.assets.render.projectiles.RenderSparkler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;

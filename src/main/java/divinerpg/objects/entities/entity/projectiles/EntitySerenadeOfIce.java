@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import java.util.List;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderSerenadeOfIce;
+import divinerpg.objects.entities.assets.render.projectiles.RenderSerenadeOfIce;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;

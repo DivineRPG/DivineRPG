@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.projectiles;
 import static divinerpg.enums.ParticleType.FROST;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.assets.render.projectile.RenderFractiteShot;
+import divinerpg.objects.entities.assets.render.projectiles.RenderFractiteShot;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;

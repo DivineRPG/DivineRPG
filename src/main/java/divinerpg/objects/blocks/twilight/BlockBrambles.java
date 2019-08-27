@@ -2,7 +2,6 @@ package divinerpg.objects.blocks.twilight;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.blocks.BlockModDoublePlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;

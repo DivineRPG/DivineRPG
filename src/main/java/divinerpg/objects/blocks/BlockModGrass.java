@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.enums.EnumBlockType;
+import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderSnowShuriken;
+import divinerpg.objects.entities.assets.render.projectiles.RenderSnowShuriken;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;

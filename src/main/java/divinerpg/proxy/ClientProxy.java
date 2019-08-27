@@ -76,7 +76,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.model.ModelLoader;
@@ -126,7 +125,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-        //ModelLoader.setCustomStateMapper(ModBlocks.tar, new StateMap.Builder().ignore(BlockFluidBase.LEVEL).build());
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
@@ -175,12 +173,6 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEdenChest.class, new RenderEdenChest());
-    }
-
-    @Override
-    public void registerVariantRenderer(Item item, int meta, String filename, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta,
-                new ModelResourceLocation(new ResourceLocation(Reference.MODID, filename), id));
     }
 
     @Override
@@ -279,9 +271,9 @@ public class ClientProxy extends CommonProxy {
     public void updateClientArcana(float amount) {
         EntityPlayer player = DivineRPG.proxy.getPlayer();
 
-        if (player != null){
+        if (player != null) {
             IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-            if (arcana != null){
+            if (arcana != null) {
                 arcana.set(amount);
             }
         }

@@ -10,6 +10,7 @@
 
 ### General
 - FIXMEs
+- Map Colors
 - Arcana Mob hitboxes
 - All block hitboxes (including plant stages)
 - Final balancing

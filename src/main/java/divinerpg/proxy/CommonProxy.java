@@ -12,7 +12,6 @@ import divinerpg.capabilities.CapabilityHandler;
 import divinerpg.capabilities.IArcana;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
-import divinerpg.objects.blocks.tile.entity.TEBed;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
@@ -99,7 +98,6 @@ public class CommonProxy {
     public void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityDramixAltar.class, Reference.MODID + ":te_dramix_altar");
         GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, Reference.MODID + ":te_parasecta_altar");
-        GameRegistry.registerTileEntity(TEBed.class, Reference.MODID + ":te_bed_dream");
         GameRegistry.registerTileEntity(TileEntityCoalstoneFurnace.class, Reference.MODID + ":te_colastone_furnace");
         GameRegistry.registerTileEntity(TileEntityMoltenFurnace.class, Reference.MODID + ":te_molten_furnace");
         GameRegistry.registerTileEntity(TileEntityOceanfireFurnace.class, Reference.MODID + ":te_oceanfire_furnace");

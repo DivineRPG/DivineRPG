@@ -1,6 +1,5 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.objects.blocks.BlockModAltar;
 import divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

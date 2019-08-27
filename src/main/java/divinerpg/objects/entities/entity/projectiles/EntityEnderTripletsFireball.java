@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.assets.render.projectile.RenderEnderTripletsFireball;
+import divinerpg.objects.entities.assets.render.projectiles.RenderEnderTripletsFireball;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;

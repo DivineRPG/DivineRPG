@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderSaguaroWormShot;
+import divinerpg.objects.entities.assets.render.projectiles.RenderSaguaroWormShot;
 import divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;

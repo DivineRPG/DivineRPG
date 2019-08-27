@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-import divinerpg.objects.entities.assets.render.projectile.RenderSoundOfCarols;
+import divinerpg.objects.entities.assets.render.projectiles.RenderSoundOfCarols;
 
 public class EntitySoundOfCarols extends EntityThrowable {
     Random r = new Random();

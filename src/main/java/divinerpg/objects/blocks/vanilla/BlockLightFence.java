@@ -2,7 +2,6 @@ package divinerpg.objects.blocks.vanilla;
 
 import java.util.Random;
 
-import divinerpg.objects.blocks.BlockModFence;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
