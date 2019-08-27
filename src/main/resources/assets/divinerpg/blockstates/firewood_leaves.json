@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:firewood_leaves"
-      }
-    }
-  ]
-}

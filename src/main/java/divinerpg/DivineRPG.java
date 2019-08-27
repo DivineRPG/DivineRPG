@@ -4,9 +4,12 @@
  */
 package divinerpg;
 
-import divinerpg.client.render.RenderFluids;
 import divinerpg.compat.ProjectECompat;
-import divinerpg.events.*;
+import divinerpg.events.ArcanaTickHandler;
+import divinerpg.events.EventArmorSet;
+import divinerpg.events.EventArmorTick;
+import divinerpg.events.EventEntityDrop;
+import divinerpg.events.RegistryHandler;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModOreDict;
@@ -47,7 +50,6 @@ public class DivineRPG {
         proxy.init(e);
         ModOreDict.init();
         ModTriggers.registerTriggers();
-        RenderFluids.registerCustomMeshesAndStates();
 
         // 1.12.2 only
         if (!Config.genJSON) {
@@ -84,7 +86,7 @@ public class DivineRPG {
     /** For Registering Commands */
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
-    	Utils.addDevsToList();
+        Utils.addDevsToList();
     }
-    
+
 }

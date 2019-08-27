@@ -1,4 +1,4 @@
-package divinerpg.objects.blocks.fluid;
+package divinerpg.objects.blocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

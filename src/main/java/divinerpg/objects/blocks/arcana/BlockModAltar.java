@@ -1,4 +1,4 @@
-package divinerpg.objects.blocks;
+package divinerpg.objects.blocks.arcana;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;

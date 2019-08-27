@@ -76,7 +76,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.model.ModelLoader;
@@ -178,12 +177,6 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void registerVariantRenderer(Item item, int meta, String filename, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta,
-                new ModelResourceLocation(new ResourceLocation(Reference.MODID, filename), id));
-    }
-
-    @Override
     public void spawnParticle(World w, double x, double y, double z, String particle, boolean random) {
         this.spawnParticle(w, x, y, z, particle, random);
     }
@@ -279,9 +272,9 @@ public class ClientProxy extends CommonProxy {
     public void updateClientArcana(float amount) {
         EntityPlayer player = DivineRPG.proxy.getPlayer();
 
-        if (player != null){
+        if (player != null) {
             IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-            if (arcana != null){
+            if (arcana != null) {
                 arcana.set(amount);
             }
         }

@@ -1,6 +1,0 @@
-{
-  "parent": "item/bow",
-  "textures": {
-    "layer0": "divinerpg:items/amthirmis_bow_3"
-  }
-}
