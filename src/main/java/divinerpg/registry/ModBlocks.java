@@ -306,9 +306,7 @@ public class ModBlocks {
 
     public static Block icyStone = new BlockModUnbreakable("icy_stone");
     public static Block icyBricks = new BlockModUnbreakable("icy_bricks");
-    public static Block frostedChest = new BlockFrostedChest("frosted_chest", true).setHardness(2.5F);
-    public static Block decorativeFrostedChest = new BlockFrostedChest("decorative_frosted_chest", false)
-            .setHardness(2.5F);
+    public static Block frostedChest = new BlockFrostedChest("frosted_chest").setHardness(2.5F);
     public static Block rollumSpawner = new BlockModSpawner("rollum_spawner", "rollum");
     public static Block frostArcherSpawner = new BlockModSpawner("frost_archer_spawner", "frost_archer");
     public static Block snowBricks = new BlockMod("snow_bricks", 6.0F);

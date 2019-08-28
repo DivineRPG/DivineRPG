@@ -137,8 +137,7 @@ public class ClientProxy extends CommonProxy {
     public void registerItemRenderer(final Item item, final int meta, final String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta,
                 new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))
-                || item.equals(Item.getItemFromBlock(ModBlocks.decorativeFrostedChest))) {
+        if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))) {
             item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
         } else if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
             item.setTileEntityItemStackRenderer(new RenderItemPresentBox());

@@ -27,12 +27,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockFrostedChest extends BlockModChest {
-    private boolean dropsSnowflake;
 
-    public BlockFrostedChest(String name, boolean dropsSnowFlake) {
-        super(name, Material.WOOD);
+    public BlockFrostedChest(String name) {
+        super(name, Material.GLASS);
         setSoundType(SoundType.GLASS);
-        this.dropsSnowflake = dropsSnowFlake;
     }
 
     public int getGuiID() {
@@ -49,23 +47,8 @@ public class BlockFrostedChest extends BlockModChest {
     public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te,
             ItemStack stack) {
         super.harvestBlock(world, player, pos, state, te, stack);
-        if (this.dropsSnowflake && player instanceof EntityPlayerMP) {
+        if (player instanceof EntityPlayerMP) {
             ModTriggers.DIVINERPG_BLOCK.trigger((EntityPlayerMP) player, this);
-        }
-    }
-
-    @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state,
-            int fortune) {
-        Random rand = new Random();
-        if (this.dropsSnowflake) {
-            if (rand.nextInt(20) == 0) {
-                drops.add(new ItemStack(ModBlocks.decorativeFrostedChest, 1, 0));
-            } else {
-                drops.add(new ItemStack(ModItems.snowflake, 1, 0));
-            }
-        } else {
-            drops.add(new ItemStack(ModBlocks.decorativeFrostedChest, 1, 0));
         }
     }
 
