@@ -1,12 +1,40 @@
 package divinerpg.utils;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import divinerpg.Config;
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
-import divinerpg.objects.blocks.*;
+import divinerpg.objects.blocks.BlockModChest;
+import divinerpg.objects.blocks.BlockModCrop;
+import divinerpg.objects.blocks.BlockModDoor;
+import divinerpg.objects.blocks.BlockModDoubleCrop;
+import divinerpg.objects.blocks.BlockModFire;
+import divinerpg.objects.blocks.BlockModFurnace;
+import divinerpg.objects.blocks.BlockModGrass;
+import divinerpg.objects.blocks.BlockModLadder;
+import divinerpg.objects.blocks.BlockModLeaves;
+import divinerpg.objects.blocks.BlockModLog;
+import divinerpg.objects.blocks.BlockModPortal;
+import divinerpg.objects.blocks.BlockModSapling;
+import divinerpg.objects.blocks.BlockModSlab;
+import divinerpg.objects.blocks.BlockModSpawner;
+import divinerpg.objects.blocks.BlockModStairs;
+import divinerpg.objects.blocks.BlockModTorch;
+import divinerpg.objects.blocks.BlockStatue;
 import divinerpg.objects.blocks.arcana.BlockAcceleron;
 import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
@@ -15,6 +43,8 @@ import divinerpg.objects.blocks.arcana.BlockModAltar;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
 import divinerpg.objects.blocks.vanilla.BlockModFence;
 import divinerpg.objects.items.arcana.ItemDivineAccumulator;
@@ -29,13 +59,13 @@ import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
 
 public class GenerateJSON {
     // You can include this in your mod/a pack/whatever you want, as long as that work follows the Mojang EULA.
@@ -235,7 +265,8 @@ public class GenerateJSON {
                 } else if ((block instanceof BlockModFurnace
                         && (registryName.contains("demon") || registryName.contains("extractor")))
                         || block instanceof BlockStatue || block instanceof BlockModChest
-                        || block instanceof BlockModAltar) {
+                        || block instanceof BlockModAltar || block instanceof BlockAyeracoBeam
+                        || block instanceof BlockAyeracoSpawn) {
                     json.put("parent", "builtin/entity");
                     Map<String, Object> display = new HashMap<>();
 
@@ -1160,7 +1191,8 @@ public class GenerateJSON {
                 generateBasicModelBlock(registryName, "arcana_spawner");
             } else if (block instanceof BlockModDoor) {
                 generateDoorModelBlock(registryName);
-            } else if (block instanceof BlockModAltar) {
+            } else if (block instanceof BlockModAltar || block instanceof BlockAyeracoBeam
+                    || block instanceof BlockAyeracoSpawn) {
                 generateBreakModelBlock(registryName, "blank");
             } else if (block instanceof BlockArcanaPortal) {
                 generateArcanaPortalModelBlock(registryName);
