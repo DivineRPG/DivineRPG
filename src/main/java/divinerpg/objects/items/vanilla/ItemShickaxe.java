@@ -1,4 +1,4 @@
-package divinerpg.objects.items.base;
+package divinerpg.objects.items.vanilla;
 
 import java.util.List;
 import java.util.Set;

@@ -12,5 +12,4 @@ public class BlockModUnbreakable extends BlockMod {
     public BlockModUnbreakable(String name) {
         this(EnumBlockType.ROCK, name);
     }
-
 }

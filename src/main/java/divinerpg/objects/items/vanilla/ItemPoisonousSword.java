@@ -1,7 +1,8 @@
-package divinerpg.objects.items.base;
+package divinerpg.objects.items.vanilla;
 
 import java.util.List;
 
+import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

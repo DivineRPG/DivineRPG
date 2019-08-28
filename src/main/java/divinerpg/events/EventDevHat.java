@@ -1,5 +1,8 @@
 package divinerpg.events;
 
+import divinerpg.Reference;
+import divinerpg.objects.entities.assets.model.ModelHat;
+import divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -8,10 +11,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.Reference;
-import divinerpg.objects.entities.assets.model.ModelHat;
-import divinerpg.utils.Utils;
-
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 	public class EventDevHat {
 		
@@ -19,7 +18,7 @@ import divinerpg.utils.Utils;
 	
 	@SubscribeEvent
 	public void playerRender(RenderPlayerEvent.Post evt) {
-		if(Utils.isDeveloperName(evt.getEntityPlayer().getDisplayName())) {
+        if (Utils.isDeveloperName(evt.getEntityPlayer().getDisplayNameString())) {
 			GL11.glPushMatrix();
 			float height = evt.getEntity().height;
 			GL11.glTranslatef(-0.5f, height, -0.5f);

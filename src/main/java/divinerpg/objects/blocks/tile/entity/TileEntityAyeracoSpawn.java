@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import com.google.common.collect.Lists;
+import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.MessageLocalizer;
@@ -8,19 +9,22 @@ import divinerpg.utils.log.Logging;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 
-public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
+public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements ITickable {
     private BlockPos greenBeam;
     private BlockPos blueBeam;
     private BlockPos redBeam;
     private BlockPos yellowBeam;
     private BlockPos purpleBeam;
+
+    /**
+     * Using in render, so it need to be proceed through update package
+     */
     public int spawnTick;
 
     public TileEntityAyeracoSpawn() {
@@ -105,14 +109,11 @@ public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
         super.readFromNBT(tag);
         this.spawnTick = tag.getInteger("spawnTick");
 
-        greenBeam = new BlockPos(tag.getInteger("greenBeamX"), tag.getInteger("greenBeamY"),
-                tag.getInteger("greenBeamZ"));
-        blueBeam = new BlockPos(tag.getInteger("blueBeamX"), tag.getInteger("blueBeamY"), tag.getInteger("blueBeamZ"));
-        redBeam = new BlockPos(tag.getInteger("redBeamX"), tag.getInteger("redBeamY"), tag.getInteger("redBeamZ"));
-        yellowBeam = new BlockPos(tag.getInteger("yellowBeamX"), tag.getInteger("yellowBeamY"),
-                tag.getInteger("yellowBeamZ"));
-        purpleBeam = new BlockPos(tag.getInteger("purpleBeamX"), tag.getInteger("purpleBeamY"),
-                tag.getInteger("purpleBeamZ"));
+        greenBeam = BlockPos.fromLong(tag.getLong("greenBeam"));
+        blueBeam = BlockPos.fromLong(tag.getLong("blueBeam"));
+        redBeam = BlockPos.fromLong(tag.getLong("redBeam"));
+        yellowBeam = BlockPos.fromLong(tag.getLong("yellowBeam"));
+        purpleBeam = BlockPos.fromLong(tag.getLong("purpleBeam"));
     }
 
     @Override
@@ -120,25 +121,26 @@ public class TileEntityAyeracoSpawn extends TileEntity implements ITickable {
         super.writeToNBT(tag);
         tag.setInteger("spawnTick", this.spawnTick);
 
-        tag.setInteger("greenBeamX", greenBeam.getX());
-        tag.setInteger("greenBeamY", greenBeam.getY());
-        tag.setInteger("greenBeamZ", greenBeam.getZ());
+        if (greenBeam != null) {
+            tag.setLong("greenBeam", greenBeam.toLong());
+        }
 
-        tag.setInteger("blueBeamX", blueBeam.getX());
-        tag.setInteger("blueBeamY", blueBeam.getY());
-        tag.setInteger("blueBeamZ", blueBeam.getZ());
+        if (blueBeam != null) {
+            tag.setLong("blueBeam", blueBeam.toLong());
+        }
 
-        tag.setInteger("redBeamX", redBeam.getX());
-        tag.setInteger("redBeamY", redBeam.getY());
-        tag.setInteger("redBeamZ", redBeam.getZ());
+        if (redBeam != null) {
+            tag.setLong("redBeam", redBeam.toLong());
+        }
 
-        tag.setInteger("yellowBeamX", yellowBeam.getX());
-        tag.setInteger("yellowBeamY", yellowBeam.getY());
-        tag.setInteger("yellowBeamZ", yellowBeam.getZ());
+        if (yellowBeam != null) {
+            tag.setLong("yellowBeam", yellowBeam.toLong());
+        }
 
-        tag.setInteger("purpleBeamX", purpleBeam.getX());
-        tag.setInteger("purpleBeamY", purpleBeam.getY());
-        tag.setInteger("purpleBeamZ", purpleBeam.getZ());
+        if (purpleBeam != null) {
+            tag.setLong("purpleBeam", purpleBeam.toLong());
+        }
+
         return tag;
     }
 

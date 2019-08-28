@@ -2,9 +2,7 @@ package divinerpg.objects.blocks.vanilla;
 
 import java.util.Random;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.BlockModOre;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -14,7 +12,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockNetheriteOre extends BlockModOre implements IHasModel {
+public class BlockNetheriteOre extends BlockModOre {
 
     public BlockNetheriteOre(String name, float hardness, float resistance, int harvest, Item item) {
         super(name, hardness, resistance, harvest, item);
@@ -52,10 +50,5 @@ public class BlockNetheriteOre extends BlockModOre implements IHasModel {
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         detectInBB(pos, world);
         world.scheduleUpdate(pos, this, 5);
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

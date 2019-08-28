@@ -18,12 +18,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -39,7 +35,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
-        
+
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
@@ -81,7 +77,8 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
     @Deprecated
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY, (meta & 8) > 0);
+        return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY,
+                (meta & 8) > 0);
     }
 
     @Override
@@ -90,7 +87,8 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
     }
 
     @Override
-    public NonNullList<ItemStack> onSheared(ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
+    public NonNullList<ItemStack> onSheared(ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos,
+            int fortune) {
         return NonNullList.withSize(1, new ItemStack(this, 1, 0));
     }
 
@@ -103,27 +101,25 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
     public void registerModels() {
         DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {	
-    	if(Minecraft.isFancyGraphicsEnabled()) {
-    		return BlockRenderLayer.CUTOUT_MIPPED;
-    		}else {
-    		return BlockRenderLayer.SOLID;
-    	}
-    }
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return !Minecraft.isFancyGraphicsEnabled();
-    }
-    @Override
-    public boolean isFullCube(IBlockState state)
-    {
-        return false;
+    public BlockRenderLayer getBlockLayer() {
+        if (Minecraft.isFancyGraphicsEnabled()) {
+            return BlockRenderLayer.CUTOUT_MIPPED;
+        } else {
+            return BlockRenderLayer.SOLID;
+        }
     }
 
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean isOpaqueCube(IBlockState state) {
+        return !Minecraft.isFancyGraphicsEnabled();
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
 }
