@@ -8,8 +8,8 @@ import net.minecraft.world.storage.loot.LootTableList;
  * /18/2019
  */
 public class DRPGLootTables extends LootTableList {
-    public static final ResourceLocation ICEIKA_CHEST = register("chests/iceika_chest");
-
+    public static final ResourceLocation ICEIKA_CHEST_DUNGEON = register("chests/iceika_chest_dungeon");
+    public static final ResourceLocation ICEIKA_CHEST_HUT = register("chests/iceika_chest_hut");
 
     private static ResourceLocation register(String id) {
         return register(new ResourceLocation("divinerpg", id));
