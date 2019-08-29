@@ -21,7 +21,7 @@ public class ItemTwilightBlitz extends RangedWeaponBase {
                 SoundCategory.MASTER,
                 -1,
                 0,
-                null,
+                ammo,
                 0);
     }
 
