@@ -4,7 +4,6 @@ import divinerpg.client.render.DivineModel;
 import divinerpg.objects.blocks.tile.model.statue.ModelAncientEntityStatue;
 import divinerpg.objects.blocks.tile.model.statue.ModelAyeracoStatue;
 import divinerpg.objects.blocks.tile.model.statue.ModelDensosStatue;
-import divinerpg.objects.blocks.tile.model.ModelDexStatue;
 import divinerpg.objects.blocks.tile.model.statue.ModelDramixStatue;
 import divinerpg.objects.blocks.tile.model.statue.ModelEternalArcherStatue;
 import divinerpg.objects.blocks.tile.model.statue.ModelKarotStatue;
@@ -22,7 +21,6 @@ public enum StatueType {
     ANCIENT_ENTITY_STATUE(new ModelAncientEntityStatue(), StatueLoc("ancient_entity_statue")),
     AYERACO_STATUE(new ModelAyeracoStatue(), StatueLoc("ayeraco_statue")),
     DENSOS_STATUE(new ModelDensosStatue(), StatueLoc("densos_statue")),
-    DEX_STATUE(new ModelDexStatue(), StatueLoc("dex_statue")),
     DRAMIX_STATUE(new ModelDramixStatue(), StatueLoc("dramix_statue")),
     ETERNAL_ARCHER_STATUE(new ModelEternalArcherStatue(), StatueLoc("eternal_archer_statue")),
     KAROT_STATUE(new ModelKarotStatue(), StatueLoc("karot_statue")),
