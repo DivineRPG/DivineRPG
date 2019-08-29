@@ -163,11 +163,11 @@ public class ModItems {
     public static Item corruptedBullet = new ItemMod("corrupted_bullet");
     public static Item corruptedCannon = new ItemCorruptedCannon("corrupted_cannon");
     public static Item ghastCannon = new RangedWeaponBase("ghast_cannon", BulletType.GHAST_CANNON_SHOT,
-            ModSounds.GHAST_CANNON, 100, 5);
+            ModSounds.GHAST_CANNON, 100, 20);
     public static Item crabclawCannon = new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT,
-            ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 3);
+            ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12);
     public static Item bowheadCannon = new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT,
-            ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 3);
+            ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12);
 
     public static Item serenadeOfHealth = new ItemSerenadeOfHealth("serenade_of_health");
     public static Item serenadeStriker = new ItemSerenadeStriker("serenade_striker");
@@ -623,17 +623,17 @@ public class ModItems {
     public static Item haliteBlitz = new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, mortumDust);
 
     public static Item edenPhaser = new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, ModSounds.PHASER,
-            3000, 3);
+            3000, 12);
     public static Item wildwoodPhaser = new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT,
-            ModSounds.PHASER, 3000, 3);
+            ModSounds.PHASER, 3000, 12);
     public static Item apalachiaPhaser = new RangedWeaponBase("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT,
-            ModSounds.PHASER, 3000, 3);
+            ModSounds.PHASER, 3000, 12);
     public static Item skythernPhaser = new RangedWeaponBase("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT,
-            ModSounds.PHASER, 3000, 3);
+            ModSounds.PHASER, 3000, 12);
     public static Item mortumPhaser = new RangedWeaponBase("mortum_phaser", BulletType.MORTUM_PHASER_SHOT,
-            ModSounds.PHASER, 3000, 3);
+            ModSounds.PHASER, 3000, 12);
     public static Item halitePhaser = new RangedWeaponBase("halite_phaser", BulletType.HALITE_PHASER_SHOT,
-            ModSounds.PHASER, 3000, 3);
+            ModSounds.PHASER, 3000, 12);
 
     public static Item edenArrow = new ItemMod("eden_arrow").setCreativeTab(DivineRPGTabs.ranged);
     public static Item wildwoodArrow = new ItemMod("wildwood_arrow").setCreativeTab(DivineRPGTabs.ranged);

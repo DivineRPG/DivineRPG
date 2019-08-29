@@ -114,15 +114,11 @@ public class RangedWeaponBase extends ItemMod {
         ItemStack stack = player.getHeldItem(hand);
         EnumActionResult result = EnumActionResult.FAIL;
 
-        if (manageDelay(player, stack)) {
-
-            ActionResult<ItemStack> canUseCannon = canUseCannon(player, stack);
+        if (canUseRangedWeapon(player, stack) && manageDelay(stack)) {
             ActionResult<ItemStack> ammo = tryFindAmmo(player);
             ActionResult<IArcana> checkArcana = tryCheckArcana(player);
 
-            if (canUseCannon.getType() == ammo.getType() && ammo.getType() == checkArcana.getType()
-                    && checkArcana.getType() == EnumActionResult.SUCCESS) {
-
+            if (ammo.getType() == EnumActionResult.SUCCESS && checkArcana.getType() == EnumActionResult.SUCCESS) {
                 if (!world.isRemote) {
                     world.playSound(null, player.getPosition(),
                             this.sound != null ? this.sound : SoundEvents.ENTITY_ARROW_SHOOT,
@@ -140,12 +136,10 @@ public class RangedWeaponBase extends ItemMod {
                     ammoStack.shrink(1);
                 }
 
-                ItemStack cannonStack = canUseCannon.getResult();
-                if (cannonStack != null) {
-                    cannonStack.damageItem(1, player);
-
-                    cannonStack.getTagCompound().setLong("CanShootTime", Ticker.tick + delay * 4);
+                if (!player.capabilities.isCreativeMode) {
+                    stack.damageItem(1, player);
                 }
+                stack.getTagCompound().setLong("CanShootTime", Ticker.tick + delay);
 
                 if (player instanceof EntityPlayerMP) {
                     ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -191,25 +185,22 @@ public class RangedWeaponBase extends ItemMod {
         }
     }
 
-    protected boolean manageDelay(EntityPlayer player, ItemStack cannon) {
+    protected boolean manageDelay(ItemStack rangedWeapon) {
         // Trying to set compound
-        if (!cannon.hasTagCompound()) {
-            cannon.setTagCompound(new NBTTagCompound());
+        if (!rangedWeapon.hasTagCompound()) {
+            rangedWeapon.setTagCompound(new NBTTagCompound());
         }
         // get reference
-        NBTTagCompound compound = cannon.getTagCompound();
+        NBTTagCompound compound = rangedWeapon.getTagCompound();
         // get value
         long canShootTime = compound.getLong(delayTagName);
-
-        // in creative mode can shoot always
-        boolean result = player.capabilities.isCreativeMode || Ticker.tick >= canShootTime;
 
         // we managing delay here, re-evaulating every item using time
         if (canShootTime >= 100000 || canShootTime > Ticker.tick + delay * 4 + 1) {
             compound.setLong(delayTagName, 0);
         }
 
-        return result;
+        return Ticker.tick >= canShootTime;
     }
 
     /*
@@ -250,21 +241,10 @@ public class RangedWeaponBase extends ItemMod {
 
     /*
         Trying to detect if we can use the item.
-        If returned SUCCESS, we can
-        If ItemStack is not null, we need to damage it
      */
-    protected ActionResult<ItemStack> canUseCannon(EntityPlayer player, ItemStack stack) {
-        EnumActionResult result = EnumActionResult.SUCCESS;
-
-        if (player.capabilities.isCreativeMode) {
-            return new ActionResult<>(result, null);
-        }
-
-        if (stack.getMaxDamage() > 0 && stack.getItemDamage() >= stack.getMaxDamage()) {
-            result = EnumActionResult.FAIL;
-        }
-
-        return new ActionResult<>(result, stack);
+    protected boolean canUseRangedWeapon(EntityPlayer player, ItemStack stack) {
+        return (player.capabilities.isCreativeMode
+                || (stack.getMaxDamage() > 0 && stack.getItemDamage() < stack.getMaxDamage()));
     }
 
     protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType,

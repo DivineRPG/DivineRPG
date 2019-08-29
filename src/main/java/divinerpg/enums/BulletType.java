@@ -53,6 +53,8 @@ public enum BulletType {
     HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
 
     ARCANITE_BLASTER(23, ProjectileLoc("blaster_shot")),
+    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), new Color(31, 93, 210)),
+    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), new Color(56, 152, 186)),
 
     MAGE_SHOT(5, ProjectileLoc("blank"), new Color(62, 212, 254)),
     SPELLBINDER_SHOT(7, ProjectileLoc("blank"), new Color(234, 158, 253)),
