@@ -24,6 +24,11 @@ public class DungeonConstructor extends EntityDivineRPGMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 0.9F;
+    }
+
+    @Override
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();

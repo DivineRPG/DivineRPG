@@ -16,13 +16,18 @@ public class GolemOfRejuvenation extends EntityDivineRPGTameable {
 
     public GolemOfRejuvenation(World world) {
         super(world);
-        this.setSize(1F, 2.2F);
+        this.setSize(1F, 2.35F);
         this.healTimer = 0;
     }
 
     public GolemOfRejuvenation(World world, EntityPlayer player) {
         this(world);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.0F;
     }
 
     @Override

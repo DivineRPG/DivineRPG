@@ -25,6 +25,11 @@ public class Wraith extends Paratiku {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 1.15F;
+    }
+
+    @Override
     protected float getSoundVolume() {
         return 0.1F;
     }

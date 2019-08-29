@@ -20,6 +20,12 @@ public class DeathHound extends EntityDivineRPGMob {
 
     public DeathHound(World world) {
         super(world);
+        this.setSize(0.8F, 0.9F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.75F;
     }
 
     @Override

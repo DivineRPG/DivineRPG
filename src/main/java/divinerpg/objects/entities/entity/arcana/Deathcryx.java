@@ -20,6 +20,12 @@ public class Deathcryx extends EntityDivineRPGMob {
 
     public Deathcryx(World world) {
         super(world);
+        this.setSize(1.0F, 1.2F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.85F;
     }
 
     @Override

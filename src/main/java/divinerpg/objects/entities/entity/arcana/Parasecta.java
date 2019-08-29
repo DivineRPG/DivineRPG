@@ -19,7 +19,12 @@ public class Parasecta extends EntityDivineRPGBoss {
 
     public Parasecta(World world) {
         super(world);
-        this.setSize(1.0F, 2.0F);
+        this.setSize(1.3F, 3F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 2.7F;
     }
 
     @Override

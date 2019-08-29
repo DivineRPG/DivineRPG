@@ -23,6 +23,12 @@ public class LivingStatue extends EntityDivineRPGMob implements IRangedAttackMob
 
     public LivingStatue(World world) {
         super(world);
+        this.setSize(0.8F, 2.0F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.725F;
     }
 
     @Override

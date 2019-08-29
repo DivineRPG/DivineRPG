@@ -3,17 +3,12 @@ package divinerpg.world.structures;
 import java.util.Random;
 
 import divinerpg.Config;
-import divinerpg.DivineRPG;
-import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.DRPGLootTables;
 import divinerpg.utils.DRPGStructureHandler;
-import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;

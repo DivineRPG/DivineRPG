@@ -31,13 +31,18 @@ public class Paratiku extends EntityDivineRPGTameable {
 
     public Paratiku(World world) {
         super(world);
-        this.setSize(0.9F, 0.9F);
+        this.setSize(0.9F, 1.4F);
         this.setIsBatHanging(true);
     }
 
     public Paratiku(World world, EntityPlayer player) {
         this(world);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.2F;
     }
 
     @Override
