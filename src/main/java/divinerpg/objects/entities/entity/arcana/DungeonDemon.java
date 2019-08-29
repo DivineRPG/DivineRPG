@@ -14,6 +14,12 @@ public class DungeonDemon extends EntityDivineRPGMob {
 
     public DungeonDemon(World world) {
         super(world);
+        this.setSize(0.6F, 2.15F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.8F;
     }
 
     @Override

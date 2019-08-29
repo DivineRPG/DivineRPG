@@ -21,13 +21,18 @@ public class Fyracryx extends EntityDivineRPGTameable implements IRangedAttackMo
 
     public Fyracryx(World par1World) {
         super(par1World);
-        this.setSize(2F, 2F);
+        this.setSize(1.0F, 1.2F);
         this.isImmuneToFire = true;
     }
 
     public Fyracryx(World world, EntityPlayer player) {
         this(world);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.85F;
     }
 
     @Override

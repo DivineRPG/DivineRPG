@@ -14,7 +14,12 @@ public class Razorback extends EntityDivineRPGMob {
 
     public Razorback(World world) {
         super(world);
-        this.height = 0.5F;
+        this.setSize(0.6F, 0.5F);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.225F;
     }
 
     @Override

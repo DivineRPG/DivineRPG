@@ -21,6 +21,11 @@ public class Dramix extends EntityDivineRPGBoss {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 2.7F;
+    }
+
+    @Override
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();

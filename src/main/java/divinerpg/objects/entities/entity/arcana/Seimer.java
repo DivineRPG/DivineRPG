@@ -17,12 +17,17 @@ public class Seimer extends EntityDivineRPGTameable {
 
     public Seimer(World par1World) {
         super(par1World);
-        this.setSize(1.2f, 1);
+        this.setSize(1.0F, 1.0F);
     }
 
     public Seimer(World par1World, EntityPlayer player) {
         this(par1World);
         setTamedBy(player);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 0.6F;
     }
 
     @Override

@@ -14,12 +14,18 @@ public class Roamer extends EntityDivineRPGMob {
 
     public Roamer(World world) {
         super(world);
+        this.setSize(0.6F, 1.8F);
     }
 
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return 1.625F;
     }
 
     @Override
