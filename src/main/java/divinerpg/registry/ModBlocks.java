@@ -264,23 +264,30 @@ public class ModBlocks {
     public static Block ayeracoBeamPurple = new BlockAyeracoBeam("ayeraco_beam_purple", "purple");
     public static Block ayeracoSpawn = new BlockAyeracoSpawn();
 
-    public static BlockStatue kingOfScorchersStatue = new BlockStatue("king_of_scorchers_statue",
-            StatueType.KING_OF_SCORCHERS_STATUE);
     public static BlockStatue ancientEntityStatue = new BlockStatue("ancient_entity_statue",
             StatueType.ANCIENT_ENTITY_STATUE);
     public static BlockStatue ayeracoStatue = new BlockStatue("ayeraco_statue", StatueType.AYERACO_STATUE);
-    public static BlockStatue twilightDemonStatue = new BlockStatue("twilight_demon_statue",
-            StatueType.TWILIGHT_DEMON_STATUE);
-    public static BlockStatue vamacheronStatue = new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE);
     public static BlockStatue densosStatue = new BlockStatue("densos_statue", StatueType.DENSOS_STATUE);
-    public static BlockStatue reyvorStatue = new BlockStatue("reyvor_statue", StatueType.REYVOR_STATUE);
     public static BlockStatue dramixStatue = new BlockStatue("dramix_statue", StatueType.DRAMIX_STATUE);
-    public static BlockStatue parasectaStatue = new BlockStatue("parasecta_statue", StatueType.PARASECTA_STATUE);
-    public static BlockStatue soulFiendStatue = new BlockStatue("soul_fiend_statue", StatueType.SOUL_FIEND_STATUE);
-    public static BlockStatue theWatcherStatue = new BlockStatue("the_watcher_statue", StatueType.THE_WATCHER_STATUE);
     public static BlockStatue eternalArcherStatue = new BlockStatue("eternal_archer_statue",
             StatueType.ETERNAL_ARCHER_STATUE);
     public static BlockStatue karotStatue = new BlockStatue("karot_statue", StatueType.KAROT_STATUE);
+    public static BlockStatue kingOfScorchersStatue = new BlockStatue("king_of_scorchers_statue",
+            StatueType.KING_OF_SCORCHERS_STATUE);
+    public static BlockStatue parasectaStatue = new BlockStatue("parasecta_statue", StatueType.PARASECTA_STATUE);
+    public static BlockStatue reyvorStatue = new BlockStatue("reyvor_statue", StatueType.REYVOR_STATUE);
+    public static BlockStatue soulFiendStatue = new BlockStatue("soul_fiend_statue", StatueType.SOUL_FIEND_STATUE);
+    public static BlockStatue theWatcherStatue = new BlockStatue("the_watcher_statue", StatueType.THE_WATCHER_STATUE);
+    public static BlockStatue twilightDemonStatue = new BlockStatue("twilight_demon_statue",
+            StatueType.TWILIGHT_DEMON_STATUE);
+    public static BlockStatue vamacheronStatue = new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE);
+
+
+
+
+
+
+
 
     public static Block tomatoPlant = new BlockTomatoPlant();
     public static Block whiteMushroomPlant = new BlockWhiteMushroomPlant();

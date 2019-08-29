@@ -31,7 +31,7 @@ public enum ArmorInfo {
     
     private String info;
 
-    private ArmorInfo(String info) {
+    ArmorInfo(String info) {
         this.info = info;
     }
 

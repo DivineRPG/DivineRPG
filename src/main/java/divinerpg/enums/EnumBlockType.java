@@ -21,7 +21,7 @@ public enum EnumBlockType {
     private Material  material;
     private SoundType sound;
 
-    private EnumBlockType(Material material, SoundType sound) {
+    EnumBlockType(Material material, SoundType sound) {
         this.material = material;
         this.sound = sound;
     }

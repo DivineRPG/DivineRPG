@@ -1,20 +1,20 @@
 package divinerpg.enums;
 
 import divinerpg.client.render.DivineModel;
-import divinerpg.objects.blocks.tile.model.ModelAncientEntityStatue;
-import divinerpg.objects.blocks.tile.model.ModelAyeracoStatue;
-import divinerpg.objects.blocks.tile.model.ModelDensosStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelAncientEntityStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelAyeracoStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelDensosStatue;
 import divinerpg.objects.blocks.tile.model.ModelDexStatue;
-import divinerpg.objects.blocks.tile.model.ModelDramixStatue;
-import divinerpg.objects.blocks.tile.model.ModelEternalArcherStatue;
-import divinerpg.objects.blocks.tile.model.ModelKarotStatue;
-import divinerpg.objects.blocks.tile.model.ModelKingOfScorchersStatue;
-import divinerpg.objects.blocks.tile.model.ModelParasectaStatue;
-import divinerpg.objects.blocks.tile.model.ModelReyvorStatue;
-import divinerpg.objects.blocks.tile.model.ModelSoulFiendStatue;
-import divinerpg.objects.blocks.tile.model.ModelTheWatcherStatue;
-import divinerpg.objects.blocks.tile.model.ModelTwilightDemonStatue;
-import divinerpg.objects.blocks.tile.model.ModelVamacheronStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelDramixStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelEternalArcherStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelKarotStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelKingOfScorchersStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelParasectaStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelReyvorStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelSoulFiendStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelTheWatcherStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelTwilightDemonStatue;
+import divinerpg.objects.blocks.tile.model.statue.ModelVamacheronStatue;
 import net.minecraft.util.ResourceLocation;
 
 public enum StatueType {

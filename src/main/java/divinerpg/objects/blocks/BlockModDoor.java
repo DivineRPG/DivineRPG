@@ -28,9 +28,6 @@ public class BlockModDoor extends BlockDoor implements IHasModel {
         setUnlocalizedName(name);
         setRegistryName(name);
         setHardness(hardness);
-        if (hardness == -1F) {
-            setResistance(6000000F);
-        }
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
 
         ModBlocks.BLOCKS.add(this);

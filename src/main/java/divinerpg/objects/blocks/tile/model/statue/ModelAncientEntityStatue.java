@@ -1,4 +1,4 @@
-package divinerpg.objects.blocks.tile.model;
+package divinerpg.objects.blocks.tile.model.statue;
 
 import divinerpg.client.render.DivineModel;
 import divinerpg.client.render.DivineRenderer;
