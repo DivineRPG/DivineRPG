@@ -30,7 +30,7 @@ import divinerpg.objects.items.arcana.ItemMeriksMissile;
 import divinerpg.objects.items.arcana.ItemMeteorMash;
 import divinerpg.objects.items.arcana.ItemOrbOfLight;
 import divinerpg.objects.items.arcana.ItemReflector;
-import divinerpg.objects.items.arcana.ItemShadowSword;
+import divinerpg.objects.items.arcana.ItemShadowSaber;
 import divinerpg.objects.items.arcana.ItemStaffEnrichment;
 import divinerpg.objects.items.arcana.ItemStaffStarlight;
 import divinerpg.objects.items.arcana.ItemStormSword;
@@ -737,7 +737,7 @@ public class ModItems {
     public static Item arcaniumSaber = new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber);
     public static Item ghostbane = new ItemGhostbane();
     public static Item arcaniumReflector = new ItemReflector();
-    public static Item shadowSword = new ItemShadowSword("shadow_saber", ToolMaterialMod.ShadowSaber);
+    public static Item shadowSword = new ItemShadowSaber("shadow_saber", ToolMaterialMod.ShadowSaber);
     public static Item liviciaSword = new ItemModSword(ToolMaterialMod.LiviciaSword, "livicia_sword");
     public static Item meteorMash = new ItemMeteorMash();
     public static Item divineAccumulator = new ItemDivineAccumulator();

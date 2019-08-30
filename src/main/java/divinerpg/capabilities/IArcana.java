@@ -1,30 +1,24 @@
 package divinerpg.capabilities;
 
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public interface IArcana {
-    /*
-        Consumes arcana and sends packet
-     */
-    public void consume(EntityLivingBase player, float points);
+    // Consumes arcana and sends packet
+    public void consume(EntityPlayer player, float points);
 
-    /*
-        Restoring arcana and send packet
-     */
-    public void fill(EntityLivingBase player, float points);
+    // Adds arcana and send packet
+    public void fill(EntityPlayer player, float points);
+
+    // Player regeneration of arcana and send pakect 
+    public void regen(EntityPlayer player);
 
     public void set(float points);
 
     public float getArcana();
 
-    public float getCoolDown();
+    public float getMaxArcana();
 
-    public void setCoolDown(float number);
+    public float getRegenDelay();
 
-    public float getMax();
-
-    public void setMax(float number);
-
-    public void regen(EntityPlayer player);
+    public void setRegenDelay(int delay);
 }

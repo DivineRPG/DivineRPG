@@ -9,49 +9,50 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ArcanaTickHandler {
-	IArcana arcana;
-	@SubscribeEvent
-	public void onTick(PlayerTickEvent event){
-		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		if(event.phase == Phase.START){
-			onTickStart(event.player);
-		} else {
-			onTickEnd(event.player);
-		}
-	}
+    IArcana arcana;
 
-	private void onTickEnd(EntityPlayer player) {
-		arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.regen(player);
-	}
+    @SubscribeEvent
+    public void onTick(PlayerTickEvent event) {
+        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        if (event.phase == Phase.START) {
+            onTickStart(event.player);
+        } else {
+            onTickEnd(event.player);
+        }
+    }
 
-	private void onTickStart(EntityPlayer player) {
-		arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-	}
+    private void onTickEnd(EntityPlayer player) {
+        arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana.regen(player);
+    }
 
-	@SubscribeEvent
-	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event){ 
-		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(arcana.getMax());
-	}
+    private void onTickStart(EntityPlayer player) {
+        arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+    }
 
-	@SubscribeEvent
-	public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event){ 
-		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(0);
-	}
+    @SubscribeEvent
+    public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana.set(arcana.getMaxArcana());
+    }
 
-	@SubscribeEvent
-	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event){ 
-		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(arcana.getMax());
-	}
-	
-	@SubscribeEvent
-	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event){
-		arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-		arcana.set(arcana.getMax());
-		
-		event.player.addExperienceLevel(0);
-	}
+    @SubscribeEvent
+    public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
+        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana.set(0);
+    }
+
+    @SubscribeEvent
+    public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana.set(arcana.getMaxArcana());
+    }
+
+    @SubscribeEvent
+    public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana.set(arcana.getMaxArcana());
+
+        event.player.addExperienceLevel(0);
+    }
 }

@@ -44,7 +44,7 @@ public class ItemArcanaPotion extends ItemMod {
                 stack.shrink(1);
             }
             IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-            arcana.fill(entityLiving, amountToAdd);
+            arcana.fill(player, amountToAdd);
         }
 
         return stack;
@@ -67,7 +67,7 @@ public class ItemArcanaPotion extends ItemMod {
 
         IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
 
-        EnumActionResult result = arcana.getArcana() < arcana.getMax() ? EnumActionResult.SUCCESS :
+        EnumActionResult result = arcana.getArcana() < arcana.getMaxArcana() ? EnumActionResult.SUCCESS :
                 EnumActionResult.FAIL;
 
         return new ActionResult<>(result, player.getHeldItem(hand));
