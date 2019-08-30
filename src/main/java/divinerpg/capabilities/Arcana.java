@@ -17,11 +17,9 @@ public class Arcana implements IArcana {
      */
     private float cooldownCounter = cooldown;
 
-
     @Override
     public void consume(EntityLivingBase player, float points) {
-        if (player instanceof EntityPlayer
-                && ((EntityPlayer) player).capabilities.isCreativeMode) {
+        if (player instanceof EntityPlayer && ((EntityPlayer) player).capabilities.isCreativeMode) {
             return;
         }
 
@@ -37,7 +35,7 @@ public class Arcana implements IArcana {
 
     @Override
     public void set(float points) {
-        this.arcana = MathHelper.clamp(points,0, max);
+        this.arcana = MathHelper.clamp(points, 0, max);
     }
 
     @Override
@@ -51,7 +49,7 @@ public class Arcana implements IArcana {
     }
 
     @Override
-    public void setColDown(float number) {
+    public void setCoolDown(float number) {
         this.cooldown = MathHelper.clamp(number, 0, 50);
     }
 
@@ -62,14 +60,12 @@ public class Arcana implements IArcana {
 
     @Override
     public void setMax(float number) {
-        this.max = number < 0
-                ? 0
-                : number;
+        this.max = number < 0 ? 0 : number;
     }
 
     @Override
     public void regen(EntityPlayer player) {
-        if (cooldownCounter > 0){
+        if (cooldownCounter > 0) {
             cooldownCounter -= 1;
             return;
         }
@@ -79,8 +75,7 @@ public class Arcana implements IArcana {
         sendPacket(player);
     }
 
-    private void sendPacket(EntityLivingBase player){
-
+    private void sendPacket(EntityLivingBase player) {
         if (player instanceof EntityPlayerMP)
             DivineRPG.network.sendTo(new MessageArcanaBar(getArcana(), false), (EntityPlayerMP) player);
     }

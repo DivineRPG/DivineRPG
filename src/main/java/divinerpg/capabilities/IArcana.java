@@ -3,8 +3,7 @@ package divinerpg.capabilities;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
-public interface IArcana
-{
+public interface IArcana {
     /*
         Consumes arcana and sends packet
      */
@@ -16,14 +15,16 @@ public interface IArcana
     public void fill(EntityLivingBase player, float points);
 
     public void set(float points);
-    
+
     public float getArcana();
 
     public float getCoolDown();
-    public void setColDown(float number);
+
+    public void setCoolDown(float number);
 
     public float getMax();
+
     public void setMax(float number);
-    
+
     public void regen(EntityPlayer player);
 }

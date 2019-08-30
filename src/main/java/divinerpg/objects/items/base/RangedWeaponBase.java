@@ -243,8 +243,8 @@ public class RangedWeaponBase extends ItemMod {
         Trying to detect if we can use the item.
      */
     protected boolean canUseRangedWeapon(EntityPlayer player, ItemStack stack) {
-        return (player.capabilities.isCreativeMode
-                || (stack.getMaxDamage() > 0 && stack.getItemDamage() < stack.getMaxDamage()));
+        return (player.capabilities.isCreativeMode || stack.getMaxDamage() <= 0
+                || stack.getItemDamage() < stack.getMaxDamage());
     }
 
     protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType,

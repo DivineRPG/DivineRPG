@@ -29,7 +29,7 @@ public class CapabilityArcana implements IStorage<IArcana> {
             NBTTagCompound saved = (NBTTagCompound) nbt;
 
             instance.set(saved.getFloat(arcana));
-            instance.setColDown(saved.getFloat(cooldown));
+            instance.setCoolDown(saved.getFloat(cooldown));
             instance.setMax(saved.getFloat(max));
         }
     }
