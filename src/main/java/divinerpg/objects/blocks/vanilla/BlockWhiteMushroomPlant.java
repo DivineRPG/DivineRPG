@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class BlockWhiteMushroomPlant extends BlockModCrop {
     public BlockWhiteMushroomPlant() {
-        super("white_mushroom_plant");
+        super("white_mushroom_plant", 0.3);
     }
 
     @Override

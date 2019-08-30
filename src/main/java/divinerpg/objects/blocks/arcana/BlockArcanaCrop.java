@@ -23,10 +23,9 @@ public class BlockArcanaCrop extends BlockModCrop {
         return Utils.bordersTar(world, pos.down());
     }
 
-    public boolean canBlockStay(World world, int x, int y, int z) {
-        BlockPos pos = new BlockPos(x, y, z);
-        IBlockState soil = world.getBlockState(pos.down());
-
-        return super.canBlockStay(world, pos, soil) && Utils.bordersTar(world, pos.down());
+    @Override
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
+        return super.canBlockStay(worldIn, pos, state)
+                && Utils.bordersTar(worldIn, pos.down());
     }
 }

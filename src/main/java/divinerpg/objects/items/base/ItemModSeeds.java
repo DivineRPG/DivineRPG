@@ -56,7 +56,8 @@ public class ItemModSeeds extends Item implements IPlantable, IHasModel {
                 CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP) player, pos.up(), itemstack);
             }
 
-            itemstack.shrink(1);
+            if (!player.capabilities.isCreativeMode)
+                itemstack.shrink(1);
             return EnumActionResult.SUCCESS;
         } else {
             return EnumActionResult.FAIL;

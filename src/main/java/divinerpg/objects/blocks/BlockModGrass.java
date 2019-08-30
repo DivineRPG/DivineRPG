@@ -6,6 +6,7 @@ import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -71,6 +72,21 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
             IPlantable plantable) {
+
+        if (plantable instanceof BlockModCrop){
+
+            // get itemStack with seed from plants
+            ItemStack item = ((BlockModCrop) plantable).getItem(((World) world), pos, state);
+            if (item != null){
+                // getting seed
+                Item seed = item.getItem();
+                // If seed is Divine type, reset local value
+                // Condition below will handle it
+                if (seed instanceof ItemModSeeds){
+                    plantable = (ItemModSeeds)seed;
+                }
+            }
+        }
 
     	if (plantable instanceof BlockModDoublePlant)
         {
