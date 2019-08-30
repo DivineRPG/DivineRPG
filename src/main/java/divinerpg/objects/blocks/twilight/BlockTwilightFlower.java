@@ -11,14 +11,25 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlantable {
     private Block grass;
+    private AxisAlignedBB size;
 
     public BlockTwilightFlower(String name, Block grass) {
+        this(name, grass, 0.4, 1);
+    }
+
+    /**
+     * @param width - sets the width of flower. Can't be lass/equals zero
+     * @param height - sets the height of flower. Can't be less/equals zero
+     */
+    public BlockTwilightFlower(String name, Block grass, double width, double height){
         setRegistryName(name);
         setUnlocalizedName(name);
         this.grass = grass;
@@ -28,6 +39,35 @@ public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlanta
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
+        if (width <= 0 || height <= 0){
+            throw new RuntimeException("Width or height cannot be less/equals zero!");
+        }
+
+        // This is bounding box, 1*1 size
+        // Center point (A) is 0.5;0.5
+        // We need to find L's and R's points, that's a
+        // rectangle with given size
+        //////////////////////////
+        //  L1----width----R1   //
+        //  h                   //
+        //  e                   //
+        //  i      A            //
+        //  g                   //
+        //  h                   //
+        //  t                   //
+        //  L2             R2   //
+        //////////////////////////
+
+        double leftCorner = Double.max(0, 0.5 - width / 2);
+        double rightCorner = 0.5 + width / 2;
+
+        size = new AxisAlignedBB(leftCorner,
+                0,
+                leftCorner,
+                rightCorner,
+                height,
+                rightCorner);
     }
 
     @Override
@@ -52,6 +92,11 @@ public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlanta
     @Override
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
         return this.canSustainBush(worldIn.getBlockState(pos.down()));
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return size;
     }
 
     @Override
