@@ -113,7 +113,9 @@ public enum BulletType {
         return values()[ordinal];
     }
 
-
+    private static ResourceLocation ProjectileLoc(String name) {
+        return new ResourceLocation("divinerpg:textures/projectiles/" + name + ".png");
+    }
 
     private static ResourceLocation ItemLoc(String name) {
         return new ResourceLocation("divinerpg:textures/items/" + name + ".png");
@@ -123,7 +125,5 @@ public enum BulletType {
         return new ResourceLocation("minecraft:textures/items/" + name + ".png");
     }
 
-    private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/projectiles/" + name + ".png");
-    }
+
 }
