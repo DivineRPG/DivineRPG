@@ -20,8 +20,9 @@ import java.util.Random;
 public class BlockArcanaDoor extends BlockModDoor {
     private Item keyItem;
 
-    public BlockArcanaDoor(String name, Material materialIn, float hardness, Item key) {
-        super(name, materialIn, hardness);
+    public BlockArcanaDoor(String name, Item key) {
+        super(name, Material.ROCK, -1F);
+        this.setResistance(6000000F);
         this.keyItem = key;
     }
 
