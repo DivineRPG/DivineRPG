@@ -1,7 +1,10 @@
 {
   "variants": {
-    "normal": {
+    "powered=false": {
       "model": "divinerpg:star_bridge"
+    },
+    "powered=true": {
+      "model": "divinerpg:star_bridge_on"
     }
   }
 }

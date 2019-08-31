@@ -13,7 +13,7 @@ public enum BulletType {
     SHARK_ANCHOR_SHOT(4, ProjectileLoc("bowhead_anchor")),
     BOWHEAD_ANCHOR_SHOT(5, ProjectileLoc("bowhead_anchor")),
     LIOPLEURODON_ANCHOR_SHOT(6, ProjectileLoc("liopleurodon_anchor")),
-    GOLDEN_FURY_SHOT(30, ItemLoc("gold_nugget")),
+    GOLDEN_FURY_SHOT(30, VanillaItemLoc("gold_nugget")),
     GHAST_CANNON_SHOT(16, ProjectileLoc("ghast_cannon")),
     CRABCLAW_CANNON_SHOT(12, ProjectileLoc("crab_anchor")),
     BOWHEAD_CANNON_SHOT(12, ProjectileLoc("bowhead_anchor")),
@@ -113,11 +113,17 @@ public enum BulletType {
         return values()[ordinal];
     }
 
+    private static ResourceLocation ProjectileLoc(String name) {
+        return new ResourceLocation("divinerpg:textures/projectiles/" + name + ".png");
+    }
+
     private static ResourceLocation ItemLoc(String name) {
         return new ResourceLocation("divinerpg:textures/items/" + name + ".png");
     }
 
-    private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/projectiles/" + name + ".png");
+    private static ResourceLocation VanillaItemLoc(String name) {
+        return new ResourceLocation("minecraft:textures/items/" + name + ".png");
     }
+
+
 }
