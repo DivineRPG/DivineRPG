@@ -1,16 +1,6 @@
 package divinerpg.objects.items.arcana;
 
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
@@ -22,8 +12,17 @@ import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipLocalizer;
-
-import java.util.List;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemMeriksMissile extends ItemMod {
 
@@ -49,20 +48,15 @@ public class ItemMeriksMissile extends ItemMod {
                 if ((double) var7 < 0.1D)
                     return;
 
-                world.playSound(null,
-                        player.getPosition(),
-                        ModSounds.VETHEA_BOW,
-                        SoundCategory.MASTER,
-                        1,
-                        1);
+                world.playSound(null, player.getPosition(), ModSounds.VETHEA_BOW, SoundCategory.MASTER, 1, 1);
 
                 EntityMerikMissile bullet = new EntityMerikMissile(world, player);
                 bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
                 world.spawnEntity(bullet);
                 arcana.consume(player, this.arcana);
             }
-            }
         }
+    }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {

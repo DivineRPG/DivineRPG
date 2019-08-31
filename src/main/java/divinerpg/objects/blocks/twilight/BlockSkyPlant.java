@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class BlockSkyPlant extends BlockModCrop {
     public BlockSkyPlant() {
-        super("sky_plant");
+        super("sky_plant", 0.5);
     }
 
     @Override

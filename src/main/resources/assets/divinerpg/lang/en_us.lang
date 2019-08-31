@@ -1082,11 +1082,11 @@ item.vemos_helmet.name=Vemos Helmet
 item.vemos_chestplate.name=Vemos Chestplate
 item.vemos_leggings.name=Vemos Leggings
 item.vemos_boots.name=Vemos Boots
-item.ayeraco_fragment_blue.name=Blue Ayeraco Fragment
-item.ayeraco_fragment_green.name=Green Ayeraco Fragment
-item.ayeraco_fragment_purple.name=Purple Ayeraco Fragment
-item.ayeraco_fragment_yellow.name=Yellow Ayeraco Fragment
-item.ayeraco_fragment_red.name=Red Ayeraco Fragment
+item.ayeraco_fragment_blue.name=Blue Ayeraco Scale
+item.ayeraco_fragment_green.name=Green Ayeraco Scale
+item.ayeraco_fragment_purple.name=Purple Ayeraco Scale
+item.ayeraco_fragment_yellow.name=Yellow Ayeraco Scale
+item.ayeraco_fragment_red.name=Red Ayeraco Scale
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes

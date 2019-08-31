@@ -264,18 +264,7 @@ public class Utils {
     }
 
     public static boolean bordersTar(World w, BlockPos pos) {
-        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-        for (int i = x - 4; i <= x + 4; ++i) {
-            for (int j = y; j <= y + 1; ++j) {
-                for (int k = z - 4; k <= z + 4; ++k) {
-                    if (w.getBlockState(new BlockPos(i, j, k)) == ModBlocks.tar) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
+        return bordersTar(w, pos.getX(), pos.getY(), pos.getZ());
     }
 
     public static void addDevsToList() {

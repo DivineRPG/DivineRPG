@@ -10,40 +10,41 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityGeneralsStaff extends EntityParticleBullet {
+public class EntityGeneralsStaff extends EntityColoredBullet {
 
-	public EntityGeneralsStaff(World world) {
-		super(world);
-	}
+    public EntityGeneralsStaff(World world) {
+        super(world);
+    }
 
-	public EntityGeneralsStaff(World world, EntityPlayer player) {
-		super(world, player, BulletType.APALACHIA_BLITZ_SHOT);
-	}
+    public EntityGeneralsStaff(World world, EntityPlayer player) {
+        super(world, player, BulletType.GENERALS_STAFF_SHOT);
+    }
 
-	@SideOnly(Side.CLIENT)
-	public static void renderMe() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityGeneralsStaff.class, RenderStaff::new);
-	}
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityGeneralsStaff.class, RenderStaff::new);
+    }
 
-	@Override
-	public void onImpact(RayTraceResult position) {
-		super.onImpact(position);
-		if (!this.world.isRemote) {
-			for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-				EntityParticleBullet e = new EntityParticleBullet(this.world, this.thrower, this.getBulletType());
-				setHere(e);
-				e.shoot(Math.cos(theta), 0.4, Math.sin(theta), 0.7f, 0);
-				this.world.spawnEntity(e);
-			}
+    @Override
+    public void onImpact(RayTraceResult position) {
+        super.onImpact(position);
+        if (!this.world.isRemote) {
+            for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
+                EntityColoredBullet e = new EntityColoredBullet(this.world, this.thrower,
+                        BulletType.GENERALS_STAFF_SPRAY);
+                setHere(e);
+                e.shoot(Math.cos(theta), 0.4, Math.sin(theta), 0.7f, 0);
+                this.world.spawnEntity(e);
+            }
 
-			EntityParticleBullet e = new EntityParticleBullet(this.world, this.thrower, this.getBulletType());
-			setHere(e);
-			e.shoot(0, 1, 0, 0.7f, 0);
-			this.world.spawnEntity(e);
-		}
-	}
+            EntityColoredBullet e = new EntityColoredBullet(this.world, this.thrower, BulletType.GENERALS_STAFF_SPRAY);
+            setHere(e);
+            e.shoot(0, 1, 0, 0.7f, 0);
+            this.world.spawnEntity(e);
+        }
+    }
 
-	private void setHere(Entity e) {
-		e.setPosition(this.posX, this.posY, this.posZ);
-	}
+    private void setHere(Entity e) {
+        e.setPosition(this.posX, this.posY, this.posZ);
+    }
 }

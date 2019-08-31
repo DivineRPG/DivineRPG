@@ -8,16 +8,14 @@ import net.minecraftforge.common.capabilities.Capability.IStorage;
 
 public class CapabilityArcana implements IStorage<IArcana> {
     private static final String arcana = "arcana";
-    private static final String max = "max";
-    private static final String cooldown = "cooldown";
+    private static final String regenDelay = "regenDelay";
 
     @Override
     public NBTBase writeNBT(Capability<IArcana> capability, IArcana instance, EnumFacing side) {
         NBTTagCompound result = new NBTTagCompound();
 
         result.setFloat(arcana, instance.getArcana());
-        result.setFloat(max, instance.getMax());
-        result.setFloat(cooldown, instance.getCoolDown());
+        result.setFloat(regenDelay, instance.getRegenDelay());
 
         return result;
     }
@@ -29,8 +27,7 @@ public class CapabilityArcana implements IStorage<IArcana> {
             NBTTagCompound saved = (NBTTagCompound) nbt;
 
             instance.set(saved.getFloat(arcana));
-            instance.setColDown(saved.getFloat(cooldown));
-            instance.setMax(saved.getFloat(max));
+            instance.setRegenDelay(saved.getInteger(regenDelay));
         }
     }
 }
