@@ -22,6 +22,7 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -164,9 +165,18 @@ public abstract class BlockModFurnace extends Block implements IHasModel {
         }
     }
 
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    public static void updateBlock(Block block, World worldIn, BlockPos pos) {
+        IBlockState iblockstate = worldIn.getBlockState(pos);
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+
+        keepInventory = true;
+        worldIn.setBlockState(pos, block.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+        keepInventory = false;
+
+        if (tileentity != null) {
+            tileentity.validate();
+            worldIn.setTileEntity(pos, tileentity);
+        }
     }
 
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
@@ -201,5 +211,10 @@ public abstract class BlockModFurnace extends Block implements IHasModel {
     @SuppressWarnings("deprecation")
     public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    public void registerModels() {
+        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }
