@@ -16,11 +16,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockModFire extends BlockFire implements IHasModel {
-    protected String name;
 
     public BlockModFire(String name) {
         super();
-        this.name = name;
         setLightLevel(1.0F);
         setCreativeTab(null);
         setUnlocalizedName(name);
@@ -36,7 +34,10 @@ public class BlockModFire extends BlockFire implements IHasModel {
 
     protected void lightPortal(World world, BlockPos pos, IBlockState state) {
         if (this == ModBlocks.blueFire) {
-            if ((ModBlocks.edenPortal.makePortal(world, pos) || ModBlocks.wildwoodPortal.makePortal(world, pos) || ModBlocks.apalachiaPortal.makePortal(world, pos) || ModBlocks.skythernPortal.makePortal(world, pos) || ModBlocks.mortumPortal.makePortal(world, pos)) && Config.debug) {
+            if ((ModBlocks.edenPortal.makePortal(world, pos) || ModBlocks.wildwoodPortal.makePortal(world, pos)
+                    || ModBlocks.apalachiaPortal.makePortal(world, pos)
+                    || ModBlocks.skythernPortal.makePortal(world, pos) || ModBlocks.mortumPortal.makePortal(world, pos))
+                    && Config.debug) {
                 DivineRPG.logger.info("Twilight portal created");
             }
         } else {

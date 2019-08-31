@@ -117,5 +117,4 @@ public class ModelVamacheronStatue extends DivineModel {
         Shape1.mirror = true;
         setRotation(Shape1, 0F, 0F, 0F);
     }
-
 }

@@ -270,5 +270,4 @@ public class ModelAyeracoStatue extends DivineModel {
         Body.mirror = true;
         setRotation(Body, 0F, 0F, 0F);
     }
-
 }

@@ -74,5 +74,4 @@ public class ModelTheWatcherStatue extends DivineModel {
         Tentacle31.mirror = true;
         setRotation(Tentacle31, 0F, 0F, 0F);
     }
-
 }

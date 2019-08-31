@@ -31,7 +31,7 @@ public class TileEntityAyeracoBeam extends ModUpdatableTileEntity {
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
-    }//
+    }
 
     @Override
     public void readFromNBT(NBTTagCompound compound) {

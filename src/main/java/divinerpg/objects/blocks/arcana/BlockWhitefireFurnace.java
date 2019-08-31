@@ -8,11 +8,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockWhitefireFurnace extends BlockModFurnace implements ITileEntityProvider {
-    protected String name;
 
     public BlockWhitefireFurnace(String name, boolean isBurnging) {
         super(name, isBurnging);
-        this.name = name;
     }
 
     public int getGuiID() {

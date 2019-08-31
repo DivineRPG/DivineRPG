@@ -6,16 +6,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ModelEdenChest extends ModelBase
-{
+public class ModelEdenChest extends ModelBase {
     public ModelRenderer chestLid = (new ModelRenderer(this, 0, 0)).setTextureSize(64, 64);
     public ModelRenderer chestBelow;
     public ModelRenderer chestKnobLeft;
     public ModelRenderer chestKnobMiddle;
     public ModelRenderer chestKnobRight;
 
-    public ModelEdenChest()
-    {
+    public ModelEdenChest() {
         this.chestLid.addBox(0.0F, -5.0F, -14.0F, 14, 5, 14, 0.0F);
         this.chestLid.rotationPointX = 1.0F;
         this.chestLid.rotationPointY = 7.0F;
@@ -42,9 +40,8 @@ public class ModelEdenChest extends ModelBase
         this.chestBelow.rotationPointZ = 1.0F;
     }
 
-    public void renderAll()
-    {
-    	this.chestKnobRight.rotateAngleX = this.chestKnobMiddle.rotateAngleX = this.chestKnobLeft.rotateAngleX = this.chestLid.rotateAngleX;
+    public void renderAll() {
+        this.chestKnobRight.rotateAngleX = this.chestKnobMiddle.rotateAngleX = this.chestKnobLeft.rotateAngleX = this.chestLid.rotateAngleX;
         this.chestLid.render(0.0625F);
         this.chestKnobLeft.render(0.0625F);
         this.chestKnobMiddle.render(0.0625F);

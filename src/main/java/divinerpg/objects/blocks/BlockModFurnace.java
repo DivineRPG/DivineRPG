@@ -39,11 +39,9 @@ public abstract class BlockModFurnace extends Block implements IHasModel {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     public static boolean keepInventory;
     protected boolean isBurning;
-    protected String name;
 
     public BlockModFurnace(String name, boolean isBurning) {
         super(Material.ROCK);
-        this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
         if (isBurning) {

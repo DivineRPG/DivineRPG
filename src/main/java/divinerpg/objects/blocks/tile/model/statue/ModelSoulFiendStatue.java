@@ -249,5 +249,4 @@ public class ModelSoulFiendStatue extends DivineModel {
         back12.mirror = true;
         setRotation(back12, 0F, 0F, 0.6108652F);
     }
-
 }

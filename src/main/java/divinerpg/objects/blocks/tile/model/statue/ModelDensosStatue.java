@@ -81,5 +81,4 @@ public class ModelDensosStatue extends DivineModel {
         head5.mirror = true;
         setRotation(head5, 0F, 0F, 0F);
     }
-
 }

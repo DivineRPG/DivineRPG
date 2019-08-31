@@ -1,4 +1,4 @@
-package divinerpg.objects.blocks.tile.container.slot;
+package divinerpg.objects.blocks.tile.container;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import net.minecraft.inventory.Slot;

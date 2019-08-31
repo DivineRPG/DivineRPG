@@ -81,5 +81,4 @@ public class ModelReyvorStatue extends DivineModel {
         head5.mirror = true;
         setRotation(head5, 0F, -0.5576792F, 0F);
     }
-
 }

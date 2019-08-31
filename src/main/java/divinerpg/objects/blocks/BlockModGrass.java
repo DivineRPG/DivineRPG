@@ -1,5 +1,7 @@
 package divinerpg.objects.blocks;
 
+import java.util.Random;
+
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.items.base.ItemModSeeds;
@@ -12,8 +14,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
-
-import java.util.Random;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected BlockMod dirt;
@@ -73,28 +73,27 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
             IPlantable plantable) {
 
-        if (plantable instanceof BlockModCrop){
+        if (plantable instanceof BlockModCrop) {
 
             // get itemStack with seed from plants
             ItemStack item = ((BlockModCrop) plantable).getItem(((World) world), pos, state);
-            if (item != null){
+            if (item != null) {
                 // getting seed
                 Item seed = item.getItem();
                 // If seed is Divine type, reset local value
                 // Condition below will handle it
-                if (seed instanceof ItemModSeeds){
-                    plantable = (ItemModSeeds)seed;
+                if (seed instanceof ItemModSeeds) {
+                    plantable = (ItemModSeeds) seed;
                 }
             }
         }
 
-    	if (plantable instanceof BlockModDoublePlant)
-        {
+        if (plantable instanceof BlockModDoublePlant) {
             return ((BlockModDoublePlant) plantable).getGrass() == this;
         }
 
-    	if (plantable instanceof ItemModSeeds){
-            return  ((ItemModSeeds) plantable).soil == this;
+        if (plantable instanceof ItemModSeeds) {
+            return ((ItemModSeeds) plantable).soil == this;
         }
 
         return false;

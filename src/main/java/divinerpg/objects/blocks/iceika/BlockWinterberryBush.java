@@ -22,10 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockWinterberryBush extends BlockMod implements IShearable {
 
-    protected String stateChangeName;
     public boolean isGrown;
-
-    World w;
 
     public BlockWinterberryBush(boolean grown, String name) {
         super(EnumBlockType.LEAVES, name, 0.2F);

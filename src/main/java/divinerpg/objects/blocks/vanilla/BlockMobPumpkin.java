@@ -1,7 +1,5 @@
 package divinerpg.objects.blocks.vanilla;
 
-import java.util.Random;
-
 import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -30,7 +28,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockMobPumpkin extends BlockHorizontal implements IHasModel {
-    private Random rand = new Random();
 
     public BlockMobPumpkin(String name) {
         super(Material.GOURD);

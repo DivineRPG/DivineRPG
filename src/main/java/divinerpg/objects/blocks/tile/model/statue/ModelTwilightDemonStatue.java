@@ -102,5 +102,4 @@ public class ModelTwilightDemonStatue extends DivineModel {
         connector2.mirror = true;
         setRotation(connector2, 0F, 0F, 0F);
     }
-
 }

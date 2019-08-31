@@ -317,5 +317,4 @@ public class ModelKingOfScorchersStatue extends DivineModel {
         part44.mirror = true;
         setRotation(part44, 0F, 0F, -1.570796F);
     }
-
 }

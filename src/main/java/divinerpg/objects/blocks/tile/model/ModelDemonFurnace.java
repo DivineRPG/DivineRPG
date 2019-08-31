@@ -14,10 +14,7 @@ public class ModelDemonFurnace extends ModelBase {
     ModelRenderer Arm5;
     ModelRenderer Arm6;
 
-
-    public ModelDemonFurnace()
-    {
-
+    public ModelDemonFurnace() {
         textureWidth = 64;
         textureHeight = 64;
 
@@ -65,8 +62,7 @@ public class ModelDemonFurnace extends ModelBase {
         setRotation(Arm6, 0F, 0F, -0.6632251F);
     }
 
-    public void render(float f5)
-    {
+    public void render(float f5) {
         Box.render(f5);
         Arm1.render(f5);
         Arm2.render(f5);
@@ -76,16 +72,14 @@ public class ModelDemonFurnace extends ModelBase {
         Arm6.render(f5);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
 
     @Override
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity f6)
-    {
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity f6) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, f6);
     }
 }

@@ -13,11 +13,9 @@ import net.minecraft.world.World;
 
 public class BlockLightFence extends BlockModFence {
     private final boolean isOn;
-    private String name;
 
     public BlockLightFence(MapColor mapColor, String name, boolean isOn, float hardness) {
         super(mapColor, name);
-        this.name = name;
         this.isOn = isOn;
         setSoundType(SoundType.GLASS);
         setHardness(hardness);

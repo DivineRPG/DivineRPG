@@ -54,5 +54,4 @@ public class ModelDramixStatue extends DivineModel {
         Chest.mirror = true;
         setRotation(Chest, 0F, 0F, 0F);
     }
-
 }

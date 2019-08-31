@@ -1,5 +1,8 @@
 package divinerpg.objects.blocks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -15,11 +18,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BlockModCrop extends BlockCrops implements IHasModel {
-    protected String name;
 
     /**
      * Contains stages of growth
@@ -31,11 +30,11 @@ public class BlockModCrop extends BlockCrops implements IHasModel {
     }
 
     /**
-     * @param maxHeight - max height of plant, 0 > height >= 1
+     * @param maxHeight
+     *            - max height of plant, 0 > height >= 1
      */
     public BlockModCrop(String name, double maxHeight) {
         super();
-        this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
 
@@ -43,10 +42,10 @@ public class BlockModCrop extends BlockCrops implements IHasModel {
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
         // Stages starting with zero
-        double step = maxHeight / ((double)getMaxAge() + 1);
+        double step = maxHeight / ((double) getMaxAge() + 1);
 
         // Stages are grown by steps
-        for (int i = 0; i <= getMaxAge(); i++){
+        for (int i = 0; i <= getMaxAge(); i++) {
             aabb.add(new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, step * (i + 1), 1.0D));
         }
     }

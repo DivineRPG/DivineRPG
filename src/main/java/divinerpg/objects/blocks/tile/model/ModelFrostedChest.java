@@ -6,18 +6,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Created by LiteWolf101 on Feb
- * /08/2019
+ * Created by LiteWolf101 on Feb /08/2019
  */
 
 @SideOnly(Side.CLIENT)
-public class ModelFrostedChest extends ModelBase{
+public class ModelFrostedChest extends ModelBase {
     ModelRenderer storage;
     public ModelRenderer lid;
     ModelRenderer handle;
 
-    public ModelFrostedChest()
-    {
+    public ModelFrostedChest() {
         this.textureWidth = 64;
         this.textureHeight = 64;
 
@@ -32,8 +30,7 @@ public class ModelFrostedChest extends ModelBase{
         this.lid.addBox(0.0F, -5.0F, -14.0F, 14, 5, 14, 0.0F);
     }
 
-    public void renderAll()
-    {
+    public void renderAll() {
         this.handle.rotateAngleX = this.lid.rotateAngleX;
         this.lid.render(0.0625F);
         this.handle.render(0.0625F);

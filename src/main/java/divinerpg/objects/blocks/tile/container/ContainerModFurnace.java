@@ -1,6 +1,5 @@
 package divinerpg.objects.blocks.tile.container;
 
-import divinerpg.objects.blocks.tile.container.slot.SlotModFurnaceFuel;
 import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

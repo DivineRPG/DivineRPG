@@ -16,11 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockModBridge extends BlockMod {
-    public static final PropertyBool POWERED;
-
-    static {
-        POWERED = PropertyBool.create("powered");
-    }
+    public static final PropertyBool POWERED = PropertyBool.create("powered");
 
     public BlockModBridge(String name) {
         super(EnumBlockType.GLASS, name, 1.5F);
@@ -29,7 +25,7 @@ public class BlockModBridge extends BlockMod {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[]{POWERED});
+        return new BlockStateContainer(this, new IProperty[] { POWERED });
     }
 
     @Override
@@ -78,7 +74,7 @@ public class BlockModBridge extends BlockMod {
         return blockState.getValue(POWERED) ? blockState.getBoundingBox(worldIn, pos) : NULL_AABB;
     }
 
-    //TODO: figure out how to stop non-solid bridge from suffocating player/mobs
+    // FIXME: figure out how to stop non-solid bridge from suffocating player/mobs
     public boolean isOpaqueCube(IBlockState state) {
         return !state.getValue(POWERED);
     }

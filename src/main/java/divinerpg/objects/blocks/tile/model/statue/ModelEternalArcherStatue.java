@@ -159,5 +159,4 @@ public class ModelEternalArcherStatue extends DivineModel {
         this.rightleg.rotateAngleX = -0.3f;
         this.leftleg.rotateAngleX = 0.3f;
     }
-
 }

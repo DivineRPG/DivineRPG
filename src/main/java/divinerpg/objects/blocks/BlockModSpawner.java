@@ -15,11 +15,9 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 
 public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
-    protected String name;
     protected String mobName;
 
     public BlockModSpawner(String name, String mobName) {
-        this.name = name;
         this.mobName = mobName;
         setUnlocalizedName(name);
         setRegistryName(name);

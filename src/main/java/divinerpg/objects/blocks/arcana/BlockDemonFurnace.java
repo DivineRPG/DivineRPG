@@ -10,11 +10,9 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.world.World;
 
 public class BlockDemonFurnace extends BlockModFurnace implements ITileEntityProvider {
-    protected String name;
 
     public BlockDemonFurnace(String name, boolean isBurning) {
         super(name, isBurning);
-        this.name = name;
     }
 
     public int getGuiID() {

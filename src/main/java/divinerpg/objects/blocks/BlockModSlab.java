@@ -22,10 +22,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public abstract class BlockModSlab extends BlockSlab implements IHasModel {
-    public static final PropertyEnum<WoodType> VARIANT = PropertyEnum.<WoodType>create("variant",
-            WoodType.class);
+    public static final PropertyEnum<WoodType> VARIANT = PropertyEnum.<WoodType>create("variant", WoodType.class);
 
-    public final String NAME;
     private Block single;
     private WoodType woodType;
 
@@ -34,9 +32,9 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
         setHardness(plank.getWoodType().getHardness());
         setResistance(5);
 
-        NAME = plank.name.replace("_planks", "_") + (isDouble() ? "double_slab" : "slab");
-        setUnlocalizedName(NAME);
-        setRegistryName(NAME);
+        String name = woodType.getName() + (isDouble() ? "_double_slab" : "_slab");
+        setUnlocalizedName(name);
+        setRegistryName(name);
 
         this.single = single;
         this.woodType = woodType;
@@ -64,15 +62,15 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
         if (this.isDouble()) {
             return iblockstate;
         } else {
-            return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || (double) hitY <= 0.5D) ? iblockstate
-                    : iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
+            return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || (double) hitY <= 0.5D) ? iblockstate :
+                    iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
         }
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return this.isDouble() ? new BlockStateContainer(this, this.getVariantProperty())
-                : new BlockStateContainer(this, this.getVariantProperty(), HALF);
+        return this.isDouble() ? new BlockStateContainer(this, this.getVariantProperty()) :
+                new BlockStateContainer(this, this.getVariantProperty(), HALF);
     }
 
     @Override
@@ -89,8 +87,8 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
     @Override
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
-        return this.isDouble() ? this.getDefaultState()
-                : this.getDefaultState().withProperty(HALF, meta == 0 ? EnumBlockHalf.BOTTOM : EnumBlockHalf.TOP);
+        return this.isDouble() ? this.getDefaultState() :
+                this.getDefaultState().withProperty(HALF, meta == 0 ? EnumBlockHalf.BOTTOM : EnumBlockHalf.TOP);
     }
 
     @Override

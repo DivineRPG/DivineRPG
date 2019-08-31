@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -14,12 +13,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockStupidSpawner extends BlockMobSpawner implements IHasModel {
-    protected String name;
     protected String mobName;
     protected boolean spawnParticles;
 
     public BlockStupidSpawner(String name, String mobName, boolean spawnParticles) {
-        this.name = name;
         this.mobName = mobName;
         this.spawnParticles = spawnParticles;
         setUnlocalizedName(name);
