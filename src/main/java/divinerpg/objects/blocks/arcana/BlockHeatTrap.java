@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockHeatTrap extends BlockModUnbreakable {
-    protected static final AxisAlignedBB HEAT_TRAP_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
+     private static final AxisAlignedBB HEAT_TRAP_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
             0.9375D);
 
     public BlockHeatTrap(String name) {

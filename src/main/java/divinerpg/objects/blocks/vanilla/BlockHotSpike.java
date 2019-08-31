@@ -10,14 +10,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockHotSpike extends BlockMod {
-    public BlockHotSpike(String name) {
-        super(EnumBlockType.ROCK, name, 3);
-    }
+public class BlockHotSpike extends BlockSpike {
 
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        float f = 0.0625F;
-        return new AxisAlignedBB(x + f, y, z + f, x + 1 - f, y + 1 - f, z + 1 - f);
+    public BlockHotSpike(String name) {
+        super(name);
     }
 
     @Override
