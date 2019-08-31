@@ -212,13 +212,6 @@ public class ModBlocks {
             StatueType.TWILIGHT_DEMON_STATUE);
     public static BlockStatue vamacheronStatue = new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE);
 
-
-
-
-
-
-
-
     public static Block tomatoPlant = new BlockTomatoPlant();
     public static Block whiteMushroomPlant = new BlockWhiteMushroomPlant();
 
@@ -397,13 +390,10 @@ public class ModBlocks {
     public static Block roamerSpawner = new BlockArcanaSpawner("roamer_spawner", "roamer");
     public static Block starBridge = new BlockStarBridge("star_bridge", false);
     public static Block starBridgeOn = new BlockStarBridge("star_bridge_on", true);
-    public static Block soulSludgeDoor = new BlockArcanaDoor("soul_sludge_door", Material.IRON, -1F,
-            ModItems.sludgeKey);
-    public static Block ancientBrickDoor = new BlockArcanaDoor("ancient_brick_door", Material.IRON, -1F,
-            ModItems.ancientKey);
-    public static Block soulStoneDoor = new BlockArcanaDoor("soul_stone_door", Material.IRON, -1F, ModItems.soulKey);
-    public static Block degradedBrickDoor = new BlockArcanaDoor("degraded_brick_door", Material.IRON, -1F,
-            ModItems.degradedKey);
+    public static Block soulSludgeDoor = new BlockArcanaDoor("soul_sludge_door", ModItems.sludgeKey);
+    public static Block ancientBrickDoor = new BlockArcanaDoor("ancient_brick_door", ModItems.ancientKey);
+    public static Block soulStoneDoor = new BlockArcanaDoor("soul_stone_door", ModItems.soulKey);
+    public static Block degradedBrickDoor = new BlockArcanaDoor("degraded_brick_door", ModItems.degradedKey);
 
     public static Block dramixAltar = new BlockDramixAltar("dramix_altar");
     public static Block parasectaAltar = new BlockParasectaAltar("parasecta_altar");
