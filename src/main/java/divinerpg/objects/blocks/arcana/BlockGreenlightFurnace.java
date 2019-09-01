@@ -9,8 +9,8 @@ import net.minecraft.world.World;
 
 public class BlockGreenlightFurnace extends BlockModFurnace implements ITileEntityProvider {
 
-    public BlockGreenlightFurnace(String name, boolean isBurnging) {
-        super(name, isBurnging);
+    public BlockGreenlightFurnace(String name, boolean isBurning) {
+        super(name, isBurning);
     }
 
     public int getGuiID() {

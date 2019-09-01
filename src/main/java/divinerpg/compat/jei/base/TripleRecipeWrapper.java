@@ -10,18 +10,18 @@ import net.minecraft.village.MerchantRecipe;
 
 import java.util.List;
 
-public class TrippleRecipeWrapper implements IRecipeWrapper {
+public class TripleRecipeWrapper implements IRecipeWrapper {
 
     private ItemStack left;
     private ItemStack right;
     private ItemStack result;
 
 
-    public TrippleRecipeWrapper(MerchantRecipe recipe) {
+    public TripleRecipeWrapper(MerchantRecipe recipe) {
         this(recipe.getItemToBuy(), recipe.getSecondItemToBuy(), recipe.getItemToSell());
     }
 
-    public TrippleRecipeWrapper(ItemStack left, ItemStack right, ItemStack result) {
+    public TripleRecipeWrapper(ItemStack left, ItemStack right, ItemStack result) {
         this.left = left;
         this.right = right;
         this.result = result;

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 import divinerpg.DivineRPG;
 import divinerpg.compat.jei.base.SmelterCategory;
-import divinerpg.compat.jei.base.TrippleRecipeWrapper;
+import divinerpg.compat.jei.base.TripleRecipeWrapper;
 import divinerpg.compat.jei.base.VillagerCategory;
 import divinerpg.objects.blocks.tile.container.gui.ArcaniumExtractorGUI;
 import divinerpg.objects.entities.container.gui.*;
@@ -117,7 +117,7 @@ public class JEICompat implements IModPlugin {
         registerVillagerRecepies(registry, Datticon.getAllRecipies(), JeiReferences.DATTICON_CATEGORY);
         registerVillagerRecepies(registry, LordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
         registerVillagerRecepies(registry, Zelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);
-        registry.addRecipes(Arrays.asList(new TrippleRecipeWrapper(new ItemStack(ModBlocks.arcaniumOre),
+        registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(ModBlocks.arcaniumOre),
                 new ItemStack(ModItems.chargedCollector), new ItemStack(ModItems.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
 
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.demonFurnace), VanillaRecipeCategoryUid.SMELTING);
@@ -134,7 +134,7 @@ public class JEICompat implements IModPlugin {
     private void registerVillagerRecepies(IModRegistry registry, List<MerchantRecipe> receipes, String name){
         registry.addRecipes(receipes
         .stream()
-                .map(TrippleRecipeWrapper::new)
+                .map(TripleRecipeWrapper::new)
         .collect(Collectors.toList()), name);
     }
 }

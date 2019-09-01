@@ -72,13 +72,6 @@ public class DivineRPGTabs extends CreativeTabs {
 			return new ItemStack(ModItems.bacon);
 		}
 	};
-//	public static DivineRPGTabs vethea = new DivineRPGTabs("Vethea") {
-//		@Override
-//		@SideOnly(Side.CLIENT)
-//		public ItemStack getTabIconItem() {
-//			return new ItemStack(ModItems.karosStaff);
-//		}
-//	};
 
 	public static void init() {
 	}
@@ -87,12 +80,12 @@ public class DivineRPGTabs extends CreativeTabs {
 
 	private String name;
 
-	public DivineRPGTabs(String lable) {
-		this(lable, lable);
+	public DivineRPGTabs(String label) {
+		this(label, label);
 	}
 
-	public DivineRPGTabs(String lable, String name) {
-		super(getNextID(), lable);
+	public DivineRPGTabs(String label, String name) {
+		super(getNextID(), label);
 
 	}
 

@@ -9,8 +9,8 @@ import net.minecraft.world.World;
 
 public class BlockOceanfireFurnace extends BlockModFurnace implements ITileEntityProvider {
 
-    public BlockOceanfireFurnace(String name, boolean isBurnging) {
-        super(name, isBurnging);
+    public BlockOceanfireFurnace(String name, boolean isBurning) {
+        super(name, isBurning);
     }
 
     public int getGuiID() {
