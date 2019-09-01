@@ -15,37 +15,56 @@ import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemMeriksMissile extends ItemMod {
-
+    public static final int MAX_USE_DURATION = 72000;
     private float arcana = 50;
 
     public ItemMeriksMissile(String name) {
         super(name, DivineRPGTabs.tools);
         this.maxStackSize = 1;
         this.setMaxDamage(-1);
+        this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                if (entityIn == null) {
+                    return 0.0F;
+                } else {
+                    return !(entityIn.getActiveItemStack().getItem() instanceof ItemMeriksMissile) ? 0.0F :
+                            (float) (MAX_USE_DURATION - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F :
+                        0.0F;
+            }
+        });
     }
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft) {
         if (stack.getItem() == ModItems.meriksMissile && entityLiving instanceof EntityPlayer) {
-            int multiplier = this.getMaxItemUseDuration(stack) - timeLeft;
-
+            float charge = (float) (MAX_USE_DURATION - timeLeft) / 20.0F;
             EntityPlayer player = (EntityPlayer) entityLiving;
-
             IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+
+            if (charge > 1.0) {
+                charge = 1.0F;
+            }
             if (arcana.getArcana() >= this.arcana && !world.isRemote) {
-                float var7 = (float) multiplier / 20.0F;
-                var7 = (var7 * var7 + var7 * 2.0F) / 3.0F;
-                if ((double) var7 < 0.1D)
+                if (charge < 0.15F)
                     return;
 
                 world.playSound(null, player.getPosition(), ModSounds.VETHEA_BOW, SoundCategory.MASTER, 1, 1);
@@ -66,7 +85,7 @@ public class ItemMeriksMissile extends ItemMod {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return Items.BOW.getMaxItemUseDuration(stack);
+        return MAX_USE_DURATION;
     }
 
     @Override
