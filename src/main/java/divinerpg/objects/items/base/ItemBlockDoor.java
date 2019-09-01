@@ -1,8 +1,5 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;

@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -20,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModSword extends ItemSword implements IHasModel {
+public class ItemModSword extends ItemSword  {
 
     private String name;
     private ToolMaterial material;
@@ -70,10 +68,5 @@ public class ItemModSword extends ItemSword implements IHasModel {
     }
 
     protected void addAdditionalInformation(List<String> list) {
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 }

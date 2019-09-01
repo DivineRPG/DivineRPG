@@ -2,11 +2,9 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -24,7 +22,7 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel {
+public class BlockModLeaves extends BlockLeaves implements IShearable {
     private Block sapling;
 
     public BlockModLeaves(String name, float hardness) {
@@ -95,11 +93,6 @@ public class BlockModLeaves extends BlockLeaves implements IShearable, IHasModel
     @Override
     protected ItemStack getSilkTouchDrop(IBlockState state) {
         return new ItemStack(Item.getItemFromBlock(this));
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
     @Override

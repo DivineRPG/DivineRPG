@@ -1,9 +1,7 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -13,7 +11,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class ItemMod extends Item implements IHasModel {
+public class ItemMod extends Item  {
     protected int healAmount = 0;
     protected String name;
 
@@ -42,11 +40,6 @@ public class ItemMod extends Item implements IHasModel {
         } else {
             return super.onItemRightClick(world, player, hand);
         }
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 
     public ItemMod setHealAmount(int healAmount) {

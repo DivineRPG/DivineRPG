@@ -1,9 +1,7 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
-public class ItemModSeeds extends Item implements IPlantable, IHasModel {
+public class ItemModSeeds extends Item implements IPlantable {
     public String name;
     public Block crop;
     public Block soil;
@@ -72,10 +70,5 @@ public class ItemModSeeds extends Item implements IPlantable, IHasModel {
     @Override
     public net.minecraft.block.state.IBlockState getPlant(net.minecraft.world.IBlockAccess world, BlockPos pos) {
         return this.crop.getDefaultState();
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 }

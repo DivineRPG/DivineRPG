@@ -2,12 +2,10 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.items.base.ItemBlockDoor;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockModDoor extends BlockDoor implements IHasModel {
+public class BlockModDoor extends BlockDoor  {
 
     public BlockModDoor(String name, Material materialIn, float hardness) {
         super(materialIn);
@@ -61,10 +59,5 @@ public class BlockModDoor extends BlockDoor implements IHasModel {
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
             EntityPlayer player) {
         return new ItemStack(this);
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

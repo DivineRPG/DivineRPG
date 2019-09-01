@@ -78,12 +78,16 @@ import divinerpg.objects.items.vanilla.ItemVileStorm;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.GenerateJSON;
 import divinerpg.utils.ToolMaterialMod;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ModItems {
     public static final List<Item> ITEMS = new ArrayList<Item>();
@@ -791,4 +795,7 @@ public class ModItems {
     public static void CreateJSONs() {
         GenerateJSON.generateItemModelJSONs();
     }
+
+
+
 }

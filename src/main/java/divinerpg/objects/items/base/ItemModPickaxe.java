@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemPickaxe;
@@ -16,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModPickaxe extends ItemPickaxe implements IHasModel {
+public class ItemModPickaxe extends ItemPickaxe  {
 	private String name;
 
 	public ItemModPickaxe(ToolMaterial material, String name) {
@@ -39,10 +37,5 @@ public class ItemModPickaxe extends ItemPickaxe implements IHasModel {
 			infoList.add(TooltipLocalizer.infiniteUses());
 		}
 
-	}
-
-	@Override
-	public void registerModels() {
-		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

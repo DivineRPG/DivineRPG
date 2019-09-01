@@ -1,12 +1,10 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -27,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemModBow extends ItemBow implements IHasModel {
+public class ItemModBow extends ItemBow  {
     private net.minecraft.util.SoundEvent shootSound = SoundEvents.ENTITY_ARROW_SHOOT;
     public static final int DEFAULT_MAX_USE_DURATION = 72000;
     protected ArrowType arrowType;
@@ -216,9 +214,4 @@ public class ItemModBow extends ItemBow implements IHasModel {
 //        this.vethean = true;
 //        return this;
 //    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
-    }
 }

@@ -7,10 +7,8 @@ import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockModTorch extends BlockTorch implements IHasModel {
+public class BlockModTorch extends BlockTorch  {
     private ParticleType flameParticle;
 
     public BlockModTorch(String name, ParticleType particle) {
@@ -48,10 +46,5 @@ public class BlockModTorch extends BlockTorch implements IHasModel {
             d2 = d2 + 0.27D * (double) enumfacing1.getFrontOffsetZ();
         }
         DivineRPG.proxy.spawnParticle(worldIn, flameParticle, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

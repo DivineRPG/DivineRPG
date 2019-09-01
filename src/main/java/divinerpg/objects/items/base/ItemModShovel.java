@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemSpade;
@@ -16,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModShovel extends ItemSpade implements IHasModel {
+public class ItemModShovel extends ItemSpade  {
 
 	private String name;
 
@@ -40,10 +38,4 @@ public class ItemModShovel extends ItemSpade implements IHasModel {
 			infoList.add(TooltipLocalizer.infiniteUses());
 		}
 	}
-
-	@Override
-	public void registerModels() {
-		DivineRPG.proxy.registerItemRenderer(this, 0, name);
-	}
-
 }

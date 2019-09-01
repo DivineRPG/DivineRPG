@@ -2,11 +2,9 @@ package divinerpg.objects.blocks.twilight;
 
 import java.util.Random;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -21,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class BlockTwilightGrass extends BlockBush
-        implements IHasModel, IPlantable, net.minecraftforge.common.IShearable {
+        implements IPlantable, net.minecraftforge.common.IShearable {
     private Block grass;
 
     public BlockTwilightGrass(String name, Block grass) {
@@ -83,10 +81,5 @@ public class BlockTwilightGrass extends BlockBush
     @Override
     public NonNullList<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
         return NonNullList.withSize(1, new ItemStack(this, 1));
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

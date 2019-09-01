@@ -1,15 +1,12 @@
 package divinerpg.objects.blocks.twilight;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
-public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlantable {
+public class BlockTwilightFlower extends BlockBush implements IPlantable {
     private Block grass;
     private AxisAlignedBB size;
 
@@ -26,10 +23,10 @@ public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlanta
     }
 
     /**
-     * @param width - sets the width of flower. Can't be lass/equals zero
+     * @param width  - sets the width of flower. Can't be lass/equals zero
      * @param height - sets the height of flower. Can't be less/equals zero
      */
-    public BlockTwilightFlower(String name, Block grass, double width, double height){
+    public BlockTwilightFlower(String name, Block grass, double width, double height) {
         setRegistryName(name);
         setUnlocalizedName(name);
         this.grass = grass;
@@ -40,7 +37,7 @@ public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlanta
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
-        if (width <= 0 || height <= 0){
+        if (width <= 0 || height <= 0) {
             throw new RuntimeException("Width or height cannot be less/equals zero!");
         }
 
@@ -102,10 +99,5 @@ public class BlockTwilightFlower extends BlockBush implements IHasModel, IPlanta
     @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos) {
         return net.minecraftforge.common.EnumPlantType.Plains;
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

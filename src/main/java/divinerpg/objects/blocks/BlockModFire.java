@@ -6,7 +6,6 @@ import divinerpg.Config;
 import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
@@ -15,7 +14,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockModFire extends BlockFire implements IHasModel {
+public class BlockModFire extends BlockFire  {
 
     public BlockModFire(String name) {
         super();
@@ -50,11 +49,6 @@ public class BlockModFire extends BlockFire implements IHasModel {
     @Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
         lightPortal(world, pos, state);
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
     @Override
