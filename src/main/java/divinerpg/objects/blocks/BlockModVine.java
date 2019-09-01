@@ -1,15 +1,12 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockVine;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockModVine extends BlockVine implements IHasModel {
+public class BlockModVine extends BlockVine {
 
     public BlockModVine(String name) {
         super();
@@ -24,10 +21,5 @@ public class BlockModVine extends BlockVine implements IHasModel {
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

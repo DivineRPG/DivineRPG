@@ -1,18 +1,15 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockMobSpawner;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockStupidSpawner extends BlockMobSpawner implements IHasModel {
+public class BlockStupidSpawner extends BlockMobSpawner  {
     protected String mobName;
     protected boolean spawnParticles;
 
@@ -43,10 +40,5 @@ public class BlockStupidSpawner extends BlockMobSpawner implements IHasModel {
 
     protected void setSpawnParticles(TileEntityStupidSpawner spawner) {
         spawner.setSpawnParticles(spawnParticles);
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

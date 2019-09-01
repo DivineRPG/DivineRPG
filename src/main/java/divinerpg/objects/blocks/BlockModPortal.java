@@ -12,7 +12,6 @@ import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.DivineTeleporter;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -41,7 +40,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockModPortal extends BlockBreakable implements IHasModel {
+public class BlockModPortal extends BlockBreakable {
 
     public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis",
             EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
@@ -230,11 +229,6 @@ public class BlockModPortal extends BlockBreakable implements IHasModel {
 
             DivineRPG.proxy.spawnParticle(worldIn, portalParticle, d0, d1, d2, d3, d4, d5);
         }
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, name);
     }
 
     @Override

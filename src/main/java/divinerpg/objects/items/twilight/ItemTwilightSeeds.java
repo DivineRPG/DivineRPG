@@ -1,8 +1,6 @@
 package divinerpg.objects.items.twilight;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemSeeds;
@@ -15,7 +13,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
-public class ItemTwilightSeeds extends ItemSeeds implements IHasModel {
+public class ItemTwilightSeeds extends ItemSeeds  {
     private Block grass, crop;
     String name;
 
@@ -49,10 +47,5 @@ public class ItemTwilightSeeds extends ItemSeeds implements IHasModel {
         } else {
             return EnumActionResult.FAIL;
         }
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 }

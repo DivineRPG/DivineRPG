@@ -12,7 +12,6 @@ import divinerpg.enums.EnumArmor;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.ChatFormats;
-import divinerpg.utils.IHasModel;
 import divinerpg.utils.TokenHelper;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -28,7 +27,7 @@ import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISpecialArmor, IHasModel {
+public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISpecialArmor {
     protected double damageReduction;
     protected boolean unbreakable;
     protected int fullReduction;
@@ -163,13 +162,6 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
     @Override
     public boolean isDamageable() {
         return !unbreakable;
-    }
-
-    @Override
-    public void registerModels() {
-        if (!armorMaterial.isOverriden()) {
-            DivineRPG.proxy.registerItemRenderer(this, 0, name);
-        }
     }
 
     protected String getDefaultItemName(String material, EntityEquipmentSlot slot) {

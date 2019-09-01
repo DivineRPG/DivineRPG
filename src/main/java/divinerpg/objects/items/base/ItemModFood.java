@@ -4,11 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.ChatFormats;
-import divinerpg.utils.IHasModel;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModFood extends ItemFood implements IHasModel {
+public class ItemModFood extends ItemFood  {
 	public String name;
 
 	public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
@@ -45,10 +43,5 @@ public class ItemModFood extends ItemFood implements IHasModel {
 		if (entityLiving instanceof EntityPlayer && item.getItem() == ModItems.chickenDinner) {
 		}
 		return item;
-	}
-
-	@Override
-	public void registerModels() {
-		DivineRPG.proxy.registerItemRenderer(this, 0, name);
 	}
 }

@@ -2,11 +2,9 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
-import divinerpg.DivineRPG;
 import divinerpg.enums.WoodType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
@@ -21,7 +19,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public abstract class BlockModSlab extends BlockSlab implements IHasModel {
+public abstract class BlockModSlab extends BlockSlab  {
     public static final PropertyEnum<WoodType> VARIANT = PropertyEnum.<WoodType>create("variant", WoodType.class);
 
     private Block single;
@@ -108,9 +106,4 @@ public abstract class BlockModSlab extends BlockSlab implements IHasModel {
     }
 
     protected abstract Block getSingle();
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-    }
 }

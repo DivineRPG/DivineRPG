@@ -1,14 +1,18 @@
 package divinerpg.events;
 
 import divinerpg.Config;
+import divinerpg.client.render.*;
+import divinerpg.objects.blocks.BlockStatue;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModLiquids;
 import divinerpg.registry.ModSpawns;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,15 +54,37 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
         for (Item item : ModItems.ITEMS) {
-            if (item instanceof IHasModel) {
-                ((IHasModel) item).registerModels();
+            registerItemModel(item);
+
+            //FIXME: there may be a better way
+            if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))) {
+                item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
+                item.setTileEntityItemStackRenderer(new RenderItemPresentBox());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.boneChest))) {
+                item.setTileEntityItemStackRenderer(new RenderItemBoneChest());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
+                item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
+            } else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockStatue) {
+                item.setTileEntityItemStackRenderer(new RenderItemStatue());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.edenChest))) {
+                item.setTileEntityItemStackRenderer(new RenderItemEdenChest());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.arcaniumExtractor))) {
+                item.setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.dramixAltar))) {
+                item.setTileEntityItemStackRenderer(new RenderItemDramixAltar());
+            } else if (item.equals(Item.getItemFromBlock(ModBlocks.parasectaAltar))) {
+                item.setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
             }
         }
 
         for (Block block : ModBlocks.BLOCKS) {
-            if (block instanceof IHasModel) {
-                ((IHasModel) block).registerModels();
-            }
+            registerItemModel(Item.getItemFromBlock(block));
         }
     }
+
+    public static void registerItemModel(Item item) {
+        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
+
 }

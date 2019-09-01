@@ -147,7 +147,7 @@ public class GenerateJSON {
             }
 
             Map<String, Object> json = new HashMap<>();
-            if (item instanceof IHasModel) {
+            if (true) {
                 Map<String, Object> textures = new HashMap<>();
                 if (item instanceof ItemMeriksMissile) {
                     json.put("parent", "item/handheld");

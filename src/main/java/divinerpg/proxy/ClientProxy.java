@@ -134,31 +134,6 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void registerItemRenderer(final Item item, final int meta, final String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta,
-                new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))) {
-            item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
-            item.setTileEntityItemStackRenderer(new RenderItemPresentBox());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.boneChest))) {
-            item.setTileEntityItemStackRenderer(new RenderItemBoneChest());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
-            item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
-        } else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockStatue) {
-            item.setTileEntityItemStackRenderer(new RenderItemStatue());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.edenChest))) {
-            item.setTileEntityItemStackRenderer(new RenderItemEdenChest());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.arcaniumExtractor))) {
-            item.setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.dramixAltar))) {
-            item.setTileEntityItemStackRenderer(new RenderItemDramixAltar());
-        } else if (item.equals(Item.getItemFromBlock(ModBlocks.parasectaAltar))) {
-            item.setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
-        }
-    }
-
-    @Override
     public void RegisterTileEntityRender() {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());

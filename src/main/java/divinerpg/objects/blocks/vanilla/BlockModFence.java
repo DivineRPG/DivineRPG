@@ -1,22 +1,19 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockModFence extends BlockFence implements IHasModel {
+public class BlockModFence extends BlockFence  {
 	public BlockModFence(MapColor mapColor, String name) {
 		super(Material.WOOD, mapColor);
 		setUnlocalizedName(name);
@@ -36,10 +33,5 @@ public class BlockModFence extends BlockFence implements IHasModel {
 		Block block = world.getBlockState(other).getBlock();
 
 		return block instanceof BlockFence || block instanceof BlockFenceGate;
-	}
-
-	@Override
-	public void registerModels() {
-		DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 	}
 }

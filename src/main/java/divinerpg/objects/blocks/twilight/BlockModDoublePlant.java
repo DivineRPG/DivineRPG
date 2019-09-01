@@ -1,10 +1,8 @@
 package divinerpg.objects.blocks.twilight;
 
-import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -28,7 +26,7 @@ import net.minecraftforge.common.IPlantable;
 import java.util.Random;
 
 public class BlockModDoublePlant extends BlockBush
-        implements IHasModel, IPlantable, net.minecraftforge.common.IShearable {
+        implements IPlantable, net.minecraftforge.common.IShearable {
     public static final PropertyEnum<BlockModDoublePlant.EnumBlockHalf> HALF = PropertyEnum.create(
             "half", BlockModDoublePlant.EnumBlockHalf.class);
     protected static final AxisAlignedBB DOUBLE_PLANT_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
@@ -151,11 +149,6 @@ public class BlockModDoublePlant extends BlockBush
         public String getName() {
             return this == UPPER ? "upper" : "lower";
         }
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
     public Block getGrass(){

@@ -10,7 +10,6 @@ import com.google.common.collect.Sets;
 import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -32,7 +31,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemShickaxe extends ItemTool implements IHasModel {
+public class ItemShickaxe extends ItemTool  {
     private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
             Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE,
             Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE,
@@ -169,10 +168,5 @@ public class ItemShickaxe extends ItemTool implements IHasModel {
             worldIn.setBlockState(pos, state, 11);
             stack.damageItem(1, player);
         }
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(this, 0, name);
     }
 }

@@ -96,11 +96,6 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
     }
 
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-    }
-
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
         if (!worldIn.isRemote) {
             IBlockState iblockstate = worldIn.getBlockState(pos.north());

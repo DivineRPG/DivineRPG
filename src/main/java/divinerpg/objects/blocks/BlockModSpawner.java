@@ -1,20 +1,17 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.DivineRPG;
 import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.IHasModel;
 import net.minecraft.block.BlockMobSpawner;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 
-public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
+public class BlockModSpawner extends BlockMobSpawner  {
     protected String mobName;
 
     public BlockModSpawner(String name, String mobName) {
@@ -42,10 +39,5 @@ public class BlockModSpawner extends BlockMobSpawner implements IHasModel {
         spawner.readFromNBT(compound2);
         spawner.markDirty();
         return spawner;
-    }
-
-    @Override
-    public void registerModels() {
-        DivineRPG.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }
