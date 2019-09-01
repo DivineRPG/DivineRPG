@@ -18,6 +18,7 @@ import org.lwjgl.opengl.GL11;
 	
 	@SubscribeEvent
 	public void playerRender(RenderPlayerEvent.Post evt) {
+		//FIXME - has no rotation based on player head. i attempted stuff but failed - Nico
         if (Utils.isDeveloperName(evt.getEntityPlayer().getDisplayNameString())) {
 			GL11.glPushMatrix();
 			float height = evt.getEntity().height;
