@@ -6,22 +6,19 @@
   "overrides": [
     {
       "predicate": {
-        "pull": 0.33,
-        "pulling": 1
+        "pull": 0.33
       },
       "model": "divinerpg:item/meriks_missile_1"
     },
     {
       "predicate": {
-        "pull": 0.67,
-        "pulling": 1
+        "pull": 0.67
       },
       "model": "divinerpg:item/meriks_missile_2"
     },
     {
       "predicate": {
-        "pull": 1.0,
-        "pulling": 1
+        "pull": 1.0
       },
       "model": "divinerpg:item/meriks_missile_3"
     }

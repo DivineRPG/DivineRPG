@@ -18,6 +18,7 @@ import com.google.gson.GsonBuilder;
 import divinerpg.Config;
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
+import divinerpg.objects.blocks.BlockModBridge;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.objects.blocks.BlockModDoor;
@@ -147,12 +148,35 @@ public class GenerateJSON {
             }
 
             Map<String, Object> json = new HashMap<>();
-            if (true) {
+            if (!(item instanceof ItemBlock)) {
                 Map<String, Object> textures = new HashMap<>();
                 if (item instanceof ItemMeriksMissile) {
                     json.put("parent", "item/handheld");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
                     json.put("textures", textures);
+                    Map<String, Object> pull_1 = new HashMap<>();
+                    Map<String, Object> predicate_1 = new HashMap<>();
+                    predicate_1.put("pull", 0.33);
+                    pull_1.put("predicate", predicate_1);
+                    pull_1.put("model", Reference.MODID + ":item/" + registryName + "_1");
+
+                    Map<String, Object> pull_2 = new HashMap<>();
+                    Map<String, Object> predicate_2 = new HashMap<>();
+                    predicate_2.put("pull", 0.67);
+                    pull_2.put("predicate", predicate_2);
+                    pull_2.put("model", Reference.MODID + ":item/" + registryName + "_2");
+
+                    Map<String, Object> pull_3 = new HashMap<>();
+                    Map<String, Object> predicate_3 = new HashMap<>();
+                    predicate_3.put("pull", 1.0);
+                    pull_3.put("predicate", predicate_3);
+                    pull_3.put("model", Reference.MODID + ":item/" + registryName + "_3");
+
+                    List<Map<String, Object>> overrides = new ArrayList<>();
+                    overrides.add(pull_1);
+                    overrides.add(pull_2);
+                    overrides.add(pull_3);
+                    json.put("overrides", overrides);
                 } else if (item instanceof ItemModBow) {
                     json.put("parent", "item/bow");
                     textures.put("layer0", Reference.MODID + ":items/" + registryName + "_0");
@@ -389,6 +413,8 @@ public class GenerateJSON {
                 generateDoublePlantBlockstate(registryName);
             } else if (block instanceof BlockModDoor) {
                 generateDoorBlockstate(registryName);
+            } else if (block instanceof BlockModBridge) {
+                generateBridgeBlockstate(registryName);
             } else {
                 generateCubeBlockstate(registryName);
             }
@@ -488,6 +514,27 @@ public class GenerateJSON {
         Map<String, Object> normal = new HashMap<>();
         normal.put("model", blockPath);
         variants.put("normal", normal);
+        json.put("variants", variants);
+        File f = new File(BLOCKSTATES_DIR, registryName + ".json");
+
+        try (FileWriter w = new FileWriter(f)) {
+            GSON.toJson(json, w);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateBridgeBlockstate(String registryName) {
+        String blockPath = Reference.MODID + ":" + registryName;
+
+        Map<String, Object> json = new HashMap<>();
+        Map<String, Object> variants = new HashMap<>();
+        Map<String, Object> nopower = new HashMap<>();
+        Map<String, Object> powered = new HashMap<>();
+        nopower.put("model", blockPath);
+        variants.put("powered=false", nopower);
+        powered.put("model", blockPath + "_on");
+        variants.put("powered=true", powered);
         json.put("variants", variants);
         File f = new File(BLOCKSTATES_DIR, registryName + ".json");
 
@@ -1200,6 +1247,9 @@ public class GenerateJSON {
                 generateAcceleronModelBlock(registryName);
             } else if (block instanceof BlockArcanaPortalFrame) {
                 generateArcanaPortalFrameModelBlock(registryName);
+            } else if (block instanceof BlockModBridge) {
+                generateBasicModelBlock(registryName);
+                generateBasicModelBlock(registryName + "_on");
             } else {
                 generateBasicModelBlock(registryName);
             }

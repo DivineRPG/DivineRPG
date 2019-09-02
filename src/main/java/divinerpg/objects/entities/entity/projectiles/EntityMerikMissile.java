@@ -10,19 +10,22 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityMerikMissile extends EntityHeatSeekingProjectile {
+    float damage = 8.0F;
 
     public EntityMerikMissile(World w) {
         super(w);
     }
 
-    public EntityMerikMissile(World w, EntityLivingBase e) {
+    public EntityMerikMissile(World w, EntityLivingBase e, float damage) {
         super(w, e);
+        this.damage = damage;
     }
 
     @Override
     protected void onImpact(RayTraceResult pos) {
-        if (pos.entityHit != null)
-            pos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 22);
+        if (pos.entityHit != null) {
+            pos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), this.damage);
+        }
         if (!this.world.isRemote) {
             this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2, false);
             this.setDead();

@@ -21,13 +21,13 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
-    private float arcana = 50;
 
     public ItemMeriksMissile(String name) {
         super(name, DivineRPGTabs.tools);
@@ -44,13 +44,6 @@ public class ItemMeriksMissile extends ItemMod {
                 }
             }
         });
-        this.addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter() {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F :
-                        0.0F;
-            }
-        });
     }
 
     @Override
@@ -63,16 +56,20 @@ public class ItemMeriksMissile extends ItemMod {
             if (charge > 1.0) {
                 charge = 1.0F;
             }
-            if (arcana.getArcana() >= this.arcana && !world.isRemote) {
-                if (charge < 0.15F)
+            float arcanaPoints = 50.0F * charge;
+
+            if (arcana.getArcana() >= arcanaPoints && !world.isRemote) {
+                if (charge < 0.2F)
                     return;
+
+                float damage = MathHelper.clamp(charge * 25F, 8F, 25F);
 
                 world.playSound(null, player.getPosition(), ModSounds.VETHEA_BOW, SoundCategory.MASTER, 1, 1);
 
-                EntityMerikMissile bullet = new EntityMerikMissile(world, player);
+                EntityMerikMissile bullet = new EntityMerikMissile(world, player, damage);
                 bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
                 world.spawnEntity(bullet);
-                arcana.consume(player, this.arcana);
+                arcana.consume(player, arcanaPoints);
             }
         }
     }
@@ -92,8 +89,8 @@ public class ItemMeriksMissile extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add("Explosive homing projectile");
-        list.add(TooltipLocalizer.rangedDam(22));
-        list.add(TooltipLocalizer.arcanaConsumed(arcana));
+        list.add(TooltipLocalizer.bowDam("8-25"));
+        list.add(TooltipLocalizer.arcanaConsumed("10-50"));
         list.add(TooltipLocalizer.infiniteUses());
     }
 }

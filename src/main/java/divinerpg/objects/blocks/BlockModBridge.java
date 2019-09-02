@@ -74,12 +74,18 @@ public class BlockModBridge extends BlockMod {
         return blockState.getValue(POWERED) ? blockState.getBoundingBox(worldIn, pos) : NULL_AABB;
     }
 
-    // FIXME: figure out how to stop non-solid bridge from suffocating player/mobs
+    //@Override
+    //public boolean causesSuffocation(IBlockState state) {
+    //    return state.getValue(POWERED);
+    //}
+
+    @Override
     public boolean isOpaqueCube(IBlockState state) {
-        return !state.getValue(POWERED);
+        return state.getValue(POWERED);
     }
 
+    @Override
     public boolean isFullCube(IBlockState state) {
-        return !state.getValue(POWERED);
+        return state.getValue(POWERED);
     }
 }
