@@ -6,6 +6,7 @@ import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
 import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -22,9 +23,11 @@ public class ModModels {
             registerModel(item);
         }
 
+        Item air = Item.getItemFromBlock(Blocks.AIR);
         for (Block block : ModBlocks.BLOCKS) {
-            if(!(block instanceof BlockAyeracoSpawn) && !(block instanceof BlockAyeracoBeam)) {
-                registerModel(Item.getItemFromBlock(block));
+            Item itemBlock = Item.getItemFromBlock(block);
+            if(!itemBlock.equals(air)) {
+                registerModel(itemBlock);
             }
         }
 
