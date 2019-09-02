@@ -9,18 +9,13 @@
 ### Other Blocks and Items
 
 ### General
-- FIXMEs
 - Map Colors
-- Arcana Mob hitboxes
 - All block hitboxes (including plant stages)
 - Final balancing
 
 ### Dimensions
 
 ### Arcana
-
-#### Items
-- Arcanium Buckets
 
 #### Worldgen
 - Generate 64x64 Dimension Maze ()
@@ -30,6 +25,7 @@
 
 ### Vethea
 - Seperate into add-on module for DivineRPG
+- Make hooks (API)
 
 #### Items
 - List Items left to do

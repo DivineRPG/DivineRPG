@@ -76,7 +76,6 @@ public class Wraith extends Paratiku {
         }
     }
 
-    // FIXME - Need to debug movement, does no behave like 1.7.10?
     @Override
     protected void updateAITasks() {
         super.updateAITasks();
@@ -96,7 +95,7 @@ public class Wraith extends Paratiku {
                             new BlockPos(MathHelper.floor(this.posX), (int) this.posY + 1, MathHelper.floor(this.posZ)))
                     .isNormalCube()) {
                 this.setIsBatHanging(false);
-                this.world.playEvent((EntityPlayer) null, 1015,
+                this.world.playEvent((EntityPlayer) null, 1025,
                         new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
             } else {
                 if (this.rand.nextInt(200) == 0) {
@@ -105,24 +104,24 @@ public class Wraith extends Paratiku {
 
                 if (this.world.getClosestPlayerToEntity(this, 4.0D) != null) {
                     this.setIsBatHanging(false);
-                    this.world.playEvent((EntityPlayer) null, 1015,
+                    this.world.playEvent((EntityPlayer) null, 1025,
                             new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
                 }
             }
         } else {
             if (this.currentFlightTarget != null) {
-                double var1 = this.currentFlightTarget.getX() - this.posX;
-                double var3 = this.currentFlightTarget.getY() - this.posY;
-                double var5 = this.currentFlightTarget.getZ() - this.posZ;
+                double x = this.currentFlightTarget.getX() - this.posX;
+                double y = this.currentFlightTarget.getY() - this.posY;
+                double z = this.currentFlightTarget.getZ() - this.posZ;
 
-                if (Math.signum(var1) != 0 || Math.signum(var3) != 0 || Math.signum(var5) != 0) {
-                    this.motionX += (Math.signum(var1) * 0.5D - this.motionX) * 0.10000000149011612D;
-                    this.motionY += (Math.signum(var3) * 1.699999988079071D - this.motionY) * 0.10000000149011612D;
-                    this.motionZ += (Math.signum(var5) * 0.5D - this.motionZ) * 0.10000000149011612D;
-                    float var7 = (float) (Math.atan2(this.motionZ, this.motionX) * 180.0D / Math.PI) - 90.0F;
-                    float var8 = MathHelper.wrapDegrees(var7 - this.rotationYaw);
+                if (Math.signum(x) != 0 || Math.signum(y) != 0 || Math.signum(z) != 0) {
+                    this.motionX += (Math.signum(x) * 0.5D - this.motionX) * 0.10000000149011612D;
+                    this.motionY += (Math.signum(y) * 1.699999988079071D - this.motionY) * 0.10000000149011612D;
+                    this.motionZ += (Math.signum(z) * 0.5D - this.motionZ) * 0.10000000149011612D;
+                    float f = (float) (MathHelper.atan2(this.motionZ, this.motionX) * (180D / Math.PI)) - 90.0F;
+                    float f1 = MathHelper.wrapDegrees(f - this.rotationYaw);
                     this.moveForward = 0.5F;
-                    this.rotationYaw += var8;
+                    this.rotationYaw += f1;
                 }
             }
         }
