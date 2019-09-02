@@ -74,11 +74,6 @@ public class BlockModBridge extends BlockMod {
         return blockState.getValue(POWERED) ? blockState.getBoundingBox(worldIn, pos) : NULL_AABB;
     }
 
-    //@Override
-    //public boolean causesSuffocation(IBlockState state) {
-    //    return state.getValue(POWERED);
-    //}
-
     @Override
     public boolean isOpaqueCube(IBlockState state) {
         return state.getValue(POWERED);
