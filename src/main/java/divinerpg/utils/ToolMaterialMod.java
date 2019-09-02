@@ -134,7 +134,7 @@ public class ToolMaterialMod {
     public static ToolMaterial WildwoodShovel = addShovelMaterial("wildwood_shovel", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
 
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
-            Item repair) {
+                                                Item repair) {
         return EnumHelper.addToolMaterial(name, 0, maxUses, 0, damage - 5, enchantability)
                 .setRepairItem(new ItemStack(repair, 1));
     }
@@ -144,46 +144,46 @@ public class ToolMaterialMod {
     }
 
     public static ToolMaterial addAxeMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-            float damage, int enchantability, Item repair) {
+                                              float damage, int enchantability, Item repair) {
         return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 4, enchantability)
                 .setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addAxeMaterial(String name, int harvestLevel, float efficiency, float damage,
-            int enchantability) {
+                                              int enchantability) {
         return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 4, enchantability);
     }
 
     public static ToolMaterial addPickMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-            float damage, int enchantability, Item repair) {
+                                               float damage, int enchantability, Item repair) {
         return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 3, enchantability)
                 .setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addPickMaterial(String name, int harvestLevel, float efficiency, float damage,
-            int enchantability) {
+                                               int enchantability) {
         return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 3, enchantability);
     }
 
     public static ToolMaterial addShovelMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-            float damage, int enchantability, Item repair) {
+                                                 float damage, int enchantability, Item repair) {
         return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 2, enchantability)
                 .setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addShovelMaterial(String name, int harvestLevel, float efficiency, float damage,
-            int enchantability) {
+                                                 int enchantability) {
         return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 2, enchantability);
     }
 
     public static ToolMaterial addShickMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-            float damage, int enchantability, Item repair) {
+                                                float damage, int enchantability, Item repair) {
         return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 1, enchantability)
                 .setRepairItem(new ItemStack(repair, 1));
     }
 
     public static ToolMaterial addShickMaterial(String name, int harvestLevel, float efficiency, float damage,
-            int enchantability) {
+                                                int enchantability) {
         return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 1, enchantability);
     }
 }

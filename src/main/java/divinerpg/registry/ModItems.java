@@ -36,20 +36,7 @@ import divinerpg.objects.items.arcana.ItemStaffStarlight;
 import divinerpg.objects.items.arcana.ItemStormSword;
 import divinerpg.objects.items.arcana.ItemWizardsBook;
 import divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
-import divinerpg.objects.items.base.ItemDivineArmor;
-import divinerpg.objects.items.base.ItemFastFood;
-import divinerpg.objects.items.base.ItemHealingSword;
-import divinerpg.objects.items.base.ItemMod;
-import divinerpg.objects.items.base.ItemModAxe;
-import divinerpg.objects.items.base.ItemModBow;
-import divinerpg.objects.items.base.ItemModFood;
-import divinerpg.objects.items.base.ItemModHoe;
-import divinerpg.objects.items.base.ItemModPickaxe;
-import divinerpg.objects.items.base.ItemModShovel;
-import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.objects.items.base.ItemSlowingSword;
-import divinerpg.objects.items.base.ItemThrowable;
-import divinerpg.objects.items.base.RangedWeaponBase;
+import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemMusicShooter;
 import divinerpg.objects.items.iceika.ItemSerenadeOfIce;
@@ -58,23 +45,7 @@ import divinerpg.objects.items.twilight.ItemSkyFlower;
 import divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import divinerpg.objects.items.twilight.ItemTwilightClock;
 import divinerpg.objects.items.twilight.ItemTwilightSpawner;
-import divinerpg.objects.items.vanilla.ItemAnchor;
-import divinerpg.objects.items.vanilla.ItemBurningSword;
-import divinerpg.objects.items.vanilla.ItemCallOfTheWatcher;
-import divinerpg.objects.items.vanilla.ItemCorruptedCannon;
-import divinerpg.objects.items.vanilla.ItemHordeHorn;
-import divinerpg.objects.items.vanilla.ItemInfernalFlame;
-import divinerpg.objects.items.vanilla.ItemLivestockSpawnEgg;
-import divinerpg.objects.items.vanilla.ItemMysteriousClock;
-import divinerpg.objects.items.vanilla.ItemPoisonousSword;
-import divinerpg.objects.items.vanilla.ItemScythe;
-import divinerpg.objects.items.vanilla.ItemSerenadeOfDeath;
-import divinerpg.objects.items.vanilla.ItemSerenadeOfHealth;
-import divinerpg.objects.items.vanilla.ItemSerenadeOfInfusion;
-import divinerpg.objects.items.vanilla.ItemSerenadeStriker;
-import divinerpg.objects.items.vanilla.ItemShickaxe;
-import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
-import divinerpg.objects.items.vanilla.ItemVileStorm;
+import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.GenerateJSON;
 import divinerpg.utils.ToolMaterialMod;
@@ -178,8 +149,8 @@ public class ModItems {
     public static Item serenadeOfDeath = new ItemSerenadeOfDeath("serenade_of_death");
     public static Item serenadeOfInfusion = new ItemSerenadeOfInfusion("serenade_of_infusion");
 
-    public static Item palavence = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5f);
-    public static Item massivence = new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1);
+    public static Item palavence = new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5F);
+    public static Item massivence = new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1F);
 
     // Vanilla Armor
     private static Object[] angelicInfo = new Object[] { ArmorInfo.NO_FALL, ArmorInfo.FLY };
@@ -445,8 +416,9 @@ public class ModItems {
     public static Item moltenStone = new ItemMod("molten_stone");
     public static Item enderStone = new ItemMod("ender_stone");
     public static Item terranStone = new ItemMod("terran_stone");
-    public static Item healingStone = new ItemMod("healing_stone").setHealAmount(20);
     public static Item shadowStone = new ItemMod("shadow_stone");
+
+    public static Item healingStone = new ItemHealingStone("healing_stone", 20);
 
     public static Item aquaticIngot = new ItemMod("aquatic_ingot");
     public static Item aquaticPellets = new ItemMod("aquatic_pellets");
@@ -503,8 +475,7 @@ public class ModItems {
     public static Item glacierSword = new ItemSlowingSword(ToolMaterialMod.Glacier, "glacier_sword");
     public static Item frostkingSword = new ItemSlowingSword(ToolMaterialMod.Frostking, "frostking_sword");
     public static Item frozenMaul = new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozen_maul");
-    public static Item frossivence = new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1);
-
+    public static Item frossivence = new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1F);
     public static Item soundOfCarols = new ItemMusicShooter("sound_of_carols", ModSounds.SOUND_OF_CAROLS,
             EntitySoundOfCarols.class);
     public static Item soundOfMusic = new ItemMusicShooter("sound_of_music", ModSounds.SOUND_OF_MUSIC,

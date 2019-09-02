@@ -1,46 +1,50 @@
-package divinerpg.objects.items.base;
+package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.registry.ModSounds;
+import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemHealingSword extends ItemModSword {
+import javax.annotation.Nullable;
+import java.util.List;
 
+public class ItemHealingStone extends ItemMod {
     private float healAmount;
 
-    public ItemHealingSword(String name, ToolMaterial material, float healAmount) {
-        super(material, name);
+    public ItemHealingStone(String name, float healAmount) {
+        this(name, healAmount, DivineRPGTabs.items);
+    }
+
+    public ItemHealingStone(String name, float healAmount, CreativeTabs tab) {
+        super(name, tab);
         this.healAmount = healAmount;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-        if (player.getHealth() < player.getMaxHealth()) {
+        if (healAmount != 0 && player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getHeldItem(hand);
             if (!player.capabilities.isCreativeMode) {
-                stack.damageItem(1, player);
+                stack.shrink(1);
             }
             player.heal(healAmount);
-            player.playSound(ModSounds.HEAL, 1, 1);
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+        } else {
+            return super.onItemRightClick(world, player, hand);
         }
-        return super.onItemRightClick(world, player, hand);
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add("Heals " + this.healAmount / 2 + " hearts on use");
-        list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
     }
 }
