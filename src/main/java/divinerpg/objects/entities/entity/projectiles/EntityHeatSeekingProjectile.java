@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import java.util.List;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -40,7 +41,8 @@ public class EntityHeatSeekingProjectile extends EntityThrowable {
                 this.getEntityBoundingBox().grow(30, 30, 30));
         boolean findNewTarget = this.target == null || (this.target != null && this.target.isDead);
         for (EntityLivingBase e : mobs) {
-            if (e != this.getThrower() && (!this.onlyPlayers || (this.onlyPlayers && e instanceof EntityPlayer))) {
+            if (e != this.getThrower() && (!this.onlyPlayers || (this.onlyPlayers && e instanceof EntityPlayer))
+                    && canEntityBeSeen(e)) {
                 float targetDist = target == null ? 0 : this.getDistance(target);
                 float compareDist = this.getDistance(e);
                 if (findNewTarget
@@ -51,13 +53,19 @@ public class EntityHeatSeekingProjectile extends EntityThrowable {
         if (target != null) {
             Vec3d dir = new Vec3d(target.posX - this.posX, (target.posY + target.getEyeHeight()) - this.posY,
                     target.posZ - this.posZ).normalize();
-            this.motionX = dir.x / 1.5;
-            this.motionY = dir.y / 1.5;
-            this.motionZ = dir.z / 1.5;
+            this.motionX = dir.x / 1.25;
+            this.motionY = dir.y / 1.25;
+            this.motionZ = dir.z / 1.25;
         }
 
         if (this.ticksExisted > 50)
             this.setDead();
+    }
+
+    private boolean canEntityBeSeen(Entity entityIn) {
+        return this.world.rayTraceBlocks(new Vec3d(this.posX, this.posY + (double) this.getEyeHeight(), this.posZ),
+                new Vec3d(entityIn.posX, entityIn.posY + (double) entityIn.getEyeHeight(), entityIn.posZ), false, true,
+                false) == null;
     }
 
     @Override

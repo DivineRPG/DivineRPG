@@ -1,7 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
 import divinerpg.objects.entities.assets.render.projectiles.RenderFirefly;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
@@ -15,20 +14,22 @@ public class EntityFirefly extends EntityHeatSeekingProjectile {
     public EntityFirefly(World w) {
         super(w);
     }
-    
+
     public EntityFirefly(World w, EntityPlayer e) {
         super(w, e);
     }
-    
 
     @Override
     protected void onImpact(RayTraceResult pos) {
-        if (pos.entityHit != null) pos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 15);
+        if (pos.entityHit != null)
+            pos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 15);
 
-        if (!this.world.isRemote) this.setDead();
+        if (!this.world.isRemote)
+            this.setDead();
     }
+
     @SideOnly(Side.CLIENT)
-	public static void renderMe() {
-    RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, manager -> new RenderFirefly(manager));
-	}
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, manager -> new RenderFirefly(manager));
+    }
 }
