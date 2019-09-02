@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.objects.entities.assets.model.ModelHat;
 import divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,10 +19,19 @@ import org.lwjgl.opengl.GL11;
 	
 	@SubscribeEvent
 	public void playerRender(RenderPlayerEvent.Post evt) {
-		//FIXME - has no rotation based on player head. i attempted stuff but failed - Nico
-        if (Utils.isDeveloperName(evt.getEntityPlayer().getDisplayNameString())) {
+		EntityPlayer player = evt.getEntityPlayer();
+
+		if (Utils.isDeveloperName(player.getDisplayNameString())) {
 			GL11.glPushMatrix();
-			float height = evt.getEntity().height;
+			// rotating hat
+			GL11.glRotated(-player.rotationYaw, 0,1,0);
+
+			// removing empty space if sneaking. If there are smth like
+			// smart moving - we are have problems here
+			float height = player.height;
+			if (player.isSneaking()){
+				height -= 0.3;
+			}
 			GL11.glTranslatef(-0.5f, height, -0.5f);
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhats/hat_red.png"));
 			hat.renderAll();
