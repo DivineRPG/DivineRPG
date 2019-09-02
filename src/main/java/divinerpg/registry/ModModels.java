@@ -2,6 +2,8 @@ package divinerpg.registry;
 
 import divinerpg.Reference;
 import divinerpg.client.render.*;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -21,7 +23,9 @@ public class ModModels {
         }
 
         for (Block block : ModBlocks.BLOCKS) {
-            registerModel(Item.getItemFromBlock(block));
+            if(!(block instanceof BlockAyeracoSpawn) && !(block instanceof BlockAyeracoBeam)) {
+                registerModel(Item.getItemFromBlock(block));
+            }
         }
 
         registerTESRs();
