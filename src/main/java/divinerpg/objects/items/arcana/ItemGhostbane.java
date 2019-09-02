@@ -30,7 +30,7 @@ public class ItemGhostbane extends ItemMod {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World w, BlockPos pos, EnumHand hand, EnumFacing facing,
             float hitX, float hitY, float hitZ) {
-        Wraith wraith = new Wraith(w);
+        Wraith wraith = new Wraith(w, player);
         IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
         if (!w.isRemote && arcana.getArcana() >= 200) {
             wraith.setLocationAndAngles(pos.getX(), pos.getY() + 1, pos.getZ(), 0.0F, 0.0F);

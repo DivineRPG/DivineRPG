@@ -25,18 +25,22 @@ import net.minecraftforge.fml.common.IWorldGenerator;
  */
 public class WorldGenCustomStructures implements IWorldGenerator {
     //Iceika
-    public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon", DRPGLootTables.ICEIKA_CHEST_DUNGEON);
-    public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum", DRPGLootTables.ICEIKA_CHEST_DUNGEON);
+    public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon",
+            DRPGLootTables.ICEIKA_CHEST_DUNGEON);
+    public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum",
+            DRPGLootTables.ICEIKA_CHEST_DUNGEON);
     public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("coalstone_lamp_1");
     public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("coalstone_lamp_2");
     public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3");
-    public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1", DRPGLootTables.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1",
+            DRPGLootTables.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_2 = new DRPGStructureHandler("workshop_house_2");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_3 = new DRPGStructureHandler("workshop_house_3");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("workshop_house_4");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("workshop_house_5");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("workshop_house_6");
-    public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",DRPGLootTables.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",
+            DRPGLootTables.ICEIKA_CHEST_HUT);
 
     //vanilla
     public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut");
@@ -65,20 +69,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                     && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)
                             || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
                 generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
-            }
-
-            // FIXME - I believe Wufflez would prefer this be done via the DRPGStuctureHandler
-            if (Config.generateTar) {
-                /*
-                if (random.nextInt(8) == 0) {
-                    int posX = chunkX + random.nextInt(16) + 8;
-                    int posY = random.nextInt(150);
-                    int posZ = chunkZ + random.nextInt(16) + 8;
-                    if (random.nextInt(10) == 0 || posY < 60) {
-                        (new WorldGenLakes(ModBlocks.tar)).generate(world, random, new BlockPos(posX, posY, posZ));
-                    }
-                }
-                */
             }
         }
     }
