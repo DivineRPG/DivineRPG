@@ -51,40 +51,6 @@ public class RegistryHandler {
         ModSpawns.init(event);
     }
 
-    @SubscribeEvent
-    public static void onModelRegister(ModelRegistryEvent event) {
-        for (Item item : ModItems.ITEMS) {
-            registerItemModel(item);
 
-            //FIXME: there may be a better way
-            if (item.equals(Item.getItemFromBlock(ModBlocks.frostedChest))) {
-                item.setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.presentBox))) {
-                item.setTileEntityItemStackRenderer(new RenderItemPresentBox());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.boneChest))) {
-                item.setTileEntityItemStackRenderer(new RenderItemBoneChest());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.demonFurnace))) {
-                item.setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
-            } else if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockStatue) {
-                item.setTileEntityItemStackRenderer(new RenderItemStatue());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.edenChest))) {
-                item.setTileEntityItemStackRenderer(new RenderItemEdenChest());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.arcaniumExtractor))) {
-                item.setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.dramixAltar))) {
-                item.setTileEntityItemStackRenderer(new RenderItemDramixAltar());
-            } else if (item.equals(Item.getItemFromBlock(ModBlocks.parasectaAltar))) {
-                item.setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
-            }
-        }
-
-        for (Block block : ModBlocks.BLOCKS) {
-            registerItemModel(Item.getItemFromBlock(block));
-        }
-    }
-
-    public static void registerItemModel(Item item) {
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-    }
 
 }
