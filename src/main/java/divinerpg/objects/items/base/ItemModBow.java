@@ -123,7 +123,7 @@ public class ItemModBow extends ItemBow  {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        boolean hasAmmo = (!needArrow || !this.findAmmo(player).isEmpty());
+        boolean hasAmmo = (!needArrow || !this.findAmmunition(player).isEmpty());
         ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(stack, world, player, hand,
                 hasAmmo);
         if (ret != null) {
@@ -144,7 +144,7 @@ public class ItemModBow extends ItemBow  {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;
             boolean infiniteAmmo = !needArrow || entityplayer.capabilities.isCreativeMode
                     || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
-            ItemStack itemstack = this.findAmmo(entityplayer);
+            ItemStack itemstack = this.findAmmunition(entityplayer);
 
             int charge = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, entityplayer,
                     this.maxUseDuration - timeLeft, !itemstack.isEmpty() || infiniteAmmo);
@@ -204,14 +204,32 @@ public class ItemModBow extends ItemBow  {
         return f;
     }
 
+    /**
+     * Copied from ItemBow class to avoid illegal access errors with recommended Forge.
+     * Name changed from findAmmo to findAmmunition as a defensive measure.
+     *
+     * @param player the player using this bow
+     * @return the stack of this bow's ammunition item
+     */
+    private ItemStack findAmmunition(EntityPlayer player) {
+        if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))) {
+            return player.getHeldItem(EnumHand.OFF_HAND);
+        } else if (this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND))) {
+            return player.getHeldItem(EnumHand.MAIN_HAND);
+        } else {
+            for(int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+                ItemStack itemstack = player.inventory.getStackInSlot(i);
+                if (this.isArrow(itemstack)) {
+                    return itemstack;
+                }
+            }
+
+            return ItemStack.EMPTY;
+        }
+    }
+
     public ItemModBow setSound(net.minecraft.util.SoundEvent shootSound) {
         this.shootSound = shootSound;
         return this;
     }
-
-//    public ItemModBow setVethean() {
-//        this.setCreativeTab(DivineRPGTabs.vethea);
-//        this.vethean = true;
-//        return this;
-//    }
 }
