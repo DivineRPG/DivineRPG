@@ -16,11 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModHoe extends ItemHoe  {
 
-    private String name;
-
     public ItemModHoe(ToolMaterial material, String name) {
         super(material);
-        this.name = name;
         setRegistryName(name);
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.tools);

@@ -34,7 +34,6 @@ public class ItemModBow extends ItemBow  {
     protected Item arrowAmmo = null;
     protected boolean needArrow = true;
     private boolean vethean = false;
-    public String name;
 
     public ItemModBow(String name, ArrowType arrowType, int uses, Item arrow) {
         this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrow);
@@ -50,7 +49,6 @@ public class ItemModBow extends ItemBow  {
 
     public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Item arrowAmmo) {
         setMaxDamage(uses);
-        this.name = name;
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
         this.arrowType = arrowType;

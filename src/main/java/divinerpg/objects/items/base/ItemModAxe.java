@@ -16,12 +16,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModAxe extends ItemAxe  {
 
-	private String name;
-
 	public ItemModAxe(ToolMaterial material, String name) {
 		// Eskl decided the speed multiplier (the / 5 thing)
 		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
-		this.name = name;
 		setRegistryName(name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);

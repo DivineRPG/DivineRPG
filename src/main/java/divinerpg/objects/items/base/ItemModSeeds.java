@@ -17,12 +17,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class ItemModSeeds extends Item implements IPlantable {
-    public String name;
+
     public Block crop;
     public Block soil;
 
     public ItemModSeeds(String name, Block block) {
-        this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
         this.crop = block;
@@ -32,7 +31,6 @@ public class ItemModSeeds extends Item implements IPlantable {
     }
 
     public ItemModSeeds(String name, Block crop, Block soil) {
-        this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
         this.crop = crop;

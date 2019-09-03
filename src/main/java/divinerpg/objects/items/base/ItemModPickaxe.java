@@ -15,11 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModPickaxe extends ItemPickaxe  {
-	private String name;
 
 	public ItemModPickaxe(ToolMaterial material, String name) {
 		super(material);
-		this.name = name;
 		setRegistryName(name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);

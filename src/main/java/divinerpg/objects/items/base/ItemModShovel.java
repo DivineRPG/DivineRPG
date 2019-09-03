@@ -16,11 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModShovel extends ItemSpade  {
 
-	private String name;
-
 	public ItemModShovel(ToolMaterial material, String name) {
 		super(material);
-		this.name = name;
 		setRegistryName(name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);

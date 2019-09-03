@@ -20,12 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModSword extends ItemSword  {
 
-    private String name;
     private ToolMaterial material;
 
     public ItemModSword(ToolMaterial material, String name) {
         super(material);
-        this.name = name;
         this.material = material;
         setRegistryName(name);
         setUnlocalizedName(name);

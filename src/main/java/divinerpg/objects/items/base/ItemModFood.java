@@ -17,11 +17,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModFood extends ItemFood  {
-	public String name;
 
 	public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
 		super(healAmount, saturation, isWolfFood);
-		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.setCreativeTab(DivineRPGTabs.food);
