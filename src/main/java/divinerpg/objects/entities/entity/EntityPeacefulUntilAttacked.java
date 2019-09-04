@@ -32,9 +32,9 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
 
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entity) {
-        super.setAttackTarget(entity);
         if (entity != null && entity instanceof EntityPlayer && !((EntityPlayer) entity).capabilities.isCreativeMode
                 && !isAngry()) {
+            super.setAttackTarget(entity);
             makeAngry();
         }
     }

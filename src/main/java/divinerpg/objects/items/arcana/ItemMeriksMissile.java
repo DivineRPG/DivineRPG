@@ -30,7 +30,7 @@ public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
 
     public ItemMeriksMissile(String name) {
-        super(name, DivineRPGTabs.tools);
+        super(name, DivineRPGTabs.ranged);
         this.maxStackSize = 1;
         this.setMaxDamage(-1);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {

@@ -1,16 +1,11 @@
 package divinerpg.objects.blocks;
 
-import java.util.List;
 import java.util.Random;
-
-import javax.annotation.Nullable;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.DivineTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -20,7 +15,6 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -64,7 +58,7 @@ public class BlockModPortal extends BlockBreakable {
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(null);
         this.setBlockUnbreakable();
         this.fireBlock = fireBlock;
         this.dimId = dimId;
@@ -72,8 +66,6 @@ public class BlockModPortal extends BlockBreakable {
         this.portalParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-
     }
 
     @Override
