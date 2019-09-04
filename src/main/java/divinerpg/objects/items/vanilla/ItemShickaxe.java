@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Sets;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
@@ -50,7 +51,7 @@ public class ItemShickaxe extends ItemTool  {
         super(toolMaterial.getAttackDamage(), -2.8F, toolMaterial, EFFECTIVE_ON);
         setCreativeTab(DivineRPGTabs.tools);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.name = name;
         this.setHarvestLevel("pickaxe", toolMaterial.getHarvestLevel());
         this.setMaxDamage(toolMaterial.getMaxUses());

@@ -2,6 +2,7 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.enums.WoodType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -32,7 +33,7 @@ public abstract class BlockModSlab extends BlockSlab  {
 
         String name = woodType.getName() + (isDouble() ? "_double_slab" : "_slab");
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
 
         this.single = single;
         this.woodType = woodType;

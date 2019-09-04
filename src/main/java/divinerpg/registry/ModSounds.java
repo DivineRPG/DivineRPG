@@ -229,8 +229,8 @@ public final class ModSounds {
     public static final SoundEvent ICEIKA_MUSIC = createEvent("iceika_music");
 
     private static SoundEvent createEvent(String sound) {
-        ResourceLocation name = new ResourceLocation(Reference.MODID, sound);
-        return new SoundEvent(name).setRegistryName(name);
+        ResourceLocation soundLocation = new ResourceLocation(Reference.MODID, sound);
+        return new SoundEvent(soundLocation).setRegistryName(soundLocation);
     }
 
     @SubscribeEvent

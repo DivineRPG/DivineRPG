@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -17,7 +18,7 @@ public class BlockModFence extends BlockFence  {
 	public BlockModFence(MapColor mapColor, String name) {
 		super(Material.WOOD, mapColor);
 		setUnlocalizedName(name);
-		setRegistryName(name);
+		setRegistryName(Reference.MODID, name);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

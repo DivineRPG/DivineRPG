@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
@@ -25,7 +26,7 @@ public class ItemModSword extends ItemSword  {
     public ItemModSword(ToolMaterial material, String name) {
         super(material);
         this.material = material;
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.swords);
 

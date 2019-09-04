@@ -3,6 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockCrops;
@@ -33,7 +34,7 @@ public class BlockModCrop extends BlockCrops  {
     public BlockModCrop(String name, double maxHeight) {
         super();
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

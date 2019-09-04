@@ -1,5 +1,6 @@
 package divinerpg.objects.items.base;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,7 +20,7 @@ public class ItemMod extends Item  {
 
     public ItemMod(String name, CreativeTabs tab) {
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.setCreativeTab(tab);
 
         ModItems.ITEMS.add(this);

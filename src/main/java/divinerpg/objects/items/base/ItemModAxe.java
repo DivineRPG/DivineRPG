@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
@@ -19,7 +20,7 @@ public class ItemModAxe extends ItemAxe  {
 	public ItemModAxe(ToolMaterial material, String name) {
 		// Eskl decided the speed multiplier (the / 5 thing)
 		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
-		setRegistryName(name);
+		setRegistryName(Reference.MODID, name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);
 

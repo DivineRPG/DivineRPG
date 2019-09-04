@@ -2,6 +2,7 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.objects.items.base.ItemBlockDoor;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -24,7 +25,7 @@ public class BlockModDoor extends BlockDoor  {
     public BlockModDoor(String name, Material materialIn, float hardness) {
         super(materialIn);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
 

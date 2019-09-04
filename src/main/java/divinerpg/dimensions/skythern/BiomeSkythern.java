@@ -3,6 +3,7 @@ package divinerpg.dimensions.skythern;
 import java.awt.Color;
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.dimensions.eden.WorldGenConeUp;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
@@ -21,6 +22,8 @@ public class BiomeSkythern extends Biome {
 
     public BiomeSkythern() {
         super(properties);
+        this.setRegistryName(Reference.MODID, "skythern");
+
         this.topBlock = ModBlocks.skythernGrass.getDefaultState();
         this.fillerBlock = ModBlocks.skythernDirt.getDefaultState();
         this.spawnableCreatureList.clear();

@@ -5,11 +5,12 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.dimensions.arcana.ArcanaTeleporter;
 import divinerpg.enums.EnumBlockType;
-import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -23,18 +24,24 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockArcanaPortal extends BlockMod {
+public class BlockArcanaPortal extends Block {
     private int firetick;
     private int firemax = 200;
     private int dimId;
     public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
 
     public BlockArcanaPortal(String name, int dimId) {
-        super(EnumBlockType.PORTAL, name, 5.0F);
+        super(Material.PORTAL);
+        this.setSoundType(EnumBlockType.PORTAL.getSound());
+        this.setUnlocalizedName(name);
+        this.setRegistryName(Reference.MODID, name);
+        this.setCreativeTab(null);
         setLightLevel(1.0F);
         setBlockUnbreakable();
         setResistance(6000000F);
         this.dimId = dimId;
+
+        ModBlocks.BLOCKS.add(this);
     }
 
     @Override
@@ -51,6 +58,7 @@ public class BlockArcanaPortal extends BlockMod {
     public boolean isFullCube(IBlockState state) {
         return false;
     }
+
     @Override
     public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
         return false;

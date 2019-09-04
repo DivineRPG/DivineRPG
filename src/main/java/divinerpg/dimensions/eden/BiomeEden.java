@@ -3,6 +3,7 @@ package divinerpg.dimensions.eden;
 import java.awt.Color;
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
 import net.minecraft.init.Blocks;
@@ -22,6 +23,8 @@ public class BiomeEden extends Biome {
 
     public BiomeEden() {
         super(properties);
+        this.setRegistryName(Reference.MODID, "eden");
+
         this.topBlock = ModBlocks.edenGrass.getDefaultState();
         this.fillerBlock = ModBlocks.edenDirt.getDefaultState();
         this.spawnableCreatureList.clear();

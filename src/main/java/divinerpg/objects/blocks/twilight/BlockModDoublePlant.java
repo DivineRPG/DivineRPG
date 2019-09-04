@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.twilight;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -34,7 +35,7 @@ public class BlockModDoublePlant extends BlockBush
 
     public BlockModDoublePlant(String name, Block grass) {
         super(Material.PLANTS);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         this.grass = grass;
         setCreativeTab(DivineRPGTabs.BlocksTab);

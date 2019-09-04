@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -13,7 +14,7 @@ public class BlockModLog extends BlockLog  {
 	public BlockModLog(String name) {
 		super();
 		setUnlocalizedName(name);
-		setRegistryName(name);
+		setRegistryName(Reference.MODID, name);
 		setHardness(3.0F);
 		setResistance(5);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);

@@ -2,6 +2,7 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -28,7 +29,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
     public BlockModLeaves(String name, float hardness) {
         super();
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);

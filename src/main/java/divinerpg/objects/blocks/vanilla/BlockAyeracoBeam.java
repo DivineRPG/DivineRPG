@@ -23,7 +23,7 @@ public class BlockAyeracoBeam extends BlockContainer {
         this.tex = tex;
 
         // Need to register it!
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         ModBlocks.BLOCKS.add(this);
     }
 

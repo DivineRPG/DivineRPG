@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -13,7 +14,7 @@ public class BlockModStairs extends BlockStairs  {
         super(base.getDefaultState());
         this.useNeighborBrightness = true;
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
 
         ModBlocks.BLOCKS.add(this);

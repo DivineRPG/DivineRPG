@@ -2,6 +2,7 @@ package divinerpg.objects.blocks.twilight;
 
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -23,7 +24,7 @@ public class BlockTwilightGrass extends BlockBush
     private Block grass;
 
     public BlockTwilightGrass(String name, Block grass) {
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         this.grass = grass;
         setCreativeTab(DivineRPGTabs.BlocksTab);

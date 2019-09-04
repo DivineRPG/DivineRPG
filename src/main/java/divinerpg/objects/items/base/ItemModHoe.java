@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
@@ -18,7 +19,7 @@ public class ItemModHoe extends ItemHoe  {
 
     public ItemModHoe(ToolMaterial material, String name) {
         super(material);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.tools);
 
