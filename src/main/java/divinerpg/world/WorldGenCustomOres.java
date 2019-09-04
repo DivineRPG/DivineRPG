@@ -15,6 +15,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.event.terraingen.OreGenEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
@@ -67,25 +69,24 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // HELPING METHODS
     ///////////////////////////
 
-    /**
-     * @param chance - we try to spawn ore chance² times
-     */
     private void spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
-                          int chunkX, int chunkZ, int maxVeinSize, int chance, int minY, int maxY) {
+                          int chunkX, int chunkZ, int maxVeinSize, int tries, int minY, int maxY) {
 
         int height = getHeightOrThrow(minY, maxY);
         WorldGenMinable gen = new WorldGenMinable(ore, maxVeinSize, replacing);
 
-        // Originally we passed throw 2 loops, Why????
-        for (int i = 0; i < chance; i++) {
-            for (int j = 0; j < chance; j++) {
-                BlockPos pos = new BlockPos(
-                        chunkX * 16 + random.nextInt(16),
-                        minY + random.nextInt(height + 1),
-                        chunkZ * 16 + random.nextInt(16));
+        // Inserting forge hook here
+        if (!TerrainGen.generateOre(world, random, gen, new BlockPos(chunkX * 16, 0, chunkZ * 16),
+                OreGenEvent.GenerateMinable.EventType.CUSTOM))
+            return;
 
-                gen.generate(world, random, pos);
-            }
+        for (int i = 0; i < tries; i++) {
+            BlockPos pos = new BlockPos(
+                    chunkX * 16 + random.nextInt(16),
+                    minY + random.nextInt(height + 1),
+                    chunkZ * 16 + random.nextInt(16));
+
+            gen.generate(world, random, pos);
         }
     }
 
@@ -159,11 +160,11 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
     private void genWild(World world, Random random, int chunkX, int chunkZ) {
         spawnTwilightOre(world, random, ModBlocks.wildwoodOre, chunkX, chunkZ);
-        generateLake(world, random, waterLake, chunkX, chunkZ, 0, 150, 16);
     }
 
     private void genApalachia(World world, Random random, int chunkX, int chunkZ) {
         spawnTwilightOre(world, random, ModBlocks.apalachiaOre, chunkX, chunkZ);
+        generateLake(world, random, waterLake, chunkX, chunkZ, 0, 150, 16);
     }
 
     private void genSkythern(World world, Random random, int chunkX, int chunkZ) {
