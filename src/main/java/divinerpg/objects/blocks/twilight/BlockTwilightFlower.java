@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.twilight;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -27,7 +28,7 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
      * @param height - sets the height of flower. Can't be less/equals zero
      */
     public BlockTwilightFlower(String name, Block grass, double width, double height) {
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         this.grass = grass;
         setCreativeTab(DivineRPGTabs.BlocksTab);

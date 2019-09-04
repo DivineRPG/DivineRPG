@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.ChatFormats;
@@ -21,7 +22,7 @@ public class ItemModFood extends ItemFood  {
 	public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
 		super(healAmount, saturation, isWolfFood);
 		setUnlocalizedName(name);
-		setRegistryName(name);
+		setRegistryName(Reference.MODID, name);
 		this.setCreativeTab(DivineRPGTabs.food);
 		ModItems.ITEMS.add(this);
 	}

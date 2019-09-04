@@ -3,6 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -23,7 +24,7 @@ public class BlockModTorch extends BlockTorch  {
         super();
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.setLightLevel(1);
         this.setHardness(0.0F);
         this.flameParticle = particle;

@@ -3,6 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -34,7 +35,7 @@ public class BlockModSapling extends BlockBush implements IGrowable {
 
     public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree) {
         this.setUnlocalizedName(name);
-        this.setRegistryName(name);
+        this.setRegistryName(Reference.MODID, name);
         this.grass = grass;
         this.dirt = dirt;
         this.tree = tree;

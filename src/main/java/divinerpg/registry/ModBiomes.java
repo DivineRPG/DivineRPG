@@ -46,7 +46,7 @@ public class ModBiomes {
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeType biomeType, Type... types) {
-        biome.setRegistryName(name);
+        biome.setRegistryName(Reference.MODID, name);
         ForgeRegistries.BIOMES.register(biome);
         BiomeDictionary.addTypes(biome, types);
         //Only use this for debug purposes

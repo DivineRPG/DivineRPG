@@ -1,5 +1,6 @@
 package divinerpg.objects.items.twilight;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,7 +24,7 @@ public class ItemTwilightSeeds extends ItemSeeds  {
         this.crop = block;
         this.name = name;
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.setCreativeTab(DivineRPGTabs.items);
     }
 

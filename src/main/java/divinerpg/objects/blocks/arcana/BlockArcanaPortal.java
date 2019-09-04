@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import divinerpg.Reference;
 import divinerpg.dimensions.arcana.ArcanaTeleporter;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.ModBlocks;
@@ -33,7 +34,7 @@ public class BlockArcanaPortal extends Block {
         super(Material.PORTAL);
         this.setSoundType(EnumBlockType.PORTAL.getSound());
         this.setUnlocalizedName(name);
-        this.setRegistryName(name);
+        this.setRegistryName(Reference.MODID, name);
         this.setCreativeTab(null);
         setLightLevel(1.0F);
         setBlockUnbreakable();

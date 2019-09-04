@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks;
 
+import divinerpg.Reference;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -27,7 +28,7 @@ public class BlockMod extends Block  {
         super(blockType.getMaterial());
         this.setSoundType(blockType.getSound());
         this.setUnlocalizedName(name);
-        this.setRegistryName(name);
+        this.setRegistryName(Reference.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(tab);
 

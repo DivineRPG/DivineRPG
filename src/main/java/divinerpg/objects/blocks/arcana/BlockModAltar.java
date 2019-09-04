@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -18,7 +19,7 @@ public abstract class BlockModAltar extends BlockContainer implements ITileEntit
     public BlockModAltar(String name) {
         super(Material.ROCK);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setBlockUnbreakable();
         setResistance(6000000F);

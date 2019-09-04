@@ -3,6 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -41,7 +42,7 @@ public abstract class BlockModFurnace extends Block  {
     public BlockModFurnace(String name, boolean isBurning) {
         super(Material.ROCK);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         if (isBurning) {
             setLightLevel(0.875F);
         } else {

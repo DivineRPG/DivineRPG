@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
+import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -29,7 +30,7 @@ public class BlockMobPumpkin extends BlockHorizontal {
     public BlockMobPumpkin(String name) {
         super(Material.GOURD);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         setTickRandomly(true);
         setHardness(1.0F);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);

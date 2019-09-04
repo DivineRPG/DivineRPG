@@ -4,6 +4,7 @@ import java.util.Random;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.DivineTeleporter;
@@ -55,7 +56,7 @@ public class BlockModPortal extends BlockBreakable {
     public BlockModPortal(String name, int dimId, Block fireBlock, Block portalFrame, ParticleType particle) {
         super(Material.PORTAL, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
-        this.setRegistryName(name);
+        this.setRegistryName(Reference.MODID, name);
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
         this.setCreativeTab(null);

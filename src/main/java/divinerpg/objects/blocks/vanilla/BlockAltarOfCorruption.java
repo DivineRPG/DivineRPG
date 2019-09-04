@@ -3,6 +3,7 @@ package divinerpg.objects.blocks.vanilla;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;
@@ -35,7 +36,7 @@ public class BlockAltarOfCorruption extends BlockContainer {
     public BlockAltarOfCorruption(String name) {
         super(Material.ROCK, MapColor.BLUE);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setLightOpacity(0);
         setHardness(5.0F);

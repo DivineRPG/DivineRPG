@@ -4,6 +4,7 @@ import java.util.Random;
 
 import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
@@ -21,7 +22,7 @@ public class BlockModFire extends BlockFire  {
         setLightLevel(1.0F);
         setCreativeTab(null);
         setUnlocalizedName(name);
-        this.setRegistryName(name);
+        this.setRegistryName(Reference.MODID, name);
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

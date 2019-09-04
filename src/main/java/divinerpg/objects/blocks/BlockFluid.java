@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nonnull;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.material.Material;
@@ -27,10 +28,10 @@ public class BlockFluid extends BlockFluidClassic {
     public BlockFluid(String name, Fluid fluid, Material material) {
         super(fluid, material);
         setUnlocalizedName(name);
-        setRegistryName(name);
+        setRegistryName(Reference.MODID, name);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(name));
+        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(Reference.MODID, name));
 
         if (material == Material.LAVA) {
             setTickRandomly(true);
