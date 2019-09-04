@@ -3,6 +3,7 @@ package divinerpg.dimensions.apalachia;
 import java.awt.Color;
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
@@ -23,6 +24,8 @@ public class BiomeApalachia extends Biome {
 
     public BiomeApalachia() {
         super(properties);
+        this.setRegistryName(Reference.MODID, "apalachia");
+
         this.topBlock = ModBlocks.apalachiaGrass.getDefaultState();
         this.fillerBlock = ModBlocks.apalachiaDirt.getDefaultState();
         this.spawnableCreatureList.clear();

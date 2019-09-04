@@ -3,6 +3,7 @@ package divinerpg.dimensions.wildwood;
 import java.awt.Color;
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
@@ -23,6 +24,8 @@ public class BiomeWildWood extends Biome {
 
     public BiomeWildWood() {
         super(properties);
+        this.setRegistryName(Reference.MODID, "wildwood");
+
         this.topBlock = ModBlocks.wildwoodGrass.getDefaultState();
         this.fillerBlock = ModBlocks.wildwoodDirt.getDefaultState();
         this.spawnableCreatureList.clear();

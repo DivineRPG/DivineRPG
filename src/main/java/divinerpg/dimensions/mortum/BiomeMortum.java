@@ -3,6 +3,7 @@ package divinerpg.dimensions.mortum;
 import java.awt.Color;
 import java.util.Random;
 
+import divinerpg.Reference;
 import divinerpg.dimensions.eden.WorldGenConeUp;
 import divinerpg.dimensions.skythern.SkythernTree;
 import divinerpg.dimensions.skythern.SkythernTreeLarge;
@@ -25,6 +26,8 @@ public class BiomeMortum extends Biome {
 
     public BiomeMortum() {
         super(properties);
+        this.setRegistryName(Reference.MODID, "mortum");
+
         this.topBlock = ModBlocks.mortumGrass.getDefaultState();
         this.fillerBlock = ModBlocks.mortumDirt.getDefaultState();
         this.spawnableCreatureList.clear();

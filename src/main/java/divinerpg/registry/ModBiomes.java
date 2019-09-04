@@ -13,6 +13,7 @@ import divinerpg.dimensions.wildwood.BiomeWildWood;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -22,8 +23,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ModBiomes {
-    public static ArrayList<Biome> BIOME_LIST = new ArrayList<Biome>();
-
     public static final Biome Eden = new BiomeEden();
     public static final Biome WildWood = new BiomeWildWood();
     public static final Biome Apalachia = new BiomeApalachia();
@@ -36,24 +35,26 @@ public class ModBiomes {
     public static void registerBiomes(RegistryEvent.Register<Biome> event) {
         IForgeRegistry<Biome> registry = event.getRegistry();
 
-        initBiome(Eden, "biome_eden", BiomeType.WARM, Type.VOID, Type.MAGICAL, Type.SPOOKY);
-        initBiome(WildWood, "biome_wildwood", BiomeType.WARM, Type.VOID, Type.MAGICAL, Type.SPOOKY);
-        initBiome(Apalachia, "biome_apalachia", BiomeType.WARM, Type.VOID, Type.MAGICAL, Type.SPOOKY);
-        initBiome(Skythern, "biome_skythern", BiomeType.WARM, Type.VOID, Type.MAGICAL, Type.SPOOKY);
-        initBiome(Mortum, "biome_mortum", BiomeType.WARM, Type.VOID, Type.MAGICAL, Type.SPOOKY);
-        initBiome(Iceika, "biome_iceika", BiomeType.ICY, Type.COLD, Type.MAGICAL, Type.SPOOKY);
-        initBiome(Arcana, "biome_arcana", BiomeType.WARM, Type.VOID, Type.MAGICAL, Type.SPOOKY);
+        registry.registerAll(
+                Eden,
+                WildWood,
+                Apalachia,
+                Skythern,
+                Mortum,
+                Iceika,
+                Arcana
+        );
+
+        addBiomeTypes();
     }
 
-    private static Biome initBiome(Biome biome, String name, BiomeType biomeType, Type... types) {
-        biome.setRegistryName(Reference.MODID, name);
-        ForgeRegistries.BIOMES.register(biome);
-        BiomeDictionary.addTypes(biome, types);
-        //Only use this for debug purposes
-        //        if(Config.debug) {
-        //        BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 1024));
-        //        }
-
-        return biome;
+    public static void addBiomeTypes() {
+        BiomeDictionary.addTypes(Eden, Type.MAGICAL);
+        BiomeDictionary.addTypes(WildWood, Type.MAGICAL);
+        BiomeDictionary.addTypes(Apalachia, Type.MAGICAL);
+        BiomeDictionary.addTypes(Skythern, Type.MAGICAL);
+        BiomeDictionary.addTypes(Mortum, Type.MAGICAL);
+        BiomeDictionary.addTypes(Iceika, Type.MAGICAL, Type.SNOWY);
+        BiomeDictionary.addTypes(Arcana, Type.MAGICAL);
     }
 }
