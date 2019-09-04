@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
@@ -36,8 +37,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private WorldGenerator tarLake = new WorldGenLakes(ModBlocks.tar);
 
     private final Map<Integer, DimensionGen> dimensionGenerators = new HashMap<Integer, DimensionGen>() {{
-        put(-1, WorldGenCustomOres::genNether);
-        put(0, WorldGenCustomOres::genOverworld);
+        put(DimensionType.NETHER.getId(), WorldGenCustomOres::genNether);
+        put(DimensionType.OVERWORLD.getId(), WorldGenCustomOres::genOverworld);
         put(ModDimensions.edenDimension.getId(), WorldGenCustomOres::genEden);
         put(ModDimensions.wildWoodDimension.getId(), WorldGenCustomOres::genWild);
         put(ModDimensions.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);

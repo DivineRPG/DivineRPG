@@ -15,7 +15,7 @@ public class ArcanaTickHandler {
     public void onTick(PlayerTickEvent event) {
         arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
         if (event.phase == Phase.START) {
-            onTickStart(event.player);
+            // onTickStart(event.player);
         } else {
             onTickEnd(event.player);
         }

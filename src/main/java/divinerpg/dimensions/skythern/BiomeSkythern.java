@@ -1,28 +1,33 @@
 package divinerpg.dimensions.skythern;
 
-import java.awt.Color;
-import java.util.Random;
-
-import divinerpg.Reference;
+import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.dimensions.eden.WorldGenConeUp;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BiomeSkythern extends Biome {
+import java.awt.*;
+import java.util.Random;
 
-    private static BiomeProperties properties = new BiomeProperties("Skythern");
-    private World world;
-    private Random rand;
-    private BlockPos pos;
+public class BiomeSkythern extends TwilightBiomeBase {
+
+    protected WorldGenerator genLargeTreeTruffle;
 
     public BiomeSkythern() {
-        super(properties);
-        this.setRegistryName(Reference.MODID, "skythern");
+        super(new BiomeProperties("Skythern"), "skythern");
+
+        this.genTree = new SkythernTree(false, 5);
+        this.genLargeTree = new SkythernTreeLarge(true, 5);
+        this.genLargeTreeTruffle = new SkythernTreeLargeTruffle(true, 5);
+        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
+        this.brush = new WorldGenSkythernPlants(ModBlocks.skythernBrush);
+        this.bloom = new WorldGenSkythernPlants(ModBlocks.dustLily);
+        this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles,
+                ModBlocks.skythernGrass);
 
         this.topBlock = ModBlocks.skythernGrass.getDefaultState();
         this.fillerBlock = ModBlocks.skythernDirt.getDefaultState();
@@ -43,61 +48,8 @@ public class BiomeSkythern extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-        SkythernTree genTree = new SkythernTree(false, 5);
-        SkythernTreeLarge genLargeTree = new SkythernTreeLarge(true, 5);
-        SkythernTreeLargeTruffle genLargeTreeTruffle = new SkythernTreeLargeTruffle(true, 5);
-        WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
-        WorldGenSkythernPlants brush = new WorldGenSkythernPlants(ModBlocks.skythernBrush);
-        WorldGenSkythernPlants bloom = new WorldGenSkythernPlants(ModBlocks.dustLily);
-        WorldGenTwilightDoublePlants blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles,
-                ModBlocks.skythernGrass);
+        super.decorate(worldIn, rand, pos);
 
-        BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
-        for (int i = 0; i < 40; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            bloom.generate(worldIn, rand, mutPos);
-            genLargeTree.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 5; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            bloom.generate(worldIn, rand, mutPos);
-            genLargeTreeTruffle.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 10; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            brush.generate(worldIn, rand, mutPos);
-            blossom.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 100; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            brush.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 10; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genTree.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 1; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genConeUp.generate(worldIn, rand, mutPos);
-        }
-
+        generate(worldIn, rand, this.chunk.x, this.chunk.z, 5, 13, 13 + 80, genLargeTreeTruffle);
     }
 }

@@ -1,32 +1,28 @@
 package divinerpg.dimensions.mortum;
 
-import java.awt.Color;
-import java.util.Random;
-
-import divinerpg.Reference;
+import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.dimensions.eden.WorldGenConeUp;
-import divinerpg.dimensions.skythern.SkythernTree;
-import divinerpg.dimensions.skythern.SkythernTreeLarge;
-import divinerpg.dimensions.skythern.WorldGenSkythernPlants;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BiomeMortum extends Biome {
+import java.awt.*;
+import java.util.Random;
 
-    private static BiomeProperties properties = new BiomeProperties("Mortum");
-    private World world;
-    private Random rand;
-    private BlockPos pos;
+public class BiomeMortum extends TwilightBiomeBase {
 
     public BiomeMortum() {
-        super(properties);
-        this.setRegistryName(Reference.MODID, "mortum");
+        super(new BiomeProperties("Mortum"), "mortum");
+
+        this.genTree = new MortumTree(false, 5);
+        this.genLargeTree = new MortumTreeLarge(true, 5);
+        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
+        this.brush = new WorldGenMortumPlants(ModBlocks.mortumBrush);
+        this.bloom = new WorldGenMortumPlants(ModBlocks.eyePlant);
+        this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.demonBrambles, ModBlocks.mortumGrass);
 
         this.topBlock = ModBlocks.mortumGrass.getDefaultState();
         this.fillerBlock = ModBlocks.mortumDirt.getDefaultState();
@@ -47,54 +43,21 @@ public class BiomeMortum extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-        MortumTree genTree = new MortumTree(false, 5);
-        MortumTreeLarge genLargeTree = new MortumTreeLarge(true, 5);
-        WorldGenConeUp genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
-        WorldGenMortumPlants brush = new WorldGenMortumPlants(ModBlocks.mortumBrush);
-        WorldGenMortumPlants bloom = new WorldGenMortumPlants(ModBlocks.eyePlant);
-        WorldGenTwilightDoublePlants blossom = new WorldGenTwilightDoublePlants(ModBlocks.demonBrambles, ModBlocks.mortumGrass);
+        this.chunk = worldIn.getChunkFromBlockCoords(pos);
 
-        BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
-        for (int i = 0; i < 40; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            bloom.generate(worldIn, rand, mutPos);
+        generate(worldIn, rand, chunk.x, chunk.z, 40, 13, 80 + 13, bloom);
 
-        }
-        for (int i = 0; i < 10; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            brush.generate(worldIn, rand, mutPos);
-            blossom.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 100; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 13 + rand.nextInt(80);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            brush.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 2; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genTree.generate(worldIn, rand, mutPos);
+        generate(worldIn, rand, chunk.x, chunk.z, 10, 13, 80 + 13,
+                brush, blossom);
 
-            if (i == 0)
-                genLargeTree.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 1; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = 55 + rand.nextInt(20);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genConeUp.generate(worldIn, rand, mutPos);
-        }
 
+        generate(worldIn, rand, chunk.x, chunk.z, 100, 13, 80 + 13,
+                brush);
+
+        generate(worldIn, rand, chunk.x, chunk.z, 2, 55, 55 + 20,
+                genTree);
+
+        generate(worldIn, rand, chunk.x, chunk.z, 1, 55, 55 + 20,
+                genLargeTree, genConeUp);
     }
 }
