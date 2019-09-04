@@ -333,13 +333,13 @@ public class ModEntities {
         SpawnEggColors colors = SpawnEggColors.getColorsForDimension(dimension);
 
         return EntityEntryBuilder.create().entity(entityClass)
-                .id(new ResourceLocation(Reference.MODID, entityID), mobID++).name(entityID).tracker(128, 3, true)
+                .id(new ResourceLocation(Reference.MODID, entityID), mobID++).name(Reference.MODID + "." + entityID).tracker(128, 3, true)
                 .egg(colors.getPrimaryColor(), colors.getSecondaryColor()).build();
     }
 
     public static EntityEntry buildProjectileEntry(Class entityClass, String entityID) {
         return EntityEntryBuilder.create().entity(entityClass)
-                .id(new ResourceLocation(Reference.MODID, entityID), projectileID++).name(entityID)
+                .id(new ResourceLocation(Reference.MODID, entityID), projectileID++).name(Reference.MODID + "." + entityID)
                 .tracker(250, 5, true).build();
     }
 
