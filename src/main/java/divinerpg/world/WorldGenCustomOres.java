@@ -19,6 +19,8 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class WorldGenCustomOres implements IWorldGenerator {
@@ -33,36 +35,24 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private WorldGenerator waterLake = new WorldGenLakes(Blocks.WATER);
     private WorldGenerator tarLake = new WorldGenLakes(ModBlocks.tar);
 
+    private final Map<Integer, DimensionGen> dimensionGenerators = new HashMap<Integer, DimensionGen>() {{
+        put(-1, WorldGenCustomOres::genNether);
+        put(0, WorldGenCustomOres::genOverworld);
+        put(ModDimensions.edenDimension.getId(), WorldGenCustomOres::genEden);
+        put(ModDimensions.wildWoodDimension.getId(), WorldGenCustomOres::genWild);
+        put(ModDimensions.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);
+        put(ModDimensions.skythernDimension.getId(), WorldGenCustomOres::genSkythern);
+        put(ModDimensions.mortumDimension.getId(), WorldGenCustomOres::genMortum);
+    }};
+
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
                          IChunkProvider chunkProvider) {
-        switch (world.provider.getDimension()) {
-            case -1:
-                genNether(world, random, chunkX, chunkZ);
-                break;
-            case 0:
-                genOverworld(world, random, chunkX, chunkZ);
-                break;
-            case 1:
-                break;
-        }
 
-        if (world.provider.getDimension() == ModDimensions.edenDimension.getId()) {
-            genEden(world, random, chunkX, chunkZ);
+        int dimensionId = world.provider.getDimension();
+        if (dimensionGenerators.containsKey(dimensionId)) {
+            dimensionGenerators.get(dimensionId).gen(this, world, random, chunkX, chunkZ);
         }
-        if (world.provider.getDimension() == ModDimensions.wildWoodDimension.getId()) {
-            genWild(world, random, chunkX, chunkZ);
-        }
-        if (world.provider.getDimension() == ModDimensions.apalachiaDimension.getId()) {
-            genApalachia(world, random, chunkX, chunkZ);
-        }
-        if (world.provider.getDimension() == ModDimensions.skythernDimension.getId()) {
-            genSkythern(world, random, chunkX, chunkZ);
-        }
-        if (world.provider.getDimension() == ModDimensions.mortumDimension.getId()) {
-            genMortum(world, random, chunkX, chunkZ);
-        }
-
     }
 
     ///////////////////////////
@@ -173,5 +163,10 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
     private void genMortum(World world, Random random, int chunkX, int chunkZ) {
         spawnTwilightOre(world, random, ModBlocks.mortumOre, chunkX, chunkZ);
+    }
+
+    @FunctionalInterface
+    interface DimensionGen {
+        void gen(WorldGenCustomOres m, World world, Random random, int chunkX, int chunkZ);
     }
 }
