@@ -1,18 +1,20 @@
-package divinerpg.dimensions.mortum;
+package divinerpg.dimensions;
 
-import java.util.Random;
-
-import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenMortumPlants extends WorldGenerator {
-    private final Block grassBlock;
+import java.util.Random;
 
-    public WorldGenMortumPlants(Block grassBlock) {
-        this.grassBlock = grassBlock;
+public class WorldGenPlants extends WorldGenerator {
+    private final IBlockState plant;
+    private final IBlockState grass;
+
+    public WorldGenPlants(Block plant, Block grass){
+        this.plant = plant.getDefaultState();
+        this.grass = grass.getDefaultState();
     }
 
     @Override
@@ -20,8 +22,8 @@ public class WorldGenMortumPlants extends WorldGenerator {
         for (int i = 0; i < 128; ++i) {
             BlockPos blockpos = position.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
 
-            if (worldIn.getBlockState(blockpos.down()).getBlock() == ModBlocks.mortumGrass) {
-                worldIn.setBlockState(blockpos, grassBlock.getDefaultState());
+            if (worldIn.getBlockState(blockpos.down()) == grass) {
+                worldIn.setBlockState(blockpos, plant);
                 return true;
             }
         }

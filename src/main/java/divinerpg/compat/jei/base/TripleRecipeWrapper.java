@@ -34,11 +34,6 @@ public class TripleRecipeWrapper implements IRecipeWrapper {
     }
 
     @Override
-    public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-        // TODO do not have idea what to draw
-    }
-
-    @Override
     public List<String> getTooltipStrings(int mouseX, int mouseY) {
         return Lists.newArrayList();
     }

@@ -56,7 +56,5 @@ public class BiomeWildWood extends TwilightBiomeBase {
 
         generate(worldIn, rand, chunk.x, chunk.z, 18, 13, 80 + 13,
                 brush, blossom, bloom);
-
-
     }
 }

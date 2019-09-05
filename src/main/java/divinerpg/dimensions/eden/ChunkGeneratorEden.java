@@ -25,6 +25,9 @@ public class ChunkGeneratorEden implements IChunkGenerator {
     /** RNG. */
     private final Random rand;
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
+    protected static final IBlockState STONE = ModBlocks.twilightStone.getDefaultState();
+    protected static final IBlockState GRASS = ModBlocks.edenGrass.getDefaultState();
+    protected static final IBlockState DIRT = ModBlocks.edenDirt.getDefaultState();
     private NoiseGeneratorOctaves lperlinNoise1;
     private NoiseGeneratorOctaves lperlinNoise2;
     private NoiseGeneratorOctaves perlinNoise1;
@@ -92,13 +95,13 @@ public class ChunkGeneratorEden implements IChunkGenerator {
             for (int j1 = 0; j1 < 2; ++j1) {
                 for (int k1 = 0; k1 < 32; ++k1) {
                     double d0 = 0.25D;
-                    double d1 = this.buffer[((i1 + 0) * 3 + j1 + 0) * 33 + k1 + 0];
-                    double d2 = this.buffer[((i1 + 0) * 3 + j1 + 1) * 33 + k1 + 0];
-                    double d3 = this.buffer[((i1 + 1) * 3 + j1 + 0) * 33 + k1 + 0];
-                    double d4 = this.buffer[((i1 + 1) * 3 + j1 + 1) * 33 + k1 + 0];
-                    double d5 = (this.buffer[((i1 + 0) * 3 + j1 + 0) * 33 + k1 + 1] - d1) * 0.25D;
-                    double d6 = (this.buffer[((i1 + 0) * 3 + j1 + 1) * 33 + k1 + 1] - d2) * 0.25D;
-                    double d7 = (this.buffer[((i1 + 1) * 3 + j1 + 0) * 33 + k1 + 1] - d3) * 0.25D;
+                    double d1 = this.buffer[((i1) * 3 + j1) * 33 + k1];
+                    double d2 = this.buffer[((i1) * 3 + j1 + 1) * 33 + k1];
+                    double d3 = this.buffer[((i1 + 1) * 3 + j1) * 33 + k1];
+                    double d4 = this.buffer[((i1 + 1) * 3 + j1 + 1) * 33 + k1];
+                    double d5 = (this.buffer[((i1) * 3 + j1) * 33 + k1 + 1] - d1) * 0.25D;
+                    double d6 = (this.buffer[((i1) * 3 + j1 + 1) * 33 + k1 + 1] - d2) * 0.25D;
+                    double d7 = (this.buffer[((i1 + 1) * 3 + j1) * 33 + k1 + 1] - d3) * 0.25D;
                     double d8 = (this.buffer[((i1 + 1) * 3 + j1 + 1) * 33 + k1 + 1] - d4) * 0.25D;
 
                     for (int l1 = 0; l1 < 4; ++l1) {
@@ -117,7 +120,7 @@ public class ChunkGeneratorEden implements IChunkGenerator {
                                 IBlockState iblockstate = AIR;
 
                                 if (d15 > 0.0D) {
-                                    iblockstate = ModBlocks.twilightStone.getDefaultState();
+                                    iblockstate = STONE;
                                 }
 
                                 int k2 = i2 + i1 * 8;
@@ -149,26 +152,23 @@ public class ChunkGeneratorEden implements IChunkGenerator {
             for (int j = 0; j < 16; ++j) {
                 int k = 1;
                 int l = -1;
-                IBlockState iblockstate = ModBlocks.edenGrass.getDefaultState();
-                IBlockState iblockstate1 = ModBlocks.edenDirt.getDefaultState();
-
                 for (int i1 = 127; i1 >= 0; --i1) {
                     IBlockState iblockstate2 = primer.getBlockState(i, i1, j);
 
                     if (iblockstate2.getMaterial() == Material.AIR) {
                         l = -1;
-                    } else if (iblockstate2.getBlock() == ModBlocks.twilightStone) {
+                    } else if (iblockstate2 == STONE) {
                         if (l == -1) {
                             l = 3;
 
                             if (i1 >= 0) {
-                                primer.setBlockState(i, i1, j, iblockstate);
+                                primer.setBlockState(i, i1, j, GRASS);
                             } else {
-                                primer.setBlockState(i, i1, j, iblockstate1);
+                                primer.setBlockState(i, i1, j, DIRT);
                             }
                         } else if (l > 0) {
                             --l;
-                            primer.setBlockState(i, i1, j, iblockstate1);
+                            primer.setBlockState(i, i1, j, DIRT);
                         }
                     }
                 }

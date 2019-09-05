@@ -1,6 +1,7 @@
 package divinerpg.dimensions.mortum;
 
 import divinerpg.dimensions.TwilightBiomeBase;
+import divinerpg.dimensions.WorldGenPlants;
 import divinerpg.dimensions.eden.WorldGenConeUp;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
@@ -20,8 +21,8 @@ public class BiomeMortum extends TwilightBiomeBase {
         this.genTree = new MortumTree(false, 5);
         this.genLargeTree = new MortumTreeLarge(true, 5);
         this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
-        this.brush = new WorldGenMortumPlants(ModBlocks.mortumBrush);
-        this.bloom = new WorldGenMortumPlants(ModBlocks.eyePlant);
+        this.brush = new WorldGenPlants(ModBlocks.mortumBrush, ModBlocks.mortumGrass);
+        this.bloom = new WorldGenPlants(ModBlocks.eyePlant, ModBlocks.mortumGrass);
         this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.demonBrambles, ModBlocks.mortumGrass);
 
         this.topBlock = ModBlocks.mortumGrass.getDefaultState();

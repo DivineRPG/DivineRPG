@@ -1,9 +1,11 @@
 package divinerpg.dimensions.eden;
 
+import divinerpg.registry.ModBiomes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -16,7 +18,7 @@ public class WorldProviderEden extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderEden();
+		this.biomeProvider = new BiomeProviderSingle(ModBiomes.Eden);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}

@@ -1,41 +1,107 @@
-package divinerpg.dimensions.wildwood;
+package divinerpg.dimensions;
 
-import java.util.List;
-import java.util.Random;
-
-import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 
-public class ChunkGeneratorWildWood implements IChunkGenerator {
-    private Random rand;
-    private World worldObj;
-    private NoiseGeneratorOctaves noiseGen1, perlinNoise1;
-    private double buffer[];
-    double pnr[], ar[], br[];
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
-    private final WorldGenWildWoodWater water = new WorldGenWildWoodWater();
+public class IslandChunkGeneratorBase implements IChunkGenerator {
 
-    public ChunkGeneratorWildWood(World world, long seed) {
-        this.worldObj = world;
-        this.rand = new Random(seed);
-        this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
-        this.perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
+    private final NoiseGeneratorOctaves noiseGen1;
+    private final NoiseGeneratorOctaves perlinNoise1;
+    private final Random rand;
+    private final World world;
+
+    private static final IBlockState AIR = Blocks.AIR.getDefaultState();
+    private final IBlockState STONE;
+    private final IBlockState GRASS;
+    private final IBlockState DIRT;
+
+    private double buffer[], pnr[], ar[], br[];
+
+    public IslandChunkGeneratorBase(World world, Block stone, Block grass, Block dirt){
+        rand = new Random(world.getSeed() + world.provider.getDimension());
+        this.world = world;
+        noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
+        perlinNoise1 = new NoiseGeneratorOctaves(this.rand, 8);
+
+        this.STONE = stone.getDefaultState();
+        this.GRASS = grass.getDefaultState();
+        this.DIRT = dirt.getDefaultState();
     }
 
-    public void setBlocksInChunk(int x, int z, ChunkPrimer chunkPrimer) {
+    @Override
+    public Chunk generateChunk(int x, int z) {
+        this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
+        ChunkPrimer chunkPrimer = new ChunkPrimer();
+
+        this.setBlocksInChunk(x, z, chunkPrimer);
+        this.buildSurfaces(x, z, chunkPrimer);
+
+        Chunk chunk = new Chunk(this.world, chunkPrimer, x, z);
+        chunk.generateSkylightMap();
+
+        return chunk;
+    }
+
+    @Override
+    public void populate(int chunkX, int chunkZ) {
+        int x = chunkX * 16;
+        int z = chunkZ * 16;
+
+        BlockPos pos = new BlockPos(x, 0, z);
+        Biome biome = this.world.getBiome(pos.add(16, 0, 16));
+
+        this.rand.setSeed(this.world.getSeed());
+        long k = this.rand.nextLong() / 2L * 2L + 1L;
+        long l = this.rand.nextLong() / 2L * 2L + 1L;
+        this.rand.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
+        biome.decorate(this.world, this.rand, pos);
+
+        WorldEntitySpawner.performWorldGenSpawning(this.world, biome, x + 8, z + 8, 16, 16, this.rand);
+    }
+
+    @Override
+    public boolean generateStructures(Chunk chunk, int i, int i1) {
+        return false;
+    }
+
+    @Override
+    public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
+        Biome biome = this.world.getBiomeProvider().getBiome(pos);
+        return biome.getSpawnableList(creatureType);
+    }
+
+    @Nullable
+    @Override
+    public BlockPos getNearestStructurePos(World world, String s, BlockPos blockPos, boolean b) {
+        return null;
+    }
+
+    @Override
+    public void recreateStructures(Chunk chunk, int i, int i1) {
+
+    }
+
+    @Override
+    public boolean isInsideStructure(World world, String s, BlockPos blockPos) {
+        return false;
+    }
+
+
+    protected void setBlocksInChunk(int x, int z, ChunkPrimer chunkPrimer) {
         this.buffer = this.setupNoiseGenerators(this.buffer, x * 2, z * 2);
 
         for (int i1 = 0; i1 < 2; i1++) {
@@ -66,20 +132,19 @@ public class ChunkGeneratorWildWood implements IChunkGenerator {
                                 int y = l1 + k1 * 4;
                                 int z1 = k2 + j1 * 8;
 
-                                IBlockState filler = Blocks.AIR.getDefaultState();
-
-                                if (d15 < -38D) {
-                                }
-                                if (d15 < -39D && d15 > -43D) {
-                                    if (d15 < -41D) {
-                                    }
-                                }
-                                if (d15 < -44D && d15 > -46D) {
-                                    if (d15 < -44.25D) {
-                                    }
-                                }
+                                IBlockState filler = AIR;
+//                                if (d15 < -38D) {
+//                                }
+//                                if (d15 < -39D && d15 > -43D) {
+//                                    if (d15 < -41D) {
+//                                    }
+//                                }
+//                                if (d15 < -44D && d15 > -46D) {
+//                                    if (d15 < -44.25D) {
+//                                    }
+//                                }
                                 if (d15 > 0.0D) {
-                                    filler = ModBlocks.twilightStone.getDefaultState();
+                                    filler = STONE;
                                 }
                                 chunkPrimer.setBlockState(x1, y, z1, filler);
                                 d15 += d16;
@@ -97,25 +162,25 @@ public class ChunkGeneratorWildWood implements IChunkGenerator {
         }
     }
 
-    public void buildSurfaces(int i, int j, ChunkPrimer chunkPrimer) {
+    protected void buildSurfaces(int i, int j, ChunkPrimer chunkPrimer) {
         for (int k = 0; k < 16; k++) {
             for (int l = 0; l < 16; l++) {
                 int j1 = -1;
                 int i1 = (int) (3.0D + this.rand.nextDouble() * 0.25D);
 
-                IBlockState top = ModBlocks.wildwoodGrass.getDefaultState();
-                IBlockState filler = ModBlocks.wildwoodDirt.getDefaultState();
+                IBlockState top = GRASS;
+                IBlockState filler = DIRT;
 
                 for (int k1 = 127; k1 >= 0; k1--) {
-                    Block block = chunkPrimer.getBlockState(k, k1, l).getBlock();
+                    IBlockState state = chunkPrimer.getBlockState(k, k1, l);
 
-                    if (block == Blocks.AIR) {
+                    if (state == AIR) {
                         j1 = -1;
-                    } else if (block == ModBlocks.twilightStone) {
+                    } else if (state == STONE) {
                         if (j1 == -1) {
                             if (i1 <= 0) {
-                                top = Blocks.AIR.getDefaultState();
-                                filler = ModBlocks.twilightStone.getDefaultState();
+                                top = AIR;
+                                filler = STONE;
                             }
                             j1 = i1;
                             if (k1 >= 0) {
@@ -133,7 +198,7 @@ public class ChunkGeneratorWildWood implements IChunkGenerator {
         }
     }
 
-    private double[] setupNoiseGenerators(double buffer[], int x, int z) {
+    protected double[] setupNoiseGenerators(double buffer[], int x, int z) {
         if (buffer == null) {
             buffer = new double[3366];
         }
@@ -178,66 +243,5 @@ public class ChunkGeneratorWildWood implements IChunkGenerator {
             }
         }
         return buffer;
-    }
-
-    @Override
-    public Chunk generateChunk(int x, int z) {
-        this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
-        ChunkPrimer chunkPrimer = new ChunkPrimer();
-
-        this.setBlocksInChunk(x, z, chunkPrimer);
-        this.buildSurfaces(x, z, chunkPrimer);
-
-        Chunk chunk = new Chunk(this.worldObj, chunkPrimer, x, z);
-        chunk.generateSkylightMap();
-
-        return chunk;
-    }
-
-    @Override
-    public List<SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
-        Biome biome = this.worldObj.getBiomeProvider().getBiome(pos);
-
-        return biome != null ? biome.getSpawnableList(creatureType) : null;
-    }
-
-    @Override
-    public boolean generateStructures(Chunk chunkIn, int chunkX, int chunkZ) {
-        return false;
-    }
-
-    @Override
-    public void recreateStructures(Chunk p_180514_1_, int x, int z) {
-
-    }
-
-    @Override
-    public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
-        return false;
-    }
-
-    @Override
-    public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position,
-            boolean findUnexplored) {
-        return null;
-    }
-
-    @Override
-    public void populate(int chunkX, int chunkZ) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
-
-        BlockPos pos = new BlockPos(x, 0, z);
-        ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
-
-        Biome biome = this.worldObj.getBiome(pos.add(16, 0, 16));
-
-        this.rand.setSeed(this.worldObj.getSeed());
-        long k = this.rand.nextLong() / 2L * 2L + 1L;
-        long l = this.rand.nextLong() / 2L * 2L + 1L;
-        this.rand.setSeed((long) x * k + (long) z * l ^ this.worldObj.getSeed());
-        biome.decorate(this.worldObj, this.rand, pos);
-
-        WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
     }
 }

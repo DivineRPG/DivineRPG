@@ -3,14 +3,20 @@ package divinerpg.dimensions.mortum;
 import java.util.Random;
 
 import divinerpg.registry.ModBlocks;
+import divinerpg.registry.ModItems;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.common.Mod;
 
 public class WorldGenMortumStone extends WorldGenerator {
     
     private int numberOfBlocks;
+    private final IBlockState stone = ModBlocks.twilightStone.getDefaultState();
+    private final IBlockState grass = ModBlocks.mortumGrass.getDefaultState();
+    private final BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
     public WorldGenMortumStone(int var2) {
         this.numberOfBlocks = var2;
@@ -53,8 +59,11 @@ public class WorldGenMortumStone extends WorldGenerator {
                             for (int var44 = var34; var44 <= var37; ++var44) {
                                 double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
 
-                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && worldIn.getBlockState(new BlockPos(var38, var41, var44)) == ModBlocks.mortumGrass.getDefaultState()) {
-                                    worldIn.setBlockState(new BlockPos(var38, var41, var44), ModBlocks.twilightStone.getDefaultState());
+                                pos.setPos(var38, var41, var44);
+
+                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D
+                                        && worldIn.getBlockState(pos) == grass) {
+                                    worldIn.setBlockState(pos, stone);
                                 }
                             }
                         }
