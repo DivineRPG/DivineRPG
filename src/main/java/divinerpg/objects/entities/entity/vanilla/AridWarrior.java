@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -15,7 +16,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/arid_warrior");
 
     public AridWarrior(World worldIn) {
         super(worldIn);
@@ -68,7 +68,7 @@ public class AridWarrior extends EntityDivineRPGMob implements IRangedAttackMob 
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ARID_WARRIOR;
     }
 
     @Override

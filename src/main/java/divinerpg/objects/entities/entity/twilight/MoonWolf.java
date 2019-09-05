@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,10 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -302,5 +300,10 @@ public class MoonWolf extends EntityDivineRPGTameable {
     @Override
     protected boolean canDespawn() {
         return !this.isTamed();
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_MOON_WOLF;
     }
 }

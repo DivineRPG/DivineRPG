@@ -4,6 +4,7 @@ import com.google.common.base.Predicate;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Alicanto extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/alicanto");
+
     private BlockPos currentFlightTarget;
     private int flyTimer;
 
@@ -133,6 +134,6 @@ public class Alicanto extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ALICANTO;
     }
 }

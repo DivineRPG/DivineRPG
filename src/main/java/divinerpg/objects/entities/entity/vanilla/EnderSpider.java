@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -9,7 +10,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EnderSpider extends EntityEnderman {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ender_spider");
 
     public EnderSpider(World worldIn) {
         super(worldIn);
@@ -38,7 +38,7 @@ public class EnderSpider extends EntityEnderman {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ENDER_SPIDER;
     }
 
     @Override

@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -17,7 +18,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class TheWatcher extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/the_watcher");
+
     public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;
@@ -243,6 +244,6 @@ public class TheWatcher extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_THE_WATCHER;
     }
 }

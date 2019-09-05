@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -14,8 +15,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class TwilightDemon extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/twilight/twilight_demon");
+
     int shooting;
 
     public TwilightDemon(World worldIn) {
@@ -90,6 +90,6 @@ public class TwilightDemon extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_TWILIGHT_DEMON;
     }
 }

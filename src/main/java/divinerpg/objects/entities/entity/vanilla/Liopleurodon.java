@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,7 +14,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Liopleurodon extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/liopleurodon");
 
     public Liopleurodon(World worldIn) {
         super(worldIn);
@@ -113,6 +113,6 @@ public class Liopleurodon extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_LIOPLEURODON;
     }
 }

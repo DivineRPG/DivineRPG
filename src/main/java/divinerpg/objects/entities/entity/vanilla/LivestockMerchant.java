@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.MessageLocalizer;
@@ -13,6 +14,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
@@ -83,5 +85,10 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     @Override
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == 0 && super.getCanSpawnHere();
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_LIVESTOCK_MERCHANT;
     }
 }

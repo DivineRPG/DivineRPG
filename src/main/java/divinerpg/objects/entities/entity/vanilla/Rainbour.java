@@ -6,6 +6,7 @@ import divinerpg.DivineRPG;
 import divinerpg.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -26,7 +27,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Rainbour extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/rainbour");
     private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
             DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;
@@ -217,7 +217,7 @@ public class Rainbour extends EntityPeacefulUntilAttacked {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_RAINBOUR;
     }
 
     @Override

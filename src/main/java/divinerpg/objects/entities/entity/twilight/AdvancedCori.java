@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,8 +19,6 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class AdvancedCori extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/twilight/advanced_cori");
 
     public int courseChangeCooldown = 0;
     public double waypointX;
@@ -166,6 +165,6 @@ public class AdvancedCori extends EntityDivineRPGFlying {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ADVANCED_CORI;
     }
 }

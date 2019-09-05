@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class Snapper extends EntityDivineRPGTameable {
@@ -80,5 +82,10 @@ public class Snapper extends EntityDivineRPGTameable {
     @Override
     public EntityAgeable createChild(EntityAgeable var1) {
         return null;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_SNAPPER;
     }
 }

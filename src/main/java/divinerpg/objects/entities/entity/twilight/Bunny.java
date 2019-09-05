@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
@@ -22,7 +23,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Bunny extends EntityDivineRPGTameable {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/bunny");
+
     private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.<Boolean>createKey(Bunny.class,
             DataSerializers.BOOLEAN);
 
@@ -169,6 +170,6 @@ public class Bunny extends EntityDivineRPGTameable {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_BUNNY;
     }
 }

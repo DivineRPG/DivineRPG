@@ -6,6 +6,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -20,7 +21,6 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/reyvor");
 
     public Reyvor(World worldIn) {
         super(worldIn);
@@ -73,6 +73,6 @@ public class Reyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_REYVOR;
     }
 }

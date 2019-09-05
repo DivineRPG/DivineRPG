@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -12,7 +13,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Greenfeet extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/greenfeet");
 
     public Greenfeet(World worldIn) {
         super(worldIn);
@@ -73,6 +73,6 @@ public class Greenfeet extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_GREENFEET;
     }
 }

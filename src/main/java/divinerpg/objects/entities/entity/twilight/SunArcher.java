@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
@@ -16,7 +17,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class SunArcher extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/sun_archer");
 
     public SunArcher(World worldIn) {
         super(worldIn);
@@ -79,6 +79,6 @@ public class SunArcher extends EntityDivineRPGMob implements IRangedAttackMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_SUN_ARCHER;
     }
 }

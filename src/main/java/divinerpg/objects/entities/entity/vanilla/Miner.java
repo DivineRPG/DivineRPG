@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
@@ -22,7 +23,6 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class Miner extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/miner");
 
     public Miner(World worldIn) {
         super(worldIn);
@@ -127,7 +127,7 @@ public class Miner extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_MINER;
     }
 
     @Override

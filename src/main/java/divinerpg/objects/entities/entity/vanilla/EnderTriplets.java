@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EnderTriplets extends EntityDivineRPGFlying {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/ender_triplets");
+
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;
@@ -186,7 +187,7 @@ public class EnderTriplets extends EntityDivineRPGFlying {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ENDER_TRIPLETS;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -21,6 +22,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -190,5 +192,10 @@ public class HellPig extends EntityDivineRPGTameable {
     public boolean getCanSpawnHere() {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL
                 && this.world.getBlockState(getPosition().down()).getBlock() == Blocks.SOUL_SAND;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_HELL_PIG;
     }
 }

@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -21,7 +22,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Kobblin extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/kobblin");
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(Kobblin.class,
             DataSerializers.BOOLEAN);
 
@@ -135,7 +135,7 @@ public class Kobblin extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_KOBBLIN;
     }
 
     @Override

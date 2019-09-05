@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -87,5 +89,10 @@ public class Husk extends EntityDivineRPGTameable {
     @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.GROWL_HURT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_HUSK;
     }
 }

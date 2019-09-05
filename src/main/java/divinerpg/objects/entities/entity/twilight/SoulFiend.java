@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,7 +15,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class SoulFiend extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/soul_fiend");
 
     public SoulFiend(World worldIn) {
         super(worldIn);
@@ -76,6 +76,6 @@ public class SoulFiend extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_SOUL_FIEND;
     }
 }

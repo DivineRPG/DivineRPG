@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -16,7 +17,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class DeathHound extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/death_hound");
 
     public DeathHound(World world) {
         super(world);
@@ -94,7 +94,7 @@ public class DeathHound extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_DEATH_HOUND;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,8 +15,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class AncientEntity extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/vanilla/ancient_entity");
 
     public AncientEntity(World worldIn) {
         super(worldIn);
@@ -62,6 +60,6 @@ public class AncientEntity extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ANCIENT_ENTITY;
     }
 }
