@@ -67,9 +67,4 @@ public class Leorna extends EntityDivineRPGVillager {
     public boolean getCanSpawnHere() {
         return this.posY < 40.0D && super.getCanSpawnHere();
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_LEORNA;
-    }
 }

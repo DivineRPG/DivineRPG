@@ -101,9 +101,4 @@ public class StoneGolem extends EntityDivineRPGTameable implements IAttackTimer 
     public EntityAgeable createChild(EntityAgeable var1) {
         return null;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_STONE_GOLEM;
-    }
 }

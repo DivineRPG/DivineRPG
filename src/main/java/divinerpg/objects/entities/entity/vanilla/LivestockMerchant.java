@@ -86,9 +86,4 @@ public class LivestockMerchant extends EntityDivineRPGVillager {
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_LIVESTOCK_MERCHANT;
-    }
 }

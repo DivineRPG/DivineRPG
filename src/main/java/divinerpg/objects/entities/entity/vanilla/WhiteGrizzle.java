@@ -90,9 +90,4 @@ public class WhiteGrizzle extends EntityDivineRPGTameable {
     protected SoundEvent getDeathSound() {
         return ModSounds.GRIZZLE_HURT;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WHITE_GRIZZLE;
-    }
 }

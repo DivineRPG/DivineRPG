@@ -19,13 +19,11 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_AYERACO_RED = registerTable("entities/vanilla/ayeraco_red");
     public static final ResourceLocation ENTITIES_AYERACO_YELLOW = registerTable("entities/vanilla/ayeraco_yellow");
     public static final ResourceLocation ENTITIES_ARID_WARRIOR = registerTable("entities/vanilla/arid_warrior");
-    public static final ResourceLocation ENTITIES_BROWN_GRIZZLE = registerTable("entities/vanilla/brown_grizzle");
     public static final ResourceLocation ENTITIES_CAVECLOPS = registerTable("entities/vanilla/caveclops");
     public static final ResourceLocation ENTITIES_CAVE_CRAWLER = registerTable("entities/vanilla/cave_crawler");
     public static final ResourceLocation ENTITIES_CRAB = registerTable("entities/vanilla/crab");
     public static final ResourceLocation ENTITIES_CYCLOPS = registerTable("entities/vanilla/cyclops");
     public static final ResourceLocation ENTITIES_DESERT_CRAWLER = registerTable("entities/vanilla/desert_crawler");
-    public static final ResourceLocation ENTITIES_EHU = registerTable("entities/vanilla/ehu");
     public static final ResourceLocation ENTITIES_ENDER_SPIDER = registerTable("entities/vanilla/ender_spider");
     public static final ResourceLocation ENTITIES_ENDER_TRIPLETS = registerTable("entities/vanilla/ender_triplets");
     public static final ResourceLocation ENTITIES_ENDER_WATCHER = registerTable("entities/vanilla/ender_watcher");
@@ -35,8 +33,6 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_HELL_BAT = registerTable("entities/vanilla/hell_bat");
     public static final ResourceLocation ENTITIES_HELL_PIG = registerTable("entities/vanilla/hell_pig");
     public static final ResourceLocation ENTITIES_HELL_SPIDER = registerTable("entities/vanilla/hell_spider");
-    public static final ResourceLocation ENTITIES_HUSK = registerTable("entities/vanilla/husk");
-    public static final ResourceLocation ENTITIES_JACK_O_MAN = registerTable("entities/vanilla/jack_o_man");
     public static final ResourceLocation ENTITIES_JUNGLE_BAT = registerTable("entities/vanilla/jungle_bat");
     public static final ResourceLocation ENTITIES_JUNGLE_DRAMCRYX = registerTable("entities/vanilla/jungle_dramcryx");
     public static final ResourceLocation ENTITIES_JUNGLE_SPIDER = registerTable("entities/vanilla/jungle_spider");
@@ -44,7 +40,6 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_KING_OF_SCORCHERS = registerTable("entities/vanilla/king_of_scorchers");
     public static final ResourceLocation ENTITIES_KOBBLIN = registerTable("entities/vanilla/kobblin");
     public static final ResourceLocation ENTITIES_LIOPLEURODON = registerTable("entities/vanilla/liopleurodon");
-    public static final ResourceLocation ENTITIES_LIVESTOCK_MERCHANT = registerTable("entities/vanilla/livestock_merchant");
     public static final ResourceLocation ENTITIES_MINER = registerTable("entities/vanilla/miner");
     public static final ResourceLocation ENTITIES_PUMPKIN_SPIDER = registerTable("entities/vanilla/pumpkin_spider");
     public static final ResourceLocation ENTITIES_RAINBOUR = registerTable("entities/vanilla/rainbour");
@@ -52,14 +47,10 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_SAGUARO_WORM = registerTable("entities/vanilla/saguaro_worm");
     public static final ResourceLocation ENTITIES_SCORCHER = registerTable("entities/vanilla/scorcher");
     public static final ResourceLocation ENTITIES_SHARK = registerTable("entities/vanilla/shark");
-    public static final ResourceLocation ENTITIES_SMELTER = registerTable("entities/vanilla/smelter");
-    public static final ResourceLocation ENTITIES_SNAPPER = registerTable("entities/vanilla/snapper");
-    public static final ResourceLocation ENTITIES_STONE_GOLEM = registerTable("entities/vanilla/stone_golem");
     public static final ResourceLocation ENTITIES_THE_EYE = registerTable("entities/vanilla/the_eye");
     public static final ResourceLocation ENTITIES_THE_GRUE = registerTable("entities/vanilla/the_grue");
     public static final ResourceLocation ENTITIES_THE_WATCHER = registerTable("entities/vanilla/the_watcher");
     public static final ResourceLocation ENTITIES_WHALE = registerTable("entities/vanilla/whale");
-    public static final ResourceLocation ENTITIES_WHITE_GRIZZLE = registerTable("entities/vanilla/white_grizzle");
     public static final ResourceLocation ENTITIES_WILDFIRE = registerTable("entities/vanilla/wildfire");
 
     public static final ResourceLocation ENTITIES_ADVANCED_CORI = registerTable("entities/twilight/advanced_cori");
@@ -113,30 +104,17 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_GLACIDE = registerTable("entities/iceika/glacide");
     public static final ResourceLocation ENTITIES_HASTREUS = registerTable("entities/iceika/hastreus");
     public static final ResourceLocation ENTITIES_ROLLUM = registerTable("entities/iceika/rollum");
-    public static final ResourceLocation ENTITIES_WORKSHOP_MERCHANT = registerTable("entities/iceika/workshop_merchant");
-    public static final ResourceLocation ENTITIES_WORKSHOP_TINKERER = registerTable("entities/iceika/workshop_tinkerer");
 
-    public static final ResourceLocation ENTITIES_CAPTAIN_MERIK = registerTable("entities/arcana/captain_merik");
-    public static final ResourceLocation ENTITIES_DATTICON = registerTable("entities/arcana/datticon");
     public static final ResourceLocation ENTITIES_DEATHCRYX = registerTable("entities/arcana/deathcryx");
     public static final ResourceLocation ENTITIES_DEATH_HOUND = registerTable("entities/arcana/death_hound");
     public static final ResourceLocation ENTITIES_DRAMIX = registerTable("entities/arcana/dramix");
     public static final ResourceLocation ENTITIES_DUNGEON_CONSTRUCTOR = registerTable("entities/arcana/dungeon_constructor");
     public static final ResourceLocation ENTITIES_DUNGEON_DEMON = registerTable("entities/arcana/dungeon_demon");
     public static final ResourceLocation ENTITIES_DUNGEON_PRISONER = registerTable("entities/arcana/dungeon_prisoner");
-    public static final ResourceLocation ENTITIES_FYRACRYX = registerTable("entities/arcana/fyracryx");
-    public static final ResourceLocation ENTITIES_GOLEM_OF_REJUVENATION = registerTable("entities/arcana/golem_of_rejuvenation");
-    public static final ResourceLocation ENTITIES_LEORNA = registerTable("entities/arcana/leorna");
     public static final ResourceLocation ENTITIES_LIVING_STATUE = registerTable("entities/arcana/living_statue");
-    public static final ResourceLocation ENTITIES_LORD_VATTICUS = registerTable("entities/arcana/lord_vatticus");
     public static final ResourceLocation ENTITIES_PARASECTA = registerTable("entities/arcana/parasecta");
-    public static final ResourceLocation ENTITIES_PARATIKU = registerTable("entities/arcana/paratiku");
     public static final ResourceLocation ENTITIES_RAZORBACK = registerTable("entities/arcana/razorback");
     public static final ResourceLocation ENTITIES_ROAMER = registerTable("entities/arcana/roamer");
-    public static final ResourceLocation ENTITIES_SEIMER = registerTable("entities/arcana/seimer");
-    public static final ResourceLocation ENTITIES_WAR_GENERAL = registerTable("entities/arcana/war_general");
-    public static final ResourceLocation ENTITIES_WRAITH = registerTable("entities/arcana/wraith");
-    public static final ResourceLocation ENTITIES_ZELUS = registerTable("entities/arcana/zelus");
 
     private static ResourceLocation registerTable(String path) {
         return LootTableList.register(new ResourceLocation(Reference.MODID, path));

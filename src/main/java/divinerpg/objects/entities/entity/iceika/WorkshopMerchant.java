@@ -98,10 +98,5 @@ public class WorkshopMerchant extends EntityDivineRPGVillager {
     protected SoundEvent getHurtSound(DamageSource source) {
         return null;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WORKSHOP_MERCHANT;
-    }
 }
 

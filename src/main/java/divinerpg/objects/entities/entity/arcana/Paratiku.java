@@ -265,9 +265,4 @@ public class Paratiku extends EntityDivineRPGTameable {
     public EntityAgeable createChild(EntityAgeable ageable) {
         return null;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_PARATIKU;
-    }
 }

@@ -13,7 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Dramix extends EntityDivineRPGBoss {
-    
+
     public Dramix(World world) {
         super(world);
         setSize(0.85f, 3);

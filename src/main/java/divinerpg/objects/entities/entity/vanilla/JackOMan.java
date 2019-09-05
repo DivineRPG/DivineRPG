@@ -134,9 +134,4 @@ public class JackOMan extends EntityDivineRPGVillager {
     public boolean getCanSpawnHere() {
         return world.provider.getDimension() == 0 && this.isValidLightLevel() && super.getCanSpawnHere();
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_JACK_O_MAN;
-    }
 }

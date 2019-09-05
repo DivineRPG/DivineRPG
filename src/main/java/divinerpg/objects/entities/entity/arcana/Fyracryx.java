@@ -113,9 +113,4 @@ public class Fyracryx extends EntityDivineRPGTameable implements IRangedAttackMo
     public EntityAgeable createChild(EntityAgeable var1) {
         return null;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_FYRACRYX;
-    }
 }

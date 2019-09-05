@@ -100,9 +100,4 @@ public class WorkshopTinkerer extends EntityDivineRPGVillager {
     protected SoundEvent getDeathSound() {
         return null;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WORKSHOP_TINKERER;
-    }
 }

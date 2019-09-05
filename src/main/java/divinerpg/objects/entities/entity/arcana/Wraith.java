@@ -128,9 +128,4 @@ public class Wraith extends Paratiku {
             }
         }
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WRAITH;
-    }
 }

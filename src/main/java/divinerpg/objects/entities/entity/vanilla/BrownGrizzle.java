@@ -89,9 +89,4 @@ public class BrownGrizzle extends EntityDivineRPGTameable {
     protected SoundEvent getDeathSound() {
         return ModSounds.GRIZZLE_HURT;
     }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_BROWN_GRIZZLE;
-    }
 }
