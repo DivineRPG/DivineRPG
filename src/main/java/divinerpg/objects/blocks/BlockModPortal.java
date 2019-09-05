@@ -1,17 +1,14 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
-import divinerpg.Config;
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
+import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.DivineTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -35,9 +32,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Random;
+
 public class BlockModPortal extends BlockBreakable {
 
-    public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis",
+    public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.create("axis",
             EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
     protected static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
     protected static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
@@ -71,7 +70,7 @@ public class BlockModPortal extends BlockBreakable {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { AXIS });
+        return new BlockStateContainer(this, AXIS);
     }
 
     public Item createItemBlock() {
@@ -309,7 +308,6 @@ public class BlockModPortal extends BlockBreakable {
 
             for (BlockPos blockpos = pos; pos.getY() > blockpos.getY() - 21 && pos.getY() > 0
                     && this.isEmptyBlock(worldIn.getBlockState(pos.down()).getBlock()); pos = pos.down()) {
-                ;
             }
 
             int i = this.getDistanceUntilEdge(pos, this.leftDir) - 1;

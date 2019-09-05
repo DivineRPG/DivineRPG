@@ -1,8 +1,6 @@
 package divinerpg.world.structures;
 
-import java.util.Random;
-
-import divinerpg.Config;
+import divinerpg.config.Config;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.DRPGLootTables;
@@ -19,6 +17,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
+
+import java.util.Random;
 
 /**
  * Created by LiteWolf101 on Jan /27/2019

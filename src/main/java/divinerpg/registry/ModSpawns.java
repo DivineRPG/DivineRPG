@@ -1,7 +1,7 @@
 package divinerpg.registry;
 
-import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.config.Config;
 import divinerpg.objects.entities.entity.vanilla.Liopleurodon;
 import divinerpg.objects.entities.entity.vanilla.Shark;
 import divinerpg.objects.entities.entity.vanilla.Whale;

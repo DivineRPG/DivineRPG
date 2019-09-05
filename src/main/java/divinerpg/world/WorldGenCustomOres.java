@@ -1,7 +1,8 @@
 package divinerpg.world;
 
 import com.google.common.base.Predicate;
-import divinerpg.Config;
+import divinerpg.config.Config;
+import divinerpg.config.OreInfo;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import net.minecraft.block.Block;
@@ -61,16 +62,18 @@ public class WorldGenCustomOres implements IWorldGenerator {
     ///////////////////////////
 
     private void spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
-                          int chunkX, int chunkZ, int maxVeinSize, int tries, int minY, int maxY) {
+                          int chunkX, int chunkZ, OreInfo info) {
 
-        int height = getHeightOrThrow(minY, maxY);
-        WorldGenMinable gen = new WorldGenMinable(ore, maxVeinSize, replacing);
+        int minY = info.getMinY();
+        int height = getHeightOrThrow(minY, info.getMaxY());
+        WorldGenMinable gen = new WorldGenMinable(ore, info.getVienSize(), replacing);
 
         // Inserting forge hook here
         if (!TerrainGen.generateOre(world, random, gen, new BlockPos(chunkX * 16, 0, chunkZ * 16),
                 OreGenEvent.GenerateMinable.EventType.CUSTOM))
             return;
 
+        int tries = info.getTries();
         for (int i = 0; i < tries; i++) {
             BlockPos pos = new BlockPos(
                     chunkX * 16 + random.nextInt(16),
@@ -82,8 +85,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void spawnTwilightOre(World world, Random random, Block ore, int chunkX, int chunkZ) {
-        spawnOre(world, random, ore.getDefaultState(), twilightPredicat, chunkX, chunkZ,
-                4, 5, 15, 100);
+        spawnOre(world, random, ore.getDefaultState(), twilightPredicat, chunkX, chunkZ, Config.twilight);
     }
 
     /**
@@ -124,11 +126,11 @@ public class WorldGenCustomOres implements IWorldGenerator {
     /////////////////////////////////
     private void genOverworld(World world, Random random, int chunkX, int chunkZ) {
         spawnOre(world, random, ModBlocks.realmiteOre.getDefaultState(), stonePredicat, chunkX, chunkZ,
-                Config.realmiteVein, Config.realmiteTries, Config.realmiteMin, Config.realmiteMax);
+                Config.realmite);
         spawnOre(world, random, ModBlocks.rupeeOre.getDefaultState(), stonePredicat, chunkX, chunkZ,
-                Config.rupeeVein, Config.rupeeTries, Config.rupeeMin, Config.rupeeMax);
+                Config.rupee);
         spawnOre(world, random, ModBlocks.arlemiteOre.getDefaultState(), stonePredicat, chunkX, chunkZ,
-                Config.arlemiteVein, Config.arlemiteTries, Config.arlemiteMin, Config.arlemiteMax);
+                Config.arlemite);
 
         if (Config.generateTar) {
             // bottom layer, more frequently
@@ -139,10 +141,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void genNether(World world, Random random, int chunkX, int chunkZ) {
-        spawnOre(world, random, ModBlocks.netheriteOre.getDefaultState(), netherPredicat, chunkX, chunkZ,
-                4, 5, 1, world.getHeight());
-        spawnOre(world, random, ModBlocks.bloodgemOre.getDefaultState(), netherPredicat, chunkX, chunkZ,
-                4, 5, 1, world.getHeight());
+        spawnOre(world, random, ModBlocks.netheriteOre.getDefaultState(), netherPredicat, chunkX, chunkZ, Config.nether);
+        spawnOre(world, random, ModBlocks.bloodgemOre.getDefaultState(), netherPredicat, chunkX, chunkZ, Config.nether);
     }
 
     private void genEden(World world, Random random, int chunkX, int chunkZ) {

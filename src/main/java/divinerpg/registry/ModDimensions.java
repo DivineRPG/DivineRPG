@@ -1,7 +1,7 @@
 package divinerpg.registry;
 
-import divinerpg.Config;
 import divinerpg.Reference;
+import divinerpg.config.Config;
 import divinerpg.dimensions.apalachia.WorldProviderApalachia;
 import divinerpg.dimensions.arcana.WorldProviderArcana;
 import divinerpg.dimensions.eden.WorldProviderEden;

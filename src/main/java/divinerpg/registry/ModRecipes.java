@@ -1,7 +1,7 @@
 package divinerpg.registry;
 
-import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.config.Config;
 import divinerpg.enums.WoodType;
 import divinerpg.utils.GenerateJSON;
 import net.minecraft.block.Block;
