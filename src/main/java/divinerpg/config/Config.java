@@ -1,36 +1,29 @@
-package divinerpg;
+package divinerpg.config;
 
-import org.apache.logging.log4j.Level;
-
+import divinerpg.DivineRPG;
 import divinerpg.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
+import org.apache.logging.log4j.Level;
+
+import java.util.Arrays;
 
 public class Config {
 
+    public static final OreInfo realmite = new OreInfo("realmite", 3, 4, 1, 48);
+    public static final OreInfo rupee = new OreInfo("rupee", 2, 2, 1, 16);
+    public static final OreInfo arlemite = new OreInfo("arlemite", 2, 2, 1, 16);
+    public static final OreInfo nether = new OreInfo("netherOres", 5, 4, 1, 256);
+    public static final OreInfo twilight = new OreInfo("twilightOres", 5, 4, 15, 100);
     private static final String CATEGORY_GENERAL = "general";
+    private static final String CATEGORY_GUI = "GUI";
+    private static final String CATEGORY_WORLD_GEN = "World Gen";
     public static int mobSpawnMultiplier = 5;
     public static boolean isBeaconBase = true;
     public static boolean UpdateChecker = true;
     public static boolean canShowOverlay = true;
     public static boolean debug = false;
     public static boolean genJSON = false;
-
-    private static final String CATEGORY_GUI = "GUI";
     public static int arcanaX, arcanaY;
-
-    private static final String CATEGORY_WORLD_GEN = "World Gen";
-    public static int realmiteMin = 1;
-    public static int realmiteMax = 48;
-    public static int realmiteVein = 4;
-    public static int realmiteTries = 3;
-    public static int rupeeMin = 1;
-    public static int rupeeMax = 16;
-    public static int rupeeVein = 2;
-    public static int rupeeTries = 2;
-    public static int arlemiteMin = 1;
-    public static int arlemiteMax = 16;
-    public static int arlemiteVein = 2;
-    public static int arlemiteTries = 2;
     public static boolean generateHuts = true;
     public static boolean generateTrees = true;
     public static boolean generateTar = true;
@@ -65,36 +58,11 @@ public class Config {
         mobSpawnMultiplier = cfg.getInt("Mob Spawn Multiplier", CATEGORY_GENERAL, 5, 1, 32,
                 "If you are experiencing lag i would recommend lowering this number");
         cfg.addCustomCategoryComment(CATEGORY_WORLD_GEN, "World gen variables");
-        realmiteMin = cfg.getInt("realmiteMin", CATEGORY_WORLD_GEN, 1, 1, 255,
-                "Choose a number between 1 and 255 to choose the min ore height");
-        realmiteMax = cfg.getInt("realmiteMax", CATEGORY_WORLD_GEN, 48, 1, 255,
-                "Choose a number between 1 and 255 to choose the max ore height");
-        realmiteVein = cfg.getInt("realmiteTries", CATEGORY_WORLD_GEN, 4, 1, 255,
-                "Choose a number between 1 and 255 to tweak the vein size");
-        realmiteTries = cfg.getInt("realmiteTries", CATEGORY_WORLD_GEN, 3, 1, 255,
-                "Choose a number between 1 and 255 to choose the amount of times the ore tries to spawn");
-        rupeeMin = cfg.getInt("rupeeMin", CATEGORY_WORLD_GEN, 1, 1, 255,
-                "Choose a number between 1 and 255 to choose the min ore height");
-        rupeeMax = cfg.getInt("rupeeMax", CATEGORY_WORLD_GEN, 16, 1, 255,
-                "Choose a number between 1 and 255 to choose the max ore height");
-        rupeeVein = cfg.getInt("rupeeTries", CATEGORY_WORLD_GEN, 3, 1, 255,
-                "Choose a number between 1 and 255 to tweak the vein size");
-        rupeeTries = cfg.getInt("rupeeTries", CATEGORY_WORLD_GEN, 2, 1, 255,
-                "Choose a number between 1 and 255 to choose the amount of times the ore tries to spawn");
-        arlemiteMin = cfg.getInt("arlemiteMin", CATEGORY_WORLD_GEN, 1, 1, 255,
-                "Choose a number between 1 and 255 to choose the min ore height");
-        arlemiteMax = cfg.getInt("arlemiteMax", CATEGORY_WORLD_GEN, 16, 1, 255,
-                "Choose a number between 1 and 255 to choose the max ore height");
-        arlemiteVein = cfg.getInt("arlemiteTries", CATEGORY_WORLD_GEN, 3, 1, 255,
-                "Choose a number between 1 and 255 to tweak the vein size");
-        arlemiteTries = cfg.getInt("arlemiteTries", CATEGORY_WORLD_GEN, 2, 1, 255,
-                "Choose a number between 1 and 255 to choose the amount of times the ore tries to spawn");
-        generateHuts = cfg.getBoolean("generateHuts", CATEGORY_WORLD_GEN, generateHuts,
-                "Generate livestock merchant huts in the overworld?");
-        generateTrees = cfg.getBoolean("generateTrees", CATEGORY_WORLD_GEN, generateTrees,
-                "Generate divine trees in the overworld?");
-        generateTar = cfg.getBoolean("generateTar", CATEGORY_WORLD_GEN, generateTar,
-                "Generate tar lakes in the overworld?");
+        Arrays.asList(arlemite, rupee, realmite, nether, twilight).forEach(oreInfo -> oreInfo.init(cfg, CATEGORY_WORLD_GEN));
+
+        generateHuts = cfg.getBoolean("generateHuts", CATEGORY_WORLD_GEN, generateHuts, "Generate livestock merchant huts in the overworld?");
+        generateTrees = cfg.getBoolean("generateTrees", CATEGORY_WORLD_GEN, generateTrees, "Generate divine trees in the overworld?");
+        generateTar = cfg.getBoolean("generateTar", CATEGORY_WORLD_GEN, generateTar, "Generate tar lakes in the overworld?");
         cfg.addCustomCategoryComment(CATEGORY_GUI, "GUI Config options");
         arcanaX = cfg.getInt("arcanaX", CATEGORY_GUI, 111, 1, 255, "Arcana gui width");
         arcanaY = cfg.getInt("arcanaY", CATEGORY_GUI, 18, 1, 255, "Arcana gui height");

@@ -1,9 +1,7 @@
 package divinerpg.events;
 
-import divinerpg.Config;
 import divinerpg.Reference;
-import divinerpg.objects.blocks.BlockMod;
-import divinerpg.objects.blocks.BlockModOre;
+import divinerpg.config.Config;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.FullSetArmorHelper;

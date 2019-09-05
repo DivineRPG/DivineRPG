@@ -5,11 +5,8 @@
 package divinerpg;
 
 import divinerpg.compat.ProjectECompat;
-import divinerpg.events.ArcanaTickHandler;
-import divinerpg.events.EventArmorSet;
-import divinerpg.events.EventArmorTick;
-import divinerpg.events.EventEntityDrop;
-import divinerpg.events.RegistryHandler;
+import divinerpg.config.Config;
+import divinerpg.events.*;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModOreDict;

@@ -1,18 +1,12 @@
 package divinerpg.events;
 
-import divinerpg.Config;
-import divinerpg.client.render.*;
-import divinerpg.objects.blocks.BlockStatue;
+import divinerpg.config.Config;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModLiquids;
 import divinerpg.registry.ModSpawns;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.Mod;

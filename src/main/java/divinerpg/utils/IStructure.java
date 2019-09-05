@@ -1,6 +1,6 @@
 package divinerpg.utils;
 
-import divinerpg.Config;
+import divinerpg.config.Config;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.world.WorldServer;

@@ -1,7 +1,7 @@
 package divinerpg.utils.log;
 
-import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.config.Config;
 import divinerpg.objects.items.ItemNotReady;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
