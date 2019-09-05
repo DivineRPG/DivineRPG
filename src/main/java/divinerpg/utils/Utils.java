@@ -1,7 +1,7 @@
 package divinerpg.utils;
 
-import divinerpg.Config;
 import divinerpg.Reference;
+import divinerpg.config.Config;
 import divinerpg.objects.entities.assets.render.RenderHat;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;

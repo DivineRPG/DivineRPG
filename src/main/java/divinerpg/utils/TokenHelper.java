@@ -1,7 +1,7 @@
 package divinerpg.utils;
 
-import divinerpg.Config;
 import divinerpg.DivineRPG;
+import divinerpg.config.Config;
 
 public class TokenHelper {
 

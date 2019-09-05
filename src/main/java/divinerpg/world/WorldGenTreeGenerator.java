@@ -1,8 +1,6 @@
 package divinerpg.world;
 
-import java.util.Random;
-
-import divinerpg.Config;
+import divinerpg.config.Config;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -11,6 +9,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
+
+import java.util.Random;
 
 public class WorldGenTreeGenerator implements IWorldGenerator {
     //private int min=-1,max=-1,numTrees=-1,

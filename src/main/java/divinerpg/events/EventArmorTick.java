@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.Config;
+import divinerpg.config.Config;
 import divinerpg.utils.FullSetArmorHelper;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;

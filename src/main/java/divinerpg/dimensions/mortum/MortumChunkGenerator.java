@@ -1,5 +1,6 @@
 package divinerpg.dimensions.mortum;
 
+import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,25 +16,12 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.ChunkGeneratorHell;
-import net.minecraft.world.gen.ChunkGeneratorSettings;
-import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
-import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import scala.actors.remote.SendTo;
 
-import javax.annotation.Nullable;
-
-import divinerpg.registry.ModBlocks;
-
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Random;
 
@@ -186,6 +174,8 @@ public class MortumChunkGenerator implements IChunkGenerator {
 		if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(this.world, this.rand, coarseGen, blockpos,
 				net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.QUARTZ))
 			for (int l1 = 0; l1 < 16; ++l1) {
+				// FIXME ASAP, Great Overpopulating
+				//  I think it's too much blocks in vein (70)
 				this.coarseGen.generate(this.world, this.rand,
 						blockpos.add(this.rand.nextInt(16), this.rand.nextInt(108) + 10, this.rand.nextInt(16)));
 			}
