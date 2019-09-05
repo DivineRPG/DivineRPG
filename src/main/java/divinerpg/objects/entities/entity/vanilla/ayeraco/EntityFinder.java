@@ -13,6 +13,10 @@ public class EntityFinder {
     private Entity entity;
     private World world;
 
+    public static EntityFinder GetEmpty(World world){
+        return new EntityFinder(new UUID(0,0), world);
+    }
+
     /**
      * Init from Unique ID of entity
      * @param uuid - ID of entity
