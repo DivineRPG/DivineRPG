@@ -20,7 +20,7 @@ import net.minecraftforge.common.IPlantable;
 
 public class ItemModSeeds extends Item implements IPlantable {
 
-    public Block crop;
+    private Block crop;
     public Block soil;
 
     public ItemModSeeds(String name, Block soil) {
@@ -32,16 +32,24 @@ public class ItemModSeeds extends Item implements IPlantable {
         ModItems.ITEMS.add(this);
     }
 
+    /**
+     * Sets the crop block only if it hasn't been set yet.
+     * To be called during FML init event after blocks and items are registered
+     *
+     * @param crop the crop block to be set
+     */
     public void setCrop(Block crop) {
-        this.crop = crop;
+        if(this.crop == null) {
+            this.crop = crop;
+        }
     }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
             EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack itemstack = player.getHeldItem(hand);
-        net.minecraft.block.state.IBlockState state = worldIn.getBlockState(pos);
-        if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
+
+        if (!(this.crop == null) && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
                 && this.crop.canPlaceBlockAt(worldIn, pos.up()) && worldIn.isAirBlock(pos.up())) {
             worldIn.setBlockState(pos.up(), this.crop.getDefaultState());
 
@@ -51,6 +59,7 @@ public class ItemModSeeds extends Item implements IPlantable {
 
             if (!player.capabilities.isCreativeMode)
                 itemstack.shrink(1);
+
             return EnumActionResult.SUCCESS;
         } else {
             return EnumActionResult.FAIL;
