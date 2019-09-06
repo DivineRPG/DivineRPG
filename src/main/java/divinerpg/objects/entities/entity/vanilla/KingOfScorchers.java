@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +16,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class KingOfScorchers extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/king_of_scorchers");
     private int special;
 
     public KingOfScorchers(World worldIn) {
@@ -105,6 +105,6 @@ public class KingOfScorchers extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_KING_OF_SCORCHERS;
     }
 }

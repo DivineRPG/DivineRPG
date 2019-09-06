@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,8 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class DungeonConstructor extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/arcana/dungeon_constructor");
+
     private int angerLevel;
 
     public DungeonConstructor(World world) {
@@ -70,6 +70,6 @@ public class DungeonConstructor extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_DUNGEON_CONSTRUCTOR;
     }
 }

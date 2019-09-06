@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -10,7 +11,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Whale extends EntityDivineRPGSwimming {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/whale");
 
     public Whale(World worldIn) {
         super(worldIn);
@@ -47,6 +47,6 @@ public class Whale extends EntityDivineRPGSwimming {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_WHALE;
     }
 }

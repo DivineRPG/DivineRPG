@@ -6,6 +6,7 @@ import divinerpg.Reference;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -17,7 +18,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Spellbinder extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/spellbinder");
 
     public Spellbinder(World worldIn) {
         super(worldIn);
@@ -78,6 +78,6 @@ public class Spellbinder extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_SPELLBINDER;
     }
 }

@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,8 +24,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class PumpkinSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/vanilla/pumpkin_spider");
     private static final DataParameter<Boolean> CLIMBING = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
             DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(PumpkinSpider.class,
@@ -168,7 +167,7 @@ public class PumpkinSpider extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_PUMPKIN_SPIDER;
     }
 
     @Override

@@ -1,8 +1,10 @@
 package divinerpg.objects.entities.entity.arcana;
 
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;

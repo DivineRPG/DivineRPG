@@ -60,7 +60,6 @@ public class CommonProxy {
         ModSeeds.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenTreeGenerator(), 0);
-        ModEntities.initLoot();
         MinecraftForge.EVENT_BUS.register(new Ticker());
 
         File directory = e.getModConfigurationDirectory();

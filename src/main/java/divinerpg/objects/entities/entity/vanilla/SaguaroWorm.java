@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,7 +19,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class SaguaroWorm extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/saguaro_worm");
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(SaguaroWorm.class,
             DataSerializers.BOOLEAN);
 
@@ -140,7 +140,7 @@ public class SaguaroWorm extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_SAGUARO_WORM;
     }
 
     @Override

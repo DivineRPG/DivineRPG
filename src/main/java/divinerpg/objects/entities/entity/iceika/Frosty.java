@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.iceika;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +16,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Frosty extends EntityPeacefulUntilAttacked {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/frosty");
 
     public Frosty(World worldIn) {
         super(worldIn);
@@ -68,6 +68,6 @@ public class Frosty extends EntityPeacefulUntilAttacked {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_FROSTY;
     }
 }

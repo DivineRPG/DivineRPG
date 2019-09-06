@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,8 +12,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class EternalArcher extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/twilight/eternal_archer");
 
     private int armSelected;
     private int abilityTick;
@@ -81,6 +80,6 @@ public class EternalArcher extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ETERNAL_ARCHER;
     }
 }

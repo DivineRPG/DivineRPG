@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +24,6 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class JungleSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/jungle_spider");
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(JungleSpider.class,
             DataSerializers.BYTE);
 
@@ -150,7 +150,7 @@ public class JungleSpider extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_JUNGLE_SPIDER;
     }
 
     @Override

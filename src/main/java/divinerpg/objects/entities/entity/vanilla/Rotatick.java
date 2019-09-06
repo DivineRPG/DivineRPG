@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -10,8 +11,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Rotatick extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/rotatick");
-
     public Rotatick(World worldIn) {
         super(worldIn);
         this.setSize(0.85F, 1F);
@@ -57,7 +56,7 @@ public class Rotatick extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_ROTATICK;
     }
 
     @Override

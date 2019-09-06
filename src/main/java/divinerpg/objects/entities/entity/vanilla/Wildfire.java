@@ -6,6 +6,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -19,7 +20,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/wildfire");
 
     public Wildfire(World worldIn) {
         super(worldIn);
@@ -76,6 +76,6 @@ public class Wildfire extends EntityDivineRPGMob implements IRangedAttackMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_WILDFIRE;
     }
 }

@@ -2,12 +2,12 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class Vamacheron extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/vamacheron");
 
     public Vamacheron(World worldIn) {
         super(worldIn);
@@ -35,6 +35,6 @@ public class Vamacheron extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_VAMACHERON;
     }
 }

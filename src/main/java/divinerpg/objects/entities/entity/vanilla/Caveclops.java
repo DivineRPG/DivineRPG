@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -16,7 +17,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/caveclops");
 
     public Caveclops(World worldIn) {
         super(worldIn);
@@ -80,7 +80,7 @@ public class Caveclops extends EntityDivineRPGMob implements IRangedAttackMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_CAVECLOPS;
     }
 
     @Override

@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -13,7 +14,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class SoulStealer extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/soul_stealer");
 
     public SoulStealer(World worldIn) {
         super(worldIn);
@@ -64,6 +64,6 @@ public class SoulStealer extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_SOUL_STEALER;
     }
 }

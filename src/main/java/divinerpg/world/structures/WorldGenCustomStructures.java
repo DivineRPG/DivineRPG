@@ -3,7 +3,7 @@ package divinerpg.world.structures;
 import divinerpg.config.Config;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
-import divinerpg.utils.DRPGLootTables;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

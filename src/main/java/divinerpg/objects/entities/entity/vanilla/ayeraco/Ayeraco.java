@@ -60,6 +60,8 @@ public class Ayeraco extends EntityDivineRPGBoss {
 
         setLocationAndAngles(beam.getX(), beam.getY() + 4, beam.getZ(),
                 this.world.rand.nextFloat() * 360.0F, 0.0F);
+
+        group = AyeracoGroup.GetEmpty(world);
     }
 
     @Override

@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,7 +15,7 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class Parasecta extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/parasecta");
+
     private BlockPos currentFlightTarget;
 
     public Parasecta(World world) {
@@ -116,6 +117,6 @@ public class Parasecta extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_PARASECTA;
     }
 }

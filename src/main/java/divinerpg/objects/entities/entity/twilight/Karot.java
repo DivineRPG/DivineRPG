@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -12,7 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Karot extends EntityDivineRPGBoss {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/twilight/karot");
+
     private int spawnTick;
 
     public Karot(World worldIn) {
@@ -93,6 +94,6 @@ public class Karot extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_KAROT;
     }
 }

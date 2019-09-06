@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.util.ResourceLocation;
@@ -13,14 +14,13 @@ public class HellBat extends EntityBat
 		super(worldIn);
 		this.setHealth(this.getMaxHealth());
 	}
-	public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/hell_bat");
-	private ResourceLocation deathLootTable = LOOT;
+
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_HELL_BAT;
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();

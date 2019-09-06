@@ -6,6 +6,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
@@ -25,7 +26,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/frost_archer");
 
     public FrostArcher(World worldIn) {
         super(worldIn);
@@ -87,6 +87,6 @@ public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob 
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_FROST_ARCHER;
     }
 }

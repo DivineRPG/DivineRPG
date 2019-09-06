@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
@@ -11,7 +12,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class TheGrue extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/the_grue");
 
     public TheGrue(World worldIn) {
         super(worldIn);
@@ -60,7 +60,7 @@ public class TheGrue extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_THE_GRUE;
     }
 
     @Override

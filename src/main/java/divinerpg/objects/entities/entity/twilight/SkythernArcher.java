@@ -4,6 +4,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -15,8 +16,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class SkythernArcher extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/twilight/skythern_archer");
 
     public SkythernArcher(World worldIn) {
         super(worldIn);
@@ -74,6 +73,6 @@ public class SkythernArcher extends EntityDivineRPGMob implements IRangedAttackM
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_SKYTHERN_ARCHER;
     }
 }

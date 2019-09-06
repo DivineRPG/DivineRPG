@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -10,8 +11,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class DemonOfDarkness extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID,
-            "entities/twilight/demon_of_darkness");
 
     public DemonOfDarkness(World worldIn) {
         super(worldIn);
@@ -58,6 +57,6 @@ public class DemonOfDarkness extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_DEMON_OF_DARKNESS;
     }
 }

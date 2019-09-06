@@ -6,6 +6,7 @@ import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -19,7 +20,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class LivingStatue extends EntityDivineRPGMob implements IRangedAttackMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/arcana/living_statue");
 
     public LivingStatue(World world) {
         super(world);
@@ -67,7 +67,7 @@ public class LivingStatue extends EntityDivineRPGMob implements IRangedAttackMob
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_LIVING_STATUE;
     }
 
     @Override

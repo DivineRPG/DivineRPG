@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,7 +21,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class HellSpider extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vanilla/hell_spider");
+
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(HellSpider.class,
             DataSerializers.BYTE);
 
@@ -137,6 +138,6 @@ public class HellSpider extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_HELL_SPIDER;
     }
 }

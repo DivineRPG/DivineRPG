@@ -4,6 +4,7 @@ import java.util.List;
 
 import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class Hastreus extends EntityDivineRPGMob {
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/iceika/hastreus");
 
     public Hastreus(World worldIn) {
         super(worldIn);
@@ -76,6 +76,6 @@ public class Hastreus extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return this.LOOT;
+        return DRPGLootTables.ENTITIES_HASTREUS;
     }
 }
