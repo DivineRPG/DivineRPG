@@ -1,7 +1,7 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:iceika_portal"
+         "item": "divinerpg:frozen_grass"
       },
       "title":{
          "translate":"advancement.enter_iceika"
