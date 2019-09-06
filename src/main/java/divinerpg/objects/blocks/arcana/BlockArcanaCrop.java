@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockArcanaCrop extends BlockModCrop {
+    private static final IBlockState arcanaGrass = ModBlocks.arcanaGrass.getDefaultState();
 
     public BlockArcanaCrop(String name) {
         super(name);
@@ -15,12 +16,13 @@ public class BlockArcanaCrop extends BlockModCrop {
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == ModBlocks.arcanaGrass;
+        return state == arcanaGrass;
     }
 
     @Override
     public boolean canPlaceBlockAt(World world, BlockPos pos) {
-        return Utils.bordersTar(world, pos.down());
+        BlockPos down = pos.down();
+        return canSustainBush(world.getBlockState(down)) && Utils.bordersTar(world, down);
     }
 
     @Override
