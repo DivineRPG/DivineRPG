@@ -2,6 +2,7 @@ package divinerpg.objects.items.base;
 
 import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
@@ -22,22 +23,17 @@ public class ItemModSeeds extends Item implements IPlantable {
     public Block crop;
     public Block soil;
 
-    public ItemModSeeds(String name, Block block) {
+    public ItemModSeeds(String name, Block soil) {
         setUnlocalizedName(name);
         setRegistryName(Reference.MODID, name);
-        this.crop = block;
-        this.soil = Blocks.FARMLAND;
-        this.setCreativeTab(DivineRPGTabs.food);
-        ModItems.ITEMS.add(this);
-    }
-
-    public ItemModSeeds(String name, Block crop, Block soil) {
-        setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
-        this.crop = crop;
+        this.crop = null;
         this.soil = soil;
         setCreativeTab(DivineRPGTabs.food);
         ModItems.ITEMS.add(this);
+    }
+
+    public void setCrop(Block crop) {
+        this.crop = crop;
     }
 
     @Override

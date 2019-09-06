@@ -8,10 +8,7 @@ import divinerpg.compat.ProjectECompat;
 import divinerpg.config.Config;
 import divinerpg.events.*;
 import divinerpg.proxy.CommonProxy;
-import divinerpg.registry.ModMessages;
-import divinerpg.registry.ModOreDict;
-import divinerpg.registry.ModSmelting;
-import divinerpg.registry.ModTriggers;
+import divinerpg.registry.*;
 import divinerpg.utils.Utils;
 import divinerpg.world.WorldGenCustomOres;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,6 +39,24 @@ public class DivineRPG {
         FluidRegistry.enableUniversalBucket();
     }
 
+    /** Init Methods */
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
+        ModLiquids.registerFluids();
+        proxy.preInit(event);
+        proxy.registerTileEntities();
+        proxy.RegisterTileEntityRender();
+
+        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
+        MinecraftForge.EVENT_BUS.register(new EventArmorSet());
+        MinecraftForge.EVENT_BUS.register(new EventArmorTick());
+        MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
+        MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
+
+        ModMessages.initServer();
+    }
+
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.init(e);
@@ -60,24 +75,6 @@ public class DivineRPG {
         if (Loader.isModLoaded("projecte")) {
             ProjectECompat.init();
         }
-    }
-
-    /** Init Methods */
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        RegistryHandler.preInitRegistries(event);
-        logger = event.getModLog();
-        proxy.preInit(event);
-        proxy.registerTileEntities();
-        proxy.RegisterTileEntityRender();
-
-        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
-        MinecraftForge.EVENT_BUS.register(new EventArmorSet());
-        MinecraftForge.EVENT_BUS.register(new EventArmorTick());
-        MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
-        MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
-
-        ModMessages.initServer();
     }
 
     /** For Registering Commands */

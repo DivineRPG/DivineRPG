@@ -11,7 +11,10 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Mod.EventBusSubscriber
 public class ModSpawns {
     public static void init(LivingSpawnEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
@@ -52,4 +55,10 @@ public class ModSpawns {
             }
         }
     }
+
+    @SubscribeEvent
+    public static void onLivingSpawn(LivingSpawnEvent event) {
+        ModSpawns.init(event);
+    }
+
 }

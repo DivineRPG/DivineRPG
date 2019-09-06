@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 
 public class ItemArcanaSeeds extends ItemModSeeds {
 
-    public ItemArcanaSeeds(String name, Block crop) {
-        super(name, crop, ModBlocks.arcanaGrass);
+    public ItemArcanaSeeds(String name) {
+        super(name, ModBlocks.arcanaGrass);
     }
 }

@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSeeds;
 import net.minecraft.item.Item;
 
 public class BlockMarsine extends BlockArcanaCrop {
@@ -17,7 +16,7 @@ public class BlockMarsine extends BlockArcanaCrop {
 
     @Override
     public Item getSeed() {
-        return ModSeeds.marsineSeeds;
+        return ModItems.marsineSeeds;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package divinerpg.registry;
 
+import divinerpg.config.Config;
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.mortum.MortumTree;
@@ -24,10 +25,14 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSlab;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Mod.EventBusSubscriber
 public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
 
@@ -485,7 +490,13 @@ public class ModBlocks {
         }
     }
 
-    public static void init() {
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        ModBlocks.AddWoodVariants();
+        event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+        if (Config.genJSON) {
+            ModBlocks.CreateJSONs();
+        }
     }
 
     public static void CreateJSONs() {

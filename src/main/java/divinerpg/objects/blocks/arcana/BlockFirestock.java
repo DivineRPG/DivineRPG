@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSeeds;
 import net.minecraft.item.Item;
 
 public class BlockFirestock extends BlockStackPlant {
@@ -10,7 +9,7 @@ public class BlockFirestock extends BlockStackPlant {
     }
 
     public Item getSeedDrop() {
-        return ModSeeds.firestockSeeds;
+        return ModItems.firestockSeeds;
     }
 
     public Item getFlowerDrop() {

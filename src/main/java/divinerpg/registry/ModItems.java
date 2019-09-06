@@ -3,39 +3,14 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
+import divinerpg.config.Config;
 import divinerpg.enums.ArmorInfo;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.EnumArmor;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
-import divinerpg.objects.items.arcana.ItemAquamarine;
-import divinerpg.objects.items.arcana.ItemArcanaPotion;
-import divinerpg.objects.items.arcana.ItemArcaniteBlade;
-import divinerpg.objects.items.arcana.ItemArcaniteBlaster;
-import divinerpg.objects.items.arcana.ItemArcaniumSaber;
-import divinerpg.objects.items.arcana.ItemAttractor;
-import divinerpg.objects.items.arcana.ItemCaptainsSparkler;
-import divinerpg.objects.items.arcana.ItemChargedCollector;
-import divinerpg.objects.items.arcana.ItemDivineAccumulator;
-import divinerpg.objects.items.arcana.ItemEnderScepter;
-import divinerpg.objects.items.arcana.ItemFirefly;
-import divinerpg.objects.items.arcana.ItemGeneralsStaff;
-import divinerpg.objects.items.arcana.ItemGhostbane;
-import divinerpg.objects.items.arcana.ItemGrenade;
-import divinerpg.objects.items.arcana.ItemKey;
-import divinerpg.objects.items.arcana.ItemLaVekor;
-import divinerpg.objects.items.arcana.ItemLamona;
-import divinerpg.objects.items.arcana.ItemMeriksMissile;
-import divinerpg.objects.items.arcana.ItemMeteorMash;
-import divinerpg.objects.items.arcana.ItemOrbOfLight;
-import divinerpg.objects.items.arcana.ItemReflector;
-import divinerpg.objects.items.arcana.ItemShadowSaber;
-import divinerpg.objects.items.arcana.ItemStaffEnrichment;
-import divinerpg.objects.items.arcana.ItemStaffStarlight;
-import divinerpg.objects.items.arcana.ItemStormSword;
-import divinerpg.objects.items.arcana.ItemWizardsBook;
-import divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
+import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemMusicShooter;
@@ -49,6 +24,7 @@ import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.GenerateJSON;
 import divinerpg.utils.ToolMaterialMod;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -58,8 +34,11 @@ import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Mod.EventBusSubscriber
 public class ModItems {
     public static final List<Item> ITEMS = new ArrayList<Item>();
 
@@ -752,6 +731,22 @@ public class ModItems {
     public static Item vemosLegs = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo);
     public static Item vemosBoots = new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo);
 
+    //Seeds
+    public static Item whiteMushroomSeeds = new ItemModSeeds("white_mushroom_seeds", Blocks.FARMLAND);
+    public static Item tomatoSeeds = new ItemModSeeds("tomato_seeds", Blocks.FARMLAND);
+    public static Item moonbulbSeeds = new ItemModSeeds("moonbulb_seeds", Blocks.FARMLAND);
+    public static Item purpleGlowboneSeeds = new ItemModSeeds("purple_glowbone_seeds", Blocks.GRASS);
+    public static Item pinkGlowboneSeeds = new ItemModSeeds("pink_glowbone_seeds", Blocks.GRASS);
+    public static Item skyPlantSeeds = new ItemModSeeds("sky_plant_seeds", Blocks.GRASS);
+    public static Item hitchakSeeds = new ItemArcanaSeeds("hitchak_seeds");
+    public static Item veiloSeeds = new ItemArcanaSeeds("veilo_seeds");
+    public static Item marsineSeeds = new ItemArcanaSeeds("marsine_seeds");
+    public static Item lamonaSeeds = new ItemArcanaSeeds("lamona_seeds");
+    public static Item firestockSeeds = new ItemArcanaSeeds("firestock_seeds");
+    public static Item pinflySeeds = new ItemArcanaSeeds("pinfly_seeds");
+    public static Item aquamarineSeeds = new ItemArcanaSeeds("aquamarine_seeds");
+    public static Item eucalyptusSeeds = new ItemArcanaSeeds("eucalyptus_root_seeds");
+
     //New additions
     public static Item ayeracoFragmentB = new ItemMod("ayeraco_fragment_blue");
     public static Item ayeracoFragmentG = new ItemMod("ayeraco_fragment_green");
@@ -760,13 +755,35 @@ public class ModItems {
     public static Item ayeracoFragmentY = new ItemMod("ayeraco_fragment_yellow");
     public static Item bedrockChunk = new ItemMod("bedrock_chunk");
 
-    public static void init() {
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+        if (Config.genJSON) {
+            ModItems.CreateJSONs();
+        }
+    }
+
+    /**
+     * Called during FML init, ensures that the crop blocks aren't null before the seeds are set to plant them
+     */
+    public static void addCropsToSeeds() {
+        ((ItemModSeeds)whiteMushroomSeeds).setCrop(ModBlocks.whiteMushroomPlant);
+        ((ItemModSeeds)tomatoSeeds).setCrop(ModBlocks.tomatoPlant);
+        ((ItemModSeeds)moonbulbSeeds).setCrop(ModBlocks.moonbulb);
+        ((ItemModSeeds)pinkGlowboneSeeds).setCrop(ModBlocks.pinkGlowbone);
+        ((ItemModSeeds)purpleGlowboneSeeds).setCrop(ModBlocks.purpleGlowbone);
+        ((ItemModSeeds)skyPlantSeeds).setCrop(ModBlocks.skyPlant);
+        ((ItemModSeeds)hitchakSeeds).setCrop(ModBlocks.hitchak);
+        ((ItemModSeeds)veiloSeeds).setCrop(ModBlocks.veilo);
+        ((ItemModSeeds)marsineSeeds).setCrop(ModBlocks.marsine);
+        ((ItemModSeeds)lamonaSeeds).setCrop(ModBlocks.lamona);
+        ((ItemModSeeds)firestockSeeds).setCrop(ModBlocks.firestock);
+        ((ItemModSeeds)pinflySeeds).setCrop(ModBlocks.pinfly);
+        ((ItemModSeeds)aquamarineSeeds).setCrop(ModBlocks.aquamarine);
+        ((ItemModSeeds)eucalyptusSeeds).setCrop(ModBlocks.eucalyptusRoot);
     }
 
     public static void CreateJSONs() {
         GenerateJSON.generateItemModelJSONs();
     }
-
-
-
 }

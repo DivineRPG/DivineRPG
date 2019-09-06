@@ -26,7 +26,6 @@ import divinerpg.objects.entities.entity.vanilla.JackOMan;
 import divinerpg.objects.entities.entity.vanilla.LivestockMerchant;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSeeds;
 import divinerpg.utils.MessageLocalizer;
 
 @JEIPlugin
@@ -76,7 +75,7 @@ public class JEICompat implements IModPlugin {
                 GuiLeorna.MERCHANT_GUI_TEXTURE,
                 JeiReferences.LEORNA_CATEGORY,
                 MessageLocalizer.normal("entity.leorna.name"),
-                ModSeeds.firestockSeeds));
+                ModItems.firestockSeeds));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiDatticon.MERCHANT_GUI_TEXTURE,

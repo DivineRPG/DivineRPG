@@ -4,6 +4,8 @@ import divinerpg.objects.liquid.FluidLiquid;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ModLiquids {
 
@@ -15,6 +17,7 @@ public class ModLiquids {
             // a bit colder than lava
             .setTemperature(1100)
             .setDensity(1153);
+
 
     public static void registerFluids(){
         registerFluid(tar);

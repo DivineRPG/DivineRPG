@@ -40,6 +40,8 @@ public class CommonProxy {
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
+
+        ModItems.addCropsToSeeds();
     }
 
     public void postInit(FMLPostInitializationEvent e) {
@@ -55,9 +57,6 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new ModEntities());
         ModDimensions.init();
-        ModItems.init();
-        ModBlocks.init();
-        ModSeeds.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenTreeGenerator(), 0);
         MinecraftForge.EVENT_BUS.register(new Ticker());

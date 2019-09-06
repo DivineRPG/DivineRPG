@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSeeds;
 import net.minecraft.item.Item;
 
 public class BlockVeilo extends BlockArcanaCrop {
@@ -17,7 +16,7 @@ public class BlockVeilo extends BlockArcanaCrop {
 
     @Override
     protected Item getSeed() {
-        return ModSeeds.veiloSeeds;
+        return ModItems.veiloSeeds;
     }
 
     @Override

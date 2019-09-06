@@ -3,16 +3,13 @@ package divinerpg.objects.entities.entity.arcana;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSeeds;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
@@ -51,14 +48,14 @@ public class Leorna extends EntityDivineRPGVillager {
 
     public static MerchantRecipeList getAllRecipies(){
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModSeeds.eucalyptusSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModSeeds.marsineSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModSeeds.firestockSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModSeeds.pinflySeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4), new ItemStack(ModSeeds.aquamarineSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModSeeds.hitchakSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModSeeds.veiloSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModSeeds.lamonaSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.eucalyptusSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.marsineSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.firestockSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModItems.pinflySeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4), new ItemStack(ModItems.aquamarineSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.hitchakSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.veiloSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModItems.lamonaSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.arcanaDirt, 9)));
         return list;
     }
