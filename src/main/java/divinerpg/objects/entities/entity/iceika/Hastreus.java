@@ -2,7 +2,6 @@ package divinerpg.objects.entities.entity.iceika;
 
 import java.util.List;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;

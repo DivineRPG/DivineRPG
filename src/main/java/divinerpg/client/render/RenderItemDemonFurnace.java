@@ -10,7 +10,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
-import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 
 @SideOnly(Side.CLIENT)
 public class RenderItemDemonFurnace extends TileEntityItemStackRenderer {

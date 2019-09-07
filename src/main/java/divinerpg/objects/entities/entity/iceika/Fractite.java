@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import divinerpg.registry.DRPGLootTables;

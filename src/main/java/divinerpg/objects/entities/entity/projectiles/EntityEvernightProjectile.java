@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.objects.entities.assets.render.projectiles.RenderBouncingProjectile;
 import divinerpg.objects.entities.assets.render.projectiles.RenderEvernightProjectile;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;

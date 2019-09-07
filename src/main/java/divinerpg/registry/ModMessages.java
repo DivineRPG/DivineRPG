@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.networking.message.MessageArcanaBar;
 import divinerpg.networking.message.MessageDivineAccumulator;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModMessages {
 

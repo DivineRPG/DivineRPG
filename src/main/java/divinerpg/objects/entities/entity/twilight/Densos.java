@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;

@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.vanilla;
 import java.util.Calendar;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import divinerpg.registry.DRPGLootTables;

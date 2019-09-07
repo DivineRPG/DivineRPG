@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.arcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.capabilities.IArcana;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,7 +11,6 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class Seimer extends EntityDivineRPGTameable {

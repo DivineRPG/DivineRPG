@@ -2,7 +2,6 @@ package divinerpg.objects.entities.entity.twilight;
 
 import javax.annotation.Nullable;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;

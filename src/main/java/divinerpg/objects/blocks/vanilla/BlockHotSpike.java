@@ -1,12 +1,9 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.enums.EnumBlockType;
-import divinerpg.objects.blocks.BlockMod;
 import divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

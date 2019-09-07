@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.Reference;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;

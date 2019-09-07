@@ -3,7 +3,6 @@ package divinerpg.compat;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import moze_intel.projecte.api.ProjectEAPI;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class ProjectECompat {

@@ -1,6 +1,5 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.BlockModDoor;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;

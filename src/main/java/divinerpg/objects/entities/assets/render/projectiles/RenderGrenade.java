@@ -1,14 +1,12 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
 import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
-import divinerpg.registry.ModItems;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGrenade extends Render<EntityGrenade> {

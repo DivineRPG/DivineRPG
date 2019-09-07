@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Sets;
 
-import divinerpg.DivineRPG;
 import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;

@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
 import divinerpg.registry.DRPGLootTables;

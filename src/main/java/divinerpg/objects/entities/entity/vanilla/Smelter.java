@@ -2,7 +2,6 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.objects.entities.entity.IAttackTimer;
-import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,7 +13,6 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 

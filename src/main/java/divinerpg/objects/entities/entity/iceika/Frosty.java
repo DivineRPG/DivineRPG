@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;

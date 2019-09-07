@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;

@@ -1,8 +1,6 @@
 package divinerpg.networking.message;
 
 import divinerpg.DivineRPG;
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
 import divinerpg.client.ArcanaRenderer;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

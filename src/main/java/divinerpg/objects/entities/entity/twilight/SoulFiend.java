@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
 import divinerpg.registry.DRPGLootTables;

@@ -3,13 +3,11 @@ package divinerpg.dimensions.mortum;
 import java.util.Random;
 
 import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.fml.common.Mod;
 
 public class WorldGenMortumStone extends WorldGenerator {
     

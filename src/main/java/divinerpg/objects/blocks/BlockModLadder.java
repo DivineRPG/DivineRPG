@@ -1,12 +1,10 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.DivineRPG;
 import divinerpg.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockLadder;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
 public class BlockModLadder extends BlockLadder  {

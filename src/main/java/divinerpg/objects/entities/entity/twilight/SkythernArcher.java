@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;

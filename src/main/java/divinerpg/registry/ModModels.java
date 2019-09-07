@@ -2,8 +2,6 @@ package divinerpg.registry;
 
 import divinerpg.Reference;
 import divinerpg.client.render.*;
-import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
-import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
@@ -19,10 +17,6 @@ public class ModModels {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {
-        for (Item item : ModItems.ITEMS) {
-            registerModel(item);
-        }
-
         Item air = Item.getItemFromBlock(Blocks.AIR);
         for (Block block : ModBlocks.BLOCKS) {
             Item itemBlock = Item.getItemFromBlock(block);
@@ -32,6 +26,9 @@ public class ModModels {
         }
 
         registerTESRs();
+        for (Item item : ModItems.ITEMS) {
+            registerModel(item);
+        }
     }
 
     public static void registerModel(Item item) {
@@ -39,10 +36,6 @@ public class ModModels {
     }
 
     public static void registerTESRs() {
-        /*
-          This is more efficient than doing it during the loop, since we directly register them instead of checking if every single item is one of these.
-          Still may be another way though
-        */
         Item.getItemFromBlock(ModBlocks.boneChest).setTileEntityItemStackRenderer(new RenderItemBoneChest());
         Item.getItemFromBlock(ModBlocks.edenChest).setTileEntityItemStackRenderer(new RenderItemEdenChest());
         Item.getItemFromBlock(ModBlocks.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
@@ -66,6 +59,4 @@ public class ModModels {
         Item.getItemFromBlock(ModBlocks.twilightDemonStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
         Item.getItemFromBlock(ModBlocks.vamacheronStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
     }
-
-
 }

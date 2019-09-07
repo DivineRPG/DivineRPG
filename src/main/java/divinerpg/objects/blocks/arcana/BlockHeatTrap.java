@@ -5,7 +5,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.blocks.BlockMod;
 import divinerpg.objects.blocks.BlockModUnbreakable;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.Utils;

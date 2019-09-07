@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModItems;

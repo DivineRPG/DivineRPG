@@ -1,6 +1,5 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.DivineRPG;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.StatueType;
 import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
@@ -12,7 +11,6 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;

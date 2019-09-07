@@ -2,7 +2,6 @@ package divinerpg.objects.entities.entity.twilight;
 
 import com.google.common.base.Predicate;
 
-import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;

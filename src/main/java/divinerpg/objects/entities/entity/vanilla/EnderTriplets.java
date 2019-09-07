@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import divinerpg.registry.DRPGLootTables;

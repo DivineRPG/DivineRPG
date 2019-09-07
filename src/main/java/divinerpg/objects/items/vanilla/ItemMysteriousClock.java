@@ -3,7 +3,6 @@ package divinerpg.objects.items.vanilla;
 import divinerpg.objects.entities.entity.vanilla.AncientEntity;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipHelper;
 import divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

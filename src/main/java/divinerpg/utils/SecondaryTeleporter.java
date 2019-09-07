@@ -1,12 +1,7 @@
 package divinerpg.utils;
 
-import net.minecraft.world.Teleporter;
-
 
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 

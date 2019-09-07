@@ -2,7 +2,6 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import com.google.common.base.Predicate;
 
-import divinerpg.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;

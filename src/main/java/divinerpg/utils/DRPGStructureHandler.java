@@ -10,8 +10,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootPool;
 
 import java.lang.reflect.Field;
 import java.util.List;

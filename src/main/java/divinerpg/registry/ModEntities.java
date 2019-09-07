@@ -18,7 +18,6 @@ import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -194,7 +193,6 @@ public class ModEntities {
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
                 buildEntityEntry(Parasecta.class, "parasecta", BOSS)
-
         };
 
         return divineMobs;

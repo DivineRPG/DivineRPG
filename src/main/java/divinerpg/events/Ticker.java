@@ -1,8 +1,5 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;

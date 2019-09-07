@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
 import divinerpg.registry.DRPGLootTables;
