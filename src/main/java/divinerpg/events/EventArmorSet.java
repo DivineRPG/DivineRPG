@@ -1,9 +1,7 @@
 package divinerpg.events;
 
 import divinerpg.Reference;
-import divinerpg.config.Config;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
-import divinerpg.registry.ModDimensions;
 import divinerpg.utils.FullSetArmorHelper;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,16 +29,16 @@ public class EventArmorSet {
 
             DamageSource s = evt.getSource();
 
-            if (armorHelper.isBedrock()){
-                if (s.isExplosion())
-                    evt.setCanceled(true);
-            }
+//            if (armorHelper.isBedrock()){
+//                if (s.isExplosion())
+//                    evt.setCanceled(true);
+//            }
 
-            if (armorHelper.isEnder()) {
-                if (s.isExplosion()) {
-                    evt.setCanceled(true);
-                }
-            }
+//            if (armorHelper.isEnder()) {
+//                if (s.isExplosion()) {
+//                    evt.setCanceled(true);
+//                }
+//            }
 
             //Arlemite
             if (armorHelper.isArlemit()) {
@@ -51,18 +49,18 @@ public class EventArmorSet {
             }
 
             //Rupee
-            if (armorHelper.isRupee()) {
-                if ((s.damageType.equals("mob")) && !s.isProjectile()) {
-                    evt.setAmount(evt.getAmount() * 0.3f);
-                }
-            }
+//            if (armorHelper.isRupee()) {
+//                if ((s.damageType.equals("mob")) && !s.isProjectile()) {
+//                    evt.setAmount(evt.getAmount() * 0.3f);
+//                }
+//            }
 
             //Santa
-            if (armorHelper.isSanta()) {
-                if (player.world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
-                    evt.setAmount(evt.getAmount() * 0.2f);
-                }
-            }
+//            if (armorHelper.isSanta()) {
+//                if (player.world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
+//                    evt.setAmount(evt.getAmount() * 0.2f);
+//                }
+//            }
 
 //            Item body = armorHelper.getBody();
 //            Item legs = armorHelper.getLegs();
@@ -132,10 +130,10 @@ public class EventArmorSet {
             FullSetArmorHelper armorHelper = new FullSetArmorHelper(player);
 
             // Divine or Vethea
-            if (armorHelper.isDivine()
-                    /*|| armorHelper.isGlistening(ModItems.glisteningHood)*/) {
-                player.addVelocity(0, 0.2D, 0);
-            }
+//            if (armorHelper.isDivine()
+//                    /*|| armorHelper.isGlistening(ModItems.glisteningHood)*/) {
+//                player.addVelocity(0, 0.2D, 0);
+//            }
 
             // Skythern
             if (armorHelper.isSkythern()) {
@@ -163,14 +161,14 @@ public class EventArmorSet {
             DamageSource s = e.getSource();
 
             // Santa or Divine or Demonized
-            if (armorHelper.isSanta()
-                || armorHelper.isDivine()
-                /* || armorHelper.isDemonised(null)*/) {
-                if ((e.getEntityLiving().world.provider.getDimensionType().getId() == Config.iceikaDimensionId)
-                        && ((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.setAmount(e.getAmount() + 6);
-                }
-            }
+//            if (armorHelper.isSanta()
+//                || armorHelper.isDivine()
+//                /* || armorHelper.isDemonised(null)*/) {
+//                if ((e.getEntityLiving().world.provider.getDimensionType().getId() == Config.iceikaDimensionId)
+//                        && ((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+//                    e.setAmount(e.getAmount() + 6);
+//                }
+//            }
 
             // Halite
             if (armorHelper.isHalite()) {

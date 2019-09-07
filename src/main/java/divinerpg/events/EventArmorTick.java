@@ -1,13 +1,9 @@
 package divinerpg.events;
 
-import divinerpg.config.Config;
 import divinerpg.utils.FullSetArmorHelper;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -40,16 +36,15 @@ public class EventArmorTick {
         //Elite Realmite
         if (armorHelper.isEliteRealmite()
             //Divine
-            || armorHelper.isDivine()
             // Skythern
             || armorHelper.isSkythern()) {
             player.fallDistance = -0.5F;
         }
 
 
-        if (armorHelper.isDivine()) {
-            player.fallDistance = -0.5F;
-        }
+//        if (armorHelper.isDivine()) {
+//            player.fallDistance = -0.5F;
+//        }
 
         //Wildwood
         if (armorHelper.isWildwood()) {
@@ -118,42 +113,42 @@ public class EventArmorTick {
         }
 
         //Shadow
-        if (armorHelper.isShadow()) {
-            speedMultiplier = 3;
-        }
+//        if (armorHelper.isShadow()) {
+//            speedMultiplier = 3;
+//        }
 
         //Frozen
-        if (armorHelper.isFrozen()
-                && !player.world.isRemote
-                && Ticker.tick % 10 == 0) {
-            List<Entity> entities = player.world.getEntitiesWithinAABB(EntityMob.class,
-                    player.getEntityBoundingBox().expand(6, 6, 6));
-            for (Entity e : entities) {
-                ((EntityMob) e).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 40, 1, true, false));
-            }
-        }
+//        if (armorHelper.isFrozen()
+//                && !player.world.isRemote
+//                && Ticker.tick % 10 == 0) {
+//            List<Entity> entities = player.world.getEntitiesWithinAABB(EntityMob.class,
+//                    player.getEntityBoundingBox().expand(6, 6, 6));
+//            for (Entity e : entities) {
+//                ((EntityMob) e).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 40, 1, true, false));
+//            }
+//        }
 
         //Terran
-        if (armorHelper.isTerran()) {
-            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 2, true, false));
-        }
+//        if (armorHelper.isTerran()) {
+//            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 2, true, false));
+//        }
 
         //Skeleman
-        if (armorHelper.isSkeleman()) {
-            if (player.getFoodStats().needFood()) {
-                player.getFoodStats().addStats(1, 0);
-            }
-        }
+//        if (armorHelper.isSkeleman()) {
+//            if (player.getFoodStats().needFood()) {
+//                player.getFoodStats().addStats(1, 0);
+//            }
+//        }
 
         //Santa
-        if (armorHelper.isSanta()) {
-            if (player.world.provider.getDimension() == Config.iceikaDimensionId) {
-                if (player.getFoodStats().needFood()) {
-                    player.getFoodStats().addStats(1, 0);
-                }
-                speedMultiplier = 2;
-            }
-        }
+//        if (armorHelper.isSanta()) {
+//            if (player.world.provider.getDimension() == Config.iceikaDimensionId) {
+//                if (player.getFoodStats().needFood()) {
+//                    player.getFoodStats().addStats(1, 0);
+//                }
+//                speedMultiplier = 2;
+//            }
+//        }
 
         //Vethean
 //        if (armorHelper.isGlistening(ModItems.glisteningMask)) {
@@ -168,10 +163,10 @@ public class EventArmorTick {
 //            speedMultiplier = 2.2f;
 //        }
 
-        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class,
-                player.capabilities,
-                0.1f * speedMultiplier,
-                walkSpeed);
+//        ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class,
+//                player.capabilities,
+//                0.1f * speedMultiplier,
+//                walkSpeed);
 
 //        if (armorHelper.isGlistening(ModItems.glisteningHood)) {
 //            player.fallDistance = -0.5F;
@@ -193,28 +188,28 @@ public class EventArmorTick {
         Carefully checks for equipped angelic armor
      */
     private void checkFlying(EntityPlayer player, FullSetArmorHelper armorHelper){
-        // in creative mode we do not need any checks
-        if (player.capabilities.isCreativeMode){
-            return;
-        }
-
-        // check if we can fly
-        boolean canFly = armorHelper.isAngelic();
-        // check if we flying
-        boolean wasFlying = flyingPlayers.contains(player);
-
-        // apply armor or take it off
-        if (canFly != wasFlying){
-            // set it only one time
-            player.capabilities.allowFlying = canFly;
-
-            // removing player from flying map
-            if (canFly){
-                flyingPlayers.add(player);
-            }
-            else {
-                flyingPlayers.remove(player);
-            }
-        }
+//        // in creative mode we do not need any checks
+//        if (player.capabilities.isCreativeMode){
+//            return;
+//        }
+//
+//        // check if we can fly
+//        boolean canFly = armorHelper.isAngelic();
+//        // check if we flying
+//        boolean wasFlying = flyingPlayers.contains(player);
+//
+//        // apply armor or take it off
+//        if (canFly != wasFlying){
+//            // set it only one time
+//            player.capabilities.allowFlying = canFly;
+//
+//            // removing player from flying map
+//            if (canFly){
+//                flyingPlayers.add(player);
+//            }
+//            else {
+//                flyingPlayers.remove(player);
+//            }
+//        }
     }
 }
