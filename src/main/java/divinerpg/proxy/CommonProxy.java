@@ -14,7 +14,6 @@ import divinerpg.registry.*;
 import divinerpg.world.WorldGenTreeGenerator;
 import divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -66,9 +65,6 @@ public class CommonProxy {
         Config.readConfig();
     }
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-    }
-
     @SuppressWarnings("deprecation")
     public void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityDramixAltar.class, Reference.MODID + ":te_dramix_altar");
@@ -93,9 +89,6 @@ public class CommonProxy {
     }
 
     public void RegisterTileEntityRender() {
-    }
-
-    public void registerVariantRenderer(Item item, int meta, String filename, String id) {
     }
 
     public void spawnParticle(World world, ParticleType particle, double z, double x, double y, double velX,
