@@ -26,10 +26,10 @@ public class OreInfo {
         vienSize = config.getInt(oreName + "VeinSize", category, vienSize, 1, 50,
                 "Choose a number between 1 and 50 to tweak the vein size");
 
-        minY = config.getInt(oreName + "MinHeight", category, 1, 1, 255,
+        minY = config.getInt(oreName + "MinHeight", category, minY, 1, 255,
                 "Choose a number between 1 and 255 to choose the min " + oreName + " height");
 
-        maxY = config.getInt(oreName + "MaxHeight", category, 16, 1, 255,
+        maxY = config.getInt(oreName + "MaxHeight", category, maxY, 1, 255,
                 "Choose a number between 1 and 255 to choose the max " + oreName + " height");
     }
 
