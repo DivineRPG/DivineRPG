@@ -5,6 +5,7 @@ import divinerpg.events.armorEvents.ArmorHandlers;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -102,8 +103,25 @@ public class ModArmorEvents {
                         // remove speed capability
                         ArmorHandlers.speedUpPlayer(player, 1, true);
                     }
-                }).withAbility(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.speedUpPlayer(event.player, 3, false))
+                }).withAbility(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.speedUpPlayer(event.player, 3, false)),
+
+                new FullArmorHandler(ModItems.arlemiteHelmet, ModItems.arlemiteBody, ModItems.arlemiteLegs, ModItems.arlemiteBoots)
+                        .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.handleDamageSource(event,
+                                source -> source.isProjectile() || source.damageType.equals("thrown"), aFloat -> aFloat * 0.2f)),
+
+                new FullArmorHandler(ModItems.skythernHelmet, ModItems.skythernChestplate, ModItems.skythernLeggings, ModItems.skythernBoots)
+                        .withAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.5, 0)),
+
+                new FullArmorHandler(ModItems.haliteHelmet, ModItems.haliteChestplate, ModItems.haliteLeggings, ModItems.haliteBoots)
+                        .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 16)),
+
+                new FullArmorHandler(ModItems.aquastriveHelmet, ModItems.aquastriveBody, ModItems.aquastriveLegs, ModItems.aquastriveBoots)
+                        .withAbility(LivingAttackEvent.class, event -> ArmorHandlers.cancelDamageSource(event, source -> source.equals(DamageSource.DROWN))),
+
+                new FullArmorHandler(ModItems.krakenHelmet, ModItems.krakenBody, ModItems.krakenLegs, ModItems.krakenBoots)
+                        .withAbility(LivingAttackEvent.class, event -> ArmorHandlers.cancelDamageSource(event, source -> source.equals(DamageSource.DROWN)))
         );
+
 
         handlers.forEach(ModArmorEvents::addHandler);
     }

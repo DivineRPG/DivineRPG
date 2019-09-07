@@ -41,12 +41,12 @@ public class EventArmorSet {
 //            }
 
             //Arlemite
-            if (armorHelper.isArlemit()) {
-                if (s.isProjectile()
-                        || s.damageType.equals("thrown")) {
-                    evt.setAmount(evt.getAmount() * 0.3f);
-                }
-            }
+//            if (armorHelper.isArlemit()) {
+//                if (s.isProjectile()
+//                        || s.damageType.equals("thrown")) {
+//                    evt.setAmount(evt.getAmount() * 0.3f);
+//                }
+//            }
 
             //Rupee
 //            if (armorHelper.isRupee()) {
@@ -136,9 +136,9 @@ public class EventArmorSet {
 //            }
 
             // Skythern
-            if (armorHelper.isSkythern()) {
-                player.addVelocity(0, 0.5D, 0);
-            }
+//            if (armorHelper.isSkythern()) {
+//                player.addVelocity(0, 0.5D, 0);
+//            }
 
             // Vethean
 //            if (armorHelper.isDemonised(ModItems.demonizedHood)) {
@@ -171,11 +171,11 @@ public class EventArmorSet {
 //            }
 
             // Halite
-            if (armorHelper.isHalite()) {
-                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
-                    e.setAmount(e.getAmount() + 16);
-                }
-            }
+//            if (armorHelper.isHalite()) {
+//                if (((s.getTrueSource() instanceof EntityPlayer) && !s.isProjectile() && !s.isMagicDamage())) {
+//                    e.setAmount(e.getAmount() + 16);
+//                }
+//            }
 
             // Corrupted
             if (armorHelper.isCorrupted()) {

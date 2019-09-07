@@ -8,9 +8,12 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.List;
 import java.util.function.Function;
@@ -44,6 +47,14 @@ public class ArmorHandlers {
         e.setCanceled(true);
     }
 
+    public static void cancelDamageSource(LivingAttackEvent e, Function<DamageSource, Boolean> canApply) {
+        DamageSource source = e.getSource();
+        if (!canApply.apply(source))
+            return;
+
+        e.setCanceled(true);
+    }
+
     public static void handleDamageSource(LivingHurtEvent e, Function<DamageSource, Boolean> canApply, Function<Float, Float> damageConversionFunc) {
         DamageSource source = e.getSource();
         if (!(source.getTrueSource() instanceof EntityPlayer) || !canApply.apply(source))
@@ -72,6 +83,10 @@ public class ArmorHandlers {
                     player.capabilities,
                     walk,
                     walkSpeed);
+
+            if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                player.capabilities.setPlayerWalkSpeed(walk);
+            }
         }
 
     }
