@@ -29,10 +29,7 @@ public class FullSetArmorHelper {
 
         return isFullEquipped()
                 && handler != null
-                && helmet == handler.getHead()
-                && body == handler.getChest()
-                && legs == handler.getLegs()
-                && boots == handler.getBoots();
+                && handler.armorVariants.stream().anyMatch(armorSetVariant -> armorSetVariant.isEquipped(helmet, body, legs, boots));
     }
 
     private Item getItem(ItemStack stack){

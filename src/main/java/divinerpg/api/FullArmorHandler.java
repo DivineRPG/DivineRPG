@@ -12,54 +12,67 @@ import java.util.Map;
 /**
  * Handler for special armor powers
  */
-public class FullArmorHandler {
-    private final Item head;
-    private final Item chest;
-    private final Item legs;
-    private final Item boots;
-    private final IEquipped equipped;
-    private final Map<Class, List<IPowerAbility>> abilityMap = new HashMap<>();
+public class FullArmorHandler implements IEquipped {
+    public final List<ArmorSetVariant> armorVariants = new ArrayList<>();
+    public final Map<Class, List<IPowerAbility>> abilityMap = new HashMap<>();
+    protected final IEquipped equippedHandler;
 
+    /**
+     * Init handler with set and callback on equipped
+     */
+    public FullArmorHandler(Item head, Item chest, Item legs, Item boots, IEquipped handler) {
+        equippedHandler = handler;
+        withVariants(head, chest, legs, boots);
+    }
+
+    /**
+     * Init handler with set, callback on equipped do not needed
+     */
     public FullArmorHandler(Item head, Item chest, Item legs, Item boots) {
         this(head, chest, legs, boots, null);
     }
 
-    public FullArmorHandler(Item head, Item chest, Item legs, Item boots, IEquipped equipped) {
-        this.head = head;
-        this.chest = chest;
-        this.legs = legs;
-        this.boots = boots;
-        this.equipped = equipped;
+    /**
+     * Add variants to handler. Set one of the argument to null to ignore them
+     *
+     * @return this
+     */
+    public FullArmorHandler withVariants(Item head, Item chest, Item legs, Item boots) {
+        return withVariants(new ArmorSetVariant(head, chest, legs, boots));
     }
 
-    public Item getLegs() {
-        return legs;
-    }
-
-    public Item getBoots() {
-        return boots;
-    }
-
-    public Item getChest() {
-        return chest;
-    }
-
-    public IEquipped getEquipped() {
-        return equipped;
+    public FullArmorHandler withVariants(ArmorSetVariant variant) {
+        armorVariants.add(variant);
+        return this;
     }
 
     /**
-     * Ability handler on event by type
+     * Adding ability to handler
+     *
+     * @param clazz   - Event class determines in which event we'll call ability callback
+     * @param ability - the ability callback
+     * @return this
      */
     public <T extends Event> FullArmorHandler withAbility(Class<T> clazz, IPowerAbility<T> ability) {
         if (!abilityMap.containsKey(clazz)) {
             abilityMap.put(clazz, new ArrayList<>());
         }
 
-        abilityMap.get(clazz).add(ability);
+        List<IPowerAbility> abilities = abilityMap.get(clazz);
+        if (abilities.contains(ability)) {
+            throw new IllegalArgumentException("Ability is already registered!");
+        }
+
+        abilities.add(ability);
         return this;
     }
 
+    /**
+     * Trigger all abilities working with that event
+     *
+     * @param event
+     * @param <T>
+     */
     public <T extends Event> void handle(T event) {
         Class<? extends Event> clazz = event.getClass();
         if (abilityMap.containsKey(clazz)) {
@@ -68,44 +81,16 @@ public class FullArmorHandler {
     }
 
     @Override
-    public int hashCode() {
-        return head.hashCode() ^ chest.hashCode() ^ legs.hashCode() ^ boots.hashCode();
+    public void onStatusChanged(EntityPlayer player, boolean isFullEquipped) {
+        if (equippedHandler == null)
+            return;
+
+        equippedHandler.onStatusChanged(player, isFullEquipped);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        FullArmorHandler handler = (FullArmorHandler) obj;
-        if (handler == null)
-            return false;
-
-        return head == handler.head
-                && chest == handler.chest
-                && legs == handler.legs
-                && boots == handler.boots;
+    public int hashCode() {
+        return armorVariants.hashCode();
     }
 
-    public Item getHead() {
-        return head;
-    }
-
-    @FunctionalInterface
-    public interface IEquipped {
-        /**
-         * Called when need to toggle armor power ability
-         *
-         * @param player
-         * @param isFullEquipped - is player full armored
-         */
-        void onStatusChanged(EntityPlayer player, boolean isFullEquipped);
-    }
-
-    @FunctionalInterface
-    public interface IPowerAbility<T extends Event> {
-        /**
-         * Called on event when player is full equipped.
-         *
-         * @param event - Forge event
-         */
-        void handle(T event);
-    }
 }

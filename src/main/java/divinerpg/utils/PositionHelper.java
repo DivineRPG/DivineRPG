@@ -20,4 +20,12 @@ public class PositionHelper {
         Vec3d vector = player.getLookVec().scale(2).add(bullet.getPositionVector());
         bullet.setPosition(vector.x, vector.y, vector.z);
     }
+
+    public static boolean isMaxSpeed(double motion, float speed) {
+        if (speed < 0) {
+            throw new IllegalArgumentException("Speed cannot be less than zero");
+        }
+
+        return !(motion > -speed && motion < speed);
+    }
 }
