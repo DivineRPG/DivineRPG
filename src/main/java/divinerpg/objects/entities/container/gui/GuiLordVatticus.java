@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GuiLordVatticus extends GuiDivineMerchant {
     public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/lord_vatticus.png");
-    private static String merchantName = new TextComponentTranslation("entity.lord_vatticus.name")
+    private static String merchantName = new TextComponentTranslation("entity.divinerpg.lord_vatticus.name")
             .getFormattedText();
 
     public GuiLordVatticus(InventoryPlayer playerInventory, IMerchant merchant, World world) {

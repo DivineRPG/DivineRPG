@@ -32,7 +32,7 @@ public class Datticon extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.datticon.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.datticon.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 

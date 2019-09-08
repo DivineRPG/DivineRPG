@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GuiWarGeneral extends GuiDivineMerchant {
     public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
             "textures/gui/war_general.png");
-    private static String merchantName = new TextComponentTranslation("entity.war_general.name")
+    private static String merchantName = new TextComponentTranslation("entity.divinerpg.war_general.name")
             .getFormattedText();
 
     public GuiWarGeneral(InventoryPlayer playerInventory, IMerchant merchant, World world) {

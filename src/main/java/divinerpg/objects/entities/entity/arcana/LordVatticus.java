@@ -31,7 +31,7 @@ public class LordVatticus extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.lord_vatticus.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.lord_vatticus.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
