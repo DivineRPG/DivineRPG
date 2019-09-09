@@ -1,6 +1,5 @@
 package divinerpg.api;
 
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -8,7 +7,6 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -114,15 +112,11 @@ public class ArmorHandlers {
     /**
      * Speeds up ONLY CLIENT player. 1 - regular speed, 2 - 2 times faster, etc.
      * Algorythm tying to set the most speed value, can ignore it with force flag
-     * @param player - client side player
+     * @param player - server side player
      * @param speedMultiplier - Speed Multiplier 1 - regular speed, 2 - 2 times faster, etc. Negatives disables ability
      * @param force - should force to set passed value to player
      */
-    public static void speedUpPlayer(EntityPlayerSP player, float speedMultiplier, boolean force) {
-        if (player == null){
-            return;
-        }
-
+    public static void speedUpPlayer(EntityPlayer player, float speedMultiplier, boolean force) {
         IAttribute speedAttr = SharedMonsterAttributes.MOVEMENT_SPEED;
         IAttributeInstance playerSpeedAttribute = player.getEntityAttribute(speedAttr);
         AttributeModifier modifier = playerSpeedAttribute.getModifier(ARMOR_SPEED_UUID);
@@ -141,16 +135,17 @@ public class ArmorHandlers {
                 playerSpeedAttribute.applyModifier(modifier);
             }
 
+            // TODO implement packet
             // Managing the step height ON CLIENT SIDE
-            player.stepHeight = isRemove ? 0.6F : 1.0625F;
+            // player.stepHeight = isRemove ? 0.6F : 1.0625F;
         }
     }
 
     /**
      * Remove Armor speed modifier at all
-     * @param player - client side player
+     * @param player - server side player
      */
-    public static void removeSpeed(EntityPlayerSP player) {
+    public static void removeSpeed(EntityPlayer player) {
         speedUpPlayer(player, -1, true);
     }
 
@@ -178,33 +173,35 @@ public class ArmorHandlers {
     }
 
     /**
-     * Speeds up CLIENT SIDE player in water
-     * @param playerSP - client side player
+     * Should Speed up CLIENT SIDE player in water
+     * @param player - server side player
      * @param speed - speed modifier
      */
-    public static void speedUpInWater(EntityPlayerSP playerSP, float speed) {
-        if (playerSP == null || !playerSP.isInWater())
+    public static void speedUpInWater(EntityPlayer player, float speed) {
+        if (player == null || !player.isInWater())
             return;
+
+        // TODO implement packet
 
         // Motion should determine by client
         // Server only receive position changed status
-        if (!isMaxSpeed(playerSP.motionX, speed)) {
-            playerSP.motionX *= speed;
+        if (!isMaxSpeed(player.motionX, speed)) {
+            player.motionX *= speed;
         }
-        if (!isMaxSpeed(playerSP.motionZ, speed)) {
-            playerSP.motionZ *= speed;
+        if (!isMaxSpeed(player.motionZ, speed)) {
+            player.motionZ *= speed;
         }
 
-        if (!isMaxSpeed(playerSP.motionY, speed)) {
+        if (!isMaxSpeed(player.motionY, speed)) {
             // max X/Z speed. If moving faster, should not change
             // Y cord
             double maxSpeed = 0.3D;
 
             // managing Y pos if sneaking or just come out the water
             // on full speed should stay on same Y level
-            if (playerSP.isSneaking() ||
-                    playerSP.motionX < maxSpeed && playerSP.motionZ < maxSpeed) {
-                playerSP.motionY *= speed;
+            if (player.isSneaking() ||
+                    player.motionX < maxSpeed && player.motionZ < maxSpeed) {
+                player.motionY *= speed;
             }
         }
     }

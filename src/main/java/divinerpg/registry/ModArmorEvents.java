@@ -75,7 +75,7 @@ public class ModArmorEvents {
                 new FullArmorHandler(ModItems.santaCap, ModItems.santaTunic, ModItems.santaPants, ModItems.santaBoots, (player, isFullEquipped) -> {
                     if (!isFullEquipped) {
                         // remove speed capability
-                        ArmorHandlers.removeSpeed((EntityPlayerSP) DivineRPG.proxy.getPlayer());
+                        ArmorHandlers.removeSpeed(player);
                     }
                 }).withAbility(LivingHurtEvent.class, event -> {
                     if (event.getEntityLiving().world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
@@ -85,7 +85,7 @@ public class ModArmorEvents {
                 }).withAbility(TickEvent.PlayerTickEvent.class, event -> {
                     if (event.player.world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
                         ArmorHandlers.refillHunger(event);
-                        ArmorHandlers.speedUpPlayer((EntityPlayerSP) DivineRPG.proxy.getPlayer(), 2, false);
+                        ArmorHandlers.speedUpPlayer(event.player, 2, false);
                     }
                 }),
 
@@ -102,10 +102,10 @@ public class ModArmorEvents {
                 new FullArmorHandler(ModItems.shadowHelmet, ModItems.shadowBody, ModItems.shadowLegs, ModItems.shadowBoots, (player, isFullEquipped) -> {
                     if (!isFullEquipped) {
                         // remove speed capability
-                        ArmorHandlers.removeSpeed((EntityPlayerSP) DivineRPG.proxy.getPlayer());
+                        ArmorHandlers.removeSpeed(player);
                     }
                 }).withAbility(TickEvent.PlayerTickEvent.class, event ->
-                        ArmorHandlers.speedUpPlayer((EntityPlayerSP) DivineRPG.proxy.getPlayer(), 3, false)),
+                        ArmorHandlers.speedUpPlayer(event.player, 3, false)),
 
                 new FullArmorHandler(ModItems.arlemiteHelmet, ModItems.arlemiteBody, ModItems.arlemiteLegs, ModItems.arlemiteBoots)
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onPlayerReceiveDamage(event,
@@ -120,7 +120,7 @@ public class ModArmorEvents {
 
                 new FullArmorHandler(ModItems.aquastriveHelmet, ModItems.aquastriveBody, ModItems.aquastriveLegs, ModItems.aquastriveBoots)
                         .withAbility(TickEvent.PlayerTickEvent.class, event ->
-                                ArmorHandlers.speedUpInWater((EntityPlayerSP) DivineRPG.proxy.getPlayer(),1.2F))
+                                ArmorHandlers.speedUpInWater(event.player,1.2F))
                         .withAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN))),
 
