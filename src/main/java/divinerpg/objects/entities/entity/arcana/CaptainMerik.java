@@ -35,7 +35,7 @@ public class CaptainMerik extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.captain_merik.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.captain_merik.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 

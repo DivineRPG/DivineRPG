@@ -31,7 +31,7 @@ public class Zelus extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.zelus.name") + ": "
+        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.zelus.name") + ": "
                 + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 

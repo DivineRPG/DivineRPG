@@ -18,6 +18,7 @@ build
 .gradle
 
 # other
+classes
 eclipse
 run
 setupEclipse.bat

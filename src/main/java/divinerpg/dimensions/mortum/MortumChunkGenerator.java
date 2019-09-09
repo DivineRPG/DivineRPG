@@ -171,14 +171,6 @@ public class MortumChunkGenerator implements IChunkGenerator {
 				this.quartzGen.generate(this.world, this.rand,
 						blockpos.add(this.rand.nextInt(16), this.rand.nextInt(108) + 10, this.rand.nextInt(16)));
 			}	
-		if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(this.world, this.rand, coarseGen, blockpos,
-				net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.QUARTZ))
-			for (int l1 = 0; l1 < 16; ++l1) {
-				// FIXME ASAP, Great Overpopulating
-				//  I think it's too much blocks in vein (70)
-				this.coarseGen.generate(this.world, this.rand,
-						blockpos.add(this.rand.nextInt(16), this.rand.nextInt(108) + 10, this.rand.nextInt(16)));
-			}
 
 		if (this.settings.useDungeons)
 			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag,
