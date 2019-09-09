@@ -1,7 +1,5 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.items.base.ItemModSeeds;
@@ -14,6 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+
+import java.util.Random;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected BlockMod dirt;
@@ -80,7 +80,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
             if (item != null) {
                 // getting seed
                 Item seed = item.getItem();
-                // If seed is Divine type, reset local value
+                // If seed is Divine type, reset local percantage
                 // Condition below will handle it
                 if (seed instanceof ItemModSeeds) {
                     plantable = (ItemModSeeds) seed;

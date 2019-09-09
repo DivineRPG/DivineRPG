@@ -1,34 +1,45 @@
 package divinerpg.networking.message;
 
 import divinerpg.DivineRPG;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.client.ArcanaRenderer;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+
+import static divinerpg.capabilities.ArcanaProvider.ARCANA_CAP;
 
 public class MessageArcanaBar implements IMessage {
-	
-	private float value;
-	private boolean shouldRegen;
-	
+
+	private int delay;
+	private float arcana;
+	private float max;
+
 	public MessageArcanaBar(){}
-	
-	public MessageArcanaBar(float barValue, boolean shouldRegen){
-		this.value = barValue;
-		this.shouldRegen = shouldRegen;
+
+	public MessageArcanaBar(IArcana arcana) {
+		if (arcana == null)
+			return;
+
+		delay = arcana.getRegenDelay();
+		this.arcana = arcana.getArcana();
+		max = arcana.getMaxArcana();
 	}
-	
-	@Override
-    public void toBytes(ByteBuf buf) {
-        buf.writeFloat(value);
-        buf.writeBoolean(shouldRegen);
-    }
 
 	@Override
-	public void fromBytes(ByteBuf buf) {
-		value = buf.readFloat();
-		shouldRegen = buf.readBoolean();
+	public void fromBytes(ByteBuf byteBuf) {
+		max = byteBuf.readFloat();
+		arcana = byteBuf.readFloat();
+		delay = byteBuf.readInt();
+	}
+
+	@Override
+	public void toBytes(ByteBuf byteBuf) {
+		byteBuf.writeFloat(max);
+		byteBuf.writeFloat(arcana);
+		byteBuf.writeInt(delay);
 	}
 	
 	public static class Handler implements IMessageHandler<MessageArcanaBar, IMessage>{
@@ -36,12 +47,14 @@ public class MessageArcanaBar implements IMessage {
 		@Override
 		public IMessage onMessage(MessageArcanaBar msg, MessageContext ctx) {
 
-			// Using value from message!!!
-			ArcanaRenderer.value = msg.value;
-			ArcanaRenderer.regen = msg.shouldRegen;
+			if (ctx.side == Side.CLIENT) {
+				IArcana capability = DivineRPG.proxy.getPlayer().getCapability(ARCANA_CAP, null);
+				capability.setMaxArcana(msg.max);
+				capability.setRegenDelay(msg.delay);
+				capability.set(msg.arcana);
+			}
 
-			DivineRPG.proxy.updateClientArcana(msg.value);
-			
+			ArcanaRenderer.percantage = (msg.arcana / msg.max) * 100;
 			return null;
 		}
 		

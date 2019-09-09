@@ -27,7 +27,7 @@ public class ModArmorEvents implements IFullArmorRegistry {
     public static ModArmorEvents instance = new ModArmorEvents();
 
     /**
-     * The list of all handlers with isEquipped value
+     * The list of all handlers with isEquipped percantage
      */
     public static final Map<FullArmorHandler, Boolean> ALL_HANDLERS = new HashMap<>();
 

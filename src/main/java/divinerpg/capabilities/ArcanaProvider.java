@@ -1,6 +1,6 @@
 package divinerpg.capabilities;
 
-import divinerpg.api.IArcana;
+import divinerpg.api.arcana.IArcana;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
@@ -23,7 +23,7 @@ public class ArcanaProvider implements ICapabilitySerializable<NBTBase>
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
-        return capability == ARCANA_CAP ? ARCANA_CAP.<T> cast(this.instance) : null;
+        return capability == ARCANA_CAP ? ARCANA_CAP.cast(this.instance) : null;
     }
 
     @Override

@@ -440,7 +440,7 @@ public class ModBlocks {
         for (WoodType woodType : WoodType.values()) {
             String woodName = woodType.getName();
 
-            // Make special property key that allows ONLY one value because slabs are special level of stupid
+            // Make special property key that allows ONLY one percantage because slabs are special level of stupid
             final PropertyEnum<WoodType> restrictedKey = PropertyEnum.create("variant", WoodType.class,
                     input -> input == woodType);
 

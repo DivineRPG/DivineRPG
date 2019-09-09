@@ -1,12 +1,8 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.DivineRPG;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.api.IArcana;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
@@ -24,14 +20,13 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 @SuppressWarnings("Duplicates")
 public class RangedWeaponBase extends ItemMod {
@@ -192,7 +187,7 @@ public class RangedWeaponBase extends ItemMod {
         }
         // get reference
         NBTTagCompound compound = rangedWeapon.getTagCompound();
-        // get value
+        // get percantage
         long canShootTime = compound.getLong(delayTagName);
 
         // we managing delay here, re-evaulating every item using time

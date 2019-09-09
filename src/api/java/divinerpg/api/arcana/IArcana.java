@@ -1,4 +1,4 @@
-package divinerpg.api;
+package divinerpg.api.arcana;
 
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -40,6 +40,13 @@ public interface IArcana {
      * @return amount of max possible arcana
      */
     float getMaxArcana();
+
+    /**
+     * Sets max amount of arcana for player
+     *
+     * @param max - arcana max. Can't be less zero
+     */
+    void setMaxArcana(float max);
 
     /**
      * Gets delay in ticks

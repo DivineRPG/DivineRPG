@@ -51,7 +51,7 @@ public class EventClientLogin {
             // after all tasks print version detect
             version.thenCombineAsync(onlineStatus, (currentVersion, isOnline) -> {
                 printVersionStatus(player, currentVersion, isOnline);
-                // need to return value
+                // need to return percantage
                 return true;
             });
         }

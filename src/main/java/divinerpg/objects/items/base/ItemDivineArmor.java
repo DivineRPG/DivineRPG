@@ -1,12 +1,7 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import divinerpg.DivineRPG;
 import divinerpg.enums.EnumArmor;
 import divinerpg.registry.DivineRPGTabs;
@@ -26,6 +21,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISpecialArmor {
     protected double damageReduction;
@@ -72,11 +70,11 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
                     strInfo = TokenHelper.replaceToken(strInfo, '#', value);
                 } catch (NumberFormatException e) {
                     DivineRPG.logger.error("Attempted to replace a token with an float, but the float was invalid! "
-                            + "Make sure the value in the index before the String containing the token is an integer!!!");
+                            + "Make sure the percantage in the index before the String containing the token is an integer!!!");
                     e.printStackTrace();
                 } catch (ArrayIndexOutOfBoundsException e2) {
                     DivineRPG.logger.error(
-                            "Attempted to replace a token with the value at the index before it, but that index does not exist!! "
+                            "Attempted to replace a token with the percantage at the index before it, but that index does not exist!! "
                                     + "Make sure you are only trying to replace tokens in values that are not at index 0!!");
                     e2.printStackTrace();
                 }
@@ -147,7 +145,7 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
 
     @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
-        return HashMultimap.<String, AttributeModifier>create();
+        return HashMultimap.create();
     }
 
     @Override

@@ -2,10 +2,10 @@ package divinerpg.proxy;
 
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.Arcana;
 import divinerpg.capabilities.CapabilityArcana;
 import divinerpg.capabilities.CapabilityHandler;
-import divinerpg.api.IArcana;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;

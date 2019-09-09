@@ -2,7 +2,7 @@ package divinerpg.proxy;
 
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
-import divinerpg.api.IArcana;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.client.ClientTicker;

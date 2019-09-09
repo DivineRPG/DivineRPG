@@ -13,7 +13,7 @@ public class ArcanaRenderer {
 
     Minecraft mc = Minecraft.getMinecraft();
 
-    public static float value;
+    public static float percantage;
     public static boolean regen;
 
     @SubscribeEvent
@@ -32,7 +32,7 @@ public class ArcanaRenderer {
             int y = k - Config.arcanaY;
             int x = i - Config.arcanaX;
             gig.drawTexturedModalRect(x, y, 0, 0, 100, 9);
-            gig.drawTexturedModalRect(x, y, 0, 9, (int) (12.5 * (value / 25)), 18);
+            gig.drawTexturedModalRect(x, y, 0, 9, (int) percantage, 18);
         }
     }
 
