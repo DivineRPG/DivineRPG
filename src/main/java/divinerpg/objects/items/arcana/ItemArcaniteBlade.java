@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import java.util.List;
 
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.ToolMaterialMod;
 import divinerpg.utils.TooltipLocalizer;

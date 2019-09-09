@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.DivineRPG;
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;

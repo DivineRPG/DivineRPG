@@ -6,6 +6,7 @@ package divinerpg;
 
 import divinerpg.compat.ProjectECompat;
 import divinerpg.config.Config;
+import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
@@ -49,9 +50,7 @@ public class DivineRPG {
         proxy.RegisterTileEntityRender();
 
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
-//        MinecraftForge.EVENT_BUS.register(new EventArmorSet());
-//        MinecraftForge.EVENT_BUS.register(new EventArmorTick());        MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
-
+        MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
         ModArmorEvents.init();
 
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());

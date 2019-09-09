@@ -5,7 +5,7 @@ import divinerpg.Reference;
 import divinerpg.capabilities.Arcana;
 import divinerpg.capabilities.CapabilityArcana;
 import divinerpg.capabilities.CapabilityHandler;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;

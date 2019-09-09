@@ -5,7 +5,7 @@ import java.awt.Color;
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.client.ClientTicker;
 import divinerpg.enums.ParticleType;

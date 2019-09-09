@@ -1,5 +1,6 @@
 package divinerpg.capabilities;
 
+import divinerpg.api.IArcana;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -15,7 +16,7 @@ public class CapabilityArcana implements IStorage<IArcana> {
         NBTTagCompound result = new NBTTagCompound();
 
         result.setFloat(arcana, instance.getArcana());
-        result.setFloat(regenDelay, instance.getRegenDelay());
+        result.setInteger(regenDelay, instance.getRegenDelay());
 
         return result;
     }

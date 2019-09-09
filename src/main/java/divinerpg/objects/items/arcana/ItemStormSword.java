@@ -1,7 +1,7 @@
 package divinerpg.objects.items.arcana;
 
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;

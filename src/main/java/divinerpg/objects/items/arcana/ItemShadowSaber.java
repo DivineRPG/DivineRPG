@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipHelper;

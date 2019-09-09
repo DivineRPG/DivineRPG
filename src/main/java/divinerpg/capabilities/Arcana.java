@@ -1,6 +1,7 @@
 package divinerpg.capabilities;
 
 import divinerpg.DivineRPG;
+import divinerpg.api.IArcana;
 import divinerpg.networking.message.MessageArcanaBar;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -60,7 +61,7 @@ public class Arcana implements IArcana {
         return this.arcanaMax;
     }
 
-    public float getRegenDelay() {
+    public int getRegenDelay() {
         return regenDelay;
     }
 

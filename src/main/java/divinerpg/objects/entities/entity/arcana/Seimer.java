@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.IArcana;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
