@@ -1,6 +1,5 @@
 package divinerpg.events.armorEvents;
 
-import divinerpg.api.ActionArbiter;
 import divinerpg.utils.FullSetArmorHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -11,13 +10,10 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 import static divinerpg.registry.ModArmorEvents.ALL_HANDLERS;
 
 public class ArmorTickEvent {
-    protected final ActionArbiter arbiter = new ActionArbiter();
-
     /**
      * Trying to loop through all handlers and handle abilities
      *
@@ -28,11 +24,9 @@ public class ArmorTickEvent {
         if (event.isCanceled())
             return;
 
-        arbiter.Do(() -> {
-            ALL_HANDLERS.forEach((handler, equipped) -> {
-                if (equipped)
-                    handler.handle(event);
-            });
+        ALL_HANDLERS.forEach((handler, equipped) -> {
+            if (equipped)
+                handler.handle(event);
         });
     }
 
@@ -47,25 +41,21 @@ public class ArmorTickEvent {
     @SubscribeEvent
     public void onPlayerTick(PlayerTickEvent evt) {
         if (evt.isCanceled()
-                || evt.phase != TickEvent.Phase.START
-                || evt.side != Side.SERVER) {
+                || evt.phase != TickEvent.Phase.START) {
             return;
         }
 
         EntityPlayer player = evt.player;
         FullSetArmorHelper helper = new FullSetArmorHelper(player);
 
-        arbiter.Do(() -> {
-            ALL_HANDLERS.replaceAll((handler, wasEquipped) -> {
-                boolean isEquipped = helper.isEquipped(handler);
+        ALL_HANDLERS.replaceAll((handler, wasEquipped) -> {
+            boolean isEquipped = helper.isEquipped(handler);
 
-                if (isEquipped != wasEquipped)
-                    handler.onStatusChanged(player, isEquipped);
+            if (isEquipped != wasEquipped)
+                handler.onStatusChanged(player, isEquipped);
 
-                return isEquipped;
-            });
+            return isEquipped;
         });
-
 
         // handle other events too
         handle(evt);

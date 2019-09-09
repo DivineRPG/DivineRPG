@@ -25,13 +25,17 @@ public class ArmorHandlers {
     private static final UUID ARMOR_SPEED_UUID = UUID.fromString("2ae05d96-4b26-420b-8406-156e8febb45f");
 
     /**
-     * Managing player's fly ability
-     * @param player - Server side client
+     * Managing player's fly ability on server side
+     *
+     * @param player - player
      * @param canFly - can we fly or not
      */
     public static void onCanFlyChanged(EntityPlayer player, boolean canFly) {
         // in creative mode we do not need any checks
-        if (player.capabilities.isCreativeMode || canFly == player.capabilities.allowFlying) {
+        if (player.capabilities.isCreativeMode
+                || canFly == player.capabilities.allowFlying
+                // Checking only on server
+                || isRemote(player)) {
             return;
         }
 
@@ -44,34 +48,45 @@ public class ArmorHandlers {
     }
 
     /**
-     * Adding melee damage from player
-     * @param e - Server side event
+     * Adding melee damage from player on server side
+     *
+     * @param e                    - event
      * @param damageConversionFunc - function modifying original damage amount
      */
     public static void onAddMeleeDamage(LivingHurtEvent e, Function<Float, Float> damageConversionFunc) {
         DamageSource source = e.getSource();
-        if (!(source.getTrueSource() instanceof EntityPlayer) || source.isMagicDamage() || source.isProjectile())
+        if (!(source.getTrueSource() instanceof EntityPlayer)
+                || source.isMagicDamage()
+                || source.isProjectile()
+                // should call only on server
+                || isRemote(e.getEntity())) {
             return;
+        }
 
         e.setAmount(damageConversionFunc.apply(e.getAmount()));
     }
 
     /**
-     * Adding ranged damage from player
-     * @param e - Server side event
+     * Adding ranged damage from player on Server side
+     *
+     * @param e                    - event
      * @param damageConversionFunc - function modifying original damage amount
      */
     public static void onAddRangedDamage(LivingHurtEvent e, Function<Float, Float> damageConversionFunc) {
         DamageSource source = e.getSource();
-        if (!(source.getTrueSource() instanceof EntityPlayer) || !source.isProjectile())
+        if (!(source.getTrueSource() instanceof EntityPlayer)
+                || !source.isProjectile()
+                // should call only on server
+                || isRemote(e.getEntity()))
             return;
 
         e.setAmount(damageConversionFunc.apply(e.getAmount()));
     }
 
     /**
-     * Canceling damage received by player by condition
-     * @param e - server side event
+     * Canceling damage received by player by condition on server side
+     *
+     * @param e        -  event
      * @param canApply - can block current damage source
      */
     public static void onCancelPlayerReceiveDamage(LivingHurtEvent e, Function<DamageSource, Boolean> canApply) {
@@ -79,26 +94,31 @@ public class ArmorHandlers {
     }
 
     /**
-     * refilling hunger of player
-     * @param e - server side event
+     * refilling hunger of player on server side
+     *
+     * @param e - tick event
      */
     public static void refillHunger(TickEvent.PlayerTickEvent e) {
         EntityPlayer player = e.player;
 
-        if (player.getFoodStats().needFood()) {
+        if (!isRemote(player) && player.getFoodStats().needFood()) {
             player.getFoodStats().addStats(1, 0);
         }
     }
 
     /**
-     * Managing amount of damage receiving by player
-     * @param e - server side event
-     * @param canApply - can manage damage with current source
+     * Managing amount of damage receiving by player. Should work only on server side
+     *
+     * @param e                    - tick event
+     * @param canApply             - can manage damage with current source
      * @param damageConversionFunc - function returning final damage. If equals/less zero, damage is canceled
      */
     public static void onPlayerReceiveDamage(LivingHurtEvent e, Function<DamageSource, Boolean> canApply, Function<Float, Float> damageConversionFunc) {
         DamageSource source = e.getSource();
-        if (!(e.getEntity() instanceof EntityPlayer) || !canApply.apply(source))
+        if (!(e.getEntity() instanceof EntityPlayer)
+                // should call only on server
+                || isRemote(e.getEntity())
+                || !canApply.apply(source))
             return;
 
         Float damage = damageConversionFunc.apply(e.getAmount());
@@ -112,9 +132,10 @@ public class ArmorHandlers {
     /**
      * Speeds up ONLY CLIENT player. 1 - regular speed, 2 - 2 times faster, etc.
      * Algorythm tying to set the most speed value, can ignore it with force flag
-     * @param player - server side player
+     *
+     * @param player          - player
      * @param speedMultiplier - Speed Multiplier 1 - regular speed, 2 - 2 times faster, etc. Negatives disables ability
-     * @param force - should force to set passed value to player
+     * @param force           - should force to set passed value to player
      */
     public static void speedUpPlayer(EntityPlayer player, float speedMultiplier, boolean force) {
         IAttribute speedAttr = SharedMonsterAttributes.MOVEMENT_SPEED;
@@ -123,27 +144,31 @@ public class ArmorHandlers {
 
         speedMultiplier = (float) (speedMultiplier * playerSpeedAttribute.getBaseValue() - playerSpeedAttribute.getBaseValue());
 
-        // removing speed modifier if can set faster
-        if (force || modifier == null || modifier.getAmount() < speedMultiplier) {
-            playerSpeedAttribute.removeModifier(ARMOR_SPEED_UUID);
+        // Detect if removing speed modifier
+        boolean isRemove = speedMultiplier < 0;
 
-            // Detect if removing speed modifier
-            boolean isRemove = speedMultiplier < 0;
+        // changing step height on client
+        if (isRemote(player)) {
+            player.stepHeight = isRemove ? 0.6F : 1.0625F;
+        } else {
+            // Change speed on server
 
-            if (!isRemove) {
-                modifier = (new AttributeModifier(ARMOR_SPEED_UUID, "Armor speed modifier", speedMultiplier, 0));
-                playerSpeedAttribute.applyModifier(modifier);
+            // removing speed modifier if can set faster
+            if (force || modifier == null || modifier.getAmount() < speedMultiplier) {
+                playerSpeedAttribute.removeModifier(ARMOR_SPEED_UUID);
+
+                if (!isRemove) {
+                    modifier = (new AttributeModifier(ARMOR_SPEED_UUID, "Armor speed modifier", speedMultiplier, 0));
+                    playerSpeedAttribute.applyModifier(modifier);
+                }
             }
-
-            // TODO implement packet
-            // Managing the step height ON CLIENT SIDE
-            // player.stepHeight = isRemove ? 0.6F : 1.0625F;
         }
     }
 
     /**
-     * Remove Armor speed modifier at all
-     * @param player - server side player
+     * Remove Armor speed modifier at all.
+     *
+     * @param player - player
      */
     public static void removeSpeed(EntityPlayer player) {
         speedUpPlayer(player, -1, true);
@@ -151,15 +176,16 @@ public class ArmorHandlers {
 
     /**
      * Froze near mobs on server side
-     * @param e - server side event
+     *
+     * @param e         - event
      * @param skipTicks - tick delay
-     * @param radius - radius of mobs should be frozen
+     * @param radius    - radius of mobs should be frozen
      */
     public static void frozeNearMobs(TickEvent.PlayerTickEvent e, int skipTicks, int radius) {
         EntityPlayer player = e.player;
         World world = player.world;
 
-        if (world.isRemote || world.getTotalWorldTime() % skipTicks != 0) {
+        if (isRemote(player) || world.getTotalWorldTime() % skipTicks != 0) {
             return;
         }
 
@@ -174,14 +200,17 @@ public class ArmorHandlers {
 
     /**
      * Should Speed up CLIENT SIDE player in water
-     * @param player - server side player
-     * @param speed - speed modifier
+     *
+     * @param player - player
+     * @param speed  - speed modifier
      */
     public static void speedUpInWater(EntityPlayer player, float speed) {
-        if (player == null || !player.isInWater())
+        if (player == null
+                // Should call on client
+                || !isRemote(player)
+                || !player.isInWater()) {
             return;
-
-        // TODO implement packet
+        }
 
         // Motion should determine by client
         // Server only receive position changed status
@@ -208,8 +237,9 @@ public class ArmorHandlers {
 
     /**
      * Trying to check wherever player motion is more than passed maxSpeed
+     *
      * @param motion - player motion (can be negative)
-     * @param speed - speed (always not negative)
+     * @param speed  - speed (always not negative)
      * @return is Player reached max speed
      */
     private static boolean isMaxSpeed(double motion, float speed) {
@@ -222,27 +252,42 @@ public class ArmorHandlers {
 
     /**
      * Disabling fall damage on server side
-     * @param event - server side event
+     *
+     * @param event - tick event
      */
     public static void disableFallDamage(TickEvent.PlayerTickEvent event) {
-        event.player.fallDistance -= 0.5F;
+        if (!isRemote(event.player))
+            event.player.fallDistance -= 0.5F;
     }
 
     /**
      * Implements infinite water breating on server side
-     * @param event - server side event
+     *
+     * @param event - tick event
      */
     public static void breatheUnderwater(TickEvent.PlayerTickEvent event) {
-        event.player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 40, 0, true, false));
+        if (!isRemote(event.player) && event.player.world.getTotalWorldTime() % 30 == 0)
+            event.player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 40, 0, true, false));
     }
 
     /**
      * Check wherever DamageSource is melee damage
+     *
      * @param source - Damage source
      * @return true is it only melee damage
      */
     public static boolean isMeeleeDamage(DamageSource source) {
         return !source.isExplosion() && !source.isMagicDamage() && !source.isFireDamage() && !source.isProjectile()
                 && !source.isDamageAbsolute() && !source.isUnblockable();
+    }
+
+    /**
+     * Checks wherever entity contains in remote world
+     *
+     * @param e - entity
+     * @return is remote world
+     */
+    private static boolean isRemote(Entity e) {
+        return e == null || e.world.isRemote;
     }
 }
