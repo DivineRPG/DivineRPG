@@ -1,11 +1,9 @@
 package divinerpg.proxy;
 
-import java.awt.Color;
-
 import divinerpg.DivineRPG;
 import divinerpg.Reference;
-import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.api.IArcana;
+import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.client.ClientTicker;
 import divinerpg.enums.ParticleType;
@@ -13,45 +11,12 @@ import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
 import divinerpg.events.EventDevHat;
 import divinerpg.events.EventTooltip;
-import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
-import divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
-import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
-import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
-import divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
-import divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
-import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
-import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
-import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
-import divinerpg.objects.blocks.tile.render.RenderAltarOfCorruption;
-import divinerpg.objects.blocks.tile.render.RenderArcaniumExtractor;
-import divinerpg.objects.blocks.tile.render.RenderAyeracoBeam;
-import divinerpg.objects.blocks.tile.render.RenderAyeracoSpawn;
-import divinerpg.objects.blocks.tile.render.RenderBoneChest;
-import divinerpg.objects.blocks.tile.render.RenderDemonFurnace;
-import divinerpg.objects.blocks.tile.render.RenderDramixAltar;
-import divinerpg.objects.blocks.tile.render.RenderEdenChest;
-import divinerpg.objects.blocks.tile.render.RenderFrostedChest;
-import divinerpg.objects.blocks.tile.render.RenderParasectaAltar;
-import divinerpg.objects.blocks.tile.render.RenderPresentBox;
-import divinerpg.objects.blocks.tile.render.RenderStatue;
-import divinerpg.particle.ParticleApalachiaPortal;
-import divinerpg.particle.ParticleColored;
-import divinerpg.particle.ParticleColoredFlame;
-import divinerpg.particle.ParticleEdenPortal;
-import divinerpg.particle.ParticleEnderTriplet;
-import divinerpg.particle.ParticleFrost;
-import divinerpg.particle.ParticleGreenPortal;
-import divinerpg.particle.ParticleMortumPortal;
-import divinerpg.particle.ParticleSkythernPortal;
-import divinerpg.particle.ParticleSparkler;
-import divinerpg.particle.ParticleWildWoodPortal;
+import divinerpg.objects.blocks.tile.entity.*;
+import divinerpg.objects.blocks.tile.render.*;
+import divinerpg.particle.*;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.AuthUtils;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.InitLog;
 import divinerpg.utils.log.IntenseDebug;
@@ -71,6 +36,8 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.awt.*;
 
 public class ClientProxy extends CommonProxy {
     public static MusicTicker.MusicType Music_Iceika;
@@ -218,9 +185,7 @@ public class ClientProxy extends CommonProxy {
             double d1 = entity.posY - y;
             double d2 = entity.posZ - z;
 
-            if (d0 * d0 + d1 * d1 + d2 * d2 <= 1024D && i <= 1) {
-                return true;
-            }
+            return d0 * d0 + d1 * d1 + d2 * d2 <= 1024D && i <= 1;
         }
 
         return false;

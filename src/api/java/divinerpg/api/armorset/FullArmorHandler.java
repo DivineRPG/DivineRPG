@@ -1,4 +1,4 @@
-package divinerpg.api;
+package divinerpg.api.armorset;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

@@ -1,6 +1,6 @@
 package divinerpg.utils;
 
-import divinerpg.api.FullArmorHandler;
+import divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

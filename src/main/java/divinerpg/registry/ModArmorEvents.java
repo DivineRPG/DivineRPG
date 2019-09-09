@@ -1,12 +1,11 @@
 package divinerpg.registry;
 
-import divinerpg.DivineRPG;
-import divinerpg.api.FullArmorHandler;
 import divinerpg.api.ArmorHandlers;
+import divinerpg.api.armorset.FullArmorHandler;
+import divinerpg.api.registry.IFullArmorRegistry;
 import divinerpg.events.armorEvents.ArmorTickEvent;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -20,14 +19,19 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.*;
 
-public class ModArmorEvents {
+public class ModArmorEvents implements IFullArmorRegistry {
+
+    /**
+     * Instance for addons and owner mod (DivineRPG)
+     */
+    public static ModArmorEvents instance = new ModArmorEvents();
 
     /**
      * The list of all handlers with isEquipped value
      */
     public static final Map<FullArmorHandler, Boolean> ALL_HANDLERS = new HashMap<>();
 
-    public static void addHandler(FullArmorHandler handler) {
+    public void addHandler(FullArmorHandler handler) {
         if (handler == null) {
             throw new IllegalArgumentException("Armor handler is null");
         }
@@ -39,7 +43,7 @@ public class ModArmorEvents {
         ALL_HANDLERS.put(handler, false);
     }
 
-    public static void removeHandler(FullArmorHandler handler) {
+    public void removeHandler(FullArmorHandler handler) {
         if (handler == null) {
             throw new IllegalArgumentException("Armor handler is null");
         }
@@ -51,7 +55,7 @@ public class ModArmorEvents {
         ALL_HANDLERS.remove(handler);
     }
 
-    public static void init() {
+    public void init() {
         List<FullArmorHandler> handlers = Arrays.asList(
                 new FullArmorHandler(ModItems.angelicHelmet, ModItems.angelicBody, ModItems.angelicLegs, ModItems.angelicBoots,
                         ArmorHandlers::onCanFlyChanged)
@@ -183,9 +187,8 @@ public class ModArmorEvents {
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, aFloat -> aFloat * 1.2F))
         );
 
-        handlers.forEach(ModArmorEvents::addHandler);
+        handlers.forEach(this::addHandler);
 
         MinecraftForge.EVENT_BUS.register(new ArmorTickEvent());
     }
-
 }
