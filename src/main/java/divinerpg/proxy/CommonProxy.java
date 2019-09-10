@@ -47,7 +47,7 @@ public class CommonProxy {
         if (config.hasChanged()) {
             config.save();
         }
-        ModEntities.initSpawns();
+        ModSpawns.addSpawns();
         if (Config.genJSON) {
             ModRecipes x = new ModRecipes();
         }
