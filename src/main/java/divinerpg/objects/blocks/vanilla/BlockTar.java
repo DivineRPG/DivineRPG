@@ -1,46 +1,116 @@
-package divinerpg.objects.blocks;
+package divinerpg.objects.blocks.vanilla;
 
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-
-import divinerpg.Reference;
+import divinerpg.objects.blocks.BlockModFluid;
 import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockFluid extends BlockFluidClassic {
-    public BlockFluid(String name, Fluid fluid, Material material) {
-        super(fluid, material);
-        setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+import javax.annotation.Nonnull;
+import java.util.Random;
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(Reference.MODID, name));
+public class BlockTar extends BlockModFluid {
 
-        if (material == Material.LAVA) {
-            setTickRandomly(true);
+    public BlockTar(String name, Fluid fluid) {
+        super(name, fluid, Material.LAVA);
+        this.setTickRandomly(true);
+    }
+
+    /*
+    @Override
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        entityIn.setInWeb();
+    }*/
+
+    @Override
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+        super.onBlockAdded(worldIn, pos, state);
+        this.checkForMixing(worldIn, pos, state);
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        super.onBlockAdded(worldIn, pos, state);
+        this.checkForMixing(worldIn, pos, state);
+    }
+
+    public boolean checkForMixing(World worldIn, BlockPos pos, IBlockState state) {
+        boolean touchingWater = false;
+        boolean touchingLava = false;
+
+        EnumFacing[] facing = EnumFacing.values();
+        int facingSize = facing.length;
+
+        for(int k = 0; k < facingSize; ++k) {
+            EnumFacing enumfacing = facing[k];
+
+            IBlockState adjacent = worldIn.getBlockState(pos.offset(enumfacing));
+
+            if (enumfacing != EnumFacing.DOWN && adjacent.getMaterial() == Material.WATER) {
+                touchingWater = true;
+                break;
+            }
+            else if (enumfacing != EnumFacing.DOWN && adjacent.getBlock() != this && adjacent.getMaterial() == Material.LAVA) {
+                touchingLava = true;
+                break;
+            }
         }
+
+        if (touchingWater) {
+            Integer integer = (Integer)state.getValue(LEVEL);
+            if (integer == 0) {
+                worldIn.setBlockState(pos, ForgeEventFactory.fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
+                this.triggerMixEffects(worldIn, pos);
+                return true;
+            }
+            else if (integer <= 4) {
+                worldIn.setBlockState(pos, ForgeEventFactory.fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
+                this.triggerMixEffects(worldIn, pos);
+                return true;
+            }
+        }
+        else if (touchingLava) {
+            Integer integer = (Integer)state.getValue(LEVEL);
+            if (integer <= 4) {
+                worldIn.setBlockState(pos, ForgeEventFactory.fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.twilightStone.getDefaultState()));
+                this.triggerMixEffects(worldIn, pos);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /*
+        Again stolen from lava
+     */
+    protected void triggerMixEffects(World worldIn, BlockPos pos) {
+        double d0 = (double)pos.getX();
+        double d1 = (double)pos.getY();
+        double d2 = (double)pos.getZ();
+        worldIn.playSound((EntityPlayer)null, pos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.8F);
+
+        for(int i = 0; i < 8; ++i) {
+            worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + Math.random(), d1 + 1.2D, d2 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
+        }
+
     }
 
     @Override
     public void updateTick(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState state,
-            @Nonnull Random rand) {
+                           @Nonnull Random rand) {
         super.updateTick(world, pos, state, rand);
 
         /*
@@ -90,13 +160,6 @@ public class BlockFluid extends BlockFluidClassic {
             }
         }
     }
-
-    @Override
-    @SuppressWarnings("deprecation")
-    public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.MODEL;
-    }
-
     /*
     	Stolen from Lava Block
      */

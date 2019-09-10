@@ -82,7 +82,9 @@ public class ModBlocks {
     public static Block yellowVane = new BlockMod(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON).setResistance(10F);
 
     public static Block divineRock = new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F);
-    public static Block tar = new BlockFluid("tar", ModLiquids.tar, Material.LAVA);
+    public static Block tar = new BlockTar("tar", ModLiquids.tar);
+
+    public static Block asphalt = new BlockMod("asphalt", 2.0F); //The texture is a placeholder
 
     public static Block fancyWool = new BlockMod(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD);
 
@@ -435,6 +437,8 @@ public class ModBlocks {
     //We are avoiding rails for now
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
     public static Block acceleron = new BlockAcceleron("acceleron");
+
+
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
