@@ -1,4 +1,4 @@
-package divinerpg.api.registry;
+package divinerpg.api;
 
 import divinerpg.api.armorset.FullArmorHandler;
 

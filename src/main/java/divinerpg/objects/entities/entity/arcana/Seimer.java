@@ -1,8 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.api.arcana.ArcanaAPI;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -66,7 +65,7 @@ public class Seimer extends EntityDivineRPGTameable {
     public void onUpdate() {
         super.onUpdate();
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
-            IArcana arcana = ArcanaAPI.getArcana((EntityPlayer) this.getOwner());
+            IArcana arcana = DivineAPI.getArcana(this.getOwner());
             arcana.fill((EntityPlayer) this.getOwner(), 1);
         }
     }

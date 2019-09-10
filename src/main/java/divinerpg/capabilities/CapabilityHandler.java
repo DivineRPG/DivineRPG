@@ -1,6 +1,7 @@
 package divinerpg.capabilities;
 
 import divinerpg.api.Reference;
+import divinerpg.api.arcana.ArcanaProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;

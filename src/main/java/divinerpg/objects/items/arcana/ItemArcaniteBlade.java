@@ -1,8 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.api.arcana.ArcanaAPI;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.ToolMaterialMod;
 import divinerpg.utils.TooltipLocalizer;
@@ -20,7 +19,7 @@ public class ItemArcaniteBlade extends ItemModSword {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        IArcana arcana = ArcanaAPI.getArcana(player);
+        IArcana arcana = DivineAPI.getArcana(player);
         if (!player.world.isRemote && arcana.getArcana() >= 12)
             arcana.consume(player, 12);
         return super.onLeftClickEntity(stack, player, entity);

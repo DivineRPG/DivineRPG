@@ -1,8 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.api.arcana.ArcanaAPI;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.items.base.ItemModSword;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +15,7 @@ public class ItemStormSword extends ItemModSword {
 
     @Override
     protected boolean canUseSpecialEffect(EntityPlayer player) {
-        IArcana arcana = ArcanaAPI.getArcana(player);
+        IArcana arcana = DivineAPI.getArcana(player);
         if (arcana.getArcana() >= 20) {
             arcana.consume(player, 20);
             return true;

@@ -52,7 +52,7 @@ public class DivineRPG {
 
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
-        ModArmorEvents.instance.init();
+        ModArmorEvents.init();
 
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         ModMessages.initServer();

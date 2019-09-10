@@ -1,9 +1,8 @@
 package divinerpg.objects.items.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.arcana.ArcanaAPI;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.networking.message.MessageDivineAccumulator;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
@@ -39,7 +38,7 @@ public class ItemDivineAccumulator extends ItemMod {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         int x = (int) player.posX, y = (int) player.posY, z = (int) player.posZ;
-        IArcana arcana = ArcanaAPI.getArcana(player);
+        IArcana arcana = DivineAPI.getArcana(player);
         if (arcana.getArcana() >= 80) {
             if (!world.isRemote) {
                 DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);

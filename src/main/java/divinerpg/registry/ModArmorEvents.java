@@ -1,8 +1,9 @@
 package divinerpg.registry;
 
 import divinerpg.api.ArmorHandlers;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.armorset.FullArmorHandler;
-import divinerpg.api.registry.IFullArmorRegistry;
+import divinerpg.api.IFullArmorRegistry;
 import divinerpg.events.armorEvents.ArmorTickEvent;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
@@ -20,11 +21,6 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import java.util.*;
 
 public class ModArmorEvents implements IFullArmorRegistry {
-
-    /**
-     * Instance for addons and owner mod (DivineRPG)
-     */
-    public static ModArmorEvents instance = new ModArmorEvents();
 
     /**
      * The list of all handlers with isEquipped percantage
@@ -55,7 +51,7 @@ public class ModArmorEvents implements IFullArmorRegistry {
         ALL_HANDLERS.remove(handler);
     }
 
-    public void init() {
+    public static void init() {
         List<FullArmorHandler> handlers = Arrays.asList(
                 new FullArmorHandler(ModItems.angelicHelmet, ModItems.angelicBody, ModItems.angelicLegs, ModItems.angelicBoots,
                         ArmorHandlers::onCanFlyChanged)
@@ -187,7 +183,8 @@ public class ModArmorEvents implements IFullArmorRegistry {
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, aFloat -> aFloat * 1.2F))
         );
 
-        handlers.forEach(this::addHandler);
+        DivineAPI.ARMOR_REGISTRY = new ModArmorEvents();
+        handlers.forEach(DivineAPI.ARMOR_REGISTRY::addHandler);
 
         MinecraftForge.EVENT_BUS.register(new ArmorTickEvent());
     }
