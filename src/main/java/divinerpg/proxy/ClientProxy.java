@@ -1,7 +1,8 @@
 package divinerpg.proxy;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.client.ArcanaRenderer;
@@ -196,7 +197,7 @@ public class ClientProxy extends CommonProxy {
         EntityPlayer player = DivineRPG.proxy.getPlayer();
 
         if (player != null) {
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = ArcanaAPI.getArcana(player);
             if (arcana != null) {
                 arcana.set(amount);
             }

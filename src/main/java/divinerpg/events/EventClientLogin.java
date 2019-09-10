@@ -1,7 +1,7 @@
 package divinerpg.events;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;

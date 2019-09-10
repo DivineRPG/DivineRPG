@@ -7,7 +7,7 @@ import net.minecraftforge.common.capabilities.Capability;
 /**
  * Works with Arcana capability.
  */
-public class ArcanaHelper {
+public class ArcanaAPI {
     private static Capability<IArcana> capability;
 
     private static Capability<IArcana> getCapability() {

@@ -1,5 +1,6 @@
 package divinerpg.objects.items.arcana;
 
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.items.base.ItemModSword;
@@ -26,7 +27,7 @@ public class ItemArcaniumSaber extends ItemModSword {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        IArcana arcana = ArcanaAPI.getArcana(player);
         if (arcana.getArcana() < 12) {
             return false;
         } else {

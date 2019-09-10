@@ -1,6 +1,6 @@
 package divinerpg.enums;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.ModItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;

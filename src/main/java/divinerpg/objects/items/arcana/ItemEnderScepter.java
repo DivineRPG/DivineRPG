@@ -1,5 +1,6 @@
 package divinerpg.objects.items.arcana;
 
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.items.base.ItemMod;
@@ -33,7 +34,7 @@ public class ItemEnderScepter extends ItemMod {
     @Override
     public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
             @Nonnull EnumHand hand) {
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        IArcana arcana = ArcanaAPI.getArcana(player);
         if (!world.isRemote && arcana.getArcana() >= 75) {
             RayTraceResult pos = PositionHelper.rayTrace(player, 32, 1);
             int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();

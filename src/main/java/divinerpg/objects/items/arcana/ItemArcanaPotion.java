@@ -1,5 +1,6 @@
 package divinerpg.objects.items.arcana;
 
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.items.base.ItemMod;
@@ -42,7 +43,7 @@ public class ItemArcanaPotion extends ItemMod {
             if (!player.capabilities.isCreativeMode) {
                 stack.shrink(1);
             }
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = ArcanaAPI.getArcana(player);
             arcana.fill(player, amountToAdd);
         }
 
@@ -64,7 +65,7 @@ public class ItemArcanaPotion extends ItemMod {
 
         player.setActiveHand(hand);
 
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        IArcana arcana = ArcanaAPI.getArcana(player);
 
         EnumActionResult result = arcana.getArcana() < arcana.getMaxArcana() ? EnumActionResult.SUCCESS :
                 EnumActionResult.FAIL;

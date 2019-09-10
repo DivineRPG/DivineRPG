@@ -1,5 +1,6 @@
 package divinerpg.objects.items.arcana;
 
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
@@ -50,7 +51,7 @@ public class ItemMeriksMissile extends ItemMod {
         if (stack.getItem() == ModItems.meriksMissile && entityLiving instanceof EntityPlayer) {
             float charge = (float) (MAX_USE_DURATION - timeLeft) / 20.0F;
             EntityPlayer player = (EntityPlayer) entityLiving;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = ArcanaAPI.getArcana(player);
 
             if (charge > 1.0) {
                 charge = 1.0F;

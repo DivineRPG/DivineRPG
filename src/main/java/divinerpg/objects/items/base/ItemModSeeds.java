@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;

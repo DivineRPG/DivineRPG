@@ -1,5 +1,6 @@
 package divinerpg.events;
 
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +14,7 @@ public class ArcanaTickHandler {
 
     @SubscribeEvent
     public void onTick(PlayerTickEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana = ArcanaAPI.getArcana(event.player);
         if (event.phase == Phase.START) {
             // onTickStart(event.player);
         } else {
@@ -22,37 +23,36 @@ public class ArcanaTickHandler {
     }
 
     private void onTickEnd(EntityPlayer player) {
-        arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana = ArcanaAPI.getArcana(player);
         arcana.regen(player);
     }
 
     private void onTickStart(EntityPlayer player) {
-        arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        //arcana = ArcanaAPI.getArcana(player);
     }
 
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana = ArcanaAPI.getArcana(event.player);
         arcana.set(arcana.getMaxArcana());
     }
 
     @SubscribeEvent
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana = ArcanaAPI.getArcana(event.player);
         arcana.set(0);
     }
 
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana = ArcanaAPI.getArcana(event.player);
         arcana.set(arcana.getMaxArcana());
     }
 
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        arcana = ArcanaAPI.getArcana(event.player);
         arcana.set(arcana.getMaxArcana());
-
         event.player.addExperienceLevel(0);
     }
 }

@@ -1,7 +1,7 @@
 package divinerpg.proxy;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.Arcana;
 import divinerpg.capabilities.CapabilityArcana;
@@ -105,6 +105,8 @@ public class CommonProxy {
             boolean shortLived) {
     }
 
+    @Deprecated()
+    // We are using packets to update arcana bars
     public void updateClientArcana(float amount) {
     }
 

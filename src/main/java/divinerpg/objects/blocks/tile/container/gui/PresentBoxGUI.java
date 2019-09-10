@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityModChest;
 import net.minecraft.client.gui.inventory.GuiContainer;

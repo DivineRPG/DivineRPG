@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 

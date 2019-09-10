@@ -1,6 +1,6 @@
 package divinerpg.capabilities;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;

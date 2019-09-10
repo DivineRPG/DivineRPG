@@ -2,7 +2,7 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.items.base.ItemBlockDoor;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;

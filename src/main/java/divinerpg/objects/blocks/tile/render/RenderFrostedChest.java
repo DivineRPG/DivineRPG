@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import divinerpg.objects.blocks.tile.model.ModelFrostedChest;
 import net.minecraft.client.renderer.GlStateManager;

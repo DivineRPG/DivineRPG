@@ -1,6 +1,6 @@
 package divinerpg.utils;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.objects.entities.assets.render.RenderHat;
 import divinerpg.registry.ModBlocks;

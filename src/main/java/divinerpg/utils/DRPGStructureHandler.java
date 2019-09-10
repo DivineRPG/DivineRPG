@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 
 /**
  * Created by LiteWolf101 on Jan

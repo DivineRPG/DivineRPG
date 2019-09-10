@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.tile.entity;
 
 import javax.annotation.Nullable;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import net.minecraft.entity.player.EntityPlayer;

@@ -3,7 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockCrops;

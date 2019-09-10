@@ -1,6 +1,6 @@
 package divinerpg.dimensions;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;

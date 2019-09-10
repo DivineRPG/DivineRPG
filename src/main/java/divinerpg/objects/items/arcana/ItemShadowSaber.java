@@ -1,5 +1,6 @@
 package divinerpg.objects.items.arcana;
 
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.objects.items.base.ItemModSword;
@@ -31,7 +32,7 @@ public class ItemShadowSaber extends ItemModSword {
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase hitter) {
         if (hitter instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) hitter;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = ArcanaAPI.getArcana(player);
             if (arcana.getArcana() >= 12) {
                 player.playSound(ModSounds.SHADOW_SABER, 1, 1);
                 player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));

@@ -1,6 +1,7 @@
 package divinerpg.objects.items.base;
 
 import divinerpg.DivineRPG;
+import divinerpg.api.arcana.ArcanaAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.ArcanaProvider;
 import divinerpg.enums.BulletType;
@@ -225,7 +226,7 @@ public class RangedWeaponBase extends ItemMod {
         EnumActionResult result = EnumActionResult.SUCCESS;
 
         if (!player.capabilities.isCreativeMode && this.arcanaConsuming > 0) {
-            arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            arcana = ArcanaAPI.getArcana(player);
             if (arcana == null || arcana.getArcana() < this.arcanaConsuming) {
                 result = EnumActionResult.FAIL;
             }

@@ -4,6 +4,7 @@
  */
 package divinerpg;
 
+import divinerpg.api.Reference;
 import divinerpg.compat.ProjectECompat;
 import divinerpg.config.Config;
 import divinerpg.events.ArcanaTickHandler;
