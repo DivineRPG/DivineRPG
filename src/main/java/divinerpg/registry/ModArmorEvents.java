@@ -2,8 +2,8 @@ package divinerpg.registry;
 
 import divinerpg.api.ArmorHandlers;
 import divinerpg.api.DivineAPI;
-import divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.api.IFullArmorRegistry;
+import divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.events.armorEvents.ArmorTickEvent;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
@@ -23,20 +23,27 @@ import java.util.*;
 public class ModArmorEvents implements IFullArmorRegistry {
 
     /**
-     * The list of all handlers with isEquipped percantage
+     * The list of all handlers with isEquipped status.
      */
-    public static final Map<FullArmorHandler, Boolean> ALL_HANDLERS = new HashMap<>();
+    public static final Map<FullArmorHandler, Boolean> HANDLERS_MAP = new HashMap<>();
+
+    /**
+     * All handlers are available by indexes so it makes much easier to point on
+     * needed handler from server to client
+     */
+    public static final ArrayList<FullArmorHandler> ALL_HANDLERS = new ArrayList<>();
 
     public void addHandler(FullArmorHandler handler) {
         if (handler == null) {
             throw new IllegalArgumentException("Armor handler is null");
         }
 
-        if (ALL_HANDLERS.containsKey(handler)) {
+        if (HANDLERS_MAP.containsKey(handler)) {
             throw new IllegalArgumentException("Cannot insert handler twice!");
         }
 
-        ALL_HANDLERS.put(handler, false);
+        HANDLERS_MAP.put(handler, false);
+        ALL_HANDLERS.add(handler);
     }
 
     public void removeHandler(FullArmorHandler handler) {
@@ -44,10 +51,11 @@ public class ModArmorEvents implements IFullArmorRegistry {
             throw new IllegalArgumentException("Armor handler is null");
         }
 
-        if (!ALL_HANDLERS.containsKey(handler)) {
+        if (!HANDLERS_MAP.containsKey(handler)) {
             throw new IllegalArgumentException("Armor handler was never registered");
         }
 
+        HANDLERS_MAP.remove(handler);
         ALL_HANDLERS.remove(handler);
     }
 
