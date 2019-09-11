@@ -46,9 +46,4 @@ public class EntitySparkler extends EntityThrowable {
                     0.25 * this.rand.nextGaussian(), 0.25 * this.rand.nextGaussian(), 0.25 * this.rand.nextGaussian());
         }
     }
-
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-    	RenderingRegistry.registerEntityRenderingHandler(EntitySparkler.class, manager -> new RenderSparkler(manager));
-    }
 }

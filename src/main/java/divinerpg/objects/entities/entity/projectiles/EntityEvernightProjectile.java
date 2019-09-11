@@ -67,6 +67,6 @@ public class EntityEvernightProjectile extends EntityThrowable
     }
     @SideOnly(Side.CLIENT)
 	public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityEvernightProjectile.class, manager -> new RenderEvernightProjectile(manager));
+
     	}
 }

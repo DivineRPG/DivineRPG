@@ -59,10 +59,4 @@ public class EntityBouncingProjectile extends EntityThrowable {
             this.setDead();
         }
     }
-
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityBouncingProjectile.class,
-                manager -> new RenderBouncingProjectile(manager));
-    }
 }

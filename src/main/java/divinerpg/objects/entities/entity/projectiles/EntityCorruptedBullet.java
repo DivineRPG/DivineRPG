@@ -19,12 +19,6 @@ public class EntityCorruptedBullet extends EntityThrowable {
     public static float damage = 10.0F;
     private List<Entity> toExcludeList = new ArrayList<>();
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedBullet.class,
-                manager -> new RenderCorruptedBullet(manager, 1f));
-    }
-
     public EntityCorruptedBullet(World var1) {
         super(var1);
     }

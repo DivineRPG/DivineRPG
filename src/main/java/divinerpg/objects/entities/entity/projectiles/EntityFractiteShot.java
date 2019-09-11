@@ -15,14 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFractiteShot extends EntityFireball {
+
     public static void registerFixesDragonFireball(DataFixer fixer) {
         EntityFireball.registerFixesFireball(fixer, "FractiteShot");
-    }
-
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteShot.class,
-                manager -> new RenderFractiteShot(manager, 1.0f));
     }
 
     public EntityFractiteShot(World worldIn) {

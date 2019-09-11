@@ -48,11 +48,6 @@ public class EntityDisk extends EntityThrowable {
         dataManager.register(DISK_ID, (byte) 0);
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityDisk.class, manager -> new RenderDisk(manager));
-    }
-
     @Override
     public void onUpdate() {
         super.onUpdate();

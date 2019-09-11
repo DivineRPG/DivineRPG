@@ -44,8 +44,4 @@ public class EntityAttractor extends EntityThrowable {
 		age++;
 		if(age>18)this.setDead();//I'm an Adult!
 	}
-	@SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityAttractor.class, manager -> new RenderAttractor(manager));
-    }
 }

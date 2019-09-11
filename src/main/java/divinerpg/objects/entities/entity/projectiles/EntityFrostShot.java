@@ -20,11 +20,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFrostShot extends EntityFireball {
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityFrostShot.class,
-                manager -> new RenderFrostShot(manager, 0.75f));
-    }
 
     public EntityFrostShot(World worldIn) {
         super(worldIn);

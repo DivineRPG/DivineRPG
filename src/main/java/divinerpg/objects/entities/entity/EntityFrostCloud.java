@@ -60,12 +60,6 @@ public class EntityFrostCloud extends Entity {
         this.setRadius(3.0F);
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityFrostCloud.class,
-                manager -> new RenderFrostCloud(manager));
-    }
-
     public EntityFrostCloud(World worldIn, double x, double y, double z) {
         this(worldIn);
         this.setPosition(x, y, z);

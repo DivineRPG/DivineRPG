@@ -14,8 +14,7 @@ public class EntityCaveRock extends EntityThrowable {
 
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityCaveRock.class,
-                manager -> new RenderCaveRock(manager, 1f));
+
     }
 
     public EntityCaveRock(World var1) {

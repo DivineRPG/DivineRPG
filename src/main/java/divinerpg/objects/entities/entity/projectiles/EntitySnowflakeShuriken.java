@@ -12,12 +12,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySnowflakeShuriken extends EntityThrowable {
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntitySnowflakeShuriken.class,
-                manager -> new RenderSnowShuriken(manager, 1f));
-    }
-
     public EntitySnowflakeShuriken(World worldIn) {
         super(worldIn);
     }

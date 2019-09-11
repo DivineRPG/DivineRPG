@@ -15,8 +15,7 @@ public class EntityCoriShot extends EntityThrowable {
 
     @SideOnly(Side.CLIENT)
     public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityCoriShot.class,
-                manager -> new RenderCoriShot(manager, 1f));
+
     }
 
     public EntityCoriShot(World worldIn) {

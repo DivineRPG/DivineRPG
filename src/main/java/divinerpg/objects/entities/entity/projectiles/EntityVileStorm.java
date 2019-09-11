@@ -14,11 +14,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityVileStorm extends EntityThrowable {
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityVileStorm.class,
-                manager -> new RenderVileStorm(manager, 1f));
-    }
 
     public EntityVileStorm(World var1) {
         super(var1);

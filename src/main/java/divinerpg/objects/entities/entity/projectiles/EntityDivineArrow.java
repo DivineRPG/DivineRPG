@@ -116,12 +116,6 @@ public class EntityDivineArrow extends EntityArrow {
         this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityDivineArrow.class,
-                manager -> new RenderDivineArrow(manager));
-    }
-
     @Override
     protected void entityInit() {
         this.dataManager.register(CRITICAL, Byte.valueOf((byte) 0));

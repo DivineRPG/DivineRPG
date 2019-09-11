@@ -24,9 +24,6 @@ public class EntityGrenade extends EntitySnowball {
         this.setDead();
     }
 }
-	@SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, manager -> new RenderGrenade(manager));
-    }
+
 }
 
