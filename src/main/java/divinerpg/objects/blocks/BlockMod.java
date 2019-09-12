@@ -8,20 +8,26 @@ import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockMod extends Block  {
-
-    public BlockMod(String name, float hardness) {
+	boolean beaconBase;
+	public BlockMod(String name, float hardness) {
         this(EnumBlockType.ROCK, name, hardness);
     }
-
+	public BlockMod(String name, float hardness, boolean beaconBase) {
+        this(EnumBlockType.ROCK, name, hardness);
+        this.beaconBase = beaconBase;
+    }
     public BlockMod(EnumBlockType blockType, String name, float hardness) {
         this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
     }
 
-    public BlockMod(EnumBlockType blockType, String name, float hardness, int harvest) {
+    public BlockMod(EnumBlockType blockType, String name, float hardness, int harvest, boolean beaconBase) {
         this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
         setHarvestLevel("pickaxe", harvest);
+        this.beaconBase = beaconBase;
     }
 
     public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab) {
@@ -35,4 +41,9 @@ public class BlockMod extends Block  {
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
+    
+	@Override
+	public boolean isBeaconBase(IBlockAccess world, BlockPos pos, BlockPos beacon){
+		return beaconBase;
+	}
 }
