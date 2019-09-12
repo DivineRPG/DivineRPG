@@ -3,6 +3,7 @@ package divinerpg.objects.blocks.twilight;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +15,8 @@ import net.minecraft.world.World;
 
 public class BlockBrambles extends BlockModDoublePlant {
 
-    public BlockBrambles(String name, Block grass) {
-        super(name, grass);
+    public BlockBrambles(String name, Block grass, MapColor mapColorIn) {
+        super(name, grass, mapColorIn);
     }
 
     @Override

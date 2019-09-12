@@ -223,19 +223,19 @@ public class ModBlocks {
 
     public static Block divineSapling = new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT,
             new DivineTree(true));
-    public static Block divineLogs = new BlockModLog("divine_log");
-    public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F, divineSapling);
+    public static Block divineLogs = new BlockModLog("divine_log", MapColor.YELLOW);
+    public static Block divineLeaves = new BlockModLeaves("divine_leaves", 0.3F, divineSapling, MapColor.YELLOW);
     public static Block divineMossystone = new BlockMod("divine_moss_stone", 2.0F).setResistance(10);
 
     public static Block altarOfCorruption = new BlockAltarOfCorruption("altar_of_corruption");
     public static Block boneChest = new BlockBoneChest("bone_chest");
 
     // Iceika
-    public static Block frozenDirt = new BlockMod(EnumBlockType.DIRT, "frozen_dirt", 2.5F);
-    public static Block frozenGrass = new BlockModGrass((BlockMod) frozenDirt, "frozen_grass", 2.5F);
+    public static Block frozenDirt = new BlockModDirt("frozen_dirt", 2.5F, MapColor.WHITE_STAINED_HARDENED_CLAY);
+    public static Block frozenGrass = new BlockModGrass((BlockMod) frozenDirt, "frozen_grass", 2.5F, MapColor.LIGHT_BLUE);
     public static Block frozenStone = new BlockMod("frozen_stone", 6.0F);
-    public static Block frozenLogs = new BlockModLog("frozen_log").setHardness(5.0F);
-    public static Block brittleLeaves = new BlockModLeaves("brittle_leaves", 0.1F);
+    public static Block frozenLogs = new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F);
+    public static Block brittleLeaves = new BlockModLeaves("brittle_leaves", 0.1F, MapColor.WHITE_STAINED_HARDENED_CLAY);
 
     public static Block winterberryBush = new BlockWinterberryBush(false, "winterberry_bush");
     public static Block ripeWinterberryBush = new BlockWinterberryBush(true, "ripe_winterberry_bush");
@@ -274,16 +274,16 @@ public class ModBlocks {
             ModDimensions.iceikaDimension.getId(), iceikaFire, Blocks.SNOW, ParticleType.FROST);
 
     // Twilight
-    public static Block edenDirt = new BlockMod(EnumBlockType.DIRT, "eden_dirt", 5.0F);
-    public static Block wildwoodDirt = new BlockMod(EnumBlockType.DIRT, "wildwood_dirt", 5.0F);
-    public static Block apalachiaDirt = new BlockMod(EnumBlockType.DIRT, "apalachia_dirt", 5.0F);
-    public static Block skythernDirt = new BlockMod(EnumBlockType.DIRT, "skythern_dirt", 5.0F);
-    public static Block mortumDirt = new BlockMod(EnumBlockType.DIRT, "mortum_dirt", 5.0F);
-    public static Block edenGrass = new BlockModGrass((BlockMod) edenDirt, "eden_grass", 5.0F);
-    public static Block wildwoodGrass = new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", 5.0F);
-    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass", 5.0F);
-    public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", 5.0F);
-    public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", 5.0F);
+    public static Block edenDirt = new BlockModDirt("eden_dirt", 5.0F, MapColor.YELLOW);
+    public static Block wildwoodDirt = new BlockModDirt("wildwood_dirt", 5.0F, MapColor.BLUE);
+    public static Block apalachiaDirt = new BlockModDirt("apalachia_dirt", 5.0F, MapColor.PURPLE);
+    public static Block skythernDirt = new BlockModDirt("skythern_dirt", 5.0F, MapColor.GRAY);
+    public static Block mortumDirt = new BlockModDirt("mortum_dirt", 5.0F, MapColor.BLACK);
+    public static Block edenGrass = new BlockModGrass((BlockMod) edenDirt, "eden_grass", 5.0F, MapColor.YELLOW);
+    public static Block wildwoodGrass = new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", 5.0F, MapColor.BLUE);
+    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass", 5.0F, MapColor.PURPLE);
+    public static Block skythernGrass = new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", 5.0F, MapColor.CLOTH);
+    public static Block mortumGrass = new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", 5.0F, MapColor.BLACK);
 
     public static Block edenOre = new BlockTwilightOre("eden_ore", 9, 2000F, DIAMOND, ModItems.edenFragments);
     public static Block wildwoodOre = new BlockTwilightOre("wildwood_ore", 9, 2000F, DIAMOND,
@@ -310,18 +310,17 @@ public class ModBlocks {
     public static Block mortumSapling = new BlockModSapling("mortum_sapling", mortumGrass, mortumDirt,
             new MortumTree(true));
 
-    public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling);
-    public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling);
-    public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling)
-            .setLightLevel(0.5F);
-    public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling);
-    public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling);
+    public static Block edenLeaves = new BlockModLeaves("eden_leaves", 0.5F, edenSapling, MapColor.YELLOW);
+    public static Block wildwoodLeaves = new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling, MapColor.LIGHT_BLUE);
+    public static Block apalachiaLeaves = new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling, MapColor.PINK).setLightLevel(0.5F);
+    public static Block skythernLeaves = new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling, MapColor.CLOTH);
+    public static Block mortumLeaves = new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling, MapColor.RED);
 
-    public static Block edenLogs = new BlockModLog("eden_log");
-    public static Block wildwoodLogs = new BlockModLog("wildwood_log");
-    public static Block apalachiaLogs = new BlockModLog("apalachia_log");
-    public static Block skythernLogs = new BlockModLog("skythern_log");
-    public static Block mortumLogs = new BlockModLog("mortum_log");
+    public static Block edenLogs = new BlockModLog("eden_log", MapColor.YELLOW);
+    public static Block wildwoodLogs = new BlockModLog("wildwood_log", MapColor.BLUE);
+    public static Block apalachiaLogs = new BlockModLog("apalachia_log", MapColor.PURPLE);
+    public static Block skythernLogs = new BlockModLog("skythern_log", MapColor.GRAY);
+    public static Block mortumLogs = new BlockModLog("mortum_log", MapColor.RED);
 
     public static Block twilightStone = new BlockMod("twilight_stone", 6.0F);
     public static Block wildwoodVine = new BlockModVine("wildwood_vine");
@@ -345,26 +344,27 @@ public class ModBlocks {
     public static Block pinkGlowbone = new BlockPinkGlowbone().setLightLevel(0.6f);
     public static Block skyPlant = new BlockSkyPlant();
 
-    public static Block sunbloom = new BlockTwilightFlower("sunbloom", edenGrass);
-    public static Block edenBrush = new BlockTwilightGrass("eden_brush", edenGrass);
-    public static Block sunBlossom = new BlockTwilightFlower("sun_blossom", edenGrass, 0.9, 0.6);
-    public static Block moonlightFern = new BlockTwilightFlower("moonlight_fern", wildwoodGrass, 0.8, 0.8);
-    public static Block moonBud = new BlockTwilightFlower("moon_bud", wildwoodGrass, 0.8, 0.7);
-    public static Block wildwoodTallgrass = new BlockModDoublePlant("wildwood_tallgrass", wildwoodGrass);
-    public static Block duskFlower = new BlockModDoublePlant("dusk_flower", apalachiaGrass);
-    public static Block duskBloom = new BlockTwilightFlower("dusk_bloom", apalachiaGrass, 0.5, 0.5);
-    public static Block apalachiaTallgrass = new BlockTwilightGrass("apalachia_tallgrass", apalachiaGrass);
-    public static Block skythernBrush = new BlockTwilightGrass("skythern_brush", skythernGrass);
-    public static Block dustLily = new BlockTwilightFlower("dust_lily", skythernGrass);
-    public static Block dustBrambles = new BlockBrambles("dust_brambles", skythernGrass);
-    public static Block demonBrambles = new BlockBrambles("demon_brambles", mortumGrass);
-    public static Block eyePlant = new BlockTwilightFlower("eye_plant", mortumGrass, 0.5, 0.5);
-    public static Block mortumBrush = new BlockTwilightGrass("mortum_brush", mortumGrass);
+    public static Block sunbloom = new BlockTwilightFlower("sunbloom", edenGrass, MapColor.YELLOW);
+    public static Block edenBrush = new BlockTwilightGrass("eden_brush", edenGrass, MapColor.YELLOW);
+    public static Block sunBlossom = new BlockTwilightFlower("sun_blossom", edenGrass, 0.9, 0.6, MapColor.YELLOW);
+    public static Block moonlightFern = new BlockTwilightFlower("moonlight_fern", wildwoodGrass, 0.8, 0.8, MapColor.BLUE);
+    public static Block moonBud = new BlockTwilightFlower("moon_bud", wildwoodGrass, 0.8, 0.7, MapColor.BLUE);
+    public static Block wildwoodTallgrass = new BlockModDoublePlant("wildwood_tallgrass", wildwoodGrass, MapColor.BLUE);
+    public static Block duskFlower = new BlockModDoublePlant("dusk_flower", apalachiaGrass, MapColor.PURPLE);
+    public static Block duskBloom = new BlockTwilightFlower("dusk_bloom", apalachiaGrass, 0.5, 0.5, MapColor.PURPLE);
+    public static Block apalachiaTallgrass = new BlockTwilightGrass("apalachia_tallgrass", apalachiaGrass, MapColor.PURPLE);
+    public static Block skythernBrush = new BlockTwilightGrass("skythern_brush", skythernGrass, MapColor.GRAY);
+    public static Block dustLily = new BlockTwilightFlower("dust_lily", skythernGrass, MapColor.GRAY);
+    public static Block dustBrambles = new BlockBrambles("dust_brambles", skythernGrass, MapColor.GRAY);
+    public static Block demonBrambles = new BlockBrambles("demon_brambles", mortumGrass, MapColor.BLACK);
+    public static Block eyePlant = new BlockTwilightFlower("eye_plant", mortumGrass, 0.5, 0.5, MapColor.BLACK);
+    public static Block mortumBrush = new BlockTwilightGrass("mortum_brush", mortumGrass, MapColor.BLACK);
+
     public static Block truffle = new BlockMod(EnumBlockType.PLANT, "truffle", 1.0F);
 
     // Arcana
-    public static Block arcanaDirt = new BlockMod(EnumBlockType.DIRT, "arcanite_dirt", 0.5F);
-    public static Block arcanaGrass = new BlockModGrass((BlockMod) arcanaDirt, "arcanite_grass", 0.5F);
+    public static Block arcanaDirt = new BlockModDirt("arcanite_dirt", 0.5F, MapColor.BLUE);
+    public static Block arcanaGrass = new BlockModGrass((BlockMod) arcanaDirt, "arcanite_grass", 0.5F, MapColor.BLUE);
     public static Block ancientTile = new BlockModUnbreakable("ancient_tile");
     public static Block arcaniumOre = new BlockMod("arcanium_ore", 3.0F);
     public static Block arcaniumMetal = new BlockModUnbreakable("arcanium_metal");
@@ -417,7 +417,7 @@ public class ModBlocks {
     public static Block marsine = new BlockMarsine("marsine_plant");
     public static Block firestock = new BlockFirestock();
     public static Block pinfly = new BlockPinfly();
-    public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log");
+    public static Block eucalyptusLogs = new BlockModLog("eucalyptus_log", MapColor.CLOTH);
 
     public static Block greenlightFurnace = new BlockGreenlightFurnace("greenlight_furnace", false);
     public static Block greenlightFurnaceOn = new BlockGreenlightFurnace("greenlight_furnace_on", true);

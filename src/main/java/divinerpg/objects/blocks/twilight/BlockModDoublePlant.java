@@ -7,6 +7,7 @@ import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -33,8 +34,8 @@ public class BlockModDoublePlant extends BlockBush
     protected static final AxisAlignedBB DOUBLE_PLANT_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
     private Block grass;
 
-    public BlockModDoublePlant(String name, Block grass) {
-        super(Material.PLANTS);
+    public BlockModDoublePlant(String name, Block grass, MapColor mapColorIn) {
+        super(Material.PLANTS, mapColorIn);
         setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         this.grass = grass;

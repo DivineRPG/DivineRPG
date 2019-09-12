@@ -6,6 +6,8 @@ import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,11 +17,15 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
+import javax.annotation.Nonnull;
+
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected BlockMod dirt;
+    private MapColor mapColor;
 
-    public BlockModGrass(BlockMod dirt, String name, float hardness) {
+    public BlockModGrass(BlockMod dirt, String name, float hardness, @Nonnull MapColor mapColorIn) {
         super(EnumBlockType.GRASS, name, hardness);
+        this.setMapColor(mapColorIn);
         this.dirt = dirt;
         setTickRandomly(true);
         setHarvestLevel("shovel", 3);
@@ -97,5 +103,33 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         }
 
         return false;
+    }
+
+    /**
+     * Defensive helper method used to intercept null map colors.
+     * Private access used to force the map color to be included in the constructor.
+     *
+     * @param mapColorIn the map color to set
+     */
+    private void setMapColor(MapColor mapColorIn) {
+        if(mapColorIn == null) {
+            this.mapColor = Material.GRASS.getMaterialMapColor();
+        }
+        else {
+            this.mapColor = mapColorIn;
+        }
+    }
+
+    /**
+     * Tells maps to use the map color we set.
+     *
+     * @param state the blockstate
+     * @param worldIn the world
+     * @param pos the block position
+     * @return the map color
+     */
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        return this.mapColor;
     }
 }

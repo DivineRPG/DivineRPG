@@ -5,13 +5,21 @@ import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+
+import javax.annotation.Nonnull;
 
 public class BlockModLog extends BlockLog  {
 
-	public BlockModLog(String name) {
+	private MapColor mapColor;
+
+	public BlockModLog(String name, @Nonnull MapColor mapColorIn) {
 		super();
 		setUnlocalizedName(name);
 		setRegistryName(Reference.MODID, name);
@@ -19,10 +27,13 @@ public class BlockModLog extends BlockLog  {
 		setResistance(5);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		this.setDefaultState(this.getDefaultState().withProperty(LOG_AXIS, EnumAxis.Y));
+		this.setMapColor(mapColorIn);
 
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
+
+
 
 	@Override
 	public BlockStateContainer createBlockState() {
@@ -57,5 +68,33 @@ public class BlockModLog extends BlockLog  {
 			default:
 				return getDefaultState().withProperty(LOG_AXIS, EnumAxis.NONE);
 		}
+	}
+
+	/**
+	 * Defensive helper method used to intercept null map colors.
+	 * Private access used to force the map color to be included in the constructor.
+	 *
+	 * @param mapColorIn the map color to set
+	 */
+	private void setMapColor(MapColor mapColorIn) {
+		if(mapColorIn == null) {
+			this.mapColor = Material.WOOD.getMaterialMapColor();
+		}
+		else {
+			this.mapColor = mapColorIn;
+		}
+	}
+
+	/**
+	 * Tells maps to use the map color we set.
+	 *
+	 * @param state the blockstate
+	 * @param worldIn the world
+	 * @param pos the block position
+	 * @return the map color
+	 */
+	@Override
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		return this.mapColor;
 	}
 }

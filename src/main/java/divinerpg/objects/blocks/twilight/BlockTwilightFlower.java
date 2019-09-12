@@ -7,6 +7,8 @@ import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -19,15 +21,16 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
     private Block grass;
     private AxisAlignedBB size;
 
-    public BlockTwilightFlower(String name, Block grass) {
-        this(name, grass, 0.4, 1);
+    public BlockTwilightFlower(String name, Block grass, MapColor mapColorIn) {
+        this(name, grass, 0.4, 1, mapColorIn);
     }
 
     /**
      * @param width  - sets the width of flower. Can't be lass/equals zero
      * @param height - sets the height of flower. Can't be less/equals zero
      */
-    public BlockTwilightFlower(String name, Block grass, double width, double height) {
+    public BlockTwilightFlower(String name, Block grass, double width, double height, MapColor mapColorIn) {
+        super(Material.PLANTS, mapColorIn);
         setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         this.grass = grass;
