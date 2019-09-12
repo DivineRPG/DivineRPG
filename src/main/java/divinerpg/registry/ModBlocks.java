@@ -45,11 +45,11 @@ public class ModBlocks {
     public static Block bloodgemOre = new BlockModOre("bloodgem_ore", 3.0F, 2000F, DIAMOND, ModItems.bloodgem);
     public static Block netheriteOre = new BlockNetheriteOre("netherite_ore", 3.0F, 2000F, DIAMOND, null);
 
-    public static Block rupeeBlock = new BlockMod(EnumBlockType.ROCK, "rupee_block", 5.0F, DIAMOND);
-    public static Block arlemiteBlock = new BlockMod(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND);
-    public static Block realmiteBlock = new BlockMod(EnumBlockType.ROCK, "realmite_block", 5.0F, IRON);
-    public static Block bloodgemBlock = new BlockMod(EnumBlockType.ROCK, "bloodgem_block", 5.0F, DIAMOND);
-    public static Block netheriteBlock = new BlockMod(EnumBlockType.ROCK, "netherite_block", 5.0F, DIAMOND);
+    public static Block rupeeBlock = new BlockMod(EnumBlockType.ROCK, "rupee_block", 5.0F, DIAMOND, true);
+    public static Block arlemiteBlock = new BlockMod(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND, true);
+    public static Block realmiteBlock = new BlockMod(EnumBlockType.ROCK, "realmite_block", 5.0F, IRON, true);
+    public static Block bloodgemBlock = new BlockMod(EnumBlockType.ROCK, "bloodgem_block", 5.0F, DIAMOND, true);
+    public static Block netheriteBlock = new BlockMod(EnumBlockType.ROCK, "netherite_block", 5.0F, DIAMOND, true);
 
     public static Block spiderPumpkin = new BlockMobPumpkin("spider_pumpkin");
     public static Block enderPumpkin = new BlockMobPumpkin("ender_pumpkin");
@@ -68,82 +68,82 @@ public class ModBlocks {
     public static Block aquaTorch = new BlockModTorch("aqua_torch", ParticleType.BLUE_FLAME);
     public static Block skeletonTorch = new BlockModTorch("skeleton_torch", ParticleType.BLACK_FLAME);
 
-    public static Block checker = new BlockMod(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD);
-    public static Block rainbowWool = new BlockMod(EnumBlockType.WOOL, "rainbow_wool", 0.8F, WOOD_GOLD);
-    public static Block crate = new BlockMod(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD);
-    public static Block plankDesign = new BlockMod(EnumBlockType.WOOD, "plank_design", 2.5F, WOOD_GOLD);
-    public static Block blueStone = new BlockMod(EnumBlockType.ROCK, "blue_stone", 1.5F, WOOD_GOLD).setResistance(10F)
+    public static Block checker = new BlockMod(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD, false);
+    public static Block rainbowWool = new BlockMod(EnumBlockType.WOOL, "rainbow_wool", 0.8F, WOOD_GOLD, false);
+    public static Block crate = new BlockMod(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD, false);
+    public static Block plankDesign = new BlockMod(EnumBlockType.WOOD, "plank_design", 2.5F, WOOD_GOLD, false);
+    public static Block blueStone = new BlockMod(EnumBlockType.ROCK, "blue_stone", 1.5F, WOOD_GOLD, false).setResistance(10F)
             .setLightLevel(1);
 
-    public static Block blueVane = new BlockMod(EnumBlockType.ROCK, "blue_vane", 2.0F, IRON).setResistance(10F);
-    public static Block cyanVane = new BlockMod(EnumBlockType.ROCK, "cyan_vane", 2.0F, IRON).setResistance(10F);
-    public static Block purpleVane = new BlockMod(EnumBlockType.ROCK, "purple_vane", 2.0F, IRON).setResistance(10F);
-    public static Block redVane = new BlockMod(EnumBlockType.ROCK, "red_vane", 2.0F, IRON).setResistance(10F);
-    public static Block yellowVane = new BlockMod(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON).setResistance(10F);
+    public static Block blueVane = new BlockMod(EnumBlockType.ROCK, "blue_vane", 2.0F, IRON, false).setResistance(10F);
+    public static Block cyanVane = new BlockMod(EnumBlockType.ROCK, "cyan_vane", 2.0F, IRON, false).setResistance(10F);
+    public static Block purpleVane = new BlockMod(EnumBlockType.ROCK, "purple_vane", 2.0F, IRON, false).setResistance(10F);
+    public static Block redVane = new BlockMod(EnumBlockType.ROCK, "red_vane", 2.0F, IRON, false).setResistance(10F);
+    public static Block yellowVane = new BlockMod(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON, false).setResistance(10F);
 
-    public static Block divineRock = new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F);
+    public static Block divineRock = new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE, false).setResistance(10F);
     public static Block tar = new BlockTar("tar", ModLiquids.tar);
 
     public static Block asphalt = new BlockMod("asphalt", 2.0F); //The texture is a placeholder
 
-    public static Block fancyWool = new BlockMod(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD);
+    public static Block fancyWool = new BlockMod(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD, false);
 
-    public static Block tealSteel = new BlockMod(EnumBlockType.ROCK, "teal_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block redSteel = new BlockMod(EnumBlockType.ROCK, "red_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block purpleSteel = new BlockMod(EnumBlockType.ROCK, "purple_steel", 10.0F, DIAMOND)
+    public static Block tealSteel = new BlockMod(EnumBlockType.ROCK, "teal_steel", 10.0F, DIAMOND, false).setResistance(60.0F);
+    public static Block redSteel = new BlockMod(EnumBlockType.ROCK, "red_steel", 10.0F, DIAMOND, false).setResistance(60.0F);
+    public static Block purpleSteel = new BlockMod(EnumBlockType.ROCK, "purple_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
-    public static Block greenSteel = new BlockMod(EnumBlockType.ROCK, "green_steel", 10.0F, DIAMOND)
+    public static Block greenSteel = new BlockMod(EnumBlockType.ROCK, "green_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
-    public static Block yellowSteel = new BlockMod(EnumBlockType.ROCK, "yellow_steel", 10.0F, DIAMOND)
+    public static Block yellowSteel = new BlockMod(EnumBlockType.ROCK, "yellow_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
-    public static Block blueSteel = new BlockMod(EnumBlockType.ROCK, "blue_steel", 10.0F, DIAMOND).setResistance(60.0F);
-    public static Block whiteSteel = new BlockMod(EnumBlockType.ROCK, "white_steel", 10.0F, DIAMOND)
+    public static Block blueSteel = new BlockMod(EnumBlockType.ROCK, "blue_steel", 10.0F, DIAMOND, false).setResistance(60.0F);
+    public static Block whiteSteel = new BlockMod(EnumBlockType.ROCK, "white_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
-    public static Block blackSteel = new BlockMod(EnumBlockType.ROCK, "black_steel", 10.0F, DIAMOND)
+    public static Block blackSteel = new BlockMod(EnumBlockType.ROCK, "black_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
-    public static Block orangeSteel = new BlockMod(EnumBlockType.ROCK, "orange_steel", 10.0F, DIAMOND)
+    public static Block orangeSteel = new BlockMod(EnumBlockType.ROCK, "orange_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
-    public static Block brightRedSteel = new BlockMod(EnumBlockType.ROCK, "bright_red_steel", 10.0F, DIAMOND)
+    public static Block brightRedSteel = new BlockMod(EnumBlockType.ROCK, "bright_red_steel", 10.0F, DIAMOND, false)
             .setResistance(60.0F);
 
-    public static Block aquatonicBricks = new BlockMod(EnumBlockType.ROCK, "aquatonic_bricks", 3.0F, IRON)
+    public static Block aquatonicBricks = new BlockMod(EnumBlockType.ROCK, "aquatonic_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block arlemiteBricks = new BlockMod(EnumBlockType.ROCK, "arlemite_bricks", 3.0F, IRON)
+    public static Block arlemiteBricks = new BlockMod(EnumBlockType.ROCK, "arlemite_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block darkstoneBricks = new BlockMod(EnumBlockType.ROCK, "darkstone_bricks", 3.0F, IRON)
+    public static Block darkstoneBricks = new BlockMod(EnumBlockType.ROCK, "darkstone_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block diamondBricks = new BlockMod(EnumBlockType.ROCK, "diamond_bricks", 3.0F, IRON)
+    public static Block diamondBricks = new BlockMod(EnumBlockType.ROCK, "diamond_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block goldBricks = new BlockMod(EnumBlockType.ROCK, "gold_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block greenBricks = new BlockMod(EnumBlockType.ROCK, "green_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block ironBricks = new BlockMod(EnumBlockType.ROCK, "iron_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block lapisLazuliBricks = new BlockMod(EnumBlockType.ROCK, "lapis_lazuli_bricks", 3.0F, IRON)
+    public static Block goldBricks = new BlockMod(EnumBlockType.ROCK, "gold_bricks", 3.0F, IRON, false).setResistance(30.0F);
+    public static Block greenBricks = new BlockMod(EnumBlockType.ROCK, "green_bricks", 3.0F, IRON, false).setResistance(30.0F);
+    public static Block ironBricks = new BlockMod(EnumBlockType.ROCK, "iron_bricks", 3.0F, IRON, false).setResistance(30.0F);
+    public static Block lapisLazuliBricks = new BlockMod(EnumBlockType.ROCK, "lapis_lazuli_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block lavaBricks = new BlockMod(EnumBlockType.ROCK, "lava_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block netheriteBricks = new BlockMod(EnumBlockType.ROCK, "netherite_bricks", 3.0F, IRON)
+    public static Block lavaBricks = new BlockMod(EnumBlockType.ROCK, "lava_bricks", 3.0F, IRON, false).setResistance(30.0F);
+    public static Block netheriteBricks = new BlockMod(EnumBlockType.ROCK, "netherite_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block pinkBricks = new BlockMod(EnumBlockType.ROCK, "pink_bricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block purpleBricks = new BlockMod(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON)
+    public static Block pinkBricks = new BlockMod(EnumBlockType.ROCK, "pink_bricks", 3.0F, IRON, false).setResistance(30.0F);
+    public static Block purpleBricks = new BlockMod(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block realmiteBricks = new BlockMod(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON)
+    public static Block realmiteBricks = new BlockMod(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block redstoneBricks = new BlockMod(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON)
+    public static Block redstoneBricks = new BlockMod(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block milkStoneBricks = new BlockMod(EnumBlockType.ROCK, "milk_stone_bricks", 3.0F, IRON)
+    public static Block milkStoneBricks = new BlockMod(EnumBlockType.ROCK, "milk_stone_bricks", 3.0F, IRON, false)
             .setResistance(30.0F);
 
-    public static Block rupeeMinibricks = new BlockMod(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON)
+    public static Block rupeeMinibricks = new BlockMod(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block realmiteMinibricks = new BlockMod(EnumBlockType.ROCK, "realmite_minibricks", 3.0F, IRON)
+    public static Block realmiteMinibricks = new BlockMod(EnumBlockType.ROCK, "realmite_minibricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block arlemiteMinibricks = new BlockMod(EnumBlockType.ROCK, "arlemite_minibricks", 3.0F, IRON)
+    public static Block arlemiteMinibricks = new BlockMod(EnumBlockType.ROCK, "arlemite_minibricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block minibricks = new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON).setResistance(30.0F);
-    public static Block bloodgemMinibricks = new BlockMod(EnumBlockType.ROCK, "bloodgem_minibricks", 3.0F, IRON)
+    public static Block minibricks = new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON, false).setResistance(30.0F);
+    public static Block bloodgemMinibricks = new BlockMod(EnumBlockType.ROCK, "bloodgem_minibricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block netheriteMinibricks = new BlockMod(EnumBlockType.ROCK, "netherite_minibricks", 3.0F, IRON)
+    public static Block netheriteMinibricks = new BlockMod(EnumBlockType.ROCK, "netherite_minibricks", 3.0F, IRON, false)
             .setResistance(30.0F);
-    public static Block bedrockMinibricks = new BlockMod(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON)
+    public static Block bedrockMinibricks = new BlockMod(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON, false)
             .setResistance(30.0F);
 
     public static Block aquaLamp = new BlockModLamp(EnumBlockType.GLASS, "aqua_lamp", 3.0F).setResistance(30.0F);
@@ -177,8 +177,8 @@ public class ModBlocks {
     public static Block rupeeLamp = new BlockModLamp(EnumBlockType.GLASS, "rupee_lamp", 3.0F).setResistance(30.0F);
     public static Block terranLamp = new BlockModLamp(EnumBlockType.GLASS, "terran_lamp", 3.0F).setResistance(30.0F);
 
-    public static Block milkStone = new BlockMod(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD).setResistance(10F);
-    public static Block darkstone = new BlockMod(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setResistance(2000.0F)
+    public static Block milkStone = new BlockMod(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD, false).setResistance(10F);
+    public static Block darkstone = new BlockMod(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND, false).setResistance(2000.0F)
             .setLightLevel(1);
     public static Block spikeBlock = new BlockSpike("spike_block");
     public static Block hotSpikeBlock = new BlockHotSpike("hot_spike_block");
@@ -294,11 +294,11 @@ public class ModBlocks {
             ModItems.skythernFragments);
     public static Block mortumOre = new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, ModItems.mortumFragments);
 
-    public static Block edenBlock = new BlockMod("eden_block", 9);
-    public static Block wildwoodBlock = new BlockMod("wildwood_block", 9);
-    public static Block apalachiaBlock = new BlockMod("apalachia_block", 9);
-    public static Block skythernBlock = new BlockMod("skythern_block", 9);
-    public static Block mortumBlock = new BlockMod("mortum_block", 9);
+    public static Block edenBlock = new BlockMod("eden_block", 9, true);
+    public static Block wildwoodBlock = new BlockMod("wildwood_block", 9, true);
+    public static Block apalachiaBlock = new BlockMod("apalachia_block", 9, true);
+    public static Block skythernBlock = new BlockMod("skythern_block", 9, true);
+    public static Block mortumBlock = new BlockMod("mortum_block", 9, true);
 
     public static Block edenSapling = new BlockModSapling("eden_sapling", edenGrass, edenDirt, new EdenTree(true));
     public static Block wildwoodSapling = new BlockModSapling("wildwood_sapling", wildwoodGrass, wildwoodDirt,
