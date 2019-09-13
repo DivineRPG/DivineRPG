@@ -1,10 +1,14 @@
 package divinerpg.objects.entities.entity.twilight;
 
+import divinerpg.objects.entities.ai.EntityBehemothEatWood;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
@@ -15,11 +19,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Behemoth extends EntityDivineRPGMob {
-
-    private BlockPos woodBlockToEat;
-    private boolean shouldEat = false;
-    private int ability;
-    float moveSpeed = 1;
 
     public Behemoth(World worldIn) {
         super(worldIn);
@@ -40,83 +39,18 @@ public class Behemoth extends EntityDivineRPGMob {
 
     @Override
     protected void initEntityAI() {
-        super.initEntityAI();
-        addAttackingAI();
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityBehemothEatWood(this));
+        this.tasks.addTask(2, new EntityAIAttackMelee(this, 1, true));
+        this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true));
+        this.tasks.addTask(6, new EntityAILookIdle(this));
+        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
     }
 
     @Override
     public boolean isValidLightLevel() {
         return true;
-    }
-
-    @Override
-    protected void updateAITasks() {
-
-        double minDistance = Double.MAX_VALUE;
-        BlockPos minDistanceWoodPos = null;
-        BlockPos currentPosition = this.getPosition();
-
-        if (this.getHealth() < this.getMaxHealth() * 0.5 && !this.shouldEat) {
-            for (int i = (int) this.posX - 16; i < (int) this.posX + 16; i++) {
-                for (int j = (int) this.posZ - 16; j < (int) this.posZ + 16; j++) {
-                    for (int n = (int) this.posY - 2; n < (int) this.posY + 2; n++) {
-                        boolean isWood = this.world.getBlockState(new BlockPos(i, (int) this.posY, j))
-                                .getMaterial() == Material.WOOD;
-                        if (isWood) {
-                            double distance = currentPosition.getDistance(i, n, j);
-                            //System.out.println("Distance to target block: " + distance + " " + i + " " + n + " " + j);
-                            if(distance < minDistance) {
-                                minDistance = distance;
-                                minDistanceWoodPos = new BlockPos(i, n, j);
-                            }
-                        }
-                    }
-                }
-            }
-
-            if(minDistanceWoodPos != null) {
-                this.woodBlockToEat = minDistanceWoodPos;
-                //System.out.println("Selected block pos: " + this.woodBlockToEat.toString());
-                this.shouldEat = true;
-            }
-            else {
-                this.shouldEat = false;
-            }
-        }
-
-        if (this.shouldEat && this.getHealth() >= this.getMaxHealth() * 0.5)
-            this.shouldEat = false;
-        super.updateAITasks();
-    }
-
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
-
-        if (this.shouldEat && this.world.getBlockState(this.woodBlockToEat)
-                .getMaterial() != Material.WOOD)
-            this.shouldEat = false;
-
-        if (this.shouldEat && this.ability == 0) {
-            double eatX = this.woodBlockToEat.getX();
-            double eatY = this.woodBlockToEat.getY();
-            double eatZ = this.woodBlockToEat.getZ();
-            if (this.getDistance(eatX, eatY, eatZ) < 2) {
-                this.heal(8.75F);
-                this.world.destroyBlock(this.woodBlockToEat, false);
-                this.world.playSound(null, this.woodBlockToEat, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                this.shouldEat = false;
-                this.ability = 5;
-            } else {
-                //System.out.println(eatX + " " + eatY + " " + eatZ + " " + this.getDistance(eatX, eatY, eatZ));
-                this.getNavigator().tryMoveToXYZ(eatX, eatY, eatZ, moveSpeed);
-                this.getLookHelper().setLookPosition(eatX, eatY, eatZ, 15F, 15F);
-                this.setMoveForward(moveSpeed / 4);
-            }
-        } else if (this.shouldEat && this.ability > 0) {
-            this.ability--;
-            //System.out.println("Ability cooldown " + this.ability);
-        }
     }
 
     @Override
