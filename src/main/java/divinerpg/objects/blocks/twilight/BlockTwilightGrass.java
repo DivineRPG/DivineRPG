@@ -9,6 +9,8 @@ import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -23,7 +25,8 @@ public class BlockTwilightGrass extends BlockBush
         implements IPlantable, net.minecraftforge.common.IShearable {
     private Block grass;
 
-    public BlockTwilightGrass(String name, Block grass) {
+    public BlockTwilightGrass(String name, Block grass, MapColor mapColorIn) {
+        super(Material.PLANTS, mapColorIn);
         setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
         this.grass = grass;

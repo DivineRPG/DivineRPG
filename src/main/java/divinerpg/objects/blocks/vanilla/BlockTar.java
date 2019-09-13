@@ -3,6 +3,7 @@ package divinerpg.objects.blocks.vanilla;
 import divinerpg.objects.blocks.BlockModFluid;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +13,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fluids.Fluid;
@@ -22,6 +24,8 @@ import javax.annotation.Nonnull;
 import java.util.Random;
 
 public class BlockTar extends BlockModFluid {
+
+    private static final MapColor mapColor = MapColor.BLACK;
 
     public BlockTar(String name, Fluid fluid) {
         super(name, fluid, Material.LAVA);
@@ -205,5 +209,10 @@ public class BlockTar extends BlockModFluid {
                         0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F, false);
             }
         }
+    }
+
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        return this.mapColor;
     }
 }

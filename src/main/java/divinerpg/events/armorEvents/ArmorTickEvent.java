@@ -167,6 +167,8 @@ public class ArmorTickEvent {
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
-        handle((EntityPlayer) event.getEntityLiving(), event);
+        if (event.getEntityLiving() instanceof EntityPlayer)
+            handle((EntityPlayer) event.getEntityLiving(), event);
+
     }
 }

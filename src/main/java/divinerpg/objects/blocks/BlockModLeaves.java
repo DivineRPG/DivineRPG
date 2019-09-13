@@ -9,6 +9,8 @@ import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -19,17 +21,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 public class BlockModLeaves extends BlockLeaves implements IShearable {
     private Block sapling;
+    private MapColor mapColor;
 
-    public BlockModLeaves(String name, float hardness) {
+    public BlockModLeaves(String name, float hardness, @Nonnull MapColor mapColorIn) {
         super();
-        setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        this.setMapColor(mapColorIn);
+        this.setUnlocalizedName(name);
+        this.setRegistryName(Reference.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);
@@ -39,8 +46,8 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
-    public BlockModLeaves(String name, float hardness, Block sapling) {
-        this(name, hardness);
+    public BlockModLeaves(String name, float hardness, Block sapling, @Nonnull MapColor mapColorIn) {
+        this(name, hardness, mapColorIn);
         this.sapling = sapling;
     }
 
@@ -115,5 +122,36 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
     @Override
     public boolean isFullCube(IBlockState state) {
         return false;
+    }
+
+    /**
+     * Defensive helper method used to intercept null map colors.
+     * Private access used to force the map color to be included in the constructor.
+     *
+     * @param mapColorIn the map color to set
+     */
+    private void setMapColor(MapColor mapColorIn) {
+        if(mapColorIn == null) {
+            this.mapColor = Material.LEAVES.getMaterialMapColor();
+        }
+        else {
+            this.mapColor = mapColorIn;
+        }
+    }
+
+    /**
+     * Tells maps to use the map color we set.
+     *
+     * @param state the blockstate
+     * @param worldIn the world
+     * @param pos the block position
+     * @return the map color
+     */
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        if(this.mapColor == null) {
+            return super.getMapColor(state, worldIn, pos);
+        }
+        return this.mapColor;
     }
 }

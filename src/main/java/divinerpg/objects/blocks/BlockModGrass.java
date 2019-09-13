@@ -1,5 +1,7 @@
 package divinerpg.objects.blocks;
 
+import java.util.Random;
+
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.items.base.ItemModSeeds;
@@ -16,7 +18,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nonnull;
-import java.util.Random;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected BlockMod dirt;
@@ -76,7 +77,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
-                                   IPlantable plantable) {
+            IPlantable plantable) {
 
         if (plantable instanceof BlockModCrop) {
 
@@ -111,9 +112,10 @@ public class BlockModGrass extends BlockMod implements IGrowable {
      * @param mapColorIn the map color to set
      */
     private void setMapColor(MapColor mapColorIn) {
-        if (mapColorIn == null) {
+        if(mapColorIn == null) {
             this.mapColor = Material.GRASS.getMaterialMapColor();
-        } else {
+        }
+        else {
             this.mapColor = mapColorIn;
         }
     }
@@ -121,9 +123,9 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     /**
      * Tells maps to use the map color we set.
      *
-     * @param state   the blockstate
+     * @param state the blockstate
      * @param worldIn the world
-     * @param pos     the block position
+     * @param pos the block position
      * @return the map color
      */
     @Override
