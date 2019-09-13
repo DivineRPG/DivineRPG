@@ -5,6 +5,7 @@ import divinerpg.api.events.ArmorChangedEvent;
 import divinerpg.api.events.IsEquppedEvent;
 import divinerpg.networking.message.EquipmentChangeMessage;
 import divinerpg.utils.FullSetArmorHelper;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +17,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,7 +27,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static divinerpg.registry.ModArmorEvents.HANDLERS_MAP;
+import static divinerpg.registry.ModArmorEvents.ARMOR_HANDLERS;
 
 public class ArmorTickEvent {
     /**
@@ -40,14 +42,11 @@ public class ArmorTickEvent {
      * @param event
      * @param <T>
      */
-    private <T extends Event> void handle(T event) {
+    private <T extends Event> void handle(EntityPlayer player, T event) {
         if (event.isCanceled())
             return;
 
-        HANDLERS_MAP.forEach((handler, equipped) -> {
-            if (equipped)
-                handler.handle(event);
-        });
+        ARMOR_HANDLERS.handle(player, event);
     }
 
     /**
@@ -78,25 +77,23 @@ public class ArmorTickEvent {
      */
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onEquipmentChanged(ArmorChangedEvent e) {
-        // checking all handlers if we are equipped
-        HANDLERS_MAP.replaceAll((handler, wasEquipped) -> {
-            // post isEquipped handler here
-            IsEquppedEvent event = new IsEquppedEvent(e.getEntityPlayer(), handler);
-            MinecraftForge.EVENT_BUS.post(event);
+        EntityPlayer player = e.getEntityPlayer();
 
-            // is changes detected
-            if (event.isEquipped() != wasEquipped) {
-                // callback on server
-                handler.onStatusChanged(e.getEntityPlayer(), event.isEquipped());
+        ARMOR_HANDLERS.getPlayerHandler(player).updateEquippedStatus(handler -> {
+                    // post isEquipped handler here
+                    IsEquppedEvent event = new IsEquppedEvent(player, handler);
+                    MinecraftForge.EVENT_BUS.post(event);
+                    return event.isEquipped();
+                },
+                (handler, isEquipped) -> {
+                    // callback on server
+                    handler.onStatusChanged(player, isEquipped);
 
-                // Send message to client that equipment changed
-                if (e.getEntityPlayer() instanceof EntityPlayerMP) {
-                    DivineRPG.network.sendTo(new EquipmentChangeMessage(handler, event.isEquipped()), ((EntityPlayerMP) e.getEntityPlayer()));
-                }
-            }
-
-            return event.isEquipped();
-        });
+                    // Send message to client that equipment changed
+                    if (e.getEntityPlayer() instanceof EntityPlayerMP) {
+                        DivineRPG.network.sendTo(new EquipmentChangeMessage(handler, isEquipped), ((EntityPlayerMP) e.getEntityPlayer()));
+                    }
+                });
     }
 
     /**
@@ -112,34 +109,53 @@ public class ArmorTickEvent {
         }
     }
 
+    /**
+     * Start ovserve new player
+     *
+     * @param event
+     */
+    @SubscribeEvent
+    public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent event) {
+        ARMOR_HANDLERS.removePlayer(event.player);
+    }
+
+    /**
+     * Remove player from observing
+     *
+     * @param event
+     */
+    @SubscribeEvent
+    public void onPlayerJoined(PlayerEvent.PlayerLoggedInEvent event) {
+        ARMOR_HANDLERS.addPlayer(event.player);
+    }
+
     ///////////////////////////////////////
     // Events below
     //////////////////////////////////////
-
     @SubscribeEvent
     public void onPlayerTick(PlayerTickEvent evt) {
         if (evt.phase == TickEvent.Phase.START) {
-            handle(evt);
+            handle(evt.player, evt);
         }
     }
 
     @SubscribeEvent
     public void onLivingHurt(LivingHurtEvent evt) {
-        handle(evt);
+        handle((EntityPlayer) evt.getSource().getTrueSource(), evt);
     }
 
     @SubscribeEvent
     public void onAttacked(LivingAttackEvent e) {
-        handle(e);
+        handle((EntityPlayer) e.getSource().getTrueSource(), e);
     }
 
     @SubscribeEvent
     public void onBlockDropped(BlockEvent.HarvestDropsEvent event) {
-        handle(event);
+        handle(event.getHarvester(), event);
     }
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
-        handle(event);
+        handle((EntityPlayer) event.getEntityLiving(), event);
     }
 }

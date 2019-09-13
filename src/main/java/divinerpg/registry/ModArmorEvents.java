@@ -2,9 +2,9 @@ package divinerpg.registry;
 
 import divinerpg.api.ArmorHandlers;
 import divinerpg.api.DivineAPI;
-import divinerpg.api.IFullArmorRegistry;
 import divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.events.armorEvents.ArmorTickEvent;
+import divinerpg.events.armorEvents.HandlerCollection;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,46 +18,23 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-public class ModArmorEvents implements IFullArmorRegistry {
+public class ModArmorEvents {
 
     /**
      * The list of all handlers with isEquipped status.
      */
-    public static final Map<FullArmorHandler, Boolean> HANDLERS_MAP = new HashMap<>();
+    //public static final Map<FullArmorHandler, Boolean> HANDLERS_MAP = new HashMap<>();
+    public static final HandlerCollection ARMOR_HANDLERS = new HandlerCollection();
 
     /**
      * All handlers are available by indexes so it makes much easier to point on
      * needed handler from server to client
      */
-    public static final ArrayList<FullArmorHandler> ALL_HANDLERS = new ArrayList<>();
-
-    public void addHandler(FullArmorHandler handler) {
-        if (handler == null) {
-            throw new IllegalArgumentException("Armor handler is null");
-        }
-
-        if (HANDLERS_MAP.containsKey(handler)) {
-            throw new IllegalArgumentException("Cannot insert handler twice!");
-        }
-
-        HANDLERS_MAP.put(handler, false);
-        ALL_HANDLERS.add(handler);
-    }
-
-    public void removeHandler(FullArmorHandler handler) {
-        if (handler == null) {
-            throw new IllegalArgumentException("Armor handler is null");
-        }
-
-        if (!HANDLERS_MAP.containsKey(handler)) {
-            throw new IllegalArgumentException("Armor handler was never registered");
-        }
-
-        HANDLERS_MAP.remove(handler);
-        ALL_HANDLERS.remove(handler);
-    }
+    // public static final ArrayList<FullArmorHandler> ALL_HANDLERS = new ArrayList<>();
 
     public static void init() {
         List<FullArmorHandler> handlers = Arrays.asList(
@@ -191,7 +168,7 @@ public class ModArmorEvents implements IFullArmorRegistry {
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, aFloat -> aFloat * 1.2F))
         );
 
-        DivineAPI.ARMOR_REGISTRY = new ModArmorEvents();
+        DivineAPI.ARMOR_REGISTRY = ARMOR_HANDLERS;
         handlers.forEach(DivineAPI.ARMOR_REGISTRY::addHandler);
 
         MinecraftForge.EVENT_BUS.register(new ArmorTickEvent());
