@@ -6,6 +6,7 @@ import divinerpg.api.armorset.IPowerAbility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,8 +42,8 @@ public class PlayerHandlers implements IPowerAbility {
      * @param handler    - armor handler
      * @param isEquipped - is player full equipped
      */
-    public void changeEquippedStatus(FullArmorHandler handler, boolean isEquipped) {
-        if (handlers_map.containsKey(handler)) {
+    public void changeEquippedStatus(@Nullable FullArmorHandler handler, boolean isEquipped) {
+        if (handler == null || handlers_map.containsKey(handler)) {
             throw new IllegalArgumentException("This handler is null or not registered!");
         }
 

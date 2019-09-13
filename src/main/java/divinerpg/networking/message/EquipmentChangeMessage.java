@@ -2,7 +2,6 @@ package divinerpg.networking.message;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.armorset.FullArmorHandler;
-import divinerpg.events.armorEvents.PlayerHandlers;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -51,8 +50,7 @@ public class EquipmentChangeMessage implements IMessage {
         @Override
         public IMessage onMessage(EquipmentChangeMessage msg, MessageContext messageContext) {
             if (messageContext.side == Side.CLIENT) {
-                PlayerHandlers handler = ARMOR_HANDLERS.getPlayerHandler(DivineRPG.proxy.getPlayer());
-                handler.changeEquippedStatus(ARMOR_HANDLERS.getHandlerByIndex(msg.handleIndex), msg.isEquipped);
+                ARMOR_HANDLERS.onStatusChanged(DivineRPG.proxy.getPlayer(), msg.handleIndex, msg.isEquipped);
             }
 
             return null;

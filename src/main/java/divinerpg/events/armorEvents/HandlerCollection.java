@@ -6,6 +6,7 @@ import divinerpg.api.armorset.FullArmorHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 /**
@@ -61,10 +62,13 @@ public class HandlerCollection implements IFullArmorRegistry {
     /**
      * Handling event for current player
      *
-     * @param player - player
+     * @param player - player. Ca be null
      * @param event  - triggered event
      */
-    public <T extends Event> void handle(EntityPlayer player, T event) {
+    public <T extends Event> void handle(@Nullable EntityPlayer player, T event) {
+        if (player == null)
+            return;
+
         UUID id = player.getUniqueID();
         if (all_players.containsKey(id)) {
             all_players.get(id).handle(event);
@@ -75,13 +79,16 @@ public class HandlerCollection implements IFullArmorRegistry {
      * Here we changing equpment status of one of the armorset
      *
      * @param player         - current player
-     * @param handler        - armor handler
+     * @param index          - armor handler index
      * @param isFullEquipped - is player full equipped
      */
-    public void onStatusChanged(EntityPlayer player, FullArmorHandler handler, boolean isFullEquipped) {
-        UUID id = player.getUniqueID();
-        if (all_players.containsKey(id)) {
-            all_players.get(id).changeEquippedStatus(handler, isFullEquipped);
+    public void onStatusChanged(@Nullable EntityPlayer player, int index, boolean isFullEquipped) {
+        if (player == null) {
+            DivineRPG.logger.warn("No player founded to change equipment status");
+        } else {
+            PlayerHandlers playerHandler = getPlayerHandler(player);
+            FullArmorHandler handler = getHandlerByIndex(index);
+            playerHandler.changeEquippedStatus(handler, isFullEquipped);
         }
     }
 

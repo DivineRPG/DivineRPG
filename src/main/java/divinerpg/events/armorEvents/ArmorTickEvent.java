@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -129,6 +130,16 @@ public class ArmorTickEvent {
         ARMOR_HANDLERS.addPlayer(event.player);
     }
 
+    private EntityPlayer getPlayer(LivingEvent e, DamageSource source) {
+        if (source.getTrueSource() instanceof EntityPlayer)
+            return (EntityPlayer) source.getTrueSource();
+
+        if (e.getEntityLiving() instanceof EntityPlayer)
+            return (EntityPlayer) e.getEntityLiving();
+
+        return null;
+    }
+
     ///////////////////////////////////////
     // Events below
     //////////////////////////////////////
@@ -141,12 +152,12 @@ public class ArmorTickEvent {
 
     @SubscribeEvent
     public void onLivingHurt(LivingHurtEvent evt) {
-        handle((EntityPlayer) evt.getSource().getTrueSource(), evt);
+        handle(getPlayer(evt, evt.getSource()), evt);
     }
 
     @SubscribeEvent
     public void onAttacked(LivingAttackEvent e) {
-        handle((EntityPlayer) e.getSource().getTrueSource(), e);
+        handle(getPlayer(e, e.getSource()), e);
     }
 
     @SubscribeEvent
