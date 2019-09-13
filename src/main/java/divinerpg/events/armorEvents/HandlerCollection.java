@@ -23,12 +23,8 @@ public class HandlerCollection implements IFullArmorRegistry {
      */
     private final Map<UUID, PlayerHandlers> all_players = new HashMap<>();
 
-    public PlayerHandlers getPlayerHandler(UUID id) {
-        return all_players.get(id);
-    }
-
     public PlayerHandlers getPlayerHandler(EntityPlayer player) {
-        return getPlayerHandler(player.getUniqueID());
+        return all_players.get(player.getUniqueID());
     }
 
     /**
@@ -88,7 +84,7 @@ public class HandlerCollection implements IFullArmorRegistry {
         } else {
             PlayerHandlers playerHandler = getPlayerHandler(player);
             FullArmorHandler handler = getHandlerByIndex(index);
-            playerHandler.changeEquippedStatus(handler, isFullEquipped);
+            playerHandler.changeEquippedStatus(player.world, handler, isFullEquipped);
         }
     }
 

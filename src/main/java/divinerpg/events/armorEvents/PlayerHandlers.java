@@ -4,12 +4,11 @@ import com.google.common.base.Function;
 import divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.api.armorset.IPowerAbility;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
@@ -25,30 +24,31 @@ public class PlayerHandlers implements IPowerAbility {
     /**
      * Current player
      */
-    private final EntityPlayer player;
+    private final UUID player;
 
     /**
      * @param player      - current player
      * @param allHandlers - all existing handlers
      */
     public PlayerHandlers(EntityPlayer player, List<FullArmorHandler> allHandlers) {
-        this.player = player;
+        this.player = player.getUniqueID();
         handlers_map.putAll(allHandlers.stream().collect(Collectors.toMap(o -> o, o -> false)));
     }
 
     /**
      * Was created to call on client side. Force change of equipped status
      *
+     * @param world - world where we are searchin for entity
      * @param handler    - armor handler
      * @param isEquipped - is player full equipped
      */
-    public void changeEquippedStatus(@Nullable FullArmorHandler handler, boolean isEquipped) {
-        if (handler == null || handlers_map.containsKey(handler)) {
+    public void changeEquippedStatus(World world, @Nullable FullArmorHandler handler, boolean isEquipped) {
+        if (handler == null || !handlers_map.containsKey(handler)) {
             throw new IllegalArgumentException("This handler is null or not registered!");
         }
 
         handlers_map.merge(handler, isEquipped, (aBoolean, aBoolean2) -> isEquipped);
-        handler.onStatusChanged(player, isEquipped);
+        handler.onStatusChanged(world.getPlayerEntityByUUID(player), isEquipped);
     }
 
     /**
@@ -75,7 +75,7 @@ public class PlayerHandlers implements IPowerAbility {
     @Override
     public void handle(Event event) {
         Class<? extends Event> clazz = event.getClass();
-        handlers_map.entrySet().stream().filter(Map.Entry::getValue)
-                .forEach(x -> x.getKey().abilityMap.get(clazz).forEach(iPowerAbility -> iPowerAbility.handle(event)));
+        handlers_map.entrySet().stream().filter(Map.Entry::getValue).map(x -> x.getKey().abilityMap.get(clazz))
+                .filter(x -> x != null && !x.isEmpty()).flatMap(Collection::stream).forEach(x -> x.handle(event));
     }
 }

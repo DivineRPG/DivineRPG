@@ -13,7 +13,7 @@ public class ArcanaRenderer {
 
     Minecraft mc = Minecraft.getMinecraft();
 
-    public static float percantage;
+    public static float percantage = 100;
     public static boolean regen;
 
     @SubscribeEvent
