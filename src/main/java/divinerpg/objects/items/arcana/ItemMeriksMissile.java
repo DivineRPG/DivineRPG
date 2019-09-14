@@ -6,11 +6,11 @@ import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -63,7 +63,7 @@ public class ItemMeriksMissile extends ItemMod {
 
                 float damage = MathHelper.clamp(charge * 25F, 8F, 25F);
 
-                world.playSound(null, player.getPosition(), ModSounds.VETHEA_BOW, SoundCategory.MASTER, 1, 1);
+                world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1, 1);
 
                 EntityMerikMissile bullet = new EntityMerikMissile(world, player, damage);
                 bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);

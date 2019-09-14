@@ -1,8 +1,8 @@
 package divinerpg.enums;
 
-import java.awt.Color;
-
 import net.minecraft.util.ResourceLocation;
+
+import java.awt.*;
 
 public enum BulletType {
     NONE(0, null),
@@ -31,16 +31,6 @@ public enum BulletType {
     SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleType.SKYTHERN_PORTAL),
     MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleType.MORTUM_PORTAL),
     HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleType.GREEN_PORTAL),
-    TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
-    AMTHIRMIS_CANNON_SHOT(5, ProjectileLoc("cannon")),
-    DARVEN_CANNON_SHOT(8, ProjectileLoc("cannon")),
-    CERMILE_CANNON_SHOT(12, ProjectileLoc("cannon")),
-    PARDINMAL_CANNON_SHOT(15, ProjectileLoc("cannon")),
-    QUADROTIC_WAR_CANNON_SHOT(19, ProjectileLoc("cannon")),
-    KAROS_WAR_CANNON_SHOT(21, ProjectileLoc("cannon")),
-    HALIOSIS_WRATH_CANNON_SHOT(28, ProjectileLoc("cannon")),
-    ARKSIANE_WRATH_CANNON_SHOT(36, ProjectileLoc("cannon")),
-    EVERSIGHT_SHOT(42, ProjectileLoc("eversight")),
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
