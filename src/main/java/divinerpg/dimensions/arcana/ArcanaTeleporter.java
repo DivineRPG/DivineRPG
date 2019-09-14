@@ -22,6 +22,35 @@ public class ArcanaTeleporter extends Teleporter {
         this.myWorld = var1;
     }
 
+    public boolean findPortalBlockNearEntity(Entity entity, int yLimit) {
+        int chunkX = (MathHelper.floor(entity.posX) & ~0xf);
+        int chunkZ = (MathHelper.floor(entity.posZ) & ~0xf);
+        int y;
+        double offset;
+
+        if(entity.dimension == ModDimensions.arcanaDimension.getId()) {
+            offset = 2.0;
+        }
+        else {
+            offset = 1.5;
+        }
+        for (y = 1; y < yLimit; y++) {
+            for(int x2 = chunkX; x2 < chunkX + 16; x2++) {
+                for (int z2 = chunkZ; z2 < chunkZ + 16; z2++) {
+                    if (this.myWorld.getBlockState(new BlockPos(x2, y, z2)) == ModBlocks.arcanaPortal
+                            .getDefaultState()) {
+                        entity.setLocationAndAngles(x2 + offset, y + 0.5D, z2 + offset, entity.rotationYaw, 0.0F);
+                        entity.motionX = entity.motionY = entity.motionZ = 0.0D;
+                        return true;
+                    }
+                }
+            }
+
+        }
+
+        return false;
+
+    }
     @Override
     public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
         if (entity.dimension == ModDimensions.arcanaDimension.getId()) {
@@ -30,27 +59,25 @@ public class ArcanaTeleporter extends Teleporter {
             int y;
 
             // Find existing portal
-            for (y = 9; y < 40; y += 8) {
-                if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) == ModBlocks.arcanaPortal
-                        .getDefaultState()) {
-                    entity.setLocationAndAngles(chunkX + 7.5D, y + 0.5D, chunkZ + 7.5D, entity.rotationYaw, 0.0F);
-                    entity.motionX = entity.motionY = entity.motionZ = 0.0D;
-                    return true;
-                }
+            boolean foundPortal = findPortalBlockNearEntity(entity, 40);
+            if(foundPortal) {
+                return true;
             }
 
-            // Find a location to create a new portal room, avoiding double high rooms
+            // If there is no existsing portal, find a location to create a new portal room, avoiding double high rooms
             for (y = 8; y < 40; y += 8) {
                 if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) != Blocks.AIR.getDefaultState()
                         && this.myWorld.getBlockState(new BlockPos(chunkX + 7, y + 8, chunkZ + 7)) != Blocks.AIR
                                 .getDefaultState()) {
                     generatePortalRoom(this.myWorld, new BlockPos(chunkX, y, chunkZ));
-                    entity.setLocationAndAngles(chunkX + 7.5D, y + 1.5D, chunkZ + 7.5D, entity.rotationYaw, 0.0F);
-                    entity.motionX = entity.motionY = entity.motionZ = 0.0D;
-                    return true;
+                    foundPortal = findPortalBlockNearEntity(entity, 40);
+                    if(foundPortal) {
+                        return true;
+                    }
                 }
             }
         } else {
+            findPortalBlockNearEntity(entity, 256);
             entity.motionX = entity.motionY = entity.motionZ = 0.0D;
             return true;
         }
