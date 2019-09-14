@@ -229,7 +229,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityCoriShot.class, "cori_shot"),
                 buildProjectileEntry(EntityTwilightMageShot.class, "twilight_mage_shot"),
                 buildProjectileEntry(EntitySoulFiendShot.class, "soul_fiend_shot"),
-                buildProjectileEntry(EntityDisk.class, "disk"), buildProjectileEntry(EntityGrenade.class, "grenade"),
+                buildProjectileEntry(EntityGrenade.class, "grenade"),
                 buildProjectileEntry(EntityAttractor.class, "attractor"),
                 buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
                 buildProjectileEntry(EntityMeteor.class, "meteor"), buildProjectileEntry(EntityStar.class, "star"),
@@ -258,7 +258,6 @@ public class ModEntities {
         registerRender(EntityCaveRock.class, manager -> new RenderCaveRock(manager, 1f));
         registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
         registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));
-        registerRender(EntityDisk.class, manager -> new RenderDisk(manager));
         registerRender(EntityDivineArrow.class, manager -> new RenderDivineArrow(manager));
         registerRender(EntityEnderTripletsFireball.class, manager -> new RenderEnderTripletsFireball(manager, 1f));
         registerRender(EntityFirefly.class, manager -> new RenderFirefly(manager));
