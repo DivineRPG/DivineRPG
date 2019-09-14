@@ -62,11 +62,7 @@ public class DivineRPG {
         proxy.init(e);
         ModOreDict.init();
         ModTriggers.registerTriggers();
-
-        // 1.12.2 only
-        if (!Config.genJSON) {
-            ModSmelting.init();
-        }
+        ModSmelting.init();
     }
 
     @Mod.EventHandler

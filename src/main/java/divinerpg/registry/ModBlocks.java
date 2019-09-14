@@ -15,7 +15,6 @@ import divinerpg.objects.blocks.arcana.*;
 import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.*;
 import divinerpg.objects.blocks.vanilla.*;
-import divinerpg.utils.GenerateJSON;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -497,13 +496,5 @@ public class ModBlocks {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         ModBlocks.AddWoodVariants();
         event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
-        if (Config.genJSON) {
-            ModBlocks.CreateJSONs();
-        }
-    }
-
-    public static void CreateJSONs() {
-        GenerateJSON.generateBlockstateJSONs();
-        GenerateJSON.generateModelBlockJSONs();
     }
 }

@@ -48,9 +48,6 @@ public class CommonProxy {
             config.save();
         }
         ModSpawns.addSpawns();
-        if (Config.genJSON) {
-            ModRecipes x = new ModRecipes();
-        }
     }
 
     public void preInit(FMLPreInitializationEvent e) {
