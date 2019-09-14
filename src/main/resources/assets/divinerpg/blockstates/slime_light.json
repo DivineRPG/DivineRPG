@@ -1,6 +1,9 @@
 {
   "variants": {
-    "normal": {
+    "powered=true": {
+      "model": "divinerpg:slime_light_on"
+    },
+    "powered=false": {
       "model": "divinerpg:slime_light"
     }
   }

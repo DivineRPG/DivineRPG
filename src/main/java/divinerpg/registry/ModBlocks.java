@@ -182,9 +182,8 @@ public class ModBlocks {
             .setLightLevel(1);
     public static Block spikeBlock = new BlockSpike("spike_block");
     public static Block hotSpikeBlock = new BlockHotSpike("hot_spike_block");
-    public static Block slimeLight = new BlockSlimeLight("slime_light", false);
-    public static Block slimeLightOn = new BlockSlimeLight("slime_light_on", true);
-    public static Block darkBridge = new BlockModBridge("dark_bridge");
+    public static Block slimeLight = new BlockModLight("slime_light", 1.5F);
+    public static Block darkBridge = new BlockModBridge("dark_bridge", 1.5F);
 
     public static Block redFence = new BlockLightFence(MapColor.RED, "red_fence", false, 0.5F);
     public static Block greenFence = new BlockLightFence(MapColor.GREEN, "green_fence", false, 0.5F);
@@ -394,7 +393,7 @@ public class ModBlocks {
     public static Block deathcryxSpawner = new BlockArcanaSpawner("deathcryx_spawner", "deathcryx");
     public static Block livingStatueSpawner = new BlockArcanaSpawner("living_statue_spawner", "living_statue");
     public static Block roamerSpawner = new BlockArcanaSpawner("roamer_spawner", "roamer");
-    public static Block starBridge = new BlockModBridge("star_bridge");
+    public static Block starBridge = new BlockModBridge("star_bridge", 1.5F);
     public static Block soulSludgeDoor = new BlockArcanaDoor("soul_sludge_door", ModItems.sludgeKey);
     public static Block ancientBrickDoor = new BlockArcanaDoor("ancient_brick_door", ModItems.ancientKey);
     public static Block soulStoneDoor = new BlockArcanaDoor("soul_stone_door", ModItems.soulKey);
