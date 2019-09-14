@@ -1,16 +1,4 @@
 {
-   "acid_hag":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:acid_hag"
-      ]
-   },
-   "acid_hag_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:acid_hag_hurt"
-      ]
-   },
    "alicanto":{
       "category":"master",
       "sounds":[
@@ -77,30 +65,6 @@
          "divinerpg:ayeraco_teleport"
       ]
    },
-   "biphron":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:biphron"
-      ]
-   },
-   "biphron_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:biphron_hurt"
-      ]
-   },
-   "bohemite":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:bohemite"
-      ]
-   },
-   "bohemite_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:bohemite_hurt"
-      ]
-   },
    "bunny":{
       "category":"master",
       "sounds":[
@@ -117,12 +81,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:cadillion"
-      ]
-   },
-   "ceiling_explosions":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:ceiling_explosions"
       ]
    },
    "constructor_hurt":{
@@ -203,18 +161,6 @@
          "divinerpg:cyclops_hurt"
       ]
    },
-   "cymesoid":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:cymesoid"
-      ]
-   },
-   "cymesoid_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:cymesoid_hurt"
-      ]
-   },
    "deathcryx":{
       "category":"master",
       "sounds":[
@@ -257,24 +203,6 @@
          "divinerpg:densos_hurt"
       ]
    },
-   "desert":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:desert"
-      ]
-   },
-   "dissiment":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:dissiment"
-      ]
-   },
-   "dissiment_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:dissiment_hurt"
-      ]
-   },
    "dramcryx":{
       "category":"master",
       "sounds":[
@@ -299,18 +227,6 @@
          "divinerpg:dramix_hurt"
       ]
    },
-   "dream_wrecker":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:dream_wrecker"
-      ]
-   },
-   "dream_wrecker_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:dream_wrecker_hurt"
-      ]
-   },
    "dungeon_prisoner":{
       "category":"master",
       "sounds":[
@@ -329,24 +245,6 @@
          "divinerpg:dungeon_prisoner_hurt"
       ]
    },
-   "duo":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:duo"
-      ]
-   },
-   "duo_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:duo_hurt"
-      ]
-   },
-   "end":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:end"
-      ]
-   },
    "endiku":{
       "category":"master",
       "sounds":[
@@ -357,30 +255,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:endiku_hurt"
-      ]
-   },
-   "ent":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:ent"
-      ]
-   },
-   "ent_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:ent_hurt"
-      ]
-   },
-   "explosions":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:explosions"
-      ]
-   },
-   "feel_soul_arksiane":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:feel_soul_arksiane"
       ]
    },
    "fractite":{
@@ -419,18 +293,6 @@
          "divinerpg:frosty_hurt"
       ]
    },
-   "galroid":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:galroid"
-      ]
-   },
-   "galroid_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:galroid_hurt"
-      ]
-   },
    "glacide":{
       "category":"master",
       "sounds":[
@@ -447,24 +309,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:golem"
-      ]
-   },
-   "gorgosion":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:gorgosion"
-      ]
-   },
-   "gorgosion_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:gorgosion_hurt"
-      ]
-   },
-   "grass":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:grass"
       ]
    },
    "grizzle":{
@@ -503,34 +347,10 @@
          "divinerpg:hastreus_hurt"
       ]
    },
-   "helio":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:helio"
-      ]
-   },
-   "helio_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:helio_hurt"
-      ]
-   },
    "hell_spider":{
       "category":"master",
       "sounds":[
          "divinerpg:hell_spider"
-      ]
-   },
-   "herbomancer":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:herbomancer"
-      ]
-   },
-   "herbomancer_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:herbomancer_hurt"
       ]
    },
    "high_hit":{
@@ -543,30 +363,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:hiss"
-      ]
-   },
-   "hive_queen":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:hive_queen"
-      ]
-   },
-   "hive_queen_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:hive_queen_hurt"
-      ]
-   },
-   "hover_stinger":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:hover_stinger"
-      ]
-   },
-   "hover_stinger_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:hover_stinger_hurt"
       ]
    },
    "iceman":{
@@ -593,40 +389,10 @@
          "divinerpg:jackoman"
       ]
    },
-   "jungle":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:jungle"
-      ]
-   },
    "jungle_spider":{
       "category":"master",
       "sounds":[
          "divinerpg:jungle_spider"
-      ]
-   },
-   "karos_intro":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:karos_intro"
-      ]
-   },
-   "karos_laugh":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:karos_laugh"
-      ]
-   },
-   "kazrotic":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:kazrotic"
-      ]
-   },
-   "kazrotic_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:kazrotic_hurt"
       ]
    },
    "king_of_scorchers":{
@@ -645,32 +411,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:kobblin"
-      ]
-   },
-   "lady_luna":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lady_luna1",
-         "divinerpg:lady_luna2",
-         "divinerpg:lady_luna3"
-      ]
-   },
-   "lady_luna_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lady_luna_hurt"
-      ]
-   },
-   "lhevia":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lhevia"
-      ]
-   },
-   "lhevia_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lhevia_hurt"
       ]
    },
    "liopleurodon":{
@@ -697,30 +437,6 @@
          "divinerpg:livestock_merchant_hurt"
       ]
    },
-   "lorga":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lorga"
-      ]
-   },
-   "lorga_flight":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lorga_flight"
-      ]
-   },
-   "lorga_flight_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lorga_flight_hurt"
-      ]
-   },
-   "lorga_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:lorga_hurt"
-      ]
-   },
    "madivel":{
       "category":"master",
       "sounds":[
@@ -737,18 +453,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:mage_fire"
-      ]
-   },
-   "mandragora":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:mandragora"
-      ]
-   },
-   "meet_doom":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:meet_doom"
       ]
    },
    "megalith":{
@@ -781,18 +485,6 @@
          "divinerpg:nesro_hurt"
       ]
    },
-   "nobody_can_defeat":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:nobody_can_defeat"
-      ]
-   },
-   "ocean":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:ocean"
-      ]
-   },
    "parasecta":{
       "category":"master",
       "sounds":[
@@ -803,96 +495,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:parasecta_hurt"
-      ]
-   },
-   "quadro_die_before":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_die_before"
-      ]
-   },
-   "quadro_enough":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_enough"
-      ]
-   },
-   "quadro_incoming_punch":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_incoming_punch"
-      ]
-   },
-   "quadro_is_next":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_is_next"
-      ]
-   },
-   "quadro_kill_mine":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_kill_mine"
-      ]
-   },
-   "quadro_my_kill":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_my_kill"
-      ]
-   },
-   "quadro_no_die":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_no_die"
-      ]
-   },
-   "quadro_sit_down":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_sit_down"
-      ]
-   },
-   "quadro_taste_fist":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:quadro_taste_fist"
-      ]
-   },
-   "raglok_avenge":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:raglok_avenge"
-      ]
-   },
-   "raglok_awaken":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:raglok_awaken"
-      ]
-   },
-   "raglok_dark":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:raglok_dark"
-      ]
-   },
-   "raglok_guardian":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:raglok_guardian"
-      ]
-   },
-   "raglok_nothing":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:raglok_nothing"
-      ]
-   },
-   "raglok_rain":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:raglok_rain"
       ]
    },
    "rainbour":{
@@ -985,18 +587,6 @@
          "divinerpg:scorcher"
       ]
    },
-   "shadahier":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:shadahier"
-      ]
-   },
-   "shadahier_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:shadahier_hurt"
-      ]
-   },
    "shark":{
       "category":"master",
       "sounds":[
@@ -1007,12 +597,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:shark_hurt"
-      ]
-   },
-   "stop_at_once":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:stop_at_once"
       ]
    },
    "the_eye":{
@@ -1027,36 +611,6 @@
          "divinerpg:the_eye_hurt"
       ]
    },
-   "tocaxin":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:tocaxin"
-      ]
-   },
-   "tocaxin_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:tocaxin_hurt"
-      ]
-   },
-   "try_your_best":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:try_your_best"
-      ]
-   },
-   "varaak":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:varaak"
-      ]
-   },
-   "varaak_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:varaak_hurt"
-      ]
-   },
    "verek":{
       "category":"master",
       "sounds":[
@@ -1067,18 +621,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:verek_hurt"
-      ]
-   },
-   "vermenous":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:vermenous"
-      ]
-   },
-   "vermenous_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:vermenous_hurt"
       ]
    },
    "whale":{
@@ -1115,54 +657,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:wraith_hurt"
-      ]
-   },
-   "wreck_intro":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:wreck_intro"
-      ]
-   },
-   "wreck_speed":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:wreck_speed"
-      ]
-   },
-   "wreck_strength":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:wreck_strength"
-      ]
-   },
-   "you_cant_kill_me":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:you_cant_kill_me"
-      ]
-   },
-   "zone":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:zone"
-      ]
-   },
-   "zone_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:zone_hurt"
-      ]
-   },
-   "zoragon":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:zoragon"
-      ]
-   },
-   "zoragon_hurt":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:zoragon_hurt"
       ]
    },
    "arcanium_saber":{
@@ -1283,12 +777,6 @@
       "category":"neutral",
       "sounds":[
          "divinerpg:starlight"
-      ]
-   },
-   "vethea_bow":{
-      "category":"neutral",
-      "sounds":[
-         "divinerpg:vethea_bow"
       ]
    },
    "iceika_music":{
