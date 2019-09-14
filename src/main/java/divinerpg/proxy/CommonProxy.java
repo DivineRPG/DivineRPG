@@ -58,7 +58,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new Ticker());
 
         File directory = e.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
+        config = new Configuration(new File(directory.getPath(), Reference.MODID + ".cfg"));
         Config.readConfig();
     }
 
