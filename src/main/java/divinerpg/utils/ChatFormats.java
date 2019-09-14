@@ -35,13 +35,11 @@ public class ChatFormats {
 	public static final String ICEIKA = "Iceika";
 	public static final String TWILIGHT = "Twilight";
 	public static final String EDEN = "Eden";
-	public static final String WILDWOODS = "Wildwoods";
+	public static final String WILDWOOD = "Wildwood";
 	public static final String APALACHIA = "Apalachia";
 	public static final String SKYTHERN = "Skythern";
 	public static final String MORTUM = "Mortum";
-	public static final String HALITE = "Halite";
-	public static final String VETHEA = "Vethea";
 
-	public static final String[] DIMENSIONS_LIST = new String[] { ARCANA, ICEIKA, TWILIGHT, EDEN, WILDWOODS, APALACHIA,
-	        SKYTHERN, MORTUM, VETHEA };
+	public static final String[] DIMENSIONS_LIST = new String[] { ARCANA, ICEIKA, TWILIGHT, EDEN, WILDWOOD, APALACHIA,
+	        SKYTHERN, MORTUM };
 }
