@@ -11,9 +11,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.brewing.PlayerBrewedPotionEvent;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
+import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
+import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -170,5 +172,68 @@ public class ArmorTickEvent {
         if (event.getEntityLiving() instanceof EntityPlayer)
             handle((EntityPlayer) event.getEntityLiving(), event);
 
+    }
+
+    @SubscribeEvent
+    public void onBoneMeal(BonemealEvent event) {
+        handle(event.getEntityPlayer(), event);
+    }
+
+    @SubscribeEvent
+    public void onBrewedPotion(PlayerBrewedPotionEvent event) {
+        handle(event.getEntityPlayer(), event);
+    }
+
+    @SubscribeEvent
+    public void onCriticalHit(CriticalHitEvent event) {
+        handle(event.getEntityPlayer(), event);
+    }
+
+    @SubscribeEvent
+    public void onClonePlayer(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
+        handle(event.getEntityPlayer(), event);
+    }
+
+    @SubscribeEvent
+    public void onDeadPlayerDrops(PlayerDropsEvent event) {
+        handle(event.getEntityPlayer(), event);
+    }
+
+    @SubscribeEvent
+    public void onTravelToDim(EntityTravelToDimensionEvent event) {
+        if (event.getEntity() instanceof EntityPlayer) {
+            handle((EntityPlayer) event.getEntity(), event);
+        }
+    }
+
+    @SubscribeEvent
+    public void onLightning(EntityStruckByLightningEvent event) {
+        if (event.getEntity() instanceof EntityPlayer) {
+            handle((EntityPlayer) event.getEntity(), event);
+        }
+    }
+
+    @SubscribeEvent
+    public void onBreakBlock(LivingDestroyBlockEvent event) {
+        if (event.getEntity() instanceof EntityPlayer) {
+            handle((EntityPlayer) event.getEntity(), event);
+        }
+    }
+
+    @SubscribeEvent
+    public void onPickupXP(PlayerPickupXpEvent event) {
+        handle(event.getEntityPlayer(), event);
+    }
+
+    @SubscribeEvent
+    public void beforePlayerDies(LivingDeathEvent event) {
+        if (event.getEntity() instanceof EntityPlayer) {
+            handle((EntityPlayer) event.getEntity(), event);
+        }
+    }
+
+    @SubscribeEvent
+    public void onPLayerDestroyedItem(PlayerDestroyItemEvent event) {
+        handle(event.getEntityPlayer(), event);
     }
 }
