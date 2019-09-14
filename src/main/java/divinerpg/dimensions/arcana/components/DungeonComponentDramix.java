@@ -473,7 +473,7 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 0, j + 13, k + 30, ModBlocks.degradedBrick);
         this.setBlock(world, i + 0, j + 13, k + 31, ModBlocks.degradedBrick);
         this.setBlock(world, i + 0, j + 14, k + 0, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 0, j + 14, k + 1, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 0, j + 14, k + 1, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 0, j + 14, k + 2, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 14, k + 3, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 14, k + 4, ModBlocks.ancientBrick);
@@ -502,7 +502,7 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 0, j + 14, k + 27, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 14, k + 28, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 14, k + 29, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 0, j + 14, k + 30, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 0, j + 14, k + 30, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 0, j + 14, k + 31, ModBlocks.degradedBrick);
         this.setBlock(world, i + 0, j + 15, k + 0, ModBlocks.degradedBrick);
         this.setBlock(world, i + 0, j + 15, k + 1, ModBlocks.ancientBrick);
@@ -594,8 +594,8 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 1, j + 12, k + 31, ModBlocks.degradedBrick);
         this.setBlock(world, i + 1, j + 13, k + 0, ModBlocks.degradedBrick);
         this.setBlock(world, i + 1, j + 13, k + 31, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 1, j + 14, k + 0, ModBlocks.dungenLamp);
-        this.setBlock(world, i + 1, j + 14, k + 31, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 1, j + 14, k + 0, ModBlocks.dungeonLamp);
+        this.setBlock(world, i + 1, j + 14, k + 31, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 1, j + 15, k + 0, ModBlocks.ancientBrick);
         this.setBlock(world, i + 1, j + 15, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 2, j + 0, k + 0, ModBlocks.ancientBrick);
@@ -1419,12 +1419,12 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 13, j + 2, k + 19, ModBlocks.ancientBrick);
         this.setBlock(world, i + 13, j + 2, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 13, j + 3, k + 0, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 13, j + 3, k + 13, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 13, j + 3, k + 13, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 13, j + 3, k + 14, ModBlocks.degradedBrick);
         this.setBlock(world, i + 13, j + 3, k + 15, ModBlocks.degradedBrick);
         this.setBlock(world, i + 13, j + 3, k + 16, ModBlocks.degradedBrick);
         this.setBlock(world, i + 13, j + 3, k + 17, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 13, j + 3, k + 18, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 13, j + 3, k + 18, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 13, j + 3, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 13, j + 4, k + 0, ModBlocks.soulStone);
         this.setBlock(world, i + 13, j + 4, k + 31, ModBlocks.soulStone);
@@ -1868,12 +1868,12 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 18, j + 2, k + 28, ModBlocks.degradedBrick);
         this.setBlock(world, i + 18, j + 2, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 18, j + 3, k + 0, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 18, j + 3, k + 13, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 18, j + 3, k + 13, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 18, j + 3, k + 14, ModBlocks.degradedBrick);
         this.setBlock(world, i + 18, j + 3, k + 15, ModBlocks.degradedBrick);
         this.setBlock(world, i + 18, j + 3, k + 16, ModBlocks.degradedBrick);
         this.setBlock(world, i + 18, j + 3, k + 17, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 18, j + 3, k + 18, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 18, j + 3, k + 18, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 18, j + 3, k + 27, ModBlocks.degradedBrick);
         this.setBlock(world, i + 18, j + 3, k + 28, ModBlocks.degradedBrick);
         this.setBlock(world, i + 18, j + 3, k + 31, ModBlocks.ancientBrick);
@@ -2821,8 +2821,8 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 30, j + 12, k + 31, ModBlocks.degradedBrick);
         this.setBlock(world, i + 30, j + 13, k + 0, ModBlocks.degradedBrick);
         this.setBlock(world, i + 30, j + 13, k + 31, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 30, j + 14, k + 0, ModBlocks.dungenLamp);
-        this.setBlock(world, i + 30, j + 14, k + 31, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 30, j + 14, k + 0, ModBlocks.dungeonLamp);
+        this.setBlock(world, i + 30, j + 14, k + 31, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 30, j + 15, k + 0, ModBlocks.ancientBrick);
         this.setBlock(world, i + 30, j + 15, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 0, k + 0, ModBlocks.ancientBrick);
@@ -3271,7 +3271,7 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 31, j + 13, k + 30, ModBlocks.degradedBrick);
         this.setBlock(world, i + 31, j + 13, k + 31, ModBlocks.degradedBrick);
         this.setBlock(world, i + 31, j + 14, k + 0, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 31, j + 14, k + 1, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 31, j + 14, k + 1, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 31, j + 14, k + 2, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 14, k + 3, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 14, k + 4, ModBlocks.ancientBrick);
@@ -3300,7 +3300,7 @@ public class DungeonComponentDramix extends WorldGenerator {
         this.setBlock(world, i + 31, j + 14, k + 27, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 14, k + 28, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 14, k + 29, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 31, j + 14, k + 30, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 31, j + 14, k + 30, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 31, j + 14, k + 31, ModBlocks.degradedBrick);
         this.setBlock(world, i + 31, j + 15, k + 0, ModBlocks.degradedBrick);
         this.setBlock(world, i + 31, j + 15, k + 1, ModBlocks.ancientBrick);

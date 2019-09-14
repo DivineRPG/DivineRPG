@@ -502,7 +502,7 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 0, j + 15, k + 2, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 3, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 4, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 0, j + 15, k + 5, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 0, j + 15, k + 5, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 0, j + 15, k + 6, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 7, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 8, ModBlocks.degradedBrick);
@@ -523,7 +523,7 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 0, j + 15, k + 23, ModBlocks.degradedBrick);
         this.setBlock(world, i + 0, j + 15, k + 24, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 25, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 0, j + 15, k + 26, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 0, j + 15, k + 26, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 0, j + 15, k + 27, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 28, ModBlocks.ancientBrick);
         this.setBlock(world, i + 0, j + 15, k + 29, ModBlocks.ancientBrick);
@@ -868,8 +868,8 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 5, j + 13, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 5, j + 14, k + 0, ModBlocks.degradedBrick);
         this.setBlock(world, i + 5, j + 14, k + 31, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 5, j + 15, k + 0, ModBlocks.dungenLamp);
-        this.setBlock(world, i + 5, j + 15, k + 31, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 5, j + 15, k + 0, ModBlocks.dungeonLamp);
+        this.setBlock(world, i + 5, j + 15, k + 31, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 6, j + 0, k + 0, ModBlocks.ancientBrick);
         this.setBlock(world, i + 6, j + 0, k + 1, ModBlocks.ancientBrick);
         this.setBlock(world, i + 6, j + 0, k + 2, ModBlocks.ancientBrick);
@@ -1092,7 +1092,7 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 9, j + 0, k + 13, ModBlocks.ancientBrick);
         this.setBlock(world, i + 9, j + 0, k + 14, ModBlocks.soulStone);
         this.setBlock(world, i + 9, j + 0, k + 15, ModBlocks.soulStone);
-        this.setBlock(world, i + 9, j + 0, k + 16, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 9, j + 0, k + 16, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 9, j + 0, k + 17, ModBlocks.soulStone);
         this.setBlock(world, i + 9, j + 0, k + 18, ModBlocks.soulStone);
         this.setBlock(world, i + 9, j + 0, k + 19, ModBlocks.ancientBrick);
@@ -2316,8 +2316,8 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 26, j + 13, k + 31, ModBlocks.ancientBrick);
         this.setBlock(world, i + 26, j + 14, k + 0, ModBlocks.degradedBrick);
         this.setBlock(world, i + 26, j + 14, k + 31, ModBlocks.degradedBrick);
-        this.setBlock(world, i + 26, j + 15, k + 0, ModBlocks.dungenLamp);
-        this.setBlock(world, i + 26, j + 15, k + 31, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 26, j + 15, k + 0, ModBlocks.dungeonLamp);
+        this.setBlock(world, i + 26, j + 15, k + 31, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 27, j + 0, k + 0, ModBlocks.ancientBrick);
         this.setBlock(world, i + 27, j + 0, k + 1, ModBlocks.ancientBrick);
         this.setBlock(world, i + 27, j + 0, k + 2, ModBlocks.ancientBrick);
@@ -3100,7 +3100,7 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 31, j + 15, k + 2, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 3, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 4, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 31, j + 15, k + 5, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 31, j + 15, k + 5, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 31, j + 15, k + 6, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 7, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 8, ModBlocks.degradedBrick);
@@ -3121,7 +3121,7 @@ public class DungeonComponentParasecta extends WorldGenerator {
         this.setBlock(world, i + 31, j + 15, k + 23, ModBlocks.degradedBrick);
         this.setBlock(world, i + 31, j + 15, k + 24, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 25, ModBlocks.ancientBrick);
-        this.setBlock(world, i + 31, j + 15, k + 26, ModBlocks.dungenLamp);
+        this.setBlock(world, i + 31, j + 15, k + 26, ModBlocks.dungeonLamp);
         this.setBlock(world, i + 31, j + 15, k + 27, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 28, ModBlocks.ancientBrick);
         this.setBlock(world, i + 31, j + 15, k + 29, ModBlocks.ancientBrick);
