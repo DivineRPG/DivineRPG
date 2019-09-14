@@ -31,7 +31,6 @@ import divinerpg.objects.entities.container.gui.GuiJackOMan;
 import divinerpg.objects.entities.container.gui.GuiLeorna;
 import divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
 import divinerpg.objects.entities.container.gui.GuiLordVatticus;
-import divinerpg.objects.entities.container.gui.GuiTheHunger;
 import divinerpg.objects.entities.container.gui.GuiWarGeneral;
 import divinerpg.objects.entities.container.gui.GuiWorkshopMerchant;
 import divinerpg.objects.entities.container.gui.GuiWorkshopTinkerer;
@@ -98,8 +97,6 @@ public class GUIHandler implements IGuiHandler {
             return new GuiJackOMan(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == LIVESTOCK_MERCHANT_GUI_ID) {
             return new GuiLivestockMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == THE_HUNGER_GUI_ID) {
-            return new GuiTheHunger(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == PRESENT_BOX_GUI_ID) {
             return new PresentBoxGUI(player.inventory,
                     (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);

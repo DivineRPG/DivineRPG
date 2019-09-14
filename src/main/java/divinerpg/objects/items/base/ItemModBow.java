@@ -34,7 +34,6 @@ public class ItemModBow extends ItemBow  {
     protected boolean unbreakable;
     protected Item arrowAmmo = null;
     protected boolean needArrow = true;
-    private boolean vethean = false;
 
     public ItemModBow(String name, ArrowType arrowType, int uses, Item arrow) {
         this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrow);
@@ -110,8 +109,6 @@ public class ItemModBow extends ItemBow  {
         if (arrowType.getArrowSpecial() == ArrowSpecial.EXPLODE)
             tooltip.add(TooltipLocalizer.explosiveShots());
         tooltip.add(this.needArrow ? TooltipLocalizer.ammo(this.arrowAmmo) : TooltipLocalizer.infiniteAmmo());
-        if (this.vethean)
-            tooltip.add(TooltipLocalizer.vethean());
     }
 
     @Override
