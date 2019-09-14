@@ -33,7 +33,7 @@ public class Config {
     public static int apalachiaDimensionId = 422;
     public static int skythernDimensionId = 423;
     public static int mortumDimensionId = 424;
-    public static int iceikaDimensionId = 427;
+    public static int iceikaDimensionId = 7;
     public static int arcanaDimensionId = 426;
 
     private static void initGeneralConfig(Configuration cfg) {
