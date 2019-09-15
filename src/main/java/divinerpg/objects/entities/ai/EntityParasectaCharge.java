@@ -9,7 +9,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class PararsectaCharge extends EntityAIBase
+public class EntityParasectaCharge extends EntityAIBase
 {
     World world;
     protected Parasecta attacker;
@@ -29,7 +29,7 @@ public class PararsectaCharge extends EntityAIBase
     private int failedPathFindingPenalty = 0;
     private boolean canPenalize = false;
 
-    public PararsectaCharge(Parasecta creature, double speedIn, boolean useLongMemory)
+    public EntityParasectaCharge(Parasecta creature, double speedIn, boolean useLongMemory)
     {
         this.attacker = creature;
         this.world = creature.world;

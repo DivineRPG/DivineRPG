@@ -13,7 +13,6 @@ import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModRecipes;
 import divinerpg.world.WorldGenTreeGenerator;
 import divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,9 +50,6 @@ public class CommonProxy {
             config.save();
         }
         ModEntities.initMobs();
-        if (Config.genJSON) {
-            ModRecipes x = new ModRecipes();
-        }
     }
 
     public void preInit(FMLPreInitializationEvent e) {

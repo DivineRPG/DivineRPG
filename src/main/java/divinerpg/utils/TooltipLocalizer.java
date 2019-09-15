@@ -10,8 +10,8 @@ public class TooltipLocalizer {
             ARCANADAM = "tooltip.damage.arcana", DAMAGEREDUCTION = "tooltip.damage.reduction", AMMO = "tooltip.ammo",
             INFINITEAMMO = "tooltip.ammo.infinite", EXPLOSIVESHOTS = "tooltip.shots.explosive",
             HOMINGSHOTS = "tooltip.shots.homing", FULLSETPERKS = "tooltip.fullset", NOPROT = "tooltip.noprotection",
-            VETHEAN = "tooltip.vethean", EFFICIENCY = "tooltip.efficiency", CANTBLOCK = "tooltip.noblock",
-            POISON = "tooltip.effect.poisons", BURNS = "tooltip.effect.burns", SLOWS = "tooltip.effect.slows";
+            EFFICIENCY = "tooltip.efficiency", CANTBLOCK = "tooltip.noblock", POISON = "tooltip.effect.poisons",
+            BURNS = "tooltip.effect.burns", SLOWS = "tooltip.effect.slows";
 
     public static String ammo(Item ammo) {
         return I18n.translateToLocal(AMMO).replace("|item|",
@@ -119,9 +119,5 @@ public class TooltipLocalizer {
 
     public static String usesRemaining(int uses) {
         return I18n.translateToLocal(USES).replace("#", String.valueOf(uses));
-    }
-
-    public static String vethean() {
-        return Utils.GREEN + I18n.translateToLocal(VETHEAN);
     }
 }

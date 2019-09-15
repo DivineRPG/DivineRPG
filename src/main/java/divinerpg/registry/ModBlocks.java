@@ -15,7 +15,6 @@ import divinerpg.objects.blocks.arcana.*;
 import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.*;
 import divinerpg.objects.blocks.vanilla.*;
-import divinerpg.utils.GenerateJSON;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -369,7 +368,7 @@ public class ModBlocks {
     public static Block arcaniumMetal = new BlockModUnbreakable("arcanium_metal");
     public static Block arcaniteTubes = new BlockModLadder("arcanite_tubes");
     public static Block arcaniumPower = new BlockModUnbreakable("arcanium_power");
-    public static Block dungenLamp = new BlockModUnbreakable("dungeon_lamp").setLightLevel(1.0F);
+    public static Block dungeonLamp = new BlockModUnbreakable("dungeon_lamp").setLightLevel(1.0F);
     public static Block heatTrap = new BlockHeatTrap("heat_trap");
     public static Block heatTrapOn = new BlockHeatTrap("heat_trap_on");
     public static Block soulStone = new BlockModUnbreakable("soul_stone");
@@ -387,7 +386,7 @@ public class ModBlocks {
     public static Block stainedGlass6 = new BlockModGlass("stained_glass6", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass7 = new BlockModGlass("stained_glass7", 0.3F).setUnlocalizedName("stained_glass");
     public static Block stainedGlass8 = new BlockModGlass("stained_glass8", 0.3F).setUnlocalizedName("stained_glass");
-    public static Block dungenSpawnerPrisoner = new BlockArcanaSpawner("dungeon_prisoner_spawner", "dungeon_prisoner");
+    public static Block dungeonSpawnerPrisoner = new BlockArcanaSpawner("dungeon_prisoner_spawner", "dungeon_prisoner");
     public static Block razorbackSpawner = new BlockArcanaSpawner("razorback_spawner", "razorback");
     public static Block deathHoundSpawner = new BlockArcanaSpawner("death_hound_spawner", "death_hound");
     public static Block deathcryxSpawner = new BlockArcanaSpawner("deathcryx_spawner", "deathcryx");
@@ -497,13 +496,5 @@ public class ModBlocks {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         ModBlocks.AddWoodVariants();
         event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
-        if (Config.genJSON) {
-            ModBlocks.CreateJSONs();
-        }
-    }
-
-    public static void CreateJSONs() {
-        GenerateJSON.generateBlockstateJSONs();
-        GenerateJSON.generateModelBlockJSONs();
     }
 }

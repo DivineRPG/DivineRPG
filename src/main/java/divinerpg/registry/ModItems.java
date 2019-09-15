@@ -22,7 +22,6 @@ import divinerpg.objects.items.twilight.ItemTwilightClock;
 import divinerpg.objects.items.twilight.ItemTwilightSpawner;
 import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ChatFormats;
-import divinerpg.utils.GenerateJSON;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -754,9 +753,6 @@ public class ModItems {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
-        if (Config.genJSON) {
-            ModItems.CreateJSONs();
-        }
     }
 
     /**
@@ -777,9 +773,5 @@ public class ModItems {
         ((ItemModSeeds)pinflySeeds).setCrop(ModBlocks.pinfly);
         ((ItemModSeeds)aquamarineSeeds).setCrop(ModBlocks.aquamarine);
         ((ItemModSeeds)eucalyptusSeeds).setCrop(ModBlocks.eucalyptusRoot);
-    }
-
-    public static void CreateJSONs() {
-        GenerateJSON.generateItemModelJSONs();
     }
 }

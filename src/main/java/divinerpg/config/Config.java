@@ -22,7 +22,6 @@ public class Config {
     public static boolean UpdateChecker = true;
     public static boolean canShowOverlay = true;
     public static boolean debug = false;
-    public static boolean genJSON = false;
     public static int arcanaX, arcanaY;
     public static boolean generateHuts = true;
     public static boolean generateTrees = true;
@@ -34,7 +33,7 @@ public class Config {
     public static int apalachiaDimensionId = 422;
     public static int skythernDimensionId = 423;
     public static int mortumDimensionId = 424;
-    public static int iceikaDimensionId = 7;
+    public static int iceikaDimensionId = 425;
     public static int arcanaDimensionId = 426;
 
     private static void initGeneralConfig(Configuration cfg) {
@@ -66,9 +65,6 @@ public class Config {
         cfg.addCustomCategoryComment(CATEGORY_GUI, "GUI Config options");
         arcanaX = cfg.getInt("arcanaX", CATEGORY_GUI, 111, 1, 255, "Arcana gui width");
         arcanaY = cfg.getInt("arcanaY", CATEGORY_GUI, 18, 1, 255, "Arcana gui height");
-
-        genJSON = cfg.getBoolean("Generate JSON", CATEGORY_GENERAL, genJSON,
-                "Enable the generation of JSON files (blockstates, models and recipes)");
     }
 
     public static void readConfig() {

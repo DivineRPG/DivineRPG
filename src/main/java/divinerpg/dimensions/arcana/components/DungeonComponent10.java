@@ -187,8 +187,8 @@ public class DungeonComponent10 extends DungeonComponentBase {
         this.setBlock(chunk, i + 1, j + 6, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 6, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 1, j + 7, k + 0, dungeonBricks);
-        this.setBlock(chunk, i + 1, j + 7, k + 1, ModBlocks.dungenLamp);
-        this.setBlock(chunk, i + 1, j + 7, k + 14, ModBlocks.dungenLamp);
+        this.setBlock(chunk, i + 1, j + 7, k + 1, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 1, j + 7, k + 14, ModBlocks.dungeonLamp);
         this.setBlock(chunk, i + 1, j + 7, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 2, j + 0, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 2, j + 0, k + 1, dungeonBricks);
@@ -912,7 +912,7 @@ public class DungeonComponent10 extends DungeonComponentBase {
         this.setBlock(chunk, i + 14, j + 3, k + 11, ancientbricks);
         this.setBlock(chunk, i + 14, j + 3, k + 12, ancientbricks);
         this.setBlock(chunk, i + 14, j + 3, k + 13, ancientbricks);
-        this.setBlock(chunk, i + 14, j + 3, k + 14, ModBlocks.dungenLamp);
+        this.setBlock(chunk, i + 14, j + 3, k + 14, ModBlocks.dungeonLamp);
         this.setBlock(chunk, i + 14, j + 3, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 4, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 4, k + 1, heatTraps);
@@ -923,8 +923,8 @@ public class DungeonComponent10 extends DungeonComponentBase {
         this.setBlock(chunk, i + 14, j + 6, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 6, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 14, j + 7, k + 0, dungeonBricks);
-        this.setBlock(chunk, i + 14, j + 7, k + 1, ModBlocks.dungenLamp);
-        this.setBlock(chunk, i + 14, j + 7, k + 14, ModBlocks.dungenLamp);
+        this.setBlock(chunk, i + 14, j + 7, k + 1, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 14, j + 7, k + 14, ModBlocks.dungeonLamp);
         this.setBlock(chunk, i + 14, j + 7, k + 15, dungeonBricks);
         this.setBlock(chunk, i + 15, j + 0, k + 0, dungeonBricks);
         this.setBlock(chunk, i + 15, j + 0, k + 1, dungeonBricks);
