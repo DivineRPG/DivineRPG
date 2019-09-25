@@ -228,8 +228,6 @@ public class ModEntities {
                 buildProjectileEntry(EntityAttractor.class, "attractor"),
                 buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
                 buildProjectileEntry(EntityMeteor.class, "meteor"), buildProjectileEntry(EntityStar.class, "star"),
-                buildProjectileEntry(EntityBouncingProjectile.class, "bouncing"),
-                buildProjectileEntry(EntityEvernightProjectile.class, "evernight"),
                 buildProjectileEntry(EntityLamona.class, "lamona"),
                 buildProjectileEntry(EntityFirefly.class, "firefly"),
                 buildProjectileEntry(EntityReflector.class, "reflector"),
@@ -249,7 +247,6 @@ public class ModEntities {
 
         // Projectiles
         registerRender(EntityAttractor.class, manager -> new RenderAttractor(manager));
-        registerRender(EntityBouncingProjectile.class, manager -> new RenderBouncingProjectile(manager));
         registerRender(EntityCaveRock.class, manager -> new RenderCaveRock(manager, 1f));
         registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
         registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));
@@ -280,7 +277,6 @@ public class ModEntities {
         registerRender(EntityVileStorm.class, manager -> new RenderVileStorm(manager, 1f));
         registerRender(EntityWatcherShot.class, manager -> new RenderWatcherShot(manager, 1f));
 
-        // registerRender(EntityEvernightProjectile.class, manager -> new RenderEvernightProjectile(manager));
         registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
 
         // Vanilla
