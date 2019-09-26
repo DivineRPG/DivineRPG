@@ -122,15 +122,15 @@ public class ArmorTickEvent {
         ARMOR_HANDLERS.removePlayer(event.player);
     }
 
-    /**
-     * Remove player from observing
-     *
-     * @param event
-     */
-    @SubscribeEvent
-    public void onPlayerJoined(PlayerEvent.PlayerLoggedInEvent event) {
-        ARMOR_HANDLERS.addPlayer(event.player);
-    }
+//    /**
+//     * Remove player from observing
+//     *
+//     * @param event
+//     */
+//    @SubscribeEvent
+//    public void onPlayerJoined(PlayerEvent.PlayerLoggedInEvent event) {
+//        ARMOR_HANDLERS.addPlayer(event.player);
+//    }
 
     private EntityPlayer getPlayer(LivingEvent e, DamageSource source) {
         if (source.getTrueSource() instanceof EntityPlayer)

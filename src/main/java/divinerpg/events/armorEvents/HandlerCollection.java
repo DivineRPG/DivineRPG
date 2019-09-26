@@ -24,7 +24,13 @@ public class HandlerCollection implements IFullArmorRegistry {
     private final Map<UUID, PlayerHandlers> all_players = new HashMap<>();
 
     public PlayerHandlers getPlayerHandler(EntityPlayer player) {
-        return all_players.get(player.getUniqueID());
+        // HOTFIX
+        UUID uuid = player.getUniqueID();
+        if (!all_players.containsKey(uuid)){
+            addPlayer(player);
+        }
+
+        return all_players.get(uuid);
     }
 
     /**
