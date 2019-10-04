@@ -72,6 +72,7 @@ public class DivineRPG {
         if (Loader.isModLoaded("projecte")) {
             ProjectECompat.init();
         }
+        ModSpawns.initSpawns();
     }
 
     /** For Registering Commands */
