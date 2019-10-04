@@ -10,8 +10,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
-import static divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
-
 public class MessageArcanaBar implements IMessage {
 
 	private int delay;
