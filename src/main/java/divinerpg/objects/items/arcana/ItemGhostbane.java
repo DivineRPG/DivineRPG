@@ -27,13 +27,13 @@ public class ItemGhostbane extends ItemMod {
     }
 
     @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World w, BlockPos pos, EnumHand hand, EnumFacing facing,
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
             float hitX, float hitY, float hitZ) {
-        Wraith wraith = new Wraith(w, player);
         IArcana arcana = DivineAPI.getArcana(player);
-        if (!w.isRemote && arcana.getArcana() >= 200) {
+        if (!world.isRemote && arcana.getArcana() >= 200) {
+            Wraith wraith = new Wraith(world, player);
             wraith.setLocationAndAngles(pos.getX(), pos.getY() + 1, pos.getZ(), 0.0F, 0.0F);
-            w.spawnEntity(wraith);
+            world.spawnEntity(wraith);
             arcana.consume(player, 200);
             return EnumActionResult.PASS;
         }

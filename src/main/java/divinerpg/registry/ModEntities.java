@@ -33,10 +33,8 @@ import static divinerpg.utils.SpawnEggColors.Dimension.*;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ModEntities {
-
-    public static int projectileID = 0;
-    public static int mobID = 500;
-
+	private static int mobID = 500;
+	private static int projectileID = 0;
     @SubscribeEvent
     public static void registerEnities(RegistryEvent.Register<EntityEntry> event) {
         IForgeRegistry<EntityEntry> registry = event.getRegistry();
@@ -45,9 +43,8 @@ public class ModEntities {
         registry.registerAll(initMobs());
     }
 
-    public static EntityEntry buildEntityEntry(Class entityClass, String entityID, SpawnEggColors.Dimension dimension) {
+    public static EntityEntry buildEntityEntry(Class entityClass, String entityID, SpawnEggColors.Dimension dimension) { 
         SpawnEggColors colors = SpawnEggColors.getColorsForDimension(dimension);
-
         return EntityEntryBuilder.create().entity(entityClass)
                 .id(new ResourceLocation(Reference.MODID, entityID), mobID++).name(Reference.MODID + "." + entityID).tracker(128, 3, true)
                 .egg(colors.getPrimaryColor(), colors.getSecondaryColor()).build();

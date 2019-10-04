@@ -1,32 +1,111 @@
 package divinerpg.objects.entities.entity.arcana;
 
+import javax.annotation.Nullable;
+
+import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.ModSounds;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Wraith extends Paratiku {
-    private int age;
+public class Wraith extends EntityDivineRPGTameable {
+    private BlockPos spawnPosition;
     private BlockPos currentFlightTarget;
-
+    private int age;
     public Wraith(World world) {
         super(world);
+        this.setSize(0.9F, 1.4F);
         this.age = 120;
     }
 
-    public Wraith(World par1World, EntityPlayer owner) {
-        super(par1World);
-        this.age = 120;
+    public Wraith(World world, EntityPlayer owner) {
+        this(world);
+        setTamedBy(owner);this.age = 120;
         this.setTamed(true);
         this.setOwnerId(owner.getUniqueID());
     }
 
     @Override
     public float getEyeHeight() {
-        return 1.15F;
+        return 1.5F;
+    }
+
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        int damage = 9;
+
+        if (this.isPotionActive(MobEffects.STRENGTH)) {
+            damage += 3 << this.getActivePotionEffect(MobEffects.STRENGTH).getAmplifier();
+        }
+        if (this.isPotionActive(MobEffects.WEAKNESS)) {
+            damage -= 2 << this.getActivePotionEffect(MobEffects.WEAKNESS).getAmplifier();
+        }
+
+        int knockback = 0;
+        if (entity instanceof EntityLiving) {
+            damage += EnchantmentHelper.getEfficiencyModifier((EntityLiving) entity);
+            knockback += EnchantmentHelper.getKnockbackModifier((EntityLiving) entity);
+        }
+
+        boolean attacked = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+        if (attacked) {
+            if (knockback > 0) {
+                entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * knockback * 0.5F,
+                        0.1D, MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F) * knockback * 0.5F);
+                this.motionX *= 0.6D;
+                this.motionZ *= 0.6D;
+            }
+
+            int fire = EnchantmentHelper.getFireAspectModifier(this);
+            if (fire > 0) {
+                entity.setFire(fire * 4);
+            }
+        }
+
+        return attacked;
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        if (this.getOwnerId() == null) {
+            compound.setString("Owner", "");
+        } else {
+            compound.setString("Owner", this.getOwnerId().toString());
+        }
+        compound.setBoolean("Sitting", this.isSitting());
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
+    }
+
+    @Override
+    protected void entityInit() {
+        super.entityInit();
     }
 
     @Override
@@ -39,13 +118,14 @@ public class Wraith extends Paratiku {
         return super.getSoundPitch() * 0.95F;
     }
 
+    @Nullable
     @Override
     public SoundEvent getAmbientSound() {
         return this.getIsBatHanging() && this.rand.nextInt(4) != 0 ? null : ModSounds.WRAITH;
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource s) {
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         return ModSounds.WRAITH_HURT;
     }
 
@@ -60,19 +140,28 @@ public class Wraith extends Paratiku {
     }
 
     @Override
+    protected void collideWithEntity(Entity entityIn) {
+    }
+
+    @Override
+    protected void collideWithNearbyEntities() {
+    }
+
+    public boolean getIsBatHanging() {
+        return false;
+    }
+
+    @Override
     public void onUpdate() {
         super.onUpdate();
 
         if (this.getIsBatHanging()) {
-            this.motionX = this.motionY = this.motionZ = 0.0D;
-            this.posY = MathHelper.floor(this.posY) + 1.0D - this.height;
+            this.motionX = 0.0D;
+            this.motionY = 0.0D;
+            this.motionZ = 0.0D;
+            this.posY = (double) MathHelper.floor(this.posY) + 1.0D - (double) this.height;
         } else {
             this.motionY *= 0.6000000238418579D;
-        }
-
-        this.age--;
-        if (this.age == 0) {
-            this.setDead();
         }
     }
 
@@ -81,10 +170,10 @@ public class Wraith extends Paratiku {
         super.updateAITasks();
 
         if (this.getAttackTarget() != null) {
-            int var1 = (int) this.getAttackTarget().posX;
-            int var2 = (int) this.getAttackTarget().posY;
-            int var3 = (int) this.getAttackTarget().posZ;
-            this.currentFlightTarget = new BlockPos(var1, var2, var3);
+            int x = (int) this.getAttackTarget().posX;
+            int y = (int) this.getAttackTarget().posY;
+            int z = (int) this.getAttackTarget().posZ;
+            this.currentFlightTarget = new BlockPos(x, y, z);
         } else if (this.getOwner() != null) {
             this.currentFlightTarget = this.world.getPlayerEntityByName(this.getOwner().getName()).getPosition();
         }
@@ -94,7 +183,6 @@ public class Wraith extends Paratiku {
                     .getBlockState(
                             new BlockPos(MathHelper.floor(this.posX), (int) this.posY + 1, MathHelper.floor(this.posZ)))
                     .isNormalCube()) {
-                this.setIsBatHanging(false);
                 this.world.playEvent((EntityPlayer) null, 1025,
                         new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
             } else {
@@ -103,7 +191,6 @@ public class Wraith extends Paratiku {
                 }
 
                 if (this.world.getClosestPlayerToEntity(this, 4.0D) != null) {
-                    this.setIsBatHanging(false);
                     this.world.playEvent((EntityPlayer) null, 1025,
                             new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
                 }
@@ -125,5 +212,36 @@ public class Wraith extends Paratiku {
                 }
             }
         }
+    }
+
+    @Override
+    protected boolean canTriggerWalking() {
+        return false;
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier) {
+    }
+
+    @Override
+    protected void updateFallState(double y, boolean onGroundIn, IBlockState state, BlockPos pos) {
+    }
+
+    @Override
+    public boolean doesEntityNotTriggerPressurePlate() {
+        return true;
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        if (this.isEntityInvulnerable(source)) {
+            return false;
+        }
+        	return super.attackEntityFrom(source, amount);
+    }
+
+    @Override
+    public EntityAgeable createChild(EntityAgeable ageable) {
+        return null;
     }
 }
