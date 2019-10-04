@@ -14,6 +14,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityEnderTripletsFireball extends EntityFireball {
 
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityEnderTripletsFireball.class,
+                manager -> new RenderEnderTripletsFireball(manager, 1f));
+    }
+
     public EntityEnderTripletsFireball(World world, EntityLivingBase entity, double i, double j, double k) {
         super(world, entity, i, j, k);
     }

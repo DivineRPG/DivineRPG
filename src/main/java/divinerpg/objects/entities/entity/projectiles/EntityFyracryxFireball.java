@@ -12,6 +12,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFyracryxFireball extends EntitySmallFireball {
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityFyracryxFireball.class,
+                manager -> new RenderFyracryxFireball(manager));
+    }
 
     public EntityFyracryxFireball(World worldIn) {
         super(worldIn);

@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.vanilla;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;

@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.ModBlocks;

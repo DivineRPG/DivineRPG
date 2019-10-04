@@ -1,11 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.arcana.Wraith;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
@@ -20,6 +16,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemGhostbane extends ItemMod {
 
     public ItemGhostbane() {
@@ -31,7 +30,7 @@ public class ItemGhostbane extends ItemMod {
     public EnumActionResult onItemUse(EntityPlayer player, World w, BlockPos pos, EnumHand hand, EnumFacing facing,
             float hitX, float hitY, float hitZ) {
         Wraith wraith = new Wraith(w, player);
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        IArcana arcana = DivineAPI.getArcana(player);
         if (!w.isRemote && arcana.getArcana() >= 200) {
             wraith.setLocationAndAngles(pos.getX(), pos.getY() + 1, pos.getZ(), 0.0F, 0.0F);
             w.spawnEntity(wraith);

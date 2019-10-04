@@ -1,7 +1,8 @@
 package divinerpg.events;
 
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
+import divinerpg.client.ArcanaRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
@@ -9,50 +10,55 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ArcanaTickHandler {
-    IArcana arcana;
-
     @SubscribeEvent
     public void onTick(PlayerTickEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
         if (event.phase == Phase.START) {
-            // onTickStart(event.player);
-        } else {
-            onTickEnd(event.player);
+            DivineAPI.getArcana(event.player).regen(event.player);
         }
-    }
-
-    private void onTickEnd(EntityPlayer player) {
-        arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.regen(player);
-    }
-
-    private void onTickStart(EntityPlayer player) {
-        arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
     }
 
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(arcana.getMaxArcana());
+        refillArcana(event.player);
     }
 
     @SubscribeEvent
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(0);
+        drainArcana(event.player);
     }
 
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(arcana.getMaxArcana());
+        refillArcana(event.player);
     }
 
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        arcana.set(arcana.getMaxArcana());
-
+        refillArcana(event.player);
         event.player.addExperienceLevel(0);
+    }
+
+    /**
+     * Drain all players arcana
+     *
+     * @param player - current player
+     */
+    private void drainArcana(EntityPlayer player) {
+        IArcana arcana = DivineAPI.getArcana(player);
+        arcana.consume(player, arcana.getArcana());
+    }
+
+    /**
+     * Restore all player arcana
+     *
+     * @param player - current player
+     */
+    private void refillArcana(EntityPlayer player) {
+        IArcana arcana = DivineAPI.getArcana(player);
+        arcana.fill(player, arcana.getMaxArcana());
+
+        if (!player.isServerWorld()) {
+            ArcanaRenderer.percantage = 100 * (arcana.getArcana() / arcana.getMaxArcana());
+        }
     }
 }

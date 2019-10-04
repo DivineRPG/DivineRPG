@@ -25,10 +25,9 @@ public class BlockModDirt extends BlockMod {
      * @param mapColorIn the map color to set
      */
     private void setMapColor(MapColor mapColorIn) {
-        if(mapColorIn == null) {
+        if (mapColorIn == null) {
             this.mapColor = Material.GROUND.getMaterialMapColor();
-        }
-        else {
+        } else {
             this.mapColor = mapColorIn;
         }
     }
@@ -36,9 +35,9 @@ public class BlockModDirt extends BlockMod {
     /**
      * Tells maps to use the map color we set.
      *
-     * @param state the blockstate
+     * @param state   the blockstate
      * @param worldIn the world
-     * @param pos the block position
+     * @param pos     the block position
      * @return the map color
      */
     @Override

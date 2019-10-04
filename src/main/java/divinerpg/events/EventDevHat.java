@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.ModelHat;
 import divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;

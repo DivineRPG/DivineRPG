@@ -1,16 +1,18 @@
 package divinerpg.proxy;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.Arcana;
 import divinerpg.capabilities.CapabilityArcana;
 import divinerpg.capabilities.CapabilityHandler;
-import divinerpg.capabilities.IArcana;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
 import divinerpg.objects.blocks.tile.entity.*;
-import divinerpg.registry.*;
+import divinerpg.registry.ModDimensions;
+import divinerpg.registry.ModEntities;
+import divinerpg.registry.ModItems;
 import divinerpg.world.WorldGenTreeGenerator;
 import divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
@@ -47,7 +49,7 @@ public class CommonProxy {
         if (config.hasChanged()) {
             config.save();
         }
-        ModSpawns.addSpawns();
+        ModEntities.initMobs();
     }
 
     public void preInit(FMLPreInitializationEvent e) {
@@ -58,7 +60,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new Ticker());
 
         File directory = e.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), "DivineRPG/" + Reference.MODID + ".cfg"));
+        config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
         Config.readConfig();
     }
 
@@ -99,6 +101,8 @@ public class CommonProxy {
             boolean shortLived) {
     }
 
+    @Deprecated()
+    // We are using packets to update arcana bars
     public void updateClientArcana(float amount) {
     }
 

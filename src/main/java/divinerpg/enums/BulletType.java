@@ -1,8 +1,8 @@
 package divinerpg.enums;
 
-import java.awt.Color;
-
 import net.minecraft.util.ResourceLocation;
+
+import java.awt.*;
 
 public enum BulletType {
     NONE(0, null),

@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Sets;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;

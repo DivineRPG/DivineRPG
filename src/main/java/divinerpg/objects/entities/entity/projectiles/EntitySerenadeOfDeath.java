@@ -15,6 +15,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySerenadeOfDeath extends EntityThrowable {
 
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntitySerenadeOfDeath.class,
+                manager -> new RenderSerenadeOfDeath(manager, 1f));
+    }
 
     public EntitySerenadeOfDeath(World var1) {
         super(var1);

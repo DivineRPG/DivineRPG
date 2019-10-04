@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.twilight.Epiphite;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.Entity;

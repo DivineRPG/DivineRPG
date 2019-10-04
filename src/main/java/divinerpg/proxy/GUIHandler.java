@@ -1,46 +1,19 @@
 package divinerpg.proxy;
 
-import javax.annotation.Nullable;
-
 import divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruption;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import divinerpg.objects.blocks.tile.container.ContainerModFurnace;
-import divinerpg.objects.blocks.tile.container.gui.AltarOfCorruptionGUI;
-import divinerpg.objects.blocks.tile.container.gui.ArcaniumExtractorGUI;
-import divinerpg.objects.blocks.tile.container.gui.BoneChestGUI;
-import divinerpg.objects.blocks.tile.container.gui.CoalstoneFurnaceGUI;
-import divinerpg.objects.blocks.tile.container.gui.DemonFurnaceGUI;
-import divinerpg.objects.blocks.tile.container.gui.EdenChestGUI;
-import divinerpg.objects.blocks.tile.container.gui.FrostedChestGUI;
-import divinerpg.objects.blocks.tile.container.gui.GreenlightFurnaceGUI;
-import divinerpg.objects.blocks.tile.container.gui.MoltenFurnaceGUI;
-import divinerpg.objects.blocks.tile.container.gui.MoonlightFurnaceGUI;
-import divinerpg.objects.blocks.tile.container.gui.OceanfireFurnaceGUI;
-import divinerpg.objects.blocks.tile.container.gui.PresentBoxGUI;
-import divinerpg.objects.blocks.tile.container.gui.WhitefireFurnaceGUI;
-import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
-import divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityModChest;
-import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
-import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
-import divinerpg.objects.entities.container.gui.GuiCaptainMerik;
-import divinerpg.objects.entities.container.gui.GuiDatticon;
-import divinerpg.objects.entities.container.gui.GuiJackOMan;
-import divinerpg.objects.entities.container.gui.GuiLeorna;
-import divinerpg.objects.entities.container.gui.GuiLivestockMerchant;
-import divinerpg.objects.entities.container.gui.GuiLordVatticus;
-import divinerpg.objects.entities.container.gui.GuiWarGeneral;
-import divinerpg.objects.entities.container.gui.GuiWorkshopMerchant;
-import divinerpg.objects.entities.container.gui.GuiWorkshopTinkerer;
-import divinerpg.objects.entities.container.gui.GuiZelus;
+import divinerpg.objects.blocks.tile.container.gui.*;
+import divinerpg.objects.blocks.tile.entity.*;
+import divinerpg.objects.entities.container.gui.*;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerMerchant;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+
+import javax.annotation.Nullable;
 
 public class GUIHandler implements IGuiHandler {
     public static final int COALSTONE_FURNACE_GUI_ID = 0;

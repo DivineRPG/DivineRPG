@@ -1,16 +1,11 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,6 +21,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
@@ -52,7 +50,7 @@ public class ItemMeriksMissile extends ItemMod {
         if (stack.getItem() == ModItems.meriksMissile && entityLiving instanceof EntityPlayer) {
             float charge = (float) (MAX_USE_DURATION - timeLeft) / 20.0F;
             EntityPlayer player = (EntityPlayer) entityLiving;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = DivineAPI.getArcana(player);
 
             if (charge > 1.0) {
                 charge = 1.0F;

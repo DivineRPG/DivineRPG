@@ -1,7 +1,7 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.objects.entities.assets.render.arcana.*;
 import divinerpg.objects.entities.assets.render.iceika.*;
@@ -17,10 +17,7 @@ import divinerpg.objects.entities.entity.vanilla.*;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -28,8 +25,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -418,9 +413,9 @@ public class ModEntities {
      * Private helper method that simply calls the rendering registry method.
      * No functional benefit, exists solely to make rendering registry code section less of an eyesore.
      *
-     * @param entityClass the entity class of type T
+     * @param entityClass   the entity class of type T
      * @param renderFactory a render factory for the entity
-     * @param <T> generic class to ensure it extends entity
+     * @param <T>           generic class to ensure it extends entity
      */
     private static <T extends Entity> void registerRender(Class<T> entityClass, IRenderFactory<? super T> renderFactory) {
         RenderingRegistry.registerEntityRenderingHandler(entityClass, renderFactory);

@@ -1,11 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipHelper;
@@ -20,6 +16,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemShadowSaber extends ItemModSword {
 
     public ItemShadowSaber(String name, ToolMaterial mat) {
@@ -32,7 +31,7 @@ public class ItemShadowSaber extends ItemModSword {
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase hitter) {
         if (hitter instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) hitter;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+            IArcana arcana = DivineAPI.getArcana(player);
             if (arcana.getArcana() >= 12) {
                 player.playSound(ModSounds.SHADOW_SABER, 1, 1);
                 player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));

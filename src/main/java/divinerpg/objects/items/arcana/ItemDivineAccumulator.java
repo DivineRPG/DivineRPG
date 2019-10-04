@@ -1,12 +1,8 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.DivineRPG;
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.networking.message.MessageDivineAccumulator;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
@@ -24,6 +20,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemDivineAccumulator extends ItemMod {
 
     public ItemDivineAccumulator() {
@@ -39,13 +38,16 @@ public class ItemDivineAccumulator extends ItemMod {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         int x = (int) player.posX, y = (int) player.posY, z = (int) player.posZ;
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
-        if (!world.isRemote && arcana.getArcana() >= 80) {
-            DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
-            world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
-            arcana.consume(player, 80);
+        IArcana arcana = DivineAPI.getArcana(player);
+        if (arcana.getArcana() >= 80) {
+            if (!world.isRemote) {
+                DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
+                world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
+                arcana.consume(player, 80);
+            }
+            player.motionY = 2;
         }
-        player.motionY = 2;
+
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
     }
 

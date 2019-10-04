@@ -13,6 +13,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySaguaroWormShot extends EntityThrowable {
 
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntitySaguaroWormShot.class,
+                manager -> new RenderSaguaroWormShot(manager));
+    }
+
     public EntitySaguaroWormShot(World var1) {
         super(var1);
     }

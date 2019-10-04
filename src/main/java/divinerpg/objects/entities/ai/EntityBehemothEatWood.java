@@ -13,10 +13,10 @@ import net.minecraft.util.math.BlockPos;
 public class EntityBehemothEatWood extends EntityAIBase {
 
     private final Behemoth behemoth;
+    private final float speed = 2.0F;
     private Path foodPath;
     private PathNavigate foodPathNavigator;
     private BlockPos target;
-    private final float speed = 2.0F;
 
     public EntityBehemothEatWood(Behemoth behemoth) {
         this.behemoth = behemoth;
@@ -26,7 +26,7 @@ public class EntityBehemothEatWood extends EntityAIBase {
 
     @Override
     public boolean shouldExecute() {
-        if(this.behemoth.getHealth() > this.behemoth.getMaxHealth() * 0.5) {
+        if (this.behemoth.getHealth() > this.behemoth.getMaxHealth() * 0.5) {
             return false;
         }
 
@@ -45,7 +45,7 @@ public class EntityBehemothEatWood extends EntityAIBase {
 
                     if (isEdible) {
                         double distance = behemothPosition.getDistance(x2, y2, z2);
-                        if(distance < minDistance) {
+                        if (distance < minDistance) {
                             minDistance = distance;
                             minDistanceWoodPos = candidate;
                         }
@@ -54,12 +54,11 @@ public class EntityBehemothEatWood extends EntityAIBase {
             }
         }
 
-        if(minDistanceWoodPos != null) {
+        if (minDistanceWoodPos != null) {
             this.target = minDistanceWoodPos;
             this.foodPath = this.foodPathNavigator.getPathToPos(target);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -71,11 +70,10 @@ public class EntityBehemothEatWood extends EntityAIBase {
 
     @Override
     public void updateTask() {
-        if(this.behemoth.getDistance(target.getX(), target.getY(), target.getZ()) > 2) {
+        if (this.behemoth.getDistance(target.getX(), target.getY(), target.getZ()) > 2) {
             this.foodPath = this.foodPathNavigator.getPathToPos(target);
             this.foodPathNavigator.setPath(this.foodPath, this.speed);
-        }
-        else {
+        } else {
             this.behemoth.heal(10F);
             this.behemoth.world.destroyBlock(this.target, false);
             this.behemoth.world.playSound(null, this.target, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.HOSTILE, 1.0F, 1.0F);
@@ -93,14 +91,11 @@ public class EntityBehemothEatWood extends EntityAIBase {
     public boolean shouldContinueExecuting() {
         if (this.target == null) {
             return false;
-        }
-        else {
+        } else {
             IBlockState targetState = behemoth.world.getBlockState(target);
             return isBlockEdible(targetState, target);
         }
     }
-
-
 
 
     private boolean isBlockEdible(IBlockState state, BlockPos pos) {

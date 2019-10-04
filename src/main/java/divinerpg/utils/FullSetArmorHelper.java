@@ -1,5 +1,6 @@
 package divinerpg.utils;
 
+import divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -24,6 +25,13 @@ public class FullSetArmorHelper {
         }
     }
 
+    public boolean isEquipped(FullArmorHandler handler) {
+
+        return isFullEquipped()
+                && handler != null
+                && handler.armorVariants.stream().anyMatch(armorSetVariant -> armorSetVariant.isEquipped(helmet, body, legs, boots));
+    }
+
     private Item getItem(ItemStack stack){
         if (stack != null){
             return stack.getItem();
@@ -31,8 +39,6 @@ public class FullSetArmorHelper {
 
         return null;
     }
-
-
 
     public boolean isFullEquipped(){
         return body != null
@@ -116,25 +122,11 @@ public class FullSetArmorHelper {
                 && helmet == ModItems.wildwoodHelmet;
     }
 
-    public boolean isDivine(){
-        return boots == ModItems.divineBoots
-                && body == ModItems.divineBody
-                && legs == ModItems.divineLegs
-                && helmet == ModItems.divineHelmet;
-    }
-
     public boolean isEliteRealmite(){
         return boots == ModItems.eliteRealmiteBoots
                 && body == ModItems.eliteRealmiteBody
                 && legs == ModItems.eliteRealmiteLegs
                 && helmet == ModItems.eliteRealmiteHelmet;
-    }
-
-    public boolean isAngelic(){
-        return boots == ModItems.angelicBoots
-                && body == ModItems.angelicBody
-                && legs == ModItems.angelicLegs
-                && helmet == ModItems.angelicHelmet;
     }
 
     public boolean isAquastrive(){

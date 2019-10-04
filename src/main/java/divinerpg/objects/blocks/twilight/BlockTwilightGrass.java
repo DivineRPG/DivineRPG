@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.twilight;
 
 import java.util.Random;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;

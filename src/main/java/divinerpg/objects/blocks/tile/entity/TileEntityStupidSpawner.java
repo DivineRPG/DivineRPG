@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.tile.entity;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;

@@ -1,11 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.capabilities.ArcanaProvider;
-import divinerpg.capabilities.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipLocalizer;
@@ -17,6 +13,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemArcaniumSaber extends ItemModSword {
 
     public ItemArcaniumSaber(String name, ToolMaterial var2) {
@@ -27,7 +26,7 @@ public class ItemArcaniumSaber extends ItemModSword {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP, null);
+        IArcana arcana = DivineAPI.getArcana(player);
         if (arcana.getArcana() < 12) {
             return false;
         } else {

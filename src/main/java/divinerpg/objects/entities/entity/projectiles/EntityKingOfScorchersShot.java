@@ -24,6 +24,12 @@ public class EntityKingOfScorchersShot extends EntityThrowable {
         super(par1World, par2, par4, par6);
     }
 
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityKingOfScorchersShot.class,
+                manager -> new RenderKingofScorchersShot(manager, 1f));
+    }
+
     @Override
     public float getGravityVelocity() {
         return 0;

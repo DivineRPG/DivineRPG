@@ -1,7 +1,7 @@
 package divinerpg.events;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
@@ -51,7 +51,7 @@ public class EventClientLogin {
             // after all tasks print version detect
             version.thenCombineAsync(onlineStatus, (currentVersion, isOnline) -> {
                 printVersionStatus(player, currentVersion, isOnline);
-                // need to return value
+                // need to return percantage
                 return true;
             });
         }

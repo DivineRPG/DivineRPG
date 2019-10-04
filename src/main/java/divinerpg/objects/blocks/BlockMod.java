@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;

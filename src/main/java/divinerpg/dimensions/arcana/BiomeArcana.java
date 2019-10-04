@@ -2,7 +2,7 @@ package divinerpg.dimensions.arcana;
 
 import java.util.Random;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;

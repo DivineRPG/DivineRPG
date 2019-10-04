@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockContainer;

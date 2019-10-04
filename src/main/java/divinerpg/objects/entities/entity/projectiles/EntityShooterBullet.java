@@ -37,6 +37,12 @@ public class EntityShooterBullet extends EntityThrowable {
         dataManager.register(BULLET_ID, (byte) 0);
     }
 
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityShooterBullet.class,
+                manager -> new RenderShooterBullet(manager));
+    }
+
     @Override
     public void onImpact(RayTraceResult result) {
         if (result.entityHit != null) {

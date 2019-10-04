@@ -1,6 +1,5 @@
 package divinerpg.client;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
@@ -14,7 +13,7 @@ public class ClientTicker {
         if (evt.phase == Phase.END) {
             tick++;
             if (guiTick > 0) guiTick--;
-            if (ArcanaRenderer.regen && ArcanaRenderer.value < 200 && Minecraft.getMinecraft().currentScreen == null) ArcanaRenderer.value++;
+            //if (ArcanaRenderer.regen && ArcanaRenderer.value < 200 && Minecraft.getMinecraft().currentScreen == null) ArcanaRenderer.value++;
         }
 
     }

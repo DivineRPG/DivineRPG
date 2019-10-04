@@ -12,6 +12,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityWatcherShot extends EntityThrowable {
 
+    @SideOnly(Side.CLIENT)
+    public static void renderMe() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityWatcherShot.class,
+                manager -> new RenderWatcherShot(manager, 1f));
+    }
+
     public EntityWatcherShot(World var1) {
         super(var1);
     }

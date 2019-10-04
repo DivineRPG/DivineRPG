@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;

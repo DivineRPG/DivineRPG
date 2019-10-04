@@ -3,7 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;

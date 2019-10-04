@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-version = "1.12.2.0.22"
+version = "1.12.2.0.21"
 group = "naturix.divinerpg" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "divinerpg"
 
@@ -52,5 +52,17 @@ processResources {
 	
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+sourceSets {
+    api
+    main {
+        compileClasspath += sourceSets.api.output
+        runtimeClasspath += sourceSets.api.output
+    }
+    test {
+        compileClasspath += sourceSets.api.output
+        runtimeClasspath += sourceSets.api.output
     }
 }

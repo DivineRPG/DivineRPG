@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;

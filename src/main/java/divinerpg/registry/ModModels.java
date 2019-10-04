@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.Reference;
+import divinerpg.api.Reference;
 import divinerpg.client.render.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

@@ -3,6 +3,8 @@ package divinerpg.utils;
 import divinerpg.config.Config;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -12,6 +14,15 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
  * /27/2019
  */
 public interface IStructure {
-    WorldServer worldServer = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(Config.iceikaDimensionId);
-    PlacementSettings settings = (new PlacementSettings()).setChunk(null).setIgnoreEntities(false).setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
+    /**
+     * Getting current world server
+     * @param world - world in current dimention
+     */
+    WorldServer getWorldServer(World world);
+
+    /**
+     * Default preset of placement settings
+     * @param pos - template pos
+     */
+    PlacementSettings getSettings(BlockPos pos);
 }
