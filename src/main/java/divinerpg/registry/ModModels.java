@@ -1,7 +1,15 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
-import divinerpg.client.render.*;
+import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.client.render.RenderItemArcaniumExtractor;
+import divinerpg.client.render.RenderItemBoneChest;
+import divinerpg.client.render.RenderItemDemonFurnace;
+import divinerpg.client.render.RenderItemDramixAltar;
+import divinerpg.client.render.RenderItemEdenChest;
+import divinerpg.client.render.RenderItemFrostedChest;
+import divinerpg.client.render.RenderItemParasectaAltar;
+import divinerpg.client.render.RenderItemPresentBox;
+import divinerpg.client.render.RenderItemStatue;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;

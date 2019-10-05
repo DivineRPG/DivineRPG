@@ -1,6 +1,8 @@
 package divinerpg.objects.blocks.twilight;
 
-import divinerpg.api.Reference;
+import java.util.Random;
+
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -24,8 +26,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
-
-import java.util.Random;
 
 public class BlockModDoublePlant extends BlockBush
         implements IPlantable, net.minecraftforge.common.IShearable {

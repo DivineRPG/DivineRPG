@@ -1,8 +1,15 @@
 package divinerpg.events.armorEvents;
 
+import static divinerpg.registry.ModArmorEvents.ARMOR_HANDLERS;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
 import divinerpg.DivineRPG;
-import divinerpg.api.events.ArmorChangedEvent;
-import divinerpg.api.events.IsEquppedEvent;
+import divinerpg.api.java.divinerpg.api.events.ArmorChangedEvent;
+import divinerpg.api.java.divinerpg.api.events.IsEquppedEvent;
 import divinerpg.networking.message.EquipmentChangeMessage;
 import divinerpg.utils.FullSetArmorHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +21,16 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.brewing.PlayerBrewedPotionEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
-import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.entity.player.*;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDestroyBlockEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.entity.player.CriticalHitEvent;
+import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -24,13 +39,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
-import static divinerpg.registry.ModArmorEvents.ARMOR_HANDLERS;
 
 public class ArmorTickEvent {
     /**

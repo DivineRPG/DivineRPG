@@ -3,7 +3,7 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;

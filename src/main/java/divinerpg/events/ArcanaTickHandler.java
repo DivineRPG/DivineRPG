@@ -1,7 +1,7 @@
 package divinerpg.events;
 
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.client.ArcanaRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

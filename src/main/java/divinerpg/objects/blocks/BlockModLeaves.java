@@ -2,7 +2,9 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
-import divinerpg.api.Reference;
+import javax.annotation.Nonnull;
+
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -25,8 +27,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nonnull;
 
 public class BlockModLeaves extends BlockLeaves implements IShearable {
     private Block sapling;

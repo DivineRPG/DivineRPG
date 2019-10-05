@@ -1,15 +1,36 @@
 package divinerpg.proxy;
 
+import java.awt.Color;
+import java.io.File;
+
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
-import divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.capabilities.Arcana;
 import divinerpg.capabilities.CapabilityArcana;
 import divinerpg.capabilities.CapabilityHandler;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
-import divinerpg.objects.blocks.tile.entity.*;
+import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
+import divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
+import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
+import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
+import divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityCoalstoneFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
+import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityGreenlightFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityMoltenFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityMoonlightFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityOceanfireFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
+import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
+import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
+import divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
+import divinerpg.objects.blocks.tile.entity.TileEntityWhitefireFurnace;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
@@ -26,9 +47,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import java.awt.*;
-import java.io.File;
 
 public class CommonProxy {
     public static Configuration config;

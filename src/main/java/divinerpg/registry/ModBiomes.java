@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.dimensions.apalachia.BiomeApalachia;
 import divinerpg.dimensions.arcana.BiomeArcana;
 import divinerpg.dimensions.eden.BiomeEden;

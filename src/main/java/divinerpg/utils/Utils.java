@@ -1,6 +1,21 @@
 package divinerpg.utils;
 
-import divinerpg.api.Reference;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.io.IOUtils;
+
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.objects.entities.assets.render.RenderHat;
 import divinerpg.registry.ModBlocks;
@@ -19,16 +34,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLLog;
-import org.apache.commons.io.IOUtils;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.*;
 
 public class Utils {
     public static int mobID = 500, projectileID = 0, entityListID = 2500;

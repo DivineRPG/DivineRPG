@@ -1,8 +1,12 @@
 package divinerpg.objects.items.arcana;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import divinerpg.DivineRPG;
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.networking.message.MessageDivineAccumulator;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
@@ -19,9 +23,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemDivineAccumulator extends ItemMod {
 

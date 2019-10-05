@@ -1,7 +1,12 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.PositionHelper;
@@ -18,10 +23,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemEnderScepter extends ItemMod {
 

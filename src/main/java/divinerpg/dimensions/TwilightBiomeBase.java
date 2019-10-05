@@ -1,13 +1,13 @@
 package divinerpg.dimensions;
 
-import divinerpg.api.Reference;
+import java.util.Random;
+
+import divinerpg.api.java.divinerpg.api.Reference;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class TwilightBiomeBase extends Biome {
 

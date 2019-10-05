@@ -2,7 +2,7 @@ package divinerpg.dimensions.iceika;
 
 import java.util.Random;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;

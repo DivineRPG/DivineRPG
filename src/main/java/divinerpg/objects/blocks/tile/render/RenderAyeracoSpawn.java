@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.tile.render;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.client.ClientTicker;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import net.minecraft.client.Minecraft;

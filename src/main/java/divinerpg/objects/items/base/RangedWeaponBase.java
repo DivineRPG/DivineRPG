@@ -1,8 +1,12 @@
 package divinerpg.objects.items.base;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import divinerpg.DivineRPG;
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
@@ -20,13 +24,14 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 @SuppressWarnings("Duplicates")
 public class RangedWeaponBase extends ItemMod {

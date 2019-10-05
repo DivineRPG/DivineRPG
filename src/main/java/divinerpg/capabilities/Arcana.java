@@ -1,7 +1,7 @@
 package divinerpg.capabilities;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.networking.message.MessageArcanaBar;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

@@ -1,7 +1,11 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.TooltipLocalizer;
@@ -16,9 +20,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemArcanaPotion extends ItemMod {
 

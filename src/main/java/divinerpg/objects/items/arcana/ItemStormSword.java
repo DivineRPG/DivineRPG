@@ -1,7 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;

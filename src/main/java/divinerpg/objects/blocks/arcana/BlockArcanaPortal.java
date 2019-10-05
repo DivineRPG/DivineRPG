@@ -5,7 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.dimensions.arcana.ArcanaTeleporter;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.ModBlocks;

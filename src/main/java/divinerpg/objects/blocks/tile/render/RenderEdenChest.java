@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
 import divinerpg.objects.blocks.tile.model.ModelEdenChest;
 import net.minecraft.client.renderer.GlStateManager;

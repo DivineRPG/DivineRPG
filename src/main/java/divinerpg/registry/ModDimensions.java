@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.dimensions.apalachia.WorldProviderApalachia;
 import divinerpg.dimensions.arcana.WorldProviderArcana;

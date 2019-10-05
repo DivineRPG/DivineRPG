@@ -1,7 +1,11 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.api.DivineAPI;
-import divinerpg.api.arcana.IArcana;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.arcana.Wraith;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
@@ -15,9 +19,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemGhostbane extends ItemMod {
 

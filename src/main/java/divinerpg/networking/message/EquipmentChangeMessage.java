@@ -1,14 +1,14 @@
 package divinerpg.networking.message;
 
+import static divinerpg.registry.ModArmorEvents.ARMOR_HANDLERS;
+
 import divinerpg.DivineRPG;
-import divinerpg.api.armorset.FullArmorHandler;
+import divinerpg.api.java.divinerpg.api.armorset.FullArmorHandler;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
-
-import static divinerpg.registry.ModArmorEvents.ARMOR_HANDLERS;
 
 
 public class EquipmentChangeMessage implements IMessage {

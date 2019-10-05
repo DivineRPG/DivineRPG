@@ -1,6 +1,10 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
@@ -18,13 +22,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemModBow extends ItemBow  {
     private net.minecraft.util.SoundEvent shootSound = SoundEvents.ENTITY_ARROW_SHOOT;

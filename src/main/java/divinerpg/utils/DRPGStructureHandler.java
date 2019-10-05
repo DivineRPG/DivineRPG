@@ -1,6 +1,11 @@
 package divinerpg.utils;
 
-import divinerpg.api.Reference;
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Function;
+
+import divinerpg.api.java.divinerpg.api.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
@@ -17,11 +22,6 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Random;
-import java.util.function.Function;
 
 /**
  * Created by LiteWolf101 on Jan
