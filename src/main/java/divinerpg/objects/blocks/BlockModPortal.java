@@ -1,10 +1,13 @@
 package divinerpg.objects.blocks;
 
+import java.util.Random;
+
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.ModBlocks;
+import divinerpg.registry.ModItems;
 import divinerpg.utils.DivineTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -31,8 +34,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Random;
 
 public class BlockModPortal extends BlockBreakable {
 
@@ -66,6 +67,7 @@ public class BlockModPortal extends BlockBreakable {
         this.portalParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
+        ModItems.ITEMS.add(Item.getItemFromBlock(this));
     }
 
     @Override
