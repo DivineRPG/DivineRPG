@@ -1,6 +1,6 @@
-package divinerpg.api;
+package divinerpg.api.java.divinerpg.api;
 
-import divinerpg.api.armorset.FullArmorHandler;
+import divinerpg.api.java.divinerpg.api.armorset.FullArmorHandler;
 
 /**
  * Help us to register full armor handlers

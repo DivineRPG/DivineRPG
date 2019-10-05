@@ -4,12 +4,18 @@
  */
 package divinerpg;
 
-import divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.compat.ProjectECompat;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.proxy.CommonProxy;
-import divinerpg.registry.*;
+import divinerpg.registry.ModArmorEvents;
+import divinerpg.registry.ModLiquids;
+import divinerpg.registry.ModMessages;
+import divinerpg.registry.ModOreDict;
+import divinerpg.registry.ModSmelting;
+import divinerpg.registry.ModSpawns;
+import divinerpg.registry.ModTriggers;
 import divinerpg.utils.Utils;
 import divinerpg.world.WorldGenCustomOres;
 import net.minecraftforge.common.MinecraftForge;

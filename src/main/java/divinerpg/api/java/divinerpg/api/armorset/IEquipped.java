@@ -1,4 +1,4 @@
-package divinerpg.api.armorset;
+package divinerpg.api.java.divinerpg.api.armorset;
 
 import net.minecraft.entity.player.EntityPlayer;
 

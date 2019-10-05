@@ -1,4 +1,4 @@
-package divinerpg.api.arcana;
+package divinerpg.api.java.divinerpg.api.arcana;
 
 import net.minecraft.entity.player.EntityPlayer;
 

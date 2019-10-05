@@ -1,4 +1,4 @@
-package divinerpg.api;
+package divinerpg.api.java.divinerpg.api;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;

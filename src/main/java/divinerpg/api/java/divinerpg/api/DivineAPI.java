@@ -1,9 +1,9 @@
-package divinerpg.api;
+package divinerpg.api.java.divinerpg.api;
 
-import divinerpg.api.arcana.IArcana;
+import static divinerpg.api.java.divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
+
+import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import net.minecraft.entity.Entity;
-
-import static divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
 
 /**
  * Main API class.

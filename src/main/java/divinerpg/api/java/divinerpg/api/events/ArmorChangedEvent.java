@@ -1,4 +1,4 @@
-package divinerpg.api.events;
+package divinerpg.api.java.divinerpg.api.events;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.player.PlayerEvent;

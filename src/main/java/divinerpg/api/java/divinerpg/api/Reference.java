@@ -1,4 +1,4 @@
-package divinerpg.api;
+package divinerpg.api.java.divinerpg.api;
 
 /**
  * Created by LiteWolf101 on Feb
