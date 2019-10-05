@@ -1,16 +1,22 @@
 package divinerpg.events.armorEvents;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
+
+import javax.annotation.Nullable;
+
 import com.google.common.base.Function;
-import divinerpg.api.armorset.FullArmorHandler;
-import divinerpg.api.armorset.IPowerAbility;
+
+import divinerpg.api.java.divinerpg.api.armorset.FullArmorHandler;
+import divinerpg.api.java.divinerpg.api.armorset.IPowerAbility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.Event;
-
-import javax.annotation.Nullable;
-import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 
 /**
  * Class managing armor handler for current user

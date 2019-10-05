@@ -1,8 +1,12 @@
 package divinerpg.registry;
 
-import divinerpg.api.ArmorHandlers;
-import divinerpg.api.DivineAPI;
-import divinerpg.api.armorset.FullArmorHandler;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import divinerpg.api.java.divinerpg.api.ArmorHandlers;
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.events.armorEvents.ArmorTickEvent;
 import divinerpg.events.armorEvents.HandlerCollection;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
@@ -17,10 +21,6 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class ModArmorEvents {
 

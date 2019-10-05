@@ -1,13 +1,18 @@
 package divinerpg.events.armorEvents;
 
-import divinerpg.DivineRPG;
-import divinerpg.api.IFullArmorRegistry;
-import divinerpg.api.armorset.FullArmorHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.common.eventhandler.Event;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Nullable;
-import java.util.*;
+
+import divinerpg.DivineRPG;
+import divinerpg.api.java.divinerpg.api.IFullArmorRegistry;
+import divinerpg.api.java.divinerpg.api.armorset.FullArmorHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.eventhandler.Event;
 
 /**
  * Class managing with armor handler events
