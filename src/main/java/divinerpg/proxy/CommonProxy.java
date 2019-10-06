@@ -119,10 +119,10 @@ public class CommonProxy {
             boolean shortLived) {
     }
 
-    @Deprecated()
-    // We are using packets to update arcana bars
-    public void updateClientArcana(float amount) {
-    }
+//    @Deprecated()
+//    // We are using packets to update arcana bars
+//    public void updateClientArcana(float amount) {
+//    }
 
     public void enqueueWork(Runnable runnable) {
         FMLCommonHandler.instance().getMinecraftServerInstance().addScheduledTask(runnable);

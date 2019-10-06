@@ -17,18 +17,18 @@ public class IntenseDebug {
     @SideOnly(Side.CLIENT)
 public static void init() {
 	if (Config.debug) {
-		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+		for (Biome biome : ForgeRegistries.BIOMES.getValuesCollection()) {
 			DivineRPG.logger.info("Biome: " + biome.getBiomeName());
 		}
-		for (Item item : ForgeRegistries.ITEMS.getValues()) {
+		for (Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
 			DivineRPG.logger.info("Item: " + new ItemStack(item).getDisplayName());
 			if(item instanceof ItemNotReady) {
 			DivineRPG.logger.info("Item: " +new ItemStack(item).getDisplayName() + " still needs porting");}
 		}
-		for (Block block : ForgeRegistries.BLOCKS.getValues()) {
+		for (Block block : ForgeRegistries.BLOCKS.getValuesCollection()) {
 			DivineRPG.logger.info("Block: " + new ItemStack(Item.getItemFromBlock(block)).getDisplayName());
 		}
-		for (EntityEntry entities : ForgeRegistries.ENTITIES.getValues()) {
+		for (EntityEntry entities : ForgeRegistries.ENTITIES.getValuesCollection()) {
 			DivineRPG.logger.info("Entity: " + entities.getName());
 		}
 	}

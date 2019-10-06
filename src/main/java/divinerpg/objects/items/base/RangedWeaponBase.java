@@ -102,7 +102,7 @@ public class RangedWeaponBase extends ItemMod {
 
         addAmmoInfo(tooltip);
 
-        tooltip.add(getMaxDamage() == -1 ? TooltipLocalizer.infiniteUses() :
+        tooltip.add(stack.getMaxDamage() == -1 ? TooltipLocalizer.infiniteUses() :
                 TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
 
         if (arcanaConsuming > 0)

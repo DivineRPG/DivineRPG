@@ -94,7 +94,7 @@ public class DivineTree extends WorldGenAbstractTree {
                                     Block leavesBlock = worldIn.getBlockState(leavesBlockPos).getBlock();
                                     if (leavesBlock.isAir(leavesBlockState, worldIn, leavesBlockPos)
                                             || leavesBlock.isLeaves(leavesBlockState, worldIn, leavesBlockPos)
-                                            || leavesBlock.getMaterial(leavesBlockState) == Material.VINE) {
+                                            || leavesBlockState.getMaterial()  == Material.VINE) {
                                         this.setBlockAndNotifyAdequately(worldIn, leavesBlockPos, leavesState);
                                     }
                                 }
@@ -108,7 +108,7 @@ public class DivineTree extends WorldGenAbstractTree {
                         IBlockState blockStateUp = worldIn.getBlockState(upN);
                         Block blockUp = blockStateUp.getBlock();
                         if (blockUp.isAir(blockStateUp, worldIn, upN) || blockUp.isLeaves(blockStateUp, worldIn, upN)
-                                || blockUp.getMaterial(blockStateUp) == Material.VINE) {
+                                || blockStateUp.getMaterial() == Material.VINE) {
                             this.setBlockAndNotifyAdequately(worldIn, blockPos.up(i), logState);
                         }
                     }

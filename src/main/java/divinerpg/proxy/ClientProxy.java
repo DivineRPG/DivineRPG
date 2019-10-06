@@ -223,17 +223,17 @@ public class ClientProxy extends CommonProxy {
 
         return false;
     }
-
-    @Override
-    public void updateClientArcana(float amount) {
-        EntityPlayer player = DivineRPG.proxy.getPlayer();
-
-        if (player != null) {
-            IArcana arcana = DivineAPI.getArcana(player);
-            if (arcana != null) {
-                arcana.set(amount);
-            }
-        }
-    }
+//
+//    @Override
+//    public void updateClientArcana(float amount) {
+//        EntityPlayer player = DivineRPG.proxy.getPlayer();
+//
+//        if (player != null) {
+//            IArcana arcana = DivineAPI.getArcana(player);
+//            if (arcana != null) {
+//                arcana.set(amount);
+//            }
+//        }
+//    }
 
 }

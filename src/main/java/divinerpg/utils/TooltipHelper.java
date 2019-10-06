@@ -1,20 +1,19 @@
 package divinerpg.utils;
 
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.client.resources.I18n;
 
 public class TooltipHelper {
 	public static String localize(String key) {
-
-		return I18n.translateToLocal(key);
+		return localizeFormat(key);
 	}
-	public static String localizeFormat(String key, Object... format) {
 
-		return I18n.translateToLocalFormatted(key, format);
+	public static String localizeFormat(String key, Object... format) {
+		return I18n.format(key, format);
 	}
 
 	public static boolean canLocalize(String key) {
 
-		return I18n.canTranslate(key);
+		return I18n.hasKey(key);
 	}
 	public static String getInfoText(String key) {
 
