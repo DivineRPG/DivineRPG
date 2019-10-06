@@ -51,6 +51,7 @@ import divinerpg.particle.ParticleWildWoodPortal;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModSounds;
+import divinerpg.utils.AuthUtils;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.InitLog;
 import divinerpg.utils.log.IntenseDebug;
@@ -103,7 +104,7 @@ public class ClientProxy extends CommonProxy {
         /*
             TODO PRE ALFA PROTECTION!
          */
-        // AuthUtils.init("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/PROGRESS/Trusted");
+         AuthUtils.init("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/PROGRESS/Trusted");
     }
 
     @Override
