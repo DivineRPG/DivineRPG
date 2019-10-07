@@ -6,6 +6,7 @@ import java.util.List;
 
 import divinerpg.api.java.divinerpg.api.ArmorHandlers;
 import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.java.divinerpg.api.armorset.ArmorSetVariant;
 import divinerpg.api.java.divinerpg.api.armorset.FullArmorHandler;
 import divinerpg.events.armorEvents.ArmorTickEvent;
 import divinerpg.events.armorEvents.HandlerCollection;
@@ -37,6 +38,20 @@ public class ModArmorEvents {
     // public static final ArrayList<FullArmorHandler> ALL_HANDLERS = new ArrayList<>();
 
     public static void init() {
+        ArmorSetVariant rupeeArmorDescriber = new ArmorSetVariant(ModItems.rupeeHelmet, ModItems.rupeeBody, ModItems.rupeeLegs, ModItems.rupeeBoots);
+        rupeeArmorDescriber.addSetVariant(ModItems.blueRupeeHelmet, ModItems.blueRupeeBody, ModItems.blueRupeeLegs, ModItems.blueRupeeBoots);
+        rupeeArmorDescriber.addSetVariant(ModItems.grayRupeeHelmet, ModItems.grayRupeeBody, ModItems.grayRupeeLegs, ModItems.grayRupeeBoots);
+        rupeeArmorDescriber.addSetVariant(ModItems.greenRupeeHelmet, ModItems.greenRupeeBody, ModItems.greenRupeeLegs, ModItems.greenRupeeBoots);
+        rupeeArmorDescriber.addSetVariant(ModItems.redRupeeHelmet, ModItems.redRupeeBody, ModItems.redRupeeLegs, ModItems.redRupeeBoots);
+        rupeeArmorDescriber.addSetVariant(ModItems.yellowRupeeHelmet, ModItems.yellowRupeeBody, ModItems.yellowRupeeLegs, ModItems.yellowRupeeBoots);
+
+        ArmorSetVariant enderArmorDescriber = new ArmorSetVariant(ModItems.enderHelmet, ModItems.enderBody, ModItems.enderLegs, ModItems.enderBoots);
+        enderArmorDescriber = enderArmorDescriber.addSetVariant(ModItems.blueEnderHelmet, ModItems.blueEnderBody, ModItems.blueEnderLegs, ModItems.blueEnderBoots);
+        enderArmorDescriber = enderArmorDescriber.addSetVariant(ModItems.grayEnderHelmet, ModItems.grayEnderBody, ModItems.grayEnderLegs, ModItems.grayEnderBoots);
+        enderArmorDescriber = enderArmorDescriber.addSetVariant(ModItems.greenEnderHelmet, ModItems.greenEnderBody, ModItems.greenEnderLegs, ModItems.greenEnderBoots);
+        enderArmorDescriber = enderArmorDescriber.addSetVariant(ModItems.redEnderHelmet, ModItems.redEnderBody, ModItems.redEnderLegs, ModItems.redEnderBoots);
+        enderArmorDescriber = enderArmorDescriber.addSetVariant(ModItems.yellowEnderHelmet, ModItems.yellowEnderBody, ModItems.yellowEnderLegs, ModItems.yellowEnderBoots);
+
         List<FullArmorHandler> handlers = Arrays.asList(
                 new FullArmorHandler(ModItems.angelicHelmet, ModItems.angelicBody, ModItems.angelicLegs, ModItems.angelicBoots,
                         ArmorHandlers::onCanFlyChanged)
@@ -51,10 +66,10 @@ public class ModArmorEvents {
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event,
                                 source -> source.isFireDamage() || source.isExplosion() || source == DamageSource.LAVA)),
 
-                new FullArmorHandler(ModItems.enderHelmet, ModItems.enderBody, ModItems.enderLegs, ModItems.enderBoots)
+                new FullArmorHandler(enderArmorDescriber)
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, DamageSource::isExplosion)),
 
-                new FullArmorHandler(ModItems.rupeeHelmet, ModItems.rupeeBody, ModItems.rupeeLegs, ModItems.rupeeBoots)
+                new FullArmorHandler(rupeeArmorDescriber)
                         .withAbility(LivingHurtEvent.class, event -> ArmorHandlers.onPlayerReceiveDamage(event, ArmorHandlers::isMeeleeDamage, aFloat -> aFloat * 0.25F)),
 
                 new FullArmorHandler(ModItems.santaCap, ModItems.santaTunic, ModItems.santaPants, ModItems.santaBoots, (player, isFullEquipped) -> {

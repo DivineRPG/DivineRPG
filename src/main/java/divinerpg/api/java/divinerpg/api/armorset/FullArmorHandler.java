@@ -21,15 +21,23 @@ public class FullArmorHandler implements IEquipped {
      * Init handler with set and callback on equipped
      */
     public FullArmorHandler(Item head, Item chest, Item legs, Item boots, IEquipped handler) {
-        equippedHandler = handler;
-        withVariants(head, chest, legs, boots);
+        this(new ArmorSetVariant(head, chest, legs, boots), handler);
     }
 
     /**
      * Init handler with set, callback on equipped do not needed
      */
     public FullArmorHandler(Item head, Item chest, Item legs, Item boots) {
-        this(head, chest, legs, boots, null);
+        this(new ArmorSetVariant(head, chest, legs, boots));
+    }
+
+    public FullArmorHandler(ArmorSetVariant variant){
+        this(variant, null);
+    }
+
+    public FullArmorHandler(ArmorSetVariant variant, IEquipped handler){
+        equippedHandler = handler;
+        withVariants(variant);
     }
 
     /**
