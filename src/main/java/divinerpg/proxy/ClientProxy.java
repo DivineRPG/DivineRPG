@@ -104,7 +104,7 @@ public class ClientProxy extends CommonProxy {
         /*
             TODO PRE ALFA PROTECTION!
          */
-         AuthUtils.init("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/PROGRESS/Trusted");
+//         AuthUtils.init("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/PROGRESS/Trusted");
     }
 
     @Override
