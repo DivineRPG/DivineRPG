@@ -26,9 +26,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockMobPumpkin extends BlockHorizontal {
-
-    public BlockMobPumpkin(String name) {
+    private SoundEvent pumpkinSound;
+    public BlockMobPumpkin(String name, SoundEvent soundIn) {
         super(Material.GOURD);
+        this.pumpkinSound = soundIn;
         setUnlocalizedName(name);
         setRegistryName(Reference.MODID, name);
         setTickRandomly(true);
@@ -70,39 +71,8 @@ public class BlockMobPumpkin extends BlockHorizontal {
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
             EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!player.isSneaking()) {
-            Block block = world.getBlockState(pos).getBlock();
-            SoundEvent sound = null;
-
-            if (block == ModBlocks.spiderPumpkin) {
-                sound = SoundEvents.ENTITY_SPIDER_AMBIENT;
-            } else if (block == ModBlocks.glaconPumpkin) {
-                sound = ModSounds.GLACIDE;
-            } else if (block == ModBlocks.enderWatcherPumpkin) {
-                sound = SoundEvents.ENTITY_ENDERMEN_AMBIENT;
-            } else if (block == ModBlocks.jungleSpiderPumpkin) {
-                sound = ModSounds.HELL_SPIDER;
-            } else if (block == ModBlocks.hellspiderPumpkin) {
-                sound = ModSounds.HELL_SPIDER;
-            } else if (block == ModBlocks.enderPumpkin) {
-                sound = SoundEvents.ENTITY_ENDERMEN_SCREAM;
-            } else if (block == ModBlocks.creeperPumpkin) {
-                sound = SoundEvents.ENTITY_CREEPER_PRIMED;
-            } else if (block == ModBlocks.skeletonPumpkin) {
-                sound = SoundEvents.ENTITY_SKELETON_AMBIENT;
-            } else if (block == ModBlocks.blazePumpkin) {
-                sound = SoundEvents.ENTITY_BLAZE_AMBIENT;
-            } else if (block == ModBlocks.zombiePumpkin) {
-                sound = SoundEvents.ENTITY_ZOMBIE_AMBIENT;
-            } else if (block == ModBlocks.frostPumpkin) {
-                sound = ModSounds.FROST;
-            } else if (block == ModBlocks.cyclopsPumpkin) {
-                sound = ModSounds.CYCLOPS;
-            } else if (block == ModBlocks.ghastPumpkin) {
-                sound = SoundEvents.ENTITY_GHAST_SCREAM;
-            }
-
-            if (sound != null) {
-                world.playSound(null, pos, sound, SoundCategory.MASTER, 20.0F, 1.0F);
+            if (this.pumpkinSound != null) {
+                world.playSound(null, pos, this.pumpkinSound, SoundCategory.MASTER, 20.0F, 1.0F);
             }
         }
         return true;
