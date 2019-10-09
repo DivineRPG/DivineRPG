@@ -72,7 +72,7 @@ public class BlockMobPumpkin extends BlockHorizontal {
             EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!player.isSneaking()) {
             if (this.pumpkinSound != null) {
-                world.playSound(null, pos, this.pumpkinSound, SoundCategory.MASTER, 20.0F, 1.0F);
+                world.playSound(null, pos, this.pumpkinSound, SoundCategory.BLOCKS, 20.0F, 1.0F);
             }
         }
         return true;
