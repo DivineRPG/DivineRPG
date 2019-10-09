@@ -17,16 +17,13 @@ public class EntityGrenade extends EntitySnowball {
 	public EntityGrenade(World var1, EntityPlayer par3EntityPlayer) {
         super(var1, par3EntityPlayer);
     }
+
 	@Override
 	protected void onImpact(RayTraceResult result) {
-	if (!this.world.isRemote) {
-    	this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
-        this.setDead();
-    }
-}
-	@SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, manager -> new RenderGrenade(manager));
-    }
+		if (!this.world.isRemote) {
+			this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3.0F, false);
+			this.setDead();
+		}
+	}
 }
 

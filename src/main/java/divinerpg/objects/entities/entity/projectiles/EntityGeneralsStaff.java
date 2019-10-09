@@ -20,11 +20,6 @@ public class EntityGeneralsStaff extends EntityColoredBullet {
         super(world, player, BulletType.GENERALS_STAFF_SHOT);
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityGeneralsStaff.class, RenderStaff::new);
-    }
-
     @Override
     public void onImpact(RayTraceResult position) {
         super.onImpact(position);

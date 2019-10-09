@@ -31,10 +31,4 @@ public class EntityMerikMissile extends EntityHeatSeekingProjectile {
             this.setDead();
         }
     }
-
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityMerikMissile.class,
-                manager -> new RenderMerikMissile(manager));
-    }
 }

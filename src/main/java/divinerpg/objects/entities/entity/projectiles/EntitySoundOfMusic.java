@@ -18,12 +18,6 @@ public class EntitySoundOfMusic extends EntityThrowable {
     Random r = new Random();
     int color = r.nextInt(25);
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntitySoundOfMusic.class,
-                manager -> new RenderSoundOfMusic(manager, 1f));
-    }
-
     public EntitySoundOfMusic(World var1) {
         super(var1);
     }

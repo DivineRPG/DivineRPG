@@ -70,9 +70,4 @@ public class EntityLamona extends EntityThrowable {
         this.world.checkLightFor(EnumSkyBlock.BLOCK, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ +1));
         this.world.checkLightFor(EnumSkyBlock.BLOCK, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ -1));
     }
-	@SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityLamona.class,
-                manager -> new RenderLamona(manager));
-    }
 }

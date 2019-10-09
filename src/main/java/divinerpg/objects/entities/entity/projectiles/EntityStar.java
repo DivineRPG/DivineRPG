@@ -54,8 +54,4 @@ public class EntityStar extends EntityThrowable {
             this.setDead();
         }
     }
-    @SideOnly(Side.CLIENT)
-	public static void renderMe() {
-    RenderingRegistry.registerEntityRenderingHandler(EntityStar.class, manager -> new RenderStar(manager));
-	}
 }

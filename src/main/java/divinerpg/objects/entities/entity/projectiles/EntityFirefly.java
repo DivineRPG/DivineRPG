@@ -27,9 +27,4 @@ public class EntityFirefly extends EntityHeatSeekingProjectile {
         if (!this.world.isRemote)
             this.setDead();
     }
-
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, manager -> new RenderFirefly(manager));
-    }
 }

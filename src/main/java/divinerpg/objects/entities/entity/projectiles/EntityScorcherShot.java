@@ -15,12 +15,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityScorcherShot extends EntityFireball {
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityScorcherShot.class,
-                manager -> new RenderScorcherShot(manager, 0.5f));
-    }
-
     public EntityScorcherShot(World w) {
         super(w);
         setSize(0.3125F, 0.3125F);

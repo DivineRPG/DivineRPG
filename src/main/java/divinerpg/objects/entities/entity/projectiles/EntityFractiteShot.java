@@ -19,12 +19,6 @@ public class EntityFractiteShot extends EntityFireball {
         EntityFireball.registerFixesFireball(fixer, "FractiteShot");
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityFractiteShot.class,
-                manager -> new RenderFractiteShot(manager, 1.0f));
-    }
-
     public EntityFractiteShot(World worldIn) {
         super(worldIn);
         this.isImmuneToFire = true;

@@ -17,12 +17,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class EntitySerenadeOfIce extends EntityThrowable {
     int age;
 
-    @SideOnly(Side.CLIENT)
-    public static void renderMe() {
-        RenderingRegistry.registerEntityRenderingHandler(EntitySerenadeOfIce.class,
-                manager -> new RenderSerenadeOfIce(manager, 1f));
-    }
-
     public EntitySerenadeOfIce(World var1) {
         super(var1);
     }
