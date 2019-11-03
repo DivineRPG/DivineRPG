@@ -2,10 +2,7 @@ package divinerpg.proxy;
 
 import java.awt.Color;
 
-import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.DivineAPI;
 import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.client.ClientTicker;
 import divinerpg.enums.ParticleType;
@@ -51,7 +48,6 @@ import divinerpg.particle.ParticleWildWoodPortal;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.AuthUtils;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.InitLog;
 import divinerpg.utils.log.IntenseDebug;
@@ -100,11 +96,6 @@ public class ClientProxy extends CommonProxy {
 
         PostInitLog.init();
         IntenseDebug.init();
-
-        /*
-            TODO PRE ALFA PROTECTION!
-         */
-//         AuthUtils.init("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/PROGRESS/Trusted");
     }
 
     @Override
