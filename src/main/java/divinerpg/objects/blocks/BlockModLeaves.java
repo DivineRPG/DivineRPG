@@ -17,10 +17,12 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -113,17 +115,17 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         }
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean isOpaqueCube(IBlockState state) {
-        return !Minecraft.isFancyGraphicsEnabled();
-    }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
+	public boolean isOpaqueCube(IBlockState state) {
+		return Blocks.LEAVES.isOpaqueCube(state);
+	}
 
+	@SideOnly(Side.CLIENT)
+	@Override
+	public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+		return Blocks.LEAVES.shouldSideBeRendered(state, world, pos, side);
+	}
     /**
      * Defensive helper method used to intercept null map colors.
      * Private access used to force the map color to be included in the constructor.
