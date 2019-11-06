@@ -437,7 +437,40 @@ public class ModBlocks {
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
     public static Block acceleron = new BlockAcceleron("acceleron");
 
+    public static Block dreamDirt = new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY);
+    public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE);
+    public static Block dreamStone = new BlockMod("dream_stone", 6.0F);
+    public static Block fireCrystal = new BlockMod("fire_crystal", 5.0F).setLightLevel(15F);
+    public static BlockModPortal vetheaPortal = new BlockModPortal("vethea_portal",
+            ModDimensions.vetheaDimension.getId(), ModBlocks.blueFire, ModBlocks.mortumBlock, ParticleType.MORTUM_PORTAL);
 
+    public static Block everstone = new BlockModUnbreakable("everstone");
+    public static Block darkEverstone = new BlockModUnbreakable("dark_everstone");
+    public static Block whiteEverstone = new BlockModUnbreakable("white_everstone");
+
+    public static Block firewood = new BlockModLog("firewood", MapColor.RED).setHardness(5.0F);
+    public static Block hyrewood = new BlockModLog("hyrewood", MapColor.RED).setHardness(5.0F);
+    public static Block mintwood = new BlockModLog("mintwood", MapColor.RED).setHardness(5.0F);
+    public static Block dreamWoodLog = new BlockModLog("dreamwood_log", MapColor.RED).setHardness(5.0F);
+
+    public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED);
+    public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED);
+    public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED);
+    public static Block dreamWoodLeaves = new BlockModLeaves("dreamWood_leaves", 0.1F, MapColor.RED);
+
+    public static Block dreamLamp = new BlockModUnbreakable("dream_lamp");
+    public static Block infusionTable = new BlockModUnbreakable("infusion_table");
+
+    public static Block cracklespike = new BlockTwilightFlower("cracklespike", dreamGrass, MapColor.GREEN);
+    public static Block fernite = new BlockTwilightFlower("fernite", dreamGrass, MapColor.GREEN);
+    public static Block bulatobe = new BlockTwilightFlower("bulbatobe", dreamGrass, MapColor.GREEN);
+    public static Block shineGrass = new BlockTwilightFlower("shinegrass", dreamGrass, MapColor.GREEN);
+    public static Block shimmer = new BlockTwilightFlower("shimmer", dreamGrass, MapColor.GREEN);
+    public static Block dreamglow = new BlockTwilightFlower("dreamglow", dreamGrass, MapColor.GREEN);
+    public static Block gemtopGreen = new BlockTwilightFlower("gemtop_green", dreamGrass, MapColor.GREEN);
+    public static Block gemtopPurple = new BlockTwilightFlower("gemtop_purple", dreamGrass, MapColor.GREEN);
+    public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN);
+    public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN);
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

@@ -59,7 +59,7 @@ public class EntityFrostCloud extends Entity {
         this.isImmuneToFire = true;
         this.setRadius(3.0F);
     }
-    
+
     public EntityFrostCloud(World worldIn, double x, double y, double z) {
         this(worldIn);
         this.setPosition(x, y, z);

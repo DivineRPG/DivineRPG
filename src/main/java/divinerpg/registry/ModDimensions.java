@@ -8,6 +8,7 @@ import divinerpg.dimensions.eden.WorldProviderEden;
 import divinerpg.dimensions.iceika.WorldProviderIceika;
 import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
+import divinerpg.dimensions.vethea.WorldProviderVethea;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
@@ -20,6 +21,7 @@ public class ModDimensions {
     public static DimensionType mortumDimension;
     public static DimensionType iceikaDimension;
     public static DimensionType arcanaDimension;
+    public static DimensionType vetheaDimension;
 
     public static void init() {
         registerDimensionTypes();
@@ -41,6 +43,7 @@ public class ModDimensions {
                 WorldProviderIceika.class, false);
         arcanaDimension = DimensionType.register(Reference.MODID + ":arcana", "_arcana", Config.arcanaDimensionId,
                 WorldProviderArcana.class, false);
+        vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", 600, WorldProviderVethea.class, false);
     }
 
     private static void registerDimensions() {
@@ -51,5 +54,6 @@ public class ModDimensions {
         DimensionManager.registerDimension(Config.mortumDimensionId, mortumDimension);
         DimensionManager.registerDimension(Config.iceikaDimensionId, iceikaDimension);
         DimensionManager.registerDimension(Config.arcanaDimensionId, arcanaDimension);
+        DimensionManager.registerDimension(600, vetheaDimension);
     }
 }

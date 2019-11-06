@@ -8,6 +8,8 @@ import divinerpg.dimensions.iceika.BiomeIceika;
 import divinerpg.dimensions.mortum.BiomeMortum;
 import divinerpg.dimensions.skythern.BiomeSkythern;
 import divinerpg.dimensions.wildwood.BiomeWildWood;
+import divinerpg.dimensions.vethea.BiomeVethea;
+
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -25,6 +27,7 @@ public class ModBiomes {
     public static final Biome Mortum = new BiomeMortum();
     public static final Biome Iceika = new BiomeIceika();
     public static final Biome Arcana = new BiomeArcana();
+    public static final Biome Vethea = new BiomeVethea();
 
     @SubscribeEvent
     public static void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -37,7 +40,8 @@ public class ModBiomes {
                 Skythern,
                 Mortum,
                 Iceika,
-                Arcana
+                Arcana,
+                Vethea
         );
 
         addBiomeTypes();
@@ -51,5 +55,6 @@ public class ModBiomes {
         BiomeDictionary.addTypes(Mortum, Type.MAGICAL);
         BiomeDictionary.addTypes(Iceika, Type.MAGICAL, Type.SNOWY);
         BiomeDictionary.addTypes(Arcana, Type.MAGICAL);
+        BiomeDictionary.addTypes(Vethea, Type.MAGICAL, Type.SPOOKY);
     }
 }
