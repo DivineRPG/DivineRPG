@@ -3,14 +3,17 @@ package divinerpg.dimensions.vethea.village;
 import java.util.ArrayList;
 import java.util.Random;
 
+import divinerpg.dimensions.vethea.VetheaWorldGenerator;
 import divinerpg.dimensions.vethea.all.WorldGenConeUp;
+import divinerpg.registry.ModBlocks;
 import divinerpg.registry.VetheaBlocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenVillageIsland extends WorldGenerator
 {
-	public final WorldGenConeUp spike = new WorldGenConeUp(VetheaBlocks.dreamStone);
+	public final WorldGenConeUp spike = new WorldGenConeUp(ModBlocks.dreamStone);
 	public final ArrayList<WorldGenerator> housesDown;
 	public final ArrayList<WorldGenerator> housesUp;
 	public final ArrayList<WorldGenerator> lampsDown;
@@ -46,7 +49,11 @@ public class WorldGenVillageIsland extends WorldGenerator
     }
 
 	@Override
-	public boolean generate(World par1, Random par2, int par3, int par4, int par5) {
+	public boolean generate(World par1, Random par2, BlockPos pos) {
+    	int par3 = pos.getX();
+    	int par4 = pos.getY();
+    	int par5 = pos.getZ();
+
 		int var2 = par2.nextInt(15) + 25;
 		
 		this.placeSpikeIteration(par1, par2, par3, par4, par5, var2);
@@ -66,28 +73,28 @@ public class WorldGenVillageIsland extends WorldGenerator
 					int var1 = par2.nextInt(5);
 					if (var1 == 0)
 					{
-						lampsDown.get(par2.nextInt(4)).generate(par1World, par2, (int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), y - (int)(i/10) - 5, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))));
+						lampsDown.get(par2.nextInt(4)).generate(par1World, par2, new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), y - (int)(i/10) - 5, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2)))));
 					}
 					else if (var1 == 1)
 					{
-						housesDown.get(par2.nextInt(3)).generate(par1World, par2, (int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), y - (int)(i/10) - 5, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))));
+						housesDown.get(par2.nextInt(3)).generate(par1World, par2, new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), y - (int)(i/10) - 5, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2)))));
 					}
 				}
 				else if (par2.nextInt(5) == 0 && j % 8 == 4)
 				{
 					int var1 = par2.nextInt(5);
 					int var2 = y + (int)(radius - i)/2 + 1;
-					while (!par1World.isAirBlock((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2)))))
+					while (!par1World.isAirBlock(new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))))))
 					{
 						var2++;
 					}
 					if (var1 == 0)
 					{
-						lampsUp.get(par2.nextInt(4)).generate(par1World, par2, (int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))));
+						lampsUp.get(par2.nextInt(4)).generate(par1World, par2, new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2)))));
 					}
 					else if (var1 == 1)
 					{
-						housesUp.get(par2.nextInt(5)).generate(par1World, par2, (int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))));
+						housesUp.get(par2.nextInt(5)).generate(par1World, par2, new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2)))));
 					}
 				}
 			}

@@ -2,9 +2,10 @@ package divinerpg.dimensions.vethea.layer1;
 
 import java.util.Random;
 
-import divinerpg.registry.VetheaBlocks;
+import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -99,8 +100,8 @@ public class WorldGenLayer1BigTree extends WorldGenerator
                 {
                     double var11 = this.scaleWidth * (double)var8 * ((double)this.rand.nextFloat() + 0.328D);
                     double var13 = (double)this.rand.nextFloat() * 2.0D * Math.PI;
-                    int var15 = MathHelper.floor_double(var11 * Math.sin(var13) + (double)this.basePos[0] + var9);
-                    int var16 = MathHelper.floor_double(var11 * Math.cos(var13) + (double)this.basePos[2] + var9);
+                    int var15 = MathHelper.floor(var11 * Math.sin(var13) + (double)this.basePos[0] + var9);
+                    int var16 = MathHelper.floor(var11 * Math.cos(var13) + (double)this.basePos[2] + var9);
                     int[] var17 = new int[] {var15, var3, var16};
                     int[] var18 = new int[] {var15, var3 + this.leafDistanceLimit, var16};
 
@@ -165,15 +166,15 @@ public class WorldGenLayer1BigTree extends WorldGenerator
                 else
                 {
                     var11[var9] = var10[var9] + var13;
-                    Block var14 = this.worldObj.getBlock(var11[0], var11[1], var11[2]);
+                    Block var14 = this.worldObj.getBlockState(new BlockPos(var11[0], var11[1], var11[2])).getBlock();
 
-                    if (var14 != null && var14 != VetheaBlocks.hyrewoodLeaves)
+                    if (var14 != null && var14 != ModBlocks.hyrewoodLeaves)
                     {
                         ++var13;
                     }
                     else
                     {
-                        this.worldObj.setBlock(var11[0], var11[1], var11[2], par6);
+                        this.worldObj.setBlockState(new BlockPos(var11[0], var11[1], var11[2]), par6.getDefaultState());
                         ++var13;
                     }
                 }
@@ -229,7 +230,7 @@ public class WorldGenLayer1BigTree extends WorldGenerator
         for (int var5 = par2 + this.leafDistanceLimit; var4 < var5; ++var4)
         {
             float var6 = this.leafSize(var4 - par2);
-            this.genTreeLayer(par1, var4, par3, var6, (byte)1, VetheaBlocks.hyrewoodLeaves);
+            this.genTreeLayer(par1, var4, par3, var6, (byte)1, ModBlocks.hyrewoodLeaves);
         }
     }
 
@@ -274,9 +275,9 @@ public class WorldGenLayer1BigTree extends WorldGenerator
 
             for (int var16 = var4[var6] + var9; var15 != var16; var15 += var9)
             {
-                var14[var6] = MathHelper.floor_double((double)(par1ArrayOfInteger[var6] + var15) + 0.5D);
-                var14[var7] = MathHelper.floor_double((double)par1ArrayOfInteger[var7] + (double)var15 * var10 + 0.5D);
-                var14[var8] = MathHelper.floor_double((double)par1ArrayOfInteger[var8] + (double)var15 * var12 + 0.5D);
+                var14[var6] = MathHelper.floor((double)(par1ArrayOfInteger[var6] + var15) + 0.5D);
+                var14[var7] = MathHelper.floor((double)par1ArrayOfInteger[var7] + (double)var15 * var10 + 0.5D);
+                var14[var8] = MathHelper.floor((double)par1ArrayOfInteger[var8] + (double)var15 * var12 + 0.5D);
                 byte var17 = 0;
                 int var18 = Math.abs(var14[0] - par1ArrayOfInteger[0]);
                 int var19 = Math.abs(var14[2] - par1ArrayOfInteger[2]);
@@ -294,7 +295,7 @@ public class WorldGenLayer1BigTree extends WorldGenerator
                     }
                 }
 
-                this.worldObj.setBlock(var14[0], var14[1], var14[2], par3);
+                this.worldObj.setBlockState(new BlockPos(var14[0], var14[1], var14[2]), par3.getDefaultState());
             }
         }
     }
@@ -335,19 +336,19 @@ public class WorldGenLayer1BigTree extends WorldGenerator
         int var4 = this.basePos[2];
         int[] var5 = new int[] {var1, var2, var4};
         int[] var6 = new int[] {var1, var3, var4};
-        this.placeBlockLine(var5, var6, VetheaBlocks.hyrewood);
+        this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
 
         if (this.trunkSize == 2)
         {
             ++var5[0];
             ++var6[0];
-            this.placeBlockLine(var5, var6, VetheaBlocks.hyrewood);
+            this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
             ++var5[2];
             ++var6[2];
-            this.placeBlockLine(var5, var6, VetheaBlocks.hyrewood);
+            this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
             var5[0] += -1;
             var6[0] += -1;
-            this.placeBlockLine(var5, var6, VetheaBlocks.hyrewood);
+            this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
         }
     }
 
@@ -368,7 +369,7 @@ public class WorldGenLayer1BigTree extends WorldGenerator
 
             if (this.leafNodeNeedsBase(var6))
             {
-                this.placeBlockLine(var3, var5, VetheaBlocks.hyrewood);
+                this.placeBlockLine(var3, var5, ModBlocks.hyrewood);
             }
         }
     }
@@ -421,11 +422,11 @@ public class WorldGenLayer1BigTree extends WorldGenerator
             for (var15 = var3[var5] + var8; var14 != var15; var14 += var8)
             {
                 var13[var5] = par1ArrayOfInteger[var5] + var14;
-                var13[var6] = MathHelper.floor_double((double)par1ArrayOfInteger[var6] + (double)var14 * var9);
-                var13[var7] = MathHelper.floor_double((double)par1ArrayOfInteger[var7] + (double)var14 * var11);
-                Block var16 = this.worldObj.getBlock(var13[0], var13[1], var13[2]);
+                var13[var6] = MathHelper.floor((double)par1ArrayOfInteger[var6] + (double)var14 * var9);
+                var13[var7] = MathHelper.floor((double)par1ArrayOfInteger[var7] + (double)var14 * var11);
+                Block var16 = this.worldObj.getBlockState(new BlockPos(var13[0], var13[1], var13[2])).getBlock();
 
-                if (var16 != null && var16 != VetheaBlocks.hyrewoodLeaves)
+                if (var16 != null && var16 != ModBlocks.hyrewoodLeaves)
                 {
                     break;
                 }
@@ -443,9 +444,9 @@ public class WorldGenLayer1BigTree extends WorldGenerator
     {
         int[] var1 = new int[] {this.basePos[0], this.basePos[1], this.basePos[2]};
         int[] var2 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
-        Block var3 = this.worldObj.getBlock(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
+        Block var3 = this.worldObj.getBlockState(new BlockPos(this.basePos[0], this.basePos[1] - 1, this.basePos[2])).getBlock();
 
-        if (var3 != VetheaBlocks.dreamGrass && var3 != VetheaBlocks.dreamDirt)
+        if (var3 != ModBlocks.dreamGrass && var3 != ModBlocks.dreamDirt)
         {
             return false;
         }
@@ -485,8 +486,12 @@ public class WorldGenLayer1BigTree extends WorldGenerator
         this.leafDensity = par5;
     }
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    public boolean generate(World par1World, Random par2Random, BlockPos pos)
     {
+        int par3 = pos.getX();
+        int par4 = pos.getY();
+        int par5 = pos.getZ();
+
         this.worldObj = par1World;
         long var6 = par2Random.nextLong();
         this.rand.setSeed(var6);

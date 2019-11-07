@@ -437,6 +437,8 @@ public class ModBlocks {
     //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
     public static Block acceleron = new BlockAcceleron("acceleron");
 
+    /* EVERYTHING BELOW THIS POINT IS VETHEA */
+
     public static Block dreamDirt = new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY);
     public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE);
     public static Block dreamStone = new BlockMod("dream_stone", 6.0F);
@@ -456,14 +458,56 @@ public class ModBlocks {
     public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED);
     public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED);
     public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED);
-    public static Block dreamWoodLeaves = new BlockModLeaves("dreamWood_leaves", 0.1F, MapColor.RED);
+    public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED);
 
     public static Block dreamLamp = new BlockModUnbreakable("dream_lamp");
     public static Block infusionTable = new BlockModUnbreakable("infusion_table");
+    public static Block cryptFloor = new BlockModUnbreakable("crypt_floor");
+    public static Block greenHungerstone = new BlockModUnbreakable("green_hungerstone");
+    public static Block blackHungerstone = new BlockModUnbreakable("black_hungerstone");
+    public static Block hallWall = new BlockModUnbreakable("hall_wall");
+    public static Block blueKarosBricks = new BlockModUnbreakable("blue_karos_bricks");
+    public static Block blackKarosBricks = new BlockModUnbreakable("black_karos_bricks");
+
+    public static Block karosCannon = new BlockModUnbreakable("karos_cannon");
+    public static Block helioticBeam = new BlockModUnbreakable("heliotic_beam");
+
+    public static Block wreckAltar = new BlockModUnbreakable("wreck_altar");
+    public static Block quadroticAltar = new BlockModUnbreakable("quadrotic_altar");
+    public static Block karosAltar = new BlockModUnbreakable("karos_altar");
+    public static Block raglokAltar = new BlockModUnbreakable("raglok_altar");
+    public static Block lunicAltar = new BlockModUnbreakable("lunic_altar");
+
+    public static Block lightDreamBricks = new BlockMod("light_dream_bricks", 1.0F);
+    public static Block darkDreamBricks = new BlockMod("dark_dream_bricks", 1.0F);
+    public static Block redDreamBricks = new BlockMod("red_dream_bricks", 1.0F);
+    public static Block lunaStone = new BlockMod("luna_stone", 1.0F);
+    public static Block lunaBricks = new BlockMod("luna_brick", 1.0F);
+    public static Block weedwoodVine = new BlockModVine("weedwood_vine");
+    public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weedwood_vine");
+    public static Block cryptWall = new BlockMod("cryptWall", 1.0F);
+    public static Block smoothGlass = new BlockModGlass("smoothGlass", 0.3F);
+    public static Block villageLamp = new BlockModLamp(EnumBlockType.GLASS, "village_lamp", 1.0F);
+    public static Block cellLamp = new BlockModLamp(EnumBlockType.GLASS, "cell_lamp", 1.0F);
+    public static Block firelight = new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F);
+    public static Block hiveWall = new BlockMod(EnumBlockType.GLASS, "hive_wall", 1.0F).setLightLevel(0.533F);
+
+    public static Block chamberWall = new BlockModUnbreakable("chamber_wall");
+    public static Block chamberWall1 = new BlockModUnbreakable("chamber_wall_1");
+    public static Block chamberWall2 = new BlockModUnbreakable("chamber_wall_2");
+
+    public static Block bacterialAcid = new BlockModUnbreakable("bacterial_acid");
+    public static Block blockAcid = new BlockModUnbreakable("acid_block");
+    public static Block lunicAcid = new BlockModUnbreakable("lunic_acid");
+
+    public static Block karosHeatTileGreen = new BlockModUnbreakable("karos_heat_tile_green");
+    public static Block karosHeatTileRed = new BlockModUnbreakable("karos_heat_tile_red");
+
+    public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F);
 
     public static Block cracklespike = new BlockTwilightFlower("cracklespike", dreamGrass, MapColor.GREEN);
     public static Block fernite = new BlockTwilightFlower("fernite", dreamGrass, MapColor.GREEN);
-    public static Block bulatobe = new BlockTwilightFlower("bulbatobe", dreamGrass, MapColor.GREEN);
+    public static Block bulatobe = new BlockTwilightFlower("bulatobe", dreamGrass, MapColor.GREEN);
     public static Block shineGrass = new BlockTwilightFlower("shinegrass", dreamGrass, MapColor.GREEN);
     public static Block shimmer = new BlockTwilightFlower("shimmer", dreamGrass, MapColor.GREEN);
     public static Block dreamglow = new BlockTwilightFlower("dreamglow", dreamGrass, MapColor.GREEN);
@@ -471,6 +515,15 @@ public class ModBlocks {
     public static Block gemtopPurple = new BlockTwilightFlower("gemtop_purple", dreamGrass, MapColor.GREEN);
     public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN);
     public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN);
+
+    //TEMPROARY
+    public static Block dreamwreckerSpawner = new BlockModSpawner("dreamwrecker_spawner", "Deathcryx");
+    public static Block vermenousSpawner = new BlockModSpawner("vermenous_spawner", "Deathcryx");
+    public static Block twinsSpawner = new BlockModSpawner("twins_spawner", "Deathcryx");
+    public static Block biphronSpawner = new BlockModSpawner("biphron_spawner", "Deathcryx");
+    public static Block gorgosionSpawner = new BlockModSpawner("gorgosion_spawner", "Deathcryx");
+
+
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

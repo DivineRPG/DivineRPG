@@ -6,7 +6,7 @@ import java.util.Random;
 
 import divinerpg.dimensions.vethea.all.CeilingTexture;
 import divinerpg.dimensions.vethea.all.WorldGenConeDown;
-/*import divinerpg.dimensions.vethea.layer1.Crypt1;
+import divinerpg.dimensions.vethea.layer1.Crypt1;
 import divinerpg.dimensions.vethea.layer1.Crypt2;
 import divinerpg.dimensions.vethea.layer1.WorldGenLayer1Forest;
 import divinerpg.dimensions.vethea.layer2.HiveNest;
@@ -23,7 +23,7 @@ import divinerpg.dimensions.vethea.layer4.Layer4Tree1;
 import divinerpg.dimensions.vethea.layer4.Layer4Tree2;
 import divinerpg.dimensions.vethea.layer4.RaglokChamber;
 import divinerpg.dimensions.vethea.layer4.WreckHall;
-import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;*/
+import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -66,43 +66,43 @@ public class ChunkProviderVethea implements IChunkGenerator {
 	private final WorldGenerator purpleGemTops;
 	private final WorldGenerator yellowDulahs;
 	private final WorldGenerator greenDulahs;
-	//private final WorldGenerator hungerVillages;
-	//private final WorldGenerator l1Forest = new WorldGenLayer1Forest(false);
-	//private final WorldGenerator l2Forest = new WorldGenLayer2Forest(false);
+	private final WorldGenerator hungerVillages;
+	private final WorldGenerator l1Forest = new WorldGenLayer1Forest(false);
+	private final WorldGenerator l2Forest = new WorldGenLayer2Forest(false);
 
 	public ChunkProviderVethea(World par1World, long par2) {
 		this.worldObj = par1World;
 		this.rand = new Random(par2);
 		
 		this.crypts = new ArrayList(2);
-		//crypts.add(new Crypt1());
-		//crypts.add(new Crypt2());
+		crypts.add(new Crypt1());
+		crypts.add(new Crypt2());
 		
 		ceilingTexture = new CeilingTexture(Blocks.AIR);
-		//hungerVillages = new WorldGenVillageIsland();
+		hungerVillages = new WorldGenVillageIsland();
 		
 		this.pyramids = new ArrayList(3);
 		//pyramids.add(new Pyramid1());
-		//pyramids.add(new Pyramid2());
-		//pyramids.add(new HiveNest());
+		pyramids.add(new Pyramid2());
+		pyramids.add(new HiveNest());
 
 		this.l3Trees = new ArrayList(3);
-		//l3Trees.add(new Tree7());
-		//l3Trees.add(new Tree8());
-		//l3Trees.add(new WorldGenLayer3SmallTree(false));
+		l3Trees.add(new Tree7());
+		l3Trees.add(new Tree8());
+		l3Trees.add(new WorldGenLayer3SmallTree(false));
 
 		this.l3Altars = new ArrayList(2);
-		//l3Altars.add(new QuadroticPost());
-		//l3Altars.add(new KarosMadhouse());
+		l3Altars.add(new QuadroticPost());
+		l3Altars.add(new KarosMadhouse());
 
 		this.l4Altars = new ArrayList(3);
-		//l4Altars.add(new Evergarden());
-		//l4Altars.add(new RaglokChamber());
-		//l4Altars.add(new WreckHall());
+		l4Altars.add(new Evergarden());
+		l4Altars.add(new RaglokChamber());
+		l4Altars.add(new WreckHall());
 		
 		this.l4Trees = new ArrayList(2);
-		//l4Trees.add(new Layer4Tree1());
-		//l4Trees.add(new Layer4Tree2());
+		l4Trees.add(new Layer4Tree1());
+		l4Trees.add(new Layer4Tree2());
 
 		
 		//layer3TreeBig = new WorldGenLayer3BigTree(false);
@@ -175,21 +175,21 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 30;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//(hungerVillages).generate(this.worldObj, this.rand, var12, var13, var14);
+			(hungerVillages).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		for (int i = 0; i < 1; i++) {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 17;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//l1Forest.generate(this.worldObj, this.rand, var12, var13, var14);
+			l1Forest.generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		if (this.rand.nextInt(250) == 0) {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 13;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//(crypts.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
+			(crypts.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		// Layer 2

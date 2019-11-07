@@ -2,9 +2,10 @@ package divinerpg.dimensions.vethea.layer2;
 
 import java.util.Random;
 
-import divinerpg.registry.VetheaBlocks;
+import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -15,8 +16,12 @@ public class WorldGenLayer2Forest extends WorldGenerator
         super(par1);
     }
 
-    public boolean generate(World world, Random par2Random, int par3, int par4, int par5)
+    public boolean generate(World world, Random par2Random, BlockPos pos)
     {
+        int par3 = pos.getX();
+        int par4 = pos.getY();
+        int par5 = pos.getZ();
+
         int var6 = par2Random.nextInt(3) + 5;
         boolean var7 = true;
 
@@ -47,11 +52,11 @@ public class WorldGenLayer2Forest extends WorldGenerator
                     {
                         if (var8 >= 0 && var8 < 256)
                         {
-                            Block b = world.getBlock(var10, var8, var11);
+                            Block b = world.getBlockState(new BlockPos(var10, var8, var11)).getBlock();
 
-                            Block block = b;
+                            Block block = b; //lol why
 
-                            if (b != null && (block != null && !block.isLeaves(world, var10,  var8, var11)))
+                            if (b != null && (block != null && !block.isLeaves(block.getDefaultState(), world, new BlockPos (var10, var8, var11))))
                             {
                                 var7 = false;
                             }
@@ -64,11 +69,11 @@ public class WorldGenLayer2Forest extends WorldGenerator
                 }
             }
 
-                Block b1 = world.getBlock(par3, par4 - 1, par5);
+                Block b1 = world.getBlockState(new BlockPos(par3, par4 - 1, par5)).getBlock();
 
-                if ((b1 == VetheaBlocks.dreamGrass || b1 == VetheaBlocks.dreamDirt) && par4 < 256 - var6 - 1)
+                if ((b1 == ModBlocks.dreamGrass || b1 == ModBlocks.dreamDirt) && par4 < 256 - var6 - 1)
                 {
-                    world.setBlock(par3, par4 - 1, par5, VetheaBlocks.dreamDirt);
+                    world.setBlockState(new BlockPos(par3, par4 - 1, par5), ModBlocks.dreamDirt.getDefaultState());
                     int var16;
 
                     for (var16 = par4 - 3 + var6; var16 <= par4 + var6; ++var16)
@@ -84,12 +89,12 @@ public class WorldGenLayer2Forest extends WorldGenerator
                             {
                                 int var15 = var14 - par5;
 
-                                Block block = world.getBlock(var12, var16, var14);
+                                Block block = world.getBlockState(new BlockPos(var12, var16, var14)).getBlock();
                                 
                                 if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && 
-                                    (block == null || block.canBeReplacedByLeaves(world, var12, var16, var14)))
+                                    (block == null || block.canBeReplacedByLeaves(block.getDefaultState(), world, new BlockPos(var12, var16, var14))))
                                 {
-                                    world.setBlock(var12, var16, var14, VetheaBlocks.firewoodLeaves, 0, 2);
+                                    world.setBlockState(new BlockPos(var12, var16, var14), ModBlocks.firewoodLeaves.getDefaultState());
                                 } 
                             }
                         }
@@ -97,13 +102,13 @@ public class WorldGenLayer2Forest extends WorldGenerator
 
                     for (var16 = 0; var16 < var6; ++var16)
                     {
-                        Block b3 = world.getBlock(par3, par4 + var16, par5);
+                        Block b3 = world.getBlockState(new BlockPos(par3, par4 + var16, par5)).getBlock();
 
                         Block block = b3;
 
-                        if (b3 == Blocks.air || block == Blocks.air || block.isLeaves(world, par3, par4 + var16, par5))
+                        if (b3 == Blocks.AIR || block == Blocks.AIR || block.isLeaves(block.getDefaultState(), world, new BlockPos(par3, par4 + var16, par5)))
                         {
-                            world.setBlock(par3, par4 + var16, par5, VetheaBlocks.firewood, 0, 2);
+                            world.setBlockState(new BlockPos(par3, par4 + var16, par5), ModBlocks.firewood.getDefaultState());
                         }
                     } 
 
