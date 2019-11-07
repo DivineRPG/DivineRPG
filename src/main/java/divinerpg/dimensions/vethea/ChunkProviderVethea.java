@@ -10,7 +10,7 @@ import divinerpg.dimensions.vethea.layer1.Crypt1;
 import divinerpg.dimensions.vethea.layer1.Crypt2;
 import divinerpg.dimensions.vethea.layer1.WorldGenLayer1Forest;
 import divinerpg.dimensions.vethea.layer2.HiveNest;
-//import divinerpg.dimensions.vethea.layer2.Pyramid1;
+import divinerpg.dimensions.vethea.layer2.Pyramid1;
 import divinerpg.dimensions.vethea.layer2.Pyramid2;
 import divinerpg.dimensions.vethea.layer2.WorldGenLayer2Forest;
 import divinerpg.dimensions.vethea.layer3.KarosMadhouse;
@@ -58,7 +58,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 	private final CeilingTexture ceilingTexture;
 	private final WorldGenerator cracklespikes;
 	private final WorldGenerator fernites;
-	private final WorldGenerator bulatobes;
+	private final WorldGenerator bulbatobes;
 	private final WorldGenerator shinegrass;
 	private final WorldGenerator shimmers;
 	private final WorldGenerator dreamglows;
@@ -82,7 +82,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 		hungerVillages = new WorldGenVillageIsland();
 		
 		this.pyramids = new ArrayList(3);
-		//pyramids.add(new Pyramid1());
+		pyramids.add(new Pyramid1());
 		pyramids.add(new Pyramid2());
 		pyramids.add(new HiveNest());
 
@@ -109,7 +109,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		cracklespikes = new WorldGenVetheanFlower(ModBlocks.cracklespike);
 		fernites = new WorldGenVetheanFlower(ModBlocks.fernite);
-		bulatobes = new WorldGenVetheanFlower(ModBlocks.bulbatobe);
+		bulbatobes = new WorldGenVetheanFlower(ModBlocks.bulbatobe);
 		shinegrass = new WorldGenVetheanFlower(ModBlocks.shineGrass);
 		shimmers = new WorldGenVetheanFlower(ModBlocks.shimmer);
 		dreamglows = new WorldGenVetheanFlower(ModBlocks.dreamglow);
@@ -204,7 +204,12 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 65;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//if(worldObj.getBlock(var12, var13, var14) == Blocks.air)(pyramids.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, var12, var13, var14);//Add the mobs
+			if(worldObj.getBlockState(new BlockPos(var12, var13, var14)).getBlock() == Blocks.AIR) {
+				//Add the mobs
+				//FIXME: get rid of magic constants like this 3
+				(pyramids.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
+			}
+
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -276,7 +281,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 113;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			(bulatobes).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
+			(bulbatobes).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		//Layer 4
@@ -286,25 +291,26 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 161;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//(new WorldGenLayer2Forest(false)).generate(this.worldObj, this.rand, var12, var13, var14);
+			(new WorldGenLayer2Forest(false)).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		if (this.rand.nextInt(150) == 0) {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 161;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//(l4Altars.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, var12, var13, var14);
+			(l4Altars.get(this.rand.nextInt(3))).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
-				/*if (this.rand.nextInt(150) == 0) {
-					var12 = var4 + this.rand.nextInt(16) + 8;
-					var13 = 19 + 196;
-					var14 = var5 + this.rand.nextInt(16) + 8;  
-					while(!this.worldObj.isAirBlock(var12, var13, var14)) {
-						var13++;
-					}
-					(new Layer4MassiveTree(false)).generate(this.worldObj, this.rand, var12, var13, var14);
-				}*/
+		/*
+		if (this.rand.nextInt(150) == 0) {
+			var12 = var4 + this.rand.nextInt(16) + 8;
+			var13 = 19 + 196;
+			var14 = var5 + this.rand.nextInt(16) + 8;
+			while(!this.worldObj.isAirBlock(new BlockPos(var12, var13, var14))) {
+				var13++;
+			}
+			(new Layer4MassiveTree(false)).generate(this.worldObj, this.rand, var12, var13, var14);
+		}*/
 
 		if (this.rand.nextInt(10) == 0) {
 			var12 = var4 + this.rand.nextInt(16) + 8;
@@ -347,12 +353,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
 	{
 		Biome biome = this.worldObj.getBiomeProvider().getBiome(pos);
-
 		return biome != null ? biome.getSpawnableList(creatureType) : null;
-	}
-
-	public int getLoadedChunkCount() {
-		return 0;
 	}
 
 	@Override
