@@ -108,7 +108,7 @@ public class WorldGenLayer2Forest extends WorldGenerator
 
                         if (b3 == Blocks.AIR || block == Blocks.AIR || block.isLeaves(block.getDefaultState(), world, new BlockPos(par3, par4 + var16, par5)))
                         {
-                            world.setBlockState(new BlockPos(par3, par4 + var16, par5), ModBlocks.firewood.getDefaultState());
+                            world.setBlockState(new BlockPos(par3, par4 + var16, par5), ModBlocks.firewoodLog.getDefaultState());
                         }
                     } 
 

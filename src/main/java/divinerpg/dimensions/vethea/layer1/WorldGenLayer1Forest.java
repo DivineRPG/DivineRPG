@@ -106,7 +106,7 @@ public class WorldGenLayer1Forest extends WorldGenerator
 
                         if (b1 == Blocks.AIR || block == Blocks.AIR || block.isLeaves(block.getDefaultState(), world, new BlockPos(x, y + lol, z)))
                         {
-                        	world.setBlockState(new BlockPos(x, y + lol, z), ModBlocks.hyrewood.getDefaultState());
+                        	world.setBlockState(new BlockPos(x, y + lol, z), ModBlocks.hyrewoodLog.getDefaultState());
                         }
                     }
 

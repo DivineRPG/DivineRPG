@@ -11,19 +11,19 @@ public class FloatingTree7 implements IVetheanStructure
 		chunk.setBlock(i + 1, j + 2, k + 0, ModBlocks.dreamStone);
 		chunk.setBlock(i + 1, j + 2, k + 1, ModBlocks.dreamStone);
 		chunk.setBlock(i + 1, j + 2, k + 2, ModBlocks.dreamStone);
-		chunk.setBlock(i + 1, j + 3, k + 1, ModBlocks.mintwood);
-		chunk.setBlock(i + 1, j + 4, k + 1, ModBlocks.mintwood);
+		chunk.setBlock(i + 1, j + 3, k + 1, ModBlocks.mintwoodLog);
+		chunk.setBlock(i + 1, j + 4, k + 1, ModBlocks.mintwoodLog);
 		chunk.setBlock(i + 2, j + 2, k + 1, ModBlocks.dreamStone);
-		chunk.setBlock(i + 2, j + 4, k + 1, ModBlocks.mintwood);
+		chunk.setBlock(i + 2, j + 4, k + 1, ModBlocks.mintwoodLog);
 		chunk.setBlock(i + 3, j + 1, k + 1, ModBlocks.mintwoodLeaves);
-		chunk.setBlock(i + 3, j + 4, k + 1, ModBlocks.mintwood);
+		chunk.setBlock(i + 3, j + 4, k + 1, ModBlocks.mintwoodLog);
 		chunk.setBlock(i + 4, j + 0, k + 1, ModBlocks.mintwoodLeaves);
 		chunk.setBlock(i + 4, j + 1, k + 0, ModBlocks.mintwoodLeaves);
-		chunk.setBlock(i + 4, j + 1, k + 1, ModBlocks.mintwood);
+		chunk.setBlock(i + 4, j + 1, k + 1, ModBlocks.mintwoodLog);
 		chunk.setBlock(i + 4, j + 1, k + 2, ModBlocks.mintwoodLeaves);
-		chunk.setBlock(i + 4, j + 2, k + 1, ModBlocks.mintwood);
-		chunk.setBlock(i + 4, j + 3, k + 1, ModBlocks.mintwood);
-		chunk.setBlock(i + 4, j + 4, k + 1, ModBlocks.mintwood);
+		chunk.setBlock(i + 4, j + 2, k + 1, ModBlocks.mintwoodLog);
+		chunk.setBlock(i + 4, j + 3, k + 1, ModBlocks.mintwoodLog);
+		chunk.setBlock(i + 4, j + 4, k + 1, ModBlocks.mintwoodLog);
 		chunk.setBlock(i + 5, j + 1, k + 1, ModBlocks.mintwoodLeaves);
 	}
 }

@@ -109,12 +109,13 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		cracklespikes = new WorldGenVetheanFlower(ModBlocks.cracklespike);
 		fernites = new WorldGenVetheanFlower(ModBlocks.fernite);
-		bulatobes = new WorldGenVetheanFlower(ModBlocks.bulatobe);
+		bulatobes = new WorldGenVetheanFlower(ModBlocks.bulbatobe);
 		shinegrass = new WorldGenVetheanFlower(ModBlocks.shineGrass);
 		shimmers = new WorldGenVetheanFlower(ModBlocks.shimmer);
 		dreamglows = new WorldGenVetheanFlower(ModBlocks.dreamglow);
-		greenGemTops = new WorldGenVetheanFlower(ModBlocks.gemtopGreen);
-		purpleGemTops = new WorldGenVetheanFlower(ModBlocks.gemtopPurple);
+		greenGemTops = new WorldGenVetheanFlower(ModBlocks.greenGemtop);
+		purpleGemTops = new WorldGenVetheanFlower(ModBlocks.purpleGemtop);
+		//yellowGemTops = new WorldGenVetheanFlower(ModBlocks.yellowGemtop);
 		yellowDulahs = new WorldGenVetheanFlower(ModBlocks.yellowDulah);
 		greenDulahs = new WorldGenVetheanFlower(ModBlocks.greenDulah);
 		
@@ -210,7 +211,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 65;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//l2Forest.generate(this.worldObj, this.rand, var12, var13, var14);
+			l2Forest.generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		if (this.rand.nextInt(10) == 0) {
@@ -247,14 +248,14 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 113;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//l1Forest.generate(this.worldObj, this.rand, var12, var13, var14);
+			l1Forest.generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		if (this.rand.nextInt(250) == 0) {
 			var12 = var4 + this.rand.nextInt(16) + 8;
 			var13 = 113;
 			var14 = var5 + this.rand.nextInt(16) + 8;
-			//(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, var12, var13, var14);
+			(l3Altars.get(this.rand.nextInt(2))).generate(this.worldObj, this.rand, new BlockPos(var12, var13, var14));
 		}
 
 		if (this.rand.nextInt(10) == 0) {

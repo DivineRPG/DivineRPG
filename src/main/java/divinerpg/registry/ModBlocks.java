@@ -450,10 +450,10 @@ public class ModBlocks {
     public static Block darkEverstone = new BlockModUnbreakable("dark_everstone");
     public static Block whiteEverstone = new BlockModUnbreakable("white_everstone");
 
-    public static Block firewood = new BlockModLog("firewood", MapColor.RED).setHardness(5.0F);
-    public static Block hyrewood = new BlockModLog("hyrewood", MapColor.RED).setHardness(5.0F);
-    public static Block mintwood = new BlockModLog("mintwood", MapColor.RED).setHardness(5.0F);
-    public static Block dreamWoodLog = new BlockModLog("dreamwood_log", MapColor.RED).setHardness(5.0F);
+    public static Block firewoodLog = new BlockModLog("firewood_log", MapColor.RED).setHardness(5.0F);
+    public static Block hyrewoodLog = new BlockModLog("hyrewood_log", MapColor.RED).setHardness(5.0F);
+    public static Block mintwoodLog = new BlockModLog("mintwood_log", MapColor.RED).setHardness(5.0F);
+    public static Block dreamwoodLog = new BlockModLog("dreamwood_log", MapColor.RED).setHardness(5.0F);
 
     public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED);
     public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED);
@@ -482,11 +482,11 @@ public class ModBlocks {
     public static Block darkDreamBricks = new BlockMod("dark_dream_bricks", 1.0F);
     public static Block redDreamBricks = new BlockMod("red_dream_bricks", 1.0F);
     public static Block lunaStone = new BlockMod("luna_stone", 1.0F);
-    public static Block lunaBricks = new BlockMod("luna_brick", 1.0F);
+    public static Block lunaBricks = new BlockMod("luna_bricks", 1.0F);
     public static Block weedwoodVine = new BlockModVine("weedwood_vine");
     public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weedwood_vine");
-    public static Block cryptWall = new BlockMod("cryptWall", 1.0F);
-    public static Block smoothGlass = new BlockModGlass("smoothGlass", 0.3F);
+    public static Block cryptWall = new BlockMod("crypt_wall", 1.0F);
+    public static Block smoothGlass = new BlockModGlass("smooth_glass", 0.3F);
     public static Block villageLamp = new BlockModLamp(EnumBlockType.GLASS, "village_lamp", 1.0F);
     public static Block cellLamp = new BlockModLamp(EnumBlockType.GLASS, "cell_lamp", 1.0F);
     public static Block firelight = new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F);
@@ -507,12 +507,13 @@ public class ModBlocks {
 
     public static Block cracklespike = new BlockTwilightFlower("cracklespike", dreamGrass, MapColor.GREEN);
     public static Block fernite = new BlockTwilightFlower("fernite", dreamGrass, MapColor.GREEN);
-    public static Block bulatobe = new BlockTwilightFlower("bulatobe", dreamGrass, MapColor.GREEN);
+    public static Block bulbatobe = new BlockTwilightFlower("bulbatobe", dreamGrass, MapColor.GREEN);
     public static Block shineGrass = new BlockTwilightFlower("shinegrass", dreamGrass, MapColor.GREEN);
     public static Block shimmer = new BlockTwilightFlower("shimmer", dreamGrass, MapColor.GREEN);
     public static Block dreamglow = new BlockTwilightFlower("dreamglow", dreamGrass, MapColor.GREEN);
-    public static Block gemtopGreen = new BlockTwilightFlower("gemtop_green", dreamGrass, MapColor.GREEN);
-    public static Block gemtopPurple = new BlockTwilightFlower("gemtop_purple", dreamGrass, MapColor.GREEN);
+    public static Block greenGemtop = new BlockTwilightFlower("green_gemtop", dreamGrass, MapColor.GREEN);
+    public static Block purpleGemtop = new BlockTwilightFlower("purple_gemtop", dreamGrass, MapColor.GREEN);
+    public static Block gemtopYellow = new BlockTwilightFlower("yellow_gemtop", dreamGrass, MapColor.GREEN);
     public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN);
     public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN);
 

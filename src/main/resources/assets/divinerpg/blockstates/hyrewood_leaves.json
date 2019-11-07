@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:hyrewood_leaves"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:hyrewood_leaves"
+      }
     }
-  }
+  ]
 }

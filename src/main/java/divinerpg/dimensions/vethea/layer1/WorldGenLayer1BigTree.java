@@ -336,19 +336,19 @@ public class WorldGenLayer1BigTree extends WorldGenerator
         int var4 = this.basePos[2];
         int[] var5 = new int[] {var1, var2, var4};
         int[] var6 = new int[] {var1, var3, var4};
-        this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
+        this.placeBlockLine(var5, var6, ModBlocks.hyrewoodLog);
 
         if (this.trunkSize == 2)
         {
             ++var5[0];
             ++var6[0];
-            this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
+            this.placeBlockLine(var5, var6, ModBlocks.hyrewoodLog);
             ++var5[2];
             ++var6[2];
-            this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
+            this.placeBlockLine(var5, var6, ModBlocks.hyrewoodLog);
             var5[0] += -1;
             var6[0] += -1;
-            this.placeBlockLine(var5, var6, ModBlocks.hyrewood);
+            this.placeBlockLine(var5, var6, ModBlocks.hyrewoodLog);
         }
     }
 
@@ -369,7 +369,7 @@ public class WorldGenLayer1BigTree extends WorldGenerator
 
             if (this.leafNodeNeedsBase(var6))
             {
-                this.placeBlockLine(var3, var5, ModBlocks.hyrewood);
+                this.placeBlockLine(var3, var5, ModBlocks.hyrewoodLog);
             }
         }
     }

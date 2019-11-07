@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "normal": {
+      "model": "divinerpg:firewood_log"
+    },
+    "axis=none": {
+      "model": "divinerpg:firewood_log"
+    },
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:firewood_log"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:firewood_log"
+    },
+    "axis=y": {
+      "model": "divinerpg:firewood_log"
+    }
+  }
+}
+
