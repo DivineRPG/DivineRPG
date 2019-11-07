@@ -15,6 +15,7 @@ import divinerpg.objects.blocks.arcana.*;
 import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.*;
 import divinerpg.objects.blocks.vanilla.*;
+import divinerpg.objects.blocks.vethea.BlockWreckAltar;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -472,7 +473,7 @@ public class ModBlocks {
     public static Block karosCannon = new BlockModUnbreakable("karos_cannon");
     public static Block helioticBeam = new BlockModUnbreakable("heliotic_beam");
 
-    public static Block wreckAltar = new BlockModUnbreakable("wreck_altar");
+    public static Block wreckAltar = new BlockWreckAltar("wreck_altar");
     public static Block quadroticAltar = new BlockModUnbreakable("quadrotic_altar");
     public static Block karosAltar = new BlockModUnbreakable("karos_altar");
     public static Block raglokAltar = new BlockModUnbreakable("raglok_altar");
