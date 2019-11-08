@@ -21,6 +21,7 @@ import divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import divinerpg.objects.items.twilight.ItemTwilightClock;
 import divinerpg.objects.items.twilight.ItemTwilightSpawner;
 import divinerpg.objects.items.vanilla.*;
+import divinerpg.objects.items.vethea.ItemVethean;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
@@ -464,11 +465,11 @@ public class ModItems {
     public static Item serenadeOfIce = new ItemSerenadeOfIce("serenade_of_ice");
 
     public static Item eggNog = new ItemEggNog("egg_nog");
-    public static Item peppermints = new ItemModFood(1, 0.3F, false, "peppermints");
-    public static Item chocolateLog = new ItemModFood(4, 1.0F, false, "chocolate_log");
-    public static Item snowCones = new ItemModFood(2, 0.3F, false, "snow_cones");
-    public static Item fruitCake = new ItemModFood(16, 2.0F, false, "fruit_cake");
-    public static Item winterberry = new ItemModFood(4, 1.0F, false, "winterberry");
+    public static Item peppermints = new ItemModFood(1, 0.3F,  "peppermints");
+    public static Item chocolateLog = new ItemModFood(4, 1.0F,  "chocolate_log");
+    public static Item snowCones = new ItemModFood(2, 0.3F, "snow_cones");
+    public static Item fruitCake = new ItemModFood(16, 2.0F, "fruit_cake");
+    public static Item winterberry = new ItemModFood(4, 1.0F, "winterberry");
 
     public static Item icicleBow = new ItemModBow("icicle_bow", ArrowType.ICICLE_ARROW, 10000, 24000, Items.ARROW);
     public static Item snowstormBow = new ItemModBow("snowstorm_bow", ArrowType.SNOWSTORM_ARROW, -1);
@@ -489,13 +490,13 @@ public class ModItems {
     // Foods
     public static Item bacon = new ItemModFood(2, 3.0F, true, "bacon");
     public static Item hotPumpkinPie = new ItemModFood(5, 7.0F, true, "hot_pumpkin_pie");
-    public static Item boiledEgg = new ItemModFood(4, 0.5F, false, "boiled_egg");
-    public static Item cheese = new ItemModFood(2, 0.2F, false, "cheese");
-    public static Item whiteMushroom = new ItemModFood(1, 0.1F, false, "white_mushroom");
-    public static Item advMushroomStew = new ItemModFood(10, 10.0F, false, "advanced_mushroom_stew");
-    public static Item chickenDinner = new ItemModFood(20, 20.0F, false, "chicken_dinner");
-    public static Item tomato = new ItemModFood(4, 0.3F, false, "tomato");
-    public static Item donut = new ItemModFood(16, 0.3F, false, "donut");
+    public static Item boiledEgg = new ItemModFood(4, 0.5F, "boiled_egg");
+    public static Item cheese = new ItemModFood(2, 0.2F,  "cheese");
+    public static Item whiteMushroom = new ItemModFood(1, 0.1F,  "white_mushroom");
+    public static Item advMushroomStew = new ItemModFood(10, 10.0F, "advanced_mushroom_stew");
+    public static Item chickenDinner = new ItemModFood(20, 20.0F,  "chicken_dinner");
+    public static Item tomato = new ItemModFood(4, 0.3F,  "tomato");
+    public static Item donut = new ItemModFood(16, 0.3F, "donut");
     public static Item rawEmpoweredMeat = new ItemModFood(5, 2.0F, true, "raw_empowered_meat");
     public static Item empoweredMeat = new ItemModFood(10, 4.0F, true, "empowered_meat");
     public static Item magicMeat = new ItemFastFood(5, 1.0F, true, "magic_meat");
@@ -705,12 +706,12 @@ public class ModItems {
     public static Item paratikuSpawner = new ItemZelusSpawnEgg("paratiku_egg");
     public static Item fyracryxSpawner = new ItemZelusSpawnEgg("fyracryx_egg");
 
-    public static Item hitchak = new ItemModFood(2, 3, false, "hitchak");
+    public static Item hitchak = new ItemModFood(2, 3,  "hitchak");
     public static Item veilo = new ItemMod("veilo");
     public static Item marsine = new ItemMod("marsine");
     public static Item lamona = new ItemLamona();
     public static Item firestock = new ItemMod("firestock");
-    public static Item pinfly = new ItemModFood(2, 0.3F, false, "pinfly")
+    public static Item pinfly = new ItemModFood(2, 0.3F,  "pinfly")
             .setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F);
     public static Item aquamarine = new ItemAquamarine("aquamarine");
 
@@ -749,6 +750,194 @@ public class ModItems {
     public static Item ayeracoFragmentR = new ItemMod("ayeraco_fragment_red");
     public static Item ayeracoFragmentY = new ItemMod("ayeraco_fragment_yellow");
     public static Item bedrockChunk = new ItemMod("bedrock_chunk");
+
+    //EVERYTHING PAST THIS POINT IS VETHEAN!
+
+    public static int HEAD = 0, BODY = 1, LEGS = 2, BOOTS = 3;
+
+    public static Item dirtyPearls = new ItemVethean("dirty_pearls");
+    public static Item cleanPearls = new ItemVethean("clean_pearls");
+    public static Item polishedPearls = new ItemVethean("polished_pearls");
+    public static Item shinyPearls = new ItemVethean("shiny_pearls");
+
+    public static Item teakerLump = new ItemVethean("teaker_lump");
+    public static Item amthirmisLump = new ItemVethean("amthirmis_lump");
+    public static Item darvenLump = new ItemVethean("darven_lump");
+    public static Item cermileLump = new ItemVethean("cermile_lump");
+    public static Item pardimalLump = new ItemVethean("pardimal_lump");
+    public static Item quadroticLump = new ItemVethean("quadrotic_lump");
+    public static Item karosLump = new ItemVethean("karos_lump");
+    public static Item heliosisLump = new ItemVethean("heliosis_lump");
+    public static Item arksianeLump = new ItemVethean("arksiane_lump");
+
+    public static Item honeysuckle = new ItemModFood(1, 0.2F, "honeysuckle").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item honeychunk = new ItemModFood(1, 0.2F, "honeychunk").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamCarrot = new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamMelon = new ItemModFood(6, 0.6F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamPie = new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamCake = new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamSweets = new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item dreamSours = new ItemHealingFood(0, 0F, 8, "dream_sours").setCreativeTab(DivineRPGTabs.vethea);
+
+    public static Item acid = new ItemVethean("acid");
+    public static Item heivaBelt = new ItemVethean("band_of_heiva_hunting");
+    public static Item minersAmulet = new ItemVethean("miners_amulet");
+
+    public static Item hammerTemplate = new ItemVethean("hammer_template");
+    public static Item backswordTemplate = new ItemVethean("backsword_template");
+    public static Item bowTemplate = new ItemVethean("bow_template");
+    public static Item cannonTemplate = new ItemVethean("cannon_template");
+    public static Item clawTemplate = new ItemVethean("claw_template");
+    public static Item diskTemplate = new ItemVethean("disk_template");
+    public static Item staffTemplate = new ItemVethean("staff_template");
+    public static Item degradedTemplate = new ItemVethean("degraded_template");
+    public static Item finishedTemplate = new ItemVethean("finished_template");
+    public static Item glisteningTemplate = new ItemVethean("glistening_template");
+    public static Item demonizedTemplate = new ItemVethean("demonized_template");
+    public static Item tormentedTemplate = new ItemVethean("tormented_template");
+
+    public static Item dreamFlint = new ItemVethean("dream_flint");
+    public static Item moonClock = new ItemVethean("moon_clock");
+    public static Item rockChunks = new ItemVethean("rock_chunks");
+
+    /*
+    public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
+
+    public static Item teakerDisk = new ItemDisk(4, "teakerDisk");
+    public static Item amthrimisDisk = new ItemDisk(6, "amthirmisDisk");
+    public static Item darvenDisk = new ItemDisk(9, "darvenDisk");
+    public static Item cermileDisk = new ItemDisk(13, "cermileDisk");
+    public static Item pardimalDisk = new ItemDisk(16, "pardimalDisk");
+    public static Item quadroticDisk = new ItemDisk(20, "quadroticWardisk");
+    public static Item karosDisk = new ItemDisk(22, "karosWardisk");
+    public static Item heliosisDisk = new ItemDisk(29, "heliosisWrathdisk");
+    public static Item arksianeDisk = new ItemDisk(37, "arksianeWrathdisk");
+
+    public static Item teakerStaff = new ItemStaff(3, 10, "teakerStaff");
+    public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmisStaff");
+    public static Item darvenStaff = new ItemStaff(8, 10, "darvenStaff");
+    public static Item cermileStaff = new ItemStaff(12, 10, "cermileStaff");
+    public static Item pardimalStaff = new ItemStaff(15, 10, "pardimalStaff");
+    public static Item quadroticStaff = new ItemStaff(19, 10, "quadroticWarstaff");
+    public static Item karosStaff = new ItemStaff(21, 10, "karosWarstaff");
+    public static Item heliosisStaff = new ItemStaff(28, 10, "heliosisWrathstaff");
+    public static Item arksianeStaff = new ItemStaff(36, 10, "arksianeWrathstaff");
+
+    public static Item teakerCannon = new ItemVetheanCannon("teakerCannon", 3);
+    public static Item amthrimisCannon = new ItemVetheanCannon("amthirmisCannon", 5);
+    public static Item darvenCannon = new ItemVetheanCannon("darvenCannon", 8);
+    public static Item cermileCannon = new ItemVetheanCannon("cermileCannon", 12);
+    public static Item pardimalCannon = new ItemVetheanCannon("pardimalCannon", 15);
+    public static Item quadroticCannon = new ItemVetheanCannon("quadroticWarcannon", 19);
+    public static Item karosCannon = new ItemVetheanCannon("karosWarcannon", 21);
+    public static Item heliosisCannon = new ItemVetheanCannon("heliosisWrathcannon", 28);
+    public static Item arksianeCannon = new ItemVetheanCannon("arksianeWrathcannon", 36);
+
+    public static Item teakerHammer = new ItemVetheanSword("teakerHammer", Util.addHammerMaterial(6));
+    public static Item amthrimisHammer = new ItemVetheanSword("amthirmisHammer", Util.addHammerMaterial(8));
+    public static Item darvenHammer = new ItemVetheanSword("darvenHammer", Util.addHammerMaterial(12));
+    public static Item cermileHammer = new ItemVetheanSword("cermileHammer", Util.addHammerMaterial(15));
+    public static Item pardimalHammer = new ItemVetheanSword("pardimalHammer", Util.addHammerMaterial(19));
+    public static Item quadroticHammer = new ItemVetheanSword("quadroticWarhammer", Util.addHammerMaterial(24));
+    public static Item karosHammer = new ItemVetheanSword("karosWarhammer", Util.addHammerMaterial(26));
+    public static Item heliosisHammer = new ItemVetheanSword("heliosisWrathhammer", Util.addHammerMaterial(33));
+    public static Item arksianeHammer = new ItemVetheanSword("arksianeWrathhammer", Util.addHammerMaterial(39));
+
+    public static Item teakerSword = new ItemVetheanSword("teakerBacksword", Util.addHammerMaterial(4));
+    public static Item amthrimisSword = new ItemVetheanSword("amthirmisBacksword", Util.addHammerMaterial(6));
+    public static Item darvenSword = new ItemVetheanSword("darvenBacksword", Util.addHammerMaterial(9));
+    public static Item cermileSword = new ItemVetheanSword("cermileBacksword", Util.addHammerMaterial(13));
+    public static Item pardimalSword = new ItemVetheanSword("pardimalBacksword", Util.addHammerMaterial(16));
+    public static Item quadroticSword = new ItemVetheanSword("quadroticWarsword", Util.addHammerMaterial(20));
+    public static Item karosSword = new ItemVetheanSword("karosWarsword", Util.addHammerMaterial(22));
+    public static Item heliosisSword = new ItemVetheanSword("heliosisWrathsword", Util.addHammerMaterial(29));
+    public static Item arksianeSword = new ItemVetheanSword("arksianeWrathsword", Util.addHammerMaterial(37));
+
+    public static Item teakerClaw = new ItemVetheanClaw(3, "teakerClaw");
+    public static Item amthrimisClaw = new ItemVetheanClaw(5, "amthirmisClaw");
+    public static Item darvenClaw = new ItemVetheanClaw(7, "darvenClaw");
+    public static Item cermileClaw = new ItemVetheanClaw(8, "cermileClaw");
+    public static Item pardimalClaw = new ItemVetheanClaw(12, "pardimalClaw");
+    public static Item quadroticClaw = new ItemVetheanClaw(14, "quadroticWarclaw");
+    public static Item karosClaw = new ItemVetheanClaw(19, "karosWarclaw");
+    public static Item heliosisClaw = new ItemVetheanClaw(26, "heliosisWrathclaw");
+    public static Item arksianeClaw = new ItemVetheanClaw(35, "arksianeWrathclaw");
+
+    public static Item eversight = new ItemVetheanEversight("eversight");
+    public static Item everlight = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
+    public static Item everbright = new ItemVetheanClaw(42, "everbright");
+    public static Item everArrow = new ItemVethean("everArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item everfright = new ItemModBow("everfright", -1, 25, 46, everArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item evernight = new ItemStaff(115, 80, "evernight");
+
+    public static Item karosRockmaul = new ItemVetheanSword("karosRockmaul", Util.addHammerMaterial(46));
+
+    public static Item teakerArrow = new ItemVethean("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item darvenArrow = new ItemVethean("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item pardimalArrow = new ItemVethean("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item karosArrow = new ItemVethean("karosArrow").setCreativeTab(DivineRPGTabs.vethea);
+
+    public static Item teakerBow = new ItemModBow("teakerBow", -1, 2, 5, teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item amthrimisBow = new ItemModBow("amthirmisBow", -1, 2, 7, teakerArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item darvenBow = new ItemModBow("darvenBow", -1, 3, 11, darvenArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item cermileBow = new ItemModBow("cermileBow", -1, 4, 14, darvenArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item pardimalBow = new ItemModBow("pardimalBow", -1, 5, 18, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item quadroticBow = new ItemModBow("quadroticWarbow", -1, 6, 21, pardimalArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item karosBow = new ItemModBow("karosWarbow", -1, 7, 23, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item heliosisBow = new ItemModBow("heliosisWrathbow", -1, 8, 28, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item arksianeBow = new ItemModBow("arksianeWrathbow", -1, 12, 36, karosArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
+
+
+    public static Item nightmareBed = new ItemNightmareBed();
+
+    private static Object[] basicHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION };
+    private static Object[] basicMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION };
+    private static Object[] basicHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION };
+    private static Object[] glisteningHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 3, ArmorInfo.MELEE_DAMAGE };
+    private static Object[] glisteningMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.4, ArmorInfo.SPEED };
+    private static Object[] glisteningHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
+    private static Object[] demonizedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 6, ArmorInfo.MELEE_DAMAGE };
+    private static Object[] demonizedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.8, ArmorInfo.SPEED };
+    private static Object[] demonizedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
+    private static Object[] tormentedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE };
+    private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
+    private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
+
+    public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHelmInfo, true, "Helmet");
+    public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicMaskInfo, true, "Mask");
+    public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHoodInfo, true, "Hood");
+    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, BODY, true);
+    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, LEGS, true);
+    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, BOOTS, true);
+
+    public static Item finishedHelmet = new ItemDivineArmor(EnumArmor.FINISHED, HEAD, basicHelmInfo, true, "Helmet");
+    public static Item finishedMask = new ItemDivineArmor(EnumArmor.FINISHED, HEAD, basicMaskInfo, true, "Mask");
+    public static Item finishedHood = new ItemDivineArmor(EnumArmor.FINISHED, HEAD, basicHoodInfo, true, "Hood");
+    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, BODY, true);
+    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, LEGS, true);
+    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, BOOTS, true);
+
+    public static Item glisteningHelmet = new ItemDivineArmor(EnumArmor.GLISTENING, HEAD, glisteningHelmInfo, true, "Helmet");
+    public static Item glisteningMask = new ItemDivineArmor(EnumArmor.GLISTENING, HEAD, glisteningMaskInfo, true, "Mask");
+    public static Item glisteningHood = new ItemDivineArmor(EnumArmor.GLISTENING, HEAD, glisteningHoodInfo, true, "Hood");
+    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, BODY, true);
+    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, LEGS, true);
+    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, BOOTS, true);
+
+    public static Item demonizedHelmet = new ItemDivineArmor(EnumArmor.DEMONIZED, HEAD, demonizedHelmInfo, true, "Helmet");
+    public static Item demonizedMask = new ItemDivineArmor(EnumArmor.DEMONIZED, HEAD, demonizedMaskInfo, true, "Mask");
+    public static Item demonizedHood = new ItemDivineArmor(EnumArmor.DEMONIZED, HEAD, demonizedHoodInfo, true, "Hood");
+    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, BODY, true);
+    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, LEGS, true);
+    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, BOOTS, true);
+
+    public static Item tormentedHelmet = new ItemDivineArmor(EnumArmor.TORMENTED, HEAD, tormentedHelmInfo, true, "Helmet");
+    public static Item tormentedMask = new ItemDivineArmor(EnumArmor.TORMENTED, HEAD, tormentedMaskInfo, true, "Mask");
+    public static Item tormentedHood = new ItemDivineArmor(EnumArmor.TORMENTED, HEAD, tormentedHoodInfo, true, "Hood");
+    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, BODY, true);
+    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, LEGS, true);
+    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, BOOTS, true);*/
+
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {

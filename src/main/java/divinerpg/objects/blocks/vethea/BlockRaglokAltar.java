@@ -6,8 +6,8 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class BlockWreckAltar extends BlockVetheaAltar {
-    public BlockWreckAltar(String name) {
+public class BlockRaglokAltar extends BlockVetheaAltar {
+    public BlockRaglokAltar(String name) {
         super(name);
     }
 

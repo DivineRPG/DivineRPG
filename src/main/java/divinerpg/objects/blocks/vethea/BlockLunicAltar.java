@@ -6,13 +6,13 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class BlockWreckAltar extends BlockVetheaAltar {
-    public BlockWreckAltar(String name) {
+public class BlockLunicAltar extends BlockVetheaAltar {
+    public BlockLunicAltar(String name) {
         super(name);
     }
 
     protected Item acceptedItem() {
-        return ModItems.dreamFlint;
+        return ModItems.moonClock;
     }
 
     protected EntityLiving getBoss(World world) {

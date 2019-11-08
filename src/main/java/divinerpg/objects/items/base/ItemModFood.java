@@ -19,6 +19,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemModFood extends ItemFood  {
 
+	public ItemModFood(int healAmount, float saturation, String name) {
+		this(healAmount, saturation, false, name);
+	}
+
 	public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
 		super(healAmount, saturation, isWolfFood);
 		setUnlocalizedName(name);
