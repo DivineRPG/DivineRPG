@@ -43,7 +43,8 @@ public class ModDimensions {
                 WorldProviderIceika.class, false);
         arcanaDimension = DimensionType.register(Reference.MODID + ":arcana", "_arcana", Config.arcanaDimensionId,
                 WorldProviderArcana.class, false);
-        vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", 600, WorldProviderVethea.class, false);
+        vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", Config.vetheaDimensionId, 
+        		WorldProviderVethea.class, false);
     }
 
     private static void registerDimensions() {
@@ -54,6 +55,6 @@ public class ModDimensions {
         DimensionManager.registerDimension(Config.mortumDimensionId, mortumDimension);
         DimensionManager.registerDimension(Config.iceikaDimensionId, iceikaDimension);
         DimensionManager.registerDimension(Config.arcanaDimensionId, arcanaDimension);
-        DimensionManager.registerDimension(600, vetheaDimension);
+        DimensionManager.registerDimension(Config.vetheaDimensionId, vetheaDimension);
     }
 }

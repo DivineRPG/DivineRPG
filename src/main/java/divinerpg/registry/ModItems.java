@@ -3,15 +3,55 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import divinerpg.config.Config;
 import divinerpg.enums.ArmorInfo;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.EnumArmor;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
-import divinerpg.objects.items.arcana.*;
-import divinerpg.objects.items.base.*;
+import divinerpg.objects.items.arcana.ItemAquamarine;
+import divinerpg.objects.items.arcana.ItemArcanaPotion;
+import divinerpg.objects.items.arcana.ItemArcanaSeeds;
+import divinerpg.objects.items.arcana.ItemArcaniteBlade;
+import divinerpg.objects.items.arcana.ItemArcaniteBlaster;
+import divinerpg.objects.items.arcana.ItemArcaniumSaber;
+import divinerpg.objects.items.arcana.ItemAttractor;
+import divinerpg.objects.items.arcana.ItemCaptainsSparkler;
+import divinerpg.objects.items.arcana.ItemChargedCollector;
+import divinerpg.objects.items.arcana.ItemDivineAccumulator;
+import divinerpg.objects.items.arcana.ItemEnderScepter;
+import divinerpg.objects.items.arcana.ItemFirefly;
+import divinerpg.objects.items.arcana.ItemGeneralsStaff;
+import divinerpg.objects.items.arcana.ItemGhostbane;
+import divinerpg.objects.items.arcana.ItemGrenade;
+import divinerpg.objects.items.arcana.ItemKey;
+import divinerpg.objects.items.arcana.ItemLaVekor;
+import divinerpg.objects.items.arcana.ItemLamona;
+import divinerpg.objects.items.arcana.ItemMeriksMissile;
+import divinerpg.objects.items.arcana.ItemMeteorMash;
+import divinerpg.objects.items.arcana.ItemOrbOfLight;
+import divinerpg.objects.items.arcana.ItemReflector;
+import divinerpg.objects.items.arcana.ItemShadowSaber;
+import divinerpg.objects.items.arcana.ItemStaffEnrichment;
+import divinerpg.objects.items.arcana.ItemStaffStarlight;
+import divinerpg.objects.items.arcana.ItemStormSword;
+import divinerpg.objects.items.arcana.ItemWizardsBook;
+import divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
+import divinerpg.objects.items.base.ItemDivineArmor;
+import divinerpg.objects.items.base.ItemFastFood;
+import divinerpg.objects.items.base.ItemHealingSword;
+import divinerpg.objects.items.base.ItemMod;
+import divinerpg.objects.items.base.ItemModAxe;
+import divinerpg.objects.items.base.ItemModBow;
+import divinerpg.objects.items.base.ItemModFood;
+import divinerpg.objects.items.base.ItemModHoe;
+import divinerpg.objects.items.base.ItemModPickaxe;
+import divinerpg.objects.items.base.ItemModSeeds;
+import divinerpg.objects.items.base.ItemModShovel;
+import divinerpg.objects.items.base.ItemModSword;
+import divinerpg.objects.items.base.ItemSlowingSword;
+import divinerpg.objects.items.base.ItemThrowable;
+import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemMusicShooter;
 import divinerpg.objects.items.iceika.ItemSerenadeOfIce;
@@ -20,8 +60,8 @@ import divinerpg.objects.items.twilight.ItemSkyFlower;
 import divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import divinerpg.objects.items.twilight.ItemTwilightClock;
 import divinerpg.objects.items.twilight.ItemTwilightSpawner;
-import divinerpg.objects.items.vanilla.*;
 import divinerpg.objects.items.vethea.ItemVethean;
+import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
@@ -750,6 +790,9 @@ public class ModItems {
     public static Item ayeracoFragmentR = new ItemMod("ayeraco_fragment_red");
     public static Item ayeracoFragmentY = new ItemMod("ayeraco_fragment_yellow");
     public static Item bedrockChunk = new ItemMod("bedrock_chunk");
+    
+    //VETHEA
+    public static Item nightmareBed = new ItemVetheaBed();
 
     //EVERYTHING PAST THIS POINT IS VETHEAN!
 

@@ -34,6 +34,13 @@ public class DivineTeleporter extends Teleporter {
         this.portal = portal;
         this.frame = frame;
     }
+    public DivineTeleporter(WorldServer par1WorldServer, Block portal) {
+        super(par1WorldServer);
+        worldServerInstance = par1WorldServer;
+        random = new Random(par1WorldServer.getSeed());
+        this.portal = portal;
+        this.frame = Blocks.AIR.getDefaultState();
+    }
 
     private boolean func_180265_a(BlockPos p_180265_1_) {
         return !worldServerInstance.isAirBlock(p_180265_1_) || !worldServerInstance.isAirBlock(p_180265_1_.up());

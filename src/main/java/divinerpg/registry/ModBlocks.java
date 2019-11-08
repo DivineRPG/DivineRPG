@@ -1,6 +1,8 @@
 package divinerpg.registry;
 
-import divinerpg.config.Config;
+import java.util.ArrayList;
+import java.util.List;
+
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.mortum.MortumTree;
@@ -29,9 +31,6 @@ import net.minecraft.item.ItemSlab;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Mod.EventBusSubscriber
 public class ModBlocks {
@@ -517,6 +516,8 @@ public class ModBlocks {
     public static Block purpleGemtop = new BlockTwilightFlower("purple_gemtop", dreamGrass, MapColor.GREEN);
     public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN);
     public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN);
+    
+    public static Block nightmareBed = new BlockNightmareBed();
 
     //TEMPROARY
     public static Block dreamwreckerSpawner = new BlockModSpawner("dreamwrecker_spawner", "Deathcryx");
