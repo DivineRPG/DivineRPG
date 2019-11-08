@@ -1,6 +1,8 @@
 package divinerpg.registry;
 
-import divinerpg.config.Config;
+import java.util.ArrayList;
+import java.util.List;
+
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.mortum.MortumTree;
@@ -10,11 +12,82 @@ import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.StatueType;
 import divinerpg.enums.WoodType;
-import divinerpg.objects.blocks.*;
-import divinerpg.objects.blocks.arcana.*;
-import divinerpg.objects.blocks.iceika.*;
-import divinerpg.objects.blocks.twilight.*;
-import divinerpg.objects.blocks.vanilla.*;
+import divinerpg.objects.blocks.BlockMod;
+import divinerpg.objects.blocks.BlockModBridge;
+import divinerpg.objects.blocks.BlockModDirt;
+import divinerpg.objects.blocks.BlockModDoor;
+import divinerpg.objects.blocks.BlockModFire;
+import divinerpg.objects.blocks.BlockModGlass;
+import divinerpg.objects.blocks.BlockModGrass;
+import divinerpg.objects.blocks.BlockModLadder;
+import divinerpg.objects.blocks.BlockModLamp;
+import divinerpg.objects.blocks.BlockModLeaves;
+import divinerpg.objects.blocks.BlockModLight;
+import divinerpg.objects.blocks.BlockModLog;
+import divinerpg.objects.blocks.BlockModOre;
+import divinerpg.objects.blocks.BlockModPlank;
+import divinerpg.objects.blocks.BlockModPortal;
+import divinerpg.objects.blocks.BlockModSapling;
+import divinerpg.objects.blocks.BlockModSlab;
+import divinerpg.objects.blocks.BlockModSpawner;
+import divinerpg.objects.blocks.BlockModStairs;
+import divinerpg.objects.blocks.BlockModTorch;
+import divinerpg.objects.blocks.BlockModUnbreakable;
+import divinerpg.objects.blocks.BlockModVine;
+import divinerpg.objects.blocks.BlockStatue;
+import divinerpg.objects.blocks.arcana.BlockAcceleron;
+import divinerpg.objects.blocks.arcana.BlockAquaMarine;
+import divinerpg.objects.blocks.arcana.BlockArcanaDoor;
+import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
+import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
+import divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
+import divinerpg.objects.blocks.arcana.BlockArcaniumExtractor;
+import divinerpg.objects.blocks.arcana.BlockDemonFurnace;
+import divinerpg.objects.blocks.arcana.BlockDramixAltar;
+import divinerpg.objects.blocks.arcana.BlockElevantium;
+import divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
+import divinerpg.objects.blocks.arcana.BlockFirestock;
+import divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
+import divinerpg.objects.blocks.arcana.BlockHeatTrap;
+import divinerpg.objects.blocks.arcana.BlockHitchak;
+import divinerpg.objects.blocks.arcana.BlockLamona;
+import divinerpg.objects.blocks.arcana.BlockMarsine;
+import divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
+import divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
+import divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
+import divinerpg.objects.blocks.arcana.BlockParasectaAltar;
+import divinerpg.objects.blocks.arcana.BlockPinfly;
+import divinerpg.objects.blocks.arcana.BlockVeilo;
+import divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
+import divinerpg.objects.blocks.iceika.BlockCandyCane;
+import divinerpg.objects.blocks.iceika.BlockChristmasLights;
+import divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
+import divinerpg.objects.blocks.iceika.BlockFrostedChest;
+import divinerpg.objects.blocks.iceika.BlockPresentBox;
+import divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import divinerpg.objects.blocks.twilight.BlockBrambles;
+import divinerpg.objects.blocks.twilight.BlockEdenChest;
+import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
+import divinerpg.objects.blocks.twilight.BlockMoonbulb;
+import divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
+import divinerpg.objects.blocks.twilight.BlockPurpleGlowbone;
+import divinerpg.objects.blocks.twilight.BlockSkyPlant;
+import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
+import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
+import divinerpg.objects.blocks.twilight.BlockTwilightOre;
+import divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
+import divinerpg.objects.blocks.vanilla.BlockBoneChest;
+import divinerpg.objects.blocks.vanilla.BlockHotSpike;
+import divinerpg.objects.blocks.vanilla.BlockLightFence;
+import divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
+import divinerpg.objects.blocks.vanilla.BlockNetheriteOre;
+import divinerpg.objects.blocks.vanilla.BlockSpike;
+import divinerpg.objects.blocks.vanilla.BlockTar;
+import divinerpg.objects.blocks.vanilla.BlockTomatoPlant;
+import divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
+import divinerpg.objects.blocks.vethea.BlockNightmareBed;
 import divinerpg.objects.blocks.vethea.BlockWreckAltar;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
@@ -29,9 +102,6 @@ import net.minecraft.item.ItemSlab;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Mod.EventBusSubscriber
 public class ModBlocks {
@@ -517,6 +587,8 @@ public class ModBlocks {
     public static Block gemtopYellow = new BlockTwilightFlower("yellow_gemtop", dreamGrass, MapColor.GREEN);
     public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN);
     public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN);
+    
+    public static Block nightmareBed = new BlockNightmareBed();
 
     //TEMPROARY
     public static Block dreamwreckerSpawner = new BlockModSpawner("dreamwrecker_spawner", "Deathcryx");
