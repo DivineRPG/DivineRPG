@@ -35,6 +35,7 @@ public class Config {
     public static int mortumDimensionId = 424;
     public static int iceikaDimensionId = 425;
     public static int arcanaDimensionId = 426;
+    public static int vetheaDimensionId = 427;
 
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
@@ -46,6 +47,7 @@ public class Config {
         mortumDimensionId = cfg.getInt("mortumId", CATEGORY_DIMENSION, 424, 2, 4096, "Mortum dimension ID");
         iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 7, 2, 4096, "Iceika dimension ID");
         arcanaDimensionId = cfg.getInt("arcanaId", CATEGORY_DIMENSION, 426, 2, 4096, "Arcana dimension ID");
+        vetheaDimensionId = cfg.getInt("vetheaId", CATEGORY_DIMENSION, 427, 2, 4096, "Vethea dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase,
                 "Set to false to make DivineRPG blocks non-beacon objects");
         UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker,
