@@ -463,7 +463,7 @@ public class ModBlocks {
     public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED);
 
     public static Block dreamLamp = new BlockModUnbreakable("dream_lamp");
-    public static Block infusionTable = new BlockModUnbreakable("infusion_table");
+    public static Block infusionTable = new BlockInfusionTable("infusion_table");
     public static Block cryptFloor = new BlockModUnbreakable("crypt_floor");
     public static Block greenHungerstone = new BlockModUnbreakable("green_hungerstone");
     public static Block blackHungerstone = new BlockModUnbreakable("black_hungerstone");

@@ -1,6 +1,7 @@
 package divinerpg.proxy;
 
 import divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruption;
+import divinerpg.objects.blocks.tile.container.ContainerInfusionTable;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import divinerpg.objects.blocks.tile.container.ContainerModFurnace;
 import divinerpg.objects.blocks.tile.container.gui.*;
@@ -40,6 +41,7 @@ public class GUIHandler implements IGuiHandler {
     public static final int GREENLIGHT_FURNACE_GUI_ID = 21;
     public static final int MOONLIGHT_FURNACE_GUI_ID = 22;
     public static final int ARCANIUM_EXTRACTOR_GUI_ID = 23;
+    public static final int INFUSION_TABLE_GUI_ID = 24;
 
     @Nullable
     @Override
@@ -103,6 +105,8 @@ public class GUIHandler implements IGuiHandler {
         } else if (ID == ARCANIUM_EXTRACTOR_GUI_ID) {
             return new ArcaniumExtractorGUI(player.inventory,
                     (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == INFUSION_TABLE_GUI_ID) {
+            return new InfusionTableGUI(new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable)world.getTileEntity(new BlockPos(x, y, z))));
         }
         return null;
     }
@@ -126,6 +130,8 @@ public class GUIHandler implements IGuiHandler {
             return new ContainerMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
         } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
             return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));
+        } else if (ID == INFUSION_TABLE_GUI_ID) {
+            return new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable)world.getTileEntity(new BlockPos(x, y, z)));
         }
         return null;
     }
