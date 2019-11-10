@@ -475,7 +475,8 @@ public class ModEntities {
                 buildProjectileEntry(EntityReflector.class, "reflector"),
                 buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),
                 buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
-                buildProjectileEntry(EntityMerikMissile.class, "meriks_missile")};
+                buildProjectileEntry(EntityMerikMissile.class, "meriks_missile"),
+                buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile")};
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
@@ -489,6 +490,7 @@ public class ModEntities {
 
         // Projectiles
         registerRender(EntityAttractor.class, manager -> new RenderAttractor(manager));
+        registerRender(EntityBouncingProjectile.class, manager -> new divinerpg.objects.entities.assets.render.projectile.RenderBouncingProjectile(manager));
         registerRender(EntityCaveRock.class, manager -> new RenderCaveRock(manager, 1f));
         registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
         registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));

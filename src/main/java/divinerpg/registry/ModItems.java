@@ -828,19 +828,18 @@ public class ModItems {
 
     /*
     public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
-
-    
-
-    public static Item teakerStaff = new ItemStaff(3, 10, "teakerStaff");
-    public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmisStaff");
-    public static Item darvenStaff = new ItemStaff(8, 10, "darvenStaff");
-    public static Item cermileStaff = new ItemStaff(12, 10, "cermileStaff");
-    public static Item pardimalStaff = new ItemStaff(15, 10, "pardimalStaff");
-    public static Item quadroticStaff = new ItemStaff(19, 10, "quadroticWarstaff");
-    public static Item karosStaff = new ItemStaff(21, 10, "karosWarstaff");
-    public static Item heliosisStaff = new ItemStaff(28, 10, "heliosisWrathstaff");
-    public static Item arksianeStaff = new ItemStaff(36, 10, "arksianeWrathstaff");
 */
+
+    public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
+    public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
+    public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
+    public static Item cermileStaff = new ItemStaff(12, 10, "cermile_staff");
+    public static Item pardimalStaff = new ItemStaff(15, 10, "pardimal_staff");
+    public static Item quadroticStaff = new ItemStaff(19, 10, "quadrotic_warstaff");
+    public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
+    public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
+    public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
+
     public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, ModItems.acid);
     public static Item amthrimisCannon = new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, ModItems.acid);
     public static Item darvenCannon = new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, ModItems.acid);

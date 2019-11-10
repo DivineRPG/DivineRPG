@@ -27,7 +27,6 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.bowTemplate, 20, new ItemStack(ModItems.heliosisBow));
         addRecipe(ModItems.arksianeLump, ModItems.bowTemplate, 24, new ItemStack(ModItems.arksianeBow));
 
-        /*
         addRecipe(ModItems.teakerLump, ModItems.staffTemplate, 2, new ItemStack(ModItems.teakerStaff));
         addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModItems.amthrimisStaff));
         addRecipe(ModItems.darvenLump, ModItems.staffTemplate, 4, new ItemStack(ModItems.darvenStaff));
@@ -37,8 +36,6 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.staffTemplate, 16, new ItemStack(ModItems.karosStaff));
         addRecipe(ModItems.heliosisLump, ModItems.staffTemplate, 17, new ItemStack(ModItems.heliosisStaff));
         addRecipe(ModItems.arksianeLump, ModItems.staffTemplate, 21, new ItemStack(ModItems.arksianeStaff));
-*/
-
 
         addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModItems.teakerSword));
         addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModItems.amthrimisSword));
