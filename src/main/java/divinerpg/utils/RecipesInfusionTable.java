@@ -36,17 +36,8 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.staffTemplate, 16, new ItemStack(ModItems.karosStaff));
         addRecipe(ModItems.heliosisLump, ModItems.staffTemplate, 17, new ItemStack(ModItems.heliosisStaff));
         addRecipe(ModItems.arksianeLump, ModItems.staffTemplate, 21, new ItemStack(ModItems.arksianeStaff));
-
-        addRecipe(ModItems.teakerLump, ModItems.diskTemplate, 4, new ItemStack(ModItems.teakerDisk));
-        addRecipe(ModItems.amthirmisLump, ModItems.diskTemplate, 5, new ItemStack(ModItems.amthrimisDisk));
-        addRecipe(ModItems.darvenLump, ModItems.diskTemplate, 6, new ItemStack(ModItems.darvenDisk));
-        addRecipe(ModItems.cermileLump, ModItems.diskTemplate, 8, new ItemStack(ModItems.cermileDisk));
-        addRecipe(ModItems.pardimalLump, ModItems.diskTemplate, 11, new ItemStack(ModItems.pardimalDisk));
-        addRecipe(ModItems.quadroticLump, ModItems.diskTemplate, 13, new ItemStack(ModItems.quadroticDisk));
-        addRecipe(ModItems.karosLump, ModItems.diskTemplate, 18, new ItemStack(ModItems.karosDisk));
-        addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModItems.heliosisDisk));
-        addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModItems.arksianeDisk));
 */
+
 
         addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModItems.teakerSword));
         addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModItems.amthrimisSword));
@@ -87,6 +78,17 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.cannonTemplate, 22, new ItemStack(ModItems.karosCannon));
         addRecipe(ModItems.heliosisLump, ModItems.cannonTemplate, 27, new ItemStack(ModItems.heliosisCannon));
         addRecipe(ModItems.arksianeLump, ModItems.cannonTemplate, 31, new ItemStack(ModItems.arksianeCannon));
+
+        addRecipe(ModItems.teakerLump, ModItems.diskTemplate, 4, new ItemStack(ModItems.teakerDisk));
+        addRecipe(ModItems.amthirmisLump, ModItems.diskTemplate, 5, new ItemStack(ModItems.amthrimisDisk));
+        addRecipe(ModItems.darvenLump, ModItems.diskTemplate, 6, new ItemStack(ModItems.darvenDisk));
+        addRecipe(ModItems.cermileLump, ModItems.diskTemplate, 8, new ItemStack(ModItems.cermileDisk));
+        addRecipe(ModItems.pardimalLump, ModItems.diskTemplate, 11, new ItemStack(ModItems.pardimalDisk));
+        addRecipe(ModItems.quadroticLump, ModItems.diskTemplate, 13, new ItemStack(ModItems.quadroticDisk));
+        addRecipe(ModItems.karosLump, ModItems.diskTemplate, 18, new ItemStack(ModItems.karosDisk));
+        addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModItems.heliosisDisk));
+        addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModItems.arksianeDisk));
+
 /*
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 7, new ItemStack(ModItems.degradedHelmet));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModItems.degradedHood));

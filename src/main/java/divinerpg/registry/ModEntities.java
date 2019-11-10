@@ -46,36 +46,7 @@ import divinerpg.objects.entities.assets.render.iceika.RenderHastreus;
 import divinerpg.objects.entities.assets.render.iceika.RenderRollum;
 import divinerpg.objects.entities.assets.render.iceika.RenderWorkshopMerchant;
 import divinerpg.objects.entities.assets.render.iceika.RenderWorkshopTinkerer;
-import divinerpg.objects.entities.assets.render.projectiles.RenderAttractor;
-import divinerpg.objects.entities.assets.render.projectiles.RenderCaveRock;
-import divinerpg.objects.entities.assets.render.projectiles.RenderCoriShot;
-import divinerpg.objects.entities.assets.render.projectiles.RenderCorruptedBullet;
-import divinerpg.objects.entities.assets.render.projectiles.RenderDivineArrow;
-import divinerpg.objects.entities.assets.render.projectiles.RenderEnderTripletsFireball;
-import divinerpg.objects.entities.assets.render.projectiles.RenderFirefly;
-import divinerpg.objects.entities.assets.render.projectiles.RenderFractiteShot;
-import divinerpg.objects.entities.assets.render.projectiles.RenderFrostShot;
-import divinerpg.objects.entities.assets.render.projectiles.RenderFyracryxFireball;
-import divinerpg.objects.entities.assets.render.projectiles.RenderGrenade;
-import divinerpg.objects.entities.assets.render.projectiles.RenderKingofScorchersMeteor;
-import divinerpg.objects.entities.assets.render.projectiles.RenderKingofScorchersShot;
-import divinerpg.objects.entities.assets.render.projectiles.RenderLamona;
-import divinerpg.objects.entities.assets.render.projectiles.RenderMerikMissile;
-import divinerpg.objects.entities.assets.render.projectiles.RenderMeteor;
-import divinerpg.objects.entities.assets.render.projectiles.RenderReflector;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSaguaroWormShot;
-import divinerpg.objects.entities.assets.render.projectiles.RenderScorcherShot;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSerenadeOfDeath;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSerenadeOfIce;
-import divinerpg.objects.entities.assets.render.projectiles.RenderShooterBullet;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSnowShuriken;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSoundOfCarols;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSoundOfMusic;
-import divinerpg.objects.entities.assets.render.projectiles.RenderSparkler;
-import divinerpg.objects.entities.assets.render.projectiles.RenderStaff;
-import divinerpg.objects.entities.assets.render.projectiles.RenderStar;
-import divinerpg.objects.entities.assets.render.projectiles.RenderVileStorm;
-import divinerpg.objects.entities.assets.render.projectiles.RenderWatcherShot;
+import divinerpg.objects.entities.assets.render.projectiles.*;
 import divinerpg.objects.entities.assets.render.twilight.RenderAdvancedCori;
 import divinerpg.objects.entities.assets.render.twilight.RenderAngryBunny;
 import divinerpg.objects.entities.assets.render.twilight.RenderApalachiaCadillion;
@@ -198,42 +169,7 @@ import divinerpg.objects.entities.entity.iceika.Hastreus;
 import divinerpg.objects.entities.entity.iceika.Rollum;
 import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
-import divinerpg.objects.entities.entity.projectiles.EntityAttractor;
-import divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
-import divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
-import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
-import divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
-import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
-import divinerpg.objects.entities.entity.projectiles.EntityFirefly;
-import divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
-import divinerpg.objects.entities.entity.projectiles.EntityFrostShot;
-import divinerpg.objects.entities.entity.projectiles.EntityFyracryxFireball;
-import divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
-import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
-import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
-import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
-import divinerpg.objects.entities.entity.projectiles.EntityLamona;
-import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
-import divinerpg.objects.entities.entity.projectiles.EntityMeteor;
-import divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
-import divinerpg.objects.entities.entity.projectiles.EntityReflector;
-import divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
-import divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
-import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfDeath;
-import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfIce;
-import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
-import divinerpg.objects.entities.entity.projectiles.EntityShuriken;
-import divinerpg.objects.entities.entity.projectiles.EntitySnowflakeShuriken;
-import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
-import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
-import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
-import divinerpg.objects.entities.entity.projectiles.EntitySparkler;
-import divinerpg.objects.entities.entity.projectiles.EntityStar;
-import divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
-import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
-import divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
-import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
+import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.twilight.AdvancedCori;
 import divinerpg.objects.entities.entity.twilight.AngryBunny;
 import divinerpg.objects.entities.entity.twilight.ApalachiaCadillion;
@@ -529,6 +465,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityCoriShot.class, "cori_shot"),
                 buildProjectileEntry(EntityTwilightMageShot.class, "twilight_mage_shot"),
                 buildProjectileEntry(EntitySoulFiendShot.class, "soul_fiend_shot"),
+                buildProjectileEntry(EntityDisk.class, "disk"),
                 buildProjectileEntry(EntityGrenade.class, "grenade"),
                 buildProjectileEntry(EntityAttractor.class, "attractor"),
                 buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
@@ -555,6 +492,7 @@ public class ModEntities {
         registerRender(EntityCaveRock.class, manager -> new RenderCaveRock(manager, 1f));
         registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
         registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));
+        registerRender(EntityDisk.class, manager -> new RenderDisk(manager));
         registerRender(EntityDivineArrow.class, manager -> new RenderDivineArrow(manager));
         registerRender(EntityEnderTripletsFireball.class, manager -> new RenderEnderTripletsFireball(manager, 1f));
         registerRender(EntityFirefly.class, manager -> new RenderFirefly(manager));

@@ -3,10 +3,7 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import divinerpg.enums.ArmorInfo;
-import divinerpg.enums.ArrowType;
-import divinerpg.enums.BulletType;
-import divinerpg.enums.EnumArmor;
+import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import divinerpg.objects.items.arcana.ItemAquamarine;
@@ -46,11 +43,8 @@ import divinerpg.objects.items.twilight.ItemSkyFlower;
 import divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import divinerpg.objects.items.twilight.ItemTwilightClock;
 import divinerpg.objects.items.twilight.ItemTwilightSpawner;
-import divinerpg.objects.items.vethea.ItemVetheaBed;
-import divinerpg.objects.items.vethea.ItemVethean;
+import divinerpg.objects.items.vethea.*;
 import divinerpg.objects.items.vanilla.*;
-import divinerpg.objects.items.vethea.ItemVetheanCannon;
-import divinerpg.objects.items.vethea.ItemVetheanSword;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
@@ -835,15 +829,7 @@ public class ModItems {
     /*
     public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Item teakerDisk = new ItemDisk(4, "teakerDisk");
-    public static Item amthrimisDisk = new ItemDisk(6, "amthirmisDisk");
-    public static Item darvenDisk = new ItemDisk(9, "darvenDisk");
-    public static Item cermileDisk = new ItemDisk(13, "cermileDisk");
-    public static Item pardimalDisk = new ItemDisk(16, "pardimalDisk");
-    public static Item quadroticDisk = new ItemDisk(20, "quadroticWardisk");
-    public static Item karosDisk = new ItemDisk(22, "karosWardisk");
-    public static Item heliosisDisk = new ItemDisk(29, "heliosisWrathdisk");
-    public static Item arksianeDisk = new ItemDisk(37, "arksianeWrathdisk");
+    
 
     public static Item teakerStaff = new ItemStaff(3, 10, "teakerStaff");
     public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmisStaff");
@@ -896,6 +882,16 @@ public class ModItems {
     public static Item heliosisClaw = new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_wrathclaw");
     public static Item arksianeClaw = new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_wrathclaw");
 
+    public static Item teakerDisk = new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK);
+    public static Item amthrimisDisk = new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK);
+    public static Item darvenDisk = new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK);
+    public static Item cermileDisk = new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK);
+    public static Item pardimalDisk = new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK);
+    public static Item quadroticDisk = new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK);
+    public static Item karosDisk = new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK);
+    public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK);
+    public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK);
+    
     /*
 
     public static Item eversight = new ItemVetheanEversight("eversight");
