@@ -16,7 +16,7 @@ public class RecipesInfusionTable {
     }
 
     public void addRecipes() {
-        /*
+
         addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModItems.teakerBow));
         addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModItems.amthrimisBow));
         addRecipe(ModItems.darvenLump, ModItems.bowTemplate, 6, new ItemStack(ModItems.darvenBow));
@@ -27,6 +27,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.bowTemplate, 20, new ItemStack(ModItems.heliosisBow));
         addRecipe(ModItems.arksianeLump, ModItems.bowTemplate, 24, new ItemStack(ModItems.arksianeBow));
 
+        /*
         addRecipe(ModItems.teakerLump, ModItems.staffTemplate, 2, new ItemStack(ModItems.teakerStaff));
         addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModItems.amthrimisStaff));
         addRecipe(ModItems.darvenLump, ModItems.staffTemplate, 4, new ItemStack(ModItems.darvenStaff));
