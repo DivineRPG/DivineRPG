@@ -50,6 +50,7 @@ import divinerpg.objects.items.vethea.ItemVetheaBed;
 import divinerpg.objects.items.vethea.ItemVethean;
 import divinerpg.objects.items.vanilla.*;
 import divinerpg.objects.items.vethea.ItemVetheanCannon;
+import divinerpg.objects.items.vethea.ItemVetheanSword;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
@@ -863,45 +864,48 @@ public class ModItems {
     public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, ModItems.acid);
     public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, ModItems.acid);
     public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, ModItems.acid);
-/*
-    public static Item teakerHammer = new ItemVetheanSword("teakerHammer", Util.addHammerMaterial(6));
-    public static Item amthrimisHammer = new ItemVetheanSword("amthirmisHammer", Util.addHammerMaterial(8));
-    public static Item darvenHammer = new ItemVetheanSword("darvenHammer", Util.addHammerMaterial(12));
-    public static Item cermileHammer = new ItemVetheanSword("cermileHammer", Util.addHammerMaterial(15));
-    public static Item pardimalHammer = new ItemVetheanSword("pardimalHammer", Util.addHammerMaterial(19));
-    public static Item quadroticHammer = new ItemVetheanSword("quadroticWarhammer", Util.addHammerMaterial(24));
-    public static Item karosHammer = new ItemVetheanSword("karosWarhammer", Util.addHammerMaterial(26));
-    public static Item heliosisHammer = new ItemVetheanSword("heliosisWrathhammer", Util.addHammerMaterial(33));
-    public static Item arksianeHammer = new ItemVetheanSword("arksianeWrathhammer", Util.addHammerMaterial(39));
 
-    public static Item teakerSword = new ItemVetheanSword("teakerBacksword", Util.addHammerMaterial(4));
-    public static Item amthrimisSword = new ItemVetheanSword("amthirmisBacksword", Util.addHammerMaterial(6));
-    public static Item darvenSword = new ItemVetheanSword("darvenBacksword", Util.addHammerMaterial(9));
-    public static Item cermileSword = new ItemVetheanSword("cermileBacksword", Util.addHammerMaterial(13));
-    public static Item pardimalSword = new ItemVetheanSword("pardimalBacksword", Util.addHammerMaterial(16));
-    public static Item quadroticSword = new ItemVetheanSword("quadroticWarsword", Util.addHammerMaterial(20));
-    public static Item karosSword = new ItemVetheanSword("karosWarsword", Util.addHammerMaterial(22));
-    public static Item heliosisSword = new ItemVetheanSword("heliosisWrathsword", Util.addHammerMaterial(29));
-    public static Item arksianeSword = new ItemVetheanSword("arksianeWrathsword", Util.addHammerMaterial(37));
+    public static Item teakerHammer = new ItemVetheanSword(ToolMaterialMod.TeakerHammer,"teaker_hammer");
+    public static Item amthrimisHammer = new ItemVetheanSword(ToolMaterialMod.AmthirmisHammer, "amthirmis_hammer");
+    public static Item darvenHammer = new ItemVetheanSword(ToolMaterialMod.DarvenHammer,"darven_hammer");
+    public static Item cermileHammer = new ItemVetheanSword(ToolMaterialMod.CermileHammer,"cermile_hammer");
+    public static Item pardimalHammer = new ItemVetheanSword(ToolMaterialMod.PardimalHammer,"pardimal_hammer");
+    public static Item quadroticHammer = new ItemVetheanSword(ToolMaterialMod.QuadroticHammer,"quadrotic_warhammer");
+    public static Item karosHammer = new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_warhammer");
+    public static Item heliosisHammer = new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_wrathhammer");
+    public static Item arksianeHammer = new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_wrathhammer");
 
-    public static Item teakerClaw = new ItemVetheanClaw(3, "teakerClaw");
-    public static Item amthrimisClaw = new ItemVetheanClaw(5, "amthirmisClaw");
-    public static Item darvenClaw = new ItemVetheanClaw(7, "darvenClaw");
-    public static Item cermileClaw = new ItemVetheanClaw(8, "cermileClaw");
-    public static Item pardimalClaw = new ItemVetheanClaw(12, "pardimalClaw");
-    public static Item quadroticClaw = new ItemVetheanClaw(14, "quadroticWarclaw");
-    public static Item karosClaw = new ItemVetheanClaw(19, "karosWarclaw");
-    public static Item heliosisClaw = new ItemVetheanClaw(26, "heliosisWrathclaw");
-    public static Item arksianeClaw = new ItemVetheanClaw(35, "arksianeWrathclaw");
+    public static Item teakerSword = new ItemVetheanSword(ToolMaterialMod.TeakerSword, "teaker_backsword");
+    public static Item amthrimisSword = new ItemVetheanSword(ToolMaterialMod.AmthirmisSword, "amthirmis_backsword");
+    public static Item darvenSword = new ItemVetheanSword(ToolMaterialMod.DarvenSword,"darven_backsword");
+    public static Item cermileSword = new ItemVetheanSword(ToolMaterialMod.CermileSword,"cermile_backsword");
+    public static Item pardimalSword = new ItemVetheanSword(ToolMaterialMod.PardimalSword,"pardimal_backsword");
+    public static Item quadroticSword = new ItemVetheanSword(ToolMaterialMod.QuadroticSword,"quadrotic_warsword");
+    public static Item karosSword = new ItemVetheanSword(ToolMaterialMod.KarosSword,"karos_warsword");
+    public static Item heliosisSword = new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_wrathsword");
+    public static Item arksianeSword = new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_wrathsword");
+
+
+    public static Item teakerClaw = new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw");
+    public static Item amthrimisClaw = new ItemVetheanSword(ToolMaterialMod.AmthirmisClaw, "amthirmis_claw");
+    public static Item darvenClaw = new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw");
+    public static Item cermileClaw = new ItemVetheanSword(ToolMaterialMod.CermileClaw,"cermile_claw");
+    public static Item pardimalClaw = new ItemVetheanSword(ToolMaterialMod.PardimalClaw, "pardimal_claw");
+    public static Item quadroticClaw = new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_warclaw");
+    public static Item karosClaw = new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_warclaw");
+    public static Item heliosisClaw = new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_wrathclaw");
+    public static Item arksianeClaw = new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_wrathclaw");
+
+    /*
 
     public static Item eversight = new ItemVetheanEversight("eversight");
-    public static Item everlight = new ItemVetheanSword("everlight", Util.addHammerMaterial(44));
+    public static Item everlight = new ItemModSword("everlight", Util.addHammerMaterial(44));
     public static Item everbright = new ItemVetheanClaw(42, "everbright");
     public static Item everArrow = new ItemVethean("everArrow").setCreativeTab(DivineRPGTabs.vethea);
     public static Item everfright = new ItemModBow("everfright", -1, 25, 46, everArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
     public static Item evernight = new ItemStaff(115, 80, "evernight");
 
-    public static Item karosRockmaul = new ItemVetheanSword("karosRockmaul", Util.addHammerMaterial(46));
+    public static Item karosRockmaul = new ItemModSword("karosRockmaul", Util.addHammerMaterial(46));
 
     public static Item teakerArrow = new ItemVethean("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
     public static Item darvenArrow = new ItemVethean("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);

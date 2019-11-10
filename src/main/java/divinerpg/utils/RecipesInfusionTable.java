@@ -27,16 +27,6 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.bowTemplate, 20, new ItemStack(ModItems.heliosisBow));
         addRecipe(ModItems.arksianeLump, ModItems.bowTemplate, 24, new ItemStack(ModItems.arksianeBow));
 
-        addRecipe(ModItems.teakerLump, ModItems.clawTemplate, 2, new ItemStack(ModItems.teakerClaw));
-        addRecipe(ModItems.amthirmisLump, ModItems.clawTemplate, 3, new ItemStack(ModItems.amthrimisClaw));
-        addRecipe(ModItems.darvenLump, ModItems.clawTemplate, 4, new ItemStack(ModItems.darvenClaw));
-        addRecipe(ModItems.cermileLump, ModItems.clawTemplate, 6, new ItemStack(ModItems.cermileClaw));
-        addRecipe(ModItems.pardimalLump, ModItems.clawTemplate, 8, new ItemStack(ModItems.pardimalClaw));
-        addRecipe(ModItems.quadroticLump, ModItems.clawTemplate, 10, new ItemStack(ModItems.quadroticClaw));
-        addRecipe(ModItems.karosLump, ModItems.clawTemplate, 16, new ItemStack(ModItems.karosClaw));
-        addRecipe(ModItems.heliosisLump, ModItems.clawTemplate, 17, new ItemStack(ModItems.heliosisClaw));
-        addRecipe(ModItems.arksianeLump, ModItems.clawTemplate, 21, new ItemStack(ModItems.arksianeClaw));
-
         addRecipe(ModItems.teakerLump, ModItems.staffTemplate, 2, new ItemStack(ModItems.teakerStaff));
         addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModItems.amthrimisStaff));
         addRecipe(ModItems.darvenLump, ModItems.staffTemplate, 4, new ItemStack(ModItems.darvenStaff));
@@ -56,6 +46,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.diskTemplate, 18, new ItemStack(ModItems.karosDisk));
         addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModItems.heliosisDisk));
         addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModItems.arksianeDisk));
+*/
 
         addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModItems.teakerSword));
         addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModItems.amthrimisSword));
@@ -67,6 +58,16 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.backswordTemplate, 20, new ItemStack(ModItems.heliosisSword));
         addRecipe(ModItems.arksianeLump, ModItems.backswordTemplate, 24, new ItemStack(ModItems.arksianeSword));
 
+        addRecipe(ModItems.teakerLump, ModItems.clawTemplate, 2, new ItemStack(ModItems.teakerClaw));
+        addRecipe(ModItems.amthirmisLump, ModItems.clawTemplate, 3, new ItemStack(ModItems.amthrimisClaw));
+        addRecipe(ModItems.darvenLump, ModItems.clawTemplate, 4, new ItemStack(ModItems.darvenClaw));
+        addRecipe(ModItems.cermileLump, ModItems.clawTemplate, 6, new ItemStack(ModItems.cermileClaw));
+        addRecipe(ModItems.pardimalLump, ModItems.clawTemplate, 8, new ItemStack(ModItems.pardimalClaw));
+        addRecipe(ModItems.quadroticLump, ModItems.clawTemplate, 10, new ItemStack(ModItems.quadroticClaw));
+        addRecipe(ModItems.karosLump, ModItems.clawTemplate, 16, new ItemStack(ModItems.karosClaw));
+        addRecipe(ModItems.heliosisLump, ModItems.clawTemplate, 17, new ItemStack(ModItems.heliosisClaw));
+        addRecipe(ModItems.arksianeLump, ModItems.clawTemplate, 21, new ItemStack(ModItems.arksianeClaw));
+
         addRecipe(ModItems.teakerLump, ModItems.hammerTemplate, 7, new ItemStack(ModItems.teakerHammer));
         addRecipe(ModItems.amthirmisLump, ModItems.hammerTemplate, 9, new ItemStack(ModItems.amthrimisHammer));
         addRecipe(ModItems.darvenLump, ModItems.hammerTemplate, 11, new ItemStack(ModItems.darvenHammer));
@@ -76,7 +77,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.hammerTemplate, 22, new ItemStack(ModItems.karosHammer));
         addRecipe(ModItems.heliosisLump, ModItems.hammerTemplate, 27, new ItemStack(ModItems.heliosisHammer));
         addRecipe(ModItems.arksianeLump, ModItems.hammerTemplate, 31, new ItemStack(ModItems.arksianeHammer));
-*/
+
         addRecipe(ModItems.teakerLump, ModItems.cannonTemplate, 7, new ItemStack(ModItems.teakerCannon));
         addRecipe(ModItems.amthirmisLump, ModItems.cannonTemplate, 9, new ItemStack(ModItems.amthrimisCannon));
         addRecipe(ModItems.darvenLump, ModItems.cannonTemplate, 11, new ItemStack(ModItems.darvenCannon));

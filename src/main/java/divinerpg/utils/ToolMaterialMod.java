@@ -133,6 +133,42 @@ public class ToolMaterialMod {
     public static ToolMaterial SkythernShovel = addShovelMaterial("skythern_shovel", 100, 6000, 48.0F, 8, 22, ModItems.skythernGem);
     public static ToolMaterial WildwoodShovel = addShovelMaterial("wildwood_shovel", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
 
+    //VETHEA
+
+    //Hammers
+    public static ToolMaterial TeakerHammer = addMeleeMaterial("teaker_hammer", 6, 0);
+    public static ToolMaterial AmthirmisHammer = addMeleeMaterial("amthirmis_hammer", 8, 0);
+    public static ToolMaterial DarvenHammer = addMeleeMaterial("darven_hammer", 12, 0);
+    public static ToolMaterial CermileHammer = addMeleeMaterial("cermile_hammer", 15, 0);
+    public static ToolMaterial PardimalHammer = addMeleeMaterial("pardimal_hammer", 19, 0);
+    public static ToolMaterial QuadroticHammer = addMeleeMaterial("quadrotic_warhammer", 24, 0);
+    public static ToolMaterial KarosHammer = addMeleeMaterial("karos_warhammer", 26, 0);
+    public static ToolMaterial HeliosisHammer = addMeleeMaterial("heliosis_wrathhhammer", 33, 0);
+    public static ToolMaterial ArksianeHammer = addMeleeMaterial("arksiane_wrathhammer", 39, 0);
+
+    //Backswords
+    public static ToolMaterial TeakerSword = addMeleeMaterial("teaker_backsword", 4, 0);
+    public static ToolMaterial AmthirmisSword = addMeleeMaterial("amthirmis_backsword", 6, 0);
+    public static ToolMaterial DarvenSword = addMeleeMaterial("darven_backsword", 9, 0);
+    public static ToolMaterial CermileSword = addMeleeMaterial("cermile_backsword", 13, 0);
+    public static ToolMaterial PardimalSword = addMeleeMaterial("pardimal_backsword", 16, 0);
+    public static ToolMaterial QuadroticSword = addMeleeMaterial("quadrotic_warsword", 20, 0);
+    public static ToolMaterial KarosSword = addMeleeMaterial("karos_warsword", 22, 0);
+    public static ToolMaterial HeliosisSword = addMeleeMaterial("heliosis_wrathsword", 29, 0);
+    public static ToolMaterial ArksianeSword = addMeleeMaterial("arksiane_wrathsword", 37, 0);
+
+    //Claws
+    public static ToolMaterial TeakerClaw = addMeleeMaterial("teaker_claw", 3, 0);
+    public static ToolMaterial AmthirmisClaw = addMeleeMaterial("amthirmis_claw", 5, 0);
+    public static ToolMaterial DarvenClaw = addMeleeMaterial("darven_claw", 7, 0);
+    public static ToolMaterial CermileClaw = addMeleeMaterial("cermile_claw", 8, 0);
+    public static ToolMaterial PardimalClaw = addMeleeMaterial("pardimal_claw", 12, 0);
+    public static ToolMaterial QuadroticClaw = addMeleeMaterial("quadrotic_claw", 14, 0);
+    public static ToolMaterial KarosClaw = addMeleeMaterial("karos_claw", 19, 0);
+    public static ToolMaterial HeliosisClaw = addMeleeMaterial("heliosis_claw", 26, 0);
+    public static ToolMaterial ArksianeClaw = addMeleeMaterial("arksiane_claw", 35, 0);
+
+
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
                                                 Item repair) {
         return EnumHelper.addToolMaterial(name, 0, maxUses, 0, damage - 5, enchantability)
