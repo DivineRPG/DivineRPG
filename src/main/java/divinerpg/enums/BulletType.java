@@ -52,7 +52,17 @@ public enum BulletType {
     SORCERER_SHOT(12, ProjectileLoc("blank"), new Color(97, 31, 54)),
     TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(0, 0, 0)),
     TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(255, 0, 0)),
-    SOUL_FIEND_SHOT(0, ProjectileLoc("blank"));
+    SOUL_FIEND_SHOT(0, ProjectileLoc("blank")),
+
+    TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
+    AMTHIRMIS_CANNON_SHOT(5, ProjectileLoc("cannon")),
+    DARVEN_CANNON_SHOT(8, ProjectileLoc("cannon")),
+    CERMILE_CANNON_SHOT(12, ProjectileLoc("cannon")),
+    PARDIMAL_CANNON_SHOT(15, ProjectileLoc("cannon")),
+    QUADROTIC_CANNON_SHOT(19, ProjectileLoc("cannon")),
+    KAROS_CANNON_SHOT(21, ProjectileLoc("cannon")),
+    HELIOSIS_CANNON_SHOT(28, ProjectileLoc("cannon")),
+    ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon"));
 
     private final float damage;
     private final ResourceLocation texture;

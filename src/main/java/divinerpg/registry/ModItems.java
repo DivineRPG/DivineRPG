@@ -49,6 +49,7 @@ import divinerpg.objects.items.twilight.ItemTwilightSpawner;
 import divinerpg.objects.items.vethea.ItemVetheaBed;
 import divinerpg.objects.items.vethea.ItemVethean;
 import divinerpg.objects.items.vanilla.*;
+import divinerpg.objects.items.vethea.ItemVetheanCannon;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
@@ -852,17 +853,17 @@ public class ModItems {
     public static Item karosStaff = new ItemStaff(21, 10, "karosWarstaff");
     public static Item heliosisStaff = new ItemStaff(28, 10, "heliosisWrathstaff");
     public static Item arksianeStaff = new ItemStaff(36, 10, "arksianeWrathstaff");
-
-    public static Item teakerCannon = new ItemVetheanCannon("teakerCannon", 3);
-    public static Item amthrimisCannon = new ItemVetheanCannon("amthirmisCannon", 5);
-    public static Item darvenCannon = new ItemVetheanCannon("darvenCannon", 8);
-    public static Item cermileCannon = new ItemVetheanCannon("cermileCannon", 12);
-    public static Item pardimalCannon = new ItemVetheanCannon("pardimalCannon", 15);
-    public static Item quadroticCannon = new ItemVetheanCannon("quadroticWarcannon", 19);
-    public static Item karosCannon = new ItemVetheanCannon("karosWarcannon", 21);
-    public static Item heliosisCannon = new ItemVetheanCannon("heliosisWrathcannon", 28);
-    public static Item arksianeCannon = new ItemVetheanCannon("arksianeWrathcannon", 36);
-
+*/
+    public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, ModItems.acid);
+    public static Item amthrimisCannon = new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, ModItems.acid);
+    public static Item darvenCannon = new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, ModItems.acid);
+    public static Item cermileCannon = new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT, ModItems.acid);
+    public static Item pardimalCannon = new ItemVetheanCannon("pardimal_cannon", BulletType.PARDIMAL_CANNON_SHOT, ModItems.acid);
+    public static Item quadroticCannon = new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_CANNON_SHOT, ModItems.acid);
+    public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, ModItems.acid);
+    public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, ModItems.acid);
+    public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, ModItems.acid);
+/*
     public static Item teakerHammer = new ItemVetheanSword("teakerHammer", Util.addHammerMaterial(6));
     public static Item amthrimisHammer = new ItemVetheanSword("amthirmisHammer", Util.addHammerMaterial(8));
     public static Item darvenHammer = new ItemVetheanSword("darvenHammer", Util.addHammerMaterial(12));

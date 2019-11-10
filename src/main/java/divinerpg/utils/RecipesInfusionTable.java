@@ -16,9 +16,6 @@ public class RecipesInfusionTable {
     }
 
     public void addRecipes() {
-        //Placeholder test recipe
-        this.addRecipe(ModItems.corruptedStone, ModItems.hammerTemplate, 3, new ItemStack(ModItems.corruptedMaul));
-
         /*
         addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModItems.teakerBow));
         addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModItems.amthrimisBow));
@@ -79,7 +76,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.hammerTemplate, 22, new ItemStack(ModItems.karosHammer));
         addRecipe(ModItems.heliosisLump, ModItems.hammerTemplate, 27, new ItemStack(ModItems.heliosisHammer));
         addRecipe(ModItems.arksianeLump, ModItems.hammerTemplate, 31, new ItemStack(ModItems.arksianeHammer));
-
+*/
         addRecipe(ModItems.teakerLump, ModItems.cannonTemplate, 7, new ItemStack(ModItems.teakerCannon));
         addRecipe(ModItems.amthirmisLump, ModItems.cannonTemplate, 9, new ItemStack(ModItems.amthrimisCannon));
         addRecipe(ModItems.darvenLump, ModItems.cannonTemplate, 11, new ItemStack(ModItems.darvenCannon));
@@ -89,7 +86,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.karosLump, ModItems.cannonTemplate, 22, new ItemStack(ModItems.karosCannon));
         addRecipe(ModItems.heliosisLump, ModItems.cannonTemplate, 27, new ItemStack(ModItems.heliosisCannon));
         addRecipe(ModItems.arksianeLump, ModItems.cannonTemplate, 31, new ItemStack(ModItems.arksianeCannon));
-
+/*
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 7, new ItemStack(ModItems.degradedHelmet));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModItems.degradedHood));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 6, new ItemStack(ModItems.degradedMask));
