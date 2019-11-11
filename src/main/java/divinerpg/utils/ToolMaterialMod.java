@@ -145,6 +145,8 @@ public class ToolMaterialMod {
     public static ToolMaterial KarosHammer = addMeleeMaterial("karos_warhammer", 26, 0);
     public static ToolMaterial HeliosisHammer = addMeleeMaterial("heliosis_wrathhhammer", 33, 0);
     public static ToolMaterial ArksianeHammer = addMeleeMaterial("arksiane_wrathhammer", 39, 0);
+    public static ToolMaterial Everlight = addMeleeMaterial("everlight", 44, 0);
+    public static ToolMaterial KarosRockmaul = addMeleeMaterial("karos_rockmaul", 46, 0);
 
     //Backswords
     public static ToolMaterial TeakerSword = addMeleeMaterial("teaker_backsword", 4, 0);
@@ -167,6 +169,7 @@ public class ToolMaterialMod {
     public static ToolMaterial KarosClaw = addMeleeMaterial("karos_claw", 19, 0);
     public static ToolMaterial HeliosisClaw = addMeleeMaterial("heliosis_claw", 26, 0);
     public static ToolMaterial ArksianeClaw = addMeleeMaterial("arksiane_claw", 35, 0);
+    public static ToolMaterial Everbright = addMeleeMaterial("everbright", 42, 0);
 
 
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,

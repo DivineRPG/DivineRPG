@@ -62,7 +62,8 @@ public enum BulletType {
     QUADROTIC_CANNON_SHOT(19, ProjectileLoc("cannon")),
     KAROS_CANNON_SHOT(21, ProjectileLoc("cannon")),
     HELIOSIS_CANNON_SHOT(28, ProjectileLoc("cannon")),
-    ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon"));
+    ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
+    EVERSIGHT_SHOT(42, ProjectileLoc("cannon"));
 
     private final float damage;
     private final ResourceLocation texture;

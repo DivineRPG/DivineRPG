@@ -24,7 +24,7 @@ public enum ArrowType {
     QUADROTIC_ARROW(6, 21, ProjectileLoc("pardimal_arrow")),
     KAROS_ARROW(7, 23, ProjectileLoc("karos_arrow")),
     HELIOSIS_ARROW(8, 28, ProjectileLoc("karos_arrow")),
-    ARKSIAN_ARROW(12, 36, ProjectileLoc("karos_arrow")),
+    ARKSIANE_ARROW(12, 36, ProjectileLoc("karos_arrow")),
 
     ARID_WARRIOR_ARROW(1.5F, 1.5F, VanillaLoc()),
     WILDFIRE_ARROW(5, 5, ProjectileLoc("inferno_arrow"), ArrowSpecial.FLAME),

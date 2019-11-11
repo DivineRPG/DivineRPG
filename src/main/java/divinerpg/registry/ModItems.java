@@ -829,7 +829,6 @@ public class ModItems {
     /*
     public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
 */
-
     public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
     public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
     public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
@@ -849,6 +848,7 @@ public class ModItems {
     public static Item karosCannon = new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, ModItems.acid);
     public static Item heliosisCannon = new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, ModItems.acid);
     public static Item arksianeCannon = new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, ModItems.acid);
+    public static Item eversight = new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, ModItems.acid);
 
     public static Item teakerHammer = new ItemVetheanSword(ToolMaterialMod.TeakerHammer,"teaker_hammer");
     public static Item amthrimisHammer = new ItemVetheanSword(ToolMaterialMod.AmthirmisHammer, "amthirmis_hammer");
@@ -859,6 +859,8 @@ public class ModItems {
     public static Item karosHammer = new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_warhammer");
     public static Item heliosisHammer = new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_wrathhammer");
     public static Item arksianeHammer = new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_wrathhammer");
+    public static Item everlight = new ItemVetheanSword(ToolMaterialMod.Everlight, "everlight");
+    public static Item karosRockmaul = new ItemVetheanSword(ToolMaterialMod.KarosRockmaul, "karos_rockmaul");
 
     public static Item teakerSword = new ItemVetheanSword(ToolMaterialMod.TeakerSword, "teaker_backsword");
     public static Item amthrimisSword = new ItemVetheanSword(ToolMaterialMod.AmthirmisSword, "amthirmis_backsword");
@@ -870,7 +872,6 @@ public class ModItems {
     public static Item heliosisSword = new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_wrathsword");
     public static Item arksianeSword = new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_wrathsword");
 
-
     public static Item teakerClaw = new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw");
     public static Item amthrimisClaw = new ItemVetheanSword(ToolMaterialMod.AmthirmisClaw, "amthirmis_claw");
     public static Item darvenClaw = new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw");
@@ -880,6 +881,7 @@ public class ModItems {
     public static Item karosClaw = new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_warclaw");
     public static Item heliosisClaw = new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_wrathclaw");
     public static Item arksianeClaw = new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_wrathclaw");
+    public static Item everbright = new ItemVetheanSword(ToolMaterialMod.Everbright, "everbright");
 
     public static Item teakerDisk = new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK);
     public static Item amthrimisDisk = new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK);
@@ -891,34 +893,25 @@ public class ModItems {
     public static Item heliosisDisk = new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK);
     public static Item arksianeDisk = new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK);
 
-    public static Item teakerArrow = new ItemVethean("teakerArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static Item darvenArrow = new ItemVethean("darvenArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static Item pardimalArrow = new ItemVethean("pardimalArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static Item karosArrow = new ItemVethean("karosArrow").setCreativeTab(DivineRPGTabs.vethea);
+    public static Item teakerArrow = new ItemVethean("teaker_arrow");
+    public static Item darvenArrow = new ItemVethean("darven_arrow");
+    public static Item pardimalArrow = new ItemVethean("pardimal_Arrow");
+    public static Item karosArrow = new ItemVethean("karos_Arrow");
+    public static Item everArrow = new ItemVethean("ever_arrow");
 
-    public static Item teakerBow = new ItemModBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item amthrimisBow = new ItemModBow("amthirmis_bow", ArrowType.AMTHIRMIS_ARROW, -1, teakerArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item darvenBow = new ItemModBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item cermileBow = new ItemModBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, darvenArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item pardimalBow = new ItemModBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, pardimalArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item quadroticBow = new ItemModBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item karosBow = new ItemModBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item heliosisBow = new ItemModBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
-    public static Item arksianeBow = new ItemModBow("arksiane_wrathbow", ArrowType.ARKSIAN_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item teakerBow = new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item amthrimisBow = new ItemVetheanBow("amthirmis_bow", ArrowType.AMTHIRMIS_ARROW, -1, teakerArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item darvenBow = new ItemVetheanBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item cermileBow = new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, darvenArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item pardimalBow = new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, pardimalArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item quadroticBow = new ItemVetheanBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item karosBow = new ItemVetheanBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item heliosisBow = new ItemVetheanBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item arksianeBow = new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
+    public static Item everfright = new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, everArrow);//.setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 
     /*
-
-    public static Item eversight = new ItemVetheanEversight("eversight");
-    public static Item everlight = new ItemModSword("everlight", Util.addHammerMaterial(44));
-    public static Item everbright = new ItemVetheanClaw(42, "everbright");
-    public static Item everArrow = new ItemVethean("everArrow").setCreativeTab(DivineRPGTabs.vethea);
-    public static Item everfright = new ItemModBow("everfright", -1, 25, 46, everArrow).setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
     public static Item evernight = new ItemStaff(115, 80, "evernight");
-
-    public static Item karosRockmaul = new ItemModSword("karosRockmaul", Util.addHammerMaterial(46));
-
-
-
 
     public static Item nightmareBed = new ItemNightmareBed();
 
