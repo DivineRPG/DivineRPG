@@ -39,6 +39,7 @@ import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemMusicShooter;
 import divinerpg.objects.items.iceika.ItemSerenadeOfIce;
 import divinerpg.objects.items.iceika.ItemSnowGlobe;
+import divinerpg.objects.items.twilight.ItemForbiddenFruit;
 import divinerpg.objects.items.twilight.ItemSkyFlower;
 import divinerpg.objects.items.twilight.ItemTwilightBlitz;
 import divinerpg.objects.items.twilight.ItemTwilightClock;
@@ -569,6 +570,8 @@ public class ModItems {
     public static Item twilightDemonCrystal = new ItemTwilightSpawner("twilight_demon_crystal");
     public static Item vamacheronCrystal = new ItemTwilightSpawner("vamacheron_crystal");
     public static Item eternalArcherCrystal = new ItemTwilightSpawner("eternal_archer_crystal");
+    
+    public static Item forbiddenFruit = new ItemForbiddenFruit();
 
     // Twilight Weapons
     public static Item edenBlade = new ItemModSword(ToolMaterialMod.Eden, "eden_blade");

@@ -45,7 +45,7 @@ public class ItemStaff extends RangedWeaponBase {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+	public void addInformation(ItemStack stack, @SuppressWarnings("restriction") @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
 	    list.add(TooltipLocalizer.arcanaDam(damage));
 		list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
 		/*if(stack.getItem() == ModItems.evernight)

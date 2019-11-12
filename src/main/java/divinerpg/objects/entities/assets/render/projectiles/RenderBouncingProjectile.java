@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.assets.render.projectile;
+package divinerpg.objects.entities.assets.render.projectiles;
 
 import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import divinerpg.registry.ModItems;

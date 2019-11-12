@@ -490,7 +490,7 @@ public class ModEntities {
 
         // Projectiles
         registerRender(EntityAttractor.class, manager -> new RenderAttractor(manager));
-        registerRender(EntityBouncingProjectile.class, manager -> new divinerpg.objects.entities.assets.render.projectile.RenderBouncingProjectile(manager));
+        registerRender(EntityBouncingProjectile.class, manager -> new divinerpg.objects.entities.assets.render.projectiles.RenderBouncingProjectile(manager));
         registerRender(EntityCaveRock.class, manager -> new RenderCaveRock(manager, 1f));
         registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
         registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));
