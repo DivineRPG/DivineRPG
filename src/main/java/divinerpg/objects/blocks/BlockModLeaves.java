@@ -26,6 +26,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -65,7 +66,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return (this.sapling != null) ? Item.getItemFromBlock(this.sapling) : null;
+    	return (this.sapling != null) ? Item.getItemFromBlock(this.sapling) : null;
     }
 
     @Override
@@ -155,5 +156,38 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
             return super.getMapColor(state, worldIn, pos);
         }
         return this.mapColor;
+    }
+    @Override
+    public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+    {
+        Random rand = world instanceof World ? ((World)world).rand : new Random();
+        int chance = this.getSaplingDropChance(state);
+
+        if (fortune > 0)
+        {
+            chance -= 2 << fortune;
+            if (chance < 10) chance = 10;
+        }
+
+        if (rand.nextInt(chance) == 0)
+        {
+            ItemStack drop = new ItemStack(getItemDropped(state, rand, fortune), 1, damageDropped(state));
+            if (!drop.isEmpty())
+                drops.add(drop);
+        }
+
+        chance = 200;
+        if (fortune > 0)
+        {
+            chance -= 10 << fortune;
+            if (chance < 40) chance = 40;
+        }
+        if(this == ModBlocks.edenLeaves && rand.nextInt(1500) == 0) {
+        drops.add(new ItemStack(ModItems.forbiddenFruit));	
+        }
+        this.captureDrops(true);
+        if (world instanceof World)
+            this.dropApple((World)world, pos, state, chance);
+        drops.addAll(this.captureDrops(false));
     }
 }

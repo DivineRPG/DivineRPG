@@ -441,6 +441,7 @@ item.divine_shards.name=Divine Shards
 item.corrupted_shards.name=Corrupted Shards
 item.molten_shards.name=Molten Shards
 item.ender_shards.name=Ender Shards
+item.forbidden_fruit.name=Forbidden Fruit
 item.terran_shards.name=Terran Shards
 item.cyclops_eye_shards.name=Cyclops Eye Shards
 item.corrupted_bullet.name=Corrupted Bullet
