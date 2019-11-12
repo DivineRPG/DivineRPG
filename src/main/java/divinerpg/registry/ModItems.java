@@ -838,6 +838,7 @@ public class ModItems {
     public static Item karosStaff = new ItemStaff(21, 10, "karos_warstaff");
     public static Item heliosisStaff = new ItemStaff(28, 10, "heliosis_wrathstaff");
     public static Item arksianeStaff = new ItemStaff(36, 10, "arksiane_wrathstaff");
+    public static Item evernight = new ItemEvernight(115, 80, "evernight");
 
     public static Item teakerCannon = new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, ModItems.acid);
     public static Item amthrimisCannon = new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, ModItems.acid);
@@ -910,9 +911,8 @@ public class ModItems {
     public static Item arksianeBow = new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, karosArrow);//.setSound(ModSounds.vetheaBow.getPrefixedName()).setVethean();
     public static Item everfright = new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, everArrow);//.setSound(Sounds.vetheaBow.getPrefixedName()).setVethean();
 
-    /*
-    public static Item evernight = new ItemStaff(115, 80, "evernight");
 
+/*
     public static Item nightmareBed = new ItemNightmareBed();
 
     private static Object[] basicHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION };
@@ -927,7 +927,7 @@ public class ModItems {
     private static Object[] tormentedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE };
     private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
     private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
-
+/*
     public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHelmInfo, true, "Helmet");
     public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicMaskInfo, true, "Mask");
     public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHoodInfo, true, "Hood");

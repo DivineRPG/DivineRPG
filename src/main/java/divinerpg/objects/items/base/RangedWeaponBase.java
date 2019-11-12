@@ -30,6 +30,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.world.NoteBlockEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -119,6 +120,8 @@ public class RangedWeaponBase extends ItemMod {
             ActionResult<IArcana> checkArcana = tryCheckArcana(player);
 
             if (ammo.getType() == EnumActionResult.SUCCESS && checkArcana.getType() == EnumActionResult.SUCCESS) {
+                doPreUsageEffects(world, player);
+
                 if (!world.isRemote) {
                     world.playSound(null, player.getPosition(),
                             this.sound != null ? this.sound : SoundEvents.ENTITY_ARROW_SHOOT,
@@ -144,7 +147,11 @@ public class RangedWeaponBase extends ItemMod {
                 if (player instanceof EntityPlayerMP) {
                     ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
                 }
+
+                doPostUsageEffects(world, player);
             }
+
+
         }
 
         return new ActionResult<>(result, stack);
@@ -275,5 +282,13 @@ public class RangedWeaponBase extends ItemMod {
         PositionHelper.moveBullet(player, bullet);
         bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
         world.spawnEntity(bullet);
+    }
+
+    protected void doPreUsageEffects(World world, EntityPlayer player) {
+        return;
+    }
+
+    protected void doPostUsageEffects(World world, EntityPlayer player) {
+        return;
     }
 }

@@ -24,7 +24,6 @@ import java.util.List;
 
 public class ItemStaff extends RangedWeaponBase {
 
-	public static List<Item> staffList = new ArrayList<Item>();
 	protected int damage;
 
 	public ItemStaff(int dam,
@@ -40,7 +39,6 @@ public class ItemStaff extends RangedWeaponBase {
 		this.damage = dam;
 		this.setCreativeTab(DivineRPGTabs.vethea);
 		this.setFull3D();
-		staffList.add(this);
 	}
 
 	@Override
