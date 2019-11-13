@@ -2,7 +2,6 @@ package divinerpg.utils.log;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.Config;
-import divinerpg.objects.items.ItemNotReady;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,8 +21,6 @@ public static void init() {
 		}
 		for (Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
 			DivineRPG.logger.info("Item: " + new ItemStack(item).getDisplayName());
-			if(item instanceof ItemNotReady) {
-			DivineRPG.logger.info("Item: " +new ItemStack(item).getDisplayName() + " still needs porting");}
 		}
 		for (Block block : ForgeRegistries.BLOCKS.getValuesCollection()) {
 			DivineRPG.logger.info("Block: " + new ItemStack(Item.getItemFromBlock(block)).getDisplayName());

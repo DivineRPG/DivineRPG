@@ -519,14 +519,12 @@ public class ModBlocks {
     
     public static Block nightmareBed = new BlockNightmareBed();
 
-    //TEMPROARY
+    //TEMPORARY
     public static Block dreamwreckerSpawner = new BlockModSpawner("dreamwrecker_spawner", "Deathcryx");
     public static Block vermenousSpawner = new BlockModSpawner("vermenous_spawner", "Deathcryx");
     public static Block twinsSpawner = new BlockModSpawner("twins_spawner", "Deathcryx");
     public static Block biphronSpawner = new BlockModSpawner("biphron_spawner", "Deathcryx");
     public static Block gorgosionSpawner = new BlockModSpawner("gorgosion_spawner", "Deathcryx");
-
-
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
