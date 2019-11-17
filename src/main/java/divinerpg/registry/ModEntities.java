@@ -139,7 +139,7 @@ import divinerpg.objects.entities.assets.render.vanilla.RenderTheWatcher;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWhale;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWhiteGrizzle;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWildfire;
-import divinerpg.objects.entities.assets.render.vethea.RenderTheHunger;
+import divinerpg.objects.entities.assets.render.vethea.*;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
 import divinerpg.objects.entities.entity.arcana.CaptainMerik;
 import divinerpg.objects.entities.entity.arcana.Datticon;
@@ -263,7 +263,7 @@ import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoGreen;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoPurple;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoRed;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoYellow;
-import divinerpg.objects.entities.entity.vethea.TheHunger;
+import divinerpg.objects.entities.entity.vethea.*;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -282,6 +282,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModEntities {
 	private static int mobID = 500;
 	private static int projectileID = 0;
+
     @SubscribeEvent
     public static void registerEnities(RegistryEvent.Register<EntityEntry> event) {
         IForgeRegistry<EntityEntry> registry = event.getRegistry();
@@ -304,7 +305,8 @@ public class ModEntities {
     }
 
     public static EntityEntry[] initMobs() {
-        EntityEntry[] divineMobs = {
+        EntityEntry[] divineMobs;
+        divineMobs = new EntityEntry[]{
                 // Overworld
                 buildEntityEntry(AridWarrior.class, "arid_warrior", OVERWORLD),
                 buildEntityEntry(CaveCrawler.class, "cave_crawler", OVERWORLD),
@@ -420,7 +422,36 @@ public class ModEntities {
                 buildEntityEntry(Wraith.class, "wraith", ARCANA), buildEntityEntry(Zelus.class, "zelus", ARCANA),
 
                 // Vethea
+                buildEntityEntry(AcidHag.class, "acid_hag", VETHEA),
+                buildEntityEntry(Biphron.class, "biphron", VETHEA),
+                buildEntityEntry(Bohemite.class, "bohemite", VETHEA),
+                buildEntityEntry(CryptKeeper.class, "crypt_keeper", VETHEA),
+                buildEntityEntry(Cymesoid.class, "cymesoid", VETHEA),
+                buildEntityEntry(Dissiment.class, "dissiment", VETHEA),
+                buildEntityEntry(Dreamwrecker.class, "dreamwrecker", VETHEA),
+                buildEntityEntry(Duo.class, "duo", VETHEA),
+                buildEntityEntry(Ent.class, "ent", VETHEA),
+                buildEntityEntry(Galroid.class, "galroid", VETHEA),
+                buildEntityEntry(Gorgosion.class, "gorgosion", VETHEA),
+                buildEntityEntry(Helio.class, "helio", VETHEA),
+                buildEntityEntry(Herbomancer.class, "herbomancer", VETHEA),
+                buildEntityEntry(HiveSoldier.class, "hive_soldier", VETHEA),
+                buildEntityEntry(HoverStinger.class, "hover_stinger", VETHEA),
+                buildEntityEntry(Kazrotic.class, "kazrotic", VETHEA),
+                buildEntityEntry(Lheiva.class, "lheiva", VETHEA),
+                buildEntityEntry(Lorga.class, "lorga", VETHEA),
+                buildEntityEntry(Lorgaflight.class, "lorga_flight", VETHEA),
+                buildEntityEntry(Mandragora.class, "mandragora", VETHEA),
+                buildEntityEntry(MysteriousMan.class, "mysterious_man", VETHEA),
+                buildEntityEntry(Shadahier.class, "shadahier", VETHEA),
                 buildEntityEntry(TheHunger.class, "the_hunger", VETHEA),
+                buildEntityEntry(Tocaxin.class, "tocaxin", VETHEA),
+                buildEntityEntry(Twins.class, "twins", VETHEA),
+                buildEntityEntry(Vermenous.class, "vermenous", VETHEA),
+                buildEntityEntry(Vhraak.class, "vhraak", VETHEA),
+                buildEntityEntry(Zone.class, "zone", VETHEA),
+                buildEntityEntry(Zoragon.class, "zoragon", VETHEA),
+
 
                 // Boss
                 buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
@@ -660,7 +691,43 @@ public class ModEntities {
         registerRender(Zelus.class, RenderZelus.FACTORY);
 
         //Vethea
+        registerRender(AcidHag.class, RenderAcidHag.FACTORY);
+        registerRender(Basilisk.class, RenderBasilisk.FACTORY);
+        registerRender(Biphron.class, RenderBiphron.FACTORY);
+        registerRender(Bohemite.class, RenderBohemite.FACTORY);
+        registerRender(CryptKeeper.class, RenderCryptKeeper.FACTORY);
+        registerRender(Cymesoid.class, RenderCymesoid.FACTORY);
+        registerRender(Dissiment.class, RenderDissiment.FACTORY);
+        registerRender(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
+        registerRender(Duo.class, RenderDuo.FACTORY);
+        registerRender(Ent.class, RenderEnt.FACTORY);
+        registerRender(Galroid.class, RenderGalroid.FACTORY);
+        registerRender(Gorgosion.class, RenderGorgosion.FACTORY);
+        registerRender(Helio.class, RenderHelio.FACTORY);
+        registerRender(Herbomancer.class, RenderHerbomancer.FACTORY);
+        registerRender(HiveQueen.class, RenderHiveQueen.FACTORY);
+        registerRender(HiveSoldier.class, RenderHiveSoldier.FACTORY);
+        registerRender(HoverStinger.class, RenderHoverStinger.FACTORY);
+        registerRender(Karos.class, RenderKaros.FACTORY);
+        registerRender(Kazrotic.class, RenderKazrotic.FACTORY);
+        registerRender(LadyLuna.class, RenderLadyLuna.FACTORY);
+        registerRender(Lheiva.class, RenderLheiva.FACTORY);
+        registerRender(Lorga.class, RenderLorga.FACTORY);
+        registerRender(Lorgaflight.class, RenderLorgaFlight.FACTORY);
+        registerRender(Mandragora.class, RenderMandragora.FACTORY);
+        registerRender(MysteriousMan.class, RenderMysteriousMan.FACTORY);
+        registerRender(Quadro.class, RenderQuadro.FACTORY);
+        registerRender(RaglokGogdure.class, RenderRaglokGogdure.FACTORY);
+        registerRender(Shadahier.class, RenderShadahier.FACTORY);
+        registerRender(Spinarus.class, RenderSpinarus.FACTORY);
         registerRender(TheHunger.class, RenderTheHunger.FACTORY);
+        registerRender(Tocaxin.class, RenderTocaxin.FACTORY);
+        registerRender(Twins.class, RenderTwins.FACTORY);
+        registerRender(Vermenous.class, RenderVermenous.FACTORY);
+        registerRender(Vhraak.class, RenderVhraak.FACTORY);
+        registerRender(WreckForm.class, RenderWreckForm.FACTORY);
+        registerRender(Zone.class, RenderZone.FACTORY);
+        registerRender(Zoragon.class, RenderZoragon.FACTORY);
     }
 
     /**
