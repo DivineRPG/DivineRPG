@@ -10,6 +10,7 @@ import static divinerpg.utils.SpawnEggColors.Dimension.MORTUM;
 import static divinerpg.utils.SpawnEggColors.Dimension.NETHER;
 import static divinerpg.utils.SpawnEggColors.Dimension.OVERWORLD;
 import static divinerpg.utils.SpawnEggColors.Dimension.SKYTHERN;
+import static divinerpg.utils.SpawnEggColors.Dimension.VETHEA;
 import static divinerpg.utils.SpawnEggColors.Dimension.WILDWOOD;
 
 import divinerpg.DivineRPG;
@@ -138,6 +139,7 @@ import divinerpg.objects.entities.assets.render.vanilla.RenderTheWatcher;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWhale;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWhiteGrizzle;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWildfire;
+import divinerpg.objects.entities.assets.render.vethea.RenderTheHunger;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
 import divinerpg.objects.entities.entity.arcana.CaptainMerik;
 import divinerpg.objects.entities.entity.arcana.Datticon;
@@ -261,6 +263,7 @@ import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoGreen;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoPurple;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoRed;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoYellow;
+import divinerpg.objects.entities.entity.vethea.TheHunger;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -415,6 +418,9 @@ public class ModEntities {
                 buildEntityEntry(LordVatticus.class, "lord_vatticus", ARCANA),
                 buildEntityEntry(WarGeneral.class, "war_general", ARCANA),
                 buildEntityEntry(Wraith.class, "wraith", ARCANA), buildEntityEntry(Zelus.class, "zelus", ARCANA),
+
+                // Vethea
+                buildEntityEntry(TheHunger.class, "the_hunger", VETHEA),
 
                 // Boss
                 buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
@@ -652,6 +658,9 @@ public class ModEntities {
         registerRender(WarGeneral.class, RenderWarGeneral.FACTORY);
         registerRender(Wraith.class, RenderWraith.FACTORY);
         registerRender(Zelus.class, RenderZelus.FACTORY);
+
+        //Vethea
+        registerRender(TheHunger.class, RenderTheHunger.FACTORY);
     }
 
     /**

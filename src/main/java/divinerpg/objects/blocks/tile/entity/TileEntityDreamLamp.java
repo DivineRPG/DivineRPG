@@ -22,7 +22,6 @@ public class TileEntityDreamLamp extends TileEntity implements ITickable, IInven
     private NonNullList<ItemStack> inventory;
 
     public TileEntityDreamLamp() {
-        System.out.println("lol new entity");
         this.inventory = NonNullList.withSize(1, ItemStack.EMPTY);
     }
 
@@ -111,8 +110,7 @@ public class TileEntityDreamLamp extends TileEntity implements ITickable, IInven
 
     @Override
     public boolean isUsableByPlayer(EntityPlayer player) {
-        return true;
-        //return player.world.getTileEntity(pos) == this && player.getDistanceSq(pos) < 64;
+        return player.world.getTileEntity(pos) == this && player.getDistanceSq(pos) < 64;
     }
 
     @Override
@@ -124,7 +122,6 @@ public class TileEntityDreamLamp extends TileEntity implements ITickable, IInven
     public NBTTagCompound writeToNBT(NBTTagCompound tag) {
         super.writeToNBT(tag);
         ItemStackHelper.saveAllItems(tag, this.inventory);
-        System.out.println("written to nbt lol");
         return tag;
     }
 
@@ -132,7 +129,6 @@ public class TileEntityDreamLamp extends TileEntity implements ITickable, IInven
     public void readFromNBT(NBTTagCompound tag) {
         super.readFromNBT(tag);
         ItemStackHelper.loadAllItems(tag, this.inventory);
-        System.out.println("read from nbt lol");
     }
 
     @Override
