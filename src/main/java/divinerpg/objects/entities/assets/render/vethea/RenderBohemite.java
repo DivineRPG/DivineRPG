@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.assets.model.vethea.ModelBoheimite;
+import divinerpg.objects.entities.assets.model.vethea.ModelBohemite;
 import divinerpg.objects.entities.entity.vethea.Bohemite;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -14,12 +14,12 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderBohemite extends RenderLiving<Bohemite> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/boheimite.png");
-	private final ModelBoheimite modelEntity;
+	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/bohemite.png");
+	private final ModelBohemite modelEntity;
     
 	public RenderBohemite(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelBoheimite(), 1F);
-        modelEntity = (ModelBoheimite) super.mainModel;
+        super(rendermanagerIn, new ModelBohemite(), 1F);
+        modelEntity = (ModelBohemite) super.mainModel;
 
     }
 
@@ -34,7 +34,7 @@ public class RenderBohemite extends RenderLiving<Bohemite> {
 
 	        @Override
 	        public Render<? super Bohemite> createRenderFor(RenderManager manager) {
-	            return new RenderBohemite(manager, new ModelBoheimite(), 1F);
+	            return new RenderBohemite(manager, new ModelBohemite(), 1F);
 	        }
 	    }
 

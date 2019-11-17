@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelBoheimite extends ModelBase
+public class ModelBohemite extends ModelBase
 {
     //fields
     ModelRenderer spine1;
@@ -49,7 +49,7 @@ public class ModelBoheimite extends ModelBase
     ModelRenderer rightarm7;
     ModelRenderer rightarm8;
 
-    public ModelBoheimite()
+    public ModelBohemite()
     {
         textureWidth = 64;
         textureHeight = 32;

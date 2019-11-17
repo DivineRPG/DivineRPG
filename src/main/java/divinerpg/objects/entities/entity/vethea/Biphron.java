@@ -19,12 +19,15 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Biphron extends EntityMob {
+public class Biphron extends VetheaMob {
+
+    private boolean gravity;
 
     public Biphron(World worldIn) {
 		super(worldIn);
@@ -44,18 +47,48 @@ public class Biphron extends EntityMob {
     }
 
     @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        if (this.rand.nextInt(50) == 0) {
+            if (!this.gravity) {
+                this.gravity = true;
+            } else {
+                this.gravity = false;
+            }
+        }
+
+        if (this.gravity) {
+            this.motionY = 0.4;
+        }
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier) {
+        return;
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        if(source == DamageSource.FALL) {
+            return false;
+        }
+        return super.attackEntityFrom(source, amount);
+    }
+
+    @Override
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
 
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14.0D);
 
     }
 
@@ -89,9 +122,11 @@ public class Biphron extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 1;
     }
 
     @Override
