@@ -4,6 +4,7 @@ import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -28,9 +29,15 @@ public class AcidHag extends VetheaMob {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        
-        if (this.world.getBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY) - 1, (int)Math.round(this.posZ)-1)).isOpaqueCube() && this.world.getBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY), (int)Math.round(this.posZ)-1)) == Blocks.AIR) {
-            this.world.setBlockState(new BlockPos((int)Math.round(this.posX)-1, MathHelper.floor(this.posY), (int)Math.round(this.posZ)-1), ModBlocks.blockAcid.getDefaultState());
+
+        BlockPos current = new BlockPos((int)posX - 1, (int)posY, (int)posZ - 1);
+        BlockPos below = new BlockPos((int)posX - 1, (int)posY - 1, (int)posZ - 1);
+        IBlockState belowState = this.world.getBlockState(below);
+
+        if(this.world.getBlockState(current).getBlock() == Blocks.AIR) {
+            if(belowState.isOpaqueCube() && belowState.isFullCube()) {
+                this.world.setBlockState(current, ModBlocks.acidBlock.getDefaultState());
+            }
         }
     }
 

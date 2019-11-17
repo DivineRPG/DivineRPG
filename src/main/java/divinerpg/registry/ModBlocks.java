@@ -498,9 +498,9 @@ public class ModBlocks {
     public static Block shiftedChamberWall = new BlockModUnbreakable("shifted_chamber_wall");
     public static Block stackedChamberWall = new BlockModUnbreakable("stacked_chamber_wall");
 
-    public static Block bacterialAcid = new BlockModUnbreakable("bacterial_acid");
-    public static Block blockAcid = new BlockModUnbreakable("acid_block");
-    public static Block lunicAcid = new BlockModUnbreakable("lunic_acid");
+    public static Block acidBlock = new BlockAcid("acid_block", true);
+    public static Block bacterialAcid = new BlockAcid("bacterial_acid", false);
+    public static Block lunicAcid = new BlockAcid("lunic_acid", true);
 
     public static Block karosHeatTileGreen = new BlockModUnbreakable("karos_heat_tile_green");
     public static Block karosHeatTileRed = new BlockModUnbreakable("karos_heat_tile_red");
