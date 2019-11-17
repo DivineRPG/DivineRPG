@@ -1,9 +1,6 @@
 package divinerpg.proxy;
 
-import divinerpg.objects.blocks.tile.container.ContainerAltarOfCorruption;
-import divinerpg.objects.blocks.tile.container.ContainerInfusionTable;
-import divinerpg.objects.blocks.tile.container.ContainerModChest;
-import divinerpg.objects.blocks.tile.container.ContainerModFurnace;
+import divinerpg.objects.blocks.tile.container.*;
 import divinerpg.objects.blocks.tile.container.gui.*;
 import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.objects.entities.container.gui.*;
@@ -42,6 +39,7 @@ public class GUIHandler implements IGuiHandler {
     public static final int MOONLIGHT_FURNACE_GUI_ID = 22;
     public static final int ARCANIUM_EXTRACTOR_GUI_ID = 23;
     public static final int INFUSION_TABLE_GUI_ID = 24;
+    public static final int DREAM_LAMP_GUI_ID = 25;
 
     @Nullable
     @Override
@@ -107,6 +105,8 @@ public class GUIHandler implements IGuiHandler {
                     (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
         } else if (ID == INFUSION_TABLE_GUI_ID) {
             return new InfusionTableGUI(new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable)world.getTileEntity(new BlockPos(x, y, z))));
+        } else if (ID == DREAM_LAMP_GUI_ID) {
+            return new DreamLampGUI(new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp)world.getTileEntity(new BlockPos(x, y, z))));
         }
         return null;
     }
@@ -132,6 +132,8 @@ public class GUIHandler implements IGuiHandler {
             return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));
         } else if (ID == INFUSION_TABLE_GUI_ID) {
             return new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable)world.getTileEntity(new BlockPos(x, y, z)));
+        } else if (ID == DREAM_LAMP_GUI_ID) {
+            return new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp)world.getTileEntity(new BlockPos(x, y, z)));
         }
         return null;
     }

@@ -24,4 +24,14 @@ public class BlockModBridge extends BlockModPowered {
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return blockState.getValue(POWERED) ? blockState.getBoundingBox(worldIn, pos) : NULL_AABB;
     }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return state.getValue(POWERED);
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return state.getValue(POWERED);
+    }
 }

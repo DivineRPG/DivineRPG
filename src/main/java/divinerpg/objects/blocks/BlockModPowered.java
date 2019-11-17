@@ -58,14 +58,4 @@ public abstract class BlockModPowered extends BlockMod {
             }
         }
     }
-
-    @Override
-    public boolean isOpaqueCube(IBlockState state) {
-        return state.getValue(POWERED);
-    }
-
-    @Override
-    public boolean isFullCube(IBlockState state) {
-        return state.getValue(POWERED);
-    }
 }

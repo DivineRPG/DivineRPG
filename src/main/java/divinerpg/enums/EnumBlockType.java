@@ -16,7 +16,8 @@ public enum EnumBlockType {
     IRON(Material.IRON, SoundType.METAL),
     SNOW(Material.SNOW, SoundType.SNOW),
     PLANT(Material.PLANTS, SoundType.PLANT),
-    CIRCUIT(Material.CIRCUITS, SoundType.METAL);
+    CIRCUIT(Material.CIRCUITS, SoundType.METAL),
+    LAMP(Material.REDSTONE_LIGHT, SoundType.GLASS);
 
     private Material  material;
     private SoundType sound;

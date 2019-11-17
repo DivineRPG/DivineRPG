@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=true": {
+      "model": "divinerpg:dream_lamp_on"
+    },
+    "powered=false": {
+      "model": "divinerpg:dream_lamp"
+    }
+  }
+}

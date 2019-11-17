@@ -449,6 +449,8 @@ public class ModBlocks {
     public static Block darkEverstone = new BlockModUnbreakable("dark_everstone");
     public static Block whiteEverstone = new BlockModUnbreakable("white_everstone");
 
+    public static Block dreamLamp = new BlockDreamLamp("dream_lamp");
+
     public static Block fireCrystal = new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F);
     public static Block firelight = new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F);
 
@@ -462,7 +464,6 @@ public class ModBlocks {
     public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED);
     public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED);
 
-    public static Block dreamLamp = new BlockModUnbreakable("dream_lamp");
     public static Block infusionTable = new BlockInfusionTable("infusion_table");
     public static Block cryptFloor = new BlockModUnbreakable("crypt_floor");
     public static Block greenHungerstone = new BlockModUnbreakable("green_hungerstone");

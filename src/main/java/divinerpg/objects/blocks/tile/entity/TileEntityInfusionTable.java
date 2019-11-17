@@ -46,6 +46,7 @@ public class TileEntityInfusionTable extends TileEntity implements ITickable, II
         return ItemStackHelper.getAndRemove(this.inventory, i);
     }
 
+    @Override
     public void update() {
         ItemStack inputStack = inventory.get(0);
         ItemStack templateStack = inventory.get(1);
