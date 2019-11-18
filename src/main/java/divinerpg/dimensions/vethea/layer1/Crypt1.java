@@ -6,6 +6,7 @@ package divinerpg.dimensions.vethea.layer1;
 import java.util.Random;
 
 import divinerpg.dimensions.vethea.VetheaWorldGenerator;
+import divinerpg.objects.entities.entity.vethea.CryptKeeper;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
@@ -2449,10 +2450,9 @@ public class Crypt1 extends VetheaWorldGenerator
 		setBlock(world, i + 11, j, k + 1, Blocks.AIR);
 		setBlock(world, i + 11, j, k + 2, Blocks.AIR);
 
-
-		/*EntityLiving entity = new EntityCryptKeeper(world);
+		EntityLiving entity = new CryptKeeper(world);
 		entity.setLocationAndAngles(i + 11, j, k + 3, 0.0F, 0.0F);
-		world.spawnEntity(entity);*/
+		world.spawnEntity(entity);
 		
 		setBlock(world, i + 11, j, k + 4, Blocks.AIR);
 		setBlock(world, i + 11, j, k + 5, ModBlocks.cryptWall);
