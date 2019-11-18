@@ -6,6 +6,7 @@ package divinerpg.dimensions.vethea.layer2;
 import java.util.Random;
 
 import divinerpg.dimensions.vethea.VetheaWorldGenerator;
+import divinerpg.objects.entities.entity.vethea.TempleGuardian;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.world.World;
@@ -17080,9 +17081,9 @@ public class Pyramid2 extends VetheaWorldGenerator {
 		setBlock(world,i + 19, j + 15, k + 20, ModBlocks.blackHungerstone);
 		setBlock(world,i + 19, j + 15, k + 21, Blocks.AIR);
 		
-		/*EntityLiving entity = new EntityTempleGuardian(world);
-		entity.setLocationAndAngles(i + 19, j + 15, k + 22, Blocks.AIR.0F, Blocks.AIR.0F);
-		world.spawnEntityInWorld(entity);*/
+		EntityLiving entity = new TempleGuardian(world);
+		entity.setLocationAndAngles(i + 19, j + 15, k + 22, 0.0F, 0.0F);
+		world.spawnEntity(entity);
 		
 		setBlock(world,i + 19, j + 15, k + 23, Blocks.AIR);
 		setBlock(world,i + 19, j + 15, k + 24, Blocks.AIR);

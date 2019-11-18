@@ -442,9 +442,12 @@ public class ModEntities {
                 buildEntityEntry(Lorga.class, "lorga", VETHEA),
                 buildEntityEntry(Lorgaflight.class, "lorga_flight", VETHEA),
                 buildEntityEntry(Mandragora.class, "mandragora", VETHEA),
-                buildEntityEntry(MysteriousMan.class, "mysterious_man", VETHEA),
+                buildEntityEntry(MysteriousManLayer1.class, "mysterious_man_layer_1", VETHEA),
+                buildEntityEntry(MysteriousManLayer2.class, "mysterious_man_layer_2", VETHEA),
+                buildEntityEntry(MysteriousManLayer3.class, "mysterious_man_layer_3", VETHEA),
                 buildEntityEntry(Shadahier.class, "shadahier", VETHEA),
                 buildEntityEntry(TheHunger.class, "the_hunger", VETHEA),
+                buildEntityEntry(TempleGuardian.class, "temple_guardian", VETHEA),
                 buildEntityEntry(Tocaxin.class, "tocaxin", VETHEA),
                 buildEntityEntry(Twins.class, "twins", VETHEA),
                 buildEntityEntry(Vermenous.class, "vermenous", VETHEA),
@@ -715,11 +718,14 @@ public class ModEntities {
         registerRender(Lorga.class, RenderLorga.FACTORY);
         registerRender(Lorgaflight.class, RenderLorgaFlight.FACTORY);
         registerRender(Mandragora.class, RenderMandragora.FACTORY);
-        registerRender(MysteriousMan.class, RenderMysteriousMan.FACTORY);
+        registerRender(MysteriousManLayer1.class, RenderMysteriousManLayer1.FACTORY);
+        registerRender(MysteriousManLayer2.class, RenderMysteriousManLayer2.FACTORY);
+        registerRender(MysteriousManLayer3.class, RenderMysteriousManLayer3.FACTORY);
         registerRender(Quadro.class, RenderQuadro.FACTORY);
         registerRender(RaglokGogdure.class, RenderRaglokGogdure.FACTORY);
         registerRender(Shadahier.class, RenderShadahier.FACTORY);
         registerRender(Spinarus.class, RenderSpinarus.FACTORY);
+        registerRender(TempleGuardian.class, RenderTempleGuardian.FACTORY);
         registerRender(TheHunger.class, RenderTheHunger.FACTORY);
         registerRender(Tocaxin.class, RenderTocaxin.FACTORY);
         registerRender(Twins.class, RenderTwins.FACTORY);
