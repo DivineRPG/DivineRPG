@@ -24,7 +24,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class HiveSoldier extends EntityMob {
+public class HiveSoldier extends VetheaMob {
 
     public HiveSoldier(World worldIn) {
 		super(worldIn);
@@ -89,9 +89,11 @@ public class HiveSoldier extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 0;
     }
 
     @Override

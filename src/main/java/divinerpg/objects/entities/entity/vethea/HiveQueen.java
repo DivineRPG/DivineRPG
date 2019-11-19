@@ -19,12 +19,16 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class HiveQueen extends EntityMob {
+
+    private int spawnTick;
+    private int deathTicks;
 
     public HiveQueen(World worldIn) {
 		super(worldIn);
@@ -33,29 +37,53 @@ public class HiveQueen extends EntityMob {
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/hivequeen");
 
-    private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
         return false;
     }
 
     @Override
     protected boolean canDespawn() {
-        return true;
+        return false;
     }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
-
 	}
+
+	@Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        if(!this.world.isRemote) {
+            EntityPlayer target = this.world.getClosestPlayerToEntity(this, 20.0D);
+            if(target != null && !target.isCreative() && this.spawnTick % 40 == 0) {
+
+                EntityLivingBase minion = null;
+                if (this.rand.nextBoolean()) {
+                    minion = new HoverStinger(this.world);
+
+                } else {
+                    minion = new HiveSoldier(this.world);
+                }
+
+                minion.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                this.world.spawnEntity(minion);
+                this.world.spawnParticle(EnumParticleTypes.REDSTONE, minion.posX, minion.posY + 0.5D, minion.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+                spawnTick = 80;
+            }
+        }
+
+        this.spawnTick--;
+    }
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1500.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(60.0D);
 
     }
 

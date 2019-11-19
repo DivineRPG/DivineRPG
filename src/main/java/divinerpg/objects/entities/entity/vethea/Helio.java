@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -22,9 +23,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Helio extends EntityMob {
+public class Helio extends VetheaMob {
 
     public Helio(World worldIn) {
 		super(worldIn);
@@ -33,7 +35,6 @@ public class Helio extends EntityMob {
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/helio");
 
-    private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
         return false;
     }
@@ -41,6 +42,19 @@ public class Helio extends EntityMob {
     @Override
     protected boolean canDespawn() {
         return true;
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity target) {
+        if(super.attackEntityAsMob(target)) {
+            target.addVelocity(MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * 7.0F * 0.5F, 0.4D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * 7.0F * 0.5F);
+            this.motionX *= 0.6D;
+            this.motionZ *= 0.6D;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
@@ -89,9 +103,11 @@ public class Helio extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 4;
     }
 
     @Override

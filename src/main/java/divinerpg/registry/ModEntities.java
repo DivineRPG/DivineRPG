@@ -465,6 +465,7 @@ public class ModEntities {
                 buildEntityEntry(AyeracoYellow.class, "ayeraco_yellow", BOSS),
                 buildEntityEntry(Densos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
                 buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
+                buildEntityEntry(HiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(Karot.class, "karot", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),

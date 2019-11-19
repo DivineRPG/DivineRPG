@@ -24,7 +24,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Galroid extends EntityMob {
+public class Galroid extends VetheaMob {
 
     private int protectionTimer;
 
@@ -115,9 +115,11 @@ public class Galroid extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 3;
     }
 
     @Override

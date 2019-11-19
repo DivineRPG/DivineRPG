@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -22,9 +23,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Gorgosion extends EntityMob {
+public class Gorgosion extends VetheaMob {
 
     public Gorgosion(World worldIn) {
 		super(worldIn);
@@ -44,11 +46,29 @@ public class Gorgosion extends EntityMob {
     }
 
     @Override
+    public void fall(float distance, float damageMultiplier) {
+        if(distance > 2) {
+            this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3, false);
+            return;
+        }
+        super.fall(distance, damageMultiplier);
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        EntityPlayer closestPlayer = this.world.getClosestPlayerToEntity(this, 10);
+        if(closestPlayer != null && !closestPlayer.isCreative() && this.rand.nextInt(30) == 0) {
+            this.addVelocity(0, 1, 0);
+        }
+    }
+
+    @Override
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
-
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -89,9 +109,12 @@ public class Gorgosion extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 2;
     }
 
     @Override

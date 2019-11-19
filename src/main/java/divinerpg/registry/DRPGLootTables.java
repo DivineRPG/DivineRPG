@@ -115,7 +115,7 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_PARASECTA = registerTable("entities/arcana/parasecta");
     public static final ResourceLocation ENTITIES_RAZORBACK = registerTable("entities/arcana/razorback");
     public static final ResourceLocation ENTITIES_ROAMER = registerTable("entities/arcana/roamer");
-
+    
     private static ResourceLocation registerTable(String path) {
         return LootTableList.register(new ResourceLocation(Reference.MODID, path));
     }

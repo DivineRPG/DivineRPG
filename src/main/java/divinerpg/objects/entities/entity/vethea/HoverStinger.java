@@ -23,7 +23,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class HoverStinger extends EntityMob {
+public class HoverStinger extends VetheaMob {
 
     public HoverStinger(World worldIn) {
 		super(worldIn);
@@ -88,9 +88,11 @@ public class HoverStinger extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 0;
     }
 
     @Override
