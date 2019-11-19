@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,19 +30,8 @@ import net.minecraft.world.World;
 public class Helio extends VetheaMob {
 
     public Helio(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 2f);
-		this.setHealth(this.getMaxHealth());
-	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/helio");
-
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+        super(worldIn);
+        this.setSize(1F, 2f);
     }
 
     @Override
@@ -60,7 +50,7 @@ public class Helio extends VetheaMob {
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
+		return DRPGLootTables.ENTITIES_HELIO;
 
 	}
     @Override
@@ -101,18 +91,8 @@ public class Helio extends VetheaMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-    }
-
-    @Override
     public int getSpawnLayer() {
         return 4;
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

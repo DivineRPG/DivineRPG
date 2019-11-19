@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -31,20 +32,8 @@ public class Galroid extends VetheaMob {
     public Galroid(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 3f);
-		this.setHealth(this.getMaxHealth());
 		this.protectionTimer = 200;
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/galroid");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
     public void onLivingUpdate() {
@@ -72,7 +61,7 @@ public class Galroid extends VetheaMob {
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
+		return DRPGLootTables.ENTITIES_GALROID;
 
 	}
     @Override
@@ -113,18 +102,8 @@ public class Galroid extends VetheaMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-    }
-
-    @Override
     public int getSpawnLayer() {
         return 3;
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

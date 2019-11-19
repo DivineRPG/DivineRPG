@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -30,24 +31,12 @@ public class Ent extends VetheaMob {
     public Ent(World worldIn) {
 		super(worldIn);
 		this.setSize(2F, 4.4f);
-		this.setHealth(this.getMaxHealth());
 	}
-
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/ent");
-
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
+		return DRPGLootTables.ENTITIES_ENT;
 	}
 
     @Override
@@ -88,18 +77,8 @@ public class Ent extends VetheaMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-    }
-
-    @Override
     public int getSpawnLayer() {
         return 0;
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -29,26 +30,13 @@ public class HiveSoldier extends VetheaMob {
     public HiveSoldier(World worldIn) {
 		super(worldIn);
 		this.setSize(0.6F, 1.8f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/hivesoldier");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
-    protected boolean canDespawn() {
-        return true;
+	protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_HIVE_QUEEN;
     }
 
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -87,18 +75,8 @@ public class HiveSoldier extends VetheaMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-    }
-
-    @Override
     public int getSpawnLayer() {
         return 0;
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

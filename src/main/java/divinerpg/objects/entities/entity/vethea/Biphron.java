@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,7 +17,6 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -32,19 +32,7 @@ public class Biphron extends VetheaMob {
     public Biphron(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 2f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/biphron");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
     public void onLivingUpdate() {
@@ -78,8 +66,7 @@ public class Biphron extends VetheaMob {
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_BIPHRON;
 	}
 
     @Override
@@ -117,11 +104,6 @@ public class Biphron extends VetheaMob {
     @Override
     public int getMaxSpawnedInChunk() {
         return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
     }
 
     @Override

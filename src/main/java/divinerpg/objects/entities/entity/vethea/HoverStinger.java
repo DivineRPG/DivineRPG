@@ -3,6 +3,7 @@ package divinerpg.objects.entities.entity.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -28,26 +29,14 @@ public class HoverStinger extends VetheaMob {
     public HoverStinger(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 2.4f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/hoverstinger");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_HOVER_STINGER;
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -86,18 +75,8 @@ public class HoverStinger extends VetheaMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-    }
-
-    @Override
     public int getSpawnLayer() {
         return 0;
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

@@ -115,7 +115,22 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_PARASECTA = registerTable("entities/arcana/parasecta");
     public static final ResourceLocation ENTITIES_RAZORBACK = registerTable("entities/arcana/razorback");
     public static final ResourceLocation ENTITIES_ROAMER = registerTable("entities/arcana/roamer");
-    
+
+    public static final ResourceLocation ENTITIES_ACID_HAG = registerTable("entities/vethea/acid_hag");
+    public static final ResourceLocation ENTITIES_BIPHRON = registerTable("entities/vethea/biphron");
+    public static final ResourceLocation ENTITIES_BOHEMITE = registerTable("entities/vethea/bohemite");
+    public static final ResourceLocation ENTITIES_CYMESOID = registerTable("entities/vethea/cymesoid");
+    public static final ResourceLocation ENTITIES_DISSIMENT = registerTable("entities/vethea/dissiment");
+    public static final ResourceLocation ENTITIES_DREAMWRECKER = registerTable("entities/vethea/dreamwrecker");
+    public static final ResourceLocation ENTITIES_DUO = registerTable("entities/vethea/duo");
+    public static final ResourceLocation ENTITIES_ENT = registerTable("entities/vethea/ent");
+    public static final ResourceLocation ENTITIES_GALROID = registerTable("entities/vethea/galroid");
+    public static final ResourceLocation ENTITIES_GORGOSION = registerTable("entities/vethea/gorgosion");
+    public static final ResourceLocation ENTITIES_HELIO = registerTable("entities/vethea/helio");
+    public static final ResourceLocation ENTITIES_HIVE_QUEEN = registerTable("entities/vethea/hive_queen");
+    public static final ResourceLocation ENTITIES_HIVE_SOLDIER = registerTable("entities/vethea/hive_soldier");
+    public static final ResourceLocation ENTITIES_HOVER_STINGER = registerTable("entities/vethea/hover_stinger");
+
     private static ResourceLocation registerTable(String path) {
         return LootTableList.register(new ResourceLocation(Reference.MODID, path));
     }

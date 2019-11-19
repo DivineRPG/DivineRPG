@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -33,23 +34,12 @@ public class HiveQueen extends EntityMob {
     public HiveQueen(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/hivequeen");
-
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return false;
-    }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
+		return DRPGLootTables.ENTITIES_HIVE_QUEEN;
 	}
 
 	@Override
@@ -112,19 +102,6 @@ public class HiveQueen extends EntityMob {
     @Override
     public int getMaxSpawnedInChunk() {
         return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

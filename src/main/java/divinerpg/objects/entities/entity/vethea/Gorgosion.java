@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,19 +32,7 @@ public class Gorgosion extends VetheaMob {
     public Gorgosion(World worldIn) {
 		super(worldIn);
 		this.setSize(2F, 1.6f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/gorgosion");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
     public void fall(float distance, float damageMultiplier) {
@@ -66,7 +55,7 @@ public class Gorgosion extends VetheaMob {
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
+		return DRPGLootTables.ENTITIES_GORGOSION;
 	}
 
     @Override
@@ -107,19 +96,8 @@ public class Gorgosion extends VetheaMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-
-    }
-
-    @Override
     public int getSpawnLayer() {
         return 2;
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable
