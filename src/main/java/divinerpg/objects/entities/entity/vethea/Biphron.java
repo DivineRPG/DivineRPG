@@ -126,7 +126,7 @@ public class Biphron extends VetheaMob {
 
     @Override
     public int getSpawnLayer() {
-        return 1;
+        return 2;
     }
 
     @Override

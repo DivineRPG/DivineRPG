@@ -24,7 +24,12 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Duo extends EntityMob {
+public class Duo extends VetheaMob {
+
+    public static int ability;
+    private final int SLOW = 0, FAST = 1;
+    private int abilityCoolDown;
+    float moveSpeed = 0.25F;
 
     public Duo(World worldIn) {
 		super(worldIn);
@@ -41,6 +46,25 @@ public class Duo extends EntityMob {
     @Override
     protected boolean canDespawn() {
         return true;
+    }
+
+    @Override
+    protected void updateAITasks() {
+        if (ability == SLOW && this.abilityCoolDown == 0) {
+            ability = FAST;
+            this.abilityCoolDown = 350;
+            this.setAIMoveSpeed(moveSpeed * 3);
+        }
+
+        this.abilityCoolDown--;
+
+        if (ability == FAST && this.abilityCoolDown == 0) {
+            ability = SLOW;
+            this.abilityCoolDown = 350;
+            this.setAIMoveSpeed(moveSpeed);
+        }
+
+        super.updateAITasks();
     }
 
     @Override
@@ -89,9 +113,11 @@ public class Duo extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 1;
     }
 
     @Override

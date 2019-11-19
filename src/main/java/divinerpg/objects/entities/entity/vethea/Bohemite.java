@@ -24,7 +24,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Bohemite extends EntityMob {
+public class Bohemite extends VetheaMob {
 
     public Bohemite(World worldIn) {
 		super(worldIn);
@@ -88,9 +88,11 @@ public class Bohemite extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 3;
     }
 
     @Override

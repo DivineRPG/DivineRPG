@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -24,7 +25,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Dreamwrecker extends EntityMob {
+public class Dreamwrecker extends VetheaMob {
 
     public Dreamwrecker(World worldIn) {
 		super(worldIn);
@@ -33,7 +34,6 @@ public class Dreamwrecker extends EntityMob {
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/dreamwrecker");
 
-    private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
         return false;
     }
@@ -41,6 +41,24 @@ public class Dreamwrecker extends EntityMob {
     @Override
     protected boolean canDespawn() {
         return true;
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        EntityPlayer var1 = this.world.getClosestPlayerToEntity(this, 64.0D);
+
+        if(var1 != null && !var1.isCreative() && var1.getDistance(this) < 20) {
+            this.setAttackTarget(var1);
+        }
+
+        Entity attackTarget = this.getAttackTarget();
+        if(attackTarget != null && attackTarget instanceof EntityPlayer && !((EntityPlayer)attackTarget).isCreative() && !attackTarget.isDead && this.canEntityBeSeen(attackTarget)) {
+            attackTarget.addVelocity(Math.signum(this.posX - attackTarget.posX) * 0.029, 0, Math.signum(this.posZ - attackTarget.posZ) * 0.029);
+        }
+        else {
+            this.setAttackTarget(null);
+        }
     }
 
     @Override
@@ -89,9 +107,11 @@ public class Dreamwrecker extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 1;
     }
 
     @Override

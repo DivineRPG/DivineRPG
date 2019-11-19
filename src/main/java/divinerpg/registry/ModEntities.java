@@ -695,7 +695,6 @@ public class ModEntities {
 
         //Vethea
         registerRender(AcidHag.class, RenderAcidHag.FACTORY);
-        registerRender(Basilisk.class, RenderBasilisk.FACTORY);
         registerRender(Biphron.class, RenderBiphron.FACTORY);
         registerRender(Bohemite.class, RenderBohemite.FACTORY);
         registerRender(CryptKeeper.class, RenderCryptKeeper.FACTORY);

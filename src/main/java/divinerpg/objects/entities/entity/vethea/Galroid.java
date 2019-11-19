@@ -26,10 +26,13 @@ import net.minecraft.world.World;
 
 public class Galroid extends EntityMob {
 
+    private int protectionTimer;
+
     public Galroid(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 3f);
 		this.setHealth(this.getMaxHealth());
+		this.protectionTimer = 200;
 	}
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/galroid");
 
@@ -41,6 +44,29 @@ public class Galroid extends EntityMob {
     @Override
     protected boolean canDespawn() {
         return true;
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+
+        if (this.getProtectionTimer() <= 0 && !this.getIsInvulnerable()) {
+            this.setProtectionTimer(200);
+            this.setEntityInvulnerable(true);
+        }
+        else if (this.getIsInvulnerable() && this.getProtectionTimer() <= 0) {
+            this.setProtectionTimer(200);
+            this.setEntityInvulnerable(false);
+        }
+        this.setProtectionTimer(this.getProtectionTimer()-1);
+    }
+
+    private int getProtectionTimer() {
+        return this.protectionTimer;
+    }
+
+    private void setProtectionTimer(int value) {
+        this.protectionTimer = value;
     }
 
     @Override

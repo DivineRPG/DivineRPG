@@ -13,7 +13,13 @@ public abstract class VetheaMob extends EntityDivineRPGMob {
 	
 	@Override
     public boolean getCanSpawnHere() {
-        return this.posY < 48.0D * this.getSpawnLayer()  && this.posY > 48.0D * (this.getSpawnLayer() - 1) && super.getCanSpawnHere();
-    }
+		int spawnLayer = this.getSpawnLayer();
 
+		if(spawnLayer == 0) {
+			return super.getCanSpawnHere();
+		}
+		else {
+			return this.posY < 48.0D * spawnLayer  && this.posY > 48.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+		}
+    }
 }

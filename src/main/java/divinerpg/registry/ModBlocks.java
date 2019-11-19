@@ -454,10 +454,10 @@ public class ModBlocks {
     public static Block fireCrystal = new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F);
     public static Block firelight = new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F);
 
-    public static Block firewoodLog = new BlockModLog("firewood_log", MapColor.RED).setHardness(5.0F);
-    public static Block hyrewoodLog = new BlockModLog("hyrewood_log", MapColor.RED).setHardness(5.0F);
-    public static Block mintwoodLog = new BlockModLog("mintwood_log", MapColor.RED).setHardness(5.0F);
-    public static Block dreamwoodLog = new BlockModLog("dreamwood_log", MapColor.RED).setHardness(5.0F);
+    public static Block firewoodLog = new BlockVetheaLog("firewood_log", MapColor.RED).setHardness(5.0F);
+    public static Block hyrewoodLog = new BlockVetheaLog("hyrewood_log", MapColor.BLUE).setHardness(5.0F);
+    public static Block mintwoodLog = new BlockVetheaLog("mintwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F);
+    public static Block dreamwoodLog = new BlockVetheaLog("dreamwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F);
 
     public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED);
     public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED);

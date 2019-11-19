@@ -19,9 +19,13 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class Cymesoid extends EntityMob {
@@ -41,6 +45,25 @@ public class Cymesoid extends EntityMob {
     @Override
     protected boolean canDespawn() {
         return true;
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        EntityPlayer var1 = this.world.getClosestPlayerToEntity(this, 64.0D);
+
+        if (var1 == null || var1.isCreative())
+            return;
+        else {
+            Vec3d var3 = var1.getLook(1.0F).normalize();
+            Vec3d var4 = new Vec3d(this.posX - var1.posX, this.getEntityBoundingBox().minY + this.height / 2.0F - (var1.posY + var1.getEyeHeight()), this.posZ - var1.posZ);
+            double var5 = var4.lengthVector();
+            var4 = var4.normalize();
+            double var7 = var3.dotProduct(var4);
+            if( var7 > 1.0D - 0.025D / var5 && var1.canEntityBeSeen(this)) {
+                this.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 200, 1));
+            }
+        }
     }
 
     @Override

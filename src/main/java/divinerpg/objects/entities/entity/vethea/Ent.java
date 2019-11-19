@@ -19,21 +19,22 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Ent extends EntityMob {
+public class Ent extends VetheaMob {
 
     public Ent(World worldIn) {
 		super(worldIn);
 		this.setSize(2F, 4.4f);
 		this.setHealth(this.getMaxHealth());
 	}
+
     public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/ent");
 
-    private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {
         return false;
     }
@@ -47,8 +48,8 @@ public class Ent extends EntityMob {
 	protected ResourceLocation getLootTable()
 	{
 		return this.LOOT;
-
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -89,9 +90,11 @@ public class Ent extends EntityMob {
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
         super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 0;
     }
 
     @Override
