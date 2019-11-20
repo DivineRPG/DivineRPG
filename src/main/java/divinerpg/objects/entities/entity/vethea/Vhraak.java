@@ -2,11 +2,7 @@ package divinerpg.objects.entities.entity.vethea;
 
 import javax.annotation.Nullable;
 
-
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DRPGLootTables;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIFollow;
@@ -22,12 +18,11 @@ import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Vhraak extends EntityMob {
 
-    private int spawnTick = 50;
+    private int spawnTick = 80;
     
     public Vhraak(World worldIn) {
 		super(worldIn);
@@ -54,27 +49,31 @@ public class Vhraak extends EntityMob {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        
-        if (!this.world.isRemote && !(this instanceof FakeVhraak) && this.spawnTick == 0) {
-                FakeVhraak var2 = new FakeVhraak(this.world);
-                var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
-                this.world.spawnEntity(var2);
 
-                var2 = new FakeVhraak(this.world);
-                var2.setLocationAndAngles(this.posX - 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
-                this.world.spawnEntity(var2);
+        if(!world.isRemote) {
+            if(this.getAttackTarget() != null) {
+                if (this.spawnTick == 0) {
+                    FakeVhraak var2 = new FakeVhraak(this.world);
+                    var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
+                    this.world.spawnEntity(var2);
 
-                var2 = new FakeVhraak(this.world);
-                var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ - 1, this.rotationYaw, this.rotationPitch);
-                this.world.spawnEntity(var2);
+                    var2 = new FakeVhraak(this.world);
+                    var2.setLocationAndAngles(this.posX - 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
+                    this.world.spawnEntity(var2);
 
-                var2 = new FakeVhraak(this.world);
-                var2.setLocationAndAngles(this.posX - 1, this.posY, this.posZ - 1, this.rotationYaw, this.rotationPitch);
-                this.world.spawnEntity(var2);
-                this.spawnTick = 50;
-        }
-        else {
-            this.spawnTick--;
+                    var2 = new FakeVhraak(this.world);
+                    var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ - 1, this.rotationYaw, this.rotationPitch);
+                    this.world.spawnEntity(var2);
+
+                    var2 = new FakeVhraak(this.world);
+                    var2.setLocationAndAngles(this.posX - 1, this.posY, this.posZ - 1, this.rotationYaw, this.rotationPitch);
+                    this.world.spawnEntity(var2);
+                    this.spawnTick = 80;
+                }
+                else {
+                    this.spawnTick--;
+                }
+            }
         }
     }
 

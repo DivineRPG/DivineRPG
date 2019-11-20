@@ -431,6 +431,7 @@ public class ModEntities {
                 buildEntityEntry(Dreamwrecker.class, "dreamwrecker", VETHEA),
                 buildEntityEntry(Duo.class, "duo", VETHEA),
                 buildEntityEntry(Ent.class, "ent", VETHEA),
+                buildEntityEntry(FakeVhraak.class, "fake_vhraak", VETHEA),
                 buildEntityEntry(Galroid.class, "galroid", VETHEA),
                 buildEntityEntry(Gorgosion.class, "gorgosion", VETHEA),
                 buildEntityEntry(Helio.class, "helio", VETHEA),
@@ -705,6 +706,7 @@ public class ModEntities {
         registerRender(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
         registerRender(Duo.class, RenderDuo.FACTORY);
         registerRender(Ent.class, RenderEnt.FACTORY);
+        registerRender(FakeVhraak.class, RenderFakeVhraak.FACTORY);
         registerRender(Galroid.class, RenderGalroid.FACTORY);
         registerRender(Gorgosion.class, RenderGorgosion.FACTORY);
         registerRender(Helio.class, RenderHelio.FACTORY);
