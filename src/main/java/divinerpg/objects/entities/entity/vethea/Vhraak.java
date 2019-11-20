@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -26,29 +27,20 @@ import net.minecraft.world.World;
 
 public class Vhraak extends EntityMob {
 
+    private int spawnTick = 50;
+    
     public Vhraak(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/vhraak");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_VHRAAK;
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -57,6 +49,33 @@ public class Vhraak extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
 
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        
+        if (!this.world.isRemote && !(this instanceof FakeVhraak) && this.spawnTick == 0) {
+                FakeVhraak var2 = new FakeVhraak(this.world);
+                var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
+                this.world.spawnEntity(var2);
+
+                var2 = new FakeVhraak(this.world);
+                var2.setLocationAndAngles(this.posX - 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
+                this.world.spawnEntity(var2);
+
+                var2 = new FakeVhraak(this.world);
+                var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ - 1, this.rotationYaw, this.rotationPitch);
+                this.world.spawnEntity(var2);
+
+                var2 = new FakeVhraak(this.world);
+                var2.setLocationAndAngles(this.posX - 1, this.posY, this.posZ - 1, this.rotationYaw, this.rotationPitch);
+                this.world.spawnEntity(var2);
+                this.spawnTick = 50;
+        }
+        else {
+            this.spawnTick--;
+        }
     }
 
     protected void initEntityAI()
@@ -84,19 +103,6 @@ public class Vhraak extends EntityMob {
     @Override
     public int getMaxSpawnedInChunk() {
         return 3;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
     }
 
     @Nullable

@@ -124,6 +124,7 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_DREAMWRECKER = registerTable("entities/vethea/dreamwrecker");
     public static final ResourceLocation ENTITIES_DUO = registerTable("entities/vethea/duo");
     public static final ResourceLocation ENTITIES_ENT = registerTable("entities/vethea/ent");
+    public static final ResourceLocation ENTITIES_FAKE_VHRAAK = registerTable("entities/vethea/fake_vhraak");
     public static final ResourceLocation ENTITIES_GALROID = registerTable("entities/vethea/galroid");
     public static final ResourceLocation ENTITIES_GORGOSION = registerTable("entities/vethea/gorgosion");
     public static final ResourceLocation ENTITIES_HELIO = registerTable("entities/vethea/helio");
@@ -138,9 +139,16 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_LORGAFLIGHT = registerTable("entities/vethea/lorgaflight");
     public static final ResourceLocation ENTITIES_MANDRAGORA = registerTable("entities/vethea/mandragora");
     public static final ResourceLocation ENTITIES_QUADRO = registerTable("entities/vethea/quadro");
-    //public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
-    //public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
-    //public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
+    public static final ResourceLocation ENTITIES_RAGLOK = registerTable("entities/vethea/raglok");
+    public static final ResourceLocation ENTITIES_SHADAHIER = registerTable("entities/vethea/shadahier");
+    public static final ResourceLocation ENTITIES_TOCAXIN = registerTable("entities/vethea/tocaxin");
+    public static final ResourceLocation ENTITIES_TWINS = registerTable("entities/vethea/twins");
+    public static final ResourceLocation ENTITIES_VERMENOUS = registerTable("entities/vethea/vermenous");
+    public static final ResourceLocation ENTITIES_VHRAAK = registerTable("entities/vethea/vhraak");
+    public static final ResourceLocation ENTITIES_WRECK = registerTable("entities/vethea/wreck");
+    public static final ResourceLocation ENTITIES_ZONE = registerTable("entities/vethea/zone");
+    public static final ResourceLocation ENTITIES_ZORAGON = registerTable("entities/vethea/zoragon");
+
     private static ResourceLocation registerTable(String path) {
         return LootTableList.register(new ResourceLocation(Reference.MODID, path));
     }

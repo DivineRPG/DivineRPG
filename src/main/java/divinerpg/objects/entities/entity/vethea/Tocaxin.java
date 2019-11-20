@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -19,36 +20,28 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Tocaxin extends EntityMob {
+public class Tocaxin extends VetheaMob {
+
+    private int hurtTimer;
 
     public Tocaxin(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 3.3f);
-		this.setHealth(this.getMaxHealth());
+		this.hurtTimer = 10;
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/tocaxin");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_TOCAXIN;
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -56,7 +49,6 @@ public class Tocaxin extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
     }
 
     protected void initEntityAI()
@@ -77,6 +69,22 @@ public class Tocaxin extends EntityMob {
     }
 
     @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        EntityLivingBase var1 = this.getAttackTarget();
+
+        if(var1 != null) {
+            if(this.getDistance(var1) > 8 || this.hurtTimer != 0) {
+                this.hurtTimer--;
+            }
+            else {
+                this.hurtTimer = 10;
+                var1.attackEntityFrom(DamageSource.causeMobDamage(this), (int) (8 - this.getDistance(var1)));
+            }
+        }
+    }
+
+    @Override
     protected boolean isValidLightLevel() {
         return true;
     }
@@ -87,17 +95,10 @@ public class Tocaxin extends EntityMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
+    public int getSpawnLayer() {
+        return 3;
     }
 
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
-    }
 
     @Nullable
     @Override
