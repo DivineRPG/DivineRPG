@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,31 +25,29 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Lorga extends EntityMob {
+import java.util.List;
+
+public class Lorga extends VetheaMob {
+
+    private int spawnTick;
+    private boolean canSpawnMinions;
 
     public Lorga(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 2.4f);
-		this.setHealth(this.getMaxHealth());
+		this(worldIn, true);
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/lorga");
 
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
+	private Lorga(World worldIn, boolean canSpawnMinions) {
+        super(worldIn);
+        this.setSize(1F, 2.4f);
+        this.canSpawnMinions = canSpawnMinions;
     }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_LORGA;
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -56,7 +55,6 @@ public class Lorga extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-
     }
 
     protected void initEntityAI()
@@ -77,6 +75,21 @@ public class Lorga extends EntityMob {
     }
 
     @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        List<Lorga> nearby = this.world.getEntitiesWithinAABB(Lorga.class, this.getEntityBoundingBox().expand(10, 10, 10));
+        if (!this.world.isRemote && this.spawnTick == 0 && this.canSpawnMinions && nearby.size() < 12) {
+            this.spawnTick = 260;
+            Lorga var2 = new Lorga(this.world, false);
+            var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
+            this.world.spawnEntity(var2);
+        }
+        else if (this.spawnTick > 0) {
+            this.spawnTick--;
+        }
+    }
+
+    @Override
     protected boolean isValidLightLevel() {
         return true;
     }
@@ -87,16 +100,8 @@ public class Lorga extends EntityMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getSpawnLayer() {
+        return 1;
     }
 
     @Nullable

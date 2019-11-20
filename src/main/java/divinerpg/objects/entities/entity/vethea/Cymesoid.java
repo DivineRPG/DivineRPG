@@ -59,8 +59,8 @@ public class Cymesoid extends VetheaMob {
 	protected ResourceLocation getLootTable()
 	{
 		return DRPGLootTables.ENTITIES_CYMESOID;
-
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();

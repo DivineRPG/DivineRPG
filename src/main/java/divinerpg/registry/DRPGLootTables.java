@@ -130,7 +130,17 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_HIVE_QUEEN = registerTable("entities/vethea/hive_queen");
     public static final ResourceLocation ENTITIES_HIVE_SOLDIER = registerTable("entities/vethea/hive_soldier");
     public static final ResourceLocation ENTITIES_HOVER_STINGER = registerTable("entities/vethea/hover_stinger");
-
+    public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
+    public static final ResourceLocation ENTITIES_KAZROTIC = registerTable("entities/vethea/kazrotic");
+    public static final ResourceLocation ENTITIES_LADY_LUNA = registerTable("entities/vethea/lady_luna");
+    public static final ResourceLocation ENTITIES_LHEIVA = registerTable("entities/vethea/lheiva");
+    public static final ResourceLocation ENTITIES_LORGA = registerTable("entities/vethea/lorga");
+    public static final ResourceLocation ENTITIES_LORGAFLIGHT = registerTable("entities/vethea/lorgaflight");
+    public static final ResourceLocation ENTITIES_MANDRAGORA = registerTable("entities/vethea/mandragora");
+    public static final ResourceLocation ENTITIES_QUADRO = registerTable("entities/vethea/quadro");
+    //public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
+    //public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
+    //public static final ResourceLocation ENTITIES_KAROS = registerTable("entities/vethea/karos");
     private static ResourceLocation registerTable(String path) {
         return LootTableList.register(new ResourceLocation(Reference.MODID, path));
     }

@@ -455,7 +455,6 @@ public class ModEntities {
                 buildEntityEntry(Zone.class, "zone", VETHEA),
                 buildEntityEntry(Zoragon.class, "zoragon", VETHEA),
 
-
                 // Boss
                 buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
                 buildEntityEntry(AyeracoBlue.class, "ayeraco_blue", BOSS),
@@ -517,7 +516,8 @@ public class ModEntities {
                 buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),
                 buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
                 buildProjectileEntry(EntityMerikMissile.class, "meriks_missile"),
-                buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile")};
+                buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
+                buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot")};
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
@@ -544,6 +544,7 @@ public class ModEntities {
         registerRender(EntityFyracryxFireball.class, manager -> new RenderFyracryxFireball(manager));
         registerRender(EntityGeneralsStaff.class, RenderStaff::new);
         registerRender(EntityGrenade.class, manager -> new RenderGrenade(manager));
+        registerRender(EntityKazroticShot.class, manager -> new RenderKazroticShot(manager, 1f));
         registerRender(EntityKingOfScorchersMeteor.class, manager -> new RenderKingofScorchersMeteor(manager, 1f));
         registerRender(EntityKingOfScorchersShot.class, manager -> new RenderKingofScorchersShot(manager, 1f));
         registerRender(EntityLamona.class, manager -> new RenderLamona(manager));

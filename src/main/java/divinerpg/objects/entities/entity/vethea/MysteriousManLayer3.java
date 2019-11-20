@@ -34,4 +34,20 @@ public class MysteriousManLayer3 extends EntityGifterNPC {
     protected String getTranslationName() {
         return "entity.divinerpg.mysterious_man_layer_3.name";
     }
+
+    public int getSpawnLayer() {
+        return 3;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        int spawnLayer = this.getSpawnLayer();
+
+        if(spawnLayer == 0) {
+            return super.getCanSpawnHere();
+        }
+        else {
+            return this.posY < 48.0D * spawnLayer  && this.posY > 48.0D * (spawnLayer - 1) && super.getCanSpawnHere();
+        }
+    }
 }
