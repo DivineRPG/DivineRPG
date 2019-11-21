@@ -4,6 +4,9 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.enums.ArrowType;
+import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,31 +27,20 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Zone extends EntityMob {
+public class Zone extends VetheaMob {
 
     public Zone(World worldIn) {
 		super(worldIn);
 		this.setSize(1F, 1.3f);
 		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/zone");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
 
     @Override
 	protected ResourceLocation getLootTable()
 	{
-		return this.LOOT;
-
+		return DRPGLootTables.ENTITIES_ZONE;
 	}
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -59,21 +51,23 @@ public class Zone extends EntityMob {
 
     }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+
+        EntityPlayer player = world.getClosestPlayerToEntity(this, 32);
+        if(player != null && !player.isCreative()) {
+            this.setAttackTarget(player);
+
+            if(!this.world.isRemote && this.ticksExisted % 40 == 0) {
+                this.shootEntity(this.getAttackTarget());
+            }
+        }
     }
 
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    private void shootEntity(EntityLivingBase e) {
+        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.KAROS_ARROW, this, e, 1.6f, 12);
+        this.world.spawnEntity(arrow);
     }
 
     @Override
@@ -87,16 +81,8 @@ public class Zone extends EntityMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getSpawnLayer() {
+        return 4;
     }
 
     @Nullable

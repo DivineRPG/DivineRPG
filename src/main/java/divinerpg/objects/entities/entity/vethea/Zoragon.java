@@ -4,6 +4,8 @@ import javax.annotation.Nullable;
 
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,31 +26,19 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Zoragon extends EntityMob {
+public class Zoragon extends VetheaMob {
 
     public Zoragon(World worldIn) {
 		super(worldIn);
 		this.setSize(1.5F, 2f);
-		this.setHealth(this.getMaxHealth());
 	}
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/zoragon");
-
-    private ResourceLocation deathLootTable = LOOT;
-    protected boolean isMaster() {
-        return false;
-    }
 
     @Override
-    protected boolean canDespawn() {
-        return true;
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_ZORAGON;
     }
 
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return this.LOOT;
-
-	}
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -87,16 +77,8 @@ public class Zoragon extends EntityMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
-        if (entitylivingbaseIn instanceof EntityPlayer) {
-            
-        }
-    }
-
-    @Override
-    protected void playStepSound(BlockPos pos, Block blockIn) {
-        super.playStepSound(pos, blockIn);
+    public int getSpawnLayer() {
+        return 4;
     }
 
     @Nullable
