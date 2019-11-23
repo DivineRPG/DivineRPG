@@ -472,8 +472,11 @@ public class ModBlocks {
     public static Block blueKarosBricks = new BlockModUnbreakable("blue_karos_bricks");
     public static Block blackKarosBricks = new BlockModUnbreakable("black_karos_bricks");
 
-    public static Block karosCannon = new BlockModUnbreakable("karos_cannon");
-    public static Block helioticBeam = new BlockModUnbreakable("heliotic_beam");
+    public static Block karosHeatTileGreen = new BlockKarosHeatTile("karos_heat_tile_green");
+    public static Block karosHeatTileRed = new BlockKarosHeatTile("karos_heat_tile_red");
+
+    public static Block karosCannon = new BlockKarosCannon("karos_cannon");
+    public static Block helioticBeam = new BlockHelioticBeam("heliotic_beam");
 
     public static Block wreckAltar = new BlockWreckAltar("wreck_altar");
     public static Block quadroticAltar = new BlockQuadroticAltar("quadrotic_altar");
@@ -502,8 +505,6 @@ public class ModBlocks {
     public static Block bacterialAcid = new BlockAcid("bacterial_acid", false);
     public static Block lunicAcid = new BlockAcid("lunic_acid", true);
 
-    public static Block karosHeatTileGreen = new BlockModUnbreakable("karos_heat_tile_green");
-    public static Block karosHeatTileRed = new BlockModUnbreakable("karos_heat_tile_red");
 
     public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F);
 

@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;

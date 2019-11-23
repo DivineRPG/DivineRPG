@@ -467,6 +467,7 @@ public class ModEntities {
                 buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
                 buildEntityEntry(HiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(Karot.class, "karot", BOSS),
+                buildEntityEntry(Karos.class, "karos", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
@@ -518,7 +519,9 @@ public class ModEntities {
                 buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
                 buildProjectileEntry(EntityMerikMissile.class, "meriks_missile"),
                 buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
-                buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot")};
+                buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
+                buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb")};
+
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
@@ -564,6 +567,7 @@ public class ModEntities {
         registerRender(EntityStar.class, manager -> new RenderStar(manager));
         registerRender(EntityVileStorm.class, manager -> new RenderVileStorm(manager, 1f));
         registerRender(EntityWatcherShot.class, manager -> new RenderWatcherShot(manager, 1f));
+        registerRender(EntityZoragonBomb.class, manager -> new RenderZoragonBomb(manager, 1f));
 
         registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
 

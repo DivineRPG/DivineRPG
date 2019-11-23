@@ -1,15 +1,19 @@
 package divinerpg.objects.items.vethea;
 
 import com.sun.istack.internal.Nullable;
+import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
+import divinerpg.objects.blocks.vethea.BlockKarosCannon;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipHelper;
 import divinerpg.utils.TooltipLocalizer;
 import divinerpg.utils.Utils;
+import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -24,6 +28,23 @@ public class ItemEvernight extends ItemStaff {
     @Override
     protected void doPreUsageEffects(World world, EntityPlayer player) {
         player.attackEntityFrom(Utils.arcanaSource, 20);
+
+        if(world.isRemote) {
+            return;
+        }
+
+        for(int x = -8; x < 8; x++) {
+            for(int y = -8; y < 8; y++) {
+                for(int z = -8; z < 8; z++) {
+                    BlockPos pos = new BlockPos(player.getPosition().add(x, y, z));
+                    Block block = world.getBlockState(pos).getBlock();
+
+                    if(block instanceof BlockKarosCannon) {
+                        ((BlockKarosCannon)block).dispense(world, pos);
+                    }
+                }
+            }
+        }
     }
 
     @Override
