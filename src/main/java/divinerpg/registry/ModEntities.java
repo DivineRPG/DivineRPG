@@ -470,6 +470,7 @@ public class ModEntities {
                 buildEntityEntry(Karos.class, "karos", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
+                buildEntityEntry(Quadro.class, "quadro", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
