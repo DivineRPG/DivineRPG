@@ -1,26 +1,19 @@
 package divinerpg.objects.items.vethea;
 
-import com.sun.istack.internal.Nullable;
+import java.util.List;
+
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.registry.*;
+import divinerpg.utils.*;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.minecraftforge.fml.relauncher.*;
 
 public class ItemStaff extends RangedWeaponBase {
 
@@ -43,7 +36,7 @@ public class ItemStaff extends RangedWeaponBase {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @SuppressWarnings("restriction") @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn) {
 	    list.add(TooltipLocalizer.arcanaDam(damage));
 		list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
 		/*if(stack.getItem() == ModItems.evernight)
