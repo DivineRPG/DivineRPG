@@ -9,11 +9,11 @@ import java.util.Arrays;
 
 public class Config {
 
-    public static final OreInfo realmite = new OreInfo("realmite", 3, 4, 1, 48);
-    public static final OreInfo rupee = new OreInfo("rupee", 2, 2, 1, 16);
-    public static final OreInfo arlemite = new OreInfo("arlemite", 2, 2, 1, 16);
-    public static final OreInfo nether = new OreInfo("netherOres", 5, 4, 1, 256);
-    public static final OreInfo twilight = new OreInfo("twilightOres", 5, 4, 15, 100);
+    public static final OreInfo realmite = new OreInfo("realmite", 5, 4, 1, 48);
+    public static final OreInfo rupee = new OreInfo("rupee", 5, 4, 1, 16);
+    public static final OreInfo arlemite = new OreInfo("arlemite", 4, 4, 1, 16);
+    public static final OreInfo nether = new OreInfo("netherOres", 10, 4, 1, 256);
+    public static final OreInfo twilight = new OreInfo("twilightOres", 10, 4, 15, 100);
     private static final String CATEGORY_GENERAL = "general";
     private static final String CATEGORY_GUI = "GUI";
     private static final String CATEGORY_WORLD_GEN = "World Gen";
