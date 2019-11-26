@@ -1,5 +1,6 @@
 package divinerpg.world;
 
+
 import com.google.common.base.Predicate;
 import divinerpg.config.Config;
 import divinerpg.config.OreInfo;
@@ -30,9 +31,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
     public static WorldGenCustomOres instance = new WorldGenCustomOres();
 
     // declaring predicats to prevent constantly creating
-    private Predicate<IBlockState> stonePredicat = BlockMatcher.forBlock(Blocks.STONE);
-    private Predicate<IBlockState> netherPredicat = BlockMatcher.forBlock(Blocks.NETHERRACK);
-    private Predicate<IBlockState> twilightPredicat = BlockMatcher.forBlock(ModBlocks.twilightStone);
+    private Predicate<IBlockState> stonePredicate = BlockMatcher.forBlock(Blocks.STONE);
+    private Predicate<IBlockState> netherPredicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
+    private Predicate<IBlockState> twilightPredicate = BlockMatcher.forBlock(ModBlocks.twilightStone);
 
     private WorldGenerator waterLake = new WorldGenLakes(Blocks.WATER);
     private WorldGenerator tarLake = new WorldGenLakes(ModBlocks.tar);
@@ -85,7 +86,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void spawnTwilightOre(World world, Random random, Block ore, int chunkX, int chunkZ) {
-        spawnOre(world, random, ore.getDefaultState(), twilightPredicat, chunkX, chunkZ, Config.twilight);
+        spawnOre(world, random, ore.getDefaultState(), twilightPredicate, chunkX, chunkZ, Config.twilight);
     }
 
     /**
@@ -125,11 +126,12 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // DIMENSION ORE SPAWNING
     /////////////////////////////////
     private void genOverworld(World world, Random random, int chunkX, int chunkZ) {
-        spawnOre(world, random, ModBlocks.realmiteOre.getDefaultState(), stonePredicat, chunkX, chunkZ,
+    	//TODO something here is broken causing only realmite to spawn
+        spawnOre(world, random, ModBlocks.realmiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.realmite);
-        spawnOre(world, random, ModBlocks.rupeeOre.getDefaultState(), stonePredicat, chunkX, chunkZ,
+        spawnOre(world, random, ModBlocks.rupeeOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.rupee);
-        spawnOre(world, random, ModBlocks.arlemiteOre.getDefaultState(), stonePredicat, chunkX, chunkZ,
+        spawnOre(world, random, ModBlocks.arlemiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.arlemite);
 
         if (Config.generateTar) {
@@ -141,8 +143,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void genNether(World world, Random random, int chunkX, int chunkZ) {
-        spawnOre(world, random, ModBlocks.netheriteOre.getDefaultState(), netherPredicat, chunkX, chunkZ, Config.nether);
-        spawnOre(world, random, ModBlocks.bloodgemOre.getDefaultState(), netherPredicat, chunkX, chunkZ, Config.nether);
+        spawnOre(world, random, ModBlocks.netheriteOre.getDefaultState(), netherPredicate, chunkX, chunkZ, Config.nether);
+        spawnOre(world, random, ModBlocks.bloodgemOre.getDefaultState(), netherPredicate, chunkX, chunkZ, Config.nether);
     }
 
     private void genEden(World world, Random random, int chunkX, int chunkZ) {

@@ -17,7 +17,6 @@ import divinerpg.registry.ModSmelting;
 import divinerpg.registry.ModSpawns;
 import divinerpg.registry.ModTriggers;
 import divinerpg.utils.Utils;
-import divinerpg.world.WorldGenCustomOres;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
@@ -28,7 +27,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, updateJSON = Reference.UPDATE_URL, dependencies="required:forge@[14.23.5.2768,)")
 public class DivineRPG {
@@ -54,11 +52,8 @@ public class DivineRPG {
         proxy.preInit(event);
         proxy.registerTileEntities();
         proxy.RegisterTileEntityRender();
-
-        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 3);
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
         ModArmorEvents.init();
-
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         ModMessages.initServer();
     }
