@@ -3,17 +3,23 @@ package divinerpg.objects.blocks.arcana;
 import divinerpg.config.Config;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
+import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockPattern;
+import net.minecraft.block.state.pattern.BlockStateMatcher;
+import net.minecraft.block.state.pattern.FactoryBlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -23,6 +29,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+
+import com.google.common.base.Predicates;
+
 import java.util.List;
 
 public class BlockArcanaPortalFrame extends BlockMod {
@@ -99,84 +108,39 @@ public class BlockArcanaPortalFrame extends BlockMod {
         worldIn.notifyNeighborsOfStateChange(pos, this, false);
         super.breakBlock(worldIn, pos, state);
     }
+    private static BlockPattern portalShape;
 
-    @Override
-    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-            ItemStack stack) {
-        world.setBlockState(pos, state, 3);
-        if (placer instanceof EntityPlayerMP && placer.dimension != Config.arcanaDimensionId) {
-            boolean validFrame = true;
-            IBlockState northFaceState = this.getDefaultState().withProperty(FACING, EnumFacing.NORTH);
-            IBlockState southFaceState = this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
-            IBlockState eastFaceState = this.getDefaultState().withProperty(FACING, EnumFacing.EAST);
-            IBlockState westFaceState = this.getDefaultState().withProperty(FACING, EnumFacing.WEST);
-            int startX = pos.getX();
-            int startZ = pos.getZ();
-            int y = pos.getY();
-
-            /* Find upper left hand corner of frame */
-            if (world.getBlockState(new BlockPos(startX - 1, y, startZ)).getBlock() == this
-                    || world.getBlockState(new BlockPos(startX + 1, y, startZ)).getBlock() == this) {
-                while (world.getBlockState(new BlockPos(startX - 1, y, startZ)).getBlock() == this) {
-                    startX--;
-                }
-                startX--;
-                if (world.getBlockState(new BlockPos(startX, y, startZ - 1)).getBlock() == this) {
-                    startZ = startZ - 4;
-                }
-            } else if (world.getBlockState(new BlockPos(startX, y, startZ - 1)).getBlock() == this
-                    || world.getBlockState(new BlockPos(startX, y, startZ + 1)).getBlock() == this) {
-                while (world.getBlockState(new BlockPos(startX, y, startZ - 1)).getBlock() == this) {
-                    startZ--;
-                }
-                startZ--;
-                if (world.getBlockState(new BlockPos(startX - 1, y, startZ)).getBlock() == this) {
-                    startX = startX - 4;
-                }
-            }
-
-            /* Check if it is a valid Arcana portal frame */
-            frameCheckLoops: for (int scanZ = startZ; scanZ < startZ + 5; scanZ++) {
-                if ((scanZ == startZ || scanZ == startZ + 4)) {
-                    for (int scanX = startX + 1; scanX < startX + 4; scanX++) {
-                        if (world.getBlockState(
-                                new BlockPos(scanX, y, scanZ)) != (scanZ == startZ ? northFaceState : southFaceState)) {
-                            validFrame = false;
-                            break frameCheckLoops;
-                        }
-                    }
-                } else {
-                    for (int scanX = startX; scanX < startX + 5; scanX++) {
-                        if (scanX == startX || scanX == startX + 4) {
-                            if (world.getBlockState(new BlockPos(scanX, y, scanZ)) != (scanX == startX ? westFaceState :
-                                    eastFaceState)) {
-                                validFrame = false;
-                                break frameCheckLoops;
-                            }
-                        } else if (world.getBlockState(new BlockPos(scanX, y, scanZ)) != Blocks.AIR.getDefaultState()
-                                && world.getBlockState(new BlockPos(scanX, y, scanZ)) != portal.getDefaultState()) {
-                            validFrame = false;
-                            break frameCheckLoops;
-                        }
-                    }
-                }
-            }
-
-            /* Set portal blocks */
-            if (validFrame) {
-                BlockPos inside = new BlockPos(startX, y, startZ);
-                IBlockState portalState = portal.getDefaultState();
-
-                world.setBlockState(inside.add(1, 0, 1), portalState);
-                world.setBlockState(inside.add(2, 0, 1), portalState);
-                world.setBlockState(inside.add(3, 0, 1), portalState);
-                world.setBlockState(inside.add(1, 0, 2), portalState);
-                world.setBlockState(inside.add(2, 0, 2), portalState);
-                world.setBlockState(inside.add(3, 0, 2), portalState);
-                world.setBlockState(inside.add(1, 0, 3), portalState);
-                world.setBlockState(inside.add(2, 0, 3), portalState);
-                world.setBlockState(inside.add(3, 0, 3), portalState);
-            }
+    public static BlockPattern getOrCreatePortalShape()
+    {
+        if (portalShape == null)
+        {
+            portalShape = FactoryBlockPattern.start().aisle("?vvv?", ">???<", ">???<", ">???<", "?^^^?").where('?', BlockWorldState.hasState(BlockStateMatcher.ANY)).where('^', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).where('>', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).where('v', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).where('<', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).build();
         }
+
+        return portalShape;
+    }
+    
+    @Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+    {
+    	IBlockState iblockstate = worldIn.getBlockState(pos);
+        ItemStack itemstack = stack;
+
+
+        BlockPattern.PatternHelper blockpattern$patternhelper = this.getOrCreatePortalShape().match(worldIn, pos);
+                if (blockpattern$patternhelper != null)
+                {
+                    BlockPos blockpos = blockpattern$patternhelper.getFrontTopLeft().add(-3, 0, -3);
+
+                    for (int j = 0; j < 3; ++j)
+                    {
+                        for (int k = 0; k < 3; ++k)
+                        {
+                        	//TODO make sure player is in center of portal frame before spawning portal frame
+                            worldIn.setBlockState(blockpos.add(j, 0, k), ModBlocks.arcanaPortal.getDefaultState(), 2);
+                        }
+                    }
+
+                }
     }
 }
