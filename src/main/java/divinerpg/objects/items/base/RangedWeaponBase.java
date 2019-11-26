@@ -34,7 +34,6 @@ import net.minecraftforge.event.world.NoteBlockEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SuppressWarnings("Duplicates")
 public class RangedWeaponBase extends ItemMod {
 
     private final Class<? extends EntityThrowable> clazz;

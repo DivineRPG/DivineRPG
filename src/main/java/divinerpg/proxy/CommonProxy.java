@@ -16,6 +16,7 @@ import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
+import divinerpg.world.WorldGenCustomOres;
 import divinerpg.world.WorldGenTreeGenerator;
 import divinerpg.world.structures.WorldGenCustomStructures;
 import net.minecraft.entity.player.EntityPlayer;
@@ -56,6 +57,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new ModEntities());
         ModDimensions.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenTreeGenerator(), 0);
         MinecraftForge.EVENT_BUS.register(new Ticker());
 
