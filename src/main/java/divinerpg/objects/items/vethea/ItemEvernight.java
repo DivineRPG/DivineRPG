@@ -1,24 +1,16 @@
 package divinerpg.objects.items.vethea;
 
-import com.sun.istack.internal.Nullable;
-import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
+import java.util.List;
+
 import divinerpg.objects.blocks.vethea.BlockKarosCannon;
-import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
-import divinerpg.utils.Utils;
+import divinerpg.utils.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
+import net.minecraftforge.fml.relauncher.*;
 
 public class ItemEvernight extends ItemStaff {
     public ItemEvernight(int dam, int arcana, String name) {
@@ -49,7 +41,7 @@ public class ItemEvernight extends ItemStaff {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+    public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn) {
         super.addInformation(stack,worldIn,list,flagIn);
         list.add(TooltipHelper.getInfoText("tooltip.staff.evernight.damage"));
     }
