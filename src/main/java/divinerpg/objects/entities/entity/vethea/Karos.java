@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
+import com.google.common.base.Predicate;
 import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
 import divinerpg.objects.blocks.vethea.BlockKarosCannon;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
@@ -29,7 +30,6 @@ public class Karos extends EntityDivineRPGBoss {
     private final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;
     private int       abilityCooldown;
 
-    private int deathTicks;
     private boolean hasLoadedBlocks = false;
 
     private List<BlockPos> ceiling    = new ArrayList<BlockPos>();
@@ -63,13 +63,31 @@ public class Karos extends EntityDivineRPGBoss {
         super.updateAITasks();
     }
 
+
+    protected void initEntityAI()
+    {
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
+        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
+        this.applyEntityAI();
+    }
+
+    private void applyEntityAI() {
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    }
+
+
     public void manageAbilities() {
         if (this.abilityCooldown == 0) {
             this.abilityCooldown = 200;
             switch (this.rand.nextInt(3)) {
                 case 0:
                     ability = CEILING;
-                    this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
                     this.playSound(ModSounds.CEILING_EXPLOSIONS, 1.0F, 1.0F);
                     if (!this.world.isRemote) {
                         List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
@@ -221,45 +239,4 @@ public class Karos extends EntityDivineRPGBoss {
     public SoundEvent getDeathSound() {
         return null;
     }
-
-    @Override
-    protected void onDeathUpdate() {
-        ++this.deathTicks;
-
-        if (this.deathTicks >= 180 && this.deathTicks <= 200) {
-            float var1 = (this.rand.nextFloat() - 0.5F) * 8.0F;
-            float var2 = (this.rand.nextFloat() - 0.5F) * 4.0F;
-            float var3 = (this.rand.nextFloat() - 0.5F) * 8.0F;
-            this.world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, this.posX + var1, this.posY + 2.0D + var2, this.posZ + var3, 0.0D, 0.0D, 0.0D);
-        }
-
-        int var4, var5;
-
-        if (!this.world.isRemote) {
-            if (this.deathTicks > 150 && this.deathTicks % 5 == 0) {
-                var4 = 1000;
-
-                while (var4 > 0) {
-                    var5 = EntityXPOrb.getXPSplit(var4);
-                    var4 -= var5;
-                    this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, var5));
-                }
-            }
-        }
-
-        this.move(MoverType.SELF, 0.0D, 0.10000000149011612D, 0.0D);
-        this.renderYawOffset = this.rotationYaw += 20.0F;
-
-        if (this.deathTicks == 200 && !this.world.isRemote) {
-            var4 = 2000;
-
-            while (var4 > 0) {
-                var5 = EntityXPOrb.getXPSplit(var4);
-                var4 -= var5;
-                this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, var5));
-            }
-            this.setDead();
-        }
-    }
-
 }

@@ -63,7 +63,9 @@ public enum BulletType {
     KAROS_CANNON_SHOT(21, ProjectileLoc("cannon")),
     HELIOSIS_CANNON_SHOT(28, ProjectileLoc("cannon")),
     ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
-    EVERSIGHT_SHOT(42, ProjectileLoc("cannon"));
+    EVERSIGHT_SHOT(42, ProjectileLoc("cannon")),
+
+    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleType.WILDWOOD_PORTAL);
 
     private final float damage;
     private final ResourceLocation texture;
@@ -81,6 +83,13 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         this.particle = ParticleType.NONE;
+        this.color = color;
+    }
+
+    BulletType(float damage, ResourceLocation texture, Color color, ParticleType particle) {
+        this.damage = damage;
+        this.texture = texture;
+        this.particle = particle;
         this.color = color;
     }
 

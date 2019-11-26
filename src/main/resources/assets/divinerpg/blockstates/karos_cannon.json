@@ -1,7 +1,11 @@
 {
-  "variants": {
-    "normal": {
-      "model": "divinerpg:karos_cannon"
+    "variants": {
+        "facing=down":  { "model": "divinerpg:karos_cannon" },
+        "facing=up":    { "model": "divinerpg:karos_cannon" },
+        "facing=north": { "model": "divinerpg:karos_cannon" },
+        "facing=south": { "model": "divinerpg:karos_cannon" },
+        "facing=west":  { "model": "divinerpg:karos_cannon" },
+        "facing=east":  { "model": "divinerpg:karos_cannon" }
     }
-  }
 }
+

@@ -469,6 +469,7 @@ public class ModEntities {
                 buildEntityEntry(Karot.class, "karot", BOSS),
                 buildEntityEntry(Karos.class, "karos", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
+                buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
@@ -520,7 +521,8 @@ public class ModEntities {
                 buildProjectileEntry(EntityMerikMissile.class, "meriks_missile"),
                 buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
                 buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
-                buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb")};
+                buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb"),
+                buildProjectileEntry(EntityLadyLunaSparkler.class, "lady_luna_sparkler")};
 
 
         if (Config.debug) {
@@ -551,6 +553,7 @@ public class ModEntities {
         registerRender(EntityKazroticShot.class, manager -> new RenderKazroticShot(manager, 1f));
         registerRender(EntityKingOfScorchersMeteor.class, manager -> new RenderKingofScorchersMeteor(manager, 1f));
         registerRender(EntityKingOfScorchersShot.class, manager -> new RenderKingofScorchersShot(manager, 1f));
+        registerRender(EntityLadyLunaSparkler.class, manager -> new RenderShooterBullet(manager));
         registerRender(EntityLamona.class, manager -> new RenderLamona(manager));
         registerRender(EntityMerikMissile.class, manager -> new RenderMerikMissile(manager));
         registerRender(EntityMeteor.class, manager -> new RenderMeteor(manager));

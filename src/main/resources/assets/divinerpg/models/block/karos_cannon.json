@@ -1,6 +1,9 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "divinerpg:blocks/karos_cannon"
-  }
+    "parent": "block/orientable",
+    "textures": {
+        "top": "divinerpg:blocks/karos_cannon",
+        "front": "divinerpg:blocks/karos_cannon",
+        "side": "divinerpg:blocks/karos_cannon"
+    }
 }
+
