@@ -87,7 +87,6 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModItems.heliosisDisk));
         addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModItems.arksianeDisk));
 
-/*
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 7, new ItemStack(ModItems.degradedHelmet));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModItems.degradedHood));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 6, new ItemStack(ModItems.degradedMask));
@@ -121,7 +120,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 9, new ItemStack(ModItems.tormentedMask));
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 8, new ItemStack(ModItems.tormentedBoots));
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 12, new ItemStack(ModItems.tormentedLegs));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModItems.tormentedBody));*/
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModItems.tormentedBody));
     }
 
     public void addRecipe(Item lump, Item template, int count, ItemStack res) {

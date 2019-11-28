@@ -346,7 +346,54 @@ public class ModItems {
     public static Item terranLegs = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo);
     public static Item terranBoots = new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo);
 
+    private static Object[] basicHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION };
+    private static Object[] basicMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION };
+    private static Object[] basicHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION };
+    private static Object[] glisteningHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 3, ArmorInfo.MELEE_DAMAGE };
+    private static Object[] glisteningMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.4, ArmorInfo.SPEED };
+    private static Object[] glisteningHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
+    private static Object[] demonizedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 6, ArmorInfo.MELEE_DAMAGE };
+    private static Object[] demonizedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.8, ArmorInfo.SPEED };
+    private static Object[] demonizedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
+    private static Object[] tormentedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE };
+    private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
+    private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
 
+    public static Item degradedHelmet = new ItemDivineArmor("degraded_helmet", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo);
+    public static Item degradedMask = new ItemDivineArmor("degraded_mask", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo);
+    public static Item degradedHood = new ItemDivineArmor("degraded_hood", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo);
+    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST);
+    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS);
+    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET);
+
+    public static Item finishedHelmet = new ItemDivineArmor("finished_helmet", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo);
+    public static Item finishedMask = new ItemDivineArmor("finished_mask", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo);
+    public static Item finishedHood = new ItemDivineArmor("finished_hood", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo);
+    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST);
+    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS);
+    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET);
+
+    public static Item glisteningHelmet = new ItemDivineArmor("glistening_helmet", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHelmInfo);
+    public static Item glisteningMask = new ItemDivineArmor("glistening_mask", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningMaskInfo);
+    public static Item glisteningHood = new ItemDivineArmor("glistening_hood", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHoodInfo);
+    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST);
+    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS);
+    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET);
+
+    public static Item demonizedHelmet = new ItemDivineArmor("demonized_helmet", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHelmInfo);
+    public static Item demonizedMask = new ItemDivineArmor("demonized_mask", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedMaskInfo);
+    public static Item demonizedHood = new ItemDivineArmor("demonized_hood", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHoodInfo);
+    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST);
+    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS);
+    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET);
+
+    public static Item tormentedHelmet = new ItemDivineArmor("tormented_helmet", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHelmInfo);
+    public static Item tormentedMask = new ItemDivineArmor("tormented_mask", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedMaskInfo);
+    public static Item tormentedHood = new ItemDivineArmor("tormented_hood", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHoodInfo);
+    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST);
+    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS);
+    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET);
+    
     public static Item diamondHelmet = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.HEAD);
     public static Item diamondBody = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.CHEST);
     public static Item diamondLegs = new ItemDivineArmor(EnumArmor.DIAMOND, EntityEquipmentSlot.LEGS);
@@ -932,40 +979,40 @@ public class ModItems {
     private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
     private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
 /*
-    public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHelmInfo, true, "Helmet");
-    public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicMaskInfo, true, "Mask");
-    public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, HEAD, basicHoodInfo, true, "Hood");
-    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, BODY, true);
-    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, LEGS, true);
-    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, BOOTS, true);
+    public static Item degradedHelmet = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo, true, "Helmet");
+    public static Item degradedMask = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo, true, "Mask");
+    public static Item degradedHood = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo, true, "Hood");
+    public static Item degradedBody = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.BODY, true);
+    public static Item degradedLegs = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS, true);
+    public static Item degradedBoots = new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET, true);
 
-    public static Item finishedHelmet = new ItemDivineArmor(EnumArmor.FINISHED, HEAD, basicHelmInfo, true, "Helmet");
-    public static Item finishedMask = new ItemDivineArmor(EnumArmor.FINISHED, HEAD, basicMaskInfo, true, "Mask");
-    public static Item finishedHood = new ItemDivineArmor(EnumArmor.FINISHED, HEAD, basicHoodInfo, true, "Hood");
-    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, BODY, true);
-    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, LEGS, true);
-    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, BOOTS, true);
+    public static Item finishedHelmet = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo, true, "Helmet");
+    public static Item finishedMask = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo, true, "Mask");
+    public static Item finishedHood = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo, true, "Hood");
+    public static Item finishedBody = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.BODY, true);
+    public static Item finishedLegs = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS, true);
+    public static Item finishedBoots = new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET, true);
 
-    public static Item glisteningHelmet = new ItemDivineArmor(EnumArmor.GLISTENING, HEAD, glisteningHelmInfo, true, "Helmet");
-    public static Item glisteningMask = new ItemDivineArmor(EnumArmor.GLISTENING, HEAD, glisteningMaskInfo, true, "Mask");
-    public static Item glisteningHood = new ItemDivineArmor(EnumArmor.GLISTENING, HEAD, glisteningHoodInfo, true, "Hood");
-    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, BODY, true);
-    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, LEGS, true);
-    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, BOOTS, true);
+    public static Item glisteningHelmet = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHelmInfo, true, "Helmet");
+    public static Item glisteningMask = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningMaskInfo, true, "Mask");
+    public static Item glisteningHood = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHoodInfo, true, "Hood");
+    public static Item glisteningBody = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.BODY, true);
+    public static Item glisteningLegs = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS, true);
+    public static Item glisteningBoots = new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET, true);
 
-    public static Item demonizedHelmet = new ItemDivineArmor(EnumArmor.DEMONIZED, HEAD, demonizedHelmInfo, true, "Helmet");
-    public static Item demonizedMask = new ItemDivineArmor(EnumArmor.DEMONIZED, HEAD, demonizedMaskInfo, true, "Mask");
-    public static Item demonizedHood = new ItemDivineArmor(EnumArmor.DEMONIZED, HEAD, demonizedHoodInfo, true, "Hood");
-    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, BODY, true);
-    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, LEGS, true);
-    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, BOOTS, true);
+    public static Item demonizedHelmet = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHelmInfo, true, "Helmet");
+    public static Item demonizedMask = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedMaskInfo, true, "Mask");
+    public static Item demonizedHood = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHoodInfo, true, "Hood");
+    public static Item demonizedBody = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.BODY, true);
+    public static Item demonizedLegs = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS, true);
+    public static Item demonizedBoots = new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET, true);
 
-    public static Item tormentedHelmet = new ItemDivineArmor(EnumArmor.TORMENTED, HEAD, tormentedHelmInfo, true, "Helmet");
-    public static Item tormentedMask = new ItemDivineArmor(EnumArmor.TORMENTED, HEAD, tormentedMaskInfo, true, "Mask");
-    public static Item tormentedHood = new ItemDivineArmor(EnumArmor.TORMENTED, HEAD, tormentedHoodInfo, true, "Hood");
-    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, BODY, true);
-    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, LEGS, true);
-    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, BOOTS, true);*/
+    public static Item tormentedHelmet = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHelmInfo, true, "Helmet");
+    public static Item tormentedMask = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedMaskInfo, true, "Mask");
+    public static Item tormentedHood = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHoodInfo, true, "Hood");
+    public static Item tormentedBody = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.BODY, true);
+    public static Item tormentedLegs = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS, true);
+    public static Item tormentedBoots = new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET, true);*/
 
 
     @SubscribeEvent
