@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelRaglokGogdure extends ModelBase
+public class ModelRaglok extends ModelBase
 {
     //fields
     ModelRenderer part1;
@@ -55,7 +55,7 @@ public class ModelRaglokGogdure extends ModelBase
     ModelRenderer leftleg4;
     ModelRenderer rightleg4;
 
-    public ModelRaglokGogdure()
+    public ModelRaglok()
     {
         textureWidth = 512;
         textureHeight = 32;

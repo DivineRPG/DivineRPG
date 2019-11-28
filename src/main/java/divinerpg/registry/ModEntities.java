@@ -471,6 +471,7 @@ public class ModEntities {
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
                 buildEntityEntry(Quadro.class, "quadro", BOSS),
+                buildEntityEntry(Raglok.class, "raglok", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
@@ -523,7 +524,8 @@ public class ModEntities {
                 buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
                 buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
                 buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb"),
-                buildProjectileEntry(EntityLadyLunaSparkler.class, "lady_luna_sparkler")};
+                buildProjectileEntry(EntityLadyLunaSparkler.class, "lady_luna_sparkler"),
+                buildProjectileEntry(EntityRaglokBomb.class, "raglok_bomb")};
 
 
         if (Config.debug) {
@@ -558,6 +560,7 @@ public class ModEntities {
         registerRender(EntityLamona.class, manager -> new RenderLamona(manager));
         registerRender(EntityMerikMissile.class, manager -> new RenderMerikMissile(manager));
         registerRender(EntityMeteor.class, manager -> new RenderMeteor(manager));
+        registerRender(EntityRaglokBomb.class, manager -> new RenderRaglokBomb(manager, 1f));
         registerRender(EntityReflector.class, manager -> new RenderReflector(manager));
         registerRender(EntitySaguaroWormShot.class, manager -> new RenderSaguaroWormShot(manager));
         registerRender(EntityScorcherShot.class, manager -> new RenderScorcherShot(manager, 0.5f));
@@ -733,7 +736,7 @@ public class ModEntities {
         registerRender(MysteriousManLayer2.class, RenderMysteriousManLayer2.FACTORY);
         registerRender(MysteriousManLayer3.class, RenderMysteriousManLayer3.FACTORY);
         registerRender(Quadro.class, RenderQuadro.FACTORY);
-        registerRender(RaglokGogdure.class, RenderRaglokGogdure.FACTORY);
+        registerRender(Raglok.class, RenderRaglok.FACTORY);
         registerRender(Shadahier.class, RenderShadahier.FACTORY);
         registerRender(Spinarus.class, RenderSpinarus.FACTORY);
         registerRender(TempleGuardian.class, RenderTempleGuardian.FACTORY);
