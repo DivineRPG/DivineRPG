@@ -470,13 +470,14 @@ public class ModEntities {
                 buildEntityEntry(Karos.class, "karos", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
+                buildEntityEntry(Parasecta.class, "parasecta", BOSS),
                 buildEntityEntry(Quadro.class, "quadro", BOSS),
                 buildEntityEntry(Raglok.class, "raglok", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
-                buildEntityEntry(Parasecta.class, "parasecta", BOSS)
+                buildEntityEntry(Wreck.class, "wreck", BOSS)
         };
 
         return divineMobs;
@@ -525,8 +526,10 @@ public class ModEntities {
                 buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
                 buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb"),
                 buildProjectileEntry(EntityLadyLunaSparkler.class, "lady_luna_sparkler"),
-                buildProjectileEntry(EntityRaglokBomb.class, "raglok_bomb")};
-
+                buildProjectileEntry(EntityRaglokBomb.class, "raglok_bomb"),
+                buildProjectileEntry(EntityWreckBouncingProjectile.class, "wreck_bouncing_projectile"),
+                buildProjectileEntry(EntityWreckExplosiveShot.class, "wreck_explosive_shot"),
+                buildProjectileEntry(EntityWreckShot.class, "wreck_shot")};
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
@@ -574,6 +577,9 @@ public class ModEntities {
         registerRender(EntityStar.class, manager -> new RenderStar(manager));
         registerRender(EntityVileStorm.class, manager -> new RenderVileStorm(manager, 1f));
         registerRender(EntityWatcherShot.class, manager -> new RenderWatcherShot(manager, 1f));
+        registerRender(EntityWreckBouncingProjectile.class, manager -> new RenderWreckBouncingProjectile(manager, 1f));
+        registerRender(EntityWreckExplosiveShot.class, manager -> new RenderWreckExplosiveShot(manager, 1f));
+        registerRender(EntityWreckShot.class, manager -> new RenderWreckShot(manager, 1f));
         registerRender(EntityZoragonBomb.class, manager -> new RenderZoragonBomb(manager, 1f));
 
         registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
@@ -745,7 +751,7 @@ public class ModEntities {
         registerRender(Twins.class, RenderTwins.FACTORY);
         registerRender(Vermenous.class, RenderVermenous.FACTORY);
         registerRender(Vhraak.class, RenderVhraak.FACTORY);
-        registerRender(WreckForm.class, RenderWreckForm.FACTORY);
+        registerRender(Wreck.class, RenderWreck.FACTORY);
         registerRender(Zone.class, RenderZone.FACTORY);
         registerRender(Zoragon.class, RenderZoragon.FACTORY);
     }
