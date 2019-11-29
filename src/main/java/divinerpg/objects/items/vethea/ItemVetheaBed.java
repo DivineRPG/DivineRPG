@@ -25,6 +25,7 @@ public class ItemVetheaBed extends ItemMod{
 	public ItemVetheaBed() {
 		super("nightmare_bed", DivineRPGTabs.items);
 	}
+	@Deprecated
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         if (worldIn.isRemote)

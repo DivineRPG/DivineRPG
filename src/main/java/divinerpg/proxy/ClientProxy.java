@@ -76,7 +76,8 @@ public class ClientProxy extends CommonProxy {
         return FMLClientHandler.instance().getClientPlayerEntity();
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
         Utils.setupCapes();

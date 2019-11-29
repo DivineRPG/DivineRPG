@@ -116,7 +116,7 @@ public class Utils {
         ret.getStyle().setColor(TextFormatting.WHITE);
         return ret;
     }
-
+    @Deprecated
     static List<String> getPatronList() {
         try {
             List<String> entries = new ArrayList<String>();
@@ -157,7 +157,6 @@ public class Utils {
         return player != null && REGISTRY.containsKey(player);
     }
 
-    @SuppressWarnings("unlikely-arg-type")
     public static boolean isDeveloperName(String name) {
         return DEV_LIST.contains(name);
     }
@@ -169,7 +168,7 @@ public class Utils {
     public static void postForgeEvent(Object o) {
         MinecraftForge.EVENT_BUS.register(o);
     }
-
+    @Deprecated
     public static void setupCapes() {
         try {
             Utils.updateCapeList();
@@ -179,7 +178,7 @@ public class Utils {
         }
 
     }
-
+    @Deprecated
     public static void updateCapeList() {
         int timeout = 10000;
         URL capeListUrl;

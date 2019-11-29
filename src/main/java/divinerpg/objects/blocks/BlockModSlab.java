@@ -78,13 +78,13 @@ public abstract class BlockModSlab extends BlockSlab  {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @Deprecated
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(Item.getItemFromBlock(getSingle()));
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @Deprecated
     public IBlockState getStateFromMeta(int meta) {
         return this.isDouble() ? this.getDefaultState() :
                 this.getDefaultState().withProperty(HALF, meta == 0 ? EnumBlockHalf.BOTTOM : EnumBlockHalf.TOP);

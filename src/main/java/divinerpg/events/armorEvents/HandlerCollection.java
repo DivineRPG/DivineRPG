@@ -57,7 +57,8 @@ public class HandlerCollection implements IFullArmorRegistry {
      *
      * @param player - leaving player
      */
-    public void removePlayer(EntityPlayer player) {
+    @SuppressWarnings("unlikely-arg-type")
+	public void removePlayer(EntityPlayer player) {
         UUID id = player.getUniqueID();
         if (!all_players.containsKey(id)) {
             DivineRPG.logger.warn("This player was't ever registered " + player.getName());
