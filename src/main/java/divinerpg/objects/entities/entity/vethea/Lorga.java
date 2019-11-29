@@ -78,14 +78,19 @@ public class Lorga extends VetheaMob {
     public void onLivingUpdate() {
         super.onLivingUpdate();
         List<Lorga> nearby = this.world.getEntitiesWithinAABB(Lorga.class, this.getEntityBoundingBox().expand(10, 10, 10));
-        if (!this.world.isRemote && this.spawnTick == 0 && this.canSpawnMinions && nearby.size() < 12) {
-            this.spawnTick = 260;
-            Lorga var2 = new Lorga(this.world, false);
-            var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
-            this.world.spawnEntity(var2);
+        if(!this.canSpawnMinions) {
+            return;
         }
-        else if (this.spawnTick > 0) {
-            this.spawnTick--;
+        else {
+            if (!this.world.isRemote && this.spawnTick == 0 && nearby.size() < 12) {
+                this.spawnTick = 260;
+                Lorga var2 = new Lorga(this.world, false);
+                var2.setLocationAndAngles(this.posX + 1, this.posY, this.posZ + 1, this.rotationYaw, this.rotationPitch);
+                this.world.spawnEntity(var2);
+            }
+            else if (this.spawnTick > 0) {
+                this.spawnTick--;
+            }
         }
     }
 
