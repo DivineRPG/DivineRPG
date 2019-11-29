@@ -54,16 +54,7 @@ public class ArmorHandlers {
      * @param damageConversionFunc - function modifying original damage amount
      */
     public static void onAddMeleeDamage(LivingHurtEvent e, Function<Float, Float> damageConversionFunc) {
-        DamageSource source = e.getSource();
-        if (!(source.getTrueSource() instanceof EntityPlayer)
-                || source.isMagicDamage()
-                || source.isProjectile()
-                // should call only on server
-                || isRemote(e.getEntity())) {
-            return;
-        }
-
-        e.setAmount(damageConversionFunc.apply(e.getAmount()));
+        onPlayerAttacked(e, s -> !s.isMagicDamage() && s.isProjectile(), damageConversionFunc);
     }
 
     /**
@@ -73,12 +64,24 @@ public class ArmorHandlers {
      * @param damageConversionFunc - function modifying original damage amount
      */
     public static void onAddRangedDamage(LivingHurtEvent e, Function<Float, Float> damageConversionFunc) {
+        onPlayerAttacked(e, DamageSource::isProjectile, damageConversionFunc);
+    }
+
+    /**
+     * Handle player attack
+     *
+     * @param e                    - events
+     * @param canApply             - can apply condition
+     * @param damageConversionFunc - player attack amount conversion
+     */
+    public static void onPlayerAttacked(LivingHurtEvent e, Function<DamageSource, Boolean> canApply, Function<Float, Float> damageConversionFunc) {
         DamageSource source = e.getSource();
         if (!(source.getTrueSource() instanceof EntityPlayer)
-                || !source.isProjectile()
+                || !canApply.apply(source)
                 // should call only on server
-                || isRemote(e.getEntity()))
+                || isRemote(e.getEntity())) {
             return;
+        }
 
         e.setAmount(damageConversionFunc.apply(e.getAmount()));
     }
