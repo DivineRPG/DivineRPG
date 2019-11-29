@@ -20,13 +20,13 @@ public class BlockDemonFurnace extends BlockModFurnace implements ITileEntityPro
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @Deprecated
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @Deprecated
     public boolean isFullCube(IBlockState state) {
         return false;
     }

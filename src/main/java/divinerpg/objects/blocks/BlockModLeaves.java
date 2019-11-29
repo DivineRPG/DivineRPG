@@ -150,7 +150,8 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
      * @param pos the block position
      * @return the map color
      */
-    @Override
+    @Deprecated
+	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
         if(this.mapColor == null) {
             return super.getMapColor(state, worldIn, pos);

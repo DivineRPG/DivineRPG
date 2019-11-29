@@ -402,7 +402,7 @@ public class BlockModPortal extends BlockBreakable {
         public int getWidth() {
             return this.width;
         }
-
+        @Deprecated
         protected boolean isEmptyBlock(Block blockIn) {
             return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == fireBlock
                     || blockIn == portalBlock;
