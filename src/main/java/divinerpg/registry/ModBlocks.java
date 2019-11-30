@@ -439,94 +439,92 @@ public class ModBlocks {
 
     /* EVERYTHING BELOW THIS POINT IS VETHEA */
 
-    public static Block dreamDirt = new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY);
-    public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE);
-    public static Block dreamStone = new BlockMod("dream_stone", 6.0F);
+    public static Block nightmareBed = new BlockNightmareBed().setCreativeTab(DivineRPGTabs.vethea);
+
+    public static Block dreamDirt = new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block dreamStone = new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea);
     public static BlockModPortal vetheaPortal = new BlockModPortal("vethea_portal",
             ModDimensions.vetheaDimension.getId(), ModBlocks.blueFire, ModBlocks.mortumBlock, ParticleType.MORTUM_PORTAL);
 
-    public static Block everstone = new BlockModUnbreakable("everstone");
-    public static Block darkEverstone = new BlockModUnbreakable("dark_everstone");
-    public static Block whiteEverstone = new BlockModUnbreakable("white_everstone");
+    public static Block everstone = new BlockModUnbreakable("everstone").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block darkEverstone = new BlockModUnbreakable("dark_everstone").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block whiteEverstone = new BlockModUnbreakable("white_everstone").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block dreamLamp = new BlockDreamLamp("dream_lamp");
+    public static Block dreamLamp = new BlockDreamLamp("dream_lamp").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block fireCrystal = new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F);
-    public static Block firelight = new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F);
+    public static Block fireCrystal = new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block firelight = new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block firewoodLog = new BlockVetheaLog("firewood_log", MapColor.RED).setHardness(5.0F);
-    public static Block hyrewoodLog = new BlockVetheaLog("hyrewood_log", MapColor.BLUE).setHardness(5.0F);
-    public static Block mintwoodLog = new BlockVetheaLog("mintwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F);
-    public static Block dreamwoodLog = new BlockVetheaLog("dreamwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F);
+    public static Block firewoodLog = new BlockVetheaLog("firewood_log", MapColor.RED).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block hyrewoodLog = new BlockVetheaLog("hyrewood_log", MapColor.BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block mintwoodLog = new BlockVetheaLog("mintwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block dreamwoodLog = new BlockVetheaLog("dreamwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED);
-    public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED);
-    public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED);
-    public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED);
+    public static Block firewoodLeaves = new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block hyrewoodLeaves = new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block mintwoodLeaves = new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block dreamWoodLeaves = new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block infusionTable = new BlockInfusionTable("infusion_table");
-    public static Block cryptFloor = new BlockModUnbreakable("crypt_floor");
-    public static Block greenHungerstone = new BlockModUnbreakable("green_hungerstone");
-    public static Block blackHungerstone = new BlockModUnbreakable("black_hungerstone");
-    public static Block hallWall = new BlockModUnbreakable("hall_wall");
-    public static Block blueKarosBricks = new BlockModUnbreakable("blue_karos_bricks");
-    public static Block blackKarosBricks = new BlockModUnbreakable("black_karos_bricks");
+    public static Block infusionTable = new BlockInfusionTable("infusion_table").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block cryptFloor = new BlockModUnbreakable("crypt_floor").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block greenHungerstone = new BlockModUnbreakable("green_hungerstone").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block blackHungerstone = new BlockModUnbreakable("black_hungerstone").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block hallWall = new BlockModUnbreakable("hall_wall").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block blueKarosBricks = new BlockModUnbreakable("blue_karos_bricks").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block blackKarosBricks = new BlockModUnbreakable("black_karos_bricks").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block karosHeatTileGreen = new BlockKarosHeatTile("karos_heat_tile_green");
-    public static Block karosHeatTileRed = new BlockKarosHeatTile("karos_heat_tile_red");
+    public static Block karosHeatTileGreen = new BlockKarosHeatTile("karos_heat_tile_green").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block karosHeatTileRed = new BlockKarosHeatTile("karos_heat_tile_red").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block karosCannon = new BlockKarosCannon("karos_cannon");
-    public static Block helioticBeam = new BlockHelioticBeam("heliotic_beam");
+    public static Block karosCannon = new BlockKarosCannon("karos_cannon").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block helioticBeam = new BlockHelioticBeam("heliotic_beam").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block wreckAltar = new BlockWreckAltar("wreck_altar");
-    public static Block quadroticAltar = new BlockQuadroticAltar("quadrotic_altar");
-    public static Block karosAltar = new BlockKarosAltar("karos_altar");
-    public static Block raglokAltar = new BlockRaglokAltar("raglok_altar");
-    public static Block lunicAltar = new BlockLunicAltar("lunic_altar");
+    public static Block wreckAltar = new BlockWreckAltar("wreck_altar").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block quadroticAltar = new BlockQuadroticAltar("quadrotic_altar").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block karosAltar = new BlockKarosAltar("karos_altar").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block raglokAltar = new BlockRaglokAltar("raglok_altar").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block lunicAltar = new BlockLunicAltar("lunic_altar").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block lightDreamBricks = new BlockMod("light_dream_bricks", 1.0F);
-    public static Block darkDreamBricks = new BlockMod("dark_dream_bricks", 1.0F);
-    public static Block redDreamBricks = new BlockMod("red_dream_bricks", 1.0F);
-    public static Block lunaStone = new BlockMod("luna_stone", 1.0F);
-    public static Block lunaBricks = new BlockMod("luna_bricks", 1.0F);
-    public static Block weedwoodVine = new BlockModVine("weedwood_vine");
-    public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weedwood_vine");
-    public static Block cryptWall = new BlockMod("crypt_wall", 1.0F);
-    public static Block smoothGlass = new BlockModGlass("smooth_glass", 0.3F);
-    public static Block villageLamp = new BlockModLamp(EnumBlockType.GLASS, "village_lamp", 1.0F);
-    public static Block cellLamp = new BlockModLamp(EnumBlockType.GLASS, "cell_lamp", 1.0F);
-    public static Block hiveWall = new BlockMod(EnumBlockType.GLASS, "hive_wall", 1.0F).setLightLevel(0.533F);
+    public static Block lightDreamBricks = new BlockMod("light_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block darkDreamBricks = new BlockMod("dark_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block redDreamBricks = new BlockMod("red_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block lunaStone = new BlockMod("luna_stone", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block lunaBricks = new BlockMod("luna_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block weedwoodVine = new BlockModVine("weedwood_vine").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block blossomingWeedwoodVine = new BlockModVine("blossomed_weedwood_vine").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block cryptWall = new BlockMod("crypt_wall", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block smoothGlass = new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block villageLamp = new BlockModLamp(EnumBlockType.GLASS, "village_lamp", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block cellLamp = new BlockModLamp(EnumBlockType.GLASS, "cell_lamp", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block hiveWall = new BlockMod(EnumBlockType.GLASS, "hive_wall", 1.0F).setLightLevel(0.533F).setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block chamberWall = new BlockModUnbreakable("chamber_wall");
-    public static Block shiftedChamberWall = new BlockModUnbreakable("shifted_chamber_wall");
-    public static Block stackedChamberWall = new BlockModUnbreakable("stacked_chamber_wall");
+    public static Block chamberWall = new BlockModUnbreakable("chamber_wall").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block shiftedChamberWall = new BlockModUnbreakable("shifted_chamber_wall").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block stackedChamberWall = new BlockModUnbreakable("stacked_chamber_wall").setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block acidBlock = new BlockAcid("acid_block", true);
-    public static Block bacterialAcid = new BlockAcid("bacterial_acid", false);
-    public static Block lunicAcid = new BlockAcid("lunic_acid", true);
+    public static Block acidBlock = new BlockAcid("acid_block", true).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block bacterialAcid = new BlockAcid("bacterial_acid", false).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block lunicAcid = new BlockAcid("lunic_acid", true).setCreativeTab(DivineRPGTabs.vethea);
 
+    public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F).setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block metalCaging = new BlockModGlass("metal_caging", 1.0F);
+    public static Block cracklespike = new BlockTwilightFlower("cracklespike", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block fernite = new BlockTwilightFlower("fernite", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block bulbatobe = new BlockTwilightFlower("bulbatobe", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block shineGrass = new BlockTwilightFlower("shine_grass", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block shimmer = new BlockTwilightFlower("shimmer", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block dreamglow = new BlockTwilightFlower("dreamglow", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block greenGemtop = new BlockTwilightFlower("green_gemtop", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block purpleGemtop = new BlockTwilightFlower("purple_gemtop", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
+    public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea);
 
-    public static Block cracklespike = new BlockTwilightFlower("cracklespike", dreamGrass, MapColor.GREEN);
-    public static Block fernite = new BlockTwilightFlower("fernite", dreamGrass, MapColor.GREEN);
-    public static Block bulbatobe = new BlockTwilightFlower("bulbatobe", dreamGrass, MapColor.GREEN);
-    public static Block shineGrass = new BlockTwilightFlower("shine_grass", dreamGrass, MapColor.GREEN);
-    public static Block shimmer = new BlockTwilightFlower("shimmer", dreamGrass, MapColor.GREEN);
-    public static Block dreamglow = new BlockTwilightFlower("dreamglow", dreamGrass, MapColor.GREEN);
-    public static Block greenGemtop = new BlockTwilightFlower("green_gemtop", dreamGrass, MapColor.GREEN);
-    public static Block purpleGemtop = new BlockTwilightFlower("purple_gemtop", dreamGrass, MapColor.GREEN);
-    public static Block yellowDulah = new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN);
-    public static Block greenDulah = new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN);
-    
-    public static Block nightmareBed = new BlockNightmareBed();
-
-    //TEMPORARY
-    public static Block dreamwreckerSpawner = new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker");
-    public static Block vermenousSpawner = new BlockModSpawner("vermenous_spawner", "Vermenous");
-    public static Block twinsSpawner = new BlockModSpawner("twins_spawner", "Twins");
-    public static Block biphronSpawner = new BlockModSpawner("biphron_spawner", "Biphron");
-    public static Block gorgosionSpawner = new BlockModSpawner("gorgosion_spawner", "Gorgosion");
+    public static Block dreamwreckerSpawner = new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block vermenousSpawner = new BlockModSpawner("vermenous_spawner", "Vermenous").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block twinsSpawner = new BlockModSpawner("twins_spawner", "Twins").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block biphronSpawner = new BlockModSpawner("biphron_spawner", "Biphron").setCreativeTab(DivineRPGTabs.vethea);
+    public static Block gorgosionSpawner = new BlockModSpawner("gorgosion_spawner", "Gorgosion").setCreativeTab(DivineRPGTabs.vethea);
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {

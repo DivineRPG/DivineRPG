@@ -525,6 +525,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
                 buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
                 buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb"),
+                buildProjectileEntry(EntityDissimentShot.class, "dissiment_shot"),
                 buildProjectileEntry(EntityLadyLunaSparkler.class, "lady_luna_sparkler"),
                 buildProjectileEntry(EntityRaglokBomb.class, "raglok_bomb"),
                 buildProjectileEntry(EntityWreckBouncingProjectile.class, "wreck_bouncing_projectile"),
@@ -548,6 +549,7 @@ public class ModEntities {
         registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
         registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));
         registerRender(EntityDisk.class, manager -> new RenderDisk(manager));
+        registerRender(EntityDissimentShot.class, manager -> new RenderDissimentShot(manager, 1f));
         registerRender(EntityDivineArrow.class, manager -> new RenderDivineArrow(manager));
         registerRender(EntityEnderTripletsFireball.class, manager -> new RenderEnderTripletsFireball(manager, 1f));
         registerRender(EntityFirefly.class, manager -> new RenderFirefly(manager));

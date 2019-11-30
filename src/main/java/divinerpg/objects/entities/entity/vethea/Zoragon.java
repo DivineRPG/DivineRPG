@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
+import divinerpg.objects.entities.entity.projectiles.EntityZoragonBomb;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,10 +25,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class Zoragon extends VetheaMob {
 
+    private BlockPos currentFlightTarget;
+    private int flyTimer;
+    private int special;
+    
     public Zoragon(World worldIn) {
 		super(worldIn);
 		this.setSize(1.5F, 2f);
@@ -47,6 +53,55 @@ public class Zoragon extends VetheaMob {
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
 
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        EntityLivingBase target = this.getAttackTarget();
+        
+        if (target != null) {
+            int targetX = (int) target.posX;
+            int targetY = (int) target.posY;
+            int targetZ = (int) target.posZ;
+            currentFlightTarget = new BlockPos(targetX, targetY + 15, targetZ);
+            if(target instanceof EntityPlayer && ((EntityPlayer)target).capabilities.isCreativeMode) target = null;
+        }
+        else if (flyTimer != 0) {
+            flyTimer = 360;
+            currentFlightTarget = new BlockPos((int)(this.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F), (int)(this.posY + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F), (int)(this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F));
+        }
+
+        if (currentFlightTarget != null) {
+            double distX = currentFlightTarget.getX() - this.posX;
+            double distY = currentFlightTarget.getY() - this.posY;
+            double distZ = currentFlightTarget.getZ() - this.posZ;
+
+            if (Math.signum(distX) != 0 || Math.signum(distY) != 0 || Math.signum(distZ) != 0) {
+                this.motionX += (Math.signum(distX) * 0.15D - this.motionX) * 0.10000000149011612D;
+                this.motionY += (Math.signum(distY) * 1.699999988079071D - this.motionY) * 0.10000000149011612D;
+                this.motionZ += (Math.signum(distZ) * 0.15D - this.motionZ) * 0.10000000149011612D;
+                float var7 = (float)(Math.atan2(this.motionZ, this.motionX) * 180.0D / Math.PI) - 90.0F;
+                //float var8 = MathHelper.wrapAngleTo180_float(var7 - this.rotationYaw);
+                float var8 = MathHelper.wrapDegrees(var7 - this.rotationYaw);
+                this.moveForward = 0.5F;
+                this.rotationYaw += var8;
+            }
+
+            if (Math.abs(distX) < 3 && Math.abs(distY) < 3 && Math.abs(distZ) < 3) {
+                if (special == 0) {
+                    special = 120;
+                    EntityZoragonBomb bomb = new EntityZoragonBomb(this.world, this.posX, this.posY - 1, this.posZ);
+                    bomb.motionY=-0.1f;
+                    this.world.spawnEntity(bomb);
+                } else {
+                    special--;
+                }
+            }
+
+            flyTimer--;
+        }
+
+        super.onLivingUpdate();
     }
 
     protected void initEntityAI()
