@@ -1,10 +1,14 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.ModSounds;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class FakeVhraak extends VetheaMob {
@@ -16,32 +20,10 @@ public class FakeVhraak extends VetheaMob {
     }
 
     @Override
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
-
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected ResourceLocation getLootTable()
-    {
-        return DRPGLootTables.ENTITIES_FAKE_VHRAAK;
-    }
-
-    @Override
-    public int getSpawnLayer() {
-        return 0;
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(30.0D);
     }
 
     @Override
@@ -52,5 +34,31 @@ public class FakeVhraak extends VetheaMob {
         if(this.lifeTick <= 0) {
             this.setDead();
         }
+    }
+
+    @Override
+    public int getSpawnLayer() {
+        return 0;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_FAKE_VHRAAK;
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.VHRAAK;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.VHRAAK_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.VHRAAK_HURT;
     }
 }

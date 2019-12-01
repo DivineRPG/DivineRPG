@@ -64,8 +64,8 @@ public final class ModSounds {
     public static final SoundEvent DRAMCRYX_HURT = createEvent("dramcryx_hurt");
     public static final SoundEvent DRAMIX = createEvent("dramix");
     public static final SoundEvent DRAMIX_HURT = createEvent("dramix_hurt");
-    public static final SoundEvent DREAM_WRECKER = createEvent("dream_wrecker");
-    public static final SoundEvent DREAM_WRECKER_HURT = createEvent("dream_wrecker_hurt");
+    public static final SoundEvent DREAMWRECKER = createEvent("dream_wrecker");
+    public static final SoundEvent DREAMWRECKER_HURT = createEvent("dream_wrecker_hurt");
     public static final SoundEvent DUNGEON_PRISONER = createEvent("dungeon_prisoner");
     public static final SoundEvent DUNGEON_PRISONER_CHANGE = createEvent("dungeon_prisoner_change");
     public static final SoundEvent DUNGEON_PRISONER_HURT = createEvent("dungeon_prisoner_hurt");
@@ -204,13 +204,13 @@ public final class ModSounds {
     public static final SoundEvent TOCAXIN = createEvent("tocaxin");
     public static final SoundEvent TOCAXIN_HURT = createEvent("tocaxin_hurt");
     public static final SoundEvent TRY_YOUR_BEST = createEvent("try_your_best");
-    public static final SoundEvent VARAAK = createEvent("varaak");
-    public static final SoundEvent VARAAK_HURT = createEvent("varaak_hurt");
     public static final SoundEvent VEREK = createEvent("verek");
     public static final SoundEvent VEREK_HURT = createEvent("verek_hurt");
     public static final SoundEvent VERMENOUS = createEvent("vermenous");
     public static final SoundEvent VERMENOUS_HURT = createEvent("vermenous_hurt");
     public static final SoundEvent VETHEA_BOW = createEvent("vethea_bow");
+    public static final SoundEvent VHRAAK = createEvent("varaak");
+    public static final SoundEvent VHRAAK_HURT = createEvent("varaak_hurt");
     public static final SoundEvent WHALE = createEvent("whale");
     public static final SoundEvent WHALE_HURT = createEvent("whale_hurt");
     public static final SoundEvent WILDFIRE = createEvent("wildfire");

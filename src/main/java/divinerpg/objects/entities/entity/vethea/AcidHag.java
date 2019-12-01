@@ -20,6 +20,13 @@ public class AcidHag extends VetheaMob {
     }
 
     @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+    }
+
+    @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
@@ -35,10 +42,14 @@ public class AcidHag extends VetheaMob {
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+    public int getSpawnLayer() {
+        return 1;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_ACID_HAG;
     }
 
     @Override
@@ -55,15 +66,4 @@ public class AcidHag extends VetheaMob {
     protected SoundEvent getDeathSound() {
         return ModSounds.ACID_HAG_HURT;
     }
-
-    @Override
-    public int getSpawnLayer() {
-    	return 1;
-    }
-
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_ACID_HAG;
-	}
 }
