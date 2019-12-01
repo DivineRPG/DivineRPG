@@ -84,5 +84,4 @@ public class Tocaxin extends VetheaMob {
     protected SoundEvent getDeathSound() {
         return ModSounds.TOCAXIN_HURT;
     }
-
 }

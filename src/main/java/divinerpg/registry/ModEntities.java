@@ -523,6 +523,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
                 buildProjectileEntry(EntityMerikMissile.class, "meriks_missile"),
                 buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
+                buildProjectileEntry(EntityMandragoraProjectile.class, "mandragora_projectile"),
                 buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
                 buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb"),
                 buildProjectileEntry(EntityDissimentShot.class, "dissiment_shot"),
@@ -563,6 +564,7 @@ public class ModEntities {
         registerRender(EntityKingOfScorchersShot.class, manager -> new RenderKingofScorchersShot(manager, 1f));
         registerRender(EntityLadyLunaSparkler.class, manager -> new RenderShooterBullet(manager));
         registerRender(EntityLamona.class, manager -> new RenderLamona(manager));
+        registerRender(EntityMandragoraProjectile.class, manager -> new RenderMandragoraProjectile(manager, 1f));
         registerRender(EntityMerikMissile.class, manager -> new RenderMerikMissile(manager));
         registerRender(EntityMeteor.class, manager -> new RenderMeteor(manager));
         registerRender(EntityRaglokBomb.class, manager -> new RenderRaglokBomb(manager, 1f));
