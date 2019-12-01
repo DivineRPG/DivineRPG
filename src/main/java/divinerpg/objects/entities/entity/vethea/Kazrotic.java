@@ -15,6 +15,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -25,14 +26,7 @@ public class Kazrotic extends VetheaMob implements IRangedAttackMob {
     public Kazrotic(World worldIn) {
 		super(worldIn);
 		this.setSize(1.4F, 3f);
-		this.setHealth(this.getMaxHealth());
         this.tasks.addTask(0, new EntityAIAttackRanged(this, 1, 15, 60, 15));
-	}
-
-    @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_KAZROTIC;
 	}
 
     @Override
@@ -44,7 +38,6 @@ public class Kazrotic extends VetheaMob implements IRangedAttackMob {
         shot.shoot(tx, ty, tz, 0.6F, 0.3F);
         this.playSound(ModSounds.VETHEA_BOW, 1.0F, 1.0F);
         this.world.spawnEntity(shot);
-        System.out.println("Shot fired");
     }
 
     @Override
@@ -54,20 +47,7 @@ public class Kazrotic extends VetheaMob implements IRangedAttackMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(65.0D);
     }
 
     @Override
@@ -75,9 +55,24 @@ public class Kazrotic extends VetheaMob implements IRangedAttackMob {
         return 3;
     }
 
-    @Nullable
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_KAZROTIC;
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return ModSounds.KAZROTIC;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.KAZROTIC_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.KAZROTIC_HURT;
     }
 }
