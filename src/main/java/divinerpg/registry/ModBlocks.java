@@ -439,7 +439,7 @@ public class ModBlocks {
 
     /* EVERYTHING BELOW THIS POINT IS VETHEA */
 
-    public static Block nightmareBed = new BlockNightmareBed().setCreativeTab(DivineRPGTabs.vethea);
+    public static Block nightmareBed = new BlockNightmareBed();
 
     public static Block dreamDirt = new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea);
     public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea);

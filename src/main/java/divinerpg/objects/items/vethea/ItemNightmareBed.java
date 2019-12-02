@@ -1,12 +1,12 @@
 package divinerpg.objects.items.vethea;
 
+import divinerpg.client.render.RenderItemNightmareBed;
 import divinerpg.objects.blocks.vethea.BlockNightmareBed;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBed;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,11 +19,14 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemVetheaBed extends ItemMod{
+public class ItemNightmareBed extends ItemMod{
 
-	public ItemVetheaBed() {
-		super("nightmare_bed", DivineRPGTabs.items);
+	public ItemNightmareBed() {
+		super("nightmare_bed", DivineRPGTabs.vethea);
+		this.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
 	}
 	@Deprecated
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
@@ -89,5 +92,9 @@ public class ItemVetheaBed extends ItemMod{
                 return EnumActionResult.FAIL;
             }
         }
+    }
+	@SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
     }
 }

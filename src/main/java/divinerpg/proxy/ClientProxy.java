@@ -19,6 +19,7 @@ import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
 import divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
 import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
@@ -31,6 +32,7 @@ import divinerpg.objects.blocks.tile.render.RenderDemonFurnace;
 import divinerpg.objects.blocks.tile.render.RenderDramixAltar;
 import divinerpg.objects.blocks.tile.render.RenderEdenChest;
 import divinerpg.objects.blocks.tile.render.RenderFrostedChest;
+import divinerpg.objects.blocks.tile.render.RenderNightmareBed;
 import divinerpg.objects.blocks.tile.render.RenderParasectaAltar;
 import divinerpg.objects.blocks.tile.render.RenderPresentBox;
 import divinerpg.objects.blocks.tile.render.RenderStatue;
@@ -124,6 +126,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEdenChest.class, new RenderEdenChest());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNightmareBed.class, new RenderNightmareBed());
     }
 
     @Override

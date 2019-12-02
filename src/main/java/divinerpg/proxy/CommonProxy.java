@@ -12,7 +12,28 @@ import divinerpg.capabilities.CapabilityHandler;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.Ticker;
-import divinerpg.objects.blocks.tile.entity.*;
+import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
+import divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
+import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
+import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
+import divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityCoalstoneFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
+import divinerpg.objects.blocks.tile.entity.TileEntityDreamLamp;
+import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
+import divinerpg.objects.blocks.tile.entity.TileEntityGreenlightFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
+import divinerpg.objects.blocks.tile.entity.TileEntityMoltenFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityMoonlightFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
+import divinerpg.objects.blocks.tile.entity.TileEntityOceanfireFurnace;
+import divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
+import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
+import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
+import divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
+import divinerpg.objects.blocks.tile.entity.TileEntityWhitefireFurnace;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
@@ -89,6 +110,7 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntityStupidSpawner.class, Reference.MODID + ":te_stupid_spawner");
         GameRegistry.registerTileEntity(TileEntityInfusionTable.class, Reference.MODID + ":te_infusion_table");
         GameRegistry.registerTileEntity(TileEntityDreamLamp.class, Reference.MODID + ":te_dream_lamp");
+        GameRegistry.registerTileEntity(TileEntityNightmareBed.class, Reference.MODID + ":te_bed");
     }
 
     public void RegisterTileEntityRender() {

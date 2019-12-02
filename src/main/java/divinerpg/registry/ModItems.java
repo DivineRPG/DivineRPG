@@ -826,7 +826,6 @@ public class ModItems {
     public static Item bedrockChunk = new ItemMod("bedrock_chunk");
     
     //VETHEA
-    public static Item nightmareBed = new ItemVetheaBed();
 
     //EVERYTHING PAST THIS POINT IS VETHEAN!
 
@@ -880,6 +879,7 @@ public class ModItems {
     /*
     public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
 */
+    public static Item nightmareBed = new ItemNightmareBed();
     public static Item teakerStaff = new ItemStaff(3, 10, "teaker_staff");
     public static Item amthrimisStaff = new ItemStaff(5, 10, "amthirmis_staff");
     public static Item darvenStaff = new ItemStaff(8, 10, "darven_staff");
