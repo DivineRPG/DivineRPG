@@ -54,7 +54,7 @@ public class ArmorHandlers {
      * @param damageConversionFunc - function modifying original damage amount
      */
     public static void onAddMeleeDamage(LivingHurtEvent e, Function<Float, Float> damageConversionFunc) {
-        onPlayerAttacked(e, s -> !s.isMagicDamage() && s.isProjectile(), damageConversionFunc);
+        onPlayerAttacked(e, ArmorHandlers::isMeeleeDamage, damageConversionFunc);
     }
 
     /**
@@ -77,9 +77,7 @@ public class ArmorHandlers {
     public static void onPlayerAttacked(LivingHurtEvent e, Function<DamageSource, Boolean> canApply, Function<Float, Float> damageConversionFunc) {
         DamageSource source = e.getSource();
         if (!(source.getTrueSource() instanceof EntityPlayer)
-                || !canApply.apply(source)
-                // should call only on server
-                || isRemote(e.getEntity())) {
+                || !canApply.apply(source)) {
             return;
         }
 
