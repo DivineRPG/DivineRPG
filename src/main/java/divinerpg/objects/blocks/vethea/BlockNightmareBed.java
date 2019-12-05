@@ -1,29 +1,52 @@
 package divinerpg.objects.blocks.vethea;
 
+import java.util.Iterator;
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
-import divinerpg.registry.*;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.block.properties.*;
-import net.minecraft.block.state.*;
-import net.minecraft.entity.*;
+import divinerpg.registry.DivineRPGTabs;
+import divinerpg.registry.ModBlocks;
+import divinerpg.registry.ModDimensions;
+import divinerpg.utils.SecondaryTeleporter;
+import divinerpg.utils.Utils;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.EnumPushReaction;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.*;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 //FIXME - Make player TP to vethea
 public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider
 {
@@ -54,84 +77,67 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Called when the block is right clicked by a player.
      */
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        if (worldIn.isRemote)
-        {
-            return true;
-        }
-        else
-        {
-            if (state.getValue(PART) != BlockNightmareBed.EnumPartType.HEAD)
-            {
-                pos = pos.offset((EnumFacing)state.getValue(FACING));
-                state = worldIn.getBlockState(pos);
+    {        
+    	if (worldIn.isRemote) return true;
+        else {
+            EntityPlayerMP MPPlayer = (EntityPlayerMP) playerIn;
 
-                if (state.getBlock() != this)
-                {
+            if (playerIn.world.provider.getDimension() != ModDimensions.vetheaDimension.getId()) {
+                if (worldIn.getBlockLightOpacity(pos) > 7) {
+                    playerIn.sendMessage(Utils.getChatComponent("You can only use the Nightmare Bed in a dark place."));
                     return true;
                 }
-            }
+                EntityPlayer entityplayer1 = null;
+                Iterator iterator = worldIn.playerEntities.iterator();
 
-            net.minecraft.world.WorldProvider.WorldSleepResult sleepResult = worldIn.provider.canSleepAt(playerIn, pos);
-            if (sleepResult != net.minecraft.world.WorldProvider.WorldSleepResult.BED_EXPLODES)
-            {
-                if (sleepResult == net.minecraft.world.WorldProvider.WorldSleepResult.DENY) return true;
-                if (((Boolean)state.getValue(OCCUPIED)).booleanValue())
-                {
-                    EntityPlayer entityplayer = this.getPlayerInBed(worldIn, pos);
+                while (iterator.hasNext()) {
+                    EntityPlayer entityplayer2 = (EntityPlayer) iterator.next();
 
-                    if (entityplayer != null)
-                    {
+
+                    if (entityplayer1 != null) {
                         playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied", new Object[0]), true);
                         return true;
                     }
 
-                    state = state.withProperty(OCCUPIED, Boolean.valueOf(false));
-                    worldIn.setBlockState(pos, state, 4);
-                }
+                    EntityPlayer.SleepResult enumstatus = playerIn.trySleep(pos);
+                    MPPlayer.timeUntilPortal = 10;
+                    playerIn.inventoryContainer.detectAndSendChanges();
+                    int oldDimension = playerIn.getEntityWorld().provider.getDimension();
+                    EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
+                    MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
+                    WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
+                    playerIn.addExperienceLevel(0);
 
-                EntityPlayer.SleepResult entityplayer$sleepresult = playerIn.trySleep(pos);
-
-                if (entityplayer$sleepresult == EntityPlayer.SleepResult.OK)
-                {
-                    state = state.withProperty(OCCUPIED, Boolean.valueOf(true));
-                    worldIn.setBlockState(pos, state, 4);
+                    if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
+                        pos = worldServer.getTopSolidOrLiquidBlock(pos);
+                    }
+                    double x = pos.getX(), y = pos.getY(), z = pos.getZ();
+                    worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, ModDimensions.vetheaDimension.getId(),
+                            new SecondaryTeleporter(worldServer, x, y, z));
+                    playerIn.setPositionAndUpdate(x, y, z);
                     return true;
                 }
-                else
-                {
-                    if (entityplayer$sleepresult == EntityPlayer.SleepResult.NOT_POSSIBLE_NOW)
-                    {
-                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.noSleep", new Object[0]), true);
-                    }
-                    else if (entityplayer$sleepresult == EntityPlayer.SleepResult.NOT_SAFE)
-                    {
-                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.notSafe", new Object[0]), true);
-                    }
-                    else if (entityplayer$sleepresult == EntityPlayer.SleepResult.TOO_FAR_AWAY)
-                    {
-                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.tooFarAway", new Object[0]), true);
-                    }
-
-                    return true;
-                }
-            }
-            else
-            {
-                worldIn.setBlockToAir(pos);
-                BlockPos blockpos = pos.offset(((EnumFacing)state.getValue(FACING)).getOpposite());
-
-                if (worldIn.getBlockState(blockpos).getBlock() == this)
-                {
-                    worldIn.setBlockToAir(blockpos);
-                }
-
-                worldIn.newExplosion((Entity)null, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, 5.0F, true, true);
                 return true;
             }
+            else if (playerIn.world.provider.getDimension() == ModDimensions.vetheaDimension.getId()) 
+                playerIn.inventoryContainer.detectAndSendChanges();
+                int oldDimension = playerIn.getEntityWorld().provider.getDimension();
+                EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
+                MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
+                WorldServer worldServer = server.getWorld(0);
+                playerIn.addExperienceLevel(0);
+
+                if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
+                    pos = worldServer.getTopSolidOrLiquidBlock(pos);
+                }
+                double x = pos.getX(), y = pos.getY(), z = pos.getZ();
+                worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, 0,
+                        new SecondaryTeleporter(worldServer, x, y, z));
+                playerIn.setPositionAndUpdate(x, y, z);
+                return true;
         }
     }
-
+    
     @Nullable
     private EntityPlayer getPlayerInBed(World worldIn, BlockPos pos)
     {
