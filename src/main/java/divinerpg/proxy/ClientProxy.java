@@ -3,6 +3,7 @@ package divinerpg.proxy;
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.client.ClientTicker;
+import divinerpg.client.render.RenderItemNightmareBed;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
@@ -12,6 +13,7 @@ import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.objects.blocks.tile.render.*;
 import divinerpg.particle.*;
 import divinerpg.registry.ModEntities;
+import divinerpg.registry.ModItems;
 import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.Utils;
@@ -52,7 +54,7 @@ public class ClientProxy extends CommonProxy {
         super.init(e);
         Utils.setupCapes();
         Utils.updateCapeList();
-
+        ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }
