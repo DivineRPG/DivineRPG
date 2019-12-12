@@ -5,6 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import divinerpg.dimensions.vethea.TeleporterVethea;
+import divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -82,7 +84,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         else {
             EntityPlayerMP MPPlayer = (EntityPlayerMP) playerIn;
 
-            if (playerIn.world.provider.getDimension() != ModDimensions.vetheaDimension.getId()) {
+            if (playerIn.world.provider.getDimension() == 0) {
                 if (worldIn.getBlockLightOpacity(pos) > 7) {
                     playerIn.sendMessage(Utils.getChatComponent("You can only use the Nightmare Bed in a dark place."));
                     return true;
@@ -92,7 +94,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
 
                 while (iterator.hasNext()) {
                     EntityPlayer entityplayer2 = (EntityPlayer) iterator.next();
-
+                    System.out.println("a");
 
                     if (entityplayer1 != null) {
                         playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied", new Object[0]), true);
@@ -111,9 +113,10 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                     if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
                         pos = worldServer.getTopSolidOrLiquidBlock(pos);
                     }
-                    double x = pos.getX(), y = pos.getY(), z = pos.getZ();
+                    double x = pos.getX(), y = 17, z = pos.getZ();
                     worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, ModDimensions.vetheaDimension.getId(),
-                            new SecondaryTeleporter(worldServer, x, y, z));
+                            new TeleporterVethea(worldServer));
+
                     playerIn.setPositionAndUpdate(x, y, z);
                     return true;
                 }
@@ -132,12 +135,12 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                 }
                 double x = pos.getX(), y = pos.getY(), z = pos.getZ();
                 worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, 0,
-                        new SecondaryTeleporter(worldServer, x, y, z));
+                        new TeleporterVetheaToOverworld(worldServer));
                 playerIn.setPositionAndUpdate(x, y, z);
                 return true;
         }
     }
-    
+
     @Nullable
     private EntityPlayer getPlayerInBed(World worldIn, BlockPos pos)
     {

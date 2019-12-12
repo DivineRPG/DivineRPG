@@ -1,16 +1,16 @@
 package divinerpg.dimensions.vethea;
 
 import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModBlocks;
+import net.minecraft.block.BlockPortal;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.fml.common.Mod;
 
 public class TeleporterVethea extends Teleporter {
 	
@@ -23,29 +23,26 @@ public class TeleporterVethea extends Teleporter {
 
 	@Override
 	public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
-		short searchRange = 200;
+		short searchRange = 40;
 		double var10 = -1.0D;
 		int var12 = 0;
 		int var13 = 0;
 		int var14 = 0;
-		int entityPosX_floored = MathHelper.floor(entity.posX);
-		int entityPosY = MathHelper.floor(entity.posZ);
+
+		int entityPosX = MathHelper.floor(entity.posX);
+		int entityPosZ = MathHelper.floor(entity.posZ);
+
 		double var24;
 
-		for(int searchX = entityPosX_floored - searchRange; searchX <= entityPosX_floored + searchRange; ++searchX) {
-			double var18 = searchX + 0.5D - entity.posX;
-
-			for(int searchZ = entityPosY - searchRange; searchZ <= entityPosY + searchRange; ++searchZ) {
-				double var21 = searchZ + 0.5D - entity.posZ;
-
-				for(int searchY = 64 - 1; searchY >= 0; --searchY) {
+		for(int searchX = entityPosX - searchRange; searchX <= entityPosX + searchRange; ++searchX) {
+			for(int searchZ = entityPosZ - searchRange; searchZ <= entityPosZ + searchRange; ++searchZ) {
+				for(int searchY = 0; searchY < 256; ++searchY) {
 					if(this.isBlockPortal(this.myWorld, searchX, searchY, searchZ)) {
-						while(this.isBlockPortal(this.myWorld, searchX, searchY - 1, searchZ)) {
-							--searchY;
-						}
 
-						var24 = searchY + 0.5D - entity.posY;
-						double var26 = var18 * var18 + var24 * var24 + var21 * var21;
+						double searchXOffset = searchX + 0.5D - entity.posX;
+						double searchYOffset = searchY + 0.5D - entity.posY;
+						double searchZOffset = searchZ + 0.5D - entity.posZ;
+						double var26 = Math.pow(searchXOffset, 2) + Math.pow(searchYOffset, 2) + Math.pow(searchZOffset, 2);
 
 						if(var10 < 0.0D || var26 < var10) {
 							var10 = var26;
@@ -64,11 +61,8 @@ public class TeleporterVethea extends Teleporter {
 			var24 = var14 + 0.5D;
 
 			if(this.isBlockPortal(this.myWorld, var12 - 1, var13, var14)) var28 -= 0.5D;
-
 			if(this.isBlockPortal(this.myWorld, var12 + 1, var13, var14)) var28 += 0.5D;
-
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 - 1)) var24 -= 0.5D;
-
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 + 1)) var24 += 0.5D;
 			
 
@@ -79,9 +73,14 @@ public class TeleporterVethea extends Teleporter {
 			return false;
 	}
 
-
 	public boolean isBlockPortal(World var1, int var2, int var3, int var4) {
-		return var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == ModBlocks.vetheaPortal.getDefaultState();
+		//System.out.println(var2 + " " + var3 + " " + var4 + " " + var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock());
+		if(var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == ModBlocks.vetheaPortal.getDefaultState()) {
+			System.out.println("Portal found");
+			return true;
+		}
+		return false;
+
 	}
 
 	@Override
@@ -93,7 +92,9 @@ public class TeleporterVethea extends Teleporter {
 		int var9 = MathHelper.floor(entity.posZ);
 		int var10 = var7, var11 = var8, var12 = var9, var13 = 0, var14 = this.myWorld.rand.nextInt(4), var15, var18, var21, var23, var22, var25, var24, var27, var26, var29, var28;
 
-		
+		var13 = 0;
+		var23 = 0;
+
 		for(var15 = var7 - var4; var15 <= var7 + var4; ++var15) {
 			var16 = var15 + 0.5D - entity.posX;
 
@@ -106,6 +107,8 @@ public class TeleporterVethea extends Teleporter {
 							while(var21 > 0 && this.myWorld.isAirBlock(new BlockPos(var15, var21 - 1, var18))) {
 								--var21;
 							}
+
+							var23 = var13 % 2;
 
 							for(var22 = var14; var22 < var14 + 4; ++var22) {
 								var23 = var22 % 2;
@@ -201,6 +204,9 @@ public class TeleporterVethea extends Teleporter {
 			var20 = -var20;
 		}
 
+		IBlockState iblockstate = ModBlocks.vetheaPortal.getDefaultState().withProperty(BlockPortal.AXIS,
+				var23 != 0 ? EnumFacing.Axis.X : EnumFacing.Axis.Z);
+
 		this.makePortalAt(this.myWorld, var10, var11, var12);
 		return true;
 	}
@@ -216,6 +222,8 @@ public class TeleporterVethea extends Teleporter {
 				}
 			}
 		}
+
+
 
 		world.setBlockState(new BlockPos(x + 1, y, z), ModBlocks.mortumBlock.getDefaultState());
 		world.setBlockState(new BlockPos(x, y, z), ModBlocks.mortumBlock.getDefaultState());

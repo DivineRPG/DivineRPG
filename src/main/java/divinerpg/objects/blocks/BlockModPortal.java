@@ -5,6 +5,7 @@ import java.util.Random;
 import divinerpg.DivineRPG;
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.config.Config;
+import divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -67,16 +68,12 @@ public class BlockModPortal extends BlockBreakable {
         this.portalParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(Item.getItemFromBlock(this));
+        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, AXIS);
-    }
-
-    public Item createItemBlock() {
-        return new ItemBlock(this).setRegistryName(getRegistryName());
     }
 
     @Override
@@ -178,7 +175,13 @@ public class BlockModPortal extends BlockBreakable {
             int dimensionID = dimId;
             if (thePlayer.timeUntilPortal > 0) {
                 thePlayer.timeUntilPortal = 40;
-            } else if (thePlayer.dimension != dimensionID) {
+            }
+            else if (thePlayer.dimension == Config.vetheaDimensionId) {
+                thePlayer.timeUntilPortal = 40;
+                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
+                        new TeleporterVetheaToOverworld(thePlayer.mcServer.getWorld(0)));
+            }
+            else if (thePlayer.dimension != dimensionID) {
                 thePlayer.timeUntilPortal = 40;
                 thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
                         new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,

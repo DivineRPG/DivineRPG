@@ -35,7 +35,7 @@ public class Lorga extends VetheaMob {
     private boolean canSpawnMinions;
 
     public Lorga(World worldIn) {
-		this(worldIn, true);
+		this(worldIn, false); //lorgas sterile for now
 	}
 
 	private Lorga(World worldIn, boolean canSpawnMinions) {

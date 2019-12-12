@@ -27,7 +27,7 @@ public class Lorgaflight extends VetheaMob {
     private boolean canSpawnMinions;
 
     public Lorgaflight(World worldIn) {
-        this(worldIn, true);
+        this(worldIn, false); //lorgaflights sterile for now
     }
 
     private Lorgaflight(World worldIn, boolean canSpawnMinions) {
