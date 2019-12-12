@@ -29,6 +29,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -49,7 +50,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-//FIXME - Make player TP to vethea
+
 public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider
 {
     public static final PropertyEnum<BlockNightmareBed.EnumPartType> PART = PropertyEnum.<BlockNightmareBed.EnumPartType>create("part", BlockNightmareBed.EnumPartType.class);
@@ -109,7 +110,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                     MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
                     WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
                     playerIn.addExperienceLevel(0);
-
+                    //FIXME - save/load inventory when changing between vethea and overworld
                     if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
                         pos = worldServer.getTopSolidOrLiquidBlock(pos);
                     }
@@ -129,6 +130,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                 MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
                 WorldServer worldServer = server.getWorld(0);
                 playerIn.addExperienceLevel(0);
+                //FIXME - save/load inventory when changing between vethea and overworld
 
                 if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
                     pos = worldServer.getTopSolidOrLiquidBlock(pos);

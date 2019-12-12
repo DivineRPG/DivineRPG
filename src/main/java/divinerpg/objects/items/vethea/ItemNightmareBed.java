@@ -26,7 +26,6 @@ public class ItemNightmareBed extends ItemMod{
 
 	public ItemNightmareBed() {
 		super("nightmare_bed", DivineRPGTabs.vethea);
-		this.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
 	}
 	@Deprecated
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
