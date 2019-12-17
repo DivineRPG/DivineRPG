@@ -23,7 +23,7 @@ public class TeleporterVethea extends Teleporter {
 
 	@Override
 	public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
-		short searchRange = 40;
+		short searchRange = 64;
 		double var10 = -1.0D;
 		int var12 = 0;
 		int var13 = 0;
@@ -64,7 +64,6 @@ public class TeleporterVethea extends Teleporter {
 			if(this.isBlockPortal(this.myWorld, var12 + 1, var13, var14)) var28 += 0.5D;
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 - 1)) var24 -= 0.5D;
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 + 1)) var24 += 0.5D;
-			
 
 			entity.setLocationAndAngles(var28, var22 + 1.0D, var24 + 1.0D, entity.rotationYaw, 0.0F);
 			entity.motionX = entity.motionY = entity.motionZ = 0.0D;
@@ -75,7 +74,7 @@ public class TeleporterVethea extends Teleporter {
 
 	public boolean isBlockPortal(World var1, int var2, int var3, int var4) {
 		//System.out.println(var2 + " " + var3 + " " + var4 + " " + var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock());
-		if(var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == ModBlocks.vetheaPortal.getDefaultState()) {
+		if(var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == ModBlocks.vetheaPortal) {
 			System.out.println("Portal found");
 			return true;
 		}
