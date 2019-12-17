@@ -176,11 +176,6 @@ public class BlockModPortal extends BlockBreakable {
             if (thePlayer.timeUntilPortal > 0) {
                 thePlayer.timeUntilPortal = 40;
             }
-            else if (thePlayer.dimension == Config.vetheaDimensionId) {
-                thePlayer.timeUntilPortal = 40;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-                        new TeleporterVetheaToOverworld(thePlayer.mcServer.getWorld(0)));
-            }
             else if (thePlayer.dimension != dimensionID) {
                 thePlayer.timeUntilPortal = 40;
                 thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,

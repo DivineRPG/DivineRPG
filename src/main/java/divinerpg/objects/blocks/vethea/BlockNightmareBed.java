@@ -33,6 +33,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
@@ -51,14 +53,14 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider
-{
+public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider {
+    private NBTTagCompound persistentData;
+
     public static final PropertyEnum<BlockNightmareBed.EnumPartType> PART = PropertyEnum.<BlockNightmareBed.EnumPartType>create("part", BlockNightmareBed.EnumPartType.class);
     public static final PropertyBool OCCUPIED = PropertyBool.create("occupied");
     protected static final AxisAlignedBB BED_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5625D, 1.0D);
 
-    public BlockNightmareBed()
-    {
+    public BlockNightmareBed() {
         super(Material.CLOTH);
         setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockNightmareBed.EnumPartType.FOOT).withProperty(OCCUPIED, Boolean.valueOf(false)));
         hasTileEntity = true;
@@ -71,19 +73,19 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     /**
      * Get the MapColor for this Block and the given BlockState
      */
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
         return MapColor.CLOTH;
     }
 
     /**
      * Called when the block is right clicked by a player.
      */
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {        
-    	if (worldIn.isRemote) return true;
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote) return true;
         else {
             EntityPlayerMP MPPlayer = (EntityPlayerMP) playerIn;
+
+            this.persistentData = playerIn.getEntityData().getCompoundTag(playerIn.PERSISTED_NBT_TAG);
 
             if (playerIn.world.provider.getDimension() == 0) {
                 if (worldIn.getBlockLightOpacity(pos) > 7) {
@@ -102,14 +104,20 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                         return true;
                     }
 
-                    EntityPlayer.SleepResult enumstatus = playerIn.trySleep(pos);
-                    MPPlayer.timeUntilPortal = 10;
+                    this.persistentData.setTag("OverworldInv", playerIn.inventory.writeToNBT(new NBTTagList()));
+                    playerIn.getEntityData().setTag("PlayerPersisted", this.persistentData);
+                    playerIn.inventory.clear();
+                    NBTTagList inv = this.persistentData.getTagList("VetheaInv", 10);
+                    playerIn.inventory.readFromNBT(inv);
                     playerIn.inventoryContainer.detectAndSendChanges();
+
+                    MPPlayer.timeUntilPortal = 10;
                     int oldDimension = playerIn.getEntityWorld().provider.getDimension();
                     EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
                     MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
                     WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
                     playerIn.addExperienceLevel(0);
+
                     //FIXME - save/load inventory when changing between vethea and overworld
                     if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
                         pos = worldServer.getTopSolidOrLiquidBlock(pos);
@@ -122,9 +130,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                     return true;
                 }
                 return true;
-            }
-            else if (playerIn.world.provider.getDimension() == ModDimensions.vetheaDimension.getId()) 
-                playerIn.inventoryContainer.detectAndSendChanges();
+            } else if (playerIn.world.provider.getDimension() == ModDimensions.vetheaDimension.getId()) {
                 int oldDimension = playerIn.getEntityWorld().provider.getDimension();
                 EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
                 MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
@@ -140,8 +146,11 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                         new TeleporterVetheaToOverworld(worldServer));
                 playerIn.setPositionAndUpdate(x, y, z);
                 return true;
+            }
         }
+        return true;
     }
+
 
     @Nullable
     private EntityPlayer getPlayerInBed(World worldIn, BlockPos pos)

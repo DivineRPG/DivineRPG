@@ -444,7 +444,7 @@ public class ModBlocks {
     public static Block dreamDirt = new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea);
     public static Block dreamGrass = new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea);
     public static Block dreamStone = new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea);
-    public static BlockModPortal vetheaPortal = new BlockModPortal("vethea_portal",
+    public static BlockModPortal vetheaPortal = new BlockVetheaPortal("vethea_portal",
             ModDimensions.vetheaDimension.getId(), ModBlocks.blueFire, ModBlocks.mortumBlock, ParticleType.MORTUM_PORTAL);
 
     public static Block everstone = new BlockModUnbreakable("everstone").setCreativeTab(DivineRPGTabs.vethea);
