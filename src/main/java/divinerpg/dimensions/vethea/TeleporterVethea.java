@@ -203,8 +203,7 @@ public class TeleporterVethea extends Teleporter {
 			var20 = -var20;
 		}
 
-		IBlockState iblockstate = ModBlocks.vetheaPortal.getDefaultState().withProperty(BlockPortal.AXIS,
-				var23 != 0 ? EnumFacing.Axis.X : EnumFacing.Axis.Z);
+
 
 		this.makePortalAt(this.myWorld, var10, var11, var12);
 		return true;
@@ -212,7 +211,7 @@ public class TeleporterVethea extends Teleporter {
 
 	private void makePortalAt(World world, int x, int y, int z) {
 
-		y=16;
+		y = 16;
 		
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
@@ -222,7 +221,7 @@ public class TeleporterVethea extends Teleporter {
 			}
 		}
 
-
+		IBlockState portalState = ModBlocks.vetheaPortal.getDefaultState().withProperty(BlockPortal.AXIS, EnumFacing.Axis.Z);
 
 		world.setBlockState(new BlockPos(x + 1, y, z), ModBlocks.mortumBlock.getDefaultState());
 		world.setBlockState(new BlockPos(x, y, z), ModBlocks.mortumBlock.getDefaultState());
@@ -234,10 +233,10 @@ public class TeleporterVethea extends Teleporter {
 	    world.setBlockState(new BlockPos(x + 1, y + 3, z + 1), ModBlocks.mortumBlock.getDefaultState());
 		world.setBlockState(new BlockPos(x + 1, y + 3, z - 1), ModBlocks.mortumBlock.getDefaultState());
 		world.setBlockState(new BlockPos(x + 1, y + 4, z), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 1, z), ModBlocks.vetheaPortal.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 2, z + 1), ModBlocks.vetheaPortal.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 2, z), ModBlocks.vetheaPortal.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 2, z - 1), ModBlocks.vetheaPortal.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 3, z), ModBlocks.vetheaPortal.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y + 1, z), portalState, 2);
+		world.setBlockState(new BlockPos(x + 1, y + 2, z + 1), portalState, 2);
+		world.setBlockState(new BlockPos(x + 1, y + 2, z), portalState, 2);
+		world.setBlockState(new BlockPos(x + 1, y + 2, z - 1), portalState, 2);
+		world.setBlockState(new BlockPos(x + 1, y + 3, z), portalState, 2);
 	}
 }
