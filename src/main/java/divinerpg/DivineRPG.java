@@ -17,6 +17,7 @@ import divinerpg.registry.ModSmelting;
 import divinerpg.registry.ModSpawns;
 import divinerpg.registry.ModTriggers;
 import divinerpg.utils.Utils;
+import divinerpg.utils.attributes.AttributeFixer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
@@ -56,6 +57,7 @@ public class DivineRPG {
         ModArmorEvents.init();
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         ModMessages.initServer();
+        AttributeFixer.init();
     }
 
     @Mod.EventHandler
