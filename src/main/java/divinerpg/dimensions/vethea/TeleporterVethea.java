@@ -221,7 +221,7 @@ public class TeleporterVethea extends Teleporter {
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
 				for(int k = 0; k < 6; k++) {
-					world.setBlockState(new BlockPos(x + i - 3, y + j - 1, z + k - 4), Blocks.AIR.getDefaultState());
+//					world.setBlockState(new BlockPos(x + i - 3, y + j - 1, z + k - 4), Blocks.AIR.getDefaultState());
 				}
 			}
 		}
