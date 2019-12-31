@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelTocaxin;
-import divinerpg.objects.entities.entity.vethea.Tocaxin;
+import divinerpg.objects.entities.entity.vethea.EntityTocaxin;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderTocaxin extends RenderLiving<Tocaxin> {
+public class RenderTocaxin extends RenderLiving<EntityTocaxin> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/tocaxin.png");
@@ -26,14 +26,14 @@ public class RenderTocaxin extends RenderLiving<Tocaxin> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Tocaxin entity) {
+    protected ResourceLocation getEntityTexture(EntityTocaxin entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Tocaxin> {
+	 public static class Factory implements IRenderFactory<EntityTocaxin> {
 
 	        @Override
-	        public Render<? super Tocaxin> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityTocaxin> createRenderFor(RenderManager manager) {
 	            return new RenderTocaxin(manager, new ModelTocaxin(), 1F);
 	        }
 	    }

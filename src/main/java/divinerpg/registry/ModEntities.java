@@ -422,39 +422,39 @@ public class ModEntities {
                 buildEntityEntry(Wraith.class, "wraith", ARCANA), buildEntityEntry(Zelus.class, "zelus", ARCANA),
 
                 // Vethea
-                buildEntityEntry(AcidHag.class, "acid_hag", VETHEA),
-                buildEntityEntry(Biphron.class, "biphron", VETHEA),
-                buildEntityEntry(Bohemite.class, "bohemite", VETHEA),
-                buildEntityEntry(CryptKeeper.class, "crypt_keeper", VETHEA),
-                buildEntityEntry(Cymesoid.class, "cymesoid", VETHEA),
-                buildEntityEntry(Dissiment.class, "dissiment", VETHEA),
-                buildEntityEntry(Dreamwrecker.class, "dreamwrecker", VETHEA),
-                buildEntityEntry(Duo.class, "duo", VETHEA),
-                buildEntityEntry(Ent.class, "ent", VETHEA),
-                buildEntityEntry(FakeVhraak.class, "fake_vhraak", VETHEA),
-                buildEntityEntry(Galroid.class, "galroid", VETHEA),
-                buildEntityEntry(Gorgosion.class, "gorgosion", VETHEA),
-                buildEntityEntry(Helio.class, "helio", VETHEA),
-                buildEntityEntry(Herbomancer.class, "herbomancer", VETHEA),
-                buildEntityEntry(HiveSoldier.class, "hive_soldier", VETHEA),
-                buildEntityEntry(HoverStinger.class, "hover_stinger", VETHEA),
-                buildEntityEntry(Kazrotic.class, "kazrotic", VETHEA),
-                buildEntityEntry(Lheiva.class, "lheiva", VETHEA),
-                buildEntityEntry(Lorga.class, "lorga", VETHEA),
-                buildEntityEntry(Lorgaflight.class, "lorga_flight", VETHEA),
-                buildEntityEntry(Mandragora.class, "mandragora", VETHEA),
-                buildEntityEntry(MysteriousManLayer1.class, "mysterious_man_layer_1", VETHEA),
-                buildEntityEntry(MysteriousManLayer2.class, "mysterious_man_layer_2", VETHEA),
-                buildEntityEntry(MysteriousManLayer3.class, "mysterious_man_layer_3", VETHEA),
-                buildEntityEntry(Shadahier.class, "shadahier", VETHEA),
-                buildEntityEntry(TheHunger.class, "the_hunger", VETHEA),
-                buildEntityEntry(TempleGuardian.class, "temple_guardian", VETHEA),
-                buildEntityEntry(Tocaxin.class, "tocaxin", VETHEA),
-                buildEntityEntry(Twins.class, "twins", VETHEA),
-                buildEntityEntry(Vermenous.class, "vermenous", VETHEA),
-                buildEntityEntry(Vhraak.class, "vhraak", VETHEA),
-                buildEntityEntry(Zone.class, "zone", VETHEA),
-                buildEntityEntry(Zoragon.class, "zoragon", VETHEA),
+                buildEntityEntry(EntityAcidHag.class, "acid_hag", VETHEA),
+                buildEntityEntry(EntityBiphron.class, "biphron", VETHEA),
+                buildEntityEntry(EntityBohemite.class, "bohemite", VETHEA),
+                buildEntityEntry(EntityCryptKeeper.class, "crypt_keeper", VETHEA),
+                buildEntityEntry(EntityCymesoid.class, "cymesoid", VETHEA),
+                buildEntityEntry(EntityDissiment.class, "dissiment", VETHEA),
+                buildEntityEntry(EntityDreamwrecker.class, "dreamwrecker", VETHEA),
+                buildEntityEntry(EntityDuo.class, "duo", VETHEA),
+                buildEntityEntry(EntityEnt.class, "ent", VETHEA),
+                buildEntityEntry(EntityFakeVhraak.class, "fake_vhraak", VETHEA),
+                buildEntityEntry(EntityGalroid.class, "galroid", VETHEA),
+                buildEntityEntry(EntityGorgosion.class, "gorgosion", VETHEA),
+                buildEntityEntry(EntityHelio.class, "helio", VETHEA),
+                buildEntityEntry(EntityHerbomancer.class, "herbomancer", VETHEA),
+                buildEntityEntry(EntityHiveSoldier.class, "hive_soldier", VETHEA),
+                buildEntityEntry(EntityHoverStinger.class, "hover_stinger", VETHEA),
+                buildEntityEntry(EntityKazrotic.class, "kazrotic", VETHEA),
+                buildEntityEntry(EntityLheiva.class, "lheiva", VETHEA),
+                buildEntityEntry(EntityLorga.class, "lorga", VETHEA),
+                buildEntityEntry(EntityLorgaflight.class, "lorga_flight", VETHEA),
+                buildEntityEntry(EntityMandragora.class, "mandragora", VETHEA),
+                buildEntityEntry(EntityMysteriousManLayer1.class, "mysterious_man_layer_1", VETHEA),
+                buildEntityEntry(EntityMysteriousManLayer2.class, "mysterious_man_layer_2", VETHEA),
+                buildEntityEntry(EntityMysteriousManLayer3.class, "mysterious_man_layer_3", VETHEA),
+                buildEntityEntry(EntityShadahier.class, "shadahier", VETHEA),
+                buildEntityEntry(EntityTheHunger.class, "the_hunger", VETHEA),
+                buildEntityEntry(EntityTempleGuardian.class, "temple_guardian", VETHEA),
+                buildEntityEntry(EntityTocaxin.class, "tocaxin", VETHEA),
+                buildEntityEntry(EntityTwins.class, "twins", VETHEA),
+                buildEntityEntry(EntityVermenous.class, "vermenous", VETHEA),
+                buildEntityEntry(EntityVhraak.class, "vhraak", VETHEA),
+                buildEntityEntry(EntityZone.class, "zone", VETHEA),
+                buildEntityEntry(EntityZoragon.class, "zoragon", VETHEA),
 
                 // Boss
                 buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
@@ -465,19 +465,19 @@ public class ModEntities {
                 buildEntityEntry(AyeracoYellow.class, "ayeraco_yellow", BOSS),
                 buildEntityEntry(Densos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
                 buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
-                buildEntityEntry(HiveQueen.class, "hive_queen", BOSS),
+                buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(Karot.class, "karot", BOSS),
-                buildEntityEntry(Karos.class, "karos", BOSS),
+                buildEntityEntry(EntityKaros.class, "karos", BOSS),
                 buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
-                buildEntityEntry(LadyLuna.class, "lady_luna", BOSS),
+                buildEntityEntry(EntityLadyLuna.class, "lady_luna", BOSS),
                 buildEntityEntry(Parasecta.class, "parasecta", BOSS),
-                buildEntityEntry(Quadro.class, "quadro", BOSS),
-                buildEntityEntry(Raglok.class, "raglok", BOSS),
+                buildEntityEntry(EntityQuadro.class, "quadro", BOSS),
+                buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
-                buildEntityEntry(Wreck.class, "wreck", BOSS)
+                buildEntityEntry(EntityWreck.class, "wreck", BOSS)
         };
 
         return divineMobs;
@@ -718,46 +718,46 @@ public class ModEntities {
         registerRender(Zelus.class, RenderZelus.FACTORY);
 
         //Vethea
-        registerRender(AcidHag.class, RenderAcidHag.FACTORY);
-        registerRender(Biphron.class, RenderBiphron.FACTORY);
-        registerRender(Bohemite.class, RenderBohemite.FACTORY);
-        registerRender(CryptKeeper.class, RenderCryptKeeper.FACTORY);
-        registerRender(Cymesoid.class, RenderCymesoid.FACTORY);
-        registerRender(Dissiment.class, RenderDissiment.FACTORY);
-        registerRender(Dreamwrecker.class, RenderDreamwrecker.FACTORY);
-        registerRender(Duo.class, RenderDuo.FACTORY);
-        registerRender(Ent.class, RenderEnt.FACTORY);
-        registerRender(FakeVhraak.class, RenderFakeVhraak.FACTORY);
-        registerRender(Galroid.class, RenderGalroid.FACTORY);
-        registerRender(Gorgosion.class, RenderGorgosion.FACTORY);
-        registerRender(Helio.class, RenderHelio.FACTORY);
-        registerRender(Herbomancer.class, RenderHerbomancer.FACTORY);
-        registerRender(HiveQueen.class, RenderHiveQueen.FACTORY);
-        registerRender(HiveSoldier.class, RenderHiveSoldier.FACTORY);
-        registerRender(HoverStinger.class, RenderHoverStinger.FACTORY);
-        registerRender(Karos.class, RenderKaros.FACTORY);
-        registerRender(Kazrotic.class, RenderKazrotic.FACTORY);
-        registerRender(LadyLuna.class, RenderLadyLuna.FACTORY);
-        registerRender(Lheiva.class, RenderLheiva.FACTORY);
-        registerRender(Lorga.class, RenderLorga.FACTORY);
-        registerRender(Lorgaflight.class, RenderLorgaFlight.FACTORY);
-        registerRender(Mandragora.class, RenderMandragora.FACTORY);
-        registerRender(MysteriousManLayer1.class, RenderMysteriousManLayer1.FACTORY);
-        registerRender(MysteriousManLayer2.class, RenderMysteriousManLayer2.FACTORY);
-        registerRender(MysteriousManLayer3.class, RenderMysteriousManLayer3.FACTORY);
-        registerRender(Quadro.class, RenderQuadro.FACTORY);
-        registerRender(Raglok.class, RenderRaglok.FACTORY);
-        registerRender(Shadahier.class, RenderShadahier.FACTORY);
-        registerRender(Spinarus.class, RenderSpinarus.FACTORY);
-        registerRender(TempleGuardian.class, RenderTempleGuardian.FACTORY);
-        registerRender(TheHunger.class, RenderTheHunger.FACTORY);
-        registerRender(Tocaxin.class, RenderTocaxin.FACTORY);
-        registerRender(Twins.class, RenderTwins.FACTORY);
-        registerRender(Vermenous.class, RenderVermenous.FACTORY);
-        registerRender(Vhraak.class, RenderVhraak.FACTORY);
-        registerRender(Wreck.class, RenderWreck.FACTORY);
-        registerRender(Zone.class, RenderZone.FACTORY);
-        registerRender(Zoragon.class, RenderZoragon.FACTORY);
+        registerRender(EntityAcidHag.class, RenderAcidHag.FACTORY);
+        registerRender(EntityBiphron.class, RenderBiphron.FACTORY);
+        registerRender(EntityBohemite.class, RenderBohemite.FACTORY);
+        registerRender(EntityCryptKeeper.class, RenderCryptKeeper.FACTORY);
+        registerRender(EntityCymesoid.class, RenderCymesoid.FACTORY);
+        registerRender(EntityDissiment.class, RenderDissiment.FACTORY);
+        registerRender(EntityDreamwrecker.class, RenderDreamwrecker.FACTORY);
+        registerRender(EntityDuo.class, RenderDuo.FACTORY);
+        registerRender(EntityEnt.class, RenderEnt.FACTORY);
+        registerRender(EntityFakeVhraak.class, RenderFakeVhraak.FACTORY);
+        registerRender(EntityGalroid.class, RenderGalroid.FACTORY);
+        registerRender(EntityGorgosion.class, RenderGorgosion.FACTORY);
+        registerRender(EntityHelio.class, RenderHelio.FACTORY);
+        registerRender(EntityHerbomancer.class, RenderHerbomancer.FACTORY);
+        registerRender(EntityHiveQueen.class, RenderHiveQueen.FACTORY);
+        registerRender(EntityHiveSoldier.class, RenderHiveSoldier.FACTORY);
+        registerRender(EntityHoverStinger.class, RenderHoverStinger.FACTORY);
+        registerRender(EntityKaros.class, RenderKaros.FACTORY);
+        registerRender(EntityKazrotic.class, RenderKazrotic.FACTORY);
+        registerRender(EntityLadyLuna.class, RenderLadyLuna.FACTORY);
+        registerRender(EntityLheiva.class, RenderLheiva.FACTORY);
+        registerRender(EntityLorga.class, RenderLorga.FACTORY);
+        registerRender(EntityLorgaflight.class, RenderLorgaFlight.FACTORY);
+        registerRender(EntityMandragora.class, RenderMandragora.FACTORY);
+        registerRender(EntityMysteriousManLayer1.class, RenderMysteriousManLayer1.FACTORY);
+        registerRender(EntityMysteriousManLayer2.class, RenderMysteriousManLayer2.FACTORY);
+        registerRender(EntityMysteriousManLayer3.class, RenderMysteriousManLayer3.FACTORY);
+        registerRender(EntityQuadro.class, RenderQuadro.FACTORY);
+        registerRender(EntityRaglok.class, RenderRaglok.FACTORY);
+        registerRender(EntityShadahier.class, RenderShadahier.FACTORY);
+        registerRender(EntitySpinarus.class, RenderSpinarus.FACTORY);
+        registerRender(EntityTempleGuardian.class, RenderTempleGuardian.FACTORY);
+        registerRender(EntityTheHunger.class, RenderTheHunger.FACTORY);
+        registerRender(EntityTocaxin.class, RenderTocaxin.FACTORY);
+        registerRender(EntityTwins.class, RenderTwins.FACTORY);
+        registerRender(EntityVermenous.class, RenderVermenous.FACTORY);
+        registerRender(EntityVhraak.class, RenderVhraak.FACTORY);
+        registerRender(EntityWreck.class, RenderWreck.FACTORY);
+        registerRender(EntityZone.class, RenderZone.FACTORY);
+        registerRender(EntityZoragon.class, RenderZoragon.FACTORY);
     }
 
     /**

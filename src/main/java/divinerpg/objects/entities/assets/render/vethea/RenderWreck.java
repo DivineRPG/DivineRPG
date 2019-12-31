@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelWreckForm1;
-import divinerpg.objects.entities.entity.vethea.Wreck;
+import divinerpg.objects.entities.entity.vethea.EntityWreck;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderWreck extends RenderLiving<Wreck> {
+public class RenderWreck extends RenderLiving<EntityWreck> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wreck_form_1.png");
@@ -26,14 +26,14 @@ public class RenderWreck extends RenderLiving<Wreck> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Wreck entity) {
+    protected ResourceLocation getEntityTexture(EntityWreck entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Wreck> {
+	 public static class Factory implements IRenderFactory<EntityWreck> {
 
 	        @Override
-	        public Render<? super Wreck> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityWreck> createRenderFor(RenderManager manager) {
 	            return new RenderWreck(manager, new ModelWreckForm1(), 1F);
 	        }
 	    }

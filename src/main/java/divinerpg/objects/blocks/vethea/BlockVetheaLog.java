@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.vethea;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.blocks.BlockModLog;
-import divinerpg.objects.entities.entity.vethea.Ent;
+import divinerpg.objects.entities.entity.vethea.EntityEnt;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -30,7 +30,7 @@ public class BlockVetheaLog extends BlockModLog {
     public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
         if(!worldIn.isRemote) {
             if (random.nextInt(5) == 0) {
-                EntityLiving ent = new Ent(worldIn);
+                EntityLiving ent = new EntityEnt(worldIn);
                 ent.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
                 worldIn.spawnEntity(ent);
             }

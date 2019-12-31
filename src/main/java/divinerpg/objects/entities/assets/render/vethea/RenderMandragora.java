@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelMandragora;
-import divinerpg.objects.entities.entity.vethea.Mandragora;
+import divinerpg.objects.entities.entity.vethea.EntityMandragora;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderMandragora extends RenderLiving<Mandragora> {
+public class RenderMandragora extends RenderLiving<EntityMandragora> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/mandragora.png");
@@ -26,14 +26,14 @@ public class RenderMandragora extends RenderLiving<Mandragora> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Mandragora entity) {
+    protected ResourceLocation getEntityTexture(EntityMandragora entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Mandragora> {
+	 public static class Factory implements IRenderFactory<EntityMandragora> {
 
 	        @Override
-	        public Render<? super Mandragora> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityMandragora> createRenderFor(RenderManager manager) {
 	            return new RenderMandragora(manager, new ModelMandragora(), 1F);
 	        }
 	    }

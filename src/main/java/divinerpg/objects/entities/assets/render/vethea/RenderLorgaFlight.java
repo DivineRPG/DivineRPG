@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelLorgaflight;
-import divinerpg.objects.entities.entity.vethea.Lorgaflight;
+import divinerpg.objects.entities.entity.vethea.EntityLorgaflight;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderLorgaFlight extends RenderLiving<Lorgaflight> {
+public class RenderLorgaFlight extends RenderLiving<EntityLorgaflight> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/lorga_flight.png");
@@ -26,14 +26,14 @@ public class RenderLorgaFlight extends RenderLiving<Lorgaflight> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Lorgaflight entity) {
+    protected ResourceLocation getEntityTexture(EntityLorgaflight entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Lorgaflight> {
+	 public static class Factory implements IRenderFactory<EntityLorgaflight> {
 
 	        @Override
-	        public Render<? super Lorgaflight> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityLorgaflight> createRenderFor(RenderManager manager) {
 	            return new RenderLorgaFlight(manager, new ModelLorgaflight(), 1F);
 	        }
 	    }

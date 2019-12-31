@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelKaros;
-import divinerpg.objects.entities.entity.vethea.Karos;
+import divinerpg.objects.entities.entity.vethea.EntityKaros;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderKaros extends RenderLiving<Karos> {
+public class RenderKaros extends RenderLiving<EntityKaros> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/karos.png");
@@ -26,14 +26,14 @@ public class RenderKaros extends RenderLiving<Karos> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Karos entity) {
+    protected ResourceLocation getEntityTexture(EntityKaros entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Karos> {
+	 public static class Factory implements IRenderFactory<EntityKaros> {
 
 	        @Override
-	        public Render<? super Karos> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityKaros> createRenderFor(RenderManager manager) {
 	            return new RenderKaros(manager, new ModelKaros(), 1F);
 	        }
 	    }

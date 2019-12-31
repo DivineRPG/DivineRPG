@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vethea;
 
 import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
-import divinerpg.objects.entities.entity.vethea.Quadro;
+import divinerpg.objects.entities.entity.vethea.EntityQuadro;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
@@ -17,7 +17,7 @@ public class BlockQuadroticAltar extends BlockVetheaAltar {
     }
 
     protected EntityLiving getBoss(World world) {
-        return new Quadro(world);
+        return new EntityQuadro(world);
     }
 
     protected void onFailure() {

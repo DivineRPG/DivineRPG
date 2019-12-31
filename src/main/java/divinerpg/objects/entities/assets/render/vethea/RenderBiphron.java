@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelBiphron;
-import divinerpg.objects.entities.entity.vethea.Biphron;
+import divinerpg.objects.entities.entity.vethea.EntityBiphron;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderBiphron extends RenderLiving<Biphron> {
+public class RenderBiphron extends RenderLiving<EntityBiphron> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/biphron.png");
@@ -26,14 +26,14 @@ public class RenderBiphron extends RenderLiving<Biphron> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Biphron entity) {
+    protected ResourceLocation getEntityTexture(EntityBiphron entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Biphron> {
+	 public static class Factory implements IRenderFactory<EntityBiphron> {
 
 	        @Override
-	        public Render<? super Biphron> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityBiphron> createRenderFor(RenderManager manager) {
 	            return new RenderBiphron(manager, new ModelBiphron(), 1F);
 	        }
 	    }

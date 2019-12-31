@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelSpinarusBody;
-import divinerpg.objects.entities.entity.vethea.Spinarus;
+import divinerpg.objects.entities.entity.vethea.EntitySpinarus;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderSpinarus extends RenderLiving<Spinarus> {
+public class RenderSpinarus extends RenderLiving<EntitySpinarus> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/spinarus.png");
@@ -28,14 +28,14 @@ public class RenderSpinarus extends RenderLiving<Spinarus> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Spinarus entity) {
+    protected ResourceLocation getEntityTexture(EntitySpinarus entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Spinarus> {
+	 public static class Factory implements IRenderFactory<EntitySpinarus> {
 
 	        @Override
-	        public Render<? super Spinarus> createRenderFor(RenderManager manager) {
+	        public Render<? super EntitySpinarus> createRenderFor(RenderManager manager) {
 	            return new RenderSpinarus(manager, new ModelSpinarusBody(), 1F);
 	        }
 	    }

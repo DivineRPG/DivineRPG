@@ -1,7 +1,7 @@
 package divinerpg.dimensions.vethea.layer2;
 
 import divinerpg.dimensions.vethea.VetheaWorldGenerator;
-import divinerpg.objects.entities.entity.vethea.TempleGuardian;
+import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.world.World;
@@ -2080,7 +2080,7 @@ public class Pyramid1Part2 extends VetheaWorldGenerator {
         setBlock(world, i + 24, j + 16, k + 23, Blocks.AIR);
         setBlock(world, i + 24, j + 16, k + 24, Blocks.AIR);
 
-		EntityLiving entity = new TempleGuardian(world);
+		EntityLiving entity = new EntityTempleGuardian(world);
 		entity.setLocationAndAngles(i + 24, j + 16, k + 25, 0.0F, 0.0F);
 		world.spawnEntity(entity);
 

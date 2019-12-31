@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vethea;
 
 import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
-import divinerpg.objects.entities.entity.vethea.Wreck;
+import divinerpg.objects.entities.entity.vethea.EntityWreck;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
@@ -17,7 +17,7 @@ public class BlockWreckAltar extends BlockVetheaAltar {
     }
 
     protected EntityLiving getBoss(World world) {
-        return new Wreck(world);
+        return new EntityWreck(world);
     }
 
     protected void onFailure() {

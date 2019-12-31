@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vethea.ModelVhraak;
-import divinerpg.objects.entities.entity.vethea.Vhraak;
+import divinerpg.objects.entities.entity.vethea.EntityVhraak;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderVhraak extends RenderLiving<Vhraak> {
+public class RenderVhraak extends RenderLiving<EntityVhraak> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
 	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/vhraak.png");
@@ -26,14 +26,14 @@ public class RenderVhraak extends RenderLiving<Vhraak> {
 
 	@Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Vhraak entity) {
+    protected ResourceLocation getEntityTexture(EntityVhraak entity) {
         return texture;
     }
 
-	 public static class Factory implements IRenderFactory<Vhraak> {
+	 public static class Factory implements IRenderFactory<EntityVhraak> {
 
 	        @Override
-	        public Render<? super Vhraak> createRenderFor(RenderManager manager) {
+	        public Render<? super EntityVhraak> createRenderFor(RenderManager manager) {
 	            return new RenderVhraak(manager, new ModelVhraak(), 1F);
 	        }
 	    }

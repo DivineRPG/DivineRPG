@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.objects.entities.entity.vethea.Raglok;
+import divinerpg.objects.entities.entity.vethea.EntityRaglok;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
@@ -16,7 +16,7 @@ public class BlockRaglokAltar extends BlockVetheaAltar {
     }
 
     protected EntityLiving getBoss(World world) {
-        return new Raglok(world);
+        return new EntityRaglok(world);
     }
 
     protected void onFailure() {
