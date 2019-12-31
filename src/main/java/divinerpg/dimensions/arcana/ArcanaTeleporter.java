@@ -39,8 +39,12 @@ public class ArcanaTeleporter extends Teleporter {
                 for (int z2 = chunkZ; z2 < chunkZ + 16; z2++) {
                     if (this.myWorld.getBlockState(new BlockPos(x2, y, z2)) == ModBlocks.arcanaPortal
                             .getDefaultState()) {
+                    	if(myWorld.provider.getDimension() == 0) {
+                    		entity.setLocationAndAngles(x2 + offset, getTopBlock(myWorld, x2, z2), z2 + offset, entity.rotationYaw, 0.0F);	
+                    	}else {
                         entity.setLocationAndAngles(x2 + offset, y + 0.5D, z2 + offset, entity.rotationYaw, 0.0F);
-                        entity.motionX = entity.motionY = entity.motionZ = 0.0D;
+                    	}
+                    	entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                         return true;
                     }
                 }
@@ -50,6 +54,19 @@ public class ArcanaTeleporter extends Teleporter {
 
         return false;
 
+    }
+    
+    public static int getTopBlock(World world, int x, int z)
+    {
+        for (int i = 128; i > 0; i--)
+        {
+            if (world.getBlockState(new BlockPos(x, i, z)) != Blocks.AIR.getDefaultState())
+            {
+                return i;
+            }
+        }
+
+        return 0;
     }
     @Override
     public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
