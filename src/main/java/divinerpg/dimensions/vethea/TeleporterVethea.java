@@ -4,6 +4,7 @@ import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -65,8 +66,12 @@ public class TeleporterVethea extends Teleporter {
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 - 1)) var24 -= 0.5D;
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 + 1)) var24 += 0.5D;
 
+			if(myWorld.provider.getDimension()==0) {
+				EntityPlayer player = (EntityPlayer)entity;
+				player.setLocationAndAngles(player.getBedLocation(0).getX(), player.getBedLocation(0).getY()+1, player.getBedLocation(0).getZ(), entity.rotationYaw, 0.0F);
+			}else {
 			entity.setLocationAndAngles(var28, var22 + 1.0D, var24 + 1.0D, entity.rotationYaw, 0.0F);
-			entity.motionX = entity.motionY = entity.motionZ = 0.0D;
+		}	entity.motionX = entity.motionY = entity.motionZ = 0.0D;
 			return true;
 		} else 
 			return false;
