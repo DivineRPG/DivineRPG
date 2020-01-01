@@ -66,4 +66,9 @@ public class EntityBohemite extends VetheaMob {
     protected SoundEvent getDeathSound() {
         return ModSounds.BOHEMITE_HURT;
     }
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_BOHEMITE;
+    }
 }

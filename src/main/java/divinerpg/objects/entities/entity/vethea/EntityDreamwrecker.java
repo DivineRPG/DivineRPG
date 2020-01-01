@@ -29,47 +29,41 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EntityDreamwrecker extends VetheaMob {
-
-    public EntityDreamwrecker(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 4.4f);
-	}
+	
+    public EntityDreamwrecker(World var1) {
+        super(var1);
+        addAttackingAI();
+        setSize(0.8f, 4);
+    }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-    }
-
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
-        EntityPlayer var1 = this.world.getClosestPlayerToEntity(this, 64.0D);
-
-        if(var1 != null && !var1.isCreative() && var1.getDistance(this) < 20) {
-            this.setAttackTarget(var1);
-        }
-
-        Entity attackTarget = this.getAttackTarget();
-        if(attackTarget != null && attackTarget instanceof EntityPlayer && !((EntityPlayer)attackTarget).isCreative() && !attackTarget.isDead && this.canEntityBeSeen(attackTarget)) {
-            attackTarget.addVelocity(Math.signum(this.posX - attackTarget.posX) * 0.029, 0, Math.signum(this.posZ - attackTarget.posZ) * 0.029);
-        }
-        else {
-            this.setAttackTarget(null);
-        }
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27000000417232513D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
     }
 
     @Override
     public int getSpawnLayer() {
-        return 1;
+    	return 2;
+    }
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        EntityLivingBase var1 = this.world.getClosestPlayerToEntity(this, 64.0D);
+
+        if (var1 != null && var1.getDistance(this) < 20) var1 = getAttackTarget();
+        if(this.getAttackTarget() != null && this.getAttackTarget() instanceof EntityPlayer && !this.getAttackTarget().isDead && this.canEntityBeSeen(this.getAttackTarget()))this.getAttackTarget().addVelocity(Math.signum(this.posX - this.getAttackTarget().posX) * 0.029, 0, Math.signum(this.posZ - this.getAttackTarget().posZ) * 0.029);
+        if(this.getAttackTarget() != null && (this.getAttackTarget().getDistance(this) >= 20 || this.getAttackTarget().isDead || ((EntityPlayer)this.getAttackTarget()).capabilities.isCreativeMode)) this.attackingPlayer = null;
+    }
+ 
+    @Override
+    protected float getSoundVolume() {
+        return 0.7F;
     }
 
-    @Override
-    protected ResourceLocation getLootTable()
-    {
-        return DRPGLootTables.ENTITIES_DREAMWRECKER;
-    }
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -84,5 +78,10 @@ public class EntityDreamwrecker extends VetheaMob {
     @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.DREAMWRECKER_HURT;
+    }
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_DREAMWRECKER;
     }
 }

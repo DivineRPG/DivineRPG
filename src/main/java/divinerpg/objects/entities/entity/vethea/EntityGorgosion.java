@@ -30,41 +30,54 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityGorgosion extends VetheaMob {
+	
 
-    public EntityGorgosion(World worldIn) {
-		super(worldIn);
-		this.setSize(2F, 1.6f);
+	public EntityGorgosion(World var1) {
+		super(var1);
+		addAttackingAI();
 	}
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
-    }
+	@Override
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27000000417232513D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
+	}
 
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
-        EntityPlayer closestPlayer = this.world.getClosestPlayerToEntity(this, 10);
-        if(closestPlayer != null && !closestPlayer.isCreative() && this.rand.nextInt(30) == 0) {
-            this.addVelocity(0, 1, 0);
-        }
-    }
-
-    @Override
-    public void fall(float distance, float damageMultiplier) {
-        if(distance > 2) {
-            this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3, false);
-            return;
-        }
-        super.fall(distance, damageMultiplier);
-    }
-
-    @Override
+	@Override
     public int getSpawnLayer() {
-        return 2;
+    	return 2;
     }
+
+	@Override
+	public void fall(float par1, float par2)
+    {
+		if(par1 > 2) {
+			this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3, false);
+			return;
+		}
+		super.fall(par1, par2);
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if(this.world.getClosestPlayerToEntity(this, 10) != null && this.rand.nextInt(30) == 0) {
+			this.addVelocity(0, 1, 0);
+		}
+	}
+
+	@Override
+	protected float getSoundVolume() {
+		return 0.7F;
+	}
+
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float par2) {
+		if (source.isExplosion()) return false;
+		return super.attackEntityFrom(source, par2);
+	}
 
     @Override
     protected ResourceLocation getLootTable()

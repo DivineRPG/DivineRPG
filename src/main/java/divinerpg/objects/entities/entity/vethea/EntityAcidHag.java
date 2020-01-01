@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
 import divinerpg.registry.VetheaBlocks;
@@ -12,6 +13,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -101,5 +103,10 @@ public class EntityAcidHag extends VetheaMob {
     @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.ACID_HAG_HURT;
+    }
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_ACID_HAG;
     }
 }

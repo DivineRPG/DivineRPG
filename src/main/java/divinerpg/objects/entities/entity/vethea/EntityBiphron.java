@@ -87,5 +87,9 @@ public class EntityBiphron extends VetheaMob {
         return ModSounds.BIPHRON_HURT;
     }
 
-
+    @Override
+    protected ResourceLocation getLootTable()
+    {
+        return DRPGLootTables.ENTITIES_BIPHRON;
+    }
 }
