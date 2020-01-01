@@ -117,8 +117,6 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                     MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
                     WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
                     playerIn.addExperienceLevel(0);
-
-                    //FIXME - save/load inventory when changing between vethea and overworld
                     if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
                         pos = worldServer.getTopSolidOrLiquidBlock(pos);
                     }
@@ -136,7 +134,6 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                 MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
                 WorldServer worldServer = server.getWorld(0);
                 playerIn.addExperienceLevel(0);
-                //FIXME - save/load inventory when changing between vethea and overworld
 
                 if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
                     pos = worldServer.getTopSolidOrLiquidBlock(pos);
