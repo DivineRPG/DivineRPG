@@ -126,7 +126,6 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // DIMENSION ORE SPAWNING
     /////////////////////////////////
     private void genOverworld(World world, Random random, int chunkX, int chunkZ) {
-    	//TODO something here is broken causing only realmite to spawn
         spawnOre(world, random, ModBlocks.realmiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.realmite);
         spawnOre(world, random, ModBlocks.rupeeOre.getDefaultState(), stonePredicate, chunkX, chunkZ,

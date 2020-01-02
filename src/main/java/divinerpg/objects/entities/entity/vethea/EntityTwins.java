@@ -118,8 +118,6 @@ public class EntityTwins extends VetheaMob implements IRangedAttackMob {
     }
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
-		// TODO Auto-generated method stub
-		
+	public void setSwingingArms(boolean swingingArms) {		
 	}
 }

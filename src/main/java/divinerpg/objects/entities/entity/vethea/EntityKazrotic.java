@@ -44,8 +44,7 @@ public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
         double ty = entity.getEntityBoundingBox().minY - this.posY;
         double tz = entity.posZ - this.posZ;
         EntityKazroticShot shot = new EntityKazroticShot(this.world, this);
-        //TODO setThrowableHeading?
-//        shot.setThrowableHeading(tx, ty, tz, 0.6F, 0.3F);
+        shot.shoot(tx, ty, tz, 0.6F, 0.3F);
         world.playSound(attackingPlayer, this.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.HOSTILE, 1, 1);
         this.world.spawnEntity(shot);
     }

@@ -40,7 +40,6 @@ public class EntityDissiment extends EntityDivineRPGFlying {
     public boolean getCanSpawnHere() {
         return this.posY < 48.0D * spawnLayer && this.posY > 48.0D * (spawnLayer - 1) && super.getCanSpawnHere();
     }
-    //TODO - Double check what this integer is for. it is the old datawatcher
     private static final DataParameter<Integer> INTNeedsWork = EntityDataManager.<Integer>createKey(EntityDissiment.class,
             DataSerializers.VARINT);
     @Override
