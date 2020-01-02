@@ -11,6 +11,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+
+
 public class EntityZoragon extends EntityDivineRPGMob {
 	
 	private static final double spawnLayer = 4;
@@ -23,7 +25,6 @@ public class EntityZoragon extends EntityDivineRPGMob {
         flyTimer = 0;
         special = 120;
         this.setSize(6.0F, 6.0F);
-        this.fall(0,0);
     }
 
     @Override
@@ -45,26 +46,15 @@ public class EntityZoragon extends EntityDivineRPGMob {
     }
 
     @Override
-    protected SoundEvent getAmbientSound() {
-        return ModSounds.ZORAGON;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ZORAGON_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return ModSounds.ZORAGON_HURT;
-    }
-    
-    @Override
     public void onUpdate() {
         super.onUpdate();
         this.motionY *= 0.6000000238418579D;
     }
     
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {}
+
     @Override
     protected void updateAITasks() {
         super.updateAITasks();
@@ -74,7 +64,7 @@ public class EntityZoragon extends EntityDivineRPGMob {
             int targetY = (int) this.getAttackTarget().posY;
             int targetZ = (int) this.getAttackTarget().posZ;
             currentFlightTarget = new BlockPos(targetX, targetY + 15, targetZ);
-            if(this.getAttackTarget() instanceof EntityPlayer && ((EntityPlayer)this.getAttackTarget()).capabilities.isCreativeMode) this.attackingPlayer = null;
+            if(this.getAttackTarget() instanceof EntityPlayer && ((EntityPlayer)this.getAttackTarget()).capabilities.isCreativeMode);
         }
         else if (flyTimer != 0) {
             flyTimer = 360;
@@ -112,5 +102,20 @@ public class EntityZoragon extends EntityDivineRPGMob {
 
     }
 
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.ZORAGON;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.ZORAGON_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.ZORAGON_HURT;
+    }
+    
 
 }

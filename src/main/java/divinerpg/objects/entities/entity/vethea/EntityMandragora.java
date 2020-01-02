@@ -1,72 +1,59 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import javax.annotation.Nullable;
-
-
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityMandragoraProjectile;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EntityMandragora extends VetheaMob {
 
-    public EntityMandragora(World worldIn) {
-		super(worldIn);
-		this.setSize(0.5F, 3f);
-	}
+    public EntityMandragora(World var1) {
+        super(var1);
+        addAttackingAI();
+    }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-    }
-
-    
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
-        EntityPlayer target = this.world.getClosestPlayerToEntity(this, 16);
-        if(!world.isRemote && target != null && !target.isCreative() && this.ticksExisted % 20 == 0) {
-            attackEntity(target);
-        }
-    }
-
-    private void attackEntity(EntityLivingBase e) {
-        double tx = e.posX - this.posX;
-        double ty = e.getEntityBoundingBox().minY - this.posY;
-        double tz = e.posZ - this.posZ;
-        EntityMandragoraProjectile p = new EntityMandragoraProjectile(this.world, this);
-        p.shoot(tx, ty, tz, 1.3f, 15);
-        this.playSound(ModSounds.MANDRAGORA, 2.0F, 2.0F);
-        if(!world.isRemote)this.world.spawnEntity(p);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27000000417232513D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
     }
 
     @Override
     public int getSpawnLayer() {
         return 2;
     }
+
+    @Override
+    protected float getSoundVolume() {
+        return 0.7F;
+    }
     
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        EntityPlayer target = this.world.getClosestPlayerToEntity(this, 16);
+        if(!world.isRemote && target != null && this.ticksExisted%20 == 0) attackEntity(target);
+    }
+
+    public void attackEntity(EntityLivingBase e) {
+        double tx = e.posX - this.posX;
+        double ty = e.getEntityBoundingBox().minY - this.posY;
+        double tz = e.posZ - this.posZ;
+        EntityMandragoraProjectile p = new EntityMandragoraProjectile(this.world, this);
+//        p.setThrowableHeading(tx, ty, tz, 1.3f, 15);
+        this.playSound(ModSounds.MANDRAGORA, 2.0F, 2.0F);
+        if(!world.isRemote)this.world.spawnEntity(p);
+    }
+
     @Override
 	protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_MANDRAGORA;

@@ -36,6 +36,7 @@ public class EntityShadahier extends VetheaMob {
     public EntityShadahier(World worldIn) {
 		super(worldIn);
 		this.setSize(0.8F, 1.3f);
+		addAttackingAI();
 	}
 
     @Override
@@ -43,7 +44,9 @@ public class EntityShadahier extends VetheaMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-    }
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.28);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
+     }
 
     @Override
     public boolean attackEntityAsMob(Entity target) {
