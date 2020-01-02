@@ -1,112 +1,98 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import javax.annotation.Nullable;
-
-
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.registry.DRPGLootTables;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
+import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntityHiveQueen extends EntityMob {
+public class EntityHiveQueen extends EntityDivineRPGBoss {
 
     private int spawnTick;
     private int deathTicks;
 
-    public EntityHiveQueen(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 1f);
-	}
+    public EntityHiveQueen(World var1) {
+        super(var1);
+        addAttackingAI();
+        this.spawnTick = 80;
+        this.setSize(1.5F, 4.0F);
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.YELLOW;
+    }
+    
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1500);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(60);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
+    }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_HIVE_QUEEN;
-	}
-
-	@Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if(!this.world.isRemote) {
-            EntityPlayer target = this.world.getClosestPlayerToEntity(this, 20.0D);
-            if(target != null && !target.isCreative() && this.spawnTick % 40 == 0) {
+        if (this.spawnTick % 40 == 0 && !this.world.isRemote && this.world.getClosestPlayerToEntity(this, 20) != null) {
+            if (this.rand.nextBoolean()) {
+                EntityHoverStinger var2 = new EntityHoverStinger(this.world);
+                var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                this.world.spawnEntity(var2);
+                this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+            } else {
+                EntityHiveSoldier var2 = new EntityHiveSoldier(this.world);
+                var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                this.world.spawnEntity(var2);
+                this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
 
-                EntityLivingBase minion = null;
-                if (this.rand.nextBoolean()) {
-                    minion = new EntityHoverStinger(this.world);
-
-                } else {
-                    minion = new EntityHiveSoldier(this.world);
-                }
-
-                minion.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-                this.world.spawnEntity(minion);
-                this.world.spawnParticle(EnumParticleTypes.REDSTONE, minion.posX, minion.posY + 0.5D, minion.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-                spawnTick = 80;
             }
+            spawnTick = 80;
         }
 
         this.spawnTick--;
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1500.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(60.0D);
+    protected void onDeathUpdate() {
+        ++this.deathTicks;
+        if (this.deathTicks >= 180 && this.deathTicks <= 200) {
+            float var1 = (this.rand.nextFloat() - 0.5F) * 8.0F;
+            float var2 = (this.rand.nextFloat() - 0.5F) * 4.0F;
+            float var3 = (this.rand.nextFloat() - 0.5F) * 8.0F;
+            this.world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, this.posX + var1, this.posY + 2.0D + var2, this.posZ + var3, 0.0D, 0.0D, 0.0D);
+        }
+        int var4, var5;
+        if (!this.world.isRemote) {
+            if (this.deathTicks > 150 && this.deathTicks % 5 == 0) {
+                var4 = 1000;
+                while (var4 > 0) {
+                    var5 = EntityXPOrb.getXPSplit(var4);
+                    var4 -= var5;
+                    this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, var5));
+                }
+            }
+            if (this.deathTicks == 1) {
+                this.world.playBroadcastSound(1018, new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
+            }
+        }
 
-    }
+        this.move(MoverType.PLAYER, 0.0D, 0.10000000149011612D, 0.0D);
+        this.renderYawOffset = this.rotationYaw += 20.0F;
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.tasks.addTask(8, new EntityAIAttackMelee(this, 1, true));
-        this.tasks.addTask(8, new EntityAIFollow(this, 1, 1, 1));
-        this.applyEntityAI();
-    }
+        if (this.deathTicks == 200 && !this.world.isRemote) {
+            var4 = 2000;
 
-    private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
-    }
-
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+            while (var4 > 0) {
+                var5 = EntityXPOrb.getXPSplit(var4);
+                var4 -= var5;
+                this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, var5));
+            }
+            this.setDead();
+        }
     }
 }

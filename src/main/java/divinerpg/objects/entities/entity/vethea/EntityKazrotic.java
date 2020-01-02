@@ -1,58 +1,60 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import javax.annotation.Nullable;
-
-
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityKazroticShot;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.ai.EntityAIAttackRanged;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
-
-    public EntityKazrotic(World worldIn) {
-		super(worldIn);
-		this.setSize(1.4F, 3f);
-        this.tasks.addTask(0, new EntityAIAttackRanged(this, 1, 15, 60, 15));
-	}
-
-    @Override
-    public void attackEntityWithRangedAttack(EntityLivingBase entity, float par2) {
-        double tx = entity.posX - this.posX;
-        double ty = entity.getEntityBoundingBox().minY - this.posY;
-        double tz = entity.posZ - this.posZ;
-        EntityKazroticShot shot = new EntityKazroticShot(this.world, this);
-        shot.shoot(tx, ty, tz, 0.6F, 0.3F);
-        this.playSound(ModSounds.VETHEA_BOW, 1.0F, 1.0F);
-        this.world.spawnEntity(shot);
+	
+    public EntityKazrotic(World par1World) {
+        super(par1World);
+        this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.tasks.addTask(7, new EntityAIAttackRanged(this, 0.25F, 15, 40.0F));
     }
 
     @Override
-    public void setSwingingArms(boolean b) {
+    public int getSpawnLayer() {
+    	return 3;
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(65.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(65);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27000000417232513D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
+    }
+
+    
+    @Override
+    public void attackEntityWithRangedAttack(EntityLivingBase entity, float par2) {
+    	double tx = entity.posX - this.posX;
+        double ty = entity.getEntityBoundingBox().minY - this.posY;
+        double tz = entity.posZ - this.posZ;
+        EntityKazroticShot shot = new EntityKazroticShot(this.world, this);
+        //TODO setThrowableHeading?
+//        shot.setThrowableHeading(tx, ty, tz, 0.6F, 0.3F);
+        world.playSound(attackingPlayer, this.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.HOSTILE, 1, 1);
+        this.world.spawnEntity(shot);
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 3;
+    public boolean attackEntityFrom(DamageSource par1, float par2) {
+        if (par1.isExplosion())
+            return false;
+        return super.attackEntityFrom(par1, par2);
     }
 
     @Override
@@ -75,4 +77,9 @@ public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
     protected SoundEvent getDeathSound() {
         return ModSounds.KAZROTIC_HURT;
     }
+
+	@Override
+	public void setSwingingArms(boolean swingingArms) {
+		
+	}
 }

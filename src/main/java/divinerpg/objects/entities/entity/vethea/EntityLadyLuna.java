@@ -11,6 +11,7 @@ import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -181,10 +182,9 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
         return super.attackEntityFrom(source, par2);
     }
 
-    /*
     @Override
     public boolean attackEntityAsMob(Entity e) {
-        int dam = (int) EntityStats.ladyLunaDamage;
+        int dam = (int) 20;
 
         boolean var4 = e.attackEntityFrom(DamageSource.causeMobDamage(this), dam);
         if (var4) {
@@ -196,7 +196,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
                 e.setFire(var5 * 4);
         }
         return var4;
-    }*/
+    }
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound tag) {
