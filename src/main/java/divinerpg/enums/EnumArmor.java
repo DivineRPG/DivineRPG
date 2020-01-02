@@ -12,7 +12,7 @@ import net.minecraftforge.common.util.EnumHelper;
 public enum EnumArmor {
     ANGELIC("Angelic", "angelic", 0, 10, 30),
     DIVINE("Divine", "divine", 10000, 10, ModItems.divineStone, 78),
-    BEDROCK("Bedrock", "bedrock", 10000, 10, Item.getItemFromBlock(Blocks.BEDROCK), 78),
+    BEDROCK("Bedrock", "bedrock", 10000, 10, ModItems.bedrockChunk, 78),
     REALMITE("Realmite", "realmite", 5000, 10, ModItems.realmiteIngot, 50),
     ELITE_REALMITE("Elite Realmite", "elite_realmite", 0, 10, 65),
     ARLEMITE("Arlemite", "arlemite", 0, 22, 50),
