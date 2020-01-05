@@ -436,6 +436,7 @@ public class ModEntities {
                 buildEntityEntry(EntityGorgosion.class, "gorgosion", VETHEA),
                 buildEntityEntry(EntityHelio.class, "helio", VETHEA),
                 buildEntityEntry(EntityHerbomancer.class, "herbomancer", VETHEA),
+                buildEntityEntry(EntityHerbomancerMinion.class, "herbomancer_minion", VETHEA),
                 buildEntityEntry(EntityHiveSoldier.class, "hive_soldier", VETHEA),
                 buildEntityEntry(EntityHoverStinger.class, "hover_stinger", VETHEA),
                 buildEntityEntry(EntityKazrotic.class, "kazrotic", VETHEA),
@@ -732,6 +733,7 @@ public class ModEntities {
         registerRender(EntityGorgosion.class, RenderGorgosion.FACTORY);
         registerRender(EntityHelio.class, RenderHelio.FACTORY);
         registerRender(EntityHerbomancer.class, RenderHerbomancer.FACTORY);
+        registerRender(EntityHerbomancerMinion.class, RenderHerbomancerMinion.FACTORY);
         registerRender(EntityHiveQueen.class, RenderHiveQueen.FACTORY);
         registerRender(EntityHiveSoldier.class, RenderHiveSoldier.FACTORY);
         registerRender(EntityHoverStinger.class, RenderHoverStinger.FACTORY);

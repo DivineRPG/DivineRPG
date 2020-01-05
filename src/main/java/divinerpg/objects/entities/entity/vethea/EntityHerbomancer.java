@@ -4,6 +4,8 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -37,12 +39,11 @@ public class EntityHerbomancer extends VetheaMob {
         super.onLivingUpdate();
 
         if (this.spawnTick == 0 && !this.world.isRemote) {
-        	//TODO - Herbomancer needs his Minion
-//            EntityHerbomancerMinion var2 = new EntityHerbomancerMinion(this.world);
-//            var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-//            this.world.spawnEntity(var2);
-//            this.world.spawnParticle("reddust", var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-//            this.world.playSoundAtEntity(var2, "" /*Sound.KarotSummon*/, 10.0F, 1.0F);
+            EntityHerbomancerMinion var2 = new EntityHerbomancerMinion(this.world);
+            var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+            this.world.spawnEntity(var2);
+            this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+//            this.world.playSound(var2, var2.getPosition(), ModSounds.KAROT, SoundCategory.HOSTILE, 10.0F, 1.0F);
             this.spawnTick = 40;
         }
 
