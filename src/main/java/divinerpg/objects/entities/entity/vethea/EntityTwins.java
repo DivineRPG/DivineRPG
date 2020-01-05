@@ -9,9 +9,12 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityTippedArrow;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 
@@ -74,27 +77,34 @@ public class EntityTwins extends VetheaMob implements IRangedAttackMob {
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase entity, float par2) {
-    	//TODO - fix arrow shooting
-    	Entity arrow = (entity);
+    	EntityArrow entityarrow = this.getArrow(64);
+        double d0 = entity.posX - this.posX;
+        double d1 = entity.getEntityBoundingBox().minY + (double)(entity.height / 3.0F) - entityarrow.posY;
+        double d2 = entity.posZ - this.posZ;
+        double d3 = (double)MathHelper.sqrt(d0 * d0 + d2 * d2);
         switch(ability) {
             case FAST:
-            	EntityArrow var2 = (EntityArrow) arrow;
-                var2.shoot(entity, entity.rotationPitch, entity.rotationYaw, 0.0F, 12.0F, 1.6F);
-                var2.setDamage(2);
-                this.world.spawnEntity(var2);
+                entityarrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.world.getDifficulty().getDifficultyId() * 4));
+                this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+                this.world.spawnEntity(entityarrow);
                 break;
             case SLOW:
                 this.rangedAttackCounter++;
                 if ((this.rangedAttackCounter & 4) == 0) {
-                	EntityArrow var4 = (EntityArrow) arrow;
-                    var4.setDamage(4);
-                    var4.shoot(entity, entity.rotationPitch, entity.rotationYaw, 0.0F, 12.0F, 1.6F);
-                    this.world.spawnEntity(var4);
+                    entityarrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.world.getDifficulty().getDifficultyId() * 4));
+                    this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+                    this.world.spawnEntity(entityarrow);
                 }
                 break;
             default: 
             	break;
         }
+    }
+    protected EntityArrow getArrow(float p_190726_1_)
+    {
+        EntityTippedArrow entitytippedarrow = new EntityTippedArrow(this.world, this);
+        entitytippedarrow.setEnchantmentEffectsFromEntity(this, p_190726_1_);
+        return entitytippedarrow;
     }
     @Override
     protected ResourceLocation getLootTable()

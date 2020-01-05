@@ -285,6 +285,7 @@ public class Utils {
         DEV_LIST.add("NicosaurusRex99");
         DEV_LIST.add("LiteWolf101");
         DEV_LIST.add("Dash");
-        //TODO add immortalis to list
+        DEV_LIST.add("Immortalis" //TODO - immortalis
+        		);
     }
 }

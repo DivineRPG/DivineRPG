@@ -190,7 +190,6 @@ public class ArmorHandlers {
             return;
         }
 
-        // TODO EntityMob?..
         List<Entity> entities = player.world.getEntitiesWithinAABB(EntityMob.class,
                 player.getEntityBoundingBox().grow(radius));
 

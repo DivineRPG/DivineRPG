@@ -19,7 +19,6 @@ public class RenderZoragon extends RenderLiving<EntityZoragon> {
     
 	public RenderZoragon(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelZoragon(), 1F);
-        //TODO - Rescale zoragon
         modelEntity = (ModelZoragon) super.mainModel;
 
     }
