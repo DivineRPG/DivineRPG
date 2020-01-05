@@ -14,7 +14,6 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderLadyLuna extends RenderLiving<EntityLadyLuna> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/lady_luna.png");
 	private final ModelLadyLuna modelEntity;
     
 	public RenderLadyLuna(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
@@ -27,7 +26,10 @@ public class RenderLadyLuna extends RenderLiving<EntityLadyLuna> {
 	@Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityLadyLuna entity) {
-        return texture;
+		EntityLadyLuna boss = (EntityLadyLuna)entity;
+		if(boss.getProtectionType() == boss.protectionType.ARCANA) return new ResourceLocation("divinerpg:textures/entity/lady_luna_arcanic.png");
+		else if(boss.getProtectionType() == boss.protectionType.RANGED) return new ResourceLocation("divinerpg:textures/entity/lady_luna_ranged.png");
+		return new ResourceLocation("divinerpg:textures/entity/lady_luna.png");
     }
 
 	 public static class Factory implements IRenderFactory<EntityLadyLuna> {

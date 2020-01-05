@@ -41,7 +41,7 @@ import java.util.List;
 
 public class EntityLadyLuna extends EntityDivineRPGBoss {
 
-    enum ProtectionType {
+    public enum ProtectionType {
         ARCANA(0), RANGED(1), MELEE(2);
 
         private int numVal;
@@ -55,7 +55,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
         }
     }
 
-    private ProtectionType protectionType;
+    public ProtectionType protectionType;
     private int protectionTimer;
 
     private List<BlockPos> acidPositions = new ArrayList<BlockPos>();

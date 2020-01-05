@@ -14,7 +14,6 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderGalroid extends RenderLiving<EntityGalroid> {
 	
 	public static final IRenderFactory FACTORY = new Factory();
-	ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/galroid.png");
 	private final ModelGalroid modelEntity;
     
 	public RenderGalroid(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
@@ -27,7 +26,8 @@ public class RenderGalroid extends RenderLiving<EntityGalroid> {
 	@Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityGalroid entity) {
-        return texture;
+		if(entity.getIsInvulnerable()) return new ResourceLocation("divinerpg:textures/entity/galroid_invulnerable.png");
+		return new ResourceLocation("divinerpg:textures/entity/galroid.png");
     }
 
 	 public static class Factory implements IRenderFactory<EntityGalroid> {
