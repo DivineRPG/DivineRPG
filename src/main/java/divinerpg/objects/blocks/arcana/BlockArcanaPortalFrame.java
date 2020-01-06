@@ -128,10 +128,8 @@ public class BlockArcanaPortalFrame extends BlockMod {
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
     {IBlockState iblockstate = worldIn.getBlockState(pos);
     EntityPlayer player = (EntityPlayer)placer;
-    EnumHand hand = EnumHand.MAIN_HAND;
     Random itemRand = worldIn.rand;
     
-    ItemStack itemstack = player.getHeldItem(hand);
         if (!worldIn.isRemote)
         {
             worldIn.updateComparatorOutputLevel(pos, ModBlocks.arcanaPortalFrame);
@@ -144,12 +142,12 @@ public class BlockArcanaPortalFrame extends BlockMod {
                 double d3 = 0.0D;
                 double d4 = 0.0D;
                 double d5 = 0.0D;
-                worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.VILLAGER_ANGRY, d0, d1, d2, 0.0D, 0.0D, 0.0D);
             }
 
             worldIn.playSound((EntityPlayer)null, pos, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
             BlockPattern.PatternHelper blockpattern$patternhelper = this.getOrCreatePortalShape().match(worldIn, pos);
-
+            //TODO - Stop portal forming outside the frame
             if (blockpattern$patternhelper != null)
             {
                 BlockPos blockpos = blockpattern$patternhelper.getFrontTopLeft().add(-3, 0, -3);
