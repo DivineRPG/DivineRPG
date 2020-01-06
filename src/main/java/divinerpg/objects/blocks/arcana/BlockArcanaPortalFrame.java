@@ -1,17 +1,10 @@
 package divinerpg.objects.blocks.arcana;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import com.google.common.base.Predicates;
-
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockEndPortalFrame;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
@@ -24,19 +17,17 @@ import net.minecraft.block.state.pattern.FactoryBlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class BlockArcanaPortalFrame extends BlockMod {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -118,7 +109,21 @@ public class BlockArcanaPortalFrame extends BlockMod {
     {
         if (portalShape == null)
         {
-            portalShape = FactoryBlockPattern.start().aisle("?vvv?", ">???<", ">???<", ">???<", "?^^^?").where('?', BlockWorldState.hasState(BlockStateMatcher.ANY)).where('^', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).where('>', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).where('v', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).where('<', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame).where(FACING, Predicates.equalTo(EnumFacing.WEST)))).build();
+            portalShape = FactoryBlockPattern.start()
+                    .aisle("?vvv?",
+                           ">???<",
+                           ">???<",
+                           ">???<",
+                           "?^^^?")
+                    .where('?', BlockWorldState.hasState(BlockStateMatcher.ANY))
+                    .where('^', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame)
+                            .where(FACING, Predicates.equalTo(EnumFacing.SOUTH))))
+                    .where('>', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame)
+                            .where(FACING, Predicates.equalTo(EnumFacing.WEST))))
+                    .where('v', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame)
+                            .where(FACING, Predicates.equalTo(EnumFacing.NORTH))))
+                    .where('<', BlockWorldState.hasState(BlockStateMatcher.forBlock(ModBlocks.arcanaPortalFrame)
+                            .where(FACING, Predicates.equalTo(EnumFacing.EAST)))).build();
         }
 
         return portalShape;
@@ -147,7 +152,6 @@ public class BlockArcanaPortalFrame extends BlockMod {
 
             worldIn.playSound((EntityPlayer)null, pos, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
             BlockPattern.PatternHelper blockpattern$patternhelper = this.getOrCreatePortalShape().match(worldIn, pos);
-            //TODO - Stop portal forming outside the frame
             if (blockpattern$patternhelper != null)
             {
                 BlockPos blockpos = blockpattern$patternhelper.getFrontTopLeft().add(-3, 0, -3);
