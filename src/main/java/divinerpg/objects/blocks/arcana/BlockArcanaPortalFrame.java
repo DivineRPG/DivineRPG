@@ -1,10 +1,17 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.config.Config;
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
+import com.google.common.base.Predicates;
+
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockEndPortalFrame;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
@@ -16,23 +23,20 @@ import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
-
-import com.google.common.base.Predicates;
-
-import java.util.List;
 
 public class BlockArcanaPortalFrame extends BlockMod {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -122,25 +126,44 @@ public class BlockArcanaPortalFrame extends BlockMod {
     
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
-    {
-    	IBlockState iblockstate = worldIn.getBlockState(pos);
-        ItemStack itemstack = stack;
+    {IBlockState iblockstate = worldIn.getBlockState(pos);
+    EntityPlayer player = (EntityPlayer)placer;
+    EnumHand hand = EnumHand.MAIN_HAND;
+    Random itemRand = worldIn.rand;
+    
+    ItemStack itemstack = player.getHeldItem(hand);
+        if (!worldIn.isRemote)
+        {
+            worldIn.updateComparatorOutputLevel(pos, ModBlocks.arcanaPortalFrame);
 
+            for (int i = 0; i < 16; ++i)
+            {
+                double d0 = (double)((float)pos.getX() + (5.0F + itemRand.nextFloat() * 6.0F) / 16.0F);
+                double d1 = (double)((float)pos.getY() + 0.8125F);
+                double d2 = (double)((float)pos.getZ() + (5.0F + itemRand.nextFloat() * 6.0F) / 16.0F);
+                double d3 = 0.0D;
+                double d4 = 0.0D;
+                double d5 = 0.0D;
+                worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            }
 
-        BlockPattern.PatternHelper blockpattern$patternhelper = this.getOrCreatePortalShape().match(worldIn, pos);
-                if (blockpattern$patternhelper != null)
+            worldIn.playSound((EntityPlayer)null, pos, SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            BlockPattern.PatternHelper blockpattern$patternhelper = this.getOrCreatePortalShape().match(worldIn, pos);
+
+            if (blockpattern$patternhelper != null)
+            {
+                BlockPos blockpos = blockpattern$patternhelper.getFrontTopLeft().add(-3, 0, -3);
+
+                for (int j = 0; j < 3; ++j)
                 {
-                    BlockPos blockpos = blockpattern$patternhelper.getFrontTopLeft().add(-3, 0, -3);
-
-                    for (int j = 0; j < 3; ++j)
+                    for (int k = 0; k < 3; ++k)
                     {
-                        for (int k = 0; k < 3; ++k)
-                        {
-                        	//TODO make sure player is in center of portal frame before spawning portal frame
-                            worldIn.setBlockState(blockpos.add(j, 0, k), ModBlocks.arcanaPortal.getDefaultState(), 2);
-                        }
+                        worldIn.setBlockState(blockpos.add(j, 0, k), ModBlocks.arcanaPortal.getDefaultState(), 2);
                     }
-
                 }
-    }
-}
+
+                worldIn.playBroadcastSound(1038, blockpos.add(1, 0, 1), 0);
+            }
+
+        }
+}}
