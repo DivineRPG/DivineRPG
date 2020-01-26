@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelEnderTriplets;
-import divinerpg.objects.entities.entity.vanilla.EnderTriplets;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderTriplets;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEnderTriplets extends RenderLiving<EnderTriplets> {
+public class RenderEnderTriplets extends RenderLiving<EntityEnderTriplets> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ender_triplets.png");
 
@@ -21,13 +21,13 @@ public class RenderEnderTriplets extends RenderLiving<EnderTriplets> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EnderTriplets entity) {
+    protected ResourceLocation getEntityTexture(EntityEnderTriplets entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EnderTriplets> {
+    public static class Factory implements IRenderFactory<EntityEnderTriplets> {
         @Override
-        public Render<? super EnderTriplets> createRenderFor(RenderManager manager) {
+        public Render<? super EntityEnderTriplets> createRenderFor(RenderManager manager) {
             return new RenderEnderTriplets(manager, new ModelEnderTriplets(), 0F);
         }
     }

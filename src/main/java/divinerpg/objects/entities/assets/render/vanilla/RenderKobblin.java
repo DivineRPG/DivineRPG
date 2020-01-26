@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelKobblin;
-import divinerpg.objects.entities.entity.vanilla.Kobblin;
+import divinerpg.objects.entities.entity.vanilla.EntityKobblin;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderKobblin extends RenderLiving<Kobblin> {
+public class RenderKobblin extends RenderLiving<EntityKobblin> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/kobblin.png");
 
@@ -21,13 +21,13 @@ public class RenderKobblin extends RenderLiving<Kobblin> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Kobblin entity) {
+    protected ResourceLocation getEntityTexture(EntityKobblin entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Kobblin> {
+    public static class Factory implements IRenderFactory<EntityKobblin> {
         @Override
-        public Render<? super Kobblin> createRenderFor(RenderManager manager) {
+        public Render<? super EntityKobblin> createRenderFor(RenderManager manager) {
             return new RenderKobblin(manager, new ModelKobblin(), 0F);
         }
     }

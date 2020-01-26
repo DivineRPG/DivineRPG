@@ -215,49 +215,49 @@ import divinerpg.objects.entities.entity.twilight.WeakCori;
 import divinerpg.objects.entities.entity.twilight.WildwoodCadillion;
 import divinerpg.objects.entities.entity.twilight.WildwoodGolem;
 import divinerpg.objects.entities.entity.twilight.WildwoodTomo;
-import divinerpg.objects.entities.entity.vanilla.AncientEntity;
-import divinerpg.objects.entities.entity.vanilla.AridWarrior;
-import divinerpg.objects.entities.entity.vanilla.BrownGrizzle;
-import divinerpg.objects.entities.entity.vanilla.CaveCrawler;
-import divinerpg.objects.entities.entity.vanilla.Caveclops;
-import divinerpg.objects.entities.entity.vanilla.Crab;
-import divinerpg.objects.entities.entity.vanilla.Cyclops;
-import divinerpg.objects.entities.entity.vanilla.DesertCrawler;
-import divinerpg.objects.entities.entity.vanilla.Ehu;
-import divinerpg.objects.entities.entity.vanilla.EnderSpider;
-import divinerpg.objects.entities.entity.vanilla.EnderTriplets;
-import divinerpg.objects.entities.entity.vanilla.EnderWatcher;
-import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
-import divinerpg.objects.entities.entity.vanilla.Frost;
-import divinerpg.objects.entities.entity.vanilla.Glacon;
-import divinerpg.objects.entities.entity.vanilla.HellPig;
-import divinerpg.objects.entities.entity.vanilla.HellSpider;
-import divinerpg.objects.entities.entity.vanilla.Husk;
-import divinerpg.objects.entities.entity.vanilla.JackOMan;
-import divinerpg.objects.entities.entity.vanilla.JungleBat;
-import divinerpg.objects.entities.entity.vanilla.JungleDramcryx;
-import divinerpg.objects.entities.entity.vanilla.JungleSpider;
-import divinerpg.objects.entities.entity.vanilla.KingCrab;
-import divinerpg.objects.entities.entity.vanilla.KingOfScorchers;
-import divinerpg.objects.entities.entity.vanilla.Kobblin;
-import divinerpg.objects.entities.entity.vanilla.Liopleurodon;
-import divinerpg.objects.entities.entity.vanilla.LivestockMerchant;
-import divinerpg.objects.entities.entity.vanilla.Miner;
-import divinerpg.objects.entities.entity.vanilla.PumpkinSpider;
-import divinerpg.objects.entities.entity.vanilla.Rainbour;
-import divinerpg.objects.entities.entity.vanilla.Rotatick;
-import divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
-import divinerpg.objects.entities.entity.vanilla.Scorcher;
-import divinerpg.objects.entities.entity.vanilla.Shark;
-import divinerpg.objects.entities.entity.vanilla.Smelter;
-import divinerpg.objects.entities.entity.vanilla.Snapper;
-import divinerpg.objects.entities.entity.vanilla.StoneGolem;
-import divinerpg.objects.entities.entity.vanilla.TheEye;
-import divinerpg.objects.entities.entity.vanilla.TheGrue;
-import divinerpg.objects.entities.entity.vanilla.TheWatcher;
-import divinerpg.objects.entities.entity.vanilla.Whale;
-import divinerpg.objects.entities.entity.vanilla.WhiteGrizzle;
-import divinerpg.objects.entities.entity.vanilla.Wildfire;
+import divinerpg.objects.entities.entity.vanilla.EntityAncientEntity;
+import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
+import divinerpg.objects.entities.entity.vanilla.EntityBrownGrizzle;
+import divinerpg.objects.entities.entity.vanilla.EntityCaveCrawler;
+import divinerpg.objects.entities.entity.vanilla.EntityCaveclops;
+import divinerpg.objects.entities.entity.vanilla.EntityCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityCyclops;
+import divinerpg.objects.entities.entity.vanilla.EntityDesertCrawler;
+import divinerpg.objects.entities.entity.vanilla.EntityEhu;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderTriplets;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderWatcher;
+import divinerpg.objects.entities.entity.vanilla.EntityEnthralledDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityFrost;
+import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
+import divinerpg.objects.entities.entity.vanilla.EntityHellPig;
+import divinerpg.objects.entities.entity.vanilla.EntityHellSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityHusk;
+import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleBat;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityKingCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityKingOfScorchers;
+import divinerpg.objects.entities.entity.vanilla.EntityKobblin;
+import divinerpg.objects.entities.entity.vanilla.EntityLiopleurodon;
+import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import divinerpg.objects.entities.entity.vanilla.EntityMiner;
+import divinerpg.objects.entities.entity.vanilla.EntityPumpkinSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityRainbour;
+import divinerpg.objects.entities.entity.vanilla.EntityRotatick;
+import divinerpg.objects.entities.entity.vanilla.EntitySaguaroWorm;
+import divinerpg.objects.entities.entity.vanilla.EntityScorcher;
+import divinerpg.objects.entities.entity.vanilla.EntityShark;
+import divinerpg.objects.entities.entity.vanilla.EntitySmelter;
+import divinerpg.objects.entities.entity.vanilla.EntitySnapper;
+import divinerpg.objects.entities.entity.vanilla.EntityStoneGolem;
+import divinerpg.objects.entities.entity.vanilla.EntityTheEye;
+import divinerpg.objects.entities.entity.vanilla.EntityTheGrue;
+import divinerpg.objects.entities.entity.vanilla.EntityTheWatcher;
+import divinerpg.objects.entities.entity.vanilla.EntityWhale;
+import divinerpg.objects.entities.entity.vanilla.EntityWhiteGrizzle;
+import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoBlue;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoGreen;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoPurple;
@@ -308,48 +308,48 @@ public class ModEntities {
         EntityEntry[] divineMobs;
         divineMobs = new EntityEntry[]{
                 // Overworld
-                buildEntityEntry(AridWarrior.class, "arid_warrior", OVERWORLD),
-                buildEntityEntry(CaveCrawler.class, "cave_crawler", OVERWORLD),
-                buildEntityEntry(Caveclops.class, "caveclops", OVERWORLD),
-                buildEntityEntry(Crab.class, "crab", OVERWORLD), buildEntityEntry(Cyclops.class, "cyclops", OVERWORLD),
-                buildEntityEntry(DesertCrawler.class, "desert_crawler", OVERWORLD),
-                buildEntityEntry(Ehu.class, "ehu", OVERWORLD),
-                buildEntityEntry(EnthralledDramcryx.class, "enthralled_dramcryx", OVERWORLD),
-                buildEntityEntry(Frost.class, "frost", OVERWORLD), buildEntityEntry(Glacon.class, "glacon", OVERWORLD),
-                buildEntityEntry(BrownGrizzle.class, "brown_grizzle", OVERWORLD),
-                buildEntityEntry(WhiteGrizzle.class, "white_grizzle", OVERWORLD),
-                buildEntityEntry(Husk.class, "husk", OVERWORLD),
-                buildEntityEntry(JackOMan.class, "jack_o_man", OVERWORLD),
-                buildEntityEntry(JungleBat.class, "jungle_bat", OVERWORLD),
-                buildEntityEntry(JungleDramcryx.class, "jungle_dramcryx", OVERWORLD),
-                buildEntityEntry(JungleSpider.class, "jungle_spider", OVERWORLD),
-                buildEntityEntry(KingCrab.class, "king_crab", OVERWORLD),
-                buildEntityEntry(Kobblin.class, "kobblin", OVERWORLD),
-                buildEntityEntry(Liopleurodon.class, "liopleurodon", OVERWORLD),
-                buildEntityEntry(LivestockMerchant.class, "livestock_merchant", OVERWORLD),
-                buildEntityEntry(Miner.class, "miner", OVERWORLD),
-                buildEntityEntry(PumpkinSpider.class, "pumpkin_spider", OVERWORLD),
-                buildEntityEntry(Rainbour.class, "rainbour", OVERWORLD),
-                buildEntityEntry(Rotatick.class, "rotatick", OVERWORLD),
-                buildEntityEntry(SaguaroWorm.class, "saguaro_worm", OVERWORLD),
-                buildEntityEntry(Shark.class, "shark", OVERWORLD),
-                buildEntityEntry(Smelter.class, "smelter", OVERWORLD),
-                buildEntityEntry(Snapper.class, "snapper", OVERWORLD),
-                buildEntityEntry(StoneGolem.class, "stone_golem", OVERWORLD),
-                buildEntityEntry(TheEye.class, "the_eye", OVERWORLD),
-                buildEntityEntry(TheGrue.class, "the_grue", OVERWORLD),
-                buildEntityEntry(Whale.class, "whale", OVERWORLD),
+                buildEntityEntry(EntityAridWarrior.class, "arid_warrior", OVERWORLD),
+                buildEntityEntry(EntityCaveCrawler.class, "cave_crawler", OVERWORLD),
+                buildEntityEntry(EntityCaveclops.class, "caveclops", OVERWORLD),
+                buildEntityEntry(EntityCrab.class, "crab", OVERWORLD), buildEntityEntry(EntityCyclops.class, "cyclops", OVERWORLD),
+                buildEntityEntry(EntityDesertCrawler.class, "desert_crawler", OVERWORLD),
+                buildEntityEntry(EntityEhu.class, "ehu", OVERWORLD),
+                buildEntityEntry(EntityEnthralledDramcryx.class, "enthralled_dramcryx", OVERWORLD),
+                buildEntityEntry(EntityFrost.class, "frost", OVERWORLD), buildEntityEntry(EntityGlacon.class, "glacon", OVERWORLD),
+                buildEntityEntry(EntityBrownGrizzle.class, "brown_grizzle", OVERWORLD),
+                buildEntityEntry(EntityWhiteGrizzle.class, "white_grizzle", OVERWORLD),
+                buildEntityEntry(EntityHusk.class, "husk", OVERWORLD),
+                buildEntityEntry(EntityJackOMan.class, "jack_o_man", OVERWORLD),
+                buildEntityEntry(EntityJungleBat.class, "jungle_bat", OVERWORLD),
+                buildEntityEntry(EntityJungleDramcryx.class, "jungle_dramcryx", OVERWORLD),
+                buildEntityEntry(EntityJungleSpider.class, "jungle_spider", OVERWORLD),
+                buildEntityEntry(EntityKingCrab.class, "king_crab", OVERWORLD),
+                buildEntityEntry(EntityKobblin.class, "kobblin", OVERWORLD),
+                buildEntityEntry(EntityLiopleurodon.class, "liopleurodon", OVERWORLD),
+                buildEntityEntry(EntityLivestockMerchant.class, "livestock_merchant", OVERWORLD),
+                buildEntityEntry(EntityMiner.class, "miner", OVERWORLD),
+                buildEntityEntry(EntityPumpkinSpider.class, "pumpkin_spider", OVERWORLD),
+                buildEntityEntry(EntityRainbour.class, "rainbour", OVERWORLD),
+                buildEntityEntry(EntityRotatick.class, "rotatick", OVERWORLD),
+                buildEntityEntry(EntitySaguaroWorm.class, "saguaro_worm", OVERWORLD),
+                buildEntityEntry(EntityShark.class, "shark", OVERWORLD),
+                buildEntityEntry(EntitySmelter.class, "smelter", OVERWORLD),
+                buildEntityEntry(EntitySnapper.class, "snapper", OVERWORLD),
+                buildEntityEntry(EntityStoneGolem.class, "stone_golem", OVERWORLD),
+                buildEntityEntry(EntityTheEye.class, "the_eye", OVERWORLD),
+                buildEntityEntry(EntityTheGrue.class, "the_grue", OVERWORLD),
+                buildEntityEntry(EntityWhale.class, "whale", OVERWORLD),
 
                 // Nether
-                buildEntityEntry(HellPig.class, "hell_pig", NETHER),
-                buildEntityEntry(HellSpider.class, "hell_spider", NETHER),
-                buildEntityEntry(Scorcher.class, "scorcher", NETHER),
-                buildEntityEntry(Wildfire.class, "wildfire", NETHER),
+                buildEntityEntry(EntityHellPig.class, "hell_pig", NETHER),
+                buildEntityEntry(EntityHellSpider.class, "hell_spider", NETHER),
+                buildEntityEntry(EntityScorcher.class, "scorcher", NETHER),
+                buildEntityEntry(EntityWildfire.class, "wildfire", NETHER),
 
                 // End
-                buildEntityEntry(EnderSpider.class, "ender_spider", END),
-                buildEntityEntry(EnderTriplets.class, "ender_triplets", END),
-                buildEntityEntry(EnderWatcher.class, "ender_watcher", END),
+                buildEntityEntry(EntityEnderSpider.class, "ender_spider", END),
+                buildEntityEntry(EntityEnderTriplets.class, "ender_triplets", END),
+                buildEntityEntry(EntityEnderWatcher.class, "ender_watcher", END),
 
                 // Iceika
                 buildEntityEntry(Alicanto.class, "alicanto", ICEIKA),
@@ -458,7 +458,7 @@ public class ModEntities {
                 buildEntityEntry(EntityZoragon.class, "zoragon", VETHEA),
 
                 // Boss
-                buildEntityEntry(AncientEntity.class, "ancient_entity", BOSS),
+                buildEntityEntry(EntityAncientEntity.class, "ancient_entity", BOSS),
                 buildEntityEntry(AyeracoBlue.class, "ayeraco_blue", BOSS),
                 buildEntityEntry(AyeracoGreen.class, "ayeraco_green", BOSS),
                 buildEntityEntry(AyeracoPurple.class, "ayeraco_purple", BOSS),
@@ -469,13 +469,13 @@ public class ModEntities {
                 buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(Karot.class, "karot", BOSS),
                 buildEntityEntry(EntityKaros.class, "karos", BOSS),
-                buildEntityEntry(KingOfScorchers.class, "king_of_scorchers", BOSS),
+                buildEntityEntry(EntityKingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(EntityLadyLuna.class, "lady_luna", BOSS),
                 buildEntityEntry(Parasecta.class, "parasecta", BOSS),
                 buildEntityEntry(EntityQuadro.class, "quadro", BOSS),
                 buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
                 buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
-                buildEntityEntry(TheWatcher.class, "the_watcher", BOSS),
+                buildEntityEntry(EntityTheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
                 buildEntityEntry(EntityWreck.class, "wreck", BOSS)
@@ -590,54 +590,54 @@ public class ModEntities {
         registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
 
         // Vanilla
-        registerRender(AncientEntity.class, RenderAncientEntity.FACTORY);
-        registerRender(AridWarrior.class, RenderAridWarrior.FACTORY);
+        registerRender(EntityAncientEntity.class, RenderAncientEntity.FACTORY);
+        registerRender(EntityAridWarrior.class, RenderAridWarrior.FACTORY);
         registerRender(AyeracoBlue.class, RenderAyeracoBlue.FACTORY);
         registerRender(AyeracoGreen.class, RenderAyeracoGreen.FACTORY);
         registerRender(AyeracoPurple.class, RenderAyeracoPurple.FACTORY);
         registerRender(AyeracoRed.class, RenderAyerecoRed.FACTORY);
         registerRender(AyeracoYellow.class, RenderAyeracoYellow.FACTORY);
-        registerRender(BrownGrizzle.class, RenderBrownGrizzle.FACTORY);
-        registerRender(Caveclops.class, RenderCaveclops.FACTORY);
-        registerRender(CaveCrawler.class, RenderCaveCrawler.FACTORY);
-        registerRender(Crab.class, RenderCrab.FACTORY);
-        registerRender(Cyclops.class, RenderCyclops.FACTORY);
-        registerRender(DesertCrawler.class, RenderDesertCrawler.FACTORY);
-        registerRender(Ehu.class, RenderEhu.FACTORY);
-        registerRender(EnderSpider.class, RenderEnderSpider.FACTORY);
-        registerRender(EnderTriplets.class, RenderEnderTriplets.FACTORY);
-        registerRender(EnderWatcher.class, RenderEnderWatcher.FACTORY);
-        registerRender(EnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
-        registerRender(Frost.class, RenderFrost.FACTORY);
-        registerRender(Glacon.class, RenderGlacon.FACTORY);
-        registerRender(HellPig.class, RenderHellPig.FACTORY);
-        registerRender(HellSpider.class, RenderHellSpider.FACTORY);
-        registerRender(Husk.class, RenderHusk.FACTORY);
-        registerRender(JackOMan.class, RenderJackOMan.FACTORY);
-        registerRender(JungleBat.class, RenderJungleBat.FACTORY);
-        registerRender(JungleDramcryx.class, RenderJungleDramcryx.FACTORY);
-        registerRender(JungleSpider.class, RenderJungleSpider.FACTORY);
-        registerRender(KingCrab.class, RenderKingCrab.FACTORY);
-        registerRender(KingOfScorchers.class, RenderKingOfScorchers.FACTORY);
-        registerRender(Kobblin.class, RenderKobblin.FACTORY);
-        registerRender(Liopleurodon.class, RenderLiopleurodon.FACTORY);
-        registerRender(LivestockMerchant.class, RenderLivestockMerchant.FACTORY);
-        registerRender(Miner.class, RenderMiner.FACTORY);
-        registerRender(PumpkinSpider.class, RenderPumpkinSpider.FACTORY);
-        registerRender(Rainbour.class, RenderRainbour.FACTORY);
-        registerRender(Rotatick.class, RenderRotatick.FACTORY);
-        registerRender(SaguaroWorm.class, RenderSaguaroWorm.FACTORY);
-        registerRender(Scorcher.class, RenderScorcher.FACTORY);
-        registerRender(Shark.class, RenderShark.FACTORY);
-        registerRender(Smelter.class, RenderSmelter.FACTORY);
-        registerRender(Snapper.class, RenderSnapper.FACTORY);
-        registerRender(StoneGolem.class, RenderStoneGolem.FACTORY);
-        registerRender(TheEye.class, RenderTheEye.FACTORY);
-        registerRender(TheGrue.class, RenderTheGrue.FACTORY);
-        registerRender(TheWatcher.class, RenderTheWatcher.FACTORY);
-        registerRender(Whale.class, RenderWhale.FACTORY);
-        registerRender(WhiteGrizzle.class, RenderWhiteGrizzle.FACTORY);
-        registerRender(Wildfire.class, RenderWildfire.FACTORY);
+        registerRender(EntityBrownGrizzle.class, RenderBrownGrizzle.FACTORY);
+        registerRender(EntityCaveclops.class, RenderCaveclops.FACTORY);
+        registerRender(EntityCaveCrawler.class, RenderCaveCrawler.FACTORY);
+        registerRender(EntityCrab.class, RenderCrab.FACTORY);
+        registerRender(EntityCyclops.class, RenderCyclops.FACTORY);
+        registerRender(EntityDesertCrawler.class, RenderDesertCrawler.FACTORY);
+        registerRender(EntityEhu.class, RenderEhu.FACTORY);
+        registerRender(EntityEnderSpider.class, RenderEnderSpider.FACTORY);
+        registerRender(EntityEnderTriplets.class, RenderEnderTriplets.FACTORY);
+        registerRender(EntityEnderWatcher.class, RenderEnderWatcher.FACTORY);
+        registerRender(EntityEnthralledDramcryx.class, RenderEnthralledDramcryx.FACTORY);
+        registerRender(EntityFrost.class, RenderFrost.FACTORY);
+        registerRender(EntityGlacon.class, RenderGlacon.FACTORY);
+        registerRender(EntityHellPig.class, RenderHellPig.FACTORY);
+        registerRender(EntityHellSpider.class, RenderHellSpider.FACTORY);
+        registerRender(EntityHusk.class, RenderHusk.FACTORY);
+        registerRender(EntityJackOMan.class, RenderJackOMan.FACTORY);
+        registerRender(EntityJungleBat.class, RenderJungleBat.FACTORY);
+        registerRender(EntityJungleDramcryx.class, RenderJungleDramcryx.FACTORY);
+        registerRender(EntityJungleSpider.class, RenderJungleSpider.FACTORY);
+        registerRender(EntityKingCrab.class, RenderKingCrab.FACTORY);
+        registerRender(EntityKingOfScorchers.class, RenderKingOfScorchers.FACTORY);
+        registerRender(EntityKobblin.class, RenderKobblin.FACTORY);
+        registerRender(EntityLiopleurodon.class, RenderLiopleurodon.FACTORY);
+        registerRender(EntityLivestockMerchant.class, RenderLivestockMerchant.FACTORY);
+        registerRender(EntityMiner.class, RenderMiner.FACTORY);
+        registerRender(EntityPumpkinSpider.class, RenderPumpkinSpider.FACTORY);
+        registerRender(EntityRainbour.class, RenderRainbour.FACTORY);
+        registerRender(EntityRotatick.class, RenderRotatick.FACTORY);
+        registerRender(EntitySaguaroWorm.class, RenderSaguaroWorm.FACTORY);
+        registerRender(EntityScorcher.class, RenderScorcher.FACTORY);
+        registerRender(EntityShark.class, RenderShark.FACTORY);
+        registerRender(EntitySmelter.class, RenderSmelter.FACTORY);
+        registerRender(EntitySnapper.class, RenderSnapper.FACTORY);
+        registerRender(EntityStoneGolem.class, RenderStoneGolem.FACTORY);
+        registerRender(EntityTheEye.class, RenderTheEye.FACTORY);
+        registerRender(EntityTheGrue.class, RenderTheGrue.FACTORY);
+        registerRender(EntityTheWatcher.class, RenderTheWatcher.FACTORY);
+        registerRender(EntityWhale.class, RenderWhale.FACTORY);
+        registerRender(EntityWhiteGrizzle.class, RenderWhiteGrizzle.FACTORY);
+        registerRender(EntityWildfire.class, RenderWildfire.FACTORY);
 
         // Iceika
         registerRender(Alicanto.class, RenderAlicanto.FACTORY);

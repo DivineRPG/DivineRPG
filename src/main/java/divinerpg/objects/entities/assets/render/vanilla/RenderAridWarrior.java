@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelAridWarrior;
-import divinerpg.objects.entities.entity.vanilla.AridWarrior;
+import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderAridWarrior extends RenderLiving<AridWarrior> {
+public class RenderAridWarrior extends RenderLiving<EntityAridWarrior> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/arid_warrior.png");
 
@@ -28,18 +28,18 @@ public class RenderAridWarrior extends RenderLiving<AridWarrior> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(AridWarrior entity) {
+    protected ResourceLocation getEntityTexture(EntityAridWarrior entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<AridWarrior> {
+    public static class Factory implements IRenderFactory<EntityAridWarrior> {
         @Override
-        public Render<? super AridWarrior> createRenderFor(RenderManager manager) {
+        public Render<? super EntityAridWarrior> createRenderFor(RenderManager manager) {
             return new RenderAridWarrior(manager, new ModelAridWarrior(), 0F);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<AridWarrior> {
+    private class MainHandLayer implements LayerRenderer<EntityAridWarrior> {
         protected final RenderAridWarrior renderAridWarrior;
 
         public MainHandLayer(RenderAridWarrior renderAridWarriorIn) {
@@ -47,8 +47,8 @@ public class RenderAridWarrior extends RenderLiving<AridWarrior> {
         }
 
         @Override
-        public void doRenderLayer(AridWarrior entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityAridWarrior entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelAridWarrior) this.renderAridWarrior.getMainModel()).rightarmBS2.postRender(0.0625F);

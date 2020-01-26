@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelEnthralledDramcryx;
-import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityEnthralledDramcryx;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEnthralledDramcryx extends RenderLiving<EnthralledDramcryx> {
+public class RenderEnthralledDramcryx extends RenderLiving<EntityEnthralledDramcryx> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enthralled_dramcryx.png");
 
@@ -21,13 +21,13 @@ public class RenderEnthralledDramcryx extends RenderLiving<EnthralledDramcryx> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EnthralledDramcryx entity) {
+    protected ResourceLocation getEntityTexture(EntityEnthralledDramcryx entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EnthralledDramcryx> {
+    public static class Factory implements IRenderFactory<EntityEnthralledDramcryx> {
         @Override
-        public Render<? super EnthralledDramcryx> createRenderFor(RenderManager manager) {
+        public Render<? super EntityEnthralledDramcryx> createRenderFor(RenderManager manager) {
             return new RenderEnthralledDramcryx(manager, new ModelEnthralledDramcryx(), 0F);
         }
     }

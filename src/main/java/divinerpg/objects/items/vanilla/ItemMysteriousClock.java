@@ -1,6 +1,6 @@
 package divinerpg.objects.items.vanilla;
 
-import divinerpg.objects.entities.entity.vanilla.AncientEntity;
+import divinerpg.objects.entities.entity.vanilla.EntityAncientEntity;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.log.Logging;
@@ -26,7 +26,7 @@ public class ItemMysteriousClock extends ItemMod {
         ItemStack itemstack = player.getHeldItem(hand);
         if (!world.isRemote) {
             if (world.provider.getDimension() == 0) {
-                AncientEntity entity = new AncientEntity(world);
+                EntityAncientEntity entity = new EntityAncientEntity(world);
                 entity.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                 if (world.getCollisionBoxes(entity, entity.getEntityBoundingBox()).isEmpty()) {
                     world.spawnEntity(entity);

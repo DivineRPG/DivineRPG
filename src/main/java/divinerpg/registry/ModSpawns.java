@@ -49,38 +49,38 @@ import divinerpg.objects.entities.entity.twilight.WeakCori;
 import divinerpg.objects.entities.entity.twilight.WildwoodCadillion;
 import divinerpg.objects.entities.entity.twilight.WildwoodGolem;
 import divinerpg.objects.entities.entity.twilight.WildwoodTomo;
-import divinerpg.objects.entities.entity.vanilla.AridWarrior;
-import divinerpg.objects.entities.entity.vanilla.CaveCrawler;
-import divinerpg.objects.entities.entity.vanilla.Caveclops;
-import divinerpg.objects.entities.entity.vanilla.Crab;
-import divinerpg.objects.entities.entity.vanilla.Cyclops;
-import divinerpg.objects.entities.entity.vanilla.DesertCrawler;
-import divinerpg.objects.entities.entity.vanilla.EnderSpider;
-import divinerpg.objects.entities.entity.vanilla.EnderTriplets;
-import divinerpg.objects.entities.entity.vanilla.EnderWatcher;
-import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
-import divinerpg.objects.entities.entity.vanilla.Frost;
-import divinerpg.objects.entities.entity.vanilla.Glacon;
-import divinerpg.objects.entities.entity.vanilla.HellPig;
-import divinerpg.objects.entities.entity.vanilla.HellSpider;
-import divinerpg.objects.entities.entity.vanilla.JackOMan;
-import divinerpg.objects.entities.entity.vanilla.JungleBat;
-import divinerpg.objects.entities.entity.vanilla.JungleDramcryx;
-import divinerpg.objects.entities.entity.vanilla.JungleSpider;
-import divinerpg.objects.entities.entity.vanilla.KingCrab;
-import divinerpg.objects.entities.entity.vanilla.Kobblin;
-import divinerpg.objects.entities.entity.vanilla.Liopleurodon;
-import divinerpg.objects.entities.entity.vanilla.Miner;
-import divinerpg.objects.entities.entity.vanilla.PumpkinSpider;
-import divinerpg.objects.entities.entity.vanilla.Rainbour;
-import divinerpg.objects.entities.entity.vanilla.Rotatick;
-import divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
-import divinerpg.objects.entities.entity.vanilla.Scorcher;
-import divinerpg.objects.entities.entity.vanilla.Shark;
-import divinerpg.objects.entities.entity.vanilla.TheEye;
-import divinerpg.objects.entities.entity.vanilla.TheGrue;
-import divinerpg.objects.entities.entity.vanilla.Whale;
-import divinerpg.objects.entities.entity.vanilla.Wildfire;
+import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
+import divinerpg.objects.entities.entity.vanilla.EntityCaveCrawler;
+import divinerpg.objects.entities.entity.vanilla.EntityCaveclops;
+import divinerpg.objects.entities.entity.vanilla.EntityCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityCyclops;
+import divinerpg.objects.entities.entity.vanilla.EntityDesertCrawler;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderTriplets;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderWatcher;
+import divinerpg.objects.entities.entity.vanilla.EntityEnthralledDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityFrost;
+import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
+import divinerpg.objects.entities.entity.vanilla.EntityHellPig;
+import divinerpg.objects.entities.entity.vanilla.EntityHellSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleBat;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityKingCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityKobblin;
+import divinerpg.objects.entities.entity.vanilla.EntityLiopleurodon;
+import divinerpg.objects.entities.entity.vanilla.EntityMiner;
+import divinerpg.objects.entities.entity.vanilla.EntityPumpkinSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityRainbour;
+import divinerpg.objects.entities.entity.vanilla.EntityRotatick;
+import divinerpg.objects.entities.entity.vanilla.EntitySaguaroWorm;
+import divinerpg.objects.entities.entity.vanilla.EntityScorcher;
+import divinerpg.objects.entities.entity.vanilla.EntityShark;
+import divinerpg.objects.entities.entity.vanilla.EntityTheEye;
+import divinerpg.objects.entities.entity.vanilla.EntityTheGrue;
+import divinerpg.objects.entities.entity.vanilla.EntityWhale;
+import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
 import divinerpg.objects.entities.entity.vethea.*;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -108,7 +108,7 @@ public class ModSpawns {
                         || entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN)) {
 
             if (entity.getRNG().nextInt(1500) == 0) {
-                Shark shark = new Shark(entity.world);
+                EntityShark shark = new EntityShark(entity.world);
                 shark.copyLocationAndAnglesFrom(entity);
                 entity.world.spawnEntity(shark);
                 entity.setDead();
@@ -117,7 +117,7 @@ public class ModSpawns {
                     DivineRPG.logger.info(shark.getName() + " just spawned at " + entity.getPosition());
                 }
             } else if (entity.getRNG().nextInt(2500) == 0) {
-                Whale whale = new Whale(entity.world);
+                EntityWhale whale = new EntityWhale(entity.world);
                 whale.copyLocationAndAnglesFrom(entity);
                 entity.world.spawnEntity(whale);
                 entity.setDead();
@@ -126,7 +126,7 @@ public class ModSpawns {
                     DivineRPG.logger.info(whale.getName() + " just spawned at " + entity.getPosition());
                 }
             } else if (entity.getRNG().nextInt(2500) == 0) {
-                Liopleurodon liopleurodon = new Liopleurodon(entity.world);
+                EntityLiopleurodon liopleurodon = new EntityLiopleurodon(entity.world);
                 liopleurodon.copyLocationAndAnglesFrom(entity);
                 entity.world.spawnEntity(liopleurodon);
                 entity.setDead();
@@ -224,56 +224,56 @@ public class ModSpawns {
                 EntityRegistry.addSpawn(EntityMysteriousManLayer2.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityMysteriousManLayer3.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
             } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.END)) {
-                EntityRegistry.addSpawn(EnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EnderWatcher.class, 10, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityEnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityEnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityEnderWatcher.class, 10, 4, 4, EnumCreatureType.MONSTER, biome);
             } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.NETHER)) {
-                // EntityRegistry.addSpawn(HellBat.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(HellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(HellSpider.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Scorcher.class, 7, 4, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Wildfire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+                // EntityRegistry.addSpawn(EntityHellBat.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityHellPig.class, 25, 5, 50, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityHellSpider.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityScorcher.class, 7, 4, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityWildfire.class, 50, 1, 1, EnumCreatureType.MONSTER, biome);
             } else if (!(BiomeDictionary.hasType(biome, BiomeDictionary.Type.MUSHROOM))) {
                 // All Overworld Biomes
-                EntityRegistry.addSpawn(Miner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(JackOMan.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(CaveCrawler.class, 70, 2, 3, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Rotatick.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(TheEye.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(TheGrue.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Caveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EnderSpider.class, 4, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Rainbour.class, 1, 1, 1, EnumCreatureType.AMBIENT, biome);
+                EntityRegistry.addSpawn(EntityMiner.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityJackOMan.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityCaveCrawler.class, 70, 2, 3, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRotatick.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityEnthralledDramcryx.class, 70, 3, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityTheEye.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityTheGrue.class, 30, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityCaveclops.class, 70, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityEnderSpider.class, 4, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRainbour.class, 1, 1, 1, EnumCreatureType.AMBIENT, biome);
 
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SNOWY)) {
-                    EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.MONSTER, biome);
-                    EntityRegistry.addSpawn(Glacon.class, 30, 1, 1, EnumCreatureType.CREATURE, biome);
-                    EntityRegistry.addSpawn(Frost.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityGlacon.class, 30, 1, 1, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityGlacon.class, 30, 1, 1, EnumCreatureType.CREATURE, biome);
+                    EntityRegistry.addSpawn(EntityFrost.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
                 }
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY)) {
-                    EntityRegistry.addSpawn(DesertCrawler.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
-                    EntityRegistry.addSpawn(AridWarrior.class, 35, 1, 4, EnumCreatureType.MONSTER, biome);
-                    EntityRegistry.addSpawn(SaguaroWorm.class, 20, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityDesertCrawler.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityAridWarrior.class, 35, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntitySaguaroWorm.class, 20, 1, 4, EnumCreatureType.MONSTER, biome);
                 }
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.BEACH)) {
-                    EntityRegistry.addSpawn(Crab.class, 100, 4, 4, EnumCreatureType.MONSTER, biome);
-                    EntityRegistry.addSpawn(KingCrab.class, 40, 4, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityCrab.class, 100, 4, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityKingCrab.class, 40, 4, 4, EnumCreatureType.MONSTER, biome);
                 }
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.JUNGLE)) {
-                    EntityRegistry.addSpawn(JungleBat.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
-                    EntityRegistry.addSpawn(JungleDramcryx.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
-                    EntityRegistry.addSpawn(JungleSpider.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityJungleBat.class, 50, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityJungleDramcryx.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityJungleSpider.class, 80, 1, 4, EnumCreatureType.MONSTER, biome);
                 }
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)) {
-                    EntityRegistry.addSpawn(Kobblin.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityKobblin.class, 5, 1, 1, EnumCreatureType.MONSTER, biome);
                 }
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)
                         || BiomeDictionary.hasType(biome, BiomeDictionary.Type.MOUNTAIN)) {
-                    EntityRegistry.addSpawn(Cyclops.class, 10, 2, 4, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityCyclops.class, 10, 2, 4, EnumCreatureType.MONSTER, biome);
                 }
                 if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.FOREST)) {
-                    EntityRegistry.addSpawn(PumpkinSpider.class, 20, 1, 1, EnumCreatureType.MONSTER, biome);
+                    EntityRegistry.addSpawn(EntityPumpkinSpider.class, 20, 1, 1, EnumCreatureType.MONSTER, biome);
                 }
             }
     }

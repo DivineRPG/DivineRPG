@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.model.vanilla;
 
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.objects.entities.entity.vanilla.PumpkinSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityPumpkinSpider;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -98,10 +98,10 @@ public class ModelPumpkinSpider extends ModelBase {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GL11.glPushMatrix();
-        if (((PumpkinSpider) entity).getProvoked())
+        if (((EntityPumpkinSpider) entity).getProvoked())
             GL11.glTranslatef(0, -0.1875f, 0);
         RearEnd.render(f5);
-        if (((PumpkinSpider) entity).getProvoked()) {
+        if (((EntityPumpkinSpider) entity).getProvoked()) {
             Head.render(f5);
             Body.render(f5);
             Leg8.render(f5);

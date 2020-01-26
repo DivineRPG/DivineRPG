@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.model.vanilla;
 
-import divinerpg.objects.entities.entity.vanilla.Wildfire;
+import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -197,8 +197,8 @@ public class ModelWildfire extends ModelBase {
 	@Override
 	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount,
 	        float partialTickTime) {
-		if (entitylivingbaseIn instanceof Wildfire) {
-			Wildfire mobDarkenedKnight = (Wildfire) entitylivingbaseIn;
+		if (entitylivingbaseIn instanceof EntityWildfire) {
+			EntityWildfire mobDarkenedKnight = (EntityWildfire) entitylivingbaseIn;
 			isHolding = mobDarkenedKnight.getHeldItemMainhand() != null
 			        || !mobDarkenedKnight.getHeldItemMainhand().isEmpty();
 		}

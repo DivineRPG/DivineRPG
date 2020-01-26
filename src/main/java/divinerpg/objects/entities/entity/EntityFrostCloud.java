@@ -12,7 +12,6 @@ import com.google.common.collect.Maps;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.assets.render.iceika.RenderFrostCloud;
 import divinerpg.objects.entities.entity.iceika.Alicanto;
 import divinerpg.objects.entities.entity.iceika.Fractite;
 import divinerpg.objects.entities.entity.iceika.FrostArcher;
@@ -20,8 +19,8 @@ import divinerpg.objects.entities.entity.iceika.Frosty;
 import divinerpg.objects.entities.entity.iceika.Glacide;
 import divinerpg.objects.entities.entity.iceika.Hastreus;
 import divinerpg.objects.entities.entity.iceika.Rollum;
-import divinerpg.objects.entities.entity.vanilla.Frost;
-import divinerpg.objects.entities.entity.vanilla.Glacon;
+import divinerpg.objects.entities.entity.vanilla.EntityFrost;
+import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,9 +34,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFrostCloud extends Entity {
     private static final DataParameter<Float> RADIUS = EntityDataManager.<Float>createKey(EntityFrostCloud.class,
@@ -161,7 +157,7 @@ public class EntityFrostCloud extends Entity {
                                 this.reapplicationDelayMap.put(entity,
                                         Integer.valueOf(this.ticksExisted + this.reapplicationDelay));
                                 if (!(entity.isEntityUndead() || entity instanceof EntitySnowman
-                                        || entity instanceof Glacon || entity instanceof Frost
+                                        || entity instanceof EntityGlacon || entity instanceof EntityFrost
                                         || entity instanceof Alicanto || entity instanceof Fractite
                                         || entity instanceof FrostArcher || entity instanceof Frosty
                                         || entity instanceof Glacide || entity instanceof Hastreus

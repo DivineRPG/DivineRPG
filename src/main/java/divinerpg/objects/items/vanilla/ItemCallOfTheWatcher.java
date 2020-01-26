@@ -1,6 +1,6 @@
 package divinerpg.objects.items.vanilla;
 
-import divinerpg.objects.entities.entity.vanilla.TheWatcher;
+import divinerpg.objects.entities.entity.vanilla.EntityTheWatcher;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.log.Logging;
@@ -30,7 +30,7 @@ public class ItemCallOfTheWatcher extends ItemMod {
         ItemStack itemstack = player.getHeldItem(hand);
         if (!world.isRemote) {
             if (world.provider.getDimension() == -1) {
-                TheWatcher entity = new TheWatcher(world);
+                EntityTheWatcher entity = new EntityTheWatcher(world);
                 entity.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                 if (world.getCollisionBoxes(entity, entity.getEntityBoundingBox()).isEmpty()) {
                     world.spawnEntity(entity);

@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelKingCrab;
-import divinerpg.objects.entities.entity.vanilla.KingCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityKingCrab;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderKingCrab extends RenderLiving<KingCrab> {
+public class RenderKingCrab extends RenderLiving<EntityKingCrab> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/crab.png");
 
@@ -21,13 +21,13 @@ public class RenderKingCrab extends RenderLiving<KingCrab> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(KingCrab entity) {
+    protected ResourceLocation getEntityTexture(EntityKingCrab entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<KingCrab> {
+    public static class Factory implements IRenderFactory<EntityKingCrab> {
         @Override
-        public Render<? super KingCrab> createRenderFor(RenderManager manager) {
+        public Render<? super EntityKingCrab> createRenderFor(RenderManager manager) {
             return new RenderKingCrab(manager, new ModelKingCrab(), 0F);
         }
     }

@@ -22,8 +22,8 @@ import divinerpg.objects.entities.container.gui.*;
 import divinerpg.objects.entities.entity.arcana.*;
 import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
-import divinerpg.objects.entities.entity.vanilla.JackOMan;
-import divinerpg.objects.entities.entity.vanilla.LivestockMerchant;
+import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
+import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.MessageLocalizer;
@@ -106,11 +106,11 @@ public class JEICompat implements IModPlugin {
     public void register(IModRegistry registry) {
         DivineRPG.logger.info("Registering JEI compat");
 
-        registerVillagerRecepies(registry, JackOMan.getAllRecipies(), JeiReferences.JACK_O_MAN_CATEGORY);
+        registerVillagerRecepies(registry, EntityJackOMan.getAllRecipies(), JeiReferences.JACK_O_MAN_CATEGORY);
         registerVillagerRecepies(registry, WorkshopMerchant.getAllRecipies(), JeiReferences.WORKSHOP_MERCHANT_CATEGORY);
         registerVillagerRecepies(registry, WorkshopTinkerer.getAllRecipies(), JeiReferences.WORKSHOP_TINKERER_CATEGORY);
         registerVillagerRecepies(registry, CaptainMerik.getAllRecipies(), JeiReferences.CAPITAIN_MERIC_CATEGORY);
-        registerVillagerRecepies(registry, LivestockMerchant.getAllRecipies(), JeiReferences.LIVESTOCK_MERCHANT_CATEGORY);
+        registerVillagerRecepies(registry, EntityLivestockMerchant.getAllRecipies(), JeiReferences.LIVESTOCK_MERCHANT_CATEGORY);
         registerVillagerRecepies(registry, WarGeneral.getAllRecipies(), JeiReferences.WAR_GENERAL_CATEGORY);
         registerVillagerRecepies(registry, Leorna.getAllRecipies(), JeiReferences.LEORNA_CATEGORY);
         registerVillagerRecepies(registry, Datticon.getAllRecipies(), JeiReferences.DATTICON_CATEGORY);

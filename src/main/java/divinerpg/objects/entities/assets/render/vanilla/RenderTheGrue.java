@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelTheGrue;
-import divinerpg.objects.entities.entity.vanilla.TheGrue;
+import divinerpg.objects.entities.entity.vanilla.EntityTheGrue;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderTheGrue extends RenderLiving<TheGrue> {
+public class RenderTheGrue extends RenderLiving<EntityTheGrue> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/the_grue.png");
 
@@ -21,13 +21,13 @@ public class RenderTheGrue extends RenderLiving<TheGrue> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(TheGrue entity) {
+    protected ResourceLocation getEntityTexture(EntityTheGrue entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<TheGrue> {
+    public static class Factory implements IRenderFactory<EntityTheGrue> {
         @Override
-        public Render<? super TheGrue> createRenderFor(RenderManager manager) {
+        public Render<? super EntityTheGrue> createRenderFor(RenderManager manager) {
             return new RenderTheGrue(manager, new ModelTheGrue(), 0F);
         }
     }

@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelJackOMan;
-import divinerpg.objects.entities.entity.vanilla.JackOMan;
+import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderJackOMan extends RenderLiving<JackOMan> {
+public class RenderJackOMan extends RenderLiving<EntityJackOMan> {
     public static final IRenderFactory FACTORY = new Factory();
     public static ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/entity/jackoman.png");
 
@@ -28,18 +28,18 @@ public class RenderJackOMan extends RenderLiving<JackOMan> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(JackOMan entity) {
+    protected ResourceLocation getEntityTexture(EntityJackOMan entity) {
         return TEXTURE;
     }
 
-    public static class Factory implements IRenderFactory<JackOMan> {
+    public static class Factory implements IRenderFactory<EntityJackOMan> {
         @Override
-        public Render<? super JackOMan> createRenderFor(RenderManager manager) {
+        public Render<? super EntityJackOMan> createRenderFor(RenderManager manager) {
             return new RenderJackOMan(manager, new ModelJackOMan(), 0.5F);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<JackOMan> {
+    private class MainHandLayer implements LayerRenderer<EntityJackOMan> {
         protected final RenderJackOMan renderJackOMan;
 
         public MainHandLayer(RenderJackOMan renderJackOManIn) {
@@ -47,8 +47,8 @@ public class RenderJackOMan extends RenderLiving<JackOMan> {
         }
 
         @Override
-        public void doRenderLayer(JackOMan entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityJackOMan entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelJackOMan) this.renderJackOMan.getMainModel()).bipedRightArm.postRender(0.0625F);

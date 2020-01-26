@@ -1,6 +1,5 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.objects.entities.entity.vanilla.EnthralledDramcryx;
 import divinerpg.objects.entities.entity.vethea.EntityQuadro;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.EntityLiving;

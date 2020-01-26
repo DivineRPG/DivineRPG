@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.model.vanilla;
 
-import divinerpg.objects.entities.entity.vanilla.SaguaroWorm;
+import divinerpg.objects.entities.entity.vanilla.EntitySaguaroWorm;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -75,7 +75,7 @@ public class ModelSaguaroWorm extends ModelBase {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        if (((SaguaroWorm) entity).getProvoked()) {
+        if (((EntitySaguaroWorm) entity).getProvoked()) {
             connector2.render(f5);
             middle.render(f5);
             base.render(f5);

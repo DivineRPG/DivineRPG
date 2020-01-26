@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.entity.vanilla.Miner;
+import divinerpg.objects.entities.entity.vanilla.EntityMiner;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.Render;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderMiner extends RenderBiped<Miner> {
+public class RenderMiner extends RenderBiped<EntityMiner> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/miner.png");
 
@@ -32,13 +32,13 @@ public class RenderMiner extends RenderBiped<Miner> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Miner entity) {
+    protected ResourceLocation getEntityTexture(EntityMiner entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Miner> {
+    public static class Factory implements IRenderFactory<EntityMiner> {
         @Override
-        public Render<? super Miner> createRenderFor(RenderManager manager) {
+        public Render<? super EntityMiner> createRenderFor(RenderManager manager) {
             return new RenderMiner(manager, new ModelZombie(), 0.5F);
         }
     }

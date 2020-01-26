@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.model.vanilla;
 
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.objects.entities.entity.vanilla.Kobblin;
+import divinerpg.objects.entities.entity.vanilla.EntityKobblin;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -100,7 +100,7 @@ public class ModelKobblin extends ModelBase {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GL11.glPushMatrix();
-        if (entity instanceof Kobblin && !((Kobblin) entity).getProvoked())
+        if (entity instanceof EntityKobblin && !((EntityKobblin) entity).getProvoked())
             GL11.glTranslatef(0, 1.125f, 0);
         Pad.render(f5);
         RArm1.render(f5);

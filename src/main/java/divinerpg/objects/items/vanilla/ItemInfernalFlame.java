@@ -1,6 +1,6 @@
 package divinerpg.objects.items.vanilla;
 
-import divinerpg.objects.entities.entity.vanilla.KingOfScorchers;
+import divinerpg.objects.entities.entity.vanilla.EntityKingOfScorchers;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.log.Logging;
@@ -26,7 +26,7 @@ public class ItemInfernalFlame extends ItemMod {
         ItemStack itemstack = player.getHeldItem(hand);
         if (!world.isRemote) {
             if (world.provider.getDimension() == -1) {
-                KingOfScorchers entity = new KingOfScorchers(world);
+                EntityKingOfScorchers entity = new EntityKingOfScorchers(world);
                 entity.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                 if (world.getCollisionBoxes(entity, entity.getEntityBoundingBox()).isEmpty()) {
                     world.spawnEntity(entity);

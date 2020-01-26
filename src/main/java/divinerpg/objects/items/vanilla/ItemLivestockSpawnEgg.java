@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.entity.vanilla.BrownGrizzle;
-import divinerpg.objects.entities.entity.vanilla.Ehu;
-import divinerpg.objects.entities.entity.vanilla.Husk;
-import divinerpg.objects.entities.entity.vanilla.Smelter;
-import divinerpg.objects.entities.entity.vanilla.Snapper;
-import divinerpg.objects.entities.entity.vanilla.StoneGolem;
-import divinerpg.objects.entities.entity.vanilla.WhiteGrizzle;
+import divinerpg.objects.entities.entity.vanilla.EntityBrownGrizzle;
+import divinerpg.objects.entities.entity.vanilla.EntityEhu;
+import divinerpg.objects.entities.entity.vanilla.EntityHusk;
+import divinerpg.objects.entities.entity.vanilla.EntitySmelter;
+import divinerpg.objects.entities.entity.vanilla.EntitySnapper;
+import divinerpg.objects.entities.entity.vanilla.EntityStoneGolem;
+import divinerpg.objects.entities.entity.vanilla.EntityWhiteGrizzle;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
@@ -40,31 +40,31 @@ public class ItemLivestockSpawnEgg extends ItemMod {
             Item item = stack.getItem();
             int x = pos.getX(), y = pos.getY(), z = pos.getZ();
             if (item == ModItems.ehuSpawner) {
-                Ehu ehu = new Ehu(world, player);
+                EntityEhu ehu = new EntityEhu(world, player);
                 ehu.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(ehu);
             } else if (item == ModItems.huskSpawner) {
-                Husk husk = new Husk(world, player);
+                EntityHusk husk = new EntityHusk(world, player);
                 husk.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(husk);
             } else if (item == ModItems.stoneGolemSpawner) {
-                StoneGolem stoneGolem = new StoneGolem(world, player);
+                EntityStoneGolem stoneGolem = new EntityStoneGolem(world, player);
                 stoneGolem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(stoneGolem);
             } else if (item == ModItems.smelterSpawner) {
-                Smelter smelter = new Smelter(world, player);
+                EntitySmelter smelter = new EntitySmelter(world, player);
                 smelter.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(smelter);
             } else if (item == ModItems.snapperSpawner) {
-                Snapper snapper = new Snapper(world, player);
+                EntitySnapper snapper = new EntitySnapper(world, player);
                 snapper.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(snapper);
             } else if (item == ModItems.whiteGrizzleSpawner) {
-                WhiteGrizzle whiteGrizzle = new WhiteGrizzle(world, player);
+                EntityWhiteGrizzle whiteGrizzle = new EntityWhiteGrizzle(world, player);
                 whiteGrizzle.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(whiteGrizzle);
             } else if (item == ModItems.brownGrizzleSpawner) {
-                BrownGrizzle brownGrizzle = new BrownGrizzle(world, player);
+                EntityBrownGrizzle brownGrizzle = new EntityBrownGrizzle(world, player);
                 brownGrizzle.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(brownGrizzle);
             }
