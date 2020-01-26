@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelMystic;
-import divinerpg.objects.entities.entity.twilight.Spellbinder;
+import divinerpg.objects.entities.entity.twilight.EntitySpellbinder;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderSpellbinder extends RenderLiving<Spellbinder> {
+public class RenderSpellbinder extends RenderLiving<EntitySpellbinder> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/spellbinder.png");
 
@@ -21,13 +21,13 @@ public class RenderSpellbinder extends RenderLiving<Spellbinder> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Spellbinder entity) {
+    protected ResourceLocation getEntityTexture(EntitySpellbinder entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Spellbinder> {
+    public static class Factory implements IRenderFactory<EntitySpellbinder> {
         @Override
-        public Render<? super Spellbinder> createRenderFor(RenderManager manager) {
+        public Render<? super EntitySpellbinder> createRenderFor(RenderManager manager) {
             return new RenderSpellbinder(manager, new ModelMystic(), 0);
         }
     }

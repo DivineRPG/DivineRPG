@@ -1,12 +1,12 @@
 package divinerpg.objects.items.twilight;
 
-import divinerpg.objects.entities.entity.twilight.Densos;
-import divinerpg.objects.entities.entity.twilight.EternalArcher;
-import divinerpg.objects.entities.entity.twilight.Karot;
-import divinerpg.objects.entities.entity.twilight.Reyvor;
-import divinerpg.objects.entities.entity.twilight.SoulFiend;
-import divinerpg.objects.entities.entity.twilight.TwilightDemon;
-import divinerpg.objects.entities.entity.twilight.Vamacheron;
+import divinerpg.objects.entities.entity.twilight.EntityDensos;
+import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
+import divinerpg.objects.entities.entity.twilight.EntityKarot;
+import divinerpg.objects.entities.entity.twilight.EntityReyvor;
+import divinerpg.objects.entities.entity.twilight.EntitySoulFiend;
+import divinerpg.objects.entities.entity.twilight.EntityTwilightDemon;
+import divinerpg.objects.entities.entity.twilight.EntityVamacheron;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModDimensions;
@@ -37,7 +37,7 @@ public class ItemTwilightSpawner extends ItemMod {
         if (!world.isRemote) {
             if (world.provider.getDimensionType().getId() == ModDimensions.mortumDimension.getId()) {
                 if (stack.getItem() == ModItems.karotCrystal) {
-                    Karot e = new Karot(world);
+                    EntityKarot e = new EntityKarot(world);
                     e.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                     if (world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty()) {
                         world.spawnEntity(e);
@@ -47,8 +47,8 @@ public class ItemTwilightSpawner extends ItemMod {
                         return EnumActionResult.SUCCESS;
                     }
                 } else if (stack.getItem() == ModItems.densosCrystal || stack.getItem() == ModItems.reyvorCrystal) {
-                    Densos e = new Densos(world);
-                    Reyvor e1 = new Reyvor(world);
+                    EntityDensos e = new EntityDensos(world);
+                    EntityReyvor e1 = new EntityReyvor(world);
                     e.setPosition(pos.getX() + 1, pos.getY() + 1, pos.getZ());
                     e1.setPosition(pos.getX() - 1, pos.getY() + 1, pos.getZ());
                     if (world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty()
@@ -61,7 +61,7 @@ public class ItemTwilightSpawner extends ItemMod {
                         return EnumActionResult.SUCCESS;
                     }
                 } else if (stack.getItem() == ModItems.soulFiendCrystal) {
-                    SoulFiend e = new SoulFiend(world);
+                    EntitySoulFiend e = new EntitySoulFiend(world);
                     e.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                     if (world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty()) {
                         world.spawnEntity(e);
@@ -71,7 +71,7 @@ public class ItemTwilightSpawner extends ItemMod {
                         return EnumActionResult.SUCCESS;
                     }
                 } else if (stack.getItem() == ModItems.twilightDemonCrystal) {
-                    TwilightDemon e = new TwilightDemon(world);
+                    EntityTwilightDemon e = new EntityTwilightDemon(world);
                     e.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                     if (world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty()) {
                         world.spawnEntity(e);
@@ -81,7 +81,7 @@ public class ItemTwilightSpawner extends ItemMod {
                         return EnumActionResult.SUCCESS;
                     }
                 } else if (stack.getItem() == ModItems.vamacheronCrystal) {
-                    Vamacheron e = new Vamacheron(world);
+                    EntityVamacheron e = new EntityVamacheron(world);
                     e.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                     if (world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty()) {
                         world.spawnEntity(e);
@@ -91,7 +91,7 @@ public class ItemTwilightSpawner extends ItemMod {
                         return EnumActionResult.SUCCESS;
                     }
                 } else if (stack.getItem() == ModItems.eternalArcherCrystal) {
-                    EternalArcher e = new EternalArcher(world);
+                    EntityEternalArcher e = new EntityEternalArcher(world);
                     e.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
                     if (world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty()) {
                         world.spawnEntity(e);

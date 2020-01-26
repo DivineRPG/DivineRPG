@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import org.lwjgl.opengl.GL11;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelEternalArcher;
-import divinerpg.objects.entities.entity.twilight.EternalArcher;
+import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -20,7 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEternalArcher extends RenderLiving<EternalArcher> {
+public class RenderEternalArcher extends RenderLiving<EntityEternalArcher> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eternal_archer.png");
 
@@ -31,23 +31,23 @@ public class RenderEternalArcher extends RenderLiving<EternalArcher> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EternalArcher entity) {
+    protected ResourceLocation getEntityTexture(EntityEternalArcher entity) {
         return texture;
     }
 
     @Override
-    public void preRenderCallback(EternalArcher entity, float f) {
+    public void preRenderCallback(EntityEternalArcher entity, float f) {
         GL11.glScalef(2.5f, 2.5f, 2.5f);
     }
 
-    public static class Factory implements IRenderFactory<EternalArcher> {
+    public static class Factory implements IRenderFactory<EntityEternalArcher> {
         @Override
-        public Render<? super EternalArcher> createRenderFor(RenderManager manager) {
+        public Render<? super EntityEternalArcher> createRenderFor(RenderManager manager) {
             return new RenderEternalArcher(manager, new ModelEternalArcher(), 0);
         }
     }
 
-    private class HandsLayer implements LayerRenderer<EternalArcher> {
+    private class HandsLayer implements LayerRenderer<EntityEternalArcher> {
         protected final RenderEternalArcher renderEternalArcher;
 
         public HandsLayer(RenderEternalArcher renderEternalArcherIn) {
@@ -55,8 +55,8 @@ public class RenderEternalArcher extends RenderLiving<EternalArcher> {
         }
 
         @Override
-        public void doRenderLayer(EternalArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityEternalArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             for (ModelRenderer renderRight : ((ModelEternalArcher) this.renderEternalArcher.getMainModel()).armsRight) {
                 GlStateManager.enableRescaleNormal();
                 GlStateManager.pushMatrix();

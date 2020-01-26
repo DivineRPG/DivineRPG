@@ -172,49 +172,49 @@ import divinerpg.objects.entities.entity.iceika.Rollum;
 import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
 import divinerpg.objects.entities.entity.projectiles.*;
-import divinerpg.objects.entities.entity.twilight.AdvancedCori;
-import divinerpg.objects.entities.entity.twilight.AngryBunny;
-import divinerpg.objects.entities.entity.twilight.ApalachiaCadillion;
-import divinerpg.objects.entities.entity.twilight.ApalachiaGolem;
-import divinerpg.objects.entities.entity.twilight.ApalachiaTomo;
-import divinerpg.objects.entities.entity.twilight.Basilisk;
-import divinerpg.objects.entities.entity.twilight.Behemoth;
-import divinerpg.objects.entities.entity.twilight.Bunny;
-import divinerpg.objects.entities.entity.twilight.DemonOfDarkness;
-import divinerpg.objects.entities.entity.twilight.Densos;
-import divinerpg.objects.entities.entity.twilight.EdenCadillion;
-import divinerpg.objects.entities.entity.twilight.EdenTomo;
-import divinerpg.objects.entities.entity.twilight.EnchantedArcher;
-import divinerpg.objects.entities.entity.twilight.EnchantedWarrior;
-import divinerpg.objects.entities.entity.twilight.Epiphite;
-import divinerpg.objects.entities.entity.twilight.EternalArcher;
-import divinerpg.objects.entities.entity.twilight.Greenfeet;
-import divinerpg.objects.entities.entity.twilight.Karot;
-import divinerpg.objects.entities.entity.twilight.Madivel;
-import divinerpg.objects.entities.entity.twilight.Mage;
-import divinerpg.objects.entities.entity.twilight.Megalith;
-import divinerpg.objects.entities.entity.twilight.MoonWolf;
-import divinerpg.objects.entities.entity.twilight.MortumCadillion;
-import divinerpg.objects.entities.entity.twilight.Mystic;
-import divinerpg.objects.entities.entity.twilight.Reyvor;
-import divinerpg.objects.entities.entity.twilight.Samek;
-import divinerpg.objects.entities.entity.twilight.SkythernArcher;
-import divinerpg.objects.entities.entity.twilight.SkythernFiend;
-import divinerpg.objects.entities.entity.twilight.SkythernGolem;
-import divinerpg.objects.entities.entity.twilight.Sorcerer;
-import divinerpg.objects.entities.entity.twilight.SoulFiend;
-import divinerpg.objects.entities.entity.twilight.SoulSpider;
-import divinerpg.objects.entities.entity.twilight.SoulStealer;
-import divinerpg.objects.entities.entity.twilight.Spellbinder;
-import divinerpg.objects.entities.entity.twilight.SunArcher;
-import divinerpg.objects.entities.entity.twilight.TwilightArcher;
-import divinerpg.objects.entities.entity.twilight.TwilightDemon;
-import divinerpg.objects.entities.entity.twilight.Vamacheron;
-import divinerpg.objects.entities.entity.twilight.Verek;
-import divinerpg.objects.entities.entity.twilight.WeakCori;
-import divinerpg.objects.entities.entity.twilight.WildwoodCadillion;
-import divinerpg.objects.entities.entity.twilight.WildwoodGolem;
-import divinerpg.objects.entities.entity.twilight.WildwoodTomo;
+import divinerpg.objects.entities.entity.twilight.EntityAdvancedCori;
+import divinerpg.objects.entities.entity.twilight.EntityAngryBunny;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaGolem;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaTomo;
+import divinerpg.objects.entities.entity.twilight.EntityBasilisk;
+import divinerpg.objects.entities.entity.twilight.EntityBehemoth;
+import divinerpg.objects.entities.entity.twilight.EntityBunny;
+import divinerpg.objects.entities.entity.twilight.EntityDemonOfDarkness;
+import divinerpg.objects.entities.entity.twilight.EntityDensos;
+import divinerpg.objects.entities.entity.twilight.EntityEdenCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityEdenTomo;
+import divinerpg.objects.entities.entity.twilight.EntityEnchantedArcher;
+import divinerpg.objects.entities.entity.twilight.EntityEnchantedWarrior;
+import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
+import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
+import divinerpg.objects.entities.entity.twilight.EntityGreenfeet;
+import divinerpg.objects.entities.entity.twilight.EntityKarot;
+import divinerpg.objects.entities.entity.twilight.EntityMadivel;
+import divinerpg.objects.entities.entity.twilight.EntityMage;
+import divinerpg.objects.entities.entity.twilight.EntityMegalith;
+import divinerpg.objects.entities.entity.twilight.EntityMoonWolf;
+import divinerpg.objects.entities.entity.twilight.EntityMortumCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityMystic;
+import divinerpg.objects.entities.entity.twilight.EntityReyvor;
+import divinerpg.objects.entities.entity.twilight.EntitySamek;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernArcher;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernFiend;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernGolem;
+import divinerpg.objects.entities.entity.twilight.EntitySorcerer;
+import divinerpg.objects.entities.entity.twilight.EntitySoulFiend;
+import divinerpg.objects.entities.entity.twilight.EntitySoulSpider;
+import divinerpg.objects.entities.entity.twilight.EntitySoulStealer;
+import divinerpg.objects.entities.entity.twilight.EntitySpellbinder;
+import divinerpg.objects.entities.entity.twilight.EntitySunArcher;
+import divinerpg.objects.entities.entity.twilight.EntityTwilightArcher;
+import divinerpg.objects.entities.entity.twilight.EntityTwilightDemon;
+import divinerpg.objects.entities.entity.twilight.EntityVamacheron;
+import divinerpg.objects.entities.entity.twilight.EntityVerek;
+import divinerpg.objects.entities.entity.twilight.EntityWeakCori;
+import divinerpg.objects.entities.entity.twilight.EntityWildwoodCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityWildwoodGolem;
+import divinerpg.objects.entities.entity.twilight.EntityWildwoodTomo;
 import divinerpg.objects.entities.entity.vanilla.EntityAncientEntity;
 import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
 import divinerpg.objects.entities.entity.vanilla.EntityBrownGrizzle;
@@ -361,47 +361,47 @@ public class ModEntities {
                 buildEntityEntry(WorkshopTinkerer.class, "workshop_tinkerer", ICEIKA),
 
                 // Eden
-                buildEntityEntry(Bunny.class, "bunny", EDEN),
-                buildEntityEntry(EdenCadillion.class, "eden_cadillion", EDEN),
-                buildEntityEntry(EdenTomo.class, "eden_tomo", EDEN),
-                buildEntityEntry(Greenfeet.class, "greenfeet", EDEN), buildEntityEntry(Madivel.class, "madivel", EDEN),
-                buildEntityEntry(SunArcher.class, "sun_archer", EDEN),
-                buildEntityEntry(WeakCori.class, "weak_cori", EDEN),
+                buildEntityEntry(EntityBunny.class, "bunny", EDEN),
+                buildEntityEntry(EntityEdenCadillion.class, "eden_cadillion", EDEN),
+                buildEntityEntry(EntityEdenTomo.class, "eden_tomo", EDEN),
+                buildEntityEntry(EntityGreenfeet.class, "greenfeet", EDEN), buildEntityEntry(EntityMadivel.class, "madivel", EDEN),
+                buildEntityEntry(EntitySunArcher.class, "sun_archer", EDEN),
+                buildEntityEntry(EntityWeakCori.class, "weak_cori", EDEN),
 
                 // Wildwood
-                buildEntityEntry(Behemoth.class, "behemoth", WILDWOOD),
-                buildEntityEntry(Epiphite.class, "epiphite", WILDWOOD), buildEntityEntry(Mage.class, "mage", WILDWOOD),
-                buildEntityEntry(MoonWolf.class, "moon_wolf", WILDWOOD),
-                buildEntityEntry(Verek.class, "verek", WILDWOOD),
-                buildEntityEntry(WildwoodCadillion.class, "wildwood_cadillion", WILDWOOD),
-                buildEntityEntry(WildwoodGolem.class, "wildwood_golem", WILDWOOD),
-                buildEntityEntry(WildwoodTomo.class, "wildwood_tomo", WILDWOOD),
+                buildEntityEntry(EntityBehemoth.class, "behemoth", WILDWOOD),
+                buildEntityEntry(EntityEpiphite.class, "epiphite", WILDWOOD), buildEntityEntry(EntityMage.class, "mage", WILDWOOD),
+                buildEntityEntry(EntityMoonWolf.class, "moon_wolf", WILDWOOD),
+                buildEntityEntry(EntityVerek.class, "verek", WILDWOOD),
+                buildEntityEntry(EntityWildwoodCadillion.class, "wildwood_cadillion", WILDWOOD),
+                buildEntityEntry(EntityWildwoodGolem.class, "wildwood_golem", WILDWOOD),
+                buildEntityEntry(EntityWildwoodTomo.class, "wildwood_tomo", WILDWOOD),
 
                 // Apalachia
-                buildEntityEntry(ApalachiaCadillion.class, "apalachia_cadillion", APALACHIA),
-                buildEntityEntry(ApalachiaGolem.class, "apalachia_golem", APALACHIA),
-                buildEntityEntry(ApalachiaTomo.class, "apalachia_tomo", APALACHIA),
-                buildEntityEntry(EnchantedArcher.class, "enchanted_archer", APALACHIA),
-                buildEntityEntry(EnchantedWarrior.class, "enchanted_warrior", APALACHIA),
-                buildEntityEntry(Spellbinder.class, "spellbinder", APALACHIA),
+                buildEntityEntry(EntityApalachiaCadillion.class, "apalachia_cadillion", APALACHIA),
+                buildEntityEntry(EntityApalachiaGolem.class, "apalachia_golem", APALACHIA),
+                buildEntityEntry(EntityApalachiaTomo.class, "apalachia_tomo", APALACHIA),
+                buildEntityEntry(EntityEnchantedArcher.class, "enchanted_archer", APALACHIA),
+                buildEntityEntry(EntityEnchantedWarrior.class, "enchanted_warrior", APALACHIA),
+                buildEntityEntry(EntitySpellbinder.class, "spellbinder", APALACHIA),
 
                 // Skythern
-                buildEntityEntry(AdvancedCori.class, "advanced_cori", SKYTHERN),
-                buildEntityEntry(Megalith.class, "megalith", SKYTHERN),
-                buildEntityEntry(Mystic.class, "mystic", SKYTHERN), buildEntityEntry(Samek.class, "samek", SKYTHERN),
-                buildEntityEntry(SkythernArcher.class, "skythern_archer", SKYTHERN),
-                buildEntityEntry(SkythernFiend.class, "skythern_fiend", SKYTHERN),
-                buildEntityEntry(SkythernGolem.class, "skythern_golem", SKYTHERN),
+                buildEntityEntry(EntityAdvancedCori.class, "advanced_cori", SKYTHERN),
+                buildEntityEntry(EntityMegalith.class, "megalith", SKYTHERN),
+                buildEntityEntry(EntityMystic.class, "mystic", SKYTHERN), buildEntityEntry(EntitySamek.class, "samek", SKYTHERN),
+                buildEntityEntry(EntitySkythernArcher.class, "skythern_archer", SKYTHERN),
+                buildEntityEntry(EntitySkythernFiend.class, "skythern_fiend", SKYTHERN),
+                buildEntityEntry(EntitySkythernGolem.class, "skythern_golem", SKYTHERN),
 
                 // Mortum
-                buildEntityEntry(AngryBunny.class, "angry_bunny", MORTUM),
-                buildEntityEntry(Basilisk.class, "basilisk", MORTUM),
-                buildEntityEntry(DemonOfDarkness.class, "demon_of_darkness", MORTUM),
-                buildEntityEntry(MortumCadillion.class, "mortum_cadillion", MORTUM),
-                buildEntityEntry(Sorcerer.class, "sorcerer", MORTUM),
-                buildEntityEntry(SoulStealer.class, "soul_stealer", MORTUM),
-                buildEntityEntry(SoulSpider.class, "soul_spider", MORTUM),
-                buildEntityEntry(TwilightArcher.class, "twilight_archer", MORTUM),
+                buildEntityEntry(EntityAngryBunny.class, "angry_bunny", MORTUM),
+                buildEntityEntry(EntityBasilisk.class, "basilisk", MORTUM),
+                buildEntityEntry(EntityDemonOfDarkness.class, "demon_of_darkness", MORTUM),
+                buildEntityEntry(EntityMortumCadillion.class, "mortum_cadillion", MORTUM),
+                buildEntityEntry(EntitySorcerer.class, "sorcerer", MORTUM),
+                buildEntityEntry(EntitySoulStealer.class, "soul_stealer", MORTUM),
+                buildEntityEntry(EntitySoulSpider.class, "soul_spider", MORTUM),
+                buildEntityEntry(EntityTwilightArcher.class, "twilight_archer", MORTUM),
 
                 // Arcana
                 buildEntityEntry(CaptainMerik.class, "captain_merik", ARCANA),
@@ -464,20 +464,20 @@ public class ModEntities {
                 buildEntityEntry(EntityAyeracoPurple.class, "ayeraco_purple", BOSS),
                 buildEntityEntry(EntityAyeracoRed.class, "ayeraco_red", BOSS),
                 buildEntityEntry(EntityAyeracoYellow.class, "ayeraco_yellow", BOSS),
-                buildEntityEntry(Densos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
-                buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
+                buildEntityEntry(EntityDensos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
+                buildEntityEntry(EntityEternalArcher.class, "eternal_archer", BOSS),
                 buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
-                buildEntityEntry(Karot.class, "karot", BOSS),
+                buildEntityEntry(EntityKarot.class, "karot", BOSS),
                 buildEntityEntry(EntityKaros.class, "karos", BOSS),
                 buildEntityEntry(EntityKingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(EntityLadyLuna.class, "lady_luna", BOSS),
                 buildEntityEntry(Parasecta.class, "parasecta", BOSS),
                 buildEntityEntry(EntityQuadro.class, "quadro", BOSS),
                 buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
-                buildEntityEntry(Reyvor.class, "reyvor", BOSS), buildEntityEntry(SoulFiend.class, "soul_fiend", BOSS),
+                buildEntityEntry(EntityReyvor.class, "reyvor", BOSS), buildEntityEntry(EntitySoulFiend.class, "soul_fiend", BOSS),
                 buildEntityEntry(EntityTheWatcher.class, "the_watcher", BOSS),
-                buildEntityEntry(TwilightDemon.class, "twilight_demon", BOSS),
-                buildEntityEntry(Vamacheron.class, "vamacheron", BOSS),
+                buildEntityEntry(EntityTwilightDemon.class, "twilight_demon", BOSS),
+                buildEntityEntry(EntityVamacheron.class, "vamacheron", BOSS),
                 buildEntityEntry(EntityWreck.class, "wreck", BOSS)
         };
 
@@ -651,49 +651,49 @@ public class ModEntities {
         registerRender(WorkshopMerchant.class, RenderWorkshopMerchant.FACTORY);
 
         // Twilight
-        registerRender(AdvancedCori.class, RenderAdvancedCori.FACTORY);
-        registerRender(AngryBunny.class, RenderAngryBunny.FACTORY);
-        registerRender(ApalachiaCadillion.class, RenderApalachiaCadillion.FACTORY);
-        registerRender(ApalachiaGolem.class, RenderApalachiaGolem.FACTORY);
-        registerRender(ApalachiaTomo.class, RenderApalachiaTomo.FACTORY);
-        registerRender(Basilisk.class, RenderBasilisk.FACTORY);
-        registerRender(Behemoth.class, RenderBehemoth.FACTORY);
-        registerRender(Bunny.class, RenderBunny.FACTORY);
-        registerRender(DemonOfDarkness.class, RenderDemonOfDarkness.FACTORY);
-        registerRender(Densos.class, RenderDensos.FACTORY);
-        registerRender(EdenCadillion.class, RenderEdenCadillion.FACTORY);
-        registerRender(EdenTomo.class, RenderEdenTomo.FACTORY);
-        registerRender(EnchantedArcher.class, RenderEnchantedArcher.FACTORY);
-        registerRender(EnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
-        registerRender(Epiphite.class, RenderEpiphite.FACTORY);
-        registerRender(EternalArcher.class, RenderEternalArcher.FACTORY);
-        registerRender(Greenfeet.class, RenderGreenfeet.FACTORY);
-        registerRender(Karot.class, RenderKarot.FACTORY);
-        registerRender(Madivel.class, RenderMadivel.FACTORY);
-        registerRender(Mage.class, RenderMage.FACTORY);
-        registerRender(Megalith.class, RenderMegalith.FACTORY);
-        registerRender(MoonWolf.class, RenderMoonWolf.FACTORY);
-        registerRender(MortumCadillion.class, RenderMortumCadillion.FACTORY);
-        registerRender(Mystic.class, RenderMystic.FACTORY);
-        registerRender(Reyvor.class, RenderReyvor.FACTORY);
-        registerRender(Samek.class, RenderSamek.FACTORY);
-        registerRender(SkythernArcher.class, RenderSkythernArcher.FACTORY);
-        registerRender(SkythernFiend.class, RenderSkythernFiend.FACTORY);
-        registerRender(SkythernGolem.class, RenderSkythernGolem.FACTORY);
-        registerRender(Sorcerer.class, RenderSorcerer.FACTORY);
-        registerRender(SoulFiend.class, RenderSoulFiend.FACTORY);
-        registerRender(SoulSpider.class, RenderSoulSpider.FACTORY);
-        registerRender(SoulStealer.class, RenderSoulStealer.FACTORY);
-        registerRender(Spellbinder.class, RenderSpellbinder.FACTORY);
-        registerRender(SunArcher.class, RenderSunArcher.FACTORY);
-        registerRender(TwilightArcher.class, RenderTwilightArcher.FACTORY);
-        registerRender(TwilightDemon.class, RenderTwilightDemon.FACTORY);
-        registerRender(Vamacheron.class, RenderVamacheron.FACTORY);
-        registerRender(Verek.class, RenderVerek.FACTORY);
-        registerRender(WeakCori.class, RenderWeakCori.FACTORY);
-        registerRender(WildwoodCadillion.class, RenderWildwoodCadillion.FACTORY);
-        registerRender(WildwoodGolem.class, RenderWildwoodGolem.FACTORY);
-        registerRender(WildwoodTomo.class, RenderWildwoodTomo.FACTORY);
+        registerRender(EntityAdvancedCori.class, RenderAdvancedCori.FACTORY);
+        registerRender(EntityAngryBunny.class, RenderAngryBunny.FACTORY);
+        registerRender(EntityApalachiaCadillion.class, RenderApalachiaCadillion.FACTORY);
+        registerRender(EntityApalachiaGolem.class, RenderApalachiaGolem.FACTORY);
+        registerRender(EntityApalachiaTomo.class, RenderApalachiaTomo.FACTORY);
+        registerRender(EntityBasilisk.class, RenderBasilisk.FACTORY);
+        registerRender(EntityBehemoth.class, RenderBehemoth.FACTORY);
+        registerRender(EntityBunny.class, RenderBunny.FACTORY);
+        registerRender(EntityDemonOfDarkness.class, RenderDemonOfDarkness.FACTORY);
+        registerRender(EntityDensos.class, RenderDensos.FACTORY);
+        registerRender(EntityEdenCadillion.class, RenderEdenCadillion.FACTORY);
+        registerRender(EntityEdenTomo.class, RenderEdenTomo.FACTORY);
+        registerRender(EntityEnchantedArcher.class, RenderEnchantedArcher.FACTORY);
+        registerRender(EntityEnchantedWarrior.class, RenderEnchantedWarrior.FACTORY);
+        registerRender(EntityEpiphite.class, RenderEpiphite.FACTORY);
+        registerRender(EntityEternalArcher.class, RenderEternalArcher.FACTORY);
+        registerRender(EntityGreenfeet.class, RenderGreenfeet.FACTORY);
+        registerRender(EntityKarot.class, RenderKarot.FACTORY);
+        registerRender(EntityMadivel.class, RenderMadivel.FACTORY);
+        registerRender(EntityMage.class, RenderMage.FACTORY);
+        registerRender(EntityMegalith.class, RenderMegalith.FACTORY);
+        registerRender(EntityMoonWolf.class, RenderMoonWolf.FACTORY);
+        registerRender(EntityMortumCadillion.class, RenderMortumCadillion.FACTORY);
+        registerRender(EntityMystic.class, RenderMystic.FACTORY);
+        registerRender(EntityReyvor.class, RenderReyvor.FACTORY);
+        registerRender(EntitySamek.class, RenderSamek.FACTORY);
+        registerRender(EntitySkythernArcher.class, RenderSkythernArcher.FACTORY);
+        registerRender(EntitySkythernFiend.class, RenderSkythernFiend.FACTORY);
+        registerRender(EntitySkythernGolem.class, RenderSkythernGolem.FACTORY);
+        registerRender(EntitySorcerer.class, RenderSorcerer.FACTORY);
+        registerRender(EntitySoulFiend.class, RenderSoulFiend.FACTORY);
+        registerRender(EntitySoulSpider.class, RenderSoulSpider.FACTORY);
+        registerRender(EntitySoulStealer.class, RenderSoulStealer.FACTORY);
+        registerRender(EntitySpellbinder.class, RenderSpellbinder.FACTORY);
+        registerRender(EntitySunArcher.class, RenderSunArcher.FACTORY);
+        registerRender(EntityTwilightArcher.class, RenderTwilightArcher.FACTORY);
+        registerRender(EntityTwilightDemon.class, RenderTwilightDemon.FACTORY);
+        registerRender(EntityVamacheron.class, RenderVamacheron.FACTORY);
+        registerRender(EntityVerek.class, RenderVerek.FACTORY);
+        registerRender(EntityWeakCori.class, RenderWeakCori.FACTORY);
+        registerRender(EntityWildwoodCadillion.class, RenderWildwoodCadillion.FACTORY);
+        registerRender(EntityWildwoodGolem.class, RenderWildwoodGolem.FACTORY);
+        registerRender(EntityWildwoodTomo.class, RenderWildwoodTomo.FACTORY);
 
         // Arcana
         registerRender(CaptainMerik.class, RenderCaptainMerik.FACTORY);

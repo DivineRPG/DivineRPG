@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelTwilightArcher;
-import divinerpg.objects.entities.entity.twilight.TwilightArcher;
+import divinerpg.objects.entities.entity.twilight.EntityTwilightArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderTwilightArcher extends RenderLiving<TwilightArcher> {
+public class RenderTwilightArcher extends RenderLiving<EntityTwilightArcher> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/twilight_archer.png");
 
@@ -28,18 +28,18 @@ public class RenderTwilightArcher extends RenderLiving<TwilightArcher> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(TwilightArcher entity) {
+    protected ResourceLocation getEntityTexture(EntityTwilightArcher entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<TwilightArcher> {
+    public static class Factory implements IRenderFactory<EntityTwilightArcher> {
         @Override
-        public Render<? super TwilightArcher> createRenderFor(RenderManager manager) {
+        public Render<? super EntityTwilightArcher> createRenderFor(RenderManager manager) {
             return new RenderTwilightArcher(manager, new ModelTwilightArcher(), 0);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<TwilightArcher> {
+    private class MainHandLayer implements LayerRenderer<EntityTwilightArcher> {
         protected final RenderTwilightArcher renderTwilightArcher;
 
         public MainHandLayer(RenderTwilightArcher renderTwilightArcherIn) {
@@ -47,8 +47,8 @@ public class RenderTwilightArcher extends RenderLiving<TwilightArcher> {
         }
 
         @Override
-        public void doRenderLayer(TwilightArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityTwilightArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelTwilightArcher) this.renderTwilightArcher.getMainModel()).rightarm.postRender(0.0625F);

@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelMystic;
-import divinerpg.objects.entities.entity.twilight.Mystic;
+import divinerpg.objects.entities.entity.twilight.EntityMystic;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderMystic extends RenderLiving<Mystic> {
+public class RenderMystic extends RenderLiving<EntityMystic> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/mystic.png");
 
@@ -21,13 +21,13 @@ public class RenderMystic extends RenderLiving<Mystic> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Mystic entity) {
+    protected ResourceLocation getEntityTexture(EntityMystic entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Mystic> {
+    public static class Factory implements IRenderFactory<EntityMystic> {
         @Override
-        public Render<? super Mystic> createRenderFor(RenderManager manager) {
+        public Render<? super EntityMystic> createRenderFor(RenderManager manager) {
             return new RenderMystic(manager, new ModelMystic(), 0);
         }
     }

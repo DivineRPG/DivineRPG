@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelCori;
-import divinerpg.objects.entities.entity.twilight.WeakCori;
+import divinerpg.objects.entities.entity.twilight.EntityWeakCori;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderWeakCori extends RenderLiving<WeakCori> {
+public class RenderWeakCori extends RenderLiving<EntityWeakCori> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/weak_cori.png");
 
@@ -21,13 +21,13 @@ public class RenderWeakCori extends RenderLiving<WeakCori> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(WeakCori entity) {
+    protected ResourceLocation getEntityTexture(EntityWeakCori entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<WeakCori> {
+    public static class Factory implements IRenderFactory<EntityWeakCori> {
         @Override
-        public Render<? super WeakCori> createRenderFor(RenderManager manager) {
+        public Render<? super EntityWeakCori> createRenderFor(RenderManager manager) {
             return new RenderWeakCori(manager, new ModelCori(), 0);
         }
     }

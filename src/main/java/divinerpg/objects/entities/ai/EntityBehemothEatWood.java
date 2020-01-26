@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.ai;
 
-import divinerpg.objects.entities.entity.twilight.Behemoth;
+import divinerpg.objects.entities.entity.twilight.EntityBehemoth;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -12,13 +12,13 @@ import net.minecraft.util.math.BlockPos;
 
 public class EntityBehemothEatWood extends EntityAIBase {
 
-    private final Behemoth behemoth;
+    private final EntityBehemoth behemoth;
     private final float speed = 2.0F;
     private Path foodPath;
     private PathNavigate foodPathNavigator;
     private BlockPos target;
 
-    public EntityBehemothEatWood(Behemoth behemoth) {
+    public EntityBehemothEatWood(EntityBehemoth behemoth) {
         this.behemoth = behemoth;
         this.foodPathNavigator = behemoth.getNavigator();
         this.setMutexBits(1);

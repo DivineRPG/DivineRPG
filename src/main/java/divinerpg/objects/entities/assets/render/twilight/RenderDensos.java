@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
-import divinerpg.objects.entities.entity.twilight.Densos;
+import divinerpg.objects.entities.entity.twilight.EntityDensos;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderDensos extends RenderLiving<Densos> {
+public class RenderDensos extends RenderLiving<EntityDensos> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/densos.png");
 
@@ -28,18 +28,18 @@ public class RenderDensos extends RenderLiving<Densos> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Densos entity) {
+    protected ResourceLocation getEntityTexture(EntityDensos entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Densos> {
+    public static class Factory implements IRenderFactory<EntityDensos> {
         @Override
-        public Render<? super Densos> createRenderFor(RenderManager manager) {
+        public Render<? super EntityDensos> createRenderFor(RenderManager manager) {
             return new RenderDensos(manager, new ModelDensos(), 0.5F);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<Densos> {
+    private class MainHandLayer implements LayerRenderer<EntityDensos> {
         protected final RenderDensos renderDensos;
 
         public MainHandLayer(RenderDensos renderDensosIn) {
@@ -47,8 +47,8 @@ public class RenderDensos extends RenderLiving<Densos> {
         }
 
         @Override
-        public void doRenderLayer(Densos entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityDensos entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelDensos) this.renderDensos.getMainModel()).rightarm.postRender(0.0625F);

@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.model.twilight;
 
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.objects.entities.entity.twilight.MoonWolf;
+import divinerpg.objects.entities.entity.twilight.EntityMoonWolf;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -174,7 +174,7 @@ public class ModelMoonWolf extends ModelBase {
     }
 
     public void setLivingAnimations(EntityLivingBase entity, float var2, float var3, float var4) {
-        MoonWolf moonWolf = (MoonWolf) entity;
+        EntityMoonWolf moonWolf = (EntityMoonWolf) entity;
 
         if (moonWolf.isSitting()) {
             this.Mane.setRotationPoint(-1.0F, 16.0F, -3.0F);

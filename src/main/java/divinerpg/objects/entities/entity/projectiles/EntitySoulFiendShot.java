@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.BulletType;
-import divinerpg.objects.entities.entity.twilight.SoulSpider;
+import divinerpg.objects.entities.entity.twilight.EntitySoulSpider;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -25,7 +25,7 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
         if (!this.world.isRemote) {
             if (result.entityHit != null) {
                 for (int i = 0; i < 3; i++) {
-                    SoulSpider soulSpider = new SoulSpider(this.world);
+                    EntitySoulSpider soulSpider = new EntitySoulSpider(this.world);
                     soulSpider.setLocationAndAngles(this.posX, this.posY, this.posZ, 0, 0);
                     this.world.spawnEntity(soulSpider);
                 }

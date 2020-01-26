@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
-import divinerpg.objects.entities.entity.twilight.Reyvor;
+import divinerpg.objects.entities.entity.twilight.EntityReyvor;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderReyvor extends RenderLiving<Reyvor> {
+public class RenderReyvor extends RenderLiving<EntityReyvor> {
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/reyvor.png");
     public static final IRenderFactory FACTORY = new Factory();
 
@@ -28,18 +28,18 @@ public class RenderReyvor extends RenderLiving<Reyvor> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Reyvor entity) {
+    protected ResourceLocation getEntityTexture(EntityReyvor entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Reyvor> {
+    public static class Factory implements IRenderFactory<EntityReyvor> {
         @Override
-        public Render<? super Reyvor> createRenderFor(RenderManager manager) {
+        public Render<? super EntityReyvor> createRenderFor(RenderManager manager) {
             return new RenderReyvor(manager, new ModelDensos(), 0);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<Reyvor> {
+    private class MainHandLayer implements LayerRenderer<EntityReyvor> {
         protected final RenderReyvor renderReyvor;
 
         public MainHandLayer(RenderReyvor renderReyvorIn) {
@@ -47,8 +47,8 @@ public class RenderReyvor extends RenderLiving<Reyvor> {
         }
 
         @Override
-        public void doRenderLayer(Reyvor entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityReyvor entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelDensos) this.renderReyvor.getMainModel()).rightarm.postRender(0.0625F);

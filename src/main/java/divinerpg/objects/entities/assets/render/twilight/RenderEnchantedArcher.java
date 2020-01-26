@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedArcher;
-import divinerpg.objects.entities.entity.twilight.EnchantedArcher;
+import divinerpg.objects.entities.entity.twilight.EntityEnchantedArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEnchantedArcher extends RenderLiving<EnchantedArcher> {
+public class RenderEnchantedArcher extends RenderLiving<EntityEnchantedArcher> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_archer.png");
 
@@ -28,18 +28,18 @@ public class RenderEnchantedArcher extends RenderLiving<EnchantedArcher> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EnchantedArcher entity) {
+    protected ResourceLocation getEntityTexture(EntityEnchantedArcher entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EnchantedArcher> {
+    public static class Factory implements IRenderFactory<EntityEnchantedArcher> {
         @Override
-        public Render<? super EnchantedArcher> createRenderFor(RenderManager manager) {
+        public Render<? super EntityEnchantedArcher> createRenderFor(RenderManager manager) {
             return new RenderEnchantedArcher(manager, new ModelEnchantedArcher(), 0);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<EnchantedArcher> {
+    private class MainHandLayer implements LayerRenderer<EntityEnchantedArcher> {
         protected final RenderEnchantedArcher renderEnchantedArcher;
 
         public MainHandLayer(RenderEnchantedArcher renderEnchantedArcherIn) {
@@ -47,8 +47,8 @@ public class RenderEnchantedArcher extends RenderLiving<EnchantedArcher> {
         }
 
         @Override
-        public void doRenderLayer(EnchantedArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityEnchantedArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelEnchantedArcher) this.renderEnchantedArcher.getMainModel()).rightarm.postRender(0.0625F);

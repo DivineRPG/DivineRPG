@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelSunArcher;
-import divinerpg.objects.entities.entity.twilight.SunArcher;
+import divinerpg.objects.entities.entity.twilight.EntitySunArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderSunArcher extends RenderLiving<SunArcher> {
+public class RenderSunArcher extends RenderLiving<EntitySunArcher> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/sun_archer.png");
 
@@ -28,18 +28,18 @@ public class RenderSunArcher extends RenderLiving<SunArcher> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(SunArcher entity) {
+    protected ResourceLocation getEntityTexture(EntitySunArcher entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<SunArcher> {
+    public static class Factory implements IRenderFactory<EntitySunArcher> {
         @Override
-        public Render<? super SunArcher> createRenderFor(RenderManager manager) {
+        public Render<? super EntitySunArcher> createRenderFor(RenderManager manager) {
             return new RenderSunArcher(manager, new ModelSunArcher(), 0);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<SunArcher> {
+    private class MainHandLayer implements LayerRenderer<EntitySunArcher> {
         protected final RenderSunArcher renderSunArcher;
 
         public MainHandLayer(RenderSunArcher renderSunArcherIn) {
@@ -47,8 +47,8 @@ public class RenderSunArcher extends RenderLiving<SunArcher> {
         }
 
         @Override
-        public void doRenderLayer(SunArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntitySunArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelSunArcher) this.renderSunArcher.getMainModel()).armRight.postRender(0.0625F);

@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedArcher;
-import divinerpg.objects.entities.entity.twilight.SkythernArcher;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderSkythernArcher extends RenderLiving<SkythernArcher> {
+public class RenderSkythernArcher extends RenderLiving<EntitySkythernArcher> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/skythern_archer.png");
 
@@ -28,18 +28,18 @@ public class RenderSkythernArcher extends RenderLiving<SkythernArcher> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(SkythernArcher entity) {
+    protected ResourceLocation getEntityTexture(EntitySkythernArcher entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<SkythernArcher> {
+    public static class Factory implements IRenderFactory<EntitySkythernArcher> {
         @Override
-        public Render<? super SkythernArcher> createRenderFor(RenderManager manager) {
+        public Render<? super EntitySkythernArcher> createRenderFor(RenderManager manager) {
             return new RenderSkythernArcher(manager, new ModelEnchantedArcher(), 0);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<SkythernArcher> {
+    private class MainHandLayer implements LayerRenderer<EntitySkythernArcher> {
         protected final RenderSkythernArcher renderSkythernArcher;
 
         public MainHandLayer(RenderSkythernArcher renderSkythernArcherIn) {
@@ -47,8 +47,8 @@ public class RenderSkythernArcher extends RenderLiving<SkythernArcher> {
         }
 
         @Override
-        public void doRenderLayer(SkythernArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntitySkythernArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelEnchantedArcher) this.renderSkythernArcher.getMainModel()).rightarm.postRender(0.0625F);

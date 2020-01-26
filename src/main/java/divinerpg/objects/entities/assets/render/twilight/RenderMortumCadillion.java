@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelCadillion;
-import divinerpg.objects.entities.entity.twilight.MortumCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityMortumCadillion;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderMortumCadillion extends RenderLiving<MortumCadillion> {
+public class RenderMortumCadillion extends RenderLiving<EntityMortumCadillion> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/mortum_cadillion.png");
 
@@ -21,13 +21,13 @@ public class RenderMortumCadillion extends RenderLiving<MortumCadillion> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(MortumCadillion entity) {
+    protected ResourceLocation getEntityTexture(EntityMortumCadillion entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<MortumCadillion> {
+    public static class Factory implements IRenderFactory<EntityMortumCadillion> {
         @Override
-        public Render<? super MortumCadillion> createRenderFor(RenderManager manager) {
+        public Render<? super EntityMortumCadillion> createRenderFor(RenderManager manager) {
             return new RenderMortumCadillion(manager, new ModelCadillion(), 0);
         }
     }

@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelMegalith;
-import divinerpg.objects.entities.entity.twilight.Megalith;
+import divinerpg.objects.entities.entity.twilight.EntityMegalith;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,9 +11,9 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderMegalith extends RenderLiving<Megalith> {
+public class RenderMegalith extends RenderLiving<EntityMegalith> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/Megalith.png");
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/EntityMegalith.png");
 
     public RenderMegalith(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelMegalith(), shadowsizeIn);
@@ -21,13 +21,13 @@ public class RenderMegalith extends RenderLiving<Megalith> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Megalith entity) {
+    protected ResourceLocation getEntityTexture(EntityMegalith entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Megalith> {
+    public static class Factory implements IRenderFactory<EntityMegalith> {
         @Override
-        public Render<? super Megalith> createRenderFor(RenderManager manager) {
+        public Render<? super EntityMegalith> createRenderFor(RenderManager manager) {
             return new RenderMegalith(manager, new ModelMegalith(), 0);
         }
     }

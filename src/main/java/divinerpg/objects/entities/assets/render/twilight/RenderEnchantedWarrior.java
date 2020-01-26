@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedWarrior;
-import divinerpg.objects.entities.entity.twilight.EnchantedWarrior;
+import divinerpg.objects.entities.entity.twilight.EntityEnchantedWarrior;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderEnchantedWarrior extends RenderLiving<EnchantedWarrior> {
+public class RenderEnchantedWarrior extends RenderLiving<EntityEnchantedWarrior> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_warrior.png");
 
@@ -28,18 +28,18 @@ public class RenderEnchantedWarrior extends RenderLiving<EnchantedWarrior> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EnchantedWarrior entity) {
+    protected ResourceLocation getEntityTexture(EntityEnchantedWarrior entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EnchantedWarrior> {
+    public static class Factory implements IRenderFactory<EntityEnchantedWarrior> {
         @Override
-        public Render<? super EnchantedWarrior> createRenderFor(RenderManager manager) {
+        public Render<? super EntityEnchantedWarrior> createRenderFor(RenderManager manager) {
             return new RenderEnchantedWarrior(manager, new ModelEnchantedWarrior(), 0);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<EnchantedWarrior> {
+    private class MainHandLayer implements LayerRenderer<EntityEnchantedWarrior> {
         protected final RenderEnchantedWarrior renderEnchantedWarrior;
 
         public MainHandLayer(RenderEnchantedWarrior renderEnchantedWarriorIn) {
@@ -47,8 +47,8 @@ public class RenderEnchantedWarrior extends RenderLiving<EnchantedWarrior> {
         }
 
         @Override
-        public void doRenderLayer(EnchantedWarrior entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityEnchantedWarrior entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelEnchantedWarrior) this.renderEnchantedWarrior.getMainModel()).bipedRightArm.postRender(0.0625F);

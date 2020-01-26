@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.twilight.ModelTomo;
-import divinerpg.objects.entities.entity.twilight.ApalachiaTomo;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaTomo;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderApalachiaTomo extends RenderLiving<ApalachiaTomo> {
+public class RenderApalachiaTomo extends RenderLiving<EntityApalachiaTomo> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/apalachia_tomo.png");
 
@@ -21,13 +21,13 @@ public class RenderApalachiaTomo extends RenderLiving<ApalachiaTomo> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(ApalachiaTomo entity) {
+    protected ResourceLocation getEntityTexture(EntityApalachiaTomo entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<ApalachiaTomo> {
+    public static class Factory implements IRenderFactory<EntityApalachiaTomo> {
         @Override
-        public Render<? super ApalachiaTomo> createRenderFor(RenderManager manager) {
+        public Render<? super EntityApalachiaTomo> createRenderFor(RenderManager manager) {
             return new RenderApalachiaTomo(manager, new ModelTomo(), 0);
         }
     }

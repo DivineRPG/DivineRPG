@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.model.twilight;
 
-import divinerpg.objects.entities.entity.twilight.Bunny;
+import divinerpg.objects.entities.entity.twilight.EntityBunny;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -101,7 +101,7 @@ public class ModelBunny extends ModelBase {
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
-        if ((e instanceof Bunny && ((Bunny) e).isSitting())) {
+        if ((e instanceof EntityBunny && ((EntityBunny) e).isSitting())) {
             Body.rotateAngleX = 0.95993f;
             Leg1.rotateAngleX = Leg2.rotateAngleX = -1.5708f;
             Leg3.rotateAngleX = Leg4.rotateAngleX = -0.2818f;
