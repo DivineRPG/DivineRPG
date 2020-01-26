@@ -258,11 +258,11 @@ import divinerpg.objects.entities.entity.vanilla.EntityTheWatcher;
 import divinerpg.objects.entities.entity.vanilla.EntityWhale;
 import divinerpg.objects.entities.entity.vanilla.EntityWhiteGrizzle;
 import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoBlue;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoGreen;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoPurple;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoRed;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoYellow;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeracoBlue;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeracoGreen;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeracoPurple;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeracoRed;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeracoYellow;
 import divinerpg.objects.entities.entity.vethea.*;
 import divinerpg.utils.SpawnEggColors;
 import net.minecraft.entity.Entity;
@@ -459,11 +459,11 @@ public class ModEntities {
 
                 // Boss
                 buildEntityEntry(EntityAncientEntity.class, "ancient_entity", BOSS),
-                buildEntityEntry(AyeracoBlue.class, "ayeraco_blue", BOSS),
-                buildEntityEntry(AyeracoGreen.class, "ayeraco_green", BOSS),
-                buildEntityEntry(AyeracoPurple.class, "ayeraco_purple", BOSS),
-                buildEntityEntry(AyeracoRed.class, "ayeraco_red", BOSS),
-                buildEntityEntry(AyeracoYellow.class, "ayeraco_yellow", BOSS),
+                buildEntityEntry(EntityAyeracoBlue.class, "ayeraco_blue", BOSS),
+                buildEntityEntry(EntityAyeracoGreen.class, "ayeraco_green", BOSS),
+                buildEntityEntry(EntityAyeracoPurple.class, "ayeraco_purple", BOSS),
+                buildEntityEntry(EntityAyeracoRed.class, "ayeraco_red", BOSS),
+                buildEntityEntry(EntityAyeracoYellow.class, "ayeraco_yellow", BOSS),
                 buildEntityEntry(Densos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
                 buildEntityEntry(EternalArcher.class, "eternal_archer", BOSS),
                 buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
@@ -592,11 +592,11 @@ public class ModEntities {
         // Vanilla
         registerRender(EntityAncientEntity.class, RenderAncientEntity.FACTORY);
         registerRender(EntityAridWarrior.class, RenderAridWarrior.FACTORY);
-        registerRender(AyeracoBlue.class, RenderAyeracoBlue.FACTORY);
-        registerRender(AyeracoGreen.class, RenderAyeracoGreen.FACTORY);
-        registerRender(AyeracoPurple.class, RenderAyeracoPurple.FACTORY);
-        registerRender(AyeracoRed.class, RenderAyerecoRed.FACTORY);
-        registerRender(AyeracoYellow.class, RenderAyeracoYellow.FACTORY);
+        registerRender(EntityAyeracoBlue.class, RenderAyeracoBlue.FACTORY);
+        registerRender(EntityAyeracoGreen.class, RenderAyeracoGreen.FACTORY);
+        registerRender(EntityAyeracoPurple.class, RenderAyeracoPurple.FACTORY);
+        registerRender(EntityAyeracoRed.class, RenderAyerecoRed.FACTORY);
+        registerRender(EntityAyeracoYellow.class, RenderAyeracoYellow.FACTORY);
         registerRender(EntityBrownGrizzle.class, RenderBrownGrizzle.FACTORY);
         registerRender(EntityCaveclops.class, RenderCaveclops.FACTORY);
         registerRender(EntityCaveCrawler.class, RenderCaveCrawler.FACTORY);

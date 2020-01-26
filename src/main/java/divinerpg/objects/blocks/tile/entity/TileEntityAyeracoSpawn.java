@@ -68,12 +68,12 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements IT
                 // Spawn entities only on server
                 if (!world.isRemote) {
                     // Order is important!
-                    ArrayList<Ayeraco> ayeracos = Lists.newArrayList(
-                            new AyeracoRed(this.world, redBeam),
-                            new AyeracoGreen(this.world, greenBeam),
-                            new AyeracoBlue(this.world, blueBeam),
-                            new AyeracoYellow(this.world, yellowBeam),
-                            new AyeracoPurple(this.world, purpleBeam));
+                    ArrayList<EntityAyeraco> ayeracos = Lists.newArrayList(
+                            new EntityAyeracoRed(this.world, redBeam),
+                            new EntityAyeracoGreen(this.world, greenBeam),
+                            new EntityAyeracoBlue(this.world, blueBeam),
+                            new EntityAyeracoYellow(this.world, yellowBeam),
+                            new EntityAyeracoPurple(this.world, purpleBeam));
 
                     AyeracoGroup ayeracoGroup = new AyeracoGroup(ayeracos);
 

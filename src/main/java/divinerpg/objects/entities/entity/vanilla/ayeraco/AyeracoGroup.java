@@ -46,11 +46,11 @@ public class AyeracoGroup {
      *
      * @param ayeracos
      */
-    public AyeracoGroup(ArrayList<Ayeraco> ayeracos) {
+    public AyeracoGroup(ArrayList<EntityAyeraco> ayeracos) {
         this(ayeracos.get(0), ayeracos.get(1), ayeracos.get(2), ayeracos.get(3), ayeracos.get(4));
     }
 
-    private AyeracoGroup(Ayeraco red, Ayeraco green, Ayeraco blue, Ayeraco yellow, Ayeraco purple) {
+    private AyeracoGroup(EntityAyeraco red, EntityAyeraco green, EntityAyeraco blue, EntityAyeraco yellow, EntityAyeraco purple) {
         this.red = new EntityFinder(red);
         this.green = new EntityFinder(green);
         this.blue = new EntityFinder(blue);
@@ -114,7 +114,7 @@ public class AyeracoGroup {
      */
     public void processSpecialAbilities(EntityLivingBase ayeraco) {
 
-        List<Ayeraco> ayeracos = getAllLivingAyeracos();
+        List<EntityAyeraco> ayeracos = getAllLivingAyeracos();
 
         // Yellow adding speed
         if (yellow.sameEntity(ayeraco) && isAngry(ayeraco)) {
@@ -197,9 +197,9 @@ public class AyeracoGroup {
      *
      * @return
      */
-    private List<Ayeraco> getAllLivingAyeracos() {
+    private List<EntityAyeraco> getAllLivingAyeracos() {
         return Lists.newArrayList(red, green, blue, yellow, purple)
-                .stream().map(EntityFinder::<Ayeraco>getEntity).filter(this::checkNotDead).collect(Collectors.toList());
+                .stream().map(EntityFinder::<EntityAyeraco>getEntity).filter(this::checkNotDead).collect(Collectors.toList());
     }
 
     /**

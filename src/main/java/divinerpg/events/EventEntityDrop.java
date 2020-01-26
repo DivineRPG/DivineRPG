@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.objects.entities.entity.vanilla.ayeraco.Ayeraco;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeraco;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -11,7 +11,7 @@ public class EventEntityDrop {
     @SubscribeEvent
     public void onDrop(LivingDropsEvent event){
 
-        if (event.getEntity() instanceof Ayeraco
+        if (event.getEntity() instanceof EntityAyeraco
             && event.getSource().getTrueSource() instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 

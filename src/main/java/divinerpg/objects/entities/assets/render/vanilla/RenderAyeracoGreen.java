@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
 import divinerpg.objects.entities.assets.model.vanilla.ModelAyeraco;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.AyeracoGreen;
+import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeracoGreen;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 import javax.annotation.Nullable;
 
-public class RenderAyeracoGreen extends RenderLiving<AyeracoGreen> {
+public class RenderAyeracoGreen extends RenderLiving<EntityAyeracoGreen> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/ayeraco_green.png");
 
@@ -21,13 +21,13 @@ public class RenderAyeracoGreen extends RenderLiving<AyeracoGreen> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(AyeracoGreen entity) {
+    protected ResourceLocation getEntityTexture(EntityAyeracoGreen entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<AyeracoGreen> {
+    public static class Factory implements IRenderFactory<EntityAyeracoGreen> {
         @Override
-        public Render<? super AyeracoGreen> createRenderFor(RenderManager manager) {
+        public Render<? super EntityAyeracoGreen> createRenderFor(RenderManager manager) {
             return new RenderAyeracoGreen(manager, new ModelAyeraco(), 0F);
         }
     }

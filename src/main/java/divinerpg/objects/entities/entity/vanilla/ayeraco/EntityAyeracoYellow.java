@@ -5,13 +5,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class AyeracoYellow extends Ayeraco {
+public class EntityAyeracoYellow extends EntityAyeraco {
 
-    public AyeracoYellow(World worldIn) {
+    public EntityAyeracoYellow(World worldIn) {
         super(worldIn);
     }
 
-    public AyeracoYellow(World world, BlockPos beam) {
+    public EntityAyeracoYellow(World world, BlockPos beam) {
         super(world, beam, Color.YELLOW, DRPGLootTables.ENTITIES_AYERACO_YELLOW);
     }
 }

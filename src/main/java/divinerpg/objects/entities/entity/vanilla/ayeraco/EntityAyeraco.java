@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class Ayeraco extends EntityDivineRPGBoss {
+public class EntityAyeraco extends EntityDivineRPGBoss {
     private int waitTick;
     private BlockPos currentFlightTarget;
     private boolean attacks;
@@ -30,13 +30,13 @@ public class Ayeraco extends EntityDivineRPGBoss {
     private BlockPos beamLocation;
 
     /**
-     * Ayeraco group refference. Exists only on server side!!!
+     * EntityAyeraco group refference. Exists only on server side!!!
      */
     private AyeracoGroup group;
     private BossInfo.Color color;
     private ResourceLocation loot;
 
-    public Ayeraco(World worldIn) {
+    public EntityAyeraco(World worldIn) {
         this(worldIn, new BlockPos(0,100,0), BossInfo.Color.BLUE, new ResourceLocation(""));
     }
 
@@ -46,7 +46,7 @@ public class Ayeraco extends EntityDivineRPGBoss {
      * @param beam - beam location
      * @param color
      */
-    public Ayeraco(World world, BlockPos beam, BossInfo.Color color, ResourceLocation loot){
+    public EntityAyeraco(World world, BlockPos beam, BossInfo.Color color, ResourceLocation loot){
         super(world);
         beamLocation = beam;
         this.color = color;

@@ -32,7 +32,7 @@ public class ItemHordeHorn extends ItemMod {
         if (world.provider.getDimension() != 1){
 
             if (!world.isRemote)
-                Logging.message(player, TextFormatting.AQUA + "The Ayeraco Horde can only be spawned in The End");
+                Logging.message(player, TextFormatting.AQUA + "The EntityAyeraco Horde can only be spawned in The End");
         } else {
             pos = pos.add(facing.getFrontOffsetX(), facing.getFrontOffsetY(), facing.getFrontOffsetZ());
             if (world.getBlockState(pos) == Blocks.AIR.getDefaultState()) {
