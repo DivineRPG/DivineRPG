@@ -281,10 +281,9 @@ public class Utils {
         DEV_LIST.add("insanity414all");
         DEV_LIST.add("deathman12e3");
         DEV_LIST.add("Fire_Sight");
-        DEV_LIST.add("krwminer");//Krwminer
-        DEV_LIST.add("NicosaurusRex99");//NicosaurusRex99
-        DEV_LIST.add("LiteWolf101");//Wufflez
-        DEV_LIST.add("Dash");//Dash
-        DEV_LIST.add("FujinoAsagami");//Immortails
+        DEV_LIST.add("krwminer"); //Krwminer
+        DEV_LIST.add("NicosaurusRex99"); //NicosaurusRex99
+        DEV_LIST.add("LiteWolf101"); //Wufflez
+        DEV_LIST.add("Dash"); //Dash
     }
 }

@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.arcana;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.arcana.ModelDungeonPrisoner;
-import divinerpg.objects.entities.entity.arcana.DungeonPrisoner;
+import divinerpg.objects.entities.entity.arcana.EntityDungeonPrisoner;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderDungeonPrisoner extends RenderLiving<DungeonPrisoner> {
+public class RenderDungeonPrisoner extends RenderLiving<EntityDungeonPrisoner> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/dungeon_prisoner.png");
 
@@ -21,13 +21,13 @@ public class RenderDungeonPrisoner extends RenderLiving<DungeonPrisoner> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(DungeonPrisoner entity) {
+    protected ResourceLocation getEntityTexture(EntityDungeonPrisoner entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<DungeonPrisoner> {
+    public static class Factory implements IRenderFactory<EntityDungeonPrisoner> {
         @Override
-        public Render<? super DungeonPrisoner> createRenderFor(RenderManager manager) {
+        public Render<? super EntityDungeonPrisoner> createRenderFor(RenderManager manager) {
             return new RenderDungeonPrisoner(manager, new ModelDungeonPrisoner(), 0);
         }
     }

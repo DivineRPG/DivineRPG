@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.ai;
 
-import divinerpg.objects.entities.entity.arcana.Parasecta;
+import divinerpg.objects.entities.entity.arcana.EntityParasecta;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class EntityParasectaCharge extends EntityAIBase
 {
     World world;
-    protected Parasecta attacker;
+    protected EntityParasecta attacker;
     /** An amount of decrementing ticks that allows the entity to attack once the tick reaches 0. */
     protected int attackTick;
     /** The speed with which the mob will approach the target */
@@ -29,7 +29,7 @@ public class EntityParasectaCharge extends EntityAIBase
     private int failedPathFindingPenalty = 0;
     private boolean canPenalize = false;
 
-    public EntityParasectaCharge(Parasecta creature, double speedIn, boolean useLongMemory)
+    public EntityParasectaCharge(EntityParasecta creature, double speedIn, boolean useLongMemory)
     {
         this.attacker = creature;
         this.world = creature.world;

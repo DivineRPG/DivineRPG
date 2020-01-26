@@ -13,11 +13,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class Parasecta extends EntityDivineRPGBoss {
+public class EntityParasecta extends EntityDivineRPGBoss {
 
     private BlockPos currentFlightTarget;
 
-    public Parasecta(World world) {
+    public EntityParasecta(World world) {
         super(world);
         this.setSize(1.3F, 3F);
     }

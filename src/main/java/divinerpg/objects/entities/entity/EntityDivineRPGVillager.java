@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
-import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -129,7 +129,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
         super.readEntityFromNBT(var1);
         if (var1.hasKey("Trades")) {
             NBTTagCompound var2 = var1.getCompoundTag("Trades");
-            if(this instanceof WorkshopTinkerer || this instanceof WorkshopMerchant)
+            if(this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant)
                 this.buyingList = new InfiniteTradeList(var2);
             else
                 this.buyingList = new MerchantRecipeList(var2);

@@ -14,11 +14,11 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class Datticon extends EntityDivineRPGVillager {
+public class EntityDatticon extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.datticon.merik", "message.datticon.furnace",
             "message.datticon.science", "message.datticon.plugged", "message.datticon.redstone" };
 
-    public Datticon(World world) {
+    public EntityDatticon(World world) {
         super(world);
     }
 

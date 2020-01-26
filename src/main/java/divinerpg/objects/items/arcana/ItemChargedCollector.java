@@ -1,6 +1,6 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.objects.entities.entity.arcana.DungeonConstructor;
+import divinerpg.objects.entities.entity.arcana.EntityDungeonConstructor;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
@@ -26,7 +26,7 @@ public class ItemChargedCollector extends ItemMod {
             if (block == ModBlocks.dramixAltar) {
                 ItemStack stack = player.getHeldItem(hand);
                 int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-                DungeonConstructor con = new DungeonConstructor(world);
+                EntityDungeonConstructor con = new EntityDungeonConstructor(world);
                 con.setLocationAndAngles(x + 0.5F, y + 1, z + 0.5F, 0.0F, 0.0F);
                 world.spawnEntity(con);
                 if (!player.capabilities.isCreativeMode)

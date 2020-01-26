@@ -13,14 +13,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class Seimer extends EntityDivineRPGTameable {
+public class EntitySeimer extends EntityDivineRPGTameable {
 
-    public Seimer(World par1World) {
+    public EntitySeimer(World par1World) {
         super(par1World);
         this.setSize(1.0F, 1.0F);
     }
 
-    public Seimer(World par1World, EntityPlayer player) {
+    public EntitySeimer(World par1World, EntityPlayer player) {
         this(par1World);
         setTamedBy(player);
     }

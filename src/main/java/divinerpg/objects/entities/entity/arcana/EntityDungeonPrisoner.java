@@ -10,9 +10,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class DungeonPrisoner extends EntityDivineRPGMob {
+public class EntityDungeonPrisoner extends EntityDivineRPGMob {
 
-    public DungeonPrisoner(World world) {
+    public EntityDungeonPrisoner(World world) {
         super(world);
         this.setSize(0.6F, 2.15F);
     }
@@ -37,7 +37,7 @@ public class DungeonPrisoner extends EntityDivineRPGMob {
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {
-        DungeonDemon demon = new DungeonDemon(this.world);
+        EntityDungeonDemon demon = new EntityDungeonDemon(this.world);
         this.playSound(ModSounds.DUNGEON_PRISONER_CHANGE, 1, 1);
         demon.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
         this.world.spawnEntity(demon);

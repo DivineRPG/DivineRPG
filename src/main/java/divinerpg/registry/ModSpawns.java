@@ -2,19 +2,19 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.Config;
-import divinerpg.objects.entities.entity.arcana.CaptainMerik;
-import divinerpg.objects.entities.entity.arcana.Datticon;
-import divinerpg.objects.entities.entity.arcana.Leorna;
-import divinerpg.objects.entities.entity.arcana.LordVatticus;
-import divinerpg.objects.entities.entity.arcana.WarGeneral;
-import divinerpg.objects.entities.entity.arcana.Zelus;
-import divinerpg.objects.entities.entity.iceika.Alicanto;
-import divinerpg.objects.entities.entity.iceika.Fractite;
-import divinerpg.objects.entities.entity.iceika.FrostArcher;
-import divinerpg.objects.entities.entity.iceika.Frosty;
-import divinerpg.objects.entities.entity.iceika.Glacide;
-import divinerpg.objects.entities.entity.iceika.Hastreus;
-import divinerpg.objects.entities.entity.iceika.Rollum;
+import divinerpg.objects.entities.entity.arcana.EntityCaptainMerik;
+import divinerpg.objects.entities.entity.arcana.EntityDatticon;
+import divinerpg.objects.entities.entity.arcana.EntityLeorna;
+import divinerpg.objects.entities.entity.arcana.EntityLordVatticus;
+import divinerpg.objects.entities.entity.arcana.EntityWarGeneral;
+import divinerpg.objects.entities.entity.arcana.EntityZelus;
+import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
+import divinerpg.objects.entities.entity.iceika.EntityFractite;
+import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
+import divinerpg.objects.entities.entity.iceika.EntityFrosty;
+import divinerpg.objects.entities.entity.iceika.EntityGlacide;
+import divinerpg.objects.entities.entity.iceika.EntityHastreus;
+import divinerpg.objects.entities.entity.iceika.EntityRollum;
 import divinerpg.objects.entities.entity.twilight.EntityAdvancedCori;
 import divinerpg.objects.entities.entity.twilight.EntityApalachiaCadillion;
 import divinerpg.objects.entities.entity.twilight.EntityApalachiaGolem;
@@ -141,13 +141,13 @@ public class ModSpawns {
     public static void initSpawns() {	
         for (Biome biome : ForgeRegistries.BIOMES.getValues())
             if (biome.equals(ModBiomes.Iceika)) {
-                EntityRegistry.addSpawn(Alicanto.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Fractite.class, 1, 1, 1, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Glacide.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Hastreus.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(FrostArcher.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Frosty.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(Rollum.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityAlicanto.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityFractite.class, 1, 1, 1, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityGlacide.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityHastreus.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityFrostArcher.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityFrosty.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRollum.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(ModBiomes.Eden)) {
                 EntityRegistry.addSpawn(EntityEdenTomo.class, 20, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityEdenCadillion.class, 20, 4, 4, EnumCreatureType.MONSTER, biome);
@@ -197,12 +197,12 @@ public class ModSpawns {
                 EntityRegistry.addSpawn(EntityTwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntitySorcerer.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(ModBiomes.Arcana)) {
-                EntityRegistry.addSpawn(Leorna.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(Datticon.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(Zelus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(LordVatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(CaptainMerik.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(WarGeneral.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityLeorna.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityDatticon.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityZelus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityLordVatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityCaptainMerik.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
+                EntityRegistry.addSpawn(EntityWarGeneral.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
             } else if (biome.equals(ModBiomes.Vethea)) {
                 EntityRegistry.addSpawn(EntityAcidHag.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityBiphron.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);

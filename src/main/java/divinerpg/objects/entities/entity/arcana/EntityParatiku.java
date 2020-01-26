@@ -23,19 +23,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Paratiku extends EntityDivineRPGTameable {
+public class EntityParatiku extends EntityDivineRPGTameable {
     private static final DataParameter<Byte> HANGING = EntityDataManager.<Byte>createKey(EntityBat.class,
             DataSerializers.BYTE);
     private BlockPos spawnPosition;
     private BlockPos currentFlightTarget;
 
-    public Paratiku(World world) {
+    public EntityParatiku(World world) {
         super(world);
         this.setSize(0.9F, 1.4F);
         this.setIsBatHanging(true);
     }
 
-    public Paratiku(World world, EntityPlayer owner) {
+    public EntityParatiku(World world, EntityPlayer owner) {
         this(world);
         setTamedBy(owner);
     }

@@ -9,16 +9,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class DungeonDemon extends EntityDivineRPGMob {
+public class EntityRazorback extends EntityDivineRPGMob {
 
-    public DungeonDemon(World world) {
+    public EntityRazorback(World world) {
         super(world);
-        this.setSize(0.6F, 2.15F);
+        this.setSize(0.6F, 0.5F);
     }
 
     @Override
     public float getEyeHeight() {
-        return 1.8F;
+        return 0.225F;
     }
 
     @Override
@@ -30,28 +30,28 @@ public class DungeonDemon extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(85.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(17.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DUNGEON_PRISONER;
+        return ModSounds.RAZORBACK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.DUNGEON_PRISONER_HURT;
+        return ModSounds.RAZORBACK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DUNGEON_PRISONER_HURT;
+        return ModSounds.RAZORBACK_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DUNGEON_DEMON;
+        return DRPGLootTables.ENTITIES_RAZORBACK;
     }
 
     @Override

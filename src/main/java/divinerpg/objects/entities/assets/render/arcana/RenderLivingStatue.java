@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.arcana;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.entity.arcana.LivingStatue;
+import divinerpg.objects.entities.entity.arcana.EntityLivingStatue;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderLivingStatue extends RenderLiving<LivingStatue> {
+public class RenderLivingStatue extends RenderLiving<EntityLivingStatue> {
 
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/living_statue.png");
@@ -22,13 +22,13 @@ public class RenderLivingStatue extends RenderLiving<LivingStatue> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(LivingStatue entity) {
+    protected ResourceLocation getEntityTexture(EntityLivingStatue entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<LivingStatue> {
+    public static class Factory implements IRenderFactory<EntityLivingStatue> {
         @Override
-        public Render<? super LivingStatue> createRenderFor(RenderManager manager) {
+        public Render<? super EntityLivingStatue> createRenderFor(RenderManager manager) {
             return new RenderLivingStatue(manager, new ModelBiped(), 0);
         }
     }

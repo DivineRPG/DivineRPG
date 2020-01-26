@@ -24,9 +24,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class FrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityFrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
 
-    public FrostArcher(World worldIn) {
+    public EntityFrostArcher(World worldIn) {
         super(worldIn);
         this.setSize(0.6f, 2.0f);
         this.setPathPriority(PathNodeType.WATER, -1.0F);

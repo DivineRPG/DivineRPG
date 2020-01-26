@@ -1,7 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.objects.entities.entity.arcana.Dramix;
-import divinerpg.objects.entities.entity.arcana.Parasecta;
+import divinerpg.objects.entities.entity.arcana.EntityDramix;
+import divinerpg.objects.entities.entity.arcana.EntityParasecta;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -35,7 +35,7 @@ public class ItemWizardsBook extends ItemMod {
             double spawnZ = rtr.getBlockPos().getZ() + 0.5F;
 
             if (block == ModBlocks.parasectaAltar) {
-                Parasecta parasecta = new Parasecta(world);
+                EntityParasecta parasecta = new EntityParasecta(world);
                 parasecta.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
                 world.spawnEntity(parasecta);
                 if (!player.capabilities.isCreativeMode)
@@ -44,7 +44,7 @@ public class ItemWizardsBook extends ItemMod {
             }
 
             if (block == ModBlocks.dramixAltar) {
-                Dramix dramix = new Dramix(world);
+                EntityDramix dramix = new EntityDramix(world);
                 dramix.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
                 world.spawnEntity(dramix);
                 if (!player.capabilities.isCreativeMode)

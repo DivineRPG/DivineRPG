@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.arcana;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.entities.assets.model.arcana.ModelRazorback;
-import divinerpg.objects.entities.entity.arcana.Razorback;
+import divinerpg.objects.entities.entity.arcana.EntityRazorback;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderRazorback extends RenderLiving<Razorback> {
+public class RenderRazorback extends RenderLiving<EntityRazorback> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/razorback.png");
 
@@ -21,13 +21,13 @@ public class RenderRazorback extends RenderLiving<Razorback> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(Razorback entity) {
+    protected ResourceLocation getEntityTexture(EntityRazorback entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<Razorback> {
+    public static class Factory implements IRenderFactory<EntityRazorback> {
         @Override
-        public Render<? super Razorback> createRenderFor(RenderManager manager) {
+        public Render<? super EntityRazorback> createRenderFor(RenderManager manager) {
             return new RenderRazorback(manager, new ModelRazorback(), 0);
         }
     }

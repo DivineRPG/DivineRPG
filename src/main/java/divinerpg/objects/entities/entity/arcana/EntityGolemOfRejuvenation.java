@@ -11,16 +11,16 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class GolemOfRejuvenation extends EntityDivineRPGTameable {
+public class EntityGolemOfRejuvenation extends EntityDivineRPGTameable {
     private int healTimer;
 
-    public GolemOfRejuvenation(World world) {
+    public EntityGolemOfRejuvenation(World world) {
         super(world);
         this.setSize(1F, 2.35F);
         this.healTimer = 0;
     }
 
-    public GolemOfRejuvenation(World world, EntityPlayer player) {
+    public EntityGolemOfRejuvenation(World world, EntityPlayer player) {
         this(world);
         setTamedBy(player);
     }

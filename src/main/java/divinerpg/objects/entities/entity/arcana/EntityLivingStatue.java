@@ -18,9 +18,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class LivingStatue extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityLivingStatue extends EntityDivineRPGMob implements IRangedAttackMob {
 
-    public LivingStatue(World world) {
+    public EntityLivingStatue(World world) {
         super(world);
         this.setSize(0.8F, 2.0F);
     }

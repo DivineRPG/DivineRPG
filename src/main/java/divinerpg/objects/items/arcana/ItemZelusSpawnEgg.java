@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.entity.arcana.Fyracryx;
-import divinerpg.objects.entities.entity.arcana.GolemOfRejuvenation;
-import divinerpg.objects.entities.entity.arcana.Paratiku;
-import divinerpg.objects.entities.entity.arcana.Seimer;
+import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
+import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
+import divinerpg.objects.entities.entity.arcana.EntityParatiku;
+import divinerpg.objects.entities.entity.arcana.EntitySeimer;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
@@ -37,19 +37,19 @@ public class ItemZelusSpawnEgg extends ItemMod {
             Item item = stack.getItem();
             int x = pos.getX(), y = pos.getY(), z = pos.getZ();
             if (item == ModItems.fyracryxSpawner) {
-                Fyracryx fyracryx = new Fyracryx(world, player);
+                EntityFyracryx fyracryx = new EntityFyracryx(world, player);
                 fyracryx.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(fyracryx);
             } else if (item == ModItems.seimerSpawner) {
-                Seimer seimer = new Seimer(world, player);
+                EntitySeimer seimer = new EntitySeimer(world, player);
                 seimer.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(seimer);
             } else if (item == ModItems.golemOfRejuvenationSpawner) {
-                GolemOfRejuvenation golem = new GolemOfRejuvenation(world, player);
+                EntityGolemOfRejuvenation golem = new EntityGolemOfRejuvenation(world, player);
                 golem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(golem);
             } else if (item == ModItems.paratikuSpawner) {
-                Paratiku paratiku = new Paratiku(world, player);
+                EntityParatiku paratiku = new EntityParatiku(world, player);
                 paratiku.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(paratiku);
             }

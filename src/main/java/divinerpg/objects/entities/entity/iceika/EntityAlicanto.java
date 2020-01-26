@@ -23,12 +23,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Alicanto extends EntityDivineRPGMob {
+public class EntityAlicanto extends EntityDivineRPGMob {
 
     private BlockPos currentFlightTarget;
     private int flyTimer;
 
-    public Alicanto(World worldIn) {
+    public EntityAlicanto(World worldIn) {
         super(worldIn);
         this.setSize(1.2F, 1.6F);
         this.flyTimer = 0;

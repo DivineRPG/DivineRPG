@@ -22,11 +22,11 @@ import divinerpg.registry.ModItems;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
 
-public class WorkshopTinkerer extends EntityDivineRPGVillager {
+public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in",
             "message.merchant.burr" };
 
-    public WorkshopTinkerer(World worldIn) {
+    public EntityWorkshopTinkerer(World worldIn) {
         super(worldIn);
         this.setSize(1.0F, 2.0F);
     }

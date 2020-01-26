@@ -15,9 +15,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class Hastreus extends EntityDivineRPGMob {
+public class EntityHastreus extends EntityDivineRPGMob {
 
-    public Hastreus(World worldIn) {
+    public EntityHastreus(World worldIn) {
         super(worldIn);
         this.setSize(1.0F, 1.9F);
     }

@@ -10,31 +10,26 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Wraith extends EntityDivineRPGTameable {
+public class EntityWraith extends EntityDivineRPGTameable {
     private BlockPos spawnPosition;
     private BlockPos currentFlightTarget;
     private int age;
-    public Wraith(World world) {
+    public EntityWraith(World world) {
         super(world);
         this.setSize(0.9F, 1.4F);
         this.age = 120;
     }
 
-    public Wraith(World world, EntityPlayer owner) {
+    public EntityWraith(World world, EntityPlayer owner) {
         this(world);
         setTamedBy(owner);this.age = 120;
         this.setTamed(true);

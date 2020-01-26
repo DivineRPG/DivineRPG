@@ -141,36 +141,36 @@ import divinerpg.objects.entities.assets.render.vanilla.RenderWhiteGrizzle;
 import divinerpg.objects.entities.assets.render.vanilla.RenderWildfire;
 import divinerpg.objects.entities.assets.render.vethea.*;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
-import divinerpg.objects.entities.entity.arcana.CaptainMerik;
-import divinerpg.objects.entities.entity.arcana.Datticon;
-import divinerpg.objects.entities.entity.arcana.DeathHound;
-import divinerpg.objects.entities.entity.arcana.Deathcryx;
-import divinerpg.objects.entities.entity.arcana.Dramix;
-import divinerpg.objects.entities.entity.arcana.DungeonConstructor;
-import divinerpg.objects.entities.entity.arcana.DungeonDemon;
-import divinerpg.objects.entities.entity.arcana.DungeonPrisoner;
-import divinerpg.objects.entities.entity.arcana.Fyracryx;
-import divinerpg.objects.entities.entity.arcana.GolemOfRejuvenation;
-import divinerpg.objects.entities.entity.arcana.Leorna;
-import divinerpg.objects.entities.entity.arcana.LivingStatue;
-import divinerpg.objects.entities.entity.arcana.LordVatticus;
-import divinerpg.objects.entities.entity.arcana.Parasecta;
-import divinerpg.objects.entities.entity.arcana.Paratiku;
-import divinerpg.objects.entities.entity.arcana.Razorback;
-import divinerpg.objects.entities.entity.arcana.Roamer;
-import divinerpg.objects.entities.entity.arcana.Seimer;
-import divinerpg.objects.entities.entity.arcana.WarGeneral;
-import divinerpg.objects.entities.entity.arcana.Wraith;
-import divinerpg.objects.entities.entity.arcana.Zelus;
-import divinerpg.objects.entities.entity.iceika.Alicanto;
-import divinerpg.objects.entities.entity.iceika.Fractite;
-import divinerpg.objects.entities.entity.iceika.FrostArcher;
-import divinerpg.objects.entities.entity.iceika.Frosty;
-import divinerpg.objects.entities.entity.iceika.Glacide;
-import divinerpg.objects.entities.entity.iceika.Hastreus;
-import divinerpg.objects.entities.entity.iceika.Rollum;
-import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
-import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
+import divinerpg.objects.entities.entity.arcana.EntityCaptainMerik;
+import divinerpg.objects.entities.entity.arcana.EntityDatticon;
+import divinerpg.objects.entities.entity.arcana.EntityDeathHound;
+import divinerpg.objects.entities.entity.arcana.EntityDeathcryx;
+import divinerpg.objects.entities.entity.arcana.EntityDramix;
+import divinerpg.objects.entities.entity.arcana.EntityDungeonConstructor;
+import divinerpg.objects.entities.entity.arcana.EntityDungeonDemon;
+import divinerpg.objects.entities.entity.arcana.EntityDungeonPrisoner;
+import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
+import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
+import divinerpg.objects.entities.entity.arcana.EntityLeorna;
+import divinerpg.objects.entities.entity.arcana.EntityLivingStatue;
+import divinerpg.objects.entities.entity.arcana.EntityLordVatticus;
+import divinerpg.objects.entities.entity.arcana.EntityParasecta;
+import divinerpg.objects.entities.entity.arcana.EntityParatiku;
+import divinerpg.objects.entities.entity.arcana.EntityRazorback;
+import divinerpg.objects.entities.entity.arcana.EntityRoamer;
+import divinerpg.objects.entities.entity.arcana.EntitySeimer;
+import divinerpg.objects.entities.entity.arcana.EntityWarGeneral;
+import divinerpg.objects.entities.entity.arcana.EntityWraith;
+import divinerpg.objects.entities.entity.arcana.EntityZelus;
+import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
+import divinerpg.objects.entities.entity.iceika.EntityFractite;
+import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
+import divinerpg.objects.entities.entity.iceika.EntityFrosty;
+import divinerpg.objects.entities.entity.iceika.EntityGlacide;
+import divinerpg.objects.entities.entity.iceika.EntityHastreus;
+import divinerpg.objects.entities.entity.iceika.EntityRollum;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.twilight.EntityAdvancedCori;
 import divinerpg.objects.entities.entity.twilight.EntityAngryBunny;
@@ -352,13 +352,13 @@ public class ModEntities {
                 buildEntityEntry(EntityEnderWatcher.class, "ender_watcher", END),
 
                 // Iceika
-                buildEntityEntry(Alicanto.class, "alicanto", ICEIKA),
-                buildEntityEntry(Fractite.class, "fractite", ICEIKA),
-                buildEntityEntry(FrostArcher.class, "frost_archer", ICEIKA),
-                buildEntityEntry(Frosty.class, "frosty", ICEIKA), buildEntityEntry(Glacide.class, "glacide", ICEIKA),
-                buildEntityEntry(Hastreus.class, "hastreus", ICEIKA), buildEntityEntry(Rollum.class, "rollum", ICEIKA),
-                buildEntityEntry(WorkshopMerchant.class, "workshop_merchant", ICEIKA),
-                buildEntityEntry(WorkshopTinkerer.class, "workshop_tinkerer", ICEIKA),
+                buildEntityEntry(EntityAlicanto.class, "alicanto", ICEIKA),
+                buildEntityEntry(EntityFractite.class, "fractite", ICEIKA),
+                buildEntityEntry(EntityFrostArcher.class, "frost_archer", ICEIKA),
+                buildEntityEntry(EntityFrosty.class, "frosty", ICEIKA), buildEntityEntry(EntityGlacide.class, "glacide", ICEIKA),
+                buildEntityEntry(EntityHastreus.class, "hastreus", ICEIKA), buildEntityEntry(EntityRollum.class, "rollum", ICEIKA),
+                buildEntityEntry(EntityWorkshopMerchant.class, "workshop_merchant", ICEIKA),
+                buildEntityEntry(EntityWorkshopTinkerer.class, "workshop_tinkerer", ICEIKA),
 
                 // Eden
                 buildEntityEntry(EntityBunny.class, "bunny", EDEN),
@@ -404,22 +404,22 @@ public class ModEntities {
                 buildEntityEntry(EntityTwilightArcher.class, "twilight_archer", MORTUM),
 
                 // Arcana
-                buildEntityEntry(CaptainMerik.class, "captain_merik", ARCANA),
-                buildEntityEntry(Datticon.class, "datticon", ARCANA),
-                buildEntityEntry(Deathcryx.class, "deathcryx", ARCANA),
-                buildEntityEntry(DeathHound.class, "death_hound", ARCANA),
-                buildEntityEntry(DungeonConstructor.class, "dungeon_constructor", ARCANA),
-                buildEntityEntry(DungeonDemon.class, "dungeon_demon", ARCANA),
-                buildEntityEntry(DungeonPrisoner.class, "dungeon_prisoner", ARCANA),
-                buildEntityEntry(Fyracryx.class, "fyracryx", ARCANA), buildEntityEntry(Leorna.class, "leorna", ARCANA),
-                buildEntityEntry(LivingStatue.class, "living_statue", ARCANA),
-                buildEntityEntry(Paratiku.class, "paratiku", ARCANA),
-                buildEntityEntry(Razorback.class, "razorback", ARCANA),
-                buildEntityEntry(GolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
-                buildEntityEntry(Roamer.class, "roamer", ARCANA), buildEntityEntry(Seimer.class, "seimer", ARCANA),
-                buildEntityEntry(LordVatticus.class, "lord_vatticus", ARCANA),
-                buildEntityEntry(WarGeneral.class, "war_general", ARCANA),
-                buildEntityEntry(Wraith.class, "wraith", ARCANA), buildEntityEntry(Zelus.class, "zelus", ARCANA),
+                buildEntityEntry(EntityCaptainMerik.class, "captain_merik", ARCANA),
+                buildEntityEntry(EntityDatticon.class, "datticon", ARCANA),
+                buildEntityEntry(EntityDeathcryx.class, "deathcryx", ARCANA),
+                buildEntityEntry(EntityDeathHound.class, "death_hound", ARCANA),
+                buildEntityEntry(EntityDungeonConstructor.class, "dungeon_constructor", ARCANA),
+                buildEntityEntry(EntityDungeonDemon.class, "dungeon_demon", ARCANA),
+                buildEntityEntry(EntityDungeonPrisoner.class, "dungeon_prisoner", ARCANA),
+                buildEntityEntry(EntityFyracryx.class, "fyracryx", ARCANA), buildEntityEntry(EntityLeorna.class, "leorna", ARCANA),
+                buildEntityEntry(EntityLivingStatue.class, "living_statue", ARCANA),
+                buildEntityEntry(EntityParatiku.class, "paratiku", ARCANA),
+                buildEntityEntry(EntityRazorback.class, "razorback", ARCANA),
+                buildEntityEntry(EntityGolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
+                buildEntityEntry(EntityRoamer.class, "roamer", ARCANA), buildEntityEntry(EntitySeimer.class, "seimer", ARCANA),
+                buildEntityEntry(EntityLordVatticus.class, "lord_vatticus", ARCANA),
+                buildEntityEntry(EntityWarGeneral.class, "war_general", ARCANA),
+                buildEntityEntry(EntityWraith.class, "wraith", ARCANA), buildEntityEntry(EntityZelus.class, "zelus", ARCANA),
 
                 // Vethea
                 buildEntityEntry(EntityAcidHag.class, "acid_hag", VETHEA),
@@ -464,14 +464,14 @@ public class ModEntities {
                 buildEntityEntry(EntityAyeracoPurple.class, "ayeraco_purple", BOSS),
                 buildEntityEntry(EntityAyeracoRed.class, "ayeraco_red", BOSS),
                 buildEntityEntry(EntityAyeracoYellow.class, "ayeraco_yellow", BOSS),
-                buildEntityEntry(EntityDensos.class, "densos", BOSS), buildEntityEntry(Dramix.class, "dramix", BOSS),
+                buildEntityEntry(EntityDensos.class, "densos", BOSS), buildEntityEntry(EntityDramix.class, "dramix", BOSS),
                 buildEntityEntry(EntityEternalArcher.class, "eternal_archer", BOSS),
                 buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(EntityKarot.class, "karot", BOSS),
                 buildEntityEntry(EntityKaros.class, "karos", BOSS),
                 buildEntityEntry(EntityKingOfScorchers.class, "king_of_scorchers", BOSS),
                 buildEntityEntry(EntityLadyLuna.class, "lady_luna", BOSS),
-                buildEntityEntry(Parasecta.class, "parasecta", BOSS),
+                buildEntityEntry(EntityParasecta.class, "parasecta", BOSS),
                 buildEntityEntry(EntityQuadro.class, "quadro", BOSS),
                 buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
                 buildEntityEntry(EntityReyvor.class, "reyvor", BOSS), buildEntityEntry(EntitySoulFiend.class, "soul_fiend", BOSS),
@@ -640,15 +640,15 @@ public class ModEntities {
         registerRender(EntityWildfire.class, RenderWildfire.FACTORY);
 
         // Iceika
-        registerRender(Alicanto.class, RenderAlicanto.FACTORY);
-        registerRender(FrostArcher.class, RenderFrostArcher.FACTORY);
-        registerRender(Fractite.class, RenderFractite.FACTORY);
-        registerRender(Frosty.class, RenderFrosty.FACTORY);
-        registerRender(Glacide.class, RenderGlacide.FACTORY);
-        registerRender(Hastreus.class, RenderHastreus.FACTORY);
-        registerRender(Rollum.class, RenderRollum.FACTORY);
-        registerRender(WorkshopTinkerer.class, RenderWorkshopTinkerer.FACTORY);
-        registerRender(WorkshopMerchant.class, RenderWorkshopMerchant.FACTORY);
+        registerRender(EntityAlicanto.class, RenderAlicanto.FACTORY);
+        registerRender(EntityFrostArcher.class, RenderFrostArcher.FACTORY);
+        registerRender(EntityFractite.class, RenderFractite.FACTORY);
+        registerRender(EntityFrosty.class, RenderFrosty.FACTORY);
+        registerRender(EntityGlacide.class, RenderGlacide.FACTORY);
+        registerRender(EntityHastreus.class, RenderHastreus.FACTORY);
+        registerRender(EntityRollum.class, RenderRollum.FACTORY);
+        registerRender(EntityWorkshopTinkerer.class, RenderWorkshopTinkerer.FACTORY);
+        registerRender(EntityWorkshopMerchant.class, RenderWorkshopMerchant.FACTORY);
 
         // Twilight
         registerRender(EntityAdvancedCori.class, RenderAdvancedCori.FACTORY);
@@ -696,27 +696,27 @@ public class ModEntities {
         registerRender(EntityWildwoodTomo.class, RenderWildwoodTomo.FACTORY);
 
         // Arcana
-        registerRender(CaptainMerik.class, RenderCaptainMerik.FACTORY);
-        registerRender(Datticon.class, RenderDatticon.FACTORY);
-        registerRender(Deathcryx.class, RenderDeathcryx.FACTORY);
-        registerRender(DeathHound.class, RenderDeathHound.FACTORY);
-        registerRender(Dramix.class, RenderDramix.FACTORY);
-        registerRender(DungeonConstructor.class, RenderDungeonConstructor.FACTORY);
-        registerRender(DungeonDemon.class, RenderDungeonDemon.FACTORY);
-        registerRender(DungeonPrisoner.class, RenderDungeonPrisoner.FACTORY);
-        registerRender(Fyracryx.class, RenderFyracryx.FACTORY);
-        registerRender(GolemOfRejuvenation.class, RenderGolemOfRejuvenation.FACTORY);
-        registerRender(Leorna.class, RenderLeorna.FACTORY);
-        registerRender(LivingStatue.class, RenderLivingStatue.FACTORY);
-        registerRender(LordVatticus.class, RenderLordVatticus.FACTORY);
-        registerRender(Parasecta.class, RenderParasecta.FACTORY);
-        registerRender(Paratiku.class, RenderParatiku.FACTORY);
-        registerRender(Razorback.class, RenderRazorback.FACTORY);
-        registerRender(Roamer.class, RenderRoamer.FACTORY);
-        registerRender(Seimer.class, RenderSeimer.FACTORY);
-        registerRender(WarGeneral.class, RenderWarGeneral.FACTORY);
-        registerRender(Wraith.class, RenderWraith.FACTORY);
-        registerRender(Zelus.class, RenderZelus.FACTORY);
+        registerRender(EntityCaptainMerik.class, RenderCaptainMerik.FACTORY);
+        registerRender(EntityDatticon.class, RenderDatticon.FACTORY);
+        registerRender(EntityDeathcryx.class, RenderDeathcryx.FACTORY);
+        registerRender(EntityDeathHound.class, RenderDeathHound.FACTORY);
+        registerRender(EntityDramix.class, RenderDramix.FACTORY);
+        registerRender(EntityDungeonConstructor.class, RenderDungeonConstructor.FACTORY);
+        registerRender(EntityDungeonDemon.class, RenderDungeonDemon.FACTORY);
+        registerRender(EntityDungeonPrisoner.class, RenderDungeonPrisoner.FACTORY);
+        registerRender(EntityFyracryx.class, RenderFyracryx.FACTORY);
+        registerRender(EntityGolemOfRejuvenation.class, RenderGolemOfRejuvenation.FACTORY);
+        registerRender(EntityLeorna.class, RenderLeorna.FACTORY);
+        registerRender(EntityLivingStatue.class, RenderLivingStatue.FACTORY);
+        registerRender(EntityLordVatticus.class, RenderLordVatticus.FACTORY);
+        registerRender(EntityParasecta.class, RenderParasecta.FACTORY);
+        registerRender(EntityParatiku.class, RenderParatiku.FACTORY);
+        registerRender(EntityRazorback.class, RenderRazorback.FACTORY);
+        registerRender(EntityRoamer.class, RenderRoamer.FACTORY);
+        registerRender(EntitySeimer.class, RenderSeimer.FACTORY);
+        registerRender(EntityWarGeneral.class, RenderWarGeneral.FACTORY);
+        registerRender(EntityWraith.class, RenderWraith.FACTORY);
+        registerRender(EntityZelus.class, RenderZelus.FACTORY);
 
         //Vethea
         registerRender(EntityAcidHag.class, RenderAcidHag.FACTORY);

@@ -13,11 +13,11 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class LordVatticus extends EntityDivineRPGVillager {
+public class EntityLordVatticus extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.vatticus.feel", "message.vatticus.noend",
             "message.vatticus.strength", "message.vatticus.discover", "message.vatticus.magic" };
 
-    public LordVatticus(World world) {
+    public EntityLordVatticus(World world) {
         super(world);
     }
 

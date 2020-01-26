@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.iceika;
 
 import javax.annotation.Nullable;
 
-import divinerpg.objects.entities.entity.iceika.FrostArcher;
+import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderFrostArcher extends RenderLiving<FrostArcher> {
+public class RenderFrostArcher extends RenderLiving<EntityFrostArcher> {
     public static final IRenderFactory FACTORY = new Factory();
     ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/frost_archer.png");
 
@@ -28,18 +28,18 @@ public class RenderFrostArcher extends RenderLiving<FrostArcher> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(FrostArcher entity) {
+    protected ResourceLocation getEntityTexture(EntityFrostArcher entity) {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<FrostArcher> {
+    public static class Factory implements IRenderFactory<EntityFrostArcher> {
         @Override
-        public Render<? super FrostArcher> createRenderFor(RenderManager manager) {
+        public Render<? super EntityFrostArcher> createRenderFor(RenderManager manager) {
             return new RenderFrostArcher(manager, new ModelBiped(), 1F);
         }
     }
 
-    private class MainHandLayer implements LayerRenderer<FrostArcher> {
+    private class MainHandLayer implements LayerRenderer<EntityFrostArcher> {
         protected final RenderFrostArcher renderFrostArcher;
 
         public MainHandLayer(RenderFrostArcher renderFrostArcherIn) {
@@ -47,8 +47,8 @@ public class RenderFrostArcher extends RenderLiving<FrostArcher> {
         }
 
         @Override
-        public void doRenderLayer(FrostArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
-                float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        public void doRenderLayer(EntityFrostArcher entity, float limbSwing, float limbSwingAmount, float partialTicks,
+                                  float ageInTicks, float netHeadYaw, float headPitch, float scale) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.pushMatrix();
             ((ModelBiped) this.renderFrostArcher.getMainModel()).bipedRightArm.postRender(0.0625F);

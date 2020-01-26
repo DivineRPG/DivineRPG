@@ -10,9 +10,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class Rollum extends EntityDivineRPGMob {
+public class EntityRollum extends EntityDivineRPGMob {
 
-    public Rollum(World worldIn) {
+    public EntityRollum(World worldIn) {
         super(worldIn);
         setSize(1.2F, 2.0F);
     }

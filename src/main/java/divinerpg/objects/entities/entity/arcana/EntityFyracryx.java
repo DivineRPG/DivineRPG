@@ -17,15 +17,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Fyracryx extends EntityDivineRPGTameable implements IRangedAttackMob {
+public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAttackMob {
 
-    public Fyracryx(World par1World) {
+    public EntityFyracryx(World par1World) {
         super(par1World);
         this.setSize(1.0F, 1.2F);
         this.isImmuneToFire = true;
     }
 
-    public Fyracryx(World world, EntityPlayer player) {
+    public EntityFyracryx(World world, EntityPlayer player) {
         this(world);
         setTamedBy(player);
     }

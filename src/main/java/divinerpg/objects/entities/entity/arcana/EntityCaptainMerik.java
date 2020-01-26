@@ -17,11 +17,11 @@ import divinerpg.registry.ModItems;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
 
-public class CaptainMerik extends EntityDivineRPGVillager {
+public class EntityCaptainMerik extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.merik.sword", "message.merik.datticon", "message.merik.hurry",
             "message.merik.battles", "message.merik.phoenix" };
 
-    public CaptainMerik(World world) {
+    public EntityCaptainMerik(World world) {
         super(world);
     }
 

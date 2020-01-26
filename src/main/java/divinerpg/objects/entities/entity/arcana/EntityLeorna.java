@@ -14,11 +14,11 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class Leorna extends EntityDivineRPGVillager {
+public class EntityLeorna extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.leorna.plants", "message.leorna.nature", "message.leorna.lamona",
             "message.leorna.hitchak", "message.leorna.zelus" };
 
-    public Leorna(World world) {
+    public EntityLeorna(World world) {
         super(world);
     }
 

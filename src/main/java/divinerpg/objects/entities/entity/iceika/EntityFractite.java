@@ -24,7 +24,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class Fractite extends EntityDivineRPGFlying {
+public class EntityFractite extends EntityDivineRPGFlying {
 
     public int courseChangeCooldown = 0;
     public double waypointX;
@@ -36,7 +36,7 @@ public class Fractite extends EntityDivineRPGFlying {
     public int attackCounter = 0;
     private BlockPos spawnPosition;
 
-    public Fractite(World worldIn) {
+    public EntityFractite(World worldIn) {
         super(worldIn);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
         this.setSize(1.7F, 1.3F);

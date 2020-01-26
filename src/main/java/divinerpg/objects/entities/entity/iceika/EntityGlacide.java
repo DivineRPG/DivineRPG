@@ -9,8 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class Glacide extends EntityDivineRPGMob {
-    public Glacide(World worldIn) {
+public class EntityGlacide extends EntityDivineRPGMob {
+    public EntityGlacide(World worldIn) {
         super(worldIn);
         this.setSize(0.9F, 2.0F);
     }

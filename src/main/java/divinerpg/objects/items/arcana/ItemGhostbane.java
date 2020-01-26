@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.api.java.divinerpg.api.DivineAPI;
 import divinerpg.api.java.divinerpg.api.arcana.IArcana;
-import divinerpg.objects.entities.entity.arcana.Wraith;
+import divinerpg.objects.entities.entity.arcana.EntityWraith;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.TooltipHelper;
@@ -32,7 +32,7 @@ public class ItemGhostbane extends ItemMod {
             float hitX, float hitY, float hitZ) {
         IArcana arcana = DivineAPI.getArcana(player);
         if (!world.isRemote && arcana.getArcana() >= 200) {
-            Wraith wraith = new Wraith(world, player);
+            EntityWraith wraith = new EntityWraith(world, player);
             wraith.setLocationAndAngles(pos.getX(), pos.getY() + 1, pos.getZ(), 0.0F, 0.0F);
             world.spawnEntity(wraith);
             arcana.consume(player, 200);

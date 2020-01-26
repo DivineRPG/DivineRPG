@@ -14,9 +14,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class Frosty extends EntityPeacefulUntilAttacked {
+public class EntityFrosty extends EntityPeacefulUntilAttacked {
 
-    public Frosty(World worldIn) {
+    public EntityFrosty(World worldIn) {
         super(worldIn);
         this.setSize(0.9F, 2.5F);
     }

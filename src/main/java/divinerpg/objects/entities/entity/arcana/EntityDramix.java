@@ -11,9 +11,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class Dramix extends EntityDivineRPGBoss {
+public class EntityDramix extends EntityDivineRPGBoss {
 
-    public Dramix(World world) {
+    public EntityDramix(World world) {
         super(world);
         setSize(0.85f, 3);
         this.isImmuneToFire = true;

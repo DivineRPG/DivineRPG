@@ -11,11 +11,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class DungeonConstructor extends EntityDivineRPGMob {
+public class EntityDungeonConstructor extends EntityDivineRPGMob {
 
     private int angerLevel;
 
-    public DungeonConstructor(World world) {
+    public EntityDungeonConstructor(World world) {
         super(world);
         this.setSize(0.5F, 1.0F);
         this.angerLevel = 0;

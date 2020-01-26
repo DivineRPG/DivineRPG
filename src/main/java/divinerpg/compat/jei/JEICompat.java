@@ -20,8 +20,8 @@ import divinerpg.compat.jei.base.VillagerCategory;
 import divinerpg.objects.blocks.tile.container.gui.ArcaniumExtractorGUI;
 import divinerpg.objects.entities.container.gui.*;
 import divinerpg.objects.entities.entity.arcana.*;
-import divinerpg.objects.entities.entity.iceika.WorkshopMerchant;
-import divinerpg.objects.entities.entity.iceika.WorkshopTinkerer;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
 import divinerpg.registry.ModBlocks;
@@ -107,15 +107,15 @@ public class JEICompat implements IModPlugin {
         DivineRPG.logger.info("Registering JEI compat");
 
         registerVillagerRecepies(registry, EntityJackOMan.getAllRecipies(), JeiReferences.JACK_O_MAN_CATEGORY);
-        registerVillagerRecepies(registry, WorkshopMerchant.getAllRecipies(), JeiReferences.WORKSHOP_MERCHANT_CATEGORY);
-        registerVillagerRecepies(registry, WorkshopTinkerer.getAllRecipies(), JeiReferences.WORKSHOP_TINKERER_CATEGORY);
-        registerVillagerRecepies(registry, CaptainMerik.getAllRecipies(), JeiReferences.CAPITAIN_MERIC_CATEGORY);
+        registerVillagerRecepies(registry, EntityWorkshopMerchant.getAllRecipies(), JeiReferences.WORKSHOP_MERCHANT_CATEGORY);
+        registerVillagerRecepies(registry, EntityWorkshopTinkerer.getAllRecipies(), JeiReferences.WORKSHOP_TINKERER_CATEGORY);
+        registerVillagerRecepies(registry, EntityCaptainMerik.getAllRecipies(), JeiReferences.CAPITAIN_MERIC_CATEGORY);
         registerVillagerRecepies(registry, EntityLivestockMerchant.getAllRecipies(), JeiReferences.LIVESTOCK_MERCHANT_CATEGORY);
-        registerVillagerRecepies(registry, WarGeneral.getAllRecipies(), JeiReferences.WAR_GENERAL_CATEGORY);
-        registerVillagerRecepies(registry, Leorna.getAllRecipies(), JeiReferences.LEORNA_CATEGORY);
-        registerVillagerRecepies(registry, Datticon.getAllRecipies(), JeiReferences.DATTICON_CATEGORY);
-        registerVillagerRecepies(registry, LordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
-        registerVillagerRecepies(registry, Zelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);
+        registerVillagerRecepies(registry, EntityWarGeneral.getAllRecipies(), JeiReferences.WAR_GENERAL_CATEGORY);
+        registerVillagerRecepies(registry, EntityLeorna.getAllRecipies(), JeiReferences.LEORNA_CATEGORY);
+        registerVillagerRecepies(registry, EntityDatticon.getAllRecipies(), JeiReferences.DATTICON_CATEGORY);
+        registerVillagerRecepies(registry, EntityLordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
+        registerVillagerRecepies(registry, EntityZelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);
         registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(ModBlocks.arcaniumOre),
                 new ItemStack(ModItems.chargedCollector), new ItemStack(ModItems.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
 

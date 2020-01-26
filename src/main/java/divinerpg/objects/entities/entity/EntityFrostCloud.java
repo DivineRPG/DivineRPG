@@ -12,13 +12,13 @@ import com.google.common.collect.Maps;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.entity.iceika.Alicanto;
-import divinerpg.objects.entities.entity.iceika.Fractite;
-import divinerpg.objects.entities.entity.iceika.FrostArcher;
-import divinerpg.objects.entities.entity.iceika.Frosty;
-import divinerpg.objects.entities.entity.iceika.Glacide;
-import divinerpg.objects.entities.entity.iceika.Hastreus;
-import divinerpg.objects.entities.entity.iceika.Rollum;
+import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
+import divinerpg.objects.entities.entity.iceika.EntityFractite;
+import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
+import divinerpg.objects.entities.entity.iceika.EntityFrosty;
+import divinerpg.objects.entities.entity.iceika.EntityGlacide;
+import divinerpg.objects.entities.entity.iceika.EntityHastreus;
+import divinerpg.objects.entities.entity.iceika.EntityRollum;
 import divinerpg.objects.entities.entity.vanilla.EntityFrost;
 import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
 import net.minecraft.block.material.EnumPushReaction;
@@ -158,10 +158,10 @@ public class EntityFrostCloud extends Entity {
                                         Integer.valueOf(this.ticksExisted + this.reapplicationDelay));
                                 if (!(entity.isEntityUndead() || entity instanceof EntitySnowman
                                         || entity instanceof EntityGlacon || entity instanceof EntityFrost
-                                        || entity instanceof Alicanto || entity instanceof Fractite
-                                        || entity instanceof FrostArcher || entity instanceof Frosty
-                                        || entity instanceof Glacide || entity instanceof Hastreus
-                                        || entity instanceof Rollum)) {
+                                        || entity instanceof EntityAlicanto || entity instanceof EntityFractite
+                                        || entity instanceof EntityFrostArcher || entity instanceof EntityFrosty
+                                        || entity instanceof EntityGlacide || entity instanceof EntityHastreus
+                                        || entity instanceof EntityRollum)) {
                                     entity.attackEntityFrom(DamageSource.MAGIC, 1.0F);
                                 }
                             }

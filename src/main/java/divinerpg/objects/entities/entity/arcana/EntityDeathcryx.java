@@ -15,16 +15,16 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class DeathHound extends EntityDivineRPGMob {
+public class EntityDeathcryx extends EntityDivineRPGMob {
 
-    public DeathHound(World world) {
+    public EntityDeathcryx(World world) {
         super(world);
-        this.setSize(0.8F, 0.9F);
+        this.setSize(1.0F, 1.2F);
     }
 
     @Override
     public float getEyeHeight() {
-        return 0.75F;
+        return 0.85F;
     }
 
     @Override
@@ -36,23 +36,28 @@ public class DeathHound extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(160.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+    }
+
+    @Override
+    protected float getSoundVolume() {
+        return 0.7F;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEATH_HOUND;
+        return ModSounds.DEATHCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DEATH_HOUND_HURT;
+        return ModSounds.DEATHCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DEATH_HOUND;
+        return ModSounds.DEATHCRYX_HURT;
     }
 
     @Override
@@ -71,7 +76,7 @@ public class DeathHound extends EntityDivineRPGMob {
         if (entity instanceof EntityLivingBase) {
             damage += EnchantmentHelper.getEfficiencyModifier((EntityLivingBase) entity);
             knockback += EnchantmentHelper.getKnockbackModifier((EntityLivingBase) entity);
-            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 4 * 20, 2));
+            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 16 * 20, 2));
         }
 
         boolean attacked = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
@@ -88,16 +93,19 @@ public class DeathHound extends EntityDivineRPGMob {
                 entity.setFire(fire * 4);
             }
         }
+
         return attacked;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DEATH_HOUND;
+        return DRPGLootTables.ENTITIES_DEATHCRYX;
     }
 
     @Override
     public boolean getCanSpawnHere() {
         return this.posY < 40.0D && super.getCanSpawnHere();
     }
+
+
 }
