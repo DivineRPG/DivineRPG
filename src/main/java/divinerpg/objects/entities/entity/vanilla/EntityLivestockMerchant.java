@@ -49,19 +49,19 @@ public class EntityLivestockMerchant extends EntityDivineRPGVillager {
     public static MerchantRecipeList getAllRecipies(){
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.shadowCoins, 4),
-                new ItemStack(ModItems.ehuSpawner, 2)));
+                new ItemStack(ModItems.ehuEgg, 2)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ModItems.shadowCoins, 7),
-                new ItemStack(ModItems.huskSpawner, 2)));
+                new ItemStack(ModItems.huskEgg, 2)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.STONE, 64), new ItemStack(ModItems.shadowCoins, 3),
-                new ItemStack(ModItems.stoneGolemSpawner, 1)));
+                new ItemStack(ModItems.stoneGolemEgg, 1)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.NETHER_BRICK, 32), new ItemStack(ModItems.shadowCoins, 5),
-                new ItemStack(ModItems.smelterSpawner, 1)));
+                new ItemStack(ModItems.smelterEgg, 1)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.jungleStone, 2), new ItemStack(ModItems.shadowCoins, 4),
-                new ItemStack(ModItems.snapperSpawner, 3)));
+                new ItemStack(ModItems.snapperEgg, 3)));
         list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
-                new ItemStack(ModItems.whiteGrizzleSpawner, 2)));
+                new ItemStack(ModItems.whiteGrizzleEgg, 2)));
         list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
-                new ItemStack(ModItems.brownGrizzleSpawner, 2)));
+                new ItemStack(ModItems.brownGrizzleEgg, 2)));
         return list;
     }
 

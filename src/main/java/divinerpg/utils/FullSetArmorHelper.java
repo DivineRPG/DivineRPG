@@ -65,7 +65,6 @@ public class FullSetArmorHelper {
     }
 
 
-
     public boolean isBedrock(){
         return (boots == ModItems.bedrockBoots
                 && legs == ModItems.bedrockLegs
